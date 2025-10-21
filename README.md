@@ -1,35 +1,32 @@
-INSERT INTO public.tb_comunidades
-(id, nome, codigo, status)
-VALUES(nextval('tb_comunidades_id_seq'::regclass), 'Box - Box Crédito Comercial', 'SAST_FORTIFY_COMUNIDADE_CREDITO_COMERCIAL', 'ativo');
+from flask import Flask, jsonify, request
 
+app = Flask(__name__)
 
-Box - Box Dados, CRM e Marketing Digital	SAST_FORTIFY_COMUNIDADE_DADOS_CRM
-Box - Box Esteira Digital Operações	SAST_FORTIFY_COMUNIDADE_ESTEIRA_OPERACOES
-Box - Box Esteira Digital Segurança	SAST_FORTIFY_COMUNIDADE_ESTEIRA_SEGURANCA
-Box - Box Moradia PF	SAST_FORTIFY_COMUNIDADE_MORADIA_PF
-Box - Box Relacionamento Digital	SAST_FORTIFY_COMUNIDADE_RELACIONAMENTO_DIGITAL
-Box - Box Soluções Digitais e Remotas	SAST_FORTIFY_COMUNIDADE_SOLUCOES_DIGITAIS
-Comunidade - ADMINISTRAÇÃO DO CRÉDITO IMOBILIÁRIO	SAST_FORTIFY_COMUNIDADE_CREDITO_IMOBILIARIO
-Comunidade - ARRECADAÇÃO E CONVÊNIOS	SAST_FORTIFY_COMUNIDADE_ARRECADACAO
-Comunidade - CÂMBIO, INVESTIMENTOS E MERCADO DE CAPITAIS	SAST_FORTIFY_COMUNIDADE_CAMBIO
-Comunidade - CANAIS FÍSICOS	SAST_FORTIFY_COMUNIDADE_CANAIS_FISICOS
-Comunidade - CANAIS MOBILE	SAST_FORTIFY_COMUNIDADE_CANAIS_MOBILE
-Comunidade - CLIENTES	SAST_FORTIFY_COMUNIDADE_CLIENTES
-Comunidade - COBRANÇA E OPERAÇÕES BANCÁRIAS	SAST_FORTIFY_COMUNIDADE_COBRANCA
-Comunidade - CONTRATAÇÕES E LOGÍSTICA	SAST_FORTIFY_COMUNIDADE_CONTRATACOES
-Comunidade - CRÉDITO COMERCIAL E AGRONEGÓCIO	SAST_FORTIFY_COMUNIDADE_AGRONEGOCIO
-Comunidade - DADOS (BIG DATA E ANALYTICS)	SAST_FORTIFY_COMUNIDADE_BIG_DATA
-Comunidade - DEPÓSITOS E CAPTAÇÃO	SAST_FORTIFY_COMUNIDADE_DEPOSITOS
-Comunidade - ESTRUTURANTES DE TI	SAST_FORTIFY_COMUNIDADE_ESTRUTURANTES_TI
-Comunidade - FINANCEIRO E CONTROLADORIA	SAST_FORTIFY_COMUNIDADE_FINANCEIRO
-Comunidade - FOMENTO E DEPÓSITOS JUDICIAIS	SAST_FORTIFY_COMUNIDADE_FOMENTO
-Comunidade - FUNDOS DE GOVERNO	SAST_FORTIFY_COMUNIDADE_FUNDOS_GOVERNO
-Comunidade - GESTÃO DE IDENTIDADE, ACESSO E ANTIFRAUDE	SAST_FORTIFY_COMUNIDADE_GESTAO_IDENTIDADE
-Comunidade - HABITAÇÃO	SAST_FORTIFY_COMUNIDADE_HABITACAO
-Comunidade - LOTERIAS E CANAIS PARCEIROS	SAST_FORTIFY_COMUNIDADE_LOTERIAS
-Comunidade - MEIOS DE PAGAMENTO	SAST_FORTIFY_COMUNIDADE_MEIOS_PAGAMENTO
-Comunidade - OPEN FINANCE	SAST_FORTIFY_COMUNIDADE_OPEN_FINANCE
-Comunidade - PESSOAS	SAST_FORTIFY_COMUNIDADE_PESSOAS
-Comunidade - PROGRAMAS SOCIAIS	SAST_FORTIFY_COMUNIDADE_PROGRAMAS_SOCIAIS
-Comunidade - RISCO, COMPLIANCE E ADIMPLÊNCIA	SAST_FORTIFY_COMUNIDADE_RISCO
-Comunidade - SEGURIDADE E SUBSIDIÁRIAS	SAST_FORTIFY_COMUNIDADE_SEGURIDADE
+# Rota simples para teste
+@app.route('/')
+def home():
+    return jsonify({"mensagem": "API funcionando!"}), 200
+
+# Endpoint GET de exemplo
+@app.route('/usuarios', methods=['GET'])
+def get_usuarios():
+    usuarios = [
+        {"id": 1, "nome": "Ana"},
+        {"id": 2, "nome": "Bruno"},
+        {"id": 3, "nome": "Carla"},
+    ]
+    return jsonify(usuarios), 200
+
+# Endpoint POST de exemplo
+@app.route('/usuarios', methods=['POST'])
+def criar_usuario():
+    dados = request.get_json()
+    if not dados or 'nome' not in dados:
+        return jsonify({"erro": "Campo 'nome' é obrigatório"}), 400
+
+    novo_usuario = {"id": 4, "nome": dados['nome']}
+    return jsonify(novo_usuario), 201
+
+if __name__ == '__main__':
+    # Rodar no modo debug para testes
+    app.run(debug=True, port=5000)
