@@ -25,4 +25,23 @@ oc run -n {{projeto selecionado pelo usuário}} {{nome do pod sugerido: infrafac
 oc exec -n {{namespace}} {{pod criado}} -- /bin/sh -c 'curl -t "DUMMY=1" -s --connect-timeout 2 telnet://{{destino}}:{{porta}} </dev/null >/dev/null 2>&1; echo $?' - rodar comando para testar regra dentro do pod criado
  
 oc delete pod {{nome do pod sugerido: infrafacil}} -n {{projeto selecionado pelo usuário}} - deletar o pod criado para o teste
+
+
+-------------------------------------------------------------
+
+CREATE TABLE public.filesystem (
+ 
+id varchar(256) NOT NULL,
+ 
+grupo varchar(256) NULL,
+ 
+binario bytea NULL,
+ 
+"type" varchar(256) NULL,
+ 
+nome varchar(256) NULL,
+ 
+CONSTRAINT arquivos_pk PRIMARY KEY (id)
+ 
+);
  
