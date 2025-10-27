@@ -131,3 +131,13 @@ Porta (Apresentar o dado preenchido pelo usuário)
 Resultado do teste (Apresentar os dados/log do teste de forma completa)
 
 Observação: Em nenhum campo desta funcionalidade será permitido o input de caracteres especiais (;, %, $, &, |, \ e etc), sendo assim, as strings passadas pelo usuário deverão ser validadas.
+
+
+
+39 packages are looking for funding
+  run `npm fund` for details
+npm notice
+npm notice New major version of npm available! 10.9.3 -> 11.6.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.6.2
+npm notice To update run: npm install -g npm@11.6.2
+npm notice
