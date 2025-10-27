@@ -141,3 +141,20 @@ npm notice New major version of npm available! 10.9.3 -> 11.6.2
 npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.6.2
 npm notice To update run: npm install -g npm@11.6.2
 npm notice
+
+
+
+CREATE TABLE public.tb_comunidades (
+	id serial4 NOT NULL,
+	nome varchar(200) NULL,
+	codigo varchar(200) NULL,
+	status varchar(200) NULL,
+	CONSTRAINT tb_comunidades_pkey PRIMARY KEY (id)
+);
+
+
+INSERT INTO public.tb_comunidades
+(id, nome, codigo, status)
+VALUES(nextval('tb_comunidades_id_seq'::regclass), 'Box - Box Cidadania Digital', 'SAST_FORTIFY_COMUNIDADE_CIDADANIA_DIGITAL', 'ativo');
+
+
