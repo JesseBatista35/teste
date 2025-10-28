@@ -1,7 +1,1 @@
-ng : O termo 'ng' não é reconhecido como nome de cmdlet, função, arquivo de script ou programa operável. Verifique a grafia do nome ou, se um caminho 
-tiver sido incluído, veja se o caminho está correto e tente novamente.
-No linha:1 caractere:1
-+ ng version
-+ ~~
-    + CategoryInfo          : ObjectNotFound: (ng:String) [], CommandNotFoundException
-    + FullyQualifiedErrorId : CommandNotFoundException
+C:\Users\p585600\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\p585600\bin;C:\Program Files\Python313\Scripts;C:\Program Files\Python313;C:\Program Files\Oracle Client for Microsoft Tools;C:\Program Files (x86)\IBM\WebSphere MQ\Java\lib;C:\Program Files (x86)\Common Files\Oracle\Java\java8path;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\WINDOWS\System32\OpenSSH;C:\Program Files\SafeNet\Authentication\SAC\x64;C:\Program Files\SafeNet\Authentication\SAC\x32;C:\Program Files (x86)\IBM\WebSphere MQ\bin;C:\Program Files (x86)\IBM\WebSphere MQ\bin64;C:\Program Files (x86)\IBM\WebSphere MQ\tools\c\samples\bin;C:\Program Files\Microsoft VS Code\bin;C:\Program Files\Git\cmd;C:\Program Files\nodejs;C:\php;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl;c:\Users\p585600\AppData\Roaming\Code\User\globalStorage\github.copilot-chat\debugCommand
