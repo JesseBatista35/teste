@@ -201,3 +201,11 @@ export class AppModule { }
 
 
 
+if (this.services.restrito_regra_firewall) {
+      restritoChildren.push({
+        title: 'Regra de Firewall',
+        link: '/restrito/regras-firewall',
+      });
+    }
+
+
