@@ -1,70 +1,131 @@
--sh-4.2$ oc get dc sitop-frontend-des -o yaml > dc-frontend.yaml
--sh-4.2$ grep -n -A5 -B5 "sed|main*.js|command:|args:|image:" dc-frontend.yaml
--sh-4.2$ oc describe dc sitop-frontend-des
-Name:           sitop-frontend-des
-Namespace:      sitop-des
-Created:        28 hours ago
-Labels:         CGC_DES=7390
-                CGC_OPS=7259
-                app=sitop-frontend-des
-                application=sitop-frontend-des
-                template=angular-caixa-release
-Description:    Defines how to deploy the application server
-Annotations:    <none>
-Latest Version: 5
-Selector:       name=sitop-frontend-des
-Replicas:       1
-Triggers:       <none>
-Strategy:       Rolling
-Template:
-Pod Template:
-  Labels:       CGC_DES=7390
-                CGC_OPS=7259
-                app=sitop-frontend-des
-                name=sitop-frontend-des
-  Containers:
-   sitop-frontend-des:
-    Image:      default-route-openshift-image-registry.apps.produtos4.caixa/build-images-ads/sitop-frontend:1.0.0-SNAPSHOT
-    Port:       8080/TCP
-    Host Port:  0/TCP
-    Limits:
-      cpu:      500m
-      memory:   512Mi
-    Requests:
-      cpu:      500m
-      memory:   512Mi
-    Liveness:   http-get http://:8080/ delay=15s timeout=3s period=10s #success=1 #failure=3
-    Readiness:  http-get http://:8080/ delay=25s timeout=5s period=10s #success=1 #failure=3
-    Environment:
-      TZ:               America/Sao_Paulo
-      CLI_WEB_TOP:      cli-web-top
-      KEYCLOAK_SSO_API: https://login.des.caixa/auth
-      SITOP_API:        https://sitop-backend-des.apps.nprd.caixa/
-    Mounts:
-      /opt/app-root/etc/nginx.default.d/sitop-nginx.conf from nginx-conf-d-sitop-frontend (rw)
-   sitop-frontend-des-exporter:
-    Image:              default-route-openshift-image-registry.apps.produtos4.caixa/openshift/nginx-prometheus-exporter
-    Port:               9113/TCP
-    Host Port:          0/TCP
-    Environment:        <none>
-    Mounts:
-      /opt/app-root/etc/nginx.default.d/sitop-nginx.conf from nginx-conf-d-sitop-frontend (rw)
-  Volumes:
-   nginx-conf-d-sitop-frontend:
-    Type:       ConfigMap (a volume populated by a ConfigMap)
-    Name:       nginx-conf-d-sitop-frontend
-    Optional:   false
+Use assim:
 
-Deployment #5 (latest):
-        Name:           sitop-frontend-des-5
-        Created:        2 hours ago
-        Status:         Complete
-        Replicas:       1 current / 1 desired
-        Selector:       deployment=sitop-frontend-des-5,deploymentconfig=sitop-frontend-des,name=sitop-frontend-des
-        Labels:         CGC_DES=7390,CGC_OPS=7259,app=sitop-frontend-des,application=sitop-frontend-des,openshift.io/deployment-config.name=sitop-frontend-des,template=angular-caixa-release
-        Pods Status:    1 Running / 0 Waiting / 0 Succeeded / 0 Failed
-Deployment #4:
-        Created:        2 hours ago
-        Status:         Failed
-        Replicas:       0 current / 0 desired
--sh-4.2$
+grep -nE -A5 -B5 "sed|main\*\.js|command:|args:|image:" dc-frontend.yaml
+
+Mas pelo oc describe, provavelmente não vai aparecer sed, porque o erro deve estar dentro da imagem.
+
+2. Verifique o ConfigMap do NGINX
+
+Como o DC monta este ConfigMap:
+
+nginx-conf-d-sitop-frontend
+
+rode:
+
+oc get cm nginx-conf-d-sitop-frontend -o yaml
+
+E também:
+
+oc get cm nginx-conf-d-sitop-frontend -o yaml | grep -nE "sed|main\*\.js|root|alias|try_files|8080|stub_status"
+
+Isso confirma se o erro não está vindo de algum script/config montado pelo ConfigMap.
+
+3. Inspecione a imagem com oc debug
+
+Tente abrir a imagem sem depender do container que está quebrando:
+
+oc debug dc/sitop-frontend-des -- /bin/sh
+
+Se não funcionar, tente pelo pod:
+
+oc debug pod/sitop-frontend-des-5-mzzkd -c sitop-frontend-des -- /bin/sh
+
+Dentro do debug, rode um comando por linha:
+
+pwd
+ls -la /
+ls -la /opt
+ls -la /opt/app-root
+ls -la /opt/app-root/src
+find /opt/app-root -type f -name "*.js" 2>/dev/null | head -100
+find / -type f -name "main*.js" 2>/dev/null | head -50
+4. Ache onde está o sed dentro da imagem
+
+Dentro do debug, rode:
+
+grep -R "main*.js" /opt /usr /etc 2>/dev/null | head -50
+
+Depois:
+
+grep -R "/opt/app-root/src/main" /opt /usr /etc 2>/dev/null | head -50
+
+E:
+
+grep -R "sed" /opt/app-root /usr/local/bin /etc 2>/dev/null | head -100
+
+Também vale procurar scripts:
+
+find / -type f \( -name "*.sh" -o -name "run" -o -name "entrypoint*" -o -name "start*" \) 2>/dev/null | head -100
+
+Quando achar o arquivo, veja o conteúdo:
+
+cat CAMINHO_DO_ARQUIVO
+
+Exemplo:
+
+cat /usr/local/bin/entrypoint.sh
+5. Correção provável
+
+Hoje o script deve estar assim:
+
+sed -i "s|ALGUMA_COISA|$VALOR|g" /opt/app-root/src/main*.js
+
+Mas o arquivo main*.js não existe nesse caminho.
+
+Pode estar em algum lugar como:
+
+/opt/app-root/src/browser/main*.js
+
+ou:
+
+/opt/app-root/src/dist/main*.js
+
+ou:
+
+/opt/app-root/src/dist/browser/main*.js
+
+ou:
+
+/usr/share/nginx/html/main*.js
+
+Depois de descobrir o caminho real, ajuste o script da imagem.
+
+Exemplo:
+
+sed -i "s|ALGUMA_COISA|$VALOR|g" /opt/app-root/src/dist/browser/main*.js
+6. Melhor correção para não quebrar de novo
+
+No script da imagem, substitua o caminho fixo por busca dinâmica:
+
+JS_FILES=$(find /opt/app-root/src /usr/share/nginx/html -type f -name "main*.js" 2>/dev/null)
+
+if [ -z "$JS_FILES" ]; then
+  echo "Nenhum arquivo main*.js encontrado."
+  echo "Arquivos JS encontrados:"
+  find /opt/app-root/src /usr/share/nginx/html -type f -name "*.js" 2>/dev/null | head -100
+  exit 1
+fi
+
+for file in $JS_FILES; do
+  echo "Aplicando variáveis no arquivo: $file"
+  sed -i "s|ALGUMA_COISA|$VALOR|g" "$file"
+done
+Resumo final
+
+O problema não está no Azure Pipeline.
+
+O problema está na imagem do frontend:
+
+sitop-frontend:1.0.0-SNAPSHOT
+
+Ela tenta executar:
+
+sed ... /opt/app-root/src/main*.js
+
+mas esse arquivo não existe.
+
+O próximo comando mais importante agora é:
+
+oc debug dc/sitop-frontend-des -- /bin/sh
+
+Depois encontre onde está o main*.js e onde está o script com sed. Antes, você tinha caído no /opt/ads-agent, que era o agent e não o container da aplicação
