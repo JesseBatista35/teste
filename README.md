@@ -1,17 +1,6 @@
--sh-4.2$ cat /opt/jbcs-httpd24-2.4/httpd/conf.d/proxy_ajp.conf
-#
-# When loaded, the mod_proxy_ajp module adds support for
-# proxying to an AJP/1.3 backend server (such as Tomcat).
-# To proxy to an AJP backend, use the "ajp://" URI scheme;
-# Tomcat is configured to listen on port 8009 for AJP requests
-# by default.
-#
-
-#
-# Uncomment the following lines to serve the ROOT webapp
-# under the /tomcat/ location, and the jsp-examples webapp
-# under the /examples/ location.
-#
-#ProxyPass /tomcat/ ajp://localhost:8009/
-#ProxyPass /examples/ ajp://localhost:8009/jsp-examples/
--sh-4.2$
+echo "==TESTE AJP JBOSS==" && \
+curl -sk http://10.116.194.61:8009/ && \
+echo "==TESTE HTTP JBOSS==" && \
+curl -sk http://10.116.194.61:8080/sigpf_internet/ -o /dev/null -w "%{http_code}" && \
+echo "==BALANCER MEMBERS==" && \
+curl -sk http://localhost/balancer-manager?b=sigpf-internet
