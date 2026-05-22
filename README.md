@@ -1,23 +1,18 @@
-Pessoal, boa tarde! 👋
+nos como analista de esteiras devops é que fazemos isso no azureDevops ou no servidor?
 
-Identificamos a causa raiz do problema no SIGPF-internet e estamos na reta final da correção.
 
-🔍 *O problema*
+Suporte ao ambiente de aplicação Multiplataformas
+***Atenção***:	Essa opção deve ser utilizada para obter suporte para ambientes e produtos que não são relacionados às Esteiras DevOps.
+.:	Ex: Aplicações Jboss legado, Aplicações Windows legado, Jenkins departamental, Git Lab Departamental, Nexus Departamental, Sonar Departamental.
+Qual o ambiente*:	DES
+Qual é o site?*:	Bancário-São Paulo
+Qual o nome do sistema?*:	SISAG-PROV
+Selecione a sua Comunidade*:	Canais Próprios Clientes
+Formas de contato*:	teams
+Descrição da necessidade*:	Prezados(as),
 
-O Apache dos servidores de apresentação (caddeapllx135 e caddeapllx136) está configurado para rotear as requisições do SIGPF-internet para um balanceador de carga interno, porém esse balanceador não tem nenhum servidor de aplicação (JBoss) cadastrado. Por isso o Apache retorna 403 Forbidden para todas as requisições.
+1. Solicito realizar os ajustes necessários para que o módulo de provisionamento do SISAG possa ser monitorado em DES pelo appinsights
 
-✅ *O que já confirmamos*
-- O servidor JBoss 10.116.194.61 porta 8080 está funcionando normalmente
-- O frontend (OKD/nginx) está configurado corretamente
-- A correção é simples: adicionar os IPs dos servidores JBoss na configuração do Apache
+SISAG-PROV - sspdeapllx0041
 
-📌 *O que precisamos*
-
-Para finalizar a correção nos ambientes DES, TQS e HMP, precisamos que o time responsável pelo SIGPF-internet nos informe:
-
-1. Quais são todos os servidores JBoss (IPs e portas) do SIGPF-internet em cada ambiente?
-   - DES: já identificamos 10.116.194.61:8080 — há outros nós?
-   - TQS: quais são os IPs?
-   - HMP: quais são os IPs?
-
-Assim que recebermos essa informação aplicamos a correção imediatamente nos três ambientes. 🙂
+2. A aplicação também será ajustada.
