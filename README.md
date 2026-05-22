@@ -1,5 +1,5 @@
-curl -sk http://10.116.194.61:8080/sigpf_internet/index.html -o /dev/null -w "%{http_code}" && \
-echo "" && \
-curl -sk http://sigpf-cca-internet.esteiras.des.caixa/sigpf_internet/ -o /dev/null -w "%{http_code}" && \
-echo "" && \
-curl -sk http://sigpf-internet.esteiras.des.caixa/sigpf_internet/ -o /dev/null -w "%{http_code}"
+Para descobrir os outros IPs sem precisar perguntar pro time, execute:
+bashgrep -r "sigpf\|194\." /opt/jbcs-httpd24-2.4/httpd/sites-available/httpd-eap71-des-SIGPF-internet-backend.conf
+E também:
+bashcat /etc/hosts | grep -i sigpf
+Pode ser que os outros nós já estejam referenciados em algum lugar nesse servidor.
