@@ -1,9 +1,8 @@
-
--sh-4.2$ cat /opt/jbcs-httpd24-2.4/httpd/conf.d/mod_cluster.conf 2>/dev/null ||
-> find /opt/jbcs-httpd24-2.4/httpd/conf.d/ -name "cluster" -o -name "modcluster" -o -name "mod_cluster" 2>/dev/null &&
-> echo "==TODOS CONF.D==" &&
-> ls /opt/jbcs-httpd24-2.4/httpd/conf.d/
-==TODOS CONF.D==
-manual.conf          mod_cluster.conf.disabled  mod_rt.conf.sample        proxy_ajp.conf  ssl.conf.disabled               userdir.conf  workers.properties.sample
-mod_bmx.conf.sample  mod_jk.conf.sample         mod_security.conf.sample  README          uriworkermap.properties.sample  welcome.conf
--sh-4.2$
+echo "==MOD_JK CONF==" && \
+cat /opt/jbcs-httpd24-2.4/httpd/conf.d/mod_jk.conf.sample && \
+echo "==WORKERS==" && \
+cat /opt/jbcs-httpd24-2.4/httpd/conf.d/workers.properties.sample && \
+echo "==ARQUIVOS ATIVOS JK==" && \
+find /opt/jbcs-httpd24-2.4/httpd/ -name "workers.properties" -o -name "uriworkermap.properties" 2>/dev/null && \
+echo "==MODULOS CARREGADOS==" && \
+/opt/jbcs-httpd24-2.4/httpd/sbin/apachectl -M 2>/dev/null | grep -i "jk\|cluster\|proxy"
