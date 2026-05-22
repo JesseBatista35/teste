@@ -1,1 +1,1 @@
-curl -sk http://10.116.194.61:8080/sigpf_internet/ -o /dev/null -w "%{http_code}"
+grep -r "balancer\|BalancerMember\|ProxyPass" /opt/jbcs-httpd24-2.4/httpd/sites-enabled/eap_71_esteiraagil/ | grep -i internet
