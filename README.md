@@ -1,9 +1,9 @@
 
--sh-4.2$ sudo tail -300 /opt/jboss-eap/standalone/log/server.log | grep -E "ERROR|FAILED|Exception|Caused by" | tail -50
-tail: não foi possível abrir “/opt/jboss-eap/standalone/log/server.log” para leitura: Arquivo ou diretório não encontrado
--sh-4.2$ ls /opt/jboss-eap/standalone/deployments/*.failed 2>/dev/null
--sh-4.2$ cat /opt/jboss-eap/standalone/deployments/SICMU-ear.ear.f
-cat: /opt/jboss-eap/standalone/deployments/SICMU-ear.ear.f: Arquivo ou diretório não encontrado
--sh-4.2$ sudo systemctl list-units | grep -iE "jboss|wildfly|eap
->
-
+-sh-4.2$ ls /opt/jboss-eap/
+appclient  bin  docs  domain  installation  JBossEULA.txt  jboss-modules.jar  LICENSE.txt  migration  modules  myinstall.xml  standalone  uninstaller  version.txt  welcome-content
+-sh-4.2$ ls /opt/jboss-eap/standalone/
+configuration  data  deployments  lib  log  tmp
+-sh-4.2$ sudo find /opt/jboss-eap/ -name "server.log" 2>/dev/null
+[sudo] senha para p585600:
+-sh-4.2$ sudo find /opt/jboss-eap/ -name "*.falied" 2>/dev/null
+-sh-4.2$
