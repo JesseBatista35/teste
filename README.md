@@ -1,15 +1,53 @@
-2026-05-25T17:00:04.1283802Z ##[section]Starting: Atualizando Variáveis de Ambiente
-2026-05-25T17:00:04.1287427Z ==============================================================================
-2026-05-25T17:00:04.1287574Z Task         : Bash
-2026-05-25T17:00:04.1287634Z Description  : Run a Bash script on macOS, Linux, or Windows
-2026-05-25T17:00:04.1287700Z Version      : 3.227.0
-2026-05-25T17:00:04.1287745Z Author       : Microsoft Corporation
-2026-05-25T17:00:04.1287805Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/bash
-2026-05-25T17:00:04.1287879Z ==============================================================================
-2026-05-25T17:00:04.2647612Z Generating script.
-2026-05-25T17:00:04.2659848Z ========================== Starting Command Output ===========================
-2026-05-25T17:00:04.2668484Z [command]/usr/bin/bash /opt/ads-agent/_work/_temp/891432dc-8694-457a-8b9a-c1be48c64816.sh
-2026-05-25T17:00:04.2721125Z Nova APP: false
-2026-05-25T17:00:04.4387812Z /opt/ads-agent/_work/_temp/891432dc-8694-457a-8b9a-c1be48c64816.sh: line 24: unexpected EOF while looking for matching `"'
-2026-05-25T17:00:04.4411713Z ##[error]Bash exited with code '2'.
-2026-05-25T17:00:04.4451214Z ##[section]Finishing: Atualizando Variáveis de Ambiente
+
+- task: Bash@3
+  displayName: 'Atualizando Variáveis de Ambiente'
+  condition: ne(variables['is_new_app'], 'true')   # ajusta a condição conforme sua lógica
+  inputs:
+    targetType: inline
+    script: |
+      set -o errexit
+      set -o pipefail
+
+      CONTAINER_PRINCIPAL="$(resource_app)"
+
+      # Garante que a variável existe
+      if [ -z "$CONTAINER_PRINCIPAL" ]; then
+        echo "resource_app vazio, abortando."
+        exit 1
+      fi
+
+      # -------------------------------
+      # NORMALIZA VARIÁVEIS
+      # -------------------------------
+      RAW_ENV='$(Enviroment)'
+
+      echo "$RAW_ENV" \
+        | sed 's/ -e /\n/g' \
+        | sed 's/^-e //' \
+      > env.tmp
+
+      # remove linhas inválidas (sem =)
+      grep -E '^[A-Za-z_][A-Za-z0-9_]*=' env.tmp > env.clean || true
+
+      # -------------------------------
+      # APPLY ENV VARS (SEGURO)
+      # -------------------------------
+      if [ -s env.clean ]; then
+        echo "Aplicando variáveis..."
+
+        while IFS= read -r line || [ -n "$line" ]; do
+          echo "Aplicando: $line"
+
+          oc set env $(KIND_DEPLOY) "$CONTAINER_PRINCIPAL" \
+            -n $(PROJETO)-$(AMBIENTE) \
+            -c "$CONTAINER_PRINCIPAL" \
+            --overwrite=true \
+            "$line"
+
+        done < env.clean
+
+      else
+        echo "Nenhuma variável válida encontrada."
+      fi
+
+      rm -f env.tmp env.clean
