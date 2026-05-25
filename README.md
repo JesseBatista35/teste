@@ -1,17 +1,27 @@
 
-16:14:02,615 SEVERE [br.gov.caixa.bsb.sinaf.util.ImpressaoUtil] (default task-39) erro_imprimir_anexo: java.io.IOException: Server returned HTTP response code: 403 for URL: https://siecm.des.caixa/siecm-web/ECM/getDocumento/true/6fd0da726b7e1f7d54c6eb062b0fb5f2b486319c189…
+Olá, time SINAF Web! 👋
 
-at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1900)
+Verificamos o erro de 403 reportado e já fizemos a análise dos logs do pod. Seguem as evidências:
 
-at sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1498)
+🔍 *Conclusão:* O problema **não está na esteira** — a aplicação sobe normalmente e o deploy ocorre sem erros.
 
-at sun.net.www.protocol.https.HttpsURLConnectionImpl.getInputStream(HttpsURLConnectionImpl.java:268)
+O 403 ocorre em runtime, quando o SINAF tenta buscar um documento anexo no SIECM:
 
-at java.net.URL.openStream(URL.java:1092)
+```
+16:14:02,615 SEVERE [ImpressaoUtil] erro_imprimir_anexo:
+java.io.IOException: Server returned HTTP response code: 403
+URL: https://siecm.des.caixa/siecm-web/ECM/getDocumento/true/6fd0da72...
+```
 
-at org.apache.commons.io.FileUtils.copyURLToFile(FileUtils.java:844)
+O fluxo que dispara o erro é:
+`ImpressaoFleUtil.anexa` → `ImpressaoFleUtil.imprimir`
 
-at br.gov.caixa.bsb.sinaf.util.ImpressaoFleUtil.anexa(ImpressaoFleUtil.java:502)
+A chamada usa `FileUtils.copyURLToFile` que **não envia headers de autenticação**, e o SIECM está retornando 403, indicando que pode ter havido alguma mudança de política de acesso ou autenticação no lado deles.
 
-at br.gov.caixa.bsb.sinaf.util.ImpressaoFleUtil.imprimir(ImpressaoFleUtil.java:178)
+✅ Esteira: OK
+✅ Deploy/startup da aplicação: OK
+❌ Chamada ao SIECM em tempo de execução: 403
 
+Precisamos que o time acione o **SIECM** para verificar se passou a ser exigida alguma autenticação (token, certificado mTLS, etc.) no endpoint `/ECM/getDocumento` no ambiente DES.
+
+Qualquer dúvida, estamos à disposição! 🙏
