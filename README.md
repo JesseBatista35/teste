@@ -62,5 +62,3 @@
             <remoting-connector/>
         </subsystem>
 [p585600@sspdeapllx0041 ~]$
-
-
