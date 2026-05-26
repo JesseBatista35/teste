@@ -1,15 +1,17 @@
 
-bash: /opt/jbcs-httpd24-2.4/httpd/sites-available/httpd-eap71-des-sigpf-internet.conf.bkp.20260526: Arquivo ou diretório não encontrado
-[root@caddeapllx135 /]# find /opt/jbcs-httpd24-2.4/httpd/ -iname "*SIGPF*"
-/opt/jbcs-httpd24-2.4/httpd/sites-available/httpd-eap71-des-SIGPF-intranet.conf
-/opt/jbcs-httpd24-2.4/httpd/sites-available/httpd-eap71-des-sigpf-intranet.conf
-/opt/jbcs-httpd24-2.4/httpd/sites-available/httpd-eap71-des-sigpf-internet.conf
-/opt/jbcs-httpd24-2.4/httpd/sites-available/httpd-eap71-des-sigpf-cca-internet.conf
-/opt/jbcs-httpd24-2.4/httpd/sites-available/httpd-eap71-des-SIGPF-internet-backend.conf
-/opt/jbcs-httpd24-2.4/httpd/sites-enabled/eap_71_esteiraagil/httpd-eap71-des-SIGPF-intranet.conf
-/opt/jbcs-httpd24-2.4/httpd/sites-enabled/eap_71_esteiraagil/httpd-eap71-des-sigpf-intranet.conf
-/opt/jbcs-httpd24-2.4/httpd/sites-enabled/eap_71_esteiraagil/httpd-eap71-des-sigpf-internet.conf
-/opt/jbcs-httpd24-2.4/httpd/sites-enabled/eap_71_esteiraagil/httpd-eap71-des-sigpf-cca-internet.conf
-/opt/jbcs-httpd24-2.4/httpd/sites-enabled/eap_71_esteiraagil/httpd-eap71-des-SIGPF-internet-backend.conf
-[root@caddeapllx135 /]#
+
+5. Identificação da causa raiz final: a variável SISTEMA_NOME no pipeline de release estava com valor incorreto, fazendo o deploy sobrescrever o arquivo de configuração do Apache sem preservar os BalancerMember.
+
+CAUSA RAIZ
+Variável SISTEMA_NOME com valor incorreto no pipeline de release do SIGPF-internet-backend, causando sobrescrita indevida do arquivo de configuração do Apache ModCluster e remoção dos BalancerMember nos ambientes DES, TQS e HMP.
+
+SOLUÇÃO APLICADA
+Corrigida a variável SISTEMA_NOME no pipeline de release. Após o ajuste, novo deploy foi executado com sucesso e a aplicação voltou a responder corretamente nos três ambientes.
+
+RECOMENDAÇÕES
+1. Revisar o pipeline para garantir que futuros deploys não sobrescrevam configurações críticas do Apache sem validação.
+2. Corrigir as variáveis SIGPF_URL_API e SIGPF_URL_STATIC da library SIGPF-internet-hmp de HTTP para HTTPS.
+3. Incluir validação automática da rota após cada deploy nos três ambientes.
+
+Atendimento encerrado com ambiente normalizado e aplicação disponível para os parceiros externos (Caixa Seguridade, Caixa Vida e Previdência, Caixa Consórcios e Caixa Capitalização).
 
