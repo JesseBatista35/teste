@@ -1,100 +1,51 @@
-2026-05-26T14:02:56.9269515Z ##[section]Starting: Configurando Logrotate
-2026-05-26T14:02:56.9272831Z ==============================================================================
-2026-05-26T14:02:56.9272914Z Task         : Bash
-2026-05-26T14:02:56.9272970Z Description  : Run a Bash script on macOS, Linux, or Windows
-2026-05-26T14:02:56.9273036Z Version      : 3.227.0
-2026-05-26T14:02:56.9273091Z Author       : Microsoft Corporation
-2026-05-26T14:02:56.9273145Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/bash
-2026-05-26T14:02:56.9273221Z ==============================================================================
-2026-05-26T14:02:57.6779432Z Generating script.
-2026-05-26T14:02:57.6789464Z ========================== Starting Command Output ===========================
-2026-05-26T14:02:57.6796628Z [command]/bin/bash /opt/ads-agent/_work/_temp/ae4de10a-cdbf-4c3a-9bd3-aedf294847ce.sh
-2026-05-26T14:02:57.6852667Z ++ echo _SICMU-intranet-update
-2026-05-26T14:02:57.6852953Z ++ sed s/_//
-2026-05-26T14:02:57.6861760Z + REPO=SICMU-intranet-update
-2026-05-26T14:02:57.6865306Z ++ quantidade_vm
-2026-05-26T14:02:57.6867278Z /opt/ads-agent/_work/_temp/ae4de10a-cdbf-4c3a-9bd3-aedf294847ce.sh: line 3: quantidade_vm: comando não encontrado
-2026-05-26T14:02:57.6868740Z + ansible-playbook /opt/ads-agent/_work/r16364/a/esteira-jboss-vm-v2/site.yml --tags logrotate --skip-tags jboss -e sistema_ambiente=des -e quantidade_vm= -e sistema_nome=sicmu-intranet-update -e default_working_directory_tfs=/opt/ads-agent/_work/r16364/a -e build_repository_name_tfs=SICMU-intranet-update -e centralizadora_desenvolvimento=7390 -e centralizadora_operacoes=7259 -e fields_site=BR -e site=ctc_nprd
-2026-05-26T14:02:59.6168599Z 
-2026-05-26T14:02:59.6169753Z PLAY [local] *******************************************************************
-2026-05-26T14:02:59.6431042Z 
-2026-05-26T14:02:59.6431566Z PLAY [Configurando o DNS] ******************************************************
-2026-05-26T14:02:59.8146610Z 
-2026-05-26T14:02:59.8147142Z PLAY [local] *******************************************************************
-2026-05-26T14:02:59.8177726Z 
-2026-05-26T14:02:59.8178503Z PLAY [Verificando serviços] ****************************************************
-2026-05-26T14:02:59.8254557Z 
-2026-05-26T14:02:59.8255169Z PLAY [Configuração LDAP] *******************************************************
-2026-05-26T14:02:59.8282552Z [WARNING]: Found variable using reserved name: when
-2026-05-26T14:02:59.8290247Z 
-2026-05-26T14:02:59.8290692Z PLAY [jboss] *******************************************************************
-2026-05-26T14:02:59.8368615Z 
-2026-05-26T14:02:59.8369330Z PLAY [Stack Jboss] *************************************************************
-2026-05-26T14:02:59.8393947Z 
-2026-05-26T14:02:59.8394272Z PLAY [jboss] *******************************************************************
-2026-05-26T14:02:59.8432146Z 
-2026-05-26T14:02:59.8432482Z PLAY [jboss] *******************************************************************
-2026-05-26T14:02:59.8471268Z 
-2026-05-26T14:02:59.8471590Z PLAY [jboss] *******************************************************************
-2026-05-26T14:02:59.8503819Z 
-2026-05-26T14:02:59.8504163Z PLAY [Copiando deployments adicionais] *****************************************
-2026-05-26T14:02:59.8531565Z 
-2026-05-26T14:02:59.8531888Z PLAY [Copiando modules adicionais] *********************************************
-2026-05-26T14:02:59.8556660Z 
-2026-05-26T14:02:59.8557007Z PLAY [jboss] *******************************************************************
-2026-05-26T14:02:59.8589853Z 
-2026-05-26T14:02:59.8590170Z PLAY [jboss] *******************************************************************
-2026-05-26T14:02:59.8617577Z 
-2026-05-26T14:02:59.8617938Z PLAY [jboss] *******************************************************************
-2026-05-26T14:02:59.8649191Z 
-2026-05-26T14:02:59.8649688Z PLAY [jboss] *******************************************************************
-2026-05-26T14:02:59.8673393Z 
-2026-05-26T14:02:59.8673822Z PLAY [jboss] *******************************************************************
-2026-05-26T14:02:59.8701036Z 
-2026-05-26T14:02:59.8701454Z PLAY [local] *******************************************************************
-2026-05-26T14:02:59.8722394Z [WARNING]: Could not match supplied host pattern, ignoring: instance_restart
-2026-05-26T14:02:59.8725195Z 
-2026-05-26T14:02:59.8725722Z PLAY [instance_restart] ********************************************************
-2026-05-26T14:02:59.8726174Z skipping: no hosts matched
-2026-05-26T14:02:59.8728664Z [WARNING]: Could not match supplied host pattern, ignoring: machine_reboot
-2026-05-26T14:02:59.8730989Z 
-2026-05-26T14:02:59.8731393Z PLAY [machine_reboot] **********************************************************
-2026-05-26T14:02:59.8731683Z skipping: no hosts matched
-2026-05-26T14:02:59.8736958Z 
-2026-05-26T14:02:59.8737347Z PLAY [local] *******************************************************************
-2026-05-26T14:02:59.8761842Z [WARNING]: Could not match supplied host pattern, ignoring: instance_stop
-2026-05-26T14:02:59.8764578Z 
-2026-05-26T14:02:59.8764953Z PLAY [instance_stop] ***********************************************************
-2026-05-26T14:02:59.8765443Z skipping: no hosts matched
-2026-05-26T14:02:59.8768098Z 
-2026-05-26T14:02:59.8768486Z PLAY [machine_reboot] **********************************************************
-2026-05-26T14:02:59.8768748Z skipping: no hosts matched
-2026-05-26T14:02:59.8774505Z 
-2026-05-26T14:02:59.8774879Z PLAY [Configura TSM] ***********************************************************
-2026-05-26T14:02:59.8802244Z 
-2026-05-26T14:02:59.8802707Z PLAY [jboss] *******************************************************************
-2026-05-26T14:02:59.8826261Z 
-2026-05-26T14:02:59.8826855Z PLAY [Configura Control-M] *****************************************************
-2026-05-26T14:02:59.8861031Z 
-2026-05-26T14:02:59.8861451Z PLAY [jboss] *******************************************************************
-2026-05-26T14:02:59.8903064Z 
-2026-05-26T14:02:59.8903461Z PLAY [jboss] *******************************************************************
-2026-05-26T14:02:59.9456621Z Tuesday 26 May 2026  11:02:59 -0300 (0:00:00.389)       0:00:00.389 *********** 
-2026-05-26T14:03:00.9246669Z 
-2026-05-26T14:03:00.9247284Z TASK [Gathering Facts] *********************************************************
-2026-05-26T14:03:00.9247466Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br]
-2026-05-26T14:03:00.9411193Z Tuesday 26 May 2026  11:03:00 -0300 (0:00:00.995)       0:00:01.385 *********** 
-2026-05-26T14:03:06.8084148Z 
-2026-05-26T14:03:06.8084676Z TASK [Copy apache_logrotate] ***************************************************
-2026-05-26T14:03:06.8085533Z fatal: [caddeapllx2484.agil.nprd.caixa.gov.br]: FAILED! => {"msg": "Failed to get information on remote file (/etc/logrotate.d/apache_logrotate): sudo: ldap_sasl_bind_s(): Can't contact LDAP server\n\nPresumimos que você recebeu as instruções de sempre do administrador\nde sistema local. Basicamente, resume-se a estas três coisas:\n\n    #1) Respeite a privacidade dos outros.\n    #2) Pense antes de digitar.\n    #3) Com grandes poderes vêm grandes responsabilidades.\n\nsudo: nenhum tty presente e nenhum programa de askpass especificado\n"}
-2026-05-26T14:03:06.8088740Z 
-2026-05-26T14:03:06.8089293Z PLAY RECAP *********************************************************************
-2026-05-26T14:03:06.8089542Z caddeapllx2484.agil.nprd.caixa.gov.br : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
-2026-05-26T14:03:06.8089643Z 
-2026-05-26T14:03:06.8090195Z Tuesday 26 May 2026  11:03:06 -0300 (0:00:05.868)       0:00:07.253 *********** 
-2026-05-26T14:03:06.8090390Z =============================================================================== 
-2026-05-26T14:03:06.8090756Z Copy apache_logrotate --------------------------------------------------- 5.87s
-2026-05-26T14:03:06.8090995Z Gathering Facts --------------------------------------------------------- 1.00s
-2026-05-26T14:03:06.8091158Z Playbook run took 0 days, 0 hours, 0 minutes, 7 seconds
-2026-05-26T14:03:06.8549077Z ##[error]Bash exited with code '2'.
-2026-05-26T14:03:06.8572449Z ##[section]Finishing: Configurando Logrotate
+Jesse Mouta Pereira Batista
+Todos, Boa tarde,   identificamos a causa raiz do problema no SIGPF-internet.   O Apache dos servidores de apresentação (caddeapllx135 e caddeapllx136) está configurado para rotear as requisições do…
+VMs:
+ 
+DES: caddeapllx832.agil.nprd.caixa.gov.br
+TQS: caddeapllx575.agil.nprd.caixa.gov.br
+HMP: caddeapllx1104.agil.nprd.caixa.gov.br e caddeapllx1161.agil.nprd.caixa.gov.br
+ 
+Todos, Bom dia! assim que subir as configurações informa aqui. 
+ 
+Quem irá subir as configurações?
+ 
+Diego do Nascimento
+Quem irá subir as configurações?
+Eu vou subir as configurações e validar, preciso de uma nova  Req aberta para, pode colocar na descrição configuração do balancerMember.
+ 
+ 
+ 
+Jesse Mouta Pereira Batista
+Eu vou subir as configurações e validar, preciso de uma nova  Req aberta para, pode colocar na descrição configuração do balancerMember.
+Precisa que a gente abra? Ou vão tratar internamente?
+ 
+sim pode abrir, para registro do atendimento. 
+ 
+Todos
+ 
+Irei abrir este atendimento.
+ 
+Mas preciso entender quem solicitou a mudança e o motivo. Tudo funcionava corretamente e parou de funcionar.
+ 
+ 
+Temos esta configuração ai, e o front deveria estar redirecionando as chamadas para o bacj
+ 
+back*
+
+
+
+ configuraçoão:  sigpf-nginx.conf
+
+location /sigpf_internet/ {
+    client_max_body_size 10M;
+    proxy_set_header X-Forwarded-Host $host;
+    proxy_set_header X-Forwarded-Proto $scheme;
+    proxy_set_header X-Forwarded-Port $server_port;
+    proxy_set_header X-Forwarded-Server $host;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_pass __SIGPF_URL_API__;
+    proxy_redirect off;
+}
+ 
