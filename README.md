@@ -1,40 +1,14 @@
-Microsoft Windows [versão 10.0.26200.8390]
-(c) Microsoft Corporation. Todos os direitos reservados.
-
-C:\Users\p585600>nslookup caddeapllx832.agil.nprd.caixa.gov.br
-Servidor:  dfaddssd001.corp.caixa.gov.br
-Address:  10.222.149.10
-
-Não é resposta autoritativa:
-Nome:    caddeapllx832.agil.nprd.caixa.gov.br
-Address:  10.116.194.61
-
-
-C:\Users\p585600>nslookup caddeapllx575.agil.nprd.caixa.gov.br
-Servidor:  dfaddssd001.corp.caixa.gov.br
-Address:  10.222.149.10
-
-Não é resposta autoritativa:
-Nome:    caddeapllx575.agil.nprd.caixa.gov.br
-Address:  10.116.193.248
-
-
-C:\Users\p585600>nslookup caddeapllx1104.agil.nprd.caixa.gov.br
-Servidor:  dfaddssd001.corp.caixa.gov.br
-Address:  10.222.149.10
-
-Não é resposta autoritativa:
-Nome:    caddeapllx1104.agil.nprd.caixa.gov.br
-Address:  10.116.195.76
-
-
-C:\Users\p585600>nslookup caddeapllx1161.agil.nprd.caixa.gov.br
-Servidor:  dfaddssd001.corp.caixa.gov.br
-Address:  10.222.149.10
-
-Não é resposta autoritativa:
-Nome:    caddeapllx1161.agil.nprd.caixa.gov.br
-Address:  10.116.195.133
-
-
-C:\Users\p585600>
+Solução para o DES — execute no servidor caddeapllx135:
+1. Primeiro faça backup:
+bashsudo cp /opt/jbcs-httpd24-2.4/httpd/sites-available/httpd-eap71-des-sigpf-internet.conf \
+        /opt/jbcs-httpd24-2.4/httpd/sites-available/httpd-eap71-des-sigpf-internet.conf.bkp.$(date +%Y%m%d)
+2. Adicione o bloco Proxy com sed:
+bashsudo sed -i 's|RewriteRule \^/\$ /sigpf_internet \[R\]|RewriteRule ^/$ /sigpf_internet [R]\n\n  <Proxy balancer://sigpf-internet>\n      BalancerMember http://10.116.194.61:8080 retry=180 connectiontimeout=1000ms ping=500ms\n      ProxySet stickysession=JSESSIONID\|jsessionid\n  </Proxy>|' /opt/jbcs-httpd24-2.4/httpd/sites-available/httpd-eap71-des-sigpf-internet.conf
+3. Verifique se ficou correto:
+bashcat /opt/jbcs-httpd24-2.4/httpd/sites-available/httpd-eap71-des-sigpf-internet.conf
+4. Teste e recarregue o Apache:
+bashsudo /opt/jbcs-httpd24-2.4/httpd/sbin/apachectl configtest && \
+sudo /opt/jbcs-httpd24-2.4/httpd/sbin/apachectl graceful
+5. Teste a aplicação:
+bashcurl -sk https://sigpf-internet.esteiras.des.caixa/sigpf_internet/ -o /dev/null -w "%{http_code}"
+Esperamos 302 em vez de 403. Me traz o resultado!
