@@ -1,619 +1,987 @@
-<?xml version="1.0" ?>
+tivemos esses erros apos execultar  a release.  acho que voce mudou coisas que na oera pra mudar,, pois antes nao quebrarva nesses jobs.
 
-<server xmlns="urn:jboss:domain:4.1">
-    <extensions>
-        <extension module="org.jboss.as.clustering.infinispan"/>
-        <extension module="org.jboss.as.clustering.jgroups"/>
-        <extension module="org.jboss.as.connector"/>
-        <extension module="org.jboss.as.deployment-scanner"/>
-        <extension module="org.jboss.as.ee"/>
-        <extension module="org.jboss.as.ejb3"/>
-        <extension module="org.jboss.as.jaxrs"/>
-        <extension module="org.jboss.as.jdr"/>
-        <extension module="org.jboss.as.jmx"/>
-        <extension module="org.jboss.as.jpa"/>
-        <extension module="org.jboss.as.jsf"/>
-        <extension module="org.jboss.as.jsr77"/>
-        <extension module="org.jboss.as.logging"/>
-        <extension module="org.jboss.as.mail"/>
-        <extension module="org.jboss.as.modcluster"/>
-        <extension module="org.jboss.as.naming"/>
-        <extension module="org.jboss.as.pojo"/>
-        <extension module="org.jboss.as.remoting"/>
-        <extension module="org.jboss.as.sar"/>
-        <extension module="org.jboss.as.security"/>
-        <extension module="org.jboss.as.transactions"/>
-        <extension module="org.jboss.as.webservices"/>
-        <extension module="org.jboss.as.weld"/>
-        <extension module="org.wildfly.extension.batch.jberet"/>
-        <extension module="org.wildfly.extension.bean-validation"/>
-        <extension module="org.wildfly.extension.clustering.singleton"/>
-        <extension module="org.wildfly.extension.io"/>
-        <extension module="org.wildfly.extension.messaging-activemq"/>
-        <extension module="org.wildfly.extension.request-controller"/>
-        <extension module="org.wildfly.extension.security.manager"/>
-        <extension module="org.wildfly.extension.undertow"/>
-        <extension module="org.wildfly.iiop-openjdk"/>
-        <extension module="org.keycloak.keycloak-adapter-subsystem"/>
-    </extensions>
-    <system-properties>
-        <property name="java.net.preferIPv4Stack" value="true"/>
-        <property name="org.apache.catalina.connector.URI_ENCODING" value="UTF-8" />
-        <property name="org.apache.catalina.connector.USE_BODY_ENCODING_FOR_QUERY_STRING" value="true" />
-        <property name="jboss.as.management.blocking.timeout" value="1800"/>
-        <property name="br.gov.caixa.psc.connector.util.Config" value="__CONNECTOR__" />
-        <property name="url.sisgr" value="__SGR_INTRA_URL__" />
-        <property name="file.encoding" value="UTF-8" />
-        <property name="pageEncoding" value="UTF-8" />
-        <property name="user.country" value="BR" />
-        <property name="user.language" value="pt" />
-    </system-properties>
-    <management>
-        <security-realms>
-            <security-realm name="ManagementRealm">
-                <authentication>
-                    <local default-user="$local" skip-group-loading="true"/>
-                    <properties path="mgmt-users.properties" relative-to="jboss.server.config.dir"/>
-                </authentication>
-                <authorization map-groups-to-roles="false">
-                    <properties path="mgmt-groups.properties" relative-to="jboss.server.config.dir"/>
-                </authorization>
-            </security-realm>
-            <security-realm name="ApplicationRealm">
-                <authentication>
-                    <local default-user="$local" allowed-users="*" skip-group-loading="true"/>
-                    <properties path="application-users.properties" relative-to="jboss.server.config.dir"/>
-                </authentication>
-                <authorization>
-                    <properties path="application-roles.properties" relative-to="jboss.server.config.dir"/>
-                </authorization>
-            </security-realm>
-        </security-realms>
-        <audit-log>
-            <formatters>
-                <json-formatter name="json-formatter"/>
-            </formatters>
-            <handlers>
-                <file-handler name="file" formatter="json-formatter" path="audit-log.log" relative-to="jboss.server.data.dir"/>
-            </handlers>
-            <logger log-boot="true" log-read-only="false" enabled="false">
-                <handlers>
-                    <handler name="file"/>
-                </handlers>
-            </logger>
-        </audit-log>
-        <management-interfaces>
-            <http-interface security-realm="ManagementRealm" http-upgrade-enabled="true">
-                <socket-binding http="management-http"/>
-            </http-interface>
-        </management-interfaces>
-        <access-control provider="simple">
-            <role-mapping>
-                <role name="SuperUser">
-                    <include>
-                        <user name="$local"/>
-                    </include>
-                </role>
-            </role-mapping>
-        </access-control>
-    </management>
-    <profile>
-        <subsystem xmlns="urn:jboss:domain:logging:3.0">
-            <periodic-rotating-file-handler name="FILE" autoflush="true">
-                <formatter>
-                    <named-formatter name="PATTERN"/>
-                </formatter>
-                <file relative-to="jboss.server.log.dir" path="server.log"/>
-                <suffix value=".yyyy-MM-dd"/>
-                <append value="true"/>
-            </periodic-rotating-file-handler>
-            <logger category="com.arjuna">
-                <level name="WARN"/>
-            </logger>
-            <logger category="org.jboss.as.config">
-                <level name="DEBUG"/>
-            </logger>
-            <logger category="sun.rmi">
-                <level name="WARN"/>
-            </logger>
-            <root-logger>
-                <level name="INFO"/>
-                <handlers>
-                    <handler name="FILE"/>
-                </handlers>
-            </root-logger>
-            <formatter name="PATTERN">
-                <pattern-formatter pattern="%d{yyyy-MM-dd HH:mm:ss,SSS} %-5p [%c] (%t) %s%e%n"/>
-            </formatter>
-            <formatter name="COLOR-PATTERN">
-                <pattern-formatter pattern="%K{level}%d{HH:mm:ss,SSS} %-5p [%c] (%t) %s%e%n"/>
-            </formatter>
-        </subsystem>
-        <subsystem xmlns="urn:jboss:domain:batch-jberet:1.0">
-            <default-job-repository name="in-memory"/>
-            <default-thread-pool name="batch"/>
-            <job-repository name="in-memory">
-                <in-memory/>
-            </job-repository>
-            <thread-pool name="batch">
-                <max-threads count="10"/>
-                <keepalive-time time="30" unit="seconds"/>
-            </thread-pool>
-        </subsystem>
-        <subsystem xmlns="urn:jboss:domain:bean-validation:1.0"/>
-        <subsystem xmlns="urn:jboss:domain:datasources:4.0">
-            <datasources>
-                <datasource jta="false" jndi-name="java:/db2cmu" pool-name="db2cmu" enabled="true">
-                    <connection-url>__DB2_CMU_URL__</connection-url>
-                    <driver-class>com.ibm.db2.jcc.DB2Driver</driver-class>
-                    <connection-property name="currentSchema">
-                        __CURRENT_SCHEMA__
-                    </connection-property>
-                    <driver>db2</driver>
-                    <pool>
-                        <min-pool-size>5</min-pool-size>
-                        <max-pool-size>20</max-pool-size>
-                        <prefill>true</prefill>
-                        <use-strict-min>true</use-strict-min>
-                        <flush-strategy>FailingConnectionOnly</flush-strategy>
-                    </pool>
-                    <security>
-                        <user-name>__DB2_CMU_USR__</user-name>
-                        <password>__DB2_CMU_PWD__</password>
-                    </security>
-                    <validation>
-                        <valid-connection-checker class-name="org.jboss.jca.adapters.jdbc.extensions.db2.DB2ValidConnectionChecker"/>
-                        <validate-on-match>true</validate-on-match>
-                        <background-validation>false</background-validation>
-                        <stale-connection-checker class-name="org.jboss.jca.adapters.jdbc.extensions.db2.DB2StaleConnectionChecker"/>
-                        <exception-sorter class-name="org.jboss.jca.adapters.jdbc.extensions.db2.DB2ExceptionSorter"/>
-                    </validation>
-                    <timeout>
-                        <idle-timeout-minutes>5</idle-timeout-minutes>
-                    </timeout>
-                    <statement>
-                        <track-statements>true</track-statements>
-                    </statement>
-                </datasource>
-                <datasource jta="false" jndi-name="java:/db2cdm" pool-name="db2cdm" enabled="true">
-                    <connection-url>__DB2_RJP4_URL__</connection-url>
-                    <driver-class>com.ibm.db2.jcc.DB2Driver</driver-class>
-                    <connection-property name="currentSchema">
-                        __CURRENT_SCHEMA__
-                    </connection-property>
-                    <driver>db2</driver>
-                    <pool>
-                        <min-pool-size>5</min-pool-size>
-                        <max-pool-size>20</max-pool-size>
-                        <prefill>true</prefill>
-                        <use-strict-min>true</use-strict-min>
-                        <flush-strategy>FailingConnectionOnly</flush-strategy>
-                    </pool>
-                    <security>
-                        <user-name>__DB2_CMU_USR__</user-name>
-                        <password>__DB2_CMU_PWD__</password>
-                    </security>
-                    <validation>
-                        <valid-connection-checker class-name="org.jboss.jca.adapters.jdbc.extensions.db2.DB2ValidConnectionChecker"/>
-                        <validate-on-match>true</validate-on-match>
-                        <background-validation>false</background-validation>
-                        <stale-connection-checker class-name="org.jboss.jca.adapters.jdbc.extensions.db2.DB2StaleConnectionChecker"/>
-                        <exception-sorter class-name="org.jboss.jca.adapters.jdbc.extensions.db2.DB2ExceptionSorter"/>
-                    </validation>
-                    <timeout>
-                        <idle-timeout-minutes>5</idle-timeout-minutes>
-                    </timeout>
-                    <statement>
-                        <track-statements>true</track-statements>
-                    </statement>
-                </datasource>
-                <drivers>
-                    <driver name="db2" module="com.ibm.db2">
-                        <xa-datasource-class>com.ibm.db2.jcc.DB2XADataSource</xa-datasource-class>
-                    </driver>
-                </drivers>
-            </datasources>
-        </subsystem>
-        <subsystem xmlns="urn:jboss:domain:deployment-scanner:2.0">
-            <deployment-scanner path="deployments" relative-to="jboss.server.base.dir" scan-interval="5000" runtime-failure-causes-rollback="${jboss.deployment.scanner.rollback.on.failure:false}"/>
-        </subsystem>
-        <subsystem xmlns="urn:jboss:domain:ee:4.0">
-            <spec-descriptor-property-replacement>false</spec-descriptor-property-replacement>
-            <concurrent>
-                <context-services>
-                    <context-service name="default" jndi-name="java:jboss/ee/concurrency/context/default" use-transaction-setup-provider="true"/>
-                </context-services>
-                <managed-thread-factories>
-                    <managed-thread-factory name="default" jndi-name="java:jboss/ee/concurrency/factory/default" context-service="default"/>
-                </managed-thread-factories>
-                <managed-executor-services>
-                    <managed-executor-service name="default" jndi-name="java:jboss/ee/concurrency/executor/default" context-service="default" hung-task-threshold="60000" keepalive-time="5000"/>
-                </managed-executor-services>
-                <managed-scheduled-executor-services>
-                    <managed-scheduled-executor-service name="default" jndi-name="java:jboss/ee/concurrency/scheduler/default" context-service="default" hung-task-threshold="60000" keepalive-time="3000"/>
-                </managed-scheduled-executor-services>
-            </concurrent>
-        </subsystem>
-        <subsystem xmlns="urn:jboss:domain:ejb3:4.0">
-            <session-bean>
-                <stateless>
-                    <bean-instance-pool-ref pool-name="slsb-strict-max-pool"/>
-                </stateless>
-                <!-- CORRIGIDO: cache-ref alterado de "distributable" para "simple" (sem cluster) -->
-                <stateful default-access-timeout="5000" cache-ref="simple" passivation-disabled-cache-ref="simple"/>
-                <singleton default-access-timeout="5000"/>
-            </session-bean>
-            <mdb>
-                <resource-adapter-ref resource-adapter-name="${ejb.resource-adapter-name:activemq-ra.rar}"/>
-                <bean-instance-pool-ref pool-name="mdb-strict-max-pool"/>
-            </mdb>
-            <pools>
-                <bean-instance-pools>
-                    <strict-max-pool name="slsb-strict-max-pool" derive-size="from-worker-pools" instance-acquisition-timeout="5" instance-acquisition-timeout-unit="MINUTES"/>
-                    <strict-max-pool name="mdb-strict-max-pool" derive-size="from-cpu-count" instance-acquisition-timeout="5" instance-acquisition-timeout-unit="MINUTES"/>
-                </bean-instance-pools>
-            </pools>
-            <caches>
-                <cache name="simple"/>
-                <cache name="distributable" passivation-store-ref="infinispan" aliases="passivating clustered"/>
-            </caches>
-            <passivation-stores>
-                <passivation-store name="infinispan" cache-container="ejb" max-size="10000"/>
-            </passivation-stores>
-            <async thread-pool-name="default"/>
-            <timer-service thread-pool-name="default" default-data-store="default-file-store">
-                <data-stores>
-                    <file-data-store name="default-file-store" path="timer-service-data" relative-to="jboss.server.data.dir"/>
-                </data-stores>
-            </timer-service>
-            <remote connector-ref="http-remoting-connector" thread-pool-name="default"/>
-            <thread-pools>
-                <thread-pool name="default">
-                    <max-threads count="10"/>
-                    <keepalive-time time="100" unit="milliseconds"/>
-                </thread-pool>
-            </thread-pools>
-            <iiop enable-by-default="false" use-qualified-name="false"/>
-            <default-security-domain value="other"/>
-            <default-missing-method-permissions-deny-access value="true"/>
-            <log-system-exceptions value="true"/>
-        </subsystem>
-        <subsystem xmlns="urn:jboss:domain:io:1.1">
-            <worker name="default"/>
-            <buffer-pool name="default"/>
-        </subsystem>
-        <!-- CORRIGIDO: infinispan alterado para local-cache (sem cluster/transporte) -->
-        <subsystem xmlns="urn:jboss:domain:infinispan:4.0">
-            <cache-container name="server" aliases="singleton cluster" default-cache="default" module="org.wildfly.clustering.server">
-                <local-cache name="default">
-                    <transaction mode="BATCH"/>
-                </local-cache>
-            </cache-container>
-            <cache-container name="web" default-cache="passivation" module="org.wildfly.clustering.web.infinispan">
-                <local-cache name="passivation">
-                    <locking isolation="REPEATABLE_READ"/>
-                    <transaction mode="BATCH"/>
-                    <file-store passivation="true" purge="false"/>
-                </local-cache>
-            </cache-container>
-            <cache-container name="ejb" aliases="sfsb" default-cache="passivation" module="org.wildfly.clustering.ejb.infinispan">
-                <local-cache name="passivation">
-                    <locking isolation="REPEATABLE_READ"/>
-                    <transaction mode="BATCH"/>
-                    <file-store passivation="true" purge="false"/>
-                </local-cache>
-            </cache-container>
-            <cache-container name="hibernate" default-cache="local-query" module="org.hibernate.infinispan">
-                <local-cache name="local-query">
-                    <eviction strategy="LRU" max-entries="10000"/>
-                    <expiration max-idle="100000"/>
-                </local-cache>
-                <invalidation-cache name="entity" mode="SYNC">
-                    <transaction mode="NON_XA"/>
-                    <eviction strategy="LRU" max-entries="10000"/>
-                    <expiration max-idle="100000"/>
-                </invalidation-cache>
-                <local-cache name="timestamps"/>
-            </cache-container>
-        </subsystem>
-        <subsystem xmlns="urn:jboss:domain:iiop-openjdk:1.0">
-            <orb socket-binding="iiop" ssl-socket-binding="iiop-ssl"/>
-            <initializers transactions="spec" security="identity"/>
-        </subsystem>
-        <subsystem xmlns="urn:jboss:domain:jaxrs:1.0"/>
-        <subsystem xmlns="urn:jboss:domain:jca:4.0">
-            <archive-validation enabled="true" fail-on-error="true" fail-on-warn="false"/>
-            <bean-validation enabled="true"/>
-            <default-workmanager>
-                <short-running-threads>
-                    <core-threads count="50"/>
-                    <queue-length count="50"/>
-                    <max-threads count="50"/>
-                    <keepalive-time time="10" unit="seconds"/>
-                </short-running-threads>
-                <long-running-threads>
-                    <core-threads count="50"/>
-                    <queue-length count="50"/>
-                    <max-threads count="50"/>
-                    <keepalive-time time="10" unit="seconds"/>
-                </long-running-threads>
-            </default-workmanager>
-            <cached-connection-manager/>
-        </subsystem>
-        <subsystem xmlns="urn:jboss:domain:jdr:1.0"/>
-        <!-- CORRIGIDO: jgroups TCPPING com host fixo local (sem variavel nao resolvida) -->
-        <subsystem xmlns="urn:jboss:domain:jgroups:4.0">
-            <channels default="ee">
-                <channel name="ee" stack="tcp" cluster="ejb"/>
-            </channels>
-            <stacks>
-                <stack name="udp">
-                    <transport type="UDP" socket-binding="jgroups-udp"/>
-                    <protocol type="PING"/>
-                    <protocol type="MERGE3"/>
-                    <protocol type="FD_SOCK" socket-binding="jgroups-udp-fd"/>
-                    <protocol type="FD_ALL"/>
-                    <protocol type="VERIFY_SUSPECT"/>
-                    <protocol type="pbcast.NAKACK2"/>
-                    <protocol type="UNICAST3"/>
-                    <protocol type="pbcast.STABLE"/>
-                    <protocol type="pbcast.GMS"/>
-                    <protocol type="UFC"/>
-                    <protocol type="MFC"/>
-                    <protocol type="FRAG2"/>
-                </stack>
-                <stack name="tcp">
-                    <transport type="TCP" socket-binding="jgroups-tcp"/>
-                    <protocol type="TCPPING">
-                        <property name="initial_hosts">127.0.0.1[7600]</property>
-                        <property name="port_range">0</property>
-                    </protocol>
-                    <protocol type="MERGE3"/>
-                    <protocol type="FD_SOCK"/>
-                    <protocol type="FD_ALL"/>
-                    <protocol type="VERIFY_SUSPECT"/>
-                    <protocol type="pbcast.NAKACK2"/>
-                    <protocol type="UNICAST3"/>
-                    <protocol type="pbcast.STABLE"/>
-                    <protocol type="pbcast.GMS"/>
-                    <protocol type="MFC"/>
-                    <protocol type="FRAG2"/>
-                </stack>
-            </stacks>
-        </subsystem>
-        <subsystem xmlns="urn:jboss:domain:jmx:1.3">
-            <expose-resolved-model/>
-            <expose-expression-model/>
-            <remoting-connector/>
-        </subsystem>
-        <subsystem xmlns="urn:jboss:domain:jpa:1.1">
-            <jpa default-datasource="" default-extended-persistence-inheritance="DEEP"/>
-        </subsystem>
-        <subsystem xmlns="urn:jboss:domain:jsf:1.0"/>
-        <subsystem xmlns="urn:jboss:domain:jsr77:1.0"/>
-        <subsystem xmlns="urn:jboss:domain:mail:2.0">
-            <mail-session name="default" jndi-name="java:jboss/mail/Default">
-                <smtp-server outbound-socket-binding-ref="mail-smtp"/>
-            </mail-session>
-        </subsystem>
-        <subsystem xmlns="urn:jboss:domain:messaging-activemq:1.0">
-            <server name="default">
-                <cluster password="${jboss.messaging.cluster.password:jboss}"/>
-                <security-setting name="#">
-                    <role name="guest" send="true" consume="true" create-non-durable-queue="true" delete-non-durable-queue="true"/>
-                </security-setting>
-                <address-setting name="#" dead-letter-address="jms.queue.DLQ" expiry-address="jms.queue.ExpiryQueue" max-size-bytes="10485760" page-size-bytes="2097152" message-counter-history-day-limit="10" redistribution-delay="1000"/>
-                <http-connector name="http-connector" socket-binding="http" endpoint="http-acceptor"/>
-                <http-connector name="http-connector-throughput" socket-binding="http" endpoint="http-acceptor-throughput">
-                    <param name="batch-delay" value="50"/>
-                </http-connector>
-                <in-vm-connector name="in-vm" server-id="0"/>
-                <http-acceptor name="http-acceptor" http-listener="default"/>
-                <http-acceptor name="http-acceptor-throughput" http-listener="default">
-                    <param name="batch-delay" value="50"/>
-                    <param name="direct-deliver" value="false"/>
-                </http-acceptor>
-                <in-vm-acceptor name="in-vm" server-id="0"/>
-                <broadcast-group name="bg-group1" connectors="http-connector" jgroups-channel="activemq-cluster"/>
-                <discovery-group name="dg-group1" jgroups-channel="activemq-cluster"/>
-                <cluster-connection name="my-cluster" address="jms" connector-name="http-connector" discovery-group="dg-group1"/>
-                <jms-queue name="ExpiryQueue" entries="java:/jms/queue/ExpiryQueue"/>
-                <jms-queue name="DLQ" entries="java:/jms/queue/DLQ"/>
-                <connection-factory name="InVmConnectionFactory" connectors="in-vm" entries="java:/ConnectionFactory"/>
-                <connection-factory name="RemoteConnectionFactory" ha="true" block-on-acknowledge="true" reconnect-attempts="-1" connectors="http-connector" entries="java:jboss/exported/jms/RemoteConnectionFactory"/>
-                <pooled-connection-factory name="activemq-ra" transaction="xa" connectors="in-vm" entries="java:/JmsXA java:jboss/DefaultJMSConnectionFactory"/>
-            </server>
-        </subsystem>
-        <subsystem xmlns="urn:jboss:domain:modcluster:2.0">
-            <mod-cluster-config advertise-socket="modcluster" advertise="false" load-balancing-group="sicmu" connector="ajp" balancer="${jboss_modcluster_balancer:mybalancer}" proxies="proxy1 proxy2">
-                <dynamic-load-provider>
-                    <load-metric type="cpu"/>
-                </dynamic-load-provider>
-            </mod-cluster-config>
-        </subsystem>
-        <subsystem xmlns="urn:jboss:domain:naming:2.0">
-            <remote-naming/>
-        </subsystem>
-        <subsystem xmlns="urn:jboss:domain:pojo:1.0"/>
-        <subsystem xmlns="urn:jboss:domain:remoting:3.0">
-            <endpoint/>
-            <http-connector name="http-remoting-connector" connector-ref="default" security-realm="ApplicationRealm"/>
-        </subsystem>
-        <subsystem xmlns="urn:jboss:domain:resource-adapters:4.0">
-            <resource-adapters>
-                <resource-adapter id="wmq.jmsra.rar">
-                    <archive>
-                        wmq.jmsra.rar
-                    </archive>
-                    <transaction-support>NoTransaction</transaction-support>
-                    <connection-definitions>
-                        <connection-definition class-name="com.ibm.mq.connector.outbound.ManagedConnectionFactoryImpl" jndi-name="java:/jms/SicmuConnectionFactory" pool-name="SicmuConnectionFactory">
-                            <config-property name="channel">
-                                SICMU.SVRCONN
-                            </config-property>
-                            <config-property name="hostName">
-                                __MQ_HOSTNAME__
-                            </config-property>
-                            <config-property name="transportType">
-                                CLIENT
-                            </config-property>
-                            <config-property name="queueManager">
-                                __QUEUE_MANAGER__
-                            </config-property>
-                            <config-property name="port">
-                                __QUEUE_PORT__
-                            </config-property>
-                            <security>
-                                <application/>
-                            </security>
-                            <validation>
-                                <background-validation>true</background-validation>
-                                <background-validation-millis>300000</background-validation-millis>
-                            </validation>
-                        </connection-definition>
-                    </connection-definitions>
-                    <admin-objects>
-                        <admin-object class-name="com.ibm.mq.connector.outbound.MQQueueProxy" jndi-name="java:/jms/LQ_REQ_SICMU_ENV" pool-name="LQ_REQ_SICMU_ENV">
-                            <config-property name="baseQueueName">
-                                LQ.REQ.SICMU.ENV
-                            </config-property>
-                            <config-property name="targetClient">
-                                MQ
-                            </config-property>
-                        </admin-object>
-                    </admin-objects>
-                </resource-adapter>
-            </resource-adapters>
-        </subsystem>
-        <subsystem xmlns="urn:jboss:domain:request-controller:1.0"/>
-        <subsystem xmlns="urn:jboss:domain:sar:1.0"/>
-        <subsystem xmlns="urn:jboss:domain:security-manager:1.0">
-            <deployment-permissions>
-                <maximum-set>
-                    <permission class="java.security.AllPermission"/>
-                </maximum-set>
-            </deployment-permissions>
-        </subsystem>
-        <subsystem xmlns="urn:jboss:domain:security:1.2">
-            <security-domains>
-                <security-domain name="other" cache-type="default">
-                    <authentication>
-                        <login-module code="Remoting" flag="optional">
-                            <module-option name="password-stacking" value="useFirstPass"/>
-                        </login-module>
-                        <login-module code="RealmDirect" flag="required">
-                            <module-option name="password-stacking" value="useFirstPass"/>
-                        </login-module>
-                    </authentication>
-                </security-domain>
-                <security-domain name="jboss-web-policy" cache-type="default">
-                    <authorization>
-                        <policy-module code="Delegating" flag="required"/>
-                    </authorization>
-                </security-domain>
-                <security-domain name="jboss-ejb-policy" cache-type="default">
-                    <authorization>
-                        <policy-module code="Delegating" flag="required"/>
-                    </authorization>
-                </security-domain>
-                <security-domain name="jaspitest" cache-type="default">
-                    <authentication-jaspi>
-                        <login-module-stack name="dummy">
-                            <login-module code="Dummy" flag="optional"/>
-                        </login-module-stack>
-                        <auth-module code="Dummy"/>
-                    </authentication-jaspi>
-                </security-domain>
-            </security-domains>
-        </subsystem>
-        <subsystem xmlns="urn:jboss:domain:singleton:1.0">
-            <singleton-policies default="default">
-                <singleton-policy name="default" cache-container="server">
-                    <simple-election-policy/>
-                </singleton-policy>
-            </singleton-policies>
-        </subsystem>
-        <subsystem xmlns="urn:jboss:domain:transactions:3.0">
-            <core-environment>
-                <process-id>
-                    <uuid/>
-                </process-id>
-            </core-environment>
-            <recovery-environment socket-binding="txn-recovery-environment" status-socket-binding="txn-status-manager"/>
-        </subsystem>
-        <subsystem xmlns="urn:jboss:domain:undertow:3.1">
-            <buffer-cache name="default"/>
-            <server name="default-server">
-                <ajp-listener name="ajp" socket-binding="ajp"/>
-                <http-listener name="default" socket-binding="http" redirect-socket="https"/>
-                <host name="default-host" alias="localhost">
-                    <location name="/" handler="welcome-content"/>
-                    <filter-ref name="server-header"/>
-                    <filter-ref name="x-powered-by-header"/>
-                </host>
-            </server>
-            <servlet-container name="default">
-                <jsp-config/>
-                <websockets/>
-            </servlet-container>
-            <handlers>
-                <file name="welcome-content" path="${jboss.home.dir}/welcome-content"/>
-            </handlers>
-            <filters>
-                <response-header name="server-header" header-name="Server" header-value="JBoss-EAP/7"/>
-                <response-header name="x-powered-by-header" header-name="X-Powered-By" header-value="Undertow/1"/>
-            </filters>
-        </subsystem>
-        <subsystem xmlns="urn:jboss:domain:webservices:2.0">
-            <wsdl-host>${jboss.bind.address:127.0.0.1}</wsdl-host>
-            <endpoint-config name="Standard-Endpoint-Config"/>
-            <endpoint-config name="Recording-Endpoint-Config">
-                <pre-handler-chain name="recording-handlers" protocol-bindings="##SOAP11_HTTP ##SOAP11_HTTP_MTOM ##SOAP12_HTTP ##SOAP12_HTTP_MTOM">
-                    <handler name="RecordingHandler" class="org.jboss.ws.common.invocation.RecordingServerHandler"/>
-                </pre-handler-chain>
-            </endpoint-config>
-            <client-config name="Standard-Client-Config"/>
-        </subsystem>
-        <subsystem xmlns="urn:jboss:domain:weld:3.0"/>
-    </profile>
-    <interfaces>
-        <interface name="management">
-            <inet-address value="${jboss.bind.address.management:127.0.0.1}"/>
-        </interface>
-        <interface name="public">
-            <inet-address value="${jboss.bind.address:127.0.0.1}"/>
-        </interface>
-        <interface name="private">
-            <inet-address value="${jboss.bind.address.private:127.0.0.1}"/>
-        </interface>
-        <interface name="unsecure">
-            <inet-address value="${jboss.bind.address.unsecure:127.0.0.1}"/>
-        </interface>
-    </interfaces>
-    <socket-binding-group name="standard-sockets" default-interface="public" port-offset="${jboss.socket.binding.port-offset:0}">
-        <socket-binding name="management-http" interface="management" port="${jboss.management.http.port:9990}"/>
-        <socket-binding name="management-https" interface="management" port="${jboss.management.https.port:9993}"/>
-        <socket-binding name="ajp" port="${jboss.ajp.port:8009}"/>
-        <socket-binding name="http" port="${jboss.http.port:8080}"/>
-        <socket-binding name="https" port="${jboss.https.port:8443}"/>
-        <socket-binding name="iiop" interface="unsecure" port="3528"/>
-        <socket-binding name="iiop-ssl" interface="unsecure" port="3529"/>
-        <socket-binding name="jgroups-mping" interface="private" port="0" multicast-address="${jboss.default.multicast.address:230.0.0.4}" multicast-port="45700"/>
-        <socket-binding name="jgroups-tcp" interface="private" port="7600"/>
-        <socket-binding name="jgroups-tcp-fd" interface="private" port="57600"/>
-        <socket-binding name="jgroups-udp" interface="private" port="55200" multicast-address="${jboss.default.multicast.address:230.0.0.4}" multicast-port="45688"/>
-        <socket-binding name="jgroups-udp-fd" interface="private" port="54200"/>
-        <socket-binding name="modcluster" port="0" multicast-address="224.0.1.105" multicast-port="23364"/>
-        <socket-binding name="txn-recovery-environment" port="4712"/>
-        <socket-binding name="txn-status-manager" port="4713"/>
-        <outbound-socket-binding name="mail-smtp">
-            <remote-destination host="localhost" port="25"/>
-        </outbound-socket-binding>
-        <outbound-socket-binding name="proxy1" fixed-source-port="false">
-            <remote-destination host="${http.modcluster.proxy1:127.0.0.1}" port="6666"/>
-        </outbound-socket-binding>
-        <outbound-socket-binding name="proxy2" fixed-source-port="false">
-            <remote-destination host="${http.modcluster.proxy2:127.0.0.2}" port="6666"/>
-        </outbound-socket-binding>
-    </socket-binding-group>
-</server>
+
+2026-05-26T13:34:22.4175196Z ##[section]Starting: Definir size como executado
+2026-05-26T13:34:22.4178331Z ==============================================================================
+2026-05-26T13:34:22.4178422Z Task         : Bash
+2026-05-26T13:34:22.4178468Z Description  : Run a Bash script on macOS, Linux, or Windows
+2026-05-26T13:34:22.4178539Z Version      : 3.227.0
+2026-05-26T13:34:22.4178592Z Author       : Microsoft Corporation
+2026-05-26T13:34:22.4178658Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/bash
+2026-05-26T13:34:22.4178771Z ==============================================================================
+2026-05-26T13:34:23.1589732Z Generating script.
+2026-05-26T13:34:23.1593363Z ========================== Starting Command Output ===========================
+2026-05-26T13:34:23.1594675Z [command]/bin/bash /opt/ads-agent/_work/_temp/1fba1bda-9d2c-4013-b571-11dfbe8a2f23.sh
+2026-05-26T13:34:23.1638331Z ++ echo _SICMU-intranet-update
+2026-05-26T13:34:23.1638501Z ++ sed s/_//
+2026-05-26T13:34:23.1648315Z + REPO=SICMU-intranet-update
+2026-05-26T13:34:23.1651685Z ++ tf_var_quant
+2026-05-26T13:34:23.1652349Z /opt/ads-agent/_work/_temp/1fba1bda-9d2c-4013-b571-11dfbe8a2f23.sh: line 4: tf_var_quant: comando não encontrado
+2026-05-26T13:34:23.1655055Z + ansible-playbook /opt/ads-agent/_work/r16364/a/esteira-jboss-vm-v2/site.yml --tags size_executado -e sistema_ambiente=des -e sistema_nome=sicmu-intranet-update -e site=ctc_nprd -e quantidade_vm= -e centralizadora_operacoes=7259 -e centralizadora_desenvolvimento=7390 -e default_working_directory_tfs=/opt/ads-agent/_work/r16364/a -e build_repository_name_tfs=SICMU-intranet-update
+2026-05-26T13:34:25.1417526Z 
+2026-05-26T13:34:25.1418153Z PLAY [local] *******************************************************************
+2026-05-26T13:34:25.1686226Z 
+2026-05-26T13:34:25.1686751Z PLAY [Configurando o DNS] ******************************************************
+2026-05-26T13:34:25.3455715Z 
+2026-05-26T13:34:25.3456293Z PLAY [local] *******************************************************************
+2026-05-26T13:34:25.3485205Z 
+2026-05-26T13:34:25.3485937Z PLAY [Verificando serviços] ****************************************************
+2026-05-26T13:34:25.3564543Z 
+2026-05-26T13:34:25.3565070Z PLAY [Configuração LDAP] *******************************************************
+2026-05-26T13:34:25.3593595Z [WARNING]: Found variable using reserved name: when
+2026-05-26T13:34:25.3600527Z 
+2026-05-26T13:34:25.3600696Z PLAY [jboss] *******************************************************************
+2026-05-26T13:34:25.3681307Z 
+2026-05-26T13:34:25.3681753Z PLAY [Stack Jboss] *************************************************************
+2026-05-26T13:34:25.3910562Z Tuesday 26 May 2026  10:34:25 -0300 (0:00:00.309)       0:00:00.309 *********** 
+2026-05-26T13:34:26.0882455Z 
+2026-05-26T13:34:26.0883445Z TASK [Verifica ser o Jboss já foi instalado] ***********************************
+2026-05-26T13:34:26.0883769Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br]
+2026-05-26T13:34:26.0902522Z 
+2026-05-26T13:34:26.0903090Z PLAY [jboss] *******************************************************************
+2026-05-26T13:34:26.0945202Z 
+2026-05-26T13:34:26.0945677Z PLAY [jboss] *******************************************************************
+2026-05-26T13:34:26.0983237Z 
+2026-05-26T13:34:26.0983723Z PLAY [jboss] *******************************************************************
+2026-05-26T13:34:26.1006067Z 
+2026-05-26T13:34:26.1006315Z PLAY [Copiando deployments adicionais] *****************************************
+2026-05-26T13:34:26.1034375Z 
+2026-05-26T13:34:26.1034956Z PLAY [Copiando modules adicionais] *********************************************
+2026-05-26T13:34:26.1060212Z 
+2026-05-26T13:34:26.1060714Z PLAY [jboss] *******************************************************************
+2026-05-26T13:34:26.1094499Z 
+2026-05-26T13:34:26.1094985Z PLAY [jboss] *******************************************************************
+2026-05-26T13:34:26.1125899Z 
+2026-05-26T13:34:26.1126367Z PLAY [jboss] *******************************************************************
+2026-05-26T13:34:26.1152560Z 
+2026-05-26T13:34:26.1152835Z PLAY [jboss] *******************************************************************
+2026-05-26T13:34:26.1177057Z 
+2026-05-26T13:34:26.1177382Z PLAY [jboss] *******************************************************************
+2026-05-26T13:34:26.1199482Z 
+2026-05-26T13:34:26.1199640Z PLAY [local] *******************************************************************
+2026-05-26T13:34:26.1224533Z [WARNING]: Could not match supplied host pattern, ignoring: instance_restart
+2026-05-26T13:34:26.1226731Z 
+2026-05-26T13:34:26.1227011Z PLAY [instance_restart] ********************************************************
+2026-05-26T13:34:26.1227164Z skipping: no hosts matched
+2026-05-26T13:34:26.1230770Z [WARNING]: Could not match supplied host pattern, ignoring: machine_reboot
+2026-05-26T13:34:26.1232974Z 
+2026-05-26T13:34:26.1233229Z PLAY [machine_reboot] **********************************************************
+2026-05-26T13:34:26.1233397Z skipping: no hosts matched
+2026-05-26T13:34:26.1238895Z 
+2026-05-26T13:34:26.1240197Z PLAY [local] *******************************************************************
+2026-05-26T13:34:26.1263077Z [WARNING]: Could not match supplied host pattern, ignoring: instance_stop
+2026-05-26T13:34:26.1265522Z 
+2026-05-26T13:34:26.1265933Z PLAY [instance_stop] ***********************************************************
+2026-05-26T13:34:26.1266106Z skipping: no hosts matched
+2026-05-26T13:34:26.1268838Z 
+2026-05-26T13:34:26.1269037Z PLAY [machine_reboot] **********************************************************
+2026-05-26T13:34:26.1269187Z skipping: no hosts matched
+2026-05-26T13:34:26.1275005Z 
+2026-05-26T13:34:26.1275209Z PLAY [Configura TSM] ***********************************************************
+2026-05-26T13:34:26.1302688Z 
+2026-05-26T13:34:26.1302922Z PLAY [jboss] *******************************************************************
+2026-05-26T13:34:26.1326366Z 
+2026-05-26T13:34:26.1326855Z PLAY [Configura Control-M] *****************************************************
+2026-05-26T13:34:26.1359914Z 
+2026-05-26T13:34:26.1360177Z PLAY [jboss] *******************************************************************
+2026-05-26T13:34:26.1401258Z 
+2026-05-26T13:34:26.1401562Z PLAY [jboss] *******************************************************************
+2026-05-26T13:34:26.1440078Z 
+2026-05-26T13:34:26.1440421Z PLAY [jboss] *******************************************************************
+2026-05-26T13:34:26.1463871Z 
+2026-05-26T13:34:26.1464170Z PLAY [jboss] *******************************************************************
+2026-05-26T13:34:26.1489713Z 
+2026-05-26T13:34:26.1490161Z PLAY [localhost] ***************************************************************
+2026-05-26T13:34:26.1522467Z Tuesday 26 May 2026  10:34:26 -0300 (0:00:00.761)       0:00:01.070 *********** 
+2026-05-26T13:34:26.1949990Z included: /opt/ads-agent/_work/r16364/a/esteira-jboss-vm-v2/roles/vm/tasks/size/executed.yml for 127.0.0.1
+2026-05-26T13:34:26.1972146Z Tuesday 26 May 2026  10:34:26 -0300 (0:00:00.044)       0:00:01.115 *********** 
+2026-05-26T13:34:26.2400419Z included: /opt/ads-agent/_work/r16364/a/esteira-jboss-vm-v2/roles/vm/tasks/size/approved.yml for 127.0.0.1
+2026-05-26T13:34:26.2434282Z Tuesday 26 May 2026  10:34:26 -0300 (0:00:00.046)       0:00:01.161 *********** 
+2026-05-26T13:34:26.8206618Z 
+2026-05-26T13:34:26.8207151Z TASK [Consultar API] ***********************************************************
+2026-05-26T13:34:26.8207300Z ok: [127.0.0.1]
+2026-05-26T13:34:26.8248486Z Tuesday 26 May 2026  10:34:26 -0300 (0:00:00.581)       0:00:01.743 *********** 
+2026-05-26T13:34:26.8648411Z 
+2026-05-26T13:34:26.8648874Z TASK [Parse JSON] **************************************************************
+2026-05-26T13:34:26.8649074Z ok: [127.0.0.1]
+2026-05-26T13:34:26.8672247Z Tuesday 26 May 2026  10:34:26 -0300 (0:00:00.042)       0:00:01.785 *********** 
+2026-05-26T13:34:26.9066782Z Tuesday 26 May 2026  10:34:26 -0300 (0:00:00.039)       0:00:01.824 *********** 
+2026-05-26T13:34:26.9460797Z 
+2026-05-26T13:34:26.9461397Z PLAY [jboss] *******************************************************************
+2026-05-26T13:34:26.9506998Z Tuesday 26 May 2026  10:34:26 -0300 (0:00:00.044)       0:00:01.869 *********** 
+2026-05-26T13:34:27.8892467Z 
+2026-05-26T13:34:27.8893349Z TASK [Gathering Facts] *********************************************************
+2026-05-26T13:34:27.8893624Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br]
+2026-05-26T13:34:27.9058000Z Tuesday 26 May 2026  10:34:27 -0300 (0:00:00.955)       0:00:02.824 *********** 
+2026-05-26T13:34:32.8223320Z 
+2026-05-26T13:34:32.8224086Z TASK [relogio : Copy chrony.conf] **********************************************
+2026-05-26T13:34:32.8225245Z fatal: [caddeapllx2484.agil.nprd.caixa.gov.br]: FAILED! => {"msg": "Failed to get information on remote file (/etc/chrony.conf): sudo: ldap_sasl_bind_s(): Can't contact LDAP server\n\nPresumimos que você recebeu as instruções de sempre do administrador\nde sistema local. Basicamente, resume-se a estas três coisas:\n\n    #1) Respeite a privacidade dos outros.\n    #2) Pense antes de digitar.\n    #3) Com grandes poderes vêm grandes responsabilidades.\n\nsudo: nenhum tty presente e nenhum programa de askpass especificado\n"}
+2026-05-26T13:34:32.8227985Z 
+2026-05-26T13:34:32.8228684Z PLAY RECAP *********************************************************************
+2026-05-26T13:34:32.8228972Z 127.0.0.1                  : ok=4    changed=0    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+2026-05-26T13:34:32.8229273Z caddeapllx2484.agil.nprd.caixa.gov.br : ok=2    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2026-05-26T13:34:32.8229398Z 
+2026-05-26T13:34:32.8229727Z Tuesday 26 May 2026  10:34:32 -0300 (0:00:04.917)       0:00:07.741 *********** 
+2026-05-26T13:34:32.8229910Z =============================================================================== 
+2026-05-26T13:34:32.8230448Z relogio : Copy chrony.conf ---------------------------------------------- 4.92s
+2026-05-26T13:34:32.8230825Z Gathering Facts --------------------------------------------------------- 0.96s
+2026-05-26T13:34:32.8231189Z Verifica ser o Jboss já foi instalado ----------------------------------- 0.76s
+2026-05-26T13:34:32.8231434Z Consultar API ----------------------------------------------------------- 0.58s
+2026-05-26T13:34:32.8231674Z include_tasks ----------------------------------------------------------- 0.05s
+2026-05-26T13:34:32.8231999Z include_tasks ----------------------------------------------------------- 0.04s
+2026-05-26T13:34:32.8232254Z Aprovar mudança de status servidores no Portal IIF ---------------------- 0.04s
+2026-05-26T13:34:32.8232476Z Parse JSON -------------------------------------------------------------- 0.04s
+2026-05-26T13:34:32.8232699Z Set new size ------------------------------------------------------------ 0.04s
+2026-05-26T13:34:32.8232855Z Playbook run took 0 days, 0 hours, 0 minutes, 7 seconds
+2026-05-26T13:34:32.8741579Z ##[error]Bash exited with code '2'.
+2026-05-26T13:34:32.8766701Z ##[warning]RetryHelper encountered task failure, will retry (attempt #: 1 out of 5) after 1000 ms
+2026-05-26T13:34:33.9616882Z Generating script.
+2026-05-26T13:34:33.9628387Z ========================== Starting Command Output ===========================
+2026-05-26T13:34:33.9635901Z [command]/bin/bash /opt/ads-agent/_work/_temp/3d8734b4-9baa-46d1-b38a-459c32a7aa40.sh
+2026-05-26T13:34:33.9692540Z ++ echo _SICMU-intranet-update
+2026-05-26T13:34:33.9693541Z ++ sed s/_//
+2026-05-26T13:34:33.9704043Z + REPO=SICMU-intranet-update
+2026-05-26T13:34:33.9706180Z ++ tf_var_quant
+2026-05-26T13:34:33.9708980Z /opt/ads-agent/_work/_temp/3d8734b4-9baa-46d1-b38a-459c32a7aa40.sh: line 4: tf_var_quant: comando não encontrado
+2026-05-26T13:34:33.9711595Z + ansible-playbook /opt/ads-agent/_work/r16364/a/esteira-jboss-vm-v2/site.yml --tags size_executado -e sistema_ambiente=des -e sistema_nome=sicmu-intranet-update -e site=ctc_nprd -e quantidade_vm= -e centralizadora_operacoes=7259 -e centralizadora_desenvolvimento=7390 -e default_working_directory_tfs=/opt/ads-agent/_work/r16364/a -e build_repository_name_tfs=SICMU-intranet-update
+2026-05-26T13:34:36.0159108Z 
+2026-05-26T13:34:36.0160085Z PLAY [local] *******************************************************************
+2026-05-26T13:34:36.0439256Z 
+2026-05-26T13:34:36.0439773Z PLAY [Configurando o DNS] ******************************************************
+2026-05-26T13:34:36.2276922Z 
+2026-05-26T13:34:36.2277408Z PLAY [local] *******************************************************************
+2026-05-26T13:34:36.2306596Z 
+2026-05-26T13:34:36.2307156Z PLAY [Verificando serviços] ****************************************************
+2026-05-26T13:34:36.2385721Z 
+2026-05-26T13:34:36.2386202Z PLAY [Configuração LDAP] *******************************************************
+2026-05-26T13:34:36.2415939Z [WARNING]: Found variable using reserved name: when
+2026-05-26T13:34:36.2423315Z 
+2026-05-26T13:34:36.2423714Z PLAY [jboss] *******************************************************************
+2026-05-26T13:34:36.2503209Z 
+2026-05-26T13:34:36.2503620Z PLAY [Stack Jboss] *************************************************************
+2026-05-26T13:34:36.2731449Z Tuesday 26 May 2026  10:34:36 -0300 (0:00:00.320)       0:00:00.320 *********** 
+2026-05-26T13:34:41.4115934Z 
+2026-05-26T13:34:41.4117237Z TASK [Verifica ser o Jboss já foi instalado] ***********************************
+2026-05-26T13:34:41.4118816Z fatal: [caddeapllx2484.agil.nprd.caixa.gov.br]: FAILED! => {"ansible_facts": {"discovered_interpreter_python": "/usr/bin/python"}, "changed": false, "module_stderr": "sudo: ldap_sasl_bind_s(): Can't contact LDAP server\n\nPresumimos que você recebeu as instruções de sempre do administrador\nde sistema local. Basicamente, resume-se a estas três coisas:\n\n    #1) Respeite a privacidade dos outros.\n    #2) Pense antes de digitar.\n    #3) Com grandes poderes vêm grandes responsabilidades.\n\nsudo: nenhum tty presente e nenhum programa de askpass especificado\n", "module_stdout": "", "msg": "MODULE FAILURE\nSee stdout/stderr for the exact error", "rc": 1}
+2026-05-26T13:34:41.4122189Z 
+2026-05-26T13:34:41.4122645Z PLAY RECAP *********************************************************************
+2026-05-26T13:34:41.4122909Z caddeapllx2484.agil.nprd.caixa.gov.br : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2026-05-26T13:34:41.4123067Z 
+2026-05-26T13:34:41.4123511Z Tuesday 26 May 2026  10:34:41 -0300 (0:00:05.139)       0:00:05.459 *********** 
+2026-05-26T13:34:41.4123800Z =============================================================================== 
+2026-05-26T13:34:41.4124144Z Verifica ser o Jboss já foi instalado ----------------------------------- 5.14s
+2026-05-26T13:34:41.4124403Z Playbook run took 0 days, 0 hours, 0 minutes, 5 seconds
+2026-05-26T13:34:41.4626729Z ##[error]Bash exited with code '2'.
+2026-05-26T13:34:41.4647284Z ##[warning]RetryHelper encountered task failure, will retry (attempt #: 2 out of 5) after 4000 ms
+2026-05-26T13:34:45.5458311Z Generating script.
+2026-05-26T13:34:45.5468245Z ========================== Starting Command Output ===========================
+2026-05-26T13:34:45.5475226Z [command]/bin/bash /opt/ads-agent/_work/_temp/af259c2e-dab5-4b61-8d60-3f280b8d9874.sh
+2026-05-26T13:34:45.5530721Z ++ echo _SICMU-intranet-update
+2026-05-26T13:34:45.5532565Z ++ sed s/_//
+2026-05-26T13:34:45.5542433Z + REPO=SICMU-intranet-update
+2026-05-26T13:34:45.5545916Z ++ tf_var_quant
+2026-05-26T13:34:45.5549311Z /opt/ads-agent/_work/_temp/af259c2e-dab5-4b61-8d60-3f280b8d9874.sh: line 4: tf_var_quant: comando não encontrado
+2026-05-26T13:34:45.5549907Z + ansible-playbook /opt/ads-agent/_work/r16364/a/esteira-jboss-vm-v2/site.yml --tags size_executado -e sistema_ambiente=des -e sistema_nome=sicmu-intranet-update -e site=ctc_nprd -e quantidade_vm= -e centralizadora_operacoes=7259 -e centralizadora_desenvolvimento=7390 -e default_working_directory_tfs=/opt/ads-agent/_work/r16364/a -e build_repository_name_tfs=SICMU-intranet-update
+2026-05-26T13:34:47.5153726Z 
+2026-05-26T13:34:47.5154245Z PLAY [local] *******************************************************************
+2026-05-26T13:34:47.5437341Z 
+2026-05-26T13:34:47.5437911Z PLAY [Configurando o DNS] ******************************************************
+2026-05-26T13:34:47.7214234Z 
+2026-05-26T13:34:47.7214803Z PLAY [local] *******************************************************************
+2026-05-26T13:34:47.7244675Z 
+2026-05-26T13:34:47.7245271Z PLAY [Verificando serviços] ****************************************************
+2026-05-26T13:34:47.7320865Z 
+2026-05-26T13:34:47.7321382Z PLAY [Configuração LDAP] *******************************************************
+2026-05-26T13:34:47.7348860Z [WARNING]: Found variable using reserved name: when
+2026-05-26T13:34:47.7356957Z 
+2026-05-26T13:34:47.7357381Z PLAY [jboss] *******************************************************************
+2026-05-26T13:34:47.7436663Z 
+2026-05-26T13:34:47.7437000Z PLAY [Stack Jboss] *************************************************************
+2026-05-26T13:34:47.7672144Z Tuesday 26 May 2026  10:34:47 -0300 (0:00:00.312)       0:00:00.312 *********** 
+2026-05-26T13:34:48.2442732Z 
+2026-05-26T13:34:48.2443622Z TASK [Verifica ser o Jboss já foi instalado] ***********************************
+2026-05-26T13:34:48.2443798Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br]
+2026-05-26T13:34:48.2465738Z 
+2026-05-26T13:34:48.2466372Z PLAY [jboss] *******************************************************************
+2026-05-26T13:34:48.2506729Z 
+2026-05-26T13:34:48.2507082Z PLAY [jboss] *******************************************************************
+2026-05-26T13:34:48.2545311Z 
+2026-05-26T13:34:48.2545700Z PLAY [jboss] *******************************************************************
+2026-05-26T13:34:48.2569635Z 
+2026-05-26T13:34:48.2570401Z PLAY [Copiando deployments adicionais] *****************************************
+2026-05-26T13:34:48.2596495Z 
+2026-05-26T13:34:48.2596906Z PLAY [Copiando modules adicionais] *********************************************
+2026-05-26T13:34:48.2624032Z 
+2026-05-26T13:34:48.2624347Z PLAY [jboss] *******************************************************************
+2026-05-26T13:34:48.2656455Z 
+2026-05-26T13:34:48.2657012Z PLAY [jboss] *******************************************************************
+2026-05-26T13:34:48.2683164Z 
+2026-05-26T13:34:48.2683479Z PLAY [jboss] *******************************************************************
+2026-05-26T13:34:48.2710481Z 
+2026-05-26T13:34:48.2710951Z PLAY [jboss] *******************************************************************
+2026-05-26T13:34:48.2737734Z 
+2026-05-26T13:34:48.2738035Z PLAY [jboss] *******************************************************************
+2026-05-26T13:34:48.2760102Z 
+2026-05-26T13:34:48.2760337Z PLAY [local] *******************************************************************
+2026-05-26T13:34:48.2786342Z [WARNING]: Could not match supplied host pattern, ignoring: instance_restart
+2026-05-26T13:34:48.2789313Z 
+2026-05-26T13:34:48.2789501Z PLAY [instance_restart] ********************************************************
+2026-05-26T13:34:48.2789654Z skipping: no hosts matched
+2026-05-26T13:34:48.2793264Z [WARNING]: Could not match supplied host pattern, ignoring: machine_reboot
+2026-05-26T13:34:48.2794650Z 
+2026-05-26T13:34:48.2794905Z PLAY [machine_reboot] **********************************************************
+2026-05-26T13:34:48.2795063Z skipping: no hosts matched
+2026-05-26T13:34:48.2800905Z 
+2026-05-26T13:34:48.2801267Z PLAY [local] *******************************************************************
+2026-05-26T13:34:48.2826038Z [WARNING]: Could not match supplied host pattern, ignoring: instance_stop
+2026-05-26T13:34:48.2828719Z 
+2026-05-26T13:34:48.2828879Z PLAY [instance_stop] ***********************************************************
+2026-05-26T13:34:48.2829187Z skipping: no hosts matched
+2026-05-26T13:34:48.2832003Z 
+2026-05-26T13:34:48.2832549Z PLAY [machine_reboot] **********************************************************
+2026-05-26T13:34:48.2832712Z skipping: no hosts matched
+2026-05-26T13:34:48.2838680Z 
+2026-05-26T13:34:48.2838854Z PLAY [Configura TSM] ***********************************************************
+2026-05-26T13:34:48.2865829Z 
+2026-05-26T13:34:48.2866179Z PLAY [jboss] *******************************************************************
+2026-05-26T13:34:48.2891002Z 
+2026-05-26T13:34:48.2891594Z PLAY [Configura Control-M] *****************************************************
+2026-05-26T13:34:48.2925188Z 
+2026-05-26T13:34:48.2926019Z PLAY [jboss] *******************************************************************
+2026-05-26T13:34:48.2974407Z 
+2026-05-26T13:34:48.2974648Z PLAY [jboss] *******************************************************************
+2026-05-26T13:34:48.3014620Z 
+2026-05-26T13:34:48.3014868Z PLAY [jboss] *******************************************************************
+2026-05-26T13:34:48.3039485Z 
+2026-05-26T13:34:48.3039953Z PLAY [jboss] *******************************************************************
+2026-05-26T13:34:48.3066300Z 
+2026-05-26T13:34:48.3066745Z PLAY [localhost] ***************************************************************
+2026-05-26T13:34:48.3098885Z Tuesday 26 May 2026  10:34:48 -0300 (0:00:00.542)       0:00:00.855 *********** 
+2026-05-26T13:34:48.3503149Z included: /opt/ads-agent/_work/r16364/a/esteira-jboss-vm-v2/roles/vm/tasks/size/executed.yml for 127.0.0.1
+2026-05-26T13:34:48.3529240Z Tuesday 26 May 2026  10:34:48 -0300 (0:00:00.042)       0:00:00.898 *********** 
+2026-05-26T13:34:48.3924462Z included: /opt/ads-agent/_work/r16364/a/esteira-jboss-vm-v2/roles/vm/tasks/size/approved.yml for 127.0.0.1
+2026-05-26T13:34:48.3955405Z Tuesday 26 May 2026  10:34:48 -0300 (0:00:00.042)       0:00:00.941 *********** 
+2026-05-26T13:34:48.9582338Z 
+2026-05-26T13:34:48.9583004Z TASK [Consultar API] ***********************************************************
+2026-05-26T13:34:48.9583155Z ok: [127.0.0.1]
+2026-05-26T13:34:48.9609373Z Tuesday 26 May 2026  10:34:48 -0300 (0:00:00.565)       0:00:01.506 *********** 
+2026-05-26T13:34:49.0001965Z 
+2026-05-26T13:34:49.0003710Z TASK [Parse JSON] **************************************************************
+2026-05-26T13:34:49.0004761Z ok: [127.0.0.1]
+2026-05-26T13:34:49.0022168Z Tuesday 26 May 2026  10:34:49 -0300 (0:00:00.041)       0:00:01.547 *********** 
+2026-05-26T13:34:49.0424943Z Tuesday 26 May 2026  10:34:49 -0300 (0:00:00.040)       0:00:01.588 *********** 
+2026-05-26T13:34:49.0839315Z 
+2026-05-26T13:34:49.0840165Z PLAY [jboss] *******************************************************************
+2026-05-26T13:34:49.0888096Z Tuesday 26 May 2026  10:34:49 -0300 (0:00:00.046)       0:00:01.634 *********** 
+2026-05-26T13:34:50.0331078Z 
+2026-05-26T13:34:50.0331632Z TASK [Gathering Facts] *********************************************************
+2026-05-26T13:34:50.0331803Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br]
+2026-05-26T13:34:50.0499843Z Tuesday 26 May 2026  10:34:50 -0300 (0:00:00.961)       0:00:02.595 *********** 
+2026-05-26T13:34:50.7544596Z 
+2026-05-26T13:34:50.7545292Z TASK [relogio : Copy chrony.conf] **********************************************
+2026-05-26T13:34:50.7545720Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br]
+2026-05-26T13:34:50.7662415Z Tuesday 26 May 2026  10:34:50 -0300 (0:00:00.716)       0:00:03.311 *********** 
+2026-05-26T13:34:51.2129581Z 
+2026-05-26T13:34:51.2130362Z TASK [relogio : Refresh chronyd] ***********************************************
+2026-05-26T13:34:51.2130970Z changed: [caddeapllx2484.agil.nprd.caixa.gov.br]
+2026-05-26T13:34:51.2261500Z Tuesday 26 May 2026  10:34:51 -0300 (0:00:00.459)       0:00:03.771 *********** 
+2026-05-26T13:34:52.4660783Z 
+2026-05-26T13:34:52.4661512Z TASK [tunning : Install tuned] *************************************************
+2026-05-26T13:34:52.4661878Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br]
+2026-05-26T13:34:52.4791152Z Tuesday 26 May 2026  10:34:52 -0300 (0:00:01.252)       0:00:05.024 *********** 
+2026-05-26T13:34:52.7186356Z 
+2026-05-26T13:34:52.7187114Z TASK [tunning : Remover o arquivo (/etc/sysctl.d/30-nproc-nofile.conf) se ele existir] ***
+2026-05-26T13:34:52.7187283Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br]
+2026-05-26T13:34:52.7277499Z Tuesday 26 May 2026  10:34:52 -0300 (0:00:00.248)       0:00:05.273 *********** 
+2026-05-26T13:34:52.9897140Z 
+2026-05-26T13:34:52.9898053Z TASK [tunning : Remover o arquivo (/etc/security/limits.d/20-nproc.conf) se ele existir] ***
+2026-05-26T13:34:52.9898435Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br]
+2026-05-26T13:34:53.0018417Z Tuesday 26 May 2026  10:34:53 -0300 (0:00:00.273)       0:00:05.547 *********** 
+2026-05-26T13:34:53.5509424Z 
+2026-05-26T13:34:53.5510121Z TASK [tunning : Copy 90-rhel-sysctl.conf] **************************************
+2026-05-26T13:34:53.5510275Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br]
+2026-05-26T13:34:53.5627237Z Tuesday 26 May 2026  10:34:53 -0300 (0:00:00.560)       0:00:06.108 *********** 
+2026-05-26T13:34:54.1393330Z 
+2026-05-26T13:34:54.1394438Z TASK [tunning : Copy 30-nproc-nofile.conf] *************************************
+2026-05-26T13:34:54.1394856Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br]
+2026-05-26T13:34:54.1584598Z Tuesday 26 May 2026  10:34:54 -0300 (0:00:00.595)       0:00:06.703 *********** 
+2026-05-26T13:34:54.5472042Z 
+2026-05-26T13:34:54.5472757Z TASK [tunning : Add tcp_keepalive_time to sysctl.conf] *************************
+2026-05-26T13:34:54.5473095Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br]
+2026-05-26T13:34:54.5593274Z Tuesday 26 May 2026  10:34:54 -0300 (0:00:00.400)       0:00:07.104 *********** 
+2026-05-26T13:34:54.8108867Z 
+2026-05-26T13:34:54.8109875Z TASK [tunning : Refresh sysctl.conf] *******************************************
+2026-05-26T13:34:54.8110053Z changed: [caddeapllx2484.agil.nprd.caixa.gov.br]
+2026-05-26T13:34:54.8222051Z Tuesday 26 May 2026  10:34:54 -0300 (0:00:00.262)       0:00:07.367 *********** 
+2026-05-26T13:34:57.0585367Z 
+2026-05-26T13:34:57.0586046Z TASK [tunning : Change tuned profile] ******************************************
+2026-05-26T13:34:57.0586268Z changed: [caddeapllx2484.agil.nprd.caixa.gov.br]
+2026-05-26T13:34:57.0605276Z 
+2026-05-26T13:34:57.0605528Z PLAY [jboss] *******************************************************************
+2026-05-26T13:34:57.0647899Z 
+2026-05-26T13:34:57.0648631Z PLAY [jboss] *******************************************************************
+2026-05-26T13:34:57.0669499Z 
+2026-05-26T13:34:57.0670144Z PLAY RECAP *********************************************************************
+2026-05-26T13:34:57.0670573Z 127.0.0.1                  : ok=4    changed=0    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+2026-05-26T13:34:57.0671068Z caddeapllx2484.agil.nprd.caixa.gov.br : ok=12   changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2026-05-26T13:34:57.0671381Z 
+2026-05-26T13:34:57.0672141Z Tuesday 26 May 2026  10:34:57 -0300 (0:00:02.244)       0:00:09.612 *********** 
+2026-05-26T13:34:57.0672366Z =============================================================================== 
+2026-05-26T13:34:57.0674739Z tunning : Change tuned profile ------------------------------------------ 2.24s
+2026-05-26T13:34:57.0675299Z tunning : Install tuned ------------------------------------------------- 1.25s
+2026-05-26T13:34:57.0676697Z Gathering Facts --------------------------------------------------------- 0.96s
+2026-05-26T13:34:57.0676987Z relogio : Copy chrony.conf ---------------------------------------------- 0.72s
+2026-05-26T13:34:57.0677223Z tunning : Copy 30-nproc-nofile.conf ------------------------------------- 0.60s
+2026-05-26T13:34:57.0677465Z Consultar API ----------------------------------------------------------- 0.57s
+2026-05-26T13:34:57.0677684Z tunning : Copy 90-rhel-sysctl.conf -------------------------------------- 0.56s
+2026-05-26T13:34:57.0677957Z Verifica ser o Jboss já foi instalado ----------------------------------- 0.54s
+2026-05-26T13:34:57.0678182Z relogio : Refresh chronyd ----------------------------------------------- 0.46s
+2026-05-26T13:34:57.0678633Z tunning : Add tcp_keepalive_time to sysctl.conf ------------------------- 0.40s
+2026-05-26T13:34:57.0678877Z tunning : Remover o arquivo (/etc/security/limits.d/20-nproc.conf) se ele existir --- 0.27s
+2026-05-26T13:34:57.0679141Z tunning : Refresh sysctl.conf ------------------------------------------- 0.26s
+2026-05-26T13:34:57.0679365Z tunning : Remover o arquivo (/etc/sysctl.d/30-nproc-nofile.conf) se ele existir --- 0.25s
+2026-05-26T13:34:57.0679604Z Aprovar mudança de status servidores no Portal IIF ---------------------- 0.05s
+2026-05-26T13:34:57.0679853Z include_tasks ----------------------------------------------------------- 0.04s
+2026-05-26T13:34:57.0680073Z include_tasks ----------------------------------------------------------- 0.04s
+2026-05-26T13:34:57.0680293Z Parse JSON -------------------------------------------------------------- 0.04s
+2026-05-26T13:34:57.0680514Z Set new size ------------------------------------------------------------ 0.04s
+2026-05-26T13:34:57.0680672Z Playbook run took 0 days, 0 hours, 0 minutes, 9 seconds
+2026-05-26T13:34:57.1254886Z ##[section]Finishing: Definir size como executado
+
+
+
+2026-05-26T13:35:19.9254012Z ##[section]Starting: Permissionamento LDAP
+2026-05-26T13:35:19.9257035Z ==============================================================================
+2026-05-26T13:35:19.9257128Z Task         : Bash
+2026-05-26T13:35:19.9257173Z Description  : Run a Bash script on macOS, Linux, or Windows
+2026-05-26T13:35:19.9257252Z Version      : 3.227.0
+2026-05-26T13:35:19.9257295Z Author       : Microsoft Corporation
+2026-05-26T13:35:19.9257345Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/bash
+2026-05-26T13:35:19.9257435Z ==============================================================================
+2026-05-26T13:35:20.5419677Z Generating script.
+2026-05-26T13:35:20.5433451Z ========================== Starting Command Output ===========================
+2026-05-26T13:35:20.5442529Z [command]/bin/bash /opt/ads-agent/_work/_temp/422e455d-76ca-4bc5-a017-7f1dc70a9c09.sh
+2026-05-26T13:35:20.5528561Z /opt/ads-agent/_work/_temp/422e455d-76ca-4bc5-a017-7f1dc70a9c09.sh: line 2: quantidade_vm: comando não encontrado
+2026-05-26T13:35:22.5764825Z 
+2026-05-26T13:35:22.5765328Z PLAY [local] *******************************************************************
+2026-05-26T13:35:22.6032502Z 
+2026-05-26T13:35:22.6032968Z PLAY [Configurando o DNS] ******************************************************
+2026-05-26T13:35:22.7932204Z 
+2026-05-26T13:35:22.7933009Z PLAY [local] *******************************************************************
+2026-05-26T13:35:22.7966878Z 
+2026-05-26T13:35:22.7967442Z PLAY [Verificando serviços] ****************************************************
+2026-05-26T13:35:22.8042170Z 
+2026-05-26T13:35:22.8042990Z PLAY [Configuração LDAP] *******************************************************
+2026-05-26T13:35:22.8273975Z Tuesday 26 May 2026  10:35:22 -0300 (0:00:00.312)       0:00:00.312 *********** 
+2026-05-26T13:35:27.8481422Z 
+2026-05-26T13:35:27.8482283Z TASK [Gathering Facts] *********************************************************
+2026-05-26T13:35:27.8483883Z fatal: [caddeapllx2484.agil.nprd.caixa.gov.br]: FAILED! => {"ansible_facts": {}, "changed": false, "failed_modules": {"setup": {"ansible_facts": {"discovered_interpreter_python": "/usr/bin/python"}, "failed": true, "module_stderr": "sudo: ldap_sasl_bind_s(): Can't contact LDAP server\n\nPresumimos que você recebeu as instruções de sempre do administrador\nde sistema local. Basicamente, resume-se a estas três coisas:\n\n    #1) Respeite a privacidade dos outros.\n    #2) Pense antes de digitar.\n    #3) Com grandes poderes vêm grandes responsabilidades.\n\nsudo: nenhum tty presente e nenhum programa de askpass especificado\n", "module_stdout": "", "msg": "MODULE FAILURE\nSee stdout/stderr for the exact error", "rc": 1}}, "msg": "The following modules failed to execute: setup\n"}
+2026-05-26T13:35:27.8487976Z 
+2026-05-26T13:35:27.8488212Z PLAY RECAP *********************************************************************
+2026-05-26T13:35:27.8488416Z caddeapllx2484.agil.nprd.caixa.gov.br : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2026-05-26T13:35:27.8488518Z 
+2026-05-26T13:35:27.8488796Z Tuesday 26 May 2026  10:35:27 -0300 (0:00:05.021)       0:00:05.334 *********** 
+2026-05-26T13:35:27.8488975Z =============================================================================== 
+2026-05-26T13:35:27.8489207Z Gathering Facts --------------------------------------------------------- 5.02s
+2026-05-26T13:35:27.8489360Z Playbook run took 0 days, 0 hours, 0 minutes, 5 seconds
+2026-05-26T13:35:27.8956307Z ##[error]Bash exited with code '2'.
+2026-05-26T13:35:27.8976776Z ##[warning]RetryHelper encountered task failure, will retry (attempt #: 1 out of 5) after 1000 ms
+2026-05-26T13:35:28.9835287Z Generating script.
+2026-05-26T13:35:28.9845638Z ========================== Starting Command Output ===========================
+2026-05-26T13:35:28.9853006Z [command]/bin/bash /opt/ads-agent/_work/_temp/9d600dcc-e500-4c71-87c5-f12bb3b2eee1.sh
+2026-05-26T13:35:28.9929756Z /opt/ads-agent/_work/_temp/9d600dcc-e500-4c71-87c5-f12bb3b2eee1.sh: line 2: quantidade_vm: comando não encontrado
+2026-05-26T13:35:31.0970219Z 
+2026-05-26T13:35:31.0971095Z PLAY [local] *******************************************************************
+2026-05-26T13:35:31.1239449Z 
+2026-05-26T13:35:31.1240467Z PLAY [Configurando o DNS] ******************************************************
+2026-05-26T13:35:31.3066800Z 
+2026-05-26T13:35:31.3067779Z PLAY [local] *******************************************************************
+2026-05-26T13:35:31.3097085Z 
+2026-05-26T13:35:31.3097966Z PLAY [Verificando serviços] ****************************************************
+2026-05-26T13:35:31.3180510Z 
+2026-05-26T13:35:31.3181042Z PLAY [Configuração LDAP] *******************************************************
+2026-05-26T13:35:31.3413738Z Tuesday 26 May 2026  10:35:31 -0300 (0:00:00.310)       0:00:00.310 *********** 
+2026-05-26T13:35:32.3536767Z 
+2026-05-26T13:35:32.3537824Z TASK [Gathering Facts] *********************************************************
+2026-05-26T13:35:32.3538185Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br]
+2026-05-26T13:35:32.3707945Z Tuesday 26 May 2026  10:35:32 -0300 (0:00:01.029)       0:00:01.340 *********** 
+2026-05-26T13:35:32.4222357Z 
+2026-05-26T13:35:32.4223234Z TASK [Configurando os grupos default] ******************************************
+2026-05-26T13:35:32.4223552Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br]
+2026-05-26T13:35:32.4349856Z Tuesday 26 May 2026  10:35:32 -0300 (0:00:00.064)       0:00:01.404 *********** 
+2026-05-26T13:35:32.4954782Z 
+2026-05-26T13:35:32.4955787Z TASK [Verifica se o nome da centralizadora de desenvolvimento esta correto] ****
+2026-05-26T13:35:32.4956115Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br]
+2026-05-26T13:35:32.5069201Z Tuesday 26 May 2026  10:35:32 -0300 (0:00:00.071)       0:00:01.476 *********** 
+2026-05-26T13:35:32.5826379Z 
+2026-05-26T13:35:32.5826942Z TASK [Configurando nome dos perfis] ********************************************
+2026-05-26T13:35:32.5827104Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br]
+2026-05-26T13:35:32.5941424Z Tuesday 26 May 2026  10:35:32 -0300 (0:00:00.087)       0:00:01.563 *********** 
+2026-05-26T13:35:32.6675860Z 
+2026-05-26T13:35:32.6676837Z TASK [Verifica se o nome da centralizadora de operações esta correto] **********
+2026-05-26T13:35:32.6677173Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br]
+2026-05-26T13:35:32.6787621Z Tuesday 26 May 2026  10:35:32 -0300 (0:00:00.084)       0:00:01.648 *********** 
+2026-05-26T13:35:32.7450789Z 
+2026-05-26T13:35:32.7451711Z TASK [Configurando nome dos perfis] ********************************************
+2026-05-26T13:35:32.7452215Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br]
+2026-05-26T13:35:32.7576260Z Tuesday 26 May 2026  10:35:32 -0300 (0:00:00.078)       0:00:01.727 *********** 
+2026-05-26T13:35:32.8150997Z 
+2026-05-26T13:35:32.8152147Z TASK [debug] *******************************************************************
+2026-05-26T13:35:32.8152404Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br] => {
+2026-05-26T13:35:32.8152863Z     "msg": "ldap_perfis_esteira: [u'SGA', u'SPA', u'SPB', u'SEG', u'PRD', u'SPE', u'CRT', u'EVT', u'PBR', u'DBR', u'HBR', u'HRJ', u'HSP', u'PRJ', u'PSP', u'DRJ', u'DSP'] | ldap_perfis_list: [u'DBR']"
+2026-05-26T13:35:32.8153069Z }
+2026-05-26T13:35:32.8275394Z Tuesday 26 May 2026  10:35:32 -0300 (0:00:00.069)       0:00:01.796 *********** 
+2026-05-26T13:35:32.9242715Z Tuesday 26 May 2026  10:35:32 -0300 (0:00:00.096)       0:00:01.893 *********** 
+2026-05-26T13:35:34.2718344Z 
+2026-05-26T13:35:34.2719056Z TASK [Instalacao client openldap] **********************************************
+2026-05-26T13:35:34.2719892Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br] => (item=openldap)
+2026-05-26T13:35:35.2447634Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br] => (item=openldap-clients)
+2026-05-26T13:35:36.2709873Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br] => (item=nscd)
+2026-05-26T13:35:37.2479956Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br] => (item=oddjob-mkhomedir)
+2026-05-26T13:35:38.2707207Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br] => (item=sudo)
+2026-05-26T13:35:38.2868662Z Tuesday 26 May 2026  10:35:38 -0300 (0:00:05.361)       0:00:07.255 *********** 
+2026-05-26T13:35:39.3776781Z 
+2026-05-26T13:35:39.3777581Z TASK [Instalacao client openldap Rhel 7] ***************************************
+2026-05-26T13:35:39.3777977Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br] => (item=nss-pam-ldapd)
+2026-05-26T13:35:39.3901044Z Tuesday 26 May 2026  10:35:39 -0300 (0:00:01.104)       0:00:08.359 *********** 
+2026-05-26T13:35:39.8097642Z 
+2026-05-26T13:35:39.8098180Z TASK [ldap : Criando o link simbolico] *****************************************
+2026-05-26T13:35:39.8098483Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br]
+2026-05-26T13:35:39.8226108Z Tuesday 26 May 2026  10:35:39 -0300 (0:00:00.432)       0:00:08.792 *********** 
+2026-05-26T13:35:40.5242998Z 
+2026-05-26T13:35:40.5243846Z TASK [ldap : Copiando arquivo de certificado] **********************************
+2026-05-26T13:35:40.5244664Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br]
+2026-05-26T13:35:40.5412204Z Tuesday 26 May 2026  10:35:40 -0300 (0:00:00.718)       0:00:09.510 *********** 
+2026-05-26T13:35:41.0999671Z 
+2026-05-26T13:35:41.1000728Z TASK [ldap : Cria arquivo nscld.conf] ******************************************
+2026-05-26T13:35:41.1000939Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br]
+2026-05-26T13:35:41.1128690Z Tuesday 26 May 2026  10:35:41 -0300 (0:00:00.571)       0:00:10.082 *********** 
+2026-05-26T13:35:41.6748453Z 
+2026-05-26T13:35:41.6749320Z TASK [Cria arquivo sudo-ldap.conf] *********************************************
+2026-05-26T13:35:41.6749660Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br]
+2026-05-26T13:35:41.6879010Z Tuesday 26 May 2026  10:35:41 -0300 (0:00:00.575)       0:00:10.657 *********** 
+2026-05-26T13:35:42.2347371Z 
+2026-05-26T13:35:42.2348097Z TASK [Cria arquivo ldap.conf] **************************************************
+2026-05-26T13:35:42.2348401Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br]
+2026-05-26T13:35:42.2479199Z Tuesday 26 May 2026  10:35:42 -0300 (0:00:00.559)       0:00:11.217 *********** 
+2026-05-26T13:35:42.8158541Z 
+2026-05-26T13:35:42.8159065Z TASK [ldap : Cria arquivo ssh_config] ******************************************
+2026-05-26T13:35:42.8159229Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br]
+2026-05-26T13:35:42.8270643Z Tuesday 26 May 2026  10:35:42 -0300 (0:00:00.579)       0:00:11.796 *********** 
+2026-05-26T13:35:43.3984300Z 
+2026-05-26T13:35:43.3985021Z TASK [ldap : Copiando arquivos de configuração pam] ****************************
+2026-05-26T13:35:43.3985683Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br] => (item={u'dest': u'/etc/pam.d/fingerprint-auth-ac', u'src': u'fingerprint-auth-ac'})
+2026-05-26T13:35:43.8930318Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br] => (item={u'dest': u'/etc/pam.d/password-auth-ac', u'src': u'password-auth-ac'})
+2026-05-26T13:35:44.4157259Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br] => (item={u'dest': u'/etc/pam.d/smartcard-auth-ac', u'src': u'smartcard-auth-ac'})
+2026-05-26T13:35:44.9179635Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br] => (item={u'dest': u'/etc/pam.d/system-auth-ac', u'src': u'system-auth-ac'})
+2026-05-26T13:35:44.9317251Z Tuesday 26 May 2026  10:35:44 -0300 (0:00:02.104)       0:00:13.901 *********** 
+2026-05-26T13:35:45.2348985Z 
+2026-05-26T13:35:45.2349783Z TASK [ldap : Criando o link simbolico] *****************************************
+2026-05-26T13:35:45.2350420Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br] => (item={u'dest': u'/etc/pam.d/fingerprint-auth', u'src': u'/etc/pam.d/fingerprint-auth-ac'})
+2026-05-26T13:35:45.4614404Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br] => (item={u'dest': u'/etc/pam.d/password-auth', u'src': u'/etc/pam.d/password-auth-ac'})
+2026-05-26T13:35:45.6834067Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br] => (item={u'dest': u'/etc/pam.d/smartcard-auth', u'src': u'/etc/pam.d/smartcard-auth-ac'})
+2026-05-26T13:35:45.9064789Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br] => (item={u'dest': u'/etc/pam.d/system-auth', u'src': u'/etc/pam.d/system-auth-ac'})
+2026-05-26T13:35:45.9223234Z Tuesday 26 May 2026  10:35:45 -0300 (0:00:00.990)       0:00:14.891 *********** 
+2026-05-26T13:35:46.4868052Z 
+2026-05-26T13:35:46.4868870Z TASK [ldap : Copiando arquivo nsswitch] ****************************************
+2026-05-26T13:35:46.4869462Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br]
+2026-05-26T13:35:46.4893284Z [WARNING]: Found variable using reserved name: when
+2026-05-26T13:35:46.4899316Z 
+2026-05-26T13:35:46.4899725Z PLAY [jboss] *******************************************************************
+2026-05-26T13:35:46.4988661Z 
+2026-05-26T13:35:46.4989363Z PLAY [Stack Jboss] *************************************************************
+2026-05-26T13:35:46.5018688Z 
+2026-05-26T13:35:46.5019135Z PLAY [jboss] *******************************************************************
+2026-05-26T13:35:46.5057802Z 
+2026-05-26T13:35:46.5058329Z PLAY [jboss] *******************************************************************
+2026-05-26T13:35:46.5095343Z 
+2026-05-26T13:35:46.5095703Z PLAY [jboss] *******************************************************************
+2026-05-26T13:35:46.5117614Z 
+2026-05-26T13:35:46.5118118Z PLAY [Copiando deployments adicionais] *****************************************
+2026-05-26T13:35:46.5143446Z 
+2026-05-26T13:35:46.5143738Z PLAY [Copiando modules adicionais] *********************************************
+2026-05-26T13:35:46.5167081Z 
+2026-05-26T13:35:46.5167264Z PLAY [jboss] *******************************************************************
+2026-05-26T13:35:46.5203351Z 
+2026-05-26T13:35:46.5203628Z PLAY [jboss] *******************************************************************
+2026-05-26T13:35:46.5228386Z 
+2026-05-26T13:35:46.5228677Z PLAY [jboss] *******************************************************************
+2026-05-26T13:35:46.5259719Z 
+2026-05-26T13:35:46.5260622Z PLAY [jboss] *******************************************************************
+2026-05-26T13:35:46.5282316Z 
+2026-05-26T13:35:46.5282586Z PLAY [jboss] *******************************************************************
+2026-05-26T13:35:46.5309659Z 
+2026-05-26T13:35:46.5310003Z PLAY [local] *******************************************************************
+2026-05-26T13:35:46.5333419Z [WARNING]: Could not match supplied host pattern, ignoring: instance_restart
+2026-05-26T13:35:46.5335993Z 
+2026-05-26T13:35:46.5336401Z PLAY [instance_restart] ********************************************************
+2026-05-26T13:35:46.5336578Z skipping: no hosts matched
+2026-05-26T13:35:46.5338896Z [WARNING]: Could not match supplied host pattern, ignoring: machine_reboot
+2026-05-26T13:35:46.5341360Z 
+2026-05-26T13:35:46.5341512Z PLAY [machine_reboot] **********************************************************
+2026-05-26T13:35:46.5341766Z skipping: no hosts matched
+2026-05-26T13:35:46.5347655Z 
+2026-05-26T13:35:46.5347826Z PLAY [local] *******************************************************************
+2026-05-26T13:35:46.5372474Z [WARNING]: Could not match supplied host pattern, ignoring: instance_stop
+2026-05-26T13:35:46.5375002Z 
+2026-05-26T13:35:46.5375257Z PLAY [instance_stop] ***********************************************************
+2026-05-26T13:35:46.5375402Z skipping: no hosts matched
+2026-05-26T13:35:46.5378372Z 
+2026-05-26T13:35:46.5378596Z PLAY [machine_reboot] **********************************************************
+2026-05-26T13:35:46.5378742Z skipping: no hosts matched
+2026-05-26T13:35:46.5384873Z 
+2026-05-26T13:35:46.5385055Z PLAY [Configura TSM] ***********************************************************
+2026-05-26T13:35:46.5411981Z 
+2026-05-26T13:35:46.5412168Z PLAY [jboss] *******************************************************************
+2026-05-26T13:35:46.5436344Z 
+2026-05-26T13:35:46.5436733Z PLAY [Configura Control-M] *****************************************************
+2026-05-26T13:35:46.5470027Z 
+2026-05-26T13:35:46.5470497Z PLAY [jboss] *******************************************************************
+2026-05-26T13:35:46.5515849Z 
+2026-05-26T13:35:46.5516250Z PLAY [jboss] *******************************************************************
+2026-05-26T13:35:46.5553247Z 
+2026-05-26T13:35:46.5553543Z PLAY [jboss] *******************************************************************
+2026-05-26T13:35:46.5577210Z 
+2026-05-26T13:35:46.5577450Z PLAY [jboss] *******************************************************************
+2026-05-26T13:35:46.5601103Z 
+2026-05-26T13:35:46.5601314Z PLAY [localhost] ***************************************************************
+2026-05-26T13:35:46.5627018Z 
+2026-05-26T13:35:46.5627543Z PLAY [jboss] *******************************************************************
+2026-05-26T13:35:46.5666450Z 
+2026-05-26T13:35:46.5666673Z PLAY [jboss] *******************************************************************
+2026-05-26T13:35:46.5699654Z 
+2026-05-26T13:35:46.5699904Z PLAY [jboss] *******************************************************************
+2026-05-26T13:35:46.5726611Z 
+2026-05-26T13:35:46.5727064Z PLAY RECAP *********************************************************************
+2026-05-26T13:35:46.5727380Z caddeapllx2484.agil.nprd.caixa.gov.br : ok=18   changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2026-05-26T13:35:46.5727520Z 
+2026-05-26T13:35:46.5727985Z Tuesday 26 May 2026  10:35:46 -0300 (0:00:00.650)       0:00:15.542 *********** 
+2026-05-26T13:35:46.5728264Z =============================================================================== 
+2026-05-26T13:35:46.5730296Z Instalacao client openldap ---------------------------------------------- 5.36s
+2026-05-26T13:35:46.5730747Z ldap : Copiando arquivos de configuração pam ---------------------------- 2.10s
+2026-05-26T13:35:46.5731171Z Instalacao client openldap Rhel 7 --------------------------------------- 1.10s
+2026-05-26T13:35:46.5731481Z Gathering Facts --------------------------------------------------------- 1.03s
+2026-05-26T13:35:46.5731993Z ldap : Criando o link simbolico ----------------------------------------- 0.99s
+2026-05-26T13:35:46.5732237Z ldap : Copiando arquivo de certificado ---------------------------------- 0.72s
+2026-05-26T13:35:46.5732475Z ldap : Copiando arquivo nsswitch ---------------------------------------- 0.65s
+2026-05-26T13:35:46.5732704Z ldap : Cria arquivo ssh_config ------------------------------------------ 0.58s
+2026-05-26T13:35:46.5732941Z Cria arquivo sudo-ldap.conf --------------------------------------------- 0.58s
+2026-05-26T13:35:46.5733160Z ldap : Cria arquivo nscld.conf ------------------------------------------ 0.57s
+2026-05-26T13:35:46.5733378Z Cria arquivo ldap.conf -------------------------------------------------- 0.56s
+2026-05-26T13:35:46.5733774Z ldap : Criando o link simbolico ----------------------------------------- 0.43s
+2026-05-26T13:35:46.5734001Z Include ldap ------------------------------------------------------------ 0.10s
+2026-05-26T13:35:46.5734220Z Configurando nome dos perfis -------------------------------------------- 0.09s
+2026-05-26T13:35:46.5734454Z Verifica se o nome da centralizadora de operações esta correto ---------- 0.08s
+2026-05-26T13:35:46.5734680Z Configurando nome dos perfis -------------------------------------------- 0.08s
+2026-05-26T13:35:46.5734901Z Verifica se o nome da centralizadora de desenvolvimento esta correto ---- 0.07s
+2026-05-26T13:35:46.5735106Z debug ------------------------------------------------------------------- 0.07s
+2026-05-26T13:35:46.5735325Z Configurando os grupos default ------------------------------------------ 0.06s
+2026-05-26T13:35:46.5735483Z Playbook run took 0 days, 0 hours, 0 minutes, 15 seconds
+2026-05-26T13:35:46.6294485Z ##[section]Finishing: Permissionamento LDAP
+
+
+
+
+2026-05-26T13:36:16.3452285Z ##[section]Starting: Deploy Config no JBOSS
+2026-05-26T13:36:16.3454979Z ==============================================================================
+2026-05-26T13:36:16.3455065Z Task         : Bash
+2026-05-26T13:36:16.3455107Z Description  : Run a Bash script on macOS, Linux, or Windows
+2026-05-26T13:36:16.3455172Z Version      : 3.227.0
+2026-05-26T13:36:16.3455223Z Author       : Microsoft Corporation
+2026-05-26T13:36:16.3455352Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/bash
+2026-05-26T13:36:16.3455426Z ==============================================================================
+2026-05-26T13:36:17.2382710Z Generating script.
+2026-05-26T13:36:17.2394476Z ========================== Starting Command Output ===========================
+2026-05-26T13:36:17.2402868Z [command]/bin/bash /opt/ads-agent/_work/_temp/88339f85-382f-41df-b57b-5346e534fa80.sh
+2026-05-26T13:36:17.2475246Z /opt/ads-agent/_work/_temp/88339f85-382f-41df-b57b-5346e534fa80.sh: line 2: quantidade_vm: comando não encontrado
+2026-05-26T13:36:17.2487692Z /opt/ads-agent/_work/_temp/88339f85-382f-41df-b57b-5346e534fa80.sh: line 2: USE_WMQ: comando não encontrado
+2026-05-26T13:36:19.2211991Z 
+2026-05-26T13:36:19.2212880Z PLAY [local] *******************************************************************
+2026-05-26T13:36:19.2476193Z 
+2026-05-26T13:36:19.2477160Z PLAY [Configurando o DNS] ******************************************************
+2026-05-26T13:36:19.4395036Z 
+2026-05-26T13:36:19.4395892Z PLAY [local] *******************************************************************
+2026-05-26T13:36:19.4425984Z 
+2026-05-26T13:36:19.4426944Z PLAY [Verificando serviços] ****************************************************
+2026-05-26T13:36:19.4500935Z 
+2026-05-26T13:36:19.4501617Z PLAY [Configuração LDAP] *******************************************************
+2026-05-26T13:36:19.4529981Z [WARNING]: Found variable using reserved name: when
+2026-05-26T13:36:19.4536658Z 
+2026-05-26T13:36:19.4536992Z PLAY [jboss] *******************************************************************
+2026-05-26T13:36:19.4616651Z 
+2026-05-26T13:36:19.4616973Z PLAY [Stack Jboss] *************************************************************
+2026-05-26T13:36:19.4844464Z Tuesday 26 May 2026  10:36:19 -0300 (0:00:00.325)       0:00:00.325 *********** 
+2026-05-26T13:36:19.9672163Z 
+2026-05-26T13:36:19.9673100Z TASK [Verifica ser o Jboss já foi instalado] ***********************************
+2026-05-26T13:36:19.9673744Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br]
+2026-05-26T13:36:19.9690635Z 
+2026-05-26T13:36:19.9690920Z PLAY [jboss] *******************************************************************
+2026-05-26T13:36:19.9751292Z Tuesday 26 May 2026  10:36:19 -0300 (0:00:00.490)       0:00:00.816 *********** 
+2026-05-26T13:36:20.2823031Z 
+2026-05-26T13:36:20.2823730Z TASK [Verifica se o arquivo nfs_config.json existe] ****************************
+2026-05-26T13:36:20.2824085Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br]
+2026-05-26T13:36:20.2850359Z Tuesday 26 May 2026  10:36:20 -0300 (0:00:00.309)       0:00:01.126 *********** 
+2026-05-26T13:36:20.3298954Z included: /opt/ads-agent/_work/r16364/a/esteira-jboss-vm-v2/roles/nfs/tasks/get_nfs.yml for caddeapllx2484.agil.nprd.caixa.gov.br
+2026-05-26T13:36:20.3344641Z Tuesday 26 May 2026  10:36:20 -0300 (0:00:00.049)       0:00:01.175 *********** 
+2026-05-26T13:36:20.3915490Z 
+2026-05-26T13:36:20.3916771Z TASK [nfs : Criar variáveis] ***************************************************
+2026-05-26T13:36:20.3916939Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br]
+2026-05-26T13:36:20.3969980Z Tuesday 26 May 2026  10:36:20 -0300 (0:00:00.062)       0:00:01.238 *********** 
+2026-05-26T13:36:20.8018670Z 
+2026-05-26T13:36:20.8019406Z TASK [nfs : Coletar variáveis de ambiente] *************************************
+2026-05-26T13:36:20.8019574Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br]
+2026-05-26T13:36:20.8042489Z Tuesday 26 May 2026  10:36:20 -0300 (0:00:00.407)       0:00:01.645 *********** 
+2026-05-26T13:36:20.8605054Z 
+2026-05-26T13:36:20.8605999Z TASK [nfs : Exibir resultado em JSON] ******************************************
+2026-05-26T13:36:20.8606184Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br] => {
+2026-05-26T13:36:20.8606316Z     "nfs_vars_json": {
+2026-05-26T13:36:20.8606431Z         "changed": false, 
+2026-05-26T13:36:20.8606739Z         "cmd": "cat /opt/ads-agent/_work/r16364/a/nfs_config.json", 
+2026-05-26T13:36:20.8606985Z         "delta": "0:00:00.003622", 
+2026-05-26T13:36:20.8607168Z         "end": "2026-05-26 10:36:20.787828", 
+2026-05-26T13:36:20.8607302Z         "failed": false, 
+2026-05-26T13:36:20.8607408Z         "rc": 0, 
+2026-05-26T13:36:20.8607578Z         "start": "2026-05-26 10:36:20.784206", 
+2026-05-26T13:36:20.8607702Z         "stderr": "", 
+2026-05-26T13:36:20.8607809Z         "stderr_lines": [], 
+2026-05-26T13:36:20.8607917Z         "stdout": "[]", 
+2026-05-26T13:36:20.8608013Z         "stdout_lines": [
+2026-05-26T13:36:20.8608113Z             "[]"
+2026-05-26T13:36:20.8608208Z         ]
+2026-05-26T13:36:20.8608303Z     }
+2026-05-26T13:36:20.8608393Z }
+2026-05-26T13:36:20.8638225Z Tuesday 26 May 2026  10:36:20 -0300 (0:00:00.058)       0:00:01.704 *********** 
+2026-05-26T13:36:20.9204852Z 
+2026-05-26T13:36:20.9205871Z TASK [nfs : Criar variáveis] ***************************************************
+2026-05-26T13:36:20.9206202Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br]
+2026-05-26T13:36:20.9247333Z Tuesday 26 May 2026  10:36:20 -0300 (0:00:00.061)       0:00:01.766 *********** 
+2026-05-26T13:36:20.9668316Z Tuesday 26 May 2026  10:36:20 -0300 (0:00:00.041)       0:00:01.808 *********** 
+2026-05-26T13:36:21.0072852Z Tuesday 26 May 2026  10:36:21 -0300 (0:00:00.040)       0:00:01.848 *********** 
+2026-05-26T13:36:21.0480677Z Tuesday 26 May 2026  10:36:21 -0300 (0:00:00.040)       0:00:01.889 *********** 
+2026-05-26T13:36:21.0887882Z Tuesday 26 May 2026  10:36:21 -0300 (0:00:00.040)       0:00:01.930 *********** 
+2026-05-26T13:36:21.1311731Z Tuesday 26 May 2026  10:36:21 -0300 (0:00:00.042)       0:00:01.972 *********** 
+2026-05-26T13:36:21.1736205Z Tuesday 26 May 2026  10:36:21 -0300 (0:00:00.042)       0:00:02.014 *********** 
+2026-05-26T13:36:21.2169532Z 
+2026-05-26T13:36:21.2170023Z PLAY [jboss] *******************************************************************
+2026-05-26T13:36:21.2218946Z 
+2026-05-26T13:36:21.2219337Z PLAY [jboss] *******************************************************************
+2026-05-26T13:36:21.2253183Z Tuesday 26 May 2026  10:36:21 -0300 (0:00:00.051)       0:00:02.066 *********** 
+2026-05-26T13:36:22.1846470Z 
+2026-05-26T13:36:22.1847032Z TASK [Gathering Facts] *********************************************************
+2026-05-26T13:36:22.1847209Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br]
+2026-05-26T13:36:22.2009144Z Tuesday 26 May 2026  10:36:22 -0300 (0:00:00.975)       0:00:03.042 *********** 
+2026-05-26T13:36:23.5167193Z 
+2026-05-26T13:36:23.5167728Z TASK [Gerando fatos de servicos] ***********************************************
+2026-05-26T13:36:23.5167900Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br]
+2026-05-26T13:36:23.5469917Z Tuesday 26 May 2026  10:36:23 -0300 (0:00:01.345)       0:00:04.388 *********** 
+2026-05-26T13:36:23.6028705Z 
+2026-05-26T13:36:23.6029371Z TASK [Gerando lista de units jboss] ********************************************
+2026-05-26T13:36:23.6029737Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br]
+2026-05-26T13:36:23.6264779Z Tuesday 26 May 2026  10:36:23 -0300 (0:00:00.079)       0:00:04.467 *********** 
+2026-05-26T13:36:23.6877367Z Tuesday 26 May 2026  10:36:23 -0300 (0:00:00.060)       0:00:04.528 *********** 
+2026-05-26T13:36:23.6977300Z 
+2026-05-26T13:36:23.6977658Z PLAY [Copiando deployments adicionais] *****************************************
+2026-05-26T13:36:23.7259070Z Tuesday 26 May 2026  10:36:23 -0300 (0:00:00.038)       0:00:04.567 *********** 
+2026-05-26T13:36:23.7793287Z 
+2026-05-26T13:36:23.7793976Z TASK [Cria variável build_repository_name] *************************************
+2026-05-26T13:36:23.7794147Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br]
+2026-05-26T13:36:23.8025717Z Tuesday 26 May 2026  10:36:23 -0300 (0:00:00.076)       0:00:04.643 *********** 
+2026-05-26T13:36:23.8551754Z 
+2026-05-26T13:36:23.8552239Z TASK [Buscando diretorio de config] ********************************************
+2026-05-26T13:36:23.8552407Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br]
+2026-05-26T13:36:23.8786555Z Tuesday 26 May 2026  10:36:23 -0300 (0:00:00.075)       0:00:04.719 *********** 
+2026-05-26T13:36:23.9322492Z 
+2026-05-26T13:36:23.9323082Z TASK [Buscando diretorio de config] ********************************************
+2026-05-26T13:36:23.9323336Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br]
+2026-05-26T13:36:23.9602275Z Tuesday 26 May 2026  10:36:23 -0300 (0:00:00.081)       0:00:04.801 *********** 
+2026-05-26T13:36:24.4146542Z 
+2026-05-26T13:36:24.4147074Z TASK [Create a symbolic link] **************************************************
+2026-05-26T13:36:24.4147505Z changed: [caddeapllx2484.agil.nprd.caixa.gov.br] => (item=/opt/ads-agent/_work/r16364/a/_SICMU-intranet-update-config)
+2026-05-26T13:36:24.6699389Z changed: [caddeapllx2484.agil.nprd.caixa.gov.br] => (item=/opt/ads-agent/_work/r16364/a/_SICMU-intranet-update-config/jboss)
+2026-05-26T13:36:24.6971580Z Tuesday 26 May 2026  10:36:24 -0300 (0:00:00.736)       0:00:05.538 *********** 
+2026-05-26T13:36:25.0039658Z 
+2026-05-26T13:36:25.0040184Z TASK [Verifica se o arquivo  existe] *******************************************
+2026-05-26T13:36:25.0040617Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br] => (item=/opt/ads-agent/_work/r16364/a/_SICMU-intranet-update-config)
+2026-05-26T13:36:25.2636886Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br] => (item=/opt/ads-agent/_work/r16364/a/_SICMU-intranet-update-config/jboss)
+2026-05-26T13:36:25.2884492Z Tuesday 26 May 2026  10:36:25 -0300 (0:00:00.591)       0:00:06.129 *********** 
+2026-05-26T13:36:25.3708995Z included: /opt/ads-agent/_work/r16364/a/esteira-jboss-vm-v2/roles/jboss/tasks/stack_deployments_custom_block.yml for caddeapllx2484.agil.nprd.caixa.gov.br
+2026-05-26T13:36:25.3957512Z Tuesday 26 May 2026  10:36:25 -0300 (0:00:00.107)       0:00:06.237 *********** 
+2026-05-26T13:36:25.8465851Z 
+2026-05-26T13:36:25.8466377Z TASK [Lendo artefatos do arquivo CSV] ******************************************
+2026-05-26T13:36:25.8466545Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br]
+2026-05-26T13:36:25.8740827Z Tuesday 26 May 2026  10:36:25 -0300 (0:00:00.478)       0:00:06.715 *********** 
+2026-05-26T13:36:25.8820542Z [WARNING]: The loop variable 'item' is already in use. You should set the
+2026-05-26T13:36:25.8820758Z `loop_var` value in the `loop_control` option for the task to something else to
+2026-05-26T13:36:25.8820928Z avoid variable collisions and unexpected behavior.
+2026-05-26T13:36:25.9176262Z 
+2026-05-26T13:36:25.9176767Z TASK [Mostra artefatos] ********************************************************
+2026-05-26T13:36:25.9177296Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br] => (item={u'version': u'9.0.4.0', u'group_id': u'com.ibm.mq', u'extension': u'rar', u'artifact_id': u'wmq.jmsra'}) => {
+2026-05-26T13:36:25.9177560Z     "msg": "Artefato: wmq.jmsra - versao 9.0.4.0"
+2026-05-26T13:36:25.9177680Z }
+2026-05-26T13:36:25.9474222Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br] => (item={u'version': u'3.0.0', u'group_id': u'br.gov.caixa.jcics', u'extension': u'jar', u'artifact_id': u'framework'}) => {
+2026-05-26T13:36:25.9474580Z     "msg": "Artefato: framework - versao 3.0.0"
+2026-05-26T13:36:25.9474831Z }
+2026-05-26T13:36:25.9780931Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br] => (item={u'version': u'3.3.1', u'group_id': u'com.microsoft.azure', u'extension': u'jar', u'artifact_id': u'applicationinsights-agent'}) => {
+2026-05-26T13:36:25.9781271Z     "msg": "Artefato: applicationinsights-agent - versao 3.3.1"
+2026-05-26T13:36:25.9781400Z }
+2026-05-26T13:36:26.0070166Z Tuesday 26 May 2026  10:36:26 -0300 (0:00:00.133)       0:00:06.848 *********** 
+2026-05-26T13:36:26.6932581Z 
+2026-05-26T13:36:26.6933323Z TASK [maven_artifact] **********************************************************
+2026-05-26T13:36:26.6934202Z changed: [caddeapllx2484.agil.nprd.caixa.gov.br] => (item={u'version': u'9.0.4.0', u'group_id': u'com.ibm.mq', u'extension': u'rar', u'artifact_id': u'wmq.jmsra'})
+2026-05-26T13:36:28.0775141Z changed: [caddeapllx2484.agil.nprd.caixa.gov.br] => (item={u'version': u'3.0.0', u'group_id': u'br.gov.caixa.jcics', u'extension': u'jar', u'artifact_id': u'framework'})
+2026-05-26T13:36:28.5588133Z changed: [caddeapllx2484.agil.nprd.caixa.gov.br] => (item={u'version': u'3.3.1', u'group_id': u'com.microsoft.azure', u'extension': u'jar', u'artifact_id': u'applicationinsights-agent'})
+2026-05-26T13:36:28.5867902Z Tuesday 26 May 2026  10:36:28 -0300 (0:00:02.579)       0:00:09.428 *********** 
+2026-05-26T13:36:30.0735091Z 
+2026-05-26T13:36:30.0735673Z TASK [Copiando artefatos para o(s) servidor(es) Jboss] *************************
+2026-05-26T13:36:30.0735893Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br]
+2026-05-26T13:36:30.0970535Z Tuesday 26 May 2026  10:36:30 -0300 (0:00:01.510)       0:00:10.938 *********** 
+2026-05-26T13:36:30.1365286Z 
+2026-05-26T13:36:30.1366341Z PLAY [Copiando modules adicionais] *********************************************
+2026-05-26T13:36:30.1623653Z Tuesday 26 May 2026  10:36:30 -0300 (0:00:00.065)       0:00:11.003 *********** 
+2026-05-26T13:36:30.2231448Z 
+2026-05-26T13:36:30.2232309Z TASK [Cria variável build_repository_name] *************************************
+2026-05-26T13:36:30.2232646Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br]
+2026-05-26T13:36:30.2471286Z Tuesday 26 May 2026  10:36:30 -0300 (0:00:00.084)       0:00:11.088 *********** 
+2026-05-26T13:36:30.3029854Z 
+2026-05-26T13:36:30.3030424Z TASK [Buscando diretorio de config] ********************************************
+2026-05-26T13:36:30.3030588Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br]
+2026-05-26T13:36:30.3263952Z Tuesday 26 May 2026  10:36:30 -0300 (0:00:00.079)       0:00:11.167 *********** 
+2026-05-26T13:36:30.3780831Z 
+2026-05-26T13:36:30.3782138Z TASK [Buscando diretorio de config] ********************************************
+2026-05-26T13:36:30.3782335Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br]
+2026-05-26T13:36:30.4081336Z Tuesday 26 May 2026  10:36:30 -0300 (0:00:00.081)       0:00:11.249 *********** 
+2026-05-26T13:36:30.7238662Z 
+2026-05-26T13:36:30.7239400Z TASK [Create a directory] ******************************************************
+2026-05-26T13:36:30.7240030Z changed: [caddeapllx2484.agil.nprd.caixa.gov.br] => (item=/opt/ads-agent/_work/r16364/a/_SICMU-intranet-update-config)
+2026-05-26T13:36:30.9857507Z changed: [caddeapllx2484.agil.nprd.caixa.gov.br] => (item=/opt/ads-agent/_work/r16364/a/_SICMU-intranet-update-config/jboss)
+2026-05-26T13:36:31.0130155Z Tuesday 26 May 2026  10:36:31 -0300 (0:00:00.604)       0:00:11.854 *********** 
+2026-05-26T13:36:31.3097305Z 
+2026-05-26T13:36:31.3097834Z TASK [Verifica se o arquivo  existe] *******************************************
+2026-05-26T13:36:31.3099108Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br] => (item=/opt/ads-agent/_work/r16364/a/_SICMU-intranet-update-config)
+2026-05-26T13:36:31.5839408Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br] => (item=/opt/ads-agent/_work/r16364/a/_SICMU-intranet-update-config/jboss)
+2026-05-26T13:36:31.6088208Z Tuesday 26 May 2026  10:36:31 -0300 (0:00:00.595)       0:00:12.450 *********** 
+2026-05-26T13:36:31.7016020Z included: /opt/ads-agent/_work/r16364/a/esteira-jboss-vm-v2/roles/jboss/tasks/stack_modules_custom_block.yml for caddeapllx2484.agil.nprd.caixa.gov.br
+2026-05-26T13:36:31.7290117Z Tuesday 26 May 2026  10:36:31 -0300 (0:00:00.120)       0:00:12.570 *********** 
+2026-05-26T13:36:32.0599066Z 
+2026-05-26T13:36:32.0599586Z TASK [Lendo artefatos do arquivo CSV] ******************************************
+2026-05-26T13:36:32.0599758Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br]
+2026-05-26T13:36:32.0878768Z Tuesday 26 May 2026  10:36:32 -0300 (0:00:00.358)       0:00:12.929 *********** 
+2026-05-26T13:36:32.0977720Z [WARNING]: The loop variable 'item' is already in use. You should set the
+2026-05-26T13:36:32.0978250Z `loop_var` value in the `loop_control` option for the task to something else to
+2026-05-26T13:36:32.0978416Z avoid variable collisions and unexpected behavior.
+2026-05-26T13:36:32.1346496Z 
+2026-05-26T13:36:32.1347044Z TASK [Mostra lista de artefatos] ***********************************************
+2026-05-26T13:36:32.1347491Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br] => (item={u'version': u'2.0.1', u'group_id': u'br.gov.caixa', u'extension': u'jar', u'artifact_id': u'framework'}) => {
+2026-05-26T13:36:32.1347988Z     "msg": "Artefato: framework - versao 2.0.1"
+2026-05-26T13:36:32.1348099Z }
+2026-05-26T13:36:32.1665470Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br] => (item={u'version': u'2.10', u'group_id': u'br.gov.caixa.psc', u'extension': u'jar', u'artifact_id': u'jconnector'}) => {
+2026-05-26T13:36:32.1665889Z     "msg": "Artefato: jconnector - versao 2.10"
+2026-05-26T13:36:32.1970970Z }
+2026-05-26T13:36:32.1971440Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br] => (item={u'version': u'4.0', u'group_id': u'org.primefaces', u'extension': u'jar', u'artifact_id': u'primefaces'}) => {
+2026-05-26T13:36:32.1971701Z     "msg": "Artefato: primefaces - versao 4.0"
+2026-05-26T13:36:32.1971816Z }
+2026-05-26T13:36:32.2270897Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br] => (item={u'version': u'3.9', u'group_id': u'org.apache.poi', u'extension': u'jar', u'artifact_id': u'poi'}) => {
+2026-05-26T13:36:32.2271220Z     "msg": "Artefato: poi - versao 3.9"
+2026-05-26T13:36:32.2271334Z }
+2026-05-26T13:36:32.2573733Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br] => (item={u'version': u'3.11', u'group_id': u'org.apache.poi', u'extension': u'jar', u'artifact_id': u'poi'}) => {
+2026-05-26T13:36:32.2574041Z     "msg": "Artefato: poi - versao 3.11"
+2026-05-26T13:36:32.2574153Z }
+2026-05-26T13:36:32.2882065Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br] => (item={u'version': u'1.2', u'group_id': u'br.gov.caixa.sisgr', u'extension': u'jar', u'artifact_id': u'sisgr'}) => {
+2026-05-26T13:36:32.2882502Z     "msg": "Artefato: sisgr - versao 1.2"
+2026-05-26T13:36:32.2882696Z }
+2026-05-26T13:36:32.3184398Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br] => (item={u'version': u'2.1.0', u'group_id': u'com.lowagie', u'extension': u'jar', u'artifact_id': u'itext'}) => {
+2026-05-26T13:36:32.3184721Z     "msg": "Artefato: itext - versao 2.1.0"
+2026-05-26T13:36:32.3184848Z }
+2026-05-26T13:36:32.3490529Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br] => (item={u'version': u'1.0.15', u'group_id': u'jfree', u'extension': u'jar', u'artifact_id': u'jcommon'}) => {
+2026-05-26T13:36:32.3490904Z     "msg": "Artefato: jcommon - versao 1.0.15"
+2026-05-26T13:36:32.3491081Z }
+2026-05-26T13:36:32.3787830Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br] => (item={u'version': u'1.0.9', u'group_id': u'jfree', u'extension': u'jar', u'artifact_id': u'jfreechart'}) => {
+2026-05-26T13:36:32.3788365Z     "msg": "Artefato: jfreechart - versao 1.0.9"
+2026-05-26T13:36:32.3788520Z }
+2026-05-26T13:36:32.4092115Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br] => (item={u'version': u'3.5.3', u'group_id': u'jasperreports', u'extension': u'jar', u'artifact_id': u'jasperreports'}) => {
+2026-05-26T13:36:32.4092444Z     "msg": "Artefato: jasperreports - versao 3.5.3"
+2026-05-26T13:36:32.4092568Z }
+2026-05-26T13:36:32.4388286Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br] => (item={u'version': u'1.3', u'group_id': u'apache.commons.fileupload', u'extension': u'jar', u'artifact_id': u'fileupload'}) => {
+2026-05-26T13:36:32.4388993Z     "msg": "Artefato: fileupload - versao 1.3"
+2026-05-26T13:36:32.4389521Z }
+2026-05-26T13:36:32.4702683Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br] => (item={u'version': u'2.1', u'group_id': u'commons-digester', u'extension': u'jar', u'artifact_id': u'commons-digester'}) => {
+2026-05-26T13:36:32.4703340Z     "msg": "Artefato: commons-digester - versao 2.1"
+2026-05-26T13:36:32.4703598Z }
+2026-05-26T13:36:32.4971071Z Tuesday 26 May 2026  10:36:32 -0300 (0:00:00.409)       0:00:13.338 *********** 
+2026-05-26T13:36:32.9160702Z 
+2026-05-26T13:36:32.9161545Z TASK [Listar arquivos no diretório baixados anteriormente] *********************
+2026-05-26T13:36:32.9162065Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br]
+2026-05-26T13:36:32.9488151Z Tuesday 26 May 2026  10:36:32 -0300 (0:00:00.451)       0:00:13.789 *********** 
+2026-05-26T13:36:32.9877844Z [WARNING]: conditional statements should not include jinja2 templating
+2026-05-26T13:36:32.9878384Z delimiters such as {{ }} or {% %}. Found: '{{ inner_item.artifact_id }}-{{
+2026-05-26T13:36:32.9878968Z inner_item.version }}.{{ inner_item.extension|default('jar',true) }}' not in
+2026-05-26T13:36:32.9879198Z files_found.files | map(attribute='path') | map('basename') | list
+2026-05-26T13:36:33.4358337Z Tuesday 26 May 2026  10:36:33 -0300 (0:00:00.486)       0:00:14.276 *********** 
+2026-05-26T13:36:33.7583981Z 
+2026-05-26T13:36:33.7585252Z TASK [Verifica se o arquivo jboss-modules-custom tem conteudo] *****************
+2026-05-26T13:36:33.7585535Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br]
+2026-05-26T13:36:33.7840594Z Tuesday 26 May 2026  10:36:33 -0300 (0:00:00.348)       0:00:14.625 *********** 
+2026-05-26T13:36:33.9359441Z 
+2026-05-26T13:36:33.9359998Z TASK [Copiando artefatos (Modules) para o(s) servidor(es) Jboss] ***************
+2026-05-26T13:36:33.9360168Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br]
+2026-05-26T13:36:33.9620561Z Tuesday 26 May 2026  10:36:33 -0300 (0:00:00.177)       0:00:14.803 *********** 
+2026-05-26T13:36:34.7146555Z 
+2026-05-26T13:36:34.7147440Z TASK [Copiando artefato (jboss-custom.cli) para o(s) servidor(es) Jboss] *******
+2026-05-26T13:36:34.7147692Z changed: [caddeapllx2484.agil.nprd.caixa.gov.br]
+2026-05-26T13:36:34.7404742Z Tuesday 26 May 2026  10:36:34 -0300 (0:00:00.778)       0:00:15.581 *********** 
+2026-05-26T13:36:37.6618525Z 
+2026-05-26T13:36:37.6619702Z TASK [Executando o jboss-custom.cli] *******************************************
+2026-05-26T13:36:37.6620114Z changed: [caddeapllx2484.agil.nprd.caixa.gov.br]
+2026-05-26T13:36:37.6941514Z Tuesday 26 May 2026  10:36:37 -0300 (0:00:02.953)       0:00:18.535 *********** 
+2026-05-26T13:36:38.9498599Z 
+2026-05-26T13:36:38.9506496Z TASK [Encontrar todos os arquivos module.xml] **********************************
+2026-05-26T13:36:38.9506777Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br]
+2026-05-26T13:36:39.1639231Z Tuesday 26 May 2026  10:36:39 -0300 (0:00:01.468)       0:00:20.004 *********** 
+2026-05-26T13:36:39.8878964Z 
+2026-05-26T13:36:39.8922259Z TASK [Filtrar arquivos dentro da pasta system na raiz] *************************
+2026-05-26T13:36:39.8922753Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br]
+2026-05-26T13:36:40.0419935Z Tuesday 26 May 2026  10:36:40 -0300 (0:00:00.878)       0:00:20.882 *********** 
+2026-05-26T13:36:40.2458592Z 
+2026-05-26T13:36:40.2459277Z TASK [Filtrar arquivos fora da pasta system na raiz] ***************************
+2026-05-26T13:36:40.2459555Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br]
+2026-05-26T13:36:40.2697009Z Tuesday 26 May 2026  10:36:40 -0300 (0:00:00.228)       0:00:21.111 *********** 
+2026-05-26T13:36:40.3045770Z Tuesday 26 May 2026  10:36:40 -0300 (0:00:00.034)       0:00:21.145 *********** 
+2026-05-26T13:36:40.3461328Z 
+2026-05-26T13:36:40.3462001Z PLAY [jboss] *******************************************************************
+2026-05-26T13:36:40.3716540Z Tuesday 26 May 2026  10:36:40 -0300 (0:00:00.067)       0:00:21.212 *********** 
+2026-05-26T13:36:40.4308249Z 
+2026-05-26T13:36:40.4309893Z TASK [Setando a versão do Jboss] ***********************************************
+2026-05-26T13:36:40.4310698Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br]
+2026-05-26T13:36:40.4543315Z Tuesday 26 May 2026  10:36:40 -0300 (0:00:00.082)       0:00:21.295 *********** 
+2026-05-26T13:36:40.5083268Z 
+2026-05-26T13:36:40.5084165Z TASK [Cria variável build_repository_name_tfs] *********************************
+2026-05-26T13:36:40.5084486Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br]
+2026-05-26T13:36:40.5323399Z Tuesday 26 May 2026  10:36:40 -0300 (0:00:00.077)       0:00:21.373 *********** 
+2026-05-26T13:36:40.5865309Z 
+2026-05-26T13:36:40.5866507Z TASK [Buscando diretorio de config] ********************************************
+2026-05-26T13:36:40.5867194Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br]
+2026-05-26T13:36:40.6119375Z Tuesday 26 May 2026  10:36:40 -0300 (0:00:00.079)       0:00:21.453 *********** 
+2026-05-26T13:36:41.1493649Z 
+2026-05-26T13:36:41.1494352Z TASK [Copy common_start.sh] ****************************************************
+2026-05-26T13:36:41.1494935Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br]
+2026-05-26T13:36:41.1740604Z Tuesday 26 May 2026  10:36:41 -0300 (0:00:00.562)       0:00:22.015 *********** 
+2026-05-26T13:36:41.7145335Z 
+2026-05-26T13:36:41.7146278Z TASK [Copy template script] ****************************************************
+2026-05-26T13:36:41.7146957Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br]
+2026-05-26T13:36:41.7397673Z Tuesday 26 May 2026  10:36:41 -0300 (0:00:00.565)       0:00:22.581 *********** 
+2026-05-26T13:36:42.2825918Z 
+2026-05-26T13:36:42.2826737Z TASK [JBoss systemd wrapper for sysvinit script mode domain] *******************
+2026-05-26T13:36:42.2827013Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br]
+2026-05-26T13:36:42.3074824Z Tuesday 26 May 2026  10:36:42 -0300 (0:00:00.567)       0:00:23.148 *********** 
+2026-05-26T13:36:43.0392859Z 
+2026-05-26T13:36:43.0393707Z TASK [Realiza copia do arquivo de Trust Store] *********************************
+2026-05-26T13:36:43.0394159Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br]
+2026-05-26T13:36:43.0629539Z Tuesday 26 May 2026  10:36:43 -0300 (0:00:00.755)       0:00:23.904 *********** 
+2026-05-26T13:36:43.1304054Z Tuesday 26 May 2026  10:36:43 -0300 (0:00:00.067)       0:00:23.971 *********** 
+2026-05-26T13:36:43.2108317Z Tuesday 26 May 2026  10:36:43 -0300 (0:00:00.080)       0:00:24.052 *********** 
+2026-05-26T13:36:43.5126697Z 
+2026-05-26T13:36:43.5127552Z TASK [Check directory configuration exists] ************************************
+2026-05-26T13:36:43.5128015Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br] => (item=/opt/ads-agent/_work/r16364/a/_SICMU-intranet-update-config)
+2026-05-26T13:36:43.7596552Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br] => (item=/opt/ads-agent/_work/r16364/a/_SICMU-intranet-update-config/jboss)
+2026-05-26T13:36:43.7842813Z Tuesday 26 May 2026  10:36:43 -0300 (0:00:00.573)       0:00:24.625 *********** 
+2026-05-26T13:36:43.8617485Z Tuesday 26 May 2026  10:36:43 -0300 (0:00:00.077)       0:00:24.703 *********** 
+2026-05-26T13:36:44.1674502Z 
+2026-05-26T13:36:44.1675396Z TASK [Get standalone-full-ha.xml status] ***************************************
+2026-05-26T13:36:44.1676278Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br] => (item=/opt/ads-agent/_work/r16364/a/_SICMU-intranet-update-config)
+2026-05-26T13:36:44.4202302Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br] => (item=/opt/ads-agent/_work/r16364/a/_SICMU-intranet-update-config/jboss)
+2026-05-26T13:36:44.4451717Z Tuesday 26 May 2026  10:36:44 -0300 (0:00:00.583)       0:00:25.286 *********** 
+2026-05-26T13:36:45.0713478Z 
+2026-05-26T13:36:45.0714212Z TASK [Copiando arquivo standalone-full-ha.xml] *********************************
+2026-05-26T13:36:45.0715955Z changed: [caddeapllx2484.agil.nprd.caixa.gov.br] => (item={u'item': u'/opt/ads-agent/_work/r16364/a/_SICMU-intranet-update-config/jboss', u'stat': {u'charset': u'us-ascii', u'uid': 1000, u'exists': True, u'attr_flags': u'', u'woth': False, u'device_type': 0, u'mtime': 1779802514.7071838, u'block_size': 4096, u'inode': 398468851, u'isgid': False, u'size': 34037, u'wgrp': False, u'executable': False, u'isuid': False, u'readable': True, u'isreg': True, u'version': u'876910574', u'pw_name': u'sadscp01', u'gid': 1000, u'ischr': False, u'wusr': True, u'writeable': True, u'mimetype': u'application/xml', u'blocks': 72, u'xoth': False, u'islnk': False, u'nlink': 1, u'issock': False, u'rgrp': True, u'gr_name': u'sadscp01', u'path': u'/opt/ads-agent/_work/r16364/a/_SICMU-intranet-update-config/jboss/standalone-full-ha.xml', u'xusr': False, u'atime': 1779802514.706184, u'isdir': False, u'ctime': 1779802514.7071838, u'isblk': False, u'checksum': u'9c9399cf942c97db14f93070139bd7aeebc00cdb', u'dev': 64771, u'roth': True, u'isfifo': False, u'mode': u'0644', u'xgrp': False, u'rusr': True, u'attributes': []}, u'ansible_loop_var': u'item', u'failed': False, u'invocation': {u'module_args': {u'follow': False, u'get_checksum': True, u'path': u'/opt/ads-agent/_work/r16364/a/_SICMU-intranet-update-config/jboss/standalone-full-ha.xml', u'checksum_algorithm': u'sha1', u'get_md5': False, u'get_mime': True, u'get_attributes': True}}, u'changed': False})
+2026-05-26T13:36:45.1096451Z Tuesday 26 May 2026  10:36:45 -0300 (0:00:00.664)       0:00:25.950 *********** 
+2026-05-26T13:36:45.4151151Z 
+2026-05-26T13:36:45.4152020Z TASK [Get standalone-ha.xml status] ********************************************
+2026-05-26T13:36:45.4152413Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br] => (item=/opt/ads-agent/_work/r16364/a/_SICMU-intranet-update-config)
+2026-05-26T13:36:45.6633853Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br] => (item=/opt/ads-agent/_work/r16364/a/_SICMU-intranet-update-config/jboss)
+2026-05-26T13:36:45.6877486Z Tuesday 26 May 2026  10:36:45 -0300 (0:00:00.578)       0:00:26.529 *********** 
+2026-05-26T13:36:45.7654237Z Tuesday 26 May 2026  10:36:45 -0300 (0:00:00.077)       0:00:26.606 *********** 
+2026-05-26T13:36:46.0727689Z 
+2026-05-26T13:36:46.0728164Z TASK [Get standalone.xml status] ***********************************************
+2026-05-26T13:36:46.0728645Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br] => (item=/opt/ads-agent/_work/r16364/a/_SICMU-intranet-update-config)
+2026-05-26T13:36:46.3179120Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br] => (item=/opt/ads-agent/_work/r16364/a/_SICMU-intranet-update-config/jboss)
+2026-05-26T13:36:46.3410042Z Tuesday 26 May 2026  10:36:46 -0300 (0:00:00.575)       0:00:27.182 *********** 
+2026-05-26T13:36:46.4234383Z Tuesday 26 May 2026  10:36:46 -0300 (0:00:00.082)       0:00:27.264 *********** 
+2026-05-26T13:36:46.7223593Z 
+2026-05-26T13:36:46.7224307Z TASK [Get standalone.conf status] **********************************************
+2026-05-26T13:36:46.7224886Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br] => (item=/opt/ads-agent/_work/r16364/a/_SICMU-intranet-update-config)
+2026-05-26T13:36:47.0025051Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br] => (item=/opt/ads-agent/_work/r16364/a/_SICMU-intranet-update-config/jboss)
+2026-05-26T13:36:47.0293785Z Tuesday 26 May 2026  10:36:47 -0300 (0:00:00.605)       0:00:27.870 *********** 
+2026-05-26T13:36:47.5993306Z 
+2026-05-26T13:36:47.5993977Z TASK [Copiando arquivo standalone.conf] ****************************************
+2026-05-26T13:36:47.5995870Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br] => (item={u'item': u'/opt/ads-agent/_work/r16364/a/_SICMU-intranet-update-config/jboss', u'stat': {u'charset': u'us-ascii', u'uid': 1000, u'exists': True, u'attr_flags': u'', u'woth': False, u'device_type': 0, u'mtime': 1779802514.7121837, u'block_size': 4096, u'inode': 398469667, u'isgid': False, u'size': 4057, u'wgrp': False, u'executable': False, u'isuid': False, u'readable': True, u'isreg': True, u'version': u'18446744072081106766', u'pw_name': u'sadscp01', u'gid': 1000, u'ischr': False, u'wusr': True, u'writeable': True, u'mimetype': u'text/plain', u'blocks': 8, u'xoth': False, u'islnk': False, u'nlink': 1, u'issock': False, u'rgrp': True, u'gr_name': u'sadscp01', u'path': u'/opt/ads-agent/_work/r16364/a/_SICMU-intranet-update-config/jboss/standalone.conf', u'xusr': False, u'atime': 1779802514.7111838, u'isdir': False, u'ctime': 1779802514.7121837, u'isblk': False, u'checksum': u'ca7c627c5e3056787928d7933ee453e400bb2225', u'dev': 64771, u'roth': True, u'isfifo': False, u'mode': u'0644', u'xgrp': False, u'rusr': True, u'attributes': []}, u'ansible_loop_var': u'item', u'failed': False, u'invocation': {u'module_args': {u'follow': False, u'get_checksum': True, u'path': u'/opt/ads-agent/_work/r16364/a/_SICMU-intranet-update-config/jboss/standalone.conf', u'checksum_algorithm': u'sha1', u'get_md5': False, u'get_mime': True, u'get_attributes': True}}, u'changed': False})
+2026-05-26T13:36:47.6270308Z Tuesday 26 May 2026  10:36:47 -0300 (0:00:00.597)       0:00:28.468 *********** 
+2026-05-26T13:36:48.2485654Z 
+2026-05-26T13:36:48.2486140Z TASK [Restart Zabbix] **********************************************************
+2026-05-26T13:36:48.2486312Z changed: [caddeapllx2484.agil.nprd.caixa.gov.br]
+2026-05-26T13:36:48.2738984Z Tuesday 26 May 2026  10:36:48 -0300 (0:00:00.646)       0:00:29.115 *********** 
+2026-05-26T13:36:48.3362113Z Tuesday 26 May 2026  10:36:48 -0300 (0:00:00.062)       0:00:29.177 *********** 
+2026-05-26T13:36:48.3708126Z [WARNING]: conditional statements should not include jinja2 templating
+2026-05-26T13:36:48.3708536Z delimiters such as {{ }} or {% %}. Found: {{ lookup('env','HSM') |
+2026-05-26T13:36:48.3708717Z default('false', true) | bool }}
+2026-05-26T13:36:48.3794520Z Tuesday 26 May 2026  10:36:48 -0300 (0:00:00.043)       0:00:29.220 *********** 
+2026-05-26T13:36:55.8770076Z 
+2026-05-26T13:36:55.8771014Z RUNNING HANDLER [Restart Jboss] ************************************************
+2026-05-26T13:36:55.8771613Z changed: [caddeapllx2484.agil.nprd.caixa.gov.br]
+2026-05-26T13:36:55.8794381Z 
+2026-05-26T13:36:55.8794814Z PLAY [jboss] *******************************************************************
+2026-05-26T13:36:55.8820737Z 
+2026-05-26T13:36:55.8821144Z PLAY [jboss] *******************************************************************
+2026-05-26T13:36:55.8851136Z 
+2026-05-26T13:36:55.8851651Z PLAY [jboss] *******************************************************************
+2026-05-26T13:36:55.9114516Z Tuesday 26 May 2026  10:36:55 -0300 (0:00:07.532)       0:00:36.752 *********** 
+2026-05-26T13:36:55.9660308Z 
+2026-05-26T13:36:55.9661238Z TASK [Cria variável build_repository_name] *************************************
+2026-05-26T13:36:55.9661889Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br]
+2026-05-26T13:36:55.9901682Z Tuesday 26 May 2026  10:36:55 -0300 (0:00:00.078)       0:00:36.831 *********** 
+2026-05-26T13:36:56.0446956Z 
+2026-05-26T13:36:56.0447817Z TASK [Buscando diretorio de config] ********************************************
+2026-05-26T13:36:56.0448065Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br]
+2026-05-26T13:36:56.0726168Z Tuesday 26 May 2026  10:36:56 -0300 (0:00:00.082)       0:00:36.913 *********** 
+2026-05-26T13:36:59.3563975Z 
+2026-05-26T13:36:59.3564682Z TASK [Verifica se o arquivo {{ item }}/etc/hosts-{{ sistema_ambiente }} existe] ***
+2026-05-26T13:36:59.3565005Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br] => (item=/opt/ads-agent/_work/r16364/a/_SICMU-intranet-update-config)
+2026-05-26T13:37:02.5968948Z ok: [caddeapllx2484.agil.nprd.caixa.gov.br] => (item=/opt/ads-agent/_work/r16364/a/_SICMU-intranet-update-config/so)
+2026-05-26T13:37:02.6203957Z Tuesday 26 May 2026  10:37:02 -0300 (0:00:06.547)       0:00:43.461 *********** 
+2026-05-26T13:37:02.6716851Z 
+2026-05-26T13:37:02.6717376Z PLAY [jboss] *******************************************************************
+2026-05-26T13:37:02.6977039Z Tuesday 26 May 2026  10:37:02 -0300 (0:00:00.077)       0:00:43.539 *********** 
+2026-05-26T13:37:06.7568646Z 
+2026-05-26T13:37:06.7569396Z TASK [Verifica se o arquivo /opt/jboss-eap/standalone/configuration/custom.sh existe] ***
+2026-05-26T13:37:06.7570146Z fatal: [caddeapllx2484.agil.nprd.caixa.gov.br]: FAILED! => {"changed": false, "module_stderr": "sudo: ldap_sasl_bind_s(): Can't contact LDAP server\n\nPresumimos que você recebeu as instruções de sempre do administrador\nde sistema local. Basicamente, resume-se a estas três coisas:\n\n    #1) Respeite a privacidade dos outros.\n    #2) Pense antes de digitar.\n    #3) Com grandes poderes vêm grandes responsabilidades.\n\nsudo: nenhum tty presente e nenhum programa de askpass especificado\n", "module_stdout": "", "msg": "MODULE FAILURE\nSee stdout/stderr for the exact error", "rc": 1}
+2026-05-26T13:37:06.7573523Z 
+2026-05-26T13:37:06.7573844Z PLAY RECAP *********************************************************************
+2026-05-26T13:37:06.7574054Z caddeapllx2484.agil.nprd.caixa.gov.br : ok=55   changed=8    unreachable=0    failed=1    skipped=21   rescued=0    ignored=0   
+2026-05-26T13:37:06.7574433Z 
+2026-05-26T13:37:06.7575286Z Tuesday 26 May 2026  10:37:06 -0300 (0:00:04.059)       0:00:47.599 *********** 
+2026-05-26T13:37:06.7575980Z =============================================================================== 
+2026-05-26T13:37:06.7576532Z Restart Jboss ----------------------------------------------------------- 7.53s
+2026-05-26T13:37:06.7577006Z Verifica se o arquivo {{ item }}/etc/hosts-{{ sistema_ambiente }} existe --- 6.55s
+2026-05-26T13:37:06.7577257Z Verifica se o arquivo /opt/jboss-eap/standalone/configuration/custom.sh existe --- 4.06s
+2026-05-26T13:37:06.7577503Z Executando o jboss-custom.cli ------------------------------------------- 2.95s
+2026-05-26T13:37:06.7577736Z maven_artifact ---------------------------------------------------------- 2.58s
+2026-05-26T13:37:06.7578321Z Copiando artefatos para o(s) servidor(es) Jboss ------------------------- 1.51s
+2026-05-26T13:37:06.7578564Z Encontrar todos os arquivos module.xml ---------------------------------- 1.47s
+2026-05-26T13:37:06.7578815Z Gerando fatos de servicos ----------------------------------------------- 1.35s
+2026-05-26T13:37:06.7579039Z Gathering Facts --------------------------------------------------------- 0.98s
+2026-05-26T13:37:06.7579258Z Filtrar arquivos dentro da pasta system na raiz ------------------------- 0.88s
+2026-05-26T13:37:06.7579486Z Copiando artefato (jboss-custom.cli) para o(s) servidor(es) Jboss ------- 0.78s
+2026-05-26T13:37:06.7579713Z Realiza copia do arquivo de Trust Store --------------------------------- 0.76s
+2026-05-26T13:37:06.7579939Z Create a symbolic link -------------------------------------------------- 0.74s
+2026-05-26T13:37:06.7580161Z Copiando arquivo standalone-full-ha.xml --------------------------------- 0.66s
+2026-05-26T13:37:06.7580384Z Restart Zabbix ---------------------------------------------------------- 0.65s
+2026-05-26T13:37:06.7580607Z Get standalone.conf status ---------------------------------------------- 0.61s
+2026-05-26T13:37:06.7580833Z Create a directory ------------------------------------------------------ 0.60s
+2026-05-26T13:37:06.7581050Z Copiando arquivo standalone.conf ---------------------------------------- 0.60s
+2026-05-26T13:37:06.7581269Z Verifica se o arquivo  existe ------------------------------------------- 0.60s
+2026-05-26T13:37:06.7581484Z Verifica se o arquivo  existe ------------------------------------------- 0.59s
+2026-05-26T13:37:06.7581631Z Playbook run took 0 days, 0 hours, 0 minutes, 47 seconds
+2026-05-26T13:37:06.8228485Z ##[error]Bash exited with code '2'.
+2026-05-26T13:37:06.8249076Z ##[section]Finishing: Deploy Config no JBOSS
+
+
+
