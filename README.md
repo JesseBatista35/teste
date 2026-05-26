@@ -1,51 +1,18 @@
-Jesse Mouta Pereira Batista
-Todos, Boa tarde,   identificamos a causa raiz do problema no SIGPF-internet.   O Apache dos servidores de apresentação (caddeapllx135 e caddeapllx136) está configurado para rotear as requisições do…
-VMs:
- 
-DES: caddeapllx832.agil.nprd.caixa.gov.br
-TQS: caddeapllx575.agil.nprd.caixa.gov.br
-HMP: caddeapllx1104.agil.nprd.caixa.gov.br e caddeapllx1161.agil.nprd.caixa.gov.br
- 
-Todos, Bom dia! assim que subir as configurações informa aqui. 
- 
-Quem irá subir as configurações?
- 
-Diego do Nascimento
-Quem irá subir as configurações?
-Eu vou subir as configurações e validar, preciso de uma nova  Req aberta para, pode colocar na descrição configuração do balancerMember.
- 
- 
- 
-Jesse Mouta Pereira Batista
-Eu vou subir as configurações e validar, preciso de uma nova  Req aberta para, pode colocar na descrição configuração do balancerMember.
-Precisa que a gente abra? Ou vão tratar internamente?
- 
-sim pode abrir, para registro do atendimento. 
- 
-Todos
- 
-Irei abrir este atendimento.
- 
-Mas preciso entender quem solicitou a mudança e o motivo. Tudo funcionava corretamente e parou de funcionar.
- 
- 
-Temos esta configuração ai, e o front deveria estar redirecionando as chamadas para o bacj
- 
-back*
+Diego, boa tarde!
 
+Seguem as informações sobre o que foi identificado:
 
+O frontend do SIGPF-internet roda em container nginx no OKD e o arquivo sigpf-nginx.conf usa o placeholder __SIGPF_URL_API__ que é substituído pela variável da library do Azure DevOps em tempo de deploy. Essa variável aponta para https://sigpf-internet.esteiras.des.caixa/sigpf_internet/ que é justamente o Apache ModCluster dos servidores caddeapllx135 e caddeapllx136.
 
- configuraçoão:  sigpf-nginx.conf
+O problema não está no frontend — o nginx está configurado corretamente e o placeholder foi substituído com sucesso. O problema está na camada do Apache, onde o balancer://sigpf-internet não possui nenhum BalancerMember cadastrado, fazendo o Apache retornar 403 Forbidden antes de chegar ao JBoss.
 
-location /sigpf_internet/ {
-    client_max_body_size 10M;
-    proxy_set_header X-Forwarded-Host $host;
-    proxy_set_header X-Forwarded-Proto $scheme;
-    proxy_set_header X-Forwarded-Port $server_port;
-    proxy_set_header X-Forwarded-Server $host;
-    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-    proxy_set_header X-Real-IP $remote_addr;
-    proxy_pass __SIGPF_URL_API__;
-    proxy_redirect off;
-}
- 
+Confirmamos que o JBoss (caddeapllx832) está funcionando normalmente — testamos direto na porta 8080 e retornou 302 redirecionando para o login da Caixa corretamente.
+
+Sobre o motivo de ter parado: acreditamos que em algum momento o BalancerMember foi removido do arquivo de configuração do Apache, possivelmente durante uma manutenção ou atualização anterior. O ModCluster está desabilitado desde 2022, então os workers precisam ser definidos estaticamente no conf — e atualmente não estão.
+
+Já temos os IPs dos backends fornecidos pelo Jesse:
+- DES: caddeapllx832.agil.nprd.caixa.gov.br
+- TQS: caddeapllx575.agil.nprd.caixa.gov.br
+- HMP: caddeapllx1104.agil.nprd.caixa.gov.br e caddeapllx1161.agil.nprd.caixa.gov.br
+
+Vou aplicar a configuração do BalancerMember nos arquivos do Apache agora. Qualquer dúvida fico à disposição! 🙂
