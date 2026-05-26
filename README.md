@@ -33,8 +33,8 @@
         <extension module="org.wildfly.extension.request-controller"/>
         <extension module="org.wildfly.extension.security.manager"/>
         <extension module="org.wildfly.extension.undertow"/>
-        <extension module="org.wildfly.iiop-openjdk"/>       
- 	    <extension module="org.keycloak.keycloak-adapter-subsystem"/> 
+        <extension module="org.wildfly.iiop-openjdk"/>
+        <extension module="org.keycloak.keycloak-adapter-subsystem"/>
     </extensions>
     <system-properties>
         <property name="java.net.preferIPv4Stack" value="true"/>
@@ -151,29 +151,29 @@
                     </connection-property>
                     <driver>db2</driver>
                     <pool>
-                            <min-pool-size>5</min-pool-size>
-                            <max-pool-size>20</max-pool-size>
-                            <prefill>true</prefill>
-                            <use-strict-min>true</use-strict-min>
-                            <flush-strategy>FailingConnectionOnly</flush-strategy>
+                        <min-pool-size>5</min-pool-size>
+                        <max-pool-size>20</max-pool-size>
+                        <prefill>true</prefill>
+                        <use-strict-min>true</use-strict-min>
+                        <flush-strategy>FailingConnectionOnly</flush-strategy>
                     </pool>
                     <security>
-                            <user-name>__DB2_CMU_USR__</user-name>
-                            <password>__DB2_CMU_PWD__</password>
+                        <user-name>__DB2_CMU_USR__</user-name>
+                        <password>__DB2_CMU_PWD__</password>
                     </security>
                     <validation>
-                            <valid-connection-checker class-name="org.jboss.jca.adapters.jdbc.extensions.db2.DB2ValidConnectionChecker"/>
-                            <validate-on-match>true</validate-on-match>
-                            <background-validation>false</background-validation>
-                            <stale-connection-checker class-name="org.jboss.jca.adapters.jdbc.extensions.db2.DB2StaleConnectionChecker"/>
-                            <exception-sorter class-name="org.jboss.jca.adapters.jdbc.extensions.db2.DB2ExceptionSorter"/>
+                        <valid-connection-checker class-name="org.jboss.jca.adapters.jdbc.extensions.db2.DB2ValidConnectionChecker"/>
+                        <validate-on-match>true</validate-on-match>
+                        <background-validation>false</background-validation>
+                        <stale-connection-checker class-name="org.jboss.jca.adapters.jdbc.extensions.db2.DB2StaleConnectionChecker"/>
+                        <exception-sorter class-name="org.jboss.jca.adapters.jdbc.extensions.db2.DB2ExceptionSorter"/>
                     </validation>
-                     <timeout>
-                            <idle-timeout-minutes>5</idle-timeout-minutes>
-                     </timeout>
+                    <timeout>
+                        <idle-timeout-minutes>5</idle-timeout-minutes>
+                    </timeout>
                     <statement>
-                            <track-statements>true</track-statements>
-                        </statement>
+                        <track-statements>true</track-statements>
+                    </statement>
                 </datasource>
                 <datasource jta="false" jndi-name="java:/db2cdm" pool-name="db2cdm" enabled="true">
                     <connection-url>__DB2_RJP4_URL__</connection-url>
@@ -183,34 +183,34 @@
                     </connection-property>
                     <driver>db2</driver>
                     <pool>
-                            <min-pool-size>5</min-pool-size>
-                            <max-pool-size>20</max-pool-size>
-                            <prefill>true</prefill>
-                            <use-strict-min>true</use-strict-min>
-                            <flush-strategy>FailingConnectionOnly</flush-strategy>
+                        <min-pool-size>5</min-pool-size>
+                        <max-pool-size>20</max-pool-size>
+                        <prefill>true</prefill>
+                        <use-strict-min>true</use-strict-min>
+                        <flush-strategy>FailingConnectionOnly</flush-strategy>
                     </pool>
                     <security>
-                            <user-name>__DB2_CMU_USR__</user-name>
-                            <password>__DB2_CMU_PWD__</password>
+                        <user-name>__DB2_CMU_USR__</user-name>
+                        <password>__DB2_CMU_PWD__</password>
                     </security>
                     <validation>
-                            <valid-connection-checker class-name="org.jboss.jca.adapters.jdbc.extensions.db2.DB2ValidConnectionChecker"/>
-                            <validate-on-match>true</validate-on-match>
-                            <background-validation>false</background-validation>
-                            <stale-connection-checker class-name="org.jboss.jca.adapters.jdbc.extensions.db2.DB2StaleConnectionChecker"/>
-                            <exception-sorter class-name="org.jboss.jca.adapters.jdbc.extensions.db2.DB2ExceptionSorter"/>
+                        <valid-connection-checker class-name="org.jboss.jca.adapters.jdbc.extensions.db2.DB2ValidConnectionChecker"/>
+                        <validate-on-match>true</validate-on-match>
+                        <background-validation>false</background-validation>
+                        <stale-connection-checker class-name="org.jboss.jca.adapters.jdbc.extensions.db2.DB2StaleConnectionChecker"/>
+                        <exception-sorter class-name="org.jboss.jca.adapters.jdbc.extensions.db2.DB2ExceptionSorter"/>
                     </validation>
-                     <timeout>
-                            <idle-timeout-minutes>5</idle-timeout-minutes>
-                     </timeout>
+                    <timeout>
+                        <idle-timeout-minutes>5</idle-timeout-minutes>
+                    </timeout>
                     <statement>
-                            <track-statements>true</track-statements>
-                        </statement>
+                        <track-statements>true</track-statements>
+                    </statement>
                 </datasource>
-                <drivers>                        
+                <drivers>
                     <driver name="db2" module="com.ibm.db2">
                         <xa-datasource-class>com.ibm.db2.jcc.DB2XADataSource</xa-datasource-class>
-                    </driver>                        
+                    </driver>
                 </drivers>
             </datasources>
         </subsystem>
@@ -239,7 +239,8 @@
                 <stateless>
                     <bean-instance-pool-ref pool-name="slsb-strict-max-pool"/>
                 </stateless>
-                <stateful default-access-timeout="5000" cache-ref="distributable" passivation-disabled-cache-ref="simple"/>
+                <!-- CORRIGIDO: cache-ref alterado de "distributable" para "simple" (sem cluster) -->
+                <stateful default-access-timeout="5000" cache-ref="simple" passivation-disabled-cache-ref="simple"/>
                 <singleton default-access-timeout="5000"/>
             </session-bean>
             <mdb>
@@ -248,7 +249,6 @@
             </mdb>
             <pools>
                 <bean-instance-pools>
-                    <!-- Automatically configure pools. Alternatively, max-pool-size can be set to a specific value -->
                     <strict-max-pool name="slsb-strict-max-pool" derive-size="from-worker-pools" instance-acquisition-timeout="5" instance-acquisition-timeout-unit="MINUTES"/>
                     <strict-max-pool name="mdb-strict-max-pool" derive-size="from-cpu-count" instance-acquisition-timeout="5" instance-acquisition-timeout-unit="MINUTES"/>
                 </bean-instance-pools>
@@ -282,31 +282,28 @@
             <worker name="default"/>
             <buffer-pool name="default"/>
         </subsystem>
+        <!-- CORRIGIDO: infinispan alterado para local-cache (sem cluster/transporte) -->
         <subsystem xmlns="urn:jboss:domain:infinispan:4.0">
             <cache-container name="server" aliases="singleton cluster" default-cache="default" module="org.wildfly.clustering.server">
-                <transport lock-timeout="60000"/>
-                <replicated-cache name="default" mode="SYNC">
+                <local-cache name="default">
                     <transaction mode="BATCH"/>
-                </replicated-cache>
+                </local-cache>
             </cache-container>
-            <cache-container name="web" default-cache="dist" module="org.wildfly.clustering.web.infinispan">
-                <transport lock-timeout="60000"/>
-                <distributed-cache name="dist" mode="ASYNC" l1-lifespan="0" owners="2">
+            <cache-container name="web" default-cache="passivation" module="org.wildfly.clustering.web.infinispan">
+                <local-cache name="passivation">
                     <locking isolation="REPEATABLE_READ"/>
                     <transaction mode="BATCH"/>
-                    <file-store/>
-                </distributed-cache>
+                    <file-store passivation="true" purge="false"/>
+                </local-cache>
             </cache-container>
-            <cache-container name="ejb" aliases="sfsb" default-cache="dist" module="org.wildfly.clustering.ejb.infinispan">
-                <transport lock-timeout="60000"/>
-                <distributed-cache name="dist" mode="ASYNC" l1-lifespan="0" owners="2">
+            <cache-container name="ejb" aliases="sfsb" default-cache="passivation" module="org.wildfly.clustering.ejb.infinispan">
+                <local-cache name="passivation">
                     <locking isolation="REPEATABLE_READ"/>
                     <transaction mode="BATCH"/>
-                    <file-store/>
-                </distributed-cache>
+                    <file-store passivation="true" purge="false"/>
+                </local-cache>
             </cache-container>
             <cache-container name="hibernate" default-cache="local-query" module="org.hibernate.infinispan">
-                <transport lock-timeout="60000"/>
                 <local-cache name="local-query">
                     <eviction strategy="LRU" max-entries="10000"/>
                     <expiration max-idle="100000"/>
@@ -316,7 +313,7 @@
                     <eviction strategy="LRU" max-entries="10000"/>
                     <expiration max-idle="100000"/>
                 </invalidation-cache>
-                <replicated-cache name="timestamps" mode="ASYNC"/>
+                <local-cache name="timestamps"/>
             </cache-container>
         </subsystem>
         <subsystem xmlns="urn:jboss:domain:iiop-openjdk:1.0">
@@ -344,9 +341,10 @@
             <cached-connection-manager/>
         </subsystem>
         <subsystem xmlns="urn:jboss:domain:jdr:1.0"/>
+        <!-- CORRIGIDO: jgroups TCPPING com host fixo local (sem variavel nao resolvida) -->
         <subsystem xmlns="urn:jboss:domain:jgroups:4.0">
             <channels default="ee">
-                <channel name="ee"  stack="tcp" cluster="ejb"/>
+                <channel name="ee" stack="tcp" cluster="ejb"/>
             </channels>
             <stacks>
                 <stack name="udp">
@@ -366,10 +364,9 @@
                 </stack>
                 <stack name="tcp">
                     <transport type="TCP" socket-binding="jgroups-tcp"/>
-                    <protocol type="org.jgroups.protocols.TCPPING">
-                        <property name="initial_hosts">
-                            ${jboss.cluster.tcp.initial_hosts}
-                        </property>
+                    <protocol type="TCPPING">
+                        <property name="initial_hosts">127.0.0.1[7600]</property>
+                        <property name="port_range">0</property>
                     </protocol>
                     <protocol type="MERGE3"/>
                     <protocol type="FD_SOCK"/>
@@ -617,6 +614,6 @@
         </outbound-socket-binding>
         <outbound-socket-binding name="proxy2" fixed-source-port="false">
             <remote-destination host="${http.modcluster.proxy2:127.0.0.2}" port="6666"/>
-        </outbound-socket-binding>       
+        </outbound-socket-binding>
     </socket-binding-group>
 </server>
