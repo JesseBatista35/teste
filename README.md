@@ -1,18 +1,18 @@
-[jboss7@sspdeapllx0040 p585600]$ grep -n -A 15 'server-group name="sisag"' /opt/jboss/jboss-eap-7.0/domain/configuration/domain.xml
-7461:        <server-group name="sisag" profile="sisag" management-subsystem-endpoint="false">
-7462-            <jvm name="sisag">
-7463-                <heap size="256m" max-size="256m"/>
-7464-                <jvm-options>
-7465-                    <option value="-javaagent:/opt/azure/config/appinsights/applicationinsights-agent.jar"/>
-7466-                    <option value="-Dapplicationinsights.configuration.file=/opt/azure/config/appinsights/applicationinsights.json"/>
-7467-                    <option value="-Djava.net.useSystemProxies=false"/>
-7468-                    <option value="-Dhttp.proxyHost=proxydes.caixa"/>
-7469-                    <option value="-Dhttp.proxyPort=80"/>
-7470-                    <option value="-Dhttps.proxyHost=proxydes.caixa"/>
-7471-                    <option value="-Dhttps.proxyPort=80"/>
-7472-                    <option value="-Dhttp.nonProxyHosts=localhost|127.0.0.1|*.caixa|*.caixa.gov.br"/>
-7473-                </jvm-options>
-7474-            </jvm>
-7475-            <socket-binding-group ref="cef-full-ha-sockets" port-offset="0"/>
-7476-            <deployments>
-[jboss7@sspdeapllx0040 p585600]$
+
+[jboss7@sspdeapllx0041 jboss-eap-7.0]$ ./jboss.sh sisag-lx0041 stop
+Executando stop da instancia. (sisag-lx0041).
+{
+    "outcome" => "success",
+    "result" => "STOPPING"
+}
+[jboss7@sspdeapllx0041 jboss-eap-7.0]$ ./jboss.sh sisag-lx0041 start
+Removendo pasta tmp da instancia sisag-lx0041.
+Removendo pasta data da instancia sisag-lx0041.
+Executando start da instancia. (sisag-lx0041).
+{
+    "outcome" => "success",
+    "result" => "STARTING"
+}
+[jboss7@sspdeapllx0041 jboss-eap-7.0]$ ps -ef | grep sisag-lx0041 | grep -v grep
+jboss7   26547 11831 99 13:57 ?        00:00:21 /opt/jboss/jdk/bin/java -D[Server:sisag-lx0041] -Xms256m -Xmx256m -Dbr.com.bry.debug=assinador ws all -Dinstancias.list=nodelx0041[7606],nodelx0076[7606] -Djava.awt.headless=true -Djava.net.preferIPv4Stack=true -Djboss.as.management.blocking.timeout=600 -Djboss.home.dir=/opt/jboss/jboss-eap-7.0 -Djboss.modules.system.pkgs=org.jboss.byteman,com.sun.crypto.provider,com.wily,com.wily* -Djboss.server.log.dir=/opt/jboss/jboss-eap-7.0/domain/servers/sisag-lx0041/log -Djboss.server.temp.dir=/opt/jboss/jboss-eap-7.0/domain/servers/sisag-lx0041/tmp -Djboss.server.data.dir=/opt/jboss/jboss-eap-7.0/domain/servers/sisag-lx0041/data -Dorg.jboss.boot.log.file=/opt/jboss/jboss-eap-7.0/domain/servers/sisag-lx0041/log/server.log -Dlogging.configuration=file:/opt/jboss/jboss-eap-7.0/domain/configuration/default-server-logging.properties -jar /opt/jboss/jboss-eap-7.0/jboss-modules.jar -mp /opt/jboss/jboss-eap-7.0/modules:/opt/jboss/jboss-eap-7.0/modules-caixa org.jboss.as.server
+[jboss7@sspdeapllx0041 jboss-eap-7.0]$
