@@ -1,83 +1,113 @@
-####
-# This Dockerfile is used in order to build a container that runs the Quarkus application in JVM mode
-#
-# Before building the container image run:
-#
-# ./mvnw package
-#
-# Then, build the image with:
-#
-# docker build -f src/main/docker/Dockerfile.jvm -t quarkus/sisgf-backend-jvm .
-#
-# Then run the container using:
-#
-# docker run -i --rm -p 8080:8080 quarkus/sisgf-backend-jvm
-#
-# If you want to include the debug port into your docker image
-# you will have to expose the debug port (default 5005) like this :  EXPOSE 8080 5050
-#
-# Then run the container using :
-#
-# docker run -i --rm -p 8080:8080 -p 5005:5005 -e JAVA_ENABLE_DEBUG="true" quarkus/sisgf-backend-jvm
-#
-###
-FROM registry.access.redhat.com/ubi8/ubi-minimal:8.3 
+rodei uma branch de teste usando o seu dokcerfile 
 
-ARG JAVA_PACKAGE=java-11-openjdk-headless
-ARG RUN_JAVA_VERSION=1.3.8
 
-# =============================================================
-# CORRECAO: Versao do Application Insights Agent
-# Ajuste a versao abaixo conforme necessario (3.3.1 ou 3.5.1)
-# =============================================================
-ARG APPINSIGHTS_VERSION=3.3.1
+e deu a mesma coisa:
 
-ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en'
-# Install java and the run-java script
-# Also set up permissions for user `1001`
-RUN microdnf install curl ca-certificates ${JAVA_PACKAGE} \
-    && microdnf update \
-    && microdnf clean all \
-    && mkdir /deployments \
-    && chown 1001 /deployments \
-    && chmod "g+rwX" /deployments \
-    && chown 1001:root /deployments \
-    && curl https://repo1.maven.org/maven2/io/fabric8/run-java-sh/${RUN_JAVA_VERSION}/run-java-sh-${RUN_JAVA_VERSION}-sh.sh -o /deployments/run-java.sh \
-    && chown 1001 /deployments/run-java.sh \
-    && chmod 540 /deployments/run-java.sh \
-    && echo "securerandom.source=file:/dev/urandom" >> /etc/alternatives/jre/lib/security/java.security
 
-# =============================================================
-# CORRECAO: Cria o diretorio e baixa o Application Insights JAR
-# durante o build da imagem.
-#
-# OPCAO A (usada aqui): Download direto do Maven Central.
-# Requer acesso a internet durante o build.
-#
-# OPCAO B (sem internet no build): Remova o bloco RUN abaixo e
-# descomente a linha COPY, colocando o JAR em:
-# src/main/docker/agents/com.microsoft.azure.applicationinsights-agent-3.3.1.jar
-# =============================================================
-RUN mkdir -p /deployments/lib/main \
-    && curl -L \
-       https://repo1.maven.org/maven2/com/microsoft/azure/applicationinsights-agent/${APPINSIGHTS_VERSION}/applicationinsights-agent-${APPINSIGHTS_VERSION}.jar \
-       -o /deployments/lib/main/com.microsoft.azure.applicationinsights-agent-${APPINSIGHTS_VERSION}.jar \
-    && chown -R 1001:root /deployments/lib/main \
-    && chmod -R g+rwX /deployments/lib/main
+exec java -Dquarkus.http.host=0.0.0.0 -Dquarkus.http.port=8080 -Djava.util.logging.manager=org.jboss.logmanager.LogManager -Djavax.net.ssl.trustStore=/deployments/caixa-truststore-acteste-nprd.jks -javaagent:/deployments/lib/main/com.microsoft.azure.applicationinsights-agent-3.3.1.jar -Dhttps.proxyHost=proxydes.caixa -Dhttps.proxyPort=80 -Dhttp.nonProxyHosts=*.caixa|*.caixa.gov.br -XX:+ExitOnOutOfMemoryError -cp . -jar /deployments/quarkus-run.jar
+Error occurred during initialization of VM
+agent library failed to init: instrument
+Error opening zip file or JAR manifest missing : /deployments/lib/main/com.microsoft.azure.applicationinsights-agent-3.3.1.jar
 
-# OPCAO B - descomente se nao houver acesso a internet no build:
-# COPY --chown=1001 src/main/docker/agents/com.microsoft.azure.applicationinsights-agent-3.3.1.jar \
-#      /deployments/lib/main/com.microsoft.azure.applicationinsights-agent-3.3.1.jar
 
-# Configure the JAVA_OPTIONS, you can add -XshowSettings:vm to also display the heap size.
-ENV JAVA_OPTIONS="-Dquarkus.http.host=0.0.0.0 -Djava.util.logging.manager=org.jboss.logmanager.LogManager"
-# We make four distinct layers so if there are application changes the library layers can be re-used
-COPY --chown=1001 target/quarkus-app/lib/ /deployments/lib/
-COPY --chown=1001 target/quarkus-app/*.jar /deployments/
-COPY --chown=1001 target/quarkus-app/app/ /deployments/app/
-COPY --chown=1001 target/quarkus-app/quarkus/ /deployments/quarkus/
+as variaveis estão assim:
 
-EXPOSE 8080
-USER 1001
 
-ENTRYPOINT [ "/deployments/run-java.sh" ]
+SISGF-backend-des (48)
+Scopes: EC DES
+JKS_PASS
+changeit
+VAULT_LOCATION
+/usr/src/app/secrets_files/SISGF_DES/
+_ENV.APPLICATIONINSIGHTS_CONNECTION_STRING
+"InstrumentationKey=99ee6c02-0bc8-4c2e-8109-b744a54e07ae;IngestionEndpoint=https://brazilsouth-1.in.applicationinsights.azure.com/;LiveEndpoint=https://brazilsouth.livediagnostics.monitor.azure.com/"
+_ENV.APPLICATIONINSIGHTS_INSTRUMENTATION_LOGGING_LEVEL
+INFO
+_ENV.APPLICATIONINSIGHTS_ROLE_NAME
+SISGF-backend-DES
+_ENV.APPLICATIONINSIGHTS_SAMPLING_PERCENTAGE
+3
+_ENV.APPLICATIONINSIGHTS_SELF_DIAGNOSTICS_LEVEL
+INFO
+_ENV.CORS_ORIGINS
+"https://sisgf-frontend-des.apps.nprd.caixa, https://sisgf-frontend-tqs.apps.nprd.caixa, https://sisgf.caixa/, http://localhost:4200"
+_ENV.DB2_SIICO_SCHEMA
+DESICO
+_ENV.DB2_SIICO_URL
+"jdbc:db2://10.216.80.110:448/RJKDB2DSD0"
+_ENV.DB2_SIICO_USERNAME
+"ssgfrd01"
+_ENV.EMAIL_DESTINATARIOS
+"jose.ibiapina@caixa.gov.br;daniel.e.araujo@caixa.gov.br"
+_ENV.EMAIL_FROM
+"sisgf.teste@caixa.gov.br"
+_ENV.EMAIL_SMTP_PORT
+25
+_ENV.EMAIL_SMTP_URL
+"smtptest.correiolivre.caixa"
+_ENV.HORA_LIMITE_CONTABILIZACAO
+18
+_ENV.HTTPS_PROXY
+http://proxydes.caixa:80
+_ENV.JAVA_OPTIONS_APPEND
+"-Djavax.net.ssl.trustStore=/deployments/caixa-truststore-acteste-nprd.jks -javaagent:/deployments/lib/main/com.microsoft.azure.applicationinsights-agent-3.3.1.jar"
+_ENV.NO_PROXY
+"*.caixa,*.caixa.gov.br"
+_ENV.QUARKUS_DATASOURCE_DB_KIND
+"other"
+_ENV.QUARKUS_DATASOURCE_JDBC_DRIVER
+"oracle.jdbc.driver.OracleDriver"
+_ENV.QUARKUS_DATASOURCE_JDBC_MAX_SIZE
+"40"
+_ENV.QUARKUS_DATASOURCE_JDBC_URL
+"jdbc:oracle:thin:@10.116.101.7:1521/orad01sc"
+_ENV.QUARKUS_DATASOURCE_USERNAME
+"SSGFRD01"
+_ENV.QUARKUS_HIBERNATE-ORM_DATABASE_DEFAULT_SCHEMA
+"SGF"
+_ENV.QUARKUS_HIBERNATE_ORB_DIALECT
+"org.hibernate.dialect.Oracle10gDialect"
+_ENV.QUARKUS_HIBERNATE_ORM_LOG_BIND_PARAMETERS
+"false"
+_ENV.QUARKUS_HIBERNATE_ORM_LOG_SQL
+"false"
+_ENV.QUARKUS_HIBERNATE_ORM_PACKAGES
+"br.gov.caixa.sisgf.api.domain.model"
+_ENV.QUARKUS_LOG_LEVEL
+"INFO"
+_ENV.QUARKUS_OIDC_AUTH_SERVER_URL
+https://login.des.caixa/auth/realms/intranet
+_ENV.SFTP_CLIENT_USER
+ssgfdr01
+_ENV.SFTP_PATH_DIR_LIST
+"/SINAF,/SIPAS,/sipas"
+_ENV.SFTP_PATH_ENTRADA
+/sistemas/sisgf/arquivos/entrada/relatorios
+_ENV.SFTP_SERVER_IP
+10.116.89.226
+_ENV.SFTP_SERVER_PORT
+22
+_ENV.SIICO_API_PRIVADA_URL
+https://api.des.caixa:8443/informacoes-corporativas-privadas/
+_ENV.SIICO_API_PUBLICA_URL
+https://api.des.caixa:8443/informacoes-corporativas-publicas/
+_ENV.SINAF_API_EVENTO_URL
+https://api.des.caixa:8443/sinaf-api-evento/
+_ENV.SISGF_API_URL
+https://sisgf-api-des.apps.nprd.caixa/financeiro-beneficios/faturamento/
+_ENV.SISGF_BATCH_UNIDADES_URL
+https://sisgf-batch-des.apps.nprd.caixa
+_SECRET.API_KEY
+'${SISGF_APIKEY}'
+_SECRET.DB2_SIICO_PASSWORD
+'${SSGFRD01_DB2}'
+_SECRET.QUARKUS_DATASOURCE_PASSWORD
+'${SSGFRD02_ORA}'
+_SECRET.QUARKUS_HTTP_SSL_CERTIFICATE_KEY-STORE-PASSWORD
+#{JKS_PASS}#
+_SECRET.QUARKUS_OIDC_CREDENTIALS_SECRET
+'${CLISERSGF_SSO_INTRA}'
+_SECRET.SFTP_CLIENT_SECRET
+'${SSGFDR01_SFTP}'
+_SECRET.SMALLRYE.CONFIG.SOURCE.FILE.LOCATIONS
+#{VAULT_LOCATION}#
