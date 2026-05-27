@@ -1,34 +1,23 @@
-Project: sisgf-des
 Secrets
 Secret details
 Secret
 S
-sisgf-backend-des
+bt-client-secret-sisgf-backend-des
 
 Actions
 Details
 YAML
 Secret details
-sisgf-backend-des
+bt-client-secret-sisgf-backend-des
 Namespace
 NS
 sisgf-des
 No labels
-27 de mai. de 2026, 15:48
+20 de abr. de 2026, 15:25
 No owner
 Opaque
 Data
-API_KEY
+BT_CLIENT_ID
 Value hidden•••••
-DB2_SIICO_PASSWORD
-Value hidden•••••
-QUARKUS_DATASOURCE_PASSWORD
-Value hidden•••••
-QUARKUS_HTTP_SSL_CERTIFICATE_KEY-STORE-PASSWORD
-Value hidden•••••
-QUARKUS_OIDC_CREDENTIALS_SECRET
-Value hidden•••••
-SFTP_CLIENT_SECRET
-Value hidden•••••
-SMALLRYE_CONFIG_SOURCE_FILE_LOCATIONS
+BT_CLIENT_SECRET
 Value hidden•••••
