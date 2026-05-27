@@ -1,23 +1,9 @@
 
-[p585600@sspdeapllx0041 ~]$ sudo -u jboss7 /opt/jboss/jboss-eap-7.0/bin/jboss-cli.sh --connect --controller=localhost:9990 --command="/host=master/server=sisag-lx0041:restart"
-
-We trust you have received the usual lecture from the local System
-Administrator. It usually boils down to these three things:
-
-    #1) Respect the privacy of others.
-    #2) Think before you type.
-    #3) With great power comes great responsibility.
-
-Senha SUDO:
-Failed to connect to the controller: The controller is not available at localhost:9990: java.net.ConnectException: WFLYPRT0053: Could not connect to http-remoting://localhost:9990. The connection failed: WFLYPRT0053: Could not connect to http-remoting://localhost:9990. The connection failed: Connection refused
-[p585600@sspdeapllx0041 ~]$
-[p585600@sspdeapllx0041 ~]$
-[p585600@sspdeapllx0041 ~]$
-[p585600@sspdeapllx0041 ~]$ sudo -u jboss7 /opt/jboss/jboss-eap-7.0/bin/jboss-cli.sh --connect --controller=localhost:9990 --command="/host=master/server=sisag-lx0041:restart"
-Failed to connect to the controller: The controller is not available at localhost:9990: java.net.ConnectException: WFLYPRT0053: Could not connect to http-remoting://localhost:9990. The connection failed: WFLYPRT0053: Could not connect to http-remoting://localhost:9990. The connection failed: Connection refused
+[p585600@sspdeapllx0041 ~]$ netstat -tlnp | grep jboss
+(No info could be read for "-p": geteuid()=2585600 but you should be root.)
+[p585600@sspdeapllx0041 ~]$ ps -ef | grep "host-controller" | grep -v grep
+jboss7   11831 11462  0 May11 ?        00:09:08 /opt/jboss/jdk/bin/java -D[Process Controller] -server -Xms64m -Xmx512m -XX:MaxMetaspaceSize=256m -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs=org.jboss.byteman,com.sun.crypto.provider,com.wily,com.wily* -Djava.awt.headless=true -Dorg.jboss.boot.log.file=/opt/jboss/jboss-eap-7.0/domain/log/process-controller.log -Dlogging.configuration=file:/opt/jboss/jboss-eap-7.0/domain/configuration/logging.properties -jar /opt/jboss/jboss-eap-7.0/jboss-modules.jar -mp /opt/jboss/jboss-eap-7.0/modules:/opt/jboss/jboss-eap-7.0/modules-caixa org.jboss.as.process-controller -jboss-home /opt/jboss/jboss-eap-7.0 -jvm /opt/jboss/jdk/bin/java -mp /opt/jboss/jboss-eap-7.0/modules:/opt/jboss/jboss-eap-7.0/modules-caixa -- -Dorg.jboss.boot.log.file=/opt/jboss/jboss-eap-7.0/domain/log/host-controller.log -Dlogging.configuration=file:/opt/jboss/jboss-eap-7.0/domain/configuration/logging.properties -server -Xms64m -Xmx512m -XX:MaxMetaspaceSize=256m -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs=org.jboss.byteman,com.sun.crypto.provider,com.wily,com.wily* -Djava.awt.headless=true -- -default-jvm /opt/jboss/jdk/bin/java --domain-config=domain.xml --host-config=host.xml
+jboss7   11857 11831  0 May11 ?        00:12:44 /opt/jboss/jdk/bin/java -D[Host Controller] -Dorg.jboss.boot.log.file=/opt/jboss/jboss-eap-7.0/domain/log/host-controller.log -Dlogging.configuration=file:/opt/jboss/jboss-eap-7.0/domain/configuration/logging.properties -server -Xms64m -Xmx512m -XX:MaxMetaspaceSize=256m -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs=org.jboss.byteman,com.sun.crypto.provider,com.wily,com.wily* -Djava.awt.headless=true -jar /opt/jboss/jboss-eap-7.0/jboss-modules.jar -mp /opt/jboss/jboss-eap-7.0/modules:/opt/jboss/jboss-eap-7.0/modules-caixa org.jboss.as.host-controller -mp /opt/jboss/jboss-eap-7.0/modules:/opt/jboss/jboss-eap-7.0/modules-caixa --pc-address 127.0.0.1 --pc-port 35864 -default-jvm /opt/jboss/jdk/bin/java --domain-config=domain.xml --host-config=host.xml -Djboss.home.dir=/opt/jboss/jboss-eap-7.0
 [p585600@sspdeapllx0041 ~]$
 
-
-
-ps -ef | grep sisag-lx0041 | grep -v grep
 
