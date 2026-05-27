@@ -10,46 +10,78 @@ Environment
 Logs
 Events
 Terminal
-Streaming events...
-Showing 15 events
-Older events are not stored.
-PodPsisgf-backend-des-221-c6lbl
-NamespaceNSsisgf-des
-27 de mai. de 2026, 16:05
-Generated from kubelet on ceadecldlx053.nprd.caixa
-Created container secrets-check
-PodPsisgf-backend-des-221-c6lbl
-NamespaceNSsisgf-des
-27 de mai. de 2026, 16:05
-Generated from kubelet on ceadecldlx053.nprd.caixa
-Started container secrets-check
-PodPsisgf-backend-des-221-c6lbl
-NamespaceNSsisgf-des
-27 de mai. de 2026, 16:04
-Generated from kubelet on ceadecldlx053.nprd.caixa
-Container image "default-route-openshift-image-registry.apps.produtos4.caixa/openshift/ubi:9.3-1552" already present on machine
-PodPsisgf-backend-des-221-c6lbl
-NamespaceNSsisgf-des
-27 de mai. de 2026, 16:04
-Generated from multus
-Add eth0 [25.2.25.190/23] from openshift-sdn
-PodPsisgf-backend-des-221-c6lbl
-NamespaceNSsisgf-des
-27 de mai. de 2026, 16:04
-Generated from kubelet on ceadecldlx053.nprd.caixa
-Container image "default-route-openshift-image-registry.apps.produtos4.caixa/openshift/secrets-agent:v23.3.2" already present on machine
-PodPsisgf-backend-des-221-c6lbl
-NamespaceNSsisgf-des
-27 de mai. de 2026, 16:04
-Generated from kubelet on ceadecldlx053.nprd.caixa
-Created container secrets-agent-sidecar
-PodPsisgf-backend-des-221-c6lbl
-NamespaceNSsisgf-des
-27 de mai. de 2026, 16:04
-Generated from kubelet on ceadecldlx053.nprd.caixa
-Started container secrets-agent-sidecar
-PodPsisgf-backend-des-221-c6lbl
-NamespaceNSsisgf-des
-27 de mai. de 2026, 16:04
-Generated from default-scheduler
-Successfully assigned sisgf-des/sisgf-backend-des-221-c6lbl to ceadecldlx053.nprd.caixa
+Info alert:Environment variables set from parent
+View environment for resource ReplicationController
+RC
+sisgf-backend-des-221
+Init container:
+
+Container
+C
+secrets-agent-sidecar
+Single values (env)
+NameValue
+SECRETS_PATH
+/usr/src/app/secrets_files
+BT_API_URL
+https://sicsn.caixa/BeyondTrust/api/public/v3
+CLIENT_ID
+bt-client-secret-sisgf-backend-des - Secret
+BT_CLIENT_ID
+CLIENT_SECRET
+bt-client-secret-sisgf-backend-des - Secret
+BT_CLIENT_SECRET
+BT_API_VERSION
+3.1
+SECRETS_LIST
+SISGF_DES/SSGFDR01_SFTP,SISGF_DES/CLISERSGF_SSO_INTRA,SISGF_DES/SISGF_APIKEY,SISGF_DES/SSGFRD01_DB2,SISGF_DES/SSGFRD02_ORA
+BT_VERIFY_CA
+False
+All values from existing ConfigMaps or Secrets (envFrom)
+ConfigMap/SecretPrefix (optional)
+ConfigMap/Secret
+
+
+P
+sisgf-backend-des-221-c6lbl
+CrashLoopBackOff
+
+Actions
+Details
+Metrics
+YAML
+Environment
+Logs
+Events
+Terminal
+Info alert:Environment variables set from parent
+View environment for resource ReplicationController
+RC
+sisgf-backend-des-221
+Init container:
+
+Container
+C
+secrets-agent-sidecar
+Single values (env)
+NameValue
+SECRETS_PATH
+/usr/src/app/secrets_files
+BT_API_URL
+https://sicsn.caixa/BeyondTrust/api/public/v3
+CLIENT_ID
+bt-client-secret-sisgf-backend-des - Secret
+BT_CLIENT_ID
+CLIENT_SECRET
+bt-client-secret-sisgf-backend-des - Secret
+BT_CLIENT_SECRET
+BT_API_VERSION
+3.1
+SECRETS_LIST
+SISGF_DES/SSGFDR01_SFTP,SISGF_DES/CLISERSGF_SSO_INTRA,SISGF_DES/SISGF_APIKEY,SISGF_DES/SSGFRD01_DB2,SISGF_DES/SSGFRD02_ORA
+BT_VERIFY_CA
+False
+All values from existing ConfigMaps or Secrets (envFrom)
+ConfigMap/SecretPrefix (optional)
+ConfigMap/Secret
+
