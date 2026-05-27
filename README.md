@@ -1,22 +1,3 @@
-[p585600@sspdeapllx0041 ~]$ find / -name "standalone.conf" 2>/dev/null
-/backup/jboss-eap-7.0.old/bin/standalone.conf
-/backup/jboss-eap-7.0.old/.installation/patches/jboss-eap-7.0.5.CP/misc/bin/standalone.conf
-/opt/jboss/jboss-eap-7.0/bin/standalone.conf
-[p585600@sspdeapllx0041 ~]$ find /opt -name "*conf" 2>/dev/null | grep -i jboss
-/opt/jboss/jdk1.8.0_172/lib/visualvm/etc/visualvm.conf
-/opt/jboss/jdk1.8.0_172_siran/lib/visualvm/etc/visualvm.conf
-/opt/jboss/jboss-eap-7.0/bin/product.conf
-/opt/jboss/jboss-eap-7.0/bin/appclient.conf
-/opt/jboss/jboss-eap-7.0/bin/domain.conf
-/opt/jboss/jboss-eap-7.0/bin/init.d/jboss-eap.conf
-/opt/jboss/jboss-eap-7.0/bin/standalone.conf
-/opt/jboss/jboss-eap-7.0/.installation/JBoss EAP.conf
-/opt/jboss/jboss-eap-7.0/.installation/layers/base/layer.conf
-/opt/jboss/jdk1.8.0_131/lib/visualvm/etc/visualvm.conf
-[p585600@sspdeapllx0041 ~]$ ps -ef | grep sisag
-jboss7   15959 11831  0 May11 ?        01:55:13 /opt/jboss/jdk/bin/java -D[Server:sisag03-lx0041] -Xms256m -Xmx256m -Dbr.com.bry.debug=assinador ws all -Dinstancias.list=nodelx0041[7617] -Djava.awt.headless=true -Djava.net.preferIPv4Stack=true -Djboss.as.management.blocking.timeout=600 -Djboss.home.dir=/opt/jboss/jboss-eap-7.0 -Djboss.modules.system.pkgs=org.jboss.byteman,com.sun.crypto.provider,com.wily,com.wily* -Djboss.server.log.dir=/opt/jboss/jboss-eap-7.0/domain/servers/sisag03-lx0041/log -Djboss.server.temp.dir=/opt/jboss/jboss-eap-7.0/domain/servers/sisag03-lx0041/tmp -Djboss.server.data.dir=/opt/jboss/jboss-eap-7.0/domain/servers/sisag03-lx0041/data -Dlogging.configuration=file:/opt/jboss/jboss-eap-7.0/domain/servers/sisag03-lx0041/data/logging.properties -jar /opt/jboss/jboss-eap-7.0/jboss-modules.jar -mp /opt/jboss/jboss-eap-7.0/modules:/opt/jboss/jboss-eap-7.0/modules-caixa org.jboss.as.server
-jboss7   16125 11831  0 May11 ?        00:17:11 /opt/jboss/jdk/bin/java -D[Server:sisag04-lx0041] -Xms256m -Xmx256m -Dbr.com.bry.debug=assinador ws all -Dinstancias.list=nodelx0041[7618] -Djava.awt.headless=true -Djava.net.preferIPv4Stack=true -Djboss.as.management.blocking.timeout=600 -Djboss.home.dir=/opt/jboss/jboss-eap-7.0 -Djboss.modules.system.pkgs=org.jboss.byteman,com.sun.crypto.provider,com.wily,com.wily* -Djboss.server.log.dir=/opt/jboss/jboss-eap-7.0/domain/servers/sisag04-lx0041/log -Djboss.server.temp.dir=/opt/jboss/jboss-eap-7.0/domain/servers/sisag04-lx0041/tmp -Djboss.server.data.dir=/opt/jboss/jboss-eap-7.0/domain/servers/sisag04-lx0041/data -Dlogging.configuration=file:/opt/jboss/jboss-eap-7.0/domain/servers/sisag04-lx0041/data/logging.properties -jar /opt/jboss/jboss-eap-7.0/jboss-modules.jar -mp /opt/jboss/jboss-eap-7.0/modules:/opt/jboss/jboss-eap-7.0/modules-caixa org.jboss.as.server
-jboss7   16294 11831  0 May11 ?        00:10:27 /opt/jboss/jdk/bin/java -D[Server:sisag05-lx0041] -Xms256m -Xmx256m -Dbr.com.bry.debug=assinador ws all -Dinstancias.list=nodelx0041[7619] -Djava.awt.headless=true -Djava.net.preferIPv4Stack=true -Djboss.as.management.blocking.timeout=600 -Djboss.home.dir=/opt/jboss/jboss-eap-7.0 -Djboss.modules.system.pkgs=org.jboss.byteman,com.sun.crypto.provider,com.wily,com.wily* -Djboss.server.log.dir=/opt/jboss/jboss-eap-7.0/domain/servers/sisag05-lx0041/log -Djboss.server.temp.dir=/opt/jboss/jboss-eap-7.0/domain/servers/sisag05-lx0041/tmp -Djboss.server.data.dir=/opt/jboss/jboss-eap-7.0/domain/servers/sisag05-lx0041/data -Dlogging.configuration=file:/opt/jboss/jboss-eap-7.0/domain/servers/sisag05-lx0041/data/logging.properties -jar /opt/jboss/jboss-eap-7.0/jboss-modules.jar -mp /opt/jboss/jboss-eap-7.0/modules:/opt/jboss/jboss-eap-7.0/modules-caixa org.jboss.as.server
-jboss7   19943 11831  0 May26 ?        00:02:16 /opt/jboss/jdk/bin/java -D[Server:sisag-lx0041] -Xms256m -Xmx256m -Dbr.com.bry.debug=assinador ws all -Dinstancias.list=nodelx0041[7606],nodelx0076[7606] -Djava.awt.headless=true -Djava.net.preferIPv4Stack=true -Djboss.as.management.blocking.timeout=600 -Djboss.home.dir=/opt/jboss/jboss-eap-7.0 -Djboss.modules.system.pkgs=org.jboss.byteman,com.sun.crypto.provider,com.wily,com.wily* -Djboss.server.log.dir=/opt/jboss/jboss-eap-7.0/domain/servers/sisag-lx0041/log -Djboss.server.temp.dir=/opt/jboss/jboss-eap-7.0/domain/servers/sisag-lx0041/tmp -Djboss.server.data.dir=/opt/jboss/jboss-eap-7.0/domain/servers/sisag-lx0041/data -Dlogging.configuration=file:/opt/jboss/jboss-eap-7.0/domain/servers/sisag-lx0041/data/logging.properties -jar /opt/jboss/jboss-eap-7.0/jboss-modules.jar -mp /opt/jboss/jboss-eap-7.0/modules:/opt/jboss/jboss-eap-7.0/modules-caixa org.jboss.as.server
-p585600  23784 22992  0 11:00 pts/1    00:00:00 grep sisag
+[p585600@sspdeapllx0041 ~]$ ls -la /opt/jboss/jboss-eap-7.0/domain/configuration/host.xml
+-rw-rw-r-- 1 jboss7 jboss7 10194 2026-02-02 17:46 /opt/jboss/jboss-eap-7.0/domain/configuration/host.xml
 [p585600@sspdeapllx0041 ~]$
