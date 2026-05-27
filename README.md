@@ -1,25 +1,29 @@
-
-[jboss7@sspdeapllx0041 jboss-eap-7.0]$ cat /opt/azure/config/appinsights/applicationinsights.json
+cat > /opt/azure/config/appinsights/applicationinsights.json << 'EOF'
 {
+    "connectionString": "InstrumentationKey=b0142390-50c9-495e-85b4-7b2ade8fc1cf;IngestionEndpoint=https://brazilsoutheast-0.in.applicationinsights.azure.com/;LiveEndpoint=https://brazilsoutheast.livediagnostics.monitor.azure.com/",
+    "role": {
+        "name": "SISAG-PROVISIONAMENTO-SAQUE-BACKEND-DES"
+    },
     "proxy": {
         "host": "proxydes.caixa",
         "port": 80
     },
     "sampling": {
-        "percentage": 10
+        "percentage": 100
     },
-    "customDimensions": {
-        "centralizadora": "CEPTISP"
+    "instrumentation": {
+        "logging": {
+            "level": "INFO"
+        }
     },
     "selfDiagnostics": {
-        "destination": "console",
+        "destination": "file+console",
         "level": "INFO",
         "file": {
-            "maxHistory": 1,
+            "path": "applicationinsights.log",
             "maxSizeMb": 5,
-            "path": ""
+            "maxHistory": 1
         }
     }
 }
-[jboss7@sspdeapllx0041 jboss-eap-7.0]$
-
+EOF
