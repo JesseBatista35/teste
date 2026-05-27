@@ -1,6 +1,1 @@
-
-sisgf-backend-des - Secret
-SFTP_CLIENT_SECRET
-SMALLRYE_CONFIG_SOURCE_FILE_LOCATIONS
-sisgf-backend-des - Secret
-SMALLRYE_CONFIG_SOURCE_FILE_LOCATIONS
+/usr/src/app/secrets_files/SISGF_DES/
