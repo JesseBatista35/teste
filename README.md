@@ -1,2 +1,1 @@
-[p585600@sspdeapllx0041 ~]$ sudo su jboss7
-[jboss7@sspdeapllx0041 p585600]$
+/opt/jboss/jboss-eap-7.0/bin/jboss-cli.sh --connect --controller=10.116.88.97:9999 --command="/host=sspdeapllx0041/server=sisag-lx0041:restart"
