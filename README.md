@@ -1,20 +1,14 @@
 
-
-[jboss7@sspdeapllx0041 jboss-eap-7.0]$ ./jboss.sh sisag-lx0041 stop
-Executando stop da instancia. (sisag-lx0041).
-{
-    "outcome" => "success",
-    "result" => "STOPPING"
-}
-[jboss7@sspdeapllx0041 jboss-eap-7.0]$ ./jboss.sh sisag-lx0041 start
-Removendo pasta tmp da instancia sisag-lx0041.
-Removendo pasta data da instancia sisag-lx0041.
-Executando start da instancia. (sisag-lx0041).
-{
-    "outcome" => "success",
-    "result" => "STARTING"
-}
-[jboss7@sspdeapllx0041 jboss-eap-7.0]$ ps -ef |grep sisag-lx0041 | grep -v grep
-jboss7   10892 11831 99 12:30 ?        00:00:25 /opt/jboss/jdk/bin/java -D[Server:sisag-lx0041] -Xms256m -Xmx256m -Dbr.com.bry.debug=assinador ws all -Dinstancias.list=nodelx0041[7606],nodelx0076[7606] -Djava.awt.headless=true -Djava.net.preferIPv4Stack=true -Djboss.as.management.blocking.timeout=600 -Djboss.home.dir=/opt/jboss/jboss-eap-7.0 -Djboss.modules.system.pkgs=org.jboss.byteman,com.sun.crypto.provider,com.wily,com.wily* -Djboss.server.log.dir=/opt/jboss/jboss-eap-7.0/domain/servers/sisag-lx0041/log -Djboss.server.temp.dir=/opt/jboss/jboss-eap-7.0/domain/servers/sisag-lx0041/tmp -Djboss.server.data.dir=/opt/jboss/jboss-eap-7.0/domain/servers/sisag-lx0041/data -Dorg.jboss.boot.log.file=/opt/jboss/jboss-eap-7.0/domain/servers/sisag-lx0041/log/server.log -Dlogging.configuration=file:/opt/jboss/jboss-eap-7.0/domain/configuration/default-server-logging.properties -jar /opt/jboss/jboss-eap-7.0/jboss-modules.jar -mp /opt/jboss/jboss-eap-7.0/modules:/opt/jboss/jboss-eap-7.0/modules-caixa org.jboss.as.server
+[jboss7@sspdeapllx0041 jboss-eap-7.0]$ ls -la /opt/azure/config/appinsights/
+total 57192
+drwxr-xr-x. 2 jboss7 jboss7     4096 2022-12-21 20:35 .
+drwxr-xr-x. 3 jboss7 jboss7     4096 2022-05-26 16:48 ..
+-rw-r--r--. 1 jboss7 jboss7 20878747 2022-05-26 16:48 applicationinsights-agent-3.1.1.jar
+-rw-r--r--. 1 jboss7 jboss7 37660417 2022-12-21 20:03 applicationinsights-agent-3.3.1.jar
+lrwxrwxrwx. 1 jboss7 jboss7       35 2022-12-21 20:23 applicationinsights-agent.jar -> applicationinsights-agent-3.3.1.jar
+-rw-r--r--. 1 jboss7 jboss7      396 2022-12-21 20:35 applicationinsights.json
+-rw-r--r--. 1 jboss7 jboss7      452 2022-05-26 16:48 applicationinsights.json.20210828
+-rw-r--r--. 1 jboss7 jboss7      452 2022-06-02 16:37 applicationinsights.json.20221221
 [jboss7@sspdeapllx0041 jboss-eap-7.0]$
+
 
