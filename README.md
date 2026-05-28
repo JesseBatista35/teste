@@ -1,238 +1,26 @@
-passou miseravellll.... valeu valeu valeu;;;
+✅ **SICMU-intranet-update — Problema resolvido!**
 
+**Ambiente:** DES (EC DES)
+**Release:** SICMU-intranet-update-78
+**Status:** Succeeded 🎉
 
+---
 
+**Problema identificado:**
+O JBoss EAP 7.4 estava falhando na inicialização com todos os deployments em status `FAILED`. A causa raiz era o arquivo de configuração `standalone-full-ha.xml` com dois problemas:
 
-SICMU-intranet-update
-
-SICMU-intranet-update-78
-
+1. **JGroups/TCPPING mal configurado** — o protocolo de cluster TCP estava referenciando a variável `${jboss.cluster.tcp.initial_hosts}` que nunca foi fornecida ao servidor, impedindo a inicialização do subsistema de clustering e causando falha em cascata de 648 serviços dependentes.
 
-EC DES
-
-Succeeded
+2. **Infinispan com `invalidation-cache` e `distributed-cache`** — os cache containers estavam configurados em modo distribuído/cluster, dependentes do JGroups que não subia.
 
-
-Pipeline
+---
 
-Tasks
+**Solução aplicada:**
+- Corrigido o TCPPING para usar host local fixo `127.0.0.1[7600]` (modo standalone sem cluster real)
+- Convertidos todos os cache containers do Infinispan de `distributed-cache`/`invalidation-cache` para `local-cache`
+- Alterado o cache de sessão EJB stateful de `distributable` para `simple`
+- Arquivo corrigido no repositório `SICMU-intranet-update-config` para garantir persistência nas próximas releases
 
-Variables
+---
 
-Logs
-
-Tests
-Agent job
-Started: 28/05/2026, 20:38:14
-Pool:
-Release-Linux
-·
-Agent: cadsvaprlx068.intra.caixa.gov.br
-
-4m 56s
-
-Initialize job
-·
-succeeded
-<1s
-
-Pre-job: Download secure file
-·
-succeeded
-<1s
-
-Download Artifacts
-·
-succeeded
-1 warning
-1s
-
-Exportando as variáveis do arquivo Trust Store
-·
-succeeded
-<1s
-
-Recupera VEC
-·
-succeeded
-<1s
-
-VEC - Aferição
-·
-succeeded
-1 warning
-<1s
-
-Exportar variáveis NFS
-·
-succeeded
-<1s
-
-Exportar variáveis Infrafácil
-·
-succeeded
-<1s
-
-Alocando o IP (AlocaIP e Infradevops)
-·
-succeeded
-42s
-
-Exporta as variáveis para o Terraform
-·
-succeeded
-<1s
-
-Replace tokens in **/*.tfvars.json **/*.tf
-·
-succeeded
-<1s
-
-Remove caracteres
-·
-succeeded
-<1s
-
-Install Terraform 1.3.5
-·
-succeeded
-<1s
-
-Terraform init
-·
-succeeded
-7s
-
-Terraform validate
-·
-succeeded
-<1s
-
-Terraform workspace
-·
-succeeded
-<1s
-
-Terraform destroy
-·
-succeeded
-<1s
-
-Terraform apply
-·
-succeeded
-48s
-
-Definir size como executado
-·
-succeeded
-13s
-
-Cadastrar Servidor no Satellite
-·
-succeeded
-9s
-
-Valida Variáveis Obrigatórias
-·
-succeeded
-<1s
-
-Recuperando URL Pacote Nexus
-·
-succeeded
-<1s
-
-Recupera Pacote
-·
-succeeded
-<1s
-
-Recuperando nome do repositório
-·
-succeeded
-<1s
-
-Convertendo Minúsculo e Definindo nome do Projeto/Repositório
-·
-succeeded
-<1s
-
-Corrigindo Codificação Arquivos dos2unix
-·
-succeeded
-<1s
-
-Alterando Valores placeholders nos arquivos de config
-·
-succeeded
-<1s
-
-Valida XML JBOSS
-·
-succeeded
-<1s
-
-Git clone https://devops.caixa/projetos/Infraestrutura/_git/esteira-logs
-·
-succeeded
-<1s
-
-Cria Streams Graylog
-·
-succeeded
-1s
-
-Permissionamento LDAP
-·
-succeeded
-18s
-
-Configurando JBoss
-·
-succeeded
-4s
-
-Configurando Logrotate
-·
-succeeded
-8s
-
-Configurando o Apache
-·
-succeeded
-21s
-
-Deploy Secure Files [JBOSS]
-·
-succeeded
-5s
-
-Deploy Config no JBOSS
-·
-succeeded
-42s
-
-Deploy Pacote no JBOSS
-·
-succeeded
-8s
-
-Check Deployments [JBOSS]
-·
-succeeded
-4s
-
-Atualizando versão no PortalIF
-·
-succeeded
-<1s
-
-Resumo da release
-·
-succeeded
-49s
-
-Finalize Job
-·
-succeeded
+**Resultado:** JBoss iniciou com todos os deployments implantados com sucesso. Release passou em 4m 56s sem erros. 🚀
