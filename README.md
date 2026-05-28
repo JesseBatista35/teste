@@ -1,18 +1,67 @@
+sim rodou. 
 
--sh-4.2$
--sh-4.2$ -sh-4.2$ mkdir -p /tmp/check-jar
--sh: -sh-4.2$: comando não encontrado
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$ oc image extract default-route-openshift-image-registry.apps.produtos4.caixa/build-images-ads/sisgf-backend:20260528.1112-11.01.01.01-SNAPSHOT --path /deployments/lib/main/:/tmp/check-jar/ --insecure=true
-error: invalid argument: stat /tmp/check-jar/: no such file or directory
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$ ls -la /tmp/check-jar/
-ls: não é possível acessar /tmp/check-jar/: Arquivo ou diretório não encontrado
--sh-4.2$
+
+essase sao os steps
+
+
+Skip to main content
+Azure DevOps
+projetos
+/
+Caixa
+/
+Pipelines
+/
+SISGF-backend
+/
+20260528.1112-11.01.01.01-SNAPSHOT
+Search
+
+
+Caixa
+
+Overview
+
+Boards
+
+Repos
+
+Pipelines
+Pipelines
+Environments
+Releases
+Library
+Task groups
+Deployment groups
+Portal Infra
+
+Test Plans
+
+Artifacts
+Project settings
+
+Jobs in run #20260528.1112-11.01.01.01-SNAPSHOT
+SISGF-backend
+Agent job 1
+
+View raw log
+
+Pool: Build-Linux
+Agent: cadsvaprlx011.intra.caixa.gov.br
+Started: Today at 11:12
+Duration: 2m 58s
+
+Job preparation parameters
+1 queue time variable used
+100% tests passed
+Showing 25 filtered items.
+
+Get started and run this pipeline for the first time!
+
+Showing 50 filtered items.
+
+Showing 25 filtered items.
+
+Row 2. Clickable
+
+Row 2. Clickable
