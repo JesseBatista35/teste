@@ -1,5 +1,3 @@
-pessoal da nuvem aumetou os recuros agora ta assim:
-
 Applications
  sigec-opf-des
 Application Details List
@@ -8,8 +6,8 @@ APP HEALTH
  Healthy
 SYNC STATUS 
 
- OutOfSync
-from HEAD (3749106)
+ Synced
+to HEAD (3749106)
 Auto sync is enabled.
 Author:
 Jesse Mouta Pereira Batista <p585600@corp.caixa.gov.br> -
@@ -19,13 +17,13 @@ LAST SYNC
 
  Sync OK
 to 3749106
-Succeeded a few seconds ago (Thu May 28 2026 18:36:50 GMT-0300)
+Succeeded a minute ago (Thu May 28 2026 18:39:18 GMT-0300)
 Author:
 Jesse Mouta Pereira Batista <p585600@corp.caixa.gov.br> -
 Comment:
 Update values.yaml
 APP CONDITIONS
- 5 Warnings
+ 1 Warning
 Previous123Next
 Items per page: 10 
 NAME
@@ -102,57 +100,11 @@ Endpoints
 -
 sigec-opf
 10 months ago   07/16/25
-
-REASON
-MESSAGE
-COUNT
-FIRST OCCURRED
-LAST OCCURRED
-Unhealthy
-Readiness probe failed: Get "http://192.168.17.9:8080/sigec-opf-api/actuator/health/readiness": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
-1
-1m ago
-Today at 6:36 PM
-1m ago
-Today at 6:36 PM
-Unhealthy
-Liveness probe failed: Get "http://192.168.17.9:8080/sigec-opf-api/actuator/health/liveness": dial tcp 192.168.17.9:8080: connect: connection refused
-4
-2m ago
-Today at 6:35 PM
-1m ago
-Today at 6:36 PM
-Unhealthy
-Readiness probe failed: Get "http://192.168.17.9:8080/sigec-opf-api/actuator/health/readiness": dial tcp 192.168.17.9:8080: connect: connection refused
-6
-3m ago
-Today at 6:34 PM
-2m ago
-Today at 6:36 PM
-Pulled
-Successfully pulled image "acrcentralcaixanprd.azurecr.io/sigec/opf/sigec-opf:26597911912" in 11.695s (11.695s including waiting). Image size: 272112420 bytes.
-1
-3m ago
-Today at 6:34 PM
-3m ago
-Today at 6:34 PM
-Created
-Created container: sigec-opf-des
-1
-3m ago
-Today at 6:34 PM
-3m ago
-Today at 6:34 PM
-Started
-Started container sigec-opf-des
-1
-3m ago
-Today at 6:34 PM
-3m ago
-Today at 6:34 PM
-Started
-Started container copy-azurekeyvault-env
-1
-3m ago
-Today at 6:34 PM
-
+Service
+svc
+sigec-opf-des
+Service
+-
+sigec-opf
+10 months ago   07/16/25
+ Healthy   Synced
