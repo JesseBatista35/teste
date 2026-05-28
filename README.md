@@ -1,27 +1,38 @@
-at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:148)
-	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:122)
-	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
-	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
-	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
-	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
 
-[INFO] Tests run: 44, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.092 s -- in br.gov.caixa.sisgf.api.domain.repository.transferencia.TransferenciaServiceImplTest
-[INFO] Running br.gov.caixa.sisgf.api.domain.repository.unidadecaixa.UnidadeCaixaServiceImplTest
-[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.022 s -- in br.gov.caixa.sisgf.api.domain.repository.unidadecaixa.UnidadeCaixaServiceImplTest
-[INFO] Running br.gov.caixa.sisgf.api.domain.service.ItemTarifarioServiceTest
-[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.130 s -- in br.gov.caixa.sisgf.api.domain.service.ItemTarifarioServiceTest
-[INFO] Running br.gov.caixa.sisgf.api.domain.service.ProdutoServiceTest
-[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.116 s -- in br.gov.caixa.sisgf.api.domain.service.ProdutoServiceTest
-[INFO] Running br.gov.caixa.sisgf.api.domain.service.UnidadeServiceTest
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.093 s -- in br.gov.caixa.sisgf.api.domain.service.UnidadeServiceTest
 [INFO] 
-[INFO] Results:
-[INFO] 
-[INFO] Tests run: 525, Failures: 0, Errors: 0, Skipped: 0
-[INFO] 
-[INFO] 
-[INFO] --- jacoco-maven-plugin:0.8.8:report (post-unit-test) @ sisgf-backend ---
-[INFO] Loading execution data file /opt/ads-agent/_work/10061/s/sisgf-backend/target/jacoco.exec
-[INFO] Analyzed bundle 'sisgf-backend' with 262 classes
-[INFO] 
-[INFO] --- maven-dependency-plugin:3.5.0:copy (default) @ sisgf-backend ---
+[INFO] --- quarkus-maven-plugin:3.13.0:build (default) @ sisgf-backend ---
+[WARNING] [io.quarkus.config] Unrecognized configuration key "quarkus.oidc-client.token-path" was provided; it will be ignored; verify that the dependency extension for this configuration is set or that you did not make a typo
+[WARNING] [io.quarkus.config] Unrecognized configuration key "quarkus.datasource."siico".jdbc.xa-datasource-class" was provided; it will be ignored; verify that the dependency extension for this configuration is set or that you did not make a typo
+[WARNING] [io.quarkus.config] Unrecognized configuration key "quarkus.oidc.token.auto-refresh-interval" was provided; it will be ignored; verify that the dependency extension for this configuration is set or that you did not make a typo
+[WARNING] [io.quarkus.config] Unrecognized configuration key "quarkus.hibernate-orm.transaction.coordinator-strategy" was provided; it will be ignored; verify that the dependency extension for this configuration is set or that you did not make a typo
+[WARNING] [io.quarkus.config] Unrecognized configuration key "quarkus.datasource.xa" was provided; it will be ignored; verify that the dependency extension for this configuration is set or that you did not make a typo
+[WARNING] [io.quarkus.config] Unrecognized configuration key "quarkus.oidc-client.client-id" was provided; it will be ignored; verify that the dependency extension for this configuration is set or that you did not make a typo
+[WARNING] [io.quarkus.config] Unrecognized configuration key "quarkus.hibernate-orm.transaction.jta-data-source" was provided; it will be ignored; verify that the dependency extension for this configuration is set or that you did not make a typo
+[WARNING] [io.quarkus.config] Unrecognized configuration key "quarkus.transaction-manager.recovery-interval" was provided; it will be ignored; verify that the dependency extension for this configuration is set or that you did not make a typo
+[WARNING] [io.quarkus.config] Unrecognized configuration key "quarkus.config.source.file.system.enable" was provided; it will be ignored; verify that the dependency extension for this configuration is set or that you did not make a typo
+[WARNING] [io.quarkus.config] Unrecognized configuration key "quarkus.transaction-manager.default-timeout" was provided; it will be ignored; verify that the dependency extension for this configuration is set or that you did not make a typo
+[WARNING] [io.quarkus.config] Unrecognized configuration key "quarkus.http.encoding.default-charset" was provided; it will be ignored; verify that the dependency extension for this configuration is set or that you did not make a typo
+[WARNING] [io.quarkus.config] Unrecognized configuration key "quarkus.hibernate-orm."siico".log.bind-parameters" was provided; it will be ignored; verify that the dependency extension for this configuration is set or that you did not make a typo
+[WARNING] [io.quarkus.config] Unrecognized configuration key "quarkus.oidc-client.credentials.secret" was provided; it will be ignored; verify that the dependency extension for this configuration is set or that you did not make a typo
+[WARNING] [io.quarkus.config] Unrecognized configuration key "quarkus.datasource."siico".xa" was provided; it will be ignored; verify that the dependency extension for this configuration is set or that you did not make a typo
+[WARNING] [io.quarkus.config] Unrecognized configuration key "quarkus.oidc-client.auth-server-url" was provided; it will be ignored; verify that the dependency extension for this configuration is set or that you did not make a typo
+[WARNING] [io.quarkus.config] Unrecognized configuration key "quarkus.http.encoding.force" was provided; it will be ignored; verify that the dependency extension for this configuration is set or that you did not make a typo
+[WARNING] [io.quarkus.config] Unrecognized configuration key "quarkus.datasource.jdbc.xa-datasource-class" was provided; it will be ignored; verify that the dependency extension for this configuration is set or that you did not make a typo
+[WARNING] [io.quarkus.hibernate.orm.deployment.HibernateOrmProcessor] Could not find a suitable persistence unit for model classes:
+	- io.quarkus.hibernate.orm.panache.PanacheEntity
+	- io.quarkus.hibernate.orm.panache.PanacheEntityBase
+[WARNING] [io.quarkus.hibernate.orm.deployment.HibernateOrmProcessor] Could not find any entities affected to the persistence unit 'siico'.
+[WARNING] [io.quarkus.arc.processor.BeanArchives] Failed to index javax.annotation.Nonnull: Class does not exist in ClassLoader QuarkusClassLoader:Deployment Class Loader: PROD for sisgf-backend-11.01.01.01@377ec80b
+[WARNING] [org.jboss.resteasy.reactive.common.processor.EndpointIndexer] Using a body parameter with jakarta.ws.rs.GET is strongly discouraged. Offending method is 'br.gov.caixa.sisgf.api.controllers.feriado.FeriadoController#org.springframework.http.ResponseEntity<java.lang.Object> diaUtilCorrido(br.gov.caixa.sisgf.api.dtos.FiltroDTO filtroDTO)'
+[WARNING] [org.jboss.resteasy.reactive.common.processor.EndpointIndexer] Using a body parameter with jakarta.ws.rs.GET is strongly discouraged. Offending method is 'br.gov.caixa.sisgf.api.controllers.feriado.FeriadoController#org.springframework.http.ResponseEntity<java.lang.Object> diaUtilEspecifico(br.gov.caixa.sisgf.api.dtos.FiltroDTO filtroDTO)'
+[WARNING] [org.jboss.resteasy.reactive.common.processor.EndpointIndexer] Using a body parameter with jakarta.ws.rs.GET is strongly discouraged. Offending method is 'br.gov.caixa.sisgf.api.controllers.feriado.FeriadoController#org.springframework.http.ResponseEntity<java.lang.Object> diasUteisCorridos(br.gov.caixa.sisgf.api.dtos.FiltroDTO filtroDTO)'
+[WARNING] [org.jboss.resteasy.reactive.common.processor.EndpointIndexer] Using a body parameter with jakarta.ws.rs.GET is strongly discouraged. Offending method is 'br.gov.caixa.sisgf.api.controllers.feriado.FeriadoController#org.springframework.http.ResponseEntity<java.lang.Object> diasUteisEspecificos(br.gov.caixa.sisgf.api.dtos.FiltroDTO filtroDTO)'
+[WARNING] [org.jboss.resteasy.reactive.common.processor.EndpointIndexer] Using a body parameter with jakarta.ws.rs.GET is strongly discouraged. Offending method is 'br.gov.caixa.sisgf.api.controllers.feriado.FeriadoController#org.springframework.http.ResponseEntity<java.lang.Object> ultimoDiaUtil(br.gov.caixa.sisgf.api.dtos.FiltroDTO filtroDTO)'
+[INFO] [io.quarkus.deployment.QuarkusAugmentor] Quarkus augmentation completed in 4840ms
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  29.016 s
+[INFO] Finished at: 2026-05-28T14:33:39-03:00
+[INFO] ------------------------------------------------------------------------
+Finishing: Maven
