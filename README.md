@@ -1,118 +1,145 @@
-exec java -Dquarkus.http.host=0.0.0.0 -Dquarkus.http.port=8080 -Djava.util.logging.manager=org.jboss.logmanager.LogManager -Djavax.net.ssl.trustStore=/deployments/caixa-truststore-acteste-nprd.jks -javaagent:/deployments/lib/main/com.microsoft.azure.applicationinsights-agent-3.3.1.jar -Dhttps.proxyHost=proxydes.caixa -Dhttps.proxyPort=80 -Dhttp.nonProxyHosts=*.caixa|*.caixa.gov.br -XX:+ExitOnOutOfMemoryError -cp . -jar /deployments/quarkus-run.jar
-OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
-2026-05-28 11:48:34.001-03:00 INFO  c.m.applicationinsights.agent - ApplicationInsights Java Agent 3.3.1 started successfully (PID 8)
-2026-05-28 11:48:34.003-03:00 INFO  c.m.applicationinsights.agent - Java version: 17.0.7, vendor: Red Hat, Inc., home: /usr/lib/jvm/java-17-openjdk-17.0.7.0.7-3.el8.x86_64
-2026-05-28 11:48:35.888-03:00 WARN  c.m.a.a.i.i.AppIdSupplier$GetAppIdTask - Unable to retrieve appId: exception sending request to https://brazilsouth-1.in.applicationinsights.azure.com/api/profiles/99ee6c02-0bc8-4c2e-8109-b744a54e07ae/appId (future warnings will be aggregated and logged once every 5 minutes)
-reactor.core.Exceptions$ReactiveException: io.netty.handler.proxy.HttpProxyHandler$HttpProxyConnectException: http, none, proxydes.caixa/10.252.32.63:80 => brazilsouth-1.in.applicationinsights.azure.com/<unresolved>:443, status: 502 Proxy Error ( Forefront TMG denied the specified Uniform Resource Locator (URL).  )
-	at reactor.core.Exceptions.propagate(Exceptions.java:392)
-	at reactor.core.publisher.BlockingSingleSubscriber.blockingGet(BlockingSingleSubscriber.java:97)
-	at reactor.core.publisher.Mono.block(Mono.java:1707)
-	at com.microsoft.applicationinsights.agent.internal.init.AppIdSupplier$GetAppIdTask.run(AppIdSupplier.java:139)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:833)
-	Suppressed: java.lang.Exception: #block terminated with an error
-		at reactor.core.publisher.BlockingSingleSubscriber.blockingGet(BlockingSingleSubscriber.java:99)
-		... 8 common frames omitted
-Caused by: io.netty.handler.proxy.HttpProxyHandler$HttpProxyConnectException: http, none, proxydes.caixa/10.252.32.63:80 => brazilsouth-1.in.applicationinsights.azure.com/<unresolved>:443, status: 502 Proxy Error ( Forefront TMG denied the specified Uniform Resource Locator (URL).  )
-	at io.netty.handler.proxy.HttpProxyHandler.handleResponse(HttpProxyHandler.java:200)
-	at io.netty.handler.proxy.ProxyHandler.channelRead(ProxyHandler.java:257)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365)
-	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357)
-	at io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.fireChannelRead(CombinedChannelDuplexHandler.java:436)
-	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:327)
-	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:299)
-	at io.netty.channel.CombinedChannelDuplexHandler.channelRead(CombinedChannelDuplexHandler.java:251)
-	at io.netty.handler.proxy.HttpProxyHandler$HttpClientCodecWrapper.channelRead(HttpProxyHandler.java:272)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365)
-	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357)
-	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1410)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365)
-	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:919)
-	at io.netty.channel.epoll.AbstractEpollStreamChannel$EpollStreamUnsafe.epollInReady(AbstractEpollStreamChannel.java:800)
-	at io.netty.channel.epoll.AbstractEpollChannel$AbstractEpollUnsafe.epollRdHupReady(AbstractEpollChannel.java:480)
-	at io.netty.channel.epoll.EpollEventLoop.processReady(EpollEventLoop.java:494)
-	at io.netty.channel.epoll.EpollEventLoop.run(EpollEventLoop.java:385)
-	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:986)
-	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
-	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
-	... 1 common frames omitted
-2026-05-28 11:48:36.780-03:00 WARN  c.a.m.o.e.i.q.QuickPulsePingSender - Pinging live metrics endpoint: io.netty.handler.proxy.HttpProxyHandler$HttpProxyConnectException: http, none, proxydes.caixa/10.252.32.63:80 => brazilsouth.livediagnostics.monitor.azure.com/<unresolved>:443, status: 502 Proxy Error ( Forefront TMG denied the specified Uniform Resource Locator (URL).  ) (https://brazilsouth.livediagnostics.monitor.azure.com/QuickPulseService.svc) (future warnings will be aggregated and logged once every 5 minutes)
-reactor.core.Exceptions$ReactiveException: io.netty.handler.proxy.HttpProxyHandler$HttpProxyConnectException: http, none, proxydes.caixa/10.252.32.63:80 => brazilsouth.livediagnostics.monitor.azure.com/<unresolved>:443, status: 502 Proxy Error ( Forefront TMG denied the specified Uniform Resource Locator (URL).  )
-	at reactor.core.Exceptions.propagate(Exceptions.java:392)
-	at reactor.core.publisher.BlockingSingleSubscriber.blockingGet(BlockingSingleSubscriber.java:97)
-	at reactor.core.publisher.Mono.block(Mono.java:1707)
-	at com.azure.monitor.opentelemetry.exporter.implementation.quickpulse.QuickPulsePingSender.ping(QuickPulsePingSender.java:124)
-	at com.azure.monitor.opentelemetry.exporter.implementation.quickpulse.QuickPulseCoordinator.ping(QuickPulseCoordinator.java:110)
-	at com.azure.monitor.opentelemetry.exporter.implementation.quickpulse.QuickPulseCoordinator.run(QuickPulseCoordinator.java:67)
-	at java.base/java.lang.Thread.run(Thread.java:833)
-	Suppressed: java.lang.Exception: #block terminated with an error
-		at reactor.core.publisher.BlockingSingleSubscriber.blockingGet(BlockingSingleSubscriber.java:99)
-		... 5 common frames omitted
-Caused by: io.netty.handler.proxy.HttpProxyHandler$HttpProxyConnectException: http, none, proxydes.caixa/10.252.32.63:80 => brazilsouth.livediagnostics.monitor.azure.com/<unresolved>:443, status: 502 Proxy Error ( Forefront TMG denied the specified Uniform Resource Locator (URL).  )
-	at io.netty.handler.proxy.HttpProxyHandler.handleResponse(HttpProxyHandler.java:200)
-	at io.netty.handler.proxy.ProxyHandler.channelRead(ProxyHandler.java:257)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365)
-	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357)
-	at io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.fireChannelRead(CombinedChannelDuplexHandler.java:436)
-	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:327)
-	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:299)
-	at io.netty.channel.CombinedChannelDuplexHandler.channelRead(CombinedChannelDuplexHandler.java:251)
-	at io.netty.handler.proxy.HttpProxyHandler$HttpClientCodecWrapper.channelRead(HttpProxyHandler.java:272)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365)
-	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357)
-	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1410)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365)
-	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:919)
-	at io.netty.channel.epoll.AbstractEpollStreamChannel$EpollStreamUnsafe.epollInReady(AbstractEpollStreamChannel.java:800)
-	at io.netty.channel.epoll.AbstractEpollChannel$AbstractEpollUnsafe.epollRdHupReady(AbstractEpollChannel.java:480)
-	at io.netty.channel.epoll.EpollEventLoop.processReady(EpollEventLoop.java:494)
-	at io.netty.channel.epoll.EpollEventLoop.run(EpollEventLoop.java:385)
-	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:986)
-	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
-	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
-	... 1 common frames omitted
-2026-05-28 11:48:36.883-03:00 WARN  c.a.m.o.e.i.p.TelemetryPipeline - Sending telemetry to the ingestion service: http, none, proxydes.caixa/10.252.32.63:80 => brazilsouth-1.in.applicationinsights.azure.com/<unresolved>:443, status: 502 Proxy Error ( Forefront TMG denied the specified Uniform Resource Locator (URL).  ) (https://brazilsouth-1.in.applicationinsights.azure.com/v2.1/track) (future warnings will be aggregated and logged once every 5 minutes)
-io.netty.handler.proxy.HttpProxyHandler$HttpProxyConnectException: http, none, proxydes.caixa/10.252.32.63:80 => brazilsouth-1.in.applicationinsights.azure.com/<unresolved>:443, status: 502 Proxy Error ( Forefront TMG denied the specified Uniform Resource Locator (URL).  )
-	at io.netty.handler.proxy.HttpProxyHandler.handleResponse(HttpProxyHandler.java:200)
-	at io.netty.handler.proxy.ProxyHandler.channelRead(ProxyHandler.java:257)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365)
-	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357)
-	at io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.fireChannelRead(CombinedChannelDuplexHandler.java:436)
-	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:327)
-	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:299)
-	at io.netty.channel.CombinedChannelDuplexHandler.channelRead(CombinedChannelDuplexHandler.java:251)
-	at io.netty.handler.proxy.HttpProxyHandler$HttpClientCodecWrapper.channelRead(HttpProxyHandler.java:272)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365)
-	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357)
-	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1410)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365)
-	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:919)
-	at io.netty.channel.epoll.AbstractEpollStreamChannel$EpollStreamUnsafe.epollInReady(AbstractEpollStreamChannel.java:800)
-	at io.netty.channel.epoll.AbstractEpollChannel$AbstractEpollUnsafe.epollRdHupReady(AbstractEpollChannel.java:480)
-	at io.netty.channel.epoll.EpollEventLoop.processReady(EpollEventLoop.java:494)
-	at io.netty.channel.epoll.EpollEventLoop.run(EpollEventLoop.java:385)
-	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:986)
-	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
-	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
-	at java.base/java.lang.Thread.run(Thread.java:833)
-__  ____  __  _____   ___  __ ____  ______ 
- --/ __ \/ / / / _ | / _ \/ //_/ / / / __/ 
- -/ /_/ / /_/ / __ |/ , _/ ,< / /_/ /\ \   
---\___\_\____/_/ |_/_/|_/_/|_|\____/___/   
-2026-05-28 11:48:43,516 INFO  [com.arj.ats.jbossatx] (main) ARJUNA032014: Stopping transaction recovery manager
-Failed to load config value of type class java.lang.String for: api.key
+# Quarkus port
+quarkus.http.port=8080
+quarkus.vertx.cluster.port=7268
 
+# CORS
+quarkus.http.cors=true
+quarkus.http.cors.headers=Origin, X-Request-Width, Content-Type, Accept, Authorization, Accept-Encoding, Accept-Language, authCode, Connection, Host, Referer, Sec-Fetch-Dest, Sec-Fetch-Mode, Sec-Fetch-Site, User-Agent, Access-Control-Allow-Origin
+quarkus.http.cors.origins=${CORS_ORIGINS}
+quarkus.http.cors.methods=GET, POST, OPTIONS, PUT, DELETE
+quarkus.http.cors.access-control-max-age=1209600
 
+# Swagger
+quarkus.smallrye-openapi.path=/swagger
+quarkus.swagger-ui.always-include=true
+
+# JWT Configuration
+quarkus.smallrye-jwt.enabled=false
+
+# Token duration (7 days in seconds)
+jwt.expiration=604800
+
+# OIDC Configuration
+#https://quarkus.io/guides/security-authorization
+#https://quarkus.io/guides/security-openid-connect
+quarkus.oidc.auth-server-url=https://login.des.caixa/auth/realms/intranet
+quarkus.oidc.client-id=cli-ser-sgf
+quarkus.oidc.credentials.secret=6e580ccf-f80e-4314-84eb-bffe070c05c4
+quarkus.oidc.application-type=service
+quarkus.oidc.roles.source=accesstoken
+quarkus.oidc.token.auto-refresh-interval=18000
+
+# HTTP Configuration
+quarkus.http.auth.permission.authenticated.paths=/*
+quarkus.http.auth.permission.authenticated.policy=authenticated
+quarkus.http.auth.permission.health.paths=/q/*
+quarkus.http.auth.permission.health.policy=permit
+quarkus.http.auth.permission.health.methods=GET
+
+# HTTP UTF-8
+quarkus.http.encoding.default-charset=utf-8
+quarkus.http.encoding.force=true
+
+# OIDC Client
+quarkus.oidc-client.auth-server-url=${quarkus.oidc.auth-server-url}
+quarkus.oidc-client.client-id=${quarkus.oidc.client-id}
+quarkus.oidc-client.credentials.secret=${quarkus.oidc.credentials.secret}
+quarkus.oidc-client.token-path=/protocol/openid-connect/tokens
+
+# Log Configuration for Debugging Transactions
+quarkus.log.category."io.quarkus".level=ERROR
+quarkus.log.level=ERROR
+quarkus.log.category."org.hibernate".level=ERROR
+quarkus.log.category."org.hibernate.SQL".min-level=ERROR
+quarkus.log.category."org.jboss.res-teasy".level=ERROR
+quarkus.log.category."com.arjuna.ats.jta".level=ERROR
+quarkus.log.category."io.agroal.narayana".level=ERROR
+
+# REST Client Configuration
+api.key=${SISGF_APIKEY}
+
+siico.api.publica.url=https://api.des.caixa:8443/informacoes-corporativas-publicas/
+br.gov.caixa.sisgf.api.restclient.informacoescorporativaspublica.InformacoesCorporativaPublicaService/mp-rest/url=${siico.api.publica.url}
+br.gov.caixa.sisgf.api.restclient.informacoescorporativaspublica.InformacoesCorporativaPublicaService/mp-rest/scope=jakarta.inject.Singleton
+
+siico.api.privada.url=https://api.des.caixa:8443/informacoes-corporativas-privadas/
+br.gov.caixa.sisgf.api.restclient.informacoescorporativasprivada.InformacoesCorporativaPrivadaService/mp-rest/url=${siico.api.privada.url}
+br.gov.caixa.sisgf.api.restclient.informacoescorporativasprivada.InformacoesCorporativaPrivadaService/mp-rest/scope=jakarta.inject.Singleton
+
+sinaf.api.evento.url=https://api.des.caixa:8443/sinaf-api-evento
+br.gov.caixa.sisgf.api.restclient.sinafapievento.SinafApiEventoService/mp-rest/url=${sinaf.api.evento.url}
+br.gov.caixa.sisgf.api.restclient.sinafapievento.SinafApiEventoService/mp-rest/scope=jakarta.inject.Singleton
+
+sisgf.api.url=http://localhost:8060/financeiro-beneficios/faturamento/
+br.gov.caixa.sisgf.api.restclient.sisgf.sisgfapi.SISGFApi/mp-rest/url=${sisgf.api.url}
+br.gov.caixa.sisgf.api.restclient.sisgf.sisgfapi.SISGFApi/mp-rest/scope=jakarta.inject.Singleton
+
+sisgf.batch.url=http://localhost:8070/financeiro-beneficios/faturamento/
+br.gov.caixa.sisgf.api.restclient.sisgf.sisgfbatch.SISGFBatch/mp-rest/url=${sisgf.batch.url}
+br.gov.caixa.sisgf.api.restclient.sisgf.sisgfbatch.SISGFBatch/mp-rest/scope=jakarta.inject.Singleton
+
+sisgf.batch.unidades.url=http://localhost:8050
+br.gov.caixa.sisgf.api.restclient.sisgf.sisgfbatchunidade.SISGFBatchUnidades/mp-rest/url=${sisgf.batch.unidades.url}
+br.gov.caixa.sisgf.api.restclient.sisgf.sisgfbatchunidade.SISGFBatchUnidades/mp-rest/scope=jakarta.inject.Singleton
+
+# Database Configuration for SIICO
+db2.siico.url=jdbc:db2://10.216.80.110:448/RJKDB2DSD0
+db2.siico.username=Teste1
+db2.siico.password=Teste2
+db2.siico.schema=ICO
+
+# Narayana Transaction Manager Configuration
+quarkus.transaction-manager.enable-recovery=true
+quarkus.transaction-manager.recovery-interval=600
+quarkus.transaction-manager.default-timeout=600
+
+# Hibernate XA
+quarkus.hibernate-orm.transaction.jta-data-source=java:/jdbc/siico
+quarkus.hibernate-orm.transaction.coordinator-strategy=jdbc
+
+# Database Configuration for SIGF (Oracle)
+quarkus.datasource.db-kind=oracle
+quarkus.datasource.jdbc.driver=oracle.jdbc.driver.OracleDriver
+quarkus.datasource.db-version=12.2.0
+quarkus.datasource.jdbc.url=jdbc:oracle:thin:@10.116.101.7:1521/ORAD01SC
+quarkus.datasource.username=Teste1
+quarkus.datasource.password=Teste2
+quarkus.datasource.xa=true
+quarkus.datasource.jdbc.max-size=40
+quarkus.datasource.jdbc.xa-datasource-class=oracle.jdbc.xa.client.OracleXADataSource
+
+# Persistence Configuration for SIGF
+quarkus.hibernate-orm.dialect=org.hibernate.dialect.OracleDialect
+quarkus.hibernate-orm.packages=br.gov.caixa.sisgf.api.domain.model
+quarkus.hibernate-orm.log.bind-parameters=true
+quarkus.hibernate-orm.log.sql=true
+quarkus.hibernate-orm.database.default-schema=SGF
+quarkus.hibernate-orm.validate-in-dev-mode=false
+
+# Database Configuration for SIICO (DB2)
+quarkus.datasource."siico".db-kind=db2
+quarkus.datasource."siico".jdbc.driver=com.ibm.db2.jcc.DB2Driver
+quarkus.datasource."siico".jdbc.url=${db2.siico.url}
+quarkus.datasource."siico".username=${db2.siico.username}
+quarkus.datasource."siico".password=${db2.siico.password}
+quarkus.datasource."siico".jdbc.max-size=20
+quarkus.datasource."siico".jdbc.min-size=5
+quarkus.datasource."siico".xa=true
+quarkus.datasource."siico".jdbc.xa-datasource-class=com.ibm.db2.jcc.DB2XADataSource
+
+# Persistence Configuration for SIICO
+quarkus.hibernate-orm."siico".dialect=br.gov.caixa.sisgf.api.utils.DB2ZOSDialect
+quarkus.hibernate-orm."siico".packages=br.gov.caixa.siico.api.domain.model
+quarkus.hibernate-orm."siico".log.bind-parameters=true
+quarkus.hibernate-orm."siico".log.sql=true
+quarkus.hibernate-orm."siico".database.default-schema=${db2.siico.schema}
+quarkus.hibernate-orm."siico".datasource=siico
+quarkus.hibernate-orm."siico".validate-in-dev-mode=false
+
+# Configuracao envio de email
+quarkus.mailer.auth-methods=mailerDIGEST-MD5 CRAM-SHA256 CRAM-SHA1 CRAM-MD5
+quarkus.mailer.from=${email.from}
+quarkus.mailer.host=${email.smtp.url}
+quarkus.mailer.port=${email.smtp.port}
+quarkus.mailer.ssl=false
+destinatarios.email=${email.destinatarios}
