@@ -1,55 +1,99 @@
--sh-4.2$ bashoc describe secret sisgf-backend-des -n sisgf-des
--sh: bashoc: comando não encontrado
--sh-4.2$ oc describe secret sisgf-backend-des -n sisgf-des
-Name:         sisgf-backend-des
-Namespace:    sisgf-des
-Labels:       <none>
-Annotations:  <none>
+SISGF-backend-des (48)
 
-Type:  Opaque
-
-Data
-====
-API_KEY:                                          0 bytes
-DB2_SIICO_PASSWORD:                               0 bytes
-QUARKUS_DATASOURCE_PASSWORD:                      15 bytes
-QUARKUS_HTTP_SSL_CERTIFICATE_KEY-STORE-PASSWORD:  8 bytes
-QUARKUS_OIDC_CREDENTIALS_SECRET:                  0 bytes
-SFTP_CLIENT_SECRET:                               0 bytes
-SMALLRYE_CONFIG_SOURCE_FILE_LOCATIONS:            37 bytes
--sh-4.2$ oc get secret sisgf-backend-des -n sisgf-des -o yaml
-apiVersion: v1
-data:
-  API_KEY: ""
-  DB2_SIICO_PASSWORD: ""
-  QUARKUS_DATASOURCE_PASSWORD: I1NTR0ZSRDAyX09SQX0j
-  QUARKUS_HTTP_SSL_CERTIFICATE_KEY-STORE-PASSWORD: Y2hhbmdlaXQ=
-  QUARKUS_OIDC_CREDENTIALS_SECRET: ""
-  SFTP_CLIENT_SECRET: ""
-  SMALLRYE_CONFIG_SOURCE_FILE_LOCATIONS: L3Vzci9zcmMvYXBwL3NlY3JldHNfZmlsZXMvU0lTR0ZfREVTLw==
-kind: Secret
-metadata:
-  creationTimestamp: 2026-05-28T22:10:29Z
-  managedFields:
-  - apiVersion: v1
-    fieldsType: FieldsV1
-    fieldsV1:
-      f:data:
-        .: {}
-        f:API_KEY: {}
-        f:DB2_SIICO_PASSWORD: {}
-        f:QUARKUS_DATASOURCE_PASSWORD: {}
-        f:QUARKUS_HTTP_SSL_CERTIFICATE_KEY-STORE-PASSWORD: {}
-        f:QUARKUS_OIDC_CREDENTIALS_SECRET: {}
-        f:SFTP_CLIENT_SECRET: {}
-        f:SMALLRYE_CONFIG_SOURCE_FILE_LOCATIONS: {}
-      f:type: {}
-    manager: kubectl-create
-    operation: Update
-    time: 2026-05-28T22:10:29Z
-  name: sisgf-backend-des
-  namespace: sisgf-des
-  resourceVersion: "1984263252"
-  uid: cdd18320-376e-4269-a3ec-c53bc42a7207
-type: Opaque
--sh-4.2$
+Scopes: EC DES
+JKS_PASS
+changeit
+VAULT_LOCATION
+/usr/src/app/secrets_files/SISGF_DES/
+_ENV.APPLICATIONINSIGHTS_CONNECTION_STRING
+"InstrumentationKey=99ee6c02-0bc8-4c2e-8109-b744a54e07ae;IngestionEndpoint=https://brazilsouth-1.in.applicationinsights.azure.com/;LiveEndpoint=https://brazilsouth.livediagnostics.monitor.azure.com/"
+_ENV.APPLICATIONINSIGHTS_INSTRUMENTATION_LOGGING_LEVEL
+INFO
+_ENV.APPLICATIONINSIGHTS_ROLE_NAME
+SISGF-backend-DES
+_ENV.APPLICATIONINSIGHTS_SAMPLING_PERCENTAGE
+3
+_ENV.APPLICATIONINSIGHTS_SELF_DIAGNOSTICS_LEVEL
+INFO
+_ENV.CORS_ORIGINS
+"https://sisgf-frontend-des.apps.nprd.caixa, https://sisgf-frontend-tqs.apps.nprd.caixa, https://sisgf.caixa/, http://localhost:4200"
+_ENV.DB2_SIICO_SCHEMA
+DESICO
+_ENV.DB2_SIICO_URL
+"jdbc:db2://10.216.80.110:448/RJKDB2DSD0"
+_ENV.DB2_SIICO_USERNAME
+"ssgfrd01"
+_ENV.EMAIL_DESTINATARIOS
+"jose.ibiapina@caixa.gov.br;daniel.e.araujo@caixa.gov.br"
+_ENV.EMAIL_FROM
+"sisgf.teste@caixa.gov.br"
+_ENV.EMAIL_SMTP_PORT
+25
+_ENV.EMAIL_SMTP_URL
+"smtptest.correiolivre.caixa"
+_ENV.HORA_LIMITE_CONTABILIZACAO
+18
+_ENV.HTTPS_PROXY
+http://proxydes.caixa:80
+_ENV.JAVA_OPTIONS_APPEND
+"-Djavax.net.ssl.trustStore=/deployments/caixa-truststore-acteste-nprd.jks -javaagent:/deployments/lib/main/com.microsoft.azure.applicationinsights-agent-3.3.1.jar"
+_ENV.NO_PROXY
+"*.caixa,*.caixa.gov.br"
+_ENV.QUARKUS_DATASOURCE_DB_KIND
+"other"
+_ENV.QUARKUS_DATASOURCE_JDBC_DRIVER
+"oracle.jdbc.driver.OracleDriver"
+_ENV.QUARKUS_DATASOURCE_JDBC_MAX_SIZE
+"40"
+_ENV.QUARKUS_DATASOURCE_JDBC_URL
+"jdbc:oracle:thin:@10.116.101.7:1521/orad01sc"
+_ENV.QUARKUS_DATASOURCE_USERNAME
+"SSGFRD01"
+_ENV.QUARKUS_HIBERNATE-ORM_DATABASE_DEFAULT_SCHEMA
+"SGF"
+_ENV.QUARKUS_HIBERNATE_ORB_DIALECT
+"org.hibernate.dialect.Oracle10gDialect"
+_ENV.QUARKUS_HIBERNATE_ORM_LOG_BIND_PARAMETERS
+"false"
+_ENV.QUARKUS_HIBERNATE_ORM_LOG_SQL
+"false"
+_ENV.QUARKUS_HIBERNATE_ORM_PACKAGES
+"br.gov.caixa.sisgf.api.domain.model"
+_ENV.QUARKUS_LOG_LEVEL
+"INFO"
+_ENV.QUARKUS_OIDC_AUTH_SERVER_URL
+https://login.des.caixa/auth/realms/intranet
+_ENV.SFTP_CLIENT_USER
+ssgfdr01
+_ENV.SFTP_PATH_DIR_LIST
+"/SINAF,/SIPAS,/sipas"
+_ENV.SFTP_PATH_ENTRADA
+/sistemas/sisgf/arquivos/entrada/relatorios
+_ENV.SFTP_SERVER_IP
+10.116.89.226
+_ENV.SFTP_SERVER_PORT
+22
+_ENV.SIICO_API_PRIVADA_URL
+https://api.des.caixa:8443/informacoes-corporativas-privadas/
+_ENV.SIICO_API_PUBLICA_URL
+https://api.des.caixa:8443/informacoes-corporativas-publicas/
+_ENV.SINAF_API_EVENTO_URL
+https://api.des.caixa:8443/sinaf-api-evento/
+_ENV.SISGF_API_URL
+https://sisgf-api-des.apps.nprd.caixa/financeiro-beneficios/faturamento/
+_ENV.SISGF_BATCH_UNIDADES_URL
+https://sisgf-batch-des.apps.nprd.caixa
+_SECRET.API_KEY
+#{SISGF_APIKEY}#
+_SECRET.DB2_SIICO_PASSWORD
+#{SSGFRD01_DB2}#
+_SECRET.QUARKUS_DATASOURCE_PASSWORD
+#SSGFRD02_ORA}#
+_SECRET.QUARKUS_HTTP_SSL_CERTIFICATE_KEY-STORE-PASSWORD
+#{JKS_PASS}#
+_SECRET.QUARKUS_OIDC_CREDENTIALS_SECRET
+#{CLISERSGF_SSO_INTRA}#
+_SECRET.SFTP_CLIENT_SECRET
+#{SSGFDR01_SFTP}#
+_SECRET.SMALLRYE.CONFIG.SOURCE.FILE.LOCATIONS
+#{VAULT_LOCATION}#
