@@ -246,10 +246,11 @@ https://maven.apache.org/xsd/maven-4.0.0.xsd"
 			<artifactId>stax</artifactId>
 			<version>1.2.0</version>
 		</dependency>
+		<!-- Application Insights Agent - CORRIGIDO para versão 3.3.1 -->
 		<dependency>
 			<groupId>com.microsoft.azure</groupId>
 			<artifactId>applicationinsights-agent</artifactId>
-			<version>3.5.1</version>
+			<version>3.3.1</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.commons</groupId>
@@ -313,6 +314,31 @@ https://maven.apache.org/xsd/maven-4.0.0.xsd"
 						<goals>
 							<goal>report</goal>
 						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<!-- Plugin para copiar Application Insights Agent JAR para lib/main/ -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>3.5.0</version>
+				<executions>
+					<execution>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>copy</goal>
+						</goals>
+						<configuration>
+							<artifactItems>
+								<artifactItem>
+									<groupId>com.microsoft.azure</groupId>
+									<artifactId>applicationinsights-agent</artifactId>
+									<version>3.3.1</version>
+									<destFileName>com.microsoft.azure.applicationinsights-agent-3.3.1.jar</destFileName>
+									<outputDirectory>${project.build.directory}/quarkus-app/lib/main</outputDirectory>
+								</artifactItem>
+							</artifactItems>
+						</configuration>
 					</execution>
 				</executions>
 			</plugin>
