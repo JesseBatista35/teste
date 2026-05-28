@@ -1,78 +1,102 @@
-GitHub Enterprise
-Users managed by Caixa Economica Federal
-caixagithub
+Applications
+ sigec-opf-des
+Application Details List
+Log out
+APP HEALTH 
+ Degraded
+SYNC STATUS 
+
+ Synced
+to HEAD (3749106)
+Auto sync is enabled.
+Author:
+Jesse Mouta Pereira Batista <p585600@corp.caixa.gov.br> -
+Comment:
+Update values.yaml
+LAST SYNC 
+
+ Sync OK
+to 3749106
+Succeeded 2 minutes ago (Thu May 28 2026 18:06:35 GMT-0300)
+Author:
+Jesse Mouta Pereira Batista <p585600@corp.caixa.gov.br> -
+Comment:
+Update values.yaml
+APP CONDITIONS
+ 1 Warning
+Previous123Next
+Items per page: 10 
+NAME
+GROUP/KIND
+SYNC ORDER
+NAMESPACE
+CREATED AT
+STATUS
+Pod
+pod
+sigec-opf-des-d994765f5-6mbfm
+Pod
+-
 sigec-opf
-Repository navigation
-Code
-Issues
-2
- (2)
-Pull requests
-1
- (1)
-Actions
-Projects
-Models
-Wiki
-Security and quality
-4
- (4)
-Insights
-Settings
-Actions: caixagithub/sigec-opf
-Actions
-Management
-All workflows
-Filter workflow runs
-Showing runs from all workflows
-1,043 workflow runs
-caixagithub/sigec-opf_dev_26597911912.404
-CI/CD Workflow #404: Manually run by f580967_caixa
-dev	
-Today at 4:41 PM
- 15m 43s
-caixagithub/sigec-opf_main_26595827845.403
-CI/CD Workflow #403: Manually run by c091714_caixa
-main	
-Today at 3:59 PM
- 3m 55s
-caixagithub/sigec-opf_dev_26590526634.402
-CI/CD Workflow #402: Manually run by p590589_caixa
-dev	
-Today at 2:19 PM
- 15m 16s
-caixagithub/sigec-opf_main_26590220715.401
-CI/CD Workflow #401: Manually run by p590589_caixa
-main	
-Today at 2:13 PM
- 3m 37s
-caixagithub/sigec-opf_dev_26587551090.400
-CI/CD Workflow #400: Manually run by p590589_caixa
-dev	
-Today at 1:24 PM
- 11m 35s
-caixagithub/sigec-opf_develop_26582882246.212
-Call CodeQL workflow Seguranca #212: Commit 75e3b5d pushed by f580967_caixa
-develop	
-Today at 12:00 PM
- 5m 25s
-Merge pull request #288 from caixagithub/f580967_caixa-patch-1
-CI/CD Workflow #399: Commit 75e3b5d pushed by f580967_caixa
-develop	
-Today at 12:00 PM
- Failure
-caixagithub/sigec-opf_288/merge_26582386296.432
-QA - Análise Estática de Código #432: Pull request #288 opened by f580967_caixa
-f580967_caixa-patch-1	
-Today at 11:52 AM
- 2m 48s
-caixagithub/sigec-opf_288/merge_26582386245.211
-Call CodeQL workflow Seguranca #211: Pull request #288 opened by f580967_caixa
-f580967_caixa-patch-1	
-Today at 11:52 AM
- 5m 41s
-Update s1.md
-CI/CD Workflow #398: Commit 752d2a3 pushed by f580967_caixa
-f580967_caixa-patch-1	
-Today at 11:51 AM
- Failure
+an hour ago   05/28/26
+ Progressing  
+ReplicaSet
+rs
+sigec-opf-des-7ffdb96d7c
+apps/ReplicaSet
+-
+sigec-opf
+4 hours ago   05/28/26
+ Healthy  
+Secret
+secret
+akv2k8s-sigec-opf-des
+Secret
+-
+sigec-opf
+4 hours ago   05/28/26
+ReplicaSet
+rs
+sigec-opf-des-5b95cc7d47
+apps/ReplicaSet
+-
+sigec-opf
+4 hours ago   05/28/26
+ Healthy  
+Deployment
+deploy
+sigec-opf-des
+apps/Deployment
+-
+sigec-opf
+4 hours ago   05/28/26
+ Degraded   Synced
+Secret
+secret
+akvs-sigec-opf-api-des-caixa-certificate
+Secret
+-
+aks-istio-ingress
+7 months ago   10/23/25
+Secret
+secret
+akvs-akvs-sigec-opf-api-des-caixa-certificate
+Secret
+-
+aks-istio-ingress
+9 months ago   08/18/25
+ConfigMap
+cm
+cm-sigec-opf
+ConfigMap
+-
+sigec-opf
+10 months ago   07/16/25
+ Synced
+Endpoints
+ep
+sigec-opf-des
+Endpoints
+-
+sigec-opf
+10 months ago   07/16/25
