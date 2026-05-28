@@ -1,55 +1,385 @@
-I0528 11:14:03.214152   21197 tar.go:312] Adding to tar: /opt/ads-agent/_work/11278/a/lib/main/org.apache.xmlgraphics.batik-svggen-1.13.jar as lib/main/org.apache.xmlgraphics.batik-svggen-1.13.jar
-I0528 11:14:03.224297   21197 tar.go:312] Adding to tar: /opt/ads-agent/_work/11278/a/lib/main/org.apache.xmlgraphics.batik-svgpp-1.13.jar as lib/main/org.apache.xmlgraphics.batik-svgpp-1.13.jar
-I0528 11:14:03.225478   21197 tar.go:312] Adding to tar: /opt/ads-agent/_work/11278/a/lib/main/org.apache.xmlgraphics.batik-svgrasterizer-1.13.jar as lib/main/org.apache.xmlgraphics.batik-svgrasterizer-1.13.jar
-I0528 11:14:03.227799   21197 tar.go:312] Adding to tar: /opt/ads-agent/_work/11278/a/lib/main/org.apache.xmlgraphics.batik-swing-1.13.jar as lib/main/org.apache.xmlgraphics.batik-swing-1.13.jar
-I0528 11:14:03.235512   21197 tar.go:312] Adding to tar: /opt/ads-agent/_work/11278/a/lib/main/org.apache.xmlgraphics.batik-transcoder-1.13.jar as lib/main/org.apache.xmlgraphics.batik-transcoder-1.13.jar
-I0528 11:14:03.241416   21197 tar.go:312] Adding to tar: /opt/ads-agent/_work/11278/a/lib/main/org.apache.xmlgraphics.batik-ttf2svg-1.13.jar as lib/main/org.apache.xmlgraphics.batik-ttf2svg-1.13.jar
-I0528 11:14:03.241583   21197 tar.go:312] Adding to tar: /opt/ads-agent/_work/11278/a/lib/main/org.apache.xmlgraphics.batik-util-1.13.jar as lib/main/org.apache.xmlgraphics.batik-util-1.13.jar
-I0528 11:14:03.246817   21197 tar.go:312] Adding to tar: /opt/ads-agent/_work/11278/a/lib/main/org.apache.xmlgraphics.batik-xml-1.13.jar as lib/main/org.apache.xmlgraphics.batik-xml-1.13.jar
-I0528 11:14:03.248207   21197 tar.go:312] Adding to tar: /opt/ads-agent/_work/11278/a/lib/main/org.apache.xmlgraphics.xmlgraphics-commons-2.9.jar as lib/main/org.apache.xmlgraphics.xmlgraphics-commons-2.9.jar
-I0528 11:14:03.277363   21197 tar.go:312] Adding to tar: /opt/ads-agent/_work/11278/a/lib/main/org.bitbucket.b_c.jose4j-0.9.6.jar as lib/main/org.bitbucket.b_c.jose4j-0.9.6.jar
-I0528 11:14:03.289275   21197 tar.go:312] Adding to tar: /opt/ads-agent/_work/11278/a/lib/main/org.bouncycastle.bcpkix-jdk15on-1.68.jar as lib/main/org.bouncycastle.bcpkix-jdk15on-1.68.jar
-I0528 11:14:03.322483   21197 tar.go:312] Adding to tar: /opt/ads-agent/_work/11278/a/lib/main/org.bouncycastle.bcprov-jdk15on-1.68.jar as lib/main/org.bouncycastle.bcprov-jdk15on-1.68.jar
-I0528 11:14:03.539839   21197 tar.go:312] Adding to tar: /opt/ads-agent/_work/11278/a/lib/main/org.checkerframework.checker-qual-3.45.0.jar as lib/main/org.checkerframework.checker-qual-3.45.0.jar
-I0528 11:14:03.548032   21197 tar.go:312] Adding to tar: /opt/ads-agent/_work/11278/a/lib/main/org.codehaus.woodstox.stax2-api-4.2.jar as lib/main/org.codehaus.woodstox.stax2-api-4.2.jar
-I0528 11:14:03.555468   21197 tar.go:312] Adding to tar: /opt/ads-agent/_work/11278/a/lib/main/org.docx4j.docx4j-JAXB-ReferenceImpl-11.4.11.jar as lib/main/org.docx4j.docx4j-JAXB-ReferenceImpl-11.4.11.jar
-I0528 11:14:03.556611   21197 tar.go:312] Adding to tar: /opt/ads-agent/_work/11278/a/lib/main/org.docx4j.docx4j-core-11.4.11.jar as lib/main/org.docx4j.docx4j-core-11.4.11.jar
-I0528 11:14:03.704871   21197 tar.go:312] Adding to tar: /opt/ads-agent/_work/11278/a/lib/main/org.docx4j.docx4j-openxml-objects-11.4.11.jar as lib/main/org.docx4j.docx4j-openxml-objects-11.4.11.jar
-I0528 11:14:03.798766   21197 tar.go:312] Adding to tar: /opt/ads-agent/_work/11278/a/lib/main/org.docx4j.docx4j-openxml-objects-pml-11.4.11.jar as lib/main/org.docx4j.docx4j-openxml-objects-pml-11.4.11.jar
-I0528 11:14:03.813049   21197 tar.go:312] Adding to tar: /opt/ads-agent/_work/11278/a/lib/main/org.docx4j.docx4j-openxml-objects-sml-11.4.11.jar as lib/main/org.docx4j.docx4j-openxml-objects-sml-11.4.11.jar
-I0528 11:14:03.838281   21197 tar.go:312] Adding to tar: /opt/ads-agent/_work/11278/a/lib/main/org.docx4j.org.apache.xalan-interpretive-11.0.0.jar as lib/main/org.docx4j.org.apache.xalan-interpretive-11.0.0.jar
-I0528 11:14:03.914967   21197 tar.go:312] Adding to tar: /opt/ads-agent/_work/11278/a/lib/main/org.docx4j.org.apache.xalan-serializer-11.0.0.jar as lib/main/org.docx4j.org.apache.xalan-serializer-11.0.0.jar
-I0528 11:14:03.926743   21197 tar.go:312] Adding to tar: /opt/ads-agent/_work/11278/a/lib/main/org.eclipse.angus.angus-activation-2.0.2.jar as lib/main/org.eclipse.angus.angus-activation-2.0.2.jar
-I0528 11:14:03.928083   21197 tar.go:312] Adding to tar: /opt/ads-agent/_work/11278/a/lib/main/org.eclipse.microprofile.config.microprofile-config-api-3.1.jar as lib/main/org.eclipse.microprofile.config.microprofile-config-api-3.1.jar
-I0528 11:14:03.928176   21197 tar.go:312] Adding to tar: /opt/ads-agent/_work/11278/a/lib/main/org.eclipse.microprofile.context-propagation.microprofile-context-propagation-api-1.3.jar as lib/main/org.eclipse.microprofile.context-propagation.microprofile-context-propagation-api-1.3.jar
-I0528 11:14:03.929185   21197 tar.go:312] Adding to tar: /opt/ads-agent/_work/11278/a/lib/main/org.eclipse.microprofile.fault-tolerance.microprofile-fault-tolerance-api-4.0.2.jar as lib/main/org.eclipse.microprofile.fault-tolerance.microprofile-fault-tolerance-api-4.0.2.jar
-I0528 11:14:03.929350   21197 tar.go:312] Adding to tar: /opt/ads-agent/_work/11278/a/lib/main/org.eclipse.microprofile.health.microprofile-health-api-4.0.1.jar as lib/main/org.eclipse.microprofile.health.microprofile-health-api-4.0.1.jar
-I0528 11:14:03.930234   21197 tar.go:312] Adding to tar: /opt/ads-agent/_work/11278/a/lib/main/org.eclipse.microprofile.jwt.microprofile-jwt-auth-api-2.1.jar as lib/main/org.eclipse.microprofile.jwt.microprofile-jwt-auth-api-2.1.jar
-I0528 11:14:03.930934   21197 tar.go:312] Adding to tar: /opt/ads-agent/_work/11278/a/lib/main/org.eclipse.microprofile.metrics.microprofile-metrics-api-4.0.1.jar as lib/main/org.eclipse.microprofile.metrics.microprofile-metrics-api-4.0.1.jar
-I0528 11:14:03.932439   21197 tar.go:312] Adding to tar: /opt/ads-agent/_work/11278/a/lib/main/org.eclipse.microprofile.openapi.microprofile-openapi-api-3.1.1.jar as lib/main/org.eclipse.microprofile.openapi.microprofile-openapi-api-3.1.1.jar
-I0528 11:14:03.936079   21197 tar.go:312] Adding to tar: /opt/ads-agent/_work/11278/a/lib/main/org.eclipse.microprofile.reactive-streams-operators.microprofile-reactive-streams-operators-api-3.0.jar as lib/main/org.eclipse.microprofile.reactive-streams-operators.microprofile-reactive-streams-operators-api-3.0.jar
-I0528 11:14:03.937861   21197 tar.go:312] Adding to tar: /opt/ads-agent/_work/11278/a/lib/main/org.eclipse.microprofile.rest.client.microprofile-rest-client-api-3.0.1.jar as lib/main/org.eclipse.microprofile.rest.client.microprofile-rest-client-api-3.0.1.jar
-I0528 11:14:03.939024   21197 tar.go:312] Adding to tar: /opt/ads-agent/_work/11278/a/lib/main/org.eclipse.parsson.parsson-1.1.6.jar as lib/main/org.eclipse.parsson.parsson-1.1.6.jar
-I0528 11:14:03.944768   21197 tar.go:312] Adding to tar: /opt/ads-agent/_work/11278/a/lib/main/org.glassfish.expressly.expressly-5.0.0.jar as lib/main/org.glassfish.expressly.expressly-5.0.0.jar
-I0528 11:14:03.951654   21197 tar.go:312] Adding to tar: /opt/ads-agent/_work/11278/a/lib/main/org.glassfish.jaxb.jaxb-core-4.0.5.jar as lib/main/org.glassfish.jaxb.jaxb-core-4.0.5.jar
-I0528 11:14:03.957740   21197 tar.go:312] Adding to tar: /opt/ads-agent/_work/11278/a/lib/main/org.glassfish.jaxb.jaxb-runtime-3.0.1.jar as lib/main/org.glassfish.jaxb.jaxb-runtime-3.0.1.jar
-I0528 11:14:03.993591   21197 tar.go:312] Adding to tar: /opt/ads-agent/_work/11278/a/lib/main/org.glassfish.jaxb.txw2-4.0.5.jar as lib/main/org.glassfish.jaxb.txw2-4.0.5.jar
-I0528 11:14:03.996924   21197 tar.go:312] Adding to tar: /opt/ads-agent/_work/11278/a/lib/main/org.hibernate.common.hibernate-commons-annotations-6.0.6.Final.jar as lib/main/org.hibernate.common.hibernate-commons-annotations-6.0.6.Final.jar
-I0528 11:14:03.999875   21197 tar.go:312] Adding to tar: /opt/ads-agent/_work/11278/a/lib/main/org.hibernate.orm.hibernate-core-6.5.2.Final.jar as lib/main/org.hibernate.orm.hibernate-core-6.5.2.Final.jar
-.I0528 11:14:04.478928   21197 tar.go:312] Adding to tar: /opt/ads-agent/_work/11278/a/lib/main/org.hibernate.orm.hibernate-graalvm-6.5.2.Final.jar as lib/main/org.hibernate.orm.hibernate-graalvm-6.5.2.Final.jar
-I0528 11:14:04.479201   21197 tar.go:312] Adding to tar: /opt/ads-agent/_work/11278/a/lib/main/org.hibernate.quarkus-local-cache-0.3.0.jar as lib/main/org.hibernate.quarkus-local-cache-0.3.0.jar
-
-
-
--sh-4.2$
--sh-4.2$ oc get buildconfig sisgf-backend -n build-images-ads -o yaml
-Error from server (NotFound): buildconfigs.build.openshift.io "sisgf-backend" not found
--sh-4.2$ oc get buildconfig sisgf-backend -n build-images-ads -o yaml
-Error from server (NotFound): buildconfigs.build.openshift.io "sisgf-backend" not found
--sh-4.2$ oc get buildconfig sisgf-backend -n build-images-ads -o yaml
-Error from server (NotFound): buildconfigs.build.openshift.io "sisgf-backend" not found
--sh-4.2$ oc get buildconfigs sisgf-backend -n build-images-ads -o yaml
-Error from server (NotFound): buildconfigs.build.openshift.io "sisgf-backend" not found
--sh-4.2$
-
-
+<?xml version="1.0" encoding="UTF-8"?>
+<project
+		xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+https://maven.apache.org/xsd/maven-4.0.0.xsd"
+		xmlns="http://maven.apache.org/POM/4.0.0"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>br.gov.caixa.sisgf.backend</groupId>
+	<artifactId>sisgf-backend</artifactId>
+	<version>11.01.01.01</version>
+	<properties>
+		<compiler-plugin.version>3.13.0</compiler-plugin.version>
+		<surefire-plugin.version>3.13.0</surefire-plugin.version>
+		<quarkus.platform.version>3.13.0</quarkus.platform.version>
+		<maven.compiler.release>17</maven.compiler.release>
+		<maven.compiler.source>17</maven.compiler.source>
+		<maven.compiler.target>17</maven.compiler.target>
+		<maven.compiler.parameters>true</maven.compiler.parameters>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<quarkus-plugin.version>3.13.0</quarkus-plugin.version>
+		<quarkus.platform.artifact-id>quarkus-bom</quarkus.platform.artifact-id>
+		<quarkus.platform.group-id>io.quarkus.platform</quarkus.platform.group-id>
+	</properties>
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>${quarkus.platform.group-id}</groupId>
+				<artifactId>${quarkus.platform.artifact-id}</artifactId>
+				<version>${quarkus.platform.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+	<dependencies>
+		<!-- Database Dependencies -->
+		<dependency>
+			<groupId>com.oracle.database.jdbc</groupId>
+			<artifactId>ojdbc8</artifactId>
+			<version>12.2.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.ibm.db2</groupId>
+			<artifactId>jcc</artifactId>
+			<version>11.5.6.0</version>
+		</dependency>
+		<!-- Quarkus Dependencies -->
+		<dependency>
+			<groupId>io.quarkus</groupId>
+			<artifactId>quarkus-oidc</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.quarkus</groupId>
+			<artifactId>quarkus-keycloak-authorization</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.quarkus</groupId>
+			<artifactId>quarkus-hibernate-orm-panache</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.quarkus</groupId>
+			<artifactId>quarkus-container-image-docker</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.quarkus</groupId>
+			<artifactId>quarkus-rest</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.quarkus</groupId>
+			<artifactId>quarkus-rest-jackson</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.quarkus</groupId>
+			<artifactId>quarkus-rest-client</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.quarkus</groupId>
+			<artifactId>quarkus-rest-client-jackson</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.quarkus</groupId>
+			<artifactId>quarkus-spring-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.quarkus</groupId>
+			<artifactId>quarkus-narayana-jta</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.quarkus</groupId>
+			<artifactId>quarkus-spring-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.quarkus</groupId>
+			<artifactId>quarkus-spring-security</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.quarkus</groupId>
+			<artifactId>quarkus-elytron-security-properties-file</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.quarkus</groupId>
+			<artifactId>quarkus-security-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.quarkus</groupId>
+			<artifactId>quarkus-smallrye-health</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.quarkus</groupId>
+			<artifactId>quarkus-smallrye-jwt</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.quarkus</groupId>
+			<artifactId>quarkus-smallrye-fault-tolerance</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.quarkus</groupId>
+			<artifactId>quarkus-smallrye-metrics</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.quarkus</groupId>
+			<artifactId>quarkus-smallrye-openapi</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.quarkus</groupId>
+			<artifactId>quarkus-arc</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.quarkus</groupId>
+			<artifactId>quarkus-spring-cache</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.quarkus</groupId>
+			<artifactId>quarkus-spring-di</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.quarkus</groupId>
+			<artifactId>quarkus-undertow</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.quarkus</groupId>
+			<artifactId>quarkus-scheduler</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.quarkus</groupId>
+			<artifactId>quarkus-mailer</artifactId>
+		</dependency>
+		<!-- Test Dependencies -->
+		<dependency>
+			<groupId>io.quarkus</groupId>
+			<artifactId>quarkus-junit5</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>io.quarkus</groupId>
+			<artifactId>quarkus-junit5-mockito</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>io.quarkus</groupId>
+			<artifactId>quarkus-test-security</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+			<version>5.12.0</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>io.rest-assured</groupId>
+			<artifactId>rest-assured</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<!-- JAXB Dependencies -->
+		<dependency>
+			<groupId>io.quarkus</groupId>
+			<artifactId>quarkus-jaxb</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>jakarta.xml.bind</groupId>
+			<artifactId>jakarta.xml.bind-api</artifactId>
+			<version>3.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.jaxb</groupId>
+			<artifactId>jaxb-runtime</artifactId>
+			<version>3.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>jakarta.activation</groupId>
+			<artifactId>jakarta.activation-api</artifactId>
+			<version>2.0.0</version>
+		</dependency>
+		<!-- Additional Dependencies -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.28</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.modelmapper</groupId>
+			<artifactId>modelmapper</artifactId>
+			<version>2.3.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.10</version>
+		</dependency>
+		<dependency>
+			<groupId>org.docx4j</groupId>
+			<artifactId>docx4j-core</artifactId>
+			<version>11.4.11</version>
+			<exclusions>
+				<exclusion>
+					<groupId>javax.xml.bind</groupId>
+					<artifactId>jaxb-api</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.docx4j</groupId>
+			<artifactId>docx4j-JAXB-ReferenceImpl</artifactId>
+			<version>11.4.11</version>
+		</dependency>
+		<dependency>
+			<groupId>xerces</groupId>
+			<artifactId>xercesImpl</artifactId>
+			<version>2.12.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>5.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.itextpdf</groupId>
+			<artifactId>itextpdf</artifactId>
+			<version>5.3.4</version>
+		</dependency>
+		<dependency>
+			<groupId>stax</groupId>
+			<artifactId>stax</artifactId>
+			<version>1.2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.microsoft.azure</groupId>
+			<artifactId>applicationinsights-agent</artifactId>
+			<version>3.5.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-csv</artifactId>
+			<version>1.10.0</version>
+		</dependency>
+	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>${quarkus.platform.group-id}</groupId>
+				<artifactId>quarkus-maven-plugin</artifactId>
+				<version>${quarkus-plugin.version}</version>
+				<extensions>true</extensions>
+				<executions>
+					<execution>
+						<goals>
+							<goal>build</goal>
+							<goal>generate-code</goal>
+							<goal>generate-code-tests</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${compiler-plugin.version}</version>
+			</plugin>
+			<plugin>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>3.3.0</version>
+				<configuration>
+					<systemPropertyVariables>
+						<java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
+						<quarkus.log.level>DEBUG</quarkus.log.level>
+						<maven.home>${maven.home}</maven.home>
+					</systemPropertyVariables>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.sonarsource.scanner.maven</groupId>
+				<artifactId>sonar-maven-plugin</artifactId>
+				<version>3.9.0.2155</version>
+			</plugin>
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>0.8.8</version>
+				<configuration>
+					<append>true</append>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>post-unit-test</id>
+						<phase>test</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+		<pluginManagement>
+			<plugins>
+				<!-- This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself. -->
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>io.quarkus</groupId>
+										<artifactId>quarkus-maven-plugin</artifactId>
+										<versionRange>[2.13.2.Final,)</versionRange>
+										<goals>
+											<goal>build</goal>
+											<goal>generate-code</goal>
+											<goal>generate-code-tests</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore></ignore>
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+	<profiles>
+		<profile>
+			<id>native</id>
+			<activation>
+				<property>
+					<name>native</name>
+				</property>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>maven-failsafe-plugin</artifactId>
+						<version>${surefire-plugin.version}</version>
+						<executions>
+							<execution>
+								<goals>
+									<goal>integration-test</goal>
+									<goal>verify</goal>
+								</goals>
+								<configuration>
+									<systemPropertyVariables>
+										<native.image.path>${project.build.directory}/${project.build.finalName}-runner</native.image.path>
+										<java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
+										<maven.home>${maven.home}</maven.home>
+									</systemPropertyVariables>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+</project>
