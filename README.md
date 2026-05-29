@@ -1,7 +1,15 @@
-Nota Técnica – Análise em andamento
-A falha na build do artefato na esteira DevOps do SIGAM (pipeline sigam-gestao, buildId 202414) ocorreu durante a etapa Docker build, no momento de download da imagem base mcr.microsoft.com/openjdk/jdk:21-mariner.
-O log indica interrupção da conexão durante o download da camada da imagem:
+Encaminhamento – Time de Nuvem (CAIXAAZURE)
+Prezados,
+Encaminhamos a presente demanda para análise do time de Nuvem, por se tratar de falha relacionada à infraestrutura/conectividade do ambiente CAIXAAZURE.
+Sistema: SIGAM
+Pipeline: sigam-gestao (buildId 202414)
+Ambiente: Aplicação nas Esteiras DevOps
+Resumo da falha:
+A build do artefato falha na etapa Docker build, durante o download da imagem base mcr.microsoft.com/openjdk/jdk:21-mariner. O download trava repetidamente em 33.55MB/197.77MB por cerca de 380s e a conexão é então encerrada pelo destino:
 ERROR: failed to build: failed to solve: failed to copy: read tcp 10.245.252.143:51398->150.171.70.10:443: read: connection reset by peer
-Observa-se que o download travou repetidamente em 33.55MB/197.77MB e, em seguida, a conexão foi encerrada pelo peer (connection reset by peer) com o endpoint do Microsoft Container Registry (MCR / 150.171.70.10:443).
-Trata-se, a princípio, de uma falha de conectividade/rede no acesso ao repositório de imagens externo, e não de erro no código da aplicação. A análise da causa-raiz está em andamento (verificação de estabilidade de rede, proxy/egress e disponibilidade do MCR no momento da execução).
-Status: Pendente – em análise.
+Análise preliminar:
+A falha não está relacionada ao código da aplicação, e sim à conectividade/egress do agente da esteira (10.245.252.143) com o Microsoft Container Registry (MCR / 150.171.70.10:443). O padrão de travamento e o connection reset by peer sugerem interrupção da conexão a nível de proxy/firewall/egress do ambiente CAIXAAZURE.
+Solicitação ao time de Nuvem:
+Verificar a estabilidade e as regras de egress/proxy do ambiente CAIXAAZURE para acesso ao mcr.microsoft.com (e IPs de CDN associados), bem como a disponibilidade de mirror/registro interno das imagens base, de forma a eliminar a dependência de acesso externo direto.
+Contato: Teams Aaron – f540797
+Status: Em análise – encaminhado ao time de Nuvem.
