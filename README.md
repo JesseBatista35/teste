@@ -1,11 +1,3 @@
-Estamos recebendo um erro quando a action de segurança é ativada
-https://github.com/caixagithub/sirmc-api-suitability/actions/runs/26595411567/job/78364866158?pr=3
-
-informa que falta incluir a linguagem utilizada.
-
-Solicitamos auxilio.
-
-
 Skip to content
 GitHub Enterprise
 Users managed by Caixa Economica Federal
@@ -28,55 +20,49 @@ Security and quality
  (2)
 Insights
 Settings
-Back to pull request #3
-Seguranca-__. #14
-All jobs
-Run details
-Annotations
-1 error and 1 warning
-CodeQL / Create language matrix
-failed yesterday in 19s
-Search logs
-2s
-10s
-1s
-0s
-0s
-2s
-1s
-0s
-Run input=${input:-[]}
-  input=${input:-[]}
-  input=${input:-}
-  
-  cleaned=${input//[\[\]]/}
-  json=$(awk -v str="$cleaned" 'BEGIN {
-      n = split(str, a, ",");
-      printf "[";
-      for (i = 1; i <= n; i++) {
-          gsub(/^[[:space:]]+|[[:space:]]+$/, "", a[i]);
-          gsub(/^"|"$/, "", a[i]);
-          printf "\"%s\"%s", a[i], (i < n ? "," : "")
-      }
-      print "]"
-  }')
-  if [[ -z "$json" || "$json" == "[]" ]]; then
-    echo "Nenhuma linguagem detectada"
-    exit 1
-  fi
-  echo "languages=$json" >> $GITHUB_OUTPUT
-  shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
-  env:
-    pythonLocation: /opt/hostedtoolcache/Python/3.11.15/x64
-    PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.15/x64/lib/pkgconfig
-    Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
-    Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
-    Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
-    LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.15/x64/lib
-Nenhuma linguagem detectada
-Error: Process completed with exit code 1.
-0s
-0s
-0s
-1s
-0s
+Files
+Go to file
+t
+T
+section1 content loaded
+.github/workflows
+call-docs-pipelines.yaml
+call-generic-pipelines.yaml
+call-generic-qa-pipelines.yaml
+call-generic-sec-pipelines.yaml
+codeql.yml
+docs
+section1
+s1.md
+s2.md
+s3.md
+index.md
+catalog-info.yaml
+mkdocs.yaml
+sirmc-api-suitability/.github
+/workflows/
+c090940_caixa
+c090940_caixa
+Create codeql.yml
+aa29568
+ · 
+2 weeks ago
+Name	Last commit message	Last commit date
+..
+call-docs-pipelines.yaml
+initial commit
+2 months ago
+call-generic-pipelines.yaml
+initial commit
+2 months ago
+call-generic-qa-pipelines.yaml
+initial commit
+2 months ago
+call-generic-sec-pipelines.yaml
+initial commit
+2 months ago
+codeql.yml
+Create codeql.yml
+2 weeks ago
+sirmc-api-suitability/.github/workflows at main · caixagithub/sirmc-api-suitability
+section1 content loaded
