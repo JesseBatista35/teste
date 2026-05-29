@@ -1,24 +1,229 @@
-oc get builds -n build-images-ads | grep sispi-backend
-oc describe build/sispi-backend-<n> -n build-images-ads
-oc logs build/sispi-backend-<n> -n build-images-ads
-No describe, repare se o build sequer chegou a iniciar (fase New/Pending) ou se morreu no upload. Pelo log do pipeline, ele nem instanciou o build — o instantiatebinary foi cortado antes. Então provavelmente não existe nem um objeto Build criado para essas tentativas, o que reforça que o problema é a camada de rede/LB antes do API server, não o builder.
-3. Medir o tamanho do payload
-O upload incluía sispi-backend.ear + jboss-modules + jboss-deployments. No agente do Azure DevOps:
-du -sh /opt/ads-agent/_work/10311/a
-du -sh /opt/ads-agent/_work/10311/a/sispi-backend.ear
-Se isso for grande (centenas de MB), o POST estoura os 60s e bate no timeout. Esse número é o que vai sustentar o pedido de ajuste no LB.
-4. Verificar o balanceador da API (o ponto central)
-O unexpected EOF na porta 6443 é o LB/HAProxy do control plane fechando a conexão, não o router de aplicações. Nos nós que fazem o balanceamento da API (geralmente HAProxy externo em cluster self-managed/OKD):
-sudo grep -A20 -iE '6443|api' /etc/haproxy/haproxy.cfg
-Procure por:
-timeout client   ...
-timeout server   ...
-timeout tunnel   ...
-Se timeout client/server estiver em 60s (ou 1m), achamos o culpado. O instantiatebinary é um POST de streaming longo, e idealmente os timeouts para o frontend/backend da API precisam ser bem mais altos (a recomendação de OpenShift para o LB da API costuma ser na casa de minutos — algo como timeout tunnel 1h / timeout server 4m ou mais, dependendo do tamanho dos uploads).
-5. Reproduzir o corte de forma controlada
-Para confirmar que o corte é por tempo e não por tamanho/erro, dá pra cronometrar uma conexão "ociosa-longa" contra a API:
-time curl -sk -o /dev/null -w '%{http_code}\n' \
-  https://api.produtos4.caixa:6443/healthz
-E, se tiver acesso, observar pelo lado do HAProxy (/var/log/haproxy.log) o código de término da sessão (sH, cD, sD etc.) na hora de um novo oc start-build. Um sD/cD com --/-- perto dos 60s fecha o diagnóstico.
-Me passa duas coisas que aceleram bastante: o tamanho do .ear/diretório e o que aparece no grep dos timeouts do haproxy.cfg. Com isso eu te ajudo a decidir entre ajustar o timeout do LB ou enxugar o upload — e a redigir o pedido de mudança, se for o caso.
+s://console-openshift-console.apps.pixnprd4.caixa/k8s/ns/sispi-des/core~v1~Pod?name=container
+
+
+Red Hat OpenShift
+
+
+
+p585600@corp.caixa.gov.br
+
+Administrator
+Home
+Overview
+Projects
+Search
+API Explorer
+Events
+Operators
+Workloads
+Pods
+Deployments
+DeploymentConfigs
+StatefulSets
+Secrets
+ConfigMaps
+CronJobs
+Jobs
+DaemonSets
+ReplicaSets
+ReplicationControllers
+HorizontalPodAutoscalers
+PodDisruptionBudgets
+Networking
+Storage
+Builds
+Observe
+Compute
+User Management
+Administration
+Service Mesh
+
+Project: sispi-des
+Pods
+
+Filter
+
+Name
+container
+/
+Name
+container
+
+Name
+
+Status
+
+Ready
+
+Restarts
+
+Owner
+
+Memory
+
+CPU
+
+Created
+Pod
+P
+sispi-container-backend-des-861-deploy
+Completed
+0/1	0	
+ReplicationController
+RC
+sispi-container-backend-des-861
+-	-	
+27 de mai. de 2026, 16:56
+
+Pod
+P
+sispi-container-backend-des-862-52468
+Running
+2/2	0	
+ReplicationController
+RC
+sispi-container-backend-des-862
+3.169,6 MiB	0,091 cores	
+27 de mai. de 2026, 17:53
+
+Pod
+P
+sispi-container-backend-des-862-deploy
+Completed
+0/1	0	
+ReplicationController
+RC
+sispi-container-backend-des-862
+-	-	
+27 de mai. de 2026, 17:53
+
+Pod
+P
+sispi-container-dict-des-738-deploy
+Error
+0/1	0	
+ReplicationController
+RC
+sispi-container-dict-des-738
+-	-	
+29 de mai. de 2026, 09:17
+
+Pod
+P
+sispi-container-dict-des-739-deploy
+Completed
+0/1	0	
+ReplicationController
+RC
+sispi-container-dict-des-739
+-	-	
+29 de mai. de 2026, 09:31
+
+Pod
+P
+sispi-container-dict-des-739-jrctx
+Running
+2/2	0	
+ReplicationController
+RC
+sispi-container-dict-des-739
+1.439,8 MiB	0,164 cores	
+29 de mai. de 2026, 09:31
+
+Pod
+P
+sispi-container-frontend-des-536-deploy
+Completed
+0/1	0	
+ReplicationController
+RC
+sispi-container-frontend-des-536
+-	-	
+28 de mai. de 2026, 16:55
+
+Pod
+P
+sispi-container-frontend-des-537-b6vm7
+Terminating
+3/3	3	
+ReplicationController
+RC
+sispi-container-frontend-des-537
+195,6 MiB	0,004 cores	
+29 de mai. de 2026, 15:09
+
+Pod
+P
+sispi-container-frontend-des-537-deploy
+Completed
+0/1	0	
+ReplicationController
+RC
+sispi-container-frontend-des-537
+-	-	
+29 de mai. de 2026, 15:08
+
+Pod
+P
+sispi-container-frontend-des-538-deploy
+Completed
+0/1	0	
+ReplicationController
+RC
+sispi-container-frontend-des-538
+-	-	
+29 de mai. de 2026, 16:05
+
+Pod
+P
+sispi-container-frontend-des-538-wpnqd
+Running
+3/3	2	
+ReplicationController
+RC
+sispi-container-frontend-des-538
+-	-	
+29 de mai. de 2026, 16:05
+
+
+
+éle é do okd do pix sim:
+
+
+no okd4 
+
+os comando deu isso:
+
+
+-sh-4.2$ oc get builds -n build-images-ads | grep sispi-backend
+-sh-4.2$ oc describe build/sispi-backend-<n> -n build-images-ads
+-sh: n: Arquivo ou diretório não encontrado
+-sh-4.2$ oc logs build/sispi-backend-<n> -n build-images-ads
+-sh: n: Arquivo ou diretório não encontrado
+-sh-4.2$ du -sh /opt/ads-agent/_work/10311/a
+du: não é possível acessar “/opt/ads-agent/_work/10311/a”: Arquivo ou diretório não encontrado
+-sh-4.2$
+
+
+
+Logged into "https://api.pixnprd4.caixa:6443" as "p585600@corp.caixa.gov.br" using the token provided.
+
+You have access to 147 projects, the list has been suppressed. You can list all projects with 'oc projects'
+
+Using project "default".
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$ oc get builds -n build-images-ads | grep sispi-backend
+No resources found.
+-sh-4.2$ oc describe build/sispi-backend-<n> -n build-images-ads
+-sh: n: Arquivo ou diretório não encontrado
+-sh-4.2$  oc logs build/sispi-backend-<n> -n build-images-ads
+-sh: n: Arquivo ou diretório não encontrado
+-sh-4.2$  oc logs build/sispi-backend-<n> -n build-images-ads
+-sh: n: Arquivo ou diretório não encontrado
+-sh-4.2$ du -sh /opt/ads-agent/_work/10311/a
+du: não é possível acessar “/opt/ads-agent/_work/10311/a”: Arquivo ou diretório não encontrado
+-sh-4.2$
 
