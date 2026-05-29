@@ -1,37 +1,60 @@
-exec java -Dquarkus.http.host=0.0.0.0 -Dquarkus.http.port=8080 -Djava.util.logging.manager=org.jboss.logmanager.LogManager -Djavax.net.ssl.trustStore=/deployments/caixa-truststore-acteste-nprd.jks -javaagent:/deployments/lib/main/com.microsoft.azure.applicationinsights-agent-3.3.1.jar -Dhttps.proxyHost=proxydes.caixa -Dhttps.proxyPort=80 -Dhttp.nonProxyHosts=*.caixa|*.caixa.gov.br|*.applicationinsights.azure.com|*.livediagnostics.monitor.azure.com -XX:+ExitOnOutOfMemoryError -cp . -jar /deployments/quarkus-run.jar
-OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
-2026-05-29 18:36:19.746-03:00 WARN  c.m.a.a.i.c.ConfigurationBuilder - Unrecognized field "overrides" (class com.microsoft.applicationinsights.agent.internal.configuration.Configuration$Sampling), not marked as ignorable (one known property: "percentage"])
- at [Source: (String)"{"sampling":{"overrides":[{"telemetryType":"request","attributes":[{"key":"url.path","value":"^(\/q)?\/health\/.*","matchType":"regexp"}],"percentage":0}]}}"; line: 1, column: 27] (through reference chain: com.microsoft.applicationinsights.agent.internal.configuration.Configuration["sampling"]->com.microsoft.applicationinsights.agent.internal.configuration.Configuration$Sampling["overrides"])
-2026-05-29 18:36:21.432-03:00 INFO  c.m.applicationinsights.agent - ApplicationInsights Java Agent 3.3.1 started successfully (PID 8)
-2026-05-29 18:36:21.433-03:00 INFO  c.m.applicationinsights.agent - Java version: 11.0.11, vendor: Red Hat, Inc., home: /usr/lib/jvm/java-11-openjdk-11.0.11.0.9-2.el8_4.x86_64
-Running main method
-Exception in thread "main" java.lang.reflect.InvocationTargetException
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at io.quarkus.bootstrap.runner.QuarkusEntryPoint.doRun(QuarkusEntryPoint.java:48)
-	at io.quarkus.bootstrap.runner.QuarkusEntryPoint.main(QuarkusEntryPoint.java:25)
-Caused by: java.lang.ExceptionInInitializerError
-	at io.quarkus.runner.ApplicationImpl.<clinit>(ApplicationImpl.zig:65)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
-	at java.base/java.lang.Class.newInstance(Class.java:584)
-	at io.quarkus.runtime.Quarkus.run(Quarkus.java:65)
-	at io.quarkus.runtime.Quarkus.run(Quarkus.java:42)
-	at io.quarkus.runtime.Quarkus.run(Quarkus.java:119)
-	at br.gov.caixa.siofg.suporte.Main.main(Main.java:16)
-	... 6 more
-Caused by: java.lang.IllegalStateException: io.smallrye.config.ConfigValidationException: Configuration validation failed:
-	java.util.NoSuchElementException: SRCFG00011: Could not expand value SIFUG_DATASOURCE_15 in property quarkus.siofg.ibm.mq.password
-	at io.smallrye.config.SmallRyeConfigBuilder.build(SmallRyeConfigBuilder.java:406)
-	at io.quarkus.runtime.generated.Config.<clinit>(Config.zig:486)
-	... 16 more
-Caused by: io.smallrye.config.ConfigValidationException: Configuration validation failed:
-	java.util.NoSuchElementException: SRCFG00011: Could not expand value SIFUG_DATASOURCE_15 in property quarkus.siofg.ibm.mq.password
-	at io.smallrye.config.ConfigMappingProvider.mapConfiguration(ConfigMappingProvider.java:838)
-	at io.smallrye.config.ConfigMappingProvider.mapConfiguration(ConfigMappingProvider.java:794)
-	at io.smallrye.config.SmallRyeConfigBuilder.build(SmallRyeConfigBuilder.java:403)
-	... 17 more
+####
+# This Dockerfile is used in order to build a container that runs the Quarkus application in JVM mode
+#
+# Before building the container image run:
+#
+# ./mvnw package
+#
+# Then, build the image with:
+#
+# docker build -f src/main/docker/Dockerfile.jvm -t quarkus/siopm-micro-jvm .
+#
+# Then run the container using:
+#
+# docker run -i --rm -p 8080:8080 quarkus/siopm-micro-jvm
+#
+# If you want to include the debug port into your docker image
+# you will have to expose the debug port (default 5005) like this :  EXPOSE 8080 5005
+#
+# Then run the container using :
+#
+# docker run -i --rm -p 8080:8080 -p 5005:5005 -e JAVA_ENABLE_DEBUG="true" quarkus/siopm-micro-jvm
+#
+###
+FROM registry.access.redhat.com/ubi8/ubi-minimal:8.4 
+ARG JAVA_PACKAGE=java-11-openjdk-headless
+ARG RUN_JAVA_VERSION=1.3.8
+ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en'
+# Install java and the run-java script
+# Also set up permissions for user `1001`
+RUN microdnf install curl ca-certificates ${JAVA_PACKAGE} \
+    && microdnf update \
+    && microdnf clean all \
+    && mkdir /deployments \
+    && chown 1001 /deployments \
+    && chmod "g+rwX" /deployments \
+    && chown 1001:root /deployments \
+    && curl https://repo1.maven.org/maven2/io/fabric8/run-java-sh/${RUN_JAVA_VERSION}/run-java-sh-${RUN_JAVA_VERSION}-sh.sh -o /deployments/run-java.sh \
+    && chown 1001 /deployments/run-java.sh \
+    && chmod 540 /deployments/run-java.sh \
+    && echo "securerandom.source=file:/dev/urandom" >> /etc/alternatives/jre/conf/security/java.security
+# Configure the JAVA_OPTIONS, you can add -XshowSettings:vm to also display the heap size.
+ENV JAVA_OPTIONS="-Dquarkus.http.host=0.0.0.0 -Djava.util.logging.manager=org.jboss.logmanager.LogManager"
+# We make four distinct layers so if there are application changes the library layers can be re-used
+COPY --chown=1001 target/quarkus-app/lib/ /deployments/lib/
+COPY --chown=1001 target/quarkus-app/*.jar /deployments/
+COPY --chown=1001 target/quarkus-app/app/ /deployments/app/
+COPY --chown=1001 target/quarkus-app/quarkus/ /deployments/quarkus/
+
+# Script para exportar secrets do BeyondTrust como variáveis de ambiente
+RUN echo '#!/bin/bash' > /deployments/export-secrets.sh && \
+    echo 'export SIFUG_DATASOURCE_02=$(cat /usr/src/app/secrets_files/SIOFG_DES/SIFUG_DATASOURCE_02 2>/dev/null)' >> /deployments/export-secrets.sh && \
+    echo 'export SIFUG_DATASOURCE_15=$(cat /usr/src/app/secrets_files/SIOFG_DES/SIFUG_DATASOURCE_15 2>/dev/null)' >> /deployments/export-secrets.sh && \
+    echo 'export SIOFG_XMQD1=$(cat /usr/src/app/secrets_files/SIOFG_DES/SIOFG_XMQD1 2>/dev/null)' >> /deployments/export-secrets.sh && \
+    echo 'export SIFUG_BT_APIKEY=$(cat /usr/src/app/secrets_files/SIOFG_DES/SIFUG_BT_APIKEY 2>/dev/null)' >> /deployments/export-secrets.sh && \
+    echo 'export CLISERFUG_SSO_INTER=$(cat /usr/src/app/secrets_files/SIOFG_DES/CLISERFUG_SSO_INTER 2>/dev/null)' >> /deployments/export-secrets.sh && \
+    chmod +x /deployments/export-secrets.sh
+
+EXPOSE 8080
+USER 1001
+ENTRYPOINT [ "sh", "-c", "/deployments/export-secrets.sh && /deployments/run-java.sh" ]
