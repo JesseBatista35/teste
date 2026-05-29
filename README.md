@@ -197,3 +197,9 @@ APP CONDITIONS
  1 Error
 No resources found
 Try to change filter criteria
+
+
+
+Application conditions
+ComparisonError
+Failed to load target state: failed to generate manifest for source 1 of 1: rpc error: code = Unknown desc = Manifest generation error (cached): failed to execute helm template command: failed to get command args to log: `helm template . --name-template sigms-motor-decisao-des --namespace sigms-motor-decisao --kube-version 1.33 --values /tmp/211aee2d-9e68-4fdc-aece-f40e2cf13513 <api versions removed> --include-crds` failed exit status 1: Error: YAML parse error on caixa-base-chart/templates/cm-sigms-motor-decisao.yaml: error converting YAML to JSON: yaml: line 44: mapping values are not allowed in this context Use --debug flag to render out invalid YAML
