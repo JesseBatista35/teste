@@ -1,13 +1,67 @@
-TÍTULO: Falha CodeQL "Nenhuma linguagem detectada" – sirmc-api-suitability (PR #3)
+Qual o tipo de serviço?*:	Levantar Informações do Ambiente
+Informar o ambiente:*:	DES
+Nome do serviço ou sistema:*:	SICPU
+Descrição da solicitação:*:	Solicitação de ajuste – Hardening Nginx / TLS
 
-RESPONSÁVEL: Time de Desenvolvimento
 
-PROBLEMA: A action de segurança (CodeQL) falha no job "Create language matrix" com "Nenhuma linguagem detectada" (exit 1).
+Atualização do Nginx
 
-CAUSA: A detecção de linguagem da pipeline de segurança lê o branch main, que hoje só tem documentação (Markdown/YAML) e nenhum código-fonte. O código da aplicação (.NET / C#) está apenas no branch feat/ini-project. Sem .cs na main, nenhuma linguagem suportada é detectada e a action aborta. Linguagem correta: csharp.
+Atualizar versão 1.18.0 (EOL, sem suporte de segurança) para versão suportada
+Atualizar dependências associadas (OpenSSL, libs do sistema)
 
-AÇÃO (Time de Desenvolvimento):
-1. Levar o código-fonte C#/.NET para a main e reexecutar a action de segurança.
-2. Verificar se a pipeline da DevSecOps permite informar a linguagem manualmente; se sim, passar csharp no "with:" do call-generic-sec-pipelines.yaml.
-3. Confirmar suporte a build-mode .NET (csharp aceita build-mode: none) — a pipeline parece orientada a Java/Maven.
-4. Alinhar os dois fluxos de CodeQL (codeql.yml analisa só "actions" e não cobre a aplicação).
+
+
+Hardening do Nginx
+
+Revisar e desabilitar módulos não utilizados
+Avaliar uso de recursos como HTTP/2 e regras de rewrite
+Ajustar configurações de segurança (headers, exposição de versão, etc.)
+
+
+
+Correção da cadeia SSL/TLS
+
+Corrigir erro: "Chain of trust NOT ok (self-signed CA in chain)"
+Remover certificados autoassinados da cadeia
+Configurar certificado emitido por CA confiável (ou CA corporativa válida, se interno)
+Garantir envio da cadeia completa apenas com certificados válidos
+
+
+
+�� Aplicação (validação)
+
+Validar funcionamento após atualização
+Testar endpoints HTTPS e integrações
+Contextualização da necessidade::	  Prezados,
+Foram identificadas vulnerabilidades relacionadas ao Nginx e à configuração SSL/TLS do ambiente, sendo necessário executar ações de correção em nível de infraestrutura.
+�� Ajustes necessários (Infra / Esteira)
+Informar formas de contato:*:	TEams -- c083072
+
+
+À CAIXA, 
+
+Prezados,
+Para prosseguir com a análise e execução da demanda de hardening do Nginx, por gentileza informar:
+
+IP ou hostname do servidor Nginx
+Qual ambiente onde está implantado? (OKD, Legado ou Esteiras)
+Identificação da máquina/namespace (se houver)
+
+Essas informações são necessárias para localizar o serviço e aplicar os ajustes corretamente.
+
+
+Thiago Silva
+Analista
+CTIS / CESTI Esteira DEVOPS DES TQS NPRD
+
+  É do App Service, conforme informado pelo analista a CESTI tem as informações
+
+
+
+  SICPU-painel-okd4
+
+
+  
+
+
+  
