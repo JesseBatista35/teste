@@ -1,26 +1,29 @@
-✅ **SICMU-intranet-update — Problema resolvido!**
+Efetuar a alteração da interface de backup do servidor da Vlan3697 para Vlan1141 para o IP 10.188.5.216
 
-**Ambiente:** DES (EC DES)
-**Release:** SICMU-intranet-update-78
-**Status:** Succeeded 🎉
+O que você deseja?*:	Suporte ao ambiente de aplicação nas esteiras DevOps
+Qual o nome do Sistema?*:	SISPI-BATCH-LOG-AUDITORIA
+Qual o ambiente*:	DES
+Selecione a sua Comunidade*:	Meios de Pagamento
+Formas de contato*:	teams, c158476
+Descrição da necessidade*:	Por favor,
 
----
+Sobre backup NetWorker
 
-**Problema identificado:**
-O JBoss EAP 7.4 estava falhando na inicialização com todos os deployments em status `FAILED`. A causa raiz era o arquivo de configuração `standalone-full-ha.xml` com dois problemas:
+Efetuar a alteração da interface de backup do servidor da Vlan3697 para Vlan1141 para o IP 10.188.5.216
 
-1. **JGroups/TCPPING mal configurado** — o protocolo de cluster TCP estava referenciando a variável `${jboss.cluster.tcp.initial_hosts}` que nunca foi fornecida ao servidor, impedindo a inicialização do subsistema de clustering e causando falha em cascata de 648 serviços dependentes.
 
-2. **Infinispan com `invalidation-cache` e `distributed-cache`** — os cache containers estavam configurados em modo distribuído/cluster, dependentes do JGroups que não subia.
+Obs: Foi validado que que o DNS na rede de backup nova 1141 foi registrado corretamente porém a interface de backup atual no servidor está configurada para o IP de backup antigo na Vlan 3697
 
----
+Prezados,
 
-**Solução aplicada:**
-- Corrigido o TCPPING para usar host local fixo `127.0.0.1[7600]` (modo standalone sem cluster real)
-- Convertidos todos os cache containers do Infinispan de `distributed-cache`/`invalidation-cache` para `local-cache`
-- Alterado o cache de sessão EJB stateful de `distributable` para `simple`
-- Arquivo corrigido no repositório `SICMU-intranet-update-config` para garantir persistência nas próximas releases
+Demanda não pertinente a Redes Datacenter.
 
----
+Favor designar para a equipe correta.
 
-**Resultado:** JBoss iniciou com todos os deployments implantados com sucesso. Release passou em 4m 56s sem erros. 🚀
+Atenciosamente,
+TELEDATA / CETEL / REDE DATA CENTER
+
+
+isso é comigo esterias devops???
+
+
