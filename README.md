@@ -1,60 +1,89 @@
-Verificar  geração da build do modulo SIMTR-API
+ISSO AQUI É OUTRO PROJETO VERIFICA PRA MIM SE TEM ALGO ERRADO:
 
+SIFUG-siofg-api-des (42)
 
-Prezados boa tarde
-
-Estamos com problema na geração da build do modulo SIMTR-API
-
-O mesmo está acusando erro no passo da SAST, temos entregas hoje precisamos gerar as releases, poderiam por favor verificar por gentileza
-
-Evidência
-
-https://devops.caixa/projetos/Caixa/_build/results?buildId=733166&view=logs&j=275f1d19-1bd8-5591-b06b-07d489ea915a&t=e73d691f-7b26-5ce3-d518-700413f3ba2c
-
-Muito obrigado !!
-
-log do erro:
-SAST: Guardrail Segurança Cibernética
-
-View raw log
-
-Starting: SAST: Guardrail Segurança Cibernética
-==============================================================================
-Task         : Command line
-Description  : Run a command line script using Bash on Linux and macOS and cmd.exe on Windows
-Version      : 2.212.0
-Author       : Microsoft Corporation
-Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/command-line
-==============================================================================
-Generating script.
-========================== Starting Command Output ===========================
-/usr/bin/bash --noprofile --norc /opt/ads-agent/_work/_temp/29561f60-1951-4caf-a9bf-87c98db08627.sh
-/usr/bin/docker
-Docker version 18.09.9, build 039a7df9ba
-WARNING! Your password will be stored unencrypted in /home/sadscp01/.docker/config.json.
-Configure a credential helper to remove this warning. See
-https://docs.docker.com/engine/reference/commandline/login/#credentials-store
-
-Login Succeeded
-FORTIFY_APPLICATION: SIMTR-api
-KEYSTORE_SECUREFILEPATH: /etc/pki/ca-trust/source/anchors/keystore-ssc24.jks
-docker --version
-Docker version 18.09.9, build 039a7df9ba
-docker run -v /opt/ads-agent/_work/7658/s:/src default-route-openshift-image-registry.apps.produtos4.caixa/fortify/fortify-ci-tools:7.0.0-jdk-17
-Configurando Key Store
- Path               Type  Action     
- /src/keystore.jks  jks   CONFIGURED 
-
-
-Nome do Sistema: SIMTR-api
-Nome da Versão: 2.58.2
-Nome da Versão Anterior: 2.58.2
-Login no Fortify...
- Name                       Type  Url                                          Created                  Expires                  Expired  Action  
- SIMTR-api-2.58.2.9-733166  SSC   SSC:     https://sast.caixa/ssc              2026-05-29 18:14:10 UTC  2027-04-29 17:06:42 UTC  No       CREATED 
-                                  SC-SAST: http://sast.caixa/scancentral-ctrl                                                                     
-                                  SC-DAST: N/A (Disabled in SSC)                                                                                  
-
-
-Atualizando aplicação no Fortify...
- Id     Application name  Name    Active  Issue template name                   Created by            Action              
+Scopes: EC DES
+VAULT_LOCATION
+/usr/src/app/secrets_files/SIOFG_DES/
+_ENV.AMBIENTE
+des
+_ENV.APPLICATIONINSIGHTS_CONFIGURATION_CONTENT
+'{"sampling":{"overrides":[{"telemetryType":"request","attributes":[{"key":"url.path","value":"^(\/q)?\/health\/.*","matchType":"regexp"}],"percentage":0}]}}'
+_ENV.APPLICATIONINSIGHTS_CONNECTION_STRING
+"InstrumentationKey=8148a712-eee7-4c41-95ef-5153b19d0497;IngestionEndpoint=https://southcentralus-3.in.applicationinsights.azure.com/;LiveEndpoint=https://southcentralus.livediagnostics.monitor.azure.com/"
+_ENV.APPLICATIONINSIGHTS_INSTRUMENTATION_LOGGING_LEVEL
+INFO
+_ENV.APPLICATIONINSIGHTS_PROXY
+http://proxydes.caixa:80
+_ENV.APPLICATIONINSIGHTS_ROLE_NAME
+SIFUG-siofg-api-DES
+_ENV.APPLICATIONINSIGHTS_SAMPLING_PERCENTAGE
+100
+_ENV.APPLICATIONINSIGHTS_SELF_DIAGNOSTICS_LEVEL
+INFO
+_ENV.DATASOURCE_CONSULTAPEF_JDBC_URL
+"jdbc:idms://10.216.80.110:3922/DSQLSFG"
+_ENV.DATASOURCE_CONSULTAPEF_USERNAME
+SFUGDR02
+_ENV.DATASOURCE_CONSULTA_JDBC_URL
+"jdbc:idms://10.216.80.110:3922/DSQLSFG"
+_ENV.DATASOURCE_CONSULTA_USERNAME
+SFUGDR02
+_ENV.DATASOURCE_DB2_JDBC_URL
+"jdbc:db2://10.216.80.110:448/RJKDB2DSD0"
+_ENV.DATASOURCE_DB2_USERNAME
+SFUGDR15
+_ENV.DATASOURCE_MQ_CHANNEL
+SIOFG.SVRCONN
+_ENV.DATASOURCE_MQ_HOST
+10.216.80.110
+_ENV.DATASOURCE_MQ_PORT
+1414
+_ENV.DATASOURCE_MQ_QMGR
+RJDA
+_ENV.DATASOURCE_MQ_USERNAME
+SFUGDR15
+_ENV.HTTPS_PROXY
+http://proxydes.caixa:80
+_ENV.JAVA_OPTIONS_APPEND
+"-Djavax.net.ssl.trustStore=/deployments/caixa-truststore-acteste-nprd.jks -javaagent:/deployments/lib/main/com.microsoft.azure.applicationinsights-agent-3.3.1.jar"
+_ENV.KEY_CODIGO_IDMS_DIALOGO
+515
+_ENV.KEY_IDMS_ALIAS_BASE
+PEF
+_ENV.KEY_IDMS_SUREG
+TA
+_ENV.KEY_TOKEN_CAIXA_TEM
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzcYY/UbvrEldbQRd4TgLeP9bS8YnaL67MZUsfozWRyocBF3S0L7UEbkPaPoCoBnhoRv8VJHp0grqe3mqEmkMuDlt20Vx6q04ADDyS0c8xaU+Ot+g1Pgwjze944ATUjZogEMko6jvqqUGTt/Nt64yCCIaMaTB119vOBExQim7vPHNe/o7hLxh6VBYINxFA/esxjz8j28/uJWIiK0Gvt07Yx7ycn2DJlQHjnH2GzCSUL87AAYmjyYxW2JZaPLLvRlpcHIWrlr9GNtLiq0++xfJ0jFYxQWs1jxhlfXdqr8NE5vfA/RRRjRFnWzFOhIsOnIHPO9eEwwYzCZSoW2zXkFDYwIDAQAB
+_ENV.KEY_TOKEN_INTERNET
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxz8PNmiUW5J1669pWY0APB4flqqDnghAv/QV5DIHyXE39fj9u1DPXbgfDUhUfK0i/B0CHJukbI44Rgo/vuhCMImTnLjS49XuTH6GI4lU/CtdzE/qACMO/GUky73m0Uszo2Bh1wNV+fvw/mMQVAGKj6/qXjSB9npRZKydoXnwGPIepcrqF6KkMJIFtZ+0w35J9SYwgLNezUbAJgs9dq3yMj4ussSfxMFcUC9UKziJJSg0UQfl0fOQGMsrsnUbS2GgXeDqdskbZq9/wfL0ikU2pWf0hKjX+PXtqZI0SVWurVyydc0efbTE7qIlrwF8lWZ8NZ8zcV2oVk7TjoIktZ4zBwIDAQAB
+_ENV.KEY_TOKEN_INTRANET
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzcYY/UbvrEldbQRd4TgLeP9bS8YnaL67MZUsfozWRyocBF3S0L7UEbkPaPoCoBnhoRv8VJHp0grqe3mqEmkMuDlt20Vx6q04ADDyS0c8xaU+Ot+g1Pgwjze944ATUjZogEMko6jvqqUGTt/Nt64yCCIaMaTB119vOBExQim7vPHNe/o7hLxh6VBYINxFA/esxjz8j28/uJWIiK0Gvt07Yx7ycn2DJlQHjnH2GzCSUL87AAYmjyYxW2JZaPLLvRlpcHIWrlr9GNtLiq0++xfJ0jFYxQWs1jxhlfXdqr8NE5vfA/RRRjRFnWzFOhIsOnIHPO9eEwwYzCZSoW2zXkFDYwIDAQAB
+_ENV.MQ_CONNECTION_FACTORY_NAME
+siofg
+_ENV.MQ_DESTINATION_DADOS_CONTRATO
+LQ.REQ.SIFUG.LISTA_CONTA_CONTRATO
+_ENV.MQ_DESTINATION_LISTA_CONTA
+LQ.REQ.SIFUG.LISTA_CONTA
+_ENV.MQ_DESTINATION_LISTA_CONTA_EXTRATO
+LQ.REQ.SIFUG.LISTA_CONTA_EXTRATO
+_ENV.MQ_DESTINATION_LISTA_CONTA_OPTANTE
+LQ.REQ.SIFUG.LISTA_CONTA_OPTANTE
+_ENV.NO_PROXY
+"*.caixa,*.caixa.gov.br"
+_ENV.QUARKUS_LOG_LEVEL
+********
+_ENV.SMALLRYE.CONFIG.SOURCE.FILE.LOCATIONS
+/usr/src/app/secrets_files/siofg_des/
+_ENV_LEVEL_LOG_APP
+DEBUG
+_SECRET.DATASOURCE_CONSULTAPEF_PASSWORD
+'${SIFUG_DATASOURCE_02}'
+_SECRET.DATASOURCE_CONSULTA_PASSWORD
+'${SIFUG_DATASOURCE_02}'
+_SECRET.DATASOURCE_DB2_PASSWORD
+'${SIFUG_DATASOURCE_02}'
+_SECRET.QUARKUS_SIOFG_IBM_MQ_PASSWORD
+'${SIFUG_DATASOURCE_15}'
+_SECRET.SMALLRYE_CONFIG_SOURCE_FILE_LOCATIONS
+#{VAULT_LOCATION}#
