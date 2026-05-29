@@ -1,132 +1,40 @@
-apiVersion:  v1
-kind:  ConfigMap
-metadata: 
-  name:  cm-sigms-motor-decisao
-  labels: 
-    {{- include "caixa-base-chart.labels" . | nindent 4 }}
-data: 
-# Parametros para acesso a fila da alta
-  SIGMS_WSMQ_ENDERECO_ALTA_01:  10.192.224.66
-  SIGMS_WSMQ_PORTA_ALTA_01: 1420
-  SIGMS_WSMQ_CANAL_ALTA_01: SIGMS.QUARKUS.SVRCON
-  SIGMS_WSMQ_QUEUEMANAGER_ALTA_01: QSDA
-  sigms.wsmq.endereco.alta.01: ${SIGMS_WSMQ_ENDERECO_ALTA_01}
-  sigms.wsmq.porta.alta.01: ${SIGMS_WSMQ_PORTA_ALTA_01}
-  sigms.wsmq.canal.alta.01: ${SIGMS_WSMQ_CANAL_ALTA_01}
-  sigms.wsmq.queuemanager.alta.01: ${SIGMS_WSMQ_QUEUEMANAGER_ALTA_01}
+Pessoal, boa tarde.
 
-  SIGMS_WSMQ_ENDERECO_ALTA_02: 10.192.224.66
-  SIGMS_WSMQ_PORTA_ALTA_02: 1420
-  SIGMS_WSMQ_CANAL_ALTA_02: SIGMS.QUARKUS.SVRCON
-  SIGMS_WSMQ_QUEUEMANAGER_ALTA_02: QSDA
-  sigms.wsmq.endereco.alta.02: ${SIGMS_WSMQ_ENDERECO_ALTA_02}
-  sigms.wsmq.porta.alta.02: ${SIGMS_WSMQ_PORTA_ALTA_02}
-  sigms.wsmq.canal.alta.02: ${SIGMS_WSMQ_CANAL_ALTA_02}
-  sigms.wsmq.queuemanager.alta.02: ${SIGMS_WSMQ_QUEUEMANAGER_ALTA_02}
+Identifiquei a causa de o sigms-motor-decisao não aparecer no FusionX/Kubernetes (a tela mostra "No Kubernetes resources"). Não é configuração de cluster nem de catalog-info — é um erro que está impedindo o deploy de acontecer.
 
-  SIGMS_WSMQ_USUARIO_ALTA: SGMSS01D
-  sigms.wsmq.usuario.alta: ${SIGMS_WSMQ_USUARIO_ALTA}
-# Lista de filas que o sistema vai ler
-  SIGMS_LISTA_FILAS_QM1_TRANSACAO_FINANCEIRA: SIGMS.REQ.TRANSACAO_FINANCEIRA
-  SIGMS_LISTA_FILAS_QM1_TRANSACAO_SEGURANCA: SIGMS.REQ.ENVIO_SMS
-  SIGMS_LISTA_FILAS_QM2_TRANSACAO_GENERICA: SIGMS.REQ.SMS_AUTORIZACAO_COMPRA_CREDITO,SIGMS.REQ.SMS_BENEFICIOS_SOCIAIS,SIGMS.REQ.SMS_BLOQUEIO_CARTAO_CREDITO,SIGMS.REQ.SMS_CADASTRO_CARTAO_CREDITO,SIGMS.REQ.SMS_CANCELAMENTO_CARTAO,SIGMS.REQ.SMS_CARTEIRA_ELETRONICA,SIGMS.REQ.SMS_CHEQUE,SIGMS.REQ.SMS_CHEQUE_ESPECIAL_NSGD,SIGMS.REQ.SMS_COBRANCA_BANCARIA,SIGMS.REQ.SMS_COD_ATIV_CONTRAT_CARTAO_CREDITO,SIGMS.REQ.SMS_CODIGO_ATIVACAO,SIGMS.REQ.SMS_CODIGO_ATIVACAO_CESTA_SERVICO,SIGMS.REQ.SMS_COMPRA_NEGADA_CREDITO,SIGMS.REQ.SMS_CREDITO_ROTATIVO,SIGMS.REQ.SMS_DESBLOQUEIO_CARTAO_CREDITO,SIGMS.REQ.SMS_EMISSAO_CARTAO,SIGMS.REQ.SMS_EMISSAO_CARTAO_CREDITO,SIGMS.REQ.SMS_FINANCEIRO_DEBITO,SIGMS.REQ.SMS_FINANCEIRO_DEBITO_ATM,SIGMS.REQ.SMS_FINANCEIRO_DEBITO_BCOBRASIL,SIGMS.REQ.SMS_FINANCEIRO_DEBITO_CXAQUI,SIGMS.REQ.SMS_FINANCEIRO_DEBITO_ELOIMPAR,SIGMS.REQ.SMS_FINANCEIRO_DEBITO_ELOPAR,SIGMS.REQ.SMS_FINANCEIRO_DEBITO_LOTERICO,SIGMS.REQ.SMS_FINANCEIRO_DEBITO_MAESTRO,SIGMS.REQ.SMS_FINANCEIRO_DEBITO_TECBAN,SIGMS.REQ.SMS_FINANCEIRO_DEBITO_VISAVEA,SIGMS.REQ.SMS_HABITACAO,SIGMS.REQ.SMS_INFORMACAO_CADASTRAL,SIGMS.REQ.SMS_INVESTIMENTO,SIGMS.REQ.SMS_MICROCREDITO,SIGMS.REQ.SMS_PAGAMENTO,SIGMS.REQ.SMS_PAGAMENTO_DIGITAL,SIGMS.REQ.SMS_PENHOR,SIGMS.REQ.SMS_PONTOS_CARTAO_CREDITO,SIGMS.REQ.SMS_RENEGOCIACAO_DIVIDAS,SIGMS.REQ.SMS_SEGURANCA,SIGMS.REQ.SMS_SEGURANCA_CARTAO_CREDITO,SIGMS.REQ.SMS_SENHA_CARTAO_CREDITO,SIGMS.REQ.SMS_SITUACAO_SAQUE_CREDITO,SIGMS.REQ.SMS_TRANSFERENCIA,SIGMS.REQ.SMS_TRANSFERENCIA_INTERNACIONAL
-  SIGMS_LISTA_FILAS_BATCH: SIGMS.REQ.TRANSACAO_WHATS_BATCH,SIGMS.REQ.TRANSACAO_GENERICA_BATCH,SIGMS.REQ.TRANSACAO_FGTS_BATCH,SIGMS.REQ.TRANSACAO_FINANCEIRA_BATCH,SIGMS.REQ.ENVIO_LOTE_BATCH,SIGMS.REQ.TRANSACAO_PUSH_BATCH,SIGMS.REQ.PROCESSA_TRANSACAO_PUSH
-  sigms.lista.filas.qm1.transacao_financeira: ${SIGMS_LISTA_FILAS_QM1_TRANSACAO_FINANCEIRA}
-  sigms.lista.filas.qm1.transacao_seguranca: ${SIGMS_LISTA_FILAS_QM1_TRANSACAO_SEGURANCA}
-  sigms.lista.filas.qm2.transacao_generica: ${SIGMS_LISTA_FILAS_QM2_TRANSACAO_GENERICA}
-  sigms.lista.filas.batch: ${SIGMS_LISTA_FILAS_BATCH}
-# data source
-  QUARKUS_DATASOURCE_URL: jdbc: oracle: thin: @cnpexdadvm01-scan8.extra.caixa.gov.br: 1521/orad01bc
-  QUARKUS_DATASOURCE_KIND: other
-  QUARKUS_DATASOURCE_DRIVER: oracle.jdbc.driver.OracleDriver
-  QUARKUS_DATASOURCE_USERNAME: SGMSDS01
-  PA_BD: npjJW4
-  QUARKUS_DATASOURCE_PASSWORD: ${PA_BD}
-  QUARKUS_DATASOURCE_DIALECT: org.hibernate.dialect.Oracle12cDialect
-  quarkus.datasource.jdbc.url: ${QUARKUS_DATASOURCE_URL}
-  quarkus.datasource.db-kind: ${QUARKUS_DATASOURCE_KIND}
-  quarkus.datasource.jdbc.driver: ${QUARKUS_DATASOURCE_DRIVER}
-  quarkus.datasource.username: ${QUARKUS_DATASOURCE_USERNAME}
-  quarkus.datasource.password: ${QUARKUS_DATASOURCE_PASSWORD}
-  quarkus.hibernate-orm.dialect: ${QUARKUS_DATASOURCE_DIALECT}
+O QUE ESTÁ ACONTECENDO
+A aplicação do ArgoCD "sigms-motor-decisao-des" está com erro de sincronização desde 12/05 (Sync error / ComparisonError) e por isso nenhum recurso é criado no cluster ("No resources found"). Como nada sobe, o FusionX também não tem o que mostrar.
 
-  SIGMS_QTD_THREADS: 2
-  sigms.qtd.thread: ${SIGMS_QTD_THREADS}
+CAUSA RAIZ
+O Helm não consegue renderizar o chart por causa de um erro de sintaxe YAML. Mensagem do ArgoCD:
+  "YAML parse error on caixa-base-chart/templates/cm-sigms-motor-decisao.yaml: yaml: line 44: mapping values are not allowed in this context"
 
-  MP_JWT_VERIFY_ISSUER: https: //login.des.caixa/auth/realms/intranet,https: //logindes.caixa.gov.br/auth/realms/r_inter_siper
+ARQUIVO
+Repositório: sigms-motor-decisao-infranprd
+Arquivo: des/templates/cm-sigms-motor-decisao.yaml
+(Provavelmente o mesmo problema existe nos ambientes hmp/, tqs/ e tst/ — vale revisar os quatro.)
 
-  QUARKUS_RESTEASY_PATH: /v3
-  quarkus.resteasy.path: ${QUARKUS_RESTEASY_PATH}
-# Acesso a API do Facebook
-  FACEBOOK_API_MP_REST_URL: https: //graph.facebook.com
-  FACEBOOK_API_MP_REST_SCOPE: javax.inject.Singleton
-  FACEBOOK_API_MP_REST_PROXYADDRESS: http: //internet.caixa: 80
-  facebook-api/mp-rest/url: ${FACEBOOK_API_MP_REST_URL}
-  facebook-api/mp-rest/scope: ${FACEBOOK_API_MP_REST_SCOPE}
-  facebook-api/mp-rest/proxyaddress: ${FACEBOOK_API_MP_REST_PROXYADDRESS}
+AJUSTES NECESSÁRIOS
 
-  HTTP_PROXY: http: //proxydes.caixa: 80
-  HTTPS_PROXY: http: //proxydes.caixa: 80
-  NO_PROXY: .caixa,.caixa.gov.br,10.0.0.0/8
-  TOKEN_FACEBOOK: 
-  ID_FACEBOOK: 170149100323010
-  PROXY_HOST: proxydes.caixa
-  PROXY_PORT: 80
-  http_proxy: ${HTTP_PROXY}
-  https_proxy: ${HTTPS_PROXY}
-  no_proxy: ${NO_PROXY}
-  token.facebook: ${TOKEN_FACEBOOK}
-  id.facebook: ${ID_FACEBOOK}
-  proxy.host: {PROXY_HOST}
-  proxy.port: ${PROXY_PORT}
+1) Espaços indevidos após os ":" (é o que quebra o YAML)
+Vários valores estão com um espaço depois dos dois-pontos, o que faz o YAML interpretar como novo mapeamento. Exemplos:
+  - QUARKUS_DATASOURCE_URL: jdbc: oracle: thin: @...: 1521/orad01bc
+  - MP_JWT_VERIFY_ISSUER / FACEBOOK_API_* / HTTP_PROXY / HTTPS_PROXY / SIICO_API_* / SSO_API_* / SIGMS_URL_ENVIO_MEDIA: https: //...  e  http: //...: 80
+Correção: remover os espaços (https://, jdbc:oracle:thin:@host:1521/...) e colocar o valor entre aspas duplas.
 
-  QUARKUS_TLS_TRUST-ALL: true
-  quarkus.tls.trust-all: ${QUARKUS_TLS_TRUST-ALL}
+2) Valores numéricos e booleanos precisam ser string
+Em ConfigMap, todo valor de "data" tem que ser texto. Campos como 1420, true, false, 2, 60000 etc. devem ficar entre aspas (ex.: "1420", "true"), senão o próximo erro será de conversão de tipo.
 
-  SIGMS_URL_ENVIO_MEDIA: https: //sigms-enviar-des.apps.nprd.caixa
-  sigms.url.envio.media: ${SIGMS_URL_ENVIO_MEDIA}
+3) Erro de digitação
+proxy.host: {PROXY_HOST}  →  deve ser  proxy.host: "${PROXY_HOST}"  (faltou o $).
 
-  QUARKUS_GRPC_SERVER_NETTY_KEEP_ALIVE_TIME: 30000
-  quarkus.grpc.server.netty.keep-alive-time: ${QUARKUS_GRPC_SERVER_NETTY_KEEP_ALIVE_TIME}
+4) Chaves com barra "/" não são permitidas em ConfigMap
+As chaves facebook-api/mp-rest/*, siico-api/mp-rest/* e sso-api/mp-rest/* têm "/", o que o Kubernetes rejeita no apply. As versões em MAIÚSCULAS (FACEBOOK_API_MP_REST_URL etc.) já cobrem isso via mapeamento do MicroProfile, então as chaves com "/" podem ser removidas — EXCETO a api-key do Siico, que não tem equivalente: criar a env SIICO_API_MP_REST_API_KEY vinda do secret akvs-siico-api-key.
 
-  # Pool de conexoes JMS
-  SIGMS_IDLE_TIMEOUT_MQ: 60000
-  SIGMS_MAX_CONNECTIONS_MQ: 10
-  SIGMS_EXPIRY_TIMEOUT_MQ: 60000
-  SIGMS_EXPIRATION_CHECK_MQ: 60000
-  SIGMS_MAX_SESSIONS_MQ: 10
-  SIGMS_CONNECTION_TIMEOUT_MQ: 60000
-  sigms.idle.timeout.mq: ${SIGMS_IDLE_TIMEOUT_MQ}
-  sigms.max.connections.mq: ${SIGMS_MAX_CONNECTIONS_MQ}
-  sigms.expiry.timeout.mq: ${SIGMS_EXPIRY_TIMEOUT_MQ}
-  sigms.expirtion.check.mq: ${SIGMS_EXPIRATION_CHECK_MQ}
-  sigms.max.sessions.mq: ${SIGMS_MAX_SESSIONS_MQ}
-  sigms.connection.timeout.mq: ${SIGMS_CONNECTION_TIMEOUT_MQ}
+5) Segurança (recomendação)
+Há senha de banco (PA_BD) e credenciais em texto puro no ConfigMap. O ideal é mover senha/token/api-key para o Azure Key Vault (já existem os akvs-* no chart) e deixar o ConfigMap só com configuração não-sensível. Vale considerar rotacionar a senha do banco.
 
-  SIGMS_MOSTRAR_SQL: false
-  quarkus.hibernate-orm.log.sql: ${SIGMS_MOSTRAR_SQL}
-  SIGMS_VALIDA_CPF_CNPJ: false
-  sigms.valida.cpf.cnpj: ${SIGMS_VALIDA_CPF_CNPJ}
+RESULTADO ESPERADO
+Depois do ajuste e commit, o ArgoCD (auto-sync ligado) re-sincroniza, o caixa-base-chart gera Deployment + Service + Ingress, e os recursos passam a aparecer no FusionX.
 
-  # Siico
-  SIICO_API_MP_REST_URL: https: //api.des.caixa: 8443
-  SIICO_API_MP_REST_SCOPE: javax.inject.Singleton
-  siico-api/mp-rest/url: ${SIICO_API_MP_REST_URL}
-  siico-api/mp-rest/scope: ${SIICO_API_MP_REST_SCOPE}
-  siico-api/mp-rest/api-key: ${API_KEY}
-
-  SSO_API_MP_REST_URL: https: //login.des.caixa
-  SSO_API_MP_REST_SCOPE: javax.inject.Singleton
-  sso-api/mp-rest/url: ${SSO_API_MP_REST_URL}
-  sso-api/mp-rest/scope: ${SSO_API_MP_REST_SCOPE}
-
-  SIGMS_SSO_USUARIO: cli-ser-gms
-  SIGMS_SSO_TIPO: client_credentials
-  SIGMS_SSO_SENHA: 
-  sigms.sso.usuario: ${SIGMS_SSO_USUARIO}
-  sigms.sso.tipo: ${SIGMS_SSO_TIPO}
-  sigms.sso.senha: ${SIGMS_SSO_SENHA}
-
-  API_KEY: 
-
-  quarkus.http.test-port: 8085
+Qualquer dúvida, fico à disposição.
