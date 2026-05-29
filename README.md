@@ -1,15 +1,82 @@
-Encaminhamento – Time de Nuvem (CAIXAAZURE)
-Prezados,
-Encaminhamos a presente demanda para análise do time de Nuvem, por se tratar de falha relacionada à infraestrutura/conectividade do ambiente CAIXAAZURE.
-Sistema: SIGAM
-Pipeline: sigam-gestao (buildId 202414)
-Ambiente: Aplicação nas Esteiras DevOps
-Resumo da falha:
-A build do artefato falha na etapa Docker build, durante o download da imagem base mcr.microsoft.com/openjdk/jdk:21-mariner. O download trava repetidamente em 33.55MB/197.77MB por cerca de 380s e a conexão é então encerrada pelo destino:
-ERROR: failed to build: failed to solve: failed to copy: read tcp 10.245.252.143:51398->150.171.70.10:443: read: connection reset by peer
-Análise preliminar:
-A falha não está relacionada ao código da aplicação, e sim à conectividade/egress do agente da esteira (10.245.252.143) com o Microsoft Container Registry (MCR / 150.171.70.10:443). O padrão de travamento e o connection reset by peer sugerem interrupção da conexão a nível de proxy/firewall/egress do ambiente CAIXAAZURE.
-Solicitação ao time de Nuvem:
-Verificar a estabilidade e as regras de egress/proxy do ambiente CAIXAAZURE para acesso ao mcr.microsoft.com (e IPs de CDN associados), bem como a disponibilidade de mirror/registro interno das imagens base, de forma a eliminar a dependência de acesso externo direto.
-Contato: Teams Aaron – f540797
-Status: Em análise – encaminhado ao time de Nuvem.
+Estamos recebendo um erro quando a action de segurança é ativada
+https://github.com/caixagithub/sirmc-api-suitability/actions/runs/26595411567/job/78364866158?pr=3
+
+informa que falta incluir a linguagem utilizada.
+
+Solicitamos auxilio.
+
+
+Skip to content
+GitHub Enterprise
+Users managed by Caixa Economica Federal
+caixagithub
+sirmc-api-suitability
+Repository navigation
+Code
+Issues
+1
+ (1)
+Pull requests
+1
+ (1)
+Actions
+Projects
+Models
+Wiki
+Security and quality
+2
+ (2)
+Insights
+Settings
+Back to pull request #3
+Seguranca-__. #14
+All jobs
+Run details
+Annotations
+1 error and 1 warning
+CodeQL / Create language matrix
+failed yesterday in 19s
+Search logs
+2s
+10s
+1s
+0s
+0s
+2s
+1s
+0s
+Run input=${input:-[]}
+  input=${input:-[]}
+  input=${input:-}
+  
+  cleaned=${input//[\[\]]/}
+  json=$(awk -v str="$cleaned" 'BEGIN {
+      n = split(str, a, ",");
+      printf "[";
+      for (i = 1; i <= n; i++) {
+          gsub(/^[[:space:]]+|[[:space:]]+$/, "", a[i]);
+          gsub(/^"|"$/, "", a[i]);
+          printf "\"%s\"%s", a[i], (i < n ? "," : "")
+      }
+      print "]"
+  }')
+  if [[ -z "$json" || "$json" == "[]" ]]; then
+    echo "Nenhuma linguagem detectada"
+    exit 1
+  fi
+  echo "languages=$json" >> $GITHUB_OUTPUT
+  shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+  env:
+    pythonLocation: /opt/hostedtoolcache/Python/3.11.15/x64
+    PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.15/x64/lib/pkgconfig
+    Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+    Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+    Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+    LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.15/x64/lib
+Nenhuma linguagem detectada
+Error: Process completed with exit code 1.
+0s
+0s
+0s
+1s
+0s
