@@ -1,3 +1,19 @@
+Verificar  geração da build do modulo SIMTR-API
+
+
+Prezados boa tarde
+
+Estamos com problema na geração da build do modulo SIMTR-API
+
+O mesmo está acusando erro no passo da SAST, temos entregas hoje precisamos gerar as releases, poderiam por favor verificar por gentileza
+
+Evidência
+
+https://devops.caixa/projetos/Caixa/_build/results?buildId=733166&view=logs&j=275f1d19-1bd8-5591-b06b-07d489ea915a&t=e73d691f-7b26-5ce3-d518-700413f3ba2c
+
+Muito obrigado !!
+
+log do erro:
 SAST: Guardrail Segurança Cibernética
 
 View raw log
