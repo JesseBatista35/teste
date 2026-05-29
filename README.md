@@ -1,148 +1,176 @@
-# Quarkus port
-quarkus.http.port=8080
-quarkus.vertx.cluster.port=7268
 
-# CORS
+
+
+#PORTA
+quarkus.http.port=8898
+
+#CONFIG CORS
 quarkus.http.cors=true
-quarkus.http.cors.headers=Origin, X-Request-Width, Content-Type, Accept, Authorization, Accept-Encoding, Accept-Language, authCode, Connection, Host, Referer, Sec-Fetch-Dest, Sec-Fetch-Mode, Sec-Fetch-Site, User-Agent, Access-Control-Allow-Origin
-quarkus.http.cors.origins=${CORS_ORIGINS}
-quarkus.http.cors.methods=GET, POST, OPTIONS, PUT, DELETE
-quarkus.http.cors.access-control-max-age=1209600
+#quarkus.http.cors.origins=http://siopm-frontend-des-esteiras.nprd2.caixa
+#quarkus.http.cors.origins=https://login.des.caixa/auth/realms/intranet
 
-# Swagger
-quarkus.smallrye-openapi.path=/swagger
+#SSO-Keycloak
+#quarkus.oidc.auth-server-url=https://login.des.caixa/auth/realms/intranet/protocol/openid-connect/token
+#quarkus.oidc.client-id=cli-ser-fug
+#quarkus.oidc.credentials.secret=c606765c-2dee-4d91-a5f2-34eb4e2fee43
+
+
+
+#########################################################################################################
+#                                       DATABASE e CRUD exemplo	            							#
+#########################################################################################################
+#           Antes de iniciar ... comentar as linhas abaixo e deletar todas classes ClientXXX            # 
+#                                                                                                       #
+												
+#																										
+#########################################################################################################
+
+#BD: DB2
+db2.schema=FUG
+
+quarkus.datasource.db2.jdbc.driver=com.ibm.db2.jcc.DB2Driver
+quarkus.datasource.db2.db-kind=db2
+quarkus.datasource.db2.username=${DATASOURCE_DB2_USERNAME}
+quarkus.datasource.db2.password=${DATASOURCE_DB2_PASSWORD}
+quarkus.datasource.db2.jdbc.url=${DATASOURCE_DB2_JDBC_URL}
+
+#BD: IDMS CONSULTA
+#quarkus.datasource.consulta.jdbc.driver=ca.idms.jdbc.IdmsJdbcDriver
+#quarkus.datasource.consulta.db-kind=consulta
+#quarkus.datasource.consulta.jdbc.url=${DATASOURCE_CONSULTA_JDBC_URL}
+#quarkus.datasource.consulta.username=${DATASOURCE_CONSULTA_USERNAME}
+#quarkus.datasource.consulta.password=${DATASOURCE_CONSULTA_PASSWORD}
+
+#BD: IDMS CONSULTA PEF
+quarkus.datasource.consultapef.jdbc.driver=ca.idms.jdbc.IdmsJdbcDriver
+quarkus.datasource.consultapef.db-kind=consultapef
+quarkus.datasource.consultapef.jdbc.url=${DATASOURCE_CONSULTAPEF_JDBC_URL}
+quarkus.datasource.consultapef.username=${DATASOURCE_CONSULTAPEF_USERNAME}
+quarkus.datasource.consultapef.password=${DATASOURCE_CONSULTAPEF_PASSWORD}
+
+chave.publica.sso.internet=${KEY_TOKEN_INTERNET}
+chave.publica.sso.intranet=${KEY_TOKEN_INTRANET}
+chave.token.caixatem=${KEY_TOKEN_CAIXA_TEM}
+
+
+idms.codigo.dialogo=${KEY_CODIGO_IDMS_DIALOGO}
+idms.sureg=${KEY_IDMS_SUREG}
+#idms.alias.base=${KEY_IDMS_ALIAS_BASE}
+
+####################################### TEST MOCKITO/JUNIT###############################################
+
+%test.chave.token.caixatem=MOCK_TOKEN_CAIXA_TEM
+%test.chave.publica.sso.internet=MOCK_TOKEN_SSO_INTRANET
+%test.chave.publica.sso.intranet=MOCK_TOKEN_SSO_INTERNET
+
+quarkus.http.test-port=8083
+quarkus.http.test-ssl-port=8446
+
+%test.quarkus.datasource.consultapef.jdbc.driver=ca.idms.jdbc.IdmsJdbcDriver
+%test.quarkus.datasource.consultapef.db-kind=consultaPefIdms
+%test.quarkus.datasource.consultapef.jdbc.url=MOCK_URL
+%test.quarkus.datasource.consultapef.username=MOCK_USER_NAME
+%test.quarkus.datasource.consultapef.password=${DATASOURCE_CONSULTAPEF_PASSWORD}
+
+%test.quarkus.datasource.db2.jdbc.driver=com.ibm.db2.jcc.DB2Driver
+%test.quarkus.datasource.db2.db-kind=db2
+%test.quarkus.datasource.db2.jdbc.url=MOCK_URL
+%test.quarkus.datasource.db2.username=MOCK_USER_NAME
+%test.quarkus.datasource.db2.password=${DATASOURCE_DB2_PASSWORD}
+
+%test.quarkus.datasource.consulta.jdbc.driver=ca.idms.jdbc.IdmsJdbcDriver
+%test.quarkus.datasource.consulta.db-kind=consultaIdms
+%test.quarkus.datasource.consulta.jdbc.url==MOCK_URL
+%test.quarkus.datasource.consulta.username=MOCK_USER_NAME
+%test.quarkus.datasource.consulta.password=${DATASOURCE_CONSULTA_PASSWORD}
+%test.quarkus.log.level=ERROR
+
+%test.idms.codigo.dialogo=515
+%test.idms.sureg=TA
+%test.idms.alias.base=PEF
+
+
+#######################################FIM ################################################################
+
+
+#########################################################################################################
+
+# Swagger-ui
+quarkus.swagger-ui.path=/swagger-ui
 quarkus.swagger-ui.always-include=true
+quarkus.swagger-ui.enable=true
+quarkus.swagger-ui.theme=material
+#original, feeling-blue, flattop, material, monokai, muted, newspaper, outline
 
-# JWT Configuration
+# LOG
+quarkus.log.level=${LEVEL_LOG_APP}
+quarkus.log.console.enable=true
+quarkus.log.file.enable=true
+quarkus.log.category."io.quarkus.smallrye".level=INFO
+quarkus.log.category."io.quarkus".level=INFO
+smallrye.config.source.file.locations=/usr/src/app/secrets_files/SIOFG_DES/
+
+############################
+#### API MANAGER CONFIG ####
+############################
+
+# Caixa API Manager
+#api.manager.url=https://api.des.caixa:8443/
+api.manager.key=l7cf7839a6152c496da545ec6d05789810
+
+#############################
+#### INTERFACES EXTERNAS ####
+#############################
+
+# SIISO
+#siiso-api.url=${SIISO_URL}
+#siiso-api.manager.url=${api.manager.url}informacoes-sociais/
+#siiso-api/mp-rest/url=${siiso-api.manager.url:${siiso-api.url}}
+#siiso-api/mp-rest/scope=javax.inject.Singleton
+#%dev.siiso-api/mp-rest/trustStore=${truststore.file}
+#%dev.siiso-api/mp-rest/trustStorePassword=${truststore.password}
+#%dev.siiso-api/mp-rest/trustStoreFileType=JKS
 quarkus.smallrye-jwt.enabled=false
+#quarkus.resteasy.path=/
+#mp.jwt.verify.issuer=https://logindes.caixa.gov.br/auth/realms/internet
 
-# Token duration (7 days in seconds)
-jwt.expiration=604800
+#############################
+#### IBM MQ ####
+#############################
 
-# OIDC Configuration
-#https://quarkus.io/guides/security-authorization
-#https://quarkus.io/guides/security-openid-connect
-quarkus.oidc.auth-server-url=https://login.des.caixa/auth/realms/intranet
-quarkus.oidc.client-id=cli-ser-sgf
-quarkus.oidc.credentials.secret=6e580ccf-f80e-4314-84eb-bffe070c05c4
-quarkus.oidc.application-type=service
-quarkus.oidc.roles.source=accesstoken
-quarkus.oidc.token.auto-refresh-interval=18000
+quarkus.siofg.ibm.mq.host=${DATASOURCE_MQ_HOST}
+quarkus.siofg.ibm.mq.port=${DATASOURCE_MQ_PORT}
+quarkus.siofg.ibm.mq.qmgr=${DATASOURCE_MQ_QMGR}
+quarkus.siofg.ibm.mq.channel=${DATASOURCE_MQ_CHANNEL}
+quarkus.siofg.ibm.mq.user=${DATASOURCE_MQ_USERNAME}
+quarkus.siofg.ibm.mq.password=${QUARKUS_SIOFG_IBM_MQ_PASSWORD}
 
-# HTTP Configuration
-quarkus.http.auth.permission.authenticated.paths=/*
-quarkus.http.auth.permission.authenticated.policy=authenticated
-quarkus.http.auth.permission.health.paths=/q/*
-quarkus.http.auth.permission.health.policy=permit
-quarkus.http.auth.permission.health.methods=GET
+# Habilita o uso do smallrye-reactive-messaging-jms no Quarkus
+quarkus.index-dependency.smallrye-jms.group-id=io.smallrye.reactive
+quarkus.index-dependency.smallrye-jms.artifact-id=smallrye-reactive-messaging-jms
 
-# HTTP UTF-8
-quarkus.http.encoding.default-charset=utf-8
-quarkus.http.encoding.force=true
+mp.messaging.incoming.LISTA_CONTA.connector=smallrye-jms
+mp.messaging.incoming.LISTA_CONTA.destination-type=queue
+mp.messaging.incoming.LISTA_CONTA_OPTANTE.connector=smallrye-jms
+mp.messaging.incoming.LISTA_CONTA_OPTANTE.destination-type=queue
+mp.messaging.incoming.LISTA_CONTA_EXTRATO.connector=smallrye-jms
+mp.messaging.incoming.LISTA_CONTA_EXTRATO.destination-type=queue
+mp.messaging.incoming.LISTA_DADOS_CONTRATO.connector=smallrye-jms
+mp.messaging.incoming.LISTA_DADOS_CONTRATO.destination-type=queue
+#mp.messaging.incoming.CONSULTA_MORADIA.connector=smallrye-jms
+#mp.messaging.incoming.CONSULTA_MORADIA.destination-type=queue
 
-# OIDC Client
-quarkus.oidc-client.auth-server-url=${quarkus.oidc.auth-server-url}
-quarkus.oidc-client.client-id=${quarkus.oidc.client-id}
-quarkus.oidc-client.credentials.secret=${quarkus.oidc.credentials.secret}
-quarkus.oidc-client.token-path=/protocol/openid-connect/tokens
+# Configuracao dos nomes da filas
+mp.messaging.incoming.LISTA_CONTA.destination=${MQ_DESTINATION_LISTA_CONTA}
+mp.messaging.incoming.LISTA_CONTA_OPTANTE.destination=${MQ_DESTINATION_LISTA_CONTA_OPTANTE}
+mp.messaging.incoming.LISTA_CONTA_EXTRATO.destination=${MQ_DESTINATION_LISTA_CONTA_EXTRATO}
+#mp.messaging.incoming.CONSULTA_MORADIA.destination=${MQ_DESTINATION_CONSULTA_MORADIA}
+mp.messaging.incoming.LISTA_DADOS_CONTRATO.destination=${MQ_DESTINATION_DADOS_CONTRATO}
 
-# Log Configuration for Debugging Transactions
-quarkus.log.category."io.quarkus".level=ERROR
-quarkus.log.level=${QUARKUS_LOG_LEVEL}
-quarkus.log.category."org.hibernate".level=ERROR
-quarkus.log.category."org.hibernate.SQL".min-level=ERROR
-quarkus.log.category."org.jboss.res-teasy".level=ERROR
-quarkus.log.category."com.arjuna.ats.jta".level=ERROR
-quarkus.log.category."io.agroal.narayana".level=ERROR
+# Configuracao do ConnectionFactory que sera usado por cada Canal
+mp.messaging.incoming.LISTA_CONTA_OPTANTE.connection-factory-name=${MQ_CONNECTION_FACTORY_NAME}
+mp.messaging.incoming.LISTA_CONTA_EXTRATO.connection-factory-name=${MQ_CONNECTION_FACTORY_NAME}
+#mp.messaging.incoming.CONSULTA_MORADIA.connection-factory-name=${MQ_CONNECTION_FACTORY_NAME}
 
-# SmallRye Config - Ler secrets dos arquivos do BeyondTrust
-smallrye.config.source.file.locations=${SMALLRYE_CONFIG_SOURCE_FILE_LOCATIONS}
 
-# REST Client Configuration
-api.key=${API_KEY}
 
-siico.api.publica.url=https://api.des.caixa:8443/informacoes-corporativas-publicas/
-br.gov.caixa.sisgf.api.restclient.informacoescorporativaspublica.InformacoesCorporativaPublicaService/mp-rest/url=${siico.api.publica.url}
-br.gov.caixa.sisgf.api.restclient.informacoescorporativaspublica.InformacoesCorporativaPublicaService/mp-rest/scope=jakarta.inject.Singleton
-
-siico.api.privada.url=https://api.des.caixa:8443/informacoes-corporativas-privadas/
-br.gov.caixa.sisgf.api.restclient.informacoescorporativasprivada.InformacoesCorporativaPrivadaService/mp-rest/url=${siico.api.privada.url}
-br.gov.caixa.sisgf.api.restclient.informacoescorporativasprivada.InformacoesCorporativaPrivadaService/mp-rest/scope=jakarta.inject.Singleton
-
-sinaf.api.evento.url=https://api.des.caixa:8443/sinaf-api-evento
-br.gov.caixa.sisgf.api.restclient.sinafapievento.SinafApiEventoService/mp-rest/url=${sinaf.api.evento.url}
-br.gov.caixa.sisgf.api.restclient.sinafapievento.SinafApiEventoService/mp-rest/scope=jakarta.inject.Singleton
-
-sisgf.api.url=http://localhost:8060/financeiro-beneficios/faturamento/
-br.gov.caixa.sisgf.api.restclient.sisgf.sisgfapi.SISGFApi/mp-rest/url=${sisgf.api.url}
-br.gov.caixa.sisgf.api.restclient.sisgf.sisgfapi.SISGFApi/mp-rest/scope=jakarta.inject.Singleton
-
-sisgf.batch.url=http://localhost:8070/financeiro-beneficios/faturamento/
-br.gov.caixa.sisgf.api.restclient.sisgf.sisgfbatch.SISGFBatch/mp-rest/url=${sisgf.batch.url}
-br.gov.caixa.sisgf.api.restclient.sisgf.sisgfbatch.SISGFBatch/mp-rest/scope=jakarta.inject.Singleton
-
-sisgf.batch.unidades.url=http://localhost:8050
-br.gov.caixa.sisgf.api.restclient.sisgf.sisgfbatchunidade.SISGFBatchUnidades/mp-rest/url=${sisgf.batch.unidades.url}
-br.gov.caixa.sisgf.api.restclient.sisgf.sisgfbatchunidade.SISGFBatchUnidades/mp-rest/scope=jakarta.inject.Singleton
-
-# Database Configuration for SIICO
-db2.siico.url=jdbc:db2://10.216.80.110:448/RJKDB2DSD0
-db2.siico.username=${DATASOURCE_DB2_USERNAME}
-db2.siico.password=${DATASOURCE_DB2_PASSWORD}
-db2.siico.schema=ICO
-
-# Narayana Transaction Manager Configuration
-quarkus.transaction-manager.enable-recovery=true
-quarkus.transaction-manager.recovery-interval=600
-quarkus.transaction-manager.default-timeout=600
-
-# Hibernate XA
-quarkus.hibernate-orm.transaction.jta-data-source=java:/jdbc/siico
-quarkus.hibernate-orm.transaction.coordinator-strategy=jdbc
-
-# Database Configuration for SIGF (Oracle)
-quarkus.datasource.db-kind=oracle
-quarkus.datasource.jdbc.driver=oracle.jdbc.driver.OracleDriver
-quarkus.datasource.db-version=12.2.0
-quarkus.datasource.jdbc.url=jdbc:oracle:thin:@10.116.101.7:1521/ORAD01SC
-quarkus.datasource.username=${DATASOURCE_ORACLE_USERNAME}
-quarkus.datasource.password=${DATASOURCE_ORACLE_PASSWORD}
-quarkus.datasource.xa=true
-quarkus.datasource.jdbc.max-size=40
-quarkus.datasource.jdbc.xa-datasource-class=oracle.jdbc.xa.client.OracleXADataSource
-
-# Persistence Configuration for SIGF
-quarkus.hibernate-orm.dialect=org.hibernate.dialect.OracleDialect
-quarkus.hibernate-orm.packages=br.gov.caixa.sisgf.api.domain.model
-quarkus.hibernate-orm.log.bind-parameters=true
-quarkus.hibernate-orm.log.sql=true
-quarkus.hibernate-orm.database.default-schema=SGF
-quarkus.hibernate-orm.validate-in-dev-mode=false
-
-# Database Configuration for SIICO (DB2)
-quarkus.datasource."siico".db-kind=db2
-quarkus.datasource."siico".jdbc.driver=com.ibm.db2.jcc.DB2Driver
-quarkus.datasource."siico".jdbc.url=${db2.siico.url}
-quarkus.datasource."siico".username=${db2.siico.username}
-quarkus.datasource."siico".password=${db2.siico.password}
-quarkus.datasource."siico".jdbc.max-size=20
-quarkus.datasource."siico".jdbc.min-size=5
-quarkus.datasource."siico".xa=true
-quarkus.datasource."siico".jdbc.xa-datasource-class=com.ibm.db2.jcc.DB2XADataSource
-
-# Persistence Configuration for SIICO
-quarkus.hibernate-orm."siico".dialect=br.gov.caixa.sisgf.api.utils.DB2ZOSDialect
-quarkus.hibernate-orm."siico".packages=br.gov.caixa.siico.api.domain.model
-quarkus.hibernate-orm."siico".log.bind-parameters=true
-quarkus.hibernate-orm."siico".log.sql=true
-quarkus.hibernate-orm."siico".database.default-schema=${db2.siico.schema}
-quarkus.hibernate-orm."siico".datasource=siico
-quarkus.hibernate-orm."siico".validate-in-dev-mode=false
-
-# Configuracao envio de email
-quarkus.mailer.auth-methods=mailerDIGEST-MD5 CRAM-SHA256 CRAM-SHA1 CRAM-MD5
-quarkus.mailer.from=${MAILER_FROM}
-quarkus.mailer.host=${MAILER_HOST}
-quarkus.mailer.port=${MAILER_PORT}
-quarkus.mailer.ssl=false
-destinatarios.email=${MAILER_DESTINATARIOS}
