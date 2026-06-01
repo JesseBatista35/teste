@@ -1,54 +1,26 @@
-<?xml version="1.0"?>
-<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd"
-         xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>br.gov.caixa.siagt</groupId>
-    <artifactId>SIAGT-backend</artifactId>
-    <version>2.13.2.1-SNAPSHOT</version>
+    <artifactId>batimento</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
     <properties>
         <compiler-plugin.version>3.13.0</compiler-plugin.version>
-        <maven.compiler.release>17</maven.compiler.release>
+        <maven.compiler.release>21</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <quarkus.platform.artifact-id>quarkus-bom</quarkus.platform.artifact-id>
         <quarkus.platform.group-id>io.quarkus.platform</quarkus.platform.group-id>
         <quarkus.platform.version>3.27.2</quarkus.platform.version>
         <skipITs>true</skipITs>
-        <surefire-plugin.version>3.5.2</surefire-plugin.version>
-        <lombok.version>1.18.36</lombok.version>
-        <easy.rules.version>4.1.0</easy.rules.version>
-        <gitflow-maven-plugin.version>1.21.0</gitflow-maven-plugin.version>
-        <maven.home>${env.M2_HOME}</maven.home>
-        <sonar-maven-plugin.version>3.9.1.2184</sonar-maven-plugin.version>
-
-        <encoding>UTF-8</encoding>
-        <outputEncoding>${encoding}</outputEncoding>
-        <encoding.source>${encoding}</encoding.source>
-        <encoding.target>${encoding}</encoding.target>
-        <outputEncoding.source>${encoding}</outputEncoding.source>
-        <outputEncoding.target>${encoding}</outputEncoding.target>
-        <file.encoding>${encoding}</file.encoding>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
-        <ansi.encoding>${encoding}</ansi.encoding>
-        <args.encoding>${encoding}</args.encoding>
-        <console.encoding>${encoding}</console.encoding>
-        <native.image.encoding>${encoding}</native.image.encoding>
-        <!-- Configurações do SonarQube -->
-        <sonar.projectKey>br.gov.caixa.siagt:siagt-backend</sonar.projectKey>
-        <sonar.projectName>SIAGT Backend</sonar.projectName>
-        <sonar.host.url>http://sonar.apps.produtos4.caixa</sonar.host.url>
-        <sonar.sources>src/main/java</sonar.sources>
-        <sonar.tests>src/test/java</sonar.tests>
-        <sonar.java.binaries>target/classes</sonar.java.binaries>
-        <sonar.java.test.binaries>target/test-classes</sonar.java.test.binaries>
-        <sonar.java.test.inclusions>**/*Test.java,**/*Tests.java,**/*IT.java</sonar.java.test.inclusions>
-        <sonar.exclusions>**/TestDataProfile.java</sonar.exclusions>
-        <sonar.coverage.jacoco.xmlReportPaths>target/jacoco-report/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
-        <sonar.junit.reportPaths>target/surefire-reports</sonar.junit.reportPaths>
-        <sonar.sourceEncoding>${encoding}</sonar.sourceEncoding>
+        <surefire-plugin.version>3.5.4</surefire-plugin.version>
+        <lombok.version>1.18.46</lombok.version>
+        <sonar-maven-plugin.version>5.7.0.6970</sonar-maven-plugin.version>
     </properties>
+
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -60,22 +32,15 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+
     <dependencies>
-        <dependency>
-            <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-rest-client-jackson</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-smallrye-context-propagation</artifactId>
-        </dependency>
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-rest</artifactId>
         </dependency>
         <dependency>
             <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-websockets</artifactId>
+            <artifactId>quarkus-rest-client-jackson</artifactId>
         </dependency>
         <dependency>
             <groupId>io.quarkus</groupId>
@@ -83,43 +48,7 @@
         </dependency>
         <dependency>
             <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-agroal</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-smallrye-jwt</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-smallrye-jwt-build</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.quarkus</groupId>
             <artifactId>quarkus-hibernate-validator</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-jdbc-mssql</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-jdbc-oracle</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-jdbc-h2</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-hibernate-orm-panache</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-rest-jackson</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-smallrye-health</artifactId>
         </dependency>
         <dependency>
             <groupId>io.quarkus</groupId>
@@ -127,125 +56,42 @@
         </dependency>
         <dependency>
             <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-scheduler</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-mailer</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-cache</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-text</artifactId>
-            <version>1.13.0</version>
-        </dependency>
-        <dependency>
-            <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-junit5-mockito</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>io.quarkus</groupId>
             <artifactId>quarkus-jacoco</artifactId>
-            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-qute</artifactId>
+            <artifactId>quarkus-agroal</artifactId>
         </dependency>
         <dependency>
             <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-hibernate-orm-rest-data-panache</artifactId>
-        </dependency>
-
-        <!-- Flying Saucer para gerar PDF a partir de HTML -->
-        <dependency>
-            <groupId>org.xhtmlrenderer</groupId>
-            <artifactId>flying-saucer-pdf</artifactId>
-            <version>9.1.22</version>
-        </dependency>
-        <!-- Necessário para usar fontes (opcional, mas recomendável) -->
-        <dependency>
-            <groupId>org.apache.xmlgraphics</groupId>
-            <artifactId>xmlgraphics-commons</artifactId>
-            <version>2.9</version>
+            <artifactId>quarkus-smallrye-health</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.eclipse.persistence</groupId>
-            <artifactId>org.eclipse.persistence.moxy</artifactId>
-            <version>2.7.15</version>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-arc</artifactId>
         </dependency>
-
+        <dependency>
+            <groupId>org.jboss.logmanager</groupId>
+            <artifactId>log4j2-jboss-logmanager</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>${lombok.version}</version>
             <scope>provided</scope>
         </dependency>
-
         <dependency>
-            <groupId>org.jboss.logmanager</groupId>
-            <artifactId>log4j2-jboss-logmanager</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.jeasy</groupId>
-            <artifactId>easy-rules-core</artifactId>
-            <version>${easy.rules.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.modelmapper</groupId>
-            <artifactId>modelmapper</artifactId>
-            <version>3.2.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.poi</groupId>
-            <artifactId>poi-ooxml</artifactId>
-            <version>5.3.0</version>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-junit5</artifactId>
+            <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>javax.xml.bind</groupId>
-            <artifactId>jaxb-api</artifactId>
-            <version>2.3.1</version>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>com.sun.xml.bind</groupId>
-            <artifactId>jaxb-core</artifactId>
-            <version>2.3.0</version>
-        </dependency>
-        <dependency>
-            <groupId>com.sun.xml.bind</groupId>
-            <artifactId>jaxb-impl</artifactId>
-            <version>2.3.0</version>
-        </dependency>
-
-        <!--	Java 8 Date/time	-->
-        <dependency>
-            <groupId>com.fasterxml.jackson.datatype</groupId>
-            <artifactId>jackson-datatype-jsr310</artifactId>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/org.tukaani/xz -->
-        <dependency>
-            <groupId>org.tukaani</groupId>
-            <artifactId>xz</artifactId>
-            <version>1.10</version>
-        </dependency>
-
-        <!-- SmallRye Config File System Source - Vault BeyondTrust (Cofre de Senhas Caixa) -->
-        <!-- Permite ler segredos de arquivos no filesystem, padrão MN TE079 Criptografia -->
-        <dependency>
-            <groupId>io.smallrye.config</groupId>
-            <artifactId>smallrye-config-source-file-system</artifactId>
-            <version>3.13.2</version>
-        </dependency>
-
     </dependencies>
+
     <build>
         <plugins>
             <plugin>
@@ -271,43 +117,27 @@
                 </executions>
             </plugin>
             <plugin>
-                <groupId>org.sonarsource.scanner.maven</groupId>
-                <artifactId>sonar-maven-plugin</artifactId>
-                <version>${sonar-maven-plugin.version}</version>
-            </plugin>
-            <plugin>
                 <groupId>${quarkus.platform.group-id}</groupId>
                 <artifactId>quarkus-maven-plugin</artifactId>
                 <version>${quarkus.platform.version}</version>
                 <extensions>true</extensions>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>build</goal>
-                            <goal>generate-code</goal>
-                            <goal>generate-code-tests</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>${compiler-plugin.version}</version>
                 <configuration>
-                    <compilerArgs>
-                        <arg>-parameters</arg>
-                    </compilerArgs>
+                    <parameters>true</parameters>
                 </configuration>
             </plugin>
             <plugin>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${surefire-plugin.version}</version>
                 <configuration>
+                    <argLine>@{argLine}</argLine>
                     <systemPropertyVariables>
                         <java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
                         <maven.home>${maven.home}</maven.home>
                     </systemPropertyVariables>
-                    <argLine>@{argLine}</argLine>
                 </configuration>
             </plugin>
             <plugin>
@@ -319,96 +149,22 @@
                             <goal>integration-test</goal>
                             <goal>verify</goal>
                         </goals>
-                        <configuration>
-                            <systemPropertyVariables>
-                                <native.image.path>${project.build.directory}/${project.build.finalName}-runner
-                                </native.image.path>
-                                <java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
-                                <maven.home>${maven.home}</maven.home>
-                            </systemPropertyVariables>
-                        </configuration>
                     </execution>
                 </executions>
                 <configuration>
                     <argLine>@{argLine}</argLine>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>com.amashchenko.maven.plugin</groupId>
-                <artifactId>gitflow-maven-plugin</artifactId>
-                <version>${gitflow-maven-plugin.version}</version>
-                <configuration>
-                    <versionDigitToIncrement>1</versionDigitToIncrement>
-                    <incrementVersionAtFinish>true</incrementVersionAtFinish>
-                    <gitFlowConfig>
-                        <productionBranch>env/tqs</productionBranch>
-                    </gitFlowConfig>
+                    <systemPropertyVariables>
+                        <native.image.path>${project.build.directory}/${project.build.finalName}-runner
+                        </native.image.path>
+                        <java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
+                        <maven.home>${maven.home}</maven.home>
+                    </systemPropertyVariables>
                 </configuration>
             </plugin>
         </plugins>
     </build>
+
     <profiles>
-        <profile>
-            <id>dev-fast</id>
-            <activation>
-                <property>
-                    <name>dev</name>
-                </property>
-            </activation>
-            <properties>
-                <!-- Pular testes em dev mode -->
-                <skipTests>true</skipTests>
-                <skipITs>true</skipITs>
-                <!-- Pular compilação de testes -->
-                <maven.test.skip>true</maven.test.skip>
-                <!-- Desabilitar JaCoCo em dev (economiza ~15-20s) -->
-                <jacoco.skip>true</jacoco.skip>
-            </properties>
-            <build>
-                <plugins>
-                    <!-- Configurações específicas para desenvolvimento rápido -->
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-compiler-plugin</artifactId>
-                        <executions>
-                            <!-- Desabilitar compilação de testes em dev mode -->
-                            <execution>
-                                <id>default-testCompile</id>
-                                <phase>none</phase>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-resources-plugin</artifactId>
-                        <version>3.3.1</version>
-                        <executions>
-                            <!-- Desabilitar cópia de recursos de teste em dev mode -->
-                            <execution>
-                                <id>default-testResources</id>
-                                <phase>none</phase>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <plugin>
-                        <groupId>${quarkus.platform.group-id}</groupId>
-                        <artifactId>quarkus-maven-plugin</artifactId>
-                        <extensions>true</extensions>
-                        <executions>
-                            <!-- Desabilitar geração de código de teste em dev mode -->
-                            <execution>
-                                <id>default</id>
-                                <goals>
-                                    <goal>build</goal>
-                                    <goal>generate-code</goal>
-                                    <!-- NÃO incluir generate-code-tests -->
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
         <profile>
             <id>native</id>
             <activation>
@@ -417,28 +173,10 @@
                 </property>
             </activation>
             <properties>
+                <quarkus.package.jar.enabled>false</quarkus.package.jar.enabled>
                 <skipITs>false</skipITs>
                 <quarkus.native.enabled>true</quarkus.native.enabled>
-                <quarkus.package.jar.enabled>false</quarkus.package.jar.enabled>
             </properties>
-        </profile>
-        <profile>
-            <id>sonar</id>
-            <properties>
-                <!-- Propriedades específicas do perfil SonarQube -->
-                <sonar.host.url>https://sonar.apps.produtos4.caixa</sonar.host.url>
-                <!--suppress UnresolvedMavenProperty -->
-                <sonar.login>${env.SONAR_TOKEN}</sonar.login>
-            </properties>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.sonarsource.scanner.maven</groupId>
-                        <artifactId>sonar-maven-plugin</artifactId>
-                        <version>${sonar-maven-plugin.version}</version>
-                    </plugin>
-                </plugins>
-            </build>
         </profile>
     </profiles>
 </project>
