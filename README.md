@@ -1,119 +1,36 @@
-mudei o angete para build-luniz
+Bash Script
+
+View raw log
+Starting: Bash Script
+==============================================================================
+Task         : Bash
+Description  : Run a Bash script on macOS, Linux, or Windows
+Version      : 3.227.0
+Author       : Microsoft Corporation
+Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/bash
+==============================================================================
+Generating script.
+Script contents:
+ls /usr/java | grep 21
+========================== Starting Command Output ===========================
+/bin/bash /opt/ads-agent/_work/_temp/00a6b636-fa67-42d6-9c14-e6b1559e371c.sh
+jdk1.8.0_221
+open-jdk-21.0.5
+Finishing: Bash Script
 
 
-antes tava vuild-linus-okd
+Recupera Versão no POM
+
+Starting: Recupera Versão no POM
+==============================================================================
+Task         : Bash
+Description  : Run a Bash script on macOS, Linux, or Windows
+Version      : 3.227.0
+Author       : Microsoft Corporation
+Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/bash
+==============================================================================
+Generating script.
+========================== Starting Command Output ===========================
+/bin/bash /opt/ads-agent/_work/_temp/ff317486-3e2a-43e4-96ee-dd886ef8c7e6.sh
 
 
-
-aqui a configuraçao da task 
-
-
-BUILD_DEFAULT_QUARKUS_OPENJDK
-Task version
-7.*
-Display name
-BUILD_DEFAULT_QUARKUS_OPENJDK
-AZPAT
-$(AZPAT)
-FORTIFY_API
-$(FORTIFY_API)
-FORTIFY_APITOKEN
-$(FORTIFY_APITOKEN)
-FORTIFY_BUILD
-$(FORTIFY_BUILD)
-FORTIFY_CI_TOKEN
-$(FORTIFY_CI_TOKEN)
-FORTIFY_CLIENT_AUTH_TOKEN
-$(FORTIFY_CLIENT_AUTH_TOKEN)
-fortify_disable
-$(fortify_disable)
-FORTIFY_FPR_NAME
-$(FORTIFY_FPR_NAME)
-FORTIFY_NEW_VERSION
-$(FORTIFY_NEW_VERSION)
-FORTIFY_PASS
-$(FORTIFY_PASS)
-FORTIFY_POOL_GOLD_NOVO
-$(FORTIFY_POOL_GOLD_NOVO)
-FORTIFY_POOL_SILVER_NOVO
-$(FORTIFY_POOL_SILVER_NOVO)
-FORTIFY_REGEX
-$(FORTIFY_REGEX)
-FORTIFY_SENSOR_POOL
-$(FORTIFY_SENSOR_POOL)
-FORTIFY_UPTOKEN
-$(FORTIFY_UPTOKEN)
-FORTIFY_URL
-$(FORTIFY_URL)
-FORTIFY_URL_CONTROLLER
-$(FORTIFY_URL_CONTROLLER)
-FORTIFY_USER
-$(FORTIFY_USER)
-FORTIFY_VERSION_BUILD
-$(FORTIFY_VERSION_BUILD)
-FTFY_MVN_GOAL
-$(FTFY_MVN_GOAL)
-GradleVersion
-$(GradleVersion)
-JAVA_VERSION
-open-jdk-21.0.5/
-KEYSTORE_SECUREFILEPATH
-$(KEYSTORE_SECUREFILEPATH)
-lista_versao
-$(lista_versao)
-MAVEN_VERSION
-3.9.9
-MVN_GOAL
--B -ntp clean package
-nexus_interno_pass
-$(nexus_interno_pass)
-nexus_interno_user
-$(nexus_interno_user)
-NEXUS_REPOSITORY_ID
-$(NEXUS_REPOSITORY_ID)
-NEXUS_URL_MAVEN_RELEASE
-$(NEXUS_URL_MAVEN_RELEASE)
-NEXUS_URL_MAVEN_SNAPSHOT
-$(NEXUS_URL_MAVEN_SNAPSHOT)
-NODE_EXTRA_CA_CERTS
-$(NODE_EXTRA_CA_CERTS)
-p_language
-$(p_language)
-POM_PATH
-pom.xml
-POM_VERSION
-$(POM_VERSION)
-project.group
-$(project.group)
-project.name
-$(project.name)
-project.version
-$(project.version)
-REPO_FINAL_NAME
-$(REPO_FINAL_NAME)
-REPOSITORIO
-$(REPOSITORIO)
-SCANCENTRAL_URL
-$(SCANCENTRAL_URL)
-SONAR_LOGIN
-$(SONAR_LOGIN)
-SONAR_PASSWORD
-$(SONAR_PASSWORD)
-SONAR_PROPERTIES
-$(SONAR_PROPERTIES)
-SONAR_URL
-$(SONAR_URL)
-tbuild
-$(tbuild)
-token
-$(token)
-token_id
-$(token_id)
-valida.vec
-$(valida.vec)
-version.app
-$(version.app)
-versionApp
-$(versionApp)
-Control Options
-Output Variables
