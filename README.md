@@ -1,41 +1,61 @@
-depois de ter colocado a versao 
 
-ta dano erro no mavem agora 
+deixei assim e passou do maem e tambem do recupera versao 
 
-Progress (4): 226 kB | 91 kB | 278/351 kB | 56 kB
-Progress (4): 226 kB | 91 kB | 311/351 kB | 56 kB
-Progress (4): 226 kB | 91 kB | 344/351 kB | 56 kB
-Progress (4): 226 kB | 91 kB | 346/351 kB | 56 kB
-Progress (4): 226 kB | 91 kB | 351 kB | 56 kB    
-Progress (5): 226 kB | 91 kB | 351 kB | 56 kB | 6.4/11 kB
-Progress (5): 226 kB | 91 kB | 351 kB | 56 kB | 11 kB    
-                                                     
-Downloaded from Nexus Caixa: http://binario.caixa:8081/repository/caixa-group-br/io/quarkus/quarkus-devtools-registry-client/3.15.0/quarkus-devtools-registry-client-3.15.0.jar (226 kB at 93 kB/s)
-Downloading from Nexus Caixa: http://binario.caixa:8081/repository/caixa-group-br/io/quarkus/quarkus-cyclonedx-generator/3.15.0/quarkus-cyclonedx-generator-3.15.0.jar
-Downloaded from Nexus Caixa: http://binario.caixa:8081/repository/caixa-group-br/io/quarkus/quarkus-analytics-common/3.15.0/quarkus-analytics-common-3.15.0.jar (56 kB at 22 kB/s)
-Downloaded from Nexus Caixa: http://binario.caixa:8081/repository/caixa-group-br/io/quarkus/quarkus-devtools-message-writer/3.15.0/quarkus-devtools-message-writer-3.15.0.jar (11 kB at 4.1 kB/s)
-Downloaded from Nexus Caixa: http://binario.caixa:8081/repository/caixa-group-br/io/quarkus/qute/qute-core/3.15.0/qute-core-3.15.0.jar (351 kB at 136 kB/s)
-Progress (2): 91 kB | 0.9/20 kB
-Progress (2): 91 kB | 20 kB    
-                           
-Downloaded from Nexus Caixa: http://binario.caixa:8081/repository/caixa-group-br/io/quarkus/quarkus-devtools-codestarts/3.15.0/quarkus-devtools-codestarts-3.15.0.jar (91 kB at 32 kB/s)
-Downloaded from Nexus Caixa: http://binario.caixa:8081/repository/caixa-group-br/io/quarkus/quarkus-cyclonedx-generator/3.15.0/quarkus-cyclonedx-generator-3.15.0.jar (20 kB at 6.6 kB/s)
-[ERROR] [ERROR] Some problems were encountered while processing the POMs:
-[ERROR] Unknown packaging: quarkus @ line 8, column 16
-[ERROR] 'dependencies.dependency.version' for io.quarkus:quarkus-junit:jar is missing. @ line 83, column 21
- @ 
-[ERROR] The build could not read 1 project -> [Help 1]
-[ERROR]   
-[ERROR]   The project br.gov.caixa.siagt:batimento:1.0.0-SNAPSHOT (/opt/ads-agent/_work/38/s/pom.xml) has 2 errors
-[ERROR]     Unknown packaging: quarkus @ line 8, column 16
-[ERROR]     'dependencies.dependency.version' for io.quarkus:quarkus-junit:jar is missing. @ line 83, column 21
-[ERROR] 
-[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
-[ERROR] Re-run Maven using the -X switch to enable full debug logging.
-[ERROR] 
-[ERROR] For more information about the errors and possible solutions, please read the following articles:
-[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/ProjectBuildingException
-The process '/opt/apache-maven/apache-maven-3.9.9/bin/mvn' failed with exit code 1
-Could not retrieve code analysis results - Maven run failed.
-##[error]Build failed.
-Finishing: Maven
+
+
+?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>br.gov.caixa.siagt</groupId>
+    <artifactId>batimento</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <properties>
+        <compiler-plugin.version>3.13.0</compiler-plugin.version>
+        <maven.compiler.release>21</maven.compiler.release>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <quarkus.platform.artifact-id>quarkus-bom</quarkus.platform.artifact-id>
+        <quarkus.platform.group-id>io.quarkus.platform</quarkus.platform.group-id>
+        <quarkus.platform.version>3.27.2</quarkus.platform.version>
+        <skipITs>true</skipITs>
+        <surefire-plugin.version>3.5.4</surefire-plugin.version>
+        <lombok.version>1.18.46</lombok.version>
+        <sonar-maven-plugin.version>5.7.0.6970</sonar-maven-plugin.version>
+    </properties>
+
+
+
+
+
+
+
+
+
+
+
+
+agora queboru aqui:
+
+
+
+
+Copiando Artefatos para StagingDirectory
+
+View raw log
+Starting: Copiando Artefatos para StagingDirectory
+==============================================================================
+Task         : Bash
+Description  : Run a Bash script on macOS, Linux, or Windows
+Version      : 3.227.0
+Author       : Microsoft Corporation
+Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/bash
+==============================================================================
+Generating script.
+========================== Starting Command Output ===========================
+/usr/bin/bash /opt/ads-agent/_work/_temp/f6ebaf11-6af4-45a8-b27e-684d5f83170f.sh
+Não foi possivel determinar o pacote executável do Quarkus
+##[error]Bash exited with code '1'.
+Finishing: Copiando Artefatos para StagingDirectory
