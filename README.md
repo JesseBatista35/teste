@@ -1,653 +1,179 @@
-DOCKEFILE.JVM
-
-####
-# This Dockerfile is used in order to build a container that runs the Quarkus application in JVM mode
-#
-# Before building the container image run:
-#
-# ./mvnw package
-#
-# Then, build the image with:
-#
-# docker build -f src/main/docker/Dockerfile.jvm -t quarkus/sisgf-backend-jvm .
-#
-# Then run the container using:
-#
-# docker run -i --rm -p 8080:8080 quarkus/sisgf-backend-jvm
-#
-# If you want to include the debug port into your docker image
-# you will have to expose the debug port (default 5005) like this :  EXPOSE 8080 5050
-#
-# Then run the container using :
-#
-# docker run -i --rm -p 8080:8080 -p 5005:5005 -e JAVA_ENABLE_DEBUG="true" quarkus/sisgf-backend-jvm
-#
-###
-FROM registry.access.redhat.com/ubi8/ubi-minimal:8.3 
-
-ARG JAVA_PACKAGE=java-11-openjdk-headless
-ARG RUN_JAVA_VERSION=1.3.8
-ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en'
-# Install java and the run-java script
-# Also set up permissions for user `1001`
-RUN microdnf install curl ca-certificates ${JAVA_PACKAGE} \
-    && microdnf update \
-    && microdnf clean all \
-    && mkdir /deployments \
-    && chown 1001 /deployments \
-    && chmod "g+rwX" /deployments \
-    && chown 1001:root /deployments \
-    && curl https://repo1.maven.org/maven2/io/fabric8/run-java-sh/${RUN_JAVA_VERSION}/run-java-sh-${RUN_JAVA_VERSION}-sh.sh -o /deployments/run-java.sh \
-    && chown 1001 /deployments/run-java.sh \
-    && chmod 540 /deployments/run-java.sh \
-    && echo "securerandom.source=file:/dev/urandom" >> /etc/alternatives/jre/lib/security/java.security
-
-# Configure the JAVA_OPTIONS, you can add -XshowSettings:vm to also display the heap size.
-ENV JAVA_OPTIONS="-Dquarkus.http.host=0.0.0.0 -Djava.util.logging.manager=org.jboss.logmanager.LogManager"
-# We make four distinct layers so if there are application changes the library layers can be re-used
-COPY --chown=1001 target/quarkus-app/lib/ /deployments/lib/
-COPY --chown=1001 target/quarkus-app/*.jar /deployments/
-COPY --chown=1001 target/quarkus-app/app/ /deployments/app/
-COPY --chown=1001 target/quarkus-app/quarkus/ /deployments/quarkus/
-COPY --chown=1001 src/main/docker/agents/com.microsoft.azure.applicationinsights-agent-3.3.1.jar /deployments/lib/main/com.microsoft.azure.applicationinsights-agent-3.3.1.jar
-
-EXPOSE 8080
-USER 1001
-
-RUN echo '#!/bin/bash' > /deployments/export-secrets.sh && \
-    echo 'export SISGF_APIKEY=$(cat /usr/src/app/secrets_files/SISGF_DES/SISGF_APIKEY 2>/dev/null)' >> /deployments/export-secrets.sh && \
-    echo 'export SSGFRD01_DB2=$(cat /usr/src/app/secrets_files/SISGF_DES/SSGFRD01_DB2 2>/dev/null)' >> /deployments/export-secrets.sh && \
-    echo 'export SSGFRD02_ORA=$(cat /usr/src/app/secrets_files/SISGF_DES/SSGFRD02_ORA 2>/dev/null)' >> /deployments/export-secrets.sh && \
-    echo 'export CLISERSGF_SSO_INTRA=$(cat /usr/src/app/secrets_files/SISGF_DES/CLISERSGF_SSO_INTRA 2>/dev/null)' >> /deployments/export-secrets.sh && \
-    echo 'export SSGFDR01_SFTP=$(cat /usr/src/app/secrets_files/SISGF_DES/SSGFDR01_SFTP 2>/dev/null)' >> /deployments/export-secrets.sh && \
-    chmod +x /deployments/export-secrets.sh
-
-ENTRYPOINT [ "sh", "-c", "/deployments/export-secrets.sh && /deployments/run-java.sh" ]
+esse é do sufi e isso ta em 2 lugares diferentes.. olha ai onde que eu devo corrigir?
 
 
 
 
 
+#PORTA
+quarkus.http.port=8898
 
-
-
-APLICATION.PROPERTIES
-
-
-# Quarkus port
-quarkus.http.port=8080
-quarkus.vertx.cluster.port=7268
-
-# CORS
+#CONFIG CORS
 quarkus.http.cors=true
-quarkus.http.cors.headers=Origin, X-Request-Width, Content-Type, Accept, Authorization, Accept-Encoding, Accept-Language, authCode, Connection, Host, Referer, Sec-Fetch-Dest, Sec-Fetch-Mode, Sec-Fetch-Site, User-Agent, Access-Control-Allow-Origin
-quarkus.http.cors.origins=${CORS_ORIGINS}
-quarkus.http.cors.methods=GET, POST, OPTIONS, PUT, DELETE
-quarkus.http.cors.access-control-max-age=1209600
+#quarkus.http.cors.origins=http://siopm-frontend-des-esteiras.nprd2.caixa
+#quarkus.http.cors.origins=https://login.des.caixa/auth/realms/intranet
 
-# Swagger
-quarkus.smallrye-openapi.path=/swagger
+#SSO-Keycloak
+#quarkus.oidc.auth-server-url=https://login.des.caixa/auth/realms/intranet/protocol/openid-connect/token
+#quarkus.oidc.client-id=cli-ser-fug
+#quarkus.oidc.credentials.secret=c606765c-2dee-4d91-a5f2-34eb4e2fee43
+
+
+
+#########################################################################################################
+#                                       DATABASE e CRUD exemplo	            							#
+#########################################################################################################
+#           Antes de iniciar ... comentar as linhas abaixo e deletar todas classes ClientXXX            # 
+#                                                                                                       #
+												
+#																										
+#########################################################################################################
+
+#BD: DB2
+db2.schema=FUG
+
+quarkus.datasource.db2.jdbc.driver=com.ibm.db2.jcc.DB2Driver
+quarkus.datasource.db2.db-kind=db2
+quarkus.datasource.db2.username=${DATASOURCE_DB2_USERNAME}
+quarkus.datasource.db2.password=${DATASOURCE_DB2_PASSWORD}
+quarkus.datasource.db2.jdbc.url=${DATASOURCE_DB2_JDBC_URL}
+
+#BD: IDMS CONSULTA
+#quarkus.datasource.consulta.jdbc.driver=ca.idms.jdbc.IdmsJdbcDriver
+#quarkus.datasource.consulta.db-kind=consulta
+#quarkus.datasource.consulta.jdbc.url=${DATASOURCE_CONSULTA_JDBC_URL}
+#quarkus.datasource.consulta.username=${DATASOURCE_CONSULTA_USERNAME}
+#quarkus.datasource.consulta.password=${DATASOURCE_CONSULTA_PASSWORD}
+
+#BD: IDMS CONSULTA PEF
+quarkus.datasource.consultapef.jdbc.driver=ca.idms.jdbc.IdmsJdbcDriver
+quarkus.datasource.consultapef.db-kind=consultapef
+quarkus.datasource.consultapef.jdbc.url=${DATASOURCE_CONSULTAPEF_JDBC_URL}
+quarkus.datasource.consultapef.username=${DATASOURCE_CONSULTAPEF_USERNAME}
+quarkus.datasource.consultapef.password=${DATASOURCE_CONSULTAPEF_PASSWORD}
+
+chave.publica.sso.internet=${KEY_TOKEN_INTERNET}
+chave.publica.sso.intranet=${KEY_TOKEN_INTRANET}
+chave.token.caixatem=${KEY_TOKEN_CAIXA_TEM}
+
+
+idms.codigo.dialogo=${KEY_CODIGO_IDMS_DIALOGO}
+idms.sureg=${KEY_IDMS_SUREG}
+#idms.alias.base=${KEY_IDMS_ALIAS_BASE}
+
+####################################### TEST MOCKITO/JUNIT###############################################
+
+%test.chave.token.caixatem=MOCK_TOKEN_CAIXA_TEM
+%test.chave.publica.sso.internet=MOCK_TOKEN_SSO_INTRANET
+%test.chave.publica.sso.intranet=MOCK_TOKEN_SSO_INTERNET
+
+quarkus.http.test-port=8083
+quarkus.http.test-ssl-port=8446
+
+%test.quarkus.datasource.consultapef.jdbc.driver=ca.idms.jdbc.IdmsJdbcDriver
+%test.quarkus.datasource.consultapef.db-kind=consultaPefIdms
+%test.quarkus.datasource.consultapef.jdbc.url=MOCK_URL
+%test.quarkus.datasource.consultapef.username=MOCK_USER_NAME
+%test.quarkus.datasource.consultapef.password=${DATASOURCE_CONSULTAPEF_PASSWORD}
+
+%test.quarkus.datasource.db2.jdbc.driver=com.ibm.db2.jcc.DB2Driver
+%test.quarkus.datasource.db2.db-kind=db2
+%test.quarkus.datasource.db2.jdbc.url=MOCK_URL
+%test.quarkus.datasource.db2.username=MOCK_USER_NAME
+%test.quarkus.datasource.db2.password=${DATASOURCE_DB2_PASSWORD}
+
+%test.quarkus.datasource.consulta.jdbc.driver=ca.idms.jdbc.IdmsJdbcDriver
+%test.quarkus.datasource.consulta.db-kind=consultaIdms
+%test.quarkus.datasource.consulta.jdbc.url==MOCK_URL
+%test.quarkus.datasource.consulta.username=MOCK_USER_NAME
+%test.quarkus.datasource.consulta.password=${DATASOURCE_CONSULTA_PASSWORD}
+%test.quarkus.log.level=ERROR
+
+%test.idms.codigo.dialogo=515
+%test.idms.sureg=TA
+%test.idms.alias.base=PEF
+
+
+#######################################FIM ################################################################
+
+
+#########################################################################################################
+
+# Swagger-ui
+quarkus.swagger-ui.path=/swagger-ui
 quarkus.swagger-ui.always-include=true
+quarkus.swagger-ui.enable=true
+quarkus.swagger-ui.theme=material
+#original, feeling-blue, flattop, material, monokai, muted, newspaper, outline
 
-# JWT Configuration
+# LOG
+quarkus.log.level=${LEVEL_LOG_APP}
+quarkus.log.console.enable=true
+quarkus.log.file.enable=true
+quarkus.log.category."io.quarkus.smallrye".level=INFO
+quarkus.log.category."io.quarkus".level=INFO
+smallrye.config.source.file.locations=/usr/src/app/secrets_files/SIOFG_DES/
+
+############################
+#### API MANAGER CONFIG ####
+############################
+
+# Caixa API Manager
+#api.manager.url=https://api.des.caixa:8443/
+api.manager.key=l7cf7839a6152c496da545ec6d05789810
+
+#############################
+#### INTERFACES EXTERNAS ####
+#############################
+
+# SIISO
+#siiso-api.url=${SIISO_URL}
+#siiso-api.manager.url=${api.manager.url}informacoes-sociais/
+#siiso-api/mp-rest/url=${siiso-api.manager.url:${siiso-api.url}}
+#siiso-api/mp-rest/scope=javax.inject.Singleton
+#%dev.siiso-api/mp-rest/trustStore=${truststore.file}
+#%dev.siiso-api/mp-rest/trustStorePassword=${truststore.password}
+#%dev.siiso-api/mp-rest/trustStoreFileType=JKS
 quarkus.smallrye-jwt.enabled=false
+#quarkus.resteasy.path=/
+#mp.jwt.verify.issuer=https://logindes.caixa.gov.br/auth/realms/internet
 
-# Token duration (7 days in seconds)
-jwt.expiration=604800
+#############################
+#### IBM MQ ####
+#############################
 
-# OIDC Configuration
-#https://quarkus.io/guides/security-authorization
-#https://quarkus.io/guides/security-openid-connect
-quarkus.oidc.auth-server-url=https://login.des.caixa/auth/realms/intranet
-quarkus.oidc.client-id=cli-ser-sgf
-quarkus.oidc.credentials.secret=6e580ccf-f80e-4314-84eb-bffe070c05c4
-quarkus.oidc.application-type=service
-quarkus.oidc.roles.source=accesstoken
-quarkus.oidc.token.auto-refresh-interval=18000
+quarkus.siofg.ibm.mq.host=${DATASOURCE_MQ_HOST}
+quarkus.siofg.ibm.mq.port=${DATASOURCE_MQ_PORT}
+quarkus.siofg.ibm.mq.qmgr=${DATASOURCE_MQ_QMGR}
+quarkus.siofg.ibm.mq.channel=${DATASOURCE_MQ_CHANNEL}
+quarkus.siofg.ibm.mq.user=${DATASOURCE_MQ_USERNAME}
+quarkus.siofg.ibm.mq.password=${QUARKUS_SIOFG_IBM_MQ_PASSWORD}
 
-# HTTP Configuration
-quarkus.http.auth.permission.authenticated.paths=/*
-quarkus.http.auth.permission.authenticated.policy=authenticated
-quarkus.http.auth.permission.health.paths=/q/*
-quarkus.http.auth.permission.health.policy=permit
-quarkus.http.auth.permission.health.methods=GET
+# Habilita o uso do smallrye-reactive-messaging-jms no Quarkus
+quarkus.index-dependency.smallrye-jms.group-id=io.smallrye.reactive
+quarkus.index-dependency.smallrye-jms.artifact-id=smallrye-reactive-messaging-jms
 
-# HTTP UTF-8
-quarkus.http.encoding.default-charset=utf-8
-quarkus.http.encoding.force=true
+mp.messaging.incoming.LISTA_CONTA.connector=smallrye-jms
+mp.messaging.incoming.LISTA_CONTA.destination-type=queue
+mp.messaging.incoming.LISTA_CONTA_OPTANTE.connector=smallrye-jms
+mp.messaging.incoming.LISTA_CONTA_OPTANTE.destination-type=queue
+mp.messaging.incoming.LISTA_CONTA_EXTRATO.connector=smallrye-jms
+mp.messaging.incoming.LISTA_CONTA_EXTRATO.destination-type=queue
+mp.messaging.incoming.LISTA_DADOS_CONTRATO.connector=smallrye-jms
+mp.messaging.incoming.LISTA_DADOS_CONTRATO.destination-type=queue
+#mp.messaging.incoming.CONSULTA_MORADIA.connector=smallrye-jms
+#mp.messaging.incoming.CONSULTA_MORADIA.destination-type=queue
 
-# OIDC Client
-quarkus.oidc-client.auth-server-url=${quarkus.oidc.auth-server-url}
-quarkus.oidc-client.client-id=${quarkus.oidc.client-id}
-quarkus.oidc-client.credentials.secret=${quarkus.oidc.credentials.secret}
-quarkus.oidc-client.token-path=/protocol/openid-connect/tokens
+# Configuracao dos nomes da filas
+mp.messaging.incoming.LISTA_CONTA.destination=${MQ_DESTINATION_LISTA_CONTA}
+mp.messaging.incoming.LISTA_CONTA_OPTANTE.destination=${MQ_DESTINATION_LISTA_CONTA_OPTANTE}
+mp.messaging.incoming.LISTA_CONTA_EXTRATO.destination=${MQ_DESTINATION_LISTA_CONTA_EXTRATO}
+#mp.messaging.incoming.CONSULTA_MORADIA.destination=${MQ_DESTINATION_CONSULTA_MORADIA}
+mp.messaging.incoming.LISTA_DADOS_CONTRATO.destination=${MQ_DESTINATION_DADOS_CONTRATO}
 
-# Log Configuration for Debugging Transactions
-quarkus.log.category."io.quarkus".level=ERROR
-quarkus.log.level=${QUARKUS_LOG_LEVEL}
-quarkus.log.category."org.hibernate".level=ERROR
-quarkus.log.category."org.hibernate.SQL".min-level=ERROR
-quarkus.log.category."org.jboss.res-teasy".level=ERROR
-quarkus.log.category."com.arjuna.ats.jta".level=ERROR
-quarkus.log.category."io.agroal.narayana".level=ERROR
-
-# SmallRye Config - Ler secrets dos arquivos do BeyondTrust
-smallrye.config.source.file.locations=${SMALLRYE_CONFIG_SOURCE_FILE_LOCATIONS}
-
-# REST Client Configuration
-api.key=${API_KEY}
-
-siico.api.publica.url=https://api.des.caixa:8443/informacoes-corporativas-publicas/
-br.gov.caixa.sisgf.api.restclient.informacoescorporativaspublica.InformacoesCorporativaPublicaService/mp-rest/url=${siico.api.publica.url}
-br.gov.caixa.sisgf.api.restclient.informacoescorporativaspublica.InformacoesCorporativaPublicaService/mp-rest/scope=jakarta.inject.Singleton
-
-siico.api.privada.url=https://api.des.caixa:8443/informacoes-corporativas-privadas/
-br.gov.caixa.sisgf.api.restclient.informacoescorporativasprivada.InformacoesCorporativaPrivadaService/mp-rest/url=${siico.api.privada.url}
-br.gov.caixa.sisgf.api.restclient.informacoescorporativasprivada.InformacoesCorporativaPrivadaService/mp-rest/scope=jakarta.inject.Singleton
-
-sinaf.api.evento.url=https://api.des.caixa:8443/sinaf-api-evento
-br.gov.caixa.sisgf.api.restclient.sinafapievento.SinafApiEventoService/mp-rest/url=${sinaf.api.evento.url}
-br.gov.caixa.sisgf.api.restclient.sinafapievento.SinafApiEventoService/mp-rest/scope=jakarta.inject.Singleton
-
-sisgf.api.url=http://localhost:8060/financeiro-beneficios/faturamento/
-br.gov.caixa.sisgf.api.restclient.sisgf.sisgfapi.SISGFApi/mp-rest/url=${sisgf.api.url}
-br.gov.caixa.sisgf.api.restclient.sisgf.sisgfapi.SISGFApi/mp-rest/scope=jakarta.inject.Singleton
-
-sisgf.batch.url=http://localhost:8070/financeiro-beneficios/faturamento/
-br.gov.caixa.sisgf.api.restclient.sisgf.sisgfbatch.SISGFBatch/mp-rest/url=${sisgf.batch.url}
-br.gov.caixa.sisgf.api.restclient.sisgf.sisgfbatch.SISGFBatch/mp-rest/scope=jakarta.inject.Singleton
-
-sisgf.batch.unidades.url=http://localhost:8050
-br.gov.caixa.sisgf.api.restclient.sisgf.sisgfbatchunidade.SISGFBatchUnidades/mp-rest/url=${sisgf.batch.unidades.url}
-br.gov.caixa.sisgf.api.restclient.sisgf.sisgfbatchunidade.SISGFBatchUnidades/mp-rest/scope=jakarta.inject.Singleton
-
-# Database Configuration for SIICO
-db2.siico.url=jdbc:db2://10.216.80.110:448/RJKDB2DSD0
-db2.siico.username=${DATASOURCE_DB2_USERNAME}
-db2.siico.password=${DATASOURCE_DB2_PASSWORD}
-db2.siico.schema=ICO
-
-# Narayana Transaction Manager Configuration
-quarkus.transaction-manager.enable-recovery=true
-quarkus.transaction-manager.recovery-interval=600
-quarkus.transaction-manager.default-timeout=600
-
-# Hibernate XA
-quarkus.hibernate-orm.transaction.jta-data-source=java:/jdbc/siico
-quarkus.hibernate-orm.transaction.coordinator-strategy=jdbc
-
-# Database Configuration for SIGF (Oracle)
-quarkus.datasource.db-kind=oracle
-quarkus.datasource.jdbc.driver=oracle.jdbc.driver.OracleDriver
-quarkus.datasource.db-version=12.2.0
-quarkus.datasource.jdbc.url=jdbc:oracle:thin:@10.116.101.7:1521/ORAD01SC
-quarkus.datasource.username=${DATASOURCE_ORACLE_USERNAME}
-quarkus.datasource.password=${DATASOURCE_ORACLE_PASSWORD}
-quarkus.datasource.xa=true
-quarkus.datasource.jdbc.max-size=40
-quarkus.datasource.jdbc.xa-datasource-class=oracle.jdbc.xa.client.OracleXADataSource
-
-# Persistence Configuration for SIGF
-quarkus.hibernate-orm.dialect=org.hibernate.dialect.OracleDialect
-quarkus.hibernate-orm.packages=br.gov.caixa.sisgf.api.domain.model
-quarkus.hibernate-orm.log.bind-parameters=true
-quarkus.hibernate-orm.log.sql=true
-quarkus.hibernate-orm.database.default-schema=SGF
-quarkus.hibernate-orm.validate-in-dev-mode=false
-
-# Database Configuration for SIICO (DB2)
-quarkus.datasource."siico".db-kind=db2
-quarkus.datasource."siico".jdbc.driver=com.ibm.db2.jcc.DB2Driver
-quarkus.datasource."siico".jdbc.url=${db2.siico.url}
-quarkus.datasource."siico".username=${db2.siico.username}
-quarkus.datasource."siico".password=${db2.siico.password}
-quarkus.datasource."siico".jdbc.max-size=20
-quarkus.datasource."siico".jdbc.min-size=5
-quarkus.datasource."siico".xa=true
-quarkus.datasource."siico".jdbc.xa-datasource-class=com.ibm.db2.jcc.DB2XADataSource
-
-# Persistence Configuration for SIICO
-quarkus.hibernate-orm."siico".dialect=br.gov.caixa.sisgf.api.utils.DB2ZOSDialect
-quarkus.hibernate-orm."siico".packages=br.gov.caixa.siico.api.domain.model
-quarkus.hibernate-orm."siico".log.bind-parameters=true
-quarkus.hibernate-orm."siico".log.sql=true
-quarkus.hibernate-orm."siico".database.default-schema=${db2.siico.schema}
-quarkus.hibernate-orm."siico".datasource=siico
-quarkus.hibernate-orm."siico".validate-in-dev-mode=false
-
-# Configuracao envio de email
-quarkus.mailer.auth-methods=mailerDIGEST-MD5 CRAM-SHA256 CRAM-SHA1 CRAM-MD5
-quarkus.mailer.from=${MAILER_FROM}
-quarkus.mailer.host=${MAILER_HOST}
-quarkus.mailer.port=${MAILER_PORT}
-quarkus.mailer.ssl=false
-destinatarios.email=${MAILER_DESTINATARIOS}
-.
+# Configuracao do ConnectionFactory que sera usado por cada Canal
+mp.messaging.incoming.LISTA_CONTA_OPTANTE.connection-factory-name=${MQ_CONNECTION_FACTORY_NAME}
+mp.messaging.incoming.LISTA_CONTA_EXTRATO.connection-factory-name=${MQ_CONNECTION_FACTORY_NAME}
+#mp.messaging.incoming.CONSULTA_MORADIA.connection-factory-name=${MQ_CONNECTION_FACTORY_NAME}
 
 
-
-
-POX.XML
-
-
-<?xml version="1.0" encoding="UTF-8"?>
-<project
-		xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
-https://maven.apache.org/xsd/maven-4.0.0.xsd"
-		xmlns="http://maven.apache.org/POM/4.0.0"
-		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>br.gov.caixa.sisgf.backend</groupId>
-	<artifactId>sisgf-backend</artifactId>
-	<version>11.01.01.01</version>
-	<properties>
-		<compiler-plugin.version>3.13.0</compiler-plugin.version>
-		<surefire-plugin.version>3.13.0</surefire-plugin.version>
-		<quarkus.platform.version>3.13.0</quarkus.platform.version>
-		<maven.compiler.release>17</maven.compiler.release>
-		<maven.compiler.source>17</maven.compiler.source>
-		<maven.compiler.target>17</maven.compiler.target>
-		<maven.compiler.parameters>true</maven.compiler.parameters>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<quarkus-plugin.version>3.13.0</quarkus-plugin.version>
-		<quarkus.platform.artifact-id>quarkus-bom</quarkus.platform.artifact-id>
-		<quarkus.platform.group-id>io.quarkus.platform</quarkus.platform.group-id>
-	</properties>
-	<dependencyManagement>
-		<dependencies>
-			<dependency>
-				<groupId>${quarkus.platform.group-id}</groupId>
-				<artifactId>${quarkus.platform.artifact-id}</artifactId>
-				<version>${quarkus.platform.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
-	<dependencies>
-		<!-- Database Dependencies -->
-		<dependency>
-			<groupId>com.oracle.database.jdbc</groupId>
-			<artifactId>ojdbc8</artifactId>
-			<version>12.2.0.1</version>
-		</dependency>
-		<dependency>
-			<groupId>com.ibm.db2</groupId>
-			<artifactId>jcc</artifactId>
-			<version>11.5.6.0</version>
-		</dependency>
-		<!-- Quarkus Dependencies -->
-		<dependency>
-			<groupId>io.quarkus</groupId>
-			<artifactId>quarkus-oidc</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>io.quarkus</groupId>
-			<artifactId>quarkus-keycloak-authorization</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>io.quarkus</groupId>
-			<artifactId>quarkus-hibernate-orm-panache</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>io.quarkus</groupId>
-			<artifactId>quarkus-container-image-docker</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>io.quarkus</groupId>
-			<artifactId>quarkus-rest</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>io.quarkus</groupId>
-			<artifactId>quarkus-rest-jackson</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>io.quarkus</groupId>
-			<artifactId>quarkus-rest-client</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>io.quarkus</groupId>
-			<artifactId>quarkus-rest-client-jackson</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>io.quarkus</groupId>
-			<artifactId>quarkus-spring-data-jpa</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>io.quarkus</groupId>
-			<artifactId>quarkus-narayana-jta</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>io.quarkus</groupId>
-			<artifactId>quarkus-spring-web</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>io.quarkus</groupId>
-			<artifactId>quarkus-spring-security</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>io.quarkus</groupId>
-			<artifactId>quarkus-elytron-security-properties-file</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>io.quarkus</groupId>
-			<artifactId>quarkus-security-jpa</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>io.quarkus</groupId>
-			<artifactId>quarkus-smallrye-health</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>io.quarkus</groupId>
-			<artifactId>quarkus-smallrye-jwt</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>io.quarkus</groupId>
-			<artifactId>quarkus-smallrye-fault-tolerance</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>io.quarkus</groupId>
-			<artifactId>quarkus-smallrye-metrics</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>io.quarkus</groupId>
-			<artifactId>quarkus-smallrye-openapi</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>io.quarkus</groupId>
-			<artifactId>quarkus-arc</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>io.quarkus</groupId>
-			<artifactId>quarkus-spring-cache</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>io.quarkus</groupId>
-			<artifactId>quarkus-spring-di</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>io.quarkus</groupId>
-			<artifactId>quarkus-undertow</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>io.quarkus</groupId>
-			<artifactId>quarkus-scheduler</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>io.quarkus</groupId>
-			<artifactId>quarkus-mailer</artifactId>
-		</dependency>
-		<!-- Test Dependencies -->
-		<dependency>
-			<groupId>io.quarkus</groupId>
-			<artifactId>quarkus-junit5</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>io.quarkus</groupId>
-			<artifactId>quarkus-junit5-mockito</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>io.quarkus</groupId>
-			<artifactId>quarkus-test-security</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.mockito</groupId>
-			<artifactId>mockito-core</artifactId>
-			<version>5.12.0</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>io.rest-assured</groupId>
-			<artifactId>rest-assured</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<!-- JAXB Dependencies -->
-		<dependency>
-			<groupId>io.quarkus</groupId>
-			<artifactId>quarkus-jaxb</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>jakarta.xml.bind</groupId>
-			<artifactId>jakarta.xml.bind-api</artifactId>
-			<version>3.0.1</version>
-		</dependency>
-		<dependency>
-			<groupId>org.glassfish.jaxb</groupId>
-			<artifactId>jaxb-runtime</artifactId>
-			<version>3.0.1</version>
-		</dependency>
-		<dependency>
-			<groupId>jakarta.activation</groupId>
-			<artifactId>jakarta.activation-api</artifactId>
-			<version>2.0.0</version>
-		</dependency>
-		<!-- Additional Dependencies -->
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<version>1.18.28</version>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.modelmapper</groupId>
-			<artifactId>modelmapper</artifactId>
-			<version>2.3.0</version>
-		</dependency>
-		<dependency>
-			<groupId>com.google.code.gson</groupId>
-			<artifactId>gson</artifactId>
-			<version>2.10</version>
-		</dependency>
-		<dependency>
-			<groupId>io.smallrye.config</groupId>
-			<artifactId>smallrye-config-source-file-system</artifactId>
-			<version>3.13.2</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.docx4j</groupId>
-			<artifactId>docx4j-core</artifactId>
-			<version>11.4.11</version>
-			<exclusions>
-				<exclusion>
-					<groupId>javax.xml.bind</groupId>
-					<artifactId>jaxb-api</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		<dependency>
-			<groupId>org.docx4j</groupId>
-			<artifactId>docx4j-JAXB-ReferenceImpl</artifactId>
-			<version>11.4.11</version>
-		</dependency>
-		<dependency>
-			<groupId>xerces</groupId>
-			<artifactId>xercesImpl</artifactId>
-			<version>2.12.0</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.poi</groupId>
-			<artifactId>poi-ooxml</artifactId>
-			<version>5.0.0</version>
-		</dependency>
-		<dependency>
-			<groupId>com.itextpdf</groupId>
-			<artifactId>itextpdf</artifactId>
-			<version>5.3.4</version>
-		</dependency>
-		<dependency>
-			<groupId>stax</groupId>
-			<artifactId>stax</artifactId>
-			<version>1.2.0</version>
-		</dependency>
-		<!-- Application Insights Agent - CORRIGIDO para versão 3.3.1 -->
-		<dependency>
-			<groupId>com.microsoft.azure</groupId>
-			<artifactId>applicationinsights-agent</artifactId>
-			<version>3.3.1</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.commons</groupId>
-			<artifactId>commons-csv</artifactId>
-			<version>1.10.0</version>
-		</dependency>
-	</dependencies>
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>${quarkus.platform.group-id}</groupId>
-				<artifactId>quarkus-maven-plugin</artifactId>
-				<version>${quarkus-plugin.version}</version>
-				<extensions>true</extensions>
-				<executions>
-					<execution>
-						<goals>
-							<goal>build</goal>
-							<goal>generate-code</goal>
-							<goal>generate-code-tests</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>${compiler-plugin.version}</version>
-			</plugin>
-			<plugin>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<version>3.3.0</version>
-				<configuration>
-					<systemPropertyVariables>
-						<java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
-						<quarkus.log.level>DEBUG</quarkus.log.level>
-						<maven.home>${maven.home}</maven.home>
-					</systemPropertyVariables>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.sonarsource.scanner.maven</groupId>
-				<artifactId>sonar-maven-plugin</artifactId>
-				<version>3.9.0.2155</version>
-			</plugin>
-			<plugin>
-				<groupId>org.jacoco</groupId>
-				<artifactId>jacoco-maven-plugin</artifactId>
-				<version>0.8.8</version>
-				<configuration>
-					<append>true</append>
-				</configuration>
-				<executions>
-					<execution>
-						<goals>
-							<goal>prepare-agent</goal>
-						</goals>
-					</execution>
-					<execution>
-						<id>post-unit-test</id>
-						<phase>test</phase>
-						<goals>
-							<goal>report</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-			<!-- Plugin para copiar Application Insights Agent JAR para lib/main/ -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-dependency-plugin</artifactId>
-				<version>3.5.0</version>
-				<executions>
-					<execution>
-						<phase>prepare-package</phase>
-						<goals>
-							<goal>copy</goal>
-						</goals>
-						<configuration>
-							<artifactItems>
-								<artifactItem>
-									<groupId>com.microsoft.azure</groupId>
-									<artifactId>applicationinsights-agent</artifactId>
-									<version>3.3.1</version>
-									<destFileName>com.microsoft.azure.applicationinsights-agent-3.3.1.jar</destFileName>
-									<outputDirectory>${project.build.directory}/quarkus-app/lib/main</outputDirectory>
-								</artifactItem>
-							</artifactItems>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-		</plugins>
-		<pluginManagement>
-			<plugins>
-				<!-- This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself. -->
-				<plugin>
-					<groupId>org.eclipse.m2e</groupId>
-					<artifactId>lifecycle-mapping</artifactId>
-					<version>1.0.0</version>
-					<configuration>
-						<lifecycleMappingMetadata>
-							<pluginExecutions>
-								<pluginExecution>
-									<pluginExecutionFilter>
-										<groupId>io.quarkus</groupId>
-										<artifactId>quarkus-maven-plugin</artifactId>
-										<versionRange>[2.13.2.Final,)</versionRange>
-										<goals>
-											<goal>build</goal>
-											<goal>generate-code</goal>
-											<goal>generate-code-tests</goal>
-										</goals>
-									</pluginExecutionFilter>
-									<action>
-										<ignore></ignore>
-									</action>
-								</pluginExecution>
-							</pluginExecutions>
-						</lifecycleMappingMetadata>
-					</configuration>
-				</plugin>
-			</plugins>
-		</pluginManagement>
-	</build>
-	<profiles>
-		<profile>
-			<id>native</id>
-			<activation>
-				<property>
-					<name>native</name>
-				</property>
-			</activation>
-			<build>
-				<plugins>
-					<plugin>
-						<artifactId>maven-failsafe-plugin</artifactId>
-						<version>${surefire-plugin.version}</version>
-						<executions>
-							<execution>
-								<goals>
-									<goal>integration-test</goal>
-									<goal>verify</goal>
-								</goals>
-								<configuration>
-									<systemPropertyVariables>
-										<native.image.path>${project.build.directory}/${project.build.finalName}-runner</native.image.path>
-										<java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
-										<maven.home>${maven.home}</maven.home>
-									</systemPropertyVariables>
-								</configuration>
-							</execution>
-						</executions>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-	</profiles>
-</project>
-
-
-sO LEMBRESE QUE SAO SISTEMAS DIFERNESTE COM VERSO DIFERENTES NAO VAI MISTURAR AS OCIASA E BAGUNÇAS A MIHNHA VIDA
 
