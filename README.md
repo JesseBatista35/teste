@@ -1,176 +1,43 @@
+o mavem esta com essas advertencias
 
 
-
-#PORTA
-quarkus.http.port=8898
-
-#CONFIG CORS
-quarkus.http.cors=true
-#quarkus.http.cors.origins=http://siopm-frontend-des-esteiras.nprd2.caixa
-#quarkus.http.cors.origins=https://login.des.caixa/auth/realms/intranet
-
-#SSO-Keycloak
-#quarkus.oidc.auth-server-url=https://login.des.caixa/auth/realms/intranet/protocol/openid-connect/token
-#quarkus.oidc.client-id=cli-ser-fug
-#quarkus.oidc.credentials.secret=c606765c-2dee-4d91-a5f2-34eb4e2fee43
-
-
-
-#########################################################################################################
-#                                       DATABASE e CRUD exemplo	            							#
-#########################################################################################################
-#           Antes de iniciar ... comentar as linhas abaixo e deletar todas classes ClientXXX            # 
-#                                                                                                       #
-												
-#																										
-#########################################################################################################
-
-#BD: DB2
-db2.schema=FUG
-
-quarkus.datasource.db2.jdbc.driver=com.ibm.db2.jcc.DB2Driver
-quarkus.datasource.db2.db-kind=db2
-quarkus.datasource.db2.username=${DATASOURCE_DB2_USERNAME}
-quarkus.datasource.db2.password=${DATASOURCE_DB2_PASSWORD}
-quarkus.datasource.db2.jdbc.url=${DATASOURCE_DB2_JDBC_URL}
-
-#BD: IDMS CONSULTA
-#quarkus.datasource.consulta.jdbc.driver=ca.idms.jdbc.IdmsJdbcDriver
-#quarkus.datasource.consulta.db-kind=consulta
-#quarkus.datasource.consulta.jdbc.url=${DATASOURCE_CONSULTA_JDBC_URL}
-#quarkus.datasource.consulta.username=${DATASOURCE_CONSULTA_USERNAME}
-#quarkus.datasource.consulta.password=${DATASOURCE_CONSULTA_PASSWORD}
-
-#BD: IDMS CONSULTA PEF
-quarkus.datasource.consultapef.jdbc.driver=ca.idms.jdbc.IdmsJdbcDriver
-quarkus.datasource.consultapef.db-kind=consultapef
-quarkus.datasource.consultapef.jdbc.url=${DATASOURCE_CONSULTAPEF_JDBC_URL}
-quarkus.datasource.consultapef.username=${DATASOURCE_CONSULTAPEF_USERNAME}
-quarkus.datasource.consultapef.password=${DATASOURCE_CONSULTAPEF_PASSWORD}
-
-chave.publica.sso.internet=${KEY_TOKEN_INTERNET}
-chave.publica.sso.intranet=${KEY_TOKEN_INTRANET}
-chave.token.caixatem=${KEY_TOKEN_CAIXA_TEM}
-
-
-idms.codigo.dialogo=${KEY_CODIGO_IDMS_DIALOGO}
-idms.sureg=${KEY_IDMS_SUREG}
-#idms.alias.base=${KEY_IDMS_ALIAS_BASE}
-
-####################################### TEST MOCKITO/JUNIT###############################################
-
-%test.chave.token.caixatem=MOCK_TOKEN_CAIXA_TEM
-%test.chave.publica.sso.internet=MOCK_TOKEN_SSO_INTRANET
-%test.chave.publica.sso.intranet=MOCK_TOKEN_SSO_INTERNET
-
-quarkus.http.test-port=8083
-quarkus.http.test-ssl-port=8446
-
-%test.quarkus.datasource.consultapef.jdbc.driver=ca.idms.jdbc.IdmsJdbcDriver
-%test.quarkus.datasource.consultapef.db-kind=consultaPefIdms
-%test.quarkus.datasource.consultapef.jdbc.url=MOCK_URL
-%test.quarkus.datasource.consultapef.username=MOCK_USER_NAME
-%test.quarkus.datasource.consultapef.password=${DATASOURCE_CONSULTAPEF_PASSWORD}
-
-%test.quarkus.datasource.db2.jdbc.driver=com.ibm.db2.jcc.DB2Driver
-%test.quarkus.datasource.db2.db-kind=db2
-%test.quarkus.datasource.db2.jdbc.url=MOCK_URL
-%test.quarkus.datasource.db2.username=MOCK_USER_NAME
-%test.quarkus.datasource.db2.password=${DATASOURCE_DB2_PASSWORD}
-
-%test.quarkus.datasource.consulta.jdbc.driver=ca.idms.jdbc.IdmsJdbcDriver
-%test.quarkus.datasource.consulta.db-kind=consultaIdms
-%test.quarkus.datasource.consulta.jdbc.url==MOCK_URL
-%test.quarkus.datasource.consulta.username=MOCK_USER_NAME
-%test.quarkus.datasource.consulta.password=${DATASOURCE_CONSULTA_PASSWORD}
-%test.quarkus.log.level=ERROR
-
-%test.idms.codigo.dialogo=515
-%test.idms.sureg=TA
-%test.idms.alias.base=PEF
-
-
-#######################################FIM ################################################################
-
-
-#########################################################################################################
-
-# Swagger-ui
-quarkus.swagger-ui.path=/swagger-ui
-quarkus.swagger-ui.always-include=true
-quarkus.swagger-ui.enable=true
-quarkus.swagger-ui.theme=material
-#original, feeling-blue, flattop, material, monokai, muted, newspaper, outline
-
-# LOG
-quarkus.log.level=${LEVEL_LOG_APP}
-quarkus.log.console.enable=true
-quarkus.log.file.enable=true
-quarkus.log.category."io.quarkus.smallrye".level=INFO
-quarkus.log.category."io.quarkus".level=INFO
-smallrye.config.source.file.locations=/usr/src/app/secrets_files/SIOFG_DES/
-
-############################
-#### API MANAGER CONFIG ####
-############################
-
-# Caixa API Manager
-#api.manager.url=https://api.des.caixa:8443/
-api.manager.key=l7cf7839a6152c496da545ec6d05789810
-
-#############################
-#### INTERFACES EXTERNAS ####
-#############################
-
-# SIISO
-#siiso-api.url=${SIISO_URL}
-#siiso-api.manager.url=${api.manager.url}informacoes-sociais/
-#siiso-api/mp-rest/url=${siiso-api.manager.url:${siiso-api.url}}
-#siiso-api/mp-rest/scope=javax.inject.Singleton
-#%dev.siiso-api/mp-rest/trustStore=${truststore.file}
-#%dev.siiso-api/mp-rest/trustStorePassword=${truststore.password}
-#%dev.siiso-api/mp-rest/trustStoreFileType=JKS
-quarkus.smallrye-jwt.enabled=false
-#quarkus.resteasy.path=/
-#mp.jwt.verify.issuer=https://logindes.caixa.gov.br/auth/realms/internet
-
-#############################
-#### IBM MQ ####
-#############################
-
-quarkus.siofg.ibm.mq.host=${DATASOURCE_MQ_HOST}
-quarkus.siofg.ibm.mq.port=${DATASOURCE_MQ_PORT}
-quarkus.siofg.ibm.mq.qmgr=${DATASOURCE_MQ_QMGR}
-quarkus.siofg.ibm.mq.channel=${DATASOURCE_MQ_CHANNEL}
-quarkus.siofg.ibm.mq.user=${DATASOURCE_MQ_USERNAME}
-quarkus.siofg.ibm.mq.password=${QUARKUS_SIOFG_IBM_MQ_PASSWORD}
-
-# Habilita o uso do smallrye-reactive-messaging-jms no Quarkus
-quarkus.index-dependency.smallrye-jms.group-id=io.smallrye.reactive
-quarkus.index-dependency.smallrye-jms.artifact-id=smallrye-reactive-messaging-jms
-
-mp.messaging.incoming.LISTA_CONTA.connector=smallrye-jms
-mp.messaging.incoming.LISTA_CONTA.destination-type=queue
-mp.messaging.incoming.LISTA_CONTA_OPTANTE.connector=smallrye-jms
-mp.messaging.incoming.LISTA_CONTA_OPTANTE.destination-type=queue
-mp.messaging.incoming.LISTA_CONTA_EXTRATO.connector=smallrye-jms
-mp.messaging.incoming.LISTA_CONTA_EXTRATO.destination-type=queue
-mp.messaging.incoming.LISTA_DADOS_CONTRATO.connector=smallrye-jms
-mp.messaging.incoming.LISTA_DADOS_CONTRATO.destination-type=queue
-#mp.messaging.incoming.CONSULTA_MORADIA.connector=smallrye-jms
-#mp.messaging.incoming.CONSULTA_MORADIA.destination-type=queue
-
-# Configuracao dos nomes da filas
-mp.messaging.incoming.LISTA_CONTA.destination=${MQ_DESTINATION_LISTA_CONTA}
-mp.messaging.incoming.LISTA_CONTA_OPTANTE.destination=${MQ_DESTINATION_LISTA_CONTA_OPTANTE}
-mp.messaging.incoming.LISTA_CONTA_EXTRATO.destination=${MQ_DESTINATION_LISTA_CONTA_EXTRATO}
-#mp.messaging.incoming.CONSULTA_MORADIA.destination=${MQ_DESTINATION_CONSULTA_MORADIA}
-mp.messaging.incoming.LISTA_DADOS_CONTRATO.destination=${MQ_DESTINATION_DADOS_CONTRATO}
-
-# Configuracao do ConnectionFactory que sera usado por cada Canal
-mp.messaging.incoming.LISTA_CONTA_OPTANTE.connection-factory-name=${MQ_CONNECTION_FACTORY_NAME}
-mp.messaging.incoming.LISTA_CONTA_EXTRATO.connection-factory-name=${MQ_CONNECTION_FACTORY_NAME}
-#mp.messaging.incoming.CONSULTA_MORADIA.connection-factory-name=${MQ_CONNECTION_FACTORY_NAME}
-
-
-
+Starting: Maven
+==============================================================================
+Task         : Maven
+Description  : Build, test, and deploy with Apache Maven
+Version      : 3.225.0
+Author       : Microsoft Corporation
+Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/build/maven
+==============================================================================
+/opt/apache-maven/apache-maven-3.8.5/bin/mvn -version
+Apache Maven 3.8.5 (3599d3414f046de2324203b78ddcf9b5e4388aa0)
+Maven home: /opt/apache-maven/apache-maven-3.8.5
+Java version: 11, vendor: Oracle Corporation, runtime: /usr/java/open-jdk-11
+Default locale: pt_BR, platform encoding: UTF-8
+OS name: "linux", version: "3.10.0-957.10.1.el7.x86_64", arch: "amd64", family: "unix"
+/opt/apache-maven/apache-maven-3.8.5/bin/mvn -f /opt/ads-agent/_work/10540/s/sifug_siofg_api/pom.xml clean package -U
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for br.org.caixa:siofg-api:jar:1.0.0.1
+[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: io.quarkus:quarkus-smallrye-health:jar -> duplicate declaration of version (?) @ line 140, column 15
+[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: io.quarkus:quarkus-smallrye-openapi:jar -> duplicate declaration of version (?) @ line 144, column 15
+[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: io.quarkus:quarkus-resteasy-jsonb:jar -> duplicate declaration of version (?) @ line 148, column 15
+[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: io.quarkus:quarkus-junit5:jar -> duplicate declaration of version (?) @ line 251, column 15
+[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: io.rest-assured:rest-assured:jar -> duplicate declaration of version (?) @ line 291, column 15
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] 
+[INFO] -----------------------< br.org.caixa:siofg-api >-----------------------
+[INFO] Building siofg-api 1.0.0.1
+[INFO] --------------------------------[ jar ]---------------------------------
+Downloading from Nexus Caixa: http://binario.caixa:8081/repository/caixa-group-br/br/gov/caixa/sifug-core/01.06.00.002-build/sifug-core-01.06.00.002-build.pom
+[WARNING] The POM for br.gov.caixa:sifug-core:jar:01.06.00.002-build is missing, no dependency information available
+Downloading from Nexus Caixa: http://binario.caixa:8081/repository/caixa-group-br/br/gov/caixa/sifug-util/03.03.02.001-correcao/sifug-util-03.03.02.001-correcao.pom
+[WARNING] The POM for br.gov.caixa:sifug-util:jar:03.03.02.001-correcao is missing, no dependency information available
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ siofg-api ---
+[INFO] Deleting /opt/ads-agent/_work/10540/s/sifug_siofg_api/target
+[INFO] 
