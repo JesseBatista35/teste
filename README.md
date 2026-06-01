@@ -1,15 +1,26 @@
-Prezados,
+✅ **SICMU-intranet-update — Problema resolvido!**
 
-Devolvendo a W.O. para ajuste no BeyondTrust.
+**Ambiente:** DES (EC DES)
+**Release:** SICMU-intranet-update-78
+**Status:** Succeeded 🎉
 
-Contexto: o pod do SINEP-PDQ em TQS não inicializa. O sidecar de secrets falha na autenticação com o BeyondTrust com o erro "Failed to authenticate due to one or more authentication rules", na chamada ao endpoint https://sicsn.caixa/BeyondTrust/api/public/v3.
+---
 
-Importante: em DES está tudo funcionando. A configuração de TQS (grupo SINEP-PDQ-BT-VAULT-TQS) está exatamente igual à de DES — mesmo BT_CLIENT_ID e mesmo BT_SECRETS_LIST (SINEP_DES/...). Por isso entendemos que não é problema de senha, e sim de regra de autenticação que provavelmente só permite a origem de DES.
+**Problema identificado:**
+O JBoss EAP 7.4 estava falhando na inicialização com todos os deployments em status `FAILED`. A causa raiz era o arquivo de configuração `standalone-full-ha.xml` com dois problemas:
 
-Pedido:
-- Que a equipe valide com a Segurança a regra de autenticação dessa API Registration e libere a origem (rede/IP dos pods de TQS); ou
-- Que seja criada uma nova configuração específica para TQS (API Registration + regra de origem + secrets no caminho de TQS), já que hoje está apenas replicando a de DES.
+1. **JGroups/TCPPING mal configurado** — o protocolo de cluster TCP estava referenciando a variável `${jboss.cluster.tcp.initial_hosts}` que nunca foi fornecida ao servidor, impedindo a inicialização do subsistema de clustering e causando falha em cascata de 648 serviços dependentes.
 
-Qualquer informação adicional (logs, IDs, namespace) eu envio na hora.
+2. **Infinispan com `invalidation-cache` e `distributed-cache`** — os cache containers estavam configurados em modo distribuído/cluster, dependentes do JGroups que não subia.
 
-Obrigado.
+---
+
+**Solução aplicada:**
+- Corrigido o TCPPING para usar host local fixo `127.0.0.1[7600]` (modo standalone sem cluster real)
+- Convertidos todos os cache containers do Infinispan de `distributed-cache`/`invalidation-cache` para `local-cache`
+- Alterado o cache de sessão EJB stateful de `distributable` para `simple`
+- Arquivo corrigido no repositório `SICMU-intranet-update-config` para garantir persistência nas próximas releases
+
+---
+
+**Resultado:** JBoss iniciou com todos os deployments implantados com sucesso. Release passou em 4m 56s sem erros. 🚀
