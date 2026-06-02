@@ -1,29 +1,23 @@
-
+All pipelines
+
+SISAG
+
 SISAG-provisionamento-saque-backend
+Artifacts
 
-src
-main
-java
-resources
-relatorios
-application-development.yml
-application-production.yml
-application-test.yml
-application.yml
-test
-java
-br
-gov
-caixa
-sisag
-provisionamento
-api
-config
-SpringContextListenerTest.java
-service
-utils
-RunApplicationTest.java
-TestConfiguration.java
-.env
-.gitignore
-pom.xml
+Artifact
+Build - _SISAG-provisionamento-saque-backend
+Project
+Caixa
+Source (build pipeline)
+SISAG-provisionamento-saque-backend
+Default version
+Latest
+Source alias
+_SISAG-provisionamento-saque-backend
+
+No version is available for SISAG-provision
+Schedule not set
+Stages
+
+nao tem artefato de config nessa release
