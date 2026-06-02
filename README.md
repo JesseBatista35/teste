@@ -1,8 +1,45 @@
-Using project "default".
--sh-4.2$ oc project sifug-des
-Now using project "sifug-des" on server "https://api.nprd.caixa:6443".
--sh-4.2$ oc set env dc/sifug-siofg-api-des-des --list -n sifug-des | grep -i MXQD1
-Error from server (NotFound): deploymentconfigs.apps.openshift.io "sifug-siofg-api-des-des" not found
--sh-4.2$ oc set env dc/sifug-siofg-api-des --list -n sifug-des | grep -i MXQD1
+-sh-4.2$ oc set env dc/sifug-siofg-api-des --list -n sifug-des | grep -i XMQD1
+DATASOURCE_MQ_QMGR=XMQD1
+-sh-4.2$ oc set env dc/sifug-siofg-api-des --list -n sifug-des
+# deploymentconfigs/sifug-siofg-api-des, container sifug-siofg-api-des
+TZ=America/Sao_Paulo
+AMBIENTE=des
+APPLICATIONINSIGHTS_CONFIGURATION_CONTENT={"sampling":{"overrides":[{"telemetryType":"request","attributes":[{"key":"url.path","value":"^(\/q)?\/health\/.*","matchType":"regexp"}],"percentage":0}]}}
+APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=8148a712-eee7-4c41-95ef-5153b19d0497;IngestionEndpoint=https://southcentralus-3.in.applicationinsights.azure.com/;LiveEndpoint=https://southcentralus.livediagnostics.monitor.azure.com/
+APPLICATIONINSIGHTS_INSTRUMENTATION_LOGGING_LEVEL=INFO
+APPLICATIONINSIGHTS_PROXY=http://proxydes.caixa:80
+APPLICATIONINSIGHTS_ROLE_NAME=SIFUG-siofg-api-DES
+APPLICATIONINSIGHTS_SAMPLING_PERCENTAGE=100
+APPLICATIONINSIGHTS_SELF_DIAGNOSTICS_LEVEL=INFO
+DATASOURCE_CONSULTAPEF_JDBC_URL=jdbc:idms://10.216.80.110:3922/DSQLSFG
+DATASOURCE_CONSULTAPEF_PASSWORD=${SIFUG_DATASOURCE_02}
+DATASOURCE_CONSULTAPEF_USERNAME=SFUGDR02
+DATASOURCE_CONSULTA_JDBC_URL=jdbc:idms://10.216.80.110:3922/DSQLSFG
+DATASOURCE_CONSULTA_PASSWORD=${SIFUG_DATASOURCE_02}
+DATASOURCE_CONSULTA_USERNAME=SFUGDR02
+DATASOURCE_DB2_JDBC_URL=jdbc:db2://10.216.80.110:448/RJKDB2DSD0
+DATASOURCE_DB2_PASSWORD=${SIFUG_DATASOURCE_02}
+DATASOURCE_DB2_USERNAME=SFUGDR15
+DATASOURCE_MQ_CHANNEL=SIOFG.SVRCONN
+DATASOURCE_MQ_HOST=10.116.95.99
+DATASOURCE_MQ_PORT=1414
+DATASOURCE_MQ_QMGR=XMQD1
+DATASOURCE_MQ_USERNAME=SPFUGDB1
+HTTPS_PROXY=http://proxydes.caixa:80
+JAVA_OPTIONS_APPEND=-Djavax.net.ssl.trustStore=/deployments/caixa-truststore-acteste-nprd.jks -javaagent:/deployments/lib/main/com.microsoft.azure.applicationinsights-agent-3.3.1.jar
+KEY_CODIGO_IDMS_DIALOGO=515
+KEY_IDMS_ALIAS_BASE=PEF
+KEY_IDMS_SUREG=TA
+KEY_TOKEN_CAIXA_TEM=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzcYY/UbvrEldbQRd4TgLeP9bS8YnaL67MZUsfozWRyocBF3S0L7UEbkPaPoCoBnhoRv8VJHp0grqe3mqEmkMuDlt20Vx6q04ADDyS0c8xaU+Ot+g1Pgwjze944ATUjZogEMko6jvqqUGTt/Nt64yCCIaMaTB119vOBExQim7vPHNe/o7hLxh6VBYINxFA/esxjz8j28/uJWIiK0Gvt07Yx7ycn2DJlQHjnH2GzCSUL87AAYmjyYxW2JZaPLLvRlpcHIWrlr9GNtLiq0++xfJ0jFYxQWs1jxhlfXdqr8NE5vfA/RRRjRFnWzFOhIsOnIHPO9eEwwYzCZSoW2zXkFDYwIDAQAB
+KEY_TOKEN_INTERNET=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxz8PNmiUW5J1669pWY0APB4flqqDnghAv/QV5DIHyXE39fj9u1DPXbgfDUhUfK0i/B0CHJukbI44Rgo/vuhCMImTnLjS49XuTH6GI4lU/CtdzE/qACMO/GUky73m0Uszo2Bh1wNV+fvw/mMQVAGKj6/qXjSB9npRZKydoXnwGPIepcrqF6KkMJIFtZ+0w35J9SYwgLNezUbAJgs9dq3yMj4ussSfxMFcUC9UKziJJSg0UQfl0fOQGMsrsnUbS2GgXeDqdskbZq9/wfL0ikU2pWf0hKjX+PXtqZI0SVWurVyydc0efbTE7qIlrwF8lWZ8NZ8zcV2oVk7TjoIktZ4zBwIDAQAB
+KEY_TOKEN_INTRANET=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzcYY/UbvrEldbQRd4TgLeP9bS8YnaL67MZUsfozWRyocBF3S0L7UEbkPaPoCoBnhoRv8VJHp0grqe3mqEmkMuDlt20Vx6q04ADDyS0c8xaU+Ot+g1Pgwjze944ATUjZogEMko6jvqqUGTt/Nt64yCCIaMaTB119vOBExQim7vPHNe/o7hLxh6VBYINxFA/esxjz8j28/uJWIiK0Gvt07Yx7ycn2DJlQHjnH2GzCSUL87AAYmjyYxW2JZaPLLvRlpcHIWrlr9GNtLiq0++xfJ0jFYxQWs1jxhlfXdqr8NE5vfA/RRRjRFnWzFOhIsOnIHPO9eEwwYzCZSoW2zXkFDYwIDAQAB
+LEVEL_LOG_APP=DEBUG
+MQ_CONNECTION_FACTORY_NAME=siofg
+MQ_DESTINATION_DADOS_CONTRATO=LQ.REQ.SIFUG.LISTA_CONTA_CONTRATO
+MQ_DESTINATION_LISTA_CONTA=LQ.REQ.SIFUG.LISTA_CONTA
+MQ_DESTINATION_LISTA_CONTA_EXTRATO=LQ.REQ.SIFUG.LISTA_CONTA_EXTRATO
+MQ_DESTINATION_LISTA_CONTA_OPTANTE=LQ.REQ.SIFUG.LISTA_CONTA_OPTANTE
+NO_PROXY=*.caixa,*.caixa.gov.br,*.applicationinsights.azure.com,*.livediagnostics.monitor.azure.com
+# QUARKUS_SIOFG_IBM_MQ_PASSWORD from secret sifug-siofg-api-des, key QUARKUS_SIOFG_IBM_MQ_PASSWORD
+# SMALLRYE_CONFIG_SOURCE_FILE_LOCATIONS from secret sifug-siofg-api-des, key SMALLRYE_CONFIG_SOURCE_FILE_LOCATIONS
 -sh-4.2$
-
