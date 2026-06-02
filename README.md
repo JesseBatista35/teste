@@ -1,23 +1,67 @@
+SISOU-SAC-OKD-DES (14)
+Grupo de variáveis de SISOU-SAC-OKD-DES
 
--sh-4.2$ sed -n '1,50p' /tmp/sac.conf | tail -20
-#
-# Specify the exact Java VM executable to use.
-#
-#JAVA=""
+Scopes: EC DES
+DATASOURCE_CONNECTION_URL
+jdbc:oracle:thin:@cnpexdadvm01-scan4.extra.caixa.gov.br:1521/orad01ng
+DATASOURCE_JNDI_NAME
+java:/jdbc/OracleSisouDS
+DATASOURCE_MAX_POOL_SIZE
+5
+DATASOURCE_MIN_POOL_SIZE
+1
+DATASOURCE_PASSWORD
+********
+DATASOURCE_POOL_NAME
+jdbc/OracleSisouDS
+DATASOURCE_USER_NAME
+SSOUDB03
+JVM_HEAP_MAX
+2048m
+JVM_HEAP_MIN
+1024m
+JVM_METASPACE_MAX
+512m
+JVM_METASPACE_MIN
+96m
+JVM_PROXY_HOST
+proxydes.caixa
+JVM_PROXY_PORT
+80
+PASSWORD_TRUSTSTORE
+changeit
 
-if [ "x$JBOSS_MODULES_SYSTEM_PKGS" = "x" ]; then
-  $JBOSS_MODULES_SYSTEM_PKGS="org.jboss.byteman"
-fi
 
-# Uncomment the following line to prevent manipulation of JVM options
-# by shell scripts.
-#
-#PRESERVE_JAVA_OPTS=true
 
-#
-# Specify options to pass to the Java VM.
-#
-if [ "x$JAVA_OPTS" = "x" ]; then
-   JAVA_OPTS="-Xms1024m -Xmx2048m -XX:MetaspaceSize=96m -XX:MaxMetaspaceSize=512m -Djava.net.preferIPv4Stack=true"
-   JAVA_OPTS="$JAVA_OPTS -Djboss.modules.system.pkgs=$JBOSS_MODULES_SYSTEM_PKGS -Djava.awt.headless=true"
--sh-4.2$
+SISOU-VIVAVOZ-OKD-DES (14)
+Grupo de variáveis de SISOU-VIVAVOZ-OKD-DES
+
+Scopes: EC DES,HOTFIX
+DATASOURCE_CONNECTION_URL
+jdbc:oracle:thin:@cnpexdadvm01-scan4.extra.caixa.gov.br:1521/orad01ng
+DATASOURCE_JNDI_NAME
+java:/jdbc/OracleSisouDS
+DATASOURCE_MAX_POOL_SIZE
+5
+DATASOURCE_MIN_POOL_SIZE
+1
+DATASOURCE_PASSWORD
+********
+DATASOURCE_POOL_NAME
+jdbc/OracleSisouDS
+DATASOURCE_USER_NAME
+SSOUDB03
+JVM_HEAP_MAX
+2048m
+JVM_HEAP_MIN
+1024m
+JVM_METASPACE_MAX
+512m
+JVM_METASPACE_MIN
+96m
+JVM_PROXY_HOST
+proxydes.caixa
+JVM_PROXY_PORT
+80
+PASSWORD_TRUSTSTORE
+changeit
