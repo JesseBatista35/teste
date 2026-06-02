@@ -1,6 +1,17 @@
-A imagem base (builder image) é quem faz as substituições, não o código.
-Procura qual é a imagem base do vivavoz:
-bashoc get bc sisou-vivavoz-okd-des -n sisou-des -o yaml | grep -i "from\|image"
-E do sac para comparar:
-bashoc get bc sisou-sac-okd-des -n sisou-des -o yaml | grep -i "from\|image"
-Me passa os resultados.
+
+-sh-4.2$ get bc
+-sh: get: comando não encontrado
+-sh-4.2$ oc get bc sisou-vivavoz-okd-des -n sisou-des -o yaml | grep -i "from\|image
+>
+>
+>
+>
+>
+>
+> ^C
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$ oc get bc sisou-sac-okd-des -n sisou-des -o yaml | grep -i "from\|image"
+Error from server (NotFound): buildconfigs.build.openshift.io "sisou-sac-okd-des" not found
+-sh-4.2$
