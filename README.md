@@ -117,3 +117,9 @@ Max open files            350000               350000               files
 -sh-4.2$ mkdir -p ~/coleta_limites
 -sh-4.2$
 
+
+
+-sh-4.2$ ls -lah ~/coleta_cbrpcapllx101*
+-rw-r--r-- 1 p585600 usucef 2.7K Jun  2 16:44 /home/p585600/coleta_cbrpcapllx101.intra.caixa.gov.br_02062026.txt
+-sh-4.2$
+
