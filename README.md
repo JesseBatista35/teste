@@ -1,64 +1,23 @@
-### Validacao Limit (Servidor cbrpcapllx218.intra.caixa.gov.br) ###
+COLETA CONCLUIDA COM SUCESSO
+Data: 02/06/2026
+Servidores Coletados:
 
-$ date
-Tue Jun  2 17:02:14 -03 2026
+cbrpcapllx101 (10.120.71.12)
+cbrpcapllx100 (10.120.71.11)
+cbrpcapllx216 (10.120.72.56)
+cbrpcapllx218 (10.120.72.58)
 
-### limits.conf ###
+Localizacao dos Arquivos:
+Os 4 arquivos de coleta estao disponiveis em ~/coleta_cbrpcapllxXXX_02062026.txt
+Observacao Importante:
+Nao foi possivel salvar em /tmp/ devido a restricao de permissoes. Arquivos foram salvos no diretorio home do usuario com sucesso.
+Dados Coletados:
 
-$ grep -vE '^\s*#|^\s*$' /etc/security/limits.conf
-sassdi          hard    nofile          350000
-sassdi          soft    nofile          350000
-sassdi          hard    nproc           100000
-sassdi          soft    nproc           100000
-sassdi          hard    stack           20480
-sassdi          soft    stack           20480
-sdisrv          hard    nofile          350000
-sdisrv          soft    nofile          350000
-sdisrv          hard    nproc           100000
-sdisrv          soft    nproc           100000
-sdisrv          hard    stack           20480
-sdisrv          soft    stack           20480
+Configuracoes de /etc/security/limits.conf
+Configuracoes de /etc/security/limits.d/
+Limites efetivos dos 5 primeiros processos Java do SASSDI
+Max open files: 350000
+Max processes: 100000
+Max stack size: 20971520 bytes
 
-### limits.d ###
-
-$ cat /etc/security/limits.d/*.conf
-# Default limit for number of user's processes to prevent
-# accidental fork bombs.
-# See rhbz #432903 for reasoning.
-
-*          soft    nproc     100000
-root       soft    nproc     unlimited
-
-### limites efetivos (5 primeiros java do sassdi) ###
-
-$ pgrep -u sassdi java | head -5
-
---- PID 3805 ---
-$ grep -E 'Max open files|Max processes|Max stack' /proc/3805/limits
-Max stack size            20971520             20971520             bytes
-Max processes             100000               100000               processes
-Max open files            350000               350000               files
-
---- PID 5758 ---
-$ grep -E 'Max open files|Max processes|Max stack' /proc/5758/limits
-Max stack size            20971520             20971520             bytes
-Max processes             100000               100000               processes
-Max open files            350000               350000               files
-
---- PID 6199 ---
-$ grep -E 'Max open files|Max processes|Max stack' /proc/6199/limits
-Max stack size            20971520             20971520             bytes
-Max processes             100000               100000               processes
-Max open files            350000               350000               files
-
---- PID 6744 ---
-$ grep -E 'Max open files|Max processes|Max stack' /proc/6744/limits
-Max stack size            20971520             20971520             bytes
-Max processes             100000               100000               processes
-Max open files            350000               350000               files
-
---- PID 7480 ---
-$ grep -E 'Max open files|Max processes|Max stack' /proc/7480/limits
-Max stack size            20971520             20971520             bytes
-Max processes             100000               100000               processes
-Max open files            350000               350000               files
+Status: PRONTO PARA ANALISE
