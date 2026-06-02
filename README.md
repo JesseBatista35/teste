@@ -1,67 +1,98 @@
-SISOU-SAC-OKD-DES (14)
-Grupo de variáveis de SISOU-SAC-OKD-DES
+Skip to main content
+Azure DevOps
+projetos
+/
+Caixa
+/
+Repos
+/
+Files
+/
 
-Scopes: EC DES
-DATASOURCE_CONNECTION_URL
-jdbc:oracle:thin:@cnpexdadvm01-scan4.extra.caixa.gov.br:1521/orad01ng
-DATASOURCE_JNDI_NAME
-java:/jdbc/OracleSisouDS
-DATASOURCE_MAX_POOL_SIZE
-5
-DATASOURCE_MIN_POOL_SIZE
-1
-DATASOURCE_PASSWORD
-********
-DATASOURCE_POOL_NAME
-jdbc/OracleSisouDS
-DATASOURCE_USER_NAME
-SSOUDB03
-JVM_HEAP_MAX
-2048m
-JVM_HEAP_MIN
-1024m
-JVM_METASPACE_MAX
-512m
-JVM_METASPACE_MIN
-96m
-JVM_PROXY_HOST
-proxydes.caixa
-JVM_PROXY_PORT
-80
-PASSWORD_TRUSTSTORE
-changeit
+SISOU-sac-okd
+Search
 
 
+Caixa
 
-SISOU-VIVAVOZ-OKD-DES (14)
-Grupo de variáveis de SISOU-VIVAVOZ-OKD-DES
+Overview
 
-Scopes: EC DES,HOTFIX
-DATASOURCE_CONNECTION_URL
-jdbc:oracle:thin:@cnpexdadvm01-scan4.extra.caixa.gov.br:1521/orad01ng
-DATASOURCE_JNDI_NAME
-java:/jdbc/OracleSisouDS
-DATASOURCE_MAX_POOL_SIZE
-5
-DATASOURCE_MIN_POOL_SIZE
-1
-DATASOURCE_PASSWORD
-********
-DATASOURCE_POOL_NAME
-jdbc/OracleSisouDS
-DATASOURCE_USER_NAME
-SSOUDB03
-JVM_HEAP_MAX
-2048m
-JVM_HEAP_MIN
-1024m
-JVM_METASPACE_MAX
-512m
-JVM_METASPACE_MIN
-96m
-JVM_PROXY_HOST
-proxydes.caixa
-JVM_PROXY_PORT
-80
-PASSWORD_TRUSTSTORE
-changeit
+Boards
+
+Repos
+Files
+Commits
+Pushes
+Branches
+Tags
+Pull requests
+
+Pipelines
+
+Test Plans
+
+Artifacts
+Project settings
+SISOU-sac-okd
+
+api
+src
+main
+java
+resources
+META-INF
+application.properties
+logback.xml
+webapp
+test
+.gitignore
+pom.xml
+core
+ear
+libs
+.gitignore
+pom.xml
+README.md
+sonar-project.properties
+
+develop
+
+/
+api
+/
+src
+/
+main
+/
+resources
+/
+application.properties
+application.properties
+
+Edit
+
+Contents
+History
+Compare
+Blame
+
+123
+application.name=${project.build.name}
+application.version=${project.build.version}
+
+Showing filters 1 through 3
+
+No code files found for 'Docker' with applied filters
+
+Expanded
+
+Collapsed
+
+Expanded
+
+Collapsed
+
+Showing filters 1 through 3
+
+No code files found for 'docker' with applied filters
+
