@@ -1,5 +1,3 @@
-esse servidores nao tem internet pra fora.
-
 
 [p585600@sspdeapllx0041 ~]$ curl -v -x proxydes.caixa:80 -L -o /tmp/applicationinsights-agent-3.7.8.jar https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.7.8/applicationinsights-agent-3.7.8.jar
 * About to connect() to proxy proxydes.caixa port 80 (#0)
@@ -31,4 +29,3 @@ curl: (56) Received HTTP code 502 from proxy after CONNECT
 [p585600@sspdeapllx0041 ~]$
 [p585600@sspdeapllx0041 ~]$
 [p585600@sspdeapllx0041 ~]$
-
