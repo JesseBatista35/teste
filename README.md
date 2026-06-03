@@ -1,29 +1,20 @@
-rlr ta dentro do bastian no meu home.
 
+[p585600@cadsvitrlx100 ~]$ scp applicationinsights-agent-3.7.8.jar p585600@10.116.88.98:/tmp/
+***********************************************************************
+(1) - Este e um computador privado de propriedade da Caixa Economica
+Federal. Usuarios autorizados e nao autorizados nao possuem direitos de
+divulgar as informacoes contidas aqui.
+(2) - Ao fazer uso do sistema, o usuario esta ciente que pode estar
+sendo monitorado, interceptado e auditado pelo departamento competente
+da Caixa Economica Federal.
+(3) - O uso nao autorizado ou improprio deste sistema pode resultar em
+um processo disciplinar administrativo e/ou punicao atraves de acoes
+civis ou criminais. Ao continuar o uso deste sistema, indica que voce
+esta ciente e concordando com os termos e condicoes acima descritos.
 
-[p585600@cadsvitrlx100 ~]$ cd
-[p585600@cadsvitrlx100 ~]$ ls -la
-total 50928
-drwx------.   6 p585600  927     4096 Jun  3 16:14  .
-drwxr-xr-x. 459 root    root    12288 Jun  2 23:58  ..
--rw-r--r--.   1 p585600  927 46275771 Jun  3 16:12  applicationinsights-agent-3.7.8.jar
--rw-------.   1 p585600  927    21170 Jun  3 16:11  .bash_history
--rw-------.   1 p585600  927       18 Mar  2 11:07  .bash_logout
--rw-------.   1 p585600  927      141 Mar  2 11:07  .bash_profile
--rw-------.   1 p585600  927      492 Mar  2 11:07  .bashrc
--r--------.   1 p585600  927      110 Jun  3 16:14  .google_authenticator
--rw-r--r--.   1 p585600  927      848 Mar 25 09:04  .google_auth_setup.log
--rwxr-xr-x.   1 p585600  927     2967 Mar 26 09:55  host-controller.log
--rw-r--r--.   1 p585600  927      506 Apr  1 17:27 'jboss (1).keystore'
-drwxr-xr-x.   2 p585600  927       65 Apr 20 11:04  jesse
--rw-------.   1 p585600  927      172 Mar  2 11:07  .kshrc
-drwxr-xr-x.   2 p585600  927       86 Mar 12 16:35  main
-drwx------.   4 p585600  927       39 Mar  2 11:07  .mozilla
--rw-r--r--.   1 p585600  927  1089312 Apr 20 10:49  postgresql-42.7.3.jar
--rw-r--r--.   1 p585600  927  4689761 Apr 13 16:04  server_log_2026-04-13.log
-drwx------.   2 p585600  927       48 Jun  2 15:52  .ssh
--rw-r--r--.   1 p585600  927     1885 Apr  1 17:27 'VAULT (1).dat'
--rw-------.   1 p585600  927     1892 Mar 16 16:12  .viminfo
--rw-------.   1 p585600  927     2714 Jun  3 16:14  .Xauthority
--rw-------.   1 p585600  927      658 Mar  2 11:07  .zshrc
+Pressione <Control+D> IMEDIATAMENTE se voce nao concorda com as
+condicoes deste aviso
+***********************************************************************
+p585600@10.116.88.98's password:
+applicationinsights-agent-3.7.8.jar                                                                                                                 100%   44MB 149.2MB/s   00:00
 [p585600@cadsvitrlx100 ~]$
