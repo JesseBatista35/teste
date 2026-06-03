@@ -1,7 +1,12 @@
+me ajuda a reiniciar
 
-[jboss7@sspdeapllx0041 tmp]$ ln -sf /opt/azure/config/appinsights/applicationinsights-agent-3.7.8.jar /opt/azure/config/appinsights/applicationinsights-agent.jar
-[jboss7@sspdeapllx0041 tmp]$ ls -la /opt/azure/config/appinsights/applicationinsights-agent.ja
-ls: cannot access /opt/azure/config/appinsights/applicationinsights-agent.ja: No such file or directory
-[jboss7@sspdeapllx0041 tmp]$ ls -la /opt/azure/config/appinsights/applicationinsights-agent.jar
-lrwxrwxrwx 1 jboss7 jboss7 65 2026-06-03 16:22 /opt/azure/config/appinsights/applicationinsights-agent.jar -> /opt/azure/config/appinsights/applicationinsights-agent-3.7.8.jar
-[jboss7@sspdeapllx0041 tmp]$
+16:23
+Tenta assim, às vezes funciona pelo script direto:
+
+bash
+/opt/jboss/jboss-eap-7.0/bin/jboss-cli.sh --connect --controller=10.116.88.98:9990 --user=jboss7
+Se não funcionar, tenta achar a senha no arquivo de propriedades:
+
+bash
+cat /opt/jboss/jboss-eap-7.0/domain/configuration/mgmt-users.properties
+Cola o resultado!
