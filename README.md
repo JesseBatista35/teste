@@ -91,13 +91,13 @@ $(FTFY_MVN_GOAL)
 GradleVersion
 $(GradleVersion)
 JAVA_VERSION
-open-jdk-11
+open-jdk-21.0.5/
 KEYSTORE_SECUREFILEPATH
 $(KEYSTORE_SECUREFILEPATH)
 lista_versao
 $(lista_versao)
 MAVEN_VERSION
-3.8.5
+3.9.9
 MVN_GOAL
 clean package -U
 nexus_interno_pass
@@ -152,17 +152,9 @@ versionApp
 $(versionApp)
 Control Options
 Output Variables
-Showing filters 1 through 2
-
 Task enabled
 
 Row 2. Clickable
-
-Showing 2 filtered items.
-
-Get started and run this pipeline for the first time!
-
-Showing 2 filtered items.
 
 Get started and run this pipeline for the first time!
 
@@ -191,4 +183,12 @@ Get started and run this pipeline for the first time!
 Row 2. Clickable
 
 Row 2. Clickable
+
+Showing 9 filtered items.
+
+Get started and run this pipeline for the first time!
+
+Showing 3 filtered items.
+
+Get started and run this pipeline for the first time!
 
