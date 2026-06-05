@@ -1,13 +1,20 @@
-O pod sicbc-backend-des estava em CrashLoopBackOff. A aplicação Quarkus requer variáveis de ambiente para inicializar.
-Causa Raiz:
-As seguintes variáveis não estavam configuradas:
+Favor verificar motivo da indisponibilidade do ambiente de desenvolvimento SIPEN.
 
-QUARKUS_OIDC_CLIENT_ID
-QUARKUS_OIDC_AUTH_SERVER_URL
-QUARKUS_HTTP_CORS_ORIGINS
-QUARKUS_OIDC_CREDENTIALS_SECRET
+https://sipen2.desenvolvimento.extracaixa/sipen/
 
-Solução:
-As variáveis já foram adicionadas ao Variable Group SICBC-BACKEND-DES do Azure DevOps.
-Time de Desenvolvimento: Preencher os valores coretos nessas 4 variáveis.
-Quando rodar a próxima release, as variáveis serão automaticamente injetadas no OKD e a aplicação iniciará corretamente.
+Erro na montagem do Menu.
+Houve um erro na conexão para obtenção dos dados de login.
+execute() Erro de I/O ao receber dados de ibmaplacs.des.extranet.caixa. [F567761 ,PENPO308]Read timed out (20020ms)
+
+
+
+
+
+Usuário:
+Senha:
+
+SIPEN
+SIPEN - Sistema Penhor
+2.25.1 - 09/04/2026
+ 	Quaisquer problemas devem ser reportados CEATI, através do telefone 0800 721 2222, ou pelo endereço: http://siate.caixa	 
+
