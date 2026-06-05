@@ -1,79 +1,26 @@
-Microsoft Windows [versão 10.0.26200.8390]
-(c) Microsoft Corporation. Todos os direitos reservados.
+-sh-4.1$
+-sh-4.1$ ping -c 4 10.192.228.146
+PING 10.192.228.146 (10.192.228.146) 56(84) bytes of data.
+64 bytes from 10.192.228.146: icmp_seq=1 ttl=59 time=0.602 ms
+64 bytes from 10.192.228.146: icmp_seq=2 ttl=59 time=0.607 ms
+64 bytes from 10.192.228.146: icmp_seq=3 ttl=59 time=0.774 ms
+64 bytes from 10.192.228.146: icmp_seq=4 ttl=59 time=0.682 ms
 
-C:\Users\p585600>nslookup ibmaplacs.des.extranet.caixa
-Servidor:  dfaddssd001.corp.caixa.gov.br
-Address:  10.222.149.10
-
-Nome:    ibmaplacs.des.extranet.caixa
-Address:  10.192.228.146
-
-
-C:\Users\p585600>
-
-
-
-
-p585600@10.116.88.25's password:
-Last login: Mon Mar 23 14:29:22 2026 from 10.122.150.31
+--- 10.192.228.146 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3003ms
+rtt min/avg/max/mdev = 0.602/0.666/0.774/0.072 ms
+-sh-4.1$ telnet 10.192.228.146 8080
+Trying 10.192.228.146...
+telnet: connect to address 10.192.228.146: Connection refused
+-sh-4.1$ nc -zv 10.192.228.146 8080
+nc: connect to 10.192.228.146 port 8080 (tcp) failed: Connection refused
 -sh-4.1$
 -sh-4.1$
 -sh-4.1$
--sh-4.1$ hostname
-sbrdeapllx0006.desenvolvimento.extracaixa
+-sh-4.1$ tail -f /opt/sipen/logs/*log
+tail: cannot open `/opt/sipen/logs/*log' for reading: No such file or directory
+tail: no files remaining
+-sh-4.1$ tail -f /var/log/sipen/*.log
+tail: cannot open `/var/log/sipen/*.log' for reading: No such file or directory
+tail: no files remaining
 -sh-4.1$
-
-
-Ir para Conteúdo Principal
-SINCC
-#INTERNO.TODOS
-VMs
-Linhas
-
-50
-1 - 1 de 1
-VCenter
-Cluster
-VM Name
-DNS Name
-VM Host
-Serial Number
-Datacenter
-Datastores
-Resource Pool
-Folder
-Status
-IPs
-Tipos
-Nr. de CPUs
-Memória (GB)
-Sistema Operacional
-Tamanho de Disco (GB)
-Notas
-Data da Coleta
-VCenter
-Cluster
-VM Name
-DNS Name
-VM Host
-Serial Number
-Datacenter
-Datastores
-Resource Pool
-Folder
-Status
-IPs
-Tipos
-Nr. de CPUs
-Memória (GB)
-Sistema Operacional
-Tamanho de Disco (GB)
-Notas
-Data da Coleta
-cadsvgerap030-1.intra.caixa.gov.br	CTC_NPRDXF2488HV7_NPRD	SBRDEAPLLX0006	sbrdeapllx0006.desenvolvimento.extracaixa	cadsvgersh634.intra.caixa.gov.br	PI00988800000270	NPRD	CTCHWNPRDC011_0008	RP_NPRD_003	7259-NPRD	Ligado	10.116.88.25, 192.168.229.42, 10.184.18.192	Vmxnet3, Vmxnet3, Vmxnet3	4	12	Red Hat Enterprise Linux 6 (64-bit)	112,34	
-SAILPOINT - DES
-
-05/06/2026 19:03:19
-1 - 1 de 1
-v1.2.0 - 12/08/2024 :: v1.9.3 - 05/06/2026
-
