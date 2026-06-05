@@ -1,26 +1,18 @@
--sh-4.1$
--sh-4.1$ ping -c 4 10.192.228.146
-PING 10.192.228.146 (10.192.228.146) 56(84) bytes of data.
-64 bytes from 10.192.228.146: icmp_seq=1 ttl=59 time=0.602 ms
-64 bytes from 10.192.228.146: icmp_seq=2 ttl=59 time=0.607 ms
-64 bytes from 10.192.228.146: icmp_seq=3 ttl=59 time=0.774 ms
-64 bytes from 10.192.228.146: icmp_seq=4 ttl=59 time=0.682 ms
+# 1. Ver quais portas estão abertas em ibmaplacs
+# (do servidor SIPEN - sbrdeapllx0006)
+nmap -p- 10.192.228.146
+# Ou testar portas comuns:
+for port in 9080 5432 3306 1433 8000 8888 80 443; do 
+  echo "Testando porta $port..."
+  nc -zv 10.192.228.146 $port
+done
 
---- 10.192.228.146 ping statistics ---
-4 packets transmitted, 4 received, 0% packet loss, time 3003ms
-rtt min/avg/max/mdev = 0.602/0.666/0.774/0.072 ms
--sh-4.1$ telnet 10.192.228.146 8080
-Trying 10.192.228.146...
-telnet: connect to address 10.192.228.146: Connection refused
--sh-4.1$ nc -zv 10.192.228.146 8080
-nc: connect to 10.192.228.146 port 8080 (tcp) failed: Connection refused
--sh-4.1$
--sh-4.1$
--sh-4.1$
--sh-4.1$ tail -f /opt/sipen/logs/*log
-tail: cannot open `/opt/sipen/logs/*log' for reading: No such file or directory
-tail: no files remaining
--sh-4.1$ tail -f /var/log/sipen/*.log
-tail: cannot open `/var/log/sipen/*.log' for reading: No such file or directory
-tail: no files remaining
--sh-4.1$
+# 2. Encontrar logs do SIPEN
+find / -name "*sipen*" -o -name "*ibmaplacs*" 2>/dev/null | grep -i log
+
+# 3. Ver configuração da aplicação
+find / -name "sipen*" -type f 2>/dev/null | grep -E "(config|properties|xml)"
+
+# 4. Ver processos Java (se SIPEN for Java)
+ps aux | grep -i sipen
+ps aux | grep -i java
