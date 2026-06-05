@@ -1,32 +1,10 @@
-Maven
-
-View raw log
-Starting: Maven
-==============================================================================
-Task         : Maven
-Description  : Build, test, and deploy with Apache Maven
-Version      : 3.225.0
-Author       : Microsoft Corporation
-Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/build/maven
-==============================================================================
-##[error]Unhandled: Not found mavenPOMFile: /opt/ads-agent/_work/39/s/pom.xml
-Finishing: Maven
-
-
-
-
 Skip to main content
 Azure DevOps
 projetos
 /
 Caixa
 /
-Repos
-/
-Files
-/
-
-SIPON-trava-backend
+Pipelines
 Search
 
 
@@ -37,185 +15,180 @@ Overview
 Boards
 
 Repos
-Files
-Commits
-Pushes
-Branches
-Tags
-Pull requests
 
 Pipelines
+Pipelines
+Environments
+Releases
+Library
+Task groups
+Deployment groups
+Portal Infra
 
 Test Plans
 
 Artifacts
 Project settings
+
+SIPON
+
 SIPON-trava-backend
 
-sipon-trava-backend
-.mvn
-src
-main
-.dockerignore
-.gitignore
-mvnw
-mvnw.cmd
-pom.xml
+Tasks
 
-README.md
-README.md
+Variables
 
-develop
+Triggers
 
-/
-sipon-trava-backend
-/
-pom.xml
-pom.xml
+Options
 
-Edit
-
-Contents
 History
-Compare
-Blame
+BUILD_DEFAULT_QUARKUS_OPENJDK
+Task version
+7.*
+Display name
+BUILD_DEFAULT_QUARKUS_OPENJDK
+AZPAT
+$(AZPAT)
+FORTIFY_API
+$(FORTIFY_API)
+FORTIFY_APITOKEN
+$(FORTIFY_APITOKEN)
+FORTIFY_BUILD
+$(FORTIFY_BUILD)
+FORTIFY_CI_TOKEN
+$(FORTIFY_CI_TOKEN)
+FORTIFY_CLIENT_AUTH_TOKEN
+$(FORTIFY_CLIENT_AUTH_TOKEN)
+fortify_disable
+$(fortify_disable)
+FORTIFY_FPR_NAME
+$(FORTIFY_FPR_NAME)
+FORTIFY_NEW_VERSION
+$(FORTIFY_NEW_VERSION)
+FORTIFY_PASS
+$(FORTIFY_PASS)
+FORTIFY_POOL_GOLD_NOVO
+$(FORTIFY_POOL_GOLD_NOVO)
+FORTIFY_POOL_SILVER_NOVO
+$(FORTIFY_POOL_SILVER_NOVO)
+FORTIFY_REGEX
+$(FORTIFY_REGEX)
+FORTIFY_SENSOR_POOL
+$(FORTIFY_SENSOR_POOL)
+FORTIFY_UPTOKEN
+$(FORTIFY_UPTOKEN)
+FORTIFY_URL
+$(FORTIFY_URL)
+FORTIFY_URL_CONTROLLER
+$(FORTIFY_URL_CONTROLLER)
+FORTIFY_USER
+$(FORTIFY_USER)
+FORTIFY_VERSION_BUILD
+$(FORTIFY_VERSION_BUILD)
+FTFY_MVN_GOAL
+$(FTFY_MVN_GOAL)
+GradleVersion
+$(GradleVersion)
+JAVA_VERSION
+open-jdk-11
+KEYSTORE_SECUREFILEPATH
+$(KEYSTORE_SECUREFILEPATH)
+lista_versao
+$(lista_versao)
+MAVEN_VERSION
+3.8.5
+MVN_GOAL
+clean package -U
+nexus_interno_pass
+$(nexus_interno_pass)
+nexus_interno_user
+$(nexus_interno_user)
+NEXUS_REPOSITORY_ID
+$(NEXUS_REPOSITORY_ID)
+NEXUS_URL_MAVEN_RELEASE
+$(NEXUS_URL_MAVEN_RELEASE)
+NEXUS_URL_MAVEN_SNAPSHOT
+$(NEXUS_URL_MAVEN_SNAPSHOT)
+NODE_EXTRA_CA_CERTS
+$(NODE_EXTRA_CA_CERTS)
+p_language
+$(p_language)
+POM_PATH
+pom.xml
+POM_VERSION
+$(POM_VERSION)
+project.group
+$(project.group)
+project.name
+$(project.name)
+project.version
+$(project.version)
+REPO_FINAL_NAME
+$(REPO_FINAL_NAME)
+REPOSITORIO
+$(REPOSITORIO)
+SCANCENTRAL_URL
+$(SCANCENTRAL_URL)
+SONAR_LOGIN
+$(SONAR_LOGIN)
+SONAR_PASSWORD
+$(SONAR_PASSWORD)
+SONAR_PROPERTIES
+$(SONAR_PROPERTIES)
+SONAR_URL
+$(SONAR_URL)
+tbuild
+$(tbuild)
+token
+$(token)
+token_id
+$(token_id)
+valida.vec
+$(valida.vec)
+version.app
+$(version.app)
+versionApp
+$(versionApp)
+Control Options
+Output Variables
+Showing filters 1 through 2
 
-1234567891011121314151617181920212223242526272829303132333435363738394041424344
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>br.gov.caixa.sipon</groupId>
-    <artifactId>sipon-trava-backend</artifactId>
-    <version>1.0.0</version>
+Task enabled
 
-    <properties>
-        <compiler-plugin.version>3.14.0</compiler-plugin.version>
-        <mav
+Row 2. Clickable
 
+Showing 2 filtered items.
 
+Get started and run this pipeline for the first time!
 
+Showing 2 filtered items.
 
+Get started and run this pipeline for the first time!
 
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>br.gov.caixa.sipon</groupId>
-    <artifactId>sipon-trava-backend</artifactId>
-    <version>1.0.0</version>
+Showing 3 items.
 
-    <properties>
-        <compiler-plugin.version>3.14.0</compiler-plugin.version>
-        <maven.compiler.release>21</maven.compiler.release>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <quarkus.platform.artifact-id>quarkus-bom</quarkus.platform.artifact-id>
-        <quarkus.platform.group-id>io.quarkus.platform</quarkus.platform.group-id>
-        <quarkus.platform.version>3.28.4</quarkus.platform.version>
-        <skipITs>true</skipITs>
-        <surefire-plugin.version>3.5.4</surefire-plugin.version>
-    </properties>
+Finished loading items
 
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>${quarkus.platform.group-id}</groupId>
-                <artifactId>${quarkus.platform.artifact-id}</artifactId>
-                <version>${quarkus.platform.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
+Expanded
 
-    <dependencies>
-        <dependency>
-            <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-rest</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-arc</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-junit5</artifactId>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
+Collapsed
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>${quarkus.platform.group-id}</groupId>
-                <artifactId>quarkus-maven-plugin</artifactId>
-                <version>${quarkus.platform.version}</version>
-                <extensions>true</extensions>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>build</goal>
-                            <goal>generate-code</goal>
-                            <goal>generate-code-tests</goal>
-                            <goal>native-image-agent</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>${compiler-plugin.version}</version>
-                <configuration>
-                    <parameters>true</parameters>
-                </configuration>
-            </plugin>
-            <plugin>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>${surefire-plugin.version}</version>
-                <configuration>
-                    <systemPropertyVariables>
-                        <java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
-                        <maven.home>${maven.home}</maven.home>
-                    </systemPropertyVariables>
-                </configuration>
-            </plugin>
-            <plugin>
-                <artifactId>maven-failsafe-plugin</artifactId>
-                <version>${surefire-plugin.version}</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>integration-test</goal>
-                            <goal>verify</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <systemPropertyVariables>
-                        <native.image.path>${project.build.directory}/${project.build.finalName}-runner</native.image.path>
-                        <java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
-                        <maven.home>${maven.home}</maven.home>
-                    </systemPropertyVariables>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
+Row 2. Clickable
 
-    <profiles>
-        <profile>
-            <id>native</id>
-            <activation>
-                <property>
-                    <name>native</name>
-                </property>
-            </activation>
-            <properties>
-                <quarkus.package.jar.enabled>false</quarkus.package.jar.enabled>
-                <skipITs>false</skipITs>
-                <quarkus.native.enabled>true</quarkus.native.enabled>
-            </properties>
-        </profile>
-    </profiles>
-</project>
+Showing 3 filtered items.
 
+Get started and run this pipeline for the first time!
 
+Row 2. Clickable
+
+Row 2. Clickable
+
+Showing 3 filtered items.
+
+Get started and run this pipeline for the first time!
+
+Row 2. Clickable
+
+Row 2. Clickable
 
