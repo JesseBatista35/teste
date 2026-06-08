@@ -1,128 +1,67 @@
-Skip to main content
-Azure DevOps
-projetos
-/
-Caixa
-/
-Pipelines
-/
-Task groups
-Search
+exec java -Dquarkus.http.host=0.0.0.0 -Dquarkus.http.port=8080 -Djava.util.logging.manager=org.jboss.logmanager.LogManager -XX:+ExitOnOutOfMemoryError -cp . -jar /deployments/quarkus-run.jar
+__  ____  __  _____   ___  __ ____  ______ 
+ --/ __ \/ / / / _ | / _ \/ //_/ / / / __/ 
+ -/ /_/ / /_/ / __ |/ , _/ ,< / /_/ /\ \   
+--\___\_\____/_/ |_/_/|_/_/|_|\____/___/   
+2026-06-08 14:28:16,434 WARN  [io.qua.oid.com.run.OidcCommonUtils] (vert.x-eventloop-thread-1) OIDC Server is not available:: javax.net.ssl.SSLHandshakeException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+	at java.base/sun.security.ssl.Alert.createSSLException(Alert.java:130)
+	at java.base/sun.security.ssl.TransportContext.fatal(TransportContext.java:378)
+	at java.base/sun.security.ssl.TransportContext.fatal(TransportContext.java:321)
+	at java.base/sun.security.ssl.TransportContext.fatal(TransportContext.java:316)
+	at java.base/sun.security.ssl.CertificateMessage$T12CertificateConsumer.checkServerCerts(CertificateMessage.java:647)
+	at java.base/sun.security.ssl.CertificateMessage$T12CertificateConsumer.onCertificate(CertificateMessage.java:467)
+	at java.base/sun.security.ssl.CertificateMessage$T12CertificateConsumer.consume(CertificateMessage.java:363)
+	at java.base/sun.security.ssl.SSLHandshake.consume(SSLHandshake.java:393)
+	at java.base/sun.security.ssl.HandshakeContext.dispatch(HandshakeContext.java:476)
+	at java.base/sun.security.ssl.SSLEngineImpl$DelegatedTask$DelegatedAction.run(SSLEngineImpl.java:1273)
+	at java.base/sun.security.ssl.SSLEngineImpl$DelegatedTask$DelegatedAction.run(SSLEngineImpl.java:1260)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:714)
+	at java.base/sun.security.ssl.SSLEngineImpl$DelegatedTask.run(SSLEngineImpl.java:1205)
+	at io.netty.handler.ssl.SslHandler.runDelegatedTasks(SslHandler.java:1695)
+	at io.netty.handler.ssl.SslHandler.unwrap(SslHandler.java:1541)
+	at io.netty.handler.ssl.SslHandler.decodeJdkCompatible(SslHandler.java:1377)
+	at io.netty.handler.ssl.SslHandler.decode(SslHandler.java:1428)
+	at io.netty.handler.codec.ByteToMessageDecoder.decodeRemovalReentryProtection(ByteToMessageDecoder.java:530)
+	at io.netty.handler.codec.ByteToMessageDecoder.callDecode(ByteToMessageDecoder.java:469)
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:290)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:444)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1357)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:440)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:868)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:166)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:796)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:732)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:658)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:998)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+	at java.base/sun.security.validator.PKIXValidator.doBuild(PKIXValidator.java:388)
+	at java.base/sun.security.validator.PKIXValidator.engineValidate(PKIXValidator.java:271)
+	at java.base/sun.security.validator.Validator.validate(Validator.java:256)
+	at java.base/sun.security.ssl.X509TrustManagerImpl.checkTrusted(X509TrustManagerImpl.java:284)
+	at java.base/sun.security.ssl.X509TrustManagerImpl.checkServerTrusted(X509TrustManagerImpl.java:144)
+	at java.base/sun.security.ssl.CertificateMessage$T12CertificateConsumer.checkServerCerts(CertificateMessage.java:625)
+	... 31 more
+Caused by: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+	at java.base/sun.security.provider.certpath.SunCertPathBuilder.build(SunCertPathBuilder.java:148)
+	at java.base/sun.security.provider.certpath.SunCertPathBuilder.engineBuild(SunCertPathBuilder.java:129)
+	at java.base/java.security.cert.CertPathBuilder.build(CertPathBuilder.java:297)
+	at java.base/sun.security.validator.PKIXValidator.doBuild(PKIXValidator.java:383)
+	... 36 more
 
-
-Caixa
-
-Overview
-
-Boards
-
-Repos
-
-Pipelines
-Pipelines
-Environments
-Releases
-Library
-Task groups
-Deployment groups
-Portal Infra
-
-Test Plans
-
-Artifacts
-Project settings
-Task groups
-
-Exporta_Variable_Cria_Projeto_OKD
-
-Tasks
-
-History
-
-References
-Bash
-Task version
-3.*
-Display name
-Exportando Variáveis de Ambiente "_ENV."
-Type
-
-
-Script
-#!/bin/bash
-
-IFS=$'\n'
-var_split="-e"
-
-for OUTPUT in `printenv | sort`
-do
-if [[ "$OUTPUT" =~ ^_ENV_.*  ]]; then
-
-    Enviroment="${Enviroment} $var_split ${OUTPUT#"_ENV_"}"
-    echo ${OUTPUT#"_ENV_"}
-fi
-done
-
-echo "##vso[task.setvariable variable=Enviroment;]$Enviroment"
-
-Advanced
-Control Options
-Environment Variables
-Showing filters 1 through 1
+2026-06-08 14:28:16,439 WARN  [io.qua.oid.run.OidcRecorder] (vert.x-eventloop-thread-1) OIDC server is not available at the 'https://login.des.caixa/auth/realms/intranet' URL. Please make sure it is correct. Note it has to end with a realm value if you work with Keycloak, for example: 'https://localhost:8180/auth/realms/quarkus'
+2026-06-08 14:28:16,441 WARN  [io.qua.oid.run.OidcRecorder] (vert.x-eventloop-thread-1) Tenant 'Default': 'OIDC Server is not available'. OIDC server is not available yet, an attempt to connect will be made during the first request. Access to resources protected by this tenant may fail if OIDC server will not become available
+2026-06-08 14:28:16,485 INFO  [io.quarkus] (main) SICBC-backend 00.00.01.09 on JVM (powered by Quarkus 3.20.2) started in 1.104s. Listening on: http://0.0.0.0:8080
+2026-06-08 14:28:16,486 INFO  [io.quarkus] (main) Profile prod activated. 
+2026-06-08 14:28:16,486 INFO  [io.quarkus] (main) Installed features: [cdi, config-yaml, oidc, rest, rest-client, rest-jackson, security, smallrye-context-propagation, smallrye-health, smallrye-jwt, vertx]
 
 
 
-SCRITOS DESSA TASK. 
-
-#!/bin/bash
-
-IFS=$'\n'
-var_split="-e"
-
-for OUTPUT in `printenv | sort`
-do
-if [[ "$OUTPUT" =~ ^_ENV_.*  ]]; then
-
-    Enviroment="${Enviroment} $var_split ${OUTPUT#"_ENV_"}"
-    echo ${OUTPUT#"_ENV_"}
-fi
-done
-
-echo "##vso[task.setvariable variable=Enviroment;]$Enviroment"
-
-oc get project $(PROJETO)-$(AMBIENTE)
-if [ "$?" -ne "0" ]; then
- oc new-project $(PROJETO)-$(AMBIENTE)
- oc adm policy add-scc-to-group anyuid system:serviceaccounts:$(PROJETO)-$(AMBIENTE)
-fi
-oc label namespace $(PROJETO)-$(AMBIENTE) createdby=ads --overwrite
-oc label namespace $(PROJETO)-$(AMBIENTE) CGC_UNIDADE_DES=$(CGC_UNIDADE_DES) --overwrite
-oc label namespace $(PROJETO)-$(AMBIENTE) CGC_UNIDADE_OPS=$(CGC_UNIDADE_OPS) --overwrite
-oc label netnamespace $(PROJETO)-$(AMBIENTE) projeto=$(PROJETO)-$(AMBIENTE) --overwrite
-
-
-if [ "$NODESELECTOR" == "ob" -a "$(AMBIENTE)" == "prd" ]
-then
-oc patch namespace $(PROJETO)-$(AMBIENTE) -p '{"metadata":{"annotations":{"openshift.io/node-selector":"sistema=ob"}}}'
-fi
-
-#if [[ "$AMBIENTE" == prd ]]; then
-#
-#   WILDCARD_APL=$(OKD_URL_SUFFIX_APL)
-#   if [[ $WILDCARD_APL == ms.caixa ]]
-#   then
-#    echo oc label namespace $(PROJETO)-$(AMBIENTE) router=router-microservice
-#  else
-#   echo oc label namespace $(PROJETO)-$(AMBIENTE) router=router-default
-#  fi
-#fi
-
-#!/bin/bash
-
-echo "PROJETO=$(PROJETO)"
-echo "AMBIENTE=$(AMBIENTE)"
-echo "ISTIO_INJECTION=$(ISTIO_INJECTION)"
-
-#A label abaixo somente e adicionada ao namespace que tem a variable group ISTIO_VARIABLES
-oc label namespace $(PROJETO)-$(AMBIENTE) istio-injection=enabled --overwrite
+ele passou pore agora de esse proble o pod ainda nao ta ficando saudavel.
 
