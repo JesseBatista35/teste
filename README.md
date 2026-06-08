@@ -1,59 +1,83 @@
-# Verificação Concluída com Sucesso - SIPEN Indisponível
+ESTAMOS COM ERRO AINDA CIRAMOS AS VAIRAIVAE S COM ENV;
 
-## Demanda
-- Verificar motivo da indisponibilidade do ambiente de desenvolvimento SIPEN
-- URL: https://sipen2.desenvolvimento.extracaixa/sipen/
-- Erro: Houve um erro na conexão para obtenção dos dados de login
-- Código de erro: [F567761, PENPO308] Read timed out (20020ms)
+FICOU ASSIM: 
 
-## O Que Foi Feito
+Skip to main content
+Azure DevOps
+projetos
+/
+Caixa
+/
+Pipelines
+/
+Library
+Search
 
-Verificação técnica completa da infraestrutura e aplicação:
 
-- Verificado DNS - ibmaplacs.des.extranet.caixa resolve para 10.192.228.146
-- Verificado conectividade de rede - Ping OK (0.6ms, 0% packet loss)
-- Verificado servidor SIPEN - JBoss online, memória saudável (7.1%)
-- Verificado portas de ibmaplacs - Apenas 1414 (IBM MQ) está aberta
-- Verificado logs SIPEN - Login CICS funciona (2-10ms) mas execute() falha
-- Verificado conexões TCP ativas - Zero conexões com ibmaplacs
+Caixa
 
-## Achado
+Overview
 
-A transação CICS "PENPO308" em ibmaplacs.des.extranet.caixa não está respondendo às requisições do SIPEN.
+Boards
 
-Padrão observado nos logs (/logs/jboss-eap/hc/servers/sipen_node3_lx0006/sipen.log):
+Repos
 
-- Login CICS: OK (3ms)
-- Execute PENPO308: TIMEOUT (20020ms)
-- Afeta todos os usuários (F967975, C891066, F567761, P585600, etc)
-- Início registrado: ~15:35 do dia 05/06/2026
+Pipelines
+Pipelines
+Environments
+Releases
+Library
+Task groups
+Deployment groups
+Portal Infra
 
-## Conclusão
+Test Plans
 
-Não é problema de rede, firewall ou esteiras DevOps (infraestrutura saudável).
+Artifacts
+Project settings
 
-Não é problema da aplicação SIPEN (funcionando normalmente).
+Library
+
+SICBC-BACKEND-DES
 
-Problema identificado: Serviço CICS remoto (ibmaplacs) - Transação PENPO308 não responde.
+Variable group
+Properties
+Variable group name
+SICBC-BACKEND-DES
+Description
+Grupo de variáveis de SICBC-BACKEND-DES
 
-## Próxima Ação
 
-Time dono da aplicação SIPEN deve contactar:
+Variables
+_ENV.CREDENTIALS_SECRET
+bef84ba6-cc6e-435b-9b2f-2f2248a6887f
+_ENV.HTTP_CORS_ORIGINS
+https://sicbc-frontend-des.apps.nprd.caixa
+_ENV.OIDC_AUTH_SERVER_URL
+https://login.des.caixa/auth/realms/intranet
+_ENV.OIDC_CLIENT_ID
+cli-web-cbc
+QUARKUS_HTTP_CORS_ORIGINS
+********
+QUARKUS_OIDC_AUTH-SERVER-URL
+********
+QUARKUS_OIDC_CLIENT-ID
+********
+QUARKUS_OIDC_CREDENTIALS_SECRET
+********
 
-- Equipe CICS/ibmaplacs (10.192.228.146)
-- CEATI: 0800 721 2222
 
-Solicitações para CICS:
 
-- Verificar status do serviço CICS
-- Analisar logs do CICS para transação PENPO308
-- Verificar recursos (CPU, memória, I/O)
-- Reiniciar CICS/PENPO308 se necessário
 
-## Status
 
-Verificação concluída com sucesso.
 
-Responsável pela ação seguinte: Time Aplicação SIPEN -> Team CICS
+UMA PERGUNTA VOU DELETAR ESSAS DE QUARKUS MAIS O QUARKUS NAO DEVIERIA ESTA LA NA ENV??? 
 
-Data: 05/06/2026
+eXEMPLO:
+
+_ENV.QUARKUS_CREDENTIALS_SECRET
+
+O ERRO AINDA É O MESMO:
+
+exec java -Dquarkus.http.host=0.0.0.0 -Dquarkus.http.port=8080 -Djava.util.logging.manager=org.jboss.logmanager.LogManager -XX:+ExitOnOutOfMemoryError -cp . -jar /deployments/quarkus-run.jar
+
