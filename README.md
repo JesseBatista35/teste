@@ -1,32 +1,155 @@
-oc patch dc sicbc-backend-des -n sicbc-des -p '
-{
-  "spec": {
-    "template": {
-      "spec": {
-        "containers": [
-          {
-            "name": "sicbc-backend-des",
-            "readinessProbe": {
-              "httpGet": {
-                "path": "/q/health/live",
-                "port": 8080
-              },
-              "initialDelaySeconds": 10,
-              "periodSeconds": 10,
-              "failureThreshold": 3
-            },
-            "livenessProbe": {
-              "httpGet": {
-                "path": "/q/health/live",
-                "port": 8080
-              },
-              "initialDelaySeconds": 10,
-              "periodSeconds": 10,
-              "failureThreshold": 3
-            }
-          }
-        ]
-      }
-    }
-  }
-}'
+OKD
+
+
+Jesse Mouta Pereira Batista
+
+Administrator
+Home
+Operators
+Workloads
+Pods
+Deployments
+DeploymentConfigs
+StatefulSets
+Secrets
+ConfigMaps
+CronJobs
+Jobs
+DaemonSets
+ReplicaSets
+ReplicationControllers
+HorizontalPodAutoscalers
+PodDisruptionBudgets
+Networking
+Storage
+Builds
+Observe
+Compute
+User Management
+Administration
+
+Project: sicbc-des
+Pods
+Pod details
+Pod
+P
+sicbc-backend-des-50-zxx7q
+Running
+
+Actions
+Details
+Metrics
+YAML
+Environment
+Logs
+Events
+Terminal
+Streaming events...
+Showing 8 events
+Older events are not stored.
+PodPsicbc-backend-des-50-zxx7q
+NamespaceNSsicbc-des
+8 de jun. de 2026, 14:33
+Generated from kubelet on ceadecldlx068.nprd.caixa
+Container sicbc-backend-des failed startup probe, will be restarted
+PodPsicbc-backend-des-50-zxx7q
+NamespaceNSsicbc-des
+8 de jun. de 2026, 14:33
+Generated from kubelet on ceadecldlx068.nprd.caixa
+3 times in the last 0 minutes
+Startup probe failed: HTTP probe failed with statuscode: 404
+PodPsicbc-backend-des-50-zxx7q
+NamespaceNSsicbc-des
+8 de jun. de 2026, 14:33
+Generated from kubelet on ceadecldlx068.nprd.caixa
+Created container sicbc-backend-des
+PodPsicbc-backend-des-50-zxx7q
+NamespaceNSsicbc-des
+8 de jun. de 2026, 14:33
+Generated from kubelet on ceadecldlx068.nprd.caixa
+Started container sicbc-backend-des
+PodPsicbc-backend-des-50-zxx7q
+NamespaceNSsicbc-des
+8 de jun. de 2026, 14:33
+Generated from kubelet on ceadecldlx068.nprd.caixa
+Successfully pulled image "default-route-openshift-image-registry.apps.produtos4.caixa/build-images-ads/sicbc-backend:00.00.01.09" in 1.247742534s (1.247756115s including waiting)
+PodPsicbc-backend-des-50-zxx7q
+NamespaceNSsicbc-des
+8 de jun. de 2026, 14:33
+Generated from multus
+Add eth0 [25.2.32.31/23] from openshift-sdn
+PodPsicbc-backend-des-50-zxx7q
+NamespaceNSsicbc-des
+8 de jun. de 2026, 14:33
+Generated from kubelet on ceadecldlx068.nprd.caixa
+Pulling image "default-route-openshift-image-registry.apps.produtos4.caixa/build-images-ads/sicbc-backend:00.00.01.09"
+PodPsicbc-backend-des-50-zxx7q
+NamespaceNSsicbc-des
+8 de jun. de 2026, 14:32
+Generated from default-scheduler
+Successfully assigned sicbc-des/sicbc-backend-des-50-zxx7q to ceadecldlx068.nprd.caixa
+
+
+exec java -Dquarkus.http.host=0.0.0.0 -Dquarkus.http.port=8080 -Djava.util.logging.manager=org.jboss.logmanager.LogManager -XX:+ExitOnOutOfMemoryError -cp . -jar /deployments/quarkus-run.jar
+__  ____  __  _____   ___  __ ____  ______ 
+ --/ __ \/ / / / _ | / _ \/ //_/ / / / __/ 
+ -/ /_/ / /_/ / __ |/ , _/ ,< / /_/ /\ \   
+--\___\_\____/_/ |_/_/|_/_/|_|\____/___/   
+2026-06-08 14:33:03,327 WARN  [io.qua.oid.com.run.OidcCommonUtils] (vert.x-eventloop-thread-1) OIDC Server is not available:: javax.net.ssl.SSLHandshakeException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+	at java.base/sun.security.ssl.Alert.createSSLException(Alert.java:130)
+	at java.base/sun.security.ssl.TransportContext.fatal(TransportContext.java:378)
+	at java.base/sun.security.ssl.TransportContext.fatal(TransportContext.java:321)
+	at java.base/sun.security.ssl.TransportContext.fatal(TransportContext.java:316)
+	at java.base/sun.security.ssl.CertificateMessage$T12CertificateConsumer.checkServerCerts(CertificateMessage.java:647)
+	at java.base/sun.security.ssl.CertificateMessage$T12CertificateConsumer.onCertificate(CertificateMessage.java:467)
+	at java.base/sun.security.ssl.CertificateMessage$T12CertificateConsumer.consume(CertificateMessage.java:363)
+	at java.base/sun.security.ssl.SSLHandshake.consume(SSLHandshake.java:393)
+	at java.base/sun.security.ssl.HandshakeContext.dispatch(HandshakeContext.java:476)
+	at java.base/sun.security.ssl.SSLEngineImpl$DelegatedTask$DelegatedAction.run(SSLEngineImpl.java:1273)
+	at java.base/sun.security.ssl.SSLEngineImpl$DelegatedTask$DelegatedAction.run(SSLEngineImpl.java:1260)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:714)
+	at java.base/sun.security.ssl.SSLEngineImpl$DelegatedTask.run(SSLEngineImpl.java:1205)
+	at io.netty.handler.ssl.SslHandler.runDelegatedTasks(SslHandler.java:1695)
+	at io.netty.handler.ssl.SslHandler.unwrap(SslHandler.java:1541)
+	at io.netty.handler.ssl.SslHandler.decodeJdkCompatible(SslHandler.java:1377)
+	at io.netty.handler.ssl.SslHandler.decode(SslHandler.java:1428)
+	at io.netty.handler.codec.ByteToMessageDecoder.decodeRemovalReentryProtection(ByteToMessageDecoder.java:530)
+	at io.netty.handler.codec.ByteToMessageDecoder.callDecode(ByteToMessageDecoder.java:469)
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:290)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:444)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1357)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:440)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:868)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:166)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:796)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:732)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:658)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:998)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+	at java.base/sun.security.validator.PKIXValidator.doBuild(PKIXValidator.java:388)
+	at java.base/sun.security.validator.PKIXValidator.engineValidate(PKIXValidator.java:271)
+	at java.base/sun.security.validator.Validator.validate(Validator.java:256)
+	at java.base/sun.security.ssl.X509TrustManagerImpl.checkTrusted(X509TrustManagerImpl.java:284)
+	at java.base/sun.security.ssl.X509TrustManagerImpl.checkServerTrusted(X509TrustManagerImpl.java:144)
+	at java.base/sun.security.ssl.CertificateMessage$T12CertificateConsumer.checkServerCerts(CertificateMessage.java:625)
+	... 31 more
+Caused by: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+	at java.base/sun.security.provider.certpath.SunCertPathBuilder.build(SunCertPathBuilder.java:148)
+	at java.base/sun.security.provider.certpath.SunCertPathBuilder.engineBuild(SunCertPathBuilder.java:129)
+	at java.base/java.security.cert.CertPathBuilder.build(CertPathBuilder.java:297)
+	at java.base/sun.security.validator.PKIXValidator.doBuild(PKIXValidator.java:383)
+	... 36 more
+
+2026-06-08 14:33:03,333 WARN  [io.qua.oid.run.OidcRecorder] (vert.x-eventloop-thread-1) OIDC server is not available at the 'https://login.des.caixa/auth/realms/intranet' URL. Please make sure it is correct. Note it has to end with a realm value if you work with Keycloak, for example: 'https://localhost:8180/auth/realms/quarkus'
+2026-06-08 14:33:03,335 WARN  [io.qua.oid.run.OidcRecorder] (vert.x-eventloop-thread-1) Tenant 'Default': 'OIDC Server is not available'. OIDC server is not available yet, an attempt to connect will be made during the first request. Access to resources protected by this tenant may fail if OIDC server will not become available
+2026-06-08 14:33:03,388 INFO  [io.quarkus] (main) SICBC-backend 00.00.01.09 on JVM (powered by Quarkus 3.20.2) started in 1.167s. Listening on: http://0.0.0.0:8080
+2026-06-08 14:33:03,389 INFO  [io.quarkus] (main) Profile prod activated. 
+2026-06-08 14:33:03,389 INFO  [io.quarkus] (main) Installed features: [cdi, config-yaml, oidc, rest, rest-client, rest-jackson, security, smallrye-context-propagation, smallrye-health, smallrye-jwt, vertx]
+
