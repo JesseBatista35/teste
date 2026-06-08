@@ -1,16 +1,41 @@
--sh-4.1$ ps aux | grep nginx
-p585600  14805  0.0  0.0 103328   888 pts/1    S+   15:04   0:00 grep nginx
-root     23664  0.0  0.0  46980   972 ?        Ss   May21   0:00 nginx: master process /usr/sbin/nginx -c /etc/nginx/nginx.conf
-nginx    23665  0.0  0.0  48360  3624 ?        S    May21   1:28 nginx: worker process
--sh-4.1$ sudo nginx -t
-nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
-nginx: configuration file /etc/nginx/nginx.conf test is successful
--sh-4.1$ sudo grep -r "sigct_backend" /etc/nginx/
--sh-4.1$ sudo tail -f/var/log/nginx/error.log
-[sudo] password for p585600:
-tail: invalid option -- '/'
-Experimente "tail --help" para mais informações.
--sh-4.1$ sudo tail -f/var/log/nginx/access.log
-tail: invalid option -- '/'
-Experimente "tail --help" para mais informações.
--sh-4.1$
+ASSUNTO: Informações Necessárias - Configuração NGINX para API SIGCT
+
+Prezados,
+
+Conforme demanda de Contratações e Logística, foi confirmado que a rota 
+/sigct_backend/rest/ não está configurada no arquivo NGINX do servidor 
+TQS (sctdeapllx0018.df.caixa - 10.116.83.19).
+
+DIAGNÓSTICO REALIZADO:
+✓ NGINX está ativo e funcionando
+✓ Configuração NGINX é válida
+✗ Rota sigct_backend NÃO existe no NGINX
+
+PARA PROCEDERMOS COM A SOLUÇÃO, SOLICITAMOS AS SEGUINTES INFORMAÇÕES:
+
+1. IP ou HOSTNAME do servidor BACKEND que hospeda a API SIGCT
+   Exemplo: 10.116.x.x ou sigct-backend.df.caixa
+   
+2. PORTA em que o serviço está rodando
+   Exemplo: 8080, 9090, 80, 443
+
+3. PROTOCOLO de comunicação
+   [ ] HTTP
+   [ ] HTTPS
+   [ ] Outro: ___________
+
+4. Existe alguma AUTENTICAÇÃO ou TOKEN necessário?
+   [ ] Não
+   [ ] Sim - Qual tipo? ___________
+
+5. PATH completo da API (confirmar)
+   [ ] /sigct_backend/rest/
+   [ ] Outro: ___________
+
+Assim que recebermos essas informações, procederemos com:
+- Configuração do proxy_pass no NGINX
+- Testes em ambiente de teste
+- Implantação em produção via Esteiras
+
+Atenciosamente,
+[Seu Nome]
