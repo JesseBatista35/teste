@@ -1,16 +1,128 @@
-2026-06-08T17:07:03.2043767Z ##[section]Starting: Atualizando Variáveis de Ambiente
-2026-06-08T17:07:03.2047316Z ==============================================================================
-2026-06-08T17:07:03.2047442Z Task         : Bash
-2026-06-08T17:07:03.2047499Z Description  : Run a Bash script on macOS, Linux, or Windows
-2026-06-08T17:07:03.2047563Z Version      : 3.227.0
-2026-06-08T17:07:03.2047641Z Author       : Microsoft Corporation
-2026-06-08T17:07:03.2047694Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/bash
-2026-06-08T17:07:03.2047765Z ==============================================================================
-2026-06-08T17:07:03.5883060Z Generating script.
-2026-06-08T17:07:03.5894102Z ========================== Starting Command Output ===========================
-2026-06-08T17:07:03.5901026Z [command]/usr/bin/bash /opt/ads-agent/_work/_temp/c6e1d50c-18e2-416b-8145-7608186ceb32.sh
-2026-06-08T17:07:03.5949767Z Nova APP: false
-2026-06-08T17:07:03.7725246Z ##[section]Finishing: Atualizando Variáveis de Ambiente
+Skip to main content
+Azure DevOps
+projetos
+/
+Caixa
+/
+Pipelines
+/
+Task groups
+Search
 
 
-eU MUDEI A VERSAO DA TAKS CRIA APP OKD ESTAVA COM A VERSAO 12 COLOQUEI NA 13 AGORA O SETEP DEU ISSO
+Caixa
+
+Overview
+
+Boards
+
+Repos
+
+Pipelines
+Pipelines
+Environments
+Releases
+Library
+Task groups
+Deployment groups
+Portal Infra
+
+Test Plans
+
+Artifacts
+Project settings
+Task groups
+
+Exporta_Variable_Cria_Projeto_OKD
+
+Tasks
+
+History
+
+References
+Bash
+Task version
+3.*
+Display name
+Exportando Variáveis de Ambiente "_ENV."
+Type
+
+
+Script
+#!/bin/bash
+
+IFS=$'\n'
+var_split="-e"
+
+for OUTPUT in `printenv | sort`
+do
+if [[ "$OUTPUT" =~ ^_ENV_.*  ]]; then
+
+    Enviroment="${Enviroment} $var_split ${OUTPUT#"_ENV_"}"
+    echo ${OUTPUT#"_ENV_"}
+fi
+done
+
+echo "##vso[task.setvariable variable=Enviroment;]$Enviroment"
+
+Advanced
+Control Options
+Environment Variables
+Showing filters 1 through 1
+
+
+
+SCRITOS DESSA TASK. 
+
+#!/bin/bash
+
+IFS=$'\n'
+var_split="-e"
+
+for OUTPUT in `printenv | sort`
+do
+if [[ "$OUTPUT" =~ ^_ENV_.*  ]]; then
+
+    Enviroment="${Enviroment} $var_split ${OUTPUT#"_ENV_"}"
+    echo ${OUTPUT#"_ENV_"}
+fi
+done
+
+echo "##vso[task.setvariable variable=Enviroment;]$Enviroment"
+
+oc get project $(PROJETO)-$(AMBIENTE)
+if [ "$?" -ne "0" ]; then
+ oc new-project $(PROJETO)-$(AMBIENTE)
+ oc adm policy add-scc-to-group anyuid system:serviceaccounts:$(PROJETO)-$(AMBIENTE)
+fi
+oc label namespace $(PROJETO)-$(AMBIENTE) createdby=ads --overwrite
+oc label namespace $(PROJETO)-$(AMBIENTE) CGC_UNIDADE_DES=$(CGC_UNIDADE_DES) --overwrite
+oc label namespace $(PROJETO)-$(AMBIENTE) CGC_UNIDADE_OPS=$(CGC_UNIDADE_OPS) --overwrite
+oc label netnamespace $(PROJETO)-$(AMBIENTE) projeto=$(PROJETO)-$(AMBIENTE) --overwrite
+
+
+if [ "$NODESELECTOR" == "ob" -a "$(AMBIENTE)" == "prd" ]
+then
+oc patch namespace $(PROJETO)-$(AMBIENTE) -p '{"metadata":{"annotations":{"openshift.io/node-selector":"sistema=ob"}}}'
+fi
+
+#if [[ "$AMBIENTE" == prd ]]; then
+#
+#   WILDCARD_APL=$(OKD_URL_SUFFIX_APL)
+#   if [[ $WILDCARD_APL == ms.caixa ]]
+#   then
+#    echo oc label namespace $(PROJETO)-$(AMBIENTE) router=router-microservice
+#  else
+#   echo oc label namespace $(PROJETO)-$(AMBIENTE) router=router-default
+#  fi
+#fi
+
+#!/bin/bash
+
+echo "PROJETO=$(PROJETO)"
+echo "AMBIENTE=$(AMBIENTE)"
+echo "ISTIO_INJECTION=$(ISTIO_INJECTION)"
+
+#A label abaixo somente e adicionada ao namespace que tem a variable group ISTIO_VARIABLES
+oc label namespace $(PROJETO)-$(AMBIENTE) istio-injection=enabled --overwrite
+
