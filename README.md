@@ -1,3 +1,23 @@
+FICOU ASSIM: 
+
+
+QUARKUS_CREDENTIALS_SECRET
+bef84ba6-cc6e-435b-9b2f-2f2248a6887f
+QUARKUS_HTTP_CORS_ORIGINS
+https://sicbc-frontend-des.apps.nprd.caixa
+QUARKUS_OIDC_AUTH_SERVER_URL
+https://login.des.caixa/auth/realms/intranet
+QUARKUS_OIDC_CLIENT_ID
+cli-web-cbc
+
+
+O ERRO CONTINUA:
+
+exec java -Dquarkus.http.host=0.0.0.0 -Dquarkus.http.port=8080 -Djava.util.logging.manager=org.jboss.logmanager.LogManager -XX:+ExitOnOutOfMemoryError -cp . -jar /deployments/quarkus-run.jar
+
+
+
+SEGUE YAML
 kind: DeploymentConfig
 apiVersion: apps.openshift.io/v1
 metadata:
