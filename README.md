@@ -1,4 +1,6 @@
-as vairiaves ja esou aqui configurandas dentro do azureDevops nas configuraçoes da release
+essas sãs os steps do deploy no azureDevosp..
+
+quer olhar algum pra ver porque que nao ta injetando as variaveis?
 
 Skip to main content
 Azure DevOps
@@ -11,6 +13,8 @@ Pipelines
 Releases
 /
 SICBC-backend
+/
+SICBC-backend-00.00.01.09(1)
 Search
 
 
@@ -35,55 +39,211 @@ Test Plans
 
 Artifacts
 Project settings
-All pipelines
-
-sicbc
-
 SICBC-backend
-Predefined variables
-SonarQube Variables (1)
-Variáveis com dados do SonarQube
-Scopes: Release
-Usuario-Azure-DevOps (10)
-Scopes: Release
-MONITORACAO_LOGS (4)
-REQ000143540550 - Conforme autorizado na req por FLAVIO ALMEIDA GAGLIARDI, removido as variáveis JAVA_OPTS_MONITORING e URL_APM_SERVER, por entrar em conflitos com releases que utilizam o Application Insights
-Scopes: Release
-EGRESS_IP_OKD (67)
-WO0000072264656 - Config Portal Infrafácil NO_PROXY
-Scopes: Release
-OKD-REGISTRY-CENTRALIZADO (7)
-Credenciais para o Registry Centralizado - Produtos 4 (OKD)
-Scopes: Release
-OKD-4-NPRD (13)
-Credenciais para o Cluster OKD4 de NPRD (DES/TQS/HMP)
-Scopes: EC DES,EC TQS,EC HMP
-SICBC-BACKEND-DES (4)
-Grupo de variáveis de SICBC-BACKEND-DES
+
+SICBC-backend-00.00.01.09(1)
+
 
-Scopes: EC DES
-QUARKUS_CREDENTIALS_SECRET
-bef84ba6-cc6e-435b-9b2f-2f2248a6887f
-QUARKUS_HTTP_CORS_ORIGINS
-https://sicbc-frontend-des.apps.nprd.caixa
-QUARKUS_OIDC_AUTH_SERVER_URL
-https://login.des.caixa/auth/realms/intranet
-QUARKUS_OIDC_CLIENT_ID
-cli-web-cbc
-SICBC-BACKEND-TQS (1)
-Grupo de variáveis de SICBC-BACKEND-TQS
-Scopes: EC TQS
-SICBC-BACKEND-HMP (1)
-Grupo de variáveis de SICBC-BACKEND-HMP
-Scopes: EC HMP
-OKD-4-APL (13)
-Scopes: EC PRD
-SICBC-BACKEND-PRD (1)
-Grupo de variáveis de SICBC-BACKEND-PRD
-Scopes: EC PRD
-|Manage variable groups
-Expanded
+EC DES
+
+Failed
 
+
+Pipeline
+
+Tasks
+
+Variables
+
+Logs
+
+Tests
+Agent job
+Started: 08/06/2026, 12:31:23
+Pool:
+Release-Linux-OKD4
+·
+Agent: azp-ads-agent-release-5cd876f98-kv42p
+
+6m 44s
+
+Initialize job
+·
+succeeded
+<1s
+
+Pre-job: Download secure file
+·
+succeeded
+<1s
+
+Download Artifacts
+·
+succeeded
+1 warning
+<1s
+
+Exportando as variáveis do arquivo Trust Store
+·
+succeeded
+<1s
+
+Recuperando nome do repositório
+·
+succeeded
+1s
+
+Convertendo Minúsculo e Definindo nome do Projeto/Repositório
+·
+succeeded
+<1s
+
+Git clone https://devops.caixa/projetos/Infraestrutura/_git/esteira-logs
+·
+succeeded
+<1s
+
+Cria Streams Graylog
+·
+succeeded
+1s
+
+Recupera VEC
+·
+succeeded
+<1s
+
+VEC - Aferição
+·
+succeeded
+<1s
+
+Login OpenShift
+·
+succeeded
+<1s
+
+Exportando Variáveis de Ambiente "_ENV."
+·
+succeeded
+<1s
+
+Criando novo Projeto
+·
+succeeded
+<1s
+
+Adicionando ISTIO_INJECTION
+·
+skipped
+
+
+
+Criando nova APP
+·
+succeeded
+<1s
+
+Atualizando Variáveis de Ambiente
+·
+succeeded
+1s
+
+Criando Rota Customizada
+·
+succeeded
+<1s
+
+Aplicando Service Mesh
+·
+skipped
+
+
+Exporta Variáveis de Ambiente "_SECRET."
+·
+succeeded
+<1s
+
+Alterando valores placeholder no exec_secret.sh
+·
+succeeded
+<1s
+
+Criando Secrets
+·
+succeeded
+<1s
+
+Vinculando Secrets
+·
+succeeded
+<1s
+
+Adicionando Multiplas Secrets
+·
+succeeded
+<1s
+
+Executando Tag na Imagem do ambiente de build OKD3, OKD4 e OCP
+·
+succeeded
+20s
+
+Concedendo Acesso OKD
+·
+succeeded
+<1s
+
+Verificando IP de Saída
+·
+succeeded
+<1s
+
+Configurando IP de Saída
+·
+succeeded
+<1s
+
+Cadastrando no Portal IIF
+·
+succeeded
+<1s
+
+Verificando Status do Deployment
+·
+1 error
+6m 7s
+The task has timed out.
+
+Logs da Aplicação
+·
+succeeded
+2s
+
+Resumo da Release
+·
+skipped
+
+
+Coletando dados da imagem
+·
+skipped
+
+
+Atualizando versão no PortalIF
+·
+skipped
+
+
+Realizando Logout OKD
+·
+succeeded
+<1s
+
+Finalize Job
+·
+succeeded
+1s
 Collapsed
 
 Collapsed
@@ -111,4 +271,8 @@ Expanded
 Collapsed
 
 Showing filters 1 through 2
+
+Showing filters 1 through 2
+
+Row 2
 
