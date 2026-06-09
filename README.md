@@ -81,3 +81,14 @@ sudo: jboss: comando não encontrado
 -sh-4.2$ sudo jboss -s
 sudo: jboss: comando não encontrado
 -sh-4.2$
+
+
+
+-sh-4.2$ sudo su
+[root@sbrdeapllx099 bin]# ./jboss-cli.sh -c "/profile=default/server-config=siosp_node1_lx099:stop"
+Failed to connect to the controller: The controller is not available at localhost:9990: java.net.ConnectException: WFLYPRT0053: Não foi possível conectar-se oa remote+http://localhost:9990. A conexão falhou: WFLYPRT0053: Não foi possível conectar-se oa remote+http://localhost:9990. A conexão falhou: Conexão recusada
+[root@sbrdeapllx099 bin]#
+[root@sbrdeapllx099 bin]#
+[root@sbrdeapllx099 bin]#
+[root@sbrdeapllx099 bin]#
+[root@sbrdeapllx099 bin]#
