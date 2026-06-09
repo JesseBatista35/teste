@@ -1,43 +1,105 @@
-Starting: Bash Script
-==============================================================================
-Task         : Bash
-Description  : Run a Bash script on macOS, Linux, or Windows
-Version      : 3.227.0
-Author       : Microsoft Corporation
-Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/bash
-==============================================================================
-Generating script.
-========================== Starting Command Output ===========================
-/usr/bin/bash /opt/ads-agent/_work/_temp/b55f1cf9-c97c-4ea4-a208-bcafcb5ee61d.sh
-+ set -e
-+ set -o pipefail
-+ echo '===== BUILD S2I NO OPENSHIFT ====='
-+ OCP_TOKEN=
-+ OCP_SERVER=https://api.nprd.caixa:6443
-+ OCP_USER=p585600
-+ APP_NAME=sifof-api-aplicacao
-+ NAMESPACE=build-images-ads
-+ BUILD_DIR=/opt/ads-agent/_work/61/a
-+ echo 'Server: https://api.nprd.caixa:6443'
-+ echo 'User: p585600'
-+ echo 'App: sifof-api-aplicacao'
-+ echo ''
-+ echo '>>> PASSO 1: Fazendo login...'
-+ oc login --token= --server=https://api.nprd.caixa:6443 --insecure-skip-tls-verify=true
-===== BUILD S2I NO OPENSHIFT =====
-Server: https://api.nprd.caixa:6443
-User: p585600
-App: sifof-api-aplicacao
-
->>> PASSO 1: Fazendo login...
-You must obtain an API token by visiting https://oauth-openshift.apps.nprd.caixa/oauth/token/request
-+ echo 'FALHA no login!'
-+ exit 1
-FALHA no login!
-##[error]Bash exited with code '1'.
-Finishing: Bash Script
+Skip to main content
+Azure DevOps
+projetos
+/
+Caixa
+/
+Pipelines
+Search
 
 
-a agente loga assim/:
+Caixa
 
-oc login --token=apageuiotoken --server=https://api.nprd.caixa:6443
+Overview
+
+Boards
+
+Repos
+
+Pipelines
+Pipelines
+Environments
+Releases
+Library
+Task groups
+Deployment groups
+Portal Infra
+
+Test Plans
+
+Artifacts
+Project settings
+
+sifof
+
+SIFOF-api-aplicacao
+
+Tasks
+
+Variables
+
+Triggers
+
+Options
+
+History
+Predefined variables
+nome_imagem
+quarkus-java-binary-s2i
+OCP_SERVER
+https://api.nprd.caixa:644
+OCP_TOKEN
+********
+OCP_USER
+p585600
+SITE
+okd4_nprd
+system.collectionId
+7b4c9d5c-b041-4798-8dcb-fb11786a173b
+system.definitionId
+6424
+system.teamProject
+Caixa
+tag_imagem
+8.2-openjdk21.0.1
+version.app
+Collapsed
+
+Row 6. Clickable
+
+Expanded
+
+Collapsed
+
+Row 2. Clickable
+
+Task disabled
+
+Showing 33 filtered items.
+
+Showing 25 filtered items.
+
+Row 2. Clickable
+
+Row 2. Clickable
+
+Showing 25 filtered items.
+
+Get started and run this pipeline for the first time!
+
+Showing 34 filtered items.
+
+Showing 25 filtered items.
+
+Row 2. Clickable
+
+Row 2. Clickable
+
+Showing 25 filtered items.
+
+Get started and run this pipeline for the first time!
+
+Showing 34 filtered items.
+
+Showing 25 filtered items.
+
