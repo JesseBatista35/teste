@@ -1,52 +1,40 @@
-📋 Passo 1: Entender o que você tem
-Execute isto e me compartilhe o resultado:
-bash# Qual é seu projeto/namespace atual?
-oc project
-bash# Você tem acesso a criar ImageStreams?
-oc get imagestreams -n openshift | head -20
-bash# Qual versão do OpenShift?
-oc version
+-sh-4.2$ oc project
+Using project "build-images-ads" on server "https://api.nprd.caixa:6443".
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$ oc get imagestreams -n openshift | head -20]
+head: opção inválida -- ]
+Try 'head --help' for more information.
+-sh-4.2$ oc version
+oc v3.11.0+0cbc58b
+kubernetes v1.11.0+d4cacc0
+features: Basic-Auth GSSAPI Kerberos SPNEGO
 
-🎯 Passo 2: Informações que preciso
-Responda estas perguntas (pode ser em português mesmo):
-
-Qual é a versão do Java da sua aplicação?
-
-Java 11, 17, 21?
-
-
-O BuildConfig deve ficar em qual namespace?
-
-build-images-ads (como estava antes)?
-sifof-des?
-Outro?
-
-
-Você tem o arquivo JAR?
-
-Onde está guardado? (repositório git? S3? compartilhado?)
+Server https://api.nprd.caixa:6443
+kubernetes v1.25.0-2824+27e744f55d2e99-dirty
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
 
 
-Você sabe qual era a imagem base (FROM) do Dockerfile/S2I original?
-
-rhel8/java-17?
-rhel9/java-21?
-registry.redhat.io/ubi9/openjdk-21?
+versao java: 8.2-openjdk21.0.1
 
 
+nao sei qual namespce deve ficar o buildConfig
+
+nao tem o arquivo jar. mais o repositoir esta em azureDevops classic
+
+nao sei qual era a imgem base form..
 
 
-📝 Passo 3: Vamos criar o arquivo YAML
-Quando você responder as perguntas acima, faço um YAML customizado para você. Aí é só:
-bash# 1. Criar o arquivo
-cat > buildconfig-sifof.yaml << 'EOF'
-# YAML aqui
-EOF
+vove nao quer me ajudar a cirar umbash de scripr para consseguir essas infrmaçoes dai eu rodo ele na build
 
-# 2. Aplicar
-oc create -f buildconfig-sifof.yaml
 
-# 3. Verificar
-oc get buildconfig
 
-Responda as 4 perguntas acima e continuamos! 👇
+
+
