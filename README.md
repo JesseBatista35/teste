@@ -1,65 +1,11 @@
-#!/bin/bash
-set -o errexit
+nao vou colocar mue token e nem meu usiro para cirar nada. 
 
-# Login
-oc login -u "$OCP_USER" -p "$OCP_PASSWORD" https://api.nprd.caixa:6443
-
-# Configurar
-export APP_NAME="sifof-api-aplicacao"
-export NAMESPACE="build-images-ads"
-export IMAGESTREAM="rhel9/openjdk-21"
-export BUILD_DIR="./app"
-
-# Executar
-chmod +x build-s2i.sh
-./build-s2i.sh
+isso é pratica errada..
 
 
+troquei o agent:
 
-
-rodamso esse bash aqui:
-
-#!/bin/bash
-set -x
-set -e
-set -o pipefail
-
-echo "===== DEBUG OPENSHIFT BUILD ====="
-
-echo "1. Quem estou logado?"
-oc whoami || true
-
-echo "2. Projeto:"
-oc project || true
-
-echo "3. Testando API (healthz):"
-oc get --raw='/healthz' || echo "FAIL API"
-
-echo "4. Testando listagem de pods:"
-oc get pods -n build-images-ads | head -n 5 || echo "FAIL PODS"
-
-echo "5. Testando estabilidade (loop):"
-for i in {1..5}; do
-  oc get pods -n build-images-ads >/dev/null \
-    && echo "OK tentativa $i" \
-    || echo "FAIL tentativa $i"
-  sleep 2
-done
-
-echo "6. Testando conexão TCP:"
-timeout 5 bash -c "</dev/tcp/api.produtos4.caixa/6443" \
-  && echo "TCP OK" \
-  || echo "TCP FAIL"
-
-echo "7. Tamanho do payload:"
-du -sh $(Build.StagingDirectory) || true
-
-echo "8. Arquivos principais:"
-ls -lh $(Build.StagingDirectory)
-
-
-deu esse resultado:
-
+e rodei novamente:
 
 
 Starting: Bash Script
@@ -72,7 +18,7 @@ Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/b
 ==============================================================================
 Generating script.
 ========================== Starting Command Output ===========================
-/usr/bin/bash /opt/ads-agent/_work/_temp/59b8e5ee-faad-43a8-932f-d568d7f3a08d.sh
+/usr/bin/bash /opt/ads-agent/_work/_temp/2a5618b7-cabb-4664-9b36-40c7b86dbafa.sh
 + set -e
 + set -o pipefail
 + echo '===== DEBUG OPENSHIFT BUILD ====='
@@ -94,17 +40,11 @@ ok+ echo '4. Testando listagem de pods:'
 4. Testando listagem de pods:
 + oc get pods -n build-images-ads
 + head -n 5
-error: the server doesn't have a resource type "pods"
+Error from server (Forbidden): pods is forbidden: User "system:anonymous" cannot list resource "pods" in API group "" in the namespace "build-images-ads"
 + echo 'FAIL PODS'
-+ echo '5. Testando estabilidade (loop):'
 FAIL PODS
 5. Testando estabilidade (loop):
++ echo '5. Testando estabilidade (loop):'
 + for i in {1..5}
 + oc get pods -n build-images-ads
-error: the server doesn't have a resource type "pods"
-
-
-
-vou rodar com seu bash agora:
-
-
+Error from server (Forbidden): pods is forbidden: User "system:anonymous" cannot list resource "pods" in API group "" in the namespace "build-images-ads"
