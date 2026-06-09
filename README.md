@@ -1,32 +1,9 @@
-[root@sbrdeapllx099 bin]# tail -100 /opt/jboss/jboss-eap/hc/log/servers/siosp_node1_lx099/server.log | tail -30
-2026-06-09 14:42:44,724 WARN  [org.jboss.as.clustering.jgroups.protocol.UDP] (ServerService Thread Pool -- 74) JGRP000015: the send buffer of socket MulticastSocket was set to 1MB, but the OS only allocated 212,99KB. This might lead to performance problems. Please set your max send buffer in the OS correctly (e.g. net.core.wmem_max on Linux)
-2026-06-09 14:42:44,724 WARN  [org.jboss.as.clustering.jgroups.protocol.UDP] (ServerService Thread Pool -- 74) JGRP000015: the receive buffer of socket MulticastSocket was set to 20MB, but the OS only allocated 212,99KB. This might lead to performance problems. Please set your max receive buffer in the OS correctly (e.g. net.core.rmem_max on Linux)
-2026-06-09 14:42:44,725 WARN  [org.jboss.as.clustering.jgroups.protocol.UDP] (ServerService Thread Pool -- 74) JGRP000015: the send buffer of socket MulticastSocket was set to 1MB, but the OS only allocated 212,99KB. This might lead to performance problems. Please set your max send buffer in the OS correctly (e.g. net.core.wmem_max on Linux)
-2026-06-09 14:42:44,725 WARN  [org.jboss.as.clustering.jgroups.protocol.UDP] (ServerService Thread Pool -- 74) JGRP000015: the receive buffer of socket MulticastSocket was set to 25MB, but the OS only allocated 212,99KB. This might lead to performance problems. Please set your max receive buffer in the OS correctly (e.g. net.core.rmem_max on Linux)
-2026-06-09 14:42:45,044 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-6) WFLYJCA0004: Implantação do driver compatível-JDBC class oracle.jdbc.OracleDriver (versão 12.2)
-2026-06-09 14:42:45,052 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-6) WFLYJCA0018: Serviço de driver iniciado com driver-name = ojdbc8.jar
-2026-06-09 14:42:45,080 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-8) WFLYJCA0001: Limite da fonte de dados [java:/jdbc/OracleSiospDS]
-2026-06-09 14:42:47,832 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 75) AMQ221000: live Message Broker is starting with configuration Broker Configuration (clustered=true,journalDirectory=/opt/jboss/jboss-eap/hc/data/servers/siosp_node1_lx099/activemq/journal,bindingsDirectory=/opt/jboss/jboss-eap/hc/data/servers/siosp_node1_lx099/activemq/bindings,largeMessagesDirectory=/opt/jboss/jboss-eap/hc/data/servers/siosp_node1_lx099/activemq/largemessages,pagingDirectory=/opt/jboss/jboss-eap/hc/data/servers/siosp_node1_lx099/activemq/paging)
-2026-06-09 14:42:47,870 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 75) AMQ221012: Using AIO Journal
-2026-06-09 14:42:47,949 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 75) AMQ221043: Protocol module found: [artemis-server]. Adding protocol support for: CORE
-2026-06-09 14:42:47,950 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 75) AMQ221043: Protocol module found: [artemis-hornetq-protocol]. Adding protocol support for: HORNETQ
-2026-06-09 14:42:48,202 INFO  [org.wildfly.extension.messaging-activemq] (MSC service thread 1-5) WFLYMSGAMQ0016: Atualização HTTP registrada para protocolo activemq-remoting manipulado pelo aceitador http-acceptor-throughput
-2026-06-09 14:42:48,202 INFO  [org.wildfly.extension.messaging-activemq] (MSC service thread 1-2) WFLYMSGAMQ0016: Atualização HTTP registrada para protocolo activemq-remoting manipulado pelo aceitador http-acceptor
-2026-06-09 14:42:48,202 INFO  [org.wildfly.extension.messaging-activemq] (MSC service thread 1-1) WFLYMSGAMQ0016: Atualização HTTP registrada para protocolo activemq-remoting manipulado pelo aceitador http-acceptor-throughput
-2026-06-09 14:42:48,202 INFO  [org.wildfly.extension.messaging-activemq] (MSC service thread 1-6) WFLYMSGAMQ0016: Atualização HTTP registrada para protocolo activemq-remoting manipulado pelo aceitador http-acceptor
-2026-06-09 14:42:48,253 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 74) WFLYCLINF0002: Cache client-mappings inicializado a partir do recipiente ejb
-2026-06-09 14:42:48,259 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 75) AMQ221007: Server is now live
-2026-06-09 14:42:48,259 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 75) AMQ221001: Apache ActiveMQ Artemis Message Broker version 1.5.5.015-redhat-00001 [default, nodeID=3fa69272-53d0-11f1-89ef-00505686b59d]
-2026-06-09 14:42:48,266 INFO  [org.wildfly.extension.messaging-activemq] (ServerService Thread Pool -- 75) WFLYMSGAMQ0002: Objeto de mensagem vinculado ao nome jndi java:/ConnectionFactory
-2026-06-09 14:42:48,272 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 77) AMQ221003: Deploying queue jms.queue.DLQ
-2026-06-09 14:42:48,281 INFO  [org.wildfly.extension.messaging-activemq] (ServerService Thread Pool -- 76) WFLYMSGAMQ0002: Objeto de mensagem vinculado ao nome jndi java:jboss/exported/jms/RemoteConnectionFactory
-2026-06-09 14:42:48,283 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 78) AMQ221003: Deploying queue jms.queue.ExpiryQueue
-2026-06-09 14:42:48,309 INFO  [org.jboss.as.connector.deployment] (MSC service thread 1-7) WFLYJCA0007: Fábrica de conexão registrada java:/JmsXA
-2026-06-09 14:42:48,336 INFO  [org.apache.activemq.artemis.ra] (MSC service thread 1-7) Resource adaptor started
-2026-06-09 14:42:48,336 INFO  [org.jboss.as.connector.services.resourceadapters.ResourceAdapterActivatorService$ResourceAdapterActivator] (MSC service thread 1-7) IJ020002: Deployed: file://RaActivatoractivemq-ra
-2026-06-09 14:42:48,338 INFO  [org.jboss.as.connector.deployment] (MSC service thread 1-8) WFLYJCA0002: Limite JCA ConnectionFactory [java:/JmsXA]
-2026-06-09 14:42:48,338 INFO  [org.wildfly.extension.messaging-activemq] (MSC service thread 1-4) WFLYMSGAMQ0002: Objeto de mensagem vinculado ao nome jndi java:jboss/DefaultJMSConnectionFactory
-2026-06-09 14:42:48,350 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0010: Implantado "ojdbc8.jar" (runtime-name: "ojdbc8.jar")
-2026-06-09 14:42:48,374 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0212: Retomando servidor
-2026-06-09 14:42:48,380 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0025: JBoss EAP 7.1.6.GA (WildFly Core 3.0.21.Final-redhat-00001) iniciado em 6007ms - Iniciado 475 de serviços 723 (os serviços 441 são lazy, passivos ou em demanda)
-[root@sbrdeapllx099 bin]#
+1️⃣ Verifique se a porta 8803 está respondendo:
+bashcurl -v http://10.116.94.206:8803/ 2>&1 | head -20
+2️⃣ Teste a URL original:
+bashcurl -v http://10.116.94.206:8803/simcn-web/ 2>&1 | head -20
+3️⃣ Se não responder, verifique quais aplicações estão deployadas:
+bashls -la /opt/jboss/jboss-eap/hc/deployments/
+
+Execute estes comandos e compartilhe os resultados!
+Se a aplicação não estiver deployada, vamos fazer o deploy correto.
