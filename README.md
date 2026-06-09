@@ -1,43 +1,12 @@
-[domain@10.116.89.0:9999 /] /host=sbrdeapllx105_corporativo/server-config=simcn_node1_lx103:read-resource(include-runtime=true
-
-{
-
-    "outcome" => "success",
-
-    "result" => {
-
-        "auto-start" => true,
-
-        "cpu-affinity" => undefined,
-
-        "group" => "simcn",
-
-        "name" => "simcn_node1_lx103",
-
-        "priority" => undefined,
-
-        "socket-binding-default-interface" => undefined,
-
-        "socket-binding-group" => "full-ha-sockets",
-
-        "socket-binding-port-offset" => 1820,
-
-        "status" => "STARTING",
-
-        "update-auto-start-with-server-status" => false,
-
-        "interface" => undefined,
-
-        "jvm" => undefined,
-
-        "path" => undefined,
-
-        "ssl" => undefined,
-
-        "system-property" => undefined
-
-    }
-
-}
-
- 
+RELATÓRIO DE FECHAMENTO - SIMCN-WEB
+DEMANDA: Verificação de indisponibilidade do ambiente DES - SIMCN-Web
+DATA: 09/06/2026
+STATUS: RESOLVIDO
+DIAGNÓSTICO:
+A aplicação SIMCN-Web estava indisponível. Após investigação, constatou-se que o servidor correto é sbrdeapllx105_corporativo (não sbrdeapllx099). A aplicação está configurada no servidor simcn_node1_lx103 no grupo de serviços simcn.
+SOLUÇÃO APLICADA:
+Reinicialização do JBOSS EAP 7.1 no servidor sbrdeapllx105_corporativo. Aplicação SIMCN iniciada com sucesso. Porta 8803 respondendo corretamente.
+RESULTADO:
+Aplicação SIMCN-Web operacional e respondendo normalmente. URL de acesso: https://conciliacao.des.caixa/simcn-web/ Servidor: sbrdeapllx105_corporativo. Status: ATIVO e FUNCIONANDO.
+Responsável: p585600
+Data de conclusão: 09/06/2026 15:32
