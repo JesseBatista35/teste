@@ -1,61 +1,52 @@
+📋 Passo 1: Entender o que você tem
+Execute isto e me compartilhe o resultado:
+bash# Qual é seu projeto/namespace atual?
+oc project
+bash# Você tem acesso a criar ImageStreams?
+oc get imagestreams -n openshift | head -20
+bash# Qual versão do OpenShift?
+oc version
 
--sh-4.2$ oc get events -n build-images-ads --sort-by='.lastTimestamp' | grep -i delete
-No resources found.
--sh-4.2$ oc adm node-logs --role=master --path=audit.log | grep sifof-api-aplicacao
-Error: unknown flag: --role
+🎯 Passo 2: Informações que preciso
+Responda estas perguntas (pode ser em português mesmo):
+
+Qual é a versão do Java da sua aplicação?
+
+Java 11, 17, 21?
 
 
-Usage:
-  oc adm [flags]
+O BuildConfig deve ficar em qual namespace?
 
-Component Installation:
-  router                             Install a router
-  ipfailover                         Install an IP failover group to a set of nodes
-  registry                           Install the integrated Docker registry
+build-images-ads (como estava antes)?
+sifof-des?
+Outro?
 
-Security and Policy:
-  new-project                        Create a new project
-  policy                             Manage policy
-  groups                             Manage groups
-  ca                                 Manage certificates and keys
-  certificate                        Modify certificate resources.
 
-Node Management:
-  create-node-config                 Create a configuration bundle for a node
-  manage-node                        Manage nodes - list pods, evacuate, or mark ready
-  cordon                             Mark node as unschedulable
-  uncordon                           Mark node as schedulable
-  drain                              Drain node in preparation for maintenance
-  taint                              Update the taints on one or more nodes
-  pod-network                        Manage pod network
+Você tem o arquivo JAR?
 
-Maintenance:
-  diagnostics                        Diagnose common cluster problems
-  prune                              Remove older versions of resources from the server
-  build-chain                        Output the inputs and dependencies of your builds
-  migrate                            Migrate data in the cluster
-  top                                Show usage statistics of resources on the server
-  verify-image-signature             Verify the image identity contained in the image signature
+Onde está guardado? (repositório git? S3? compartilhado?)
 
-Configuration:
-  create-kubeconfig                  Create a basic .kubeconfig file from client certs
-  create-api-client-config           Create a config file for connecting to the server as a user
-  create-bootstrap-project-template  Create a bootstrap project template
-  create-bootstrap-policy-file       Create the default bootstrap policy
-  create-login-template              Create a login template
-  create-provider-selection-template Create a provider selection template
-  create-error-template              Create an error page template
 
-Other Commands:
-  completion                         Output shell completion code for the specified shell (bash or zsh)
-  config                             Change configuration files for the client
+Você sabe qual era a imagem base (FROM) do Dockerfile/S2I original?
 
-Use "oc adm <command> --help" for more information about a given command.
-Use "oc adm options" for a list of global command-line options (applies to all commands).
+rhel8/java-17?
+rhel9/java-21?
+registry.redhat.io/ubi9/openjdk-21?
 
--sh-4.2$ cd sifof-api-aplicacao
--sh: cd: sifof-api-aplicacao: Arquivo ou diretório não encontrado
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$
+
+
+
+📝 Passo 3: Vamos criar o arquivo YAML
+Quando você responder as perguntas acima, faço um YAML customizado para você. Aí é só:
+bash# 1. Criar o arquivo
+cat > buildconfig-sifof.yaml << 'EOF'
+# YAML aqui
+EOF
+
+# 2. Aplicar
+oc create -f buildconfig-sifof.yaml
+
+# 3. Verificar
+oc get buildconfig
+
+Responda as 4 perguntas acima e continuamos! 👇
