@@ -1,38 +1,61 @@
 
-1. Ver eventos de deleção:
-bashoc get events -n build-images-ads --sort-by='.lastTimestamp' | grep -i delete
-2. Ver auditoria (se habilitada):
-bash# No seu cluster, peça ao admin:
-oc adm node-logs --role=master --path=audit.log | grep sifof-api-aplicacao
-3. Verificar backup/histórico do git:
-Se o BuildConfig estava em um repositório Git:
-bashcd seu-repo
-git log --oneline | grep -i sifof
-git show <commit-hash> # Ver o que foi deletado
+-sh-4.2$ oc get events -n build-images-ads --sort-by='.lastTimestamp' | grep -i delete
+No resources found.
+-sh-4.2$ oc adm node-logs --role=master --path=audit.log | grep sifof-api-aplicacao
+Error: unknown flag: --role
 
-🛡️ Recuperar o BuildConfig
-Opção 1: Git History
-bash# Se estava versionado, recupere do git
-git checkout <commit-anterior> -- buildconfig.yaml
-oc create -f buildconfig.yaml
-Opção 2: Backup do Cluster
-bash# Se seu admin fez backup:
-oc get buildconfig sifof-api-aplicacao -n build-images-ads -o yaml > sifof-api-aplicacao-backup.yaml
-Opção 3: Recriar do zero
-bashoc get buildconfig sifof-api-aplicacao -n build-images-ads -o yaml
-# (Pedir para alguém que tenha acesso fornecer)
 
-📌 Proteger contra futuras deletions
-bash# Adicionar label de proteção
-oc patch buildconfig sifof-api-aplicacao -n build-images-ads -p '{"metadata":{"labels":{"protected":"true"}}}'
+Usage:
+  oc adm [flags]
 
-# Ou usar RBAC para restringir deletions
-oc adm policy add-role-to-user view seu-usuario -n build-images-ads
+Component Installation:
+  router                             Install a router
+  ipfailover                         Install an IP failover group to a set of nodes
+  registry                           Install the integrated Docker registry
 
-❓ Próximos Passos
+Security and Policy:
+  new-project                        Create a new project
+  policy                             Manage policy
+  groups                             Manage groups
+  ca                                 Manage certificates and keys
+  certificate                        Modify certificate resources.
 
-Você tem o YAML original do BuildConfig? (arquivo ou git)
-Quando foi deletado? (hoje? semana passada?)
-Quem tem acesso para deletar? (admin? pipeline automática?)
+Node Management:
+  create-node-config                 Create a configuration bundle for a node
+  manage-node                        Manage nodes - list pods, evacuate, or mark ready
+  cordon                             Mark node as unschedulable
+  uncordon                           Mark node as schedulable
+  drain                              Drain node in preparation for maintenance
+  taint                              Update the taints on one or more nodes
+  pod-network                        Manage pod network
 
-Compartilhe o YAML original ou acesse o git histórico! 🔧
+Maintenance:
+  diagnostics                        Diagnose common cluster problems
+  prune                              Remove older versions of resources from the server
+  build-chain                        Output the inputs and dependencies of your builds
+  migrate                            Migrate data in the cluster
+  top                                Show usage statistics of resources on the server
+  verify-image-signature             Verify the image identity contained in the image signature
+
+Configuration:
+  create-kubeconfig                  Create a basic .kubeconfig file from client certs
+  create-api-client-config           Create a config file for connecting to the server as a user
+  create-bootstrap-project-template  Create a bootstrap project template
+  create-bootstrap-policy-file       Create the default bootstrap policy
+  create-login-template              Create a login template
+  create-provider-selection-template Create a provider selection template
+  create-error-template              Create an error page template
+
+Other Commands:
+  completion                         Output shell completion code for the specified shell (bash or zsh)
+  config                             Change configuration files for the client
+
+Use "oc adm <command> --help" for more information about a given command.
+Use "oc adm options" for a list of global command-line options (applies to all commands).
+
+-sh-4.2$ cd sifof-api-aplicacao
+-sh: cd: sifof-api-aplicacao: Arquivo ou diretório não encontrado
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
