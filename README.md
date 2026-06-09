@@ -1,12 +1,10 @@
+🆘 O QUE FAZER AGORA (URGENTE - 20 MIN):
+OPÇÃO 1 - Mais rápida:
+bashls -la /opt/jboss/jboss-eap/hc/data/servers/siosp_node1_lx099/
+Se houver um "deployments" ou "content", a aplicação pode estar lá. Compartilhe!
+OPÇÃO 2:
+bashcat /opt/jboss/jboss-eap/hc/log/servers/siosp_node1_lx099/server.log | grep -i "deploy\|artifact" | tail -20
+OPÇÃO 3 - MAIS IMPORTANTE:
+Você tem contato com quem faz o deploy? Ou tem acesso a um repositório Maven/Nexus?
 
-[root@sbrdeapllx099 bin]# find /opt/jboss -name "siosp*.ear" -type f 2>/dev/null
-[root@sbrdeapllx099 bin]# find /upload -name "*.ear" -type f 2>/dev/null
-/upload/des/sisdu/repositorio/SISDU/sisdu/2017/11/22/103018siatdEAR.ear
-^C
-[root@sbrdeapllx099 bin]#
-[root@sbrdeapllx099 bin]#
-[root@sbrdeapllx099 bin]# find /opt/jboss -name "*.ear" -type f -mtime -30 2>/dev/null
-[root@sbrdeapllx099 bin]#
-
-
-ta estramjp iossoo achou um de 2017 isso ta errado
+Responda RÁPIDO qual é o caminho! ⏰
