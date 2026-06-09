@@ -1,34 +1,52 @@
-
--sh-4.2$ oc project sifof-des
-Now using project "sifof-des" on server "https://api.nprd.caixa:6443".
--sh-4.2$
--sh-4.2$
--sh-4.2$ oc whoami
-p585600@corp.caixa.gov.br
--sh-4.2$ oc start-build sifof-api-aplicacao
-Error from server (Forbidden): buildconfigs.build.openshift.io "sifof-api-aplicacao" is forbidden: buildconfigs.build.openshift.io "sifof-api-aplicacao" not found
--sh-4.2$ --from-dir=/opt/ads-agent/_work/61/a
--sh: --from-dir=/opt/ads-agent/_work/61/a: Arquivo ou diretório não encontrado
--sh-4.2$ --follow
--sh: --follow: comando não encontrado
--sh-4.2$ --wait=true
--sh: --wait=true: comando não encontrado
--sh-4.2$ -n build-images-ads
--sh: -n: comando não encontrado
--sh-4.2$ -v=5
--sh: -v=5: comando não encontrado
--sh-4.2$ --request-timeout=5m
--sh: --request-timeout=5m: comando não encontrado
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$ oc logs -n openshift-kube-apiserver -l component=kube-apiserver
-error: You must provide one or more resources by argument or filename.
-Example resource specifications include:
-   '-f rsrc.yaml'
-   '--filename=rsrc.json'
-   '<resource> <name>'
-   '<resource>'
--sh-4.2$ oc describe buildconfig sifof-api-aplicacao -n build-images-ads
+🎯 Problema Identificado!
+Agora vejo o real problema! O BuildConfig não existe no namespace build-images-ads. Veja:
+bashoc describe buildconfig sifof-api-aplicacao -n build-images-ads
 Error from server (NotFound): buildconfigs.build.openshift.io "sifof-api-aplicacao" not found
--sh-4.2$
+🔍 Diagnóstico
+
+✅ Você tem autenticação: p585600@corp.caixa.gov.br
+✅ Está conectado ao servidor: https://api.nprd.caixa:6443
+❌ BuildConfig não existe em build-images-ads
+Você está no namespace: sifof-des
+
+✅ Soluções
+Opção 1: Encontrar onde o BuildConfig realmente está
+bash# Listar todos os BuildConfigs no seu namespace atual
+oc get buildconfigs -n sifof-des
+
+# Se precisar, procurar em todos os namespaces
+oc get buildconfigs --all-namespaces | grep sifof-api
+Opção 2: Criar o BuildConfig (se não existir)
+Se o BuildConfig precisa existir em build-images-ads, crie-o:
+bashoc project build-images-ads
+
+oc create buildconfig sifof-api-aplicacao \
+  --image=registry.redhat.io/ubi9/ubi:latest \
+  --binary=true \
+  -n build-images-ads
+Opção 3: Corrigir o comando no seu script do DevOps
+Se o BuildConfig está em sifof-des, altere seu script:
+bashoc start-build sifof-api-aplicacao \
+  --from-dir=/opt/ads-agent/_work/61/a \
+  --follow \
+  --wait=true \
+  -n sifof-des \
+  -v=5
+Opção 4: Verificar permissões
+bash# Ver todos os BuildConfigs que você pode acessar
+oc get buildconfigs -A
+
+# Verificar suas permissões específicas
+oc auth can-i create buildconfigs -n build-images-ads
+oc auth can-i create buildconfigs -n sifof-des
+❓ Próximos Passos
+Execute estes comandos e compartilhe o resultado:
+bash# 1. Listar BuildConfigs no seu namespace
+oc get buildconfigs -n sifof-des
+
+# 2. Procurar em todos os namespaces
+oc get buildconfigs --all-namespaces | grep sifof
+
+# 3. Descrever o BuildConfig se encontrar
+oc describe buildconfig sifof-api-aplicacao -n [NAMESPACE]
+Qual é o namespace correto onde o BuildConfig deveria estar?
