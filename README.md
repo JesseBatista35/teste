@@ -15,4 +15,3 @@
 [root@sbrdeapllx099 bin]# ls -la /opt/jboss/jboss-eap/hc/deployments.d/ 2>/dev/null || echo "Diretório não existe"
 Diretório não existe
 [root@sbrdeapllx099 bin]#
-
