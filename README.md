@@ -1,319 +1,166 @@
-voltou o mesmo problema 
+Ajustar ambiente ou parametrização de software
+
+	Ajustar ambiente ou parametrização de software
+Informar o Ambiente:*:	DES
+Nome do serviço ou sistema:*:	SIFAM
+Janela de atendimento:*:	10/6/2026 08:46:00
+Prazo final da janela de atendimento:*:	11/6/2026 09:00:00
+Haverá previsão de indisponibilidade durante a execução do serviço:*:	Não
+Contato do responsável pela validação do ambiente após alteração:*:	Teams c111482
+Descrição da solicitação:*:	A
+CTIS / CESTI Esteira DEVOPS DES TQS NPRD
+
+Solicitamos verificar o motivo da variavel de ambiente
+SD_KEY_BIOMETRIA não estar sendo injetada de forma automatica nas tasks do Xcode, seguem envidencias em anexo.
+
+https://dev.azure.com/CAIXAAZURE/SIFAM-APP-ios/_releaseProgress?_a=release-environment-logs&releaseId=324&environmentId=934
+Informar formas de contato:*:	Teams - C111482
 
 
-Starting: Maven
-==============================================================================
-Task         : Maven
-Description  : Build, test, and deploy with Apache Maven
-Version      : 3.225.0
-Author       : Microsoft Corporation
-Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/build/maven
-==============================================================================
-##[error]Unhandled: Not found mavenPOMFile: /opt/ads-agent/_work/11861/s/pom.xml
-Finishing: Maven
 
 
-ver ai se mecheram no pom
 
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>br.gov.caixa.travasipon</groupId>
-	<artifactId>sipon-trava-backend</artifactId>
-	<version>1.0.0</version>
-
-	<properties>
-		<compiler-plugin.version>3.14.0</compiler-plugin.version>
-		<maven.compiler.release>21</maven.compiler.release>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<quarkus.platform.artifact-id>quarkus-bom</quarkus.platform.artifact-id>
-		<quarkus.platform.group-id>io.quarkus.platform</quarkus.platform.group-id>
-		<quarkus.platform.version>3.28.4</quarkus.platform.version>
-		<skipITs>true</skipITs>
-		<surefire-plugin.version>3.5.4</surefire-plugin.version>
-	</properties>
-
-	<dependencyManagement>
-		<dependencies>
-			<dependency>
-				<groupId>${quarkus.platform.group-id}</groupId>
-				<artifactId>${quarkus.platform.artifact-id}</artifactId>
-				<version>${quarkus.platform.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
-
-	<dependencies>
-		<dependency>
-			<groupId>io.quarkus</groupId>
-			<artifactId>quarkus-rest</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>io.quarkus</groupId>
-			<artifactId>quarkus-arc</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>io.quarkus</groupId>
-			<artifactId>quarkus-junit5</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>jakarta.xml.bind</groupId>
-			<artifactId>jakarta.xml.bind-api</artifactId>
-			<version>3.0.0</version>
-		</dependency>
-		<!-- AZURE AD Dependencias -->
-		<dependency>
-			<groupId>com.microsoft.azure</groupId>
-			<artifactId>applicationinsights-agent</artifactId>
-			<version>3.7.1</version>
-		</dependency>
-		<!-- Banco de dados dependencias -->
-		<dependency>
-			<groupId>io.quarkus</groupId>
-			<artifactId>quarkus-hibernate-orm</artifactId>
-		</dependency>
-		<!-- Bean Validation (fornece o bean jakarta.validation.Validator para
-		CDI e integração com JAX-RS) -->
-		<dependency>
-			<groupId>io.quarkus</groupId>
-			<artifactId>quarkus-hibernate-validator</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>io.quarkus</groupId>
-			<artifactId>quarkus-jdbc-h2</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>io.quarkus</groupId>
-			<artifactId>quarkus-hibernate-orm-panache</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.mapstruct</groupId>
-			<artifactId>mapstruct</artifactId>
-			<version>1.5.5.Final</version>
-		</dependency>
-		<dependency>
-			<groupId>org.mapstruct</groupId>
-			<artifactId>mapstruct-processor</artifactId>
-			<version>1.5.5.Final</version>
-			<scope>provided</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>com.auth0</groupId>
-			<artifactId>java-jwt</artifactId>
-			<version>3.18.2</version>
-		</dependency>
-		<!-- AIM - JWT RBAC-Role Based Access Control -->
-		<dependency>
-			<groupId>io.quarkus</groupId>
-			<artifactId>quarkus-smallrye-jwt</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>io.smallrye.config</groupId>
-			<artifactId>smallrye-config-source-file-system</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>io.quarkus</groupId>
-			<artifactId>quarkus-smallrye-jwt-build</artifactId>
-		</dependency>
+2026-06-05T18:33:11.6834660Z ##[section]Starting: pod install
+2026-06-05T18:33:11.6850980Z ==============================================================================
+2026-06-05T18:33:11.6851270Z Task         : CocoaPods
+2026-06-05T18:33:11.6851450Z Description  : Install CocoaPods dependencies for Swift and Objective-C Cocoa projects
+2026-06-05T18:33:11.6851710Z Version      : 0.274.0
+2026-06-05T18:33:11.6851890Z Author       : Microsoft Corporation
+2026-06-05T18:33:11.6852100Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/package/cocoapods
+2026-06-05T18:33:11.6852490Z ==============================================================================
+2026-06-05T18:33:11.9472490Z [command]/usr/local/lib/ruby/gems/3.4.0/bin/pod --version
+2026-06-05T18:33:17.6057010Z 1.16.2
+2026-06-05T18:33:17.6146960Z 
+2026-06-05T18:33:17.6172200Z [command]/usr/local/lib/ruby/gems/3.4.0/bin/pod install --project-directory=/Users/runner/work/r1/a/_SIFAM-iOS-Nativo
+2026-06-05T18:33:19.6879990Z Analyzing dependencies
+2026-06-05T18:33:20.2185750Z Adding spec repo `trunk` with CDN `https://cdn.cocoapods.org`
+2026-06-05T18:33:20.2189870Z Cloning spec repo `git-codecommit-v1-repos-release-mobile-ios-specs` from `https://cef-read-mobile-repo-at-536598375304:***@git-codecommit.us-east-1.amazonaws.com/v1/repos/release-mobile-ios-specs`
+2026-06-05T18:33:30.3017880Z Downloading dependencies
+2026-06-05T18:33:30.3019420Z Installing AppAuth (2.0.0)
+2026-06-05T18:33:33.2242090Z Installing AppCenter (5.12.0)
+2026-06-05T18:33:41.6947110Z Installing Arcane (2.1)
+2026-06-05T18:33:43.4442020Z Installing Differentiator (5.0.0)
+2026-06-05T18:33:45.1919450Z Installing Heartbeat (4.35.1.1622927)
+2026-06-05T18:33:45.1921360Z Generating an AWS S3 pre signed URL from: https://mobile-artifacts-repo.s3.amazonaws.com/ios/release/4.35.1.1622927/Heartbeat.xcframework.tar.bz2
+2026-06-05T18:33:46.3526150Z Installing KeychainAccess (4.2.2)
+2026-06-05T18:33:47.6361900Z Installing RxCocoa (6.9.0)
+2026-06-05T18:33:51.8595720Z Installing RxDataSources (5.0.0)
+2026-06-05T18:33:52.9851100Z Installing RxRelay (6.9.0)
+2026-06-05T18:33:57.5287820Z Installing RxSwift (6.9.0)
+2026-06-05T18:34:09.0241830Z Installing SQLite.swift (0.14.1)
+2026-06-05T18:34:10.6088550Z Installing SideMenu (6.5.0)
+2026-06-05T18:34:12.5693070Z Installing SnapKit (5.7.1)
+2026-06-05T18:34:13.7371180Z Installing TLCustomMask (2.0.0)
+2026-06-05T18:34:14.7810790Z Installing XID (2.3.6)
+2026-06-05T18:34:14.7814080Z Installing unicocheck-ios (3.0.0)
+2026-06-05T18:34:26.5118670Z Generating Pods project
+2026-06-05T18:34:26.5119460Z SD_KEY_BIOMETRIA = 
+2026-06-05T18:34:26.5120110Z Integrating client project
+2026-06-05T18:34:26.5120440Z 
+2026-06-05T18:34:26.5121200Z [!] Please close any current Xcode sessions and use `SIFAM.xcworkspace` for this project from now on.
+2026-06-05T18:34:26.5352820Z Pod installation complete! There are 15 dependencies from the Podfile and 16 total pods installed.
+2026-06-05T18:34:26.5712250Z 
+2026-06-05T18:34:26.5852250Z ##[section]Finishing: pod install
 
 
-		<!-- Quarkus REST (Reactive) -->
-		<dependency>
-			<groupId>io.quarkus</groupId>
-			<artifactId>quarkus-rest</artifactId>
-		</dependency>
+Skip to main content
 
-		<!-- JSON com Jackson -->
-		<dependency>
-			<groupId>io.quarkus</groupId>
-			<artifactId>quarkus-rest-jackson</artifactId>
-		</dependency>
+Azure DevOps
+CAIXAAZURE
+/
+SIFAM-APP-ios
+/
+Pipelines
+/
+Releases
+/
+SIFAM-iOS
+/
+SIFAM-iOS 4.9.0 | Build 7 | ID 332
+Search
 
-		<dependency>
-			<groupId>io.quarkus</groupId>
-			<artifactId>quarkus-oidc</artifactId>
-		</dependency>
-		<!-- Conversão JSON <=> Objeto (JSON-B) -->
-		<!-- WS REST JAX-RS Health Check -->
-		<dependency>
-			<groupId>io.quarkus</groupId>
-			<artifactId>quarkus-smallrye-health</artifactId>
-		</dependency>
-		<!-- WS REST JAX-RS Fault Tolerance -->
-		<dependency>
-			<groupId>io.quarkus</groupId>
-			<artifactId>quarkus-smallrye-fault-tolerance</artifactId>
-		</dependency>
-		<!-- WS REST JAX-RS Metrics -->
-		<dependency>
-			<groupId>io.quarkus</groupId>
-			<artifactId>quarkus-smallrye-metrics</artifactId>
-		</dependency>
-		<!-- WS REST OpenAPI -->
-		<dependency>
-			<groupId>io.quarkus</groupId>
-			<artifactId>quarkus-smallrye-openapi</artifactId>
-		</dependency>
-		<!-- WS REST Cliente -->
-		<dependency>
-			<groupId>io.quarkus</groupId>
-			<artifactId>quarkus-rest-client</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>io.quarkus</groupId>
-			<artifactId>quarkus-rest-client-jackson</artifactId>
-		</dependency>
-		<!-- Agendador (Scheduler) -->
-		<dependency>
-			<groupId>io.quarkus</groupId>
-			<artifactId>quarkus-scheduler</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>io.quarkus</groupId>
-			<artifactId>quarkus-arc</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.hamcrest</groupId>
-			<artifactId>hamcrest</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.poi</groupId>
-			<artifactId>poi-ooxml</artifactId>
-			<version>5.2.5</version>
-		</dependency>
-		<dependency>
-			<groupId>com.github.librepdf</groupId>
-			<artifactId>openpdf</artifactId>
-			<version>1.3.39</version>
-		</dependency>
 
-		<dependency>
-			<groupId>org.mockito</groupId>
-			<artifactId>mockito-core</artifactId>
-			<scope>test</scope>
-		</dependency>
 
-		<dependency>
-			<groupId>org.mockito</groupId>
-			<artifactId>mockito-junit-jupiter</artifactId>
-			<scope>test</scope>
-		</dependency>
 
-		<dependency>
-			<groupId>io.quarkus</groupId>
-			<artifactId>quarkus-junit5-mockito</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>io.quarkus</groupId>
-			<artifactId>quarkus-junit5</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>io.rest-assured</groupId>
-			<artifactId>rest-assured</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>io.quarkus</groupId>
-			<artifactId>quarkus-test-security</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>io.quarkus</groupId>
-			<artifactId>quarkus-jacoco</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>io.quarkus</groupId>
-			<artifactId>quarkus-panache-mock</artifactId>
-			<scope>test</scope>
-		</dependency>
-	</dependencies>
 
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>${quarkus.platform.group-id}</groupId>
-				<artifactId>quarkus-maven-plugin</artifactId>
-				<version>${quarkus.platform.version}</version>
-				<extensions>true</extensions>
-				<executions>
-					<execution>
-						<goals>
-							<goal>build</goal>
-							<goal>generate-code</goal>
-							<goal>generate-code-tests</goal>
-							<goal>native-image-agent</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>${compiler-plugin.version}</version>
-				<configuration>
-					<parameters>true</parameters>
-				</configuration>
-			</plugin>
-			<plugin>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<version>${surefire-plugin.version}</version>
-				<configuration>
-					<systemPropertyVariables>
-						<java.util.logging.manager>
-							org.jboss.logmanager.LogManager</java.util.logging.manager>
-						<maven.home>${maven.home}</maven.home>
-					</systemPropertyVariables>
-				</configuration>
-			</plugin>
-			<plugin>
-				<artifactId>maven-failsafe-plugin</artifactId>
-				<version>${surefire-plugin.version}</version>
-				<executions>
-					<execution>
-						<goals>
-							<goal>integration-test</goal>
-							<goal>verify</goal>
-						</goals>
-					</execution>
-				</executions>
-				<configuration>
-					<systemPropertyVariables>
-						<native.image.path>
-							${project.build.directory}/${project.build.finalName}-runner</native.image.path>
-						<java.util.logging.manager>
-							org.jboss.logmanager.LogManager</java.util.logging.manager>
-						<maven.home>${maven.home}</maven.home>
-					</systemPropertyVariables>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
+Account manager for Jesse Batista
+SIFAM-APP-ios
 
-	<profiles>
-		<profile>
-			<id>native</id>
-			<activation>
-				<property>
-					<name>native</name>
-				</property>
-			</activation>
-			<properties>
-				<quarkus.package.jar.enabled>false</quarkus.package.jar.enabled>
-				<skipITs>false</skipITs>
-				<quarkus.native.enabled>true</quarkus.native.enabled>
-			</properties>
-		</profile>
-	</profiles>
-</project>
+Overview
 
+Boards
+
+Repos
+
+Pipelines
+Pipelines
+Environments
+Releases
+Library
+Task groups
+Deployment groups
+Allure config
+Build Tags
+
+Test Plans
+
+Artifacts
+Project settings
+SIFAM-iOS
+
+SIFAM-iOS 4.9.0 | Build 7 | ID 332
+
+
+DES
+
+Succeeded
+
+
+Pipeline
+
+Tasks
+
+Variables
+
+Logs
+
+Tests
+
+ You can edit approvals, tasks, and variables by clicking on Edit release.  Edits will be saved only to this release. 
+Predefined variables
+RELEASE_VARIABLE_SIFAM (18)
+Library com informações relativas ao projeto do SIFAM
+Scopes: Release
+SIFAM-DES (8)
+Scopes: DES
+Configuration
+$(Environment)
+Environment
+Debug
+N
+0
+SDK
+iphoneos
+SD_KEY_BIOMETRIA
+********
+Scheme
+SIFAM-$(Environment)
+TestConfiguration
+Debug
+TestSDK
+iphonesimulator
+SIFAM-PILOTO (8)
+Scopes: PILOTO
+SIFAM-PRD (8)
+Scopes: PRD
+Exited full-screen mode
+
+Exited full-screen mode
+
+Row 2
+
+Exited full-screen mode
+
+Showing filters 1 through 2
+
+a questão é memso com a varaivel configurada ele na ta pegando o valor
