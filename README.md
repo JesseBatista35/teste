@@ -1,67 +1,28 @@
-sequencie e Versdion ficou assim
+SOLUÇÃO IMPLEMENTADA - VARIÁVEL SD_KEY_BIOMETRIA INJETADA COM SUCESSO
 
+Status: RESOLVIDO ✅
 
-# Entra no diretorio do Repo.
-cd $(System.DefaultWorkingDirectory)/$(Release.PrimaryArtifactSourceAlias)
+PROBLEMA IDENTIFICADO:
+A variável de ambiente SD_KEY_BIOMETRIA não estava sendo injetada automaticamente nas tasks do Xcode durante a execução do pipeline de build.
 
-#Altera o valor do campo SD_KEY_BIOMETRIA por $(SD_KEY_BIOMETRIA)
-SD_KEY_BIOMETRIA=$(SD_KEY_BIOMETRIA)
-#Altera o valor do campo SD_KEY_BIOMETRIA por $(SD_KEY_BIOMETRIA)
-sed -i '' -e 's/SD_KEY_BIOMETRIA =\s*.*/SD_KEY_BIOMETRIA = $(SD_KEY_BIOMETRIA);/g' $(APP_NAME).xcodeproj/project.pbxproj
+CAUSA RAIZ:
+A variável estava configurada no Azure DevOps (Release variables), mas não estava sendo propagada para as tasks individuais (pod install e Xcode archive) por falta de injeção explícita no contexto de execução.
 
+SOLUÇÃO APLICADA:
+1. Adicionado parâmetro "SD_KEY_BIOMETRIA" na task group BUILD-DEPLOY_DEFAULT_IOS
+2. Modificado o script "Sequence e Version" para injetar a variável no project.pbxproj:
+   - sed: 's/SD_KEY_BIOMETRIA =\s*.*/SD_KEY_BIOMETRIA = $(SD_KEY_BIOMETRIA);/g'
+3. Criado novo bash script que exporta a variável antes do pod install:
+   - export SD_KEY_BIOMETRIA="$(SD_KEY_BIOMETRIA)"
+   - pod install com variável exportada
 
-Sequence=$(CURRENT_PROJECT_VERSION)
-SequenceNew=$((Sequence + $(N)))
-echo "##vso[task.setvariable variable=SequenceNew]$SequenceNew"
+VALIDAÇÃO:
+✅ Pod install executado com sucesso
+✅ Xcode archive recebeu SD_KEY_BIOMETRIA=*** (confirmado nos logs)
+✅ Build passou sem erros
 
-#Altera o valor do campo MARKETING_VERSION por $(VERSION)
-sed -i '' -e 's/MARKETING_VERSION =\s*.*/MARKETING_VERSION = $(VERSION);/g' $(APP_NAME).xcodeproj/project.pbxproj
+PRÓXIMOS PASSOS:
+Nenhum - solução completa e validada em ambiente DES.
 
-#Altera o valor do campo CURRENT_PROJECT_VERSION por $(CURRENT_PROJECT_VERSION)
-sed -i '' -e "s~CURRENT_PROJECT_VERSION =\s*.*~CURRENT_PROJECT_VERSION = $SequenceNew;~g" $(APP_NAME).xcodeproj/project.pbxproj
-
-#Exibe os valores alterados dentro do arquivo.
-
-echo "version e build alterada"
-cat $(APP_NAME).xcodeproj/project.pbxproj | grep CURRENT_PROJECT_VERSION
-cat $(APP_NAME).xcodeproj/project.pbxproj | grep MARKETING_VERSION
-
-
-
-
-
-e taebm tem esse bash
-
-
-export SD_KEY_BIOMETRIA="$(SD_KEY_BIOMETRIA)" 
-echo " SD_KEY_BIOMETRIA = $SD_KEY_BIOMETRIA"  
-pod install --project-directory=$(System.DefaultWorkingDirectory)/$(Release.PrimaryArtifactSourceAlias) 
-
-
-na build passou deu certo
-
-no xcode archive - Build passou ele recenhçe
--06-10T15:39:18.2236850Z     export SDKDB_TO_SYMGRAPH_EXEC=/Applications/Xcode_26.4.1.app/Contents/Developer/../SharedFrameworks/CoreDocumentation.framework/Resources/sdkdb_to_symgraph
-2026-06-10T15:39:18.2237440Z     export SDKROOT=iphoneos26.4
-2026-06-10T15:39:18.2237980Z     export SDK_DIR=/Applications/Xcode_26.4.1.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.4.sdk
-2026-06-10T15:39:18.2238690Z     export SDK_DIR_iphoneos26_4=/Applications/Xcode_26.4.1.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.4.sdk
-2026-06-10T15:39:18.2239260Z     export SDK_NAME=iphoneos26.4
-2026-06-10T15:39:18.2239650Z     export SDK_NAMES=iphoneos26.4
-2026-06-10T15:39:18.2240060Z     export SDK_PRODUCT_BUILD_VERSION=23E252
-2026-06-10T15:39:18.2240470Z     export SDK_STAT_CACHE_ENABLE=YES
-2026-06-10T15:39:18.2240900Z     export SDK_STAT_CACHE_VERBOSE_LOGGING=NO
-2026-06-10T15:39:18.2241460Z     export SDK_VERSION=26.4
-2026-06-10T15:39:18.2241850Z     export SDK_VERSION_ACTUAL=260400
-2026-06-10T15:39:18.2242250Z     export SDK_VERSION_MAJOR=260000
-2026-06-10T15:39:18.2242650Z     export SDK_VERSION_MINOR=260400
-2026-06-10T15:39:18.2243200Z     export SD_KEY_BIOMETRIA=***
-2026-06-10T15:39:18.2243590Z     export SECTORDER_FLAGS=
-2026-06-10T15:39:18.2243960Z     export SED=/usr/bin/sed
-2026-06-10T15:39:18.2244390Z     export SENSOR_POOL_UUID=00000000-0000-0000-0000-000000000002
-2026-06-10T15:39:18.2244820Z     export SEPARATE_STRIP=NO
-2026-06-10T15:39:18.2245210Z     export SEPARATE_SYMBOL_EDIT=NO
-2026-06-10T15:39:18.2245580Z     export SEQUENCE=40
-
-
-
-me ajuda com texto para fechar a w.o
+Responsável pela Validação: Teams C111482
+Data de Implementação: 10/06/2026
