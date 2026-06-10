@@ -1,37 +1,78 @@
-NotTriggerScaleUp
-pod didn't trigger scale-up: 1 node(s) had untolerated taint {nuvem.caixa/nodepoolname: websitesiiad}, 1 node(s) had untolerated taint {nuvem.caixa/nodepoolname: infra}, 1 node(s) had untolerated taint {nuvem.caixa/nodepoolname: websitesiiga}, 1 node(s) had untolerated taint {nuvem.caixa/nodepoolname: appssiiga}, 1 node(s) had untolerated taint {nuvem.caixa/nodepoolname: appssiiad}, 1 node(s) had untolerated taint {CriticalAddonsOnly: true}
-209
-4h ago
-Today at 10:46 AM
-4m ago
-Today at 2:47 PM
-NotTriggerScaleUp
-pod didn't trigger scale-up: 1 node(s) had untolerated taint {nuvem.caixa/nodepoolname: appssiiad}, 1 node(s) had untolerated taint {CriticalAddonsOnly: true}, 1 node(s) had untolerated taint {nuvem.caixa/nodepoolname: websitesiiad}, 1 node(s) had untolerated taint {nuvem.caixa/nodepoolname: infra}, 1 node(s) had untolerated taint {nuvem.caixa/nodepoolname: websitesiiga}, 1 node(s) had untolerated taint {nuvem.caixa/nodepoolname: appssiiga}
-229
-4h ago
-Today at 10:47 AM
-9m ago
-Today at 2:42 PM
-NotTriggerScaleUp
-pod didn't trigger scale-up: 1 node(s) had untolerated taint {nuvem.caixa/nodepoolname: websitesiiga}, 1 node(s) had untolerated taint {nuvem.caixa/nodepoolname: appssiiga}, 1 node(s) had untolerated taint {nuvem.caixa/nodepoolname: appssiiad}, 1 node(s) had untolerated taint {CriticalAddonsOnly: true}, 1 node(s) had untolerated taint {nuvem.caixa/nodepoolname: websitesiiad}, 1 node(s) had untolerated taint {nuvem.caixa/nodepoolname: infra}
-196
-4h ago
-Today at 10:47 AM
-24m ago
-Today at 2:27 PM
-NotTriggerScaleUp
-pod didn't trigger scale-up: 1 node(s) had untolerated taint {nuvem.caixa/nodepoolname: appssiiga}, 1 node(s) had untolerated taint {nuvem.caixa/nodepoolname: appssiiad}, 1 node(s) had untolerated taint {CriticalAddonsOnly: true}, 1 node(s) had untolerated taint {nuvem.caixa/nodepoolname: websitesiiad}, 1 node(s) had untolerated taint {nuvem.caixa/nodepoolname: infra}, 1 node(s) had untolerated taint {nuvem.caixa/nodepoolname: websitesiiga}
-184
-4h ago
-Today at 10:48 AM
-29m ago
-Today at 2:22 PM
-NotTriggerScaleUp
-pod didn't trigger scale-up: 1 node(s) had untolerated taint {nuvem.caixa/nodepoolname: infra}, 1 node(s) had untolerated taint {nuvem.caixa/nodepoolname: websitesiiga}, 1 node(s) had untolerated taint {nuvem.caixa/nodepoolname: appssiiga}, 1 node(s) had untolerated taint {nuvem.caixa/nodepoolname: appssiiad}, 1 node(s) had untolerated taint {CriticalAddonsOnly: true}, 1 node(s) had untolerated taint {nuvem.caixa/nodepoolname: websitesiiad}
-205
-4h ago
-Today at 10:46 AM
-34m ago
-Today at 2:17 PM
-FailedScheduling
-0/6 nodes are available: 1 node(s) had untolerated taint {CriticalAddonsOnly: true}, 1 node(s) had untolerated taint {nuvem.caixa/nodepoolname: appssiiad}, 1 node(s) had untolerated taint {nuvem.caixa/nodepoolname: appssiiga}, 1 node(s) had untolerated taint {nuvem.caixa/nodepoolname: infra}, 1 node(s) had untolerated taint {nuvem.caixa/nodepoolname: websitesiiad}, 1 node(s) had untolerated taint {nuvem.caixa/nodepoolname: websitesiiga}. preemption: 0/6 nodes are available: 6 Preemption is not helpful for scheduling.
+Skip to content
+GitHub Enterprise
+Users managed by Caixa Economica Federal
+caixagithub
+siiga-frontend-mfe-gestao-canais
+Repository navigation
+Code
+Issues
+Pull requests
+2
+ (2)
+Actions
+Projects
+Models
+Wiki
+Security and quality
+7
+ (7)
+Insights
+Settings
+Files
+Go to file
+t
+T
+src content loaded
+.github/workflows
+call-docs-pipelines.yaml
+call-generic-pipelines.yaml
+call-generic-qa-pipelines.yaml
+call-generic-sec-pipelines.yaml
+docs
+projects
+public
+src
+.dockerignore
+.editorconfig
+.gitignore
+.hintrc
+.npmrc
+.prettierignore
+.prettierrc
+Dockerfile
+README.md
+angular.json
+catalog-info.yaml
+mkdocs.yaml
+package.json
+tsconfig.app.json
+tsconfig.json
+tsconfig.spec.json
+siiga-frontend-mfe-gestao-canais/.github
+/workflows/
+author
+Scaffolder
+initial commit
+918643e
+ · 
+3 months ago
+Name	Last commit message	Last commit date
+..
+call-docs-pipelines.yaml
+initial commit
+3 months ago
+call-generic-pipelines.yaml
+initial commit
+3 months ago
+call-generic-qa-pipelines.yaml
+initial commit
+3 months ago
+call-generic-sec-pipelines.yaml
+initial commit
+3 months ago
+siiga-frontend-mfe-gestao-canais/.github/workflows at main · caixagithub/siiga-frontend-mfe-gestao-canais
+src content loaded
+
+
+
+é aqui
