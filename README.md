@@ -1,25 +1,17 @@
-tqs:
-
-apiVersion: v1
-kind: ConfigMap
+apiVersion: spv.no/v2beta1
+kind: AzureKeyVaultSecret
 metadata:
-  name: cm-siiga-frontend-mfe-gestao-canais
+  name: akvs-siiga-frontend-mfe-gestao-canais
+  namespace: aks-istio-ingress
   labels:
     {{- include "caixa-base-chart.labels" . | nindent 4 }}
-data:
-  KEY: "VALUE"
-
-
-
-
-des:
-
-
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: cm-siiga-frontend-mfe-gestao-canais
-  labels:
-    {{- include "caixa-base-chart.labels" . | nindent 4 }}
-data:
-  KEY: "VALUE"
+spec:
+  vault:
+    name: kv-pla-nprd
+    object:
+      name: siiga-frontend-gestao-canais-tqs-caixa
+      type: certificate
+  output:
+    secret:
+      name: akvs-siiga-frontend-gestao-canais-tqs-caixa-ssl-certificate
+      type: kubernetes.io/tls 
