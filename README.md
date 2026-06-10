@@ -1,117 +1,149 @@
-# Manual de Erros Comuns em Deployments
+Favor verificar falha ao  gerar a Release do SICIM-backend-intranet 
 
-## Erro 1: Pod em estado Progressing indefinidamente
+Analise: release do backend falhou, me parece ser o certificado, pois no log ele tenta comunicar com o SSO mas não consegue, se puder solicitar essa config, certificado do SSO de intranet
+ 
+Pedimos que verifiquem
+https://devops.caixa/projetos/Caixa/_releaseProgress?releaseId=483284&_a=release-pipeline-progress
 
-PROBLEMA: Pod fica com status Progressing por muito tempo, depois falha com ProgressDeadlineExceeded. Os eventos mostram FailedScheduling e "0/6 nodes are available".
 
-CAUSA: O pod não consegue ser agendado em nenhum nó do cluster porque não tem toleração para os taints dos nós.
+2026-06-10T12:45:13.1435474Z ##[section]Starting: Verificando Status do Deployment
+2026-06-10T12:45:13.1439079Z ==============================================================================
+2026-06-10T12:45:13.1439202Z Task         : Bash
+2026-06-10T12:45:13.1439245Z Description  : Run a Bash script on macOS, Linux, or Windows
+2026-06-10T12:45:13.1439308Z Version      : 3.227.0
+2026-06-10T12:45:13.1439392Z Author       : Microsoft Corporation
+2026-06-10T12:45:13.1439446Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/bash
+2026-06-10T12:45:13.1439517Z ==============================================================================
+2026-06-10T12:45:13.2862280Z Generating script.
+2026-06-10T12:45:13.2875362Z ========================== Starting Command Output ===========================
+2026-06-10T12:45:13.2882331Z [command]/usr/bin/bash /opt/ads-agent/_work/_temp/590e3d3d-ba32-49dc-99e5-378f861a33ad.sh
+2026-06-10T12:45:13.3744848Z Waiting for rollout to finish: 0 out of 1 new replicas have been updated...
+2026-06-10T12:45:14.3183808Z Waiting for rollout to finish: 0 out of 1 new replicas have been updated...
+2026-06-10T12:45:14.3736213Z Waiting for rollout to finish: 0 of 1 updated replicas are available...
+2026-06-10T12:51:20.6546416Z ##[error]The task has timed out.
+2026-06-10T12:51:20.6547554Z ##[section]Finishing: Verificando Status do Deployment
 
-COMO IDENTIFICAR: Abra o pod no ArgoCD, vá na aba Events e procure por "FailedScheduling" e mensagens como "untolerated taint {nuvem.caixa/nodepoolname: ...}".
 
-SOLUÇÃO: Adicione a toleração correta no values.yaml do Helm. Procure pela seção tolerations e complete com o valor do nodepool. Exemplo:
+exec java -Dquarkus.http.host=0.0.0.0 -Dquarkus.http.port=8080 -Djava.util.logging.manager=org.jboss.logmanager.LogManager -XX:+ExitOnOutOfMemoryError -cp . -jar /deployments/quarkus-run.jar
+__  ____  __  _____   ___  __ ____  ______ 
+ --/ __ \/ / / / _ | / _ \/ //_/ / / / __/ 
+ -/ /_/ / /_/ / __ |/ , _/ ,< / /_/ /\ \   
+--\___\_\____/_/ |_/_/|_/_/|_|\____/___/   
+2026-06-10 17:14:47,288 WARN  [io.quarkus.oidc.common.runtime.OidcCommonUtils] (vert.x-eventloop-thread-1) OIDC Server is not available:: javax.net.ssl.SSLHandshakeException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+	at java.base/sun.security.ssl.Alert.createSSLException(Alert.java:130)
+	at java.base/sun.security.ssl.TransportContext.fatal(TransportContext.java:378)
+	at java.base/sun.security.ssl.TransportContext.fatal(TransportContext.java:321)
+	at java.base/sun.security.ssl.TransportContext.fatal(TransportContext.java:316)
+	at java.base/sun.security.ssl.CertificateMessage$T12CertificateConsumer.checkServerCerts(CertificateMessage.java:647)
+	at java.base/sun.security.ssl.CertificateMessage$T12CertificateConsumer.onCertificate(CertificateMessage.java:467)
+	at java.base/sun.security.ssl.CertificateMessage$T12CertificateConsumer.consume(CertificateMessage.java:363)
+	at java.base/sun.security.ssl.SSLHandshake.consume(SSLHandshake.java:393)
+	at java.base/sun.security.ssl.HandshakeContext.dispatch(HandshakeContext.java:476)
+	at java.base/sun.security.ssl.SSLEngineImpl$DelegatedTask$DelegatedAction.run(SSLEngineImpl.java:1273)
+	at java.base/sun.security.ssl.SSLEngineImpl$DelegatedTask$DelegatedAction.run(SSLEngineImpl.java:1260)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:714)
+	at java.base/sun.security.ssl.SSLEngineImpl$DelegatedTask.run(SSLEngineImpl.java:1205)
+	at io.netty.handler.ssl.SslHandler.runDelegatedTasks(SslHandler.java:1695)
+	at io.netty.handler.ssl.SslHandler.unwrap(SslHandler.java:1541)
+	at io.netty.handler.ssl.SslHandler.decodeJdkCompatible(SslHandler.java:1377)
+	at io.netty.handler.ssl.SslHandler.decode(SslHandler.java:1428)
+	at io.netty.handler.codec.ByteToMessageDecoder.decodeRemovalReentryProtection(ByteToMessageDecoder.java:545)
+	at io.netty.handler.codec.ByteToMessageDecoder.callDecode(ByteToMessageDecoder.java:484)
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:296)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:444)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1357)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:440)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:868)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:171)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:796)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:732)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:658)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:998)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+	at java.base/sun.security.validator.PKIXValidator.doBuild(PKIXValidator.java:388)
+	at java.base/sun.security.validator.PKIXValidator.engineValidate(PKIXValidator.java:271)
+	at java.base/sun.security.validator.Validator.validate(Validator.java:256)
+	at java.base/sun.security.ssl.X509TrustManagerImpl.checkTrusted(X509TrustManagerImpl.java:284)
+	at java.base/sun.security.ssl.X509TrustManagerImpl.checkServerTrusted(X509TrustManagerImpl.java:144)
+	at java.base/sun.security.ssl.CertificateMessage$T12CertificateConsumer.checkServerCerts(CertificateMessage.java:625)
+	... 31 more
+Caused by: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+	at java.base/sun.security.provider.certpath.SunCertPathBuilder.build(SunCertPathBuilder.java:148)
+	at java.base/sun.security.provider.certpath.SunCertPathBuilder.engineBuild(SunCertPathBuilder.java:129)
+	at java.base/java.security.cert.CertPathBuilder.build(CertPathBuilder.java:297)
+	at java.base/sun.security.validator.PKIXValidator.doBuild(PKIXValidator.java:383)
+	... 36 more
 
-tolerations:
-  - key: "nuvem.caixa/nodepoolname"
-    effect: "NoSchedule"
-    operator: "Equal"
-    value: "appssiiga"
+2026-06-10 17:14:48,624 WARN  [io.quarkus.oidc.common.runtime.OidcCommonUtils] (vert.x-eventloop-thread-1) OIDC Server is not available:: javax.net.ssl.SSLHandshakeException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+	at java.base/sun.security.ssl.Alert.createSSLException(Alert.java:130)
+	at java.base/sun.security.ssl.TransportContext.fatal(TransportContext.java:378)
+	at java.base/sun.security.ssl.TransportContext.fatal(TransportContext.java:321)
+	at java.base/sun.security.ssl.TransportContext.fatal(TransportContext.java:316)
+	at java.base/sun.security.ssl.CertificateMessage$T12CertificateConsumer.checkServerCerts(CertificateMessage.java:647)
+	at java.base/sun.security.ssl.CertificateMessage$T12CertificateConsumer.onCertificate(CertificateMessage.java:467)
+	at java.base/sun.security.ssl.CertificateMessage$T12CertificateConsumer.consume(CertificateMessage.java:363)
+	at java.base/sun.security.ssl.SSLHandshake.consume(SSLHandshake.java:393)
+	at java.base/sun.security.ssl.HandshakeContext.dispatch(HandshakeContext.java:476)
+	at java.base/sun.security.ssl.SSLEngineImpl$DelegatedTask$DelegatedAction.run(SSLEngineImpl.java:1273)
+	at java.base/sun.security.ssl.SSLEngineImpl$DelegatedTask$DelegatedAction.run(SSLEngineImpl.java:1260)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:714)
+	at java.base/sun.security.ssl.SSLEngineImpl$DelegatedTask.run(SSLEngineImpl.java:1205)
+	at io.netty.handler.ssl.SslHandler.runDelegatedTasks(SslHandler.java:1695)
+	at io.netty.handler.ssl.SslHandler.unwrap(SslHandler.java:1541)
+	at io.netty.handler.ssl.SslHandler.decodeJdkCompatible(SslHandler.java:1377)
+	at io.netty.handler.ssl.SslHandler.decode(SslHandler.java:1428)
+	at io.netty.handler.codec.ByteToMessageDecoder.decodeRemovalReentryProtection(ByteToMessageDecoder.java:545)
+	at io.netty.handler.codec.ByteToMessageDecoder.callDecode(ByteToMessageDecoder.java:484)
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:296)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:444)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1357)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:440)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:868)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:171)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:796)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:732)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:658)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:998)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+	at java.base/sun.security.validator.PKIXValidator.doBuild(PKIXValidator.java:388)
+	at java.base/sun.security.validator.PKIXValidator.engineValidate(PKIXValidator.java:271)
+	at java.base/sun.security.validator.Validator.validate(Validator.java:256)
+	at java.base/sun.security.ssl.X509TrustManagerImpl.checkTrusted(X509TrustManagerImpl.java:284)
+	at java.base/sun.security.ssl.X509TrustManagerImpl.checkServerTrusted(X509TrustManagerImpl.java:144)
+	at java.base/sun.security.ssl.CertificateMessage$T12CertificateConsumer.checkServerCerts(CertificateMessage.java:625)
+	... 31 more
+Caused by: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+	at java.base/sun.security.provider.certpath.SunCertPathBuilder.build(SunCertPathBuilder.java:148)
+	at java.base/sun.security.provider.certpath.SunCertPathBuilder.engineBuild(SunCertPathBuilder.java:129)
+	at java.base/java.security.cert.CertPathBuilder.build(CertPathBuilder.java:297)
+	at java.base/sun.security.validator.PKIXValidator.doBuild(PKIXValidator.java:383)
+	... 36 more
 
-Se não souber qual é o valor correto, procure no values.yaml de outro ambiente que está funcionando e copie de lá.
-
-ARQUIVO: values.yaml da sua aplicação no repositório de infra.
-
----
-
-## Erro 2: SharedResourceWarning - Recursos compartilhados
-
-PROBLEMA: ArgoCD mostra warning "ConfigMap/XXX is part of applications openshift-gitops/aplicacao-tqs and aplicacao-des". A sincronização fica instável entre ambientes.
-
-CAUSA: Dois aplicativos (diferentes ambientes) estão gerenciando o mesmo recurso com o mesmo nome. Isso causa conflito de propriedade no ArgoCD.
-
-COMO IDENTIFICAR: Na página da aplicação no ArgoCD, vá em "APP CONDITIONS" e procure por "SharedResourceWarning".
-
-SOLUÇÃO: Separe os recursos por ambiente. Se o recurso se chama "cm-siiga-frontend", renomeie para "cm-siiga-frontend-tqs" para TQS e "cm-siiga-frontend-des" para DES. Isso deve ser feito em três lugares:
-
-1. No arquivo templates/RECURSO.yaml mude a linha: name: novo-nome-com-ambiente
-2. No values.yaml mude as referências para apontar ao novo nome
-3. Sincronize no ArgoCD e verifique se o warning desapareceu
-
-RECURSOS AFETADOS: ConfigMaps, Secrets, AzureKeyVaultSecrets (qualquer coisa que tem metadata.name).
-
----
-
-## Erro 3: Toleração vazia ou incorreta
-
-PROBLEMA: Pod não consegue ser agendado mesmo depois de adicionar toleração. Fica com status Progressing.
-
-CAUSA: A toleração foi adicionada mas com value vazio ("") ou com valor incorreto que não corresponde a nenhum nó disponível.
-
-COMO IDENTIFICAR: Verifique o arquivo values.yaml. Se a toleração tem value: "" ou um valor que você não tem certeza, é provavelmente esse o problema.
-
-SOLUÇÃO: Corrija o valor da toleração para corresponder ao nodepool correto do seu cluster. Procure em outro ambiente que está funcionando qual é o valor usado e copie. Depois faça commit e sincronize no ArgoCD.
-
-DICA: Os valores comuns são "appssiiga", "appssiiad", "websitesiiga", "websitesiiad", "infra", "spot". Se não souber qual usar, procure na documentação do cluster ou pergunte ao time de infra.
-
----
-
-## Erro 4: OutOfSync com labels conflitantes
-
-PROBLEMA: ArgoCD mostra status OutOfSync mesmo depois de sincronizar. Os labels do recurso no cluster são diferentes dos labels definidos no Git.
-
-CAUSA: Dois Helm charts estão gerando labels diferentes para o mesmo recurso, causando conflito.
-
-COMO IDENTIFICAR: Clique no recurso OutOfSync no ArgoCD. Vá em "MANIFEST DIFF" e procure por diferenças nos campos de labels, especialmente app.kubernetes.io/instance.
-
-SOLUÇÃO: Certifique-se que cada ambiente tem seu próprio ConfigMap/Secret com nomes diferentes e referências diferentes no values.yaml. Depois sincronize novamente.
-
----
-
-## Erro 5: Pod rodando mas sem logs
-
-PROBLEMA: Pod está com status Healthy mas não gera nenhum log. Container aparentemente roda mas sem output.
-
-CAUSA: Pode ser probes desabilitadas, aplicação não gera logs, ou erro na inicialização que não aparece.
-
-COMO IDENTIFICAR: Clique no pod no ArgoCD e vá em Events. Se não há mensagens de erro, a aplicação pode estar iniciando corretamente mas sem gerar saída.
-
-SOLUÇÃO: Verifique se a aplicação está realmente respondendo nas portas esperadas. Se a probes estão desabilitadas (probes.enabled: false), considere habilitá-las para debug. Ou verifique a documentação da aplicação para entender por que não há logs.
-
----
-
-## Erro 6: ConfigMap não encontrado
-
-PROBLEMA: Pod falha com erro "error: couldn't find key ... in ConfigMap" ou simplesmente não consegue iniciar.
-
-CAUSA: O ConfigMap que o pod tenta referenciar não existe ou tem nome diferente.
-
-COMO IDENTIFICAR: Nos eventos do pod, procure por erros mencionando ConfigMap. Verifique se o nome no values.yaml (campo configMapRefs) corresponde ao nome real do ConfigMap no cluster.
-
-SOLUÇÃO: Confirme que o ConfigMap existe e tem o nome exato. Se mudou o nome recentemente, atualize a referência no values.yaml e sincronize novamente.
-
----
-
-## Checklist rápido quando algo falha
-
-1. Pod em Progressing? Verifique FailedScheduling e tolerações.
-2. SharedResourceWarning? Separe recursos por ambiente.
-3. OutOfSync? Verifique labels conflitantes, sincronize novamente.
-4. Pod não inicia? Verifique ConfigMap e Secrets existem.
-5. Tudo parece certo mas falha? Faça Force Sync no ArgoCD.
-
----
-
-## Comandos úteis
-
-Para ver eventos de um pod em detalhes, abra o pod no ArgoCD e vá em "Events" ou execute no terminal:
-
-kubectl describe pod NOME_DO_POD -n NAMESPACE
-
-Para listar todos os ConfigMaps do namespace:
-
-kubectl get configmap -n NAMESPACE
-
-Para verificar qual nó o pod está rodando:
-
-kubectl get pod NOME_DO_POD -n NAMESPACE -o wide
-
----
+2026-06-10 17:14:48,627 WARN  [io.quarkus.oidc.runtime.TenantContextFactory] (vert.x-eventloop-thread-1) OIDC server is not available at the 'https://login.des.caixa/auth/realms/intranet' URL. Please make sure it is correct. Note it has to end with a realm value if you work with Keycloak, for example: 'https://localhost:8180/auth/realms/quarkus'
+2026-06-10 17:14:48,629 WARN  [io.quarkus.oidc.runtime.TenantContextFactory$2] (vert.x-eventloop-thread-1) Tenant 'Default': 'OIDC Server is not available'. OIDC server is not available yet, an attempt to connect will be made during the first request. Access to resources protected by this tenant may fail if OIDC server will not become available
+2026-06-10 17:14:48,696 INFO  [br.gov.caixa.arquitetura.config.AppConfig] (main) 
+2026-06-10 17:14:48,696 INFO  [br.gov.caixa.arquitetura.config.AppConfig] (main)    _    _                     _   ____ ___    ******
+2026-06-10 17:14:48,696 INFO  [br.gov.caixa.arquitetura.config.AppConfig] (main)   | \  / |_  __ _ __ ___     / \  |  _ \_ _|   ******
+2026-06-10 17:14:48,696 INFO  [br.gov.caixa.arquitetura.config.AppConfig] (main)   |  \/  | |/ _\ '__/ _ \   / _ \ | |_) | |     ******
+2026-06-10 17:14:48,696 INFO  [br.gov.caixa.arquitetura.config.AppConfig] (main)   |  __  | | |_  | | (_) | / ___ \|  __/| |     ******
+2026-06-10 17:14:48,697 INFO  [br.gov.caixa.arquitetura.config.AppConfig] (main)   |_|  |_|_|\__/_|  \___/ /_/   \_\_|  |___|   ******
+2026-06-10 17:14:48,697 INFO  [br.gov.caixa.arquitetura.config.AppConfig] (main)  ============================================ ******
+2026-06-10 17:14:48,697 INFO  [br.gov.caixa.arquitetura.config.AppConfig] (main)    :: CEF-SICIM-INTRANET - v1.0.0.1 [prod] ::
+2026-06-10 17:14:48,697 INFO  [br.gov.caixa.arquitetura.config.AppConfig] (main) 
+2026-06-10 17:14:48,727 INFO  [io.quarkus.bootstrap.runner.Timing] (main) SICIM-INTRANET 1.0.0.1 on JVM (powered by Quarkus 3.33.1.1) started in 5.003s. Listening on: http://0.0.0.0:8080
+2026-06-10 17:14:48,728 INFO  [io.quarkus.bootstrap.runner.Timing] (main) Profile prod activated. 
+2026-06-10 17:14:48,728 INFO  [io.quarkus.bootstrap.runner.Timing] (main) Installed features: [agroal, cdi, hibernate-orm, hibernate-orm-panache, hibernate-validator, jdbc-oracle, mapstruct, narayana-jta, oidc, oidc-client, rest, rest-client, rest-client-jackson, rest-client-oidc-filter, rest-jackson, security, smallrye-context-propagation, smallrye-fault-tolerance, smallrye-health, vertx]
