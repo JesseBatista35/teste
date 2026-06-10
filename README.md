@@ -1,89 +1,370 @@
-# Arquivo de configuração quarkus
-# App
-quarkus.application.name=SICIM-INTRANET
-quarkus.devservices.enabled=false
+deu certo, passou me ajauda a fechar a nota com a w.o inforamsn que eles precias fazer o push né que e pegar as mudanças feitas no aplication propertis
 
-# HTTP, Configurações de CORS
-quarkus.http.root-path=/api
-# IMPORTANTE: Health checks não devem ser afetados pelo root-path
-quarkus.http.non-application-root-path=/q
 
-quarkus.http.cors.enabled=true
-quarkus.http.cors.origins=${CORS_ALLOWED_ORIGINS}
-quarkus.http.cors.methods=GET,POST,PUT,DELETE,OPTIONS
-quarkus.http.cors.headers=Origin,X-Requested-With,Accept,Content-Type,Access-Control-Request-Headers,Access-Control-Request-Method,Authorization
+OKD
 
-# ========================================
-# AUTENTICAÇÃO E AUTORIZAÇÃO (ORDEM IMPORTA!)
-# ========================================
 
-# 1. Health checks - SEM autenticação (DEVE VIR PRIMEIRO!)
-quarkus.http.auth.permission.health.paths=/q/health,/q/health/*
-quarkus.http.auth.permission.health.policy=permit
+Jesse Mouta Pereira Batista
 
-# 2. OIDC keycloak - Configuração de autenticação da aplicação
-quarkus.oidc.auth-server-url=${SSO_URL}
-quarkus.oidc.client-id=cli-web-cim
+Administrator
+Home
+Operators
+Workloads
+Pods
+Deployments
+DeploymentConfigs
+StatefulSets
+Secrets
+ConfigMaps
+CronJobs
+Jobs
+DaemonSets
+ReplicaSets
+ReplicationControllers
+HorizontalPodAutoscalers
+PodDisruptionBudgets
+Networking
+Services
+Routes
+Ingresses
+NetworkPolicies
+Storage
+PersistentVolumes
+PersistentVolumeClaims
+StorageClasses
+VolumeSnapshots
+VolumeSnapshotClasses
+VolumeSnapshotContents
+Builds
+Observe
+Compute
+User Management
+Administration
 
-# 3. Todas as outras rotas - REQUEREM autenticação
-quarkus.http.auth.permission.authenticated.paths=/*
-quarkus.http.auth.permission.authenticated.policy=authenticated
+Project: sicim-des
+Pods
 
-# ========================================
-# CLIENT CREDENTIALS PARA CHAMAR OUTRAS APIS
-# ========================================
-quarkus.oidc-client.auth-server-url=${SSO_URL}
-quarkus.oidc-client.client-id=cli-ser-cim
-quarkus.oidc-client.credentials.secret=${SSO_SECRET}
-quarkus.oidc-client.grant.type=client
-quarkus.oidc-client.scopes=openid
+Filter
 
-# ========================================
-# CONFIGURAÇÃO DATABASE
-# ========================================
-quarkus.datasource.db-kind=oracle
-quarkus.datasource.jdbc.driver=oracle.jdbc.driver.OracleDriver
-quarkus.datasource.jdbc.url=${DATASOURCE_URL}
-quarkus.datasource.username=${DATASOURCE_USERNAME}
-quarkus.datasource.password=${DATASOURCE_PASSWORD}
-quarkus.datasource.jdbc.initial-size=1
-quarkus.datasource.jdbc.min-size=1
-quarkus.datasource.jdbc.max-size=50
-quarkus.transaction-manager.default-transaction-timeout=60s
+Name
+bac
+/
+Name
+bac
 
-# ========================================
-# HIBERNATE
-# ========================================
-quarkus.hibernate-orm.jdbc.statement-fetch-size=100
+Name
 
-# ========================================
-# MÉTRICAS E HEALTH
-# ========================================
-quarkus.datasource.jdbc.acquisition-timeout=10s
-quarkus.datasource.jdbc.leak-detection-interval=60S
-quarkus.datasource.metrics.enabled=true
-quarkus.datasource.jdbc.detect-statement-leaks=true
-# Validação interna se os DataSources estão no ar na chamada de Health
-quarkus.datasource.health.enabled=true
-# Validação agendada para validar o pool a cada 2 minutos
-quarkus.datasource.jdbc.validation-query-sql=SELECT 1 FROM DUAL
-quarkus.datasource.jdbc.background-validation-interval=2M
+Status
 
-# ========================================
-# LOG
-# ========================================
-quarkus.log.console.format=%d{yyyy-MM-dd HH:mm:ss,SSS} %-5p [%C] (%t) %s%e%n
-# Rotation do arquivo de log
-#quarkus.log.file.rotation.max-file-size=100M
-#quarkus.log.file.rotation.max-backup-index=15
-# Log requests
-quarkus.http.access-log.enabled=true
-quarkus.http.access-log.pattern=combined
+Ready
 
-# ========================================
-# REST CLIENT E APIs
-# ========================================
-# RestClient
-app.sicim.api-key=${API_KEY}
-# API Manager
-quarkus.rest-client.api-manager.url=${APIM_URL}
+Restarts
+
+Owner
+
+Memory
+
+CPU
+
+Created
+Pod
+P
+sicim-backend-intranet-des-7-deploy
+Completed
+0/1	0	
+ReplicationController
+RC
+sicim-backend-intranet-des-7
+-	-	
+10 de jun. de 2026, 18:06
+
+Pod
+P
+sicim-backend-intranet-des-7-g8lxc
+Running
+1/1	0	
+ReplicationController
+RC
+sicim-backend-intranet-des-7
+201,1 MiB	0,001 cores	
+10 de jun. de 2026, 18:06
+
+2 of 3 found for live at 276:7
+
+
+Skip to main content
+Azure DevOps
+projetos
+/
+Caixa
+/
+Pipelines
+/
+Releases
+/
+SICIM-backend-intranet
+/
+SICIM-backend-intranet-20260610.1804-1.0.0.1-SNAPSHOT(1)
+Search
+
+
+Caixa
+
+Overview
+
+Boards
+
+Repos
+
+Pipelines
+Pipelines
+Environments
+Releases
+Library
+Task groups
+Deployment groups
+Portal Infra
+
+Test Plans
+
+Artifacts
+Project settings
+SICIM-backend-intranet
+
+SICIM-backend-intranet-20260610.1804-1.0.0.1-SNAPSHOT(1)
+
+
+EC DES
+
+Succeeded
+
+
+Pipeline
+
+Tasks
+
+Variables
+
+Logs
+
+Tests
+Agent job
+Started: 10/06/2026, 18:06:02
+Pool:
+Release-Linux-OKD4
+·
+Agent: azp-ads-agent-release-5cd876f98-4fmdt
+
+1m 11s
+
+Initialize job
+·
+succeeded
+<1s
+
+Pre-job: Download secure file
+·
+succeeded
+<1s
+
+Download Artifacts
+·
+succeeded
+1 warning
+<1s
+
+Exportando as variáveis do arquivo Trust Store
+·
+succeeded
+
+<1s
+
+Recuperando nome do repositório
+·
+succeeded
+1s
+
+Convertendo Minúsculo e Definindo nome do Projeto/Repositório
+·
+succeeded
+<1s
+
+Git clone https://devops.caixa/projetos/Infraestrutura/_git/esteira-logs
+·
+succeeded
+<1s
+
+Cria Streams Graylog
+·
+succeeded
+1s
+
+Recupera VEC
+·
+succeeded
+<1s
+
+VEC - Aferição
+·
+succeeded
+1 warning
+<1s
+
+Login OpenShift
+·
+succeeded
+<1s
+
+Exportando Variáveis de Ambiente "_ENV."
+·
+succeeded
+<1s
+
+Criando novo Projeto
+·
+succeeded
+<1s
+
+Adicionando ISTIO_INJECTION
+·
+skipped
+
+
+Criando nova APP
+·
+succeeded
+<1s
+
+Atualizando Variáveis de Ambiente
+·
+succeeded
+1s
+
+Criando Rota Customizada
+·
+succeeded
+<1s
+
+Aplicando Service Mesh
+·
+skipped
+
+
+Exporta Variáveis de Ambiente "_SECRET."
+·
+succeeded
+<1s
+
+Alterando valores placeholder no exec_secret.sh
+·
+succeeded
+<1s
+
+Criando Secrets
+·
+succeeded
+<1s
+
+Vinculando Secrets
+·
+succeeded
+<1s
+
+Adicionando Multiplas Secrets
+·
+succeeded
+<1s
+
+Executando Tag na Imagem do ambiente de build OKD3, OKD4 e OCP
+·
+succeeded
+20s
+
+Concedendo Acesso OKD
+·
+succeeded
+<1s
+
+Verificando IP de Saída
+·
+succeeded
+<1s
+
+Configurando IP de Saída
+·
+succeeded
+<1s
+
+Cadastrando no Portal IIF
+·
+succeeded
+<1s
+
+Verificando Status do Deployment
+·
+succeeded
+34s
+
+Logs da Aplicação
+·
+succeeded
+<1s
+
+Resumo da Release
+·
+succeeded
+<1s
+
+Coletando dados da imagem
+·
+succeeded
+2s
+
+Atualizando versão no PortalIF
+·
+succeeded
+<1s
+
+Realizando Logout OKD
+·
+succeeded
+<1s
+
+Finalize Job
+·
+succeeded
+<1s
+View detailed logs
+Showing filters 1 through 2
+
+Showing filters 1 through 2
+
+Showing 4 deployments
+
+Showing 5 deployments
+
+Showing 5 deployments
+
+Showing 5 deployments
+
+Expanded
+
+Row 5
+
+Collapsed
+
+Expanded
+
+Row 4
+
+Collapsed
+
+Expanded
+
+Row 3
+
+Collapsed
+
+Row 2
+
+
