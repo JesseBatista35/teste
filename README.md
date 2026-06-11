@@ -1,90 +1,7 @@
-Skip to main content
-Azure DevOps
-projetos
-/
-Caixa
-/
-Repos
-/
-Files
-/
-
-SICLI-ncc-config
-Search
-
-
-Caixa
-
-Overview
-
-Boards
-
-Repos
-Files
-Commits
-Pushes
-Branches
-Tags
-Pull requests
-
-Pipelines
-
-Test Plans
-
-Artifacts
-Project settings
-SICLI-ncc-config
-
-jboss
-configuration
-applicationinsights.json
-jcics-config.xml
-jboss-custom.cli
-jboss-deployments
-jboss-modules-custom
-standalone-full-ha.xml
-
-standalone.conf
-README.md
-
-master
-
-/
-jboss
-/
-standalone-full-ha.xml
-standalone-full-ha.xml
-
-Edit
-
-Contents
-History
-Compare
-Blame
-
-1617181920212223242526272829303132333435363738394041424344131415101112789456123
 <?xml version='1.0' encoding='UTF-8'?>
 
 <server xmlns="urn:jboss:domain:16.0">
     <extensions>
-        <extension module="org.keycloak.keycloak-adapter-subsystem"/>
-        <extension module="org.jboss.as.clustering.infinispan"/>
-        <extension module="org.jboss.as.connector"/>
-        <extension module="org.jboss.as.deployment-scanner"/>
-        <extension module="org.jboss.as.ee"/>
-        <extension module="org.jboss.as.ejb3"/>
-
-
-
-acei esse:
-
-
-
-<?xml version='1.0' encoding='UTF-8'?>
-
-<server xmlns="urn:jboss:domain:16.0">
-    <extensions>
-        <extension module="org.keycloak.keycloak-adapter-subsystem"/>
         <extension module="org.jboss.as.clustering.infinispan"/>
         <extension module="org.jboss.as.connector"/>
         <extension module="org.jboss.as.deployment-scanner"/>
@@ -121,34 +38,30 @@ acei esse:
         <extension module="org.wildfly.extension.security.manager"/>
         <extension module="org.wildfly.extension.undertow"/>
         <extension module="org.wildfly.iiop-openjdk"/>
+	    <extension module="org.keycloak.keycloak-adapter-subsystem"/>
     </extensions>
     <system-properties>
-        <property name="API_SICPF" value="__API_SICPF__"  />
-        <property name="API_SIISO" value="__API_SIISO__"  />
-        <property name="LOGIN_SISET" value="__LOGIN_SISET__" />
-        <property name="SIECM.SERVERURL" value="__SIECM_SERVERURL__"  />
-        <property name="SISET_SECRET" value="__SISET_SECRET__"  />
-        <property name="org.apache.coyote.http11.DEFAULT_CONNECTION_TIMEOUT" value="300000"  />
-        <property name="-Djsse.enableSNIExtension=false"  />
-        <property name="http.nonProxyHosts" value="*.caixa|*.extracaixa"  />
-        <property name="javax.net.ssl.trustStoreType" value="jks"  />
-        <property name="javax.net.ssl.trustStore" value="__JAVAX_TRUSTSTORE__"  />
-        <property name="javax.net.ssl.trustStorePassword" value="changeit"  />
-        <property name="jackson.deserialization.whitelist.packages" value="br.gov.caixa"/>
-        <property name="AMBIENTE" value="__AMBIENTE__"  />
-        <property name="USER_SERVICO" value="__USER_SERVICO__"  />
-        <property name="SENHA_SERVICO" value="__SENHA_SERVICO__"  />
-        <property name="API_SICLI" value="__API_SICLI__"/>
-        <property name="URL_PREFIX_PROD" value="__URL_PREFIX_PROD__" />
-        <property name="URL_PREFIX_REST" value="__URL_PREFIX_REST__"  />
-        <property name="API_SIISO_V4" value="__API_SIISO_V4__" />
-        <property name="APIKEY" value="__APIKEY__" />
-        <property name="VALIDA_CERTIFICADO_LOGIN" value="__VALIDA_CERTIFICADO_LOGIN__"  />
-        <property name="API_SERPRO_RFB" value="__API_SERPRO_RFB__" />
-        <property name="URL_STA" value="__URL_STA__"/>
-        <property name="USUARIO_BACEN" value="__USUARIO_BACEN__"/>
-        <property name="SENHA_BACEN" value="__SENHA_BACEN__"/>
-        <property name="HORARIO_VERAO" value="__HORARIO_VERAO__" />
+	    <property name="SISOU-SEC_TEMPO_VIDA_TOKEN" value="__SISOU-SEC_TEMPO_VIDA_TOKEN__"/>
+	    <property name="SISOU-SEC_TEMPO_MAX_IDLE" value="__SISOU-SEC_TEMPO_MAX_IDLE__"/>
+	    <property name="SISOU-INT_URL_API_MANAGER" value="__SISOU-INT_URL_API_MANAGER__"/>  
+    	<property name="SISOU-INT_API_KEY" value="__SISOU-INT_API_KEY__"/>
+        <property name="SISOU-INT_IP_SERV_GED" value="__SISOU-INT_IP_SERV_GED__"/>
+        <property name="SISOU-INT_URL_GED" value="__SISOU-INT_URL_GED__"/>
+        <property name="SISOU-INT_URL_RDR_BACEN" value="__SISOU-INT_URL_RDR_BACEN__"/>
+        <property name="SISOU-INT_URL_STA_BACEN" value="__SISOU-INT_URL_STA_BACEN__"/>
+        <property name="SISOU-INT_USU_BACEN" value="__SISOU-INT_USU_BACEN__"/>
+        <property name="SISOU-INT_SEN_BACEN" value="__SISOU-INT_SEN_BACEN__"/>
+        <property name="SISOU-INT_CNPJ_CAIXA" value="__SISOU-INT_CNPJ_CAIXA__"/>
+	    <property name="SISOU-REMETENTE_OUV" value="__SISOU-REMETENTE_OUV__"/>
+	    <property name="SISOU-REMETENTE_SAC" value="__SISOU-REMETENTE_SAC__"/>
+	    <property name="SISOU-REMETENTE_INT" value="__SISOU-REMETENTE_INT__"/>
+        <property name="SISOU-API_LEGADO" value="__SISOU-API_LEGADO__"/>
+        <property name="SISOU-API_LEGADO_USUARIO" value="__SISOU-API_LEGADO_USUARIO__"/>
+        <property name="SISOU-API_LEGADO_SENHA" value="__SISOU-API_LEGADO_SENHA__"/>
+        <property name="SISOU-EMAIL_ENVIO_RECURSO_BACEN" value="__SISOU-EMAIL_ENVIO_RECURSO_BACEN__"/>
+        <property name="SISOU-INT_B2B_CORREIOS" value="__SISOU-INT_B2B_CORREIOS__"/>
+        <property name="SISOU-INT_B2B_CORREIOS_SENHA" value="__SISOU-INT_B2B_CORREIOS_SENHA__"/>
+        <property name="SISOU-SUFIXO_EMAIL_CAIXA" value="__SISOU-SUFIXO_EMAIL_CAIXA__"/>   
     </system-properties>
     <management>
         <security-realms>
@@ -190,8 +103,8 @@ acei esse:
             </logger>
         </audit-log>
         <management-interfaces>
-            <http-interface security-realm="ManagementRealm">
-                <http-upgrade enabled="true"/>
+             <http-interface http-authentication-factory="management-http-authentication">
+                <http-upgrade enabled="true" sasl-authentication-factory="management-sasl-authentication"/>
                 <socket-binding http="management-http"/>
             </http-interface>
         </management-interfaces>
@@ -238,7 +151,7 @@ acei esse:
             </logger>
             <logger category="stdout">
                 <level name="OFF"/>
-            </logger>              
+            </logger>
             <root-logger>
                 <level name="INFO"/>
                 <handlers>
@@ -252,10 +165,11 @@ acei esse:
             <formatter name="COLOR-PATTERN">
                 <pattern-formatter pattern="%K{level}%d{HH:mm:ss,SSS} %-5p [%c] (%t) %s%e%n"/>
             </formatter>
-        </subsystem>
+        </subsystem>		
         <subsystem xmlns="urn:jboss:domain:batch-jberet:2.0">
             <default-job-repository name="in-memory"/>
             <default-thread-pool name="batch"/>
+            <security-domain name="ApplicationDomain"/>
             <job-repository name="in-memory">
                 <in-memory/>
             </job-repository>
@@ -268,24 +182,19 @@ acei esse:
         <subsystem xmlns="urn:jboss:domain:core-management:1.0"/>
         <subsystem xmlns="urn:jboss:domain:datasources:6.0">
             <datasources>
-                <datasource jta="false" jndi-name="java:/jdbc/DB2SicliDS" pool-name="jdbc/DB2SicliDS" enabled="true" use-ccm="false">
-                    <connection-url>__DB2_CONNECTION_STRING__</connection-url>
-                    <driver-class>com.ibm.db2.jcc.DB2Driver</driver-class>
-                    <driver>db2jcc4.36.6.jar</driver>
-                    <pool>
-                        <min-pool-size>1</min-pool-size>
-                        <max-pool-size>50</max-pool-size>
-                        <flush-strategy>IdleConnections</flush-strategy>
-                    </pool>
-                    <security>
-                        <user-name>__DB2_USER__</user-name>
-                        <password>__DB2_PASSWORD__</password>
-                    </security>
-                    <timeout>
-                        <idle-timeout-minutes>5</idle-timeout-minutes>
-                    </timeout>
-                </datasource>
-            </datasources>
+                    <datasource jta="false" jndi-name="__DATASOURCE_JNDI_NAME__" pool-name="__DATASOURCE_POOL_NAME__" enabled="true" use-java-context="true" spy="false" use-ccm="false" statistics-enabled="true">
+                        <connection-url>__DATASOURCE_CONNECTION_URL__</connection-url>
+                        <pool>
+                            <min-pool-size>__DATASOURCE_MIN_POOL_SIZE__</min-pool-size>
+                            <max-pool-size>__DATASOURCE_MAX_POOL_SIZE__</max-pool-size>
+                        </pool>
+                        <security>
+                            <user-name>__DATASOURCE_USER_NAME__</user-name>
+                            <password>__DATASOURCE_PASSWORD__</password>
+                        </security>
+                    </datasource>
+                    <jdbc-driver name="oracle" module="com.oracle.ojdbc8" class-name="oracle.jdbc.OracleDriver"/>
+                </datasources>
         </subsystem>
         <subsystem xmlns="urn:jboss:domain:deployment-scanner:2.0">
             <deployment-scanner path="deployments" relative-to="jboss.server.base.dir" scan-interval="5000" runtime-failure-causes-rollback="${jboss.deployment.scanner.rollback.on.failure:false}"/>
@@ -306,6 +215,7 @@ acei esse:
                     <managed-scheduled-executor-service name="default" jndi-name="java:jboss/ee/concurrency/scheduler/default" context-service="default" hung-task-termination-period="0" hung-task-threshold="60000" keepalive-time="3000"/>
                 </managed-scheduled-executor-services>
             </concurrent>
+            <default-bindings context-service="java:jboss/ee/concurrency/context/default" datasource="java:jboss/datasources/ExampleDS" jms-connection-factory="java:jboss/DefaultJMSConnectionFactory" managed-executor-service="java:jboss/ee/concurrency/executor/default" managed-scheduled-executor-service="java:jboss/ee/concurrency/scheduler/default" managed-thread-factory="java:jboss/ee/concurrency/factory/default"/>
         </subsystem>
         <subsystem xmlns="urn:jboss:domain:ee-security:1.0"/>
         <subsystem xmlns="urn:jboss:domain:ejb3:9.0">
@@ -341,17 +251,22 @@ acei esse:
             </timer-service>
             <remote cluster="ejb" connectors="http-remoting-connector" thread-pool-name="default">
                 <channel-creation-options>
+                    <option name="READ_TIMEOUT" value="${prop.remoting-connector.read.timeout:20}" type="xnio"/>
                     <option name="MAX_OUTBOUND_MESSAGES" value="1234" type="remoting"/>
                 </channel-creation-options>
             </remote>
             <thread-pools>
                 <thread-pool name="default">
-                    <max-threads count="48"/>
-                    <keepalive-time time="60" unit="seconds"/>
+                    <!-- <max-threads count="10"/> -->
+                    <max-threads count="128"/>
+                    <keepalive-time time="100" unit="milliseconds"/>
                 </thread-pool>
             </thread-pools>
             <iiop enable-by-default="false" use-qualified-name="false"/>
             <default-security-domain value="other"/>
+            <application-security-domains>
+                <application-security-domain name="other" security-domain="ApplicationDomain"/>
+            </application-security-domains>
             <default-missing-method-permissions-deny-access value="true"/>
             <statistics enabled="${wildfly.ejb3.statistics-enabled:${wildfly.statistics-enabled:false}}"/>
             <log-system-exceptions value="true"/>
@@ -424,6 +339,13 @@ acei esse:
                         </mechanism>
                     </mechanism-configuration>
                 </http-authentication-factory>
+                <http-authentication-factory name="application-http-authentication" security-domain="ApplicationDomain" http-server-mechanism-factory="global">
+                    <mechanism-configuration>
+                        <mechanism mechanism-name="BASIC">
+                            <mechanism-realm realm-name="ApplicationRealm"/>
+                        </mechanism>
+                    </mechanism-configuration>
+                </http-authentication-factory>
                 <provider-http-server-mechanism-factory name="global"/>
             </http>
             <sasl>
@@ -476,7 +398,7 @@ acei esse:
         <subsystem xmlns="urn:wildfly:health:1.0" security-enabled="false"/>
         <subsystem xmlns="urn:jboss:domain:iiop-openjdk:2.1">
             <orb socket-binding="iiop"/>
-            <initializers security="identity" transactions="spec"/>
+            <initializers security="elytron" transactions="spec"/>
             <security server-requires-ssl="false" client-requires-ssl="false"/>
         </subsystem>
         <subsystem xmlns="urn:jboss:domain:infinispan:12.0">
@@ -545,12 +467,13 @@ acei esse:
         <subsystem xmlns="urn:jboss:domain:jsf:1.1"/>
         <subsystem xmlns="urn:jboss:domain:jsr77:1.0"/>
         <subsystem xmlns="urn:jboss:domain:mail:4.0">
-            <mail-session name="default" jndi-name="java:jboss/mail/Default">
-                <smtp-server outbound-socket-binding-ref="mail-smtp"/>
+            <mail-session name="default" jndi-name="java:jboss/mail/sisou">
+               <smtp-server outbound-socket-binding-ref="mail-smtp"/>
             </mail-session>
         </subsystem>
         <subsystem xmlns="urn:jboss:domain:messaging-activemq:13.0">
             <server name="default">
+                <security elytron-domain="ApplicationDomain"/>
                 <statistics enabled="${wildfly.messaging-activemq.statistics-enabled:${wildfly.statistics-enabled:false}}"/>
                 <security-setting name="#">
                     <role name="guest" send="true" consume="true" create-non-durable-queue="true" delete-non-durable-queue="true"/>
@@ -584,43 +507,11 @@ acei esse:
         </subsystem>
         <subsystem xmlns="urn:jboss:domain:pojo:1.0"/>
         <subsystem xmlns="urn:jboss:domain:remoting:4.0">
-            <http-connector name="http-remoting-connector" connector-ref="default" security-realm="ApplicationRealm"/>
+            <http-connector name="http-remoting-connector" connector-ref="default" sasl-authentication-factory="application-sasl-authentication"/>
         </subsystem>
         <subsystem xmlns="urn:jboss:domain:request-controller:1.0"/>
         <subsystem xmlns="urn:jboss:domain:resource-adapters:6.0"/>
         <subsystem xmlns="urn:jboss:domain:sar:1.0"/>
-        <subsystem xmlns="urn:jboss:domain:security:2.0">
-            <security-domains>
-                <security-domain name="other" cache-type="default">
-                    <authentication>
-                        <login-module code="Remoting" flag="optional">
-                            <module-option name="password-stacking" value="useFirstPass"/>
-                        </login-module>
-                        <login-module code="RealmDirect" flag="required">
-                            <module-option name="password-stacking" value="useFirstPass"/>
-                        </login-module>
-                    </authentication>
-                </security-domain>
-                <security-domain name="jboss-web-policy" cache-type="default">
-                    <authorization>
-                        <policy-module code="Delegating" flag="required"/>
-                    </authorization>
-                </security-domain>
-                <security-domain name="jaspitest" cache-type="default">
-                    <authentication-jaspi>
-                        <login-module-stack name="dummy">
-                            <login-module code="Dummy" flag="optional"/>
-                        </login-module-stack>
-                        <auth-module code="Dummy"/>
-                    </authentication-jaspi>
-                </security-domain>
-                <security-domain name="jboss-ejb-policy" cache-type="default">
-                    <authorization>
-                        <policy-module code="Delegating" flag="required"/>
-                    </authorization>
-                </security-domain>
-            </security-domains>
-        </subsystem>
         <subsystem xmlns="urn:jboss:domain:security-manager:1.0">
             <deployment-permissions>
                 <maximum-set>
@@ -638,24 +529,15 @@ acei esse:
             <coordinator-environment statistics-enabled="${wildfly.transactions.statistics-enabled:${wildfly.statistics-enabled:false}}"/>
             <object-store path="tx-object-store" relative-to="jboss.server.data.dir"/>
         </subsystem>
-        <subsystem xmlns="urn:jboss:domain:keycloak:1.1">
-            <secure-deployment name="sicli-web.war">
-                <realm>intranet</realm>
-                <resource>__SSO_CLIENT_ID__</resource>
-                <auth-server-url>__SSO_AUTH_URL__</auth-server-url>
-                <ssl-required>EXTERNAL</ssl-required>
-                <credential name="secret">__SSO_CLIENT_SECRET__</credential>
-            </secure-deployment>
-        </subsystem>
         <subsystem xmlns="urn:jboss:domain:undertow:12.0" default-server="default-server" default-virtual-host="default-host" default-servlet-container="default" default-security-domain="other" statistics-enabled="${wildfly.undertow.statistics-enabled:${wildfly.statistics-enabled:false}}">
             <buffer-cache name="default"/>
             <server name="default-server">
-                <ajp-listener name="ajp" socket-binding="ajp" secure="true" scheme="https"/>
+                <ajp-listener name="ajp" socket-binding="ajp" max-parameters="30000" max-post-size="52428800"/>
                 <http-listener name="default" socket-binding="http" redirect-socket="https" enable-http2="true"/>
-                <https-listener name="https" socket-binding="https" security-realm="ApplicationRealm" enable-http2="true"/>
+                <https-listener name="https" socket-binding="https" ssl-context="applicationSSC" enable-http2="true"/>
                 <host name="default-host" alias="localhost">
                     <location name="/" handler="welcome-content"/>
-                    <http-invoker security-realm="ApplicationRealm"/>
+                    <http-invoker http-authentication-factory="application-http-authentication"/>
                 </host>
             </server>
             <servlet-container name="default">
@@ -665,6 +547,9 @@ acei esse:
             <handlers>
                 <file name="welcome-content" path="${jboss.home.dir}/welcome-content"/>
             </handlers>
+            <application-security-domains>
+                <application-security-domain name="other" security-domain="ApplicationDomain"/>
+            </application-security-domains>
         </subsystem>
         <subsystem xmlns="urn:jboss:domain:webservices:2.0" statistics-enabled="${wildfly.webservices.statistics-enabled:${wildfly.statistics-enabled:false}}">
             <wsdl-host>${jboss.bind.address:127.0.0.1}</wsdl-host>
@@ -677,6 +562,16 @@ acei esse:
             <client-config name="Standard-Client-Config"/>
         </subsystem>
         <subsystem xmlns="urn:jboss:domain:weld:4.0"/>
+		<subsystem xmlns="urn:jboss:domain:keycloak:1.1">
+                <secure-deployment name="__KEYCLOAK_SECURE_DEPLOYMENT__">
+                    <realm>__KEYCLOAK_REALM__</realm>
+                    <resource>__KEYCLOAK_RESOURCE__</resource>
+                    <bearer-only>__KEYCLOAK_BEARER_ONLY__</bearer-only>
+                    <auth-server-url>__KEYCLOAK_AUTH_SERVER_URL__</auth-server-url>
+                    <ssl-required>__KEYCLOAK_SSL_REQUIRED__</ssl-required>
+                    <credential name="secret">__KEYCLOAK_CREDENTIAL_SECRET__</credential>
+                </secure-deployment>
+            </subsystem>
     </profile>
     <interfaces>
         <interface name="management">
@@ -685,25 +580,25 @@ acei esse:
         <interface name="public">
             <inet-address value="${jboss.bind.address:127.0.0.1}"/>
         </interface>
+        <interface name="private">
+            <inet-address value="${jboss.bind.address.private:127.0.0.1}"/>
+        </interface>
         <interface name="unsecure">
             <inet-address value="${jboss.bind.address.unsecure:127.0.0.1}"/>
         </interface>
     </interfaces>
     <socket-binding-group name="standard-sockets" default-interface="public" port-offset="${jboss.socket.binding.port-offset:0}">
-        <socket-binding name="management-http" interface="management" port="${jboss.management.http.port:9990}"/>
-        <socket-binding name="management-https" interface="management" port="${jboss.management.https.port:9993}"/>
         <socket-binding name="ajp" port="${jboss.ajp.port:8009}"/>
         <socket-binding name="http" port="${jboss.http.port:8080}"/>
         <socket-binding name="https" port="${jboss.https.port:8443}"/>
         <socket-binding name="iiop" interface="unsecure" port="3528"/>
-        <socket-binding name="iiop-ssl" interface="unsecure" port="3529"/>        
+        <socket-binding name="iiop-ssl" interface="unsecure" port="3529"/>
+        <socket-binding name="management-http" interface="management" port="${jboss.management.http.port:9990}"/>
+        <socket-binding name="management-https" interface="management" port="${jboss.management.https.port:9993}"/>
         <socket-binding name="txn-recovery-environment" port="4712"/>
         <socket-binding name="txn-status-manager" port="4713"/>
         <outbound-socket-binding name="mail-smtp">
-            <remote-destination host="${jboss.mail.server.host:localhost}" port="${jboss.mail.server.port:25}"/>
+            <remote-destination host="__SMTP_URL__" port="__SMTP_PORT__"/>
         </outbound-socket-binding>
     </socket-binding-group>
 </server>
-
-
-
