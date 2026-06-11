@@ -1,48 +1,36 @@
-{
-  "name": "sirta-frontend",
-  "version": "0.0.0",
-  "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test",
-    "ng-sidsc": "ng add sidsc-components",
-    "ng-i": "npm install -g @angular/cli@19.2.25",
-    "env": "ng g environments"
-  },
-  "private": true,
-  "dependencies": {
-    "@angular/animations": "19.2.21",
-    "@angular/cdk": "19.2.19",
-    "@angular/common": "19.2.21",
-    "@angular/compiler": "19.2.21",
-    "@angular/core": "19.2.21",
-    "@angular/forms": "19.2.21",
-    "@angular/platform-browser": "19.2.21",
-    "@angular/platform-browser-dynamic": "19.2.21",
-    "@angular/router": "19.2.21",
-    "core-js": "3.37.1",
-    "jwt-decode": "4.0.0",
-    "keycloak-angular": "19.0.2",
-    "keycloak-js": "25.0.1",
-    "rxjs": "~7.8.0",
-    "sidsc-components": "19.1.7",
-    "tslib": "2.3.0",
-    "zone.js": "~0.15.1"
-  },
-  "devDependencies": {
-    "@angular-devkit/build-angular": "19.2.25",
-    "@angular/cli": "19.2.25",
-    "@angular/compiler-cli": "19.2.21",
-    "@types/jasmine": "~4.3.0",
-    "browserslist": "4.23.1",
-    "jasmine-core": "~4.6.0",
-    "karma": "~6.4.0",
-    "karma-chrome-launcher": "~3.2.0",
-    "karma-coverage": "~2.2.0",
-    "karma-jasmine": "~5.1.0",
-    "karma-jasmine-html-reporter": "~2.1.0",
-    "typescript": "~5.8.3"
-  }
-}
+npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/domelementtype 24ms (cache updated)
+npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/domutils 28ms (cache updated)
+npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/domelementtype 16ms (cache updated)
+npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/domutils 17ms (cache updated)
+npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/msgpackr-extract 9ms (cache updated)
+npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/@msgpackr-extract%2fmsgpackr-extract-darwin-x64 15ms (cache updated)
+npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/@msgpackr-extract%2fmsgpackr-extract-linux-x64 14ms (cache updated)
+npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/@msgpackr-extract%2fmsgpackr-extract-linux-arm64 15ms (cache updated)
+npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/@msgpackr-extract%2fmsgpackr-extract-linux-arm 15ms (cache updated)
+npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/@msgpackr-extract%2fmsgpackr-extract-win32-x64 16ms (cache updated)
+npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/@msgpackr-extract%2fmsgpackr-extract-darwin-arm64 17ms (cache updated)
+npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/@isaacs%2fcliui 14ms (cache updated)
+npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/cross-spawn 15ms (cache updated)
+npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/@pkgjs%2fparseargs 16ms (cache updated)
+npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/shebang-command 9ms (cache updated)
+npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/path-key 9ms (cache updated)
+npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/shebang-regex 7ms (cache updated)
+npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/eastasianwidth 11ms (cache updated)
+npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/binary-extensions 11ms (cache updated)
+npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/onetime 4ms (cache hit)
+npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/signal-exit 4ms (cache hit)
+npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/mimic-fn 9ms (cache updated)
+npm verbose type version
+npm verbose stack sidsc-components: No matching version found for sidsc-components@19.1.8.
+npm verbose stack     at module.exports (/opt/ads-agent/_work/_tool/node/20.18.2/x64/lib/node_modules/npm/node_modules/npm-pick-manifest/lib/index.js:215:23)
+npm verbose stack     at RegistryFetcher.manifest (/opt/ads-agent/_work/_tool/node/20.18.2/x64/lib/node_modules/npm/node_modules/pacote/lib/registry.js:130:54)
+npm verbose stack     at async #fetchManifest (/opt/ads-agent/_work/_tool/node/20.18.2/x64/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/build-ideal-tree.js:1199:20)
+npm verbose stack     at async #nodeFromEdge (/opt/ads-agent/_work/_tool/node/20.18.2/x64/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/build-ideal-tree.js:1037:19)
+npm verbose stack     at async #buildDepStep (/opt/ads-agent/_work/_tool/node/20.18.2/x64/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/build-ideal-tree.js:901:11)
+npm verbose stack     at async Arborist.buildIdealTree (/opt/ads-agent/_work/_tool/node/20.18.2/x64/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/build-ideal-tree.js:181:7)
+npm verbose stack     at async Promise.all (index 1)
+npm verbose stack     at async Arborist.reify (/opt/ads-agent/_work/_tool/node/20.18.2/x64/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/reify.js:131:5)
+npm verbose stack     at async Install.exec (/opt/ads-agent/_work/_tool/node/20.18.2/x64/lib/node_modules/npm/lib/commands/install.js:150:5)
+npm verbose stack     at async Npm.exec (/opt/ads-agent/_work/_tool/node/20.18.2/x64/lib/node_modules/npm/lib/npm.js:207:9)
+npm error code ETARGET
+npm error notarget No matching version found for sidsc-components@19.1.8.
