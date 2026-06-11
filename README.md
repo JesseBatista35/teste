@@ -1,39 +1,34 @@
-achei essa versosne aqui no binario coloequeo a 19.2.0
-
-npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/msgpackr-extract 7ms (cache hit)
-npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/@msgpackr-extract%2fmsgpackr-extract-linux-arm64 6ms (cache hit)
-npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/@msgpackr-extract%2fmsgpackr-extract-darwin-x64 8ms (cache hit)
-npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/@msgpackr-extract%2fmsgpackr-extract-linux-arm 8ms (cache hit)
-npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/@msgpackr-extract%2fmsgpackr-extract-win32-x64 9ms (cache hit)
-npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/@msgpackr-extract%2fmsgpackr-extract-darwin-arm64 10ms (cache hit)
-npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/@msgpackr-extract%2fmsgpackr-extract-linux-x64 10ms (cache hit)
-npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/@pkgjs%2fparseargs 5ms (cache hit)
-npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/cross-spawn 7ms (cache hit)
-npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/@isaacs%2fcliui 7ms (cache hit)
-npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/shebang-command 3ms (cache hit)
-npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/path-key 5ms (cache hit)
-npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/shebang-regex 3ms (cache hit)
-npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/eastasianwidth 5ms (cache hit)
-npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/binary-extensions 3ms (cache hit)
-npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/mimic-fn 3ms (cache hit)
-npm verbose type version
-npm verbose stack @jsonjoy.com/fs-core: No matching version found for @jsonjoy.com/fs-core@4.57.7.
-npm verbose stack     at module.exports (/opt/ads-agent/_work/_tool/node/20.18.2/x64/lib/node_modules/npm/node_modules/npm-pick-manifest/lib/index.js:215:23)
-npm verbose stack     at RegistryFetcher.manifest (/opt/ads-agent/_work/_tool/node/20.18.2/x64/lib/node_modules/npm/node_modules/pacote/lib/registry.js:130:54)
-npm verbose stack     at async #fetchManifest (/opt/ads-agent/_work/_tool/node/20.18.2/x64/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/build-ideal-tree.js:1199:20)
-npm verbose stack     at async #nodeFromEdge (/opt/ads-agent/_work/_tool/node/20.18.2/x64/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/build-ideal-tree.js:1037:19)
+npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/@angular%2fcommon 8ms (cache hit)
+npm verbose stack Error: unable to resolve dependency tree
+npm verbose stack     at #failPeerConflict (/opt/ads-agent/_work/_tool/node/20.18.2/x64/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/build-ideal-tree.js:1360:25)
+npm verbose stack     at #loadPeerSet (/opt/ads-agent/_work/_tool/node/20.18.2/x64/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/build-ideal-tree.js:1326:33)
 npm verbose stack     at async #buildDepStep (/opt/ads-agent/_work/_tool/node/20.18.2/x64/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/build-ideal-tree.js:901:11)
-npm error code ETARGET
-npm error notarget No matching version found for @jsonjoy.com/fs-core@4.57.7.
-npm error notarget In most cases you or one of your dependencies are requesting
-npm error notarget a package version that doesn't exist.
+npm verbose stack     at async Arborist.buildIdealTree (/opt/ads-agent/_work/_tool/node/20.18.2/x64/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/build-ideal-tree.js:181:7)
+npm verbose stack     at async Promise.all (index 1)
+npm verbose stack     at async Arborist.reify (/opt/ads-agent/_work/_tool/node/20.18.2/x64/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/reify.js:131:5)
+npm verbose stack     at async Install.exec (/opt/ads-agent/_work/_tool/node/20.18.2/x64/lib/node_modules/npm/lib/commands/install.js:150:5)
+npm verbose stack     at async Npm.exec (/opt/ads-agent/_work/_tool/node/20.18.2/x64/lib/node_modules/npm/lib/npm.js:207:9)
+npm verbose stack     at async module.exports (/opt/ads-agent/_work/_tool/node/20.18.2/x64/lib/node_modules/npm/lib/cli/entry.js:74:5)
+npm error code ERESOLVE
+npm error ERESOLVE unable to resolve dependency tree
+npm error
+npm error While resolving: sirta-frontend@1.0.0-snapshot
+npm error Found: @angular/common@19.2.21
+npm error node_modules/@angular/common
+npm error   @angular/common@"19.2.21" from the root project
+npm error
+npm error Could not resolve dependency:
+npm error peer @angular/common@"^16.2.12" from sidsc-components@16.0.0
+npm error node_modules/sidsc-components
+npm error   sidsc-components@"16.0.0" from the root project
+npm error
+npm error Fix the upstream dependency conflict, or retry
+npm error this command with --force or --legacy-peer-deps
+npm error to accept an incorrect (and potentially broken) dependency resolution.
+npm error
+npm error
+npm error For a full report see:
+npm error /home/sadscp01/.npm/_logs/2026-06-11T13_52_51_560Z-eresolve-report.txt
 npm verbose cwd /opt/ads-agent/_work/172/s
 npm verbose os Linux 5.14.0-362.8.1.el9_3.x86_64
 npm verbose node v20.18.2
-npm verbose npm  v10.8.2
-npm verbose exit 1
-npm verbose code 1
-npm error A complete log of this run can be found in: /home/sadscp01/.npm/_logs/2026-06-11T13_48_50_425Z-debug-0.log
-##[warning]Couldn't find a debug log in the cache or working directory
-##[error]Error: Npm failed with return code: 1
-Finishing: npm install
