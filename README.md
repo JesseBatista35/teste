@@ -1,41 +1,35 @@
+npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/@msgpackr-extract%2fmsgpackr-extract-darwin-x64 10ms (cache hit)
+npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/@msgpackr-extract%2fmsgpackr-extract-win32-x64 9ms (cache hit)
+npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/@msgpackr-extract%2fmsgpackr-extract-linux-arm64 10ms (cache hit)
+npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/@msgpackr-extract%2fmsgpackr-extract-linux-x64 9ms (cache hit)
+npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/cross-spawn 9ms (cache hit)
+npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/@isaacs%2fcliui 10ms (cache hit)
+npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/@pkgjs%2fparseargs 10ms (cache hit)
+npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/path-key 2ms (cache hit)
+npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/shebang-command 3ms (cache hit)
+npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/shebang-regex 2ms (cache hit)
+npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/eastasianwidth 3ms (cache hit)
+npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/binary-extensions 3ms (cache hit)
+npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/mimic-fn 5ms (cache hit)
+npm verbose type version
+npm verbose stack @jsonjoy.com/fs-core: No matching version found for @jsonjoy.com/fs-core@4.57.7.
+npm verbose stack     at module.exports (/opt/ads-agent/_work/_tool/node/20.18.2/x64/lib/node_modules/npm/node_modules/npm-pick-manifest/lib/index.js:215:23)
+npm verbose stack     at RegistryFetcher.manifest (/opt/ads-agent/_work/_tool/node/20.18.2/x64/lib/node_modules/npm/node_modules/pacote/lib/registry.js:130:54)
+npm verbose stack     at async #fetchManifest (/opt/ads-agent/_work/_tool/node/20.18.2/x64/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/build-ideal-tree.js:1199:20)
+npm verbose stack     at async #nodeFromEdge (/opt/ads-agent/_work/_tool/node/20.18.2/x64/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/build-ideal-tree.js:1037:19)
+npm verbose stack     at async #buildDepStep (/opt/ads-agent/_work/_tool/node/20.18.2/x64/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/build-ideal-tree.js:901:11)
+npm error code ETARGET
+npm error notarget No matching version found for @jsonjoy.com/fs-core@4.57.7.
+npm error notarget In most cases you or one of your dependencies are requesting
+npm error notarget a package version that doesn't exist.
+npm verbose cwd /opt/ads-agent/_work/172/s
+npm verbose os Linux 5.14.0-362.8.1.el9_3.x86_64
+npm verbose node v20.18.2
+npm verbose npm  v10.8.2
+npm verbose exit 1
+npm verbose code 1
+npm error A complete log of this run can be found in: /home/sadscp01/.npm/_logs/2026-06-11T12_21_58_849Z-debug-0.log
+##[warning]Couldn't find a debug log in the cache or working directory
+##[error]Error: Npm failed with return code: 1
+Finishing: npm instal
 
-npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/inflight 13ms (cache hit)
-npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/inherits 19ms (cache hit)
-npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/fs.realpath 19ms (cache hit)
-npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/path-is-absolute 18ms (cache hit)
-npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/date-format 17ms (cache hit)
-npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/flatted 19ms (cache hit)
-npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/streamroller 19ms (cache hit)
-npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/brace-expansion 20ms (cache hit)
-npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/accepts 16ms (cache hit)
-npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/cors 18ms (cache hit)
-npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/engine.io 18ms (cache hit)
-npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/minimist 27ms (cache hit)
-npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/base64id 26ms (cache hit)
-npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/socket.io-adapter 20ms (cache hit)
-npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/socket.io-parser 20ms (cache hit)
-npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/setprototypeof 8ms (cache hit)
-npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/side-channel 6ms (cache hit)
-npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/toidentifier 8ms (cache hit)
-npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/ee-first 9ms (cache hit)
-npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/statuses 10ms (cache hit)
-npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/media-typer 10ms (cache hit)
-npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/to-regex-range 1ms (cache hit)
-npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/escape-html 3ms (cache hit)
-npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/encodeurl 4ms (cache hit)
-npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/punycode 3ms (cache hit)
-npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/call-bound 6ms (cache hit)
-npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/safe-regex-test 5ms (cache hit)
-npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/call-bind-apply-helpers 6ms (cache hit)
-npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/get-intrinsic 6ms (cache hit)
-npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/is-regex 7ms (cache hit)
-npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/gopd 8ms (cache hit)
-npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/function-bind 10ms (cache hit)
-npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/hasown 10ms (cache hit)
-npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/function-bind 10ms (cache hit)
-npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/get-proto 11ms (cache hit)
-npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/has-symbols 11ms (cache hit)
-npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/es-object-atoms 11ms (cache hit)
-npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/math-intrinsics 6ms (cache hit)
-npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/es-define-property 6ms (cache hit)
-npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/is-number 3ms (cache hit)
