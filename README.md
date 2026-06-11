@@ -1,3 +1,43 @@
+Starting: Run Code Analisis
+==============================================================================
+Task         : Bash
+Description  : Run a Bash script on macOS, Linux, or Windows
+Version      : 3.227.0
+Author       : Microsoft Corporation
+Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/bash
+==============================================================================
+Generating script.
+========================== Starting Command Output ===========================
+/bin/bash /opt/ads-agent/_work/_temp/37c81d22-6391-4f35-91c7-5ac121d4ed26.sh
+sonar-scanner -Dsonar.host.url=http://sonar.apps.produtos4.caixa -Dsonar.login=ads-sa -Dsonar.password=*** -Dsonar.projectKey=SIFAP-front-v2 -Dsonar.projectName=SIFAP-front-v2 -Dsonar.projectVersion=1.0.0-snapshot -Dsonar.sources=. -Dproject.settings=NONE -Dsonar.branch.name=hotfix-consulta_cadastro -Dsonar.tests=src -Dsonar.test.inclusions=**/*.spec.ts,**/*test.ts -Dsonar.coverage.exclusions=**/*.js,src/main.ts,**/*environment*.ts,**/*.module.ts -Dsonar.testExecutionReportPaths=reports/sonar-report.xml -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info
+INFO: Scanner configuration file: /opt/sonar-scanner/sonar-scanner-4.2.0.1873-linux/conf/sonar-scanner.properties
+INFO: Project root configuration file: NONE
+INFO: SonarQube Scanner 4.2.0.1873
+INFO: Java 11.0.3 AdoptOpenJDK (64-bit)
+INFO: Linux 5.14.0-362.8.1.el9_3.x86_64 amd64
+INFO: User cache: /home/sadscp01/.sonar/cache
+INFO: SonarQube server 9.9.2.77730
+INFO: Default locale: "pt_BR", source code encoding: "UTF-8"
+INFO: Load global settings
+INFO: Load global settings (done) | time=207ms
+INFO: Server id: 4153E000-AWtsHs6yK4o2sRjgkX27
+INFO: User cache: /home/sadscp01/.sonar/cache
+INFO: Load/download plugins
+INFO: Load plugins index
+INFO: Load plugins index (done) | time=136ms
+INFO: Load/download plugins (done) | time=189ms
+INFO: Process project properties
+INFO: Process project properties (done) | time=6ms
+INFO: Execute project builders
+INFO: Execute project builders (done) | time=1ms
+INFO: Project key: SIFAP-front-v2
+INFO: Base dir: /opt/ads-agent/_work/156/s
+INFO: Working dir: /opt/ads-agent/_work/156/s/.scannerwork
+INFO: Load project settings for component key: 'SIFAP-front-v2'
+INFO: Load project settings for component key: 'SIFAP-front-v2' (done) | time=134ms
+INFO: Load project branches
+INFO: Load project branches (done) | time=157ms
+INFO: Load branch configuration
 INFO: Sensor C# Analysis Log [csharp]
 INFO: Sensor C# Analysis Log [csharp] (done) | time=9ms
 INFO: Sensor C# Properties [csharp]
