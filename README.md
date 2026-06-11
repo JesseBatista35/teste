@@ -1,92 +1,40 @@
-boltatod ao SIFAP-front-v2
+Starting: Run Test
+==============================================================================
+Task         : Bash
+Description  : Run a Bash script on macOS, Linux, or Windows
+Version      : 3.227.0
+Author       : Microsoft Corporation
+Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/bash
+==============================================================================
+Generating script.
+Script contents:
+npm run test:coverage
+========================== Starting Command Output ===========================
+/bin/bash /opt/ads-agent/_work/_temp/dceb155f-c5fa-4780-bda8-2ba6b317d4b9.sh
 
-tem essqe arquivo aqui
+> sifap-front-v2@1.0.0 test:coverage /opt/ads-agent/_work/127/s
+> jest --coverage
 
-sonar-project.properties
+/opt/ads-agent/_work/127/s/node_modules/jest-cli/build/run.js:135
+    if (error?.stack) {
+              ^
 
+SyntaxError: Unexpected token .
+    at Module._compile (internal/modules/cjs/loader.js:723:23)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+    at require (internal/modules/cjs/helpers.js:25:18)
+    at Object.<anonymous> (/opt/ads-agent/_work/127/s/node_modules/jest-cli/build/index.js:18:12)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+npm ERR! code ELIFECYCLE
+npm ERR! errno 1
+npm ERR! sifap-front-v2@1.0.0 test:coverage: `jest --coverage`
+npm ERR! Exit status 1
+npm ERR! 
+npm ERR! Failed at the sifap-front-v2@1.0.0 test:coverage script.
+npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
-sonar.tests=src
-sonar.exclusions=**/*.spec.ts,**/*test.ts,**/*.js
-sonar.test.inclusions=**/*.spec.ts,**/*test.ts
-sonar.coverage.exclusions=**/*.js,src/main.ts,**/*environment*.ts,**/*.module.ts
-sonar.testExecutionReportPaths=reports/sonar-report.xml
-sonar.javascript.lcov.reportPaths=coverage/lcov.info
-
-
-
-sonar.javascript.tsconfigPaths=tsconfig.sonar.json
-
-
-
-o packege.json ta assim:
-
-{
-  "name": "sifap-front-v2",
-  "version": "1.0.0",
-  "description": "Projeto sifap Angular v19 com DSC",
-  "license": "MIT",
-  "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "start-dev": "ng serve -c development",
-    "build": "ng build",
-    "build-prod": "ng build --configuration production",
-    "watch": "ng build --watch --configuration development",
-    "test2": "node --experimental-vm-modules node_modules/jest/bin/jest.js ./test",
-    "test": "jest --verbose",
-    "test:coverage": "jest --coverage",
-    "test:watch": "jest --watch",
-    "server": "json-server --watch db_sifap.json --port=3002",
-    "server:farmacia": "json-server --watch db.json --port=3001",
-    "server:siiso": "json-server --watch db_siiso.json --port=3000"
-  },
-  "private": true,
-  "dependencies": {
-    "@angular/animations": "^19.0.0",
-    "@angular/cdk": "^19.0.0",
-    "@angular/common": "^19.0.0",
-    "@angular/compiler": "^19.2.9",
-    "@angular/core": "^19.0.0",
-    "@angular/forms": "^19.0.0",
-    "@angular/localize": "^19.0.0",
-    "@angular/material": "^19.0.0",
-    "@angular/material-date-fns-adapter": "^19.0.0",
-    "@angular/platform-browser": "^19.0.0",
-    "@angular/platform-browser-dynamic": "^19.0.0",
-    "@angular/router": "^19.0.0",
-    "@auth0/angular-jwt": "^5.2.0",
-    "@fortawesome/angular-fontawesome": "^1.0.0",
-    "@fortawesome/free-brands-svg-icons": "^7.0.1",
-    "@fortawesome/free-solid-svg-icons": "^6.7.1",
-    "@mdi/angular-material": "^7.2.96",
-    "bootstrap": "^5.3.8",
-    "keycloak-angular": "^19.0.2",
-    "keycloak-js": "^26.2.0",
-    "ngx-mask": "^19.0.6",
-    "rxjs": "~7.8.1",
-    "sidsc-components": "^19.1.6",
-    "tslib": "^2.6.2",
-    "zone.js": "~0.15.0"
-  },
-  "devDependencies": {
-    "@angular-devkit/build-angular": "^19.0.0",
-    "@angular-eslint/schematics": "^19.0.0",
-    "@angular/cli": "~19.0.0",
-    "@angular/compiler-cli": "^19.0.0",
-    "@types/jest": "^29.5.14",
-    "@types/lodash": "4.14.201",
-    "@types/lodash-es": "4.17.11",
-    "@types/mocha": "^10.0.10",
-    "@typescript-eslint/eslint-plugin": "^6.12.0",
-    "@typescript-eslint/parser": "^6.12.0",
-    "copyfiles": "^2.4.1",
-    "jest": "^29.7.0",
-    "jest-preset-angular": "^14.5.5",
-    "jest-sonar": "^0.2.16",
-    "jest-sonar-reporter": "^2.0.0",
-    "style-loader": "^4.0.0",
-    "ts-jest": "^29.2.4",
-    "ts-node": "~10.9.2",
-    "typescript": "~5.8.3"
-  }
-}
