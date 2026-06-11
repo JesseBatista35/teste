@@ -1,4 +1,3 @@
-
 Statistics
 
 INSTANCE  HOST NAME
@@ -37,6 +36,3 @@ P S CSIEXTLB001-1
 10.122.84.142 -10.122.84.143
 P S
 CSIEXTLB001-1
-
-
-Elei filtra por hotname
