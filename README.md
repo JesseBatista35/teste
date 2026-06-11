@@ -1,9 +1,11 @@
 
--sh-4.2$ ls /opt/jboss-eap/standalone/deployments/
-applicationinsights-agent.jar         framework.jar         README.txt     SICMU-ear.ear.failed  wmq.jmsra.rar.failed
-applicationinsights-agent.jar.failed  framework.jar.failed  SICMU-ear.ear  wmq.jmsra.rar
 -sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$
+
+17:04
+Ainda falhando. Vamos ver o erro atual:
+
+bash
+cat /opt/jboss-eap/standalone/deployments/wmq.jmsra.rar.failed
+bash
+cat /opt/jboss-eap/standalone/deployments/SICMU-ear.ear.failed
 
