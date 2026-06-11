@@ -1,8 +1,11 @@
-Mostrar mais
-17:01
-Tá subindo! Aguarda uns segundos e verifica se todos os deployments ficaram OK:
 
-bash
-ls /opt/jboss-eap/standalone/deployments/*.failed 2>/dev/null || echo "Nenhum .failed - tudo OK!"
-bash
-ls /opt/jboss-eap/standalone/deployments/*.deployed
+-sh-4.2$ ls /opt/jboss-eap/standalone/deployments/*.failed 2>/dev/null || echo "Nenhum .failed - tudo OK!"
+-sh: !": event not found
+-sh-4.2$ ls /opt/jboss-eap/standalone/deployments/*.deployed
+ls: não é possível acessar /opt/jboss-eap/standalone/deployments/*.deployed: Arquivo ou diretório não encontrado
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
