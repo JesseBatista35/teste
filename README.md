@@ -1,61 +1,92 @@
-esitando a task do angular build tem isso aqui:
+boltatod ao SIFAP-front-v2
 
-Skip to main content
-Azure DevOps
-projetos
-/
-Caixa
-/
-Pipelines
-/
-Task groups
-Search
+tem essqe arquivo aqui
+
+sonar-project.properties
 
 
-Caixa
-
-Overview
-
-Boards
-
-Repos
-
-Pipelines
-Pipelines
-Environments
-Releases
-Library
-Task groups
-Deployment groups
-Portal Infra
-
-Test Plans
-
-Artifacts
-Project settings
-Task groups
-
-Angular-Build
-
-Tasks
-
-History
-
-References
-npm
-Task version
-1.*
-Display name
-npm install
-Command
-custom
-Working folder that contains package.json
-$(PACKAGE_JSON_PATH)
-Command and arguments
-install --no-audit --verbose
-Custom registries and authentication
-Control Options
-Showing filters 1 through 1
+sonar.tests=src
+sonar.exclusions=**/*.spec.ts,**/*test.ts,**/*.js
+sonar.test.inclusions=**/*.spec.ts,**/*test.ts
+sonar.coverage.exclusions=**/*.js,src/main.ts,**/*environment*.ts,**/*.module.ts
+sonar.testExecutionReportPaths=reports/sonar-report.xml
+sonar.javascript.lcov.reportPaths=coverage/lcov.info
 
 
-mai nao posspo alterar é uma varaivel group, se mecher aqui vai lascar todo mundo que usa essa task
+
+sonar.javascript.tsconfigPaths=tsconfig.sonar.json
+
+
+
+o packege.json ta assim:
+
+{
+  "name": "sifap-front-v2",
+  "version": "1.0.0",
+  "description": "Projeto sifap Angular v19 com DSC",
+  "license": "MIT",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "start-dev": "ng serve -c development",
+    "build": "ng build",
+    "build-prod": "ng build --configuration production",
+    "watch": "ng build --watch --configuration development",
+    "test2": "node --experimental-vm-modules node_modules/jest/bin/jest.js ./test",
+    "test": "jest --verbose",
+    "test:coverage": "jest --coverage",
+    "test:watch": "jest --watch",
+    "server": "json-server --watch db_sifap.json --port=3002",
+    "server:farmacia": "json-server --watch db.json --port=3001",
+    "server:siiso": "json-server --watch db_siiso.json --port=3000"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "^19.0.0",
+    "@angular/cdk": "^19.0.0",
+    "@angular/common": "^19.0.0",
+    "@angular/compiler": "^19.2.9",
+    "@angular/core": "^19.0.0",
+    "@angular/forms": "^19.0.0",
+    "@angular/localize": "^19.0.0",
+    "@angular/material": "^19.0.0",
+    "@angular/material-date-fns-adapter": "^19.0.0",
+    "@angular/platform-browser": "^19.0.0",
+    "@angular/platform-browser-dynamic": "^19.0.0",
+    "@angular/router": "^19.0.0",
+    "@auth0/angular-jwt": "^5.2.0",
+    "@fortawesome/angular-fontawesome": "^1.0.0",
+    "@fortawesome/free-brands-svg-icons": "^7.0.1",
+    "@fortawesome/free-solid-svg-icons": "^6.7.1",
+    "@mdi/angular-material": "^7.2.96",
+    "bootstrap": "^5.3.8",
+    "keycloak-angular": "^19.0.2",
+    "keycloak-js": "^26.2.0",
+    "ngx-mask": "^19.0.6",
+    "rxjs": "~7.8.1",
+    "sidsc-components": "^19.1.6",
+    "tslib": "^2.6.2",
+    "zone.js": "~0.15.0"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^19.0.0",
+    "@angular-eslint/schematics": "^19.0.0",
+    "@angular/cli": "~19.0.0",
+    "@angular/compiler-cli": "^19.0.0",
+    "@types/jest": "^29.5.14",
+    "@types/lodash": "4.14.201",
+    "@types/lodash-es": "4.17.11",
+    "@types/mocha": "^10.0.10",
+    "@typescript-eslint/eslint-plugin": "^6.12.0",
+    "@typescript-eslint/parser": "^6.12.0",
+    "copyfiles": "^2.4.1",
+    "jest": "^29.7.0",
+    "jest-preset-angular": "^14.5.5",
+    "jest-sonar": "^0.2.16",
+    "jest-sonar-reporter": "^2.0.0",
+    "style-loader": "^4.0.0",
+    "ts-jest": "^29.2.4",
+    "ts-node": "~10.9.2",
+    "typescript": "~5.8.3"
+  }
+}
