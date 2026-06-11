@@ -1,75 +1,8 @@
-[root@caddeapllx2484 p585600]# find /opt/httpd/conf.d/ -name "*.conf" ! -path "*/old/*" | xargs ls -lah
--rw-r--r-- 1 apache apache 1,2K Jun 11 14:27 /opt/httpd/conf.d/vhost.conf
-[root@caddeapllx2484 p585600]# cat /opt/httpd/conf.d/vhost.conf
-<VirtualHost *:80>
-
-        ServerName sicmu-intranet-update.esteiras.des.caixa
-        ServerAlias sicmu-intranet-update.esteiras.des.caixa
-
-        ProxyStatus On
-        ProxyRequests Off
-        ProxyPreserveHost On
-        ProxyTimeout 120
-
-        RewriteEngine On
-        RewriteCond "%{HTTP_HOST}"   "!^sicmu-intranet-update\.esteiras\.des\.caixa" [NC]
-        RewriteCond "%{HTTP_HOST}"   "!^$"
-        RewriteRule "^/?(.*)"        "http://sicmu-intranet-update.esteiras.des.caixa/$1" [L,R,NE]
-        RewriteRule ^/$ /sicmu/ [R]
-
-        RequestHeader set X-Forwarded-Proto "https"
-
-        ProxyPass / ajp://127.0.0.1:8009/
-        ProxyPassReverse / ajp://127.0.0.1:8009/
-
-        <Location "/status">
-           SetHandler server-status
-           Require all granted
-        </Location>
-
-        LogLevel INFO
-        #LogLevel debug
-        CustomLog /logs/httpd/sicmu-intranet-update.caixa-access.log combined
-        ErrorLog /logs/httpd/sicmu-intranet-update.caixa-error.log
-        LogFormat "%h %{X-Forwarded-For}i %{remote}p %l %u %t %>s %D %b \"%r\ ROUTE=\"%{BALANCER_WORKER_ROUTE}e\" JSESSIONID=\"%{JSESSIONID}C\" \"%{Referer}i\" \"%r\"" customformat
-
-</VirtualHost>[root@caddeapllx2484 p585600]#
+sistemas estão configurados para ter o modelo correto com SSL:
+bashfind /opt/httpd/conf.d/old -name "ssl.conf.disabled" | xargs grep -A 30 "VirtualHost.*443" | head -50
+bash# Ver se tem outro vhost.conf de outro sistema na máquina como referência
+find /opt/httpd -name "vhost*" 2>/dev/null
 
 
 
-no repo ta assim:
-
-<VirtualHost *:80>
-
-        ServerName __URL_CUSTOMIZADA__
-        ServerAlias __URL_ALIAS__
-
-	ProxyStatus On
-        ProxyRequests Off
-        ProxyPreserveHost On
-        ProxyTimeout 120	
-
-        RewriteEngine On
-        RewriteCond "%{HTTP_HOST}"   "!^__URL_REWRITE__" [NC]
-        RewriteCond "%{HTTP_HOST}"   "!^$"
-        RewriteRule "^/?(.*)"        "http://__URL_REDIRECT__/$1" [L,R,NE]
-        RewriteRule ^/$ /__http_context_default__/ [R]
-
-        RequestHeader set X-Forwarded-Proto "https"
-
-        ProxyPass / ajp://127.0.0.1:8009/
-        ProxyPassReverse / ajp://127.0.0.1:8009/
-
-        <Location "/status">
-           SetHandler server-status
-           Require all granted
-        </Location>
-
-        LogLevel INFO
-        #LogLevel debug
-        CustomLog /logs/httpd/__sistema_nome__.caixa-access.log combined
-        ErrorLog /logs/httpd/__sistema_nome__.caixa-error.log
-        LogFormat "%h %{X-Forwarded-For}i %{remote}p %l %u %t %>s %D %b \"%r\ ROUTE=\"%{BALANCER_WORKER_ROUTE}e\" JSESSIONID=\"%{JSESSIONID}C\" \"%{Referer}i\" \"%r\"" customformat
-
-</VirtualHost>
-
+find /opt/httpd/conf -name "*.crt" -o -name "*.pem" -o -name "*.key" 2>/dev/null
