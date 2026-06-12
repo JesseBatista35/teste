@@ -1,324 +1,231 @@
-no repositoroio:
-
-sisph-mfe-jnd-central-servicos-infranprd/tqs
-
-
-
-
-Files
+Skip to content
+GitHub Enterprise
+Users managed by Caixa Economica Federal
+caixagithub
+sisph-mfe-jnd-central-servicos
+Repository navigation
+Code
+Issues
+Pull requests
+Actions
+Projects
+Models
+Wiki
+Security and quality
+22
+ (22)
+Insights
+Settings
+Owner avatar
+sisph-mfe-jnd-central-servicos
+Private
+caixagithub/sisph-mfe-jnd-central-servicos
 Go to file
 t
 T
-templates content loaded
-des
-templates
-akvs-sisph-mfe-jnd-central-servicos-des-caixa.yaml
-cm-sisph-mfe-jnd-central-servicos.yaml
-.helmignore
-Chart.yaml
+Name		
+f583161_caixa
+Matheus Neves Oliveira (f583161_caixa)
+Merge pull request #11 from caixagithub/feat/IB-25116219-config-TQS
+43bf256
+ · 
+yesterday
+.github
+feat(config-TQS): inclusão do TQS no generic-pipeline, criação de ser…
+2 days ago
+.vscode
+Sucesso
+6 months ago
+docs
+docs(gerenciador-atend): movimentação de documentações para pasta doc…
+2 months ago
+projects
+feat(gerenciador-atend): ajustes conforme apontamento sonar Refs: IB …
+last month
+public
+initial commit
+5 months ago
+src
+feat(config-TQS): ajustes de redução de complexidade apontados pelo S…
+yesterday
+.dockerignore
+initial commit
+5 months ago
+.editorconfig
+Sucesso
+6 months ago
+.gitignore
+feat(config-TQS): inclusão e ajustes em testes Refs: IB 25116219, TA …
+yesterday
+.hintrc
+initial commit
+5 months ago
+.npmrc
+Sucesso
+6 months ago
+.prettierignore
+initial commit
+5 months ago
+.prettierrc
+initial commit
+5 months ago
+Dockerfile
+feat(altera-dt-venc): atualizacao dos arquivos conforme mfe-padrao, i…
+3 months ago
 README.md
-values.yaml
-hmp
-tqs
-templates
-akvs-sisph-mfe-jnd-central-servicos-tqs-caixa.yaml
-cm-sisph-mfe-jnd-central-servicos.yaml
-.helmignore
-Chart.yaml
-README.md
-values.yaml
-tst
+feat(altera-dt-venc): atualizacao dos arquivos conforme mfe-padrao, i…
+3 months ago
+angular.json
+feat(config-TQS): inclusão e ajustes em testes Refs: IB 25116219, TA …
+yesterday
+catalog-info.yaml
+feat(altera-dt-venc): atualizacao dos arquivos conforme mfe-padrao, i…
+3 months ago
+extra-webpack.config.js
+Sucesso
+6 months ago
+initial-config.bat
+feat(altera-dt-venc): atualizacao dos arquivos conforme mfe-padrao, i…
+3 months ago
+karma.conf.cjs
+karma.conf.cjs e Alteração no packages.json
+2 months ago
+mkdocs.yaml
+feat(altera-dt-venc): atualizacao dos arquivos conforme mfe-padrao, i…
+3 months ago
+nginx.default.conf
+bugfix(gerenciador-atend): ajuste nos arquivos angular.json e nginx p…
+2 months ago
+package-lock.json
+bugfix(gerenciador-atend): correção nas chamadas nos arquivos de test…
+2 months ago
+package.json
+bugfix(gerenciador-atend): correção de endpoints da identificação pos…
+2 months ago
+sonar-project.properties
+feat(gerenciador-atend): correção de rota da tela-atendimento inclusã…
+last month
+swagger-ui (1).json
+feat(gerenciador-atend): ajustes de responsividade em telas menores R…
+2 months ago
+test-output.log
+feat(config-TQS): inclusão e ajustes em testes Refs: IB 25116219, TA …
+yesterday
+test-results.txt
+feat(gerenciador-atend): ampliação de justes em testes unitários conf…
+last month
+tsconfig.app.json
+feat(gerenciador-atend): alteração de moduleResolution: bundler para …
+last month
+tsconfig.json
+feat(gerenciador-atend): alteração de moduleResolution: bundler para …
+last month
+tsconfig.spec.json
+initial commit
+5 months ago
+Repository files navigation
+README
+Plataforma MFE - Jornada Utiliza��o FGTS
+Este projeto � um Micro Frontend (MFE) desenvolvido em Angular, respons�vel pela jornada de utiliza��o do FGTS no Backoffice. Ele utiliza a biblioteca single-spa-angular para integra��o com a plataforma principal.
 
+Pr�-requisitos
+Node.js (vers�o LTS recomendada)
+NPM
+Angular CLI
+Instala��o
+Dentro da pasta do projeto, execute o comando para instalar as depend�ncias:
 
-comparando os aruqivos:
+`�ash npm install ``r
 
+E necessario tambem instalar manualmente as depend�ncias abaixo, utilizando o comandi npm install nome-da-dependencia:
 
-o values.yaml do des ta assim:
+`�ash @angular/animations@^19.2.15 @angular/material@^19.2.19 @angular/material-date-fns-adapter@^19.2.19 inputmask@^5.0.9-beta.62 ng2-currency-mask@^13.0.3 ngx-mask@^19.0.6 ``r
 
+Execu��o Local (Modo Single-SPA)
+Para rodar o micro frontend isoladamente em modo de desenvolvimento (porta 4215):
 
-caixa-base-chart:
+`�ash npm run serve:single-spa:mfe-central-servicos ``r
 
-#-------#
-# IMAGE #
-#-------#
+Nota: Para visualizar o MFE funcionando, ele geralmente precisa ser referenciado pelo orquestrador (root config) ou testado via playground do single-spa acessando http://localhost:4215/main.js.
 
-  image:
-    # variavel de imagem do tipo de aplicação
-    repository: acrcentralcaixanprd.azurecr.io/sisph/mfe-jnd-central-servicos/sisph-mfe-jnd-central-servicos
-    tag: "27373907196"
-    pullPolicy: Always
+Build de Produ��o
+Para gerar os artefatos de produ��o otimizados para o single-spa:
 
-#-----#
-# HPA #
-#-----#
-  replicaCount: 1
+`�ash npm run build:single-spa:backoffice_mfe-poc2 ``r
 
-  autoscaling:
-    enabled: false
-    minReplicas: 1
-    maxReplicas: 3
-    targetCPUUtilizationPercentage: 85
-    targetMemoryUtilizationPercentage: 85
+Os arquivos gerados estar�o na pasta dist/backoffice-mfe-poc2.
 
-#-----------------#
-# ROLLING UPDATE STRATEGY #
-#-----------------#
+Estrutura do Projeto
+src/app/features: Cont�m as funcionalidades principais (ex: tela de atendimento, home).
+src/app/shared: Componentes, servi�os e modelos reutiliz�veis.
+single-spa: Configura��es espec�ficas para o ciclo de vida do micro frontend.
+About
+Adicionando aplicação:
 
-  strategy:
-    maxSurge: 25%
-    maxUnavailable: 50%
-
-
-#-----------#
-#  SERVICE  #
-#-----------#
-  
-  service:
-    type: "ClusterIP"
-    ports:
-      - name: "port"
-        protocol: TCP
-        port: 80
-        targetPort: 8080
-
-#---------#
-# INGRESS #
-#---------#
-  istio:  
-    - name: internal
-      enabled: true
-      servers:
-      - port:
-          number: 80
-          name: http-default
-          protocol: HTTP
-        hosts:
-        - "sisph-mfe-jnd-central-servicos.apl.des.private.azure"
-      - port:
-         number: 443
-         name: https-custom
-         protocol: HTTPS
-        tls:
-         mode: SIMPLE
-         credentialName: akvs-sisph-mfe-jnd-central-servicos-des-caixa
-        hosts:
-         - sisph-mfe-jnd-central-servicos.des.caixa
-      prefix:
-        - /
-      targetPort: 80 
-  
-#-------------#
-#  RESOURCES  #
-#-------------#
-
-  resources:
-    requests:
-      cpu: 250m
-      memory: 256Mi
-    limits:
-      cpu: 500m
-      memory: 512Mi
-
-
-#----------#
-#  PROBES  #
-#----------#
-
-  probes:
-    enabled: true  
-    useDefaults: false  
-    livenessProbe: 
-      initialDelaySeconds: 30
-      periodSeconds: 15
-      failureThreshold: 10
-      successThreshold: 1
-      httpGet:
-        path: /q/health/live     
-        port: 8080
-    readinessProbe: 
-      initialDelaySeconds: 15
-      periodSeconds: 15
-      failureThreshold: 3
-      successThreshold: 1
-      httpGet:
-        path: /q/health/live     
-        port: 8080
-
-
-#-------------#
-#  CONFIGMAP  #
-#-------------#
-
-  configMapRefs:
-    - name: cm-sisph-mfe-jnd-central-servicos
-
-    
-#---------------#
-#  TOLERATIONS  #
-#---------------#
-
-  tolerations:
-    - key: "kubernetes.azure.com/scalesetpriority"
-      effect: "NoSchedule"
-      operator: "Equal"
-      value: "spot"
-    - key: "nuvem.caixa/nodepoolname"
-      effect: "NoSchedule"
-      operator: "Equal"
-      value: "appshab"
-
-
-#-------------# 
-#   SECRETS   # 
-#-------------# 
-
-#  secretRefs:
-#  env:
-#    - name: <NOME_DA_VARIAVEL_NA_APLICACAO>
-#      value: akvs-sisph-mfe-jnd-central-servicos@azurekeyvault
-
-
-
-
-o de tqs ta assim:
-
-caixa-base-chart:
-
-#-------#
-# IMAGE #
-#-------#
-
-  image:
-    # variavel de imagem do tipo de aplicação
-    repository: acrcentralcaixanprd.azurecr.io/sisph/mfe-jnd-central-servicos/sisph-mfe-jnd-central-servicos
-    tag: "27373907196"
-    pullPolicy: Always
-
-#-----#
-# HPA #
-#-----#
-  replicaCount: 1
-
-  autoscaling:
-    enabled: false
-    minReplicas: 1
-    maxReplicas: 3
-    targetCPUUtilizationPercentage: 85
-    targetMemoryUtilizationPercentage: 85
-
-#-----------------#
-# ROLLING UPDATE STRATEGY #
-#-----------------#
-
-  strategy:
-    maxSurge: 25%
-    maxUnavailable: 50%
-
-
-#-----------#
-#  SERVICE  #
-#-----------#
-  service:
-    type: "ClusterIP"
-    ports:
-    - name: "port"
-      protocol: TCP
-      port: 80
-      targetPort: 8080
-
-#---------#
-# INGRESS #
-#---------#
-  istio:  
-    - name: internal
-      enabled: true
-      servers:
-      - port:
-          number: 80
-          name: http-default
-          protocol: HTTP
-        hosts:
-        - "sisph-mfe-jnd-central-servicos.apl.tqs.private.azure"
-      - port:
-         number: 443
-         name: https-custom
-         protocol: HTTPS
-        tls:
-         mode: SIMPLE
-         credentialName: akvs-sisph-mfe-jnd-central-servicos-tqs-caixa
-        hosts:
-         - sisph-mfe-jnd-central-servicos.tqs.caixa
-      prefix:
-        - /
-      targetPort: 80 
-  
-#-------------#
-#  RESOURCES  #
-#-------------#
-
-  resources:
-    requests:
-      cpu: 250m
-      memory: 256Mi
-    limits:
-      cpu: 500m
-      memory: 512Mi
-
-
-#----------#
-#  PROBES  #
-#----------#
-
-  probes:
-    enabled: true
-    useDefaults: false
-    livenessProbe:
-      initialDelaySeconds: 30
-      periodSeconds: 15
-      failureThreshold: 10
-      successThreshold: 1
-      httpGet:
-        path: /q/health/live
-        port: 8080
-    readinessProbe:
-      initialDelaySeconds: 15
-      periodSeconds: 15
-      failureThreshold: 3
-      successThreshold: 1
-      httpGet:
-        path: /q/health/live
-        port: 8080
-
-
-#-------------#
-#  CONFIGMAP  #
-#-------------#
-
-  configMapRefs:
-  - name: cm-sisph-mfe-jnd-central-servicos
-  tolerations:
-  - key: "kubernetes.azure.com/scalesetpriority"
-    effect: "NoSchedule"
-    operator: "Equal"
-    value: "spot"
-  - key: "nuvem.caixa/nodepoolname"
-    effect: "NoSchedule"
-    operator: "Equal"
-    value: ""
-
-
-#-------------# 
-#   SECRETS   # 
-#-------------# 
-
-#  secretRefs:
-#  env:
-#    - name: <NOME_DA_VARIAVEL_NA_APLICACAO>
-#      value: akvs-sisph-mfe-jnd-central-servicos@azurekeyvault
-
-  env:
-  - name: '{{values'
-    value: akvs-{{values@azurekeyvault
-  - name: sisph-mfe-jnd-central-servicos-tqs-caixa
-    value: akvs-sisph-mfe-jnd-central-servicos-tqs-caixa@azurekeyvault
-
+Topics
+frontend boxnovosnegociosmoradia
+Resources
+ Readme
+ Activity
+ Custom properties
+Stars
+ 0 stars
+Watchers
+ 0 watching
+Forks
+ 0 forks
+Releases
+No releases published
+Create a new release
+Deployments
+65
+ DES yesterday
+ HMP
+ TQS
++ 62 deployments
+Packages
+No packages published
+Publish your first package
+Contributors
+3
+@f583161_caixa
+f583161_caixa Matheus Neves Oliveira
+@c137459_caixa
+c137459_caixa Thiago da Silva Menezes
+@c080042_caixa
+c080042_caixa Flavio Junior Carlos Nunes
+Languages
+TypeScript
+72.1%
+ 
+SCSS
+14.9%
+ 
+HTML
+8.9%
+ 
+CSS
+3.4%
+ 
+Batchfile
+0.3%
+ 
+JavaScript
+0.3%
+ 
+Dockerfile
+0.1%
+Footer
+© 2026 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Community
+Docs
+Contact
+Manage cookies
+Do not share my personal information
+ caixagithub/sisph-mfe-jnd-central-servicos: Adicionando aplicação:
+single-spa content loaded
