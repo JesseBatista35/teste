@@ -1,23 +1,26 @@
-✅ VAMOS VERIFICAR NO SERVIDOR caddeapllx1979:
-1️⃣ Conecte no servidor:
-bashssh caddeapllx1979.agil.nprd.caixa.gov.br
+[p585600@caddeapllx1979 ~]$
+[p585600@caddeapllx1979 ~]$
+[p585600@caddeapllx1979 ~]$
+[p585600@caddeapllx1979 ~]$ mount | grep simpg-tqs
+[p585600@caddeapllx1979 ~]$ df -h | grep simpg-tqs
+[p585600@caddeapllx1979 ~]$ nfsctcnprd.ctc.caixa:/ifs/CADSVISISD4/SERVIDORES/CETAD/SIMPG on /simpg-tqs type nfs4
+-sh: nfsctcnprd.ctc.caixa:/ifs/CADSVISISD4/SERVIDORES/CETAD/SIMPG: Arquivo ou diretório inexistente
+[p585600@caddeapllx1979 ~]$
+[p585600@caddeapllx1979 ~]$
+[p585600@caddeapllx1979 ~]$ ls -la /simpg-tqs/
+total 4
+drwxr-xr-x   2 root root    6 jun 11 15:52 .
+dr-xr-xr-x. 20 root root 4096 jun 11 15:52 ..
+[p585600@caddeapllx1979 ~]$ bashmount -a
+-sh: bashmount: comando não encontrado
+[p585600@caddeapllx1979 ~]$ mount -a
+mount.nfs: failed to prepare mount: Operation not permitted
 
-2️⃣ PRIMEIRO - Verifique se o NFS está montado:
-bashmount | grep simpg-tqs
-ou
-bashdf -h | grep simpg-tqs
-Se aparecer algo como:
-nfsctcnprd.ctc.caixa:/ifs/CADSVISISD4/SERVIDORES/CETAD/SIMPG on /simpg-tqs type nfs4
-✅ Está montado!
+[p585600@caddeapllx1979 ~]$
+[p585600@caddeapllx1979 ~]$
+[p585600@caddeapllx1979 ~]$
+[p585600@caddeapllx1979 ~]$ mount | grep simpg-tqs
+[p585600@caddeapllx1979 ~]$
+[p585600@caddeapllx1979 ~]$
+[p585600@caddeapllx1979 ~]$
 
-3️⃣ SEGUNDO - Teste a conectividade:
-bashls -la /simpg-tqs/
-Se listar arquivos = ✅ Funcionando!
-
-4️⃣ TERCEIRO - Se NÃO estiver montado, tente montar:
-bashmount -a
-Depois verifique se montou com:
-bashmount | grep simpg-tqs
-
-📤 Manda aqui os resultados desses comandos que eu te falo se está OK ou se falta ajuste!
-Qual resultado você está vendo?
