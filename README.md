@@ -1,14 +1,11 @@
--sh-4.2$ oc patch resourcequota quota-resources -n sicia-tqs -p '{"spec":{"hard":{"limits.cpu":"10"}}}' --type merge
-resourcequota/quota-resources patched
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$ oc patch resourcequota quota-resources -n sicia-tqs --type='json' -p='[{"op": "replace", "path": "/spec/hard/limits.cpu", "value":"10"}]'
-resourcequota/quota-resources not patched
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$ oc patch resourcequota quota-resources -n sicia-tqs -p '{"spec":{"hard":{"limits.cpu":"10"}}}' --type merge
-resourcequota/quota-resources not patched
--sh-4.2$
+# VERIFICAR se a quota foi aumentada
+oc describe resourcequota quota-resources -n sicia-tqs
 
+# DELETAR os RCs antigos que estão quebrados
+oc delete rc -n sicia-tqs sicia-frontend-tqs-10 sicia-frontend-tqs-11 --ignore-not-found
+
+# RODAR o deployment novamente
+oc rollout latest dc/sicia-frontend-tqs -n sicia-tqs
+
+# MONITORAR (Ctrl+C para sair)
+oc get pods -n sicia-tqs -w
