@@ -1,49 +1,129 @@
-Subject: Encaminhamento: Investigação WO0000080743905 - Cluster DES - Múltiplos Pods em Erro
+Organization secrets
+Name
 
-Prezados,
+Last updated
+sort ascending
+ANSIBLE_PASSWORD_ORG
+last year
+APPDOME_API_KEY_ORG
+last year
+ARGOCD_PASSWORD_ORG
+last year
+AWS_ECR_ROLE
+4 months ago
+CLIENT_ID_IDP_ORG
+last year
+GH_APP_ID
+4 months ago
+GH_APP_PRIVATE_KEY
+4 months ago
+GH_PLATFORM_APP_ID
+last month
+GH_PLATFORM_APP_PRIVATE_KEY
+last month
+LOAD_TEST_CLIENT_ID_ORG
+last month
+LOAD_TEST_SUBSCRIPTION_ORG
+2 months ago
+NEXUS_CRT_ORG
+2 weeks ago
+NEXUS_PASSWORD_ORG
+8 months ago
+NEXUS_UPLOAD_PASS
+7 months ago
+NEXUS_UPLOAD_USER
+7 months ago
+OKD_PRODUTOS_ORG
+last year
+ONPREMISE_OKD_4_APL_TOKEN
+6 months ago
+ONPREMISE_OKD_4_NPRD_TOKEN
+6 months ago
+ONPREMISE_REGISTRY_TOKEN
+7 months ago
+PASS_ITSM_HOTFIX
+3 days ago
+PROJECT_ID_GCP
+4 months ago
+SERVICE_ACCOUNT_GCP
+4 months ago
+SONAR_TOKEN_ORG
+last year
+STG_TECHDOCS_ACCESS_KEY_ORG
+last year
+TOKEN_GITHUB_ORG
+7 months ago
+WORKLOAD_IDENTITY_PROVIDER_GCP
 
-Em resposta à Ordem de Trabalho WO0000080743905, conduzimos investigação no cluster OKD DES Login Serviços NPRD e identificamos que o problema reportado não está relacionado ao status das máquinas de infraestrutura, mas sim a um elevado número de PODS de aplicação em estado de erro ou crash.
 
-=== DIAGNÓSTICO REALIZADO ===
++====
 
-✅ INFRAESTRUTURA - OPERACIONAL:
-• 86 nodes em status "Ready"
-• Cluster version 4.12.0-0.okd (OKD)
-• Capacidade: CPU 31.5 cores, Memória 64GB por node
-• Todos os nodes com heartbeat e condições normais
 
-✅ AUTENTICAÇÃO (AAD) - CONFIGURADA:
-• OpenID Provider: AAD (login.microsoftonline.com)
-• Oauth-openshift deployment ativo e saudável
-• Certificados válidos e carregados corretamente
 
-❌ APLICAÇÕES - CRÍTICO:
-• 500+ pods em status "Error" (deployments falhando)
-• 100+ pods em status "CrashLoopBackOff" (aplicações caindo em loop)
-• Exemplos: simkt-backend, connector-tqs, sievj-api-portal (1301+ restarts), fwc-* services
-• Namespaces afetados: simkt, sipcs, sipdi, siaas, sipnc, sievj, fwc, e outros
 
-=== CONCLUSÃO ===
 
-A infraestrutura está operacional. O bloqueio para subida de novos workers e a impossibilidade de acesso via AAD são consequências dos PODS de aplicação não conseguirem inicializar corretamente.
 
-Este cenário indica possíveis problemas em:
-• Image pull errors (credenciais de registry privado)
-• Erros de inicialização das aplicações
-• Falta de dependências externas (bancos de dados, APIs)
-• Quotas de recursos esgotadas
-• Configurações de deployment incorretas
 
-=== SOLICITAÇÃO ===
 
-Requisitamos que a equipe de nuvem/OpenShift investigue:
-1. Logs detalhados dos pods em erro
-2. Eventos recentes dos namespaces afetados
-3. Status de pull de imagens (registry access)
-4. Quotas de recursos por namespace
-5. Dependências externas dos serviços
 
-Por gentileza, coordenem a análise e nos retornem com as ações necessárias.
 
-Atenciosamente,
-Equipe de Suporte CESTI36
+
+
+
+Organization secrets
+Name
+
+Last updated
+sort ascending
+ANSIBLE_PASSWORD_ORG
+last year
+APPDOME_API_KEY_ORG
+last year
+ARGOCD_PASSWORD_ORG
+last year
+AWS_ECR_ROLE
+4 months ago
+CLIENT_ID_IDP_ORG
+last year
+GH_APP_ID
+4 months ago
+GH_APP_PRIVATE_KEY
+4 months ago
+GH_PLATFORM_APP_ID
+last month
+GH_PLATFORM_APP_PRIVATE_KEY
+last month
+LOAD_TEST_CLIENT_ID_ORG
+last month
+LOAD_TEST_SUBSCRIPTION_ORG
+2 months ago
+NEXUS_CRT_ORG
+2 weeks ago
+NEXUS_PASSWORD_ORG
+8 months ago
+NEXUS_UPLOAD_PASS
+7 months ago
+NEXUS_UPLOAD_USER
+7 months ago
+OKD_PRODUTOS_ORG
+last year
+ONPREMISE_OKD_4_APL_TOKEN
+6 months ago
+ONPREMISE_OKD_4_NPRD_TOKEN
+6 months ago
+ONPREMISE_REGISTRY_TOKEN
+7 months ago
+PASS_ITSM_HOTFIX
+3 days ago
+PROJECT_ID_GCP
+4 months ago
+SERVICE_ACCOUNT_GCP
+4 months ago
+SONAR_TOKEN_ORG
+last year
+STG_TECHDOCS_ACCESS_KEY_ORG
+last year
+TOKEN_GITHUB_ORG
+7 months ago
+WORKLOAD_IDENTITY_PROVIDER_GCP
+
