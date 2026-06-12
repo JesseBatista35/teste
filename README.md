@@ -1,78 +1,138 @@
 
-Integrations
-Actions secrets and variables
-Secrets and variables allow you to manage reusable configuration data. Secrets are encrypted and are used for sensitive data. Learn more about encrypted secrets. Variables are shown as plain text and are used for non-sensitive data. Learn more about variables.
-
-Anyone with collaborator access to this repository can use these secrets and variables for actions. They are not passed to workflows that are triggered by a pull request from a fork.
-
-Secrets
-Variables
-Secrets
-Environment secrets
-This environment has no secrets.
-
-Repository secrets
-This repository has no secrets.
-
-Organization secrets
-Name
-
-Last updated
-sort ascending
-ANSIBLE_PASSWORD_ORG
-last year
-APPDOME_API_KEY_ORG
-last year
-ARGOCD_PASSWORD_ORG
-last year
-AWS_ECR_ROLE
-4 months ago
-CLIENT_ID_IDP_ORG
-last year
-GH_APP_ID
-4 months ago
-GH_APP_PRIVATE_KEY
-4 months ago
-GH_PLATFORM_APP_ID
-last month
-GH_PLATFORM_APP_PRIVATE_KEY
-last month
-LOAD_TEST_CLIENT_ID_ORG
-last month
-LOAD_TEST_SUBSCRIPTION_ORG
-2 months ago
-NEXUS_CRT_ORG
-2 weeks ago
-NEXUS_PASSWORD_ORG
-8 months ago
-NEXUS_UPLOAD_PASS
-7 months ago
-NEXUS_UPLOAD_USER
-7 months ago
-OKD_PRODUTOS_ORG
-last year
-ONPREMISE_OKD_4_APL_TOKEN
-6 months ago
-ONPREMISE_OKD_4_NPRD_TOKEN
-6 months ago
-ONPREMISE_REGISTRY_TOKEN
-7 months ago
-PASS_ITSM_HOTFIX
-3 days ago
-PROJECT_ID_GCP
-4 months ago
-SERVICE_ACCOUNT_GCP
-4 months ago
-SONAR_TOKEN_ORG
-last year
-STG_TECHDOCS_ACCESS_KEY_ORG
-last year
-TOKEN_GITHUB_ORG
-7 months ago
-WORKLOAD_IDENTITY_PROVIDER_GCP
-4 months ago
+Go to file
+t
+T
+workflows content loaded
+.github
+workflows
+call-docs-pipelines.yaml
+call-generic-pipelines.yaml
+call-generic-qa-pipelines.yaml
+call-generic-sec-pipelines.yaml
+pull_request_template.md
+.vscode
+docs
+projects
+public
+src
+.dockerignore
+.editorconfig
+.gitignore
+.hintrc
+.npmrc
+.prettierignore
+.prettierrc
+Dockerfile
+README.md
+angular.json
+catalog-info.yaml
+extra-webpack.config.js
+initial-config.bat
+karma.conf.cjs
+mkdocs.yaml
+nginx.default.conf
+package-lock.json
+package.json
+sonar-project.properties
+swagger-ui (1).json
+test-output.log
+test-results.txt
+tsconfig.app.json
+tsconfig.json
+tsconfig.spec.json
 
 
 
 
-entao cade a varaivel desse secret?
+# ============================================================================= #
+#             CAIXA DEVSECOPS - TEMPLATE DO WORKFLOW DE SEGURANÇA v1.0          #
+# ============================================================================= #
+# Este workflow é um modelo padrão para todos os desenvolvedores da Caixa.      #
+# Ele automatiza processos de segurança e gera insumos que auxiliam a equipe.   #
+# O CodeQL atua em três vertentes:                                              #
+# - Análise DAST do código                                                      #
+# - Análise de vazamento de senhas                                              #
+# - Análise de vulnerabilidates das dependências                                #
+# ============================================================================= #
+
+# ============================================================================= #
+# Nome do workflow para facilitar a identificação nas execuções                 #
+# ============================================================================= #
+
+name: Call CodeQL workflow Seguranca
+
+# ============================================================================= #
+# Nome dinâmico da execução, útil para rastreamento e auditoria                 #
+# ============================================================================= #
+
+run-name: Seguranca-__.
+
+# ========================================================================================================================== #
+# Eventos que disparam o workflow                                                                                            #
+# ========================================================================================================================== #
+# push              -> Executa automaticamente em push, de acordo com os filtros                                             #
+# branches          -> Filtro de execução. O workflow, no evento push, será executado apenas nas branches main e develop     #
+# paths-ignore      -> Filtro de execução. O workflow, no evento push, não será executado quando existir alteração           #
+#                   -> nos caminhos .github/** e no arquivo catalog-info.yaml                                                #
+# pull_request      -> Executa automaticamente em pull_requests, de acordo com os filtros                                    #
+# schedule          -> Executa o workflow automaticamente no horário definido pelo cron.                                     #
+# cron              -> Define o horário de execução para toda a segunda 1:00 am UTC.                                         #
+#                                                                                                                            #
+# Documentação de referência                                                                                                 #
+# https://docs.github.com/en/actions/how-tos/write-workflows/choose-when-workflows-run/trigger-a-workflow                    #
+# ========================================================================================================================== #
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+    paths-ignore:
+      - '.github/**'
+      - 'catalog-info.yaml'
+  pull_request:
+    branches:
+      - main
+      - develop
+    paths-ignore:
+      - '.github/**'
+      - 'catalog-info.yaml'
+  schedule:
+    - cron: "0 1 * * 1"
+
+# ============================================================================================================================ #
+# Permissões necessárias para o workflow interagir com o repositório de automação de CI/CD e serviços                          #
+# ============================================================================================================================ #
+# contents: read         -> Permite ler os arquivos do repositório                                                             #
+# security-events: write -> Permite registrar eventos de segurança                                                             #
+# packages: read         -> Permite ler pacotes (ex: npm, docker)                                                              #
+# actions: read          -> Permite ler ações do GitHub                                                                        #
+#                                                                                                                              #
+# Documentação de referência                                                                                                   #
+# https://docs.github.com/en/actions/tutorials/authenticate-with-github_token#modifying-the-permissions-for-the-github_token   #
+# ============================================================================================================================ #
+
+permissions:
+  contents: read
+  security-events: write
+  actions: read
+  packages: read
+
+# ====================================================================================================================================================== #
+# Definição dos jobs que serão executados                                                                                                                #
+# ====================================================================================================================================================== #
+# name: CodeQL                                                                        -> Nome do job, aparece na interface do GitHub Actions             #
+# uses: caixagithub/DevSecOps-Solutions/.github/workflows/codeql-pipelines.yaml@main  -> Template reutilizado                                            #
+# secrets: inherit                                                                    -> Herda os segredos definidos no repositório principal            #
+# with: DINAMICALLY_CREATE_SETTINGS_XML: false ou true                                -> Habilita ou desabilita criação de settings.xml do maven via     #
+#                                                                                        pipeline, necessário para repositórios Adapter com Java.        #
+# Documentação de referência                                                                                                                             #
+# https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/use-jobs                                                           #
+# https://docs.github.com/en/actions/how-tos/reuse-automations/reuse-workflows                                                                           #
+# ====================================================================================================================================================== #
+
+jobs:
+  CodeQL:
+    name: CodeQL
+    uses: caixagithub/DevSecOps-Solutions/.github/workflows/codeql-pipelines.yaml@main
+    secrets: inherit
