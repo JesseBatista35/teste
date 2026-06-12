@@ -1,74 +1,78 @@
-0s
-Run caixagithub/DevSecOps-Actions/.github/integrations/argocd/argocd-get-destination@main
-  with:
-    argocd_server: https://openshift-gitops-server-openshift-gitops.apps.aroidpprd.brazilsouth.aroapp.io
-    app_name: sisph-mfe-jnd-central-servicos
-    environment: TQS
-  env:
-    APIM_VERSIONAPI: 
-    APIM_displaynameAPI: 
-    APIM_PATH: 
-    APIM_SWAGGERPATH: 
-    APIM_TAGSAPI: 
-    APIM_POLICIESALLOPERATIONSPATH: 
-    environment: tqs
-    repository_suffix: infranprd
-    REPO: sisph-mfe-jnd-central-servicos
-    JOB_ID: 106192
-    ARGOCD_AUTH_TOKEN: ***
-Run set -euo pipefail
-  set -euo pipefail
-  
-  # Converte environment para lowercase
-  ENVIRONMENT_LOWER=$(echo "${ENVIRONMENT}" | tr '[:upper:]' '[:lower:]')
-  
-  echo "ENVIRONMENT_LOWER=${ENVIRONMENT_LOWER}"
-  
-  APP_NAME_LOWER=$(echo "${APP_NAME}" | tr '[:upper:]' '[:lower:]')
-  
-  echo "APP_NAME_LOWER=${APP_NAME_LOWER}"
-  
-  # Concatena app_name com ambiente
-  FULL_APP_NAME="${APP_NAME_LOWER}-${ENVIRONMENT_LOWER}"
-  
-  # Monta a URL
-  URL="${ARGOCD_SERVER}/api/v1/applications/${FULL_APP_NAME}"
-  
-  # Consulta a API
-  RESP="$(curl -sS -H "Authorization: ***" -H "Content-Type: application/json" "$URL")"
-  
-  # Valida resposta básica
-  if [ -z "$RESP" ] || echo "$RESP" | jq -e '.code, .status, .error' >/dev/null 2>&1; then
-    echo "Falha ao obter Application ou erro retornado:"
-    echo "$RESP"
-    exit 1
-  fi
-  
-  echo "::group::Resposta bruta da API"
-  echo "$RESP" | jq .
-  echo "::endgroup::"
-  
-  # Exporta JSON para o próximo step
-  echo "$RESP" > app.json
-  shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
-  env:
-    APIM_VERSIONAPI: 
-    APIM_displaynameAPI: 
-    APIM_PATH: 
-    APIM_SWAGGERPATH: 
-    APIM_TAGSAPI: 
-    APIM_POLICIESALLOPERATIONSPATH: 
-    environment: tqs
-    repository_suffix: infranprd
-    REPO: sisph-mfe-jnd-central-servicos
-    JOB_ID: 106192
-    ARGOCD_AUTH_TOKEN: ***
-    ARGOCD_SERVER: https://openshift-gitops-server-openshift-gitops.apps.aroidpprd.brazilsouth.aroapp.io
-    APP_NAME: sisph-mfe-jnd-central-servicos
-    ENVIRONMENT: TQS
-    TOKEN: 
-ENVIRONMENT_LOWER=tqs
-APP_NAME_LOWER=sisph-mfe-jnd-central-servicos
-Falha ao obter Application ou erro retornado:
-{"error":"permission denied","code":7,"message":"permission denied"}
-Error: Process completed with exit code 1.
+
+Integrations
+Actions secrets and variables
+Secrets and variables allow you to manage reusable configuration data. Secrets are encrypted and are used for sensitive data. Learn more about encrypted secrets. Variables are shown as plain text and are used for non-sensitive data. Learn more about variables.
+
+Anyone with collaborator access to this repository can use these secrets and variables for actions. They are not passed to workflows that are triggered by a pull request from a fork.
+
+Secrets
+Variables
+Secrets
+Environment secrets
+This environment has no secrets.
+
+Repository secrets
+This repository has no secrets.
+
+Organization secrets
+Name
+
+Last updated
+sort ascending
+ANSIBLE_PASSWORD_ORG
+last year
+APPDOME_API_KEY_ORG
+last year
+ARGOCD_PASSWORD_ORG
+last year
+AWS_ECR_ROLE
+4 months ago
+CLIENT_ID_IDP_ORG
+last year
+GH_APP_ID
+4 months ago
+GH_APP_PRIVATE_KEY
+4 months ago
+GH_PLATFORM_APP_ID
+last month
+GH_PLATFORM_APP_PRIVATE_KEY
+last month
+LOAD_TEST_CLIENT_ID_ORG
+last month
+LOAD_TEST_SUBSCRIPTION_ORG
+2 months ago
+NEXUS_CRT_ORG
+2 weeks ago
+NEXUS_PASSWORD_ORG
+8 months ago
+NEXUS_UPLOAD_PASS
+7 months ago
+NEXUS_UPLOAD_USER
+7 months ago
+OKD_PRODUTOS_ORG
+last year
+ONPREMISE_OKD_4_APL_TOKEN
+6 months ago
+ONPREMISE_OKD_4_NPRD_TOKEN
+6 months ago
+ONPREMISE_REGISTRY_TOKEN
+7 months ago
+PASS_ITSM_HOTFIX
+3 days ago
+PROJECT_ID_GCP
+4 months ago
+SERVICE_ACCOUNT_GCP
+4 months ago
+SONAR_TOKEN_ORG
+last year
+STG_TECHDOCS_ACCESS_KEY_ORG
+last year
+TOKEN_GITHUB_ORG
+7 months ago
+WORKLOAD_IDENTITY_PROVIDER_GCP
+4 months ago
+
+
+
+
+entao cade a varaivel desse secret?
