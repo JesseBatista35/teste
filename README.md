@@ -1,6 +1,12 @@
-[12/Jun/2026:09:55:52 -0300] 127.0.0.1 - - - _ to: -: GET /stub_status HTTP/1.1 upstream_response_time - msec 1781268952.860 request_time 0.000 200 97 - NGINX-Prometheus-Exporter/v -
-[12/Jun/2026:09:56:09 -0300] 25.0.12.1 - - - _ to: -: GET / HTTP/1.1 upstream_response_time - msec 1781268969.554 request_time 0.000 200 76901 - kube-probe/1.25 -
-[12/Jun/2026:09:56:19 -0300] 25.0.12.1 - - - _ to: -: GET / HTTP/1.1 upstream_response_time - msec 1781268979.553 request_time 0.000 200 76901 - kube-probe/1.25 -
-[12/Jun/2026:09:56:19 -0300] 25.0.12.1 - - - _ to: -: GET / HTTP/1.1 upstream_response_time - msec 1781268979.553 request_time 0.000 200 76901 - kube-probe/1.25 -
+# 1. LISTA TODOS OS PODS AGORA
+oc get pods -n sicia-tqs
 
+# 2. VER OS ÚLTIMOS EVENTOS (erros de criação)
+oc get events -n sicia-tqs -o wide
+
+# 3. DESCREVER O DEPLOYMENTCONFIG COMPLETO
+oc describe dc sicia-frontend-tqs -n sicia-tqs
+
+# 4. VER QUAL POD ESTÁ RESPONDENDO (provavelmente o antigo)
+oc get pods -n sicia-tqs -o jsonpath='{.items[*].metadata.name}'
 
