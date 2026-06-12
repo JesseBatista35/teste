@@ -1,88 +1,39 @@
-
-Go to file
-t
-T
-workflows content loaded
-.github
-workflows
-call-docs-pipelines.yaml
-call-generic-pipelines.yaml
-call-generic-qa-pipelines.yaml
-call-generic-sec-pipelines.yaml
-pull_request_template.md
-.vscode
-docs
-projects
-public
-src
-.dockerignore
-.editorconfig
-.gitignore
-.hintrc
-.npmrc
-.prettierignore
-.prettierrc
-Dockerfile
-README.md
-angular.json
-catalog-info.yaml
-extra-webpack.config.js
-initial-config.bat
-karma.conf.cjs
-mkdocs.yaml
-nginx.default.conf
-package-lock.json
-package.json
-sonar-project.properties
-swagger-ui (1).json
-test-output.log
-test-results.txt
-tsconfig.app.json
-tsconfig.json
-tsconfig.spec.json
-
-
-
-
 # ============================================================================= #
-#             CAIXA DEVSECOPS - TEMPLATE DO WORKFLOW DE SEGURANÇA v1.0          #
+#             CAIXA DEVSECOPS - TEMPLATE DE WORKFLOW CI/CD v1.0                 #
 # ============================================================================= #
 # Este workflow é um modelo padrão para todos os desenvolvedores da Caixa.      #
-# Ele automatiza processos de segurança e gera insumos que auxiliam a equipe.   #
-# O CodeQL atua em três vertentes:                                              #
-# - Análise DAST do código                                                      #
-# - Análise de vazamento de senhas                                              #
-# - Análise de vulnerabilidates das dependências                                #
+# Ele automatiza processos de integração contínua (CI) e entrega contínua (CD), #
+# promovendo segurança, padronização e eficiência no ciclo de desenvolvimento.  #
+# Todas as alterações devem ser realizadas por meio do Fusionx                  #
 # ============================================================================= #
 
 # ============================================================================= #
 # Nome do workflow para facilitar a identificação nas execuções                 #
 # ============================================================================= #
 
-name: Call CodeQL workflow Seguranca
+name: CI/CD Workflow Generic
 
 # ============================================================================= #
 # Nome dinâmico da execução, útil para rastreamento e auditoria                 #
 # ============================================================================= #
 
-run-name: Seguranca-__.
+run-name: ${{ github.repository }}_${{ github.ref_name }}_${{ github.run_id }}.${{ github.run_number }}
 
 # ========================================================================================================================== #
 # Eventos que disparam o workflow                                                                                            #
 # ========================================================================================================================== #
+# workflow_dispatch -> Permite execução manual via interface do GitHub                                                       #
 # push              -> Executa automaticamente em push, de acordo com os filtros                                             #
 # branches          -> Filtro de execução. O workflow, no evento push, será executado apenas nas branches main e develop     #
 # paths-ignore      -> Filtro de execução. O workflow, no evento push, não será executado quando existir alteração           #
 #                   -> nos caminhos .github/** e no arquivo catalog-info.yaml                                                #
-# pull_request      -> Executa automaticamente em pull_requests, de acordo com os filtros                                    #
-# schedule          -> Executa o workflow automaticamente no horário definido pelo cron.                                     #
-# cron              -> Define o horário de execução para toda a segunda 1:00 am UTC.                                         #
 #                                                                                                                            #
 # Documentação de referência                                                                                                 #
 # https://docs.github.com/en/actions/how-tos/write-workflows/choose-when-workflows-run/trigger-a-workflow                    #
 # ========================================================================================================================== #
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
@@ -90,49 +41,51 @@ on:
     paths-ignore:
       - '.github/**'
       - 'catalog-info.yaml'
-  pull_request:
-    branches:
-      - main
-      - develop
-    paths-ignore:
-      - '.github/**'
-      - 'catalog-info.yaml'
-  schedule:
-    - cron: "0 1 * * 1"
+
 
 # ============================================================================================================================ #
 # Permissões necessárias para o workflow interagir com o repositório de automação de CI/CD e serviços                          #
 # ============================================================================================================================ #
-# contents: read         -> Permite ler os arquivos do repositório                                                             #
+# contents: write        -> Permite escrever nos arquivos do repositório                                                       #
 # security-events: write -> Permite registrar eventos de segurança                                                             #
 # packages: read         -> Permite ler pacotes (ex: npm, docker)                                                              #
 # actions: read          -> Permite ler ações do GitHub                                                                        #
+# issues: write          -> Permite criar/editar issues                                                                        #
+# pull-requests: write   -> Permite criar/editar pull requests                                                                 #
 #                                                                                                                              #
 # Documentação de referência                                                                                                   #
 # https://docs.github.com/en/actions/tutorials/authenticate-with-github_token#modifying-the-permissions-for-the-github_token   #
 # ============================================================================================================================ #
 
 permissions:
-  contents: read
+  contents: write
   security-events: write
-  actions: read
   packages: read
+  actions: read
+  issues: write
+  pull-requests: write
 
 # ====================================================================================================================================================== #
 # Definição dos jobs que serão executados                                                                                                                #
 # ====================================================================================================================================================== #
-# name: CodeQL                                                                        -> Nome do job, aparece na interface do GitHub Actions             #
-# uses: caixagithub/DevSecOps-Solutions/.github/workflows/codeql-pipelines.yaml@main  -> Template reutilizado                                            #
+# name: CI_DES                                                                        -> Nome do job, aparece na interface do GitHub Actions             #
+# uses: caixagithub/DevSecOps-Solutions/.github/workflows/generic-pipelines.yaml@main -> Template reutilizado                                            #
 # secrets: inherit                                                                    -> Herda os segredos definidos no repositório principal            #
-# with: DINAMICALLY_CREATE_SETTINGS_XML: false ou true                                -> Habilita ou desabilita criação de settings.xml do maven via     #
-#                                                                                        pipeline, necessário para repositórios Adapter com Java.        #
+# DEPLOY_ENVIRONMENTS: '["DES"]'                                                      -> Define o ambiente de implantação como Desenvolvimento (DES).    #
+#                                                                                     -> PossÍveis ambientes: DES, TST, TQS, SANDBOX, HMP, PTL E PRD     #
+# IMPORT_APIM: false                                                                  -> Desativa importação automática de APIs no Azure API Management. #
+#                                                                                     -> Possíveis valores: true ou false                                #
+#                                                                                                                                                        #
 # Documentação de referência                                                                                                                             #
 # https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/use-jobs                                                           #
 # https://docs.github.com/en/actions/how-tos/reuse-automations/reuse-workflows                                                                           #
 # ====================================================================================================================================================== #
 
 jobs:
-  CodeQL:
-    name: CodeQL
-    uses: caixagithub/DevSecOps-Solutions/.github/workflows/codeql-pipelines.yaml@main
+  Generic-Solution:
+    name: CI_DES
+    uses: caixagithub/DevSecOps-Solutions/.github/workflows/generic-pipelines.yaml@main
     secrets: inherit
+    with:
+      DEPLOY_ENVIRONMENTS: '["DES", "TQS", "HMP"]'
+      IMPORT_APIM: false
