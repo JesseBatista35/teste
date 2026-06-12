@@ -1,25 +1,23 @@
-[root@caddeapllx1979 p585600]# mount -a
-mount.nfs: access denied by server while mounting nfsctcnprd.ctc.caixa:/ifs/CADSVISISD4/SERVIDORES/CETAD/SIMPG
-[root@caddeapllx1979 p585600]#
-[root@caddeapllx1979 p585600]#
-[root@caddeapllx1979 p585600]# ping -c 5 192.168.224.1
-PING 192.168.224.1 (192.168.224.1) 56(84) bytes de dados.
-64 bytes de 192.168.224.1: icmp_seq=1 ttl=64 tempo=0.199 ms
-64 bytes de 192.168.224.1: icmp_seq=2 ttl=64 tempo=0.236 ms
-64 bytes de 192.168.224.1: icmp_seq=3 ttl=64 tempo=0.276 ms
-64 bytes de 192.168.224.1: icmp_seq=4 ttl=64 tempo=0.230 ms
-64 bytes de 192.168.224.1: icmp_seq=5 ttl=64 tempo=0.213 ms
 
---- 192.168.224.1 estatísticas de ping ---
-5 pacotes transmitidos, 5 recebidos, 0% packet loss, time 4074ms
-rtt min/avg/max/mdev = 0.199/0.230/0.276/0.026 ms
-[root@caddeapllx1979 p585600]#
-[root@caddeapllx1979 p585600]#
-[root@caddeapllx1979 p585600]#
-[root@caddeapllx1979 p585600]#
-[root@caddeapllx1979 p585600]# cat /etc/fstab | grep simpg
-nfsctcnprd.ctc.caixa:/ifs/CADSVISISD4/SERVIDORES/CETAD/SIMPG /simpg-tqs nfs rw,sync,hard 0 0
-[root@caddeapllx1979 p585600]#
-[root@caddeapllx1979 p585600]#
-[root@caddeapllx1979 p585600]#
-[root@caddeapllx1979 p585600]#
+Last login: Fri Jun 12 13:43:40 2026 from 10.211.14.31
+[p585600@cadsvitrlx100 ~]$ ssh 10.122.148.76
+The authenticity of host '10.122.148.76 (10.122.148.76)' can't be established.
+ED25519 key fingerprint is SHA256:NxR32P0vC/k+tA4QDvfYmeiM2uJViXD2g+wv7RpfovY.
+This key is not known by any other names
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '10.122.148.76' (ED25519) to the list of known hosts.
+(p585600@10.122.148.76) Password:
+(p585600@10.122.148.76) Password:
+(p585600@10.122.148.76) Password:
+p585600@10.122.148.76's password:
+Permission denied, please try again.
+p585600@10.122.148.76's password:
+Permission denied, please try again.
+p585600@10.122.148.76's password:
+Received disconnect from 10.122.148.76 port 22:2: Too many authentication failures
+Disconnected from 10.122.148.76 port 22
+[p585600@cadsvitrlx100 ~]$
+
+
+sim nao tenho acesso: 
+
