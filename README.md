@@ -1,40 +1,6 @@
-You have access to 960 projects, the list has been suppressed. You can list all projects with 'oc projects'
+[12/Jun/2026:09:55:52 -0300] 127.0.0.1 - - - _ to: -: GET /stub_status HTTP/1.1 upstream_response_time - msec 1781268952.860 request_time 0.000 200 97 - NGINX-Prometheus-Exporter/v -
+[12/Jun/2026:09:56:09 -0300] 25.0.12.1 - - - _ to: -: GET / HTTP/1.1 upstream_response_time - msec 1781268969.554 request_time 0.000 200 76901 - kube-probe/1.25 -
+[12/Jun/2026:09:56:19 -0300] 25.0.12.1 - - - _ to: -: GET / HTTP/1.1 upstream_response_time - msec 1781268979.553 request_time 0.000 200 76901 - kube-probe/1.25 -
+[12/Jun/2026:09:56:19 -0300] 25.0.12.1 - - - _ to: -: GET / HTTP/1.1 upstream_response_time - msec 1781268979.553 request_time 0.000 200 76901 - kube-probe/1.25 -
 
-Using project "build-images-ads".
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$ oc project sicia-tqs
-Now using project "sicia-tqs" on server "https://api.nprd.caixa:6443".
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$ kubectl logs -n sicia-frontend-tqs-11-deploy
--sh: kubectl: comando não encontrado
--sh-4.2$ kubectl logs -n siscia-tqs  sicia-frontend-tqs-11-deploy
--sh: kubectl: comando não encontrado
--sh-4.2$ kubectl logs -n siscia-tqs sicia-frontend-tqs-11-deploy
--sh: kubectl: comando não encontrado
--sh-4.2$ kubectl describe pod -n siscia-tqs sicia-frontend-tqs-11-deploy
--sh: kubectl: comando não encontrado
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$ kubectl get configmap -n sicia-tqs nginx-conf-d-sicia-frontend -o yaml
--sh: kubectl: comando não encontrado
--sh-4.2$ kubectl rollout undo -n sicia-tqs dc/sicia-frontend-tqs
--sh: kubectl: comando não encontrado
--sh-4.2$ kubectl patch dc sicia-frontend-tqs -n sicia-tqs -p \
->   '{"spec":{"strategy":{"rollingParams":{"timeoutSeconds":1800}}}}'
--sh: kubectl: comando não encontrado
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$ kubectl rollout history -n sicia-tqs dc/sicia-frontend-tqs
--sh: kubectl: comando não encontrado
--sh-4.2$
--sh-4.2$
--sh-4.2$
+
