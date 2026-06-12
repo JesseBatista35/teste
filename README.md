@@ -1,51 +1,38 @@
--sh-4.2$ oc patch resourcequota quota-resources -n sicia-tqs -p '{"spec":{"hard":{"limits.cpu":"10"}}}' --type merge
-resourcequota/quota-resources patched
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$ oc patch resourcequota quota-resources -n sicia-tqs --type='json' -p='[{"op": "replace", "path": "/spec/hard/limits.cpu", "value":"10"}]'
-resourcequota/quota-resources not patched
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$ oc patch resourcequota quota-resources -n sicia-tqs -p '{"spec":{"hard":{"limits.cpu":"10"}}}' --type merge
-resourcequota/quota-resources not patched
--sh-4.2$ ^C
--sh-4.2$ oc describe resourcequota quota-resources -n sicia-tqs
-Name:       quota-resources
-Namespace:  sicia-tqs
-Scopes:     NotBestEffort
- * Matches all pods that have at least one resource requirement set. These pods have a burstable or guaranteed quality of service.
-Resource       Used  Hard
---------       ----  ----
-limits.cpu     3     10
-limits.memory  3Gi   8Gi
-pods           3     8
--sh-4.2$
--sh-4.2$
--sh-4.2$ oc delete rc -n sicia-tqs sicia-frontend-tqs-10 sicia-frontend-tqs-11 --ignore-not-found
-replicationcontroller "sicia-frontend-tqs-11" deleted
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$ oc rollout latest dc/sicia-frontend-tqs -n sicia-tqs
-error: #11 is already in progress (Running).
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$ oc rollout cancel  dc/sicia-frontend-tqs -n sicia-tqs
--sh-4.2$
--sh-4.2$
--sh-4.2$ oc rollout latest dc/sicia-frontend-tqs -n sicia-tqs
-deploymentconfig.apps.openshift.io/sicia-frontend-tqs rolled out
--sh-4.2$ oc get pods -n sicia-tqs -w
-NAME                                READY     STATUS    RESTARTS   AGE
-sicia-apinode-backend-tqs-4-l66bz   1/1       Running   0          184d
-sicia-backend-tqs-1-prz46           1/1       Running   0          8d
-sicia-backend-tqs-18-deploy         0/1       Error     0          13m
-sicia-frontend-tqs-1-jb4nb          2/2       Running   0          8m
-sicia-frontend-tqs-12-deploy        1/1       Running   0          8s
-sicia-frontend-tqs-12-ljm7t         1/2       Running   0          5s
+P
+sicia-frontend-tqs-12-ljm7t
+Running
 
+Actions
+Details
+Metrics
+YAML
+Environment
+Logs
+Events
+Terminal
+Log streaming...
 
+Container
+C
+sicia-frontend-tqs
+
+Current log
+Search
+
+Wrap lines
+|
+Raw
+|
+Download
+|
+10 lines
+[12/Jun/2026:10:04:36 -0300] 127.0.0.1 - - - _ to: -: GET /stub_status HTTP/1.1 upstream_response_time - msec 1781269476.453 request_time 0.000 200 97 - NGINX-Prometheus-Exporter/v -
+[12/Jun/2026:10:04:54 -0300] 25.0.14.1 - - - _ to: -: GET / HTTP/1.1 upstream_response_time - msec 1781269494.069 request_time 0.000 200 76901 - kube-probe/1.25 -
+[12/Jun/2026:10:05:04 -0300] 25.0.14.1 - - - _ to: -: GET / HTTP/1.1 upstream_response_time - msec 1781269504.069 request_time 0.000 200 76901 - kube-probe/1.25 -
+[12/Jun/2026:10:05:04 -0300] 25.0.14.1 - - - _ to: -: GET / HTTP/1.1 upstream_response_time - msec 1781269504.069 request_time 0.000 200 76901 - kube-probe/1.25 -
+[12/Jun/2026:10:05:14 -0300] 25.0.14.1 - - - _ to: -: GET / HTTP/1.1 upstream_response_time - msec 1781269514.069 request_time 0.000 200 76901 - kube-probe/1.25 -
+[12/Jun/2026:10:05:14 -0300] 25.0.14.1 - - - _ to: -: GET / HTTP/1.1 upstream_response_time - msec 1781269514.069 request_time 0.000 200 76901 - kube-probe/1.25 -
+[12/Jun/2026:10:05:24 -0300] 25.0.14.1 - - - _ to: -: GET / HTTP/1.1 upstream_response_time - msec 1781269524.069 request_time 0.000 200 76901 - kube-probe/1.25 -
+[12/Jun/2026:10:05:24 -0300] 25.0.14.1 - - - _ to: -: GET / HTTP/1.1 upstream_response_time - msec 1781269524.069 request_time 0.000 200 76901 - kube-probe/1.25 -
+[12/Jun/2026:10:05:34 -0300] 25.0.14.1 - - - _ to: -: GET / HTTP/1.1 upstream_response_time - msec 1781269534.069 request_time 0.000 200 76901 - kube-probe/1.25 -
+[12/Jun/2026:10:05:34 -0300] 25.0.14.1 - - - _ to: -: GET / HTTP/1.1 upstream_response_time - msec 1781269534.069 request_time 0.000 200 76901 - kube-probe/1.25 -
