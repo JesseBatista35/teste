@@ -1,67 +1,118 @@
-INFO exec -a "java" java -Dhttps.proxyHost=${HTTPS_PROXY} -Dhttp.proxyHost=${HTTP_PROXY} -Dhttp.nonProxyHosts=${NO_PROXY} -XX:MaxRAMPercentage=80.0 -XX:+UseParallelGC -XX:MinHeapFreeRatio=10 -XX:MaxHeapFreeRatio=20 -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -XX:+ExitOnOutOfMemoryError -Dquarkus.http.host=0.0.0.0 -Djava.util.logging.manager=org.jboss.logmanager.LogManager -cp "." -jar /deployments/quarkus-run.jar
-INFO running in /deployments
-__  ____  __  _____   ___  __ ____  ______
- --/ __ \/ / / / _ | / _ \/ //_/ / / / __/
- -/ /_/ / /_/ / __ |/ , _/ ,< / /_/ /\ \
---\___\_\____/_/ |_/_/|_/_/|_|\____/___/
-2026-06-15 17:29:50,506 WARN  [io.agr.pool] (JPA Startup Thread) Datasource '<default>': Driver does not support the provided URL: jdbc:oracle:thin:@cnpexdadvm01-scan8.extra.caixa.gov.br:1521/orad01bc
-2026-06-15 17:29:50,601 WARN  [io.agr.pool] (agroal-11) Datasource '<default>': Driver does not support the provided URL: jdbc:oracle:thin:@cnpexdadvm01-scan8.extra.caixa.gov.br:1521/orad01bc
-2026-06-15 17:29:50,602 WARN  [org.hib.eng.jdb.spi.SqlExceptionHelper] (JPA Startup Thread) SQL Error: 0, SQLState: null
-2026-06-15 17:29:50,602 ERROR [org.hib.eng.jdb.spi.SqlExceptionHelper] (JPA Startup Thread) Driver does not support the provided URL: jdbc:oracle:thin:@cnpexdadvm01-scan8.extra.caixa.gov.br:1521/orad01bc
-2026-06-15 17:29:50,603 WARN  [org.hib.eng.jdb.env.int.JdbcEnvironmentInitiator] (JPA Startup Thread) HHH000342: Could not obtain connection to query metadata: org.hibernate.exception.GenericJDBCException: unable to obtain isolated JDBC connection [Driver does not support the provided URL: jdbc:oracle:thin:@cnpexdadvm01-scan8.extra.caixa.gov.br:1521/orad01bc] [n/a]
-	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:63)
-	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:108)
-	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:94)
-	at org.hibernate.resource.transaction.backend.jta.internal.JtaIsolationDelegate.doTheWork(JtaIsolationDelegate.java:206)
-	at org.hibernate.resource.transaction.backend.jta.internal.JtaIsolationDelegate.lambda$delegateWork$3(JtaIsolationDelegate.java:91)
-	at org.hibernate.resource.transaction.backend.jta.internal.JtaIsolationDelegate.doInSuspendedTransaction(JtaIsolationDelegate.java:125)
-	at org.hibernate.resource.transaction.backend.jta.internal.JtaIsolationDelegate.delegateWork(JtaIsolationDelegate.java:88)
-	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:320)
-	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:129)
-	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:81)
-	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:130)
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263)
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:238)
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:215)
-	at org.hibernate.service.ServiceRegistry.requireService(ServiceRegistry.java:68)
-	at org.hibernate.engine.jdbc.internal.JdbcServicesImpl.configure(JdbcServicesImpl.java:52)
-	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:136)
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:247)
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:215)
-	at org.hibernate.service.ServiceRegistry.requireService(ServiceRegistry.java:68)
-	at org.hibernate.boot.internal.SessionFactoryOptionsBuilder.<init>(SessionFactoryOptionsBuilder.java:290)
-	at io.quarkus.hibernate.orm.runtime.recording.PrevalidatedQuarkusMetadata.buildSessionFactoryOptionsBuilder(PrevalidatedQuarkusMetadata.java:72)
-	at io.quarkus.hibernate.orm.runtime.boot.FastBootEntityManagerFactoryBuilder.build(FastBootEntityManagerFactoryBuilder.java:84)
-	at io.quarkus.hibernate.orm.runtime.FastBootHibernatePersistenceProvider.createEntityManagerFactory(FastBootHibernatePersistenceProvider.java:72)
-	at jakarta.persistence.Persistence.createEntityManagerFactory(Persistence.java:80)
-	at jakarta.persistence.Persistence.createEntityManagerFactory(Persistence.java:55)
-	at io.quarkus.hibernate.orm.runtime.JPAConfig$LazyPersistenceUnit.get(JPAConfig.java:163)
-	at io.quarkus.hibernate.orm.runtime.JPAConfig$1.run(JPAConfig.java:63)
-	at java.base/java.lang.Thread.run(Thread.java:1583)
-Caused by: java.sql.SQLException: Driver does not support the provided URL: jdbc:oracle:thin:@cnpexdadvm01-scan8.extra.caixa.gov.br:1521/orad01bc
-	at io.agroal.pool.ConnectionFactory.connectionSetup(ConnectionFactory.java:241)
-	at io.agroal.pool.ConnectionFactory.createConnection(ConnectionFactory.java:225)
-	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:580)
-	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:561)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at io.agroal.pool.util.PriorityScheduledExecutor.beforeExecute(PriorityScheduledExecutor.java:75)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	... 1 more
-
-2026-06-15 17:29:51,477 WARN  [io.agr.pool] (agroal-11) Datasource '<default>': Driver does not support the provided URL: jdbc:oracle:thin:@cnpexdadvm01-scan8.extra.caixa.gov.br:1521/orad01bc
-2026-06-15 17:29:51,477 ERROR [org.hib.que.sqm.mut.int.tem.GlobalTemporaryTableStrategy] (JPA Startup Thread) Unable obtain JDBC Connection: java.sql.SQLException: Driver does not support the provided URL: jdbc:oracle:thin:@cnpexdadvm01-scan8.extra.caixa.gov.br:1521/orad01bc
-	at io.agroal.pool.ConnectionFactory.connectionSetup(ConnectionFactory.java:241)
-	at io.agroal.pool.ConnectionFactory.createConnection(ConnectionFactory.java:225)
-	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:580)
-	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:561)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at io.agroal.pool.util.PriorityScheduledExecutor.beforeExecute(PriorityScheduledExecutor.java:75)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1583)
-
-2026-06-15 17:29:51,686 WARN  [io.qua.hib.orm.run.ser.QuarkusRuntimeInitDialectFactory] (JPA Startup Thread) Persistence unit <default>: Could not retrieve the database version to check it is at least 2.3.230
-2026-06-15 17:29:51,985 INFO  [io.quarkus] (main) motor-decisao 1.0.0 on JVM (powered by Quarkus 3.19.4) started in 4.660s. Listening on: http://0.0.0.0:8080
-2026-06-15 17:29:51,987 INFO  [io.quarkus] (main) Profile prod activated.
-2026-06-15 17:29:51,987 INFO  [io.quarkus] (main) Installed features: [agroal, cdi, hibernate-orm, hibernate-orm-panache, jdbc-h2, narayana-jta, rest, rest-jackson, smallrye-context-propagation, vertx]
+apiVersion: v1
+data:
+  API_KEY: ''
+  FACEBOOK_API_MP_REST_PROXYADDRESS: http://internet.caixa:80
+  FACEBOOK_API_MP_REST_SCOPE: javax.inject.Singleton
+  FACEBOOK_API_MP_REST_URL: https://graph.facebook.com
+  HTTPS_PROXY: http://proxydes.caixa:80
+  HTTP_PROXY: http://proxydes.caixa:80
+  ID_FACEBOOK: '170149100323010'
+  MP_JWT_VERIFY_ISSUER: >-
+    https://login.des.caixa/auth/realms/intranet,https://logindes.caixa.gov.br/auth/realms/r_inter_siper
+  NO_PROXY: .caixa,.caixa.gov.br,10.0.0.0/8
+  PA_BD: npjJW4
+  PROXY_HOST: proxydes.caixa
+  PROXY_PORT: '80'
+  QUARKUS_DATASOURCE_DIALECT: org.hibernate.dialect.Oracle12cDialect
+  QUARKUS_DATASOURCE_DRIVER: oracle.jdbc.driver.OracleDriver
+  QUARKUS_DATASOURCE_KIND: other
+  QUARKUS_DATASOURCE_PASSWORD: ${PA_BD}
+  QUARKUS_DATASOURCE_URL: jdbc:oracle:thin:@cnpexdadvm01-scan8.extra.caixa.gov.br:1521/orad01bc
+  QUARKUS_DATASOURCE_USERNAME: SGMSDS01
+  QUARKUS_GRPC_SERVER_NETTY_KEEP_ALIVE_TIME: '30000'
+  QUARKUS_RESTEASY_PATH: /v3
+  QUARKUS_TLS_TRUST-ALL: 'true'
+  SIGMS_CONNECTION_TIMEOUT_MQ: '60000'
+  SIGMS_EXPIRATION_CHECK_MQ: '60000'
+  SIGMS_EXPIRY_TIMEOUT_MQ: '60000'
+  SIGMS_IDLE_TIMEOUT_MQ: '60000'
+  SIGMS_LISTA_FILAS_BATCH: >-
+    SIGMS.REQ.TRANSACAO_WHATS_BATCH,SIGMS.REQ.TRANSACAO_GENERICA_BATCH,SIGMS.REQ.TRANSACAO_FGTS_BATCH,SIGMS.REQ.TRANSACAO_FINANCEIRA_BATCH,SIGMS.REQ.ENVIO_LOTE_BATCH,SIGMS.REQ.TRANSACAO_PUSH_BATCH,SIGMS.REQ.PROCESSA_TRANSACAO_PUSH
+  SIGMS_LISTA_FILAS_QM1_TRANSACAO_FINANCEIRA: SIGMS.REQ.TRANSACAO_FINANCEIRA
+  SIGMS_LISTA_FILAS_QM1_TRANSACAO_SEGURANCA: SIGMS.REQ.ENVIO_SMS
+  SIGMS_LISTA_FILAS_QM2_TRANSACAO_GENERICA: >-
+    SIGMS.REQ.SMS_AUTORIZACAO_COMPRA_CREDITO,SIGMS.REQ.SMS_BENEFICIOS_SOCIAIS,SIGMS.REQ.SMS_BLOQUEIO_CARTAO_CREDITO,SIGMS.REQ.SMS_CADASTRO_CARTAO_CREDITO,SIGMS.REQ.SMS_CANCELAMENTO_CARTAO,SIGMS.REQ.SMS_CARTEIRA_ELETRONICA,SIGMS.REQ.SMS_CHEQUE,SIGMS.REQ.SMS_CHEQUE_ESPECIAL_NSGD,SIGMS.REQ.SMS_COBRANCA_BANCARIA,SIGMS.REQ.SMS_COD_ATIV_CONTRAT_CARTAO_CREDITO,SIGMS.REQ.SMS_CODIGO_ATIVACAO,SIGMS.REQ.SMS_CODIGO_ATIVACAO_CESTA_SERVICO,SIGMS.REQ.SMS_COMPRA_NEGADA_CREDITO,SIGMS.REQ.SMS_CREDITO_ROTATIVO,SIGMS.REQ.SMS_DESBLOQUEIO_CARTAO_CREDITO,SIGMS.REQ.SMS_EMISSAO_CARTAO,SIGMS.REQ.SMS_EMISSAO_CARTAO_CREDITO,SIGMS.REQ.SMS_FINANCEIRO_DEBITO,SIGMS.REQ.SMS_FINANCEIRO_DEBITO_ATM,SIGMS.REQ.SMS_FINANCEIRO_DEBITO_BCOBRASIL,SIGMS.REQ.SMS_FINANCEIRO_DEBITO_CXAQUI,SIGMS.REQ.SMS_FINANCEIRO_DEBITO_ELOIMPAR,SIGMS.REQ.SMS_FINANCEIRO_DEBITO_ELOPAR,SIGMS.REQ.SMS_FINANCEIRO_DEBITO_LOTERICO,SIGMS.REQ.SMS_FINANCEIRO_DEBITO_MAESTRO,SIGMS.REQ.SMS_FINANCEIRO_DEBITO_TECBAN,SIGMS.REQ.SMS_FINANCEIRO_DEBITO_VISAVEA,SIGMS.REQ.SMS_HABITACAO,SIGMS.REQ.SMS_INFORMACAO_CADASTRAL,SIGMS.REQ.SMS_INVESTIMENTO,SIGMS.REQ.SMS_MICROCREDITO,SIGMS.REQ.SMS_PAGAMENTO,SIGMS.REQ.SMS_PAGAMENTO_DIGITAL,SIGMS.REQ.SMS_PENHOR,SIGMS.REQ.SMS_PONTOS_CARTAO_CREDITO,SIGMS.REQ.SMS_RENEGOCIACAO_DIVIDAS,SIGMS.REQ.SMS_SEGURANCA,SIGMS.REQ.SMS_SEGURANCA_CARTAO_CREDITO,SIGMS.REQ.SMS_SENHA_CARTAO_CREDITO,SIGMS.REQ.SMS_SITUACAO_SAQUE_CREDITO,SIGMS.REQ.SMS_TRANSFERENCIA,SIGMS.REQ.SMS_TRANSFERENCIA_INTERNACIONAL
+  SIGMS_MAX_CONNECTIONS_MQ: '10'
+  SIGMS_MAX_SESSIONS_MQ: '10'
+  SIGMS_MOSTRAR_SQL: 'false'
+  SIGMS_QTD_THREADS: '2'
+  SIGMS_SSO_SENHA: ''
+  SIGMS_SSO_TIPO: client_credentials
+  SIGMS_SSO_USUARIO: cli-ser-gms
+  SIGMS_URL_ENVIO_MEDIA: https://sigms-enviar-des.apps.nprd.caixa
+  SIGMS_VALIDA_CPF_CNPJ: 'false'
+  SIGMS_WSMQ_CANAL_ALTA_01: SIGMS.QUARKUS.SVRCON
+  SIGMS_WSMQ_CANAL_ALTA_02: SIGMS.QUARKUS.SVRCON
+  SIGMS_WSMQ_ENDERECO_ALTA_01: 10.192.224.66
+  SIGMS_WSMQ_ENDERECO_ALTA_02: 10.192.224.66
+  SIGMS_WSMQ_PORTA_ALTA_01: '1420'
+  SIGMS_WSMQ_PORTA_ALTA_02: '1420'
+  SIGMS_WSMQ_QUEUEMANAGER_ALTA_01: QSDA
+  SIGMS_WSMQ_QUEUEMANAGER_ALTA_02: QSDA
+  SIGMS_WSMQ_USUARIO_ALTA: SGMSS01D
+  SIICO_API_MP_REST_API_KEY: ${API_KEY}
+  SIICO_API_MP_REST_SCOPE: javax.inject.Singleton
+  SIICO_API_MP_REST_URL: https://api.des.caixa:8443
+  SSO_API_MP_REST_SCOPE: javax.inject.Singleton
+  SSO_API_MP_REST_URL: https://login.des.caixa
+  TOKEN_FACEBOOK: ''
+  http_proxy: ${HTTP_PROXY}
+  https_proxy: ${HTTPS_PROXY}
+  id.facebook: ${ID_FACEBOOK}
+  no_proxy: ${NO_PROXY}
+  proxy.host: ${PROXY_HOST}
+  proxy.port: ${PROXY_PORT}
+  quarkus.datasource.db-kind: ${QUARKUS_DATASOURCE_KIND}
+  quarkus.datasource.jdbc.driver: ${QUARKUS_DATASOURCE_DRIVER}
+  quarkus.datasource.jdbc.url: ${QUARKUS_DATASOURCE_URL}
+  quarkus.datasource.password: ${QUARKUS_DATASOURCE_PASSWORD}
+  quarkus.datasource.username: ${QUARKUS_DATASOURCE_USERNAME}
+  quarkus.grpc.server.netty.keep-alive-time: ${QUARKUS_GRPC_SERVER_NETTY_KEEP_ALIVE_TIME}
+  quarkus.hibernate-orm.dialect: ${QUARKUS_DATASOURCE_DIALECT}
+  quarkus.hibernate-orm.log.sql: ${SIGMS_MOSTRAR_SQL}
+  quarkus.http.test-port: '8085'
+  quarkus.resteasy.path: ${QUARKUS_RESTEASY_PATH}
+  quarkus.tls.trust-all: ${QUARKUS_TLS_TRUST-ALL}
+  sigms.connection.timeout.mq: ${SIGMS_CONNECTION_TIMEOUT_MQ}
+  sigms.expirtion.check.mq: ${SIGMS_EXPIRATION_CHECK_MQ}
+  sigms.expiry.timeout.mq: ${SIGMS_EXPIRY_TIMEOUT_MQ}
+  sigms.idle.timeout.mq: ${SIGMS_IDLE_TIMEOUT_MQ}
+  sigms.lista.filas.batch: ${SIGMS_LISTA_FILAS_BATCH}
+  sigms.lista.filas.qm1.transacao_financeira: ${SIGMS_LISTA_FILAS_QM1_TRANSACAO_FINANCEIRA}
+  sigms.lista.filas.qm1.transacao_seguranca: ${SIGMS_LISTA_FILAS_QM1_TRANSACAO_SEGURANCA}
+  sigms.lista.filas.qm2.transacao_generica: ${SIGMS_LISTA_FILAS_QM2_TRANSACAO_GENERICA}
+  sigms.max.connections.mq: ${SIGMS_MAX_CONNECTIONS_MQ}
+  sigms.max.sessions.mq: ${SIGMS_MAX_SESSIONS_MQ}
+  sigms.qtd.thread: ${SIGMS_QTD_THREADS}
+  sigms.sso.senha: ${SIGMS_SSO_SENHA}
+  sigms.sso.tipo: ${SIGMS_SSO_TIPO}
+  sigms.sso.usuario: ${SIGMS_SSO_USUARIO}
+  sigms.url.envio.media: ${SIGMS_URL_ENVIO_MEDIA}
+  sigms.valida.cpf.cnpj: ${SIGMS_VALIDA_CPF_CNPJ}
+  sigms.wsmq.canal.alta.01: ${SIGMS_WSMQ_CANAL_ALTA_01}
+  sigms.wsmq.canal.alta.02: ${SIGMS_WSMQ_CANAL_ALTA_02}
+  sigms.wsmq.endereco.alta.01: ${SIGMS_WSMQ_ENDERECO_ALTA_01}
+  sigms.wsmq.endereco.alta.02: ${SIGMS_WSMQ_ENDERECO_ALTA_02}
+  sigms.wsmq.porta.alta.01: ${SIGMS_WSMQ_PORTA_ALTA_01}
+  sigms.wsmq.porta.alta.02: ${SIGMS_WSMQ_PORTA_ALTA_02}
+  sigms.wsmq.queuemanager.alta.01: ${SIGMS_WSMQ_QUEUEMANAGER_ALTA_01}
+  sigms.wsmq.queuemanager.alta.02: ${SIGMS_WSMQ_QUEUEMANAGER_ALTA_02}
+  sigms.wsmq.usuario.alta: ${SIGMS_WSMQ_USUARIO_ALTA}
+  token.facebook: ${TOKEN_FACEBOOK}
+kind: ConfigMap
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: >
+      {"apiVersion":"v1","data":{"API_KEY":"","FACEBOOK_API_MP_REST_PROXYADDRESS":"http://internet.caixa:80","FACEBOOK_API_MP_REST_SCOPE":"javax.inject.Singleton","FACEBOOK_API_MP_REST_URL":"https://graph.facebook.com","HTTPS_PROXY":"http://proxydes.caixa:80","HTTP_PROXY":"http://proxydes.caixa:80","ID_FACEBOOK":"170149100323010","MP_JWT_VERIFY_ISSUER":"https://login.des.caixa/auth/realms/intranet,https://logindes.caixa.gov.br/auth/realms/r_inter_siper","NO_PROXY":".caixa,.caixa.gov.br,10.0.0.0/8","PA_BD":"npjJW4","PROXY_HOST":"proxydes.caixa","PROXY_PORT":"80","QUARKUS_DATASOURCE_DIALECT":"org.hibernate.dialect.Oracle12cDialect","QUARKUS_DATASOURCE_DRIVER":"oracle.jdbc.driver.OracleDriver","QUARKUS_DATASOURCE_KIND":"other","QUARKUS_DATASOURCE_PASSWORD":"${PA_BD}","QUARKUS_DATASOURCE_URL":"jdbc:oracle:thin:@cnpexdadvm01-scan8.extra.caixa.gov.br:1521/orad01bc","QUARKUS_DATASOURCE_USERNAME":"SGMSDS01","QUARKUS_GRPC_SERVER_NETTY_KEEP_ALIVE_TIME":"30000","QUARKUS_RESTEASY_PATH":"/v3","QUARKUS_TLS_TRUST-ALL":"true","SIGMS_CONNECTION_TIMEOUT_MQ":"60000","SIGMS_EXPIRATION_CHECK_MQ":"60000","SIGMS_EXPIRY_TIMEOUT_MQ":"60000","SIGMS_IDLE_TIMEOUT_MQ":"60000","SIGMS_LISTA_FILAS_BATCH":"SIGMS.REQ.TRANSACAO_WHATS_BATCH,SIGMS.REQ.TRANSACAO_GENERICA_BATCH,SIGMS.REQ.TRANSACAO_FGTS_BATCH,SIGMS.REQ.TRANSACAO_FINANCEIRA_BATCH,SIGMS.REQ.ENVIO_LOTE_BATCH,SIGMS.REQ.TRANSACAO_PUSH_BATCH,SIGMS.REQ.PROCESSA_TRANSACAO_PUSH","SIGMS_LISTA_FILAS_QM1_TRANSACAO_FINANCEIRA":"SIGMS.REQ.TRANSACAO_FINANCEIRA","SIGMS_LISTA_FILAS_QM1_TRANSACAO_SEGURANCA":"SIGMS.REQ.ENVIO_SMS","SIGMS_LISTA_FILAS_QM2_TRANSACAO_GENERICA":"SIGMS.REQ.SMS_AUTORIZACAO_COMPRA_CREDITO,SIGMS.REQ.SMS_BENEFICIOS_SOCIAIS,SIGMS.REQ.SMS_BLOQUEIO_CARTAO_CREDITO,SIGMS.REQ.SMS_CADASTRO_CARTAO_CREDITO,SIGMS.REQ.SMS_CANCELAMENTO_CARTAO,SIGMS.REQ.SMS_CARTEIRA_ELETRONICA,SIGMS.REQ.SMS_CHEQUE,SIGMS.REQ.SMS_CHEQUE_ESPECIAL_NSGD,SIGMS.REQ.SMS_COBRANCA_BANCARIA,SIGMS.REQ.SMS_COD_ATIV_CONTRAT_CARTAO_CREDITO,SIGMS.REQ.SMS_CODIGO_ATIVACAO,SIGMS.REQ.SMS_CODIGO_ATIVACAO_CESTA_SERVICO,SIGMS.REQ.SMS_COMPRA_NEGADA_CREDITO,SIGMS.REQ.SMS_CREDITO_ROTATIVO,SIGMS.REQ.SMS_DESBLOQUEIO_CARTAO_CREDITO,SIGMS.REQ.SMS_EMISSAO_CARTAO,SIGMS.REQ.SMS_EMISSAO_CARTAO_CREDITO,SIGMS.REQ.SMS_FINANCEIRO_DEBITO,SIGMS.REQ.SMS_FINANCEIRO_DEBITO_ATM,SIGMS.REQ.SMS_FINANCEIRO_DEBITO_BCOBRASIL,SIGMS.REQ.SMS_FINANCEIRO_DEBITO_CXAQUI,SIGMS.REQ.SMS_FINANCEIRO_DEBITO_ELOIMPAR,SIGMS.REQ.SMS_FINANCEIRO_DEBITO_ELOPAR,SIGMS.REQ.SMS_FINANCEIRO_DEBITO_LOTERICO,SIGMS.REQ.SMS_FINANCEIRO_DEBITO_MAESTRO,SIGMS.REQ.SMS_FINANCEIRO_DEBITO_TECBAN,SIGMS.REQ.SMS_FINANCEIRO_DEBITO_VISAVEA,SIGMS.REQ.SMS_HABITACAO,SIGMS.REQ.SMS_INFORMACAO_CADASTRAL,SIGMS.REQ.SMS_INVESTIMENTO,SIGMS.REQ.SMS_MICROCREDITO,SIGMS.REQ.SMS_PAGAMENTO,SIGMS.REQ.SMS_PAGAMENTO_DIGITAL,SIGMS.REQ.SMS_PENHOR,SIGMS.REQ.SMS_PONTOS_CARTAO_CREDITO,SIGMS.REQ.SMS_RENEGOCIACAO_DIVIDAS,SIGMS.REQ.SMS_SEGURANCA,SIGMS.REQ.SMS_SEGURANCA_CARTAO_CREDITO,SIGMS.REQ.SMS_SENHA_CARTAO_CREDITO,SIGMS.REQ.SMS_SITUACAO_SAQUE_CREDITO,SIGMS.REQ.SMS_TRANSFERENCIA,SIGMS.REQ.SMS_TRANSFERENCIA_INTERNACIONAL","SIGMS_MAX_CONNECTIONS_MQ":"10","SIGMS_MAX_SESSIONS_MQ":"10","SIGMS_MOSTRAR_SQL":"false","SIGMS_QTD_THREADS":"2","SIGMS_SSO_SENHA":"","SIGMS_SSO_TIPO":"client_credentials","SIGMS_SSO_USUARIO":"cli-ser-gms","SIGMS_URL_ENVIO_MEDIA":"https://sigms-enviar-des.apps.nprd.caixa","SIGMS_VALIDA_CPF_CNPJ":"false","SIGMS_WSMQ_CANAL_ALTA_01":"SIGMS.QUARKUS.SVRCON","SIGMS_WSMQ_CANAL_ALTA_02":"SIGMS.QUARKUS.SVRCON","SIGMS_WSMQ_ENDERECO_ALTA_01":"10.192.224.66","SIGMS_WSMQ_ENDERECO_ALTA_02":"10.192.224.66","SIGMS_WSMQ_PORTA_ALTA_01":"1420","SIGMS_WSMQ_PORTA_ALTA_02":"1420","SIGMS_WSMQ_QUEUEMANAGER_ALTA_01":"QSDA","SIGMS_WSMQ_QUEUEMANAGER_ALTA_02":"QSDA","SIGMS_WSMQ_USUARIO_ALTA":"SGMSS01D","SIICO_API_MP_REST_API_KEY":"${API_KEY}","SIICO_API_MP_REST_SCOPE":"javax.inject.Singleton","SIICO_API_MP_REST_URL":"https://api.des.caixa:8443","SSO_API_MP_REST_SCOPE":"javax.inject.Singleton","SSO_API_MP_REST_URL":"https://login.des.caixa","TOKEN_FACEBOOK":"","http_proxy":"${HTTP_PROXY}","https_proxy":"${HTTPS_PROXY}","id.facebook":"${ID_FACEBOOK}","no_proxy":"${NO_PROXY}","proxy.host":"${PROXY_HOST}","proxy.port":"${PROXY_PORT}","quarkus.datasource.db-kind":"${QUARKUS_DATASOURCE_KIND}","quarkus.datasource.jdbc.driver":"${QUARKUS_DATASOURCE_DRIVER}","quarkus.datasource.jdbc.url":"${QUARKUS_DATASOURCE_URL}","quarkus.datasource.password":"${QUARKUS_DATASOURCE_PASSWORD}","quarkus.datasource.username":"${QUARKUS_DATASOURCE_USERNAME}","quarkus.grpc.server.netty.keep-alive-time":"${QUARKUS_GRPC_SERVER_NETTY_KEEP_ALIVE_TIME}","quarkus.hibernate-orm.dialect":"${QUARKUS_DATASOURCE_DIALECT}","quarkus.hibernate-orm.log.sql":"${SIGMS_MOSTRAR_SQL}","quarkus.http.test-port":"8085","quarkus.resteasy.path":"${QUARKUS_RESTEASY_PATH}","quarkus.tls.trust-all":"${QUARKUS_TLS_TRUST-ALL}","sigms.connection.timeout.mq":"${SIGMS_CONNECTION_TIMEOUT_MQ}","sigms.expirtion.check.mq":"${SIGMS_EXPIRATION_CHECK_MQ}","sigms.expiry.timeout.mq":"${SIGMS_EXPIRY_TIMEOUT_MQ}","sigms.idle.timeout.mq":"${SIGMS_IDLE_TIMEOUT_MQ}","sigms.lista.filas.batch":"${SIGMS_LISTA_FILAS_BATCH}","sigms.lista.filas.qm1.transacao_financeira":"${SIGMS_LISTA_FILAS_QM1_TRANSACAO_FINANCEIRA}","sigms.lista.filas.qm1.transacao_seguranca":"${SIGMS_LISTA_FILAS_QM1_TRANSACAO_SEGURANCA}","sigms.lista.filas.qm2.transacao_generica":"${SIGMS_LISTA_FILAS_QM2_TRANSACAO_GENERICA}","sigms.max.connections.mq":"${SIGMS_MAX_CONNECTIONS_MQ}","sigms.max.sessions.mq":"${SIGMS_MAX_SESSIONS_MQ}","sigms.qtd.thread":"${SIGMS_QTD_THREADS}","sigms.sso.senha":"${SIGMS_SSO_SENHA}","sigms.sso.tipo":"${SIGMS_SSO_TIPO}","sigms.sso.usuario":"${SIGMS_SSO_USUARIO}","sigms.url.envio.media":"${SIGMS_URL_ENVIO_MEDIA}","sigms.valida.cpf.cnpj":"${SIGMS_VALIDA_CPF_CNPJ}","sigms.wsmq.canal.alta.01":"${SIGMS_WSMQ_CANAL_ALTA_01}","sigms.wsmq.canal.alta.02":"${SIGMS_WSMQ_CANAL_ALTA_02}","sigms.wsmq.endereco.alta.01":"${SIGMS_WSMQ_ENDERECO_ALTA_01}","sigms.wsmq.endereco.alta.02":"${SIGMS_WSMQ_ENDERECO_ALTA_02}","sigms.wsmq.porta.alta.01":"${SIGMS_WSMQ_PORTA_ALTA_01}","sigms.wsmq.porta.alta.02":"${SIGMS_WSMQ_PORTA_ALTA_02}","sigms.wsmq.queuemanager.alta.01":"${SIGMS_WSMQ_QUEUEMANAGER_ALTA_01}","sigms.wsmq.queuemanager.alta.02":"${SIGMS_WSMQ_QUEUEMANAGER_ALTA_02}","sigms.wsmq.usuario.alta":"${SIGMS_WSMQ_USUARIO_ALTA}","token.facebook":"${TOKEN_FACEBOOK}"},"kind":"ConfigMap","metadata":{"annotations":{},"labels":{"app.kubernetes.io/instance":"sigms-motor-decisao-des","app.kubernetes.io/managed-by":"Helm","app.kubernetes.io/name":"sigms-motor-decisao-des","app.kubernetes.io/version":"1.16.0","backstage.io/kubernetes-id":"sigms-motor-decisao","helm.sh/chart":"caixa-base-chart-1.0.0"},"name":"cm-sigms-motor-decisao","namespace":"sigms-motor-decisao"}}
+  creationTimestamp: '2026-06-12T13:25:36Z'
+  labels:
+    app.kubernetes.io/instance: sigms-motor-decisao-des
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: sigms-motor-decisao-des
+    app.kubernetes.io/version: 1.16.0
+    backstage.io/kubernetes-id: sigms-motor-decisao
+    helm.sh/chart: caixa-base-chart-1.0.0
+  name: cm-sigms-motor-decisao
+  namespace: sigms-motor-decisao
+  resourceVersion: '154340259'
+  uid: 1825fa8b-2175-4c97-a997-8c451e6bb21a
