@@ -1,339 +1,161 @@
-ao verificar os pods eles não estão subindo corretamente apresentando erro de pod não sendo possível verificar os logs.
+o config.yaml ta assim:
+
+
+app:
+  name: sigms-motor-decisao-des
+project:
+  name: des
+labels:
+  appName: sigms-motor-decisao
+  environment: des
+source:
+  repo: "https://github.com/caixagithub/sigms-motor-decisao-infranprd"
+  path: des
+sourcevar:
+  repo: "https://github.com/caixagithub/sigms-globalnprd"
+  path: des
+  values: global.yaml  
+cluster:
+  destination:  
+    name: aks-push-nprd
+    namespace: sigms-motor-decisao
 
 
 
-
-
-Argo
-v2.14.21+206a6ee
-Argo
-Applications
-Settings
-User Info
-Documentation
-Resource filters
-NAME
-NAME
-KINDS
-KINDS
-SYNC STATUS
-Synced
-9
-OutOfSync
-0
-HEALTH STATUS
-Progressing
-5
-Suspended
-0
-Healthy
-1
-Degraded
-1
-Missing
-0
-Unknown
-0
-NAMESPACES
-NAMESPACES
-Applications
- sigms-motor-decisao-des
-Application Details List
-Log out
-APP HEALTH 
- Degraded
-SYNC STATUS 
-
- Synced
-to HEAD (89fa249)
-Auto sync is enabled.
-Author:
-ansible-connect-emu[bot] <230244411+ansible-connect-emu[bot]@users.noreply.github.com> -
-Comment:
-Merge pull request #6 from caixagithub/update-image-sigms-motor-
-LAST SYNC 
-
- Sync OK
-to 89fa249
-Succeeded 3 days ago (Fri Jun 12 2026 11:15:01 GMT-0300)
-Author:
-ansible-connect-emu[bot] <230244411+ansible-connect-emu[bot]@users.noreply.github.com> -
-Comment:
-Merge pull request #6 from caixagithub/update-image-sigms-motor-
-Previous12Next
-Items per page: 10 
-NAME
-GROUP/KIND
-SYNC ORDER
-NAMESPACE
-CREATED AT
-STATUS
-Pod
-pod
-sigms-motor-decisao-des-647ff56445-k5dd7
-Pod
--
-sigms-motor-decisao
-3 days ago   06/12/26
- Progressing  
-ReplicaSet
-rs
-sigms-motor-decisao-des-647ff56445
-apps/ReplicaSet
--
-sigms-motor-decisao
-3 days ago   06/12/26
- Progressing  
-ConfigMap
-cm
-cm-sigms-motor-decisao
-ConfigMap
--
-sigms-motor-decisao
-3 days ago   06/12/26
- Synced
-Endpoints
-ep
-sigms-motor-decisao-des
-Endpoints
--
-sigms-motor-decisao
-3 days ago   06/12/26
-Pod
-pod
-sigms-motor-decisao-des-6bcd595699-hrfkq
-Pod
--
-sigms-motor-decisao
-3 days ago   06/12/26
- Progressing  
-Secret
-secret
-akv2k8s-sigms-motor-decisao-des
-Secret
--
-sigms-motor-decisao
-3 days ago   06/12/26
-Service
-svc
-sigms-motor-decisao-des
-Service
--
-sigms-motor-decisao
-3 days ago   06/12/26
- Healthy   Synced
-Deployment
-deploy
-sigms-motor-decisao-des
-apps/Deployment
--
-sigms-motor-decisao
-3 days ago   06/12/26
- Degraded   Synced
-ReplicaSet
-rs
-sigms-motor-decisao-des-6bcd595699
-apps/ReplicaSet
--
-sigms-motor-decisao
-3 days ago   06/12/26
- Progressing  
-EndpointSlice
-endpointslice
-sigms-motor-decisao-des-q84wp
-discovery.k8s.io/EndpointSlice
--
-sigms-motor-decisao
-3 days ago   06/12/26
-Previous12Next
-Items per page: 10 
+    o values.yaml 
 
 
 
+    caixa-base-chart:
 
-events:
+#-------#
+# IMAGE #
+#-------#
 
-0/7 nodes are available: 1 node(s) had untolerated taint {CriticalAddonsOnly: true}, 1 node(s) had untolerated taint {nuvem.caixa/nodepoolname: appsigms}, 1 node(s) had untolerated taint {nuvem.caixa/nodepoolname: infra}, 1 node(s) had untolerated taint {nuvem.caixa/nodepoolname: websitesigms}, 1 node(s) had untolerated taint {nuvem.caixa/nodepoolname: websitesihms}, 2 node(s) had untolerated taint {nuvem.caixa/nodepoolname: appsihms}. preemption: 0/7 nodes are available: 7 Preemption is not helpful for scheduling.
+  image:
+    # variavel de imagem do tipo de aplicação
+    repository: acrcentralcaixanprd.azurecr.io/sigms/motor-decisao/sigms-motor-decisao
+    tag: "27421025665"
+    pullPolicy: Always
 
+#-----#
+# HPA #
+#-----#
+  replicaCount: 1
 
+  autoscaling:
+    enabled: false
+    minReplicas: 1
+    maxReplicas: 3
+    targetCPUUtilizationPercentage: 85
+    targetMemoryUtilizationPercentage: 85
 
+#-----------------#
+# ROLLING UPDATE STRATEGY #
+#-----------------#
 
-Argo
-v2.14.21+206a6ee
-Argo
-Applications
-Settings
-User Info
-Documentation
-Resource filters
-NAME
-NAME
-KINDS
-KINDS
-SYNC STATUS
-Synced
-9
-OutOfSync
-0
-HEALTH STATUS
-Progressing
-5
-Suspended
-0
-Healthy
-1
-Degraded
-1
-Missing
-0
-Unknown
-0
-NAMESPACES
-NAMESPACES
-Applications
- sigms-motor-decisao-des
-Application Details List
-Log out
-APP HEALTH 
- Degraded
-SYNC STATUS 
-
- Synced
-to HEAD (89fa249)
-Auto sync is enabled.
-Author:
-ansible-connect-emu[bot] <230244411+ansible-connect-emu[bot]@users.noreply.github.com> -
-Comment:
-Merge pull request #6 from caixagithub/update-image-sigms-motor-
-LAST SYNC 
-
- Sync OK
-to 89fa249
-Succeeded 3 days ago (Fri Jun 12 2026 11:15:01 GMT-0300)
-Author:
-ansible-connect-emu[bot] <230244411+ansible-connect-emu[bot]@users.noreply.github.com> -
-Comment:
-Merge pull request #6 from caixagithub/update-image-sigms-motor-
-Previous12Next
-Items per page: 10 
-NAME
-GROUP/KIND
-SYNC ORDER
-NAMESPACE
-CREATED AT
-STATUS
-Pod
-pod
-sigms-motor-decisao-des-647ff56445-k5dd7
-Pod
--
-sigms-motor-decisao
-3 days ago   06/12/26
- Progressing  
-ReplicaSet
-rs
-sigms-motor-decisao-des-647ff56445
-apps/ReplicaSet
--
-sigms-motor-decisao
-3 days ago   06/12/26
- Progressing  
-ConfigMap
-cm
-cm-sigms-motor-decisao
-ConfigMap
--
-sigms-motor-decisao
-3 days ago   06/12/26
- Synced
-Endpoints
-ep
-sigms-motor-decisao-des
-Endpoints
--
-sigms-motor-decisao
-3 days ago   06/12/26
-Pod
-pod
-sigms-motor-decisao-des-6bcd595699-hrfkq
-Pod
--
-sigms-motor-decisao
-3 days ago   06/12/26
- Progressing  
-Secret
-secret
-akv2k8s-sigms-motor-decisao-des
-Secret
--
-sigms-motor-decisao
-3 days ago   06/12/26
-Service
-svc
-sigms-motor-decisao-des
-Service
--
-sigms-motor-decisao
-3 days ago   06/12/26
- Healthy   Synced
-Deployment
-deploy
-sigms-motor-decisao-des
-apps/Deployment
--
-sigms-motor-decisao
-3 days ago   06/12/26
- Degraded   Synced
-ReplicaSet
-rs
-sigms-motor-decisao-des-6bcd595699
-apps/ReplicaSet
--
-sigms-motor-decisao
-3 days ago   06/12/26
- Progressing  
-EndpointSlice
-endpointslice
-sigms-motor-decisao-des-q84wp
-discovery.k8s.io/EndpointSlice
--
-sigms-motor-decisao
-3 days ago   06/12/26
-Previous12Next
-Items per page: 10 
-
-Podpod
-sigms-motor-decisao-des-647ff56445-k5dd7
- SUMMARY EVENTS LOGS
-KIND
-Pod
-NAME
-sigms-motor-decisao-des-647ff56445-k5dd7   
-NAMESPACE
-sigms-motor-decisao   
-CREATED AT
-06/12/2026 11:15:01 (3 days ago)
-IMAGES
-acrcentralcaixanprd.azurecr.io/sigms/motor-decisao/sigms-motor-decisao:27421025665
-STATE
-Pending
-HEALTH
- Progressing
-LINKS
-Live Manifest
-
-Hide Managed FieldsEnable Word Wrap
-123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102103104105106107108109110111112113114115116117118119120121122123124125126127128129130131132133134135136137138
-apiVersion: v1
-kind: Pod
-metadata:
-  creationTimestamp: '2026-06-12T14:15:01Z'
-  generateName: sigms-motor-decisao-des-647ff56445-
-  generation: 1
-  labels:
-    app.kubernetes.io/app: sigms-motor-decisao-des
-    app.kubernetes.io/instance: sigms-motor-decisao-des
-    app.kubernetes.io/managed-by: Helm
+  strategy:
+    maxSurge: 25%
+    maxUnavailable: 50%
 
 
+#-----------#
+#  SERVICE  #
+#-----------#
+  
+  service:
+    type: "ClusterIP"
+    ports:
+      - name: "port"
+        protocol: TCP
+        port: 80
+        targetPort: 8080
 
+#---------#
+# INGRESS #
+#---------#
+  ingress:
+    - name: internal
+      enabled: true
+      className: "azure-application-gateway"
+      annotations:
+        appgw.ingress.kubernetes.io/backend-path-prefix: "/"
+        appgw.ingress.kubernetes.io/backend-protocol: "http"
+        appgw.ingress.kubernetes.io/request-timeout: "60"
+        appgw.ingress.kubernetes.io/ssl-redirect: "false"
+        appgw.ingress.kubernetes.io/connection-draining: "true"
+        appgw.ingress.kubernetes.io/connection-draining-timeout: "60"
+        appgw.ingress.kubernetes.io/use-private-ip: "true"
+      rules:
+        # variavel do nome do projeto
+        - host: "sigms-motor-decisao.apl.des-nprd.private.azure"
+          paths:
+            - path: "/"
+              targetPort: 80 
+  
+#-------------#
+#  RESOURCES  #
+#-------------#
+
+  resources:
+    requests:
+      cpu: 250m
+      memory: 256Mi
+    limits:
+      cpu: 500m
+      memory: 512Mi
+
+
+#----------#
+#  PROBES  #
+#----------#
+
+  probes:  
+    enabled: true
+    useDefaults: false  
+    livenessProbe: 
+      initialDelaySeconds: 30
+      periodSeconds: 15
+      failureThreshold: 10
+      successThreshold: 1
+      httpGet:
+        path: /q/health/live     
+        port: 8080
+    readinessProbe: 
+      initialDelaySeconds: 15
+      periodSeconds: 15
+      failureThreshold: 3
+      successThreshold: 1
+      httpGet:
+        path: /q/health/ready     
+        port: 8080
+
+
+#-------------#
+#  CONFIGMAP  #
+#-------------#
+
+  configMapRefs:
+    - name: cm-sigms-motor-decisao
+#---------------#
+#  TOLERATIONS  #
+#---------------#
+
+  tolerations:
+    - key: "kubernetes.azure.com/scalesetpriority"
+      effect: "NoSchedule"
+      operator: "Equal"
+      value: "spot"
+    - key: "nuvem.caixa/nodepoolname"
+      effect: "NoSchedule"
+      operator: "Equal"
+      value: ""
+
+#-------------# 
+#   SECRETS   # 
+#-------------# 
+
+#  secretRefs:
+#  env:
+#    - name: <NOME_DA_VARIAVEL_NA_APLICACAO>
+#      value: akvs-sigms-motor-decisao@azurekeyvault
