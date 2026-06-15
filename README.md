@@ -1,160 +1,107 @@
-{
-  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1,
-  "newProjectRoot": "projects",
-  "projects": {
-    "sifap-front-v2": {
-      "projectType": "application",
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss"
-        }
-      },
-      "root": "",
-      "sourceRoot": "src",
-      "prefix": "app",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:application",
-          "options": {
-            "outputPath": "dist",
-            "index": "src/index.html",
-            "browser": "src/main.ts",
-            "polyfills": ["zone.js"],
-            "tsConfig": "tsconfig.app.json",
-            "inlineStyleLanguage": "scss",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/styles.scss",
-              "node_modules/sidsc-components/styles/main.scss"
-            ],
-            "scripts": [],
-            "allowedCommonJsDependencies": [
-              "style-loader",
-              "base-64",
-              "moment",
-              "utf8",
-              "!../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js",
-              "!../node_modules/style-loader/dist/runtime/insertBySelector.js",
-              "!../node_modules/style-loader/dist/runtime/insertStyleElement.js",
-              "!../node_modules/style-loader/dist/runtime/styleTagTransform.js",
-              "!../node_modules/style-loader/dist/runtime/styleDomAPI.js",
-              "!../node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js"
-            ]
-          },
-          "configurations": {
-            "production": {
-              "optimization": true,
-              "extractLicenses": false,
-              "sourceMap": false,
-              "namedChunks": false,
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "10kb"
-                }
-              ],
-              "outputHashing": "all"
-            },
-            "development": {
-              "optimization": false,
-              "extractLicenses": false,
-              "sourceMap": true,
-              "namedChunks": true,
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment-dev.ts"
-                }
-              ]
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
-          "configurations": {
-            "production": {
-              "buildTarget": "sifap-front-v2:build:production"
-            },
-            "development": {
-              "buildTarget": "sifap-front-v2:build:development"
-            }
-          },
-          "defaultConfiguration": "development"
-        },
-        "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "buildTarget": "sifap-front-v2:build"
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "polyfills": ["zone.js", "zone.js/testing"],
-            "tsConfig": "tsconfig.spec.json",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/styles.scss"
-            ],
-            "scripts": []
-          }
-        },
-        "e2e": {
-          "builder": "@angular-devkit/build-angular:protractor",
-          "options": {
-            "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "sifap-front-v2:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "sifap-front-v2:serve:production"
-            }
-          }
-        }
-      }
-    }
-  },
-  "cli": {
-    "analytics": false
-  },
-  "schematics": {
-    "@schematics/angular:component": {
-      "type": "component"
-    },
-    "@schematics/angular:directive": {
-      "type": "directive"
-    },
-    "@schematics/angular:service": {
-      "type": "service"
-    },
-    "@schematics/angular:guard": {
-      "typeSeparator": "."
-    },
-    "@schematics/angular:interceptor": {
-      "typeSeparator": "."
-    },
-    "@schematics/angular:module": {
-      "typeSeparator": "."
-    },
-    "@schematics/angular:pipe": {
-      "typeSeparator": "."
-    },
-    "@schematics/angular:resolver": {
-      "typeSeparator": "."
-    }
-  }
-}
+Tem uma rota em TQS, com o location https://integra.iniciadora.caixa.gov.br/  apontando para o service do siinp-nucleo-tqs.
+
+Ao tentar chamar no postman, quando eu passo, por exemplo: POST https://integra.iniciadora.caixa.gov.br/inic-pagto/nucleo/v1/jornada Eu tomo um 405.
+
+
+<html>
+<head>
+    <title>405 Not Allowed</title>
+</head>
+<body>
+    <center>
+        <h1>405 Not Allowed</h1>
+    </center>
+    <hr>
+    <center>nginx/1.24.0</center>
+</body>
+</html>
+
+
+Somente passando o /api, como sufixo, que conseguimos ver chamada ao backend. exemplo:  https://integra.iniciadora.caixa.gov.br/api/inic-pagto/nucleo/v1/jornada, mas a aplicação não espera o"/api" e quebra com erro 500.
+
+Precisamos de suporte para configurar a rota, que ao ser chamada, chegue ao backend com o path /inic-pagto/nucleo/v1/jornada, por exemplo.
+
+
+me ajuda com a nota para fechar a w.o informado que o ajuste foi relaizado 
+
+OKD
+
+
+Jesse Mouta Pereira Batista
+
+Administrator
+Home
+Overview
+Projects
+Search
+API Explorer
+Events
+Operators
+OperatorHub
+Installed Operators
+Workloads
+Pods
+Deployments
+DeploymentConfigs
+StatefulSets
+Secrets
+ConfigMaps
+CronJobs
+Jobs
+DaemonSets
+ReplicaSets
+ReplicationControllers
+HorizontalPodAutoscalers
+PodDisruptionBudgets
+Networking
+Services
+Routes
+Ingresses
+NetworkPolicies
+Storage
+Builds
+Observe
+Compute
+User Management
+Administration
+
+Project: siinp-tqs
+Routes
+
+Filter
+
+Name
+integra
+/
+Name
+integra
+
+Name
+Status	
+Location
+
+Service
+Route
+RT
+integra.iniciadora
+Accepted
+https://integra.iniciadora.caixa.gov.br/ Copy to clipboard
+Service
+S
+siinp-nucleo-web-tqs
+
+Route
+RT
+integra.iniciadora-api
+Accepted
+https://integra.iniciadora.caixa.gov.br/api Copy to clipboard
+Service
+S
+siinp-nucleo-tqs
+
+
+
+aqui ja aparecem, ficando agora aguradadn o validadçao da comunidade. 
+
+
+preciso fechar a w.o pois ela tem horario para vencer.. e como eles nao respoderam em sala acrediot que amanha respondam
