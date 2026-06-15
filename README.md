@@ -1,92 +1,495 @@
-RELATORIO TECNICO - WO SIGMS MOTOR DECISAO
+me ajdua a fazer esse teste e resolver esse problema
 
-Aplicacao: sigms-motor-decisao-des
-Ambiente: Desenvolvimento (DES)
-Cluster: aks-push-nprd
-Data: 15/06/2026
+Boa tarde 
+Thiago Rafael Cavalcante Pereira, tudo bem?
+O Saymon me acionou agora a pouco, solicitando um técnico para fazer alguns testes nas rotas do OKD de TQS (Aplicação SIINP)
+ 
+Podemos agendar agora a tarde?
+Saymom de Oliveira Ramalho providencia uma REQ por favor e postar aqui na sala o numero
 
-RESUMO
 
-A aplicacao sigms-motor-decisao-des estava com pods em estado Degraded e Progressing. O problema foi diagnosticado e resolvido em duas fases.
+pessoal, no caso é o siinp-nucleo-tqs.
+ 
+Tem uma rota em TQS, com o location https://integra.iniciadora.caixa.gov.br/  apontando para o service do siinp-nucleo-tqs.
+ 
+Ao tentar chamar no postman, quando eu passo, por exemplo: POST https://integra.iniciadora.caixa.gov.br/inic-pagto/nucleo/v1/jornada Eu tomo um 405. 
+ 
+ 
+XML
+<html>
+<head>
+    <title>405 Not Allowed</title>
+</head>
+<body>
+    <center>
+        <h1>405 Not Allowed</h1>
+    </center>
+    <hr>
+    <center>nginx/1.24.0</center>
+</body>
+</html>
+ 
+Vale lembrar que a url original era com /api no path da Rota. Foi solicitada a retirada via REQ, pois estava chamando o backend com o /api na frente do endpoint, o que não é esperado pela aplicação, causando erro 500.
+ 
+Ainda assim, somente passando o /api que conseguimos ver chamada ao backend. exemplo:  https://integra.iniciadora.caixa.gov.br/api/inic-pagto/nucleo/v1/jornada
 
-PROBLEMA 1 - RESOLVIDO
 
-O arquivo config.yaml tinha a toleracao configurada com valor vazio:
+ OKD
 
-tolerations:
-  - key: nuvem.caixa/nodepoolname
-    effect: NoSchedule
-    operator: Equal
-    value: ""
 
-Isso impedia que o pod fosse alocado em qualquer no do cluster, pois nenhum no tinha um taint correspondente com valor vazio.
+Jesse Mouta Pereira Batista
 
-Resolucao: Preenchimento do valor vazio com o node pool correto identificado no Azure Portal: appsigms
+Administrator
+Home
+Overview
+Projects
+Search
+API Explorer
+Events
+Operators
+OperatorHub
+Installed Operators
+Workloads
+Pods
+Deployments
+DeploymentConfigs
+StatefulSets
+Secrets
+ConfigMaps
+CronJobs
+Jobs
+DaemonSets
+ReplicaSets
+ReplicationControllers
+HorizontalPodAutoscalers
+PodDisruptionBudgets
+Networking
+Storage
+Builds
+Observe
+Compute
+User Management
+Administration
 
-tolerations:
-  - key: nuvem.caixa/nodepoolname
-    effect: NoSchedule
-    operator: Equal
-    value: appsigms
+Project: siinp-tqs
+Pods
 
-Resultado: Pod foi alocado com sucesso no node aks-appsigms-38096017-vmss00008v e esta sendo criado corretamente.
+Filter
 
-Status: RESOLVIDO
+Name
+siip-nucleo-tqs
+/
+Name
+siip-nucleo-tqs
 
-PROBLEMA 2 - ACAO NECESSARIA PARA TIME DESENVOLVIMENTO
+Name
 
-Apos o primeiro problema ser resolvido, o pod iniciou mas os health checks comecaram a falhar com erro 404 nos endpoints de liveness e readiness probe.
+Status
 
-Analise dos logs da aplicacao revelou:
+Ready
 
-ERROR Driver does not support the provided URL: jdbc:oracle:thin:@cnpexdadvm01-scan8.extra.caixa.gov.br:1521/orad01bc
+Restarts
 
-Causa: O driver Oracle JDBC nao esta incluido na imagem Docker. A aplicacao esta tentando usar oracle.jdbc.driver.OracleDriver mas o JAR nao existe dentro do container.
+Owner
 
-Configuracao do banco de dados foi validada e esta correta no ConfigMap cm-sigms-motor-decisao:
+Memory
 
-QUARKUS_DATASOURCE_DRIVER: oracle.jdbc.driver.OracleDriver
-QUARKUS_DATASOURCE_URL: jdbc:oracle:thin:@cnpexdadvm01-scan8.extra.caixa.gov.br:1521/orad01bc
-QUARKUS_DATASOURCE_USERNAME: SGMSDS01
-QUARKUS_DATASOURCE_PASSWORD: npjJW4
+CPU
 
-Proxy esta configurado corretamente. O unico problema e a ausencia do driver Oracle JDBC na imagem.
+Created
+Pod
+P
+siinp-nucleo-tqs2-tqs-33-deploy
+Completed
+0/1	0	
+ReplicationController
+RC
+siinp-nucleo-tqs2-tqs-33
+-	-	
+11 de jun. de 2026, 14:19
 
-Status: PENDENTE - REQUER ACAO DO TIME DESENVOLVIMENTO
+Pod
+P
+siinp-nucleo-tqs2-tqs-34-7sspn
+Running
+1/1	0	
+ReplicationController
+RC
+siinp-nucleo-tqs2-tqs-34
+2.258,9 MiB	0,001 cores	
+11 de jun. de 2026, 15:10
 
-O QUE O TIME DE DESENVOLVIMENTO PRECISA FAZER
+Pod
+P
+siinp-nucleo-tqs2-tqs-34-deploy
+Completed
+0/1	0	
+ReplicationController
+RC
+siinp-nucleo-tqs2-tqs-34
+-	-	
+11 de jun. de 2026, 15:09
 
-1. Adicionar dependencia Oracle JDBC ao pom.xml do projeto sigms-motor-decisao-infranprd:
+Pod
+P
+siinp-nucleo-tqs2-tqs-34-rc4bz
+Running
+1/1	0	
+ReplicationController
+RC
+siinp-nucleo-tqs2-tqs-34
+2.932,6 MiB	0,001 cores	
+11 de jun. de 2026, 15:09
 
-<dependency>
-    <groupId>com.oracle.database.jdbc</groupId>
-    <artifactId>ojdbc11</artifactId>
-    <version>23.2.0.0</version>
-</dependency>
+Pod
+P
+siinp-nucleo-tqs-512-deploy
+Completed
+0/1	0	
+ReplicationController
+RC
+siinp-nucleo-tqs-512
+-	-	
+12 de jun. de 2026, 15:38
 
-2. Fazer rebuild da imagem Docker com a nova dependencia
+Pod
+P
+siinp-nucleo-tqs-513-7hgs9
+Running
+1/1	0	
+ReplicationController
+RC
+siinp-nucleo-tqs-513
+1.113,2 MiB	0,001 cores	
+15 de jun. de 2026, 11:37
 
-3. Push da nova imagem para o Azure Container Registry
+Pod
+P
+siinp-nucleo-tqs-513-58zt9
+Running
+1/1	0	
+ReplicationController
+RC
+siinp-nucleo-tqs-513
+1.178,7 MiB	0,001 cores	
+15 de jun. de 2026, 11:38
 
-4. Atualizar a tag da imagem no config.yaml do repositorio
+Pod
+P
+siinp-nucleo-tqs-513-deploy
+Completed
+0/1	0	
+ReplicationController
+RC
+siinp-nucleo-tqs-513
+-	-	
+15 de jun. de 2026, 11:37
 
-5. Fazer commit e push das alteracoes para o Git
+Pod
+P
+siinp-nucleo-web-tqs2-tqs-42-deploy
+Completed
+0/1	0	
+ReplicationController
+RC
+siinp-nucleo-web-tqs2-tqs-42
+-	-	
+15 de jun. de 2026, 09:02
 
-6. Validar sincronizacao no Argo CD e confirmar que os health checks estao passando
+Pod
+P
+siinp-nucleo-web-tqs2-tqs-43-ddn89
+Running
+2/2	0	
+ReplicationController
+RC
+siinp-nucleo-web-tqs2-tqs-43
+39,8 MiB	0,000 cores	
+15 de jun. de 2026, 09:29
 
-RESUMO DAS ACOES REALIZADAS PELO DEVOPS
+Pod
+P
+siinp-nucleo-web-tqs2-tqs-43-deploy
+Completed
+0/1	0	
+ReplicationController
+RC
+siinp-nucleo-web-tqs2-tqs-43
+-	-	
+15 de jun. de 2026, 09:29
 
-- Verificou node pools no Azure Portal
-- Identificou appsigms como node pool correto
-- Atualizou config.yaml com a toleracao preenchida
-- Argo CD sincronizou automaticamente
-- Pod foi alocado com sucesso
-- Diagnosticou problema do driver Oracle JDBC ausente
+Pod
+P
+siinp-nucleo-web-tqs-186-deploy
+Completed
+0/1	0	
+ReplicationController
+RC
+siinp-nucleo-web-tqs-186
+-	-	
+23 de abr. de 2026, 14:30
 
-PROXIMA ETAPA
+Pod
+P
+siinp-nucleo-web-tqs-187-deploy
+Completed
+0/1	0	
+ReplicationController
+RC
+siinp-nucleo-web-tqs-187
+-	-	
+15 de mai. de 2026, 17:45
 
-Aguardar que o time de desenvolvimento implemente as acoes descritas acima para incluir o driver Oracle JDBC na imagem Docker. Apos isso, a aplicacao devera iniciar corretamente e os health checks comecaram a funcionar.
+Pod
+P
+siinp-nucleo-web-tqs-187-k5vfz
+Running
+2/2	0	
+ReplicationController
+RC
+siinp-nucleo-web-tqs-187
+61,7 MiB	0,000 cores	
+15 de mai. de 2026, 17:45
 
-CONCLUSAO
 
-Problema inicial foi resolvido no escopo de DevSecOps. O pod agora esta sendo alocado corretamente no node pool apropriado. O novo problema encontrado e de escopo de desenvolvimento e requer inclusao de dependencia no pom.xml e rebuild da imagem Docker.
+OKD
+
+
+Jesse Mouta Pereira Batista
+
+Administrator
+Home
+Overview
+Projects
+Search
+API Explorer
+Events
+Operators
+OperatorHub
+Installed Operators
+Workloads
+Pods
+Deployments
+DeploymentConfigs
+StatefulSets
+Secrets
+ConfigMaps
+CronJobs
+Jobs
+DaemonSets
+ReplicaSets
+ReplicationControllers
+HorizontalPodAutoscalers
+PodDisruptionBudgets
+Networking
+Services
+Routes
+Ingresses
+NetworkPolicies
+Storage
+Builds
+Observe
+Compute
+User Management
+Administration
+
+Project: siinp-tqs
+Routes
+
+Filter
+
+Name
+Search by name...
+/
+
+Name
+Status	
+Location
+
+Service
+Route
+RT
+integra.iniciadora
+Accepted
+https://integra.iniciadora.caixa.gov.br/ Copy to clipboard
+Service
+S
+siinp-nucleo-tqs
+
+Route
+RT
+integra.iniciadora.caixa.gov.br
+Accepted
+https://integra.iniciadora.caixa.gov.br Copy to clipboard
+Service
+S
+siinp-nucleo-web-tqs
+
+Route
+RT
+siinp-gestao-tqs
+Accepted
+https://siinp-gestao-tqs.apps.nprd.caixa Copy to clipboard
+Service
+S
+siinp-gestao-tqs
+
+Route
+RT
+siinp-gestao-web-tqs
+Accepted
+https://siinp-gestao-web-tqs.apps.nprd.caixa Copy to clipboard
+Service
+S
+siinp-gestao-web-tqs
+
+Route
+RT
+siinp-nucleo-tqs
+Accepted
+https://siinp-nucleo-tqs.apps.nprd.caixa Copy to clipboard
+Service
+S
+siinp-nucleo-tqs
+
+Route
+RT
+siinp-nucleo-tqs2-tqs
+Accepted
+https://siinp-nucleo-tqs2-tqs.apps.nprd.caixa Copy to clipboard
+Service
+S
+siinp-nucleo-tqs2-tqs
+
+Route
+RT
+siinp-nucleo-web-tqs
+Accepted
+https://siinp-nucleo-web-tqs.apps.nprd.caixa Copy to clipboard
+Service
+S
+siinp-nucleo-web-tqs
+
+Route
+RT
+siinp-nucleo-web-tqs2-tqs
+Accepted
+https://siinp-nucleo-web-tqs2-tqs.apps.nprd.caixa Copy to clipboard
+Service
+S
+siinp-nucleo-web-tqs2-tqs
+
+
+
+OKD
+
+
+Jesse Mouta Pereira Batista
+
+Administrator
+Home
+Overview
+Projects
+Search
+API Explorer
+Events
+Operators
+OperatorHub
+Installed Operators
+Workloads
+Pods
+Deployments
+DeploymentConfigs
+StatefulSets
+Secrets
+ConfigMaps
+CronJobs
+Jobs
+DaemonSets
+ReplicaSets
+ReplicationControllers
+HorizontalPodAutoscalers
+PodDisruptionBudgets
+Networking
+Services
+Routes
+Ingresses
+NetworkPolicies
+Storage
+Builds
+Observe
+Compute
+User Management
+Administration
+
+Project: siinp-tqs
+Routes
+Route details
+Route
+RT
+siinp-nucleo-tqs
+Accepted
+
+Actions
+Details
+Metrics
+YAML
+Route details
+siinp-nucleo-tqs
+Namespace
+NS
+siinp-tqs
+app
+=
+siinp-nucleo-tqs
+application
+=
+siinp-nucleo-tqs
+template
+=
+quarkus-caixa-release
+Service
+S
+siinp-nucleo-tqs
+web
+26 de abr. de 2023, 12:27
+No owner
+Location
+https://siinp-nucleo-tqs.apps.nprd.caixa Copy to clipboard
+Status
+Accepted
+siinp-nucleo-tqs.apps.nprd.caixa
+-
+router-default.apps.nprd.caixa
+TLS settings
+edge
+Redirect
+-
+Key
+-
+-
+Router: default
+siinp-nucleo-tqs.apps.nprd.caixa
+None
+router-default.apps.nprd.caixa
+Conditions
+TypeStatusUpdatedReasonMessage
+AdmittedTrue
+26 de abr. de 2023, 12:27
+--
+}
+
+estou logado no okd.
+
+
+$
+-sh-4.2$
+-sh-4.2$ oc project siinp-tqs
+Now using project "siinp-tqs" on server "https://api.nprd.caixa:6443".
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+
+
+caso seja mais faciil rodar comandos.
+
