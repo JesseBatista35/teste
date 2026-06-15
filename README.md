@@ -18,3 +18,15 @@ Authorization: Bearer {seu_token_aqui}
 Ou também pode usar: https://integra.iniciadora.caixa.gov.br/inic-pagto/nucleo/v1/jornada
 Por favor, confirmem o resultado do teste.
 Abraços.
+
+
+
+
+o front né? apontava pro nucleo-web. 
+ 
+isso
+ 
+por isso que eu falei pra manter o /api no back e retirar na anotação
+ 
+porque vamos precisar da rota pro front também
+ 
