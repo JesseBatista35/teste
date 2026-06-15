@@ -1,5 +1,10 @@
-A rota integra.iniciadora.caixa.gov.br precisa servir tanto o frontend quanto a API. A solução dele é inteligente:
+oc delete route integra.iniciadora -n siinp-tqs
 
-Manter o /api no backend
-Usar rewrite-target na rota para remover o /api antes de chegar no backend
-Assim a mesma rota externa serve os dois
+oc create route edge integra.iniciadora \
+  --service=siinp-nucleo-web-tqs \
+  --hostname=integra.iniciadora.caixa.gov.br \
+  -n siinp-tqs
+
+oc annotate route integra.iniciadora \
+  haproxy.router.openshift.io/rewrite-target=/api \
+  -n siinp-tqs --overwrite
