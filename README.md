@@ -1,3 +1,11 @@
-opa, chamando https://integra.iniciadora.caixa.gov.br/api/inic-pagto/nucleo/v1/jornada parece que ele está acrescentando o /api na chamada ao back: http://siinp-nucleo-tqs.apps.nprd.caixa/api/api/inic-pagto/nucleo/v1/jornada aí ta duplicando.
- 
-mas o esperado era chamar https://integra.iniciadora.caixa.gov.br/api/inic-pagto/nucleo/v1/jornada e no back inibir
+oc delete route integra.iniciadora -n siinp-tqs
+
+oc create route edge integra.iniciadora \
+  --service=siinp-nucleo-web-tqs \
+  --hostname=integra.iniciadora.caixa.gov.br \
+  --path=/api \
+  -n siinp-tqs
+
+oc annotate route integra.iniciadora \
+  haproxy.router.openshift.io/rewrite-target=/ \
+  -n siinp-tqs --overwrite
