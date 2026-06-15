@@ -1,4 +1,3 @@
-oc create route edge integra.iniciadora --service=siinp-nucleo-web-tqs --hostname=integra.iniciadora.caixa.gov.br -n siinp-tqs
-
-
-oc annotate route integra.iniciadora haproxy.router.openshift.io/rewrite-target=/api -n siinp-tqs --overwrite
+curl -v -X POST https://integra.iniciadora.caixa.gov.br/inic-pagto/nucleo/v1/jornada \
+  -H "Content-Type: application/json" \
+  -d '{"valor": "25.00"}' -k
