@@ -1,7 +1,11 @@
--sh-4.2$ curl -v -X POST https://integra.iniciadora.caixa.gov.br/inic-pagto/nucleo/v1/jornada \
->   -H "Content-Type: application/json" \
->   -d '{"valor": "25.00"}' -k
-* About to connect() to integra.iniciadora.caixa.gov.br port 443 (#0)
-*   Trying 200.201.168.58...
-^C
--sh-4.2$
+oc port-forward svc/siinp-nucleo-tqs 8080:8080 &
+sleep 2
+curl -X POST http://localhost:8080/inic-pagto/nucleo/v1/jornada \
+  -H "Content-Type: application/json" \
+  -d '{"valor": "25.00"}'
+
+
+
+  curl -v -X POST https://siinp-nucleo-tqs.apps.nprd.caixa/inic-pagto/nucleo/v1/jornada \
+  -H "Content-Type: application/json" \
+  -d '{"valor": "25.00"}' -k
