@@ -1,118 +1,92 @@
-apiVersion: v1
-data:
-  API_KEY: ''
-  FACEBOOK_API_MP_REST_PROXYADDRESS: http://internet.caixa:80
-  FACEBOOK_API_MP_REST_SCOPE: javax.inject.Singleton
-  FACEBOOK_API_MP_REST_URL: https://graph.facebook.com
-  HTTPS_PROXY: http://proxydes.caixa:80
-  HTTP_PROXY: http://proxydes.caixa:80
-  ID_FACEBOOK: '170149100323010'
-  MP_JWT_VERIFY_ISSUER: >-
-    https://login.des.caixa/auth/realms/intranet,https://logindes.caixa.gov.br/auth/realms/r_inter_siper
-  NO_PROXY: .caixa,.caixa.gov.br,10.0.0.0/8
-  PA_BD: npjJW4
-  PROXY_HOST: proxydes.caixa
-  PROXY_PORT: '80'
-  QUARKUS_DATASOURCE_DIALECT: org.hibernate.dialect.Oracle12cDialect
-  QUARKUS_DATASOURCE_DRIVER: oracle.jdbc.driver.OracleDriver
-  QUARKUS_DATASOURCE_KIND: other
-  QUARKUS_DATASOURCE_PASSWORD: ${PA_BD}
-  QUARKUS_DATASOURCE_URL: jdbc:oracle:thin:@cnpexdadvm01-scan8.extra.caixa.gov.br:1521/orad01bc
-  QUARKUS_DATASOURCE_USERNAME: SGMSDS01
-  QUARKUS_GRPC_SERVER_NETTY_KEEP_ALIVE_TIME: '30000'
-  QUARKUS_RESTEASY_PATH: /v3
-  QUARKUS_TLS_TRUST-ALL: 'true'
-  SIGMS_CONNECTION_TIMEOUT_MQ: '60000'
-  SIGMS_EXPIRATION_CHECK_MQ: '60000'
-  SIGMS_EXPIRY_TIMEOUT_MQ: '60000'
-  SIGMS_IDLE_TIMEOUT_MQ: '60000'
-  SIGMS_LISTA_FILAS_BATCH: >-
-    SIGMS.REQ.TRANSACAO_WHATS_BATCH,SIGMS.REQ.TRANSACAO_GENERICA_BATCH,SIGMS.REQ.TRANSACAO_FGTS_BATCH,SIGMS.REQ.TRANSACAO_FINANCEIRA_BATCH,SIGMS.REQ.ENVIO_LOTE_BATCH,SIGMS.REQ.TRANSACAO_PUSH_BATCH,SIGMS.REQ.PROCESSA_TRANSACAO_PUSH
-  SIGMS_LISTA_FILAS_QM1_TRANSACAO_FINANCEIRA: SIGMS.REQ.TRANSACAO_FINANCEIRA
-  SIGMS_LISTA_FILAS_QM1_TRANSACAO_SEGURANCA: SIGMS.REQ.ENVIO_SMS
-  SIGMS_LISTA_FILAS_QM2_TRANSACAO_GENERICA: >-
-    SIGMS.REQ.SMS_AUTORIZACAO_COMPRA_CREDITO,SIGMS.REQ.SMS_BENEFICIOS_SOCIAIS,SIGMS.REQ.SMS_BLOQUEIO_CARTAO_CREDITO,SIGMS.REQ.SMS_CADASTRO_CARTAO_CREDITO,SIGMS.REQ.SMS_CANCELAMENTO_CARTAO,SIGMS.REQ.SMS_CARTEIRA_ELETRONICA,SIGMS.REQ.SMS_CHEQUE,SIGMS.REQ.SMS_CHEQUE_ESPECIAL_NSGD,SIGMS.REQ.SMS_COBRANCA_BANCARIA,SIGMS.REQ.SMS_COD_ATIV_CONTRAT_CARTAO_CREDITO,SIGMS.REQ.SMS_CODIGO_ATIVACAO,SIGMS.REQ.SMS_CODIGO_ATIVACAO_CESTA_SERVICO,SIGMS.REQ.SMS_COMPRA_NEGADA_CREDITO,SIGMS.REQ.SMS_CREDITO_ROTATIVO,SIGMS.REQ.SMS_DESBLOQUEIO_CARTAO_CREDITO,SIGMS.REQ.SMS_EMISSAO_CARTAO,SIGMS.REQ.SMS_EMISSAO_CARTAO_CREDITO,SIGMS.REQ.SMS_FINANCEIRO_DEBITO,SIGMS.REQ.SMS_FINANCEIRO_DEBITO_ATM,SIGMS.REQ.SMS_FINANCEIRO_DEBITO_BCOBRASIL,SIGMS.REQ.SMS_FINANCEIRO_DEBITO_CXAQUI,SIGMS.REQ.SMS_FINANCEIRO_DEBITO_ELOIMPAR,SIGMS.REQ.SMS_FINANCEIRO_DEBITO_ELOPAR,SIGMS.REQ.SMS_FINANCEIRO_DEBITO_LOTERICO,SIGMS.REQ.SMS_FINANCEIRO_DEBITO_MAESTRO,SIGMS.REQ.SMS_FINANCEIRO_DEBITO_TECBAN,SIGMS.REQ.SMS_FINANCEIRO_DEBITO_VISAVEA,SIGMS.REQ.SMS_HABITACAO,SIGMS.REQ.SMS_INFORMACAO_CADASTRAL,SIGMS.REQ.SMS_INVESTIMENTO,SIGMS.REQ.SMS_MICROCREDITO,SIGMS.REQ.SMS_PAGAMENTO,SIGMS.REQ.SMS_PAGAMENTO_DIGITAL,SIGMS.REQ.SMS_PENHOR,SIGMS.REQ.SMS_PONTOS_CARTAO_CREDITO,SIGMS.REQ.SMS_RENEGOCIACAO_DIVIDAS,SIGMS.REQ.SMS_SEGURANCA,SIGMS.REQ.SMS_SEGURANCA_CARTAO_CREDITO,SIGMS.REQ.SMS_SENHA_CARTAO_CREDITO,SIGMS.REQ.SMS_SITUACAO_SAQUE_CREDITO,SIGMS.REQ.SMS_TRANSFERENCIA,SIGMS.REQ.SMS_TRANSFERENCIA_INTERNACIONAL
-  SIGMS_MAX_CONNECTIONS_MQ: '10'
-  SIGMS_MAX_SESSIONS_MQ: '10'
-  SIGMS_MOSTRAR_SQL: 'false'
-  SIGMS_QTD_THREADS: '2'
-  SIGMS_SSO_SENHA: ''
-  SIGMS_SSO_TIPO: client_credentials
-  SIGMS_SSO_USUARIO: cli-ser-gms
-  SIGMS_URL_ENVIO_MEDIA: https://sigms-enviar-des.apps.nprd.caixa
-  SIGMS_VALIDA_CPF_CNPJ: 'false'
-  SIGMS_WSMQ_CANAL_ALTA_01: SIGMS.QUARKUS.SVRCON
-  SIGMS_WSMQ_CANAL_ALTA_02: SIGMS.QUARKUS.SVRCON
-  SIGMS_WSMQ_ENDERECO_ALTA_01: 10.192.224.66
-  SIGMS_WSMQ_ENDERECO_ALTA_02: 10.192.224.66
-  SIGMS_WSMQ_PORTA_ALTA_01: '1420'
-  SIGMS_WSMQ_PORTA_ALTA_02: '1420'
-  SIGMS_WSMQ_QUEUEMANAGER_ALTA_01: QSDA
-  SIGMS_WSMQ_QUEUEMANAGER_ALTA_02: QSDA
-  SIGMS_WSMQ_USUARIO_ALTA: SGMSS01D
-  SIICO_API_MP_REST_API_KEY: ${API_KEY}
-  SIICO_API_MP_REST_SCOPE: javax.inject.Singleton
-  SIICO_API_MP_REST_URL: https://api.des.caixa:8443
-  SSO_API_MP_REST_SCOPE: javax.inject.Singleton
-  SSO_API_MP_REST_URL: https://login.des.caixa
-  TOKEN_FACEBOOK: ''
-  http_proxy: ${HTTP_PROXY}
-  https_proxy: ${HTTPS_PROXY}
-  id.facebook: ${ID_FACEBOOK}
-  no_proxy: ${NO_PROXY}
-  proxy.host: ${PROXY_HOST}
-  proxy.port: ${PROXY_PORT}
-  quarkus.datasource.db-kind: ${QUARKUS_DATASOURCE_KIND}
-  quarkus.datasource.jdbc.driver: ${QUARKUS_DATASOURCE_DRIVER}
-  quarkus.datasource.jdbc.url: ${QUARKUS_DATASOURCE_URL}
-  quarkus.datasource.password: ${QUARKUS_DATASOURCE_PASSWORD}
-  quarkus.datasource.username: ${QUARKUS_DATASOURCE_USERNAME}
-  quarkus.grpc.server.netty.keep-alive-time: ${QUARKUS_GRPC_SERVER_NETTY_KEEP_ALIVE_TIME}
-  quarkus.hibernate-orm.dialect: ${QUARKUS_DATASOURCE_DIALECT}
-  quarkus.hibernate-orm.log.sql: ${SIGMS_MOSTRAR_SQL}
-  quarkus.http.test-port: '8085'
-  quarkus.resteasy.path: ${QUARKUS_RESTEASY_PATH}
-  quarkus.tls.trust-all: ${QUARKUS_TLS_TRUST-ALL}
-  sigms.connection.timeout.mq: ${SIGMS_CONNECTION_TIMEOUT_MQ}
-  sigms.expirtion.check.mq: ${SIGMS_EXPIRATION_CHECK_MQ}
-  sigms.expiry.timeout.mq: ${SIGMS_EXPIRY_TIMEOUT_MQ}
-  sigms.idle.timeout.mq: ${SIGMS_IDLE_TIMEOUT_MQ}
-  sigms.lista.filas.batch: ${SIGMS_LISTA_FILAS_BATCH}
-  sigms.lista.filas.qm1.transacao_financeira: ${SIGMS_LISTA_FILAS_QM1_TRANSACAO_FINANCEIRA}
-  sigms.lista.filas.qm1.transacao_seguranca: ${SIGMS_LISTA_FILAS_QM1_TRANSACAO_SEGURANCA}
-  sigms.lista.filas.qm2.transacao_generica: ${SIGMS_LISTA_FILAS_QM2_TRANSACAO_GENERICA}
-  sigms.max.connections.mq: ${SIGMS_MAX_CONNECTIONS_MQ}
-  sigms.max.sessions.mq: ${SIGMS_MAX_SESSIONS_MQ}
-  sigms.qtd.thread: ${SIGMS_QTD_THREADS}
-  sigms.sso.senha: ${SIGMS_SSO_SENHA}
-  sigms.sso.tipo: ${SIGMS_SSO_TIPO}
-  sigms.sso.usuario: ${SIGMS_SSO_USUARIO}
-  sigms.url.envio.media: ${SIGMS_URL_ENVIO_MEDIA}
-  sigms.valida.cpf.cnpj: ${SIGMS_VALIDA_CPF_CNPJ}
-  sigms.wsmq.canal.alta.01: ${SIGMS_WSMQ_CANAL_ALTA_01}
-  sigms.wsmq.canal.alta.02: ${SIGMS_WSMQ_CANAL_ALTA_02}
-  sigms.wsmq.endereco.alta.01: ${SIGMS_WSMQ_ENDERECO_ALTA_01}
-  sigms.wsmq.endereco.alta.02: ${SIGMS_WSMQ_ENDERECO_ALTA_02}
-  sigms.wsmq.porta.alta.01: ${SIGMS_WSMQ_PORTA_ALTA_01}
-  sigms.wsmq.porta.alta.02: ${SIGMS_WSMQ_PORTA_ALTA_02}
-  sigms.wsmq.queuemanager.alta.01: ${SIGMS_WSMQ_QUEUEMANAGER_ALTA_01}
-  sigms.wsmq.queuemanager.alta.02: ${SIGMS_WSMQ_QUEUEMANAGER_ALTA_02}
-  sigms.wsmq.usuario.alta: ${SIGMS_WSMQ_USUARIO_ALTA}
-  token.facebook: ${TOKEN_FACEBOOK}
-kind: ConfigMap
-metadata:
-  annotations:
-    kubectl.kubernetes.io/last-applied-configuration: >
-      {"apiVersion":"v1","data":{"API_KEY":"","FACEBOOK_API_MP_REST_PROXYADDRESS":"http://internet.caixa:80","FACEBOOK_API_MP_REST_SCOPE":"javax.inject.Singleton","FACEBOOK_API_MP_REST_URL":"https://graph.facebook.com","HTTPS_PROXY":"http://proxydes.caixa:80","HTTP_PROXY":"http://proxydes.caixa:80","ID_FACEBOOK":"170149100323010","MP_JWT_VERIFY_ISSUER":"https://login.des.caixa/auth/realms/intranet,https://logindes.caixa.gov.br/auth/realms/r_inter_siper","NO_PROXY":".caixa,.caixa.gov.br,10.0.0.0/8","PA_BD":"npjJW4","PROXY_HOST":"proxydes.caixa","PROXY_PORT":"80","QUARKUS_DATASOURCE_DIALECT":"org.hibernate.dialect.Oracle12cDialect","QUARKUS_DATASOURCE_DRIVER":"oracle.jdbc.driver.OracleDriver","QUARKUS_DATASOURCE_KIND":"other","QUARKUS_DATASOURCE_PASSWORD":"${PA_BD}","QUARKUS_DATASOURCE_URL":"jdbc:oracle:thin:@cnpexdadvm01-scan8.extra.caixa.gov.br:1521/orad01bc","QUARKUS_DATASOURCE_USERNAME":"SGMSDS01","QUARKUS_GRPC_SERVER_NETTY_KEEP_ALIVE_TIME":"30000","QUARKUS_RESTEASY_PATH":"/v3","QUARKUS_TLS_TRUST-ALL":"true","SIGMS_CONNECTION_TIMEOUT_MQ":"60000","SIGMS_EXPIRATION_CHECK_MQ":"60000","SIGMS_EXPIRY_TIMEOUT_MQ":"60000","SIGMS_IDLE_TIMEOUT_MQ":"60000","SIGMS_LISTA_FILAS_BATCH":"SIGMS.REQ.TRANSACAO_WHATS_BATCH,SIGMS.REQ.TRANSACAO_GENERICA_BATCH,SIGMS.REQ.TRANSACAO_FGTS_BATCH,SIGMS.REQ.TRANSACAO_FINANCEIRA_BATCH,SIGMS.REQ.ENVIO_LOTE_BATCH,SIGMS.REQ.TRANSACAO_PUSH_BATCH,SIGMS.REQ.PROCESSA_TRANSACAO_PUSH","SIGMS_LISTA_FILAS_QM1_TRANSACAO_FINANCEIRA":"SIGMS.REQ.TRANSACAO_FINANCEIRA","SIGMS_LISTA_FILAS_QM1_TRANSACAO_SEGURANCA":"SIGMS.REQ.ENVIO_SMS","SIGMS_LISTA_FILAS_QM2_TRANSACAO_GENERICA":"SIGMS.REQ.SMS_AUTORIZACAO_COMPRA_CREDITO,SIGMS.REQ.SMS_BENEFICIOS_SOCIAIS,SIGMS.REQ.SMS_BLOQUEIO_CARTAO_CREDITO,SIGMS.REQ.SMS_CADASTRO_CARTAO_CREDITO,SIGMS.REQ.SMS_CANCELAMENTO_CARTAO,SIGMS.REQ.SMS_CARTEIRA_ELETRONICA,SIGMS.REQ.SMS_CHEQUE,SIGMS.REQ.SMS_CHEQUE_ESPECIAL_NSGD,SIGMS.REQ.SMS_COBRANCA_BANCARIA,SIGMS.REQ.SMS_COD_ATIV_CONTRAT_CARTAO_CREDITO,SIGMS.REQ.SMS_CODIGO_ATIVACAO,SIGMS.REQ.SMS_CODIGO_ATIVACAO_CESTA_SERVICO,SIGMS.REQ.SMS_COMPRA_NEGADA_CREDITO,SIGMS.REQ.SMS_CREDITO_ROTATIVO,SIGMS.REQ.SMS_DESBLOQUEIO_CARTAO_CREDITO,SIGMS.REQ.SMS_EMISSAO_CARTAO,SIGMS.REQ.SMS_EMISSAO_CARTAO_CREDITO,SIGMS.REQ.SMS_FINANCEIRO_DEBITO,SIGMS.REQ.SMS_FINANCEIRO_DEBITO_ATM,SIGMS.REQ.SMS_FINANCEIRO_DEBITO_BCOBRASIL,SIGMS.REQ.SMS_FINANCEIRO_DEBITO_CXAQUI,SIGMS.REQ.SMS_FINANCEIRO_DEBITO_ELOIMPAR,SIGMS.REQ.SMS_FINANCEIRO_DEBITO_ELOPAR,SIGMS.REQ.SMS_FINANCEIRO_DEBITO_LOTERICO,SIGMS.REQ.SMS_FINANCEIRO_DEBITO_MAESTRO,SIGMS.REQ.SMS_FINANCEIRO_DEBITO_TECBAN,SIGMS.REQ.SMS_FINANCEIRO_DEBITO_VISAVEA,SIGMS.REQ.SMS_HABITACAO,SIGMS.REQ.SMS_INFORMACAO_CADASTRAL,SIGMS.REQ.SMS_INVESTIMENTO,SIGMS.REQ.SMS_MICROCREDITO,SIGMS.REQ.SMS_PAGAMENTO,SIGMS.REQ.SMS_PAGAMENTO_DIGITAL,SIGMS.REQ.SMS_PENHOR,SIGMS.REQ.SMS_PONTOS_CARTAO_CREDITO,SIGMS.REQ.SMS_RENEGOCIACAO_DIVIDAS,SIGMS.REQ.SMS_SEGURANCA,SIGMS.REQ.SMS_SEGURANCA_CARTAO_CREDITO,SIGMS.REQ.SMS_SENHA_CARTAO_CREDITO,SIGMS.REQ.SMS_SITUACAO_SAQUE_CREDITO,SIGMS.REQ.SMS_TRANSFERENCIA,SIGMS.REQ.SMS_TRANSFERENCIA_INTERNACIONAL","SIGMS_MAX_CONNECTIONS_MQ":"10","SIGMS_MAX_SESSIONS_MQ":"10","SIGMS_MOSTRAR_SQL":"false","SIGMS_QTD_THREADS":"2","SIGMS_SSO_SENHA":"","SIGMS_SSO_TIPO":"client_credentials","SIGMS_SSO_USUARIO":"cli-ser-gms","SIGMS_URL_ENVIO_MEDIA":"https://sigms-enviar-des.apps.nprd.caixa","SIGMS_VALIDA_CPF_CNPJ":"false","SIGMS_WSMQ_CANAL_ALTA_01":"SIGMS.QUARKUS.SVRCON","SIGMS_WSMQ_CANAL_ALTA_02":"SIGMS.QUARKUS.SVRCON","SIGMS_WSMQ_ENDERECO_ALTA_01":"10.192.224.66","SIGMS_WSMQ_ENDERECO_ALTA_02":"10.192.224.66","SIGMS_WSMQ_PORTA_ALTA_01":"1420","SIGMS_WSMQ_PORTA_ALTA_02":"1420","SIGMS_WSMQ_QUEUEMANAGER_ALTA_01":"QSDA","SIGMS_WSMQ_QUEUEMANAGER_ALTA_02":"QSDA","SIGMS_WSMQ_USUARIO_ALTA":"SGMSS01D","SIICO_API_MP_REST_API_KEY":"${API_KEY}","SIICO_API_MP_REST_SCOPE":"javax.inject.Singleton","SIICO_API_MP_REST_URL":"https://api.des.caixa:8443","SSO_API_MP_REST_SCOPE":"javax.inject.Singleton","SSO_API_MP_REST_URL":"https://login.des.caixa","TOKEN_FACEBOOK":"","http_proxy":"${HTTP_PROXY}","https_proxy":"${HTTPS_PROXY}","id.facebook":"${ID_FACEBOOK}","no_proxy":"${NO_PROXY}","proxy.host":"${PROXY_HOST}","proxy.port":"${PROXY_PORT}","quarkus.datasource.db-kind":"${QUARKUS_DATASOURCE_KIND}","quarkus.datasource.jdbc.driver":"${QUARKUS_DATASOURCE_DRIVER}","quarkus.datasource.jdbc.url":"${QUARKUS_DATASOURCE_URL}","quarkus.datasource.password":"${QUARKUS_DATASOURCE_PASSWORD}","quarkus.datasource.username":"${QUARKUS_DATASOURCE_USERNAME}","quarkus.grpc.server.netty.keep-alive-time":"${QUARKUS_GRPC_SERVER_NETTY_KEEP_ALIVE_TIME}","quarkus.hibernate-orm.dialect":"${QUARKUS_DATASOURCE_DIALECT}","quarkus.hibernate-orm.log.sql":"${SIGMS_MOSTRAR_SQL}","quarkus.http.test-port":"8085","quarkus.resteasy.path":"${QUARKUS_RESTEASY_PATH}","quarkus.tls.trust-all":"${QUARKUS_TLS_TRUST-ALL}","sigms.connection.timeout.mq":"${SIGMS_CONNECTION_TIMEOUT_MQ}","sigms.expirtion.check.mq":"${SIGMS_EXPIRATION_CHECK_MQ}","sigms.expiry.timeout.mq":"${SIGMS_EXPIRY_TIMEOUT_MQ}","sigms.idle.timeout.mq":"${SIGMS_IDLE_TIMEOUT_MQ}","sigms.lista.filas.batch":"${SIGMS_LISTA_FILAS_BATCH}","sigms.lista.filas.qm1.transacao_financeira":"${SIGMS_LISTA_FILAS_QM1_TRANSACAO_FINANCEIRA}","sigms.lista.filas.qm1.transacao_seguranca":"${SIGMS_LISTA_FILAS_QM1_TRANSACAO_SEGURANCA}","sigms.lista.filas.qm2.transacao_generica":"${SIGMS_LISTA_FILAS_QM2_TRANSACAO_GENERICA}","sigms.max.connections.mq":"${SIGMS_MAX_CONNECTIONS_MQ}","sigms.max.sessions.mq":"${SIGMS_MAX_SESSIONS_MQ}","sigms.qtd.thread":"${SIGMS_QTD_THREADS}","sigms.sso.senha":"${SIGMS_SSO_SENHA}","sigms.sso.tipo":"${SIGMS_SSO_TIPO}","sigms.sso.usuario":"${SIGMS_SSO_USUARIO}","sigms.url.envio.media":"${SIGMS_URL_ENVIO_MEDIA}","sigms.valida.cpf.cnpj":"${SIGMS_VALIDA_CPF_CNPJ}","sigms.wsmq.canal.alta.01":"${SIGMS_WSMQ_CANAL_ALTA_01}","sigms.wsmq.canal.alta.02":"${SIGMS_WSMQ_CANAL_ALTA_02}","sigms.wsmq.endereco.alta.01":"${SIGMS_WSMQ_ENDERECO_ALTA_01}","sigms.wsmq.endereco.alta.02":"${SIGMS_WSMQ_ENDERECO_ALTA_02}","sigms.wsmq.porta.alta.01":"${SIGMS_WSMQ_PORTA_ALTA_01}","sigms.wsmq.porta.alta.02":"${SIGMS_WSMQ_PORTA_ALTA_02}","sigms.wsmq.queuemanager.alta.01":"${SIGMS_WSMQ_QUEUEMANAGER_ALTA_01}","sigms.wsmq.queuemanager.alta.02":"${SIGMS_WSMQ_QUEUEMANAGER_ALTA_02}","sigms.wsmq.usuario.alta":"${SIGMS_WSMQ_USUARIO_ALTA}","token.facebook":"${TOKEN_FACEBOOK}"},"kind":"ConfigMap","metadata":{"annotations":{},"labels":{"app.kubernetes.io/instance":"sigms-motor-decisao-des","app.kubernetes.io/managed-by":"Helm","app.kubernetes.io/name":"sigms-motor-decisao-des","app.kubernetes.io/version":"1.16.0","backstage.io/kubernetes-id":"sigms-motor-decisao","helm.sh/chart":"caixa-base-chart-1.0.0"},"name":"cm-sigms-motor-decisao","namespace":"sigms-motor-decisao"}}
-  creationTimestamp: '2026-06-12T13:25:36Z'
-  labels:
-    app.kubernetes.io/instance: sigms-motor-decisao-des
-    app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/name: sigms-motor-decisao-des
-    app.kubernetes.io/version: 1.16.0
-    backstage.io/kubernetes-id: sigms-motor-decisao
-    helm.sh/chart: caixa-base-chart-1.0.0
-  name: cm-sigms-motor-decisao
-  namespace: sigms-motor-decisao
-  resourceVersion: '154340259'
-  uid: 1825fa8b-2175-4c97-a997-8c451e6bb21a
+RELATORIO TECNICO - WO SIGMS MOTOR DECISAO
+
+Aplicacao: sigms-motor-decisao-des
+Ambiente: Desenvolvimento (DES)
+Cluster: aks-push-nprd
+Data: 15/06/2026
+
+RESUMO
+
+A aplicacao sigms-motor-decisao-des estava com pods em estado Degraded e Progressing. O problema foi diagnosticado e resolvido em duas fases.
+
+PROBLEMA 1 - RESOLVIDO
+
+O arquivo config.yaml tinha a toleracao configurada com valor vazio:
+
+tolerations:
+  - key: nuvem.caixa/nodepoolname
+    effect: NoSchedule
+    operator: Equal
+    value: ""
+
+Isso impedia que o pod fosse alocado em qualquer no do cluster, pois nenhum no tinha um taint correspondente com valor vazio.
+
+Resolucao: Preenchimento do valor vazio com o node pool correto identificado no Azure Portal: appsigms
+
+tolerations:
+  - key: nuvem.caixa/nodepoolname
+    effect: NoSchedule
+    operator: Equal
+    value: appsigms
+
+Resultado: Pod foi alocado com sucesso no node aks-appsigms-38096017-vmss00008v e esta sendo criado corretamente.
+
+Status: RESOLVIDO
+
+PROBLEMA 2 - ACAO NECESSARIA PARA TIME DESENVOLVIMENTO
+
+Apos o primeiro problema ser resolvido, o pod iniciou mas os health checks comecaram a falhar com erro 404 nos endpoints de liveness e readiness probe.
+
+Analise dos logs da aplicacao revelou:
+
+ERROR Driver does not support the provided URL: jdbc:oracle:thin:@cnpexdadvm01-scan8.extra.caixa.gov.br:1521/orad01bc
+
+Causa: O driver Oracle JDBC nao esta incluido na imagem Docker. A aplicacao esta tentando usar oracle.jdbc.driver.OracleDriver mas o JAR nao existe dentro do container.
+
+Configuracao do banco de dados foi validada e esta correta no ConfigMap cm-sigms-motor-decisao:
+
+QUARKUS_DATASOURCE_DRIVER: oracle.jdbc.driver.OracleDriver
+QUARKUS_DATASOURCE_URL: jdbc:oracle:thin:@cnpexdadvm01-scan8.extra.caixa.gov.br:1521/orad01bc
+QUARKUS_DATASOURCE_USERNAME: SGMSDS01
+QUARKUS_DATASOURCE_PASSWORD: npjJW4
+
+Proxy esta configurado corretamente. O unico problema e a ausencia do driver Oracle JDBC na imagem.
+
+Status: PENDENTE - REQUER ACAO DO TIME DESENVOLVIMENTO
+
+O QUE O TIME DE DESENVOLVIMENTO PRECISA FAZER
+
+1. Adicionar dependencia Oracle JDBC ao pom.xml do projeto sigms-motor-decisao-infranprd:
+
+<dependency>
+    <groupId>com.oracle.database.jdbc</groupId>
+    <artifactId>ojdbc11</artifactId>
+    <version>23.2.0.0</version>
+</dependency>
+
+2. Fazer rebuild da imagem Docker com a nova dependencia
+
+3. Push da nova imagem para o Azure Container Registry
+
+4. Atualizar a tag da imagem no config.yaml do repositorio
+
+5. Fazer commit e push das alteracoes para o Git
+
+6. Validar sincronizacao no Argo CD e confirmar que os health checks estao passando
+
+RESUMO DAS ACOES REALIZADAS PELO DEVOPS
+
+- Verificou node pools no Azure Portal
+- Identificou appsigms como node pool correto
+- Atualizou config.yaml com a toleracao preenchida
+- Argo CD sincronizou automaticamente
+- Pod foi alocado com sucesso
+- Diagnosticou problema do driver Oracle JDBC ausente
+
+PROXIMA ETAPA
+
+Aguardar que o time de desenvolvimento implemente as acoes descritas acima para incluir o driver Oracle JDBC na imagem Docker. Apos isso, a aplicacao devera iniciar corretamente e os health checks comecaram a funcionar.
+
+CONCLUSAO
+
+Problema inicial foi resolvido no escopo de DevSecOps. O pod agora esta sendo alocado corretamente no node pool apropriado. O novo problema encontrado e de escopo de desenvolvimento e requer inclusao de dependencia no pom.xml e rebuild da imagem Docker.
