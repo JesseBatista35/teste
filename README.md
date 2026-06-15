@@ -1,3 +1,1 @@
-curl -X POST http://localhost:8080/inic-pagto/nucleo/v1/jornada \
-  -H "Content-Type: application/json" \
-  -d '{"valor": "25.00"}'
+Saymon, implementei conforme solicitado. A rota integra.iniciadora.caixa.gov.br agora aponta para siinp-nucleo-web-tqs com rewrite-target para /api, servindo tanto o frontend quanto a API.
