@@ -1,76 +1,339 @@
-=== TESTE NFS WO0000080696536 ===
-Servidor: caddeapllx1979.agil.nprd.caixa.gov.br
-IP: 192.168.242.150
-
-ssh caddeapllx1979.agil.nprd.caixa.gov.br
-sudo su -
-mount | grep simpg-tqs
-ping -c 5 192.168.224.1
-mount -a
-df -h | grep simpg-tqs
-ls -la /simpg-tqs/
-touch /simpg-tqs/teste_$(date +%s).txt
+ao verificar os pods eles não estão subindo corretamente apresentando erro de pod não sendo possível verificar os logs.
 
 
 
 
 
-✅ PERFEITO! Vou preparar TUDO pronto pra você!
+Argo
+v2.14.21+206a6ee
+Argo
+Applications
+Settings
+User Info
+Documentation
+Resource filters
+NAME
+NAME
+KINDS
+KINDS
+SYNC STATUS
+Synced
+9
+OutOfSync
+0
+HEALTH STATUS
+Progressing
+5
+Suspended
+0
+Healthy
+1
+Degraded
+1
+Missing
+0
+Unknown
+0
+NAMESPACES
+NAMESPACES
+Applications
+ sigms-motor-decisao-des
+Application Details List
+Log out
+APP HEALTH 
+ Degraded
+SYNC STATUS 
 
-📋 CHEAT SHEET - TESTE DO NFS
-SERVIDOR E CREDENCIAIS:
-Servidor: caddeapllx1979.agil.nprd.caixa.gov.br
-IP: 192.168.242.150 (VLAN 3697)
-NFS: nfsctcnprd.ctc.caixa:/ifs/CADSVISISD4/SERVIDORES/CETAD/SIMPG
-Ponto de Montagem: /simpg-tqs
+ Synced
+to HEAD (89fa249)
+Auto sync is enabled.
+Author:
+ansible-connect-emu[bot] <230244411+ansible-connect-emu[bot]@users.noreply.github.com> -
+Comment:
+Merge pull request #6 from caixagithub/update-image-sigms-motor-
+LAST SYNC 
 
-🚀 SEQUÊNCIA DE TESTES (COPIE E COLE EXATAMENTE)
-PASSO 1 - Conectar ao servidor:
-bashssh caddeapllx1979.agil.nprd.caixa.gov.br
+ Sync OK
+to 89fa249
+Succeeded 3 days ago (Fri Jun 12 2026 11:15:01 GMT-0300)
+Author:
+ansible-connect-emu[bot] <230244411+ansible-connect-emu[bot]@users.noreply.github.com> -
+Comment:
+Merge pull request #6 from caixagithub/update-image-sigms-motor-
+Previous12Next
+Items per page: 10 
+NAME
+GROUP/KIND
+SYNC ORDER
+NAMESPACE
+CREATED AT
+STATUS
+Pod
+pod
+sigms-motor-decisao-des-647ff56445-k5dd7
+Pod
+-
+sigms-motor-decisao
+3 days ago   06/12/26
+ Progressing  
+ReplicaSet
+rs
+sigms-motor-decisao-des-647ff56445
+apps/ReplicaSet
+-
+sigms-motor-decisao
+3 days ago   06/12/26
+ Progressing  
+ConfigMap
+cm
+cm-sigms-motor-decisao
+ConfigMap
+-
+sigms-motor-decisao
+3 days ago   06/12/26
+ Synced
+Endpoints
+ep
+sigms-motor-decisao-des
+Endpoints
+-
+sigms-motor-decisao
+3 days ago   06/12/26
+Pod
+pod
+sigms-motor-decisao-des-6bcd595699-hrfkq
+Pod
+-
+sigms-motor-decisao
+3 days ago   06/12/26
+ Progressing  
+Secret
+secret
+akv2k8s-sigms-motor-decisao-des
+Secret
+-
+sigms-motor-decisao
+3 days ago   06/12/26
+Service
+svc
+sigms-motor-decisao-des
+Service
+-
+sigms-motor-decisao
+3 days ago   06/12/26
+ Healthy   Synced
+Deployment
+deploy
+sigms-motor-decisao-des
+apps/Deployment
+-
+sigms-motor-decisao
+3 days ago   06/12/26
+ Degraded   Synced
+ReplicaSet
+rs
+sigms-motor-decisao-des-6bcd595699
+apps/ReplicaSet
+-
+sigms-motor-decisao
+3 days ago   06/12/26
+ Progressing  
+EndpointSlice
+endpointslice
+sigms-motor-decisao-des-q84wp
+discovery.k8s.io/EndpointSlice
+-
+sigms-motor-decisao
+3 days ago   06/12/26
+Previous12Next
+Items per page: 10 
 
-PASSO 2 - Virar ROOT:
-bashsudo su -
-(ou su - se pedir senha)
 
-PASSO 3 - Verificar se JÁ está montado:
-bashmount | grep simpg-tqs
-Se retornar algo = JÁ ESTÁ MONTADO ✅
 
-Se retornar vazio = NÃO ESTÁ MONTADO (Prosseguir)
 
-PASSO 4 - Testar conectividade:
-bashping -c 5 192.168.224.1
-Esperado: 0% packet loss ✅
+events:
 
-PASSO 5 - Tentar montar:
-bashmount -a
-Esperado: Nenhuma mensagem de erro ✅
+0/7 nodes are available: 1 node(s) had untolerated taint {CriticalAddonsOnly: true}, 1 node(s) had untolerated taint {nuvem.caixa/nodepoolname: appsigms}, 1 node(s) had untolerated taint {nuvem.caixa/nodepoolname: infra}, 1 node(s) had untolerated taint {nuvem.caixa/nodepoolname: websitesigms}, 1 node(s) had untolerated taint {nuvem.caixa/nodepoolname: websitesihms}, 2 node(s) had untolerated taint {nuvem.caixa/nodepoolname: appsihms}. preemption: 0/7 nodes are available: 7 Preemption is not helpful for scheduling.
 
-PASSO 6 - Verificar se montou:
-bashdf -h | grep simpg-tqs
-Esperado: Mostrar a linha com /simpg-tqs ✅
 
-PASSO 7 - Testar acesso de leitura:
-bashls -la /simpg-tqs/
-Esperado: Listar arquivos ✅
 
-PASSO 8 - Testar acesso de escrita (OPCIONAL):
-bashtouch /simpg-tqs/teste_$(date +%s).txt
-ls -la /simpg-tqs/ | tail -1
-Esperado: Arquivo criado ✅
 
-✅ RESULTADO ESPERADO (TUDO OK):
-[root@caddeapllx1979 ~]# mount | grep simpg-tqs
-nfsctcnprd.ctc.caixa:/ifs/CADSVISISD4/SERVIDORES/CETAD/SIMPG on /simpg-tqs type nfs4
+Argo
+v2.14.21+206a6ee
+Argo
+Applications
+Settings
+User Info
+Documentation
+Resource filters
+NAME
+NAME
+KINDS
+KINDS
+SYNC STATUS
+Synced
+9
+OutOfSync
+0
+HEALTH STATUS
+Progressing
+5
+Suspended
+0
+Healthy
+1
+Degraded
+1
+Missing
+0
+Unknown
+0
+NAMESPACES
+NAMESPACES
+Applications
+ sigms-motor-decisao-des
+Application Details List
+Log out
+APP HEALTH 
+ Degraded
+SYNC STATUS 
 
-[root@caddeapllx1979 ~]# df -h | grep simpg-tqs
-nfsctcnprd.ctc.caixa:/ifs/CADSVISISD4/SERVIDORES/CETAD/SIMPG  X.XT  X.XT  X.XT  XX% /simpg-tqs
+ Synced
+to HEAD (89fa249)
+Auto sync is enabled.
+Author:
+ansible-connect-emu[bot] <230244411+ansible-connect-emu[bot]@users.noreply.github.com> -
+Comment:
+Merge pull request #6 from caixagithub/update-image-sigms-motor-
+LAST SYNC 
 
-[root@caddeapllx1979 ~]# ls -la /simpg-tqs/
-total XX
-drwxr-xr-x   X root root  XXXX jun 12 15:52 .
-dr-xr-xr-x. 20 root root  4096 jun 12 15:52 ..
--rw-r--r--   1 root root     0 jun 12 13:45 teste_1718185500.txt
+ Sync OK
+to 89fa249
+Succeeded 3 days ago (Fri Jun 12 2026 11:15:01 GMT-0300)
+Author:
+ansible-connect-emu[bot] <230244411+ansible-connect-emu[bot]@users.noreply.github.com> -
+Comment:
+Merge pull request #6 from caixagithub/update-image-sigms-motor-
+Previous12Next
+Items per page: 10 
+NAME
+GROUP/KIND
+SYNC ORDER
+NAMESPACE
+CREATED AT
+STATUS
+Pod
+pod
+sigms-motor-decisao-des-647ff56445-k5dd7
+Pod
+-
+sigms-motor-decisao
+3 days ago   06/12/26
+ Progressing  
+ReplicaSet
+rs
+sigms-motor-decisao-des-647ff56445
+apps/ReplicaSet
+-
+sigms-motor-decisao
+3 days ago   06/12/26
+ Progressing  
+ConfigMap
+cm
+cm-sigms-motor-decisao
+ConfigMap
+-
+sigms-motor-decisao
+3 days ago   06/12/26
+ Synced
+Endpoints
+ep
+sigms-motor-decisao-des
+Endpoints
+-
+sigms-motor-decisao
+3 days ago   06/12/26
+Pod
+pod
+sigms-motor-decisao-des-6bcd595699-hrfkq
+Pod
+-
+sigms-motor-decisao
+3 days ago   06/12/26
+ Progressing  
+Secret
+secret
+akv2k8s-sigms-motor-decisao-des
+Secret
+-
+sigms-motor-decisao
+3 days ago   06/12/26
+Service
+svc
+sigms-motor-decisao-des
+Service
+-
+sigms-motor-decisao
+3 days ago   06/12/26
+ Healthy   Synced
+Deployment
+deploy
+sigms-motor-decisao-des
+apps/Deployment
+-
+sigms-motor-decisao
+3 days ago   06/12/26
+ Degraded   Synced
+ReplicaSet
+rs
+sigms-motor-decisao-des-6bcd595699
+apps/ReplicaSet
+-
+sigms-motor-decisao
+3 days ago   06/12/26
+ Progressing  
+EndpointSlice
+endpointslice
+sigms-motor-decisao-des-q84wp
+discovery.k8s.io/EndpointSlice
+-
+sigms-motor-decisao
+3 days ago   06/12/26
+Previous12Next
+Items per page: 10 
 
-🚨 SE DER ERRO:
-ErroO que fazermount.nfs: access denied by serverArmazenagem NÃO executou os comandos ainda. Pede pra eles fazerem!mount.nfs: Connection timed outProblema de conectividade. Verifica se ping está OK.Permission denied (mount -a)Você não é root. Execute sudo su -ls: cannot access /simpg-tqs/: Permission deniedIP não tem permissão. Pede pra armazenagem adicionar --add-read-write-clients
+Podpod
+sigms-motor-decisao-des-647ff56445-k5dd7
+ SUMMARY EVENTS LOGS
+KIND
+Pod
+NAME
+sigms-motor-decisao-des-647ff56445-k5dd7   
+NAMESPACE
+sigms-motor-decisao   
+CREATED AT
+06/12/2026 11:15:01 (3 days ago)
+IMAGES
+acrcentralcaixanprd.azurecr.io/sigms/motor-decisao/sigms-motor-decisao:27421025665
+STATE
+Pending
+HEALTH
+ Progressing
+LINKS
+Live Manifest
+
+Hide Managed FieldsEnable Word Wrap
+123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102103104105106107108109110111112113114115116117118119120121122123124125126127128129130131132133134135136137138
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: '2026-06-12T14:15:01Z'
+  generateName: sigms-motor-decisao-des-647ff56445-
+  generation: 1
+  labels:
+    app.kubernetes.io/app: sigms-motor-decisao-des
+    app.kubernetes.io/instance: sigms-motor-decisao-des
+    app.kubernetes.io/managed-by: Helm
+
+
+
