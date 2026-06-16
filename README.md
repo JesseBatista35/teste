@@ -1,1 +1,7 @@
-Olá. O VIP 10.116.180.22 entrega somente aos backends 10.116.223.231 e 10.116.223.232. Como disse na WO, é um VIP compartilhado que não pode ser alterado. Caso seja necessário entregar ao backend 10.116.200.228 na porta 443, tem que solicitar a criação de um vip exclusivo.
+cd /opt/jboss-eap/standalone/configuration
+
+# Remove TUDO que é comentário dessa seção
+sed -i '/<vault>/,/<\/vault>/{s/^[[:space:]]*<!--[[:space:]]*//; s/[[:space:]]*-->[[:space:]]*$//}' standalone-full-ha.xml
+
+# Verifica
+grep -A 8 "<vault>" standalone-full-ha.xml
