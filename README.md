@@ -40,3 +40,9 @@ sudo tee /opt/httpd/conf.d/vhost.conf << 'EOF'
         ErrorLog /logs/httpd/sicmu-intranet-update.caixa-error.log
 </VirtualHost>
 EOF
+
+
+
+
+sudo /opt/httpd/sbin/httpd -f /opt/httpd/conf/httpd.conf -t
+
