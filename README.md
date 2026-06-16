@@ -1,8 +1,7 @@
-# Testa o outro keystore
-keytool -list -keystore /opt/jboss-eap/standalone/configuration/vault-des/vault.keystore -storepass "changeit" 2>&1 | head -20
+cd /opt/jboss-eap/standalone/configuration
 
-# Se funcionar, muda o arquivo de configuração
-sed -i 's|vaultcaixa.keystore|vault.keystore|g' /opt/jboss-eap/standalone/configuration/standalone-full-ha.xml
+# Comenta a seção vault inteira
+sed -i '/<vault>/,/<\/vault>/s/^/<!-- /; /<\/vault>/s/$/ -->/' standalone-full-ha.xml
 
 # Verifica
-grep "vault-option.*KEYSTORE_URL" /opt/jboss-eap/standalone/configuration/standalone-full-ha.xml
+grep -A 1 "vault>" standalone-full-ha.xml | head -5
