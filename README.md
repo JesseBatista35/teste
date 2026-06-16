@@ -1,13 +1,10 @@
-#!/bin/bash
-set -e
+Bash Script
 
-# 1. Atualizar imagem
-oc set image dc/sipgc-api-informacoes-tqs \
-  sipgc-api-informacoes-tqs=default-route-openshift-image-registry.apps.produtos4.caixa/build-images-ads/sipgc-api-informacoes:1.1.0.14 \
-  -n sipgc-tqs
-
-# 2. Aguardar conclusão (NÃO tente fazer rollout latest novamente!)
-sleep 5
-
-# 3. Monitorar o status COM watch (sem --timeout)
-oc rollout status dc/sipgc-api-informacoes-tqs -n sipgc-tqs --watch
+56s
+Generating script.
+========================== Starting Command Output ===========================
+[command]/bin/bash /opt/ads-agent/_work/_temp/0abedec1-de4d-43de-b8cd-8dd58ea92fa8.sh
+deploymentconfig.apps.openshift.io/sipgc-api-informacoes-tqs image updated
+Waiting for rollout to finish: 0 out of 1 new replicas have been updated...
+Waiting for rollout to finish: 0 out of 1 new replicas have been updated...
+Waiting for rollout to finish: 1 old replicas are pending termination...
