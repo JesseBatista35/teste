@@ -1,199 +1,71 @@
-Skip to main content
-Azure DevOps
-projetos
-/
-Infraestrutura
-/
-Repos
-/
-Files
-/
+---
+- hosts: local
+  gather_facts: true
+  tasks:
+    - include_role:
+        name: vm 
 
-esteira-jboss-vm-v2
-Search
+       
+- name: Configurando o DNS
+  hosts: "{{ ( sistema_ambiente != 'prd') | ternary('dns_nprd',  ('dns_prd_'+site)) }}"
+  become: False
+  gather_facts: no
+  tasks:
+             
+    - name: Atualizando o inventário para garantir a existência de novas instâncias no inventário
+      meta: refresh_inventory  
 
+    - name: Consultar DNS
+      vars:
+        hostname: "{{ hostvars[item].inventory_hostname_short }}"
+        ip: "{{ hostvars[item].ansible_host }}"
+        dominio: "{{ dns_dominio }}"
+      command: dig +short "{{ hostname }}.{{ dominio }}" +timeout=5
+      loop: "{{ groups.jboss }}"
+      register: dig_result
+      delegate_to: localhost
+      run_once: true
+      
+    - name: Verificar se o domínio resolve para um IP
+      debug:
+        msg: "O domínio {{ item.item }} resolve para os seguintes endereços IP: {{ item.stdout_lines }}"
+      when: item.stdout_lines | length > 0
+      loop: "{{ dig_result.results }}"
+      run_once: true
 
-Infraestrutura
+    - name: Falha se o domínio não resolver para um IP
+      debug:
+        msg: "O domínio {{ item.item }} não resolve para nenhum endereço IP."
+      when: item.stdout_lines | length == 0  
+      loop: "{{ dig_result.results }}"
+      run_once: true
 
-Overview
+    - name: Set not created DNS
+      set_fact:
+        not_created_dns: "{{  not_created_dns | default([]) + [{'host': item.item, 'ip': '' }] }}"
+      when: item.stdout_lines | length == 0  
+      loop: "{{ dig_result.results }}"
+      run_once: true  
 
-Boards
+    - name: Set created DNS
+      set_fact:
+        created_dns: "{{  created_dns | default([]) + [{'host': item.item, 'ip': item.stdout_lines[0] }] }}"
+      when: item.stdout_lines | length != 0  
+      loop: "{{ dig_result.results }}"
+      run_once: true    
 
-Repos
-Files
-Commits
-Pushes
-Branches
-Tags
-Pull requests
+    - include_role:
+        name: dns
+      vars:
+        hostname: "{{ hostvars[item].inventory_hostname_short }}"
+        ip: "{{ hostvars[item].ansible_host }}"
+        dominio: "{{ dns_dominio }}"
+        hostname_full: "{{ hostvars[item].inventory_hostname_short }}.{{ dns_dominio }}"
+        dns_create: yes
+      loop: "{{ groups.jboss }}"
+      when: (not_created_dns is defined and (not_created_dns | selectattr('host','equalto', hostname_full) | list)) or ( created_dns is defined and (created_dns | selectattr('host','equalto', hostname_full) | selectattr('ip','ne', ip) | list))
+  
+  tags: 
+    - dns
 
-Pipelines
-
-Test Plans
-
-Artifacts
-Project settings
-esteira-jboss-vm-v2
-
-group_vars
-inventory
-library
-roles
-apache
-
-defaults
-files
-handlers
-
-meta
-tasks
-templates
-tests
-vars
-README.md
-apache_exporter
-apm_agent
-batch
-cmdb
-control_m
-datagrid
-dns
-filebeat
-graylog-streams
-java
-jboss
-jmx_exporter
-ldap
-logrotate
-metricbeat
-nfs
-node_exporter
-relogio
-
-fix/WO0000079987976
-
-/
-Type to find a file or folder...
-Files
-in progress
-
-Clone
-
-Contents
-History
-
-group_vars
-2 de abr.
-9b73c6b2
-Updated all Dyego dos Santos Barros
-inventory
-10 de dez. de 2025
-a528ced1
-Updated filebeat Cid Hikaro de Sousa Sasaki
-library
-3 de mar. de 2020
-299410cd
-Removido os arquivos que não estão sendo utilizados root
-roles
-7 de abr.
-00a64f41
-Updated stack_modules_custom_block.yml Jesse Mouta Pereira Batista
-validadores
-8 de abr. de 2021
-5f7b28ee
-Habilitando usuário de serviço root
-.gitignore
-9 de abr. de 2020
-c1e02bb0
-ajuste nas variaveis root
-.vault.sh
-9 de abr. de 2020
-c1e02bb0
-ajuste nas variaveis root
-ansible.cfg
-17 de jun. de 2024
-eac4da96
-Mellhoria na task de ldap Rafael Soares
-LICENSE
-21 de fev. de 2020
-bd61528f
-carga inicial root
-README.md
-21 de fev. de 2020
-bd61528f
-carga inicial root
-requirements.txt
-30 de mar. de 2020
-09f12097
-Validação do retordo e tratativa de erro de IP, Máscara e Gateway. root
-restart_jboss.yml
-13 de set. de 2023
-af5bd542
-Refatoração do código fonte Rafael Augusto Soares
-secure-files.yml
-17 de jun. de 2024
-eac4da96
-Mellhoria na task de ldap Rafael Soares
-site.yml
-3 de mar.
-3a23b3bf
-Cria o custom.sh para VM sem jboss e control-m Rafael Soares
-stack_apache.yml
-9 de fev. de 2023
-09330a57
-Correções de automação Rafael Augusto Soares
-stack_batch.yml
-24 de jun. de 2025
-11a29960
-Updated stack_batch.yml Henrique Coutinho Guimaraes
-stack_controlm.yml
-19 de ago. de 2021
-2e48b6d4
-Ajustes Control-M root
-stack_custom.yml
-3 de mar.
-f272b7e4
-Cria o custom.sh para VM sem jboss e control-m Rafael Soares
-stack_deployments_custom.yml
-21 de jan. de 2025
-2fa93804
-Correção do nome do Repo Rafael Soares
-stack_disable_unit_jboss.yml
-14 de set. de 2023
-1cfabdbc
-Refatoração do código fonte Rafael Augusto Soares
-stack_hosts.yml
-22 de jan. de 2025
-baa30a1c
-Correção de diretório de config Rafael Soares
-stack_jboss_handlers.yml
-22 de jan. de 2025
-535bcfba
-Correção de diretório de config Rafael Soares
-stack_jboss.yml
-27 de set. de 2023
-d0afbfa6
-Padronização do código fonte Rafael Augusto Soares
-stack_ldap.yml
-6 de dez. de 2024
-69464582
-Updated stack_ldap.yml Jailson Martins Alves
-stack_modules_custom.yml
-22 de jan. de 2025
-450b9987
-Correção de diretório de config Rafael Soares
-stack_monitoracao.yml
-18 de nov. de 2024
-f97b9169
-Updated stack_monitoracao.yml Jailson Martins Alves
-stack_tsm.yml
-19 de ago. de 2021
-2e48b6d4
-Ajustes Control-M root
-stack_vm.yml
-6 de dez. de 2024
-5399aa1b
-Updated stack_vm.yml Jailson Martins Alves
-ansible-role-jboss
-ansible-role-jboss
 
