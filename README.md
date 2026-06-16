@@ -1,8 +1,5 @@
-cd /opt/jboss-eap/standalone/configuration
+# Remove TODOS os comentários dessa seção
+sed -i '/<vault>/s/<!--//g; /<vault>/,/<\/vault>/s/-->//g' standalone-full-ha.xml
 
-# Restaura do backup
-cp standalone-full-ha.xml.backup standalone-full-ha.xml
-
-# Verifica se restaurou
-wc -l standalone-full-ha.xml
-grep "<vault>" standalone-full-ha.xml | head -3
+# Verifica
+grep -A 8 "<vault>" standalone-full-ha.xml | head -10
