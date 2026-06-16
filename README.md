@@ -1,24 +1,11 @@
-# Para JBoss (se tiver rodando)
-systemctl stop jboss-eap 2>/dev/null || true
 
-# Remove arquivo .failed
-rm -f /opt/jboss-eap/standalone/deployments/postgresql.jar.failed
+[root@caddeapllx1945 opt]# systemctl stop jboss-eap 2>/dev/null || true
+[root@caddeapllx1945 opt]#
+[root@caddeapllx1945 opt]#
+[root@caddeapllx1945 opt]# rm -f /opt/jboss-eap/standalone/deployments/postgresql.jar.failed
+[root@caddeapllx1945 opt]# rm -f /opt/jboss-eap/standalone/deployments/postgresql.jar
+[root@caddeapllx1945 opt]# rm -f /opt/jboss-eap/standalone/deployments/*.failed
+[root@caddeapllx1945 opt]# systemctl start jboss-eap
+Failed to start jboss-eap.service: Unit jboss-eap.service not found.
+[root@caddeapllx1945 opt]#
 
-# Remove postgresql.jar também pra deixar limpo
-rm -f /opt/jboss-eap/standalone/deployments/postgresql.jar
-
-# Limpa pasta deployments de coisas problemáticas
-rm -f /opt/jboss-eap/standalone/deployments/*.failed
-
-# Inicia JBoss
-systemctl start jboss-eap
-
-# Aguarda iniciar
-sleep 30
-
-# Verifica status
-systemctl status jboss-eap
-
-# Vê os logs
-echo "=== ÚLTIMOS 50 LINHAS DO LOG ==="
-tail -50 /opt/jboss-eap/standalone/log/server.log
