@@ -1,11 +1,11 @@
+# Procura pelo script de startup do JBoss
+find /opt -name "standalone.sh" -o -name "domain.sh" 2>/dev/null
 
-[root@caddeapllx1945 opt]# systemctl stop jboss-eap 2>/dev/null || true
-[root@caddeapllx1945 opt]#
-[root@caddeapllx1945 opt]#
-[root@caddeapllx1945 opt]# rm -f /opt/jboss-eap/standalone/deployments/postgresql.jar.failed
-[root@caddeapllx1945 opt]# rm -f /opt/jboss-eap/standalone/deployments/postgresql.jar
-[root@caddeapllx1945 opt]# rm -f /opt/jboss-eap/standalone/deployments/*.failed
-[root@caddeapllx1945 opt]# systemctl start jboss-eap
-Failed to start jboss-eap.service: Unit jboss-eap.service not found.
-[root@caddeapllx1945 opt]#
+# Verifica se tem init.d
+ls -la /etc/init.d/ | grep -i jboss
 
+# Procura processos jboss
+ps aux | grep jboss
+
+# Verifica se tem um wrapper
+ls -la /opt/jboss-eap/bin/
