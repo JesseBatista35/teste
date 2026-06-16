@@ -1,23 +1,27 @@
+Bom dia,
 
+Solicito a criação de VIPs exclusivos para o sistema `SICMU-intranet-update` nos ambientes DES e TQS, conforme detalhes abaixo:
 
-[root@caddeapllx1945 configuration]# cp standalone-full-ha.xml.backup standalone-full-ha.xml
-cp: não foi possível obter estado de 'standalone-full-ha.xml.backup': Arquivo ou diretório inexistente
-[root@caddeapllx1945 configuration]# sed -i '/<vault>/s/<!--//g; /<vault>/,/<\/vault>/s/-->//g' standalone-full-ha.xml
-[root@caddeapllx1945 configuration]#
-[root@caddeapllx1945 configuration]#
-[root@caddeapllx1945 configuration]#
-[root@caddeapllx1945 configuration]#
-[root@caddeapllx1945 configuration]#
-[root@caddeapllx1945 configuration]#
-[root@caddeapllx1945 configuration]# grep -A 8 "<vault>" standalone-full-ha.xml | head -10
-    <vault>
-        <vault-option name="KEYSTORE_URL" value="${jboss.home.dir}/standalone/configuration/vault-des/vaultcaixa.keystore"/>
-        <vault-option name="KEYSTORE_PASSWORD" value="MASK-lHQotGsUSmQ5YQRzdtNLD361rwn0c0oJ" />
-        <vault-option name="KEYSTORE_ALIAS" value="SecurityKey" />
-        <vault-option name="SALT" value="87654321" />
-        <vault-option name="ITERATION_COUNT" value="44" />
-        <vault-option name="ENC_FILE_DIR" value="${jboss.home.dir}/standalone/configuration/vault-des"/>
-</vault>
+**Sistema:** SICMU-intranet-update
 
-[root@caddeapllx1945 configuration]#
+---
+
+**Ambiente DES:**
+- URL: `sicmu-intranet-update.esteiras.des.caixa`
+- Protocolo HTTPS porta 443 com certificado `*.esteiras.des.caixa`
+- Backend: `10.116.200.228:443`
+- Protocolo HTTP porta 80 redirecionando para HTTPS
+
+**Ambiente TQS:**
+- URL: `sicmu-intranet-update.esteiras.tqs.caixa`
+- Protocolo HTTPS porta 443 com certificado `*.esteiras.tqs.caixa`
+- Backend: `10.116.201.150:443`
+- Protocolo HTTP porta 80 redirecionando para HTTPS
+
+---
+
+**Contexto:**
+O VIP compartilhado atual `10.116.180.22` entrega apenas para os backends `10.116.223.231` e `10.116.223.232`, não sendo possível incluir os servidores acima. Conforme orientação do analista Magnus (TELEDATA/CETEL/REDES), é necessária a criação de VIPs exclusivos para atender esses backends.
+
+Agradecemos o atendimento!
 
