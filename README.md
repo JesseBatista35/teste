@@ -1,15 +1,9 @@
+Conectividade com o DB2 está OK — CONECTOU na porta 448. Então o banco está acessível.
+O problema da URL HTTPS continua sendo o VIP. São realmente dois problemas separados e o analista estava equivocado ao dizer que os testes eram no destino errado — o VIP 10.116.180.22 é sim o responsável pelo HTTPS da aplicação.
+Resumindo o estado atual do DES:
 
-[root@caddeapllx2484 p585600]# curl -v telnet://10.216.80.110:448 2>&1 | head -
-* About to connect() to 10.216.80.110 port 448 (#0)
-*   Trying 10.216.80.110...
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0* Connected to 10.216.80.110 (10.216.80.110) port 448 (#0)
-^C
-[root@caddeapllx2484 p585600]#
-[root@caddeapllx2484 p585600]#
-[root@caddeapllx2484 p585600]#
-[root@caddeapllx2484 p585600]#
-[root@caddeapllx2484 p585600]# timeout 5 bash -c "echo > /dev/tcp/10.216.80.110/448" && echo "CONECTOU" || echo "FALHOU"
-CONECTOU
-[root@caddeapllx2484 p585600]#
+✅ JBoss rodando com deployments OK
+✅ HTTP funcionando na porta 80
+✅ Apache respondendo na porta 443
+✅ Banco DB2 acessível
+❌ VIP 10.116.180.22 não encaminha tráfego na porta 443
