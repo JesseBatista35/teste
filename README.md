@@ -1,41 +1,32 @@
-[root@caddeapllx2484 p585600]# curl -v http://10.116.180.22:443/sicmu 2>&1 | head -25
-* About to connect() to 10.116.180.22 port 443 (#0)
-*   Trying 10.116.180.22...
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0* Connected to 10.116.180.22 (10.116.180.22) port 443 (#0)
-> GET /sicmu HTTP/1.1
-> User-Agent: curl/7.29.0
-> Host: 10.116.180.22:443
-> Accept: */*
->
-* Recv failure: Conexão fechada pela outra ponta
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-* Closing connection 0
-curl: (56) Recv failure: Conexão fechada pela outra ponta
-[root@caddeapllx2484 p585600]#
-[root@caddeapllx2484 p585600]#
-[root@caddeapllx2484 p585600]#
-[root@caddeapllx2484 p585600]#
-[root@caddeapllx2484 p585600]#
-[root@caddeapllx2484 p585600]# curl -v http://10.116.180.22/sicmu 2>&1 | head -25
-* About to connect() to 10.116.180.22 port 80 (#0)
-*   Trying 10.116.180.22...
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0* Connected to 10.116.180.22 (10.116.180.22) port 80 (#0)
-> GET /sicmu HTTP/1.1
-> User-Agent: curl/7.29.0
-> Host: 10.116.180.22
-> Accept: */*
->
-< HTTP/1.1 302 Found : Moved Temporarily
-< Location: https://10.116.180.22/sicmu
-< Connection: close
-< Cache-Control: no-cache
-< Pragma: no-cache
-<
-{ [data not shown]
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-* Closing connection 0
-[root@caddeapllx2484 p585600]#
+Bom dia Magnus, tudo bem?
+
+Após investigação mais aprofundada, conseguimos evidências concretas que mostram que o problema está no VIP `10.116.180.22` na porta 443.
+
+Segue abaixo os testes realizados:
+
+**1. HTTP (porta 80) via VIP → funciona:**
+```
+curl -v http://10.116.180.22/sicmu
+→ HTTP/1.1 302 Found: Moved Temporarily
+→ Location: https://10.116.180.22/sicmu
+```
+O VIP recebe na 80 e redireciona para HTTPS corretamente.
+
+**2. HTTPS (porta 443) via VIP → conexão fechada sem resposta:**
+```
+curl -v http://10.116.180.22:443/sicmu
+→ Recv failure: Conexão fechada pela outra ponta
+```
+O VIP não tem backend configurado para a porta 443 — a conexão é encerrada imediatamente.
+
+**3. HTTP direto na porta 443 do servidor `10.116.200.228` → funciona:**
+```
+curl -v http://127.0.0.1:443/sicmu
+→ HTTP/1.1 302 Found
+→ Location: http://127.0.0.1:443/sicmu/
+```
+O Apache do servidor está respondendo corretamente na porta 443.
+
+**Conclusão:** O servidor está OK. O VIP `10.116.180.22` precisa ter um backend/pool configurado para encaminhar o tráfego HTTPS (porta 443) para o servidor `10.116.200.228:443`.
+
+Poderia verificar essa configuração no balanceador? Agradeço!
