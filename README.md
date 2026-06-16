@@ -1,25 +1,20 @@
-[p585600@caddeapllx1945 ~]$ sudo su
-[sudo] senha para p585600:
-[root@caddeapllx1945 p585600]# mkdir -p/logs/jboss
-mkdir: opção inválida -- “/”
-Tente "mkdir --help" para mais informações.
-[root@caddeapllx1945 p585600]# mkdir -p /logs/jboss
-[root@caddeapllx1945 p585600]#
-[root@caddeapllx1945 p585600]#
-[root@caddeapllx1945 p585600]#
-[root@caddeapllx1945 p585600]# chow -R jboss:jboss /logs/jboss
-bash: chow: comando não encontrado
-[root@caddeapllx1945 p585600]# chown -R jboss:jboss /logs/jboss
-[root@caddeapllx1945 p585600]# chmod -R 755 /logs/jboss
-[root@caddeapllx1945 p585600]#
-[root@caddeapllx1945 p585600]#
-[root@caddeapllx1945 p585600]#
-[root@caddeapllx1945 p585600]# ls -la /logs/
-total 4
-drwxr-xr-x.  5 root   root     51 jun 16 11:45 .
-dr-xr-xr-x. 20 root   root   4096 jun 16 11:46 ..
-drwxrwxr-x   2 apache apache  118 jun 16 11:46 httpd
-drwxr-xr-x   3 jboss  jboss    41 jun 16 11:47 jboss
-drwxr-xr-x   2 apache apache   46 jun 16 11:45 monitoracao
-[root@caddeapllx1945 p585600]#
 
+[p585600@caddeapllx1945 ~]$ sudo su
+[root@caddeapllx1945 p585600]# cd /opt/jboss-eap/bin
+[root@caddeapllx1945 bin]#
+[root@caddeapllx1945 bin]#
+[root@caddeapllx1945 bin]#
+[root@caddeapllx1945 bin]# ./standalone.sh -c standalone-full-ha.xml
+=========================================================================
+
+  JBoss Bootstrap Environment
+
+  JBOSS_HOME: /opt/jboss-eap
+
+  JAVA: java
+
+  JAVA_OPTS:  -verbose:gc -Xloggc:"/opt/jboss-eap/standalone/log/gc.log" -XX:+PrintGCDetails -XX:+PrintGCDateStamps -XX:+UseGCLogFileRotation -XX:NumberOfGCLogFiles=5 -XX:GCLogFileSize=3M -XX:-TraceClassUnloading -Djdk.serialFilter="maxbytes=10485760;maxdepth=128;maxarray=100000;maxrefs=300000" -Xms1024m -Xmx2048m -XX:MetaspaceSize=96M -XX:MaxMetaspaceSize=256m -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs=org.jboss.byteman,org.jboss.logmanager -Djava.awt.headless=true -Djavax.net.ssl.trustStore=/opt/jboss-eap/standalone/configuration/caixa-truststore-azurepush-2024-acteste.jks -Djavax.net.ssl.trustStorePassword=changeit -Djboss.modules.policy-permissions=true -server -XX:+ExplicitGCInvokesConcurrent -XX:+UseG1GC -XX:MaxGCPauseMillis=500 -Xbootclasspath/a:/opt/jboss-eap/modules/system/layers/base/org/wildfly/common/main/wildfly-common-1.5.4.Final-redhat-00001.jar -Xbootclasspath/a:/opt/jboss-eap/modules/system/layers/base/org/jboss/logmanager/main/jboss-logmanager-2.1.18.Final-redhat-00001.jar -Dsun.util.logging.disableCallerCheck=true -Djava.util.logging.manager=org.jboss.logmanager.LogManager
+
+=========================================================================
+
+[root@caddeapllx1945 bin]#
