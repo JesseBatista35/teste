@@ -1,44 +1,9 @@
-
-[root@caddeapllx1945 p585600]# cat /opt/jboss-eap/standalone/configuration/standalone.xml | grep -A 10 -B 5 "postgresql"
-[root@caddeapllx1945 p585600]#
-[root@caddeapllx1945 p585600]#
-[root@caddeapllx1945 p585600]#
-[root@caddeapllx1945 p585600]#
-[root@caddeapllx1945 p585600]# tail -100 /opt/jboss-eap/standalone/log/server.log | grep -i "postgresql\|deployment\|error"
-tail: não foi possível abrir '/opt/jboss-eap/standalone/log/server.log' para leitura: Arquivo ou diretório inexistente
-[root@caddeapllx1945 p585600]#
-[root@caddeapllx1945 p585600]#
-[root@caddeapllx1945 p585600]#
-[root@caddeapllx1945 p585600]#
-[root@caddeapllx1945 p585600]# cd /opt/jboss-eap/standalone/configuration/
-[root@caddeapllx1945 configuration]# ls -la
-total 216
-drwxrwxr-x 6 jboss jboss  4096 jun 16 11:47 .
-drwxrwxr-x 8 jboss jboss    91 jun 16 11:47 ..
--rwxrwxr-x 1 jboss jboss   711 jun 23  2021 application-roles.properties
--rwxrwxr-x 1 jboss jboss   935 jun 23  2021 application-users.properties
--rw------- 1 jboss jboss 33299 jun 16 11:46 caixa-truststore-azurepush-2024-acteste.jks
--rwxrwxr-x 1 jboss jboss  1468 fev  8  2024 logging.properties
--rwxrwxr-x 1 jboss jboss   669 jun 23  2021 mgmt-groups.properties
--rwxrwxr-x 1 jboss jboss  1111 jun 12  2023 mgmt-users.properties
--rwxr-xr-x 1 jboss jboss     0 jun 16 11:47 .placeholder
--rwxrwxr-x 1 jboss jboss 42579 jun 16 11:47 standalone-full-ha.xml
--rwxrwxr-x 1 jboss jboss 33377 jun 12  2023 standalone-full.xml
--rwxrwxr-x 1 jboss jboss 34165 jun 12  2023 standalone-ha.xml
--rwxrwxr-x 1 jboss jboss  7014 jun 23  2021 standalone-load-balancer.xml
--rwxrwxr-x 1 jboss jboss 29987 jun 12  2023 standalone.xml
-drwxrwxr-x 4 jboss jboss   229 jun 16 11:47 standalone_xml_history
-drwxr-xr-x 2 jboss jboss   114 jun 16 11:47 vault-des
-drwxr-xr-x 2 jboss jboss    26 jun 16 11:47 vault-prd
-drwxr-xr-x 2 jboss jboss    92 jun 16 11:47 vault-tqs
-[root@caddeapllx1945 configuration]# cd standalone.xml
-bash: cd: standalone.xml: Não é um diretório
-[root@caddeapllx1945 configuration]# cat standalone.xml
 <?xml version='1.0' encoding='UTF-8'?>
 
 <server xmlns="urn:jboss:domain:16.0">
     <extensions>
         <extension module="org.jboss.as.clustering.infinispan"/>
+        <extension module="org.jboss.as.clustering.jgroups"/>
         <extension module="org.jboss.as.connector"/>
         <extension module="org.jboss.as.deployment-scanner"/>
         <extension module="org.jboss.as.ee"/>
@@ -48,8 +13,10 @@ bash: cd: standalone.xml: Não é um diretório
         <extension module="org.jboss.as.jmx"/>
         <extension module="org.jboss.as.jpa"/>
         <extension module="org.jboss.as.jsf"/>
+        <extension module="org.jboss.as.jsr77"/>
         <extension module="org.jboss.as.logging"/>
         <extension module="org.jboss.as.mail"/>
+        <extension module="org.jboss.as.modcluster"/>
         <extension module="org.jboss.as.naming"/>
         <extension module="org.jboss.as.pojo"/>
         <extension module="org.jboss.as.remoting"/>
@@ -58,6 +25,7 @@ bash: cd: standalone.xml: Não é um diretório
         <extension module="org.jboss.as.transactions"/>
         <extension module="org.jboss.as.webservices"/>
         <extension module="org.jboss.as.weld"/>
+        <extension module="org.keycloak.keycloak-adapter-subsystem"/>
         <extension module="org.wildfly.extension.batch.jberet"/>
         <extension module="org.wildfly.extension.bean-validation"/>
         <extension module="org.wildfly.extension.clustering.web"/>
@@ -67,11 +35,42 @@ bash: cd: standalone.xml: Não é um diretório
         <extension module="org.wildfly.extension.elytron"/>
         <extension module="org.wildfly.extension.health"/>
         <extension module="org.wildfly.extension.io"/>
+        <extension module="org.wildfly.extension.messaging-activemq"/>
         <extension module="org.wildfly.extension.metrics"/>
         <extension module="org.wildfly.extension.request-controller"/>
         <extension module="org.wildfly.extension.security.manager"/>
         <extension module="org.wildfly.extension.undertow"/>
+        <extension module="org.wildfly.iiop-openjdk"/>
     </extensions>
+    
+    <system-properties>
+
+
+        <property name="simpg.siico.api.url" value="__simpg.siico.api.url__" />
+        <property name="SIICO_APIKEY" value="__SIICO_APIKEY__"/>
+
+
+
+        <property name="java.security.krb5.kdc" value="__JAVA.SECURITY.KRB5.KDC__"/>
+        <property name="java.security.krb5.realm" value="__JAVA.SECURITY.KRB5.REALM__"/>     
+        <property name="simpg.file_path" value="__SIMPG.FILE_PATH__"/>    
+
+        <property name="simpg.jndi" value="java:jboss/datasources/simpg"/>
+        <property name="simpg.horario_mail" value="14:30"/>
+        <property name="simpg.mail.jndi" value="java:jboss/mail/expresso"/>
+        <property name="simpg.imp.apf.jndi" value="java:jboss/datasource/simpgimp"/>
+        <property name="simpg.unidade.gsan" value="5364"/>
+    </system-properties>
+
+    <vault>
+        <vault-option name="KEYSTORE_URL" value="${jboss.home.dir}/standalone/configuration/vault-__SISTEMA_AMBIENTE__/vaultcaixa.keystore"/>
+        <vault-option name="KEYSTORE_PASSWORD" value="__KEYSTORE_PASSWORD__" />
+        <vault-option name="KEYSTORE_ALIAS" value="jboss" />
+        <vault-option name="SALT" value="__VAULT_SALT__" />
+        <vault-option name="ITERATION_COUNT" value="33" />
+        <vault-option name="ENC_FILE_DIR" value="${jboss.home.dir}/standalone/configuration/vault-__SISTEMA_AMBIENTE__"/>
+    </vault>
+
     <management>
         <security-realms>
             <security-realm name="ManagementRealm">
@@ -132,7 +131,7 @@ bash: cd: standalone.xml: Não é um diretório
             <console-handler name="CONSOLE">
                 <level name="INFO"/>
                 <formatter>
-                    <named-formatter name="COLOR-PATTERN"/>
+                    <named-formatter name="PATTERN"/>
                 </formatter>
             </console-handler>
             <periodic-rotating-file-handler name="FILE" autoflush="true">
@@ -146,19 +145,24 @@ bash: cd: standalone.xml: Não é um diretório
             <logger category="com.arjuna">
                 <level name="WARN"/>
             </logger>
-            <logger category="io.jaegertracing.Configuration">
-                <level name="WARN"/>
-            </logger>
             <logger category="org.jboss.as.config">
                 <level name="DEBUG"/>
             </logger>
             <logger category="sun.rmi">
                 <level name="WARN"/>
             </logger>
+            <logger category="io.prometheus">
+                <level name="FATAL"/>
+            </logger>
+            <logger category="io.undertow">
+                <level name="ERROR"/>
+            </logger>
+            <logger category="stdout">
+                <level name="OFF"/>
+            </logger>   
             <root-logger>
                 <level name="INFO"/>
                 <handlers>
-                    <handler name="CONSOLE"/>
                     <handler name="FILE"/>
                 </handlers>
             </root-logger>
@@ -183,18 +187,26 @@ bash: cd: standalone.xml: Não é um diretório
         <subsystem xmlns="urn:jboss:domain:bean-validation:1.0"/>
         <subsystem xmlns="urn:jboss:domain:core-management:1.0"/>
         <subsystem xmlns="urn:jboss:domain:datasources:6.0">
-            <datasources>
-                <datasource jndi-name="java:jboss/datasources/ExampleDS" pool-name="ExampleDS" enabled="true" use-java-context="true" statistics-enabled="${wildfly.datasources.statistics-enabled:${wildfly.statistics-enabled:false}}">
-                    <connection-url>jdbc:h2:mem:test;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE</connection-url>
-                    <driver>h2</driver>
+            <datasources>                
+                <datasource jta="false" jndi-name="java:jboss/datasources/simpg" pool-name="simpg-ds" enabled="true" use-ccm="false">
+                    <connection-url>__DS_SIMPG_JDBC_CONNECTION__</connection-url>
+                    <driver>postgresql</driver>
                     <security>
-                        <user-name>sa</user-name>
-                        <password>sa</password>
+                        <user-name>__DS_SIMPG_USER__</user-name>
+                        <password>__DS_SIMPG_PASS__</password>
                     </security>
+
+                    <statement>
+                        <share-prepared-statements>false</share-prepared-statements>
+                    </statement>
                 </datasource>
                 <drivers>
                     <driver name="h2" module="com.h2database.h2">
                         <xa-datasource-class>org.h2.jdbcx.JdbcDataSource</xa-datasource-class>
+                    </driver>
+                    <driver name="postgresql" module="org.postgresql">
+                        <driver-class>org.postgresql.Driver</driver-class>
+                        <xa-datasource-class>org.postgresql.xa.PGXADataSource</xa-datasource-class>
                     </driver>
                 </drivers>
             </datasources>
@@ -202,16 +214,14 @@ bash: cd: standalone.xml: Não é um diretório
         <subsystem xmlns="urn:jboss:domain:deployment-scanner:2.0">
             <deployment-scanner path="deployments" relative-to="jboss.server.base.dir" scan-interval="5000" runtime-failure-causes-rollback="${jboss.deployment.scanner.rollback.on.failure:false}"/>
         </subsystem>
-        <subsystem xmlns="urn:jboss:domain:discovery:1.0"/>
-        <subsystem xmlns="urn:jboss:domain:distributable-web:2.0" default-session-management="default" default-single-sign-on-management="default">
-            <infinispan-session-management name="default" cache-container="web" granularity="SESSION">
-                <local-affinity/>
-            </infinispan-session-management>
-            <infinispan-single-sign-on-management name="default" cache-container="web" cache="sso"/>
-            <local-routing/>
-        </subsystem>
         <subsystem xmlns="urn:jboss:domain:ee:6.0">
-            <spec-descriptor-property-replacement>false</spec-descriptor-property-replacement>
+            <global-modules>
+                <module name="org.keycloak.keycloak-adapter-spi" />
+                <module name="org.keycloak.keycloak-core" />
+                <module name="org.keycloak.keycloak-common" />
+            </global-modules>
+                <spec-descriptor-property-replacement>true</spec-descriptor-property-replacement>
+                <jboss-descriptor-property-replacement>true</jboss-descriptor-property-replacement>
             <concurrent>
                 <context-services>
                     <context-service name="default" jndi-name="java:jboss/ee/concurrency/context/default" use-transaction-setup-provider="true"/>
@@ -226,7 +236,7 @@ bash: cd: standalone.xml: Não é um diretório
                     <managed-scheduled-executor-service name="default" jndi-name="java:jboss/ee/concurrency/scheduler/default" context-service="default" hung-task-termination-period="0" hung-task-threshold="60000" keepalive-time="3000"/>
                 </managed-scheduled-executor-services>
             </concurrent>
-            <default-bindings context-service="java:jboss/ee/concurrency/context/default" datasource="java:jboss/datasources/ExampleDS" managed-executor-service="java:jboss/ee/concurrency/executor/default" managed-scheduled-executor-service="java:jboss/ee/concurrency/scheduler/default" managed-thread-factory="java:jboss/ee/concurrency/factory/default"/>
+            <default-bindings context-service="java:jboss/ee/concurrency/context/default" jms-connection-factory="java:jboss/DefaultJMSConnectionFactory" managed-executor-service="java:jboss/ee/concurrency/executor/default" managed-scheduled-executor-service="java:jboss/ee/concurrency/scheduler/default" managed-thread-factory="java:jboss/ee/concurrency/factory/default"/>
         </subsystem>
         <subsystem xmlns="urn:jboss:domain:ee-security:1.0"/>
         <subsystem xmlns="urn:jboss:domain:ejb3:9.0">
@@ -237,6 +247,10 @@ bash: cd: standalone.xml: Não é um diretório
                 <stateful default-access-timeout="5000" cache-ref="simple" passivation-disabled-cache-ref="simple"/>
                 <singleton default-access-timeout="5000"/>
             </session-bean>
+            <mdb>
+                <resource-adapter-ref resource-adapter-name="${ejb.resource-adapter-name:activemq-ra.rar}"/>
+                <bean-instance-pool-ref pool-name="mdb-strict-max-pool"/>
+            </mdb>
             <pools>
                 <bean-instance-pools>
                     <strict-max-pool name="mdb-strict-max-pool" derive-size="from-cpu-count" instance-acquisition-timeout="5" instance-acquisition-timeout-unit="MINUTES"/>
@@ -267,6 +281,7 @@ bash: cd: standalone.xml: Não é um diretório
                     <keepalive-time time="60" unit="seconds"/>
                 </thread-pool>
             </thread-pools>
+            <iiop enable-by-default="false" use-qualified-name="false"/>
             <default-security-domain value="other"/>
             <default-missing-method-permissions-deny-access value="true"/>
             <statistics enabled="${wildfly.ejb3.statistics-enabled:${wildfly.statistics-enabled:false}}"/>
@@ -390,6 +405,11 @@ bash: cd: standalone.xml: Não é um diretório
             </tls>
         </subsystem>
         <subsystem xmlns="urn:wildfly:health:1.0" security-enabled="false"/>
+        <subsystem xmlns="urn:jboss:domain:iiop-openjdk:2.1">
+            <orb socket-binding="iiop"/>
+            <initializers security="identity" transactions="spec"/>
+            <security server-requires-ssl="false" client-requires-ssl="false"/>
+        </subsystem>
         <subsystem xmlns="urn:jboss:domain:infinispan:12.0">
             <cache-container name="ejb" default-cache="passivation" aliases="sfsb" modules="org.wildfly.clustering.ejb.infinispan">
                 <local-cache name="passivation">
@@ -445,6 +465,72 @@ bash: cd: standalone.xml: Não é um diretório
             <cached-connection-manager/>
         </subsystem>
         <subsystem xmlns="urn:jboss:domain:jdr:1.0"/>
+        <subsystem xmlns="urn:jboss:domain:jgroups:8.0">
+            <channels default="ee">
+                <channel name="ee" stack="udp" cluster="ejb"/>
+            </channels>
+            <stacks>
+                <stack name="udp">
+                    <transport type="UDP" socket-binding="jgroups-udp"/>
+                    <protocol type="PING"/>
+                    <protocol type="MERGE3"/>
+                    <socket-protocol type="FD_SOCK" socket-binding="jgroups-udp-fd"/>
+                    <protocol type="FD_ALL"/>
+                    <protocol type="VERIFY_SUSPECT"/>
+                    <protocol type="pbcast.NAKACK2"/>
+                    <protocol type="UNICAST3"/>
+                    <protocol type="pbcast.STABLE"/>
+                    <protocol type="pbcast.GMS"/>
+                    <protocol type="UFC"/>
+                    <protocol type="MFC"/>
+                    <protocol type="FRAG3"/>
+                </stack>
+                <stack name="tcp">
+                    <transport type="TCP" socket-binding="jgroups-tcp"/>
+                    <socket-protocol type="MPING" socket-binding="jgroups-mping"/>
+                    <protocol type="MERGE3"/>
+                    <socket-protocol type="FD_SOCK" socket-binding="jgroups-tcp-fd"/>
+                    <protocol type="FD_ALL"/>
+                    <protocol type="VERIFY_SUSPECT"/>
+                    <protocol type="pbcast.NAKACK2"/>
+                    <protocol type="UNICAST3"/>
+                    <protocol type="pbcast.STABLE"/>
+                    <protocol type="pbcast.GMS"/>
+                    <protocol type="MFC"/>
+                    <protocol type="FRAG3"/>
+                </stack>
+                <stack name="tcpping">
+                    <transport type="TCP" shared="true" socket-binding="jgroups-tcp"/>
+                    <protocol type="TCPPING">
+                        <property name="initial_hosts">
+                            HostA[7600],HostB[7600]
+                        </property>
+                        <property name="port_range">
+                            0
+                        </property>
+                        <property name="timeout">
+                            3000
+                        </property>
+                        <property name="num_initial_members">
+                            3
+                        </property>
+                    </protocol>
+                    <protocol type="MERGE2"/>
+                    <protocol type="FD_SOCK" socket-binding="jgroups-tcp-fd"/>
+                    <protocol type="FD"/>
+                    <protocol type="VERIFY_SUSPECT"/>
+                    <protocol type="BARRIER"/>
+                    <protocol type="pbcast.NAKACK"/>
+                    <protocol type="UNICAST2"/>
+                    <protocol type="pbcast.STABLE"/>
+                    <protocol type="pbcast.GMS"/>
+                    <protocol type="UFC"/>
+                    <protocol type="MFC"/>
+                    <protocol type="FRAG2"/>
+                    <protocol type="RSVP"/>
+                </stack>
+            </stacks>
+        </subsystem>
         <subsystem xmlns="urn:jboss:domain:jmx:1.3">
             <expose-resolved-model/>
             <expose-expression-model/>
@@ -454,12 +540,62 @@ bash: cd: standalone.xml: Não é um diretório
             <jpa default-extended-persistence-inheritance="DEEP"/>
         </subsystem>
         <subsystem xmlns="urn:jboss:domain:jsf:1.1"/>
+        <subsystem xmlns="urn:jboss:domain:keycloak:1.1">
+            <secure-deployment name="simpg.war">
+                <realm>intranet</realm>
+                <resource>__SSO_RESOURCE_NAME_INTRANET__</resource>
+                <auth-server-url>__SSO_AUTH_URL_INTRANET__</auth-server-url>
+                <ssl-required>EXTERNAL</ssl-required>
+                <confidential-port>0</confidential-port>
+            </secure-deployment>
+        </subsystem>
+        <subsystem xmlns="urn:jboss:domain:jsr77:1.0"/>        
         <subsystem xmlns="urn:jboss:domain:mail:4.0">
-            <mail-session name="default" jndi-name="java:jboss/mail/Default">
-                <smtp-server outbound-socket-binding-ref="mail-smtp"/>
+            <mail-session name="default" jndi-name="java:jboss/mail/expresso" from="gitecfl05@mail.caixa">
+                <smtp-server outbound-socket-binding-ref="expresso-smtp"/>
             </mail-session>
         </subsystem>
+        <subsystem xmlns="urn:jboss:domain:messaging-activemq:13.0">
+            <server name="default">
+                <cluster password="${jboss.messaging.cluster.password:CHANGE ME!!}"/>
+                <statistics enabled="${wildfly.messaging-activemq.statistics-enabled:${wildfly.statistics-enabled:false}}"/>
+                <security-setting name="#">
+                    <role name="guest" send="true" consume="true" create-non-durable-queue="true" delete-non-durable-queue="true"/>
+                </security-setting>
+                <address-setting name="#" dead-letter-address="jms.queue.DLQ" expiry-address="jms.queue.ExpiryQueue" max-size-bytes="10485760" page-size-bytes="2097152" message-counter-history-day-limit="10" redistribution-delay="1000"/>
+                <http-connector name="http-connector" socket-binding="http" endpoint="http-acceptor"/>
+                <http-connector name="http-connector-throughput" socket-binding="http" endpoint="http-acceptor-throughput">
+                    <param name="batch-delay" value="50"/>
+                </http-connector>
+                <in-vm-connector name="in-vm" server-id="0">
+                    <param name="buffer-pooling" value="false"/>
+                </in-vm-connector>
+                <http-acceptor name="http-acceptor" http-listener="default"/>
+                <http-acceptor name="http-acceptor-throughput" http-listener="default">
+                    <param name="batch-delay" value="50"/>
+                    <param name="direct-deliver" value="false"/>
+                </http-acceptor>
+                <in-vm-acceptor name="in-vm" server-id="0">
+                    <param name="buffer-pooling" value="false"/>
+                </in-vm-acceptor>
+                <jgroups-broadcast-group name="bg-group1" jgroups-cluster="activemq-cluster" connectors="http-connector"/>
+                <jgroups-discovery-group name="dg-group1" jgroups-cluster="activemq-cluster"/>
+                <cluster-connection name="my-cluster" address="jms" connector-name="http-connector" discovery-group="dg-group1"/>
+                <jms-queue name="ExpiryQueue" entries="java:/jms/queue/ExpiryQueue"/>
+                <jms-queue name="DLQ" entries="java:/jms/queue/DLQ"/>
+                <connection-factory name="InVmConnectionFactory" entries="java:/ConnectionFactory" connectors="in-vm"/>
+                <connection-factory name="RemoteConnectionFactory" entries="java:jboss/exported/jms/RemoteConnectionFactory" connectors="http-connector" ha="true" block-on-acknowledge="true" reconnect-attempts="-1"/>
+                <pooled-connection-factory name="activemq-ra" entries="java:/JmsXA java:jboss/DefaultJMSConnectionFactory" connectors="in-vm" transaction="xa"/>
+            </server>
+        </subsystem>
         <subsystem xmlns="urn:wildfly:metrics:1.0" security-enabled="false" exposed-subsystems="*" prefix="${wildfly.metrics.prefix:jboss}"/>
+        <subsystem xmlns="urn:jboss:domain:modcluster:3.0">
+            <mod-cluster-config advertise-socket="modcluster" connector="ajp">
+                <dynamic-load-provider>
+                    <load-metric type="cpu"/>
+                </dynamic-load-provider>
+            </mod-cluster-config>
+        </subsystem>
         <subsystem xmlns="urn:jboss:domain:naming:2.0">
             <remote-naming/>
         </subsystem>
@@ -500,6 +636,25 @@ bash: cd: standalone.xml: Não é um diretório
                         <policy-module code="Delegating" flag="required"/>
                     </authorization>
                 </security-domain>
+                <security-domain name="jaas-sictd" cache-type="default">
+                    <authentication>
+                        <login-module code="org.jboss.security.auth.spi.LdapExtLoginModule" flag="required">
+                            <module-option name="allowEmptyPasswords" value="true"/>
+                            <module-option name="baseCtxDN" value="ou=People,o=caixa"/>
+                            <module-option name="baseFilter" value="(uid={0})"/>
+                            <module-option name="java.naming.provider.url" value="ldap://ldapclusterdes.extra.caixa.gov.br:1489"/>
+                            <module-option name="java.naming.security.authentication" value="simple"/>
+                            <module-option name="roleAttributeID" value="uniqueMember"/>
+                            <module-option name="roleAttributeIsDN" value="true"/>
+                            <module-option name="roleFilter" value="(uniqueMember=uid={0}*)"/>
+                            <module-option name="roleNameAttributeID" value="cn"/>
+                            <module-option name="rolesCtxDN" value="cn=SICTD,ou=Groups,o=caixa"/>
+                            <module-option name="searchScope" value="SUBTREE_SCOPE"/>
+                            <module-option name="searchTimeLimit" value="5000"/>
+                            <module-option name="throwValidateError" value="true"/>
+                        </login-module>
+                    </authentication>
+                </security-domain> 
             </security-domains>
         </subsystem>
         <subsystem xmlns="urn:jboss:domain:security-manager:1.0">
@@ -522,6 +677,7 @@ bash: cd: standalone.xml: Não é um diretório
         <subsystem xmlns="urn:jboss:domain:undertow:12.0" default-server="default-server" default-virtual-host="default-host" default-servlet-container="default" default-security-domain="other" statistics-enabled="${wildfly.undertow.statistics-enabled:${wildfly.statistics-enabled:false}}">
             <buffer-cache name="default"/>
             <server name="default-server">
+                <ajp-listener name="ajp" socket-binding="ajp"/>
                 <http-listener name="default" socket-binding="http" redirect-socket="https" enable-http2="true"/>
                 <https-listener name="https" socket-binding="https" security-realm="ApplicationRealm" enable-http2="true"/>
                 <host name="default-host" alias="localhost">
@@ -553,24 +709,43 @@ bash: cd: standalone.xml: Não é um diretório
         <interface name="management">
             <inet-address value="${jboss.bind.address.management:127.0.0.1}"/>
         </interface>
+        <interface name="private">
+            <inet-address value="${jboss.bind.address.private:127.0.0.1}"/>
+        </interface>
         <interface name="public">
             <inet-address value="${jboss.bind.address:127.0.0.1}"/>
+        </interface>
+        <interface name="unsecure">
+            <inet-address value="${jboss.bind.address.unsecure:127.0.0.1}"/>
         </interface>
     </interfaces>
     <socket-binding-group name="standard-sockets" default-interface="public" port-offset="${jboss.socket.binding.port-offset:0}">
         <socket-binding name="ajp" port="${jboss.ajp.port:8009}"/>
         <socket-binding name="http" port="${jboss.http.port:8080}"/>
         <socket-binding name="https" port="${jboss.https.port:8443}"/>
+        <socket-binding name="iiop" interface="unsecure" port="3528"/>
+        <socket-binding name="iiop-ssl" interface="unsecure" port="3529"/>
+        <socket-binding name="jgroups-mping" interface="private" multicast-address="${jboss.default.multicast.address:230.0.0.4}" multicast-port="45700"/>
+        <socket-binding name="jgroups-tcp" interface="private" port="7600"/>
+        <socket-binding name="jgroups-tcp-fd" interface="private" port="57600"/>
+        <socket-binding name="jgroups-udp" interface="private" port="55200" multicast-address="${jboss.default.multicast.address:230.0.0.4}" multicast-port="45688"/>
+        <socket-binding name="jgroups-udp-fd" interface="private" port="54200"/>
         <socket-binding name="management-http" interface="management" port="${jboss.management.http.port:9990}"/>
         <socket-binding name="management-https" interface="management" port="${jboss.management.https.port:9993}"/>
+        <socket-binding name="modcluster" port="0" multicast-address="${jboss.modcluster.multicast.address:224.0.1.105}" multicast-port="23364"/>
         <socket-binding name="txn-recovery-environment" port="4712"/>
         <socket-binding name="txn-status-manager" port="4713"/>
         <outbound-socket-binding name="mail-smtp">
-            <remote-destination host="${jboss.mail.server.host:localhost}" port="${jboss.mail.server.port:25}"/>
+            <remote-destination host="localhost" port="25"/>
+        </outbound-socket-binding>
+        <outbound-socket-binding name="expresso-smtp">
+            <remote-destination host="pr7445sr102.corp.caixa.gov.br" port="25"/>
+        </outbound-socket-binding>
+                <outbound-socket-binding name="proxy1" fixed-source-port="false">
+            <remote-destination host="${http.modcluster.proxy1:127.0.0.1}" port="6666"/>
+        </outbound-socket-binding>
+        <outbound-socket-binding name="proxy2" fixed-source-port="false">
+            <remote-destination host="${http.modcluster.proxy2:127.0.0.2}" port="6666"/>
         </outbound-socket-binding>
     </socket-binding-group>
-</server>[root@caddeapllx1945 configuration]#
-
-
-
-
+</server>
