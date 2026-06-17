@@ -1,156 +1,48 @@
-#!/bin/bash
-# Script para verificar qual VM está ativa e em uso
-# Uso: ./verificar_vms.sh
-
-set -e
-
-echo "╔════════════════════════════════════════════════════════════════╗"
-echo "║  ANÁLISE DE VMs DUPLICADAS - CADDEAPLLX2520 vs CADDEAPLLX2673  ║"
-echo "╚════════════════════════════════════════════════════════════════╝"
-echo ""
-
-VM1="caddeapllx2520.agil.nprd.caixa.gov.br"
-VM2="caddeapllx2673.agil.nprd.caixa.gov.br"
-IP="10.116.201.129"
-
-# Cores
-RED='\033[0;31m'
-GREEN='\033[0;32m'
-YELLOW='\033[1;33m'
-BLUE='\033[0;34m'
-NC='\033[0m' # No Color
-
-check_connectivity() {
-    local vm=$1
-    local name=$2
-    
-    echo -e "${BLUE}─── Verificando: $name ($vm) ───${NC}"
-    
-    # Teste de ping
-    if timeout 2 ping -c 1 "$vm" &>/dev/null; then
-        echo -e "${GREEN}✓${NC} Ping: OK"
-        ping_ok=1
-    else
-        echo -e "${RED}✗${NC} Ping: FALHOU"
-        ping_ok=0
-    fi
-    
-    # Teste SSH
-    if timeout 5 ssh -o StrictHostKeyChecking=no -o ConnectTimeout=2 "root@$vm" "hostname" &>/dev/null; then
-        echo -e "${GREEN}✓${NC} SSH: Acessível"
-        ssh_ok=1
-    else
-        echo -e "${RED}✗${NC} SSH: Indisponível"
-        ssh_ok=0
-    fi
-    
-    if [ $ssh_ok -eq 1 ]; then
-        # Verificar status JBoss
-        jboss_status=$(ssh -o StrictHostKeyChecking=no "root@$vm" "systemctl is-active jboss" 2>/dev/null || echo "unknown")
-        if [ "$jboss_status" = "active" ]; then
-            echo -e "${GREEN}✓${NC} JBoss: RODANDO"
-        else
-            echo -e "${YELLOW}⚠${NC} JBoss: $jboss_status"
-        fi
-        
-        # Verificar Apache
-        apache_status=$(ssh -o StrictHostKeyChecking=no "root@$vm" "systemctl is-active apache2" 2>/dev/null || echo "unknown")
-        if [ "$apache_status" = "active" ]; then
-            echo -e "${GREEN}✓${NC} Apache: RODANDO"
-        else
-            echo -e "${YELLOW}⚠${NC} Apache: $apache_status"
-        fi
-        
-        # Verificar uptime
-        uptime=$(ssh -o StrictHostKeyChecking=no "root@$vm" "uptime -p" 2>/dev/null || echo "N/A")
-        echo -e "${BLUE}℃${NC} Uptime: $uptime"
-        
-        # Verificar processos JBoss
-        jboss_procs=$(ssh -o StrictHostKeyChecking=no "root@$vm" "ps aux | grep -i jboss | grep -v grep | wc -l" 2>/dev/null || echo "0")
-        echo -e "${BLUE}℃${NC} Processos JBoss: $jboss_procs"
-        
-        # Verificar mount NFS
-        nfs_mounts=$(ssh -o StrictHostKeyChecking=no "root@$vm" "mount | grep nfs | wc -l" 2>/dev/null || echo "0")
-        echo -e "${BLUE}℃${NC} Mounts NFS: $nfs_mounts"
-    fi
-    
-    echo ""
-}
-
-check_port_443() {
-    echo -e "${BLUE}─── Teste de Porta 443 ───${NC}"
-    if timeout 2 nc -zv "$IP" 443 &>/dev/null; then
-        echo -e "${GREEN}✓${NC} Porta 443: ABERTA"
-    else
-        echo -e "${RED}✗${NC} Porta 443: FECHADA (conforme REQ000144492006)"
-    fi
-    echo ""
-}
-
-check_dns() {
-    echo -e "${BLUE}─── Verificação de DNS ───${NC}"
-    
-    dns1=$(nslookup "$VM1" 2>/dev/null | grep "Address:" | tail -1 | awk '{print $2}' || echo "FALHOU")
-    dns2=$(nslookup "$VM2" 2>/dev/null | grep "Address:" | tail -1 | awk '{print $2}' || echo "FALHOU")
-    
-    echo "DNS $VM1 → $dns1"
-    echo "DNS $VM2 → $dns2"
-    
-    if [ "$dns1" = "$dns2" ]; then
-        echo -e "${RED}✗ PROBLEMA: Ambos resolvem para o mesmo IP!${NC}"
-    fi
-    echo ""
-}
-
-check_load_balancer() {
-    echo -e "${BLUE}─── Teste Load Balancer ───${NC}"
-    echo "Testando HTTPS com certificado APT-BANCARIO..."
-    
-    if timeout 5 curl -k -v https://apt-bancario.tqs.caixa/ &>/dev/null; then
-        echo -e "${GREEN}✓${NC} Load Balancer: Respondendo"
-    else
-        echo -e "${RED}✗${NC} Load Balancer: Não respondendo"
-    fi
-    echo ""
-}
-
-check_filesystem() {
-    local vm=$1
-    local name=$2
-    
-    echo -e "${BLUE}─── Espaço em Disco: $name ───${NC}"
-    
-    if timeout 5 ssh -o StrictHostKeyChecking=no "root@$vm" "df -h / /opt /var" 2>/dev/null; then
-        echo ""
-    else
-        echo -e "${RED}Não foi possível verificar.${NC}"
-        echo ""
-    fi
-}
-
-# Execução
-echo "Iniciando verificações em ambas as VMs..."
-echo ""
-
-check_connectivity "$VM1" "CADDEAPLLX2520 (SOCIAL)"
-check_connectivity "$VM2" "CADDEAPLLX2673 (BANCARIO)"
-
-check_dns
-check_port_443
-
-echo -e "${BLUE}═══════════════════════════════════════════════════════════════${NC}"
-echo -e "${YELLOW}RESUMO E RECOMENDAÇÃO:${NC}"
-echo -e "${BLUE}═══════════════════════════════════════════════════════════════${NC}"
-echo ""
-echo "Baseado na documentação do deployment:"
-echo "  • Pipeline ECAPT-BANCARIO-TQS criou: CADDEAPLLX2673"
-echo "  • CADDEAPLLX2520 é para ECAPT-SOCIAL-TQS"
-echo ""
-echo -e "${GREEN}RECOMENDAÇÃO: Manter CADDEAPLLX2673 (BANCARIO)${NC}"
-echo -e "${RED}DELETAR: CADDEAPLLX2520 (SOCIAL)${NC}"
-echo ""
-echo "⚠️  ANTES DE DELETAR:"
-echo "   1. Confirme que os serviços acima estão OK em CADDEAPLLX2673"
-echo "   2. Faça backup de CADDEAPLLX2520"
-echo "   3. Consulte responsável pela aplicação SOCIAL-TQS"
-echo ""
+2026-06-17T17:14:23.5645733Z ##[section]Starting: Bash Script
+2026-06-17T17:14:23.5649034Z ==============================================================================
+2026-06-17T17:14:23.5649153Z Task         : Bash
+2026-06-17T17:14:23.5649199Z Description  : Run a Bash script on macOS, Linux, or Windows
+2026-06-17T17:14:23.5649262Z Version      : 3.227.0
+2026-06-17T17:14:23.5649356Z Author       : Microsoft Corporation
+2026-06-17T17:14:23.5649410Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/bash
+2026-06-17T17:14:23.5649486Z ==============================================================================
+2026-06-17T17:14:23.7106818Z Generating script.
+2026-06-17T17:14:23.7117321Z ========================== Starting Command Output ===========================
+2026-06-17T17:14:23.7126148Z [command]/usr/bin/bash /opt/ads-agent/_work/_temp/c638b17f-7b02-4a8b-965c-832e93d893c2.sh
+2026-06-17T17:14:23.7173232Z ╔════════════════════════════════════════════════════════════════╗
+2026-06-17T17:14:23.7173449Z ║  ANÁLISE DE VMs DUPLICADAS - CADDEAPLLX2520 vs CADDEAPLLX2673  ║
+2026-06-17T17:14:23.7173829Z ╚════════════════════════════════════════════════════════════════╝
+2026-06-17T17:14:23.7173890Z 
+2026-06-17T17:14:23.7174964Z Iniciando verificações em ambas as VMs...
+2026-06-17T17:14:23.7175026Z 
+2026-06-17T17:14:23.7175277Z [0;34m─── Verificando: CADDEAPLLX2520 (SOCIAL) (caddeapllx2520.agil.nprd.caixa.gov.br) ───[0m
+2026-06-17T17:14:23.7347474Z [0;32m✓[0m Ping: OK
+2026-06-17T17:14:23.8341198Z [0;31m✗[0m SSH: Indisponível
+2026-06-17T17:14:23.8341326Z 
+2026-06-17T17:14:23.8342014Z [0;34m─── Verificando: CADDEAPLLX2673 (BANCARIO) (caddeapllx2673.agil.nprd.caixa.gov.br) ───[0m
+2026-06-17T17:14:23.8434514Z [0;31m✗[0m Ping: FALHOU
+2026-06-17T17:14:23.8522420Z [0;31m✗[0m SSH: Indisponível
+2026-06-17T17:14:23.8522482Z 
+2026-06-17T17:14:23.8522691Z [0;34m─── Verificação de DNS ───[0m
+2026-06-17T17:14:23.8756562Z DNS caddeapllx2520.agil.nprd.caixa.gov.br → 10.116.201.129
+2026-06-17T17:14:23.8756864Z DNS caddeapllx2673.agil.nprd.caixa.gov.br → 25.128.0.10#53
+2026-06-17T17:14:23.8756963Z 
+2026-06-17T17:14:23.8757169Z [0;34m─── Teste de Porta 443 ───[0m
+2026-06-17T17:14:23.8777377Z [0;31m✗[0m Porta 443: FECHADA (conforme REQ000144492006)
+2026-06-17T17:14:23.8777445Z 
+2026-06-17T17:14:23.8778981Z [0;34m═══════════════════════════════════════════════════════════════[0m
+2026-06-17T17:14:23.8779725Z [1;33mRESUMO E RECOMENDAÇÃO:[0m
+2026-06-17T17:14:23.8780049Z [0;34m═══════════════════════════════════════════════════════════════[0m
+2026-06-17T17:14:23.8780119Z 
+2026-06-17T17:14:23.8780307Z Baseado na documentação do deployment:
+2026-06-17T17:14:23.8780560Z   • Pipeline ECAPT-BANCARIO-TQS criou: CADDEAPLLX2673
+2026-06-17T17:14:23.8780761Z   • CADDEAPLLX2520 é para ECAPT-SOCIAL-TQS
+2026-06-17T17:14:23.8780857Z 
+2026-06-17T17:14:23.8781026Z [0;32mRECOMENDAÇÃO: Manter CADDEAPLLX2673 (BANCARIO)[0m
+2026-06-17T17:14:23.8781320Z [0;31mDELETAR: CADDEAPLLX2520 (SOCIAL)[0m
+2026-06-17T17:14:23.8781412Z 
+2026-06-17T17:14:23.8781598Z    1. Confirme que os serviços acima estão OK em CADDEAPLLX2673
+2026-06-17T17:14:23.8781819Z    2. Faça backup de CADDEAPLLX2520
+2026-06-17T17:14:23.8782037Z    3. Consulte responsável pela aplicação SOCIAL-TQS
+2026-06-17T17:14:23.8782099Z 
+2026-06-17T17:14:23.8840206Z ##[section]Finishing: Bash Script
