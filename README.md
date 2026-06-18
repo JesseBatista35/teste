@@ -1,29 +1,62 @@
-Criando novo BuildConfig
+Prezados (as)
 
-View raw log
+Identificamos:
 
-Starting: Criando novo BuildConfig
-==============================================================================
-Task         : Bash
-Description  : Run a Bash script on macOS, Linux, or Windows
-Version      : 3.227.0
-Author       : Microsoft Corporation
-Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/bash
-==============================================================================
-Generating script.
-========================== Starting Command Output ===========================
-/usr/bin/bash /opt/ads-agent/_work/_temp/f3c0ef21-20e3-4aa4-b3eb-6ad14741a716.sh
-+ echo okd4_nprd
-+ egrep -q '^(okd4|ocp)'
-+ buildconfig=sihdg-jboss8.0
-+ oc get bc/sihdg-jboss8.0 -n build-images-ads
-Error from server (NotFound): buildconfigs.build.openshift.io "sihdg-jboss8.0" not found
-+ '[' 1 -ne 0 ']'
-+ oc new-build --name sihdg-jboss8.0 --binary --strategy source --image-stream eap8-openjdk21-runtime-openshift-rhel9:1.0.1 -n build-images-ads
-error: invalid name: sihdg-jboss8.0. Must be an a lower case alphanumeric (a-z, and 0-9) string with a maximum length of 58 characters, where the first character is a letter (a-z), and the '-' character is allowed anywhere except the first or last character.
-##[error]Bash exited with code '1'.
-Finishing: Criando novo BuildConfig
+Falha nas pipelines de deploy do RAF (worker) – DES e TQS
 
+Descrição do Problema:
+Durante tentativas de deploy do worker do RAF realizadas na tarde de ontem, foram identificadas falhas intermitentes nas pipelines:
+
+
+1ª tentativa:
+Deploy concluído com sucesso em DES, porém travou em TQS.
+
+
+2ª tentativa:
+O processo passou a travar em DES, permanecendo nessa condição até o momento.
+
+
+Pipelines afetadas:
+
+
+DES ok / TQS com falha:
+caixagithub/sigcn-raf-worker_main_27705154846.5 · commit 5c67e55
+
+https://github.com/caixagithub/sigcn-raf-worker/actions/runs/27705154846
+
+DES com falha:
+caixagithub/sigcn-raf-worker_main_27707452021.6 · commit 5c67e55
+
+https://github.com/caixagithub/sigcn-raf-worker/actions/runs/27707452021
+
+Comportamento observado:
+
+Ausência de logs detalhados que indiquem a causa raiz.
+A falha ocorre na etapa de health check.
+O deployment permanece com status "Progressing", não evoluindo para "Healthy", o que impede o avanço da pipeline para as próximas etapas.
+
+Impacto:
+
+Bloqueio no deploy do worker entre ambientes.
+Impossibilidade de promoção e validação da versão.
+
+Solicitação:
+
+Análise da etapa de health check, verificando por que o status não evolui de "Progressing" para "Healthy".
+Verificação de possíveis problemas de disponibilidade, readiness/liveness probes ou dependências externas nos ambientes DES e TQS.
+Apoio na identificação da causa da ausência de logs conclusivos.
+
+Observações adicionais:
+
+Ambas as execuções utilizam o mesmo commit (5c67e55).
+Comportamento inconsistente entre ambientes pode indicar instabilidade ou problema de configuração/infraestrutura.
+
+Qualquer dúvidas, estamos a disposição.
+
+Ademir Rodrigues de Carvalho
+Agente Técnico - C151462-3
+
+Gustavo Rodrigues de Brito
 
 Skip to content
 GitHub Enterprise
@@ -88,6 +121,3 @@ Process completed with exit code 1.
 CI_CD_PRD / ArgoCD_Deploy / ArgoCD_Deploy (TQS)
 Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/create-github-app-token@v2. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
 
-
-
-me ajuda com passo a apsos  onde clicar e corrgir o problema
