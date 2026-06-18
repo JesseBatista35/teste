@@ -1,93 +1,71 @@
 ---
-# file: site.yml
-- import_playbook: stack_vm.yml
-  tags: vm
-- import_playbook: stack_monitoracao.yml
-  tags: monitoracao
-- import_playbook: stack_ldap.yml
-  tags: ldap
-- import_playbook: stack_apache.yml
-  tags: apache
-- import_playbook: stack_jboss.yml
-  tags: jboss
-- hosts: jboss
-  gather_facts: no
-  roles:
-    - nfs
-  tags:
-    - git_conf
+- hosts: local
+  gather_facts: true
+  tasks:
+    - include_role:
+        name: vm 
 
-- hosts: jboss
-  gather_facts: no
-  roles:
-    - nfs
-  tags:
-    - nfs
-
-- import_playbook: stack_disable_unit_jboss.yml
-  tags: git_conf
-- import_playbook: stack_deployments_custom.yml
-  tags: git_conf
-- import_playbook: stack_modules_custom.yml
-  tags: git_conf
-- import_playbook: stack_jboss_handlers.yml
-- import_playbook: stack_hosts.yml
-  tags:
-    - git_conf
-- import_playbook: stack_custom.yml
-  tags:
-    - git_conf
-    - custom
-#  tags:
-#    - git_conf
-#    - deploy
-- import_playbook: restart_jboss.yml
-  tags: restart_jboss
-- import_playbook: stop_jboss.yml
-  tags: stop_jboss
-- import_playbook: stack_tsm.yml
-  tags: tsm
-- import_playbook: stack_hosts.yml
-  tags: controlm
-- import_playbook: stack_controlm.yml
-  tags: controlm
-
-- hosts: "jboss"
-  roles:
-    - satellite
-  tags: satellite
-
-- hosts: "jboss"
-  roles:
-    - logrotate
-  tags: logrotate
-
-- import_playbook: stack_batch.yml
-  tags: batch
-
-- hosts: "localhost"
+       
+- name: Configurando o DNS
+  hosts: "{{ ( sistema_ambiente != 'prd') | ternary('dns_nprd',  ('dns_prd_'+site)) }}"
+  become: False
   gather_facts: no
   tasks:
-     - include_tasks: roles/vm/tasks/size/executed.yml
-  tags: size_executado
+             
+    - name: Atualizando o inventário para garantir a existência de novas instâncias no inventário
+      meta: refresh_inventory  
 
-- hosts: jboss
-  roles:
-    - relogio
-    - tunning
-  tags: size_executado
+    - name: Consultar DNS
+      vars:
+        hostname: "{{ hostvars[item].inventory_hostname_short }}"
+        ip: "{{ hostvars[item].ansible_host }}"
+        dominio: "{{ dns_dominio }}"
+      command: dig +short "{{ hostname }}.{{ dominio }}" +timeout=5
+      loop: "{{ groups.jboss }}"
+      register: dig_result
+      delegate_to: localhost
+      run_once: true
+      
+    - name: Verificar se o domínio resolve para um IP
+      debug:
+        msg: "O domínio {{ item.item }} resolve para os seguintes endereços IP: {{ item.stdout_lines }}"
+      when: item.stdout_lines | length > 0
+      loop: "{{ dig_result.results }}"
+      run_once: true
 
-- hosts: jboss
-  gather_facts: no
-  roles:
-    - datagrid
-  tags:
-    - datagrid
+    - name: Falha se o domínio não resolver para um IP
+      debug:
+        msg: "O domínio {{ item.item }} não resolve para nenhum endereço IP."
+      when: item.stdout_lines | length == 0  
+      loop: "{{ dig_result.results }}"
+      run_once: true
+
+    - name: Set not created DNS
+      set_fact:
+        not_created_dns: "{{  not_created_dns | default([]) + [{'host': item.item, 'ip': '' }] }}"
+      when: item.stdout_lines | length == 0  
+      loop: "{{ dig_result.results }}"
+      run_once: true  
+
+    - name: Set created DNS
+      set_fact:
+        created_dns: "{{  created_dns | default([]) + [{'host': item.item, 'ip': item.stdout_lines[0] }] }}"
+      when: item.stdout_lines | length != 0  
+      loop: "{{ dig_result.results }}"
+      run_once: true    
+
+    - include_role:
+        name: dns
+      vars:
+        hostname: "{{ hostvars[item].inventory_hostname_short }}"
+        ip: "{{ hostvars[item].ansible_host }}"
+        dominio: "{{ dns_dominio }}"
+        hostname_full: "{{ hostvars[item].inventory_hostname_short }}.{{ dns_dominio }}"
+        dns_create: yes
+      loop: "{{ groups.jboss }}"
+      when: (not_created_dns is defined and (not_created_dns | selectattr('host','equalto', hostname_full) | list)) or ( created_dns is defined and (created_dns | selectattr('host','equalto', hostname_full) | selectattr('ip','ne', ip) | list))
+  
+  tags: 
+    - dns
 
 
-- hosts: jboss
-  gather_facts: no
-  roles:
-    - sigdb
-  tags:
-    - sigdb
