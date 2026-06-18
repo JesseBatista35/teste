@@ -1,3 +1,36 @@
+Starting: Executando Build S2I Binary
+==============================================================================
+Task         : Bash
+Description  : Run a Bash script on macOS, Linux, or Windows
+Version      : 3.227.0
+Author       : Microsoft Corporation
+Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/bash
+==============================================================================
+Generating script.
+========================== Starting Command Output ===========================
+/usr/bin/bash /opt/ads-agent/_work/_temp/0826968e-0341-47fa-84db-84d6485e174a.sh
++ echo okd4_nprd
++ egrep -q '^(okd4|ocp)'
++ buildconfig=sihdg-jboss8
++ DOTNET_ASSEMBLY=
+/opt/ads-agent/_work/_temp/0826968e-0341-47fa-84db-84d6485e174a.sh: line 12:  -4: substring expression < 0
++ cd /opt/ads-agent/_work/40/a
++ FILES=(`find -maxdepth 1 -name "*.runtimeconfig*.json"`)
+++ find -maxdepth 1 -name '*.runtimeconfig*.json'
++ '[' -d /opt/ads-agent/_work/40/s/target/server ']'
++ oc start-build sihdg-jboss8 --from-dir=/opt/ads-agent/_work/40/a --follow --wait=true -n build-images-ads -v=5
+I0618 16:49:36.577108   58890 repository.go:450] Executing git show -s HEAD --format=%H%n%an%n%ae%n%cn%n%ce%n%B
+I0618 16:49:36.579488   58890 repository.go:533] Error executing command: exit status 128
+Uploading directory "/opt/ads-agent/_work/40/a" as binary input for the build ...
+I0618 16:49:36.579656   58890 tar.go:238] Adding "/opt/ads-agent/_work/40/a" to tar ...
+I0618 16:49:36.579915   58890 tar.go:336] Adding to tar: /opt/ads-agent/_work/40/a/sihdg-jboss8.ear as sihdg-jboss8.ear
+.
+Uploading finished
+build.build.openshift.io/sihdg-jboss8-1 started
+Adding cluster TLS certificate authority to trust store
+Receiving source from STDIN as archive ...
+Adding cluster TLS certificate authority to trust store
+Adding cluster TLS certificate authority to trust store
 
 ##[warning]RetryHelper encountered task failure, will retry (attempt #: 1 out of 1) after 1000 ms
 Generating script.
@@ -32,3 +65,4 @@ Trying to pull registry.redhat.io/jboss-eap-8/eap8-openjdk21-runtime-openshift-r
 failed to watch file "/var/log/pods/build-images-ads_sihdg-jboss8-2-build_c45e2f43-dd54-46d8-9dd7-20a4cd194db7/sti-build/0.log": no space left on deviceerror: the build build-images-ads/sihdg-jboss8-2 status is "Failed"
 ##[error]Bash exited with code '1'.
 Finishing: Executando Build S2I Binary
+
