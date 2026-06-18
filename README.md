@@ -1378,3 +1378,7297 @@ __  ____  __  _____   ___  __ ____  ______
 2026-06-17 22:00:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
 2026-06-17 22:00:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
 2026-06-17 22:00:25,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:00:35,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:00:35,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:00:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:00:35,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:00:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:00:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:00:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:00:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:00:35,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:00:35,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:00:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:00:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:00:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:00:35,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:00:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:00:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:00:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:00:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:00:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:00:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:00:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:00:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:00:45,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:00:45,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:00:45,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:00:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:00:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:00:45,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:00:55,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:00:55,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:00:55,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:00:55,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:00:55,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:00:55,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:00:55,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:00:55,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:00:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:00:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:00:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:00:55,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:00:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:00:55,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:01:05,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:01:05,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:01:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:01:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:01:05,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:01:05,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:01:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:01:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:01:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:01:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:01:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:01:05,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:01:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:01:05,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:01:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:01:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:01:15,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:01:15,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:01:15,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:01:15,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:01:15,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:01:15,498 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:01:15,498 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:01:15,498 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:01:15,498 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:01:15,498 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:01:15,498 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:01:15,498 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:01:25,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:01:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:01:25,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:01:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:01:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:01:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:01:25,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:01:25,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:01:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:01:25,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:01:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:01:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:01:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:01:25,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:01:35,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:01:35,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:01:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:01:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:01:35,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:01:35,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:01:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:01:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:01:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:01:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:01:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:01:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:01:35,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:01:35,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:01:45,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:01:45,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:01:45,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:01:45,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:01:45,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:01:45,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:01:45,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:01:45,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:01:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:01:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:01:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:01:45,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:01:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:01:45,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:01:55,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:01:55,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:01:55,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:01:55,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:01:55,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:01:55,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:01:55,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:01:55,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:01:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:01:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:01:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:01:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:01:55,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:01:55,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:02:05,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:02:05,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:02:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:02:05,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:02:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:02:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:02:05,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:02:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:02:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:02:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:02:05,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:02:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:02:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:02:05,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:02:15,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:02:15,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:02:15,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:02:15,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:02:15,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:02:15,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:02:15,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:02:15,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:02:15,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:02:15,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:02:15,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:02:15,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:02:15,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:02:15,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:02:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:02:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:02:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:02:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:02:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:02:25,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:02:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:02:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:02:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:02:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:02:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:02:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:02:25,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:02:25,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:02:35,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:02:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:02:35,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:02:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:02:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:02:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:02:35,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:02:35,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:02:35,498 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:02:35,498 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:02:35,498 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:02:35,498 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:02:35,498 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:02:35,498 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:02:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:02:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:02:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:02:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:02:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:02:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:02:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:02:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:02:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:02:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:02:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:02:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:02:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:02:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:02:55,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:02:55,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:02:55,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:02:55,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:02:55,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:02:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:02:55,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:02:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:02:55,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:02:55,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:02:55,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:02:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:02:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:02:55,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:03:05,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:03:05,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:03:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:03:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:03:05,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:03:05,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:03:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:03:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:03:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:03:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:03:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:03:05,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:03:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:03:05,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:03:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:03:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:03:15,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:03:15,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:03:15,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:03:15,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:03:15,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:03:15,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:03:15,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:03:15,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:03:15,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:03:15,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:03:15,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:03:15,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:03:25,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:03:25,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:03:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:03:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:03:25,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:03:25,498 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:03:25,498 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:03:25,498 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:03:25,498 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:03:25,498 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:03:25,498 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:03:25,498 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:03:25,498 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:03:25,498 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:03:35,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:03:35,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:03:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:03:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:03:35,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:03:35,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:03:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:03:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:03:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:03:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:03:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:03:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:03:35,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:03:35,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:03:45,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:03:45,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:03:45,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:03:45,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:03:45,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:03:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:03:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:03:45,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:03:45,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:03:45,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:03:45,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:03:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:03:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:03:45,498 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:03:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:03:55,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:03:55,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:03:55,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:03:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:03:55,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:03:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:03:55,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:03:55,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:03:55,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:03:55,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:03:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:03:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:03:55,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:04:05,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:04:05,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:04:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:04:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:04:05,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:04:05,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:04:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:04:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:04:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:04:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:04:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:04:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:04:05,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:04:05,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:04:15,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:04:15,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:04:15,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:04:15,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:04:15,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:04:15,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:04:15,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:04:15,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:04:15,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:04:15,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:04:15,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:04:15,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:04:15,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:04:15,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:04:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:04:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:04:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:04:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:04:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:04:25,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:04:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:04:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:04:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:04:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:04:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:04:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:04:25,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:04:25,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:04:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:04:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:04:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:04:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:04:35,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:04:35,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:04:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:04:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:04:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:04:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:04:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:04:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:04:35,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:04:35,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:04:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:04:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:04:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:04:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:04:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:04:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:04:45,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:04:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:04:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:04:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:04:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:04:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:04:45,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:04:45,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:04:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:04:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:04:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:04:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:04:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:04:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:04:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:04:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:04:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:04:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:04:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:04:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:04:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:04:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:05:05,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:05:05,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:05:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:05:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:05:05,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:05:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:05:05,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:05:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:05:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:05:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:05:05,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:05:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:05:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:05:05,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:05:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:05:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:05:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:05:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:05:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:05:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:05:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:05:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:05:15,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:05:15,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:05:15,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:05:15,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:05:15,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:05:15,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:05:25,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:05:25,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:05:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:05:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:05:25,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:05:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:05:25,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:05:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:05:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:05:25,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:05:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:05:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:05:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:05:25,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:05:35,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:05:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:05:35,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:05:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:05:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:05:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:05:35,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:05:35,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:05:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:05:35,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:05:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:05:35,498 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:05:35,498 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:05:35,498 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:05:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:05:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:05:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:05:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:05:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:05:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:05:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:05:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:05:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:05:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:05:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:05:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:05:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:05:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:05:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:05:55,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:05:55,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:05:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:05:55,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:05:55,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:05:55,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:05:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:05:55,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:05:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:05:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:05:55,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:05:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:05:55,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:06:05,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:06:05,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:06:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:06:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:06:05,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:06:05,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:06:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:06:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:06:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:06:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:06:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:06:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:06:05,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:06:05,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:06:15,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:06:15,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:06:15,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:06:15,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:06:15,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:06:15,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:06:15,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:06:15,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:06:15,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:06:15,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:06:15,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:06:15,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:06:15,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:06:15,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:06:25,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:06:25,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:06:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:06:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:06:25,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:06:25,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:06:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:06:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:06:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:06:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:06:25,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:06:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:06:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:06:25,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:06:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:06:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:06:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:06:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:06:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:06:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:06:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:06:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:06:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:06:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:06:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:06:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:06:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:06:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:06:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:06:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:06:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:06:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:06:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:06:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:06:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:06:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:06:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:06:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:06:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:06:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:06:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:06:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:06:55,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:06:55,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:06:55,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:06:55,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:06:55,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:06:55,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:06:55,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:06:55,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:06:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:06:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:06:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:06:55,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:06:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:06:55,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:07:05,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:07:05,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:07:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:07:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:07:05,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:07:05,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:07:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:07:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:07:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:07:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:07:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:07:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:07:05,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:07:05,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:07:15,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:07:15,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:07:15,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:07:15,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:07:15,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:07:15,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:07:15,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:07:15,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:07:15,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:07:15,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:07:15,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:07:15,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:07:15,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:07:15,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:07:25,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:07:25,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:07:25,498 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:07:25,498 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:07:25,498 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:07:25,498 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:07:25,498 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:07:25,498 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:07:25,498 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:07:25,498 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:07:25,498 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:07:25,498 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:07:25,498 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:07:25,498 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:07:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:07:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:07:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:07:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:07:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:07:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:07:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:07:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:07:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:07:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:07:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:07:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:07:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:07:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:07:45,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:07:45,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:07:45,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:07:45,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:07:45,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:07:45,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:07:45,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:07:45,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:07:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:07:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:07:45,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:07:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:07:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:07:45,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:07:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:07:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:07:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:07:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:07:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:07:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:07:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:07:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:07:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:07:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:07:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:07:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:07:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:07:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:08:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:08:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:08:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:08:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:08:05,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:08:05,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:08:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:08:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:08:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:08:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:08:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:08:05,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:08:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:08:05,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:08:15,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:08:15,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:08:15,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:08:15,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:08:15,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:08:15,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:08:15,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:08:15,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:08:15,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:08:15,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:08:15,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:08:15,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:08:15,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:08:15,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:08:25,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:08:25,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:08:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:08:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:08:25,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:08:25,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:08:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:08:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:08:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:08:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:08:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:08:25,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:08:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:08:25,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:08:35,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:08:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:08:35,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:08:35,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:08:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:08:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:08:35,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:08:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:08:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:08:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:08:35,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:08:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:08:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:08:35,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:08:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:08:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:08:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:08:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:08:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:08:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:08:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:08:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:08:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:08:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:08:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:08:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:08:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:08:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:08:55,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:08:55,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:08:55,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:08:55,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:08:55,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:08:55,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:08:55,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:08:55,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:08:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:08:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:08:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:08:55,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:08:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:08:55,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:09:05,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:09:05,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:09:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:09:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:09:05,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:09:05,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:09:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:09:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:09:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:09:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:09:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:09:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:09:05,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:09:05,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:09:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:09:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:09:15,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:09:15,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:09:15,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:09:15,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:09:15,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:09:15,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:09:15,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:09:15,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:09:15,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:09:15,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:09:15,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:09:15,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:09:25,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:09:25,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:09:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:09:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:09:25,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:09:25,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:09:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:09:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:09:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:09:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:09:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:09:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:09:25,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:09:25,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:09:35,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:09:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:09:35,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:09:35,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:09:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:09:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:09:35,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:09:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:09:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:09:35,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:09:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:09:35,501 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:09:35,501 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:09:35,501 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:09:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:09:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:09:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:09:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:09:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:09:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:09:45,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:09:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:09:45,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:09:45,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:09:45,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:09:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:09:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:09:45,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:09:55,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:09:55,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:09:55,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:09:55,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:09:55,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:09:55,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:09:55,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:09:55,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:09:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:09:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:09:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:09:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:09:55,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:09:55,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:10:05,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:10:05,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:10:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:10:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:10:05,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:10:05,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:10:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:10:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:10:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:10:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:10:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:10:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:10:05,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:10:05,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:10:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:10:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:10:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:10:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:10:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:10:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:10:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:10:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:10:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:10:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:10:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:10:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:10:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:10:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:10:25,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:10:25,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:10:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:10:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:10:25,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:10:25,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:10:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:10:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:10:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:10:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:10:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:10:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:10:25,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:10:25,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:10:35,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:10:35,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:10:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:10:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:10:35,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:10:35,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:10:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:10:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:10:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:10:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:10:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:10:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:10:35,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:10:35,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:10:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:10:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:10:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:10:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:10:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:10:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:10:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:10:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:10:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:10:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:10:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:10:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:10:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:10:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:10:55,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:10:55,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:10:55,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:10:55,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:10:55,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:10:55,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:10:55,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:10:55,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:10:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:10:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:10:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:10:55,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:10:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:10:55,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:11:05,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:11:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:11:05,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:11:05,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:11:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:11:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:11:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:11:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:11:05,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:11:05,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:11:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:11:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:11:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:11:05,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:11:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:11:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:11:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:11:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:11:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:11:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:11:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:11:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:11:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:11:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:11:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:11:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:11:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:11:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:11:25,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:11:25,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:11:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:11:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:11:25,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:11:25,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:11:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:11:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:11:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:11:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:11:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:11:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:11:25,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:11:25,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:11:35,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:11:35,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:11:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:11:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:11:35,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:11:35,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:11:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:11:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:11:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:11:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:11:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:11:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:11:35,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:11:35,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:11:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:11:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:11:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:11:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:11:45,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:11:45,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:11:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:11:45,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:11:45,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:11:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:11:45,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:11:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:11:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:11:45,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:11:55,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:11:55,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:11:55,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:11:55,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:11:55,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:11:55,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:11:55,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:11:55,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:11:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:11:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:11:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:11:55,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:11:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:11:55,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:12:05,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:12:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:12:05,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:12:05,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:12:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:12:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:12:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:12:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:12:05,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:12:05,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:12:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:12:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:12:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:12:05,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:12:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:12:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:12:15,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:12:15,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:12:15,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:12:15,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:12:15,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:12:15,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:12:15,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:12:15,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:12:15,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:12:15,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:12:15,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:12:15,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:12:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:12:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:12:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:12:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:12:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:12:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:12:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:12:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:12:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:12:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:12:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:12:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:12:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:12:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:12:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:12:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:12:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:12:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:12:35,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:12:35,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:12:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:12:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:12:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:12:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:12:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:12:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:12:35,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:12:35,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:12:45,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:12:45,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:12:45,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:12:45,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:12:45,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:12:45,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:12:45,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:12:45,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:12:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:12:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:12:45,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:12:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:12:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:12:45,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:12:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:12:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:12:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:12:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:12:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:12:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:12:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:12:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:12:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:12:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:12:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:12:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:12:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:12:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:13:05,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:13:05,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:13:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:13:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:13:05,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:13:05,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:13:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:13:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:13:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:13:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:13:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:13:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:13:05,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:13:05,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:13:15,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:13:15,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:13:15,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:13:15,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:13:15,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:13:15,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:13:15,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:13:15,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:13:15,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:13:15,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:13:15,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:13:15,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:13:15,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:13:15,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:13:25,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:13:25,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:13:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:13:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:13:25,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:13:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:13:25,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:13:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:13:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:13:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:13:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:13:25,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:13:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:13:25,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:13:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:13:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:13:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:13:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:13:35,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:13:35,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:13:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:13:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:13:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:13:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:13:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:13:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:13:35,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:13:35,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:13:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:13:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:13:45,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:13:45,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:13:45,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:13:45,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:13:45,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:13:45,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:13:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:13:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:13:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:13:45,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:13:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:13:45,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:13:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:13:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:13:55,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:13:55,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:13:55,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:13:55,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:13:55,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:13:55,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:13:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:13:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:13:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:13:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:13:55,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:13:55,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:14:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:14:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:14:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:14:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:14:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:14:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:14:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:14:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:14:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:14:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:14:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:14:05,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:14:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:14:05,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:14:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:14:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:14:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:14:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:14:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:14:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:14:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:14:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:14:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:14:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:14:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:14:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:14:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:14:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:14:25,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:14:25,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:14:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:14:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:14:25,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:14:25,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:14:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:14:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:14:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:14:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:14:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:14:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:14:25,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:14:25,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:14:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:14:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:14:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:14:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:14:35,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:14:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:14:35,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:14:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:14:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:14:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:14:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:14:35,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:14:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:14:35,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:14:45,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:14:45,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:14:45,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:14:45,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:14:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:14:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:14:45,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:14:45,498 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:14:45,498 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:14:45,498 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:14:45,499 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:14:45,499 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:14:45,499 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:14:45,499 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:14:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:14:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:14:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:14:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:14:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:14:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:14:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:14:55,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:14:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:14:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:14:55,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:14:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:14:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:14:55,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:15:05,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:15:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:15:05,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:15:05,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:15:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:15:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:15:05,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:15:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:15:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:15:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:15:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:15:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:15:05,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:15:05,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:15:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:15:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:15:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:15:15,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:15:15,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:15:15,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:15:15,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:15:15,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:15:15,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:15:15,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:15:15,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:15:15,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:15:15,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:15:15,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:15:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:15:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:15:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:15:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:15:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:15:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:15:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:15:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:15:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:15:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:15:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:15:25,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:15:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:15:25,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:15:35,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:15:35,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:15:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:15:35,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:15:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:15:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:15:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:15:35,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:15:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:15:35,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:15:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:15:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:15:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:15:35,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:15:45,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:15:45,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:15:45,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:15:45,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:15:45,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:15:45,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:15:45,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:15:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:15:45,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:15:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:15:45,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:15:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:15:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:15:45,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:15:55,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:15:55,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:15:55,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:15:55,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:15:55,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:15:55,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:15:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:15:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:15:55,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:15:55,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:15:55,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:15:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:15:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:15:55,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:16:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:16:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:16:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:16:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:16:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:16:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:16:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:16:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:16:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:16:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:16:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:16:05,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:16:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:16:05,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:16:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:16:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:16:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:16:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:16:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:16:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:16:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:16:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:16:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:16:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:16:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:16:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:16:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:16:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:16:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:16:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:16:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:16:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:16:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:16:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:16:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:16:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:16:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:16:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:16:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:16:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:16:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:16:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:16:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:16:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:16:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:16:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:16:35,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:16:35,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:16:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:16:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:16:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:16:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:16:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:16:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:16:35,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:16:35,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:16:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:16:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:16:45,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:16:45,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:16:45,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:16:45,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:16:45,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:16:45,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:16:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:16:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:16:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:16:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:16:45,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:16:45,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:16:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:16:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:16:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:16:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:16:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:16:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:16:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:16:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:16:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:16:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:16:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:16:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:16:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:16:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:17:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:17:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:17:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:17:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:17:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:17:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:17:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:17:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:17:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:17:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:17:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:17:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:17:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:17:05,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:17:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:17:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:17:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:17:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:17:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:17:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:17:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:17:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:17:15,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:17:15,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:17:15,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:17:15,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:17:15,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:17:15,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:17:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:17:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:17:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:17:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:17:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:17:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:17:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:17:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:17:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:17:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:17:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:17:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:17:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:17:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:17:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:17:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:17:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:17:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:17:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:17:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:17:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:17:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:17:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:17:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:17:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:17:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:17:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:17:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:17:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:17:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:17:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:17:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:17:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:17:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:17:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:17:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:17:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:17:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:17:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:17:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:17:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:17:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:17:55,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:17:55,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:17:55,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:17:55,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:17:55,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:17:55,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:17:55,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:17:55,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:17:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:17:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:17:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:17:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:17:55,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:17:55,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:18:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:18:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:18:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:18:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:18:05,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:18:05,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:18:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:18:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:18:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:18:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:18:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:18:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:18:05,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:18:05,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:18:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:18:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:18:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:18:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:18:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:18:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:18:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:18:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:18:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:18:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:18:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:18:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:18:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:18:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:18:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:18:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:18:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:18:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:18:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:18:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:18:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:18:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:18:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:18:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:18:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:18:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:18:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:18:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:18:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:18:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:18:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:18:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:18:35,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:18:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:18:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:18:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:18:35,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:18:35,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:18:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:18:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:18:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:18:35,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:18:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:18:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:18:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:18:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:18:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:18:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:18:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:18:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:18:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:18:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:18:45,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:18:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:18:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:18:45,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:18:55,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:18:55,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:18:55,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:18:55,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:18:55,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:18:55,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:18:55,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:18:55,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:18:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:18:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:18:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:18:55,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:18:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:18:55,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:19:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:19:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:19:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:19:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:19:05,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:19:05,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:19:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:19:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:19:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:19:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:19:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:19:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:19:05,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:19:05,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:19:15,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:19:15,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:19:15,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:19:15,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:19:15,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:19:15,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:19:15,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:19:15,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:19:15,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:19:15,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:19:15,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:19:15,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:19:15,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:19:15,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:19:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:19:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:19:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:19:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:19:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:19:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:19:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:19:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:19:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:19:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:19:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:19:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:19:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:19:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:19:35,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:19:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:19:35,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:19:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:19:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:19:35,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:19:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:19:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:19:35,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:19:35,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:19:35,498 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:19:35,498 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:19:35,498 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:19:35,498 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:19:45,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:19:45,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:19:45,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:19:45,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:19:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:19:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:19:45,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:19:45,504 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:19:45,504 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:19:45,504 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:19:45,504 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:19:45,504 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:19:45,504 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:19:45,504 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:19:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:19:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:19:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:19:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:19:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:19:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:19:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:19:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:19:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:19:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:19:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:19:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:19:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:19:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:20:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:20:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:20:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:20:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:20:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:20:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:20:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:20:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:20:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:20:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:20:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:20:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:20:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:20:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:20:15,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:20:15,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:20:15,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:20:15,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:20:15,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:20:15,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:20:15,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:20:15,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:20:15,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:20:15,498 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:20:15,498 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:20:15,498 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:20:15,498 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:20:15,498 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:20:25,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:20:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:20:25,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:20:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:20:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:20:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:20:25,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:20:25,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:20:25,498 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:20:25,498 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:20:25,498 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:20:25,498 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:20:25,498 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:20:25,498 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:20:35,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:20:35,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:20:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:20:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:20:35,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:20:35,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:20:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:20:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:20:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:20:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:20:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:20:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:20:35,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:20:35,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:20:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:20:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:20:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:20:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:20:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:20:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:20:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:20:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:20:45,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:20:45,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:20:45,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:20:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:20:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:20:45,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:20:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:20:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:20:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:20:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:20:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:20:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:20:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:20:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:20:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:20:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:20:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:20:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:20:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:20:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:21:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:21:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:21:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:21:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:21:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:21:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:21:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:21:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:21:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:21:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:21:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:21:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:21:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:21:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:21:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:21:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:21:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:21:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:21:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:21:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:21:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:21:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:21:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:21:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:21:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:21:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:21:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:21:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:21:25,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:21:25,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:21:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:21:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:21:25,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:21:25,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:21:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:21:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:21:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:21:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:21:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:21:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:21:25,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:21:25,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:21:35,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:21:35,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:21:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:21:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:21:35,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:21:35,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:21:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:21:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:21:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:21:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:21:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:21:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:21:35,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:21:35,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:21:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:21:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:21:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:21:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:21:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:21:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:21:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:21:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:21:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:21:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:21:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:21:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:21:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:21:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:21:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:21:55,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:21:55,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:21:55,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:21:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:21:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:21:55,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:21:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:21:55,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:21:55,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:21:55,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:21:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:21:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:21:55,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:22:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:22:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:22:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:22:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:22:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:22:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:22:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:22:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:22:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:22:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:22:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:22:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:22:05,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:22:05,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:22:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:22:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:22:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:22:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:22:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:22:15,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:22:15,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:22:15,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:22:15,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:22:15,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:22:15,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:22:15,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:22:15,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:22:15,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:22:25,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:22:25,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:22:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:22:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:22:25,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:22:25,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:22:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:22:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:22:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:22:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:22:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:22:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:22:25,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:22:25,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:22:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:22:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:22:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:22:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:22:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:22:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:22:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:22:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:22:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:22:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:22:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:22:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:22:35,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:22:35,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:22:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:22:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:22:45,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:22:45,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:22:45,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:22:45,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:22:45,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:22:45,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:22:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:22:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:22:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:22:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:22:45,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:22:45,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:22:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:22:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:22:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:22:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:22:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:22:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:22:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:22:55,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:22:55,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:22:55,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:22:55,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:22:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:22:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:22:55,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:23:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:23:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:23:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:23:05,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:23:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:23:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:23:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:23:05,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:23:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:23:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:23:05,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:23:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:23:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:23:05,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:23:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:23:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:23:15,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:23:15,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:23:15,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:23:15,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:23:15,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:23:15,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:23:15,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:23:15,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:23:15,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:23:15,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:23:15,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:23:15,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:23:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:23:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:23:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:23:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:23:25,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:23:25,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:23:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:23:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:23:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:23:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:23:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:23:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:23:25,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:23:25,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:23:35,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:23:35,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:23:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:23:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:23:35,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:23:35,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:23:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:23:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:23:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:23:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:23:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:23:35,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:23:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:23:35,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:23:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:23:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:23:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:23:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:23:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:23:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:23:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:23:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:23:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:23:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:23:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:23:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:23:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:23:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:23:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:23:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:23:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:23:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:23:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:23:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:23:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:23:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:23:55,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:23:55,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:23:55,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:23:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:23:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:23:55,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:24:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:24:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:24:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:24:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:24:05,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:24:05,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:24:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:24:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:24:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:24:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:24:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:24:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:24:05,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:24:05,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:24:15,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:24:15,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:24:15,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:24:15,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:24:15,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:24:15,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:24:15,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:24:15,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:24:15,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:24:15,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:24:15,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:24:15,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:24:15,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:24:15,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:24:25,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:24:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:24:25,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:24:25,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:24:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:24:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:24:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:24:25,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:24:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:24:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:24:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:24:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:24:25,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:24:25,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:24:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:24:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:24:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:24:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:24:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:24:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:24:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:24:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:24:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:24:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:24:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:24:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:24:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:24:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:24:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:24:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:24:45,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:24:45,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:24:45,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:24:45,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:24:45,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:24:45,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:24:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:24:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:24:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:24:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:24:45,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:24:45,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:24:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:24:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:24:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:24:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:24:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:24:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:24:55,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:24:55,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:24:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:24:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:24:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:24:55,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:24:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:24:55,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:25:05,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:25:05,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:25:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:25:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:25:05,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:25:05,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:25:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:25:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:25:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:25:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:25:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:25:05,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:25:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:25:05,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:25:15,498 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:25:15,498 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:25:15,498 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:25:15,498 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:25:15,498 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:25:15,498 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:25:15,499 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:25:15,499 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:25:15,499 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:25:15,499 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:25:15,499 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:25:15,499 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:25:15,499 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:25:15,499 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:25:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:25:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:25:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:25:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:25:25,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:25:25,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:25:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:25:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:25:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:25:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:25:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:25:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:25:25,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:25:25,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:25:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:25:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:25:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:25:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:25:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:25:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:25:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:25:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:25:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:25:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:25:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:25:35,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:25:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:25:35,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:25:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:25:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:25:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:25:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:25:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:25:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:25:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:25:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:25:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:25:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:25:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:25:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:25:45,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:25:45,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:25:55,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:25:55,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:25:55,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:25:55,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:25:55,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:25:55,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:25:55,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:25:55,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:25:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:25:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:25:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:25:55,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:25:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:25:55,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:26:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:26:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:26:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:26:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:26:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:26:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:26:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:26:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:26:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:26:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:26:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:26:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:26:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:26:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:26:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:26:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:26:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:26:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:26:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:26:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:26:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:26:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:26:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:26:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:26:15,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:26:15,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:26:15,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:26:15,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:26:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:26:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:26:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:26:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:26:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:26:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:26:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:26:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:26:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:26:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:26:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:26:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:26:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:26:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:26:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:26:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:26:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:26:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:26:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:26:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:26:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:26:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:26:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:26:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:26:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:26:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:26:35,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:26:35,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:26:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:26:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:26:45,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:26:45,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:26:45,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:26:45,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:26:45,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:26:45,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:26:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:26:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:26:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:26:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:26:45,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:26:45,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:26:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:26:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:26:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:26:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:26:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:26:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:26:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:26:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:26:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:26:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:26:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:26:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:26:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:26:55,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:27:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:27:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:27:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:27:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:27:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:27:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:27:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:27:05,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:27:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:27:05,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:27:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:27:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:27:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:27:05,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:27:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:27:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:27:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:27:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:27:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:27:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:27:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:27:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:27:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:27:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:27:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:27:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:27:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:27:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:27:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:27:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:27:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:27:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:27:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:27:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:27:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:27:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:27:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:27:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:27:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:27:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:27:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:27:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:27:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:27:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:27:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:27:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:27:35,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:27:35,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:27:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:27:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:27:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:27:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:27:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:27:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:27:35,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:27:35,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:27:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:27:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:27:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:27:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:27:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:27:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:27:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:27:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:27:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:27:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:27:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:27:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:27:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:27:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:27:55,499 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:27:55,499 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:27:55,499 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:27:55,499 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:27:55,499 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:27:55,499 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:27:55,499 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:27:55,499 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:27:55,499 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:27:55,499 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:27:55,499 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:27:55,499 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:27:55,499 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:27:55,499 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:28:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:28:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:28:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:28:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:28:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:28:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:28:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:28:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:28:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:28:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:28:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:28:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:28:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:28:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:28:15,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:28:15,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:28:15,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:28:15,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:28:15,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:28:15,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:28:15,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:28:15,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:28:15,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:28:15,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:28:15,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:28:15,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:28:15,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:28:15,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:28:25,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:28:25,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:28:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:28:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:28:25,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:28:25,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:28:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:28:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:28:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:28:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:28:25,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:28:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:28:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:28:25,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:28:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:28:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:28:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:28:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:28:35,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:28:35,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:28:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:28:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:28:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:28:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:28:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:28:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:28:35,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:28:35,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:28:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:28:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:28:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:28:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:28:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:28:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:28:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:28:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:28:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:28:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:28:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:28:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:28:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:28:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:28:55,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:28:55,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:28:55,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:28:55,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:28:55,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:28:55,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:28:55,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:28:55,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:28:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:28:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:28:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:28:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:28:55,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:28:55,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:29:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:29:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:29:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:29:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:29:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:29:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:29:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:29:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:29:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:29:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:29:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:29:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:29:05,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:29:05,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:29:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:29:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:29:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:29:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:29:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:29:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:29:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:29:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:29:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:29:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:29:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:29:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:29:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:29:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:29:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:29:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:29:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:29:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:29:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:29:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:29:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:29:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:29:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:29:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:29:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:29:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:29:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:29:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:29:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:29:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:29:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:29:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:29:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:29:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:29:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:29:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:29:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:29:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:29:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:29:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:29:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:29:35,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:29:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:29:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:29:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:29:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:29:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:29:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:29:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:29:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:29:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:29:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:29:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:29:45,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:29:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:29:45,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:29:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:29:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:29:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:29:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:29:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:29:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:29:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:29:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:29:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:29:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:29:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:29:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:29:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:29:55,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:30:05,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:30:05,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:30:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:30:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:30:05,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:30:05,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:30:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:30:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:30:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:30:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:30:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:30:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:30:05,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:30:05,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:30:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:30:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:30:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:30:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:30:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:30:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:30:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:30:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:30:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:30:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:30:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:30:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:30:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:30:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:30:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:30:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:30:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:30:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:30:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:30:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:30:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:30:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:30:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:30:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:30:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:30:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:30:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:30:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:30:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:30:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:30:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:30:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:30:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:30:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:30:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:30:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:30:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:30:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:30:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:30:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:30:35,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:30:35,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:30:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:30:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:30:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:30:45,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:30:45,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:30:45,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:30:45,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:30:45,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:30:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:30:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:30:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:30:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:30:45,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:30:45,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:30:55,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:30:55,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:30:55,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:30:55,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:30:55,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:30:55,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:30:55,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:30:55,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:30:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:30:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:30:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:30:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:30:55,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:30:55,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:31:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:31:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:31:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:31:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:31:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:31:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:31:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:31:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:31:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:31:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:31:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:31:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:31:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:31:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:31:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:31:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:31:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:31:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:31:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:31:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:31:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:31:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:31:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:31:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:31:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:31:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:31:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:31:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:31:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:31:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:31:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:31:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:31:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:31:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:31:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:31:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:31:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:31:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:31:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:31:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:31:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:31:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:31:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:31:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:31:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:31:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:31:35,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:31:35,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:31:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:31:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:31:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:31:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:31:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:31:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:31:35,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:31:35,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:31:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:31:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:31:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:31:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:31:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:31:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:31:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:31:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:31:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:31:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:31:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:31:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:31:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:31:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:31:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:31:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:31:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:31:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:31:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:31:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:31:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:31:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:31:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:31:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:31:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:31:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:31:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:31:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:32:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:32:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:32:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:32:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:32:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:32:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:32:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:32:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:32:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:32:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:32:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:32:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:32:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:32:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:32:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:32:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:32:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:32:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:32:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:32:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:32:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:32:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:32:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:32:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:32:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:32:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:32:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:32:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:32:25,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:32:25,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:32:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:32:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:32:25,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:32:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:32:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:32:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:32:25,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:32:25,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:32:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:32:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:32:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:32:25,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:32:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:32:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:32:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:32:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:32:35,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:32:35,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:32:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:32:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:32:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:32:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:32:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:32:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:32:35,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:32:35,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:32:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:32:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:32:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:32:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:32:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:32:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:32:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:32:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:32:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:32:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:32:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:32:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:32:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:32:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:32:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:32:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:32:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:32:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:32:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:32:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:32:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:32:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:32:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:32:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:32:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:32:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:32:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:32:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:33:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:33:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:33:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:33:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:33:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:33:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:33:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:33:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:33:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:33:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:33:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:33:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:33:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:33:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:33:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:33:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:33:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:33:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:33:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:33:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:33:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:33:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:33:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:33:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:33:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:33:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:33:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:33:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:33:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:33:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:33:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:33:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:33:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:33:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:33:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:33:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:33:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:33:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:33:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:33:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:33:25,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:33:25,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:33:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:33:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:33:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:33:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:33:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:33:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:33:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:33:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:33:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:33:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:33:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:33:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:33:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:33:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:33:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:33:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:33:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:33:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:33:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:33:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:33:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:33:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:33:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:33:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:33:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:33:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:33:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:33:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:33:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:33:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:33:55,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:33:55,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:33:55,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:33:55,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:33:55,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:33:55,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:33:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:33:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:33:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:33:55,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:33:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:33:55,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:34:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:34:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:34:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:34:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:34:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:34:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:34:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:34:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:34:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:34:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:34:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:34:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:34:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:34:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:34:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:34:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:34:15,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:34:15,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:34:15,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:34:15,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:34:15,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:34:15,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:34:15,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:34:15,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:34:15,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:34:15,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:34:15,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:34:15,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:34:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:34:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:34:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:34:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:34:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:34:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:34:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:34:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:34:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:34:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:34:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:34:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:34:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:34:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:34:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:34:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:34:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:34:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:34:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:34:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:34:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:34:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:34:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:34:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:34:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:34:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:34:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:34:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:34:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:34:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:34:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:34:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:34:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:34:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:34:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:34:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:34:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:34:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:34:45,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:34:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:34:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:34:45,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:34:55,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:34:55,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:34:55,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:34:55,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:34:55,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:34:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:34:55,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:34:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:34:55,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:34:55,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:34:55,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:34:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:34:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:34:55,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:35:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:35:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:35:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:35:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:35:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:35:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:35:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:35:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:35:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:35:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:35:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:35:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:35:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:35:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:35:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:35:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:35:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:35:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:35:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:35:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:35:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:35:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:35:15,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:35:15,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:35:15,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:35:15,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:35:15,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:35:15,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:35:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:35:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:35:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:35:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:35:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:35:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:35:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:35:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:35:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:35:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:35:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:35:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:35:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:35:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:35:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:35:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:35:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:35:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:35:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:35:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:35:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:35:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:35:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:35:35,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:35:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:35:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:35:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:35:35,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:35:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:35:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:35:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:35:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:35:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:35:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:35:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:35:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:35:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:35:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:35:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:35:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:35:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:35:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:35:55,502 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:35:55,502 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:35:55,502 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:35:55,502 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:35:55,502 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:35:55,502 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:35:55,502 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:35:55,502 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:35:55,503 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:35:55,503 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:35:55,503 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:35:55,503 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:35:55,503 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:35:55,503 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:36:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:36:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:36:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:36:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:36:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:36:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:36:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:36:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:36:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:36:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:36:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:36:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:36:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:36:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:36:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:36:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:36:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:36:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:36:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:36:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:36:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:36:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:36:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:36:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:36:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:36:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:36:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:36:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:36:25,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:36:25,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:36:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:36:25,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:36:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:36:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:36:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:36:25,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:36:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:36:25,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:36:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:36:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:36:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:36:25,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:36:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:36:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:36:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:36:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:36:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:36:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:36:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:36:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:36:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:36:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:36:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:36:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:36:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:36:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:36:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:36:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:36:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:36:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:36:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:36:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:36:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:36:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:36:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:36:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:36:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:36:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:36:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:36:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:36:55,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:36:55,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:36:55,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:36:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:36:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:36:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:36:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:36:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:36:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:36:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:36:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:36:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:36:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:36:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:37:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:37:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:37:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:37:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:37:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:37:05,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:37:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:37:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:37:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:37:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:37:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:37:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:37:05,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:37:05,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:37:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:37:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:37:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:37:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:37:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:37:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:37:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:37:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:37:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:37:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:37:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:37:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:37:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:37:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:37:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:37:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:37:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:37:25,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:37:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:37:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:37:25,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:37:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:37:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:37:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:37:25,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:37:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:37:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:37:25,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:37:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:37:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:37:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:37:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:37:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:37:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:37:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:37:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:37:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:37:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:37:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:37:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:37:35,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:37:35,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:37:45,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:37:45,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:37:45,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:37:45,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:37:45,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:37:45,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:37:45,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:37:45,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:37:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:37:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:37:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:37:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:37:45,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:37:45,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:37:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:37:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:37:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:37:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:37:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:37:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:37:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:37:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:37:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:37:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:37:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:37:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:37:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:37:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:38:05,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:38:05,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:38:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:38:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:38:05,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:38:05,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:38:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:38:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:38:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:38:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:38:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:38:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:38:05,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:38:05,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:38:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:38:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:38:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:38:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:38:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:38:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:38:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:38:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:38:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:38:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:38:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:38:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:38:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:38:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:38:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:38:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:38:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:38:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:38:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:38:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:38:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:38:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:38:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:38:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:38:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:38:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:38:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:38:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:38:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:38:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:38:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:38:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:38:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:38:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:38:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:38:35,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:38:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:38:35,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:38:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:38:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:38:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:38:35,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:38:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:38:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:38:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:38:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:38:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:38:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:38:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:38:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:38:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:38:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:38:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:38:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:38:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:38:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:38:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:38:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:38:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:38:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:38:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:38:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:38:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:38:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:38:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:38:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:38:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:38:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:38:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:38:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:39:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:39:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:39:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:39:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:39:05,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:39:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:39:05,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:39:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:39:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:39:05,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:39:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:39:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:39:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:39:05,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:39:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:39:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:39:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:39:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:39:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:39:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:39:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:39:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:39:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:39:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:39:15,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:39:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:39:15,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:39:15,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:39:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:39:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:39:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:39:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:39:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:39:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:39:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:39:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:39:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:39:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:39:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:39:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:39:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:39:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:39:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:39:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:39:35,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:39:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:39:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:39:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:39:35,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:39:35,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:39:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:39:35,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:39:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:39:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:39:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:39:35,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:39:45,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:39:45,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:39:45,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:39:45,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:39:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:39:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:39:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:39:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:39:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:39:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:39:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:39:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:39:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:39:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:39:55,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:39:55,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:39:55,495 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:39:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:39:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:39:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:39:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:39:55,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:39:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:39:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:39:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:39:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:39:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:39:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:40:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:40:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:40:05,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:40:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:40:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:40:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:40:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:40:05,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:40:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:40:05,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:40:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:40:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:40:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:40:05,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:40:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:40:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:40:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:40:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:40:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:40:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:40:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:40:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:40:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:40:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:40:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:40:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:40:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:40:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:40:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:40:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:40:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:40:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:40:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:40:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:40:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:40:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:40:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:40:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:40:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:40:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:40:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:40:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:40:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:40:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:40:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:40:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:40:35,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:40:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:40:35,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:40:35,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:40:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:40:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:40:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:40:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:40:35,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:40:35,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:40:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:40:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:40:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:40:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:40:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:40:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:40:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:40:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:40:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:40:45,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:40:45,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:40:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:40:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:40:45,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:40:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:40:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:40:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:40:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:40:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:40:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:40:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:40:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:40:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:40:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:40:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:40:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:40:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:40:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:41:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:41:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:41:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:41:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:41:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:41:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:41:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:41:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:41:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:41:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:41:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:41:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:41:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:41:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:41:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:41:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:41:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:41:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:41:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:41:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:41:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:41:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:41:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:41:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:41:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:41:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:41:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:41:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:41:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:41:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:41:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:41:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:41:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:41:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:41:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:41:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:41:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:41:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:41:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:41:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:41:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:41:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:41:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:41:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:41:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:41:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:41:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:41:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:41:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:41:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:41:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:41:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:41:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:41:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:41:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:41:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:41:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:41:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:41:45,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:41:45,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:41:45,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:41:45,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:41:45,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:41:45,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:41:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:41:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:41:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:41:45,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:41:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:41:45,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:41:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:41:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:41:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:41:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:41:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:41:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:41:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:41:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:41:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:41:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:41:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:41:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:41:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:41:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:42:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:42:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:42:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:42:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:42:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:42:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:42:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:42:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:42:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:42:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:42:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:42:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:42:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:42:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:42:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:42:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:42:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:42:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:42:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:42:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:42:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:42:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:42:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:42:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:42:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:42:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:42:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:42:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:42:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:42:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:42:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:42:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:42:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:42:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:42:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:42:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:42:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:42:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:42:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:42:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:42:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:42:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:42:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:42:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:42:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:42:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:42:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:42:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:42:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:42:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:42:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:42:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:42:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:42:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:42:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:42:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:42:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:42:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:42:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:42:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:42:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:42:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:42:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:42:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:42:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:42:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:42:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:42:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:42:45,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:42:45,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:42:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:42:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:42:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:42:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:42:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:42:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:42:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:42:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:42:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:42:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:42:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:42:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:42:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:42:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:43:05,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:43:05,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:43:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:43:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:43:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:43:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:43:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:43:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:43:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:43:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:43:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:43:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:43:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:43:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:43:15,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:43:15,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:43:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:43:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:43:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:43:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:43:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:43:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:43:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:43:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:43:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:43:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:43:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:43:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:43:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:43:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:43:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:43:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:43:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:43:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:43:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:43:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:43:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:43:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:43:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:43:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:43:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:43:25,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:43:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:43:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:43:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:43:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:43:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:43:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:43:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:43:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:43:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:43:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:43:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:43:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:43:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:43:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:43:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:43:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:43:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:43:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:43:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:43:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:43:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:43:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:43:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:43:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:43:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:43:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:43:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:43:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:43:55,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:43:55,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:43:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:43:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:43:55,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:43:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:43:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:43:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:43:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:43:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:43:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:43:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:43:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:43:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:44:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:44:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:44:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:44:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:44:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:44:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:44:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:44:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:44:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:44:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:44:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:44:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:44:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:44:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:44:15,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:44:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:44:15,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:44:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:44:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:44:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:44:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:44:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:44:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:44:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:44:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:44:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:44:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:44:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:44:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:44:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:44:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:44:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:44:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:44:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:44:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:44:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:44:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:44:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:44:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:44:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:44:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:44:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:44:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:44:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:44:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:44:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:44:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:44:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:44:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:44:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:44:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:44:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:44:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:44:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:44:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:44:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:44:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:44:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:44:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:44:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:44:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:44:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:44:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:44:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:44:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:44:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:44:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:44:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:44:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:44:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:44:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:44:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:44:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:44:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:44:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:44:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:44:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:44:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:44:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:44:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:44:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:44:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:44:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:44:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:45:05,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:45:05,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:45:05,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:45:05,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:45:05,495 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:45:05,495 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:45:05,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:45:05,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:45:05,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:45:05,495 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:45:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:45:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:45:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:45:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:45:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:45:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:45:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:45:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:45:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:45:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:45:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:45:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:45:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:45:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:45:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:45:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:45:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:45:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:45:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:45:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:45:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:45:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:45:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:45:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:45:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:45:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:45:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:45:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:45:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:45:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:45:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:45:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:45:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:45:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:45:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:45:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:45:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:45:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:45:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:45:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:45:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:45:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:45:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:45:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:45:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:45:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:45:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:45:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:45:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:45:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:45:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:45:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:45:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:45:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:45:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:45:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:45:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:45:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:45:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:45:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:45:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:45:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:45:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:45:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:45:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:45:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:45:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:45:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:45:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:45:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:45:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:45:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:45:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:45:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:46:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:46:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:46:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:46:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:46:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:46:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:46:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:46:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:46:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:46:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:46:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:46:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:46:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:46:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:46:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:46:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:46:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:46:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:46:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:46:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:46:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:46:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:46:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:46:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:46:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:46:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:46:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:46:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:46:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:46:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:46:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:46:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:46:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:46:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:46:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:46:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:46:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:46:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:46:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:46:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:46:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:46:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:46:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:46:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:46:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:46:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:46:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:46:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:46:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:46:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:46:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:46:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:46:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:46:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:46:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:46:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:46:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:46:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:46:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:46:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:46:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:46:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:46:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:46:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:46:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:46:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:46:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:46:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:46:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:46:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:46:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:46:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:46:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:46:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:46:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:46:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:46:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:46:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:46:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:46:55,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:46:55,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:46:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:46:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:46:55,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:47:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:47:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:47:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:47:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:47:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:47:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:47:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:47:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:47:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:47:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:47:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:47:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:47:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:47:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:47:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:47:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:47:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:47:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:47:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:47:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:47:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:47:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:47:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:47:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:47:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:47:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:47:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:47:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:47:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:47:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:47:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:47:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:47:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:47:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:47:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:47:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:47:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:47:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:47:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:47:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:47:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:47:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:47:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:47:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:47:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:47:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:47:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:47:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:47:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:47:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:47:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:47:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:47:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:47:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:47:35,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:47:35,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:47:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:47:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:47:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:47:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:47:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:47:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:47:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:47:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:47:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:47:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:47:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:47:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:47:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:47:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:47:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:47:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:47:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:47:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:47:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:47:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:47:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:47:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:47:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:47:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:47:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:47:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:47:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:47:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:48:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:48:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:48:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:48:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:48:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:48:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:48:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:48:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:48:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:48:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:48:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:48:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:48:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:48:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:48:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:48:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:48:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:48:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:48:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:48:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:48:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:48:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:48:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:48:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:48:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:48:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:48:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:48:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:48:25,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:48:25,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:48:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:48:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:48:25,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:48:25,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:48:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:48:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:48:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:48:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:48:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:48:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:48:25,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:48:25,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:48:35,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:48:35,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:48:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:48:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:48:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:48:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:48:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:48:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:48:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:48:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:48:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:48:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:48:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:48:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:48:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:48:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:48:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:48:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:48:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:48:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:48:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:48:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:48:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:48:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:48:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:48:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:48:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:48:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:48:55,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:48:55,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:48:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:48:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:48:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:48:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:48:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:48:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:48:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:48:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:48:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:48:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:48:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:48:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:49:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:49:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:49:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:49:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:49:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:49:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:49:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:49:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:49:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:49:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:49:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:49:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:49:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:49:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:49:15,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:49:15,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:49:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:49:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:49:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:49:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:49:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:49:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:49:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:49:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:49:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:49:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:49:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:49:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:49:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:49:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:49:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:49:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:49:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:49:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:49:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:49:25,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:49:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:49:25,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:49:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:49:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:49:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:49:25,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:49:35,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:49:35,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:49:35,495 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:49:35,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:49:35,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:49:35,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:49:35,495 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:49:35,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:49:35,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:49:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:49:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:49:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:49:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:49:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:49:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:49:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:49:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:49:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:49:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:49:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:49:45,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:49:45,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:49:45,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:49:45,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:49:45,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:49:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:49:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:49:45,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:49:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:49:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:49:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:49:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:49:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:49:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:49:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:49:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:49:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:49:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:49:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:49:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:49:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:49:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:50:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:50:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:50:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:50:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:50:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:50:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:50:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:50:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:50:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:50:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:50:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:50:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:50:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:50:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:50:15,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:50:15,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:50:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:50:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:50:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:50:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:50:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:50:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:50:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:50:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:50:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:50:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:50:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:50:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:50:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:50:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:50:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:50:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:50:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:50:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:50:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:50:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:50:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:50:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:50:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:50:25,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:50:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:50:25,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:50:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:50:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:50:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:50:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:50:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:50:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:50:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:50:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:50:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:50:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:50:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:50:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:50:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:50:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:50:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:50:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:50:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:50:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:50:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:50:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:50:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:50:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:50:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:50:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:50:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:50:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:50:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:50:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:50:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:50:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:50:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:50:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:50:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:50:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:50:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:50:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:50:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:50:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:50:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:50:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:50:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:50:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:51:05,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:51:05,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:51:05,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:51:05,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:51:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:51:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:51:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:51:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:51:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:51:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:51:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:51:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:51:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:51:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:51:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:51:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:51:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:51:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:51:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:51:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:51:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:51:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:51:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:51:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:51:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:51:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:51:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:51:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:51:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:51:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:51:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:51:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:51:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:51:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:51:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:51:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:51:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:51:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:51:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:51:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:51:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:51:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:51:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:51:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:51:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:51:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:51:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:51:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:51:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:51:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:51:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:51:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:51:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:51:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:51:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:51:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:51:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:51:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:51:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:51:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:51:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:51:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:51:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:51:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:51:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:51:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:51:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:51:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:51:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:51:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:51:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:51:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:51:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:51:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:51:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:51:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:51:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:51:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:51:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:51:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:51:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:51:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:51:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:51:55,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:52:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:52:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:52:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:52:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:52:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:52:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:52:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:52:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:52:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:52:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:52:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:52:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:52:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:52:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:52:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:52:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:52:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:52:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:52:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:52:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:52:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:52:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:52:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:52:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:52:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:52:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:52:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:52:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:52:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:52:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:52:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:52:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:52:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:52:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:52:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:52:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:52:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:52:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:52:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:52:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:52:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:52:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:52:35,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:52:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:52:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:52:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:52:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:52:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:52:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:52:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:52:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:52:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:52:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:52:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:52:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:52:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:52:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:52:45,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:52:45,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:52:45,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:52:45,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:52:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:52:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:52:45,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:52:45,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:52:45,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:52:45,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:52:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:52:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:52:45,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:52:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:52:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:52:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:52:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:52:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:52:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:52:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:52:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:52:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:52:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:52:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:52:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:52:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:52:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:53:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:53:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:53:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:53:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:53:05,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:53:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:53:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:53:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:53:05,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:53:05,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:53:05,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:53:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:53:05,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:53:05,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:53:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:53:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:53:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:53:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:53:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:53:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:53:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:53:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:53:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:53:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:53:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:53:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:53:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:53:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:53:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:53:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:53:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:53:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:53:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:53:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:53:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:53:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:53:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:53:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:53:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:53:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:53:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:53:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:53:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:53:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:53:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:53:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:53:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:53:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:53:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:53:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:53:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:53:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:53:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:53:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:53:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:53:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:53:45,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:53:45,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:53:45,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:53:45,495 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:53:45,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:53:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:53:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:53:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:53:45,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:53:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:53:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:53:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:53:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:53:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:53:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:53:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:53:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:53:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:53:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:53:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:53:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:53:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:53:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:53:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:53:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:53:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:53:55,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:53:55,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:54:05,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:54:05,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:54:05,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:54:05,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:54:05,495 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:54:05,495 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:54:05,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:54:05,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:54:05,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:54:05,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:54:05,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:54:05,495 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:54:05,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:54:05,495 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:54:15,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:54:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:54:15,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:54:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:54:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:54:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:54:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:54:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:54:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:54:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:54:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:54:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:54:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:54:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:54:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:54:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:54:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:54:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:54:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:54:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:54:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:54:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:54:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:54:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:54:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:54:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:54:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:54:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:54:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:54:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:54:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:54:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:54:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:54:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:54:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:54:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:54:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:54:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:54:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:54:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:54:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:54:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:54:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:54:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:54:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:54:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:54:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:54:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:54:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:54:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:54:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:54:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:54:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:54:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:54:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:54:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:54:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:54:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:54:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:54:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:54:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:54:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:54:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:54:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:54:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:54:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:54:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:54:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:54:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:54:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:55:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:55:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:55:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:55:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:55:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:55:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:55:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:55:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:55:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:55:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:55:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:55:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:55:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:55:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:55:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:55:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:55:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:55:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:55:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:55:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:55:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:55:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:55:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:55:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:55:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:55:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:55:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:55:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:55:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:55:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:55:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:55:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:55:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:55:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:55:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:55:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:55:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:55:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:55:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:55:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:55:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:55:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:55:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:55:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:55:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:55:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:55:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:55:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:55:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:55:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:55:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:55:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:55:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:55:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:55:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:55:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:55:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:55:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:55:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:55:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:55:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:55:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:55:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:55:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:55:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:55:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:55:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:55:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:55:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:55:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:55:55,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:55:55,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:55:55,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:55:55,495 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:55:55,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:55:55,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:55:55,495 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:55:55,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:55:55,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:55:55,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:55:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:55:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:55:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:55:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:56:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:56:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:56:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:56:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:56:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:56:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:56:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:56:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:56:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:56:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:56:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:56:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:56:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:56:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:56:15,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:56:15,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:56:15,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:56:15,495 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:56:15,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:56:15,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:56:15,495 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:56:15,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:56:15,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:56:15,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:56:15,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:56:15,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:56:15,495 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:56:15,495 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:56:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:56:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:56:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:56:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:56:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:56:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:56:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:56:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:56:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:56:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:56:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:56:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:56:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:56:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:56:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:56:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:56:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:56:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:56:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:56:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:56:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:56:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:56:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:56:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:56:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:56:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:56:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:56:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:56:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:56:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:56:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:56:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:56:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:56:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:56:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:56:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:56:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:56:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:56:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:56:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:56:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:56:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:56:55,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:56:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:56:55,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:56:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:56:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:56:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:56:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:56:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:56:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:56:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:56:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:56:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:56:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:56:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:57:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:57:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:57:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:57:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:57:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:57:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:57:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:57:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:57:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:57:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:57:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:57:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:57:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:57:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:57:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:57:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:57:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:57:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:57:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:57:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:57:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:57:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:57:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:57:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:57:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:57:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:57:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:57:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:57:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:57:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:57:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:57:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:57:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:57:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:57:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:57:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:57:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:57:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:57:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:57:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:57:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:57:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:57:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:57:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:57:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:57:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:57:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:57:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:57:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:57:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:57:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:57:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:57:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:57:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:57:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:57:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:57:45,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:57:45,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:57:45,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:57:45,495 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:57:45,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:57:45,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:57:45,495 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:57:45,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:57:45,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:57:45,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:57:45,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:57:45,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:57:45,495 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:57:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:57:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:57:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:57:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:57:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:57:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:57:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:57:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:57:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:57:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:57:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:57:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:57:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:57:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:57:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:58:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:58:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:58:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:58:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:58:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:58:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:58:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:58:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:58:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:58:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:58:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:58:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:58:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:58:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:58:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:58:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:58:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:58:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:58:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:58:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:58:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:58:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:58:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:58:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:58:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:58:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:58:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:58:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:58:25,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:58:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:58:25,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:58:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:58:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:58:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:58:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:58:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:58:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:58:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:58:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:58:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:58:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:58:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:58:35,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:58:35,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:58:35,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:58:35,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:58:35,495 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:58:35,495 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:58:35,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:58:35,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:58:35,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:58:35,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:58:35,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:58:35,495 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:58:35,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:58:35,495 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:58:45,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:58:45,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:58:45,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:58:45,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:58:45,495 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:58:45,495 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:58:45,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:58:45,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:58:45,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:58:45,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:58:45,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:58:45,495 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:58:45,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:58:45,495 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:58:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:58:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:58:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:58:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:58:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:58:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:58:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:58:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:58:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:58:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:58:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:58:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:58:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:58:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:59:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:59:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:59:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:59:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:59:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:59:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:59:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:59:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:59:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:59:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:59:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:59:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:59:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:59:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:59:15,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:59:15,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:59:15,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:59:15,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:59:15,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:59:15,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:59:15,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:59:15,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:59:15,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:59:15,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:59:15,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:59:15,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:59:15,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:59:15,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:59:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:59:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:59:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:59:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:59:25,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:59:25,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:59:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:59:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:59:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:59:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:59:25,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:59:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:59:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:59:25,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:59:35,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:59:35,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:59:35,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:59:35,495 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:59:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:59:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:59:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:59:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:59:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:59:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:59:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:59:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:59:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:59:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:59:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:59:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:59:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:59:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:59:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:59:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:59:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:59:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:59:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:59:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:59:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:59:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:59:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:59:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:59:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 22:59:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 22:59:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 22:59:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 22:59:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:59:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 22:59:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 22:59:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:59:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 22:59:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 22:59:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 22:59:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 22:59:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 22:59:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:00:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:00:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:00:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:00:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:00:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:00:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:00:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:00:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:00:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:00:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:00:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:00:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:00:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:00:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:00:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:00:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:00:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:00:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:00:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:00:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:00:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:00:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:00:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:00:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:00:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:00:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:00:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:00:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:00:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:00:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:00:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:00:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:00:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:00:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:00:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:00:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:00:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:00:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:00:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:00:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:00:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:00:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:00:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:00:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:00:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:00:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:00:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:00:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:00:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:00:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:00:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:00:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:00:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:00:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:00:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:00:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:00:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:00:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:00:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:00:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:00:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:00:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:00:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:00:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:00:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:00:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:00:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:00:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:00:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:00:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:00:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:00:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:00:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:00:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:00:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:00:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:00:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:00:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:00:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:00:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:00:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:00:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:00:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:00:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:01:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:01:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:01:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:01:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:01:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:01:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:01:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:01:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:01:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:01:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:01:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:01:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:01:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:01:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:01:15,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:01:15,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:01:15,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:01:15,495 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:01:15,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:01:15,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:01:15,495 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:01:15,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:01:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:01:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:01:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:01:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:01:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:01:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:01:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:01:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:01:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:01:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:01:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:01:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:01:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:01:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:01:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:01:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:01:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:01:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:01:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:01:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:01:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:01:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:01:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:01:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:01:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:01:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:01:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:01:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:01:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:01:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:01:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:01:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:01:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:01:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:01:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:01:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:01:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:01:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:01:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:01:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:01:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:01:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:01:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:01:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:01:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:01:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:01:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:01:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:01:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:01:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:01:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:01:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:01:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:01:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:01:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:01:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:01:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:01:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:01:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:01:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:01:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:01:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:02:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:02:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:02:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:02:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:02:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:02:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:02:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:02:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:02:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:02:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:02:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:02:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:02:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:02:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:02:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:02:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:02:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:02:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:02:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:02:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:02:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:02:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:02:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:02:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:02:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:02:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:02:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:02:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:02:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:02:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:02:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:02:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:02:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:02:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:02:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:02:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:02:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:02:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:02:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:02:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:02:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:02:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:02:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:02:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:02:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:02:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:02:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:02:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:02:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:02:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:02:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:02:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:02:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:02:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:02:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:02:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:02:45,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:02:45,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:02:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:02:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:02:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:02:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:02:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:02:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:02:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:02:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:02:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:02:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:02:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:02:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:02:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:02:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:02:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:02:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:02:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:02:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:02:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:02:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:02:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:02:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:02:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:02:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:02:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:02:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:03:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:03:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:03:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:03:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:03:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:03:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:03:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:03:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:03:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:03:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:03:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:03:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:03:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:03:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:03:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:03:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:03:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:03:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:03:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:03:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:03:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:03:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:03:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:03:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:03:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:03:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:03:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:03:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:03:25,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:03:25,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:03:25,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:03:25,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:03:25,495 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:03:25,495 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:03:25,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:03:25,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:03:25,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:03:25,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:03:25,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:03:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:03:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:03:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:03:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:03:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:03:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:03:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:03:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:03:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:03:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:03:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:03:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:03:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:03:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:03:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:03:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:03:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:03:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:03:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:03:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:03:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:03:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:03:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:03:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:03:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:03:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:03:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:03:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:03:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:03:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:03:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:03:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:03:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:03:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:03:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:03:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:03:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:03:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:03:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:03:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:03:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:03:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:03:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:03:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:03:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:04:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:04:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:04:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:04:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:04:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:04:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:04:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:04:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:04:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:04:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:04:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:04:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:04:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:04:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:04:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:04:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:04:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:04:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:04:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:04:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:04:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:04:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:04:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:04:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:04:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:04:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:04:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:04:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:04:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:04:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:04:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:04:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:04:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:04:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:04:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:04:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:04:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:04:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:04:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:04:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:04:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:04:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:04:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:04:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:04:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:04:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:04:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:04:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:04:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:04:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:04:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:04:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:04:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:04:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:04:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:04:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:04:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:04:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:04:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:04:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:04:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:04:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:04:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:04:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:04:45,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:04:45,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:04:45,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:04:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:04:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:04:45,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:04:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:04:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:04:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:04:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:04:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:04:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:04:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:04:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:04:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:04:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:04:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:04:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:04:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:04:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:05:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:05:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:05:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:05:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:05:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:05:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:05:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:05:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:05:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:05:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:05:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:05:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:05:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:05:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:05:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:05:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:05:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:05:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:05:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:05:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:05:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:05:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:05:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:05:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:05:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:05:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:05:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:05:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:05:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:05:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:05:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:05:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:05:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:05:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:05:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:05:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:05:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:05:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:05:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:05:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:05:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:05:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:05:35,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:05:35,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:05:35,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:05:35,495 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:05:35,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:05:35,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:05:35,495 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:05:35,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:05:35,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:05:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:05:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:05:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:05:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:05:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:05:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:05:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:05:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:05:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:05:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:05:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:05:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:05:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:05:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:05:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:05:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:05:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:05:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:05:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:05:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:05:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:05:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:05:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:05:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:05:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:05:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:05:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:05:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:05:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:05:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:05:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:05:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:05:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:06:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:06:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:06:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:06:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:06:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:06:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:06:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:06:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:06:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:06:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:06:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:06:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:06:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:06:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:06:15,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:06:15,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:06:15,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:06:15,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:06:15,495 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:06:15,495 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:06:15,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:06:15,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:06:15,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:06:15,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:06:15,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:06:15,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:06:15,495 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:06:15,495 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:06:25,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:06:25,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:06:25,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:06:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:06:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:06:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:06:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:06:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:06:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:06:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:06:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:06:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:06:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:06:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:06:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:06:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:06:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:06:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:06:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:06:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:06:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:06:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:06:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:06:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:06:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:06:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:06:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:06:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:06:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:06:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:06:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:06:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:06:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:06:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:06:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:06:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:06:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:06:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:06:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:06:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:06:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:06:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:06:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:06:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:06:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:06:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:06:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:06:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:06:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:06:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:06:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:06:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:06:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:06:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:06:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:06:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:07:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:07:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:07:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:07:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:07:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:07:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:07:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:07:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:07:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:07:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:07:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:07:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:07:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:07:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:07:15,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:07:15,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:07:15,495 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:07:15,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:07:15,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:07:15,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:07:15,495 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:07:15,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:07:15,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:07:15,495 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:07:15,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:07:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:07:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:07:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:07:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:07:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:07:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:07:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:07:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:07:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:07:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:07:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:07:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:07:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:07:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:07:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:07:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:07:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:07:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:07:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:07:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:07:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:07:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:07:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:07:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:07:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:07:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:07:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:07:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:07:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:07:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:07:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:07:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:07:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:07:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:07:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:07:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:07:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:07:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:07:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:07:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:07:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:07:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:07:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:07:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:07:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:07:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:07:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:07:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:07:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:07:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:07:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:07:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:07:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:07:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:07:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:07:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:07:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:07:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:07:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:08:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:08:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:08:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:08:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:08:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:08:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:08:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:08:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:08:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:08:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:08:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:08:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:08:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:08:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:08:15,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:08:15,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:08:15,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:08:15,495 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:08:15,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:08:15,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:08:15,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:08:15,495 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:08:15,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:08:15,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:08:15,495 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:08:15,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:08:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:08:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:08:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:08:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:08:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:08:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:08:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:08:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:08:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:08:25,497 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:08:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:08:25,497 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:08:25,497 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:08:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:08:25,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:08:25,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:08:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:08:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:08:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:08:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:08:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:08:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:08:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:08:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:08:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:08:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:08:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:08:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:08:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:08:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:08:45,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:08:45,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:08:45,495 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:08:45,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:08:45,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:08:45,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:08:45,495 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:08:45,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:08:45,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:08:45,495 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:08:45,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:08:45,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:08:45,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:08:45,495 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:08:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:08:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:08:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:08:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:08:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:08:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:08:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:08:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:08:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:08:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:08:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:08:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:08:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:08:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:09:05,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:09:05,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:09:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:09:05,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:09:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:09:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:09:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:09:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:09:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:09:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:09:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:09:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:09:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:09:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:09:15,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:09:15,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:09:15,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:09:15,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:09:15,495 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:09:15,495 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:09:15,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:09:15,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:09:15,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:09:15,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:09:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:09:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:09:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:09:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:09:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:09:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:09:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:09:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:09:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:09:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:09:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:09:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:09:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:09:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:09:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:09:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:09:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:09:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:09:35,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:09:35,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:09:35,495 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:09:35,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:09:35,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:09:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:09:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:09:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:09:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:09:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:09:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:09:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:09:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:09:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:09:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:09:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:09:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:09:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:09:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:09:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:09:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:09:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:09:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:09:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:09:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:09:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:09:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:09:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:09:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:09:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:09:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:09:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:09:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:09:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:09:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:09:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:09:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:09:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:09:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:09:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:09:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:09:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:10:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:10:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:10:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:10:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:10:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:10:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:10:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:10:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:10:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:10:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:10:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:10:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:10:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:10:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:10:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:10:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:10:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:10:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:10:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:10:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:10:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:10:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:10:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:10:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:10:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:10:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:10:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:10:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:10:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:10:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:10:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:10:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:10:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:10:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:10:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:10:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:10:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:10:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:10:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:10:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:10:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:10:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:10:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:10:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:10:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:10:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:10:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:10:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:10:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:10:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:10:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:10:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:10:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:10:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:10:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:10:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:10:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:10:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:10:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:10:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:10:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:10:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:10:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:10:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:10:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:10:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:10:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:10:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:10:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:10:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:10:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:10:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:10:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:10:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:10:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:10:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:10:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:10:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:10:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:10:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:10:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:10:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:10:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:10:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:11:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:11:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:11:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:11:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:11:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:11:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:11:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:11:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:11:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:11:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:11:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:11:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:11:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:11:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:11:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:11:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:11:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:11:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:11:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:11:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:11:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:11:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:11:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:11:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:11:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:11:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:11:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:11:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:11:25,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:11:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:11:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:11:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:11:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:11:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:11:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:11:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:11:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:11:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:11:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:11:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:11:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:11:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:11:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:11:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:11:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:11:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:11:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:11:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:11:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:11:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:11:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:11:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:11:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:11:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:11:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:11:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:11:45,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:11:45,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:11:45,495 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:11:45,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:11:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:11:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:11:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:11:45,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:11:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:11:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:11:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:11:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:11:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:11:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:11:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:11:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:11:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:11:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:11:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:11:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:11:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:11:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:11:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:11:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:11:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:11:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:11:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:11:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:12:05,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:12:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:12:05,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:12:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:12:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:12:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:12:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:12:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:12:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:12:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:12:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:12:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:12:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:12:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:12:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:12:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:12:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:12:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:12:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:12:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:12:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:12:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:12:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:12:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:12:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:12:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:12:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:12:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:12:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:12:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:12:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:12:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:12:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:12:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:12:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:12:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:12:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:12:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:12:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:12:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:12:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:12:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:12:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:12:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:12:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:12:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:12:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:12:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:12:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:12:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:12:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:12:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:12:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:12:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:12:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:12:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:12:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:12:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:12:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:12:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:12:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:12:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:12:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:12:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:12:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:12:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:12:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:12:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:12:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:12:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:12:55,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:12:55,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:12:55,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:12:55,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:12:55,498 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:12:55,498 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:12:55,498 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:12:55,498 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:12:55,498 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:12:55,498 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:12:55,498 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:12:55,498 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:12:55,498 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:12:55,498 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:13:05,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:13:05,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:13:05,495 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:13:05,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:13:05,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:13:05,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:13:05,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:13:05,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:13:05,495 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:13:05,495 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:13:05,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:13:05,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:13:05,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:13:05,495 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:13:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:13:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:13:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:13:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:13:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:13:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:13:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:13:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:13:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:13:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:13:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:13:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:13:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:13:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:13:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:13:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:13:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:13:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:13:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:13:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:13:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:13:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:13:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:13:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:13:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:13:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:13:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:13:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:13:35,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:13:35,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:13:35,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:13:35,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:13:35,495 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:13:35,495 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:13:35,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:13:35,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:13:35,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:13:35,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:13:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:13:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:13:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:13:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:13:45,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:13:45,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:13:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:13:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:13:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:13:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:13:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:13:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:13:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:13:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:13:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:13:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:13:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:13:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:13:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:13:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:13:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:13:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:13:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:13:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:13:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:13:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:13:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:13:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:13:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:13:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:13:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:13:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:14:05,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:14:05,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:14:05,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:14:05,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:14:05,495 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:14:05,495 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:14:05,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:14:05,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:14:05,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:14:05,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:14:05,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:14:05,495 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:14:05,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:14:05,495 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:14:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:14:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:14:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:14:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:14:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:14:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:14:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:14:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:14:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:14:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:14:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:14:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:14:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:14:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:14:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:14:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:14:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:14:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:14:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:14:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:14:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:14:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:14:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:14:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:14:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:14:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:14:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:14:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:14:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:14:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:14:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:14:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:14:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:14:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:14:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:14:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:14:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:14:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:14:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:14:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:14:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:14:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:14:45,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:14:45,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:14:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:14:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:14:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:14:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:14:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:14:45,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:14:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:14:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:14:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:14:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:14:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:14:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:14:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:14:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:14:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:14:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:14:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:14:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:14:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:14:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:14:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:14:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:14:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:14:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:14:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:14:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:15:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:15:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:15:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:15:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:15:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:15:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:15:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:15:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:15:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:15:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:15:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:15:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:15:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:15:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:15:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:15:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:15:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:15:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:15:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:15:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:15:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:15:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:15:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:15:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:15:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:15:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:15:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:15:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:15:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:15:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:15:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:15:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:15:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:15:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:15:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:15:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:15:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:15:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:15:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:15:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:15:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:15:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:15:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:15:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:15:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:15:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:15:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:15:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:15:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:15:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:15:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:15:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:15:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:15:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:15:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:15:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:15:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:15:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:15:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:15:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:15:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:15:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:15:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:15:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:15:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:15:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:15:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:15:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:15:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:15:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:15:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:15:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:15:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:15:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:15:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:15:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:15:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:15:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:15:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:15:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:15:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:15:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:15:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:15:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:16:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:16:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:16:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:16:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:16:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:16:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:16:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:16:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:16:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:16:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:16:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:16:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:16:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:16:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:16:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:16:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:16:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:16:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:16:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:16:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:16:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:16:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:16:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:16:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:16:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:16:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:16:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:16:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:16:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:16:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:16:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:16:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:16:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:16:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:16:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:16:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:16:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:16:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:16:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:16:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:16:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:16:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:16:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:16:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:16:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:16:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:16:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:16:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:16:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:16:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:16:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:16:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:16:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:16:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:16:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:16:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:16:45,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:16:45,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:16:45,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:16:45,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:16:45,495 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:16:45,495 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:16:45,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:16:45,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:16:45,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:16:45,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:16:45,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:16:45,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:16:45,495 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:16:45,495 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:16:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:16:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:16:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:16:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:16:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:16:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:16:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:16:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:16:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:16:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:16:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:16:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:16:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:16:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:17:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:17:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:17:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:17:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:17:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:17:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:17:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:17:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:17:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:17:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:17:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:17:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:17:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:17:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:17:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:17:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:17:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:17:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:17:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:17:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:17:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:17:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:17:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:17:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:17:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:17:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:17:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:17:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:17:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:17:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:17:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:17:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:17:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:17:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:17:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:17:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:17:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:17:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:17:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:17:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:17:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:17:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:17:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:17:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:17:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:17:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:17:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:17:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:17:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:17:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:17:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:17:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:17:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:17:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:17:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:17:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:17:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:17:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:17:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:17:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:17:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:17:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:17:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:17:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:17:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:17:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:17:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:17:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:17:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:17:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:17:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:17:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:17:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:17:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:17:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:17:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:17:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:17:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:17:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:17:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:17:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:17:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:17:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:17:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:18:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:18:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:18:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:18:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:18:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:18:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:18:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:18:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:18:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:18:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:18:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:18:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:18:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:18:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:18:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:18:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:18:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:18:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:18:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:18:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:18:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:18:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:18:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:18:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:18:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:18:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:18:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:18:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:18:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:18:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:18:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:18:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:18:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:18:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:18:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:18:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:18:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:18:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:18:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:18:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:18:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:18:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:18:35,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:18:35,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:18:35,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:18:35,495 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:18:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:18:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:18:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:18:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:18:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:18:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:18:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:18:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:18:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:18:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:18:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:18:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:18:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:18:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:18:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:18:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:18:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:18:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:18:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:18:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:18:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:18:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:18:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:18:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:18:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:18:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:18:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:18:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:18:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:18:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:18:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:18:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:18:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:18:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:18:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:18:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:18:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:18:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:19:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:19:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:19:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:19:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:19:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:19:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:19:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:19:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:19:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:19:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:19:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:19:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:19:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:19:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:19:15,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:19:15,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:19:15,495 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:19:15,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:19:15,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:19:15,495 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:19:15,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:19:15,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:19:15,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:19:15,495 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:19:15,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:19:15,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:19:15,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:19:15,495 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:19:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:19:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:19:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:19:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:19:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:19:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:19:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:19:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:19:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:19:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:19:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:19:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:19:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:19:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:19:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:19:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:19:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:19:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:19:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:19:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:19:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:19:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:19:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:19:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:19:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:19:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:19:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:19:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:19:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:19:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:19:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:19:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:19:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:19:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:19:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:19:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:19:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:19:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:19:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:19:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:19:45,497 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:19:45,497 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:19:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:19:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:19:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:19:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:19:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:19:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:19:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:19:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:19:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:19:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:19:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:19:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:19:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:19:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:20:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:20:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:20:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:20:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:20:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:20:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:20:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:20:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:20:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:20:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:20:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:20:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:20:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:20:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:20:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:20:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:20:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:20:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:20:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:20:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:20:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:20:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:20:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:20:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:20:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:20:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:20:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:20:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:20:25,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:20:25,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:20:25,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:20:25,495 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:20:25,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:20:25,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:20:25,495 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:20:25,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:20:25,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:20:25,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:20:25,495 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:20:25,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:20:25,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:20:25,495 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:20:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:20:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:20:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:20:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:20:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:20:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:20:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:20:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:20:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:20:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:20:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:20:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:20:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:20:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:20:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:20:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:20:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:20:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:20:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:20:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:20:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:20:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:20:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:20:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:20:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:20:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:20:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:20:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:20:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:20:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:20:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:20:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:20:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:20:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:20:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:20:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:20:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:20:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:20:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:20:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:20:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:20:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:21:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:21:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:21:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:21:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:21:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:21:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:21:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:21:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:21:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:21:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:21:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:21:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:21:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:21:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:21:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:21:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:21:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:21:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:21:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:21:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:21:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:21:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:21:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:21:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:21:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:21:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:21:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:21:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:21:25,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:21:25,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:21:25,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:21:25,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:21:25,495 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:21:25,495 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:21:25,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:21:25,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:21:25,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:21:25,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:21:25,495 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:21:25,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:21:25,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:21:25,495 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:21:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:21:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:21:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:21:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:21:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:21:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:21:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:21:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:21:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:21:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:21:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:21:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:21:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:21:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:21:45,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:21:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:21:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:21:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:21:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:21:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:21:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:21:45,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:21:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:21:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:21:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:21:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:21:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:21:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:21:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:21:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:21:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:21:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:21:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:21:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:21:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:21:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:21:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:21:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:21:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:21:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:21:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:21:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:22:05,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:22:05,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:22:05,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:22:05,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:22:05,495 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:22:05,495 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:22:05,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:22:05,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:22:05,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:22:05,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:22:05,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:22:05,495 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:22:05,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:22:05,495 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:22:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:22:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:22:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:22:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:22:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:22:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:22:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:22:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:22:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:22:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:22:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:22:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:22:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:22:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:22:25,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:22:25,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:22:25,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:22:25,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:22:25,495 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:22:25,495 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:22:25,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:22:25,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:22:25,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:22:25,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:22:25,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:22:25,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:22:25,495 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:22:25,495 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:22:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:22:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:22:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:22:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:22:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:22:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:22:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:22:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:22:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:22:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:22:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:22:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:22:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:22:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:22:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:22:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:22:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:22:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:22:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:22:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:22:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:22:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:22:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:22:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:22:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:22:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:22:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:22:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:22:55,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:22:55,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:22:55,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:22:55,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:22:55,495 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:22:55,495 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:22:55,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:22:55,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:22:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:22:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:22:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:22:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:22:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:22:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:23:05,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:23:05,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:23:05,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:23:05,495 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:23:05,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:23:05,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:23:05,495 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:23:05,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:23:05,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:23:05,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:23:05,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:23:05,495 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:23:05,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:23:05,495 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:23:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:23:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:23:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:23:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:23:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:23:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:23:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:23:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:23:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:23:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:23:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:23:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:23:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:23:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:23:25,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:23:25,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:23:25,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:23:25,495 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:23:25,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:23:25,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:23:25,495 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:23:25,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:23:25,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:23:25,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:23:25,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:23:25,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:23:25,495 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:23:25,495 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:23:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:23:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:23:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:23:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:23:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:23:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:23:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:23:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:23:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:23:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:23:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:23:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:23:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:23:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:23:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:23:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:23:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:23:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:23:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:23:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:23:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:23:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:23:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:23:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:23:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:23:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:23:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:23:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:23:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:23:55,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:23:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:23:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:23:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:23:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:23:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:23:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:23:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:23:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:23:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:23:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:23:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:23:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:24:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:24:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:24:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:24:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:24:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:24:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:24:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:24:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:24:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:24:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:24:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:24:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:24:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:24:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:24:15,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:24:15,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:24:15,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:24:15,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:24:15,495 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:24:15,495 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:24:15,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:24:15,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:24:15,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:24:15,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:24:15,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:24:15,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:24:15,495 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:24:15,495 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:24:25,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:24:25,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:24:25,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:24:25,495 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:24:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:24:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:24:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:24:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:24:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:24:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:24:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:24:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:24:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:24:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:24:35,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:24:35,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:24:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:24:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:24:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:24:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:24:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:24:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:24:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:24:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:24:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:24:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:24:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:24:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:24:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:24:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:24:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:24:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:24:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:24:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:24:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:24:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:24:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:24:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:24:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:24:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:24:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:24:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:24:55,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:24:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:24:55,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:24:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:24:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:24:55,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:24:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:24:55,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:24:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:24:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:24:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:24:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:24:55,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:24:55,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:25:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:25:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:25:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:25:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:25:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:25:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:25:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:25:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:25:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:25:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:25:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:25:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:25:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:25:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:25:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:25:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:25:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:25:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:25:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:25:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:25:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:25:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:25:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:25:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:25:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:25:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:25:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:25:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:25:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:25:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:25:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:25:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:25:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:25:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:25:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:25:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:25:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:25:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:25:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:25:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:25:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:25:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:25:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:25:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:25:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:25:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:25:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:25:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:25:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:25:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:25:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:25:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:25:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:25:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:25:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:25:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:25:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:25:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:25:45,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:25:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:25:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:25:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:25:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:25:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:25:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:25:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:25:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:25:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:25:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:25:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:25:55,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:25:55,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:25:55,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:25:55,495 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:25:55,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:25:55,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:25:55,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:25:55,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:25:55,495 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:25:55,495 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:25:55,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:25:55,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:25:55,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:25:55,495 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:26:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:26:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:26:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:26:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:26:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:26:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:26:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:26:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:26:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:26:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:26:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:26:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:26:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:26:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:26:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:26:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:26:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:26:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:26:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:26:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:26:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:26:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:26:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:26:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:26:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:26:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:26:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:26:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:26:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:26:25,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:26:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:26:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:26:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:26:25,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:26:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:26:25,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:26:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:26:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:26:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:26:25,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:26:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:26:25,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:26:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:26:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:26:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:26:35,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:26:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:26:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:26:35,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:26:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:26:35,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:26:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:26:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:26:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:26:35,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:26:35,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:26:45,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:26:45,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:26:45,495 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:26:45,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:26:45,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:26:45,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:26:45,495 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:26:45,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:26:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:26:45,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:26:45,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:26:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:26:45,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:26:45,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:26:55,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:26:55,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:26:55,495 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:26:55,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:26:55,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:26:55,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:26:55,495 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:26:55,495 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:26:55,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:26:55,495 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:26:55,495 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:26:55,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:26:55,495 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:26:55,495 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:27:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:27:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:27:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:27:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:27:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:27:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:27:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:27:05,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:27:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:27:05,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:27:05,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:27:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:27:05,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:27:05,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:27:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-0) Resolved OIDC tenant id: Default
+2026-06-17 23:27:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Starting a bearer access token authentication
+2026-06-17 23:27:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-0) Looking for a token in the authorization header
+2026-06-17 23:27:15,496 DEBUG [io.qua.oid.run.OidcAuthenticationMechanism] (vert.x-eventloop-thread-1) Resolved OIDC tenant id: Default
+2026-06-17 23:27:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Starting a bearer access token authentication
+2026-06-17 23:27:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
+2026-06-17 23:27:15,496 DEBUG [io.qua.oid.run.OidcUtils] (vert.x-eventloop-thread-1) Looking for a token in the authorization header
+2026-06-17 23:27:15,496 DEBUG [io.qua.oid.run.BearerAuthenticationMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:27:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:27:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06000: tokenHeaderName = Authorization
+2026-06-17 23:27:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-1) SRJWT06005: Authorization header was null
+2026-06-17 23:27:15,496 DEBUG [io.sma.jwt.auth] (vert.x-eventloop-thread-0) SRJWT06005: Authorization header was null
+2026-06-17 23:27:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-1) Bearer access token is not available
+2026-06-17 23:27:15,496 DEBUG [io.qua.sma.jwt.run.aut.JWTAuthMechanism] (vert.x-eventloop-thread-0) Bearer access token is not available
