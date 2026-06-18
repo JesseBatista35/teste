@@ -1,68 +1,91 @@
-Starting: Executando Build S2I Binary
-==============================================================================
-Task         : Bash
-Description  : Run a Bash script on macOS, Linux, or Windows
-Version      : 3.227.0
-Author       : Microsoft Corporation
-Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/bash
-==============================================================================
-Generating script.
-========================== Starting Command Output ===========================
-/usr/bin/bash /opt/ads-agent/_work/_temp/0826968e-0341-47fa-84db-84d6485e174a.sh
-+ echo okd4_nprd
-+ egrep -q '^(okd4|ocp)'
-+ buildconfig=sihdg-jboss8
-+ DOTNET_ASSEMBLY=
-/opt/ads-agent/_work/_temp/0826968e-0341-47fa-84db-84d6485e174a.sh: line 12:  -4: substring expression < 0
-+ cd /opt/ads-agent/_work/40/a
-+ FILES=(`find -maxdepth 1 -name "*.runtimeconfig*.json"`)
-++ find -maxdepth 1 -name '*.runtimeconfig*.json'
-+ '[' -d /opt/ads-agent/_work/40/s/target/server ']'
-+ oc start-build sihdg-jboss8 --from-dir=/opt/ads-agent/_work/40/a --follow --wait=true -n build-images-ads -v=5
-I0618 16:49:36.577108   58890 repository.go:450] Executing git show -s HEAD --format=%H%n%an%n%ae%n%cn%n%ce%n%B
-I0618 16:49:36.579488   58890 repository.go:533] Error executing command: exit status 128
-Uploading directory "/opt/ads-agent/_work/40/a" as binary input for the build ...
-I0618 16:49:36.579656   58890 tar.go:238] Adding "/opt/ads-agent/_work/40/a" to tar ...
-I0618 16:49:36.579915   58890 tar.go:336] Adding to tar: /opt/ads-agent/_work/40/a/sihdg-jboss8.ear as sihdg-jboss8.ear
-.
-Uploading finished
-build.build.openshift.io/sihdg-jboss8-1 started
-Adding cluster TLS certificate authority to trust store
-Receiving source from STDIN as archive ...
-Adding cluster TLS certificate authority to trust store
-Adding cluster TLS certificate authority to trust store
-
-##[warning]RetryHelper encountered task failure, will retry (attempt #: 1 out of 1) after 1000 ms
-Generating script.
-========================== Starting Command Output ===========================
-/usr/bin/bash /opt/ads-agent/_work/_temp/25f52ede-7fa3-4a46-89a6-2355a6083cb9.sh
-+ echo okd4_nprd
-+ egrep -q '^(okd4|ocp)'
-+ buildconfig=sihdg-jboss8
-+ DOTNET_ASSEMBLY=
-/opt/ads-agent/_work/_temp/25f52ede-7fa3-4a46-89a6-2355a6083cb9.sh: line 12:  -4: substring expression < 0
-+ cd /opt/ads-agent/_work/40/a
-+ FILES=(`find -maxdepth 1 -name "*.runtimeconfig*.json"`)
-++ find -maxdepth 1 -name '*.runtimeconfig*.json'
-+ '[' -d /opt/ads-agent/_work/40/s/target/server ']'
-+ oc start-build sihdg-jboss8 --from-dir=/opt/ads-agent/_work/40/a --follow --wait=true -n build-images-ads -v=5
-I0618 16:50:19.431868   58931 repository.go:450] Executing git show -s HEAD --format=%H%n%an%n%ae%n%cn%n%ce%n%B
-I0618 16:50:19.433944   58931 repository.go:533] Error executing command: exit status 128
-Uploading directory "/opt/ads-agent/_work/40/a" as binary input for the build ...
-I0618 16:50:19.434079   58931 tar.go:238] Adding "/opt/ads-agent/_work/40/a" to tar ...
-I0618 16:50:19.434332   58931 tar.go:336] Adding to tar: /opt/ads-agent/_work/40/a/sihdg-jboss8.ear as sihdg-jboss8.ear
-.
-Uploading finished
-build.build.openshift.io/sihdg-jboss8-2 started
-Adding cluster TLS certificate authority to trust store
-Receiving source from STDIN as archive ...
-failed to watch file "/var/log/pods/build-images-ads_sihdg-jboss8-2-build_c45e2f43-dd54-46d8-9dd7-20a4cd194db7/git-clone/0.log": no space left on deviceAdding cluster TLS certificate authority to trust store
-Adding cluster TLS certificate authority to trust store
-time="2026-06-18T19:50:27Z" level=info msg="Not using native diff for overlay, this may cause degraded performance for building images: kernel has CONFIG_OVERLAY_FS_REDIRECT_DIR enabled"
-I0618 19:50:27.903123       1 defaults.go:102] Defaulting to storage driver "overlay" with options [mountopt=metacopy=on].
-Caching blobs under "/var/cache/blobs".
-Trying to pull registry.redhat.io/jboss-eap-8/eap8-openjdk21-runtime-openshift-rhel9@sha256:ed3ae098aca62ce353303c098ed2d43b773d9706f78f5e6c05323850659ab826...
-failed to watch file "/var/log/pods/build-images-ads_sihdg-jboss8-2-build_c45e2f43-dd54-46d8-9dd7-20a4cd194db7/sti-build/0.log": no space left on deviceerror: the build build-images-ads/sihdg-jboss8-2 status is "Failed"
-##[error]Bash exited with code '1'.
-Finishing: Executando Build S2I Binary
-
+Use "oc <command> --help" for more information about a given command.
+Use "oc options" for a list of global command-line options (applies to all commands).
+-sh-4.2$ oc whoami
+p585600@corp.caixa.gov.br
+-sh-4.2$ oc adm top nodes
+NAME                       CPU(cores)   CPU%      MEMORY(bytes)   MEMORY%
+ceadecldlx001.nprd.caixa   2416m        7%        35098Mi         55%
+ceadecldlx003.nprd.caixa   3060m        9%        36979Mi         58%
+ceadecldlx004.nprd.caixa   2652m        8%        26171Mi         41%
+ceadecldlx005.nprd.caixa   2590m        8%        23648Mi         37%
+ceadecldlx006.nprd.caixa   3633m        11%       34469Mi         54%
+ceadecldlx007.nprd.caixa   2444m        25%       14037Mi         45%
+ceadecldlx008.nprd.caixa   2502m        26%       14348Mi         46%
+ceadecldlx009.nprd.caixa   2510m        26%       14307Mi         46%
+ceadecldlx010.nprd.caixa   2408m        25%       12913Mi         41%
+ceadecldlx011.nprd.caixa   1314m        9%        17969Mi         38%
+ceadecldlx012.nprd.caixa   1241m        9%        14980Mi         31%
+ceadecldlx013.nprd.caixa   1175m        8%        15032Mi         31%
+ceadecldlx014.nprd.caixa   1083m        11%       2336Mi          7%
+ceadecldlx015.nprd.caixa   1050m        11%       2373Mi          7%
+ceadecldlx016.nprd.caixa   1103m        11%       2425Mi          7%
+ceadecldlx017.nprd.caixa   1380m        14%       4755Mi          15%
+ceadecldlx019.nprd.caixa   1436m        4%        33698Mi         53%
+ceadecldlx020.nprd.caixa   1536m        4%        39625Mi         62%
+ceadecldlx021.nprd.caixa   2455m        7%        29345Mi         46%
+ceadecldlx022.nprd.caixa   1564m        4%        30047Mi         47%
+ceadecldlx023.nprd.caixa   1406m        4%        27437Mi         43%
+ceadecldlx024.nprd.caixa   1657m        5%        37373Mi         59%
+ceadecldlx025.nprd.caixa   1419m        4%        26647Mi         42%
+ceadecldlx026.nprd.caixa   1703m        5%        41124Mi         65%
+ceadecldlx027.nprd.caixa   1534m        4%        37668Mi         59%
+ceadecldlx028.nprd.caixa   1505m        4%        40420Mi         63%
+ceadecldlx029.nprd.caixa   1646m        5%        37128Mi         58%
+ceadecldlx030.nprd.caixa   2071m        6%        35730Mi         56%
+ceadecldlx031.nprd.caixa   1603m        5%        36334Mi         57%
+ceadecldlx032.nprd.caixa   1644m        5%        31298Mi         49%
+ceadecldlx033.nprd.caixa   1526m        4%        29164Mi         46%
+ceadecldlx034.nprd.caixa   1638m        5%        39448Mi         62%
+ceadecldlx035.nprd.caixa   1804m        5%        33054Mi         52%
+ceadecldlx036.nprd.caixa   1538m        4%        21463Mi         33%
+ceadecldlx037.nprd.caixa   1577m        5%        28872Mi         45%
+ceadecldlx038.nprd.caixa   1605m        5%        39157Mi         61%
+ceadecldlx039.nprd.caixa   1951m        6%        37460Mi         59%
+ceadecldlx040.nprd.caixa   1673m        5%        34976Mi         55%
+ceadecldlx041.nprd.caixa   1629m        5%        31579Mi         49%
+ceadecldlx042.nprd.caixa   1432m        4%        32823Mi         51%
+ceadecldlx043.nprd.caixa   1777m        5%        38168Mi         60%
+ceadecldlx044.nprd.caixa   1508m        4%        33420Mi         52%
+ceadecldlx045.nprd.caixa   1467m        4%        25611Mi         40%
+ceadecldlx046.nprd.caixa   2471m        7%        30142Mi         47%
+ceadecldlx047.nprd.caixa   2552m        8%        43367Mi         68%
+ceadecldlx048.nprd.caixa   1574m        4%        36441Mi         57%
+ceadecldlx049.nprd.caixa   1487m        4%        29578Mi         46%
+ceadecldlx050.nprd.caixa   1576m        5%        28719Mi         45%
+ceadecldlx051.nprd.caixa   1729m        5%        38158Mi         60%
+ceadecldlx052.nprd.caixa   2604m        8%        31079Mi         49%
+ceadecldlx053.nprd.caixa   1574m        4%        34308Mi         54%
+ceadecldlx054.nprd.caixa   1422m        4%        26934Mi         42%
+ceadecldlx055.nprd.caixa   1493m        4%        32624Mi         51%
+ceadecldlx056.nprd.caixa   1584m        5%        37727Mi         59%
+ceadecldlx057.nprd.caixa   1733m        5%        24434Mi         38%
+ceadecldlx058.nprd.caixa   1441m        4%        24664Mi         39%
+ceadecldlx059.nprd.caixa   1549m        4%        29797Mi         47%
+ceadecldlx060.nprd.caixa   1514m        4%        30944Mi         48%
+ceadecldlx061.nprd.caixa   1361m        4%        33426Mi         52%
+ceadecldlx062.nprd.caixa   1964m        6%        33157Mi         52%
+ceadecldlx063.nprd.caixa   1524m        4%        31979Mi         50%
+ceadecldlx064.nprd.caixa   3434m        10%       31576Mi         49%
+ceadecldlx065.nprd.caixa   1713m        5%        33635Mi         53%
+ceadecldlx066.nprd.caixa   1704m        5%        32355Mi         51%
+ceadecldlx067.nprd.caixa   1650m        5%        40348Mi         63%
+ceadecldlx068.nprd.caixa   1683m        5%        40427Mi         64%
+ceadecldlx069.nprd.caixa   1484m        4%        28333Mi         44%
+ceadecldlx070.nprd.caixa   2715m        8%        35388Mi         56%
+ceadecldlx071.nprd.caixa   1535m        4%        47040Mi         74%
+ceadecldlx072.nprd.caixa   1550m        4%        33606Mi         53%
+ceadecldlx073.nprd.caixa   1392m        4%        32050Mi         50%
+ceadecldlx074.nprd.caixa   1962m        6%        36653Mi         58%
+ceadecldlx075.nprd.caixa   1603m        5%        36665Mi         58%
+ceadecldlx076.nprd.caixa   1625m        5%        49963Mi         79%
+ceadecldlx077.nprd.caixa   2479m        7%        32416Mi         51%
+ceadecldlx078.nprd.caixa   1523m        4%        36913Mi         58%
+ceadecldlx079.nprd.caixa   2614m        8%        43290Mi         68%
+ceadecldlx080.nprd.caixa   2363m        7%        29694Mi         47%
+ceadecldlx081.nprd.caixa   1438m        4%        24479Mi         38%
+ceadecldlx082.nprd.caixa   2503m        7%        32940Mi         52%
+ceadecldlx083.nprd.caixa   1545m        4%        22769Mi         36%
+ceadecldlx084.nprd.caixa   1560m        4%        37067Mi         58%
+ceadecldlx085.nprd.caixa   1628m        5%        38978Mi         61%
+ceadecldlx086.nprd.caixa   1443m        4%        33443Mi         52%
+-sh-4.2$
