@@ -1,109 +1,479 @@
-eleza coloquei a variavel.. ele passou preom continua dando erro no ansible
+o repo ta vazio:
 
 
-2026-06-18T12:55:17.0960205Z ##[section]Starting: Alocando o IP (AlocaIP e Infradevops)
-2026-06-18T12:55:17.0963416Z ==============================================================================
-2026-06-18T12:55:17.0963507Z Task         : Bash
-2026-06-18T12:55:17.0963552Z Description  : Run a Bash script on macOS, Linux, or Windows
-2026-06-18T12:55:17.0963615Z Version      : 3.227.0
-2026-06-18T12:55:17.0963670Z Author       : Microsoft Corporation
-2026-06-18T12:55:17.0963723Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/bash
-2026-06-18T12:55:17.0963797Z ==============================================================================
-2026-06-18T12:55:17.2288380Z Generating script.
-2026-06-18T12:55:17.2304047Z ========================== Starting Command Output ===========================
-2026-06-18T12:55:17.2311246Z [command]/bin/bash /opt/ads-agent/_work/_temp/cf5ba96f-185c-4ecd-95c2-e6097332808b.sh
-2026-06-18T12:55:18.6831453Z 
-2026-06-18T12:55:18.6832226Z PLAY [local] *******************************************************************
-2026-06-18T12:55:18.7085784Z Thursday 18 June 2026  09:55:18 -0300 (0:00:00.028)       0:00:00.028 ********* 
-2026-06-18T12:55:21.2093735Z 
-2026-06-18T12:55:21.2094244Z TASK [Gathering Facts] *********************************************************
-2026-06-18T12:55:21.2096130Z fatal: [127.0.0.1]: FAILED! => {"ansible_facts": {}, "changed": false, "failed_modules": {"ansible.legacy.setup": {"ansible_facts": {"discovered_interpreter_python": "/usr/bin/python"}, "failed": true, "module_stderr": "\nPresumimos que você recebeu as instruções de sempre do administrador\nde sistema local. Basicamente, resume-se a estas três coisas:\n\n    #1) Respeite a privacidade dos outros.\n    #2) Pense antes de digitar.\n    #3) Com grandes poderes vêm grandes responsabilidades.\n\nsudo: nenhum tty presente e nenhum programa de askpass especificado\n", "module_stdout": "", "msg": "MODULE FAILURE\nSee stdout/stderr for the exact error", "rc": 1}}, "msg": "The following modules failed to execute: ansible.legacy.setup\n"}
-2026-06-18T12:55:21.2104768Z 
-2026-06-18T12:55:21.2104948Z PLAY RECAP *********************************************************************
-2026-06-18T12:55:21.2107746Z 127.0.0.1                  : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
-2026-06-18T12:55:21.2107823Z 
-2026-06-18T12:55:21.2107957Z Playbook run took 0 days, 0 hours, 0 minutes, 2 seconds
-2026-06-18T12:55:21.2108247Z Thursday 18 June 2026  09:55:21 -0300 (0:00:02.502)       0:00:02.531 ********* 
-2026-06-18T12:55:21.2108434Z =============================================================================== 
-2026-06-18T12:55:21.2108662Z Gathering Facts --------------------------------------------------------- 2.50s
-2026-06-18T12:55:21.4352177Z 
-2026-06-18T12:55:21.4352542Z {
-2026-06-18T12:55:21.4352645Z     "_meta": {
-2026-06-18T12:55:21.4352747Z         "hostvars": {
-2026-06-18T12:55:21.4352862Z             "caddeapllx2598.agil.nprd.caixa.gov.br": {
-2026-06-18T12:55:21.4352988Z                 "ambiente": "tqs",
-2026-06-18T12:55:21.4353116Z                 "ansible_host": "10.116.201.157",
-2026-06-18T12:55:21.4354317Z                 "cluster": null,
-2026-06-18T12:55:21.4354480Z                 "cluster_principal": null,
-2026-06-18T12:55:21.4354591Z                 "cluster_terraform": null,
-2026-06-18T12:55:21.4354692Z                 "cpu": 2,
-2026-06-18T12:55:21.4354806Z                 "datacenter": null,
-2026-06-18T12:55:21.4355332Z                 "datastore": null,
-2026-06-18T12:55:21.4355448Z                 "detalhe_imagem": null,
-2026-06-18T12:55:21.4355554Z                 "disco_log": 2,
-2026-06-18T12:55:21.4355663Z                 "disco_opt": 10,
-2026-06-18T12:55:21.4355760Z                 "domain": null,
-2026-06-18T12:55:21.4355860Z                 "esx_network": null,
-2026-06-18T12:55:21.4355955Z                 "esx_network_bck": null,
-2026-06-18T12:55:21.4356062Z                 "esx_vcenter_server": null,
-2026-06-18T12:55:21.4356164Z                 "farm": null,
-2026-06-18T12:55:21.4356548Z                 "id": 13421,
-2026-06-18T12:55:21.4357059Z                 "inclusao": "2026-06-17 15:35:38",
-2026-06-18T12:55:21.4357189Z                 "info_framework": null,
-2026-06-18T12:55:21.4357297Z                 "info_linguagem": null,
-2026-06-18T12:55:21.4357403Z                 "info_tecnologia": null,
-2026-06-18T12:55:21.4357509Z                 "info_versao": null,
-2026-06-18T12:55:21.4357597Z                 "ipbackup": "",
-2026-06-18T12:55:21.4357707Z                 "jboss_apache_status": "ativado",
-2026-06-18T12:55:21.4357812Z                 "memoria": 4,
-2026-06-18T12:55:21.4357913Z                 "net_adapter_type": null,
-2026-06-18T12:55:21.4358021Z                 "nome_imagem": null,
-2026-06-18T12:55:21.4358227Z                 "objeto_origem": "ECAPT-BANCARIO_TQS_SERVIDOR",
-2026-06-18T12:55:21.4358337Z                 "plataforma": "vm",
-2026-06-18T12:55:21.4358439Z                 "produto": "jboss",
-2026-06-18T12:55:21.4358540Z                 "recursos_max_id": null,
-2026-06-18T12:55:21.4358698Z                 "sistema": "ecapt-bancario",
-2026-06-18T12:55:21.4358795Z                 "site": "ctc_nprd",
-2026-06-18T12:55:21.4358898Z                 "solicitacoes_id": null,
-2026-06-18T12:55:21.4359000Z                 "status": "ativado",
-2026-06-18T12:55:21.4359098Z                 "terraform": true,
-2026-06-18T12:55:21.4359201Z                 "versao_imagem": null,
-2026-06-18T12:55:21.4359301Z                 "versao_plataforma": "7.1",
-2026-06-18T12:55:21.4359405Z                 "vm_dns": null,
-2026-06-18T12:55:21.4359502Z                 "vm_ipnetmask": null,
-2026-06-18T12:55:21.4359606Z                 "vm_ipnetmask_bck": null,
-2026-06-18T12:55:21.4359706Z                 "vsphere_folder": null,
-2026-06-18T12:55:21.4359810Z                 "vsphere_pool": null
-2026-06-18T12:55:21.4359897Z             }
-2026-06-18T12:55:21.4359979Z         }
-2026-06-18T12:55:21.4360061Z     },
-2026-06-18T12:55:21.4360141Z     "ctc_nprd": {
-2026-06-18T12:55:21.4360237Z         "children": [
-2026-06-18T12:55:21.4360330Z             "jboss"
-2026-06-18T12:55:21.4360415Z         ],
-2026-06-18T12:55:21.4360494Z         "vars": {}
-2026-06-18T12:55:21.4360576Z     },
-2026-06-18T12:55:21.4360660Z     "jboss": {
-2026-06-18T12:55:21.4360748Z         "hosts": [
-2026-06-18T12:55:21.4360842Z             "caddeapllx2598.agil.nprd.caixa.gov.br"
-2026-06-18T12:55:21.4360943Z         ],
-2026-06-18T12:55:21.4361027Z         "vars": {}
-2026-06-18T12:55:21.4361109Z     },
-2026-06-18T12:55:21.4361186Z     "local": {
-2026-06-18T12:55:21.4361276Z         "hosts": [
-2026-06-18T12:55:21.4361364Z             "127.0.0.1"
-2026-06-18T12:55:21.4361451Z         ],
-2026-06-18T12:55:21.4361536Z         "vars": {
-2026-06-18T12:55:21.4361627Z             "ansible_connection": "local"
-2026-06-18T12:55:21.4361721Z         }
-2026-06-18T12:55:21.4361798Z     },
-2026-06-18T12:55:21.4361879Z     "tqs": {
-2026-06-18T12:55:21.4361960Z         "children": [
-2026-06-18T12:55:21.4362054Z             "local",
-2026-06-18T12:55:21.4362149Z             "ctc_nprd"
-2026-06-18T12:55:21.4362237Z         ],
-2026-06-18T12:55:21.4362316Z         "vars": {}
-2026-06-18T12:55:21.4362398Z     }
-2026-06-18T12:55:21.4362477Z }
-2026-06-18T12:55:21.4506478Z ##[error]Bash exited with code '1'.
-2026-06-18T12:55:21.4509283Z ##[section]Finishing: Alocando o IP (AlocaIP e Infradevops)
+
+Skip to main content
+Azure DevOps
+projetos
+/
+Caixa
+/
+Repos
+/
+Files
+/
+
+ECAPT-bancario
+Search
+
+
+Caixa
+
+Overview
+
+Boards
+
+Repos
+Files
+Commits
+Pushes
+Branches
+Tags
+Pull requests
+
+Pipelines
+
+Test Plans
+
+Artifacts
+Project settings
+ECAPT-bancario
+
+README.md
+
+main
+
+/
+Type to find a file or folder...
+Files
+failed
+
+Clone
+
+Contents
+History
+
+README.md
+6 de mai.
+db2e7d5c
+Added README.md Roger Costa Machado
+Introduction
+TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project.
+
+Getting Started
+TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
+
+Installation process
+Software dependencies
+Latest releases
+API references
+Build and Test
+TODO: Describe and show how to build your code and run the tests.
+
+Contribute
+TODO: Explain how other users and developers can contribute to make your code better.
+
+If you want to learn more about creating good readme files then refer the following guidelines . You can also seek inspiration from the below readme files:
+
+ASP.NET Core 
+Visual Studio Code 
+Chakra Core 
+
+
+tem esse repo
+
+Skip to main content
+Azure DevOps
+projetos
+/
+Caixa
+/
+Repos
+/
+Files
+/
+
+ECAPT-bancario-config
+Search
+
+
+Caixa
+
+Overview
+
+Boards
+
+Repos
+Files
+Commits
+Pushes
+Branches
+Tags
+Pull requests
+
+Pipelines
+
+Test Plans
+
+Artifacts
+Project settings
+ECAPT-bancario-config
+
+httpd
+httpd.conf
+vhost.conf
+jboss
+jboss-custom.cli
+jboss-deployments
+jboss-modules-custom
+standalone-full-ha.xml
+standalone.conf
+README.md
+
+main
+
+/
+httpd
+httpd
+
+New
+
+Contents
+History
+
+httpd.conf
+14 de mai.
+6632b77a
+Added httpd.conf Flavio Longue Guimaraes
+vhost.conf
+18 de mai.
+5e1336df
+Updated vhost.conf Bruno Judson de Almeida do Lago
+
+tem esse cara:
+
+
+Skip to main content
+Azure DevOps
+projetos
+/
+Infraestrutura
+/
+Repos
+/
+Files
+/
+
+esteira-vm-release-terraform
+Search
+
+
+Infraestrutura
+
+Overview
+
+Boards
+
+Repos
+Files
+Commits
+Pushes
+Branches
+Tags
+Pull requests
+
+Pipelines
+
+Test Plans
+
+Artifacts
+Project settings
+esteira-vm-release-terraform
+
+backend.tfvars.json
+get_tag_vcenter.py
+main.tf
+provider.tf
+README.md
+terraform.tfvars.json
+variables.tf
+
+main
+
+/
+Type to find a file or folder...
+Files
+failed
+
+Clone
+
+Contents
+History
+
+backend.tfvars.json
+20 de dez. de 2022
+fa2de7c3
+Ajuste nas variaveis do backendá Rafael Augusto Soares
+get_tag_vcenter.py
+10 de mar.
+f812df61
+Updated get_tag_vcenter.py Dyego dos Santos Barros
+main.tf
+12 de mar.
+19d5edfd
+Updated main.tf Dyego dos Santos Barros
+provider.tf
+28 de nov. de 2023
+32086c2b
+Updated provider.tf api timeout Valdir Alves Cardoso
+README.md
+10 de mar.
+5560ddaf
+Updated README.md Dyego dos Santos Barros
+terraform.tfvars.json
+5 de mar.
+f5106311
+Updated terraform.tfvars.json Dyego dos Santos Barros
+variables.tf
+6 de mar.
+1f21c2b0
+Updated variables.tf Dyego dos Santos Barros
+Introduction
+TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project.
+
+Getting Started
+TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
+
+Installation process
+Software dependencies
+Latest releases
+API references
+Build and Test
+TODO: Describe and show how to build your code and run the tests.
+
+Contribute
+TODO: Explain how other users and developers can contribute to make your code better.
+
+If you want to learn more about creating good readme files then refer the following guidelines . You can also seek inspiration from the below readme files:
+
+ASP.NET Core 
+Visual Studio Code 
+Chakra Core 
+Tag Vcenter
+O script get_tag_vcenter.py foi desenvolvido para interagir diretamente com a API REST do VMware vCenter a fim de validar e recuperar Tags pertencentes à categoria ADDR. O objetivo principal é contornar a rigidez do Terraform, que interrompe a execução da Pipeline caso uma Tag não exista previamente no vCenter.
+
+PROBLEMA A SER RESOLVIDO:
+
+O Terraform exige que todas as Tags referenciadas durante a execução já estejam devidamente criadas e associadas à categoria correta no vCenter. Se a Tag não existir na categoria, o Terraform retorna erro e quebra a Pipeline. Este script evita esse comportamento, realizando uma validação prévia via API e retornando somente valores seguros.
+
+Remover Insights
+Adicionado codigo terraform, que resolve problema para remover o registro do insights da Rehat.
+
+PROBLEMA A SER RESOLVIDO: O Terraform com ao executar o comando de destroy, realizara conexão ssh com a vm e executara o comando de remover o registro do insights da RedHat.
+
+
+e tem esse cara:
+
+
+Skip to main content
+Azure DevOps
+projetos
+/
+Infraestrutura
+/
+Repos
+/
+Files
+/
+
+esteira-jboss-vm-v2
+Search
+
+
+Infraestrutura
+
+Overview
+
+Boards
+
+Repos
+Files
+Commits
+Pushes
+Branches
+Tags
+Pull requests
+
+Pipelines
+
+Test Plans
+
+Artifacts
+Project settings
+esteira-jboss-vm-v2
+
+group_vars
+inventory
+library
+roles
+
+validadores
+.gitignore
+.vault.sh
+ansible.cfg
+hsi.yml
+LICENSE
+README.md
+requirements.txt
+restart_jboss.yml
+secure-files.yml
+site.yml
+stack_apache.yml
+stack_batch.yml
+stack_controlm.yml
+stack_custom.yml
+stack_deployments_custom.yml
+stack_disable_unit_jboss.yml
+stack_hosts.yml
+stack_jboss_handlers.yml
+stack_jboss.yml
+stack_ldap.yml
+stack_modules_custom.yml
+stack_monitoracao.yml
+stack_tsm.yml
+stack_vm.yml
+stop_jboss.yml
+summary.j2
+
+master
+
+/
+Type to find a file or folder...
+Files
+failed
+
+Clone
+
+Contents
+History
+
+You updated fix/teste-cesti terça-feira
+Create a pull request
+
+group_vars
+2 de abr.
+9b73c6b2
+Updated all Dyego dos Santos Barros
+inventory
+8 de abr.
+16de621e
+Updated inventory_portal.py Dyego dos Santos Barros
+library
+3 de mar. de 2020
+299410cd
+Removido os arquivos que não estão sendo utilizados root
+roles
+terça-feira
+8858cd66
+Updated main.yml Dyego dos Santos Barros
+validadores
+8 de abr. de 2021
+5f7b28ee
+Habilitando usuário de serviço root
+.gitignore
+9 de abr. de 2020
+c1e02bb0
+ajuste nas variaveis root
+.vault.sh
+9 de abr. de 2020
+c1e02bb0
+ajuste nas variaveis root
+ansible.cfg
+17 de jun. de 2024
+eac4da96
+Mellhoria na task de ldap Rafael Soares
+hsi.yml
+7 de mai.
+230fa99d
+Updated hsi.yml Ronaldo Amysterdam Alves Neres
+LICENSE
+21 de fev. de 2020
+bd61528f
+carga inicial root
+README.md
+21 de fev. de 2020
+bd61528f
+carga inicial root
+requirements.txt
+30 de mar. de 2020
+09f12097
+Validação do retordo e tratativa de erro de IP, Máscara e Gateway. root
+restart_jboss.yml
+13 de set. de 2023
+af5bd542
+Refatoração do código fonte Rafael Augusto Soares
+secure-files.yml
+17 de jun. de 2024
+eac4da96
+Mellhoria na task de ldap Rafael Soares
+site.yml
+16 de abr.
+fdccd357
+Ajuste do logrotate Rafael Soares
+stack_apache.yml
+9 de fev. de 2023
+09330a57
+Correções de automação Rafael Augusto Soares
+stack_batch.yml
+24 de jun. de 2025
+11a29960
+Updated stack_batch.yml Henrique Coutinho Guimaraes
+stack_controlm.yml
+19 de ago. de 2021
+2e48b6d4
+Ajustes Control-M root
+stack_custom.yml
+3 de mar.
+f272b7e4
+Cria o custom.sh para VM sem jboss e control-m Rafael Soares
+stack_deployments_custom.yml
+21 de jan. de 2025
+2fa93804
+Correção do nome do Repo Rafael Soares
+stack_disable_unit_jboss.yml
+14 de set. de 2023
+1cfabdbc
+Refatoração do código fonte Rafael Augusto Soares
+stack_hosts.yml
+22 de jan. de 2025
+baa30a1c
+Correção de diretório de config Rafael Soares
+stack_jboss_handlers.yml
+22 de jan. de 2025
+535bcfba
+Correção de diretório de config Rafael Soares
+stack_jboss.yml
+27 de set. de 2023
+d0afbfa6
+Padronização do código fonte Rafael Augusto Soares
+stack_ldap.yml
+6 de dez. de 2024
+69464582
+Updated stack_ldap.yml Jailson Martins Alves
+stack_modules_custom.yml
+22 de jan. de 2025
+450b9987
+Correção de diretório de config Rafael Soares
+stack_monitoracao.yml
+16 de abr.
+fdccd357
+Ajuste do logrotate Rafael Soares
+stack_tsm.yml
+19 de ago. de 2021
+2e48b6d4
+Ajustes Control-M root
+ansible-role-jboss
+ansible-role-jboss
+
+
+
