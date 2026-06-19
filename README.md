@@ -1,37 +1,276 @@
-Favor verificar,  	Erro ao rodar a pipeline TQS em Actions, no github.
+Histórico de Informações de Trabalho da Ordem de Trabalho
+ID da Ordem de Trabalho	 WO0000080806899
+Criado em	 19/06/2026 10:55:10
+Criado por	 C079563
+Origem de Comunicação	 
+Exibir Acesso	 Público
+Notas	 1. Não identificamos o novo pod no OKD e nem o desenvolvimento do DeploymentConfig para esse nova release
 
-Run caixagithub/DevSecOps-Actions/.github/integrations/argocd/logs@main
-Run echo "REPO_NAME=$(echo 'caixagithub/sibko-originacao-digital-api-dossie' | cut -d'/' -f2)" >> $GITHUB_ENV
-INPUT_IMAGE_TAG: '27765539065'
-Run RESOURCE_TREE_URL="https://openshift-gitops-server-openshift-gitops.apps.aroidpprd.brazilsouth.aroapp.io/api/v1/applications/sibko-originacao-digital-api-dossie-tqs/resource-tree?appNamespace=openshift-gitops"
-Fazendo requisição para: https://openshift-gitops-server-openshift-gitops.apps.aroidpprd.brazilsouth.aroapp.io/api/v1/applications/sibko-originacao-digital-api-dossie-tqs/resource-tree?appNamespace=openshift-gitops
-Resource-tree obtido com sucesso
-Filtrando pods e encontrando o mais recente...
-Pod mais recente encontrado: sibko-originacao-digital-api-dossie-tqs-8d478bc94-lvhhk
-URL dos logs: https://openshift-gitops-server-openshift-gitops.apps.aroidpprd.brazilsouth.aroapp.io/api/v1/applications/sibko-originacao-digital-api-dossie-tqs/logs?appNamespace=openshift-gitops&container=sibko-originacao-digital-api-dossie-tqs&namespace=sibko-originacao-digital-api-dossie&follow=false&podName=sibko-originacao-digital-api-dossie-tqs-8d478bc94-lvhhk&tailLines=1000&sinceSeconds=0
-Logs obtidos com sucesso
-Logs do pod sibko-originacao-digital-api-dossie-tqs-8d478bc94-lvhhk:
-================================================
-Exibindo os Logs:
-I0618 16:26:16.548246       1 version.go:31] "version info" version="" commit="0eef8df" buildDate="2025-05-19T06:17:15Z" component="vaultenv"
-I0618 16:26:16.548329       1 main.go:184] "azure key vault env injector initializing"
-I0618 16:26:16.548477       1 main.go:253] "found original container command" cmd="/usr/bin/dotnet" args=["dotnet","SIBKO.OriginacaoDigitalApiDossie.dll"]
-I0618 16:26:16.548535       1 authentication.go:110] "checking if current auth service credentials are stale" url="http://akv2k8s-envinjector.akv2k8s.svc:80/auth/sibko-originacao-digital-api-dossie/sibko-originacao-digital-api-dossie-tqs-8d478bc94-lvhhk?secret=akv2k8s-sibko-originacao-digital-api-dossie-tqs"
-I0618 16:26:16.624174       1 authentication.go:123] "auth service credentials ok" url="http://akv2k8s-envinjector.akv2k8s.svc:80/auth/sibko-originacao-digital-api-dossie/sibko-originacao-digital-api-dossie-tqs-8d478bc94-lvhhk?secret=akv2k8s-sibko-originacao-digital-api-dossie-tqs"
-I0618 16:26:16.624507       1 authentication.go:159] "requesting azure key vault oauth token" url="https://akv2k8s-envinjector.akv2k8s.svc:9443/auth/sibko-originacao-digital-api-dossie/sibko-originacao-digital-api-dossie-tqs-8d478bc94-lvhhk"
-I0618 16:26:16.655601       1 authentication.go:179] "successfully received oauth token"
-I0618 16:26:16.761311       1 main.go:338] "secret injected into env var" azurekeyvaultsecret="sibko-originacao-digital-api-dossie/akvs-tkn-keyintranet-kid-edo-sibko-tqs" env="Tkn__keyIntranet__kid"
-I0618 16:26:16.808117       1 main.go:338] "secret injected into env var" azurekeyvaultsecret="sibko-originacao-digital-api-dossie/akvs-apimanager-apikey-edo-sibko-tqs" env="ApiManager__Apikey"
-I0618 16:26:16.859408       1 main.go:338] "secret injected into env var" azurekeyvaultsecret="sibko-originacao-digital-api-dossie/akvs-tkn-keyinternet-kid-edo-sibko-tqs" env="Tkn__keyInternet__kid"
-I0618 16:26:16.914465       1 main.go:338] "secret injected into env var" azurekeyvaultsecret="sibko-originacao-digital-api-dossie/akvs-tkn-keyinternet-n-edo-sibko-tqs" env="Tkn__keyInternet__n"
-I0618 16:26:16.952821       1 main.go:338] "secret injected into env var" azurekeyvaultsecret="sibko-originacao-digital-api-dossie/akvs-applicationinsights-connection-string-edo-sibko-tqs" env="ApplicationInsights__ConnectionString"
-I0618 16:26:17.000053       1 main.go:338] "secret injected into env var" azurekeyvaultsecret="sibko-originacao-digital-api-dossie/akvs-sso-client-server-secret-edo-sibko-tqs" env="Tkn__UserServ__ClientSecret"
-I0618 16:26:17.068178       1 main.go:338] "secret injected into env var" azurekeyvaultsecret="sibko-originacao-digital-api-dossie/akvs-database-default-password-edo-sibko-des" env="Database__Default__Password"
-I0618 16:26:17.105999       1 main.go:338] "secret injected into env var" azurekeyvaultsecret="sibko-originacao-digital-api-dossie/akvs-tkn-keyintranet-n-edo-sibko-tqs" env="Tkn__keyIntranet__n"
-I0618 16:26:17.106037       1 main.go:343] "starting process with secrets in env vars" cmd="/usr/bin/dotnet" args=["dotnet","SIBKO.OriginacaoDigitalApiDossie.dll"]
+2. Ao realizar o processo de release EC DES2 é realizado o deploy no EC DES
 
-================================================
-Script executado com sucesso!
-Pod utilizado: sibko-originacao-digital-api-dossie-tqs-8d478bc94-lvhhk
-Falha na sincronização
-Error: Process completed with exit code 1.
+ID da Ordem de Trabalho	 WO0000080806899
+Criado em	 18/06/2026 15:56:06
+Criado por	 P981778
+Origem de Comunicação	 
+Exibir Acesso	 Público
+Notas	 À CAIXA,
+
+
+Configuração realizada conforme solicitado.
+Segue evidência em anexo.
+
+Thiago Silva
+Analista
+CTIS / CESTI Esteira DEVOPS DES TQS NPRD
+ID da Ordem de Trabalho	 WO0000080806899
+Criado em	 18/06/2026 13:20:34
+Criado por	 P767992
+Origem de Comunicação	 
+Exibir Acesso	 Público
+Notas	 Demanda inicial sem viés de falha, erro, degradação ou
+esgotamento de infraestrutura, serviço, máquina, armazenamento,
+rotina ou situação que não esteja na iminência de tornar-se
+incidente. Previsto atendimento em até 24 horas úteis.
+
+[CENTRAL-SID]
+ID da Ordem de Trabalho	 WO0000080806899
+Criado em	 18/06/2026 13:16:39
+Criado por	 P558217
+Origem de Comunicação	 
+Exibir Acesso	 Público
+Notas	 Prezado(a),
+
+
+
+Informamos que sua solicitação foi recebida.  
+
+
+
+Nosso SLA para atendimento é de até 24h úteis, analisaremos a solicitação para nos certificarmos que o atendimento está dentro do escopo de atuação da nossa equipe.
+
+
+
+Caso seja identificado que o atendimento não corresponde ao nosso escopo, a solicitação será redirecionada à equipe responsável.
+
+
+
+Novas informações e atualizações serão registradas diretamente nesta WO.
+
+
+
+Atte.
+
+
+
+CTIS / CESTI Esteira DEVOPS DES TQS NPRD
+ID da Ordem de Trabalho	 WO0000080806899
+Criado em	 18/06/2026 12:09:39
+Criado por	 Remedy Application Service
+Origem de Comunicação	 E-mail
+Exibir Acesso	 Interno
+Notas	 Este ticket foi criado a partir do sistema de solicitação de serviço.
+Impresso por P585600 em Sexta-feira, 19/06/2026 11:26:37
+
+
+
+OKD
+
+
+Jesse Mouta Pereira Batista
+
+Administrator
+Home
+Overview
+Projects
+Search
+API Explorer
+Events
+Operators
+Workloads
+Pods
+Deployments
+DeploymentConfigs
+StatefulSets
+Secrets
+ConfigMaps
+CronJobs
+Jobs
+DaemonSets
+ReplicaSets
+ReplicationControllers
+HorizontalPodAutoscalers
+PodDisruptionBudgets
+Networking
+Storage
+Builds
+Observe
+Compute
+User Management
+Administration
+
+Project: simtx-des
+DeploymentConfigs
+
+Name
+Search by name...
+/
+
+Name
+
+Status
+
+Labels
+
+Pod selector
+DeploymentConfig
+DC
+quarkus
+0 of 0 pods	
+application
+=
+quarkus
+template
+=
+quarkus-caixa-release
+name=quarkus
+
+DeploymentConfig
+DC
+simtx-agendamento-api-des
+1 of 1 pods	
+CGC_DES
+=
+7390
+CGC_OPS
+=
+7259
+UNIDADE
+=
+BR
+app
+=
+simtx-agendamento-api-des
+application
+=
+simtx-agendamento-api-des
+template
+=
+quarkus-caixa-release
+name=simtx-agendamento-api-des
+
+DeploymentConfig
+DC
+simtx-agendamento-des
+1 of 1 pods	
+CGC_DES
+=
+7390
+CGC_OPS
+=
+7259
+UNIDADE
+=
+BR
+app
+=
+simtx-agendamento-des
+application
+=
+simtx-agendamento-des
+template
+=
+jboss-caixa-release
+name=simtx-agendamento-des
+
+DeploymentConfig
+DC
+simtx-api-transacao-des
+1 of 1 pods	
+CGC_DES
+=
+7390
+CGC_OPS
+=
+7259
+UNIDADE
+=
+BR
+app
+=
+simtx-api-transacao-des
+application
+=
+simtx-api-transacao-des
+template
+=
+quarkus-caixa-release
+name=simtx-api-transacao-des
+
+DeploymentConfig
+DC
+simtx-apostas-des
+1 of 1 pods	
+CGC_DES
+=
+7390
+CGC_OPS
+=
+7259
+UNIDADE
+=
+BR
+app
+=
+simtx-apostas-des
+application
+=
+simtx-apostas-des
+template
+=
+quarkus-caixa-release
+name=simtx-apostas-des
+
+DeploymentConfig
+DC
+simtx-arrecadacao-veiculos-des
+1 of 1 pods	
+CGC_DES
+=
+7390
+CGC_OPS
+=
+7259
+app
+=
+simtx-arrecadacao-veiculos-des
+application
+=
+simtx-arrecadacao-veiculos-des
+template
+=
+quarkus-caixa-release
+name=simtx-arrecadacao-veiculos-des
+
+DeploymentConfig
+DC
+simtx-assinatura-multipla-adapter-des
+1 of 1 pods	
+CGC_DES
+=
+7390
+CGC_OPS
+=
+7259
+app
+=
+simtx-assinatura-multipla-adapter-des
+application
+=
+simtx-assinatura-multipla-adapter-des
+template
+=
+quarkus-caixa-release
+name=simtx-assinatura-multipla-adapter-des
+
+nesse caso temos que criar na mao o deplomentcofig ou exite alguma forma de setar ele na variavel?
+
