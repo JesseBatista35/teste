@@ -1,172 +1,672 @@
-apiVersion: v2
-name: caixa-base-chart
-description: A Helm chart for Kubernetes
 
-type: application
+sibko-frontend-geren
+apps
+06052026-teste-ativar-ambiente
+aplicacao-teste/plt
+coe-java-api/des
+demo-sd195-backend-04052026-teste-jornada-dep
+demo-sd603-sd603-frontend
+devsecops-webhooks
+sample-quarkus-aks/des
+siaad-teste-140042026
+siaad-teste-prd-pipelineagil-20260401-03
+siaad-teste-prd-pipelineagil-20260401-04
+siaad-us86163-output-new-repo-1
+siaad-us86163-output-new-repo-2
+siaad-us86163-output-playbook-1
+siaas-lib-teste-qualquer-21
+siabm-cadastro-kit-bio-api/des
+siabm-doc-teste-de-criacao
+siabm-matcher-facial/des
+siabm-teste-60
+siacc-demo
+siaci-api-manual
+siaci-componentes-net/des
+siaci-frontend-manual
+siaci-lib-mainframe
+siacx-backend-bd-neo4j-grafos-conhecimento
+siacx-backend-chatcaixa-agents365/des
+siacx-backend-curadoria
+siacx-chatcaixa-frontend
+siacx-chatcaixa-mcp-server
+siacx-chatcaixa-orquestrador
+siacx-frontend-curadoria
+siacx-motor-indexacao
+siacx-plataforma-apis
+siacx-plataforma-backend
+siacx-plataforma-frontend
+siacx-sonar-mcp-server
+siagf-api-gestor
+siagf-app
+siagf-clerk-api
+siagf-clerk-opf-api
+siagf-clerk-worker
+siagf-gestor
+siagf-mfe-adm-vinculo-opf
+siagf-mfe-plataforma-opf-dados
+siagf-microofertas-api
+siagf-microofertas-service
+siagf-mpc-server/des
+siagf-plataforma-adm-vinculos
+siagf-plataforma-opf-dados
+siagf-portabilidade-service
+siagf-user-preferences-service
+siana-backend/des
+siath-backend-app/des
+siath-frontend-internet/des
+sibko-administracao-api
+sibko-administracao-spa
+sibko-api-fluxo-guiado-api
+sibko-api-gerenciador-financeiro
+sibko-arquivos-api
+sibko-backend-gerenciador-financeiro
+sibko-frontend-gerenciador-financeiro
+des
+config.yaml
+hmp
+tqs
+tst
+sibko-gateway-api
+sibko-originacao-digital-api-dossie
+sibko-originacao-digital-api
+sibko-pos-venda-api
+sibko-pos-venda-asyncapi
+sibko-pos-venda-process
+sibko-sibko-api/des
+sicia-backend-web-quarkus
+sicli-api-cadastro-perfil-pf/des
+sictm-abono-service/des
+sictm-antecipa-saque-aniversario/des
+sictm-azulzinha-service/des
+sictm-banners-service/des
+sictm-bolsa-service/des
+sictm-brcode-service/des
+sictm-cartao-contratacao-service/des
+sictm-cartao-debito-service/des
+sictm-cartaovirtual-service/des
+sictm-central-notificacoes-service/des
+sictm-consulta-cep-service/des
+sictm-contas-service/des
+sictm-conversa-service/des
+sictm-credito-trabalhador/des
+sictm-credito/des
+sictm-criptografia-service/des
+sictm-demonstrativo-credito-service/des
+sictm-emprestimo-consignado-service/des
+sictm-encerramento-conta-service/des
+sictm-extrato-service
+sictm-geolocalizacao-service/des
+sictm-gestao-limites-service/des
+sictm-habitacao-service/des
+sictm-identificacao-pos-service/des
+sictm-meu-nis-service/des
+sictm-mobilidade-service/des
+sictm-mock-adapters/des
+sictm-notas-negociacao-service/des
+sictm-notificacao-service/des
+sictm-open-banking-service/des
+sictm-operacoes-lgpd-service/des
+sictm-pagamento-boleto-service/des
+sictm-pe-de-meia-service/des
+sictm-pix-service/des
+sictm-portabilidade-service/des
+sictm-pos-venda-service/des
+sictm-qrcode-service/des
+sictm-rapidex-service/des
+sictm-saiba-mais-service/des
+sictm-saldo-service/des
+sictm-seguranca-adapter/des
+sictm-seguros-service/des
+sictm-sicli-service/des
+sictm-sictm-sinda-service/des
+sictm-sigcn-service/des
+sictm-siiso-service/des
+sictm-sinda-service/des
+sictm-termo-service/des
+sictm-teste-adapter/des
+sictm-transacao-elo-service/des
+sictm-transacao-service/des
+sidgc-registro-eletronico-api
+sidgc-registro-eletronico-asyncapi
+sidgc-registro-eletronico-cron
+sidgc-registro-eletronico-spa
+sidgc-shared
+sidpn-agf-accounts/des
+sidpn-api-dc-cambio
+sidpn-api-dc-contas
+sidpn-api-dc-cred-direitos-creditorios-desc
+sidpn-api-dc-credito-adiantamento-depositante
+sidpn-api-dc-credito-emprestimos
+sidpn-api-dc-credito-financiamentos
+sidpn-api-dc-fundos-investimento
+sidpn-api-dc-renda-fixa-bancaria
+sidpn-api-dc-renda-fixa-credito
+sidpn-api-dc-renda-variavel
+sidpn-api-dc-titulos-tesouro-direto
+sidpn-api-intra-cambio
+sidpn-api-intra-contas
+sidpn-api-intra-cred-adiantamento-depositante/des
+sidpn-api-intra-cred-prospec-portabilidade
+sidpn-api-intra-credito-emprestimos
+sidpn-api-intra-credito-financiamentos
+sidpn-api-intra-credito-listar-contratos
+sidpn-api-intra-credito-prospeccao-portabilidade
+sidpn-api-intra-fundos-investimento
+sidpn-api-intra-listar-investimentos
+sidpn-api-intra-prospec-credconsignadofederal
+sidpn-api-intra-renda-fixa-bancaria
+sidpn-api-intra-renda-fixa-credito
+sidpn-api-intra-renda-variavel
+sidpn-api-intra-scheduler
+sidpn-api-intra-titulos-tesouro-direto
+sidpn-api-pc-credito-portabilidade
+sidpn-lib-services
+sidpn-opf-jwt
+sidpn-pc-creditoconsignadofederal
+sidpn-services
+sidre-da-adiantamentoadepositantes
+sidre-da-cambio
+sidre-da-canaisdeatendimento
+sidre-da-cartaodecredito
+sidre-da-contas
+sidre-da-direitoscreditoriosdescontados
+sidre-da-emprestimos
+sidre-da-financiamentos
+sidre-da-investimentos
+sidre-da-previdencia
+sidre-da-seguros
+sidre-da-titulosdecapitalizacao
+sidre-mt-admin
+sidre-mt-comum
+sidre-opf-participantes
+sidre-portal-api
+sidre-portal-web
+sidre-worker
+sidrx-ativos-sustentabilidade/des
+sidsc-sdsc-angular/des
+sidsc-template
+siecm-api-middleware/des
+siecm-frontend/des
+sifac-app-backend
+sifac-backend-backend
+sifap-intranet-backend
+sifap-poc-ia-backend
+sifce-api-agendador/des
+sifce-api-cadastro-fundos/des
+sifce-api-cadastro
+sifce-api-canais
+sifce-api-contabilidade
+sifce-api-contrato
+sifce-api-financeiro
+sifce-api-fundos/des
+sifce-api-relatorio
+sifce-api-transferencia-recursos
+sifce-front-autenticacao
+sifce-fundos
+sigac-api-gestao-arquivistica/des
+sigam-teste-andre-3
+sigam-teste-andre2
+sigaq-api-gestao-documental/des
+sigaq-api-gestor-mfe-host/des
+sigaq-back-api/des
+sigaq-front-gestor-mfe-header/des
+sigaq-front-gestor-mfe-host/des
+sigaq-front-gestor-mfe-infra/des
+sigaq-front-gestor-mfe-temporalidade/des
+sigch-teste-corrige-times-1
+sigcn-api-orquestrador-api
+sigcn-api-orquestrador
+sigcn-contestacao-backend
+sigcn-contestacao-mfe/des
+sigcn-devolucao-worker
+sigcn-digital-painel-gestao-backend
+sigcn-digital-painel-gestao-frontend
+sigcn-digital-painel-gestao
+sigcn-frontend-contestacao-mfe-aks
+sigcn-frontend-parecer-contestacao-aks
+sigcn-frontend-raf
+sigcn-gestao-backend
+sigcn-gestao-contestacoes-backend
+sigcn-lib-contestacao
+sigcn-lib
+sigcn-med-backend
+sigcn-med-frontend-aks
+sigcn-med-worker
+sigcn-parecer-contestacao-frontend/des
+sigcn-pix-api
+sigcn-pix-lib
+sigcn-pix-worker
+sigcn-raf-backend
+sigcn-raf-lib
+sigcn-raf-worker
+sigcn-template-backend/des
+sigcn-teste-correcao-times-1
+sigcn-teste-correcao-times-2
+sigcn-teste-corrige-times-1
+sigec-opf-mfe-adm
+sigec-opf-wrk-integra-crm
+sigec-opf-wrk-liquidacao
+sigec-opf-wrk-maquina-estados
+sigec-opf
+sigex-api-painel-presi
+sigex-frontend-painel-presi-v2
+sigex-frontend-painel-presi
+sigms-motor-decisao
+sigms-webhook-internet
+sigms-worker-push
+sigos-api-integracoes
+sigos-backend-internet
+sigos-backend-intranet
+sigos-batch-worker-elegiveis
+sigos-core
+sigos-financeiro
+sigos-frontend-internet
+sigos-frontend-intranet
+sigos-processamento-arquivo
+sigos-processamento-arquivos
+sigrm-backend-sigrm/des
+sigrm-frontend-sigrm/des
+sigsr-api/des
+sigsr-api2
+sigsr-web-intranet/des
+sigsr-web-mfa/des
+sigsr-web-spa/des
+sigsr-worker-api-key/des
+sigsr-worker-apim/des
+sigsr-worker-sso/des
+siiad-backend
+siiad-batch
+siiad-frontend
+siidp-api-teste-us103332-a
+siidp-api-teste-us103332-req3
+siidp-app-04052026-modulo-teste-ms-caixa
+siidp-app-04052026-modulo-teste-r
+siidp-app-06052026-ms-teste-13
+siidp-app-06052026-ms-teste-14
+siidp-app-06052026-ms-teste-16
+siidp-app-demonstracao
+siidp-app-teste-completo
+siidp-app-teste-de-migracao-12
+siidp-app-teste-migracao-08
+siidp-app-teste-us103332-completo-1
+siidp-app-teste-us103332-fluxo-3
+siidp-app-teste-us103332-fluxo-4
+siidp-app-teste-us117323-3
+siidp-app-teste-us118200-1
+siidp-app-teste-us119187-angularaz
+siidp-app-teste-us119187-jsbaws
+siidp-backend-arquitetura
+siidp-backend-quarkus
+siidp-backend-teste-fimafim
+siidp-backend-teste-jorn123456
+siidp-backend-teste-producao-jornadacorporativa
+siidp-backend-teste-us103332-mudaordem
+siidp-frontend-25052026-teste-2
+siidp-frontend-teste-us103332-completo
+siidp-frontend-teste-us103332-infra-s3
+siidp-frontend-teste-us103332-novooutput-1
+siidp-frontend-teste-us103332-novooutput-2
+siidp-frontend-teste-us103332-req-1
+siidp-frontend-teste-us103332-req-2
+siidp-frontend-teste-us119187-1
+siidp-frontend-teste-us119187-2
+siidp-ghbypass
+siidp-lib-28052026-microsservico-ralph
+siidx-arquivos-api
+siidx-assinador-api-internet
+siidx-assinador-api-neosigner
+siidx-assinador-api
+siidx-assinador-cron
+siidx-assinador-spa-internet
+siidx-assinador-spa-intranet
+siidx-assinatura-cron
+siidx-ferramenta-fakemail
+siidx-gateway-api
+siidx-lib-shared-frontend
+siidx-shared
+siiga-backend-cliente
+siiga-backend-gestao-canais-monitoria
+siiga-backend-gestao-canais
+siiga-backend
+siiga-batch-batch
+siiga-batch-v1
+siiga-frontend-gestao-canais-documentos
+siiga-frontend-gestao-canais-monitoria
+siiga-frontend-mfe-gestao-canais
+siiga-frontend-mfe-host
+siiga-frontend-mfe-siiga
+siiga-gestao-canais-documentos
+siinp-gestao-web/des
+siinp-gestao/des
+siinp-nucleo-web/des
+siinp-nucleo/des
+siipc-api-backend-mfa
+siipc-api-preproc-entrada-simulada
+siipc-backend-onboarding-biometria-worker-unico
+siipc-backend-onboarding-login
+siipc-batch-preproc-enriq
+siipc-batch-preproc-pad-app
+siipc-batch-preproc-pad-moc
+siipc-batch-preproc-pad-sag
+siipc-batch-preproc-pad-spi
+siipc-batch-preproc-pad-spl
+siipc-batch-preproc-pad-tae
+siipc-batch-preproc-pad-telecomunicacoes
+siipc-isd-localizacao-segura-android/des
+siipc-isd-localizacao-segura-api/des
+siipc-lab-trilha-auditoria/des
+siipc-lib-preproc-trndto
+siipc-lib-preproc-xmp
+siipc-lib-teste
+siipc-novo-frontend-aks
+siipc-novo-frontend/des
+siipc-novo-worker
+siipc-novo/des
+siipc-onboarding-biometria-worker
+siipc-onboarding-dominios
+siipc-onboarding-gestao
+siipc-onboarding-worker-grava-cadastro
+siipc-onboarding-worker-notificacao
+siipc-onboarding-worker-zerotap
+siipc-preproc-api-entrada-simulada
+siipc-preproc-wrk-enriq
+siipc-preproc-wrk-pad-moc
+siipc-seglab-cont-core
+siipc-seglab-libtrndto
+siipc-seglab-superpoc-preproc-gerador
+siipc-seglab-superpoc-preproc
+siipc-seglab-xmp
+siipc-xid-gestao-api
+siipc-xid-habitualidade-agregador
+siipc-xid-habitualidade-api
+siipc-xid-habitualidade-dashboard
+siipc-xid-habitualidade-worker
+siipc-xid-servicos-comuns
+siipc-xid-worker-tombamento
+siitx-painel-whatsapp-frontend
+siitx-painel-whatsapp
+silce-api-silce-bff-ibc
+silce-apostador
+silce-bff
+silce-caixa-silce-blueprint
+silce-carrinho-processamento-cotas-expiradas
+silce-carrinho-processamento
+silce-carrinho
+silce-compra-processamento
+silce-compra
+silce-consolida-compras
+silce-frontend-web-loterias
+silce-gestao-operacional-web
+silce-gestao-operacional
+silce-gestao-parametros
+silce-ibc-bff
+silce-ibc-compra
+silce-jogos-parametros
+silce-meio-pagamento-debito
+silce-meio-pagamento-pix
+silce-meio-pagamento
+silce-mock
+silce-parametros-gestao
+silce-parametros-jogos
+silce-pos-compra
+silce-processamento-cotas-expiradas
+silce-quarkus-error-handler/des
+silce-registro-aposta
+silce-silce-consolida-compras
+silce-silce-parametros-jogos
+silce-silce-processamento-cotas-expiradas
+silce-silce-quarkus-logging
+silce-sincronizacao-legado
+silce-template/des
+simoa-api-test-api
+simoa-backend-analytics-service
+simoa-backend-evaluations-service
+simoa-backend-orchestrator
+simoa-frontend-temp-test
+simoa-frontend
+simoa-simoa-api-atendimento
+simov-backend-api-imoveis-internet
+simpf-backend/des
+simpf-frontend
+simtr-backend-pre-validacao-bff
+simtr-backend-pre-validacao-core-ia
+simtr-doc-pre-validacao
+simtr-pre-validacao-api-orquestrador
+simtr-pre-validacao-conformidade
+simtr-pre-validacao-doctree
+simtr-pre-validacao-dossie
+simtr-pre-validacao-ingestao
+simtr-pre-validacao-webview-backoffice
+sinad-backend
+sinad-frontend
+sinbm-servico-exemplo-dotnet
+sinbm-servico-login/des
+sinda-batch-worker-pref-usr-load-txt
+sinda-worker-contas
+sinda-worker-pref-usr-load-txt
+sioba-api-dc-recursos
+sioba-api-intra-recursos-worker
+sioba-frontend-dc-consentimento
+siobs-api-intra-administracaofido
+siobs-api-intra-selecaodejornada
+siobs-backend-fluxohibrido
+siobs-frontend-fluxohibrido
+siobs-intra-administracaodovinculo
+siobs-intra-administracaopingfederate
+siobs-intra-remocaodovinculoworker
+siobs-intra-vinculostateworker
+siobs-plataforma-vinculos-adm/des
+siobs-siobs-intra-admpingfederate
+siobs-sv-vinculodedispositivo
+siopi-backend-contrato-digital/des
+siopi-backend-hab-melhorias-painel
+siopi-backend-hab-melhorias
+siopi-backend-modulo-engenharia
+siopi-backend-periferia-viva
+siopi-batch-hab-melhorias
+siopi-batchmelhoriashabitacionais/des
+siopi-frontend-contrato-digital
+siopi-frontend-hab-melhorias-painel
+siopi-frontend-melhorias
+siopi-function-durable-melhorias-habitacionais/des
+sipdd-api-proxy
+sipdd-web-mfe
+sipgc-backend-desenvolveai-mcp
+sipgc-backend-mcp-desenvolveai
+sipgc-backend-mcp
+sipgc-backend-spring-ai
+sipgi-backend-painel-mcmv
+sipgi-backend-painel-novopac
+sipgi-batch-mcmv-etl
+sipgi-batch-novopac-etl
+sipgi-mcmv-backend
+sipgs-backend-poc
+sipgs-batch-poc
+sipgs-frontend-poc2-eks
+sipgs-poc-backend
+siplx-api-canal
+siplx-api-consulta-parametros-canal
+siplx-api-consulta-parametros-produto-prognostico-numerico
+siplx-api-param-produ-prognum
+siplx-api-registro-aposta-prognostico-numerico
+siplx-backend-schedulers-prognostico-numerico
+siplx-backend-siplx-registro-aposta-prognostico-numerico
+siplx-configuracao
+siplx-gestao-auditoria
+siplx-gestao-concurso
+siplx-gestao-distribuicao-arrecadacao
+siplx-gestao-distribuicao-financeira
+siplx-gestao-produtos
+siplx-gestao-prognostico-numerico-modalidade
+siplx-portal-gestao-backend
+siplx-portal-gestao
+siplx-processa-fila-auditoria
+siplx-processa-fila-financeiro
+siplx-processa-fila-prognostico-numerico
+siplx-registra-aposta-orquestrador
+siplx-registra-aposta
+siplx-servicos-auditoria
+siplx-servicos-financeiros
+siplx-servicos-produto-prognostico-numerico
+sirmc-api-api-registro-interacoes-clientes
+sirmc-api-campanhas
+sirmc-api-emailmarketing-rastreamento/des
+sirmc-api-id-unico-cliente
+sirmc-api-lista-imagens
+sirmc-api-marcas
+sirmc-api-mensagens-relacionamento
+sirmc-api-meu-relacionamento
+sirmc-api-minhas-trilhas
+sirmc-api-posse-produtos
+sirmc-api-registro-interacoes-clientes
+sirmc-api-relacionamento-visao360
+sirmc-api-suitability
+sirmc-api-trilhas-transacional
+sirmc-backend-campanhas-gestao
+sirmc-backend-marcas
+sirmc-backend-suitability
+sirmc-backend-template/des
+sirmc-emailmarketing-block-emails
+sirmc-emailmarketing-optout-frontend/des
+sirmc-emailmarketing-optout
+sirmc-emailmarketing-relatoria
+sirmc-frontend-campanhas-gestao
+sirmc-frontend-documentacao/des
+sirmc-frontend-marcas
+sirmc-frontend-relacionamento-visao360
+sirmc-frontend-suitability
+sirmc-sdk-observability/des
+sirmc-worker-avaliacao
+sirmc-worker-emailmarketing-rastreamento/des
+sirmc-worker-suitability-atualizacao/des
+sirmc-worker-trilhas-transacional
+sirmc-worker-trilhas
+sisfm-api-boleto
+sisfm-api-home
+sisfm-api-investimento
+sisfm-api-perfil
+sisfm-api-pixpagamento
+sisfm-api-poc
+sisfm-api-saldoextrato
+sisfm-api-suporte
+sisfm-api-template
+sisfm-api-transacaopendente
+sisfm-backend-pagamento
+sisfm-backend-pix
+sisfm-bff-accessprofile
+sisfm-bff-cardmovimentacaofinanceira
+sisfm-bff-cardpagamento
+sisfm-bff-cardpainelconta/des
+sisfm-bff-cardtransacaopendente
+sisfm-bff-dashboard
+sisfm-bff-home
+sisfm-bff-host
+sisfm-bff-navbar
+sisfm-bff-template-demo
+sisfm-bff-template
+sisfm-doc
+sisfm-ext-auditoria
+sisfm-ext-bff-core
+sisfm-ext-cache
+sisfm-ext-commons
+sisfm-ext-exceptions
+sisfm-ext-security
+sisfm-ext-sisfm-xid
+sisfm-ext-xid
+sisfm-extensions
+sisfm-host
+sisfm-mfe-dashboard
+sisfm-mfe-landing-page
+sisfm-mfe-template
+sisfm-robot-automation
+sisfm-teste-sisfm-gef-sigla-20260325-04
+sisfm-teste-sisfm-ger-sigla-20260325-03
+sisph-api-auditoria-internet
+sisph-api-auditoria
+sisph-api-core-config-internet
+sisph-api-core-config
+sisph-backend-jnd-gestao-plataforma-internet
+sisph-backend-jnd-mutuario-internet
+sisph-backend-teste-generico-dois
+sisph-backend-teste-generico
+sisph-bff-jnd-baixa-garantia
+sisph-bff-jnd-central-servicos
+sisph-bff-jnd-construtoras/des
+sisph-bff-jnd-gestao-mo
+sisph-bff-jnd-gestao-plataforma
+sisph-bff-jnd-mutuario
+sisph-bff-jnd-pagamentos
+sisph-bff-padrao-java/des
+sisph-bff-padrao-net/des
+sisph-frontend-host-layout-internet
+sisph-frontend-host-spa-internet
+sisph-frontend-jnd-gestao-plataforma-internet
+sisph-frontend-jnd-mutuario-internet
+sisph-frontend-shared-services-internet
+sisph-frontend-shared-services
+sisph-frontend-teste-generico
+sisph-mfe-host-layout
+sisph-mfe-host-spa
+sisph-mfe-jnd-baixa-garantia
+sisph-mfe-jnd-central-servicos
+sisph-mfe-jnd-construtoras/des
+sisph-mfe-jnd-gestao-mo
+sisph-mfe-jnd-gestao-plataforma
+sisph-mfe-jnd-mutuario/des
+sisph-mfe-jnd-pagamentos
+sisph-mfe-padrao-angular/des
+sisva-adk-orquestrador
+sisva-transacional-mcp-client/des
+sisva-transacional-mcp-server/des
+sizap-action-orchestrator-pix-py
+sizap-autorization-service
+sizap-backend-intent-detection
+sizap-genesys-adapter
+sizap-intent-detection-service
+sizap-intent-router
+sizap-sender-service
+teste-04-05-2026
+teste-33-33
+teste
+vicor-sdaad-backend-portal-gemor-backend
+vimar-sda0w-calamidade-backend
+vipes-sd565-portal-beneficios-frontend
+vipes-sd565-portal-de-beneficios
+vitec-sd584-frontend
+vitec-sd584-testefrontend
+vitec-sd603-sd603-frontend
+vitec-sdce2-contratos-backend
+vitec-sdce7-sdmcc-back
+vitec-sdce7-sdmcc-backend
+vitec-sdce7-sdmcc-frontend
+vitec-sdce7-sdmcc-teste
+vitec-sdszj-webhook-sonarqube
+vitec-sinop-analise-automacao
+vivar-sdax3-redeparceira-backend
+vivar-sdax3-redeparceira-frontend
+vivar-sdax3-rp-backend
+vivar-sdax3-rp-frontend
+.gitignore
+gitops/apps/sibko-frontend-gerenciador-financeiro/des
+/config.yaml
 
-version: 1.0.0
-
-appVersion: "1.16.0"
-
-dependencies:
-   - name: caixa-base-chart
-     version: 1.1.9
-     repository: oci://acrportalidpprd.azurecr.io/helm
 
 
-
-     ---- 
-     
-     values.yaml
-
-
-     caixa-base-chart:
-
-#-------#
-# IMAGE #
-#-------#
-
-  image:
-    # variavel de imagem do tipo de aplicação
-    repository: acrcentralcaixanprd.azurecr.io/sibko/frontend-gerenciador-financeiro/sibko-frontend-gerenciador-financeiro
-    tag: "27828530715"
-    pullPolicy: Always
-
-#-----#
-# HPA #
-#-----#
-  replicaCount: 1
-
-  autoscaling:
-    enabled: false
-    minReplicas: 1
-    maxReplicas: 3
-    targetCPUUtilizationPercentage: 85
-    targetMemoryUtilizationPercentage: 85
-
-#-----------------#
-# ROLLING UPDATE STRATEGY #
-#-----------------#
-
-  strategy:
-    maxSurge: 25%
-    maxUnavailable: 50%
-
-
-#-----------#
-#  SERVICE  #
-#-----------#
-  
-  service:
-    type: "ClusterIP"
-    ports:
-      - name: "port"
-        protocol: TCP
-        port: 80
-        targetPort: 8080
-
-#---------#
-# INGRESS #
-#---------#
-  istio:  
-    - name: internal
-      enabled: true
-      servers:
-      - port:
-          number: 80
-          name: http-default
-          protocol: HTTP
-        hosts:
-        - "sibko-frontend-gerenciador-financeiro.apl.des-nprd.private.azure"
-      prefix:
-        - /
-      targetPort: 80
-    - name: external
-      enabled: true
-      servers:
-        - port:
-            number: 443
-            name: https-custom
-            protocol: HTTPS
-          tls:
-            mode: SIMPLE
-            credentialName: akvs-gerenciador-financeiro-sibko-des-caixa-gov-br-ssl-certificate
-          hosts:
-            - gerenciador.financeiro.sibko.des.caixa.gov.br
-      prefix:
-        - /
-      targetPort: 80
-  
-#-------------#
-#  RESOURCES  #
-#-------------#
-
-  resources:
-    requests:
-      cpu: 250m
-      memory: 256Mi
-    limits:
-      cpu: 500m
-      memory: 512Mi
-
-
-#----------#
-#  PROBES  #
-#----------#
-
-  probes:
-    enabled: false
-    useDefaults: false  
-    livenessProbe: 
-      initialDelaySeconds: 30
-      periodSeconds: 15
-      failureThreshold: 10
-      successThreshold: 1
-      httpGet:
-        path: /healthz/live   
-        port: 8080
-    readinessProbe: 
-      initialDelaySeconds: 15
-      periodSeconds: 15
-      failureThreshold: 3
-      successThreshold: 1
-      httpGet:
-        path: /healthz/ready   
-        port: 8080
-
-
-#-------------#
-#  CONFIGMAP  #
-#-------------#
-
-  configMapRefs:
-    - name: cm-sibko-frontend-gerenciador-financeiro
-#---------------#
-#  TOLERATIONS  #
-#---------------#
-
-  tolerations:
-    - key: "nuvem.caixa/nodepoolname"
-      effect: "NoSchedule"
-      operator: "Equal"
-      value: "websitesibko"
-    - key: "kubernetes.azure.com/scalesetpriority"
-      effect: "NoSchedule"
-      operator: "Equal"
-      value: "spot"
-
-#-------------# 
-#   SECRETS   # 
-#-------------# 
-
-#  secretRefs:
-#  env:
-#    - name: <NOME_DA_VARIAVEL_NA_APLICACAO>
-#      value: akvs-sibko-frontend-gerenciador-financeiro@azurekeyvault
-
-
-
-
-
-
-     
+app:
+  name: sibko-frontend-gerenciador-financeiro-des
+project:
+  name: des
+labels:
+  appName: sibko-frontend-gerenciador-financeiro
+  environment: des
+source:
+  repo: "https://github.com/caixagithub/sibko-frontend-gerenciador-financeiro-infranprd"
+  path: des
+sourcevar:
+  repo: "https://github.com/caixagithub/sibko-globalnprd"
+  path: des
+  values: global.yaml  
+cluster:
+  destination:  
+    name: aks-edo-nprd
+    namespace: sibko-frontend-gerenciador-financeiro
