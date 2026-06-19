@@ -1,276 +1,378 @@
-Histórico de Informações de Trabalho da Ordem de Trabalho
-ID da Ordem de Trabalho	 WO0000080806899
-Criado em	 19/06/2026 10:55:10
-Criado por	 C079563
-Origem de Comunicação	 
-Exibir Acesso	 Público
-Notas	 1. Não identificamos o novo pod no OKD e nem o desenvolvimento do DeploymentConfig para esse nova release
-
-2. Ao realizar o processo de release EC DES2 é realizado o deploy no EC DES
-
-ID da Ordem de Trabalho	 WO0000080806899
-Criado em	 18/06/2026 15:56:06
-Criado por	 P981778
-Origem de Comunicação	 
-Exibir Acesso	 Público
-Notas	 À CAIXA,
-
-
-Configuração realizada conforme solicitado.
-Segue evidência em anexo.
-
-Thiago Silva
-Analista
-CTIS / CESTI Esteira DEVOPS DES TQS NPRD
-ID da Ordem de Trabalho	 WO0000080806899
-Criado em	 18/06/2026 13:20:34
-Criado por	 P767992
-Origem de Comunicação	 
-Exibir Acesso	 Público
-Notas	 Demanda inicial sem viés de falha, erro, degradação ou
-esgotamento de infraestrutura, serviço, máquina, armazenamento,
-rotina ou situação que não esteja na iminência de tornar-se
-incidente. Previsto atendimento em até 24 horas úteis.
-
-[CENTRAL-SID]
-ID da Ordem de Trabalho	 WO0000080806899
-Criado em	 18/06/2026 13:16:39
-Criado por	 P558217
-Origem de Comunicação	 
-Exibir Acesso	 Público
-Notas	 Prezado(a),
-
-
-
-Informamos que sua solicitação foi recebida.  
-
-
-
-Nosso SLA para atendimento é de até 24h úteis, analisaremos a solicitação para nos certificarmos que o atendimento está dentro do escopo de atuação da nossa equipe.
-
-
-
-Caso seja identificado que o atendimento não corresponde ao nosso escopo, a solicitação será redirecionada à equipe responsável.
-
-
-
-Novas informações e atualizações serão registradas diretamente nesta WO.
-
-
-
-Atte.
-
-
-
-CTIS / CESTI Esteira DEVOPS DES TQS NPRD
-ID da Ordem de Trabalho	 WO0000080806899
-Criado em	 18/06/2026 12:09:39
-Criado por	 Remedy Application Service
-Origem de Comunicação	 E-mail
-Exibir Acesso	 Interno
-Notas	 Este ticket foi criado a partir do sistema de solicitação de serviço.
-Impresso por P585600 em Sexta-feira, 19/06/2026 11:26:37
-
-
-
-OKD
-
-
-Jesse Mouta Pereira Batista
-
-Administrator
-Home
-Overview
-Projects
-Search
-API Explorer
-Events
-Operators
-Workloads
-Pods
-Deployments
-DeploymentConfigs
-StatefulSets
-Secrets
-ConfigMaps
-CronJobs
-Jobs
-DaemonSets
-ReplicaSets
-ReplicationControllers
-HorizontalPodAutoscalers
-PodDisruptionBudgets
-Networking
-Storage
-Builds
-Observe
-Compute
-User Management
-Administration
-
-Project: simtx-des
-DeploymentConfigs
-
-Name
-Search by name...
+Skip to main content
+Azure DevOps
+projetos
 /
+Caixa
+/
+Pipelines
+/
+Releases
+/
+SIMTX-transacoes-lote
+Search
 
-Name
 
-Status
+Caixa
 
-Labels
+Overview
 
-Pod selector
-DeploymentConfig
-DC
-quarkus
-0 of 0 pods	
-application
-=
-quarkus
-template
-=
-quarkus-caixa-release
-name=quarkus
+Boards
 
-DeploymentConfig
-DC
-simtx-agendamento-api-des
-1 of 1 pods	
-CGC_DES
-=
+Repos
+
+Pipelines
+Pipelines
+Environments
+Releases
+Library
+Task groups
+Deployment groups
+Portal Infra
+
+Test Plans
+
+Artifacts
+Project settings
+All pipelines
+
+SIMTX
+
+SIMTX-transacoes-lote
+Predefined variables
+Filter by keywords
+Scope
+
+
+AMBIENTE
+des
+AMBIENTE
+tqs
+AMBIENTE
+des
+AMBIENTE
+hmp
+AMBIENTE
+prd
+AMBIENTE_BUILD
+build-images-ads
+CGC_UNIDADE_DES
 7390
-CGC_OPS
-=
+CGC_UNIDADE_OPS
 7259
+fortify_disable
+false
+PASSWORD_TRUSTSTORE
+changeit
+SISTEMAAMBIENTE
+des
+SISTEMAAMBIENTE
+tqs
+SISTEMAAMBIENTE
+des
+SISTEMAAMBIENTE
+hmp
+SISTEMAAMBIENTE
+prd
+SISTEMANOME
+simtx-transacoes-lote
+SITE
+okd4_nprd
+SITE
+okd4_prd
+TemplateRelease_OKD
+openshift/quarkus-caixa-release
 UNIDADE
-=
 BR
-app
-=
-simtx-agendamento-api-des
-application
-=
-simtx-agendamento-api-des
-template
-=
-quarkus-caixa-release
-name=simtx-agendamento-api-des
+Expanded
 
-DeploymentConfig
-DC
-simtx-agendamento-des
-1 of 1 pods	
-CGC_DES
-=
-7390
-CGC_OPS
-=
-7259
-UNIDADE
-=
-BR
-app
-=
-simtx-agendamento-des
-application
-=
-simtx-agendamento-des
-template
-=
-jboss-caixa-release
-name=simtx-agendamento-des
+Collapsed
 
-DeploymentConfig
-DC
-simtx-api-transacao-des
-1 of 1 pods	
-CGC_DES
-=
-7390
-CGC_OPS
-=
-7259
-UNIDADE
-=
-BR
-app
-=
-simtx-api-transacao-des
-application
-=
-simtx-api-transacao-des
-template
-=
-quarkus-caixa-release
-name=simtx-api-transacao-des
+Row 7. Clickable
 
-DeploymentConfig
-DC
-simtx-apostas-des
-1 of 1 pods	
-CGC_DES
-=
-7390
-CGC_OPS
-=
-7259
-UNIDADE
-=
-BR
-app
-=
-simtx-apostas-des
-application
-=
-simtx-apostas-des
-template
-=
-quarkus-caixa-release
-name=simtx-apostas-des
+Row 6
 
-DeploymentConfig
-DC
-simtx-arrecadacao-veiculos-des
-1 of 1 pods	
-CGC_DES
-=
-7390
-CGC_OPS
-=
-7259
-app
-=
-simtx-arrecadacao-veiculos-des
-application
-=
-simtx-arrecadacao-veiculos-des
-template
-=
-quarkus-caixa-release
-name=simtx-arrecadacao-veiculos-des
+Row 6
 
-DeploymentConfig
-DC
-simtx-assinatura-multipla-adapter-des
-1 of 1 pods	
-CGC_DES
-=
-7390
-CGC_OPS
-=
-7259
-app
-=
-simtx-assinatura-multipla-adapter-des
-application
-=
-simtx-assinatura-multipla-adapter-des
-template
-=
-quarkus-caixa-release
-name=simtx-assinatura-multipla-adapter-des
+Expanded
 
-nesse caso temos que criar na mao o deplomentcofig ou exite alguma forma de setar ele na variavel?
+Collapsed
 
+Expanded
+
+Collapsed
+
+118 pipelines found
+
+Select a release pipeline to view its releases
+
+2 pipelines found
+
+Select a release pipeline to view its releases
+
+81 pipelines found
+
+Select a release pipeline to view its releases
+
+7 pipelines found
+
+Select a release pipeline to view its releases
+
+7 pipelines found
+
+Row 3
+
+Showing filters 1 through 2
+
+
+
+SIMTX-TRANSACOES-LOTE-DES2 (60)
+Grupo de variáveis de SIMTX-TRANSACOES-LOTE-DES2
+
+Scopes: EC DES2
+INIT
+SIMTX-TRANSACOES-LOTE-DES2
+_ENV.APPLICATIONINSIGHTS_ROLE_NAME
+SIMTX-transacoes-lote-DES2
+_ENV.CICSWEB_SIMTX_SIATR_USER
+SMTXATRD
+_ENV.JAVA_OPTIONS_APPEND
+"-Djavax.net.ssl.trustStore=/deployments/caixa-truststore-acteste-nprd.jks -javaagent:/deployments/lib/main/com.microsoft.azure.applicationinsights-agent-3.7.6.jar"
+_ENV.LOG_LEVEL
+INFO
+_ENV.PASS_CICS_WEB_ATR
+'${SMTXATRD_CICS}'
+_ENV.TAREFA_100040_VALIDA_PERMISSAO_V3_TIMEOUT_CONEXAO
+3000
+_ENV.TAREFA_100040_VALIDA_PERMISSAO_V3_TIMEOUT_RESPOSTA
+3000
+_ENV.TAREFA_100043_VALIDA_ASSINATURA_SIMPLES_V3_TIMEOUT_CONEXAO
+2000
+_ENV.TAREFA_100043_VALIDA_ASSINATURA_SIMPLES_V3_TIMEOUT_RESPOSTA
+5000
+_ENV.TAREFA_100044_VALIDA_ASSINATURA_MULTIPLA_V2_TIMEOUT
+5000
+_ENV.TAREFA_100070_VALIDA_BOLETO_V1_TIMEOUT_CONEXAO
+2000
+_ENV.TAREFA_100070_VALIDA_BOLETO_V1_TIMEOUT_RESPOSTA
+2000
+_ENV.TAREFA_100093_VALIDA_TEV_V2_TIMEOUT_CONEXAO
+3000
+_ENV.TAREFA_100093_VALIDA_TEV_V2_TIMEOUT_RESPOSTA
+3000
+_ENV.TAREFA_100097_EFETIVA_LIMITE_LOTE_V2_REQ_FILA
+SIBAR.REQ.CONTROLE_LIMITE
+_ENV.TAREFA_100097_EFETIVA_LIMITE_LOTE_V2_REQ_POOL_SIZE
+100
+_ENV.TAREFA_100097_EFETIVA_LIMITE_LOTE_V2_REQ_TIMEOUT
+0
+_ENV.TAREFA_100097_EFETIVA_LIMITE_LOTE_V2_RSP_FILA
+SIBAR.RSP.CONTROLE_LIMITE
+_ENV.TAREFA_100097_EFETIVA_LIMITE_LOTE_V2_RSP_POOL_SIZE
+100
+_ENV.TAREFA_100097_EFETIVA_LIMITE_LOTE_V2_RSP_TIMEOUT
+0
+_ENV.TAREFA_100158_VALIDA_TED_V2_TIMEOUT_CONEXAO
+3000
+_ENV.TAREFA_100158_VALIDA_TED_V2_TIMEOUT_RESPOSTA
+3000
+_ENV.TAREFA_100158_VALIDA_TED_V2_VERSAO
+2
+_ENV.TAREFA_100159_VALIDA_CONCESSIONARIA_V2_CONTEXTO
+/lote/csn/validacsn
+_ENV.TAREFA_100159_VALIDA_CONCESSIONARIA_V2_TIMEOUT_CONEXAO
+3000
+_ENV.TAREFA_100159_VALIDA_CONCESSIONARIA_V2_TIMEOUT_RESPOSTA
+3000
+_ENV.TAREFA_100168_ANTIFRAUDE_BOLETO_V2_RSP_THREAD_POOL_SIZE
+32
+_ENV.TAREFA_100168_ANTIFRAUDE_BOLETO_V2_RSP_TIMEOUT
+2000
+_ENV.TAREFA_100168_ANTIFRAUDE_V2_FILA_RSP
+SIAAF.RSP.SIMTX.PAGAMENTOS_LOTE
+_ENV.TAREFA_100168_ANTIFRAUDE_V2_REQ_FILA
+SIAAF.REQ.SIMTX.PAGAMENTOS_LOTE
+_ENV.TAREFA_100168_ANTIFRAUDE_V2_REQ_POOL_SIZE
+1
+_ENV.TAREFA_100168_ANTIFRAUDE_V2_REQ_TIMEOUT
+1000
+_ENV.TAREFA_100168_ANTIFRAUDE_V2_RSP_POOL_SIZE
+1
+_ENV.TAREFA_100168_ANTIFRAUDE_V2_RSP_TIMEOUT
+1000
+_ENV.TAREFA_100196_PROCESSAR_LOTE_V1_REQ_FILA
+SIMTX.REQ.TRANSACOES_LOTE_PROCESSAMENTO
+_ENV.TAREFA_100196_PROCESSAR_LOTE_V1_REQ_POOL_SIZE
+1
+_ENV.TAREFA_100196_PROCESSAR_LOTE_V1_REQ_TIMEOUT
+0
+_ENV.TAREFA_100208_VALIDA_TRANSACAO_V1_CONTEXTO
+/limite/valida
+_ENV.TAREFA_100208_VALIDA_TRANSACAO_V1_TIMEOUT
+3000
+_ENV.TAREFA_100232_ANALISE_ANTIFRAUDE_V2_FILA_RSP
+SIAAF.RSP.SIMTX.PAGAMENTOS_LOTE
+_ENV.TAREFA_100232_ANALISE_ANTIFRAUDE_V2_REQ_FILA
+SIAAF.REQ.SIMTX.PAGAMENTOS_LOTE
+_ENV.TAREFA_100232_ANALISE_ANTIFRAUDE_V2_REQ_POOL_SIZE
+1
+_ENV.TAREFA_100232_ANALISE_ANTIFRAUDE_V2_REQ_TIMEOUT
+1000
+_ENV.TAREFA_100232_ANALISE_ANTIFRAUDE_V2_RSP_POOL_SIZE
+1
+_ENV.TAREFA_100232_ANALISE_ANTIFRAUDE_V2_RSP_TIMEOUT
+1000
+_ENV.TAREFA_100233_VALIDA_TRANSACOES_LOTE_BOLETO_V1_REQ_FILA
+SIMTX.REQ.VALIDA_TRANSACOES_LOTE_BOLETO
+_ENV.TAREFA_100233_VALIDA_TRANSACOES_LOTE_BOLETO_V1_REQ_POOL_SIZE
+1
+_ENV.TAREFA_100233_VALIDA_TRANSACOES_LOTE_BOLETO_V1_REQ_TIMEOUT
+5000
+_ENV.URL_CICSWEB_SIATR
+https://cicsweb.des.caixa:32587/siatr
+_ENV.URL_SIMTX_COBRANCA_BANCARIA
+https://simtx-cobranca-bancaria-des.apps.nprd.caixa
+_ENV.URL_TRANSACOES_LOTE_BASE
+https://simtx-transacoes-lote-des.apps.nprd.caixa/transacoes-lote/
+_ENV.WMQ_LOTE_TRANSACAO_ASSINADA_REQ_FILA
+SIMTX.REQ.LOTE_TRANSACAO_ASSINADA
+_ENV.WMQ_LOTE_TRANSACAO_ASSINADA_REQ_THREAD_POOL_SIZE
+1
+_ENV.WMQ_LOTE_TRANSACAO_ASSINADA_REQ_TIMEOUT
+5000
+_ENV.WMQ_SICCO_REQ_RECEBE_TRANSACAO_POOL_SIZE
+100
+_ENV.WMQ_SICCO_REQ_RECEBE_TRANSACAO_TIMEOUT
+0
+_ENV.WMQ_SITGV_FILA_REQ
+SITGV.REQ.OPP_RETORNO_SIMTX
+_ENV.WMQ_SITGV_THREAD_POOL_SIZE
+1
+_ENV.WMQ_SITGV_TIMEOUT
+0
+
+
+
+SIMTX-TRANSACOES-LOTE-DES (60)
+Grupo de variáveis de SIMTX-TRANSACOES-LOTE-DES
+
+Scopes: EC DES
+INIT
+SIMTX-TRANSACOES-LOTE-DES
+_ENV.APPLICATIONINSIGHTS_ROLE_NAME
+SIMTX-transacoes-lote-DES
+_ENV.CICSWEB_SIMTX_SIATR_USER
+SMTXATRD
+_ENV.JAVA_OPTIONS_APPEND
+"-Djavax.net.ssl.trustStore=/deployments/caixa-truststore-acteste-nprd.jks -javaagent:/deployments/lib/main/com.microsoft.azure.applicationinsights-agent-3.7.6.jar"
+_ENV.LOG_LEVEL
+INFO
+_ENV.PASS_CICS_WEB_ATR
+'${SMTXATRD_CICS}'
+_ENV.TAREFA_100040_VALIDA_PERMISSAO_V3_TIMEOUT_CONEXAO
+3000
+_ENV.TAREFA_100040_VALIDA_PERMISSAO_V3_TIMEOUT_RESPOSTA
+3000
+_ENV.TAREFA_100043_VALIDA_ASSINATURA_SIMPLES_V3_TIMEOUT_CONEXAO
+2000
+_ENV.TAREFA_100043_VALIDA_ASSINATURA_SIMPLES_V3_TIMEOUT_RESPOSTA
+5000
+_ENV.TAREFA_100044_VALIDA_ASSINATURA_MULTIPLA_V2_TIMEOUT
+5000
+_ENV.TAREFA_100070_VALIDA_BOLETO_V1_TIMEOUT_CONEXAO
+2000
+_ENV.TAREFA_100070_VALIDA_BOLETO_V1_TIMEOUT_RESPOSTA
+2000
+_ENV.TAREFA_100093_VALIDA_TEV_V2_TIMEOUT_CONEXAO
+3000
+_ENV.TAREFA_100093_VALIDA_TEV_V2_TIMEOUT_RESPOSTA
+3000
+_ENV.TAREFA_100097_EFETIVA_LIMITE_LOTE_V2_REQ_FILA
+SIBAR.REQ.CONTROLE_LIMITE
+_ENV.TAREFA_100097_EFETIVA_LIMITE_LOTE_V2_REQ_POOL_SIZE
+100
+_ENV.TAREFA_100097_EFETIVA_LIMITE_LOTE_V2_REQ_TIMEOUT
+0
+_ENV.TAREFA_100097_EFETIVA_LIMITE_LOTE_V2_RSP_FILA
+SIBAR.RSP.CONTROLE_LIMITE
+_ENV.TAREFA_100097_EFETIVA_LIMITE_LOTE_V2_RSP_POOL_SIZE
+100
+_ENV.TAREFA_100097_EFETIVA_LIMITE_LOTE_V2_RSP_TIMEOUT
+0
+_ENV.TAREFA_100158_VALIDA_TED_V2_TIMEOUT_CONEXAO
+3000
+_ENV.TAREFA_100158_VALIDA_TED_V2_TIMEOUT_RESPOSTA
+3000
+_ENV.TAREFA_100158_VALIDA_TED_V2_VERSAO
+2
+_ENV.TAREFA_100159_VALIDA_CONCESSIONARIA_V2_CONTEXTO
+/lote/csn/validacsn
+_ENV.TAREFA_100159_VALIDA_CONCESSIONARIA_V2_TIMEOUT_CONEXAO
+3000
+_ENV.TAREFA_100159_VALIDA_CONCESSIONARIA_V2_TIMEOUT_RESPOSTA
+3000
+_ENV.TAREFA_100168_ANTIFRAUDE_BOLETO_V2_RSP_THREAD_POOL_SIZE
+32
+_ENV.TAREFA_100168_ANTIFRAUDE_BOLETO_V2_RSP_TIMEOUT
+2000
+_ENV.TAREFA_100168_ANTIFRAUDE_V2_FILA_RSP
+SIAAF.RSP.SIMTX.PAGAMENTOS_LOTE
+_ENV.TAREFA_100168_ANTIFRAUDE_V2_REQ_FILA
+SIAAF.REQ.SIMTX.PAGAMENTOS_LOTE
+_ENV.TAREFA_100168_ANTIFRAUDE_V2_REQ_POOL_SIZE
+1
+_ENV.TAREFA_100168_ANTIFRAUDE_V2_REQ_TIMEOUT
+1000
+_ENV.TAREFA_100168_ANTIFRAUDE_V2_RSP_POOL_SIZE
+1
+_ENV.TAREFA_100168_ANTIFRAUDE_V2_RSP_TIMEOUT
+1000
+_ENV.TAREFA_100196_PROCESSAR_LOTE_V1_REQ_FILA
+SIMTX.REQ.TRANSACOES_LOTE_PROCESSAMENTO
+_ENV.TAREFA_100196_PROCESSAR_LOTE_V1_REQ_POOL_SIZE
+1
+_ENV.TAREFA_100196_PROCESSAR_LOTE_V1_REQ_TIMEOUT
+0
+_ENV.TAREFA_100208_VALIDA_TRANSACAO_V1_CONTEXTO
+/limite/valida
+_ENV.TAREFA_100208_VALIDA_TRANSACAO_V1_TIMEOUT
+3000
+_ENV.TAREFA_100232_ANALISE_ANTIFRAUDE_V2_FILA_RSP
+SIAAF.RSP.SIMTX.PAGAMENTOS_LOTE
+_ENV.TAREFA_100232_ANALISE_ANTIFRAUDE_V2_REQ_FILA
+SIAAF.REQ.SIMTX.PAGAMENTOS_LOTE
+_ENV.TAREFA_100232_ANALISE_ANTIFRAUDE_V2_REQ_POOL_SIZE
+1
+_ENV.TAREFA_100232_ANALISE_ANTIFRAUDE_V2_REQ_TIMEOUT
+1000
+_ENV.TAREFA_100232_ANALISE_ANTIFRAUDE_V2_RSP_POOL_SIZE
+1
+_ENV.TAREFA_100232_ANALISE_ANTIFRAUDE_V2_RSP_TIMEOUT
+1000
+_ENV.TAREFA_100233_VALIDA_TRANSACOES_LOTE_BOLETO_V1_REQ_FILA
+SIMTX.REQ.VALIDA_TRANSACOES_LOTE_BOLETO
+_ENV.TAREFA_100233_VALIDA_TRANSACOES_LOTE_BOLETO_V1_REQ_POOL_SIZE
+1
+_ENV.TAREFA_100233_VALIDA_TRANSACOES_LOTE_BOLETO_V1_REQ_TIMEOUT
+5000
+_ENV.URL_CICSWEB_SIATR
+https://cicsweb.des.caixa:32587/siatr
+_ENV.URL_SIMTX_COBRANCA_BANCARIA
+https://simtx-cobranca-bancaria-des.apps.nprd.caixa
+_ENV.URL_TRANSACOES_LOTE_BASE
+https://simtx-transacoes-lote-des.apps.nprd.caixa/transacoes-lote/
+_ENV.WMQ_LOTE_TRANSACAO_ASSINADA_REQ_FILA
+SIMTX.REQ.LOTE_TRANSACAO_ASSINADA
+_ENV.WMQ_LOTE_TRANSACAO_ASSINADA_REQ_THREAD_POOL_SIZE
+1
+_ENV.WMQ_LOTE_TRANSACAO_ASSINADA_REQ_TIMEOUT
+5000
+_ENV.WMQ_SICCO_REQ_RECEBE_TRANSACAO_POOL_SIZE
+100
+_ENV.WMQ_SICCO_REQ_RECEBE_TRANSACAO_TIMEOUT
+0
+_ENV.WMQ_SITGV_FILA_REQ
+SITGV.REQ.OPP_RETORNO_SIMTX
+_ENV.WMQ_SITGV_THREAD_POOL_SIZE
+1
+_ENV.WMQ_SITGV_TIMEOUT
+0
