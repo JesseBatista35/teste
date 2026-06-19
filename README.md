@@ -1,118 +1,1248 @@
-esse é do  simtx-pix
+segue varaiveis do pix:
 
-2026-05-20T18:22:30.2622267Z ##[section]Starting: Executando Tag na Imagem do ambiente de build OKD3, OKD4 e OCP
-2026-05-20T18:22:30.2625709Z ==============================================================================
-2026-05-20T18:22:30.2625791Z Task         : Bash
-2026-05-20T18:22:30.2625852Z Description  : Run a Bash script on macOS, Linux, or Windows
-2026-05-20T18:22:30.2625920Z Version      : 3.227.0
-2026-05-20T18:22:30.2625969Z Author       : Microsoft Corporation
-2026-05-20T18:22:30.2626034Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/bash
-2026-05-20T18:22:30.2626109Z ==============================================================================
-2026-05-20T18:22:31.0591473Z Generating script.
-2026-05-20T18:22:31.0602076Z ========================== Starting Command Output ===========================
-2026-05-20T18:22:31.0609005Z [command]/bin/bash /opt/ads-agent/_work/_temp/52687cfd-e45a-4e76-9f71-6a02d150b363.sh
-2026-05-20T18:22:31.0686338Z + echo okd4_nprd
-2026-05-20T18:22:31.0687038Z + egrep -q '^(okd4|ocp)'
-2026-05-20T18:22:31.0724700Z ++ check_status_code https://default-route-openshift-image-registry.apps.produtos4.caixa/v2/build-images-ads/simtx-pix/manifests/20260520.1516-1.4.0.0-SNAPSHOT
-2026-05-20T18:22:31.0725114Z ++ local url=https://default-route-openshift-image-registry.apps.produtos4.caixa/v2/build-images-ads/simtx-pix/manifests/20260520.1516-1.4.0.0-SNAPSHOT
-2026-05-20T18:22:31.0730364Z ++ curl --location --request GET https://default-route-openshift-image-registry.apps.produtos4.caixa/v2/build-images-ads/simtx-pix/manifests/20260520.1516-1.4.0.0-SNAPSHOT --header 'Authorization: Bearer ***' --header 'Content-Type: text/plain' -s -k -o /dev/null -w '%{http_code}'
-2026-05-20T18:22:31.3723718Z + status_code=200
-2026-05-20T18:22:31.3724725Z + [[ 200 -ne 200 ]]
-2026-05-20T18:22:31.3725398Z + [[ des == \p\r\d ]]
-2026-05-20T18:22:31.3725612Z + build=simtx-pix
-2026-05-20T18:22:31.3725883Z + app=simtx-pix-des2-des
-2026-05-20T18:22:31.3726014Z + [[ des == \p\r\d ]]
-2026-05-20T18:22:31.3726426Z + oc set image deploymentconfig/simtx-pix-des2-des simtx-pix-des2-des=default-route-openshift-image-registry.apps.produtos4.caixa/build-images-ads/simtx-pix:20260520.1516-1.4.0.0-SNAPSHOT -n simtx-des
-2026-05-20T18:22:31.4898005Z deploymentconfig.apps.openshift.io/simtx-pix-des2-des image updated
-2026-05-20T18:22:31.4924961Z + egrep -q openshift/angular-caixa-release
-2026-05-20T18:22:31.4928730Z + echo openshift/quarkus-caixa-release
-2026-05-20T18:22:31.4967710Z + echo openshift/quarkus-caixa-release
-2026-05-20T18:22:31.4969905Z + egrep -q openshift/php-caixa-release
-2026-05-20T18:22:31.5004431Z + echo 'Template não é angular nem php e não precisa deste replace'
-2026-05-20T18:22:31.5005286Z + oc patch --type merge dc/simtx-pix-des2-des -p '{"spec":{"template":{"spec":{"imagePullSecrets":[{"name":"registry-secret"}]}}}}' -n simtx-des
-2026-05-20T18:22:31.5006117Z Template não é angular nem php e não precisa deste replace
-2026-05-20T18:22:31.5988085Z deploymentconfig.apps.openshift.io/simtx-pix-des2-des patched (no change)
-2026-05-20T18:22:31.6009632Z + oc get secret registry-secret -n simtx-des
-2026-05-20T18:22:31.6856055Z NAME              TYPE                             DATA   AGE
-2026-05-20T18:22:31.6857130Z registry-secret   kubernetes.io/dockerconfigjson   1      2y174d
-2026-05-20T18:22:31.6878753Z + [[ deploymentconfig == deployment ]]
-2026-05-20T18:22:31.6879082Z + oc rollout cancel deploymentconfig/simtx-pix-des2-des -n simtx-des
-2026-05-20T18:22:31.8071892Z No rollout is in progress (latest rollout #29 complete 2 days ago)
-2026-05-20T18:22:31.8091922Z + sleep 20
-2026-05-20T18:22:51.8110738Z + oc rollout latest deploymentconfig/simtx-pix-des2-des -n simtx-des
-2026-05-20T18:22:51.9371356Z deploymentconfig.apps.openshift.io/simtx-pix-des2-des rolled out
-2026-05-20T18:22:51.9441598Z ##[section]Finishing: Executando Tag na Imagem do ambiente de build OKD3, OKD4 e OCP
+Skip to main content
+projetos
+/
+Caixa
+/
+Pipelines
+/
+Releases
+/
+SIMTX-pix-okd4
+Search
 
 
 
 
-esse é do simtx-trasacoes:
-
-2026-06-19T17:30:46.9873154Z ##[section]Starting: Executando Tag na Imagem do ambiente de build OKD3, OKD4 e OCP
-2026-06-19T17:30:46.9876726Z ==============================================================================
-2026-06-19T17:30:46.9876811Z Task         : Bash
-2026-06-19T17:30:46.9876861Z Description  : Run a Bash script on macOS, Linux, or Windows
-2026-06-19T17:30:46.9876939Z Version      : 3.227.0
-2026-06-19T17:30:46.9876988Z Author       : Microsoft Corporation
-2026-06-19T17:30:46.9877056Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/bash
-2026-06-19T17:30:46.9877132Z ==============================================================================
-2026-06-19T17:30:47.1040609Z Generating script.
-2026-06-19T17:30:47.1041558Z ========================== Starting Command Output ===========================
-2026-06-19T17:30:47.1042855Z [command]/bin/bash /opt/ads-agent/_work/_temp/0d485f18-e213-42ef-8037-44a282fdc93f.sh
-2026-06-19T17:30:47.1068391Z + echo okd4_nprd
-2026-06-19T17:30:47.1068604Z + egrep -q '^(okd4|ocp)'
-2026-06-19T17:30:47.1092765Z ++ check_status_code https://default-route-openshift-image-registry.apps.produtos4.caixa/v2/build-images-ads/simtx-transacoes-lote/manifests/20260618.1741-1.0.0.1-SNAPSHOT
-2026-06-19T17:30:47.1093691Z ++ local url=https://default-route-openshift-image-registry.apps.produtos4.caixa/v2/build-images-ads/simtx-transacoes-lote/manifests/20260618.1741-1.0.0.1-SNAPSHOT
-2026-06-19T17:30:47.1095651Z ++ curl --location --request GET https://default-route-openshift-image-registry.apps.produtos4.caixa/v2/build-images-ads/simtx-transacoes-lote/manifests/20260618.1741-1.0.0.1-SNAPSHOT --header 'Authorization: Bearer ***' --header 'Content-Type: text/plain' -s -k -o /dev/null -w '%{http_code}'
-2026-06-19T17:30:47.2623296Z + status_code=200
-2026-06-19T17:30:47.2623902Z + [[ 200 -ne 200 ]]
-2026-06-19T17:30:47.2624262Z + [[ des == \p\r\d ]]
-2026-06-19T17:30:47.2624502Z + build=simtx-transacoes-lote
-2026-06-19T17:30:47.2625194Z + app=simtx-transacoes-lote-des
-2026-06-19T17:30:47.2625390Z + [[ des == \p\r\d ]]
-2026-06-19T17:30:47.2625786Z + oc set image deploymentconfig/simtx-transacoes-lote-des simtx-transacoes-lote-des=default-route-openshift-image-registry.apps.produtos4.caixa/build-images-ads/simtx-transacoes-lote:20260618.1741-1.0.0.1-SNAPSHOT -n simtx-des
-2026-06-19T17:30:47.4108930Z + echo openshift/quarkus-caixa-release
-2026-06-19T17:30:47.4109783Z + egrep -q openshift/angular-caixa-release
-2026-06-19T17:30:47.4140220Z + echo openshift/quarkus-caixa-release
-2026-06-19T17:30:47.4140458Z + egrep -q openshift/php-caixa-release
-2026-06-19T17:30:47.4178307Z + echo 'Template não é angular nem php e não precisa deste replace'
-2026-06-19T17:30:47.4179385Z + oc patch --type merge dc/simtx-transacoes-lote-des -p '{"spec":{"template":{"spec":{"imagePullSecrets":[{"name":"registry-secret"}]}}}}' -n simtx-des
-2026-06-19T17:30:47.4180260Z Template não é angular nem php e não precisa deste replace
-2026-06-19T17:30:47.5713260Z deploymentconfig.apps.openshift.io/simtx-transacoes-lote-des not patched
-2026-06-19T17:30:47.5746688Z + oc get secret registry-secret -n simtx-des
-2026-06-19T17:30:47.7060562Z NAME              TYPE                             DATA      AGE
-2026-06-19T17:30:47.7061048Z registry-secret   kubernetes.io/dockerconfigjson   1         2y204d
-2026-06-19T17:30:47.7087723Z + [[ deploymentconfig == deployment ]]
-2026-06-19T17:30:47.7088033Z + oc rollout cancel deploymentconfig/simtx-transacoes-lote-des -n simtx-des
-2026-06-19T17:30:47.8830325Z No rollout is in progress (latest rollout #804 complete 8 minutes ago)
-2026-06-19T17:30:47.8859526Z + sleep 20
-2026-06-19T17:31:07.8877191Z + oc rollout latest deploymentconfig/simtx-transacoes-lote-des -n simtx-des
-2026-06-19T17:31:08.0692531Z deploymentconfig.apps.openshift.io/simtx-transacoes-lote-des rolled out
-2026-06-19T17:31:08.0792894Z ##[section]Finishing: Executando Tag na Imagem do ambiente de build OKD3, OKD4 e OCP
 
 
-P
-simtx-transacoes-lote-des-805-deploy
-Completed
-0/1	0	
-ReplicationController
-RC
-simtx-transacoes-lote-des-805
--	-	
-19 de jun. de 2026, 14:31
-
-Pod
-P
-simtx-transacoes-lote-des-805-wm6vb
-Running
-1/1	0	
-ReplicationController
-RC
-simtx-transacoes-lote-des-805
-517,5 MiB	0,106 cores	
-19 de jun. de 2026, 14:31
-
-ele continua cirando em des
 
 
-se agente apagar tudo que fioxzermos e deixar ele rodar sozinho pra ver???
+All pipelines
+
+SIMTX
+
+SIMTX-pix-okd4
+Predefined variables
+Filter by keywords
+Scope
+
+
+AMBIENTE
+des
+AMBIENTE
+tqs
+AMBIENTE
+hmp
+AMBIENTE
+prd
+AMBIENTE
+des
+
+AMBIENTE_BUILD
+build-images-ads
+CGC_UNIDADE_DES
+7390
+CGC_UNIDADE_OPS
+7259
+fortify_disable
+false
+PASSWORD_TRUSTSTORE
+changeit
+SISTEMAAMBIENTE
+des
+SISTEMAAMBIENTE
+tqs
+SISTEMAAMBIENTE
+hmp
+SISTEMAAMBIENTE
+prd
+SISTEMAAMBIENTE
+des
+SISTEMANOME
+SIMTX-pix
+SITE
+okd4_nprd
+SITE
+okd4_prd
+TemplateRelease_OKD
+openshift/quarkus-caixa-release
+UNIDADE
+BR
+Select a release pipeline to view its releases
+
+81 pipelines found
+
+Select a release pipeline to view its releases
+
+14 pipelines found
+
+Row 11
+
+Showing filters 1 through 2
+
+Showing filters 1 through 2
+
+Row 8
+
+Showing filters 1 through 2
+
+Row 8
+
+Showing filters 1 through 2
+
+Row 8
+
+Showing filters 1 through 2
+
+Showing filters 1 through 2
+
+
+Skip to main content
+projetos
+/
+Caixa
+/
+Pipelines
+/
+Releases
+/
+SIMTX-pix-okd4
+Search
+
+
+
+
+
+
+
+
+All pipelines
+
+SIMTX
+
+SIMTX-pix-okd4
+Predefined variables
+SonarQube Variables (1)
+Variáveis com dados do SonarQube
+Scopes: Release
+Usuario-Azure-DevOps (10)
+Scopes: Release
+MONITORACAO_LOGS (4)
+REQ000143540550 - Conforme autorizado na req por FLAVIO ALMEIDA GAGLIARDI, removido as variáveis JAVA_OPTS_MONITORING e URL_APM_SERVER, por entrar em conflitos com releases que utilizam o Application Insights
+Scopes: Release
+EGRESS_IP_OKD (67)
+WO0000072264656 - Config Portal Infrafácil NO_PROXY
+Scopes: Release
+OKD-REGISTRY-CENTRALIZADO (7)
+Credenciais para o Registry Centralizado - Produtos 4 (OKD)
+Scopes: Release
+OKD-4-NPRD (13)
+Credenciais para o Cluster OKD4 de NPRD (DES/TQS/HMP)
+Scopes: EC DES,EC TQS,EC HMP,EC DES2
+SIMTX-pix-des (83)
+Scopes: EC DES
+SIMTX-insights-des (8)
+Variáveis comuns para os módulos do SIMTX-Quarkus para configuração de Insights
+Scopes: EC DES,EC DES2
+SIMTX-lib-padrao-DES (94)
+Criação conforme solicitação na WO0000067177174
+Scopes: EC DES,EC DES2
+SIMTX-pix-BT-VAULT-DES (3)
+SIMTX-pix-BT-VAULT-DES
+Scopes: EC DES,EC DES2
+OKD-4-APL (13)
+Scopes: EC PRD
+SIMTX-pix-prd (97)
+Scopes: EC PRD
+SIMTX-pix-BT-VAULT-PRD (4)
+SIDMF
+Scopes: EC PRD
+SIMTX-lib-padrao-okd4-PRD (101)
+Criação conforme solicitação na WO0000067177174
+Scopes: EC PRD
+SIMTX-insights-prd (6)
+Variáveis comuns para os módulos do SIMTX-Quarkus para configuração de Insights
+Scopes: EC PRD
+SIMTX-pix-des2 (81)
+Scopes: EC DES2
+|Manage variable groups
+Select a release pipeline to view its releases
+
+81 pipelines found
+
+Select a release pipeline to view its releases
+
+14 pipelines found
+
+Row 11
+
+Showing filters 1 through 2
+
+Showing filters 1 through 2
+
+Row 8
+
+Showing filters 1 through 2
+
+Row 8
+
+Showing filters 1 through 2
+
+Row 8
+
+Showing filters 1 through 2
+
+Showing filters 1 through 2
+
+
+Skip to main content
+projetos
+/
+Caixa
+/
+Pipelines
+/
+Releases
+/
+SIMTX-pix-okd4
+Search
+
+
+
+
+
+
+
+
+All pipelines
+
+SIMTX
+
+SIMTX-pix-okd4
+Predefined variables
+SonarQube Variables (1)
+Variáveis com dados do SonarQube
+Scopes: Release
+Usuario-Azure-DevOps (10)
+Scopes: Release
+MONITORACAO_LOGS (4)
+REQ000143540550 - Conforme autorizado na req por FLAVIO ALMEIDA GAGLIARDI, removido as variáveis JAVA_OPTS_MONITORING e URL_APM_SERVER, por entrar em conflitos com releases que utilizam o Application Insights
+Scopes: Release
+EGRESS_IP_OKD (67)
+WO0000072264656 - Config Portal Infrafácil NO_PROXY
+Scopes: Release
+OKD-REGISTRY-CENTRALIZADO (7)
+Credenciais para o Registry Centralizado - Produtos 4 (OKD)
+Scopes: Release
+OKD-4-NPRD (13)
+Credenciais para o Cluster OKD4 de NPRD (DES/TQS/HMP)
+Scopes: EC DES,EC TQS,EC HMP,EC DES2
+SIMTX-pix-des (83)
+
+Scopes: EC DES
+_ENV.APPLICATIONINSIGHTS_ROLE_NAME
+SIMTX-pix-DES
+_ENV.CACHE_CAFFEINE_MAX_EXPIRATION
+86400
+_ENV.CACHE_TIME_EXPIRE
+8h
+_ENV.DB_CACHE_TABELA_MTXTB001_SERVICO_TIME
+3600
+_ENV.DB_CACHE_TABELA_MTXTB006_MENSAGEM_TIME
+3600
+_ENV.DB_CACHE_TABELA_MTXTB023_PARAMETRO_SISTEMA_TIME
+3600
+_ENV.DB_INITIAL_SIZE
+8
+_ENV.DB_MAX_SIZE
+32
+_ENV.DB_MIN_SIZE
+8
+_ENV.DB_SIZE_UPDATES
+10
+_ENV.DB_TIMEOUT
+10000
+_ENV.JAVA_OPTIONS_APPEND
+"-Djavax.net.ssl.trustStore=/deployments/caixa-truststore-acteste-nprd.jks -javaagent:/deployments/lib/main/com.microsoft.azure.applicationinsights-agent-3.7.6.jar"
+_ENV.JDG_CACHE_PIX_MTXTB066_NAME
+cache-pix-mtxtb066
+_ENV.LOG_LEVEL
+DEBUG
+_ENV.LOG_LEVEL_CATEGORY
+DEBUG
+_ENV.RHDG_CACHE_CONSULTA
+consulta
+_ENV.RHDG_REQ_GET_CONNECTION_REQUEST_TIMEOUT
+100
+_ENV.RHDG_REQ_GET_CONNECTION_TIMEOUT
+100
+_ENV.RHDG_REQ_GET_SOCKET_TIMEOUT
+100
+_ENV.RHDG_TEMPO_DE_VIDA
+120000
+_ENV.RHDG_TEMPO_MAXIMO_INATIVIDADE
+120000
+_ENV.TAREFA_100040_VALIDA_PERMISSAO_V3_CONTEXTO
+/validarPermissaoAcessoCliente
+_ENV.TAREFA_100040_VALIDA_PERMISSAO_V3_TIMEOUT_REQUISICAO
+1000
+_ENV.TAREFA_100040_VALIDA_PERMISSAO_V3_TIMEOUT_RESPOSTA
+1000
+_ENV.TAREFA_100043_VALIDA_ASSINATURA_SIMPLES_V3_CONTEXTO
+/validarSenhaSimplesTran
+_ENV.TAREFA_100043_VALIDA_ASSINATURA_SIMPLES_V3_TIMEOUT_REQUISICAO
+1000
+_ENV.TAREFA_100043_VALIDA_ASSINATURA_SIMPLES_V3_TIMEOUT_RESPOSTA
+1000
+_ENV.TAREFA_100044_VALIDA_ASSINATURA_MULTIPLA_V2_CONTEXTO
+/validarSenhaMultiplaTran
+_ENV.TAREFA_100044_VALIDA_ASSINATURA_MULTIPLA_V2_TIMEOUT_REQUISICAO
+1000
+_ENV.TAREFA_100044_VALIDA_ASSINATURA_MULTIPLA_V2_TIMEOUT_RESPOSTA
+1000
+_ENV.TAREFA_100109_ENVIO_PIX_V6_CONTEXTO
+/v5/ordens-pagamento
+_ENV.TAREFA_100109_ENVIO_PIX_V6_TIMEOUT_REQUISICAO
+1000
+_ENV.TAREFA_100109_ENVIO_PIX_V6_TIMEOUT_RESPOSTA
+3000
+_ENV.TAREFA_100116_VALIDA_TITULAR_V2_CONTEXTO
+/verificaContaCpfTitularidade
+_ENV.TAREFA_100116_VALIDA_TITULAR_V2_TIMEOUT_REQUISICAO
+1000
+_ENV.TAREFA_100116_VALIDA_TITULAR_V2_TIMEOUT_RESPOSTA
+2000
+_ENV.TAREFA_100122_CANCELAMENTO_PIX_V2_CONTEXTO
+/v1/ordens-pagamento/cancelar
+_ENV.TAREFA_100122_CANCELAMENTO_PIX_V2_TIMEOUT_REQUISICAO
+1000
+_ENV.TAREFA_100122_CANCELAMENTO_PIX_V2_TIMEOUT_RESPOSTA
+3000
+_ENV.TAREFA_100123_DEVOLUCAO_PIX_V2_CONTEXTO
+/v2/devolucao
+_ENV.TAREFA_100123_DEVOLUCAO_PIX_V2_TIMEOUT_REQUISICAO
+1000
+_ENV.TAREFA_100123_DEVOLUCAO_PIX_V2_TIMEOUT_RESPOSTA
+3000
+_ENV.TAREFA_100130_ENVIO_INFORMACOES_ANTIFRAUDE_V2_REQ_FILA
+SIAAF.REQ.SIMTX.AGENDAMENTO_PIX
+_ENV.TAREFA_100130_ENVIO_INFORMACOES_ANTIFRAUDE_V2_REQ_POOL_SIZE
+100
+_ENV.TAREFA_100130_ENVIO_INFORMACOES_ANTIFRAUDE_V2_REQ_TIMEOUT
+600000
+_ENV.TAREFA_100132_CONSULTA_QRCODE_V2_CONTEXTO
+/v1/qrcodes
+_ENV.TAREFA_100132_CONSULTA_QRCODE_V2_TIMEOUT_REQUISICAO
+1000
+_ENV.TAREFA_100132_CONSULTA_QRCODE_V2_TIMEOUT_RESPOSTA
+2000
+_ENV.TAREFA_100132_CONSULTA_QRCODE_V2_URL_BASE
+https://sispi-qrcode-api-consultas-des.apps.pixnprd4.caixa
+_ENV.TAREFA_100140_ENVIA_ATUALIZACAO_PIX_V2_CONTEXTO
+/open-banking/gestao-pagamentos
+_ENV.TAREFA_100140_ENVIA_ATUALIZACAO_PIX_V2_TIMEOUT_REQUISICAO
+1000
+_ENV.TAREFA_100140_ENVIA_ATUALIZACAO_PIX_V2_TIMEOUT_RESPOSTA
+2000
+_ENV.TAREFA_100146_VALIDA_PIX_V2_CONTEXTO
+/limite/valida
+_ENV.TAREFA_100146_VALIDA_PIX_V2_TIMEOUT_REQUISICAO
+1000
+_ENV.TAREFA_100146_VALIDA_PIX_V2_TIMEOUT_RESPOSTA
+3000
+_ENV.TAREFA_100148_OPEN_BANKING_V2_CONTEXTO
+/open-banking/gestao-pagamentos
+_ENV.TAREFA_100148_OPEN_BANKING_V2_TIMEOUT_REQUISICAO
+1000
+_ENV.TAREFA_100148_OPEN_BANKING_V2_TIMEOUT_RESPOSTA
+2000
+_ENV.TAREFA_100149_CONSULTA_TARIFA_NSGD_V2_REQ_FILA
+SID08.REQ.SIMTX.CONSULTA_TARIFA
+_ENV.TAREFA_100149_CONSULTA_TARIFA_NSGD_V2_REQ_POOL_SIZE
+3
+_ENV.TAREFA_100149_CONSULTA_TARIFA_NSGD_V2_REQ_TIMEOUT
+2000
+_ENV.TAREFA_100149_CONSULTA_TARIFA_NSGD_V2_RSP_FILA
+SID08.RSP.SIMTX.CONSULTA_TARIFA
+_ENV.TAREFA_100149_CONSULTA_TARIFA_NSGD_V2_RSP_POOL_SIZE
+3
+_ENV.TAREFA_100149_CONSULTA_TARIFA_NSGD_V2_RSP_TIMEOUT
+2000
+_ENV.TAREFA_100170_CONSULTA_VINCULO_CONTA_CPF_V2_CONTEXTO
+/consultaTipoSenhaVinculoConta
+_ENV.TAREFA_100170_CONSULTA_VINCULO_CONTA_CPF_V2_TIMEOUT_REQUISICAO
+1000
+_ENV.TAREFA_100170_CONSULTA_VINCULO_CONTA_CPF_V2_TIMEOUT_RESPOSTA
+2000
+_ENV.TAREFA_100207_AGENDAMENTO_PIX_V1_CONTEXTO
+/pix/agendamento/v1/agendamentos
+_ENV.TAREFA_100207_AGENDAMENTO_PIX_V1_TIMEOUT_REQUISICAO
+1000
+_ENV.TAREFA_100207_AGENDAMENTO_PIX_V1_TIMEOUT_RESPOSTA
+3000
+_ENV.TAREFA_100213_CANCELAMENTO_AGENDAMENTO_PIX_V1_CONTEXTO
+/pix/agendamento/v1/agendamentos
+_ENV.TAREFA_100213_CANCELAMENTO_AGENDAMENTO_PIX_V1_TIMEOUT_REQUISICAO
+1000
+_ENV.TAREFA_100213_CANCELAMENTO_AGENDAMENTO_PIX_V1_TIMEOUT_RESPOSTA
+3000
+_ENV.TAREFA_CONSULTA_REGRAS_TARIFA_V1_TIMEOUT_REQUISICAO
+5000
+_ENV.URL_SISPI
+https://sispi-container-backend-des.apps.pixnprd4.caixa/sispi-api-war/api
+_ENV.URL_SISPI_API_TARIFACAO
+https://sispi-api-tarifacao-des.apps.pixnprd4.caixa
+_ENV.VALIDACAO_INTERVALO_MINIMO_TRANSACAO
+1
+_ENV.VALIDACAO_INTERVALO_TRANSACAO
+5
+_ENV.WMQ_CHANNEL_NEGOCIAL
+SIMTX.OKD.SVRCONN
+_ENV.WMQ_ENVIO_PIX_TRANSACAO_ASSINADA_REQ_FILA
+SIMTX.REQ.PIX_TRANSACAO_ASSINADA
+_ENV.WMQ_ENVIO_PIX_TRANSACAO_ASSINADA_REQ_POOL_SIZE
+32
+_ENV.WMQ_ENVIO_PIX_TRANSACAO_ASSINADA_REQ_TIMEOUT
+2000
+_ENV.WMQ_SICCO_RECEBE_TRANSACAO_REQ_POOL_SIZE
+32
+SIMTX-insights-des (8)
+Variáveis comuns para os módulos do SIMTX-Quarkus para configuração de Insights
+Scopes: EC DES,EC DES2
+SIMTX-lib-padrao-DES (94)
+Criação conforme solicitação na WO0000067177174
+Scopes: EC DES,EC DES2
+SIMTX-pix-BT-VAULT-DES (3)
+SIMTX-pix-BT-VAULT-DES
+Scopes: EC DES,EC DES2
+OKD-4-APL (13)
+Scopes: EC PRD
+SIMTX-pix-prd (97)
+Scopes: EC PRD
+SIMTX-pix-BT-VAULT-PRD (4)
+SIDMF
+Scopes: EC PRD
+SIMTX-lib-padrao-okd4-PRD (101)
+Criação conforme solicitação na WO0000067177174
+Scopes: EC PRD
+SIMTX-insights-prd (6)
+Variáveis comuns para os módulos do SIMTX-Quarkus para configuração de Insights
+Scopes: EC PRD
+SIMTX-pix-des2 (81)
+Scopes: EC DES2
+|Manage variable groups
+Select a release pipeline to view its releases
+
+81 pipelines found
+
+Select a release pipeline to view its releases
+
+14 pipelines found
+
+Row 11
+
+Showing filters 1 through 2
+
+Showing filters 1 through 2
+
+Row 8
+
+Showing filters 1 through 2
+
+Row 8
+
+Showing filters 1 through 2
+
+Row 8
+
+Showing filters 1 through 2
+
+Showing filters 1 through 2
+
+
+Skip to main content
+projetos
+/
+Caixa
+/
+Pipelines
+/
+Releases
+/
+SIMTX-pix-okd4
+Search
+
+
+
+
+
+
+
+
+All pipelines
+
+SIMTX
+
+SIMTX-pix-okd4
+Predefined variables
+SonarQube Variables (1)
+Variáveis com dados do SonarQube
+Scopes: Release
+Usuario-Azure-DevOps (10)
+Scopes: Release
+MONITORACAO_LOGS (4)
+REQ000143540550 - Conforme autorizado na req por FLAVIO ALMEIDA GAGLIARDI, removido as variáveis JAVA_OPTS_MONITORING e URL_APM_SERVER, por entrar em conflitos com releases que utilizam o Application Insights
+Scopes: Release
+EGRESS_IP_OKD (67)
+WO0000072264656 - Config Portal Infrafácil NO_PROXY
+Scopes: Release
+OKD-REGISTRY-CENTRALIZADO (7)
+Credenciais para o Registry Centralizado - Produtos 4 (OKD)
+Scopes: Release
+OKD-4-NPRD (13)
+Credenciais para o Cluster OKD4 de NPRD (DES/TQS/HMP)
+Scopes: EC DES,EC TQS,EC HMP,EC DES2
+SIMTX-pix-des (83)
+Scopes: EC DES
+_ENV.APPLICATIONINSIGHTS_ROLE_NAME
+SIMTX-pix-DES
+_ENV.CACHE_CAFFEINE_MAX_EXPIRATION
+86400
+_ENV.CACHE_TIME_EXPIRE
+8h
+_ENV.DB_CACHE_TABELA_MTXTB001_SERVICO_TIME
+3600
+_ENV.DB_CACHE_TABELA_MTXTB006_MENSAGEM_TIME
+3600
+_ENV.DB_CACHE_TABELA_MTXTB023_PARAMETRO_SISTEMA_TIME
+3600
+_ENV.DB_INITIAL_SIZE
+8
+_ENV.DB_MAX_SIZE
+32
+_ENV.DB_MIN_SIZE
+8
+_ENV.DB_SIZE_UPDATES
+10
+_ENV.DB_TIMEOUT
+10000
+_ENV.JAVA_OPTIONS_APPEND
+"-Djavax.net.ssl.trustStore=/deployments/caixa-truststore-acteste-nprd.jks -javaagent:/deployments/lib/main/com.microsoft.azure.applicationinsights-agent-3.7.6.jar"
+_ENV.JDG_CACHE_PIX_MTXTB066_NAME
+cache-pix-mtxtb066
+_ENV.LOG_LEVEL
+DEBUG
+_ENV.LOG_LEVEL_CATEGORY
+DEBUG
+_ENV.RHDG_CACHE_CONSULTA
+consulta
+_ENV.RHDG_REQ_GET_CONNECTION_REQUEST_TIMEOUT
+100
+_ENV.RHDG_REQ_GET_CONNECTION_TIMEOUT
+100
+_ENV.RHDG_REQ_GET_SOCKET_TIMEOUT
+100
+_ENV.RHDG_TEMPO_DE_VIDA
+120000
+_ENV.RHDG_TEMPO_MAXIMO_INATIVIDADE
+120000
+_ENV.TAREFA_100040_VALIDA_PERMISSAO_V3_CONTEXTO
+/validarPermissaoAcessoCliente
+_ENV.TAREFA_100040_VALIDA_PERMISSAO_V3_TIMEOUT_REQUISICAO
+1000
+_ENV.TAREFA_100040_VALIDA_PERMISSAO_V3_TIMEOUT_RESPOSTA
+1000
+_ENV.TAREFA_100043_VALIDA_ASSINATURA_SIMPLES_V3_CONTEXTO
+/validarSenhaSimplesTran
+_ENV.TAREFA_100043_VALIDA_ASSINATURA_SIMPLES_V3_TIMEOUT_REQUISICAO
+1000
+_ENV.TAREFA_100043_VALIDA_ASSINATURA_SIMPLES_V3_TIMEOUT_RESPOSTA
+1000
+_ENV.TAREFA_100044_VALIDA_ASSINATURA_MULTIPLA_V2_CONTEXTO
+/validarSenhaMultiplaTran
+_ENV.TAREFA_100044_VALIDA_ASSINATURA_MULTIPLA_V2_TIMEOUT_REQUISICAO
+1000
+_ENV.TAREFA_100044_VALIDA_ASSINATURA_MULTIPLA_V2_TIMEOUT_RESPOSTA
+1000
+_ENV.TAREFA_100109_ENVIO_PIX_V6_CONTEXTO
+/v5/ordens-pagamento
+_ENV.TAREFA_100109_ENVIO_PIX_V6_TIMEOUT_REQUISICAO
+1000
+_ENV.TAREFA_100109_ENVIO_PIX_V6_TIMEOUT_RESPOSTA
+3000
+_ENV.TAREFA_100116_VALIDA_TITULAR_V2_CONTEXTO
+/verificaContaCpfTitularidade
+_ENV.TAREFA_100116_VALIDA_TITULAR_V2_TIMEOUT_REQUISICAO
+1000
+_ENV.TAREFA_100116_VALIDA_TITULAR_V2_TIMEOUT_RESPOSTA
+2000
+_ENV.TAREFA_100122_CANCELAMENTO_PIX_V2_CONTEXTO
+/v1/ordens-pagamento/cancelar
+_ENV.TAREFA_100122_CANCELAMENTO_PIX_V2_TIMEOUT_REQUISICAO
+1000
+_ENV.TAREFA_100122_CANCELAMENTO_PIX_V2_TIMEOUT_RESPOSTA
+3000
+_ENV.TAREFA_100123_DEVOLUCAO_PIX_V2_CONTEXTO
+/v2/devolucao
+_ENV.TAREFA_100123_DEVOLUCAO_PIX_V2_TIMEOUT_REQUISICAO
+1000
+_ENV.TAREFA_100123_DEVOLUCAO_PIX_V2_TIMEOUT_RESPOSTA
+3000
+_ENV.TAREFA_100130_ENVIO_INFORMACOES_ANTIFRAUDE_V2_REQ_FILA
+SIAAF.REQ.SIMTX.AGENDAMENTO_PIX
+_ENV.TAREFA_100130_ENVIO_INFORMACOES_ANTIFRAUDE_V2_REQ_POOL_SIZE
+100
+_ENV.TAREFA_100130_ENVIO_INFORMACOES_ANTIFRAUDE_V2_REQ_TIMEOUT
+600000
+_ENV.TAREFA_100132_CONSULTA_QRCODE_V2_CONTEXTO
+/v1/qrcodes
+_ENV.TAREFA_100132_CONSULTA_QRCODE_V2_TIMEOUT_REQUISICAO
+1000
+_ENV.TAREFA_100132_CONSULTA_QRCODE_V2_TIMEOUT_RESPOSTA
+2000
+_ENV.TAREFA_100132_CONSULTA_QRCODE_V2_URL_BASE
+https://sispi-qrcode-api-consultas-des.apps.pixnprd4.caixa
+_ENV.TAREFA_100140_ENVIA_ATUALIZACAO_PIX_V2_CONTEXTO
+/open-banking/gestao-pagamentos
+_ENV.TAREFA_100140_ENVIA_ATUALIZACAO_PIX_V2_TIMEOUT_REQUISICAO
+1000
+_ENV.TAREFA_100140_ENVIA_ATUALIZACAO_PIX_V2_TIMEOUT_RESPOSTA
+2000
+_ENV.TAREFA_100146_VALIDA_PIX_V2_CONTEXTO
+/limite/valida
+_ENV.TAREFA_100146_VALIDA_PIX_V2_TIMEOUT_REQUISICAO
+1000
+_ENV.TAREFA_100146_VALIDA_PIX_V2_TIMEOUT_RESPOSTA
+3000
+_ENV.TAREFA_100148_OPEN_BANKING_V2_CONTEXTO
+/open-banking/gestao-pagamentos
+_ENV.TAREFA_100148_OPEN_BANKING_V2_TIMEOUT_REQUISICAO
+1000
+_ENV.TAREFA_100148_OPEN_BANKING_V2_TIMEOUT_RESPOSTA
+2000
+_ENV.TAREFA_100149_CONSULTA_TARIFA_NSGD_V2_REQ_FILA
+SID08.REQ.SIMTX.CONSULTA_TARIFA
+_ENV.TAREFA_100149_CONSULTA_TARIFA_NSGD_V2_REQ_POOL_SIZE
+3
+_ENV.TAREFA_100149_CONSULTA_TARIFA_NSGD_V2_REQ_TIMEOUT
+2000
+_ENV.TAREFA_100149_CONSULTA_TARIFA_NSGD_V2_RSP_FILA
+SID08.RSP.SIMTX.CONSULTA_TARIFA
+_ENV.TAREFA_100149_CONSULTA_TARIFA_NSGD_V2_RSP_POOL_SIZE
+3
+_ENV.TAREFA_100149_CONSULTA_TARIFA_NSGD_V2_RSP_TIMEOUT
+2000
+_ENV.TAREFA_100170_CONSULTA_VINCULO_CONTA_CPF_V2_CONTEXTO
+/consultaTipoSenhaVinculoConta
+_ENV.TAREFA_100170_CONSULTA_VINCULO_CONTA_CPF_V2_TIMEOUT_REQUISICAO
+1000
+_ENV.TAREFA_100170_CONSULTA_VINCULO_CONTA_CPF_V2_TIMEOUT_RESPOSTA
+2000
+_ENV.TAREFA_100207_AGENDAMENTO_PIX_V1_CONTEXTO
+/pix/agendamento/v1/agendamentos
+_ENV.TAREFA_100207_AGENDAMENTO_PIX_V1_TIMEOUT_REQUISICAO
+1000
+_ENV.TAREFA_100207_AGENDAMENTO_PIX_V1_TIMEOUT_RESPOSTA
+3000
+_ENV.TAREFA_100213_CANCELAMENTO_AGENDAMENTO_PIX_V1_CONTEXTO
+/pix/agendamento/v1/agendamentos
+_ENV.TAREFA_100213_CANCELAMENTO_AGENDAMENTO_PIX_V1_TIMEOUT_REQUISICAO
+1000
+_ENV.TAREFA_100213_CANCELAMENTO_AGENDAMENTO_PIX_V1_TIMEOUT_RESPOSTA
+3000
+_ENV.TAREFA_CONSULTA_REGRAS_TARIFA_V1_TIMEOUT_REQUISICAO
+5000
+_ENV.URL_SISPI
+https://sispi-container-backend-des.apps.pixnprd4.caixa/sispi-api-war/api
+_ENV.URL_SISPI_API_TARIFACAO
+https://sispi-api-tarifacao-des.apps.pixnprd4.caixa
+_ENV.VALIDACAO_INTERVALO_MINIMO_TRANSACAO
+1
+_ENV.VALIDACAO_INTERVALO_TRANSACAO
+5
+_ENV.WMQ_CHANNEL_NEGOCIAL
+SIMTX.OKD.SVRCONN
+_ENV.WMQ_ENVIO_PIX_TRANSACAO_ASSINADA_REQ_FILA
+SIMTX.REQ.PIX_TRANSACAO_ASSINADA
+_ENV.WMQ_ENVIO_PIX_TRANSACAO_ASSINADA_REQ_POOL_SIZE
+32
+_ENV.WMQ_ENVIO_PIX_TRANSACAO_ASSINADA_REQ_TIMEOUT
+2000
+_ENV.WMQ_SICCO_RECEBE_TRANSACAO_REQ_POOL_SIZE
+32
+SIMTX-insights-des (8)
+Variáveis comuns para os módulos do SIMTX-Quarkus para configuração de Insights
+Scopes: EC DES,EC DES2
+SIMTX-lib-padrao-DES (94)
+Criação conforme solicitação na WO0000067177174
+Scopes: EC DES,EC DES2
+SIMTX-pix-BT-VAULT-DES (3)
+SIMTX-pix-BT-VAULT-DES
+Scopes: EC DES,EC DES2
+OKD-4-APL (13)
+Scopes: EC PRD
+SIMTX-pix-prd (97)
+Scopes: EC PRD
+SIMTX-pix-BT-VAULT-PRD (4)
+SIDMF
+Scopes: EC PRD
+SIMTX-lib-padrao-okd4-PRD (101)
+Criação conforme solicitação na WO0000067177174
+Scopes: EC PRD
+SIMTX-insights-prd (6)
+Variáveis comuns para os módulos do SIMTX-Quarkus para configuração de Insights
+Scopes: EC PRD
+SIMTX-pix-des2 (81)
+
+Scopes: EC DES2
+_ENV.APPLICATIONINSIGHTS_ROLE_NAME
+SIMTX-pix-DES2
+_ENV.CACHE_CAFFEINE_MAX_EXPIRATION
+86400
+_ENV.CACHE_TIME_EXPIRE
+8h
+_ENV.DB_CACHE_TABELA_MTXTB001_SERVICO_TIME
+3600
+_ENV.DB_CACHE_TABELA_MTXTB006_MENSAGEM_TIME
+3600
+_ENV.DB_CACHE_TABELA_MTXTB023_PARAMETRO_SISTEMA_TIME
+3600
+_ENV.DB_INITIAL_SIZE
+8
+_ENV.DB_MAX_SIZE
+32
+_ENV.DB_MIN_SIZE
+8
+_ENV.DB_SIZE_UPDATES
+10
+_ENV.DB_TIMEOUT
+10000
+_ENV.JAVA_OPTIONS_APPEND
+"-Djavax.net.ssl.trustStore=/deployments/caixa-truststore-acteste-nprd.jks -javaagent:/deployments/lib/main/com.microsoft.azure.applicationinsights-agent-3.7.6.jar"
+_ENV.JDG_CACHE_PIX_MTXTB066_NAME
+cache-pix-mtxtb066
+_ENV.LOG_LEVEL
+DEBUG
+_ENV.RHDG_CACHE_CONSULTA
+consulta
+_ENV.RHDG_REQ_GET_CONNECTION_REQUEST_TIMEOUT
+100
+_ENV.RHDG_REQ_GET_CONNECTION_TIMEOUT
+100
+_ENV.RHDG_REQ_GET_SOCKET_TIMEOUT
+100
+_ENV.RHDG_TEMPO_DE_VIDA
+120000
+_ENV.RHDG_TEMPO_MAXIMO_INATIVIDADE
+120000
+_ENV.TAREFA_100040_VALIDA_PERMISSAO_V3_CONTEXTO
+/validarPermissaoAcessoCliente
+_ENV.TAREFA_100040_VALIDA_PERMISSAO_V3_TIMEOUT_REQUISICAO
+1000
+_ENV.TAREFA_100040_VALIDA_PERMISSAO_V3_TIMEOUT_RESPOSTA
+1000
+_ENV.TAREFA_100043_VALIDA_ASSINATURA_SIMPLES_V3_CONTEXTO
+/validarSenhaSimplesTran
+_ENV.TAREFA_100043_VALIDA_ASSINATURA_SIMPLES_V3_TIMEOUT_REQUISICAO
+1000
+_ENV.TAREFA_100043_VALIDA_ASSINATURA_SIMPLES_V3_TIMEOUT_RESPOSTA
+1000
+_ENV.TAREFA_100044_VALIDA_ASSINATURA_MULTIPLA_V2_CONTEXTO
+/validarSenhaMultiplaTran
+_ENV.TAREFA_100044_VALIDA_ASSINATURA_MULTIPLA_V2_TIMEOUT_REQUISICAO
+1000
+_ENV.TAREFA_100044_VALIDA_ASSINATURA_MULTIPLA_V2_TIMEOUT_RESPOSTA
+1000
+_ENV.TAREFA_100109_ENVIO_PIX_V6_CONTEXTO
+/v5/ordens-pagamento
+_ENV.TAREFA_100109_ENVIO_PIX_V6_TIMEOUT_REQUISICAO
+1000
+_ENV.TAREFA_100109_ENVIO_PIX_V6_TIMEOUT_RESPOSTA
+3000
+_ENV.TAREFA_100116_VALIDA_TITULAR_V2_CONTEXTO
+/verificaContaCpfTitularidade
+_ENV.TAREFA_100116_VALIDA_TITULAR_V2_TIMEOUT_REQUISICAO
+1000
+_ENV.TAREFA_100116_VALIDA_TITULAR_V2_TIMEOUT_RESPOSTA
+2000
+_ENV.TAREFA_100122_CANCELAMENTO_PIX_V2_CONTEXTO
+/v1/ordens-pagamento/cancelar
+_ENV.TAREFA_100122_CANCELAMENTO_PIX_V2_TIMEOUT_REQUISICAO
+1000
+_ENV.TAREFA_100122_CANCELAMENTO_PIX_V2_TIMEOUT_RESPOSTA
+3000
+_ENV.TAREFA_100123_DEVOLUCAO_PIX_V2_CONTEXTO
+/v2/devolucao
+_ENV.TAREFA_100123_DEVOLUCAO_PIX_V2_TIMEOUT_REQUISICAO
+1000
+_ENV.TAREFA_100123_DEVOLUCAO_PIX_V2_TIMEOUT_RESPOSTA
+3000
+_ENV.TAREFA_100130_ENVIO_INFORMACOES_ANTIFRAUDE_V2_REQ_FILA
+SIAAF.REQ.SIMTX.AGENDAMENTO_PIX
+_ENV.TAREFA_100130_ENVIO_INFORMACOES_ANTIFRAUDE_V2_REQ_POOL_SIZE
+100
+_ENV.TAREFA_100130_ENVIO_INFORMACOES_ANTIFRAUDE_V2_REQ_TIMEOUT
+600000
+_ENV.TAREFA_100132_CONSULTA_QRCODE_V2_CONTEXTO
+/v1/qrcodes
+_ENV.TAREFA_100132_CONSULTA_QRCODE_V2_TIMEOUT_REQUISICAO
+1000
+_ENV.TAREFA_100132_CONSULTA_QRCODE_V2_TIMEOUT_RESPOSTA
+2000
+_ENV.TAREFA_100132_CONSULTA_QRCODE_V2_URL_BASE
+https://sispi-qrcode-api-consultas-des.apps.pixnprd4.caixa
+_ENV.TAREFA_100140_ENVIA_ATUALIZACAO_PIX_V2_CONTEXTO
+/open-banking/gestao-pagamentos
+_ENV.TAREFA_100140_ENVIA_ATUALIZACAO_PIX_V2_TIMEOUT_REQUISICAO
+1000
+_ENV.TAREFA_100140_ENVIA_ATUALIZACAO_PIX_V2_TIMEOUT_RESPOSTA
+2000
+_ENV.TAREFA_100146_VALIDA_PIX_V2_CONTEXTO
+/limite/valida
+_ENV.TAREFA_100146_VALIDA_PIX_V2_TIMEOUT_REQUISICAO
+1000
+_ENV.TAREFA_100146_VALIDA_PIX_V2_TIMEOUT_RESPOSTA
+3000
+_ENV.TAREFA_100148_OPEN_BANKING_V2_CONTEXTO
+/open-banking/gestao-pagamentos
+_ENV.TAREFA_100148_OPEN_BANKING_V2_TIMEOUT_REQUISICAO
+1000
+_ENV.TAREFA_100148_OPEN_BANKING_V2_TIMEOUT_RESPOSTA
+2000
+_ENV.TAREFA_100149_CONSULTA_TARIFA_NSGD_V2_REQ_FILA
+SID08.REQ.SIMTX.CONSULTA_TARIFA
+_ENV.TAREFA_100149_CONSULTA_TARIFA_NSGD_V2_REQ_POOL_SIZE
+3
+_ENV.TAREFA_100149_CONSULTA_TARIFA_NSGD_V2_REQ_TIMEOUT
+2000
+_ENV.TAREFA_100149_CONSULTA_TARIFA_NSGD_V2_RSP_FILA
+SID08.RSP.SIMTX.CONSULTA_TARIFA
+_ENV.TAREFA_100149_CONSULTA_TARIFA_NSGD_V2_RSP_POOL_SIZE
+3
+_ENV.TAREFA_100149_CONSULTA_TARIFA_NSGD_V2_RSP_TIMEOUT
+2000
+_ENV.TAREFA_100170_CONSULTA_VINCULO_CONTA_CPF_V2_CONTEXTO
+/consultaTipoSenhaVinculoConta
+_ENV.TAREFA_100170_CONSULTA_VINCULO_CONTA_CPF_V2_TIMEOUT_REQUISICAO
+1000
+_ENV.TAREFA_100170_CONSULTA_VINCULO_CONTA_CPF_V2_TIMEOUT_RESPOSTA
+2000
+_ENV.TAREFA_100207_AGENDAMENTO_PIX_V1_CONTEXTO
+/pix/agendamento/v1/agendamentos
+_ENV.TAREFA_100207_AGENDAMENTO_PIX_V1_TIMEOUT_REQUISICAO
+1000
+_ENV.TAREFA_100207_AGENDAMENTO_PIX_V1_TIMEOUT_RESPOSTA
+3000
+_ENV.TAREFA_100213_CANCELAMENTO_AGENDAMENTO_PIX_V1_CONTEXTO
+/pix/agendamento/v1/agendamentos
+_ENV.TAREFA_100213_CANCELAMENTO_AGENDAMENTO_PIX_V1_TIMEOUT_REQUISICAO
+1000
+_ENV.TAREFA_100213_CANCELAMENTO_AGENDAMENTO_PIX_V1_TIMEOUT_RESPOSTA
+3000
+_ENV.TAREFA_CONSULTA_REGRAS_TARIFA_V1_TIMEOUT_REQUISICAO
+5000
+_ENV.URL_SISPI
+https://sispi-container-backend-des.apps.pixnprd4.caixa/sispi-api-war/api
+_ENV.URL_SISPI_API_TARIFACAO
+https://sispi-api-tarifacao-des.apps.pixnprd4.caixa
+_ENV.VALIDACAO_INTERVALO_MINIMO_TRANSACAO
+1
+_ENV.VALIDACAO_INTERVALO_TRANSACAO
+5
+_ENV.WMQ_ENVIO_PIX_TRANSACAO_ASSINADA_REQ_FILA
+SIMTX.REQ.PIX_TRANSACAO_ASSINADA
+_ENV.WMQ_ENVIO_PIX_TRANSACAO_ASSINADA_REQ_POOL_SIZE
+32
+_ENV.WMQ_ENVIO_PIX_TRANSACAO_ASSINADA_REQ_TIMEOUT
+2000
+_ENV.WMQ_SICCO_RECEBE_TRANSACAO_REQ_POOL_SIZE
+32
+|Manage variable groups
+Select a release pipeline to view its releases
+
+81 pipelines found
+
+Select a release pipeline to view its releases
+
+14 pipelines found
+
+Row 11
+
+Showing filters 1 through 2
+
+Showing filters 1 through 2
+
+Row 8
+
+Showing filters 1 through 2
+
+Row 8
+
+Showing filters 1 through 2
+
+Row 8
+
+Showing filters 1 through 2
+
+Showing filters 1 through 2
+
+
+
+
+agora segue do transacoes
+
+
+Skip to main content
+projetos
+/
+Caixa
+/
+Pipelines
+/
+Releases
+/
+SIMTX-transacoes-lote
+Search
+
+
+
+
+
+
+
+
+All pipelines
+
+SIMTX
+
+SIMTX-transacoes-lote
+Predefined variables
+Filter by keywords
+Scope
+
+
+AMBIENTE
+des
+AMBIENTE
+tqs
+AMBIENTE
+hmp
+AMBIENTE
+prd
+AMBIENTE
+des
+AMBIENTE_BUILD
+build-images-ads
+CGC_UNIDADE_DES
+7390
+CGC_UNIDADE_OPS
+7259
+fortify_disable
+false
+PASSWORD_TRUSTSTORE
+changeit
+
+SISTEMAAMBIENTE
+des
+SISTEMAAMBIENTE
+tqs
+SISTEMAAMBIENTE
+hmp
+SISTEMAAMBIENTE
+prd
+SISTEMAAMBIENTE
+des
+SISTEMANOME
+simtx-transacoes-lote
+SITE
+okd4_nprd
+SITE
+okd4_prd
+TemplateRelease_OKD
+openshift/quarkus-caixa-release
+UNIDADE
+BR
+Showing filters 1 through 2
+
+Showing filters 1 through 2
+
+Showing 26 deployments
+
+Showing filters 1 through 2
+
+Showing filters 1 through 2
+
+Showing filters 1 through 2
+
+Showing 26 deployments
+
+Row 2
+
+Showing filters 1 through 2
+
+List item deselected
+
+List item selected
+
+Expanded
+
+Row 2
+
+Collapsed
+
+Showing 26 deployments
+
+Expanded
+
+Row 3
+
+Collapsed
+
+Row 2
+
+Showing filters 1 through 2
+
+
+Skip to main content
+projetos
+/
+Caixa
+/
+Pipelines
+/
+Releases
+/
+SIMTX-transacoes-lote
+Search
+
+
+
+
+
+
+
+
+All pipelines
+
+SIMTX
+
+SIMTX-transacoes-lote
+Predefined variables
+SonarQube Variables (1)
+Variáveis com dados do SonarQube
+Scopes: Release
+Usuario-Azure-DevOps (10)
+Scopes: Release
+MONITORACAO_LOGS (4)
+REQ000143540550 - Conforme autorizado na req por FLAVIO ALMEIDA GAGLIARDI, removido as variáveis JAVA_OPTS_MONITORING e URL_APM_SERVER, por entrar em conflitos com releases que utilizam o Application Insights
+Scopes: Release
+EGRESS_IP_OKD (67)
+WO0000072264656 - Config Portal Infrafácil NO_PROXY
+Scopes: Release
+OKD-REGISTRY-CENTRALIZADO (7)
+Credenciais para o Registry Centralizado - Produtos 4 (OKD)
+Scopes: Release
+OKD-4-NPRD (13)
+Credenciais para o Cluster OKD4 de NPRD (DES/TQS/HMP)
+Scopes: EC DES,EC TQS,EC HMP,EC DES2
+SIMTX-TRANSACOES-LOTE-DES (60)
+Grupo de variáveis de SIMTX-TRANSACOES-LOTE-DES
+Scopes: EC DES
+SIMTX-lib-padrao-DES (94)
+Criação conforme solicitação na WO0000067177174
+Scopes: EC DES,EC TQS,EC DES2
+SIMTX-transacoes-lote-BT-VAULT-DES (3)
+SIDMF
+Scopes: EC DES,EC DES2
+SIMTX-insights-des (8)
+Variáveis comuns para os módulos do SIMTX-Quarkus para configuração de Insights
+Scopes: EC DES,EC DES2
+SIMTX-TRANSACOES-LOTE-TQS (1)
+Grupo de variáveis de SIMTX-TRANSACOES-LOTE-TQS
+Scopes: EC TQS
+SIMTX-TRANSACOES-LOTE-HMP (1)
+Grupo de variáveis de SIMTX-TRANSACOES-LOTE-HMP
+Scopes: EC HMP
+OKD-4-APL (13)
+Scopes: EC PRD
+SIMTX-TRANSACOES-LOTE-PRD (45)
+Grupo de variáveis de SIMTX-TRANSACOES-LOTE-PRD
+Scopes: EC PRD
+SIMTX-insights-okd4-prd (8)
+Variáveis comuns para os módulos do SIMTX-Quarkus para configuração de Insights
+Scopes: EC PRD
+SIMTX-lib-padrao-okd4-PRD (101)
+Criação conforme solicitação na WO0000067177174
+Scopes: EC PRD
+SIMTX-transacoes-lote-BT-VAULT-PRD (3)
+SIMTX-transacoes-lote-BT-VAULT-PRD
+Scopes: EC PRD
+SIMTX-TRANSACOES-LOTE-DES2 (60)
+Grupo de variáveis de SIMTX-TRANSACOES-LOTE-DES2
+
+Scopes: EC DES2
+INIT
+SIMTX-TRANSACOES-LOTE-DES
+_ENV.APPLICATIONINSIGHTS_ROLE_NAME
+SIMTX-transacoes-lote-DES
+_ENV.CICSWEB_SIMTX_SIATR_USER
+SMTXATRD
+_ENV.JAVA_OPTIONS_APPEND
+"-Djavax.net.ssl.trustStore=/deployments/caixa-truststore-acteste-nprd.jks -javaagent:/deployments/lib/main/com.microsoft.azure.applicationinsights-agent-3.7.6.jar"
+_ENV.LOG_LEVEL
+INFO
+_ENV.PASS_CICS_WEB_ATR
+'${SMTXATRD_CICS}'
+_ENV.TAREFA_100040_VALIDA_PERMISSAO_V3_TIMEOUT_CONEXAO
+3000
+_ENV.TAREFA_100040_VALIDA_PERMISSAO_V3_TIMEOUT_RESPOSTA
+3000
+_ENV.TAREFA_100043_VALIDA_ASSINATURA_SIMPLES_V3_TIMEOUT_CONEXAO
+2000
+_ENV.TAREFA_100043_VALIDA_ASSINATURA_SIMPLES_V3_TIMEOUT_RESPOSTA
+5000
+_ENV.TAREFA_100044_VALIDA_ASSINATURA_MULTIPLA_V2_TIMEOUT
+5000
+_ENV.TAREFA_100070_VALIDA_BOLETO_V1_TIMEOUT_CONEXAO
+2000
+_ENV.TAREFA_100070_VALIDA_BOLETO_V1_TIMEOUT_RESPOSTA
+2000
+_ENV.TAREFA_100093_VALIDA_TEV_V2_TIMEOUT_CONEXAO
+3000
+_ENV.TAREFA_100093_VALIDA_TEV_V2_TIMEOUT_RESPOSTA
+3000
+_ENV.TAREFA_100097_EFETIVA_LIMITE_LOTE_V2_REQ_FILA
+SIBAR.REQ.CONTROLE_LIMITE
+_ENV.TAREFA_100097_EFETIVA_LIMITE_LOTE_V2_REQ_POOL_SIZE
+100
+_ENV.TAREFA_100097_EFETIVA_LIMITE_LOTE_V2_REQ_TIMEOUT
+0
+_ENV.TAREFA_100097_EFETIVA_LIMITE_LOTE_V2_RSP_FILA
+SIBAR.RSP.CONTROLE_LIMITE
+_ENV.TAREFA_100097_EFETIVA_LIMITE_LOTE_V2_RSP_POOL_SIZE
+100
+_ENV.TAREFA_100097_EFETIVA_LIMITE_LOTE_V2_RSP_TIMEOUT
+0
+_ENV.TAREFA_100158_VALIDA_TED_V2_TIMEOUT_CONEXAO
+3000
+_ENV.TAREFA_100158_VALIDA_TED_V2_TIMEOUT_RESPOSTA
+3000
+_ENV.TAREFA_100158_VALIDA_TED_V2_VERSAO
+2
+_ENV.TAREFA_100159_VALIDA_CONCESSIONARIA_V2_CONTEXTO
+/lote/csn/validacsn
+_ENV.TAREFA_100159_VALIDA_CONCESSIONARIA_V2_TIMEOUT_CONEXAO
+3000
+_ENV.TAREFA_100159_VALIDA_CONCESSIONARIA_V2_TIMEOUT_RESPOSTA
+3000
+_ENV.TAREFA_100168_ANTIFRAUDE_BOLETO_V2_RSP_THREAD_POOL_SIZE
+32
+_ENV.TAREFA_100168_ANTIFRAUDE_BOLETO_V2_RSP_TIMEOUT
+2000
+_ENV.TAREFA_100168_ANTIFRAUDE_V2_FILA_RSP
+SIAAF.RSP.SIMTX.PAGAMENTOS_LOTE
+_ENV.TAREFA_100168_ANTIFRAUDE_V2_REQ_FILA
+SIAAF.REQ.SIMTX.PAGAMENTOS_LOTE
+_ENV.TAREFA_100168_ANTIFRAUDE_V2_REQ_POOL_SIZE
+1
+_ENV.TAREFA_100168_ANTIFRAUDE_V2_REQ_TIMEOUT
+1000
+_ENV.TAREFA_100168_ANTIFRAUDE_V2_RSP_POOL_SIZE
+1
+_ENV.TAREFA_100168_ANTIFRAUDE_V2_RSP_TIMEOUT
+1000
+_ENV.TAREFA_100196_PROCESSAR_LOTE_V1_REQ_FILA
+SIMTX.REQ.TRANSACOES_LOTE_PROCESSAMENTO
+_ENV.TAREFA_100196_PROCESSAR_LOTE_V1_REQ_POOL_SIZE
+1
+_ENV.TAREFA_100196_PROCESSAR_LOTE_V1_REQ_TIMEOUT
+0
+_ENV.TAREFA_100208_VALIDA_TRANSACAO_V1_CONTEXTO
+/limite/valida
+_ENV.TAREFA_100208_VALIDA_TRANSACAO_V1_TIMEOUT
+3000
+_ENV.TAREFA_100232_ANALISE_ANTIFRAUDE_V2_FILA_RSP
+SIAAF.RSP.SIMTX.PAGAMENTOS_LOTE
+_ENV.TAREFA_100232_ANALISE_ANTIFRAUDE_V2_REQ_FILA
+SIAAF.REQ.SIMTX.PAGAMENTOS_LOTE
+_ENV.TAREFA_100232_ANALISE_ANTIFRAUDE_V2_REQ_POOL_SIZE
+1
+_ENV.TAREFA_100232_ANALISE_ANTIFRAUDE_V2_REQ_TIMEOUT
+1000
+_ENV.TAREFA_100232_ANALISE_ANTIFRAUDE_V2_RSP_POOL_SIZE
+1
+_ENV.TAREFA_100232_ANALISE_ANTIFRAUDE_V2_RSP_TIMEOUT
+1000
+_ENV.TAREFA_100233_VALIDA_TRANSACOES_LOTE_BOLETO_V1_REQ_FILA
+SIMTX.REQ.VALIDA_TRANSACOES_LOTE_BOLETO
+_ENV.TAREFA_100233_VALIDA_TRANSACOES_LOTE_BOLETO_V1_REQ_POOL_SIZE
+1
+_ENV.TAREFA_100233_VALIDA_TRANSACOES_LOTE_BOLETO_V1_REQ_TIMEOUT
+5000
+_ENV.URL_CICSWEB_SIATR
+https://cicsweb.des.caixa:32587/siatr
+_ENV.URL_SIMTX_COBRANCA_BANCARIA
+https://simtx-cobranca-bancaria-des2.apps.nprd.caixa
+_ENV.URL_TRANSACOES_LOTE_BASE
+https://simtx-transacoes-lote-des2.apps.nprd.caixa/transacoes-lote/
+_ENV.WMQ_LOTE_TRANSACAO_ASSINADA_REQ_FILA
+SIMTX.REQ.LOTE_TRANSACAO_ASSINADA
+_ENV.WMQ_LOTE_TRANSACAO_ASSINADA_REQ_THREAD_POOL_SIZE
+1
+_ENV.WMQ_LOTE_TRANSACAO_ASSINADA_REQ_TIMEOUT
+5000
+_ENV.WMQ_SICCO_REQ_RECEBE_TRANSACAO_POOL_SIZE
+100
+_ENV.WMQ_SICCO_REQ_RECEBE_TRANSACAO_TIMEOUT
+0
+_ENV.WMQ_SITGV_FILA_REQ
+SITGV.REQ.OPP_RETORNO_SIMTX
+_ENV.WMQ_SITGV_THREAD_POOL_SIZE
+1
+_ENV.WMQ_SITGV_TIMEOUT
+0
+|Manage variable groups
+Showing filters 1 through 2
+
+Showing filters 1 through 2
+
+Showing 26 deployments
+
+Showing filters 1 through 2
+
+Showing filters 1 through 2
+
+Showing filters 1 through 2
+
+Showing 26 deployments
+
+Row 2
+
+Showing filters 1 through 2
+
+List item deselected
+
+List item selected
+
+Expanded
+
+Row 2
+
+Collapsed
+
+Showing 26 deployments
+
+Expanded
+
+Row 3
+
+Collapsed
+
+Row 2
+
+Showing filters 1 through 2
+
+
+
