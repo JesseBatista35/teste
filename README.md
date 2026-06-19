@@ -1,198 +1,37 @@
-📘 MANUAL DE ERROS COMUNS EM CONFIGMAP
-Kubernetes/ArgoCD - Esteiras NPRD (DES/TQS)
----
-⚠️ ERRO 1: Booleanos sem aspas (MAIS COMUM)
-Sintoma:
-```
-Sync operation failed: ConfigMap in version "v1" cannot be handled as a ConfigMap: 
-json: cannot unmarshal bool into Go struct field ConfigMap.data of type string
-```
-Causa:
-Valores true/false sem aspas são interpretados como BOOLEANOS, não como STRINGS.
-❌ ERRADO:
-```yaml
-data:
-  QUARKUS_ENABLED: true
-  DEBUG_MODE: false
-  CACHE_ACTIVE: true
-```
-✅ CORRETO:
-```yaml
-data:
-  QUARKUS_ENABLED: "true"
-  DEBUG_MODE: "false"
-  CACHE_ACTIVE: "true"
-```
-Como Corrigir:
-Abra o arquivo ConfigMap (.yaml)
-Procure por: `true` ou `false` (sem aspas)
-Adicione aspas em volta: `"true"` ou `"false"`
-Commit e aguarde sync no ArgoCD
----
-⚠️ ERRO 2: Números sem aspas
-Sintoma:
-```
-ConfigMap data fields must be strings, not numbers
-```
-Causa:
-Números sem aspas são interpretados como INT ou FLOAT, não como STRING.
-❌ ERRADO:
-```yaml
-data:
-  PORT: 8080
-  TIMEOUT: 3000
-  RETRY_COUNT: 5
-```
-✅ CORRETO:
-```yaml
-data:
-  PORT: "8080"
-  TIMEOUT: "3000"
-  RETRY_COUNT: "5"
-```
----
-⚠️ ERRO 3: Valores nulos (null)
-Sintoma:
-```
-ConfigMap data value cannot be null
-```
-Causa:
-Deixar um campo vazio ou com `null` explícito.
-❌ ERRADO:
-```yaml
-data:
-  API_KEY: null
-  DATABASE_URL:
-  SECRET:
-```
-✅ CORRETO:
-Se não tem valor, remova a linha OU use string vazia:
-```yaml
-data:
-  API_KEY: ""
-  # DATABASE_URL: (remova esta linha)
-  SECRET: ""
-```
----
-⚠️ ERRO 4: Indentação incorreta
-Sintoma:
-```
-YAML parsing error: mapping values are not allowed in this context
-```
-Causa:
-Espaçamento errado no YAML (2 espaços é o padrão).
-❌ ERRADO:
-```yaml
-data:
-QUARKUS_ENABLED: "true"        # Falta indentação!
-   DATABASE_URL: "localhost"   # Indentação errada (3 espaços)
-```
-✅ CORRETO:
-```yaml
-data:
-  QUARKUS_ENABLED: "true"      # 2 espaços
-  DATABASE_URL: "localhost"    # 2 espaços
-  CACHE_TIMEOUT: "5000"        # 2 espaços
-```
----
-⚠️ ERRO 5: Caracteres especiais sem aspas
-Sintoma:
-```
-YAML parsing error: unrecognized escape sequence
-```
-Causa:
-Caracteres especiais como `:`, `#`, `@`, `&` sem aspas quebram o YAML.
-❌ ERRADO:
-```yaml
-data:
-  DATABASE_URL: jdbc:mysql://localhost:3306/db
-  EMAIL: usuario@empresa.com
-  PASSWORD: senha#123@45
-```
-✅ CORRETO:
-```yaml
-data:
-  DATABASE_URL: "jdbc:mysql://localhost:3306/db"
-  EMAIL: "usuario@empresa.com"
-  PASSWORD: "senha#123@45"
-```
----
-🔍 COMO DEBUGAR
-Passo 1: Verificar ArgoCD
-Acesse ArgoCD
-Clique na aplicação
-Procure por "APP CONDITIONS" - lá tem o erro exato
-Passo 2: Validar YAML
-Use uma ferramenta online:
-```
-https://www.yamllint.com/
-```
-Cole o conteúdo do seu ConfigMap e veja os erros.
-Passo 3: Comparar com versão anterior
-Vá no GitHub
-Clique no arquivo problemático
-Clique em "History"
-Compare com a versão anterior que funcionava
-Passo 4: Verificar logs do pod
-```bash
-kubectl logs -n <namespace> <pod-name>
-```
----
-✅ CHECKLIST ANTES DE FAZER COMMIT
-[ ] Todos os valores booleanos têm aspas? ("true", "false")
-[ ] Todos os números têm aspas? ("8080", "3000")
-[ ] Não tem campos com `null` ou vazios?
-[ ] Indentação correta? (2 espaços)
-[ ] Caracteres especiais estão entre aspas?
-[ ] Validou no yamllint.com?
-[ ] Comparou com versão anterior que funcionava?
-[ ] Fez o commit com uma mensagem clara?
----
-📝 EXEMPLO CORRETO COMPLETO
-```yaml
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: cm-minha-aplicacao-des
-  labels:
-    app: minha-app
-    environment: des
-data:
-  # Configurações booleanas - COM ASPAS!
-  QUARKUS_ENABLED: "true"
-  DEBUG_MODE: "false"
-  
-  # Configurações numéricas - COM ASPAS!
-  PORT: "8080"
-  TIMEOUT: "5000"
-  MAX_CONNECTIONS: "100"
-  
-  # URLs e strings especiais - COM ASPAS!
-  DATABASE_URL: "jdbc:mysql://localhost:3306/db"
-  API_ENDPOINT: "https://api.exemplo.com:8443"
-  
-  # Variáveis normais - COM ASPAS POR SEGURANÇA!
-  ENVIRONMENT: "des"
-  LOG_LEVEL: "INFO"
-  CACHE_TTL: "3600"
-```
----
-🚀 FLUXO DE CORREÇÃO RÁPIDO
-Identifique o erro no ArgoCD (ler a mensagem)
-Encontre o arquivo ConfigMap no repositório de infra
-Valide o YAML no yamllint.com
-Corrija os valores (aspas em tudo que não é número ou booleano VÁLIDO)
-Faça o commit com mensagem clara: "Fix: corrige tipos de dados em ConfigMap"
-Aguarde o sync no ArgoCD (máximo 2-3 minutos)
-Verifique o status - deve ficar "Healthy" e "Synced"
----
-📞 QUANDO PEDIR AJUDA
-Se mesmo após seguir este manual o erro persistir:
-Tire screenshot do erro no ArgoCD
-Compartilhe o arquivo ConfigMap completo
-Informe qual foi a última alteração
-Contate o time de DevOps
----
-Última atualização: 19/06/2026
-Autor: Analista de Esteiras NPRD
-Versão: 1.0
+Favor verificar,  	Erro ao rodar a pipeline TQS em Actions, no github.
+
+Run caixagithub/DevSecOps-Actions/.github/integrations/argocd/logs@main
+Run echo "REPO_NAME=$(echo 'caixagithub/sibko-originacao-digital-api-dossie' | cut -d'/' -f2)" >> $GITHUB_ENV
+INPUT_IMAGE_TAG: '27765539065'
+Run RESOURCE_TREE_URL="https://openshift-gitops-server-openshift-gitops.apps.aroidpprd.brazilsouth.aroapp.io/api/v1/applications/sibko-originacao-digital-api-dossie-tqs/resource-tree?appNamespace=openshift-gitops"
+Fazendo requisição para: https://openshift-gitops-server-openshift-gitops.apps.aroidpprd.brazilsouth.aroapp.io/api/v1/applications/sibko-originacao-digital-api-dossie-tqs/resource-tree?appNamespace=openshift-gitops
+Resource-tree obtido com sucesso
+Filtrando pods e encontrando o mais recente...
+Pod mais recente encontrado: sibko-originacao-digital-api-dossie-tqs-8d478bc94-lvhhk
+URL dos logs: https://openshift-gitops-server-openshift-gitops.apps.aroidpprd.brazilsouth.aroapp.io/api/v1/applications/sibko-originacao-digital-api-dossie-tqs/logs?appNamespace=openshift-gitops&container=sibko-originacao-digital-api-dossie-tqs&namespace=sibko-originacao-digital-api-dossie&follow=false&podName=sibko-originacao-digital-api-dossie-tqs-8d478bc94-lvhhk&tailLines=1000&sinceSeconds=0
+Logs obtidos com sucesso
+Logs do pod sibko-originacao-digital-api-dossie-tqs-8d478bc94-lvhhk:
+================================================
+Exibindo os Logs:
+I0618 16:26:16.548246       1 version.go:31] "version info" version="" commit="0eef8df" buildDate="2025-05-19T06:17:15Z" component="vaultenv"
+I0618 16:26:16.548329       1 main.go:184] "azure key vault env injector initializing"
+I0618 16:26:16.548477       1 main.go:253] "found original container command" cmd="/usr/bin/dotnet" args=["dotnet","SIBKO.OriginacaoDigitalApiDossie.dll"]
+I0618 16:26:16.548535       1 authentication.go:110] "checking if current auth service credentials are stale" url="http://akv2k8s-envinjector.akv2k8s.svc:80/auth/sibko-originacao-digital-api-dossie/sibko-originacao-digital-api-dossie-tqs-8d478bc94-lvhhk?secret=akv2k8s-sibko-originacao-digital-api-dossie-tqs"
+I0618 16:26:16.624174       1 authentication.go:123] "auth service credentials ok" url="http://akv2k8s-envinjector.akv2k8s.svc:80/auth/sibko-originacao-digital-api-dossie/sibko-originacao-digital-api-dossie-tqs-8d478bc94-lvhhk?secret=akv2k8s-sibko-originacao-digital-api-dossie-tqs"
+I0618 16:26:16.624507       1 authentication.go:159] "requesting azure key vault oauth token" url="https://akv2k8s-envinjector.akv2k8s.svc:9443/auth/sibko-originacao-digital-api-dossie/sibko-originacao-digital-api-dossie-tqs-8d478bc94-lvhhk"
+I0618 16:26:16.655601       1 authentication.go:179] "successfully received oauth token"
+I0618 16:26:16.761311       1 main.go:338] "secret injected into env var" azurekeyvaultsecret="sibko-originacao-digital-api-dossie/akvs-tkn-keyintranet-kid-edo-sibko-tqs" env="Tkn__keyIntranet__kid"
+I0618 16:26:16.808117       1 main.go:338] "secret injected into env var" azurekeyvaultsecret="sibko-originacao-digital-api-dossie/akvs-apimanager-apikey-edo-sibko-tqs" env="ApiManager__Apikey"
+I0618 16:26:16.859408       1 main.go:338] "secret injected into env var" azurekeyvaultsecret="sibko-originacao-digital-api-dossie/akvs-tkn-keyinternet-kid-edo-sibko-tqs" env="Tkn__keyInternet__kid"
+I0618 16:26:16.914465       1 main.go:338] "secret injected into env var" azurekeyvaultsecret="sibko-originacao-digital-api-dossie/akvs-tkn-keyinternet-n-edo-sibko-tqs" env="Tkn__keyInternet__n"
+I0618 16:26:16.952821       1 main.go:338] "secret injected into env var" azurekeyvaultsecret="sibko-originacao-digital-api-dossie/akvs-applicationinsights-connection-string-edo-sibko-tqs" env="ApplicationInsights__ConnectionString"
+I0618 16:26:17.000053       1 main.go:338] "secret injected into env var" azurekeyvaultsecret="sibko-originacao-digital-api-dossie/akvs-sso-client-server-secret-edo-sibko-tqs" env="Tkn__UserServ__ClientSecret"
+I0618 16:26:17.068178       1 main.go:338] "secret injected into env var" azurekeyvaultsecret="sibko-originacao-digital-api-dossie/akvs-database-default-password-edo-sibko-des" env="Database__Default__Password"
+I0618 16:26:17.105999       1 main.go:338] "secret injected into env var" azurekeyvaultsecret="sibko-originacao-digital-api-dossie/akvs-tkn-keyintranet-n-edo-sibko-tqs" env="Tkn__keyIntranet__n"
+I0618 16:26:17.106037       1 main.go:343] "starting process with secrets in env vars" cmd="/usr/bin/dotnet" args=["dotnet","SIBKO.OriginacaoDigitalApiDossie.dll"]
+
+================================================
+Script executado com sucesso!
+Pod utilizado: sibko-originacao-digital-api-dossie-tqs-8d478bc94-lvhhk
+Falha na sincronização
+Error: Process completed with exit code 1.
