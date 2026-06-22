@@ -1,54 +1,37 @@
-ANÁLISE E CONFIGURAÇÃO - SIBKO FRONTEND GERENCIADOR FINANCEIRO
++ FILES=(`find -maxdepth 1 -name "*.runtimeconfig*.json"`)
+++ find -maxdepth 1 -name '*.runtimeconfig*.json'
++ '[' -d /opt/ads-agent/_work/17/s/target/server ']'
++ oc start-build sisou-sac-okd --from-dir=/opt/ads-agent/_work/17/a --follow --wait=true -n build-images-ads -v=5
+I0622 15:31:44.986161   33943 repository.go:450] Executing git show -s HEAD --format=%H%n%an%n%ae%n%cn%n%ce%n%B
+I0622 15:31:44.989583   33943 repository.go:533] Error executing command: exit status 128
+Uploading directory "/opt/ads-agent/_work/17/a" as binary input for the build ...
+I0622 15:31:44.989783   33943 tar.go:238] Adding "/opt/ads-agent/_work/17/a" to tar ...
+I0622 15:31:44.990187   33943 tar.go:336] Adding to tar: /opt/ads-agent/_work/17/a/sisou-sac-okd.ear as sisou-sac-okd.ear
 
-Repositório: sibko-frontend-gerenciador-financeiro-infranprd
-Ambiente: DES (NPRD)
-Data: 19/06/2026
+Uploading finished
+The ImageStreamTag "jboss-eap:7.4.14-openjdk17" is invalid: from: Error resolving ImageStreamTag jboss-eap:7.4.14-openjdk17 in namespace openshift: unable to find latest tagged image
+##[error]Bash exited with code '1'.
+##[warning]RetryHelper encountered task failure, will retry (attempt #: 1 out of 1) after 1000 ms
+Generating script.
+========================== Starting Command Output ===========================
+/usr/bin/bash /opt/ads-agent/_work/_temp/616fef86-26b7-4782-a01e-d4d8ef74ca55.sh
++ echo okd4_nprd
++ egrep -q '^(okd4|ocp)'
++ buildconfig=sisou-sac-okd
++ DOTNET_ASSEMBLY=
+/opt/ads-agent/_work/_temp/616fef86-26b7-4782-a01e-d4d8ef74ca55.sh: line 12:  -4: substring expression < 0
++ cd /opt/ads-agent/_work/17/a
++ FILES=(`find -maxdepth 1 -name "*.runtimeconfig*.json"`)
+++ find -maxdepth 1 -name '*.runtimeconfig*.json'
++ '[' -d /opt/ads-agent/_work/17/s/target/server ']'
++ oc start-build sisou-sac-okd --from-dir=/opt/ads-agent/_work/17/a --follow --wait=true -n build-images-ads -v=5
+I0622 15:31:47.289649   33970 repository.go:450] Executing git show -s HEAD --format=%H%n%an%n%ae%n%cn%n%ce%n%B
+I0622 15:31:47.292862   33970 repository.go:533] Error executing command: exit status 128
+Uploading directory "/opt/ads-agent/_work/17/a" as binary input for the build ...
+I0622 15:31:47.293143   33970 tar.go:238] Adding "/opt/ads-agent/_work/17/a" to tar ...
+I0622 15:31:47.293542   33970 tar.go:336] Adding to tar: /opt/ads-agent/_work/17/a/sisou-sac-okd.ear as sisou-sac-okd.ear
 
-ALTERAÇÕES REALIZADAS:
-
-Foi alterado o arquivo /des/values.yaml para ativar os health checks da aplicação. 
-A configuração foi mudada de "probes: enabled: false" para "probes: enabled: true", 
-permitindo que o Kubernetes valide adequadamente a saúde da aplicação durante o 
-deployment. Esta alteração foi commitada com sucesso.
-
-VALIDAÇÕES COMPLETADAS:
-
-A estrutura de configuração global já existe no repositório gitops e está adequadamente 
-configurada para o ambiente DES. O Azure Key Vault Secret para o certificado SSL foi 
-validado e está correto, apontando para o vault kv-edo-nprd. O arquivo config.yaml de 
-configuração do ArgoCD está correto com apontamento para cluster aks-edo-nprd e namespace 
-apropriado.
-
-O QUE AINDA PRECISA SER FEITO:
-
-1. Preencher o ConfigMap com as variáveis de ambiente reais que a aplicação precisa. 
-Atualmente contém apenas um placeholder genérico (KEY: "VALUE") e precisa ser substituído 
-pelas variáveis concretas da aplicação.
-
-2. Validar se a aplicação necessita de variáveis secretas adicionais no Azure Key Vault 
-além do certificado SSL já configurado. Se necessário, os comentários em "secretRefs" 
-no arquivo values.yaml precisam ser ativados.
-
-INFORMAÇÕES NECESSÁRIAS DO TIME DE DESENVOLVIMENTO:
-
-É necessário obter do time de desenvolvimento a seguinte documentação:
-
-Lista completa de variáveis de ambiente que a aplicação sibko-frontend-gerenciador-financeiro 
-necessita para funcionar em DES, incluindo nomes das variáveis, valores esperados e descrição 
-de cada uma.
-
-Confirmação se a aplicação precisa de variáveis secretas adicionais armazenadas no Azure 
-Key Vault, além do certificado SSL já configurado.
-
-PRÓXIMAS AÇÕES:
-
-Assim que o time de desenvolvimento fornecer as informações acima, o ConfigMap será 
-preenchido com os valores reais e os secrets serão ativados conforme necessário. 
-Após essas alterações, a aplicação estará pronta para o primeiro deploy em DES.
-
-Status Atual: Aguardando informações do time de desenvolvimento.
-
-Demanda em Andamento.
-
-Analista de Esteiras - NPRD
-19/06/2026
+Uploading finished
+The ImageStreamTag "jboss-eap:7.4.14-openjdk17" is invalid: from: Error resolving ImageStreamTag jboss-eap:7.4.14-openjdk17 in namespace openshift: unable to find latest tagged image
+##[error]Bash exited with code '1'.
+Finishing: Executando Build S2I Binary
