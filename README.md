@@ -1,23 +1,64 @@
-O app está falhando no fluxo de autenticação OAuth contra a plataforma da Caixa.
-O que está acontecendo:
+calma tem essa estrutura aqui.
 
-Primeiro request (401): Tenta preautenticação na API
-Segundo request (302): Tenta autorização e recebe redirect – mas algo falha no processamento
-Resultado: Erro genérico no app: "Houve um erro desconhecido, tente novamente em alguns instantes"
 
-Problema identificado:
-O fluxo OAuth está quebrado. O servidor retorna um redirect (302) com um código de autorização, mas o app não consegue processar corretamente.
-Possíveis causas:
+caixagithub
+siacx-chatcaixa-mcp-server-infranprd
+Repository navigation
+Code
+Issues
+Pull requests
+Actions
+Projects
+Models
+Wiki
+Security and quality
+Insights
+Settings
+Files
+Go to file
+t
+T
+templates content loaded
+des
+templates
+akvs-aiser-siacx-des-api-key.yml
+akvs-ass-siacx-des-admin-key.yml
+akvs-siacx-chatcaixa-mcp-server.yaml
+cm-siacx-chatcaixa-mcp-server.yaml
+.helmignore
+Chart.yaml
+README.md
+ci_cd_variables.yaml
+values.yaml
+hmp
+tqs
+templates
+.helmignore
+Chart.yaml
+README.md
+ci_cd_variables.yaml
+values.yaml
 
-Certificado de segurança inválido ou expirado
-Client ID não autorizado para esse fluxo OAuth
-Redirect URI configurado incorretamente no app
-Código de autorização expirado ou rejeitado
-Política de segurança bloqueando a sequência de requests
+o  siacx-chatcaixa-mcp-server-infranprd
 
-Ação necessária:
-Precisamos que o time de Backend/Segurança da Caixa verifique:
 
-Se o client_id está autorizado para OAuth
-Se o redirect_uri está configurado corretamente
-Se há restrições de segurança bloqueando esse fluxo
+TA ASSIM?: 
+
+apiVersion: spv.no/v2beta1
+kind: AzureKeyVaultSecret
+metadata:
+  name: akvs-api-chat-mcp-server-des-caixa
+  namespace: aks-istio-ingress
+  labels:
+    {{- include "caixa-base-chart.labels" . | nindent 4 }}
+spec:
+  vault:
+    name: kv-siacx-des
+    object:
+      name: api-chat-mcp-server-des-caixa
+      type: secret
+  output: 
+    secret:
+      name: api-chat-mcp-server-des-caixa
+      type: kubernetes.io/tls
+
