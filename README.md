@@ -1,23 +1,37 @@
-TÍTULO: Resolução de falha na pipeline de Build SIGPD-Backend versão 3.4.2.10
+266     type StringToNumber<T> = T extends `${infer N extends number}` ? N : never;
+                                                                    ~
 
-PROBLEMA:
-A pipeline de Build (Java-Build) estava falhando ao tentar publicar o artefato .ear no Nexus com a versão 3.4.2.10-SNAPSHOT.
 
-ERROS IDENTIFICADOS:
-- Linha 28: library: comando não encontrado
-- Diretório literal ${jboss.deploy.dir} sendo criado em ear/C:/
+Error: node_modules/@types/lodash/common/object.d.ts:1026:46 - error TS1005: '?' expected.
 
-CAUSA:
-A variável "library" não estava definida nas variáveis da pipeline, impossibilitando a Task Group "Build Default" de executar corretamente.
+1026         : K extends `${infer N extends number}` ? T[N]
+                                                  ~
 
-SOLUÇÃO IMPLEMENTADA:
-1. Adicionada variável "library" na Pipeline SIGPD-Backend
-2. Criado script Bash para remover diretórios problemáticos (ear/C:/)
-3. Validada expansão correta das variáveis de ambiente
 
-RESULTADO:
-✅ Build 755011 publicou com sucesso no Nexus
-✅ Artefato sigpd-ear-3.4.2.10-SNAPSHOT publicado
-✅ Pipeline pronta para execução de Releases
+Error: node_modules/@types/lodash/common/object.d.ts:1026:51 - error TS2536: Type 'N' cannot be used to index type 'T'.
 
-STATUS: RESOLVIDO
+1026         : K extends `${infer N extends number}` ? T[N]
+                                                       ~~~~
+
+
+Error: node_modules/@types/lodash/common/object.d.ts:1031:46 - error TS1005: '?' expected.
+
+1031         : K extends `${infer N extends number}` ? T[N]
+                                                  ~
+
+
+Error: node_modules/@types/lodash/common/object.d.ts:1031:51 - error TS2536: Type 'N' cannot be used to index type 'T'.
+
+1031         : K extends `${infer N extends number}` ? T[N]
+                                                       ~~~~
+
+
+Error: node_modules/@types/lodash/common/object.d.ts:1041:46 - error TS1005: '?' expected.
+
+1041         : K extends `${infer N extends number}`
+                                                  ~
+
+
+
+##[error]Bash exited with code '1'.
+Finishing: Build Application
