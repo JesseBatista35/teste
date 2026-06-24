@@ -1,14 +1,9 @@
-le me respondeu  isso. Tá entregando ao backend na 443. Tem que solicitar a reconfiguração d vip em modo ssloffloading então.
+Prezados,
 
-16:51
-Exato! SSL Offloading é exatamente o que precisamos — o VIP termina o SSL e repassa HTTP para o backend.
+Conforme evidência em anexo, o certificado para dessp-pmf.mobilidade.caixa.gov.br está válido.
 
-Manda para o Daniel:
+Atenciosamente 
+HITSS/CEPRO/CN Segurança Cibernética
 
-Daniel, boa tarde!
+a segurança respondeu isso
 
-Confirmo — o backend está recebendo HTTP puro na porta 443. Solicito a reconfiguração dos dois VIPs para modo SSL Offloading, onde o VIP termina o SSL e repassa HTTP para o backend:
-
-VIP DES: 10.116.181.177:443 → backend 10.116.200.228:443 em HTTP
-VIP TQS: 10.116.181.178:443 → backend 10.116.201.150:443 em HTTP
-Agradeço!
