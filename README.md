@@ -1,53 +1,89 @@
-Starting:  Define as variáveis de ambiente
-==============================================================================
-Task         : Bash
-Description  : Run a Bash script on macOS, Linux, or Windows
-Version      : 3.227.0
-Author       : Microsoft Corporation
-Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/bash
-==============================================================================
-Generating script.
-========================== Starting Command Output ===========================
-/usr/bin/bash /opt/ads-agent/_work/_temp/6622d7bc-8330-4dfc-b8e7-f0bf343f6344.sh
-/opt/ads-agent/_work/_temp/6622d7bc-8330-4dfc-b8e7-f0bf343f6344.sh: line 4: export: `jboss.deploy.dir=target': not a valid identifier
-/opt/ads-agent/_work/_temp/6622d7bc-8330-4dfc-b8e7-f0bf343f6344.sh: line 5: export: `project.file=./ear/target/sigpd-ear.ear': not a valid identifier
-/opt/ads-agent/_work/_temp/6622d7bc-8330-4dfc-b8e7-f0bf343f6344.sh: line 6: export: `project.extension=ear': not a valid identifier
-/opt/ads-agent/_work/_temp/6622d7bc-8330-4dfc-b8e7-f0bf343f6344.sh: line 7: export: `project.release=false': not a valid identifier
-  Variáveis definidas:
-  jboss.deploy.dir = .deploy.dir
-  project.file = .file
-  project.extension = .extension
-  project.release = .release
-Finishing:  Define as variáveis de ambiente
+14 de janeiro estava assim:
+
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<name>SIGPD</name>
+
+	<groupId>br.gov.caixa.sigpd</groupId>
+	<artifactId>sigpd</artifactId>
+	<version>1.8.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<modules>
+		<module>ear</module>
+		<module>core</module>
+		<module>api</module>
+		<module>batch</module>
+	</modules>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.target>${java.version}</maven.compiler.target>
+		<maven.compiler.source>${java.version}</maven.compiler.source>
+		<maven.build.timestamp.format>dd/MM/yyyy HH:mm::ss</maven.build.timestamp.format>
+		<dev.build.timestamp>${maven.build.timestamp}</dev.build.timestamp>
+
+		<java.version>1.8</java.version>
+		<jee.version>7.0</jee.version>
+		<lombok.version>1.18.10</lombok.version>
+		<swagger.version>1.6.1</swagger.version>
+		<oracle.version>12.2.0.1</oracle.version>
+		<junit.version>4.12</junit.version>
+		<mockito.version>3.1.0</mockito.version>
+		<hamcrest.version>2.2</hamcrest.version>
+		<powermock.version>2.0.7</powermock.version>
+		<glassfish.embedded.version>3.1</glassfish.embedded.version>
+		<hibernate.version>6.0.2.Final</hibernate.version>
+		<jackson.version>2.13.3</jackson.version>
+		<jackson.datatype>2.6.0</jackson.datatype>
+		<jboss.resteasy>3.0.16.Final</jboss.resteasy>
+		<apache.commons.lang>3.11</apache.commons.lang>
+		<version.weld-junit>4.0.0.Final</version.weld-junit>
+		<graalvm.version>20.2.0</graalvm.version>
 
 
-
-Publica no Nexus
-
-View raw log
-Starting: Publica no Nexus
-==============================================================================
-Task         : Bash
-Description  : Run a Bash script on macOS, Linux, or Windows
-Version      : 3.227.0
-Author       : Microsoft Corporation
-Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/bash
-==============================================================================
-Generating script.
-========================== Starting Command Output ===========================
-/usr/bin/bash /opt/ads-agent/_work/_temp/aac3f911-7611-4921-9a8a-39bf2fdfe227.sh
-VEC false
-=== Info do pacote ===
-groupid= br.gov.caixa.sigpd
-artifact= sigpd-ear
-version= 3.4.2.10-SNAPSHOT
-=========================================================
-/opt/ads-agent/_work/_temp/aac3f911-7611-4921-9a8a-39bf2fdfe227.sh: line 28: library: comando não encontrado
-/opt/ads-agent/_work/_temp/aac3f911-7611-4921-9a8a-39bf2fdfe227.sh: line 38: ./ear/${jboss.deploy.dir}/sigpd-ear.ear: substituição incorreta
-Async Command Start: Update Build Number
-Update build number to 3.4.2.10-SNAPSHOT for build 754628
-Async Command End: Update Build Number
-Finishing: Publica no Nexus
+    hoje ta assim:
 
 
-mesmo assim error.. ah quer saber cansei.. amanha retomamos
+    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<name>SIGPD</name>
+
+	<groupId>br.gov.caixa.sigpd</groupId>
+	<artifactId>sigpd</artifactId>
+	<version>3.4.2.10</version>
+	<packaging>pom</packaging>
+
+	<modules>
+		<module>ear</module>
+		<module>core</module>
+		<module>api</module>
+		<module>batch</module>
+	</modules>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.target>${java.version}</maven.compiler.target>
+		<maven.compiler.source>${java.version}</maven.compiler.source>
+		<maven.build.timestamp.format>dd/MM/yyyy HH:mm::ss</maven.build.timestamp.format>
+		<dev.build.timestamp>${maven.build.timestamp}</dev.build.timestamp>
+
+		<java.version>1.8</java.version>
+		<jee.version>7.0</jee.version>
+		<lombok.version>1.18.10</lombok.version>
+		<swagger.version>1.6.1</swagger.version>
+		<oracle.version>12.2.0.1</oracle.version>
+		<junit.version>4.12</junit.version>
+		<mockito.version>3.1.0</mockito.version>
+		<hamcrest.version>2.2</hamcrest.version>
+		<powermock.version>2.0.7</powermock.version>
+		<glassfish.embedded.version>3.1</glassfish.embedded.version>
+		<hibernate.version>6.0.2.Final</hibernate.version>
