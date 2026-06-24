@@ -1,67 +1,28 @@
-{
-  "name": "SIGCB-frontend",
-  "version": "1.00.0.7",
-  "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "start:dev": "ng serve --source-map=true --hmr --live-reload",
-    "build:dev": "ng build",
-    "build": "ng build --configuration production",
-    "watch": "ng serve --watch --configuration development",
-    "test": "ng test",
-    "test-coverage": "ng test --code-coverage"
-  },
-  "private": true,
-  "dependencies": {
-    "@angular/animations": "^12.2.17",
-    "@angular/cdk": "^12.2.13",
-    "@angular/common": "^12.2.17",
-    "@angular/compiler": "^12.2.17",
-    "@angular/core": "^12.2.17",
-    "@angular/forms": "^12.2.17",
-    "@angular/material": "~12.2.13",
-    "@angular/platform-browser": "^12.2.17",
-    "@angular/platform-browser-dynamic": "^12.2.17",
-    "@angular/router": "^12.2.17",
-    "@azure/msal-angular": "^2.5.13",
-    "@azure/msal-browser": "^2.39.0",
-    "@material/data-table": "^14.0.0",
-    "caniuse-lite": "^1.0.30001699",
-    "dsc-components": "^2.3.3",
-    "futura-font": "^1.0.0",
-    "lodash": "^4.17.21",
-    "moment": "^2.30.1",
-    "ng2-currency-mask": "^13.0.3",
-    "ngx-mask": "^13.2.2",
-    "rxjs": "~6.6.0",
-    "tslib": "^2.3.0",
-    "xlsx": "^0.18.5",
-    "zone.js": "~0.11.4"
-  },
-  "devDependencies": {
-    "@angular-devkit/build-angular": "^12.2.17",
-    "@angular/cli": "^12.2.18",
-    "@angular/compiler-cli": "~12.2.0",
-    "@types/jasmine": "~3.8.0",
-    "@types/lodash": "^4.17.0",
-    "@types/node": "^12.20.55",
-    "eslint": "^8.57.0",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-prettier": "^5.1.3",
-    "jasmine-core": "~3.8.0",
-    "karma": "~6.3.0",
-    "karma-chrome-launcher": "~3.1.0",
-    "karma-coverage": "~2.0.3",
-    "karma-coverage-istanbul-reporter": "^3.0.3",
-    "karma-firefox-launcher": "^2.1.3",
-    "karma-jasmine": "~4.0.0",
-    "karma-jasmine-html-reporter": "~1.7.0",
-    "karma-junit-reporter": "^2.0.1",
-    "karma-sonarqube-reporter": "^1.4.0",
-    "karma-spec-reporter": "^0.0.36",
-    "prettier": "^3.2.5",
-    "tslint": "^6.1.3",
-    "typescript": "~4.3.5"
-  },
-  "packageManager": "npm@10.8.2+sha512.c7f0088c520a46596b85c6f8f1da943400199748a0f7ea8cb8df75469668dc26f6fb3ba26df87e2884a5ebe91557292d0f3db7d0929cdb4f14910c3032ac81fb"
-}
+
+Prezados,
+
+Foi identificada falha no pipeline de build do projeto SIGCB-frontend durante execução do comando `ng build --configuration production`.
+
+**Problema:**
+Erros de compilação TypeScript relacionados a incompatibilidade de versões no arquivo `package.json`:
+
+- **@types/lodash**: versão instalada (^4.17.0) utiliza sintaxe TypeScript 4.7+ (`infer N extends number`)
+- **typescript**: projeto configurado com versão 4.3.5
+
+Esta incompatibilidade impede a compilação do projeto.
+
+**Ação Necessária (Time de Desenvolvimento):**
+
+1. Verificar o arquivo `package.json` na raiz do repositório
+2. Alterar a versão de `@types/lodash` para: `"@types/lodash": "^4.14.175"`
+3. Executar `npm install` localmente para validar as mudanças
+4. Commitar as alterações (`package.json` e `package-lock.json`) no repositório
+5. Notificar quando as mudanças estiverem no branch de build
+
+Após a correção, a esteira será reexecutada e o build deverá completar com sucesso.
+
+Qualquer dúvida técnica, favor entrar em contato.
+
+Atenciosamente,
+[Seu Nome]
+Analista de Esteiras - NPRD
