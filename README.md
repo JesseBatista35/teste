@@ -1,30 +1,37 @@
-  .   ____          _            __ _ _
- /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
-( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
- \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
-  '  |____| .__|_| |_|_| |_\__, | / / / /
- =========|_|==============|___/=/_/_/_/
- :: Spring Boot ::                (v2.7.8)
-
-[25-06-2026 09:51:29] INFO [br.gov.caixa.sineb.controller.v1.ParametrosValorControllerTest:55] Starting ParametrosValorControllerTest using Java 11 on cadsvaprlx373.intra.caixa.gov.br with PID 2370 (started by sadscp01 in /opt/ads-agent/work_ads/6932/s)
-[25-06-2026 09:51:29] DEBUG [br.gov.caixa.sineb.controller.v1.ParametrosValorControllerTest:56] Running with Spring Boot v2.7.8, Spring v5.3.25
-[25-06-2026 09:51:29] INFO [br.gov.caixa.sineb.controller.v1.ParametrosValorControllerTest:631] No active profile set, falling back to 1 default profile: "default"
-[25-06-2026 09:51:29] INFO [br.gov.caixa.sineb.controller.v1.ParametrosValorControllerTest:61] Started ParametrosValorControllerTest in 0.435 seconds (JVM running for 29.027)
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.570 s -- in br.gov.caixa.sineb.controller.v1.ParametrosValorControllerTest
-[INFO] 
-[INFO] Results:
-[INFO] 
-[ERROR] Errors: 
-[ERROR]   SicliServiceTest.test0001ObterDadosBasicos:44 » ResourceAccess I/O error on POST request for "https://logindes.caixa.gov.br/auth/realms/internet/protocol/openid-connect/token": PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target; nested exception is javax.net.ssl.SSLHandshakeException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
-[ERROR]   SicliServiceTest.test0002ObterContatos:61 » ResourceAccess I/O error on POST request for "https://logindes.caixa.gov.br/auth/realms/internet/protocol/openid-connect/token": PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target; nested exception is javax.net.ssl.SSLHandshakeException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
-[ERROR]   SicliServiceTest.test0003ObterEnderecos:77 » ResourceAccess I/O error on POST request for "https://logindes.caixa.gov.br/auth/realms/internet/protocol/openid-connect/token": PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target; nested exception is javax.net.ssl.SSLHandshakeException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
-[ERROR]   SicliServiceTest.test0004ObterDocumentos:94 » ResourceAccess I/O error on POST request for "https://logindes.caixa.gov.br/auth/realms/internet/protocol/openid-connect/token": PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target; nested exception is javax.net.ssl.SSLHandshakeException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
-[ERROR]   SicliServiceTest.test0005ObterAdministradores:113 » ResourceAccess I/O error on POST request for "https://logindes.caixa.gov.br/auth/realms/internet/protocol/openid-connect/token": PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target; nested exception is javax.net.ssl.SSLHandshakeException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
-[ERROR]   SicliServiceTest.test0006VerificaAdministrador:132 » ResourceAccess I/O error on POST request for "https://logindes.caixa.gov.br/auth/realms/internet/protocol/openid-connect/token": PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target; nested exception is javax.net.ssl.SSLHandshakeException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
-[ERROR]   SicliServiceTest.test0007ObterDadosSICLI:156 » ResourceAccess I/O error on POST request for "https://logindes.caixa.gov.br/auth/realms/internet/protocol/openid-connect/token": PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target; nested exception is javax.net.ssl.SSLHandshakeException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
-[ERROR]   SifecServiceTest.testSifecDetalharContratoPorIdESistema:82 » ResourceAccess I/O error on POST request for "https://logindes.caixa.gov.br/auth/realms/internet/protocol/openid-connect/token": PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target; nested exception is javax.net.ssl.SSLHandshakeException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
-[ERROR]   SifecServiceTest.testSifecGerarBoleto:110 » ResourceAccess I/O error on POST request for "https://logindes.caixa.gov.br/auth/realms/internet/protocol/openid-connect/token": PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target; nested exception is javax.net.ssl.SSLHandshakeException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
-[ERROR]   SifecServiceTest.testSifecGetContratosByCpfCnpj:51 » ResourceAccess I/O error on POST request for "https://logindes.caixa.gov.br/auth/realms/internet/protocol/openid-connect/token": PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target; nested exception is javax.net.ssl.SSLHandshakeException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
-[ERROR]   SifecServiceTest.testSifecGetDadosAdicionaisContrato:141 » ResourceAccess I/O error on POST request for "https://logindes.caixa.gov.br/auth/realms/internet/protocol/openid-connect/token": PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target; nested exception is javax.net.ssl.SSLHandshakeException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
-[INFO] 
-[ERROR] Tests run: 89, Failures: 0, Errors: 11, Skipped: 0
+43494 silly saveTree │ ├── adler-32@1.3.1
+43494 silly saveTree │ ├─┬ cfb@1.2.2
+43494 silly saveTree │ │ └── crc-32@1.2.2
+43494 silly saveTree │ ├── codepage@1.15.0
+43494 silly saveTree │ ├── crc-32@1.2.2
+43494 silly saveTree │ ├─┬ ssf@0.11.2
+43494 silly saveTree │ │ └── frac@1.1.2
+43494 silly saveTree │ ├── wmf@1.0.2
+43494 silly saveTree │ └── word@0.3.0
+43494 silly saveTree └── zone.js@0.11.8
+43495 warn siifx-web@1.0.0-snapshot No repository field.
+43496 warn The package karma-coverage is included as both a dev and production dependency.
+43497 warn optional SKIPPING OPTIONAL DEPENDENCY: fsevents@1.2.13 (node_modules/webpack-dev-server/node_modules/fsevents):
+43498 warn notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@1.2.13: wanted {"os":"darwin","arch":"any"} (current: {"os":"linux","arch":"x64"})
+43499 verbose notsup SKIPPING OPTIONAL DEPENDENCY: Valid OS:    darwin
+43499 verbose notsup SKIPPING OPTIONAL DEPENDENCY: Valid Arch:  any
+43499 verbose notsup SKIPPING OPTIONAL DEPENDENCY: Actual OS:   linux
+43499 verbose notsup SKIPPING OPTIONAL DEPENDENCY: Actual Arch: x64
+43500 warn optional SKIPPING OPTIONAL DEPENDENCY: fsevents@1.2.13 (node_modules/watchpack-chokidar2/node_modules/fsevents):
+43501 warn notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@1.2.13: wanted {"os":"darwin","arch":"any"} (current: {"os":"linux","arch":"x64"})
+43502 verbose notsup SKIPPING OPTIONAL DEPENDENCY: Valid OS:    darwin
+43502 verbose notsup SKIPPING OPTIONAL DEPENDENCY: Valid Arch:  any
+43502 verbose notsup SKIPPING OPTIONAL DEPENDENCY: Actual OS:   linux
+43502 verbose notsup SKIPPING OPTIONAL DEPENDENCY: Actual Arch: x64
+43503 warn optional SKIPPING OPTIONAL DEPENDENCY: fsevents@2.3.3 (node_modules/fsevents):
+43504 warn notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@2.3.3: wanted {"os":"darwin","arch":"any"} (current: {"os":"linux","arch":"x64"})
+43505 verbose notsup SKIPPING OPTIONAL DEPENDENCY: Valid OS:    darwin
+43505 verbose notsup SKIPPING OPTIONAL DEPENDENCY: Valid Arch:  any
+43505 verbose notsup SKIPPING OPTIONAL DEPENDENCY: Actual OS:   linux
+43505 verbose notsup SKIPPING OPTIONAL DEPENDENCY: Actual Arch: x64
+43506 verbose stack Error: @syncfusion/ej2-angular-base@19.4.56 postinstall: `node ./postinstall.js`
+43506 verbose stack Exit status 1
+43506 verbose stack     at EventEmitter.<anonymous> (/opt/ads-agent/_work/_tool/node/14.18.2/x64/lib/node_modules/npm/node_modules/npm-lifecycle/index.js:332:16)
+43506 verbose stack     at EventEmitter.emit (events.js:400:28)
+43506 verbose stack     at ChildProcess.<anonymous> (/opt/ads-agent/_work/_tool/node/14.18.2/x64/lib/node_modules/npm/node_modules/npm-lifecycle/lib/spawn.js:55:14)
+43506 verbose stack     at ChildProcess.emit (events.js:400:28)
+43506 verbose stack     at maybeClose (internal/child_process.js:1058:16)
