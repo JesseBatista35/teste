@@ -1,15 +1,13 @@
-cat > karma.conf.js << 'EOF'
 // Karma configuration file, see link for more information
 // https://karma-runner.github.io/1.0/config/configuration-file.html
- 
+
 module.exports = function (config) {
     config.set({
         basePath: '',
         frameworks: ['jasmine', '@angular-devkit/build-angular'],
         plugins: [
             require('karma-jasmine'),
-            require('karma-chrome-launcher'),
-            //require('karma-firefox-launcher'),
+            require('karma-firefox-launcher'),
             require('karma-jasmine-html-reporter'),
             require('karma-junit-reporter'),
             require('karma-coverage-istanbul-reporter'),
@@ -19,16 +17,18 @@ module.exports = function (config) {
         ],
         client: {
             jasmine: {
-                random: false,
+                random: false, // run tests in the order they are defined
             },
-            clearContext: false,
+            clearContext: false, // leave Jasmine Spec Runner output visible in browser
         },
         jasmineHtmlReporter: {
-            suppressAll: true,
+            suppressAll: true, // removes the duplicated traces
         },
+
         junitReporter: {
-            outputDir: 'junit',
+            outputDir: 'junit', // results will be saved as $outputDir/$browserName.xml
         },
+
         coverageReporter: {
             dir: require('path').join(__dirname, 'coverage'),
             subdir: '.',
@@ -37,11 +37,11 @@ module.exports = function (config) {
         proxies: {
             '/assets/': '/base/src/assets/',
         },
-        files: [
+        files: 
+            [
             { pattern: './src/assets/**', watched: false, included: false, nocache: false, served: true },
             { pattern: './src/typography-font-faces.css', watched: false, included: true, nocache: false, served: true },
-            { pattern: './src/assets/svg/icons/**', watched: false, included: false, nocache: false, served: true }
-        ],
+            { pattern: './src/assets/svg/icons/**', watched: false, included: false, nocache: false, served: true }],
         sonarqubeReporter: {
             basePath: 'src/app',
             filePattern: '**/*spec.ts',
@@ -52,25 +52,26 @@ module.exports = function (config) {
                 return 'sonarqubeTestReport.xml';
             },
         },
+
         coverageIstanbulReporter: {
             dir: require('path').join(__dirname, 'coverage'),
             reports: ['html', 'lcovonly', 'text-summary'],
             fixWebpackSourcePaths: true,
         },
+
         reporters: ['progress', 'kjhtml', 'junit', 'coverage-istanbul', 'sonarqube', 'spec'],
         port: 9876,
         colors: true,
         logLevel: config.LOG_INFO,
         autoWatch: false,
-        browsers: ['ChromeHeadlessCI'],
+        browsers: ['FirefoxHeadless'],
         singleRun: true,
         restartOnFileChange: true,
-        customLaunchers: {
-            ChromeHeadlessCI: {
-                base: 'ChromeHeadless',
-                flags: ['--no-sandbox', '--disable-gpu']
-            }
-        },
     });
 };
-EOF
+
+
+
+esse é o arquivo opriginal com apenas 70 linhas faça a correção certa..
+
+outro ponto não posso subituri a build inteiro sao taks groups me de um bash script para orodar antes dele 
