@@ -2,24 +2,24 @@
 
 Pessoal, REQ000144658129/WO0000080824869.
 
-Analisamos os logs que conseguimos até agora. Ficou claro que houve mudança de client_id em produção e o fluxo melhorou bastante. Porém ainda estamos com achismo — precisamos de dados concretos do servidor para identificar ONDE exatamente o fluxo quebra.
+Obrigado pela informação. Faz sentido — e-Cobrança é app nativa, sobe direto na loja, não tem servidor backend próprio. Isso significa que toda a camada de autenticação passa pelo servidor de OAuth de vocês em `dessp-pmf.mobilidade.caixa.gov.br`.
 
-Para avançar, precisamos de uma dessas duas coisas:
+Analisando os logs que temos:
+- App chega até o servidor de OAuth
+- Servidor retorna 302 com código de autorização ✅
+- App recebe o redirect, mas falha ao processar ❌
 
-**Opção 1: Logs COMPLETOS do servidor**
+Como toda a lógica está do lado de vocês, a falha provavelmente está em um desses pontos:
 
-Necessário que vocês forneçam:
-- Request headers INTEIROS (não screenshot, texto completo)
-- Response headers INTEIROS
-- Logs de validação do novo client_id `b0bbfcbb-e6bc-41cc-b6a8-170ff0edbf77` no servidor
-- Logs do servidor mostrando o processamento do código de autorização sendo retornado
-- Qualquer bloqueio de WAF, firewall ou política de segurança relacionado
+1. Servidor rejeitando o código de autorização que foi gerado
+2. Algo no header ou corpo do redirect não está correto
+3. Alguma validação de segurança bloqueando o processamento
 
-**Opção 2: Teste controlado executado por vocês**
+O que poderíamos fazer para avançar:
 
-Vocês executam uma requisição EXATAMENTE como eu especifico, com o novo client_id, e me retornam a resposta COMPLETA do servidor. Assim vemos em tempo real o que está acontecendo.
+Qual é o log **exato** que vocês veem no lado do servidor quando a app tenta usar o código de autorização gerado? Ou seja, quando o 302 é retornado e a app tenta processar, o que o servidor registra naquele momento?
 
-Sem logs reais ou teste controlado não conseguimos identificar onde o fluxo está quebrando no servidor. SLA segue 24h.
+Isso ajuda a gente identificar se é rejeição do código, validação de segurança ou outro ponto.
 
 Atenciosamente,
 Jessé
