@@ -1,37 +1,138 @@
-43494 silly saveTree │ ├── adler-32@1.3.1
-43494 silly saveTree │ ├─┬ cfb@1.2.2
-43494 silly saveTree │ │ └── crc-32@1.2.2
-43494 silly saveTree │ ├── codepage@1.15.0
-43494 silly saveTree │ ├── crc-32@1.2.2
-43494 silly saveTree │ ├─┬ ssf@0.11.2
-43494 silly saveTree │ │ └── frac@1.1.2
-43494 silly saveTree │ ├── wmf@1.0.2
-43494 silly saveTree │ └── word@0.3.0
-43494 silly saveTree └── zone.js@0.11.8
-43495 warn siifx-web@1.0.0-snapshot No repository field.
-43496 warn The package karma-coverage is included as both a dev and production dependency.
-43497 warn optional SKIPPING OPTIONAL DEPENDENCY: fsevents@1.2.13 (node_modules/webpack-dev-server/node_modules/fsevents):
-43498 warn notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@1.2.13: wanted {"os":"darwin","arch":"any"} (current: {"os":"linux","arch":"x64"})
-43499 verbose notsup SKIPPING OPTIONAL DEPENDENCY: Valid OS:    darwin
-43499 verbose notsup SKIPPING OPTIONAL DEPENDENCY: Valid Arch:  any
-43499 verbose notsup SKIPPING OPTIONAL DEPENDENCY: Actual OS:   linux
-43499 verbose notsup SKIPPING OPTIONAL DEPENDENCY: Actual Arch: x64
-43500 warn optional SKIPPING OPTIONAL DEPENDENCY: fsevents@1.2.13 (node_modules/watchpack-chokidar2/node_modules/fsevents):
-43501 warn notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@1.2.13: wanted {"os":"darwin","arch":"any"} (current: {"os":"linux","arch":"x64"})
-43502 verbose notsup SKIPPING OPTIONAL DEPENDENCY: Valid OS:    darwin
-43502 verbose notsup SKIPPING OPTIONAL DEPENDENCY: Valid Arch:  any
-43502 verbose notsup SKIPPING OPTIONAL DEPENDENCY: Actual OS:   linux
-43502 verbose notsup SKIPPING OPTIONAL DEPENDENCY: Actual Arch: x64
-43503 warn optional SKIPPING OPTIONAL DEPENDENCY: fsevents@2.3.3 (node_modules/fsevents):
-43504 warn notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@2.3.3: wanted {"os":"darwin","arch":"any"} (current: {"os":"linux","arch":"x64"})
-43505 verbose notsup SKIPPING OPTIONAL DEPENDENCY: Valid OS:    darwin
-43505 verbose notsup SKIPPING OPTIONAL DEPENDENCY: Valid Arch:  any
-43505 verbose notsup SKIPPING OPTIONAL DEPENDENCY: Actual OS:   linux
-43505 verbose notsup SKIPPING OPTIONAL DEPENDENCY: Actual Arch: x64
-43506 verbose stack Error: @syncfusion/ej2-angular-base@19.4.56 postinstall: `node ./postinstall.js`
-43506 verbose stack Exit status 1
-43506 verbose stack     at EventEmitter.<anonymous> (/opt/ads-agent/_work/_tool/node/14.18.2/x64/lib/node_modules/npm/node_modules/npm-lifecycle/index.js:332:16)
-43506 verbose stack     at EventEmitter.emit (events.js:400:28)
-43506 verbose stack     at ChildProcess.<anonymous> (/opt/ads-agent/_work/_tool/node/14.18.2/x64/lib/node_modules/npm/node_modules/npm-lifecycle/lib/spawn.js:55:14)
-43506 verbose stack     at ChildProcess.emit (events.js:400:28)
-43506 verbose stack     at maybeClose (internal/child_process.js:1058:16)
+{
+  "name": "siifx-web",
+  "groupId": "br.gov.caixa.siifx",
+  "version": "1.60.29.005",
+  "description": "Siifx Web",
+  "$schema": "./node_modules/ng-packagr/package.schema.json",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "proxy": "ng serve --proxy-config proxy.conf.json",
+    "proxy:local": "ng serve --proxy-config proxy.local.json",
+    "build": "ng build",
+    "test": "ng test --code-coverage",
+    "lint": "ng lint",
+    "e2e": "ng e2e",
+    "preinstall": "npx npm-force-resolutions",
+    "postinstall": "ngcc"
+  },
+  "resolutions": {
+    "karma-sonarqube-reporter": "1.4.0",
+    "@dabh/diagnostics": "2.0.3",
+    "@so-ric/colorspace": "1.1.5",
+    "injection-js":"2.5.0"
+  },
+  "private": false,
+  "dependencies": {
+    "@angular/animations": "^11.2.14",
+    "@angular/cdk": "^11.2.13",
+    "@angular/common": "^11.2.14",
+    "@angular/compiler": "^11.2.14",
+    "@angular/core": "^11.2.14",
+    "@angular/forms": "^11.2.14",
+    "@angular/localize": "^11.2.14",
+    "@angular/platform-browser": "^11.2.14",
+    "@angular/platform-browser-dynamic": "^11.2.14",
+    "@angular/router": "^11.2.14",
+    "@fortawesome/angular-fontawesome": "^0.8.2",
+    "@fortawesome/fontawesome-svg-core": "^1.2.35",
+    "@fortawesome/free-solid-svg-icons": "^5.15.3",
+    "@ng-bootstrap/ng-bootstrap": "^9.1.0",
+    "@ng-select/ng-select": "^6.1.0",
+    "@ngx-translate/core": "^13.0.0",
+    "@ngx-translate/http-loader": "^6.0.0",
+    "@popperjs/core": "^2.11.6",
+    "@syncfusion/ej2-angular-dropdowns": "^19.1.58",
+    "angular-ng-autocomplete": "^2.0.12",
+    "angular-oauth2-oidc": "^10.0.3",
+    "angular-oauth2-oidc-jwks": "^9.0.0",
+    "axios": "^0.21.1",
+    "bootstrap": "^5.2.2",
+    "chart.js": "^2.9.3",
+    "chokidar": "^3.5.1",
+    "core-js": "^2.5.4",
+    "detached-jquery-1.9.1": "^1.9.1-v5",
+    "file-saver": "^2.0.5",
+    "font-awesome": "^4.7.0",
+    "inputmask": "^5.0.8",
+    "jquery": "^3.6.1",
+    "karma-coverage": "^2.2.0",
+    "keycloak-angular": "^7.2.0",
+    "keycloak-js": "^4.3.0",
+    "moment": "^2.29.4",
+    "ng-jhipster": "^0.16.0",
+    "ng-packagr": "^11.2.4",
+    "ng2-charts": "^2.3.0",
+    "ng2-currency-mask": "^11.0.0",
+    "ng7-dynamic-breadcrumb": "5.0.1",
+    "ngb-modal": "^2.0.3",
+    "ngx-currency": "^2.5.2",
+    "ngx-mask": "^11.1.5",
+    "ngx-order-pipe": "^2.1.1",
+    "ngx-pagination": "^5.0.0",
+    "ngx-renderer-v2": "^2.0.1",
+    "prettier": "2.2.1",
+    "primeflex": "^2.0.0",
+    "primeicons": "^4.1.0",
+    "primeng": "^11.4.5",
+    "rxjs": "6.6.7",
+    "tslib": "^2.0.0",
+    "xlsx": "^0.18.5",
+    "zone.js": "^0.11.8"
+  },
+  "engines": {
+    "node": "12.18.3",
+    "npm": "6.14.6"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/FortAwesome/angular-fontawesome/issues"
+  },
+  "homepage": "https://github.com/FortAwesome/angular-fontawesome",
+  "devDependencies": {
+    "@angular-devkit/build-angular": "~0.1102.18",
+    "@angular/cli": "~11.2.19",
+    "@angular/compiler-cli": "~11.2.14",
+    "@types/jasmine": "~3.6.0",
+    "@types/jest": "^29.5.12",
+    "@types/node": "^12.11.1",
+    "codelyzer": "^6.0.0",
+    "jasmine-core": "~3.6.0",
+    "jasmine-spec-reporter": "~5.0.0",
+    "karma": "~6.3.0",
+    "karma-coverage": "~2.0.3",
+    "karma-coverage-istanbul-reporter": "^3.0.3",
+    "karma-firefox-launcher": "^2.1.3",
+    "karma-jasmine": "~4.0.0",
+    "karma-jasmine-html-reporter": "~1.7.0",
+    "karma-junit-reporter": "^2.0.1",
+    "karma-sonarqube-reporter": "1.4.0",
+    "karma-spec-reporter": "0.0.36",
+    "npm-force-resolutions": "0.0.10",
+    "protractor": "~7.0.0",
+    "ts-node": "~8.3.0",
+    "tslint": "~6.1.0",
+    "typescript": "~4.1.5"
+  },
+  "keywords": [
+    "angular",
+    "font",
+    "awesome",
+    "fontawesome",
+    "icon",
+    "svg"
+  ],
+  "peerDependencies": {
+    "@fortawesome/angular-fontawesome": "^0.8.2",
+    "@fortawesome/fontawesome-svg-core": "^1.2.35"
+  },
+  "ngPackage": {
+    "lib": {
+      "entryFile": "src/lib/public_api.ts",
+      "flatModuleFile": "angular-fontawesome"
+    },
+    "dest": "./dist/angular-fontawesome"
+  },
+  "schematics": "./schematics/collection.json"
+}
+
