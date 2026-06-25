@@ -1,35 +1,30 @@
-SIMTX-assinatura-multipla-okd4
-
-SIMTX-assinatura-multipla-20260624.1006-1.2.1.8-SNAPSHOT(8)
-
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.7.8)
 
-EC DES2
-
-Queued
-
-
-Pipeline
-
-Tasks
-
-Variables
-
-Logs
-
-Tests
-Status
-Queued
-Sub-status
-Waiting in the deployment queue. View queue
-Trigger
-Automated after release creation
-Requested by
-
-Jesse Mouta Pereira Batista
-Requested for
-
-Jesse Mouta Pereira Batista
-Started
-Not yet started
-Completed
-Not yet completed
+[25-06-2026 09:51:29] INFO [br.gov.caixa.sineb.controller.v1.ParametrosValorControllerTest:55] Starting ParametrosValorControllerTest using Java 11 on cadsvaprlx373.intra.caixa.gov.br with PID 2370 (started by sadscp01 in /opt/ads-agent/work_ads/6932/s)
+[25-06-2026 09:51:29] DEBUG [br.gov.caixa.sineb.controller.v1.ParametrosValorControllerTest:56] Running with Spring Boot v2.7.8, Spring v5.3.25
+[25-06-2026 09:51:29] INFO [br.gov.caixa.sineb.controller.v1.ParametrosValorControllerTest:631] No active profile set, falling back to 1 default profile: "default"
+[25-06-2026 09:51:29] INFO [br.gov.caixa.sineb.controller.v1.ParametrosValorControllerTest:61] Started ParametrosValorControllerTest in 0.435 seconds (JVM running for 29.027)
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.570 s -- in br.gov.caixa.sineb.controller.v1.ParametrosValorControllerTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[ERROR] Errors: 
+[ERROR]   SicliServiceTest.test0001ObterDadosBasicos:44 » ResourceAccess I/O error on POST request for "https://logindes.caixa.gov.br/auth/realms/internet/protocol/openid-connect/token": PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target; nested exception is javax.net.ssl.SSLHandshakeException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+[ERROR]   SicliServiceTest.test0002ObterContatos:61 » ResourceAccess I/O error on POST request for "https://logindes.caixa.gov.br/auth/realms/internet/protocol/openid-connect/token": PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target; nested exception is javax.net.ssl.SSLHandshakeException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+[ERROR]   SicliServiceTest.test0003ObterEnderecos:77 » ResourceAccess I/O error on POST request for "https://logindes.caixa.gov.br/auth/realms/internet/protocol/openid-connect/token": PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target; nested exception is javax.net.ssl.SSLHandshakeException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+[ERROR]   SicliServiceTest.test0004ObterDocumentos:94 » ResourceAccess I/O error on POST request for "https://logindes.caixa.gov.br/auth/realms/internet/protocol/openid-connect/token": PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target; nested exception is javax.net.ssl.SSLHandshakeException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+[ERROR]   SicliServiceTest.test0005ObterAdministradores:113 » ResourceAccess I/O error on POST request for "https://logindes.caixa.gov.br/auth/realms/internet/protocol/openid-connect/token": PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target; nested exception is javax.net.ssl.SSLHandshakeException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+[ERROR]   SicliServiceTest.test0006VerificaAdministrador:132 » ResourceAccess I/O error on POST request for "https://logindes.caixa.gov.br/auth/realms/internet/protocol/openid-connect/token": PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target; nested exception is javax.net.ssl.SSLHandshakeException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+[ERROR]   SicliServiceTest.test0007ObterDadosSICLI:156 » ResourceAccess I/O error on POST request for "https://logindes.caixa.gov.br/auth/realms/internet/protocol/openid-connect/token": PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target; nested exception is javax.net.ssl.SSLHandshakeException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+[ERROR]   SifecServiceTest.testSifecDetalharContratoPorIdESistema:82 » ResourceAccess I/O error on POST request for "https://logindes.caixa.gov.br/auth/realms/internet/protocol/openid-connect/token": PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target; nested exception is javax.net.ssl.SSLHandshakeException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+[ERROR]   SifecServiceTest.testSifecGerarBoleto:110 » ResourceAccess I/O error on POST request for "https://logindes.caixa.gov.br/auth/realms/internet/protocol/openid-connect/token": PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target; nested exception is javax.net.ssl.SSLHandshakeException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+[ERROR]   SifecServiceTest.testSifecGetContratosByCpfCnpj:51 » ResourceAccess I/O error on POST request for "https://logindes.caixa.gov.br/auth/realms/internet/protocol/openid-connect/token": PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target; nested exception is javax.net.ssl.SSLHandshakeException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+[ERROR]   SifecServiceTest.testSifecGetDadosAdicionaisContrato:141 » ResourceAccess I/O error on POST request for "https://logindes.caixa.gov.br/auth/realms/internet/protocol/openid-connect/token": PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target; nested exception is javax.net.ssl.SSLHandshakeException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+[INFO] 
+[ERROR] Tests run: 89, Failures: 0, Errors: 11, Skipped: 0
