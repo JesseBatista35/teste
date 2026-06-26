@@ -1,126 +1,28 @@
-Skip to main content
-Azure DevOps
-projetos
-/
-Caixa
-/
-Pipelines
-/
-Releases
-/
-SINOP-backend
-Search
+@Backend @Segurança @Administração de Identidades
 
+Pessoal, REQ000144658129/WO0000080824869. Mudança importante de escopo.
 
-Caixa
+Identificamos que o problema NÃO é mais OAuth bloqueando de forma genérica. Uma única credencial retorna login com sucesso, enquanto outras falham com 401/302. Isso indica que o servidor de OAuth está respondendo corretamente, mas a autorização por credencial está dessincronizada.
 
-Overview
+Além disso, mesmo após login bem-sucedido, os serviços internos retornam 500, o que sugere problema de integração pós-autenticação.
 
-Boards
+O problema real provavelmente está em:
 
-Repos
+1. Base de credenciais dessincronizada ou desatualizada
+2. Cache de autenticação vencido ou não atualizado
+3. Mudança recente em ACLs ou políticas de autorização
+4. Serviços internos com falha na integração pós-autenticação
 
-Pipelines
-Pipelines
-Environments
-Releases
-Library
-Task groups
-Deployment groups
-Portal Infra
+Preciso esclarecer com os times responsáveis:
 
-Test Plans
+- Quem gerencia a base de credenciais e ACLs para esse fluxo? Houve sincronização recente ou mudança?
+- Os serviços que retornam 500 após login, quais são e quem é responsável?
+- A credencial que funciona tem alguma coisa diferente no servidor em relação às que falham?
 
-Artifacts
-Project settings
-All pipelines
-
-SINOP
-
-SINOP-backend
-Predefined variables
-Filter by keywords
-Scope
-
+Sem essas informações não conseguimos avançar. SLA segue 24h.
 
-AMBIENTE
-des
-AMBIENTE
-tqs
-AMBIENTE
-hmp
-AMBIENTE
-prd
-AMBIENTE_BUILD
-build-images-ads
-CGC_UNIDADE_DES
-7390
-CGC_UNIDADE_OPS
-7259
-PROBE_HTTP_LIVENESS
-http://:8080/
-PROBE_HTTP_READINESS
-http://:8080/
-SISTEMAAMBIENTE
-des
-SISTEMAAMBIENTE
-tqs
-SISTEMANOME
-SINOP-backend
-SITE
-okd4_nprd
-SITE
-okd4_nprd
-SITE
-okd4_nprd
-SITE
-okd4_prd
-SONAR_URL
-http://sonar.produtos.caixa
-TemplateRelease_OKD
-openshift/dotnetcore-caixa-release
-UNIDADE
-BR
-Showing filters 1 through 3
-
-No code files found for 'webhook' with applied filters
-
-Expanded
-
-Collapsed
-
-Expanded
-
-Collapsed
-
-Select a release pipeline to view its releases
-
-27 pipelines found
-
-Select a release pipeline to view its releases
-
-3 pipelines found
-
-Select a release pipeline to view its releases
-
-3 pipelines found
-
-Select a release pipeline to view its releases
-
-3 pipelines found
-
-Row 2
-
-Expanded
-
-Row 2
-
-Collapsed
-
-Showing filters 1 through 2
-
-Showing filters 1 through 2
-
-<img width="1877" height="976" alt="image" src="https://github.com/user-attachments/assets/7ed24bd8-8ebc-43c1-9281-c35d4a8e1901" />
-
+Atenciosamente,
+Jessé Mouta Pereira Batista
+Analista
+CTIS / CESTI Esteira DEVOPS DES TQS NPRD
 
