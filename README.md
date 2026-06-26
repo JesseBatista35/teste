@@ -1,12 +1,22 @@
-Olá
-Jesse Mouta Pereira Batista  tudo bem ? 
- 
-Foi identificado que o problema de acesso atualmente, não está ocorrendo em todas as massas utilizadas, ou seja, existe uma massa que o login tem um retorno com sucesso do SSO, mesmo com esse positivo, os serviços de chamadas internos estão com retorno 500 pós login.
- 
-Então só pra contextualizar:
- - Login do SSO está temporariamente retornando positivo apenas para uma credencial
- - Demais massas utilizadas procedem de erro na autenticação(sem mudanças de desenvolvimento ou implementação realizadas recentemente)
- - Status dos erros durante tentativa de acesso no login procedem de 401 e 302 durante o authorization (o que é estranho porque outro login positivo com uma única massa não recai essa negativa para 401) e que possivelmente impede o redirect corretamente no acesso
- - As massas utilizadas estavam com fluxo ativo até semanas atrás inclusive é de foco das demandas atuantes do desenvolvedores
- 
-Com isso, minha duvida que fica é, qual time responsável pode nos auxiliar para esse problema ? o sso está impedindo mesmo ou há um problema atual neste serviço para os casos citados ? qual relação poderia orientar-nos para entender a tratativa que está ocorrendo ?
+recebi essa demanda sou analistata de esteiras DES E TQS NPRD.
+
+nao sei o que fazer nem sei se é escopo minha atuação em servico webhook
+Favor,  	Peço verificar o funcionamento (serviço Webhook) que envia informações da esteira para o ambiente de desenvolvimento do SINOP.
+
+Essas informações são enviadas através de um Json para o end point
+
+https://sinop-backend-des.apps.nprd.caixa/api/pacote-implantacao/integracao-devops
+Serviço está cadastrado na esteira, vale para todos os projetos
+Segue imagem do cadastro do WEBhook (anexamos)
+
+
+
+quando acesso esse link da erro:
+
+
+https://sinop-backend-des.apps.nprd.caixa/api/pacote-implantacao/integracao-devops
+
+{"type":"https://tools.ietf.org/html/rfc7231#section-6.5.1","title":"One or more validation errors occurred.","status":400,"traceId":"|deeaf238-48b1741f54ba0452.","errors":{"id":["The value 'integracao-devops' is not valid."]}}.
+
+<img width="1882" height="230" alt="image" src="https://github.com/user-attachments/assets/f34ee090-033f-41c1-8320-4c3f4b636335" />
+
