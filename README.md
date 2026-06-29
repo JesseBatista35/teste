@@ -1,21 +1,21 @@
-olhadno aqui no repo 
+#!/bin/bash
+set -e
 
+echo "======================================"
+echo "Preparando Vault do SIMPG"
+echo "======================================"
 
-esse e o caminho do vault
+# Artifact vem do Azure DevOps
+# Procura o keystore
+KEYSTORE=$(find . -name "vaultcaixa.keystore" -type f 2>/dev/null | head -1)
 
+if [ -n "$KEYSTORE" ]; then
+  echo "Encontrado: $KEYSTORE"
+  mkdir -p /opt/jboss/standalone/configuration/vault-des
+  cp "$KEYSTORE" /opt/jboss/standalone/configuration/vault-des/vaultcaixa.keystore
+  echo "✓ Vault copiado"
+else
+  echo "⚠ Keystore não encontrado - continuando"
+fi
 
-
-SIMPG-jboss-config
-
-configuration
-vault-des
-.placeholder
-saidavault.txt
-VAULT.dat
-vaultcaixa.keystore
-vaultcaixa.keystore-old
-vault-prd
-vault-tqs
-.placeholder
-standalone-okd.xml
-standalone.conf
+echo "======================================"
