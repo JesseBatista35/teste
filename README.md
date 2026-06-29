@@ -1,21 +1,13 @@
-#!/bin/bash
-set -e
+uma questão que eu estava analisando
 
-echo "======================================"
-echo "Preparando Vault do SIMPG"
-echo "======================================"
+na task de download tem isso aqui:
 
-# Artifact vem do Azure DevOps
-# Procura o keystore
-KEYSTORE=$(find . -name "vaultcaixa.keystore" -type f 2>/dev/null | head -1)
+simpg-vaultcaixa-des.keystore
 
-if [ -n "$KEYSTORE" ]; then
-  echo "Encontrado: $KEYSTORE"
-  mkdir -p /opt/jboss/standalone/configuration/vault-des
-  cp "$KEYSTORE" /opt/jboss/standalone/configuration/vault-des/vaultcaixa.keystore
-  echo "✓ Vault copiado"
-else
-  echo "⚠ Keystore não encontrado - continuando"
-fi
 
-echo "======================================"
+porem no repo de config ele ta com esse nome:
+
+valtcaixa.keytore
+
+
+sera se an oteria que ter o mesmo nome??
