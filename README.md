@@ -1,14 +1,29 @@
-# 1. O arquivo tá em algum lugar?
-find /opt/jboss -name "*vault*" -type f 2>/dev/null
 
-# 2. Qual configuração o standalone.xml espera?
-grep -A 5 "<vault>" /opt/jboss/standalone/configuration/standalone-full-ha.xml | head -20
-
-# 3. O diretório existe?
-ls -la /opt/jboss/standalone/configuration/vault-des 2>/dev/null || echo "NÃO EXISTE"
-
-# 4. Que arquivos .keystore tem no container?
-find /opt/jboss -name "*.keystore" -type f
-
-# 5. Se o arquivo foi baixado, onde ficou?
-ls -la /opt/jboss/standalone/configuration/ | grep -i vault
+-sh-4.2$
+-sh-4.2$ oc project simpg-des
+Now using project "simpg-des" on server "https://api.nprd.caixa:6443".
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$ find /opt/jboss -name "*vault*" -type f 2>/dev/null
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$ grep -A 5 "<vault>" /opt/jboss/standalone/configuration/standalone-full-ha.xml | head -20
+grep: /opt/jboss/standalone/configuration/standalone-full-ha.xml: Arquivo ou diretório não encontrado
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$ ls -la /opt/jboss/standalone/configuration/vault-des 2>/dev/null || echo "NÃO EXISTE"
+NÃO EXISTE
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$ find /opt/jboss -name "*.keystore" -type f
+find: ‘/opt/jboss’: Arquivo ou diretório não encontrado
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$ ls -la /opt/jboss/standalone/configuration/ | grep -i vault
+ls: não é possível acessar /opt/jboss/standalone/configuration/: Arquivo ou diretório não encontrado
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
