@@ -1,1 +1,18 @@
-<img width="1872" height="927" alt="image" src="https://github.com/user-attachments/assets/5a8f8b00-e155-4d2e-9ff7-d2f1d38187af" />
+Configura .netrc para Heartbeat
+
+
+
+cat > ~/.netrc << 'EOF'
+machine download-ofd.apps.topazevolution.com
+  login $(HEARTBEAT_AWS_CODECOMMIT_USERNAME)
+  password $(HEARTBEAT_AWS_CODECOMMIT_URLENCODED_PASSWORD)
+machine git-codecommit.us-east-1.amazonaws.com
+  login $(HEARTBEAT_AWS_CODECOMMIT_USERNAME)
+  password $(HEARTBEAT_AWS_CODECOMMIT_URLENCODED_PASSWORD)
+EOF
+chmod 600 ~/.netrc
+
+
+
+
+
