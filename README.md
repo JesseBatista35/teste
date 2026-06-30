@@ -1,278 +1,424 @@
-Skip to content
-GitHub Enterprise
-Users managed by Caixa Economica Federal
-caixagithub
-sinsh-backend-simulador-pj
-Repository navigation
-Code
-Issues
-Pull requests
-Actions
-Projects
-Models
-Wiki
-Security and quality
-2
- (2)
-Insights
-Settings
-Owner avatar
-sinsh-backend-simulador-pj
-Private
-caixagithub/sinsh-backend-simulador-pj
-Go to file
-t
-T
-This branch is 1 commit behind main.
-Name		
-author
-c161242
-feat: migrado projetos de slnx para sln
-df6e209
- · 
-yesterday
-.github/workflows
-Adicionando arquivos iniciais no repositório: sinsh-backend-simulador-pj
-last week
-SinshBackendSimuladorPJ.API
-feat: migrado projetos de slnx para sln
-yesterday
-SinshBackendSimuladorPJ.Application.Test
-feat: estrutura inicial do projeto
-4 days ago
-SinshBackendSimuladorPJ.Application
-feat: configuração inicial projeto
-yesterday
-SinshBackendSimuladorPJ.Core
-feat: configuração inicial projeto
-yesterday
-SinshBackendSimuladorPJ.Domain.Test
-feat: estrutura inicial do projeto
-4 days ago
-SinshBackendSimuladorPJ.Domain
-feat: configuração inicial projeto
-yesterday
-SinshBackendSimuladorPJ.Infra.Data.EF.Test
-feat: estrutura inicial do projeto
-4 days ago
-SinshBackendSimuladorPJ.Infra.Data.EF
-feat: configuração inicial projeto
-yesterday
-SinsshBackendSimuladorPJ.API.Test
-feat: estrutura inicial do projeto
-4 days ago
-.dockerignore
-feat: estrutura inicial do projeto
-4 days ago
-.gitignore
-feat: estrutura inicial do projeto
-4 days ago
-SinshBackendSimuladorPJ.sln
-feat: migrado projetos de slnx para sln
-yesterday
-catalog-info.yaml
-Adicionando informações ao catálogo no repositório: sinsh-backend-sim…
-last week
-coverage.runsettings
-feat: estrutura inicial do projeto
-4 days ago
-mkdocs.yaml
-Adicionando arquivos iniciais no repositório: sinsh-backend-simulador-pj
-last week
-Repository files navigation
-README
-Add a README
-Add a README with an overview of your project.
-
-About
-Adicionando aplicação: sinsh-backend-simulador-pj
-
-Topics
-backend boxnovosnegociosmoradia estavel
- Activity
- Custom properties
-Stars
- 1 star
-Watchers
- 0 watching
-Forks
- 0 forks
-Releases
-No releases published
-Create a new release
-Deployments
-1
- DES
-Packages
-No packages published
-Publish your first package
-Contributors
-2
-@c137050_caixa
-c137050_caixa Danilo Sousa de Oliveira
-@c161242_caixa
-c161242_caixa Davi dos Santos Juliao
-Languages
-C#
-97.5%
- 
-Dockerfile
-2.5%
+sinsh-backend-simulador-pj-infranprd/des
+/values.yaml
 
 
-o que eu to achando estrano e que nunca vi esse arquivo CODEOWNERS em nenhum repo aqui
 
-esse aqui funciona e nao tem isso nao sei se é o mesmo padrao
+caixa-base-chart:
+
+#-------#
+# IMAGE #
+#-------#
+
+  image:
+    # variavel de imagem do tipo de aplicação
+    repository: registry/repo-app  ## Atualizados pela pipeline
+    tag: "1.0.0" ## Atualizados pela pipeline
+    pullPolicy: Always
+
+#-----#
+# HPA #
+#-----#
+  replicaCount: 1
+
+  autoscaling:
+    enabled: false
+    minReplicas: 1
+    maxReplicas: 3
+    targetCPUUtilizationPercentage: 85
+    targetMemoryUtilizationPercentage: 85
+
+#-----------------#
+# ROLLING UPDATE STRATEGY #
+#-----------------#
+
+  strategy:
+    maxSurge: 25%
+    maxUnavailable: 50%
 
 
-Skip to content
-GitHub Enterprise
-Users managed by Caixa Economica Federal
-caixagithub
-siaci-api-manual
-Repository navigation
-Code
-Issues
-Pull requests
-2
- (2)
-Actions
-Projects
-Models
-Wiki
-Security and quality
-3
- (3)
-Insights
-Settings
-Owner avatar
-siaci-api-manual
-Private
-caixagithub/siaci-api-manual
-Go to file
-t
-T
-Name		
-c067058_caixa
-Gusttavo Gavazza (c067058_caixa)
-Merge pull request #121 from caixagithub/develop
-16f163b
- · 
-last week
-.github/workflows
-Update call-generic-qa-pipelines.yaml
-5 months ago
-ManualDoUsuarioCiweb.Tests
-Implement feature X to enhance user experience and optimize performance
-last week
-ManualDoUsuarioCiweb.WebAPI
-Remove unused ITipoManualUsuarioService dependency from Acitb005Servi…
-last week
-docs
-initial commit
-last year
-.gitignore
-Incluindo secret name como variavel de ambiente
-10 months ago
-Dockerfile
-atualizando dockerfile
-10 months ago
-ManualDoUsuarioSiaci.sln
-Primeiro teste unitário
-10 months ago
-README.md
-initial commit
-last year
-catalog-info.yaml
-initial commit
-last year
-global.json
-initial commit
-last year
-mkdocs.yaml
-initial commit
-last year
-omnisharp.json
-initial commit
-last year
-Repository files navigation
-README
-README
-Parâmetros do template
-RootNs => Root Namespace / Sigla do Sistema
+#-----------#
+#  SERVICE  #
+#-----------#
+  
+  service:
+    type: "ClusterIP"
+    ports:
+      - name: "port"
+        protocol: TCP
+        port: 80
+        targetPort: 8080
 
-SubNs => Sub Namespace / Nome/Sigla do módulo
+#---------#
+# INGRESS #
+#---------#
+  istio:  
+    - name: internal
+      enabled: true
+      servers:
+      - port:
+          number: 80
+          name: http-default
+          protocol: HTTP
+        hosts:
+        - "sinsh-backend-simulador-pj.apl.des-nprd.private.azure"
+      #- port:
+      #    number: 443
+      #    name: https-custom
+      #    protocol: HTTPS
+      #  tls:
+      #    mode: SIMPLE
+      #    credentialName: akvs-sinsh-backend-simulador-pj-certificate # Nome do secret do certificado
+      #  hosts:
+      #    - sinsh-backend-simulador-pj.des-nprd.caixa
+      prefix:
+        - /
+      targetPort: 80 
+  
+#-------------#
+#  RESOURCES  #
+#-------------#
 
-Default Casing: RootNs.SubNs
+  resources:
+    requests:
+      cpu: 250m
+      memory: 256Mi
+    limits:
+      cpu: 500m
+      memory: 512Mi
 
-sln file casing: rootns.subns
 
-CUSTOM-GUID-UPPERCASE-HYFENS => custom/random GUID for project identification using hyfens and uppercase, e.g., AFE491D2-9074-4D2B-BCC9-9DFAC9635BF6
+#----------#
+#  PROBES  #
+#----------#
 
-Observações
-global.json: versão mínima do dotnet definida para 8.0.100 (versão homologada pela caixa)
-mapeamento entre namespaces e pastas habilitado
-banco e appinsights pré configurado, bastante descomentar os trechos marcados com FIXME, pois depende da configuração do arquivo appsettings.json para funcionar
-swagger habilitado
-healtz habilitado com dashboard
-testes habilitados com xunit
-autorização baseado em token JWT do SSO da CAIXA
-certificados raiz SSL básicos da CAIXA adicionados na pasta cacerts e importados para a imagem docker durante a build
-About
-Adicionando aplicação:
+  probes:  
+    enabled: true
+    useDefaults: false  
+    livenessProbe: 
+      initialDelaySeconds: 30
+      periodSeconds: 15
+      failureThreshold: 10
+      successThreshold: 1
+      httpGet:
+        path: /healthz     
+        port: 8080
+    readinessProbe: 
+      initialDelaySeconds: 15
+      periodSeconds: 15
+      failureThreshold: 3
+      successThreshold: 1
+      httpGet:
+        path: /healthz     
+        port: 8080
 
-Topics
-backend creditocomercial
-Resources
- Readme
- Activity
- Custom properties
-Stars
- 0 stars
-Watchers
- 0 watching
-Forks
- 0 forks
-Releases
-No releases published
-Create a new release
-Deployments
-500+
- DES last week
- PRD
- PFM 8 months ago
-+ more deployments
-Packages
-No packages published
-Publish your first package
-Contributors
-11
-@f562401_caixa
-@c158765_caixa
-@c158773_caixa
-@c067058_caixa
-@c070680_caixa
-@c148183_caixa
-@c158461_caixa
-@c135738_caixa
-@c158529_caixa
-@82e978dc517bc1c9dd366a1af9801a_caixa
-@c120842_caixa
-Languages
-C#
-99.8%
- 
-Dockerfile
-0.2%
-Footer
-© 2026 GitHub, Inc.
-Footer navigation
-Terms
-Privacy
-Security
-Status
-Community
-Docs
-Contact
-Manage cookies
-Do not share my personal information
+
+#-------------#
+#  CONFIGMAP  #
+#-------------#
+
+  configMapRefs:
+    - name: cm-sinsh-backend-simulador-pj
+#---------------#
+#  TOLERATIONS  #
+#---------------#
+
+  tolerations:
+    - key: "kubernetes.azure.com/scalesetpriority"
+      effect: "NoSchedule"
+      operator: "Equal"
+      value: "spot"
+    - key: "nuvem.caixa/nodepoolname"
+      effect: "NoSchedule"
+      operator: "Equal"
+      value: "appshab"
+
+#-------------# 
+#   SECRETS   # 
+#-------------# 
+
+#  secretRefs:
+#  env:
+#    - name: <NOME_DA_VARIAVEL_NA_APLICACAO>
+#      value: akvs-sinsh-backend-simulador-pj@azurekeyvault
+
+
+
+sinsh-backend-simulador-pj/.github/workflows
+/call-generic-pipelines.yaml
+
+
+# ============================================================================= #
+#             CAIXA DEVSECOPS - TEMPLATE DE WORKFLOW CI/CD v1.0                 #
+# ============================================================================= #
+# Este workflow é um modelo padrão para todos os desenvolvedores da Caixa.      #
+# Ele automatiza processos de integração contínua (CI) e entrega contínua (CD), #
+# promovendo segurança, padronização e eficiência no ciclo de desenvolvimento.  #
+# Todas as alterações devem ser realizadas por meio do Fusionx                  #
+# ============================================================================= #
+
+# ============================================================================= #
+# Nome do workflow para facilitar a identificação nas execuções                 #
+# ============================================================================= #
+
+name: CI/CD Workflow Generic
+
+# ============================================================================= #
+# Nome dinâmico da execução, útil para rastreamento e auditoria                 #
+# ============================================================================= #
+
+run-name: __.
+
+# ========================================================================================================================== #
+# Eventos que disparam o workflow                                                                                            #
+# ========================================================================================================================== #
+# workflow_dispatch -> Permite execução manual via interface do GitHub                                                       #
+# push              -> Executa automaticamente em push, de acordo com os filtros                                             #
+# branches          -> Filtro de execução. O workflow, no evento push, será executado apenas nas branches main e develop     #
+# paths-ignore      -> Filtro de execução. O workflow, no evento push, não será executado quando existir alteração           #
+#                   -> nos caminhos .github/** e no arquivo catalog-info.yaml                                                #
+#                                                                                                                            #
+# Documentação de referência                                                                                                 #
+# https://docs.github.com/en/actions/how-tos/write-workflows/choose-when-workflows-run/trigger-a-workflow                    #
+# ========================================================================================================================== #
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+      - develop
+    paths-ignore:
+      - '.github/**'
+      - 'catalog-info.yaml'
+
+
+# ============================================================================================================================ #
+# Permissões necessárias para o workflow interagir com o repositório de automação de CI/CD e serviços                          #
+# ============================================================================================================================ #
+# contents: write        -> Permite escrever nos arquivos do repositório                                                       #
+# security-events: write -> Permite registrar eventos de segurança                                                             #
+# packages: read         -> Permite ler pacotes (ex: npm, docker)                                                              #
+# actions: read          -> Permite ler ações do GitHub                                                                        #
+# issues: write          -> Permite criar/editar issues                                                                        #
+# pull-requests: write   -> Permite criar/editar pull requests                                                                 #
+# pull-requests: write   -> Permite gerar token oidc do github                                                                 #
+#                                                                                                                              #
+# Documentação de referência                                                                                                   #
+# https://docs.github.com/en/actions/tutorials/authenticate-with-github_token#modifying-the-permissions-for-the-github_token   #
+# ============================================================================================================================ #
+
+permissions:
+  contents: write
+  security-events: write
+  packages: read
+  actions: read
+  issues: write
+  pull-requests: write
+  id-token: write
+
+# ====================================================================================================================================================== #
+# Definição dos jobs que serão executados                                                                                                                #
+# ====================================================================================================================================================== #
+# name: CI_DES                                                                        -> Nome do job, aparece na interface do GitHub Actions             #
+# uses: caixagithub/DevSecOps-Solutions/.github/workflows/generic-pipelines.yaml@main -> Template reutilizado                                            #
+# secrets: inherit                                                                    -> Herda os segredos definidos no repositório principal            #
+# DEPLOY_ENVIRONMENTS: '["DES"]'                                                      -> Define o ambiente de implantação como Desenvolvimento (DES).    #
+#                                                                                     -> PossÍveis ambientes: DES, TST, TQS, SANDBOX, HMP, PTL E PRD     #
+# IMPORT_APIM: false                                                                  -> Desativa importação automática de APIs no Azure API Management. #
+#                                                                                     -> Possíveis valores: true ou false                                #
+#                                                                                                                                                        #
+# Documentação de referência                                                                                                                             #
+# https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/use-jobs                                                           #
+# https://docs.github.com/en/actions/how-tos/reuse-automations/reuse-workflows                                                                           #
+# ====================================================================================================================================================== #
+
+jobs:
+  Generic-Solution:
+    name: CI_DES
+    uses: caixagithub/DevSecOps-Solutions/.github/workflows/generic-pipelines.yaml@main
+    secrets: inherit
+    with:
+      DEPLOY_ENVIRONMENTS: '["DES"]'
+      IMPORT_APIM: false
+
+
+
+sinsh-backend-simulador-pj/.github/workflows
+/call-generic-qa-pipelines.yaml
+
+
+
+
+
+
+      # ============================================================================= #
+#        CAIXA DEVSECOPS - TEMPLATE DE WORKFLOW TESTES ESTATICOS v1.0           #
+# ============================================================================= #
+# Este workflow é um modelo padrão para todos os desenvolvedores da Caixa.      #
+# Ele automatiza o processo de análise estática do código através do Sonar,     #
+# promovendo estabilidade e escalabilidade de forma mais segura e robusta.      #
+# ============================================================================= #
+
+# ============================================================================= #
+# Nome do workflow para facilitar a identificação nas execuções                 #
+# ============================================================================= #
+
+name: QA - Análise Estática de Código
+
+# ============================================================================= #
+# Nome dinâmico da execução, útil para rastreamento e auditoria                 #
+# ============================================================================= #
+run-name: QUALIDADE-__.
+
+# ========================================================================================================================== #
+# Eventos que disparam o workflow                                                                                            #
+# ========================================================================================================================== #
+# workflow_dispatch -> Permite execução manual via interface do GitHub                                                       #
+# pull_request      -> Executa automaticamente em pull_requests, de acordo com os filtros                                    #
+# types             -> Filtro de execução. O workflow, no evento pull_request, será executado apenas nos estados aberto,     #
+#                   -> sincronizado e reaberto                                                                               #
+# paths-ignore      -> Filtro de execução. O workflow, no evento push, não será executado quando existir alteração           #
+#                   -> nos caminhos .github/** e no arquivo catalog-info.yaml                                                #
+#                                                                                                                            #
+# Documentação de referência                                                                                                 #
+# https://docs.github.com/en/actions/how-tos/write-workflows/choose-when-workflows-run/trigger-a-workflow                    #
+# ========================================================================================================================== #
+
+on:
+  workflow_dispatch:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+    paths-ignore:
+      - '.github/**'
+      - 'catalog-info.yaml'
+
+# ====================================================================================================================================================== #
+# Definição dos jobs que serão executados                                                                                                                #
+# ====================================================================================================================================================== #
+# name: CI_DES                                                                        -> Nome do job, aparece na interface do GitHub Actions             #
+# uses: caixagithub/DevSecOps-Solutions/.github/workflows/quality-assurance.yml@main  -> Template reutilizado                                            #
+# secrets: inherit                                                                    -> Herda os segredos definidos no repositório principal            #
+#                                                                                                                                                        #
+# Documentação de referência                                                                                                                             #
+# https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/use-jobs                                                           #
+# https://docs.github.com/en/actions/how-tos/reuse-automations/reuse-workflows                                                                           #
+# ====================================================================================================================================================== #
+
+jobs:
+  Solution-QA:
+    name: QA
+    uses: caixagithub/DevSecOps-Solutions/.github/workflows/quality-assurance.yml@main
+    secrets: inherit
+
+
+
+
+
+
+
+
+sinsh-backend-simulador-pj/.github/workflows
+/call-generic-sec-pipelines.yaml
+
+
+
+
+
+
+
+# ============================================================================= #
+#             CAIXA DEVSECOPS - TEMPLATE DO WORKFLOW DE SEGURANÇA v1.0          #
+# ============================================================================= #
+# Este workflow é um modelo padrão para todos os desenvolvedores da Caixa.      #
+# Ele automatiza processos de segurança e gera insumos que auxiliam a equipe.   #
+# O CodeQL atua em três vertentes:                                              #
+# - Análise DAST do código                                                      #
+# - Análise de vazamento de senhas                                              #
+# - Análise de vulnerabilidates das dependências                                #
+# ============================================================================= #
+
+# ============================================================================= #
+# Nome do workflow para facilitar a identificação nas execuções                 #
+# ============================================================================= #
+
+name: Call CodeQL workflow Seguranca
+
+# ============================================================================= #
+# Nome dinâmico da execução, útil para rastreamento e auditoria                 #
+# ============================================================================= #
+
+run-name: Seguranca-__.
+
+# ========================================================================================================================== #
+# Eventos que disparam o workflow                                                                                            #
+# ========================================================================================================================== #
+# push              -> Executa automaticamente em push, de acordo com os filtros                                             #
+# branches          -> Filtro de execução. O workflow, no evento push, será executado apenas nas branches main e develop     #
+# paths-ignore      -> Filtro de execução. O workflow, no evento push, não será executado quando existir alteração           #
+#                   -> nos caminhos .github/** e no arquivo catalog-info.yaml                                                #
+# pull_request      -> Executa automaticamente em pull_requests, de acordo com os filtros                                    #
+# schedule          -> Executa o workflow automaticamente no horário definido pelo cron.                                     #
+# cron              -> Define o horário de execução para toda a segunda 1:00 am UTC.                                         #
+#                                                                                                                            #
+# Documentação de referência                                                                                                 #
+# https://docs.github.com/en/actions/how-tos/write-workflows/choose-when-workflows-run/trigger-a-workflow                    #
+# ========================================================================================================================== #
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+      - develop
+    paths-ignore:
+      - '.github/**'
+      - 'catalog-info.yaml'
+  pull_request:
+    branches:
+      - main
+      - develop
+    paths-ignore:
+      - '.github/**'
+      - 'catalog-info.yaml'
+  schedule:
+    - cron: "0 1 * * 1"
+
+# ============================================================================================================================ #
+# Permissões necessárias para o workflow interagir com o repositório de automação de CI/CD e serviços                          #
+# ============================================================================================================================ #
+# contents: read         -> Permite ler os arquivos do repositório                                                             #
+# security-events: write -> Permite registrar eventos de segurança                                                             #
+# packages: read         -> Permite ler pacotes (ex: npm, docker)                                                              #
+# actions: read          -> Permite ler ações do GitHub                                                                        #
+#                                                                                                                              #
+# Documentação de referência                                                                                                   #
+# https://docs.github.com/en/actions/tutorials/authenticate-with-github_token#modifying-the-permissions-for-the-github_token   #
+# ============================================================================================================================ #
+
+permissions:
+  contents: read
+  security-events: write
+  actions: read
+  packages: read
+
+# ====================================================================================================================================================== #
+# Definição dos jobs que serão executados                                                                                                                #
+# ====================================================================================================================================================== #
+# name: CodeQL                                                                        -> Nome do job, aparece na interface do GitHub Actions             #
+# uses: caixagithub/DevSecOps-Solutions/.github/workflows/codeql-pipelines.yaml@main  -> Template reutilizado                                            #
+# secrets: inherit                                                                    -> Herda os segredos definidos no repositório principal            #
+# with: DINAMICALLY_CREATE_SETTINGS_XML: false ou true                                -> Habilita ou desabilita criação de settings.xml do maven via     #
+#                                                                                        pipeline, necessário para repositórios Adapter com Java.        #
+# Documentação de referência                                                                                                                             #
+# https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/use-jobs                                                           #
+# https://docs.github.com/en/actions/how-tos/reuse-automations/reuse-workflows                                                                           #
+# ====================================================================================================================================================== #
+
+jobs:
+  CodeQL:
+    name: CodeQL
+    uses: caixagithub/DevSecOps-Solutions/.github/workflows/codeql-pipelines.yaml@main
+    secrets: inherit
