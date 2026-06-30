@@ -1,68 +1,48 @@
-<img width="1634" height="827" alt="image" src="https://github.com/user-attachments/assets/c7dd7aac-9373-4f02-88a1-3e86b0a2c043" />
+2026-06-26T15:06:54.0008580Z ##[section]Starting: Exporta SD_KEY_BIOMETRIA
+2026-06-26T15:06:54.0019690Z ==============================================================================
+2026-06-26T15:06:54.0019980Z Task         : Bash
+2026-06-26T15:06:54.0020100Z Description  : Run a Bash script on macOS, Linux, or Windows
+2026-06-26T15:06:54.0020360Z Version      : 3.274.1
+2026-06-26T15:06:54.0020490Z Author       : Microsoft Corporation
+2026-06-26T15:06:54.0020670Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/bash
+2026-06-26T15:06:54.0020870Z ==============================================================================
+2026-06-26T15:06:54.2061320Z Generating script.
+2026-06-26T15:06:54.2072670Z ========================== Starting Command Output ===========================
+2026-06-26T15:06:54.2082120Z [command]/bin/bash /Users/runner/work/_temp/6aca3904-0533-4057-84b2-b862728731be.sh
+2026-06-26T15:06:54.2157650Z  SD_KEY_BIOMETRIA = ***
+2026-06-26T15:06:58.1170080Z Analyzing dependencies
+2026-06-26T15:06:58.4540150Z Adding spec repo `trunk` with CDN `https://cdn.cocoapods.org`
+2026-06-26T15:06:58.4542960Z Cloning spec repo `git-codecommit-v1-repos-release-mobile-ios-specs` from `https://cef-read-mobile-repo-at-536598375304:***@git-codecommit.us-east-1.amazonaws.com/v1/repos/release-mobile-ios-specs`
+2026-06-26T15:07:05.7764450Z Downloading dependencies
+2026-06-26T15:07:05.7765970Z Installing AppAuth (2.1.0)
+2026-06-26T15:07:08.6067400Z Installing AppCenter (5.12.0)
+2026-06-26T15:07:13.1158240Z Installing Arcane (2.1)
+2026-06-26T15:07:14.3600800Z Installing Differentiator (5.0.0)
+2026-06-26T15:07:15.8893140Z Installing Heartbeat (4.35.1.1622927)
+2026-06-26T15:07:15.8894870Z Generating an AWS S3 pre signed URL from: https://mobile-artifacts-repo.s3.amazonaws.com/ios/release/4.35.1.1622927/Heartbeat.xcframework.tar.bz2
+2026-06-26T15:07:16.7269160Z Installing KeychainAccess (4.2.2)
+2026-06-26T15:07:18.0554500Z Installing RxCocoa (6.9.0)
+2026-06-26T15:07:21.1861970Z Installing RxDataSources (5.0.0)
+2026-06-26T15:07:22.3391430Z Installing RxRelay (6.9.0)
+2026-06-26T15:07:25.3475380Z Installing RxSwift (6.9.0)
+2026-06-26T15:07:28.4501030Z Installing SQLite.swift (0.14.1)
+2026-06-26T15:07:29.8921170Z Installing SideMenu (6.5.0)
+2026-06-26T15:07:31.6343820Z Installing SnapKit (5.7.1)
+2026-06-26T15:07:32.9291560Z Installing TLCustomMask (2.0.0)
+2026-06-26T15:07:33.9573650Z Installing XID (2.3.6)
+2026-06-26T15:07:33.9574040Z Installing unicocheck-ios (3.0.2)
+2026-06-26T15:07:41.8710390Z Generating Pods project
+2026-06-26T15:07:41.8714330Z SD_KEY_BIOMETRIA = ***
+2026-06-26T15:07:41.8715430Z Integrating client project
+2026-06-26T15:07:41.8716300Z 
+2026-06-26T15:07:41.8717560Z [!] Please close any current Xcode sessions and use `SIFAM.xcworkspace` for this project from now on.
+2026-06-26T15:07:41.8875750Z Pod installation complete! There are 15 dependencies from the Podfile and 16 total pods installed.
+2026-06-26T15:07:41.9137190Z 
+2026-06-26T15:07:41.9205260Z ##[section]Finishing: Exporta SD_KEY_BIOMETRIA
 
 
-coloquei ela antes do sdkey biometria
-
-2026-06-30T20:32:21.8267740Z ##[section]Starting: Configura .netrc para Heartbeat
-2026-06-30T20:32:21.8301390Z ==============================================================================
-2026-06-30T20:32:21.8301810Z Task         : Bash
-2026-06-30T20:32:21.8301970Z Description  : Run a Bash script on macOS, Linux, or Windows
-2026-06-30T20:32:21.8302280Z Version      : 3.274.1
-2026-06-30T20:32:21.8302470Z Author       : Microsoft Corporation
-2026-06-30T20:32:21.8302720Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/bash
-2026-06-30T20:32:21.8303020Z ==============================================================================
-2026-06-30T20:32:22.1891300Z Generating script.
-2026-06-30T20:32:22.1920950Z ========================== Starting Command Output ===========================
-2026-06-30T20:32:22.1950160Z [command]/bin/bash /Users/runner/work/_temp/51d6a2ed-ac8f-4312-b5c2-ce78763c7d25.sh
-2026-06-30T20:32:22.3232310Z 
-2026-06-30T20:32:22.3340880Z ##[section]Finishing: Configura .netrc para Heartbeat
+esse aqui do dia 26/06 funcionou>>>
 
 
+o desenvolvedor me falou que esta usando localmente com a s credencias antigas e ta tudo certo
 
-agora quebra no pod instal com mesmo erro
-
-tirei isso da vairaive exporta sd key
-pod install --project-directory=$(System.DefaultWorkingDirectory)/$(Release.PrimaryArtifactSourceAlias)
-
-
-
-voltei tudo antes de tudo antes de configura oltei tamne o podfilie
-
-vamos analisar o erro 
-
-
-
-
-2026-06-30T20:46:06.4721740Z ##[section]Starting: Exporta SD_KEY_BIOMETRIA
-2026-06-30T20:46:06.4737600Z ==============================================================================
-2026-06-30T20:46:06.4737990Z Task         : Bash
-2026-06-30T20:46:06.4738150Z Description  : Run a Bash script on macOS, Linux, or Windows
-2026-06-30T20:46:06.4738420Z Version      : 3.274.1
-2026-06-30T20:46:06.4738590Z Author       : Microsoft Corporation
-2026-06-30T20:46:06.4738810Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/bash
-2026-06-30T20:46:06.4739120Z ==============================================================================
-2026-06-30T20:46:06.9348500Z Generating script.
-2026-06-30T20:46:06.9565680Z ========================== Starting Command Output ===========================
-2026-06-30T20:46:06.9638670Z [command]/bin/bash /Users/runner/work/_temp/f448eb3f-b16d-46a3-ab35-4c11eb3d3ade.sh
-2026-06-30T20:46:06.9673840Z  SD_KEY_BIOMETRIA = ***
-2026-06-30T20:46:15.5775120Z Analyzing dependencies
-2026-06-30T20:46:16.1260750Z Adding spec repo `trunk` with CDN `https://cdn.cocoapods.org`
-2026-06-30T20:46:16.1287920Z Cloning spec repo `git-codecommit-v1-repos-release-mobile-ios-specs` from `https://cef-read-mobile-repo-at-536598375304:***@git-codecommit.us-east-1.amazonaws.com/v1/repos/release-mobile-ios-specs`
-2026-06-30T20:46:27.8020020Z Downloading dependencies
-2026-06-30T20:46:27.8167760Z Installing AppAuth (2.1.0)
-2026-06-30T20:46:30.1570720Z Installing AppCenter (5.12.0)
-2026-06-30T20:46:36.0691540Z Installing Arcane (2.1)
-2026-06-30T20:46:37.1147570Z Installing Differentiator (5.0.0)
-2026-06-30T20:46:38.0688700Z Installing Heartbeat (4.36.0.1638431)
-2026-06-30T20:46:38.3848310Z 
-2026-06-30T20:46:38.3885330Z [!] Error installing Heartbeat
-2026-06-30T20:46:38.3919180Z [!] /usr/local/opt/curl/bin/curl -f -L -o /var/folders/2r/4m184kdj27q4yqjdw53cpjfc0000gn/T/d20260630-11438-60ecti/file.tbz https://download-ofd.apps.topazevolution.com/ios-cdn-releases/4.36.0.1638431/Heartbeat.xcframework.tar.bz2 --create-dirs --netrc-optional --retry 2 -A 'CocoaPods/1.16.2 cocoapods-downloader/2.1'
-2026-06-30T20:46:38.3940500Z 
-2026-06-30T20:46:38.3979150Z   % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-2026-06-30T20:46:38.4019490Z                                  Dload  Upload  Total   Spent   Left   Speed
-2026-06-30T20:46:38.4047880Z 
-2026-06-30T20:46:38.4089290Z   0      0   0      0   0      0      0      0                              0
-2026-06-30T20:46:38.4111890Z curl: (22) The requested URL returned error: 401
-2026-06-30T20:46:38.4177040Z 
-2026-06-30T20:46:38.4243050Z ##[error]Bash exited with code '1'.
-2026-06-30T20:46:38.4280400Z ##[section]Finishing: Exporta SD_KEY_BIOMETRIA
