@@ -1,9 +1,3 @@
-
-<img width="1886" height="903" alt="image" src="https://github.com/user-attachments/assets/bc6167dd-c99c-4587-a44d-b2f95606d9f8" />
-
-acei esse cara aqui
-
-
 # ========================================================================================== #
 #            CAIXA DEVSECOPS - BUILD DA DOCUMENTAÇÃO DO MKDOCKS v1.0                         #
 # ========================================================================================== #
@@ -59,7 +53,7 @@ on:
 # Definição dos jobs que serão executados                                                                                                           #
 # ================================================================================================================================================= #
 # name: CI_DES                                                                             -> Nome do job, aparece na interface do GitHub Actions   #
-# uses: caixagithub/DevSecOps-Solutions/.github/workflows/mkdocs-pipelines.yaml@main       -> Template reutilizado                                  #
+# uses: caixagithub/DevSecOps-Solutions/.github/workflows/techdocs-pipelines.yaml@main    -> Template reutilizado                                  #
 # secrets: inherit                                                                         -> Herda os segredos definidos no repositório principal  #
 #                                                                                                                                                   #
 # Documentação de referência                                                                                                                        #
