@@ -1,43 +1,19 @@
-<img width="1865" height="911" alt="image" src="https://github.com/user-attachments/assets/22712431-cc06-4535-abc1-cd8364c82616" />
-
-
-
-RELEASE_VARIABLE_SIFAM (18)
-Library com informações relativas ao projeto do SIFAM
-Scopes: Release
-APPLE_TEAM_ID_CAIXA
--
-APP_BUNDLE_IDENTIFIER
-br.gov.caixa.bolsafamilia
-APP_NAME
-SIFAM
-AWS_ACCESS_KEY
--
-AWS_REGION
-us-east-1
-AWS_SECRET_ACCESS_KEY
--
-ArtifactUrl
-https://CAIXAAZURE@pkgs.dev.azure.com/CAIXAAZURE/248254eb-d03f-42ff-a06f-314326c91e27/_packaging/build-sifam/maven/v1
-FORTIFY_API
-http://codigoseguro.caixa/ssc/api/v1
-HEARTBEAT_AWS_CODECOMMIT_REPO_URL
-git-codecommit.us-east-1.amazonaws.com/v1/repos/release-mobile-ios-specs
-HEARTBEAT_AWS_CODECOMMIT_URLENCODED_PASSWORD
--
-HEARTBEAT_AWS_CODECOMMIT_USERNAME
--
-NexusUrl
-http://binario.caixa:8081/repository/caixa-apps
-P12password
-********
-SCANCENTRAL_URL
-http://scancentral.produtos.caixa/scancentral-ctrl
-SENSOR_POOL_UUID
-00000000-0000-0000-0000-000000000002
-SSC_URL
-http://codigoseguro.caixa/ssc
-ScanCentral.ClientToken
-1ChangeClientToken!
-ScanCentral.SscCiToken
-bec882a8-fe1c-47ab-878c-24d65fc4f10a
+2026-06-30T19:50:46.7638770Z ##[section]Starting: Exporta SD_KEY_BIOMETRIA
+2026-06-30T19:50:46.7655190Z ==============================================================================
+2026-06-30T19:50:46.7655680Z Task         : Bash
+2026-06-30T19:50:46.7655830Z Description  : Run a Bash script on macOS, Linux, or Windows
+2026-06-30T19:50:46.7656110Z Version      : 3.274.1
+2026-06-30T19:50:46.7656250Z Author       : Microsoft Corporation
+2026-06-30T19:50:46.7656510Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/bash
+2026-06-30T19:50:46.7656800Z ==============================================================================
+2026-06-30T19:50:47.0223760Z Generating script.
+2026-06-30T19:50:47.0235520Z ========================== Starting Command Output ===========================
+2026-06-30T19:50:47.0250350Z [command]/bin/bash /Users/runner/work/_temp/99071cea-030b-4e08-af75-466c3ee0adb8.sh
+2026-06-30T19:50:47.0354960Z  SD_KEY_BIOMETRIA = ***
+2026-06-30T19:50:58.3318360Z Analyzing dependencies
+2026-06-30T19:50:58.9168780Z Cloning spec repo `topazevolution-ios-cdn-specs` from `https://download-ofd.apps.topazevolution.com/ios-cdn-specs`
+2026-06-30T19:50:59.1477580Z [!] Unable to add a source with url `https://download-ofd.apps.topazevolution.com/ios-cdn-specs` named `topazevolution-ios-cdn-specs`.
+2026-06-30T19:50:59.1479870Z You can try adding it manually in `/Users/runner/.cocoapods/repos` or via `pod repo add`.
+2026-06-30T19:50:59.1669740Z 
+2026-06-30T19:50:59.1711360Z ##[error]Bash exited with code '1'.
+2026-06-30T19:50:59.1758670Z ##[section]Finishing: Exporta SD_KEY_BIOMETRIA
