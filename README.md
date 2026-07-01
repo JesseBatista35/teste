@@ -1,44 +1,43 @@
-segue enviroment.ts
+import { setupZoneTestEnv } from "jest-preset-angular/setup-env/zone";
+setupZoneTestEnv();
 
-
-import {
-  Ambiente,
-  buildApiUrl,
-  getJsonPlaceholderAPI,
-  getRequiredRuntimeEnvBoolean,
-  getRequiredRuntimeEnvString,
-  getRequiredRuntimeEnvStringFrom,
-  normalizeBaseUrl,
-} from './environment.model';
-
-export const ambiente: Ambiente = Ambiente.DES;
-
-const endpoint = normalizeBaseUrl(
-  getRequiredRuntimeEnvStringFrom(['API_BASE_PATH', 'HTTP_SERVICE_API'])
-);
-const ssoUrl = getRequiredRuntimeEnvString('SSO_BASE_PATH');
-const realm = getRequiredRuntimeEnvString('REALM');
-const clientId = getRequiredRuntimeEnvString('CLIENT_ID');
-const versao = getRequiredRuntimeEnvString('VERSAO');
-
-export const environment = {
-  production: false,
-  disableAuthKeycloak: getRequiredRuntimeEnvBoolean('DISABLE_AUTH_KEYCLOAK'),
-  ambiente: 'des',
-  VERSION: versao,
-  versao,
-  API_DES_URL: getJsonPlaceholderAPI(),
-  API_PRD_URL: getJsonPlaceholderAPI(),
-  endpoint,
-  apiUrl: buildApiUrl(endpoint),
-  auth: {
-    identityServerUrl: ssoUrl,
-    realm,
-    clientId,
-  },
-  ssoConfig: {
-    url: ssoUrl,
-    realm,
-    clientId,
-  },
+/**
+ * Mock das variáveis de ambiente runtime (_ENV), injetadas em produção via
+ * script env.js carregado no index.html. Necessário pois os testes rodam em
+ * Node/jsdom, sem esse script de injeção real.
+ */
+(globalThis as any)._ENV = {
+  API_BASE_PATH: 'http://localhost/api',
+  HTTP_SERVICE_API: 'http://localhost/api',
+  SSO_BASE_PATH: 'http://localhost/auth',
+  REALM: 'des',
+  CLIENT_ID: 'des-client',
+  VERSAO: '0.0.0-test',
+  DISABLE_AUTH_KEYCLOAK: 'true',
 };
+
+/**
+ * Mocking Inputmask library for Jest tests.
+ */
+jest.mock('inputmask', () => {
+  const mockFunctions = {
+    mask: jest.fn(),
+    remove: jest.fn(),
+    getemptymask: jest.fn().mockReturnValue(''),
+    hasMaskedValue: jest.fn().mockReturnValue(false),
+    isValid: jest.fn().mockReturnValue(true),
+  };
+  const mockInputmask = function(_: any) {
+    return { ...mockFunctions };
+  };
+  Object.assign(mockInputmask, mockFunctions);
+  mockInputmask.default = {
+    ...mockFunctions,
+    __proto__: mockInputmask
+  };
+  mockInputmask.Inputmask = mockInputmask;
+  return mockInputmask;
+});
+jest.mock('inputmask/dist/inputmask.es6.js', () => {
+  return jest.requireMock('inputmask');
+});
