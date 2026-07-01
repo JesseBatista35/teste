@@ -1,53 +1,33 @@
-ajuste adicional no ambiente DES para viabilizar a subida da aplicação com mTLS habilitado.
+exec java -Dquarkus.http.host=0.0.0.0 -Dquarkus.http.port=8080 -Djava.util.logging.manager=org.jboss.logmanager.LogManager -Xms1280m -Xmx1280m -Djavax.net.ssl.trustStore=/deployments/caixa-truststore-acteste-nprd.jks -Djavax.net.ssl.keyStore=/deployments/caixa-keystore-mpi-mq-plexd-nprd-2.jks -XX:+ExitOnOutOfMemoryError -cp . -jar /deployments/quarkus-run.jar
+__  ____  __  _____   ___  __ ____  ______ 
+ --/ __ \/ / / / _ | / _ \/ //_/ / / / __/ 
+ -/ /_/ / /_/ / __ |/ , _/ ,< / /_/ /\ \   
+--\___\_\____/_/ |_/_/|_/_/|_|\____/___/   
+2026-07-01 14:36:07,529 WARN  [io.qua.config] (main) Unrecognized configuration key "quarkus.tls.key-store.p12.type" was provided; it will be ignored; verify that the dependency extension for this configuration is set or that you did not make a typo
+2026-07-01 14:36:08,676 ERROR [io.qua.run.Application] (main) Failed to start application: java.lang.RuntimeException: Failed to start quarkus
+	at io.quarkus.runner.ApplicationImpl.doStart(Unknown Source)
+	at io.quarkus.runtime.Application.start(Application.java:101)
+	at io.quarkus.runtime.ApplicationLifecycleManager.run(ApplicationLifecycleManager.java:119)
+	at io.quarkus.runtime.Quarkus.run(Quarkus.java:71)
+	at io.quarkus.runtime.Quarkus.run(Quarkus.java:44)
+	at io.quarkus.runtime.Quarkus.run(Quarkus.java:124)
+	at io.quarkus.runner.GeneratedMain.main(Unknown Source)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at io.quarkus.bootstrap.runner.QuarkusEntryPoint.doRun(QuarkusEntryPoint.java:62)
+	at io.quarkus.bootstrap.runner.QuarkusEntryPoint.main(QuarkusEntryPoint.java:33)
+Caused by: java.lang.IllegalStateException: Invalid P12 key store configuration for certificate '<default>'
+	at io.quarkus.tls.runtime.keystores.P12KeyStores.toOptions(P12KeyStores.java:69)
+	at io.quarkus.tls.runtime.keystores.P12KeyStores.verifyP12KeyStore(P12KeyStores.java:35)
+	at io.quarkus.tls.runtime.CertificateRecorder.verifyKeyStore(CertificateRecorder.java:111)
+	at io.quarkus.tls.runtime.CertificateRecorder.verifyCertificateConfig(CertificateRecorder.java:67)
+	at io.quarkus.tls.runtime.CertificateRecorder.validateCertificates(CertificateRecorder.java:43)
+	at io.quarkus.deployment.steps.CertificatesProcessor$initializeCertificate877524439.deploy_0(Unknown Source)
+	at io.quarkus.deployment.steps.CertificatesProcessor$initializeCertificate877524439.deploy(Unknown Source)
+	... 13 more
+Caused by: java.lang.IllegalStateException: Invalid P12 key store configuration for certificate '<default>' - the key store password is not set and cannot be retrieved from the credential provider.
+	at io.quarkus.tls.runtime.keystores.P12KeyStores.toOptions(P12KeyStores.java:56)
+	... 19 more
 
-Assunto: Ação complementar de ambiente DES para mTLS da aplicação SISPX-notificacao-webhook
-
-Prezados,
-
-Como complemento à demanda já atendida do certificado mTLS do Kafka, solicitamos ajuste adicional no ambiente DES para viabilizar a subida da aplicação com mTLS habilitado.
-
-Contexto:
-
-1 - O certificado mTLS do Kafka (secure file sispx_user_keystore_kafka_des.p12) já foi disponibilizado na release do módulo.
-
-2 - O deploy ainda falha no startup da aplicação por ausência do keystore mTLS esperado no container.
-
-* Solicitações para o módulo: SISPX-notificacao-webhook
-
-1 -Montagem de keystore mTLS da aplicação no pod (OpenShift DES)
-
-* Disponibilizar o arquivo:
-webhook-mtls-keystore.p12
-
-*Caminho obrigatório no container:
-/certs/webhook-mtls-keystore.p12
-
-
-2 - Injeção do segredo de senha do keystore mTLS da aplicação
-
-* Garantir que a senha do keystore seja injetada no runtime do container.
-* Validar mapeamento da variável para consumo da aplicação (sem expor valor em claro).
-
-3 - Permissões de acesso ao arquivo
-* Garantir permissão de leitura do arquivo por usuário não-root no container.
-
-4 - Evidências de conclusão no retorno do chamado
-* Evidência de presença do arquivo no pod no caminho /certs.
-
-* - Evidência de que a variável de senha foi injetada (valor mascarado).
-* - Evidência de startup da aplicação sem erro de leitura de keystore.
-
-Referência de ambiente:
-
-DES / OpenShift
-URL IBM Stream (Kafka) DES:
-https://development-ibm-es-ui-cp4i.apps.pixnprd4.caixa/gettingstarted
-Observação:
-
-Esta solicitação é complementar ao atendimento anterior do mTLS Kafka. - REQ000144169469
-
-
-Objetivo: manter mTLS conforme requisito da entrega e eliminar falha de startup no DES.
-
-Contato de referência (Kafka mTLS):
-Joao Paulo Camargo dos Santos - c15909
