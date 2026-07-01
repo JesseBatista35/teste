@@ -1,3 +1,8 @@
+entao analisando a esteiras aqui a ultima build com sucesso foi ha mais de um ano nessa build usavam o angular 16 acredito que migrama para 19 sem utilizar o manual do angular fazens as coreeçoes necessarias para o codigo fuicniar com a bibliotecas atualizadas... veja se e isso mesmo se for, vamos motnar uma mensssegem par ao time de desenvolvimento realizar os ajuste... pois somos analistas de esteiras e nao podemos fica mechendo no codigo
+
+
+<img width="1809" height="916" alt="image" src="https://github.com/user-attachments/assets/a202237d-01a4-4a34-8dad-c0f1182a47a8" />
+
 
 /usr/bin/bash /opt/ads-agent/_work/_temp/4db2af62-fe73-42d6-94a3-f44e910ce697.sh
 ng build --configuration production --build-optimizer --aot --output-path=dist && npm test
@@ -123,6 +128,227 @@ Snapshots:   0 total
 Time:        29.332 s
 Ran all test suites.
 Finishing: Build Application
+
+
+erro que levou abertura da demanda
+
+
+Starting: Build Application
+==============================================================================
+Task         : Bash
+Description  : Run a Bash script on macOS, Linux, or Windows
+Version      : 3.227.0
+Author       : Microsoft Corporation
+Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/bash
+==============================================================================
+Generating script.
+========================== Starting Command Output ===========================
+/usr/bin/bash /opt/ads-agent/_work/_temp/a93674c7-7792-491a-b758-cccdd6b0b476.sh
+ng build --configuration production --build-optimizer --aot --output-path=dist && npm test
+<----ANGULAR---->
+
+     _                      _                 ____ _     ___
+    / \   _ __   __ _ _   _| | __ _ _ __     / ___| |   |_ _|
+   / △ \ | '_ \ / _` | | | | |/ _` | '__|   | |   | |    | |
+  / ___ \| | | | (_| | |_| | | (_| | |      | |___| |___ | |
+ /_/   \_\_| |_|\__, |\__,_|_|\__,_|_|       \____|_____|___|
+                |___/
+    
+
+Angular CLI: 19.0.7
+Node: 22.13.1
+Package Manager: npm 10.9.2
+OS: linux x64
+
+Angular: 19.2.17
+... animations, common, compiler, compiler-cli, core, forms
+... localize, platform-browser, platform-browser-dynamic, router
+
+Package                              Version
+--------------------------------------------------------------
+@angular-devkit/architect            0.2003.13
+@angular-devkit/core                 20.3.13
+@angular-devkit/schematics           20.3.13
+@angular/build                       19.2.19
+@angular/cdk                         19.2.19
+@angular/cli                         19.0.7
+@angular/material                    19.2.19
+@angular/material-date-fns-adapter   19.2.19
+@schematics/angular                  19.0.7
+rxjs                                 7.8.2
+typescript                           5.8.3
+zone.js                              0.15.1
+    
+Error: Unknown argument: build-optimizer
+##[error]Bash exited with code '1'.
+Finishing: Build Application
+
+
+erro atualizado apos nosssa analise e mudanças nas configuraçoes e no repo
+
+
+
+@angular/material-date-fns-adapter   19.2.19
+@schematics/angular                  19.0.7
+rxjs                                 7.8.2
+typescript                           5.8.3
+zone.js                              0.15.1
+    
+❯ Building...
+Browserslist: browsers data (caniuse-lite) is 7 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+✔ Building...
+Initial chunk files   | Names         |  Raw size | Estimated transfer size
+main-YULICW3E.js      | main          |   2.01 MB |               361.34 kB
+styles-KL3XFG2A.css   | styles        | 355.25 kB |                30.64 kB
+polyfills-EO764MBO.js | polyfills     |  34.76 kB |                11.41 kB
+
+                      | Initial total |   2.40 MB |               403.39 kB
+
+Application bundle generation complete. [9.539 seconds]
+
+▲ [WARNING] bundle initial exceeded maximum budget. Budget 2.00 MB was not met by 399.15 kB with a total of 2.40 MB.
+
+
+Output location: /opt/ads-agent/_work/73/s/dist
+
+> quickstart-angular-dsc@1.0.0-snapshot test
+> jest --coverage
+
+PASS src/app/services/loading.service.spec.ts (6.186 s)
+PASS src/app/shared/components/loading-caixa/loading-caixa.component.spec.ts (6.679 s)
+PASS src/app/shared/components/btn-reset-select/btn-reset-select.component.spec.ts (7.185 s)
+PASS src/app/services/message.service.spec.ts (8.1 s)
+  ● Console
+
+    console.log
+      #[INFO]: 10:17:37
+      Success Message [ [ { data: 'response' } ] ]
+
+      at Function.log (src/app/utils/logger.ts:14:13)
+
+    console.log
+      #[ERRO]: 10:17:37
+      Error Message [ [ { error: 'error' } ] ]
+
+      at Function.log (src/app/utils/logger.ts:14:13)
+
+PASS src/app/pages/tabela-crud/form-photo/form-photo.component.spec.ts (9.605 s)
+PASS src/app/pages/home/home.component.spec.ts (11.138 s)
+FAIL src/app/pages/tabela-crud/tabela-crud.component.spec.ts (11.856 s)
+  ● TabelaCrudComponent › CRUD Operations › Create › should open create dialog
+
+    TypeError: this.messageService.showDialogTemplate is not a function
+
+      140 |     this.resetForm();
+      141 |
+    > 142 |     this.messageService.showDialogTemplate(
+
+      at _ZoneDelegate.invoke (node_modules/zone.js/bundles/zone.umd.js:410:32)
+      at ProxyZoneSpec.Object.<anonymous>.ProxyZoneSpec.onInvoke (node_modules/zone.js/bundles/zone-testing.umd.js:2219:43)
+      at _ZoneDelegate.invoke (node_modules/zone.js/bundles/zone.umd.js:409:38)
+      at ZoneImpl.run (node_modules/zone.js/bundles/zone.umd.js:145:47)
+      at Object.wrappedFunc (node_modules/zone.js/bundles/zone-testing.umd.js:449:38)
+
+  ● TabelaCrudComponent › CRUD Operations › Create › should save new photo successfully
+
+    expect(jest.fn()).toHaveBeenCalled()
+
+    Expected number of calls: >= 1
+    Received number of calls:    0
+
+      159 |           newPhoto
+      160 |         );
+    > 161 |         expect(messageService.closeAllDialogs).toHaveBeenCalled();
+          |                                                ^
+      162 |         expect(component.itemSelecionado).toBeUndefined();
+      163 |         expect(atualizaSpy).toHaveBeenCalled();
+      164 |       });
+
+      at src/app/pages/tabela-crud/tabela-crud.component.spec.ts:161:48
+      at _ZoneDelegate.invoke (node_modules/zone.js/bundles/zone.umd.js:410:32)
+      at ProxyZoneSpec.Object.<anonymous>.ProxyZoneSpec.onInvoke (node_modules/zone.js/bundles/zone-testing.umd.js:2219:43)
+      at _ZoneDelegate.invoke (node_modules/zone.js/bundles/zone.umd.js:409:38)
+      at ZoneImpl.run (node_modules/zone.js/bundles/zone.umd.js:145:47)
+      at Object.wrappedFunc (node_modules/zone.js/bundles/zone-testing.umd.js:449:38)
+
+  ● TabelaCrudComponent › CRUD Operations › Create › should handle error when creating photo
+
+  
+      181 |     });
+      182 |
+
+      at src/app/pages/tabela-crud/tabela-crud.component.spec.ts:179:29
+      at _ZoneDelegate.invoke (node_modules/zone.js/bundles/zone.umd.js:410:32)
+      at ProxyZoneSpec.Object.<anonymous>.ProxyZoneSpec.onInvoke (node_modules/zone.js/bundles/zone-testing.umd.js:2219:43)
+      at _ZoneDelegate.invoke (node_modules/zone.js/bundles/zone.umd.js:409:38)
+      at ZoneImpl.run (node_modules/zone.js/bundles/zone.umd.js:145:47)
+      at Object.wrappedFunc (node_modules/zone.js/bundles/zone-testing.umd.js:449:38)
+
+  ● TabelaCrudComponent › CRUD Operations › Edit › should open edit dialog with selected item
+
+    TypeError: this.messageService.showDialogTemplate is not a function
+
+      152 |     this.itemSelecionado = item;
+      153 |
+    > 154 |     this.messageService.showDialogTemplate(
+          |                         ^
+      155 |       this.mensagens.BTN_EDITAR_REGISTRO_TEXT,
+      156 |       this.mensagens.BTN_EDITAR_REGISTRO_TEXT,
+      157 |       this.templateForm,
+
+      at TabelaCrudComponent.showDialogTemplate [as editar] (src/app/pages/tabela-crud/tabela-crud.component.ts:154:25)
+      at src/app/pages/tabela-crud/tabela-crud.component.spec.ts:185:19
+      at _ZoneDelegate.invoke (node_modules/zone.js/bundles/zone.umd.js:410:32)
+      at ProxyZoneSpec.Object.<anonymous>.ProxyZoneSpec.onInvoke (node_modules/zone.js/bundles/zone-testing.umd.js:2219:43)
+      at _ZoneDelegate.invoke (node_modules/zone.js/bundles/zone.umd.js:409:38)
+      at ZoneImpl.run (node_modules/zone.js/bundles/zone.umd.js:145:47)
+      at Object.wrappedFunc (node_modules/zone.js/bundles/zone-testing.umd.js:449:38)
+
+PASS src/app/pages/form-etapas/form-etapas.component.spec.ts (12.836 s)
+
+
+
+ app/shared/components/btn-reset-select    |    90.9 |    66.66 |     100 |     100 |                            
+  btn-reset-select.component.ts            |    90.9 |    66.66 |     100 |     100 | 32                         
+ app/shared/components/loading-caixa       |     100 |      100 |     100 |     100 |                            
+  loading-caixa.component.html             |     100 |      100 |     100 |     100 |                            
+  loading-caixa.component.ts               |     100 |      100 |     100 |     100 |                            
+ app/shared/components/page-header         |   53.84 |        0 |      50 |      50 |                            
+  page-header.component.ts                 |   53.84 |        0 |      50 |      50 | 25-30                      
+ app/shared/components/stepper-nav-buttons |   30.55 |        0 |   14.28 |   34.48 |                            
+  stepper-nav-buttons.component.html       |     100 |      100 |     100 |     100 |                            
+  stepper-nav-buttons.component.ts         |   28.57 |        0 |   14.28 |   32.14 | 37-74                      
+ app/shared/components/table-filters       |     5.3 |        0 |       0 |    5.11 |                            
+  table-filters.component.html             |     100 |      100 |     100 |     100 |                            
+  table-filters.component.ts               |    4.88 |        0 |       0 |    4.67 | 100-660                    
+ app/shared/modules                        |     100 |      100 |     100 |     100 |                            
+  dsc-crud.module.ts                       |     100 |      100 |     100 |     100 |                            
+  dsc.module.ts                            |     100 |      100 |     100 |     100 |                            
+ app/utils                                 |   12.82 |        0 |   10.71 |   13.39 |                            
+  logger.ts                                |     100 |      100 |     100 |     100 |                            
+  utils.ts                                 |    5.55 |        0 |    3.84 |    5.82 | 11-309,320                 
+ environments                              |    74.6 |    52.94 |   71.42 |   80.35 |                            
+  environment.model.ts                     |    70.9 |    52.94 |   71.42 |   77.08 | 13,18,44,57-59,68-71,81-84 
+  environment.ts                           |     100 |      100 |     100 |     100 |                            
+-------------------------------------------|---------|----------|---------|---------|----------------------------
+
+=============================== Coverage summary ===============================
+Statements   : 52.06% ( 453/870 )
+Branches     : 25.32% ( 58/229 )
+Functions    : 39.03% ( 89/228 )
+Lines        : 52.21% ( 425/814 )
+================================================================================
+
+Test Suites: 1 failed, 7 passed, 8 total
+Tests:       4 failed, 75 passed, 79 total
+Snapshots:   0 total
+Time:        14.963 s
+Ran all test suites.
+##[error]Bash exited with code '1'.
+Finishing: Build Application
+
 
 
   
