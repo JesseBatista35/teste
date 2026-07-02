@@ -1,107 +1,92 @@
--sh-4.2$ nslookup servicossociais.des.corerj.caixa
-Server:         10.116.193.77
-Address:        10.116.193.77#53
+ok vamos verificar se é o mesmo pacote de deploy
 
-Non-authoritative answer:
-Name:   servicossociais.des.corerj.caixa
-Address: 10.116.98.168
 
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$ find / -path "*sicmu*scripts*" 2>/dev/null
--sh-4.2$ find / -iname "vendor.js" 2>/dev/null
-/opt/httpd/htdocs/httpd_eap_esteiraagil/scripts/vendor.js
-/opt/httpd/htdocs/httpd_eap_esteiraagil/temp/scripts/vendor.js
--sh-4.2$ find / -iname "standalone.xml" 2>/dev/null
-/opt/jboss-eap/standalone/configuration/standalone.xml
-/opt/jboss-eap/.installation/patches/jboss-eap-7.4.8.CP/configuration/standalone/standalone.xml
--sh-4.2$ find / -iname "*sicmu*" -maxdepth 6 2>/dev/null
-/logs/httpd/sicmu-intranet-update.caixa-access.log-20260616.gz
-/logs/httpd/sicmu-intranet-update.caixa-access.log-20260618.gz
-/logs/httpd/sicmu-intranet-update.caixa-access.log-20260623.gz
-/logs/httpd/sicmu-intranet-update.caixa-access.log-20260612.gz
-/logs/httpd/sicmu-intranet-update.caixa-error.log-20260612.gz
-/logs/httpd/sicmu-intranet-update.caixa-error.log-20260621.gz
-/logs/httpd/sicmu-intranet-update.caixa-error.log-20260623.gz
-/logs/httpd/sicmu-intranet-update.caixa-error.log-20260619.gz
-/logs/httpd/sicmu-intranet-update.caixa-access.log-20260620.gz
-/logs/httpd/sicmu-intranet-update.caixa-access.log-20260613.gz
-/logs/httpd/sicmu-intranet-update.caixa-error.log-20260613.gz
-/logs/httpd/sicmu-intranet-update.caixa-access.log
-/logs/httpd/sicmu-intranet-update.caixa-access.log-20260617.gz
-/logs/httpd/sicmu-intranet-update.caixa-error.log-20260618.gz
-/logs/httpd/sicmu-intranet-update.caixa-access.log-20260619.gz
-/logs/httpd/sicmu-intranet-update.caixa-access.log-20260614.gz
-/logs/httpd/sicmu-intranet-update.caixa-error.log-20260614.gz
-/logs/httpd/sicmu-intranet-update.caixa-error.log-20260617.gz
-/logs/httpd/sicmu-intranet-update.caixa-error.log-20260620.gz
-/logs/httpd/sicmu-intranet-update.caixa-error.log
-/logs/httpd/sicmu-intranet-update.caixa-access.log-20260615.gz
-/logs/httpd/sicmu-intranet-update.caixa-error.log-20260615.gz
-/logs/httpd/sicmu-intranet-update.caixa-access.log-20260621.gz
-/logs/httpd/sicmu-intranet-update.caixa-error.log-20260616.gz
-/logs/httpd/sicmu-intranet-update.caixa-access.log-20260625.gz
-/logs/httpd/sicmu-intranet-update.caixa-access.log-20260622.gz
-/logs/httpd/sicmu-intranet-update.caixa-error.log-20260622.gz
-/logs/httpd/sicmu-intranet-update.caixa-access.log-20260624.gz
-/logs/httpd/sicmu-intranet-update.caixa-error.log-20260624.gz
-/logs/httpd/sicmu-intranet-update.caixa-error.log-20260625.gz
-/logs/httpd/sicmu-intranet-update.caixa-access.log-20260626.gz
-/logs/httpd/sicmu-intranet-update.caixa-error.log-20260626.gz
-/logs/httpd/sicmu-intranet-update.caixa-access.log-20260627.gz
-/logs/httpd/sicmu-intranet-update.caixa-error.log-20260627.gz
-/logs/httpd/sicmu-intranet-update.caixa-access.log-20260628.gz
-/logs/httpd/sicmu-intranet-update.caixa-error.log-20260628.gz
-/logs/httpd/sicmu-intranet-update.caixa-access.log-20260629.gz
-/logs/httpd/sicmu-intranet-update.caixa-error.log-20260629.gz
-/logs/httpd/sicmu-intranet-update.caixa-access.log-20260630.gz
-/logs/httpd/sicmu-intranet-update.caixa-error.log-20260630.gz
-/logs/httpd/sicmu-intranet-update.caixa-access.log-20260701
-/logs/httpd/sicmu-intranet-update.caixa-error.log-20260701
-/logs/jboss/jboss-eap/standalone/sicmu-intranet-update
-/logs/monitoracao/apache_access_sicmu-intranet-update.log-20260701
-/logs/monitoracao/apache_access_sicmu-intranet-update.log
-/opt/jboss-eap/standalone/deployments/SICMU-ear.ear
-/opt/jboss-eap/standalone/deployments/SICMU-ear.ear.deployed
-/opt/jboss-eap/standalone/tmp/SICMU-ear.ear.SICMU-web.war
--sh-4.2$
+Recupera versão projeto (groupId:artifactId:type:version)
+
+View raw log
+
+Starting: Recupera versão projeto (groupId:artifactId:type:version)
+==============================================================================
+Task         : Bash
+Description  : Run a Bash script on macOS, Linux, or Windows
+Version      : 3.227.0
+Author       : Microsoft Corporation
+Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/bash
+==============================================================================
+Generating script.
+========================== Starting Command Output ===========================
+/usr/bin/bash /opt/ads-agent/_work/_temp/24ffe8d9-c251-42ef-a99c-ce9e3ca9ee89.sh
+Entrando no diretório: /opt/ads-agent/_work/7868/s
+Arquivos encontrados: total 8
+drwxr-xr-x 4 sadscp01 sadscp01  65 Jun 24 15:55 .
+drwxr-xr-x 7 sadscp01 sadscp01  67 Jun 24 15:55 ..
+drwxr-xr-x 8 sadscp01 sadscp01 162 Jun 24 15:55 .git
+-rw-r--r-- 1 sadscp01 sadscp01 209 Jun 24 15:55 .project
+drwxr-xr-x 6 sadscp01 sadscp01 105 Jun 24 15:55 SICMU
+-rw-r--r-- 1 sadscp01 sadscp01  79 Jun 24 15:55 SUPORTE.md
+Encontrado o arquivo: ./SICMU/SICMU-ear/target/SICMU-ear.ear\n
+Diretório do projeto: ./SICMU/SICMU-ear/target
+Conteúdo do diretório: total 22072
+drwxr-xr-x 4 sadscp01 sadscp01       89 Jun 24 15:55 .
+drwxr-xr-x 5 sadscp01 sadscp01       97 Jun 24 15:55 ..
+-rw-r--r-- 1 sadscp01 sadscp01      549 Jun 24 15:55 application.xml
+drwxr-xr-x 2 sadscp01 sadscp01       28 Jun 24 15:55 maven-archiver
+drwxr-xr-x 4 sadscp01 sadscp01       75 Jun 24 15:55 SICMU-ear
+-rw-r--r-- 1 sadscp01 sadscp01 22593596 Jun 24 15:55 SICMU-ear.ear
+Arquivo POM: ./SICMU/SICMU-ear/target/maven-archiver/pom.properties
+br.gov.caixa:SICMU-ear:ear:0.0.1-SNAPSHOT
+Finishing: Recupera versão projeto (groupId:artifactId:type:version)
 
 
 
-outra questão
 
-nao sei se isso tem haver mais ta acontecendi isso:
-
-Magnus dos Santos Silva, bom dia tudo bem? cara fizemos a solicitação de reconfiguração e foi atendida, agora estamos com o seguinte problema, 
- 
-https://sicmu-intranet-update.esteiras.des.caixa/
- 
-eu consigo acessar e entra normalmente, estou pela VPN CAIXA TI.
- 
-Já o Marcelo esta pela VPN CAIXA e não consegue entrar.
- 
-ja solicitei para colegas que estão presencial na 512 norte e eles também conseguem acessar. 
- 
-sabe me informar o que pode está acontecendo?
- 
-o marcela já esta abrindo a req para cetel
-
-
- responsta do magnus:
-
-
- Verifiquei que de fato não há regra permitindo o acesso https://sicmu-intranet-update.esteiras.des.caixa/ a partir do túnel de VPN do Marcelo, bem como uma regra em direção a esse serviço nunca foi solicitada no portal regras.telecom.caixa. Para os que funcionam, é porque há uma outra regra abrangente permitindo. O Marcelo teria que solicitar assim:
- 
-Origem: VPN_CAIXA
-Destino: 10.116.181.177 (sicmu-intranet-update.esteiras.des.caixa)
-Porta: 443
-
-
-<img width="1243" height="690" alt="imagem (8)" src="https://github.com/user-attachments/assets/41591469-94c4-4fdf-8fb0-d07cee1ce8c3" />
-
-o marcelo ja esta verificnado com a cerpto sobre a regra de firewall
-
-
+Progress (1): 1.1/23 MB
+Progress (1): 1.4/23 MB
+Progress (1): 1.6/23 MB
+Progress (1): 1.8/23 MB
+Progress (1): 2.0/23 MB
+Progress (1): 2.3/23 MB
+Progress (1): 2.5/23 MB
+Progress (1): 2.7/23 MB
+Progress (1): 2.9/23 MB
+Progress (1): 3.2/23 MB
+Progress (1): 3.4/23 MB
+Progress (1): 3.6/23 MB
+Progress (1): 3.8/23 MB
+Progress (1): 4.1/23 MB
+Progress (1): 4.3/23 MB
+Progress (1): 4.5/23 MB
+Progress (1): 4.7/23 MB
+Progress (1): 5.0/23 MB
+Progress (1): 5.2/23 MB
+Progress (1): 5.4/23 MB
+Progress (1): 5.6/23 MB
+Progress (1): 5.9/23 MB
+Progress (1): 6.1/23 MB
+Progress (1): 6.3/23 MB
+Progress (1): 6.5/23 MB
+Progress (1): 6.8/23 MB
+Progress (1): 7.0/23 MB
+                   
+Uploaded to NEXUS_INTERNO: http://binario.caixa:8081/repository/releases/br/gov/caixa/SICMU-ear/01.05.05.004/SICMU-ear-01.05.05.004.ear (23 MB at 29 MB/s)
+Uploading to NEXUS_INTERNO: http://binario.caixa:8081/repository/releases/br/gov/caixa/SICMU-ear/01.05.05.004/SICMU-ear-01.05.05.004.pom
+Progress (1): 431 B
+                   
+Uploaded to NEXUS_INTERNO: http://binario.caixa:8081/repository/releases/br/gov/caixa/SICMU-ear/01.05.05.004/SICMU-ear-01.05.05.004.pom (431 B at 14 kB/s)
+Downloading from NEXUS_INTERNO: http://binario.caixa:8081/repository/releases/br/gov/caixa/SICMU-ear/maven-metadata.xml
+Progress (1): 348 B
+                   
+Downloaded from NEXUS_INTERNO: http://binario.caixa:8081/repository/releases/br/gov/caixa/SICMU-ear/maven-metadata.xml (348 B at 8.7 kB/s)
+Uploading to NEXUS_INTERNO: http://binario.caixa:8081/repository/releases/br/gov/caixa/SICMU-ear/maven-metadata.xml
+Progress (1): 386 B
+                   
+Uploaded to NEXUS_INTERNO: http://binario.caixa:8081/repository/releases/br/gov/caixa/SICMU-ear/maven-metadata.xml (386 B at 6.5 kB/s)
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.457 s
+[INFO] Finished at: 2026-06-24T15:57:59-03:00
+[INFO] ------------------------------------------------------------------------
+Finishing: Publica no Nexus
 
 
