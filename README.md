@@ -1,21 +1,30 @@
-Diagnóstico técnico - SICMU DevOps - erro de acesso e recursos
-Ambiente: DES e TQS (servicossociais.des.corerj.caixa / servicossociais.tqs.corerj.caixa)
-Aplicação: SICMU-intranet-update
-Versão do pacote validada nos ambientes: SICMU-ear 01.05.05.004 (releases 93 e 94 no Azure DevOps)
-Resumo e encaminhamentos sugeridos
+2026-07-02T17:31:39.3486450Z ##[section]Starting: Verificando Status do Deployment
+2026-07-02T17:31:39.3489427Z ==============================================================================
+2026-07-02T17:31:39.3489507Z Task         : Bash
+2026-07-02T17:31:39.3489550Z Description  : Run a Bash script on macOS, Linux, or Windows
+2026-07-02T17:31:39.3489622Z Version      : 3.227.0
+2026-07-02T17:31:39.3489665Z Author       : Microsoft Corporation
+2026-07-02T17:31:39.3489717Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/bash
+2026-07-02T17:31:39.3489796Z ==============================================================================
+2026-07-02T17:31:39.4770416Z Generating script.
+2026-07-02T17:31:39.4783473Z ========================== Starting Command Output ===========================
+2026-07-02T17:31:39.4790821Z [command]/usr/bin/bash /opt/ads-agent/_work/_temp/c52e1f96-4dd1-446c-ae5e-018011146792.sh
+2026-07-02T17:31:39.5780926Z Waiting for rollout to finish: 0 out of 1 new replicas have been updated...
+2026-07-02T17:31:41.7245223Z Waiting for rollout to finish: 0 out of 1 new replicas have been updated...
+2026-07-02T17:31:41.8053706Z Waiting for rollout to finish: 1 old replicas are pending termination...
+2026-07-02T17:37:46.8586453Z ##[error]The task has timed out.
+2026-07-02T17:37:46.8587475Z ##[section]Finishing: Verificando Status do Deployment
 
-Recursos estáticos vendor.js, modernizr.js e plugins.js retornando 404
-Já verificamos o deploy e o pacote publicado, e por ora não encontramos indício de falha na pipeline ou no artefato gerado. Fica a sugestão de o time de desenvolvimento avaliar com calma se pode ser referência de uma versão anterior da aplicação ou algo relacionado a cache do navegador do usuário, quando possível.
-Timeout de conexão no serviço ServicoEnc em DES
-Encontramos uma falha de conexão que parece estar relacionada a rede/firewall. Sugerimos que o time de infraestrutura de rede dê uma olhada quando possível, para confirmar se está tudo certo na regra de acesso a esse destino.
-ServicoDct em TQS retornando resposta vazia
-O serviço está no ar e respondendo rápido, mas sem conteúdo. Fica como sugestão para o time de desenvolvimento revisar, se possível, a lógica de resposta desse serviço.
-Acesso via VPN_CAIXA bloqueado
-Esse ponto já está sendo tratado diretamente pelo Marcelo com o time de Telecom e CEPRO, então seguimos apenas acompanhando.
+FALHA NA MONTAGEM NO DE TQS
 
-Detalhamento técnico (para referência)
-Item 1: curl direto no JBoss-EAP confirmou 404 no próprio servidor de aplicação. Inspecionamos o WAR SICMU-web.war extraído do EAR publicado no Nexus e presente no servidor, e não encontramos os arquivos vendor.js, modernizr.js e plugins.js no pacote, nem referência a eles nos templates e páginas xhtml (template.xhtml, template2.xhtml, cabecalho.xhtml, rodape.xhtml, rodape2.xhtml) ou em busca ampla no conteúdo extraído do WAR. O deploy foi conferido como correspondente à versão publicada no Azure DevOps.
-Item 2: curl para https://servicossociais.des.corerj.caixa/ServicoEnc resultou em timeout de conexão, mesmo com o DNS resolvendo corretamente para 10.116.98.168.
-Item 3: curl para https://servicossociais.tqs.corerj.caixa/ServicoDct retornou HTTP 200 com Content-Length 0, o que gera o erro de parse XML observado no console do navegador.
-Item 4: confirmado pelo time de Telecom que não existe regra de firewall para esse destino a partir do túnel VPN_CAIXA utilizado pelo Marcelo. Solicitação de regra foi negada pelo portal Regras Telecom, com orientação para formalizar junto à CEPRO/CAIXA.
-Ficamos à disposição para qualquer esclarecimento adicional sobre o que foi levantado até aqui.
+<img width="1281" height="686" alt="image" src="https://github.com/user-attachments/assets/2b7c7ae4-47df-4d65-a2e4-274e2cb89f93" />
+
+
+<img width="1413" height="749" alt="image" src="https://github.com/user-attachments/assets/7a04f3f1-e964-4eb3-be1f-36f13aa46757" />
+
+TA TROCANDO E TA QUEBRANDO A APLICAÇÃO
+
+
+
+de des ta montando certo
+<img width="1407" height="706" alt="image" src="https://github.com/user-attachments/assets/460d93fa-8929-45f5-bfc5-f3abbfe64e26" />
