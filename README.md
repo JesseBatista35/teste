@@ -1,4 +1,3 @@
-
 -sh-4.2$ cd ~/verificacara_sicmu
 -sh: cd: /home/p585600/verificacara_sicmu: Arquivo ou diretório não encontrado
 -sh-4.2$ pwd
@@ -45,4 +44,3 @@ See "unzip -hh" or unzip.txt for more help.  Examples:
   unzip -p foo | more  => send contents of foo.zip via pipe into program more
   unzip -fo foo ReadMe => quietly replace existing ReadMe if archive file newer
 -sh-4.2$
-
