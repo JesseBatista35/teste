@@ -1,14 +1,6 @@
+oc get dc sibec-arquivos-tqs -n sibec-tqs -o yaml | wc -l
 
--sh-4.2$ sed -n '1,400p' /tmp/dc.yaml
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$ cat /tmp/dc.yaml
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$ sed -n '/^ template:/,/^status:/p' /tmp/dc.yaml
--sh-4.2$
+oc get dc sibec-arquivos-tqs -n sibec-tqs
+
+
+oc whoami
