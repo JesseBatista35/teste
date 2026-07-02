@@ -1,10 +1,8 @@
-Verificando se o Volume foi configurado corretamente.
 
-
-check_pvc=`oc get pvc -o=json -n $(PROJETO)-$(AMBIENTE) | jq '.items[0]|.status.phase=="Bound"'`
-if [ "$check_pvc" == "true" ]; then
-   echo "O volume foi configurado com sucesso"
-   else
-   echo "Ocorreu alguma falha no processo de configuração"
-   exit 1
-fi
+-sh-4.2$ oc get pvc -n sibec-tqs
+NAME                          STATUS    VOLUME                        CAPACITY   ACCESS MODES   STORAGECLASS      AGE
+sibec-arquivos-data-tqs       Pending   sibec-arquivos-data-tqs       0                                           68m
+sibec-arquivos-fgw-data-tqs   Bound     sibec-arquivos-fgw-data-tqs   5Gi        RWX            rook-ceph-block   188d
+sibec-data-tqs                Bound     sibec-data-tqs                10Gi       RWX                              518d
+sibec-internet-data-tqs       Bound     sibec-internet-data-tqs       50Gi       RWX                              503d
+-sh-4.2$
