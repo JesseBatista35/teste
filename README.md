@@ -1,11 +1,4 @@
--sh-4.2$ rm -f SICMU-web.war
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$ unzip -p SICMU-ear.ear SICMU-web.war > SICMU-web.war
--sh-4.2$
--sh-4.2$
--sh-4.2$ ls -la SICMU-web.war
--rw-r--r-- 1 p585600 usucef 21704701 Jul  2 14:38 SICMU-web.war
--sh-4.2$
+unzip -l SICMU-web.war | grep -i "vendor.js"
 
+
+unzip -l SICMU-web.war | grep -i "operacaoHabitacional"
