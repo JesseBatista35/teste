@@ -1,5 +1,1 @@
-[p585600@caddeapllx2577 ~]$ find / -iname "pom.xml" -path "*siag* 2>/dev/null
->
->
->
->
+find / -iname "pom.xml" -path "*siarg*" 2>/dev/null
