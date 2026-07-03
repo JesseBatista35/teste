@@ -1,106 +1,271 @@
-Skip to main content
-Azure DevOps
-projetos
-/
-Caixa
-/
-Search
-Search
-
-
-Caixa
-
-Overview
-
-Boards
-
-Repos
-
-Pipelines
-
-Test Plans
-
-Artifacts
-Project settings
-This project
-project.version
-Code
-5
-Work item
-0
-Wiki
-0
-
-Search this organization
-
-Relevance
-
-
-Repo: SISME
-Branch:
-develop
-
-Path:
-Type to find a path...
-
-
-2
-Showing 5 code results
-pom.xmlCaixa > SISME
-3 matches
-/sisme-ear/pom.xml
-
-.gitlab-ci.ymlCaixa > SISME
-2 matches
-/.gitlab-ci.yml
-pom.xmlCaixa > SISME
-2 matches
-/sisme-itests/pom.xml
-pom.xmlCaixa > SISME
-2 matches
-/sisme-web/pom.xml
-pom.xmlCaixa > SISME
-1 match
-/sisme-ejb/pom.xml
-pom.xml
-12345678910111213141516171819202122232425262728293031323334353637383940
+<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>sisme-web</artifactId>
+	<packaging>war</packaging>
+	<name>${project.artifactId}</name>
 
-    <artifactId>sisme-ear</artifactId>
-    <packaging>ear</packaging>
-    <name>${project.artifactId}</name>
-    <parent>
-        <groupId>br.gov.cef.sisme</groupId>
-        <artifactId>sisme-parent</artifactId>
+	<parent>
+		<artifactId>sisme-parent</artifactId>
+		<groupId>br.gov.cef.sisme</groupId>
+		<version>2.96.0.0</version>
+	</parent>
 
-Finished loading items
+	<dependencies>
+		<dependency>
+			<groupId>org.keycloak</groupId>
+			<artifactId>keycloak-adapter-core</artifactId>
+			<version>4.8.3.Final</version>
+		</dependency>
+		<dependency>
+			<groupId>org.keycloak</groupId>
+			<artifactId>keycloak-core</artifactId>
+			<version>4.8.3.Final</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.unisys.br.fabrica</groupId>
+			<artifactId>fabrica-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.unisys.br.amsfw</groupId>
+			<artifactId>amsfw-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>br.gov.cef.sisme</groupId>
+			<artifactId>sisme-ejb</artifactId>
+			<version>${project.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>br.gov.cef.sisme</groupId>
+			<artifactId>sisme-api</artifactId>
+			<version>${project.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.jboss.spec.javax.ejb</groupId>
+			<artifactId>jboss-ejb-api_3.1_spec</artifactId>
+			<scope>provided</scope>
+		</dependency>
 
-Expanded
+		<dependency>
+			<groupId>org.jboss.spec</groupId>
+			<artifactId>jboss-javaee-6.0</artifactId>
+			<version>3.0.0.Final</version>
+			<type>pom</type>
+			<scope>provided</scope>
+		</dependency>
 
-Searching...
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>1.8</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.faces</groupId>
+			<artifactId>jsf-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.faces</groupId>
+			<artifactId>jsf-impl</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet.jsp</groupId>
+			<artifactId>jsp-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.primefaces</groupId>
+			<artifactId>primefaces</artifactId>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>net.sf.jasperreports</groupId>
+			<artifactId>jasperreports</artifactId>
+			<version>6.11.0</version>
+			<exclusions>
+		        <exclusion>
+		            <groupId>com.lowagie</groupId>
+		            <artifactId>itext</artifactId>
+		        </exclusion>
+		    </exclusions>
+		</dependency>
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.2.1</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>1.4</version>
+		</dependency>
+		<dependency>
+			<groupId>br.gov.cef.util</groupId>
+			<version>1.0.0</version>
+			<artifactId>login-module-externo</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.8.5</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/net.sf.jasperreports/jasperreports-fonts -->
+		<dependency>
+			<groupId>net.sf.jasperreports</groupId>
+			<artifactId>jasperreports-fonts</artifactId>
+			<version>6.16.0</version>
+		</dependency>
+		<dependency>
+			<groupId>net.sf.jasperreports</groupId>
+			<artifactId>jasperreports-chart-customizers</artifactId>
+			<version>6.8.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.mpobjects.jasperreports.font</groupId>
+			<artifactId>jasperreports-fonts-liberation</artifactId>
+			<version>2.1.2</version>
+		</dependency>
+		<dependency>
+			<groupId>net.sf.jasperreports</groupId>
+			<artifactId>jasperreports-fonts-pedesgo</artifactId>
+			<version>4.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>br.gov.cef.gitecbh</groupId>
+			<artifactId>sso-login</artifactId>
+			<version>1.2.4</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>3.7</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml-schemas</artifactId>
+			<version>3.7</version>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.apache.pdfbox</groupId>
+		    <artifactId>pdfbox</artifactId>
+		    <version>2.0.20</version>
+		</dependency>
+		<dependency>
+	       <groupId>net.sf.jasperreports</groupId>
+	       <artifactId>jasperreports-metadata</artifactId>
+			<version>6.8.0</version>
+	   </dependency>
+		<dependency>
+		    <groupId>com.lowagie</groupId>
+		    <artifactId>itext</artifactId>
+		    <version>2.1.7</version>
+    		<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.drewnoakes</groupId>
+			<artifactId>metadata-extractor</artifactId>
+			<version>2.11.0</version>
+		</dependency>
+	</dependencies>
+	<build>
+		<finalName>${project.artifactId}</finalName>
+		<resources>
+			<resource>
+				<directory>${basedir}/src/main/resources</directory>
+			</resource>
+		</resources>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.4</version>
+				<configuration>
+					<webXml>src/main/webapp/WEB-INF/config/${deploy.config.name}/web.xml</webXml>
+					<warName>sisme_${deploy.config.name}</warName>
+					<archiveClasses>false</archiveClasses>
+					<includeEmptyDirectories>false</includeEmptyDirectories>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.jasig.maven</groupId>
+				<artifactId>sass-maven-plugin</artifactId>
+				<version>1.1.1</version>
+				<executions>
+					<execution>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>update-stylesheets</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<resources>
+						<resource>
+							Set source and destination dirs
+							<source>
+								<directory>${project.basedir}/src/main/webapp/caixa/css</directory>
+							</source>
+							<destination>${project.basedir}/src/main/webapp/caixa/css</destination>
+						</resource>
+					</resources>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	<profiles>
+		<profile>
+			<id>internet_dev</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<war.name>sisme_internet</war.name>
+				<deploy.config.name>internet</deploy.config.name>
+			</properties>
+		</profile>
+		<profile>
+			<id>intranet_dev</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+			<properties>
+				<war.name>sisme_intranet</war.name>
+				<deploy.config.name>intranet</deploy.config.name>
+			</properties>
+		</profile>
+	</profiles>
+</project>
 
-Showing 2 filtered items.
 
-Collapsed
 
-Showing 2 filtered items.
-
-Showing 55 items.
-
-Finished loading items
-
-Expanded
-
-Searching...
-
-Showing 4 filtered items.
-
-Showing 4 filtered items.
-
-Collapsed
-
-Showing filters 1 through 3
-
-Cannot edit in read-only editor
