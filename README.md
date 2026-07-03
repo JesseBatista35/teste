@@ -1,4 +1,4 @@
-<img width="1891" height="902" alt="image" src="https://github.com/user-attachments/assets/9f421b74-43ad-4020-b151-048ae4d34a3f" />
+<img width="1888" height="939" alt="image" src="https://github.com/user-attachments/assets/39a7f2d4-f3a3-4d32-b878-4b300a4cdfcd" />
 
 
-ela ta aqui sim
+NAO TEM ACHAR SO DIGITANDO
