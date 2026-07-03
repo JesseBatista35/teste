@@ -1,92 +1,56 @@
+Jesse Mouta Pereira Batista  Boa tarde
+ 
+referente a resposta: 
+ 
+2/7/2026 19:57:55 ;  (P585600)
+À CAIXA,
 
--sh-4.2$ date
-Sex Jul  3 12:18:46 -03 2026
--sh-4.2$ ls -la /opt/jboss-eap/standalone/deployments/sisme-ear.ear*
--rwxrw-rw- 1 jboss jboss 83159033 Jul  2 19:46 /opt/jboss-eap/standalone/deployments/sisme-ear.ear
--rw-r--r-- 1 jboss jboss       13 Jul  2 19:46 /opt/jboss-eap/standalone/deployments/sisme-ear.ear.deployed
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$ cd /tmp && rm -rf checkver_prova && mkdir checkver_prova && cd checkver_prova
--sh-4.2$
--sh-4.2$
--sh-4.2$ unzip -o /opt/jboss-eap/standalone/deployments/sisme-ear.ear -d ear_extracted | grep -E "\.war|\.jar" | grep -iE "sisme-web|sisme-api|sisme-ejb"
-  inflating: ear_extracted/sisme-web-2.93.2.0.war
-  inflating: ear_extracted/lib/sisme-api-2.93.2.0.jar
-  inflating: ear_extracted/sisme-ejb-2.93.2.0.jar
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$ find ear_extracted -iname "versao.txt"
--sh-4.2$ cat ear_extracted/CAMINHO/versao.txt
-cat: ear_extracted/CAMINHO/versao.txt: Arquivo ou diretório não encontrado
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$ cat ear_extracted/CAMINHO/version.txt
-cat: ear_extracted/CAMINHO/version.txt: Arquivo ou diretório não encontrado
--sh-4.2$ find ear_extracted -iname "version.txt"
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$ date
-Sex Jul  3 13:59:15 -03 2026
--sh-4.2$
+Prezados,
+
+Realizamos a análise técnica do ambiente sisme-vm (DES) referente à divergência de versão relatada.
+
+Verificação realizada diretamente no servidor JBoss (/opt/jboss-eap/standalone/deployments/), inspecionando o conteúdo do artefato sisme-ear.ear efetivamente deployado.
+
+Constatou-se que o ambiente processa corretamente cada deploy recebido, sem qualquer falha de infraestrutura, DNS, VIP ou proxy Nginx.
+
+A divergência de versão ocorreu porque a release SISME-363 (branch branch-from-2.93.2.0, versão 2.93.2.0-SNAPSHOT) foi executada após a release SISME-362 (versão 2.93.3.0), sobrescrevendo no ambiente DES o artefato mais recente pelo artefato de uma branch anterior.
+
+Para confirmação, foi realizado teste controlado: após deploy da versão 2.93.3.0, o artefato no servidor apresentou os módulos sisme-web-2.93.3.0.war, sisme-api-2.93.3.0.jar e sisme-ejb-2.93.3.0.jar. 
+
+Em seguida, redeploy da release SISME-363 (2.93.2.0) foi executado, e o artefato no servidor passou a apresentar sisme-web-2.93.2.0.war, sisme-api-2.93.2.0.jar e sisme-ejb-2.93.2.0.jar, replicando exatamente o comportamento relatado.
+
+Conclusão: não há problema de ambiente, rede ou infraestrutura. A causa foi a execução de releases em ordem não esperada, com uma branch anterior sendo deployada por cima de uma versão mais recente.
 
 
-ele ta criando m novo com a versão antiga... 
+Recomendação: antes de validar uma entrega em DES, confirmar qual release está ativa no momento (aba Releases do pipeline SISME no Azure DevOps) e evitar redeploy de branches antigas sobre versões já validadas, para não gerar inconsistência de versão durante
+ a sprint.
 
-<img width="1886" height="278" alt="image" src="https://github.com/user-attachments/assets/177986a9-9507-42bf-8a91-185a9378f679" />
+Segue evidencia em anexo do log no jboss
 
+Encaminhamos como concluída, sem ação pendente por parte da equipe de esteiras DevOps.
 
--sh-4.2$
--sh-4.2$ date
-Sex Jul  3 12:18:46 -03 2026
--sh-4.2$ ls -la /opt/jboss-eap/standalone/deployments/sisme-ear.ear*
--rwxrw-rw- 1 jboss jboss 83159033 Jul  2 19:46 /opt/jboss-eap/standalone/deployments/sisme-ear.ear
--rw-r--r-- 1 jboss jboss       13 Jul  2 19:46 /opt/jboss-eap/standalone/deployments/sisme-ear.ear.deployed
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$ cd /tmp && rm -rf checkver_prova && mkdir checkver_prova && cd checkver_prova
--sh-4.2$
--sh-4.2$
--sh-4.2$ unzip -o /opt/jboss-eap/standalone/deployments/sisme-ear.ear -d ear_extracted | grep -E "\.war|\.jar" | grep -iE "sisme-web|sisme-api|sisme-ejb"
-  inflating: ear_extracted/sisme-web-2.93.2.0.war
-  inflating: ear_extracted/lib/sisme-api-2.93.2.0.jar
-  inflating: ear_extracted/sisme-ejb-2.93.2.0.jar
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$ find ear_extracted -iname "versao.txt"
--sh-4.2$ cat ear_extracted/CAMINHO/versao.txt
-cat: ear_extracted/CAMINHO/versao.txt: Arquivo ou diretório não encontrado
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$ cat ear_extracted/CAMINHO/version.txt
-cat: ear_extracted/CAMINHO/version.txt: Arquivo ou diretório não encontrado
--sh-4.2$ find ear_extracted -iname "version.txt"
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$ date
-Sex Jul  3 13:59:15 -03 2026
--sh-4.2$ ls -la /opt/jboss-eap/standalone/deployments/sisme-ear.ear*
--rwxrw-rw- 1 jboss jboss 86315293 Jul  3 14:03 /opt/jboss-eap/standalone/deployments/sisme-ear.ear
--rw-r--r-- 1 jboss jboss       13 Jul  3 14:03 /opt/jboss-eap/standalone/deployments/sisme-ear.ear.deployed
--sh-4.2$ unzip -o /opt/jboss-eap/standalone/deployments/sisme-ear.ear -d ear_extracted | grep -E "\.war|\.jar" | grep -iE "sisme-web|sisme-api|sisme-ejb"
-  inflating: ear_extracted/sisme-web-2.90.8.0.war
-  inflating: ear_extracted/lib/sisme-api-2.90.8.0.jar
-  inflating: ear_extracted/sisme-ejb-2.90.8.0.jar
--sh-4.2$
+Atenciosamente,
+
+Jessé Mouta Pereira Batista
+
+Analista
+
+CTIS / CESTI Esteira DEVOPS DES TQS NPRD
 
 
+sisme 1.png
 
 
-
-
+sisme2.png
+ 
+ 
+ 
+Status da Solicitação	Concluído (Bem-sucedido) 
+ID: 	REQ000144756066
+ 
+ 
+estou reabrindo
+ 
+ 
+Jesse Mouta, a intenção é abrir uma chamada de video aqui, e junto com o desenvolvedor acompanhar o deploy de uma versão junto com o dev. E ai saber o erro, problema que acontece, seja no momento do deploy ou no ambiente.
+ 
