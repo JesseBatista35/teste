@@ -1,9 +1,20 @@
-A esteira está entregando corretamente o pacote certo a cada deploy. O que precisa ser investigado agora é onde o footer da tela busca essa informação de versão — ela não está vindo de um versao.txt nem version.txt dentro do pacote, então deve estar fixa em algum XHTML, JS ou cache do navegador. Você sabe me dizer em qual arquivo/componente o rodapé lê esse valor?"
 
 
+Olá,
+ 
+É utilizado o token de uma conta para executar o clone do repositório no GitHub, quando executado a pipeline 
 
-ls -la /opt/jboss-eap/standalone/deployments/sisme-ear.ear*
+no Azures DevOps Servee. E esse token é cadastrado no Service Connection do Azures DevOps Server através de 
 
+uma automação que não consegui identificar.
+ 
+Nessa automação existe uma conta que o token está expirando ou a conta expirou, após identificar a conta ou token
 
-cd /tmp && rm -rf checkver_call && mkdir checkver_call && cd checkver_call
-unzip -o /opt/jboss-eap/standalone/deployments/sisme-ear.ear -d ear_extracted | grep -E "\.war|\.jar" | grep -iE "sisme-web|sisme-api|sisme-ejb"
+pode ser necessário inserir o token novamente no service connection.
+ 
+ 
+ 
+Esse texto é a causa
+ 
+talvez, Tem que identificar onde está essa automação e pegar a conta para gerar o token e cadastrar no service connection
+ 
