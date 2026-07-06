@@ -1,1 +1,4 @@
-<img width="1503" height="541" alt="image" src="https://github.com/user-attachments/assets/e4d0b496-368c-4fdc-9fd7-b507910807a8" />
+<img width="1916" height="937" alt="image" src="https://github.com/user-attachments/assets/938f728e-9fbf-4ec0-bb49-d2cbe5dad965" />
+
+
+me ajuda a char ele aqui
