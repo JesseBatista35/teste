@@ -1,5 +1,8 @@
 
+Aqui está o texto:
 
-<img width="1842" height="889" alt="image" src="https://github.com/user-attachments/assets/14b4d5e8-6e6b-4fd0-983d-d6f4c4ee75db" />
+Prezados,
+Informamos que o ambiente DES já está preparado para a configuração do Application Insights no SISME (acesso ao proxy liberado, DNS solicitado).
+Porém, verificamos que o recurso Application Insights referente ao SISME ainda não foi criado no Azure. Solicitamos que seja aberta a solicitação junto ao time de Nuvem para o provisionamento desse recurso, a fim de que possamos obter a Connection String necessária para prosseguir com a configuração do agente na aplicação.
 
 
