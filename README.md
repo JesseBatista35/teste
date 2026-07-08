@@ -1,12 +1,8 @@
+grep -n -iE "ERROR|Caused by|DeploymentException|ClassNotFoundException|NoClassDefFoundError" /opt/jboss-eap/standalone/log/server.log
 
--sh-4.2$ grep -n -i "siamc" /opt/jboss-eap/standalone/log/server.log
-57:     jboss.server.log.dir = /logs/jboss/jboss-eap/standalone/siamc-dev-internet
-67:     org.jboss.boot.log.file = /logs/jboss/jboss-eap/standalone/siamc-dev-internet/server.log
-78:     sun.java.command = /opt/jboss-eap/jboss-modules.jar -mp /opt/jboss-eap/modules org.jboss.as.standalone -Djboss.home.dir=/opt/jboss-eap -Djboss.server.base.dir=/opt/jboss-eap/standalone -b 0.0.0.0 -bmanagement 0.0.0.0 -Djboss.server.base.dir=/opt/jboss-eap/standalone -Djboss.server.log.dir=/logs/jboss/jboss-eap/standalone/siamc-dev-internet -c standalone-full-ha.xml
-90:2026-07-08 14:20:30,651 DEBUG [org.jboss.as.config] (MSC service thread 1-2) Argumentos da VM: -D[Standalone] -Xlog:gc*:file=/logs/jboss/jboss-eap/standalone/siamc-dev-internet/gc.log:time,uptimemillis:filecount=5,filesize=3M -Djdk.serialFilter=maxbytes=10485760;maxdepth=128;maxarray=100000;maxrefs=300000 -Xms1024m -Xmx2048m -XX:MetaspaceSize=256m -XX:MaxMetaspaceSize=512m -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs=org.jboss.byteman,org.jboss.logmanager,sun.security.ec -Djava.awt.headless=true -Djavax.net.ssl.trustStore=/opt/jboss-eap/standalone/configuration/caixa-truststore-acteste-nprd.jks -Djavax.net.ssl.trustStorePassword=changeit -Dcom.redhat.fips=false -Djboss.modules.policy-permissions=true -XX:+ExplicitGCInvokesConcurrent -XX:+UseG1GC -XX:MaxGCPauseMillis=500 -Xbootclasspath/a:/opt/jboss-eap/modules/system/layers/base/org/wildfly/common/main/wildfly-common-1.5.4.Final-redhat-00001.jar -Xbootclasspath/a:/opt/jboss-eap/modules/system/layers/base/org/jboss/logmanager/main/jboss-logmanager-2.1.18.Final-redhat-00001.jar -Dsun.util.logging.disableCallerCheck=true -Djava.util.logging.manager=org.jboss.logmanager.LogManager --add-exports=java.base/sun.nio.ch=ALL-UNNAMED --add-exports=jdk.unsupported/sun.misc=ALL-UNNAMED --add-exports=jdk.unsupported/sun.reflect=ALL-UNNAMED --add-exports=java.desktop/sun.awt=ALL-UNNAMED --add-exports=java.naming/com.sun.jndi.ldap=ALL-UNNAMED --add-exports=java.naming/com.sun.jndi.url.ldap=ALL-UNNAMED --add-exports=java.naming/com.sun.jndi.url.ldaps=ALL-UNNAMED --add-opens=java.base/com.sun.net.ssl.internal.ssl=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.lang.invoke=ALL-UNNAMED --add-opens=java.base/java.lang.reflect=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/java.security=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.management/javax.management=ALL-UNNAMED --add-opens=java.naming/javax.naming=ALL-UNNAMED -Dorg.jboss.boot.log.file=/logs/jboss/jboss-eap/standalone/siamc-dev-internet/server.log -Dlogging.configuration=file:/opt/jboss-eap/standalone/configuration/logging.properties
-129:2026-07-08 14:20:33,411 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-1) WFLYJCA0001: Fonte de dados vinculada[java:/SiamcDS]
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$ grep -n -i "ERROR|Caused by|DeploymentException|ClassNotFoundException|NoClassDefFoundError" /opt/jboss-eap/standalone/log/server.log
--sh-4.2$
+ls -la /opt/jboss-eap/standalone/deployments/
+
+
+cat /opt/jboss-eap/standalone/deployments/siamc-ear.ear.failed
+
+/opt/jboss-eap/bin/jboss-cli.sh -c --command="/deployment=siamc-ear.ear:read-resource(attributes-only=true,include-runtime=true,recursive=true)"
