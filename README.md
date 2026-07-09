@@ -1,22 +1,11 @@
-sh-4.4$ ls -la /opt/jboss/modules/system/layers/base/com/
-total 0
-drwxrwxr-x. 1 185 root 20 Jul  3 10:43 .
-drwxrwxr-x. 1 185 root 17 Aug  7  2024 ..
-drwxrwxr-x. 4 185 root 38 Jun 23  2021 fasterxml
-drwxrwxr-x. 5 185 root 50 Jun 23  2021 github
-drwxrwxr-x. 4 185 root 31 Jun 23  2021 google
-drwxrwxr-x. 3 185 root 22 Jun 23  2021 googlecode
-drwxrwxr-x. 3 185 root 16 Jun 23  2021 h2database
-drwxrwxr-x. 3 185 root 19 Jun 23  2021 microsoft
-drwxr-xr-x. 3 185 root 18 Jul  3 10:43 oracle
-drwxrwxr-x. 3 185 root 21 Jun 23  2021 squareup
-drwxrwxr-x. 4 185 root 33 Jun 23  2021 sun
-sh-4.4$ cd oracle
-sh: cd: oracle: No such file or directory
-sh-4.4$ ls -la
-total 1948
-drwxr-xr-x. 2 185 root      53 Jul  3 10:43 .
-drwxr-xr-x. 3 185 root      18 Jul  3 10:43 ..
--rw-r--r--. 1 185 root     315 Jul  3 10:43 module.xml
--rw-r--r--. 1 185 root 1988051 Jul  3 10:43 ojdbc6-11.1.0.7.0.jar
-sh-4.4$ 
+Segue nota pronta pra colar na WO0000080963432:
+
+Prezados,
+Em atendimento à solicitação, foi identificada a causa raiz do erro de inicialização relatado: o módulo JBoss com.dinamonetworks — necessário para carregar o Provider JCA da Dinamo — não estava presente na instância JBoss EAP da aplicação SIABM-autenticacao-api, gerando a falha ModuleNotFoundException: com.dinamonetworks durante o boot (WFLYSRV0179: Failed to load module).
+Ação realizada:
+Seguindo a documentação oficial da Dinamo (Integração → JCA/JCE → Instalação Manual), foi criado o módulo com.dinamonetworks em $JBOSS_HOME/modules/system/layers/base/com/dinamonetworks/main/, contendo o pacote dinamo-hsm-4.16.0.jar e o respectivo module.xml referenciando o provider br.com.trueaccess.provider.netdfence.ND já parametrizado via -Djava.security.provider.6.
+Evidência de correção:
+Novo deploy do pod (siabm-autenticacao-api-sandbox-des-13-rg72f) subiu sem o erro anteriormente registrado. Os EJBs dependentes do provider criptográfico (HsmServiceImpl, JcaCryptoService) realizaram bind no JNDI normalmente, e o boot completou sem falhas de módulo (Started 1096 of 1317 services, nenhum serviço com falha).
+Solicitamos a validação funcional do responsável f531246 — especificamente exercitando uma chamada real de autenticação/biometria que dependa do HSM — para confirmar que o provider está operacional em runtime, e não apenas carregado, antes do fechamento definitivo desta WO.
+Atenciosamente,
+Esteira DEVOPS DES TQS - NPRD
