@@ -1,50 +1,28 @@
-Favor fornecer  suporte em relação a esteira.:
-
-- A esteira de CI/CD Workflow da erro de dockerfile not found. 
-
-Recurso backend foi criado após REQ000144709677 que solicitei configuração dos templates do GitOps
-
-Cluster do Aks: aks-hab-des
-Namespace: sinsh-backend-simulador-pj
-
-https://portal.azure.com/#view/Microsoft_Azure_ContainerService/AksK8ResourceMenuBlade/~/overview-Namespace/aksClusterId/%2Fsubscriptions%2F71c34861-6522-4717-9638-fb82b175936e%2FresourceGroups%2Frg-hab-des%2Fproviders%2FMicrosoft.ContainerService%2FmanagedClusters%2Faks-hab-des/resource~/%7B%22kind%22%3A%22Namespace%22%2C%22metadata%22%3A%7B%22name%22%3A%22sinsh-backend-simulador-pj%22%2C%22uid%22%3A%22b6291b6d-e1c2-49cc-8fbb-77d2aa851061%22%7D%7D/preloadK8sObjectsO11yContext~/%7B%22useUpgradedTier%22%3Afalse%2C%22isK8sObjectsOverviewO11yEnabled%22%3Atrue%7D
+no argocd
 
 
-<img width="1871" height="959" alt="image" src="https://github.com/user-attachments/assets/fccc8ff5-9aed-4732-97b9-d84306f42c21" />
+OPERATION
+Sync
+PHASE
+Error
+MESSAGE
+ComparisonError: Failed to load target state: failed to generate manifest for source 1 of 1: rpc error: code = Unknown desc = Manifest generation error (cached): failed to execute helm template command: failed to get command args to log: `helm template . --name-template sinsh-backend-simulador-pj-des --namespace sinsh-backend-simulador-pj --kube-version 1.34 --values /tmp/24bcabf3-70ac-48a4-8556-9d530c799e4f <api versions removed> --include-crds` failed exit status 1: coalesce.go:237: warning: skipped value for caixa-base-chart.caixa-base-chart.env: Not a table. coalesce.go:237: warning: skipped value for caixa-base-chart.caixa-base-chart.env: Not a table. coalesce.go:237: warning: skipped value for caixa-base-chart.caixa-base-chart.env: Not a table. Error: template: caixa-base-chart/charts/caixa-base-chart/templates/deployment.yaml:100:3: executing "caixa-base-chart/charts/caixa-base-chart/templates/deployment.yaml" at <include "caixa-base-chart.mergedEnvs" .>: error calling include: template: caixa-base-chart/charts/caixa-base-chart/templates/_helpers.tpl:85:9: executing "caixa-base-chart.mergedEnvs" at <.name>: can't evaluate field name in type interface {} Use --debug flag to render out invalid YAML (retried 4 times).
+STARTED AT
+an hour ago (Thu Jul 09 2026 15:10:49 GMT-0300)
+DURATION
+5m2s
+FINISHED AT
+an hour ago (Thu Jul 09 2026 15:15:51 GMT-0300)
+REVISION
+INITIATED BY
+githubuser
 
+Application conditions
+ComparisonError
+Failed to load target state: failed to generate manifest for source 1 of 1: rpc error: code = Unknown desc = Manifest generation error (cached): failed to execute helm template command: failed to get command args to log: `helm template . --name-template sinsh-backend-simulador-pj-des --namespace sinsh-backend-simulador-pj --kube-version 1.34 --values /tmp/ef15c510-f46b-438d-bc38-77e02d7f34f0 <api versions removed> --include-crds` failed exit status 1: coalesce.go:237: warning: skipped value for caixa-base-chart.caixa-base-chart.env: Not a table. coalesce.go:237: warning: skipped value for caixa-base-chart.caixa-base-chart.env: Not a table. coalesce.go:237: warning: skipped value for caixa-base-chart.caixa-base-chart.env: Not a table. Error: template: caixa-base-chart/charts/caixa-base-chart/templates/deployment.yaml:100:3: executing "caixa-base-chart/charts/caixa-base-chart/templates/deployment.yaml" at <include "caixa-base-chart.mergedEnvs" .>: error calling include: template: caixa-base-chart/charts/caixa-base-chart/templates/_helpers.tpl:85:9: executing "caixa-base-chart.mergedEnvs" at <.name>: can't evaluate field name in type interface {} Use --debug flag to render out invalid YAML
+15 minutes ago (Thu Jul 09 2026 16:14:13 GMT-0300)
+OrphanedResourceWarning
+Application has 1 orphaned resources
 
-10m 3s
-0s
-Run caixagithub/DevSecOps-Actions/.github/integrations/argocd/logs@main
-Run echo "REPO_NAME=$(echo 'caixagithub/sinsh-backend-simulador-pj' | cut -d'/' -f2)" >> $GITHUB_ENV
-INPUT_IMAGE_TAG: '29035105232'
-Run RESOURCE_TREE_URL="https://openshift-gitops-server-openshift-gitops.apps.aroidpprd.brazilsouth.aroapp.io/api/v1/applications/sinsh-backend-simulador-pj-des/resource-tree?appNamespace=openshift-gitops"
-Fazendo requisição para: https://openshift-gitops-server-openshift-gitops.apps.aroidpprd.brazilsouth.aroapp.io/api/v1/applications/sinsh-backend-simulador-pj-des/resource-tree?appNamespace=openshift-gitops
-Resource-tree obtido com sucesso
-Filtrando pods e encontrando o mais recente...
-Pod mais recente encontrado: sinsh-backend-simulador-pj-des-6476c6545b-bm52g
-URL dos logs: https://openshift-gitops-server-openshift-gitops.apps.aroidpprd.brazilsouth.aroapp.io/api/v1/applications/sinsh-backend-simulador-pj-des/logs?appNamespace=openshift-gitops&container=sinsh-backend-simulador-pj-des&namespace=sinsh-backend-simulador-pj&follow=false&podName=sinsh-backend-simulador-pj-des-6476c6545b-bm52g&tailLines=1000&sinceSeconds=0
-Logs obtidos com sucesso
-Logs do pod sinsh-backend-simulador-pj-des-6476c6545b-bm52g:
-================================================
-Exibindo os Logs:
-info: Microsoft.Hosting.Lifetime[14]
-      Now listening on: http://[::]:8080
-info: Microsoft.Hosting.Lifetime[0]
-      Application started. Press Ctrl+C to shut down.
-info: Microsoft.Hosting.Lifetime[0]
-      Hosting environment: Production
-info: Microsoft.Hosting.Lifetime[0]
-      Content root path: /app
-warn: Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware[3]
-      Failed to determine the https port for redirect.
-
-================================================
-Script executado com sucesso!
-Pod utilizado: sinsh-backend-simulador-pj-des-6476c6545b-bm52g
-Falha na sincronização
-Error: Process completed with exit code 1.
-
-
-AGORA TA MOSTRANDO OUTRO ERRO:
+<img width="1891" height="920" alt="image" src="https://github.com/user-attachments/assets/002c0c32-b6aa-414f-937a-73f9e7c35a5e" />
 
