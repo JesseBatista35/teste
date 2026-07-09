@@ -1,1 +1,27 @@
-FROM image-registry.openshift-image-registry.svc:5000/openshift/ubi8-openjdk-17-runtime:1.12
+exec java -Dquarkus.http.host=0.0.0.0 -Dquarkus.http.port=8080 -Djava.util.logging.manager=org.jboss.logmanager.LogManager -Dfile.encoding=UTF-8 -Xms512m -Xmx1536m -Djavax.net.ssl.trustStore=/deployments/caixa-truststore-acteste-nprd.jks -XX:+ExitOnOutOfMemoryError -cp . -jar /deployments/quarkus-run.jar
+Exception in thread "main" java.lang.reflect.InvocationTargetException
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at io.quarkus.bootstrap.runner.QuarkusEntryPoint.doRun(QuarkusEntryPoint.java:61)
+	at io.quarkus.bootstrap.runner.QuarkusEntryPoint.main(QuarkusEntryPoint.java:32)
+Caused by: java.lang.UnsupportedClassVersionError: br/gov/caixa/simtr/arquitetura/configuracao/LogFiltroConfiguracao has been compiled by a more recent version of the Java Runtime (class file version 61.0), this version of the Java Runtime only recognizes class file versions up to 55.0
+	at java.base/java.lang.ClassLoader.defineClass1(Native Method)
+	at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:1017)
+	at io.quarkus.bootstrap.runner.RunnerClassLoader.loadClass(RunnerClassLoader.java:105)
+	at io.quarkus.bootstrap.runner.RunnerClassLoader.loadClass(RunnerClassLoader.java:65)
+	at io.quarkus.runtime.configuration.MappingsConfigBuilder.addMapping(MappingsConfigBuilder.java:13)
+	at io.quarkus.runtime.generated.StaticInitMappingsConfigBuilder.configBuilder(Unknown Source)
+	at io.quarkus.runtime.configuration.ConfigUtils.configBuilder(ConfigUtils.java:205)
+	at io.quarkus.runtime.generated.Config.<clinit>(Unknown Source)
+	at io.quarkus.runner.ApplicationImpl.<clinit>(Unknown Source)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+	at io.quarkus.runtime.Quarkus.run(Quarkus.java:70)
+	at io.quarkus.runtime.Quarkus.run(Quarkus.java:44)
+	at io.quarkus.runtime.Quarkus.run(Quarkus.java:124)
+	at io.quarkus.runner.GeneratedMain.main(Unknown Source)
+	... 6 more
