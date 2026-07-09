@@ -1,12 +1,10 @@
-Boa correção, isso muda a nota. Vou ajustar pra não afirmar uma ação que a esteira não fez:
+Favor fornecer  suporte em relação a esteira.:
 
-Prezados,
-Em atendimento à solicitação, foi identificado o erro relatado na inicialização: falha ModuleNotFoundException: com.dinamonetworks durante o boot do JBoss EAP, indicando ausência do módulo que carrega o Provider JCA da Dinamo (br.com.trueaccess.provider.netdfence.ND, já parametrizado via -Djava.security.provider.6 na JVM).
-Ação realizada:
-Foi executado um novo deploy da aplicação SIABM-autenticacao-api (pod siabm-autenticacao-api-sandbox-des-13-rg72f), sem alteração manual de configuração por parte da esteira.
-Resultado:
-O novo pod subiu sem o erro anteriormente registrado. Os EJBs dependentes do provider criptográfico (HsmServiceImpl, JcaCryptoService) realizaram bind no JNDI normalmente, e o boot completou sem falhas de módulo (Started 1096 of 1317 services, nenhum serviço com falha).
-Observação: a esteira não aplicou nenhuma alteração de módulo/classpath na imagem; a resolução ocorreu a partir de um redeploy simples. Recomendamos que a equipe de desenvolvimento confirme se houve atualização no artefato/build entre os deploys anteriores e o atual (ex: inclusão do jar da Dinamo no pacote ou no jboss-deployment-structure.xml), para documentar a causa raiz definitiva e garantir que a correção seja estável em builds futuros.
-Solicitamos a validação funcional do responsável f531246 — exercitando uma chamada real de autenticação/biometria que dependa do HSM — antes do fechamento definitivo desta WO.
-Atenciosamente,
-Esteira DEVOPS DES TQS - NPRD
+- A esteira de CI/CD Workflow da erro de dockerfile not found. 
+
+Recurso backend foi criado após REQ000144709677 que solicitei configuração dos templates do GitOps
+
+Cluster do Aks: aks-hab-des
+Namespace: sinsh-backend-simulador-pj
+
+https://portal.azure.com/#view/Microsoft_Azure_ContainerService/AksK8ResourceMenuBlade/~/overview-Namespace/aksClusterId/%2Fsubscriptions%2F71c34861-6522-4717-9638-fb82b175936e%2FresourceGroups%2Frg-hab-des%2Fproviders%2FMicrosoft.ContainerService%2FmanagedClusters%2Faks-hab-des/resource~/%7B%22kind%22%3A%22Namespace%22%2C%22metadata%22%3A%7B%22name%22%3A%22sinsh-backend-simulador-pj%22%2C%22uid%22%3A%22b6291b6d-e1c2-49cc-8fbb-77d2aa851061%22%7D%7D/preloadK8sObjectsO11yContext~/%7B%22useUpgradedTier%22%3Afalse%2C%22isK8sObjectsOverviewO11yEnabled%22%3Atrue%7D
