@@ -1,180 +1,34 @@
-me auda a resolver isso daqui o pod nao sobe
+deu certo
+
+agora due esse erro no pod
 
 
-2026-07-10T18:00:09.3164357Z ##[debug]Evaluating condition for step: 'VAULT_KEYSTORE_OKD'
-2026-07-10T18:00:09.3165499Z ##[debug]Evaluating: succeeded()
-2026-07-10T18:00:09.3165758Z ##[debug]Evaluating succeeded:
-2026-07-10T18:00:09.3166195Z ##[debug]=> True
-2026-07-10T18:00:09.3166653Z ##[debug]Result: True
-2026-07-10T18:00:09.3166911Z ##[section]Starting: VAULT_KEYSTORE_OKD
-2026-07-10T18:00:09.3172218Z ==============================================================================
-2026-07-10T18:00:09.3172502Z Task         : Bash
-2026-07-10T18:00:09.3172565Z Description  : Run a Bash script on macOS, Linux, or Windows
-2026-07-10T18:00:09.3172862Z Version      : 3.227.0
-2026-07-10T18:00:09.3172986Z Author       : Microsoft Corporation
-2026-07-10T18:00:09.3173059Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/bash
-2026-07-10T18:00:09.3173167Z ==============================================================================
-2026-07-10T18:00:09.3937387Z ##[debug]Using node path: /opt/ads-agent/externals/node16/bin/node
-2026-07-10T18:00:09.4648593Z ##[debug]agent.TempDirectory=/opt/ads-agent/_work/_temp
-2026-07-10T18:00:09.4655992Z ##[debug]loading inputs and endpoints
-2026-07-10T18:00:09.4663383Z ##[debug]loading INPUT_TARGETTYPE
-2026-07-10T18:00:09.4671994Z ##[debug]loading INPUT_FILEPATH
-2026-07-10T18:00:09.4672572Z ##[debug]loading INPUT_SCRIPT
-2026-07-10T18:00:09.4673393Z ##[debug]loading INPUT_WORKINGDIRECTORY
-2026-07-10T18:00:09.4674139Z ##[debug]loading INPUT_FAILONSTDERR
-2026-07-10T18:00:09.4674800Z ##[debug]loading ENDPOINT_AUTH_SYSTEMVSSCONNECTION
-2026-07-10T18:00:09.4675365Z ##[debug]loading ENDPOINT_AUTH_SCHEME_SYSTEMVSSCONNECTION
-2026-07-10T18:00:09.4677645Z ##[debug]loading ENDPOINT_AUTH_PARAMETER_SYSTEMVSSCONNECTION_ACCESSTOKEN
-2026-07-10T18:00:09.4682569Z ##[debug]loading SECRET_FORTIFY_PASS
-2026-07-10T18:00:09.4684265Z ##[debug]loading SECRET_OKD_4_TOKEN
-2026-07-10T18:00:09.4685936Z ##[debug]loading SECRET_OKD_TOKEN_KAFKA
-2026-07-10T18:00:09.4687908Z ##[debug]loading SECRET_FORTIFY_APITOKEN
-2026-07-10T18:00:09.4690041Z ##[debug]loading SECRET_OKD_TOKEN_REGISTRY
-2026-07-10T18:00:09.4691161Z ##[debug]loading SECRET_ALOCAIP_SENHA
-2026-07-10T18:00:09.4691790Z ##[debug]loading SECRET_GRAYLOG_PASSWORD
-2026-07-10T18:00:09.4692419Z ##[debug]loading SECRET_BT_SECRETS_PATH
-2026-07-10T18:00:09.4693214Z ##[debug]loading SECRET_PASSWORD_CGC
-2026-07-10T18:00:09.4693974Z ##[debug]loading SECRET_TOKEN_CRQ
-2026-07-10T18:00:09.4694488Z ##[debug]loading SECRET_AZPAT
-2026-07-10T18:00:09.4695023Z ##[debug]loaded 19
-2026-07-10T18:00:09.4700554Z ##[debug]Agent.ProxyUrl=undefined
-2026-07-10T18:00:09.4700970Z ##[debug]Agent.CAInfo=undefined
-2026-07-10T18:00:09.4701727Z ##[debug]Agent.ClientCert=undefined
-2026-07-10T18:00:09.4702200Z ##[debug]Agent.SkipCertValidation=True
-2026-07-10T18:00:09.4716934Z ##[debug]check path : /opt/ads-agent/_work/_tasks/Bash_6c731c3c-3c68-459a-a5c9-bde6e6595b5b/3.227.0/task.json
-2026-07-10T18:00:09.4718780Z ##[debug]adding resource file: /opt/ads-agent/_work/_tasks/Bash_6c731c3c-3c68-459a-a5c9-bde6e6595b5b/3.227.0/task.json
-2026-07-10T18:00:09.4719212Z ##[debug]system.culture=en-US
-2026-07-10T18:00:09.4726969Z ##[debug]failOnStderr=false
-2026-07-10T18:00:09.4727927Z ##[debug]workingDirectory=/opt/ads-agent/_work/r478/a
-2026-07-10T18:00:09.4728330Z ##[debug]check path : /opt/ads-agent/_work/r478/a
-2026-07-10T18:00:09.4728897Z ##[debug]targetType=inline
-2026-07-10T18:00:09.4729373Z ##[debug]bashEnvValue=undefined
-2026-07-10T18:00:09.4731164Z ##[debug]script=app="sisam-backend-internet-tqs"
+/opt/jboss/bin/standalone.conf: line 43: =org.jboss.byteman: command not found
+=========================================================================
 
-# Remover secret existente (se houver)
-oc delete secret vault-sisam-internet-keystore -n sisam-tqs --ignore-not-found=true
+  JBoss Bootstrap Environment
 
-# Remover o volume antigo com nome errado (da execução anterior)
-oc set volume dc $app --remove --name=vault-sisam-keystore -n sisam-tqs 2>/dev/null || true
+  JBOSS_HOME: /opt/jboss
 
-# Remover o volume com nome correto (caso já exista de tentativa anterior)
-oc set volume dc $app --remove --name=vault-sisam-internet-keystore -n sisam-tqs 2>/dev/null || true
+  JAVA: /usr/lib/jvm/jre-17-openjdk-17.0.7.0.7-3.el8.x86_64/bin/java
 
-# Criar secret com o keystore baixado pelo DownloadSecureFile
-oc create secret generic vault-sisam-internet-keystore \
-  --from-file=vault-sisam-internet-des.keystore=$DOWNLOADSECUREFILE2_SECUREFILEPATH \
-  -n sisam-des
+  JAVA_OPTS:  -Xlog:gc*:file="/opt/jboss/standalone/log/gc.log":time,uptimemillis:filecount=5,filesize=3M -Djdk.serialFilter="maxbytes=10485760;maxdepth=128;maxarray=100000;maxrefs=300000" -Xms1024m -Xmx2048m -XX:MetaspaceSize=96m -XX:MaxMetaspaceSize=2048m -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs= -Djava.awt.headless=true -Djavax.net.ssl.trustStore=/opt/jboss/standalone/configuration/caixa-truststore-acteste-nprd.jks -Djavax.net.ssl.trustStorePassword=changeit -Djboss.modules.policy-permissions=true -Xbootclasspath/a:/opt/jboss/modules/system/layers/base/org/jboss/logmanager/main/jboss-logmanager-2.1.18.Final-redhat-00001.jar:/opt/jboss/modules/system/layers/base/org/jboss/log4j/logmanager/main/log4j-jboss-logmanager-1.2.0.Final-redhat-00001.jar:/opt/jboss/modules/system/layers/base/org/wildfly/common/main/wildfly-common-1.5.4.Final-redhat-00001.jar -Djboss.modules.system.pkgs=org.jboss.byteman,org.jboss.logmanager -Djava.util.logging.manager=org.jboss.logmanager.LogManager -Dsun.util.logging.disableCallerCheck=true -server -XX:+ExplicitGCInvokesConcurrent -XX:+UseG1GC -XX:MaxGCPauseMillis=500 -javaagent:/opt/jmx_exporter/jmx_prometheus.jar=8778:/opt/jmx_exporter/jmx_prometheus.yaml -javaagent:/opt/apm_agent/elastic-apm-agent.jar -Delastic.apm.config_file=/opt/apm_agent/elasticapm.properties -Delastic.apm.service_name=sisam -Delastic.apm.environment=TQS -Delastic.apm.application_packages=br.gov.caixa -Delastic.apm.server_urls=https://apm-server-devops.apps.produtos4.caixa/ -Delastic.apm.global_labels=deployment=sisam-backend-internet-tqs -Djava.net.useSystemProxies=false -Dhttp.proxyHost=proxydes.caixa -Dhttp.proxyPort=80 -Dhttps.proxyHost=proxydes.caixa -Dhttps.proxyPort=80 -Dhttp.nonProxyHosts=localhost\|127.0.0.1\|*.caixa  --add-exports=java.base/sun.nio.ch=ALL-UNNAMED --add-exports=jdk.unsupported/sun.misc=ALL-UNNAMED --add-exports=jdk.unsupported/sun.reflect=ALL-UNNAMED --add-exports=java.desktop/sun.awt=ALL-UNNAMED --add-exports=java.naming/com.sun.jndi.ldap=ALL-UNNAMED --add-exports=java.naming/com.sun.jndi.url.ldap=ALL-UNNAMED --add-exports=java.naming/com.sun.jndi.url.ldaps=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.lang.invoke=ALL-UNNAMED --add-opens=java.base/java.lang.reflect=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/java.security=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.management/javax.management=ALL-UNNAMED --add-opens=java.naming/javax.naming=ALL-UNNAMED
 
-# Montar o keystore no path esperado pelo JBoss
-oc set volume dc $app \
-  --add --name=vault-sisam-internet-keystore \
-  --secret-name=vault-sisam-internet-keystore \
-  --mount-path=/opt/jboss/standalone/configuration/vault-sisam-internet-tqs.keystore \
-  --sub-path=vault-sisam-internet-tqs.keystore \
-  --overwrite -n sisam-tqs
-2026-07-10T18:00:09.4740796Z Generating script.
-2026-07-10T18:00:09.4742713Z ##[debug]which 'bash'
-2026-07-10T18:00:09.4749406Z ##[debug]found: '/usr/bin/bash'
-2026-07-10T18:00:09.4749908Z ##[debug]Agent.Version=3.236.1
-2026-07-10T18:00:09.4750291Z ##[debug]agent.tempDirectory=/opt/ads-agent/_work/_temp
-2026-07-10T18:00:09.4750659Z ##[debug]check path : /opt/ads-agent/_work/_temp
-2026-07-10T18:00:09.4752313Z ========================== Starting Command Output ===========================
-2026-07-10T18:00:09.4753876Z ##[debug]which '/usr/bin/bash'
-2026-07-10T18:00:09.4754841Z ##[debug]found: '/usr/bin/bash'
-2026-07-10T18:00:09.4755422Z ##[debug]/usr/bin/bash arg: /opt/ads-agent/_work/_temp/3cb05ba4-ecf6-43fa-a31f-398c44729ac5.sh
-2026-07-10T18:00:09.4757906Z ##[debug]exec tool: /usr/bin/bash
-2026-07-10T18:00:09.4758273Z ##[debug]arguments:
-2026-07-10T18:00:09.4758695Z ##[debug]   /opt/ads-agent/_work/_temp/3cb05ba4-ecf6-43fa-a31f-398c44729ac5.sh
-2026-07-10T18:00:09.4762020Z [command]/usr/bin/bash /opt/ads-agent/_work/_temp/3cb05ba4-ecf6-43fa-a31f-398c44729ac5.sh
-2026-07-10T18:00:09.8120753Z error: failed to create secret secrets "vault-sisam-internet-keystore" already exists
-2026-07-10T18:00:09.9087405Z warning: volume "vault-sisam-internet-keystore" did not previously exist and was not overwritten. A new volume with this name has been created instead.deploymentconfig.apps.openshift.io/sisam-backend-internet-tqs volume updated
-2026-07-10T18:00:09.9135556Z ##[debug]Exit code 0 received from tool '/usr/bin/bash'
-2026-07-10T18:00:09.9137971Z ##[debug]STDIO streams have closed for tool '/usr/bin/bash'
-2026-07-10T18:00:09.9144325Z ##[debug]task result: Succeeded
-2026-07-10T18:00:09.9145653Z ##[debug]Processed: ##vso[task.complete result=Succeeded;done=true;]
-2026-07-10T18:00:09.9184863Z ##[section]Finishing: VAULT_KEYSTORE_OKD
+=========================================================================
 
-
-
-OKD
-
-
-Jesse Mouta Pereira Batista
-
-Administrator
-Home
-Operators
-Workloads
-Pods
-Deployments
-DeploymentConfigs
-StatefulSets
-Secrets
-ConfigMaps
-CronJobs
-Jobs
-DaemonSets
-ReplicaSets
-ReplicationControllers
-HorizontalPodAutoscalers
-PodDisruptionBudgets
-Networking
-Services
-Routes
-Ingresses
-NetworkPolicies
-Storage
-PersistentVolumes
-PersistentVolumeClaims
-StorageClasses
-VolumeSnapshots
-VolumeSnapshotClasses
-VolumeSnapshotContents
-Builds
-Observe
-Compute
-User Management
-Administration
-
-Project: sisam-tqs
-Pods
-Pod details
-Pod
-P
-sisam-backend-internet-tqs-2-sgxjz
-ContainerCreating
-
-Actions
-Details
-Metrics
-YAML
-Environment
-Logs
-Events
-Terminal
-Streaming events...
-Showing 4 events
-Older events are not stored.
-PodPsisam-backend-internet-tqs-2-sgxjz
-NamespaceNSsisam-tqs
-10 de jul. de 2026, 15:07
-Generated from kubelet on ceadecldlx066.nprd.caixa
-2 times in the last 3 minutes
-Unable to attach or mount volumes: unmounted volumes=[vault-sisam-internet-keystore], unattached volumes=[java-config-sisam-backend-internet kube-api-access-f99c8 vault-sisam-backend-internet vault-sisam-internet-keystore jboss-config-sisam-backend-internet]: timed out waiting for the condition
-PodPsisam-backend-internet-tqs-2-sgxjz
-NamespaceNSsisam-tqs
-10 de jul. de 2026, 15:06
-Generated from kubelet on ceadecldlx066.nprd.caixa
-11 times in the last 7 minutes
-MountVolume.SetUp failed for volume "vault-sisam-internet-keystore" : secret "vault-sisam-internet-keystore" not found
-PodPsisam-backend-internet-tqs-2-sgxjz
-NamespaceNSsisam-tqs
-10 de jul. de 2026, 15:02
-Generated from kubelet on ceadecldlx066.nprd.caixa
-Unable to attach or mount volumes: unmounted volumes=[vault-sisam-internet-keystore], unattached volumes=[vault-sisam-internet-keystore jboss-config-sisam-backend-internet java-config-sisam-backend-internet kube-api-access-f99c8 vault-sisam-backend-internet]: timed out waiting for the condition
-PodPsisam-backend-internet-tqs-2-sgxjz
-NamespaceNSsisam-tqs
-10 de jul. de 2026, 15:00
-Generated from default-scheduler
-Successfully assigned sisam-tqs/sisam-backend-internet-tqs-2-sgxjz to ceadecldlx066.nprd.caixa
-11 of 14 found for mou at 334:15
+Jul 10, 2026 3:13:37 PM java.lang.System$LoggerFinder lambda$accessProvider$0
+WARNING: Failed to instantiate LoggerFinder provider; Using default.
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+2026-07-10 15:13:38.308 [elastic-apm-remote-config-poller] ERROR co.elastic.apm.agent.configuration.ApmServerConfigurationSource - PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+[0m15:13:39,201 INFO  [org.jboss.modules] (main) JBoss Modules version 1.12.2.Final-redhat-00001
+[0m[0m15:13:39,607 INFO  [org.jboss.msc] (main) JBoss MSC version 1.4.12.Final-redhat-00001
+[0m[0m15:13:39,615 INFO  [org.jboss.threads] (main) JBoss Threads version 2.4.0.Final-redhat-00001
+[0m[0m15:13:39,824 INFO  [org.jboss.as] (MSC service thread 1-2) WFLYSRV0049: JBoss EAP 7.4.0.GA (WildFly Core 15.0.2.Final-redhat-00001) starting
+[0m[0m15:13:39,981 INFO  [org.jboss.vfs] (MSC service thread 1-2) VFS000002: Failed to clean existing content for temp file provider of type temp. Enable DEBUG level log to find what caused this
+[0m[0m15:13:41,411 INFO  [org.wildfly.security] (ServerService Thread Pool -- 29) ELY00001: WildFly Elytron version 1.15.3.Final-redhat-00001
+[0m[0m15:13:43,205 INFO  [org.jboss.as.repository] (ServerService Thread Pool -- 18) WFLYDR0001: Content added at location /opt/jboss/standalone/data/content/fb/62f492ef5e47aa9eaefd43bfe8c4c4902dca5e/content
+[0m[0m15:13:43,504 INFO  [org.jboss.security] (Controller Boot Thread) PBOX00361: Default Security Vault Implementation Initialized and Ready
+[0m[31m15:13:43,504 ERROR [org.jboss.as.controller.management-operation] (Controller Boot Thread) WFLYCTL0013: Operation ("add") failed - address: ([("core-service" => "vault")]) - failure description: "WFLYCTL0211: Cannot resolve expression '${VAULT::SISAM-BACKEND-INTERNET-DES::KEYCLOAK_CREDENTIALS_SIECM_SECRET::1}'"
+[0m[31m15:13:43,508 FATAL [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0056: Server boot has failed in an unrecoverable manner; exiting. See previous messages for details.
+[0m[0m15:13:43,584 INFO  [org.jboss.as] (MSC service thread 1-2) WFLYSRV0050: JBoss EAP 7.4.0.GA (WildFly Core 15.0.2.Final-redhat-00001) stopped in 73ms
+[0m
