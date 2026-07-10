@@ -1,7 +1,5 @@
+<img width="1899" height="982" alt="image" src="https://github.com/user-attachments/assets/ba3cd3d3-f21a-4162-8862-2341ce4a567d" />
 
-<img width="1854" height="917" alt="image" src="https://github.com/user-attachments/assets/4525ae97-152f-40bd-8444-821c016b6d4c" />
 
+MAIS É ELE MESMO ACABEI DE ENTRAR NO MAPA DO APLICATIVO E OLA O SISME AI
 
-ACHEI AQUI PELO QUE ENTENDI O SISIME E DA COMUNIDADE HABITAÇÃO ENTAO ACAIXA JA DEIXOU CRIADO O LDAI PARA CADA COMUNIDADE
-
-JA PEQUEI ALI A CADEI DE CONEXÃO
