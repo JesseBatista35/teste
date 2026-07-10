@@ -1,711 +1,338 @@
-<?xml version='1.0' encoding='UTF-8'?>
+/opt/jboss/bin/standalone.conf: line 43: =org.jboss.byteman: command not found
+=========================================================================
 
-<server xmlns="urn:jboss:domain:16.0">
-    <extensions>
-        <extension module="org.jboss.as.clustering.infinispan"/>
-        <extension module="org.jboss.as.clustering.jgroups"/>
-        <extension module="org.jboss.as.connector"/>
-        <extension module="org.jboss.as.deployment-scanner"/>
-        <extension module="org.jboss.as.ee"/>
-        <extension module="org.jboss.as.ejb3"/>
-        <extension module="org.jboss.as.jaxrs"/>
-        <extension module="org.jboss.as.jdr"/>
-        <extension module="org.jboss.as.jmx"/>
-        <extension module="org.jboss.as.jpa"/>
-        <extension module="org.jboss.as.jsf"/>
-        <extension module="org.jboss.as.jsr77"/>
-        <extension module="org.jboss.as.logging"/>
-        <extension module="org.jboss.as.mail"/>
-        <!--<extension module="org.jboss.as.modcluster"/>-->
-        <extension module="org.jboss.as.naming"/>
-        <extension module="org.jboss.as.pojo"/>
-        <extension module="org.jboss.as.remoting"/>
-        <extension module="org.jboss.as.sar"/>
-        <extension module="org.jboss.as.transactions"/>
-        <extension module="org.jboss.as.webservices"/>
-        <extension module="org.jboss.as.weld"/>
-        <extension module="org.wildfly.extension.batch.jberet"/>
-        <extension module="org.wildfly.extension.bean-validation"/>
-        <!--<extension module="org.wildfly.extension.clustering.singleton"/>-->
-        <extension module="org.wildfly.extension.clustering.web"/>
-        <extension module="org.wildfly.extension.core-management"/>
-        <extension module="org.wildfly.extension.discovery"/>
-        <extension module="org.wildfly.extension.ee-security"/>
-        <extension module="org.wildfly.extension.elytron"/>
-        <extension module="org.wildfly.extension.health"/>
-        <extension module="org.wildfly.extension.io"/>
-        <!--<extension module="org.wildfly.extension.messaging-activemq"/>-->
-        <extension module="org.wildfly.extension.metrics"/>
-        <extension module="org.wildfly.extension.request-controller"/>
-        <extension module="org.wildfly.extension.security.manager"/>
-        <extension module="org.wildfly.extension.undertow"/>
-        <extension module="org.wildfly.iiop-openjdk"/>
-        <extension module="org.keycloak.keycloak-adapter-subsystem"/> 
-    </extensions>
-    <system-properties>
-        <property name="apimanager.client.apikey" value="${VAULT::SISAM-BACKEND-INTERNET-DES::APIKEY::1}"/>
-        <property name="apimanager.server.url" value="__APIM_SERVER_URL__"/> 
-        <property name="apimanager.service.strategy" value="__APIM_SERVICE_STRATEGY__"/> 
-        <property name="content.persistence.strategy" value="__CONTENT_PERSISTENCE_STRATEGY__"/> 
-        <property name="keycloak.credentials.default.realm.internet" value="__KEYCLOAK_CREDENTIALS_DEFAULT_REALM_INTERNET__"/> 
-        <property name="keycloak.credentials.default.realm.intranet" value="__KEYCLOAK_CREDENTIALS_DEFAULT_REALM_INTRANET__"/> 
-        <property name="keycloak.credentials.default.resource" value="__KEYCLOAK_CREDENTIALS_DEFAULT_RESOURCE__"/> 
-        <property name="keycloak.credentials.default.secret" value="${VAULT::SISAM-BACKEND-INTERNET-DES::KEYCLOAK_CREDENTIALS_DEFAULT_SECRET::1}"/> 
-        <property name="keycloak.credentials.internet.resource" value="__KEYCLOAK_CREDENTIALS_INTERNET_RESOURCE__"/>
-        <property name="keycloak.credentials.internet.secret" value="${VAULT::SISAM-BACKEND-INTERNET-DES::KEYCLOAK_CREDENTIALS_INTERNET_SECRET::1}"/>
-        <property name="keycloak.credentials.siecm.resource" value="__KEYCLOAK_CREDENTIALS_SIECM_RESOURCE__"/>  
-        <property name="keycloak.credentials.siecm.secret" value="${VAULT::SISAM-BACKEND-INTERNET-DES::KEYCLOAK_CREDENTIALS_SIECM_SECRET::1}"/> 
-        <property name="keycloak.server.url" value="__KEYCLOAK_SERVER_URL_INTRANET__"/>
-        <property name="keycloak.server.url.intranet" value="__KEYCLOAK_SERVER_URL_INTRANET__"/>
-        <property name="keycloak.server.url.internet" value="__KEYCLOAK_SERVER_URL_INTERNET__"/>
-        <property name="siecm.server.url" value="__SIECM_SERVER_URL__"/> 
-        <property name="siecm.service.objectstore" value="__SIECM_SERVICE_OBJECTSTORE__"/>
-        <property name="sisam.environment" value="__AMBIENTE__"/>
-        <property name="sisam.server.internet.url" value="__SISAM_SERVER_INTERNET_URL__"/>
-        <property name="sisam.spa.intranet.url" value="__SISAM_SPA_INTRANET_URL__"/>
-        <property name="sisam.spa.patrocinio.url" value="__SISAM_SPA_PATROCINIO_URL__"/>
-    </system-properties>
-    <vault>
-        <vault-option name="KEYSTORE_URL" value="/opt/jboss/standalone/configuration/__VAULT_KEYSTORE_FILE__"/>
-        <vault-option name="KEYSTORE_PASSWORD" value="__VAULT_KEYSTORE_PASSWORD__"/>
-        <vault-option name="KEYSTORE_ALIAS" value="__VAULT_KEYSTORE_ALIAS__"/>
-        <vault-option name="SALT" value="__VAULT_SALT__"/>
-        <vault-option name="ITERATION_COUNT" value="__VAULT_ITERATION_COUNT__"/>
-        <vault-option name="ENC_FILE_DIR" value="/opt/jboss/standalone/configuration/"/>
-    </vault>
-    <management>
-        <audit-log>
-            <formatters>
-                <json-formatter name="json-formatter"/>
-            </formatters>
-            <handlers>
-                <file-handler name="file" formatter="json-formatter" path="audit-log.log" relative-to="jboss.server.data.dir"/>
-            </handlers>
-            <logger log-boot="true" log-read-only="false" enabled="false">
-                <handlers>
-                    <handler name="file"/>
-                </handlers>
-            </logger>
-        </audit-log>
-        <management-interfaces>
-            <http-interface http-authentication-factory="management-http-authentication">
-                <http-upgrade enabled="true" sasl-authentication-factory="management-sasl-authentication"/>
-                <socket-binding http="management-http"/>
-            </http-interface>
-        </management-interfaces>
-        <access-control provider="simple">
-            <role-mapping>
-                <role name="SuperUser">
-                    <include>
-                        <user name="$local"/>
-                    </include>
-                </role>
-            </role-mapping>
-        </access-control>
-    </management>
-    <profile>
-        <subsystem xmlns="urn:jboss:domain:logging:8.0">
-            <console-handler name="CONSOLE">
-                <level name="INFO"/>
-                <formatter>
-                    <named-formatter name="PATTERN"/>
-                </formatter>
-            </console-handler>
-            <periodic-rotating-file-handler name="FILE" autoflush="true">
-                <formatter>
-                    <named-formatter name="PATTERN"/>
-                </formatter>
-                <file relative-to="jboss.server.log.dir" path="server.log"/>
-                <suffix value=".yyyy-MM-dd"/>
-                <append value="true"/>
-            </periodic-rotating-file-handler>
-            <logger category="com.arjuna">
-                <level name="WARN"/>
-            </logger>
-            <!--<logger category="io.jaegertracing.Configuration">
-                <level name="WARN"/>
-            </logger>-->
-            <logger category="org.jboss.as.config">
-                <level name="DEBUG"/>
-            </logger>
-            <logger category="sun.rmi">
-                <level name="WARN"/>
-            </logger>
-            <logger category="io.prometheus">
-                <level name="FATAL"/>
-            </logger>
-            <logger category="io.undertow">
-                <level name="ERROR"/>
-            </logger>
-            <logger category="stdout">
-                <level name="OFF"/>
-            </logger>
-            <logger category="org.keycloak">
-                <level name="INFO"/>
-            </logger>
-            <logger category="br.gov.caixa.sisam">
-                <level name="DEBUG"/>
-            </logger>   
-            <root-logger>
-                <level name="INFO"/>
-                <handlers>
-                    <handler name="CONSOLE"/>
-                    <handler name="FILE"/>
-                </handlers>
-            </root-logger>
-            <formatter name="PATTERN">
-                <pattern-formatter pattern="%d{yyyy-MM-dd HH:mm:ss,SSS} %-5p [%c] (%t) %s%e%n"/>
-            </formatter>
-            <formatter name="COLOR-PATTERN">
-                <pattern-formatter pattern="%K{level}%d{HH:mm:ss,SSS} %-5p [%c] (%t) %s%e%n"/>
-            </formatter>
-        </subsystem>
-        <subsystem xmlns="urn:jboss:domain:batch-jberet:2.0">
-            <default-job-repository name="in-memory"/>
-            <default-thread-pool name="batch"/>
-            <security-domain name="ApplicationDomain"/>
-            <job-repository name="in-memory">
-                <in-memory/>
-            </job-repository>
-            <thread-pool name="batch">
-                <max-threads count="10"/>
-                <keepalive-time time="30" unit="seconds"/>
-            </thread-pool>
-        </subsystem>
-        <subsystem xmlns="urn:jboss:domain:bean-validation:1.0"/>
-        <subsystem xmlns="urn:jboss:domain:core-management:1.0"/>
-        <subsystem xmlns="urn:jboss:domain:datasources:6.0">
-            <datasources>
-                <xa-datasource jndi-name="java:/datasources/sqlserver/sisam-xa" pool-name="sisam-sqlserver-xa" enabled="true" statistics-enabled="true">
-                    <xa-datasource-property name="ServerName">
-                        __SISAM_DATASOURCE_SERVER__
-                    </xa-datasource-property>
-                    <xa-datasource-property name="PortNumber">
-                        __SISAM_DATASOURCE_PORT__
-                    </xa-datasource-property>
-                    <xa-datasource-property name="SelectMethod">
-                        direct
-                    </xa-datasource-property>
-                    <xa-datasource-property name="encrypt">
-                        __SISAM_DATASOURCE_ENCRYPT__
-                    </xa-datasource-property>
-                    <xa-datasource-property name="DatabaseName">
-                        __SISAM_DATASOURCE_DATABASE__
-                    </xa-datasource-property>
-                    <driver>sqlserver</driver>
-                    <xa-pool>
-                        <is-same-rm-override>false</is-same-rm-override>
-                    </xa-pool>
-                    <security>
-                        <user-name>__SISAM_DATASOURCE_USERNAME__</user-name>
-                        <password>${VAULT::SISAM-BACKEND-INTERNET-DES::SISAM_DATASOURCE_PASSWORD::1}</password>
-                    </security>
-                    <validation>
-                        <valid-connection-checker class-name="org.jboss.jca.adapters.jdbc.extensions.mssql.MSSQLValidConnectionChecker"/>
-                    </validation>
-                    <timeout>
-                        <idle-timeout-minutes>5</idle-timeout-minutes>
-                    </timeout>
-                </xa-datasource>
-                <drivers>
-                    <driver name="sqlserver" module="com.microsoft.sqlserver">
-                        <driver-class>com.microsoft.sqlserver.jdbc.SQLServerDriver</driver-class>
-                        <xa-datasource-class>com.microsoft.sqlserver.jdbc.SQLServerXADataSource</xa-datasource-class>
-                    </driver>
-                </drivers>
-            </datasources>
-        </subsystem>
-        <subsystem xmlns="urn:jboss:domain:deployment-scanner:2.0">
-            <deployment-scanner path="deployments" relative-to="jboss.server.base.dir" scan-interval="5000" runtime-failure-causes-rollback="${jboss.deployment.scanner.rollback.on.failure:false}"/>
-        </subsystem>
-        <subsystem xmlns="urn:jboss:domain:discovery:1.0"/>
-        <subsystem xmlns="urn:jboss:domain:distributable-web:2.0" default-session-management="default" default-single-sign-on-management="default">
-            <infinispan-session-management name="default" cache-container="web" granularity="SESSION">
-                <primary-owner-affinity/>
-            </infinispan-session-management>
-            <infinispan-single-sign-on-management name="default" cache-container="web" cache="sso"/>
-            <infinispan-routing cache-container="web" cache="routing"/>
-        </subsystem>
-        <subsystem xmlns="urn:jboss:domain:ee:6.0">
-            <spec-descriptor-property-replacement>false</spec-descriptor-property-replacement>
-            <concurrent>
-                <context-services>
-                    <context-service name="default" jndi-name="java:jboss/ee/concurrency/context/default" use-transaction-setup-provider="true"/>
-                </context-services>
-                <managed-thread-factories>
-                    <managed-thread-factory name="default" jndi-name="java:jboss/ee/concurrency/factory/default" context-service="default"/>
-                </managed-thread-factories>
-                <managed-executor-services>
-                    <managed-executor-service name="default" jndi-name="java:jboss/ee/concurrency/executor/default" context-service="default" hung-task-termination-period="0" hung-task-threshold="60000" keepalive-time="5000"/>
-                </managed-executor-services>
-                <managed-scheduled-executor-services>
-                    <managed-scheduled-executor-service name="default" jndi-name="java:jboss/ee/concurrency/scheduler/default" context-service="default" hung-task-termination-period="0" hung-task-threshold="60000" keepalive-time="3000"/>
-                </managed-scheduled-executor-services>
-            </concurrent>
-            <default-bindings context-service="java:jboss/ee/concurrency/context/default" jms-connection-factory="java:jboss/DefaultJMSConnectionFactory" managed-executor-service="java:jboss/ee/concurrency/executor/default" managed-scheduled-executor-service="java:jboss/ee/concurrency/scheduler/default" managed-thread-factory="java:jboss/ee/concurrency/factory/default"/>
-        </subsystem>
-        <subsystem xmlns="urn:jboss:domain:ee-security:1.0"/>
-        <subsystem xmlns="urn:jboss:domain:ejb3:9.0">
-            <session-bean>
-                <stateless>
-                    <bean-instance-pool-ref pool-name="slsb-strict-max-pool"/>
-                </stateless>
-                <stateful default-access-timeout="5000" cache-ref="distributable" passivation-disabled-cache-ref="simple"/>
-                <singleton default-access-timeout="5000"/>
-            </session-bean>
-            <mdb>
-                <resource-adapter-ref resource-adapter-name="${ejb.resource-adapter-name:activemq-ra.rar}"/>
-                <bean-instance-pool-ref pool-name="mdb-strict-max-pool"/>
-            </mdb>
-            <pools>
-                <bean-instance-pools>
-                    <strict-max-pool name="mdb-strict-max-pool" derive-size="from-cpu-count" instance-acquisition-timeout="5" instance-acquisition-timeout-unit="MINUTES"/>
-                    <strict-max-pool name="slsb-strict-max-pool" derive-size="from-worker-pools" instance-acquisition-timeout="5" instance-acquisition-timeout-unit="MINUTES"/>
-                </bean-instance-pools>
-            </pools>
-            <caches>
-                <cache name="simple"/>
-                <cache name="distributable" passivation-store-ref="infinispan" aliases="passivating clustered"/>
-            </caches>
-            <passivation-stores>
-                <passivation-store name="infinispan" cache-container="ejb" max-size="10000"/>
-            </passivation-stores>
-            <async thread-pool-name="default"/>
-            <timer-service thread-pool-name="default" default-data-store="default-file-store">
-                <data-stores>
-                    <file-data-store name="default-file-store" path="timer-service-data" relative-to="jboss.server.data.dir"/>
-                </data-stores>
-            </timer-service>
-            <remote cluster="ejb" connectors="http-remoting-connector" thread-pool-name="default">
-                <channel-creation-options>
-                    <option name="MAX_OUTBOUND_MESSAGES" value="1234" type="remoting"/>
-                </channel-creation-options>
-            </remote>
-            <thread-pools>
-                <thread-pool name="default">
-                    <max-threads count="10"/>
-                    <keepalive-time time="60" unit="seconds"/>
-                </thread-pool>
-            </thread-pools>
-            <iiop enable-by-default="false" use-qualified-name="false"/>
-            <default-security-domain value="other"/>
-            <application-security-domains>
-                <application-security-domain name="other" security-domain="KeycloakDomain"/>
-            </application-security-domains>
-            <default-missing-method-permissions-deny-access value="true"/>
-            <statistics enabled="${wildfly.ejb3.statistics-enabled:${wildfly.statistics-enabled:false}}"/>
-            <log-system-exceptions value="true"/>
-        </subsystem>
-        <subsystem xmlns="urn:wildfly:elytron:13.0" final-providers="combined-providers" disallowed-providers="OracleUcrypto">
-            <providers>
-                <aggregate-providers name="combined-providers">
-                    <providers name="elytron"/>
-                    <providers name="openssl"/>
-                </aggregate-providers>
-                <provider-loader name="elytron" module="org.wildfly.security.elytron"/>
-                <provider-loader name="openssl" module="org.wildfly.openssl"/>
-            </providers>
-            <audit-logging>
-                <file-audit-log name="local-audit" path="audit.log" relative-to="jboss.server.log.dir" format="JSON"/>
-            </audit-logging>
-            <security-domains>
-                <security-domain name="ApplicationDomain" default-realm="ApplicationRealm" permission-mapper="default-permission-mapper">
-                    <realm name="ApplicationRealm" role-decoder="groups-to-roles"/>
-                    <realm name="local"/>
-                </security-domain>
-                <security-domain name="ManagementDomain" default-realm="ManagementRealm" permission-mapper="default-permission-mapper">
-                    <realm name="ManagementRealm" role-decoder="groups-to-roles"/>
-                    <realm name="local" role-mapper="super-user-mapper"/>
-                </security-domain>
-                <security-domain name="KeycloakDomain" default-realm="KeycloakOIDCRealm" permission-mapper="default-permission-mapper" security-event-listener="local-audit">
-                    <realm name="KeycloakOIDCRealm"/>
-                </security-domain>
-            </security-domains>
-            <security-realms>
-                <custom-realm name="KeycloakOIDCRealm" module="org.keycloak.keycloak-wildfly-elytron-oidc-adapter" class-name="org.keycloak.adapters.elytron.KeycloakSecurityRealm"/>
-                <identity-realm name="local" identity="$local"/>
-                <properties-realm name="ApplicationRealm">
-                    <users-properties path="application-users.properties" relative-to="jboss.server.config.dir" digest-realm-name="ApplicationRealm"/>
-                    <groups-properties path="application-roles.properties" relative-to="jboss.server.config.dir"/>
-                </properties-realm>
-                <properties-realm name="ManagementRealm">
-                    <users-properties path="mgmt-users.properties" relative-to="jboss.server.config.dir" digest-realm-name="ManagementRealm"/>
-                    <groups-properties path="mgmt-groups.properties" relative-to="jboss.server.config.dir"/>
-                </properties-realm>
-            </security-realms>
-            <mappers>
-                <simple-permission-mapper name="default-permission-mapper" mapping-mode="first">
-                    <permission-mapping>
-                        <principal name="anonymous"/>
-                        <permission-set name="default-permissions"/>
-                    </permission-mapping>
-                    <permission-mapping match-all="true">
-                        <permission-set name="login-permission"/>
-                        <permission-set name="default-permissions"/>
-                    </permission-mapping>
-                </simple-permission-mapper>
-                <constant-realm-mapper name="local" realm-name="local"/>
-                <constant-realm-mapper name="keycloak-oidc-realm-mapper" realm-name="KeycloakOIDCRealm"/>
-                <simple-role-decoder name="groups-to-roles" attribute="groups"/>
-                <constant-role-mapper name="super-user-mapper">
-                    <role name="SuperUser"/>
-                </constant-role-mapper>
-            </mappers>
-            <permission-sets>
-                <permission-set name="login-permission">
-                    <permission class-name="org.wildfly.security.auth.permission.LoginPermission"/>
-                </permission-set>
-                <permission-set name="default-permissions">
-                    <permission class-name="org.wildfly.extension.batch.jberet.deployment.BatchPermission" module="org.wildfly.extension.batch.jberet" target-name="*"/>
-                    <permission class-name="org.wildfly.transaction.client.RemoteTransactionPermission" module="org.wildfly.transaction.client"/>
-                    <permission class-name="org.jboss.ejb.client.RemoteEJBPermission" module="org.jboss.ejb-client"/>
-                </permission-set>
-            </permission-sets>
-            <http>
-                <http-authentication-factory name="management-http-authentication" security-domain="ManagementDomain" http-server-mechanism-factory="global">
-                    <mechanism-configuration>
-                        <mechanism mechanism-name="DIGEST">
-                            <mechanism-realm realm-name="ManagementRealm"/>
-                        </mechanism>
-                    </mechanism-configuration>
-                </http-authentication-factory>
-                <http-authentication-factory name="keycloak-http-authentication" security-domain="KeycloakDomain" http-server-mechanism-factory="keycloak-http-server-mechanism-factory">
-                    <mechanism-configuration>
-                        <mechanism mechanism-name="KEYCLOAK">
-                            <mechanism-realm realm-name="KeycloakOIDCRealm" realm-mapper="keycloak-oidc-realm-mapper"/>
-                        </mechanism>
-                    </mechanism-configuration>
-                </http-authentication-factory>
-                <aggregate-http-server-mechanism-factory name="keycloak-http-server-mechanism-factory">
-                    <http-server-mechanism-factory name="keycloak-oidc-http-server-mechanism-factory"/>
-                    <http-server-mechanism-factory name="global"/>
-                </aggregate-http-server-mechanism-factory>
-                <http-authentication-factory name="application-http-authentication" security-domain="ApplicationDomain" http-server-mechanism-factory="global">
-                    <mechanism-configuration>
-                        <mechanism mechanism-name="BASIC">
-                            <mechanism-realm realm-name="ApplicationRealm"/>
-                        </mechanism>
-                    </mechanism-configuration>
-                </http-authentication-factory>
-                <provider-http-server-mechanism-factory name="global"/>
-                <service-loader-http-server-mechanism-factory name="keycloak-oidc-http-server-mechanism-factory" module="org.keycloak.keycloak-wildfly-elytron-oidc-adapter"/>
-            </http>
-            <sasl>
-                <sasl-authentication-factory name="application-sasl-authentication" sasl-server-factory="configured" security-domain="ApplicationDomain">
-                    <mechanism-configuration>
-                        <mechanism mechanism-name="JBOSS-LOCAL-USER" realm-mapper="local"/>
-                        <mechanism mechanism-name="DIGEST-MD5">
-                            <mechanism-realm realm-name="ApplicationRealm"/>
-                        </mechanism>
-                    </mechanism-configuration>
-                </sasl-authentication-factory>
-                <sasl-authentication-factory name="management-sasl-authentication" sasl-server-factory="configured" security-domain="ManagementDomain">
-                    <mechanism-configuration>
-                        <mechanism mechanism-name="JBOSS-LOCAL-USER" realm-mapper="local"/>
-                        <mechanism mechanism-name="DIGEST-MD5">
-                            <mechanism-realm realm-name="ManagementRealm"/>
-                        </mechanism>
-                    </mechanism-configuration>
-                </sasl-authentication-factory>
-                <configurable-sasl-server-factory name="configured" sasl-server-factory="elytron">
-                    <properties>
-                        <property name="wildfly.sasl.local-user.default-user" value="$local"/>
-                    </properties>
-                </configurable-sasl-server-factory>
-                <mechanism-provider-filtering-sasl-server-factory name="elytron" sasl-server-factory="global">
-                    <filters>
-                        <filter provider-name="WildFlyElytron"/>
-                    </filters>
-                </mechanism-provider-filtering-sasl-server-factory>
-                <provider-sasl-server-factory name="global"/>
-            </sasl>
-            <tls>
-                <key-stores>
-                    <key-store name="applicationKS">
-                        <credential-reference clear-text="password"/>
-                        <implementation type="JKS"/>
-                        <file path="application.keystore" relative-to="jboss.server.config.dir"/>
-                    </key-store>
-                </key-stores>
-                <key-managers>
-                    <key-manager name="applicationKM" key-store="applicationKS" generate-self-signed-certificate-host="localhost">
-                        <credential-reference clear-text="password"/>
-                    </key-manager>
-                </key-managers>
-                <server-ssl-contexts>
-                    <server-ssl-context name="applicationSSC" key-manager="applicationKM"/>
-                </server-ssl-contexts>
-            </tls>
-        </subsystem>
-        <subsystem xmlns="urn:wildfly:health:1.0" security-enabled="false"/>
-        <subsystem xmlns="urn:jboss:domain:iiop-openjdk:2.1">
-            <orb socket-binding="iiop"/>
-            <initializers security="elytron" transactions="spec"/>
-            <security server-requires-ssl="false" client-requires-ssl="false"/>
-        </subsystem>
-        <subsystem xmlns="urn:jboss:domain:infinispan:12.0">
-            <cache-container name="ejb" default-cache="dist" aliases="sfsb" modules="org.wildfly.clustering.ejb.infinispan">
-                <transport lock-timeout="60000"/>
-                <distributed-cache name="dist">
-                    <locking isolation="REPEATABLE_READ"/>
-                    <transaction mode="BATCH"/>
-                    <file-store/>
-                </distributed-cache>
-            </cache-container>
-            <cache-container name="server" default-cache="default" aliases="singleton cluster" modules="org.wildfly.clustering.server">
-                <transport lock-timeout="60000"/>
-                <replicated-cache name="default">
-                    <transaction mode="BATCH"/>
-                </replicated-cache>
-            </cache-container>
-            <cache-container name="web" default-cache="dist" modules="org.wildfly.clustering.web.infinispan">
-                <transport lock-timeout="60000"/>
-                <replicated-cache name="sso">
-                    <locking isolation="REPEATABLE_READ"/>
-                    <transaction mode="BATCH"/>
-                </replicated-cache>
-                <replicated-cache name="routing"/>
-                <distributed-cache name="dist">
-                    <locking isolation="REPEATABLE_READ"/>
-                    <transaction mode="BATCH"/>
-                    <file-store/>
-                </distributed-cache>
-            </cache-container>
-            <cache-container name="hibernate" modules="org.infinispan.hibernate-cache">
-                <transport lock-timeout="60000"/>
-                <local-cache name="local-query">
-                    <heap-memory size="10000"/>
-                    <expiration max-idle="100000"/>
-                </local-cache>
-                <local-cache name="pending-puts">
-                    <expiration max-idle="60000"/>
-                </local-cache>
-                <invalidation-cache name="entity">
-                    <heap-memory size="10000"/>
-                    <expiration max-idle="100000"/>
-                </invalidation-cache>
-                <replicated-cache name="timestamps"/>
-            </cache-container>
-        </subsystem>
-        <subsystem xmlns="urn:jboss:domain:io:3.0">
-            <worker name="default"/>
-            <buffer-pool name="default"/>
-        </subsystem>
-        <subsystem xmlns="urn:jboss:domain:jaxrs:2.0"/>
-        <subsystem xmlns="urn:jboss:domain:jca:5.0">
-            <archive-validation enabled="true" fail-on-error="true" fail-on-warn="false"/>
-            <bean-validation enabled="true"/>
-            <default-workmanager>
-                <short-running-threads>
-                    <core-threads count="50"/>
-                    <queue-length count="50"/>
-                    <max-threads count="50"/>
-                    <keepalive-time time="10" unit="seconds"/>
-                </short-running-threads>
-                <long-running-threads>
-                    <core-threads count="50"/>
-                    <queue-length count="50"/>
-                    <max-threads count="50"/>
-                    <keepalive-time time="10" unit="seconds"/>
-                </long-running-threads>
-            </default-workmanager>
-            <cached-connection-manager/>
-        </subsystem>
-        <subsystem xmlns="urn:jboss:domain:jdr:1.0"/>
-        <subsystem xmlns="urn:jboss:domain:jgroups:8.0">
-            <channels default="ee">
-                <channel name="ee" stack="udp" cluster="ejb"/>
-            </channels>
-            <stacks>
-                <stack name="udp">
-                    <transport type="UDP" socket-binding="jgroups-udp"/>
-                    <protocol type="PING"/>
-                    <protocol type="MERGE3"/>
-                    <socket-protocol type="FD_SOCK" socket-binding="jgroups-udp-fd"/>
-                    <protocol type="FD_ALL"/>
-                    <protocol type="VERIFY_SUSPECT"/>
-                    <protocol type="pbcast.NAKACK2"/>
-                    <protocol type="UNICAST3"/>
-                    <protocol type="pbcast.STABLE"/>
-                    <protocol type="pbcast.GMS"/>
-                    <protocol type="UFC"/>
-                    <protocol type="MFC"/>
-                    <protocol type="FRAG3"/>
-                </stack>
-                <stack name="tcp">
-                    <transport type="TCP" socket-binding="jgroups-tcp"/>
-                    <socket-protocol type="MPING" socket-binding="jgroups-mping"/>
-                    <protocol type="MERGE3"/>
-                    <socket-protocol type="FD_SOCK" socket-binding="jgroups-tcp-fd"/>
-                    <protocol type="FD_ALL"/>
-                    <protocol type="VERIFY_SUSPECT"/>
-                    <protocol type="pbcast.NAKACK2"/>
-                    <protocol type="UNICAST3"/>
-                    <protocol type="pbcast.STABLE"/>
-                    <protocol type="pbcast.GMS"/>
-                    <protocol type="MFC"/>
-                    <protocol type="FRAG3"/>
-                </stack>
-            </stacks>
-        </subsystem>
-        <subsystem xmlns="urn:jboss:domain:jmx:1.3">
-            <expose-resolved-model/>
-            <expose-expression-model/>
-            <remoting-connector/>
-        </subsystem>
-        <subsystem xmlns="urn:jboss:domain:jpa:1.1">
-            <jpa default-extended-persistence-inheritance="DEEP"/>
-        </subsystem>
-        <subsystem xmlns="urn:jboss:domain:jsf:1.1"/>
-        <subsystem xmlns="urn:jboss:domain:jsr77:1.0"/>
-        <subsystem xmlns="urn:jboss:domain:keycloak:1.1"/>
-        <subsystem xmlns="urn:jboss:domain:mail:4.0">
-            <mail-session name="default" jndi-name="java:jboss/mail/Default">
-                <smtp-server outbound-socket-binding-ref="mail-smtp"/>
-            </mail-session>
-        </subsystem>
-      <!--  <subsystem xmlns="urn:jboss:domain:messaging-activemq:13.0">
-            <server name="default">
-                <security elytron-domain="ApplicationDomain"/>
-                <cluster password="${jboss.messaging.cluster.password:CHANGE ME!!}"/>
-                <statistics enabled="${wildfly.messaging-activemq.statistics-enabled:${wildfly.statistics-enabled:false}}"/>
-                <security-setting name="#">
-                    <role name="guest" send="true" consume="true" create-non-durable-queue="true" delete-non-durable-queue="true"/>
-                </security-setting>
-                <address-setting name="#" dead-letter-address="jms.queue.DLQ" expiry-address="jms.queue.ExpiryQueue" max-size-bytes="10485760" page-size-bytes="2097152" message-counter-history-day-limit="10" redistribution-delay="1000"/>
-                <http-connector name="http-connector" socket-binding="http" endpoint="http-acceptor"/>
-                <http-connector name="http-connector-throughput" socket-binding="http" endpoint="http-acceptor-throughput">
-                    <param name="batch-delay" value="50"/>
-                </http-connector>
-                <in-vm-connector name="in-vm" server-id="0">
-                    <param name="buffer-pooling" value="false"/>
-                </in-vm-connector>
-                <http-acceptor name="http-acceptor" http-listener="default"/>
-                <http-acceptor name="http-acceptor-throughput" http-listener="default">
-                    <param name="batch-delay" value="50"/>
-                    <param name="direct-deliver" value="false"/>
-                </http-acceptor>
-                <in-vm-acceptor name="in-vm" server-id="0">
-                    <param name="buffer-pooling" value="false"/>
-                </in-vm-acceptor>
-                <jgroups-broadcast-group name="bg-group1" jgroups-cluster="activemq-cluster" connectors="http-connector"/>
-                <jgroups-discovery-group name="dg-group1" jgroups-cluster="activemq-cluster"/>
-                <cluster-connection name="my-cluster" address="jms" connector-name="http-connector" discovery-group="dg-group1"/>
-                <jms-queue name="ExpiryQueue" entries="java:/jms/queue/ExpiryQueue"/>
-                <jms-queue name="DLQ" entries="java:/jms/queue/DLQ"/>
-                <connection-factory name="InVmConnectionFactory" entries="java:/ConnectionFactory" connectors="in-vm"/>
-                <connection-factory name="RemoteConnectionFactory" entries="java:jboss/exported/jms/RemoteConnectionFactory" connectors="http-connector" ha="true" block-on-acknowledge="true" reconnect-attempts="-1"/>
-                <pooled-connection-factory name="activemq-ra" entries="java:/JmsXA java:jboss/DefaultJMSConnectionFactory" connectors="in-vm" transaction="xa"/>
-            </server>
-        </subsystem>-->
-        <subsystem xmlns="urn:wildfly:metrics:1.0" security-enabled="false" exposed-subsystems="*" prefix="${wildfly.metrics.prefix:jboss}"/>
-       <!-- <subsystem xmlns="urn:jboss:domain:modcluster:5.0">
-            <proxy name="default" advertise-socket="modcluster" listener="ajp">
-                <dynamic-load-provider>
-                    <load-metric type="cpu"/>
-                </dynamic-load-provider>
-            </proxy>
-        </subsystem>-->
-        <subsystem xmlns="urn:jboss:domain:naming:2.0">
-            <remote-naming/>
-        </subsystem>
-        <subsystem xmlns="urn:jboss:domain:pojo:1.0"/>
-        <subsystem xmlns="urn:jboss:domain:remoting:4.0">
-            <http-connector name="http-remoting-connector" connector-ref="default" sasl-authentication-factory="application-sasl-authentication"/>
-        </subsystem>
-        <subsystem xmlns="urn:jboss:domain:request-controller:1.0"/>
-        <subsystem xmlns="urn:jboss:domain:resource-adapters:6.0"/>         
-        <subsystem xmlns="urn:jboss:domain:sar:1.0"/>
-        <subsystem xmlns="urn:jboss:domain:security-manager:1.0">
-            <deployment-permissions>
-                <maximum-set>
-                    <permission class="java.security.AllPermission"/>
-                </maximum-set>
-            </deployment-permissions>
-        </subsystem>
-        <!--<subsystem xmlns="urn:jboss:domain:singleton:1.0">
-            <singleton-policies default="default">
-                <singleton-policy name="default" cache-container="server">
-                    <simple-election-policy/>
-                </singleton-policy>
-            </singleton-policies>
-        </subsystem>-->
-        <subsystem xmlns="urn:jboss:domain:transactions:6.0">
-            <core-environment node-identifier="${jboss.tx.node.id:1}">
-                <process-id>
-                    <uuid/>
-                </process-id>
-            </core-environment>
-            <recovery-environment socket-binding="txn-recovery-environment" status-socket-binding="txn-status-manager"/>
-            <coordinator-environment statistics-enabled="${wildfly.transactions.statistics-enabled:${wildfly.statistics-enabled:false}}"/>
-            <object-store path="tx-object-store" relative-to="jboss.server.data.dir"/>
-        </subsystem>
-        <subsystem xmlns="urn:jboss:domain:undertow:12.0" default-server="default-server" default-virtual-host="default-host" default-servlet-container="default" default-security-domain="other" statistics-enabled="${wildfly.undertow.statistics-enabled:${wildfly.statistics-enabled:false}}">
-            <buffer-cache name="default"/>
-            <server name="default-server">
-                <ajp-listener name="ajp" socket-binding="ajp"/>
-                <http-listener name="default" socket-binding="http" redirect-socket="https" enable-http2="true"/>
-                <https-listener name="https" socket-binding="https" ssl-context="applicationSSC" enable-http2="true"/>
-                <host name="default-host" alias="localhost">
-                    <location name="/" handler="welcome-content"/>
-                    <http-invoker http-authentication-factory="application-http-authentication"/>
-                </host>
-            </server>
-            <servlet-container name="default">
-                <jsp-config/>
-                <websockets/>
-            </servlet-container>
-            <handlers>
-                <file name="welcome-content" path="${jboss.home.dir}/welcome-content"/>
-            </handlers>
-            <application-security-domains>
-                <application-security-domain name="other" http-authentication-factory="keycloak-http-authentication"/>
-            </application-security-domains>
-        </subsystem>
-        <subsystem xmlns="urn:jboss:domain:webservices:2.0" statistics-enabled="${wildfly.webservices.statistics-enabled:${wildfly.statistics-enabled:false}}">
-            <wsdl-host>${jboss.bind.address:127.0.0.1}</wsdl-host>
-            <endpoint-config name="Standard-Endpoint-Config"/>
-            <endpoint-config name="Recording-Endpoint-Config">
-                <pre-handler-chain name="recording-handlers" protocol-bindings="##SOAP11_HTTP ##SOAP11_HTTP_MTOM ##SOAP12_HTTP ##SOAP12_HTTP_MTOM">
-                    <handler name="RecordingHandler" class="org.jboss.ws.common.invocation.RecordingServerHandler"/>
-                </pre-handler-chain>
-            </endpoint-config>
-            <client-config name="Standard-Client-Config"/>
-        </subsystem>
-        <subsystem xmlns="urn:jboss:domain:weld:4.0"/>
-    </profile>
-    <interfaces>
-        <interface name="management">
-            <inet-address value="${jboss.bind.address.management:127.0.0.1}"/>
-        </interface>
-        <interface name="private">
-            <inet-address value="${jboss.bind.address.private:127.0.0.1}"/>
-        </interface>
-        <interface name="public">
-            <inet-address value="${jboss.bind.address:127.0.0.1}"/>
-        </interface>
-        <interface name="unsecure">
-            <inet-address value="${jboss.bind.address.unsecure:127.0.0.1}"/>
-        </interface>
-    </interfaces>
-    <socket-binding-group name="standard-sockets" default-interface="public" port-offset="${jboss.socket.binding.port-offset:0}">
-        <socket-binding name="ajp" port="${jboss.ajp.port:8009}"/>
-        <socket-binding name="http" port="${jboss.http.port:8080}"/>
-        <socket-binding name="https" port="${jboss.https.port:8443}"/>
-        <socket-binding name="iiop" interface="unsecure" port="3528"/>
-        <socket-binding name="iiop-ssl" interface="unsecure" port="3529"/>
-        <socket-binding name="jgroups-mping" interface="private" multicast-address="${jboss.default.multicast.address:230.0.0.4}" multicast-port="45700"/>
-        <socket-binding name="jgroups-tcp" interface="private" port="7600"/>
-        <socket-binding name="jgroups-tcp-fd" interface="private" port="57600"/>
-        <socket-binding name="jgroups-udp" interface="private" port="55200" multicast-address="${jboss.default.multicast.address:230.0.0.4}" multicast-port="45688"/>
-        <socket-binding name="jgroups-udp-fd" interface="private" port="54200"/>
-        <socket-binding name="management-http" interface="management" port="${jboss.management.http.port:9990}"/>
-        <socket-binding name="management-https" interface="management" port="${jboss.management.https.port:9993}"/>
-        <socket-binding name="modcluster" multicast-address="${jboss.modcluster.multicast.address:224.0.1.105}" multicast-port="23364"/>
-        <socket-binding name="txn-recovery-environment" port="4712"/>
-        <socket-binding name="txn-status-manager" port="4713"/>
-        <outbound-socket-binding name="mail-smtp">
-            <remote-destination host="localhost" port="25"/>
-        </outbound-socket-binding>
-    </socket-binding-group>
-</server>
+  JBoss Bootstrap Environment
+
+  JBOSS_HOME: /opt/jboss
+
+  JAVA: /usr/lib/jvm/jre-17-openjdk-17.0.7.0.7-3.el8.x86_64/bin/java
+
+  JAVA_OPTS:  -Xlog:gc*:file="/opt/jboss/standalone/log/gc.log":time,uptimemillis:filecount=5,filesize=3M -Djdk.serialFilter="maxbytes=10485760;maxdepth=128;maxarray=100000;maxrefs=300000" -Xms1024m -Xmx2048m -XX:MetaspaceSize=96m -XX:MaxMetaspaceSize=2048m -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs= -Djava.awt.headless=true -Djavax.net.ssl.trustStore=/opt/jboss/standalone/configuration/caixa-truststore-acteste-nprd.jks -Djavax.net.ssl.trustStorePassword=changeit -Djboss.modules.policy-permissions=true -Xbootclasspath/a:/opt/jboss/modules/system/layers/base/org/jboss/logmanager/main/jboss-logmanager-2.1.18.Final-redhat-00001.jar:/opt/jboss/modules/system/layers/base/org/jboss/log4j/logmanager/main/log4j-jboss-logmanager-1.2.0.Final-redhat-00001.jar:/opt/jboss/modules/system/layers/base/org/wildfly/common/main/wildfly-common-1.5.4.Final-redhat-00001.jar -Djboss.modules.system.pkgs=org.jboss.byteman,org.jboss.logmanager -Djava.util.logging.manager=org.jboss.logmanager.LogManager -Dsun.util.logging.disableCallerCheck=true -server -XX:+ExplicitGCInvokesConcurrent -XX:+UseG1GC -XX:MaxGCPauseMillis=500 -javaagent:/opt/jmx_exporter/jmx_prometheus.jar=8778:/opt/jmx_exporter/jmx_prometheus.yaml -javaagent:/opt/apm_agent/elastic-apm-agent.jar -Delastic.apm.config_file=/opt/apm_agent/elasticapm.properties -Delastic.apm.service_name=sisam -Delastic.apm.environment=TQS -Delastic.apm.application_packages=br.gov.caixa -Delastic.apm.server_urls=https://apm-server-devops.apps.produtos4.caixa/ -Delastic.apm.global_labels=deployment=sisam-backend-internet-tqs -Djava.net.useSystemProxies=false -Dhttp.proxyHost=proxydes.caixa -Dhttp.proxyPort=80 -Dhttps.proxyHost=proxydes.caixa -Dhttps.proxyPort=80 -Dhttp.nonProxyHosts=localhost\|127.0.0.1\|*.caixa  --add-exports=java.base/sun.nio.ch=ALL-UNNAMED --add-exports=jdk.unsupported/sun.misc=ALL-UNNAMED --add-exports=jdk.unsupported/sun.reflect=ALL-UNNAMED --add-exports=java.desktop/sun.awt=ALL-UNNAMED --add-exports=java.naming/com.sun.jndi.ldap=ALL-UNNAMED --add-exports=java.naming/com.sun.jndi.url.ldap=ALL-UNNAMED --add-exports=java.naming/com.sun.jndi.url.ldaps=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.lang.invoke=ALL-UNNAMED --add-opens=java.base/java.lang.reflect=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/java.security=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.management/javax.management=ALL-UNNAMED --add-opens=java.naming/javax.naming=ALL-UNNAMED
+
+=========================================================================
+
+Jul 10, 2026 4:09:49 PM java.lang.System$LoggerFinder lambda$accessProvider$0
+WARNING: Failed to instantiate LoggerFinder provider; Using default.
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+2026-07-10 16:09:50.439 [elastic-apm-remote-config-poller] ERROR co.elastic.apm.agent.configuration.ApmServerConfigurationSource - PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+[0m16:09:51,350 INFO  [org.jboss.modules] (main) JBoss Modules version 1.12.2.Final-redhat-00001
+[0m[0m16:09:51,750 INFO  [org.jboss.msc] (main) JBoss MSC version 1.4.12.Final-redhat-00001
+[0m[0m16:09:51,758 INFO  [org.jboss.threads] (main) JBoss Threads version 2.4.0.Final-redhat-00001
+[0m[0m16:09:51,959 INFO  [org.jboss.as] (MSC service thread 1-2) WFLYSRV0049: JBoss EAP 7.4.0.GA (WildFly Core 15.0.2.Final-redhat-00001) starting
+[0m[0m16:09:52,115 INFO  [org.jboss.vfs] (MSC service thread 1-2) VFS000002: Failed to clean existing content for temp file provider of type temp. Enable DEBUG level log to find what caused this
+[0m[0m16:09:53,616 INFO  [org.wildfly.security] (ServerService Thread Pool -- 29) ELY00001: WildFly Elytron version 1.15.3.Final-redhat-00001
+[0m[0m16:09:55,247 INFO  [org.jboss.as.repository] (ServerService Thread Pool -- 35) WFLYDR0001: Content added at location /opt/jboss/standalone/data/content/fb/62f492ef5e47aa9eaefd43bfe8c4c4902dca5e/content
+[0m[0m16:09:55,537 INFO  [org.jboss.security] (Controller Boot Thread) PBOX00361: Default Security Vault Implementation Initialized and Ready
+[0m[0m16:09:55,543 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0039: Creating http management service using socket-binding (management-http)
+[0m[0m16:09:55,552 INFO  [org.xnio] (MSC service thread 1-1) XNIO version 3.8.4.Final-redhat-00001
+[0m[0m16:09:55,619 INFO  [org.xnio.nio] (MSC service thread 1-1) XNIO NIO Implementation Version 3.8.4.Final-redhat-00001
+[0m[0m16:09:55,631 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 54) WFLYCLINF0001: Activating Infinispan subsystem.
+[0m[33m16:09:55,717 WARN  [org.jboss.as.txn] (ServerService Thread Pool -- 74) WFLYTX0013: The node-identifier attribute on the /subsystem=transactions is set to the default value. This is a danger for environments running multiple servers. Please make sure the attribute value is unique.
+[0m[0m16:09:55,717 INFO  [org.wildfly.extension.health] (ServerService Thread Pool -- 52) WFLYHEALTH0001: Activating Base Health Subsystem
+[0m[0m16:09:55,717 INFO  [org.jboss.as.jaxrs] (ServerService Thread Pool -- 56) WFLYRS0016: RESTEasy version 3.15.1.Final-redhat-00001
+[0m[0m16:09:55,718 INFO  [org.wildfly.extension.io] (ServerService Thread Pool -- 55) WFLYIO001: Worker 'default' has auto-configured to 2 IO threads with 16 max task threads based on your 1 available processors
+[0m[0m16:09:55,720 INFO  [org.jboss.as.clustering.jgroups] (ServerService Thread Pool -- 59) WFLYCLJG0001: Activating JGroups subsystem. JGroups version 4.2.11
+[0m[0m16:09:55,720 INFO  [org.jboss.as.naming] (ServerService Thread Pool -- 67) WFLYNAM0001: Activating Naming Subsystem
+[0m[0m16:09:55,724 INFO  [org.jboss.as.jsf] (ServerService Thread Pool -- 62) WFLYJSF0007: Activated the following Jakarta Server Faces Implementations: [main]
+[0m[0m16:09:55,725 INFO  [org.jboss.as.webservices] (ServerService Thread Pool -- 76) WFLYWS0002: Activating WebServices Extension
+[0m[0m16:09:55,816 INFO  [org.wildfly.extension.metrics] (ServerService Thread Pool -- 66) WFLYMETRICS0001: Activating Base Metrics Subsystem
+[0m[0m16:09:55,817 INFO  [org.wildfly.iiop.openjdk] (ServerService Thread Pool -- 53) WFLYIIOP0001: Activating IIOP Subsystem
+[0m[0m16:09:56,174 INFO  [org.jboss.remoting] (MSC service thread 1-2) JBoss Remoting version 5.0.20.SP1-redhat-00001
+[0m[0m16:09:56,320 INFO  [org.jboss.as.connector] (MSC service thread 1-2) WFLYJCA0009: Starting Jakarta Connectors Subsystem (WildFly/IronJacamar 1.4.30.Final-redhat-00001)
+[0m[0m16:09:56,417 INFO  [org.jboss.as.connector.subsystems.datasources] (ServerService Thread Pool -- 44) WFLYJCA0004: Deploying JDBC-compliant driver class com.microsoft.sqlserver.jdbc.SQLServerDriver (version 6.4)
+[0m[0m16:09:56,420 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-2) WFLYUT0003: Undertow 2.2.5.Final-redhat-00001 starting
+[0m[0m16:09:56,420 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 75) WFLYUT0014: Creating file handler for path '/opt/jboss/welcome-content' with options [directory-listing: 'false', follow-symlink: 'false', case-sensitive: 'true', safe-symlink-paths: '[]']
+[0m[31m16:09:56,426 ERROR [org.jboss.as.controller.management-operation] (ServerService Thread Pool -- 44) WFLYCTL0013: Operation ("add") failed - address: ([
+    ("subsystem" => "datasources"),
+    ("xa-data-source" => "sisam-sqlserver-xa")
+]) - failure description: "WFLYCTL0211: Cannot resolve expression '${VAULT::SISAM-BACKEND-INTERNET-DES::SISAM_DATASOURCE_PASSWORD::1}'"
+[0m[0m16:09:56,521 INFO  [org.jboss.as.ejb3] (MSC service thread 1-2) WFLYEJB0482: Strict pool mdb-strict-max-pool is using a max instance size of 4 (per class), which is derived from the number of CPUs on this host.
+[0m[0m16:09:56,521 INFO  [org.jboss.as.ejb3] (MSC service thread 1-1) WFLYEJB0481: Strict pool slsb-strict-max-pool is using a max instance size of 16 (per class), which is derived from thread worker pool sizing.
+[0m[0m16:09:56,524 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-1) WFLYJCA0018: Started Driver service with driver-name = sqlserver
+[0m[0m16:09:56,647 INFO  [org.jboss.as.naming] (MSC service thread 1-1) WFLYNAM0003: Starting Naming Service
+[0m[0m16:09:56,722 INFO  [org.jboss.as.mail.extension] (MSC service thread 1-2) WFLYMAIL0001: Bound mail session [java:jboss/mail/Default]
+[0m[33m16:09:56,823 WARN  [org.wildfly.extension.elytron] (MSC service thread 1-2) WFLYELY00023: KeyStore file '/opt/jboss/standalone/configuration/application.keystore' does not exist. Used blank.
+[0m2026-07-10 16:09:57,118 WARN  [org.wildfly.extension.elytron] (MSC service thread 1-2) WFLYELY01084: KeyStore /opt/jboss/standalone/configuration/application.keystore not found, it will be auto generated on first use with a self-signed certificate for host localhost
+2026-07-10 16:09:57,125 INFO  [org.jboss.as.patching] (MSC service thread 1-2) WFLYPAT0050: JBoss EAP cumulative patch ID is: jboss-eap-7.4.14.CP, one-off patches include: none
+2026-07-10 16:09:57,129 INFO  [org.wildfly.iiop.openjdk] (MSC service thread 1-1) WFLYIIOP0009: CORBA ORB Service started
+2026-07-10 16:09:57,131 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-1) WFLYUT0012: Started server default-server.
+2026-07-10 16:09:57,139 INFO  [org.jboss.as.server.deployment.scanner] (MSC service thread 1-2) WFLYDS0013: Started FileSystemDeploymentService for directory /opt/jboss/standalone/deployments
+2026-07-10 16:09:57,217 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-2) WFLYSRV0027: Starting deployment of "sisam-backend-internet.war" (runtime-name: "sisam-backend-internet.war")
+2026-07-10 16:09:57,226 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-1) Queuing requests.
+2026-07-10 16:09:57,227 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-1) WFLYUT0018: Host default-host starting
+2026-07-10 16:09:57,231 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-2) WFLYUT0006: Undertow AJP listener ajp listening on 0.0.0.0:8009
+2026-07-10 16:09:57,236 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-1) WFLYUT0006: Undertow HTTP listener default listening on 0.0.0.0:8080
+2026-07-10 16:09:57,324 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-1) WFLYUT0006: Undertow HTTPS listener https listening on 0.0.0.0:8443
+2026-07-10 16:09:57,336 INFO  [org.jboss.as.ejb3] (MSC service thread 1-1) WFLYEJB0493: Jakarta Enterprise Beans subsystem suspension complete
+2026-07-10 16:09:57,642 INFO  [org.jboss.ws.common.management] (MSC service thread 1-1) JBWS022052: Starting JBossWS 5.4.2.Final-redhat-00001 (Apache CXF 3.3.9.redhat-00001) 
+2026-07-10 16:10:03,119 INFO  [org.jboss.as.jpa] (MSC service thread 1-1) WFLYJPA0002: Read persistence.xml for SISAM_INTERNET_PU
+2026-07-10 16:10:03,620 INFO  [org.jipijapa] (MSC service thread 1-2) JIPIORMV53020253: Second level cache enabled for sisam-backend-internet.war#SISAM_INTERNET_PU
+2026-07-10 16:10:03,926 INFO  [org.jboss.weld.deployer] (MSC service thread 1-2) WFLYWELD0003: Processing weld deployment sisam-backend-internet.war
+2026-07-10 16:10:04,027 WARN  [org.jgroups.protocols.UDP] (ServerService Thread Pool -- 78) JGRP000015: the send buffer of socket ManagedMulticastSocketBinding was set to 1.00MB, but the OS only allocated 212.99KB
+2026-07-10 16:10:04,027 WARN  [org.jgroups.protocols.UDP] (ServerService Thread Pool -- 78) JGRP000015: the receive buffer of socket ManagedMulticastSocketBinding was set to 20.00MB, but the OS only allocated 212.99KB
+2026-07-10 16:10:04,027 WARN  [org.jgroups.protocols.UDP] (ServerService Thread Pool -- 78) JGRP000015: the send buffer of socket ManagedMulticastSocketBinding was set to 1.00MB, but the OS only allocated 212.99KB
+2026-07-10 16:10:04,028 WARN  [org.jgroups.protocols.UDP] (ServerService Thread Pool -- 78) JGRP000015: the receive buffer of socket ManagedMulticastSocketBinding was set to 25.00MB, but the OS only allocated 212.99KB
+2026-07-10 16:10:04,145 INFO  [org.hibernate.validator.internal.util.Version] (MSC service thread 1-2) HV000001: Hibernate Validator 6.0.22.Final-redhat-00002
+2026-07-10 16:10:04,344 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-2) WFLYEJB0473: JNDI bindings for session bean named 'AdministracaoDadosFacade' in deployment unit 'deployment "sisam-backend-internet.war"' are as follows:
+
+	java:global/sisam-bell/AdministracaoDadosFacade!br.gov.caixa.sisam.internet.control.facade.AdministracaoDadosFacade
+	java:app/sisam-bell/AdministracaoDadosFacade!br.gov.caixa.sisam.internet.control.facade.AdministracaoDadosFacade
+	java:module/AdministracaoDadosFacade!br.gov.caixa.sisam.internet.control.facade.AdministracaoDadosFacade
+	java:global/sisam-bell/AdministracaoDadosFacade
+	java:app/sisam-bell/AdministracaoDadosFacade
+	java:module/AdministracaoDadosFacade
+
+2026-07-10 16:10:04,344 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-2) WFLYEJB0473: JNDI bindings for session bean named 'GeneroSocialService' in deployment unit 'deployment "sisam-backend-internet.war"' are as follows:
+
+	java:global/sisam-bell/GeneroSocialService!br.gov.caixa.sisam.commons.service.GeneroSocialService
+	java:app/sisam-bell/GeneroSocialService!br.gov.caixa.sisam.commons.service.GeneroSocialService
+	java:module/GeneroSocialService!br.gov.caixa.sisam.commons.service.GeneroSocialService
+	java:global/sisam-bell/GeneroSocialService
+	java:app/sisam-bell/GeneroSocialService
+	java:module/GeneroSocialService
+
+2026-07-10 16:10:04,344 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-2) WFLYEJB0473: JNDI bindings for session bean named 'FaixaEtariaService' in deployment unit 'deployment "sisam-backend-internet.war"' are as follows:
+
+	java:global/sisam-bell/FaixaEtariaService!br.gov.caixa.sisam.commons.service.FaixaEtariaService
+	java:app/sisam-bell/FaixaEtariaService!br.gov.caixa.sisam.commons.service.FaixaEtariaService
+	java:module/FaixaEtariaService!br.gov.caixa.sisam.commons.service.FaixaEtariaService
+	java:global/sisam-bell/FaixaEtariaService
+	java:app/sisam-bell/FaixaEtariaService
+	java:module/FaixaEtariaService
+
+2026-07-10 16:10:04,344 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-2) WFLYEJB0473: JNDI bindings for session bean named 'UnidadeCaixaService' in deployment unit 'deployment "sisam-backend-internet.war"' are as follows:
+
+	java:global/sisam-bell/UnidadeCaixaService!br.gov.caixa.sisam.commons.service.UnidadeCaixaService
+	java:app/sisam-bell/UnidadeCaixaService!br.gov.caixa.sisam.commons.service.UnidadeCaixaService
+	java:module/UnidadeCaixaService!br.gov.caixa.sisam.commons.service.UnidadeCaixaService
+	java:global/sisam-bell/UnidadeCaixaService
+	java:app/sisam-bell/UnidadeCaixaService
+	java:module/UnidadeCaixaService
+
+2026-07-10 16:10:04,344 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-2) WFLYEJB0473: JNDI bindings for session bean named 'EstadoNegocioService' in deployment unit 'deployment "sisam-backend-internet.war"' are as follows:
+
+	java:global/sisam-bell/EstadoNegocioService!br.gov.caixa.sisam.commons.service.EstadoNegocioService
+	java:app/sisam-bell/EstadoNegocioService!br.gov.caixa.sisam.commons.service.EstadoNegocioService
+	java:module/EstadoNegocioService!br.gov.caixa.sisam.commons.service.EstadoNegocioService
+	java:global/sisam-bell/EstadoNegocioService
+	java:app/sisam-bell/EstadoNegocioService
+	java:module/EstadoNegocioService
+
+2026-07-10 16:10:04,344 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-2) WFLYEJB0473: JNDI bindings for session bean named 'TermoAceiteService' in deployment unit 'deployment "sisam-backend-internet.war"' are as follows:
+
+	java:global/sisam-bell/TermoAceiteService!br.gov.caixa.sisam.internet.control.service.TermoAceiteService
+	java:app/sisam-bell/TermoAceiteService!br.gov.caixa.sisam.internet.control.service.TermoAceiteService
+	java:module/TermoAceiteService!br.gov.caixa.sisam.internet.control.service.TermoAceiteService
+	java:global/sisam-bell/TermoAceiteService
+	java:app/sisam-bell/TermoAceiteService
+	java:module/TermoAceiteService
+
+2026-07-10 16:10:04,344 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-2) WFLYEJB0473: JNDI bindings for session bean named 'PessoaService' in deployment unit 'deployment "sisam-backend-internet.war"' are as follows:
+
+	java:global/sisam-bell/PessoaService!br.gov.caixa.sisam.commons.service.PessoaService
+	java:app/sisam-bell/PessoaService!br.gov.caixa.sisam.commons.service.PessoaService
+	java:module/PessoaService!br.gov.caixa.sisam.commons.service.PessoaService
+	java:global/sisam-bell/PessoaService
+	java:app/sisam-bell/PessoaService
+	java:module/PessoaService
+
+2026-07-10 16:10:04,344 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-2) WFLYEJB0473: JNDI bindings for session bean named 'PropostaService' in deployment unit 'deployment "sisam-backend-internet.war"' are as follows:
+
+	java:global/sisam-bell/PropostaService!br.gov.caixa.sisam.internet.control.service.PropostaService
+	java:app/sisam-bell/PropostaService!br.gov.caixa.sisam.internet.control.service.PropostaService
+	java:module/PropostaService!br.gov.caixa.sisam.internet.control.service.PropostaService
+	java:global/sisam-bell/PropostaService
+	java:app/sisam-bell/PropostaService
+	java:module/PropostaService
+
+2026-07-10 16:10:04,345 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-2) WFLYEJB0473: JNDI bindings for session bean named 'CategoriaService' in deployment unit 'deployment "sisam-backend-internet.war"' are as follows:
+
+	java:global/sisam-bell/CategoriaService!br.gov.caixa.sisam.commons.service.CategoriaService
+	java:app/sisam-bell/CategoriaService!br.gov.caixa.sisam.commons.service.CategoriaService
+	java:module/CategoriaService!br.gov.caixa.sisam.commons.service.CategoriaService
+	java:global/sisam-bell/CategoriaService
+	java:app/sisam-bell/CategoriaService
+	java:module/CategoriaService
+
+2026-07-10 16:10:04,345 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-2) WFLYEJB0473: JNDI bindings for session bean named 'TermoAceiteFacade' in deployment unit 'deployment "sisam-backend-internet.war"' are as follows:
+
+	java:global/sisam-bell/TermoAceiteFacade!br.gov.caixa.sisam.internet.control.facade.TermoAceiteFacade
+	java:app/sisam-bell/TermoAceiteFacade!br.gov.caixa.sisam.internet.control.facade.TermoAceiteFacade
+	java:module/TermoAceiteFacade!br.gov.caixa.sisam.internet.control.facade.TermoAceiteFacade
+	java:global/sisam-bell/TermoAceiteFacade
+	java:app/sisam-bell/TermoAceiteFacade
+	java:module/TermoAceiteFacade
+
+2026-07-10 16:10:04,345 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-2) WFLYEJB0473: JNDI bindings for session bean named 'PropostaFacade' in deployment unit 'deployment "sisam-backend-internet.war"' are as follows:
+
+	java:global/sisam-bell/PropostaFacade!br.gov.caixa.sisam.internet.control.facade.PropostaFacade
+	java:app/sisam-bell/PropostaFacade!br.gov.caixa.sisam.internet.control.facade.PropostaFacade
+	java:module/PropostaFacade!br.gov.caixa.sisam.internet.control.facade.PropostaFacade
+	java:global/sisam-bell/PropostaFacade
+	java:app/sisam-bell/PropostaFacade
+	java:module/PropostaFacade
+
+2026-07-10 16:10:04,345 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-2) WFLYEJB0473: JNDI bindings for session bean named 'PatrocinioFacade' in deployment unit 'deployment "sisam-backend-internet.war"' are as follows:
+
+	java:global/sisam-bell/PatrocinioFacade!br.gov.caixa.sisam.internet.control.facade.PatrocinioFacade
+	java:app/sisam-bell/PatrocinioFacade!br.gov.caixa.sisam.internet.control.facade.PatrocinioFacade
+	java:module/PatrocinioFacade!br.gov.caixa.sisam.internet.control.facade.PatrocinioFacade
+	java:global/sisam-bell/PatrocinioFacade
+	java:app/sisam-bell/PatrocinioFacade
+	java:module/PatrocinioFacade
+
+2026-07-10 16:10:04,345 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-2) WFLYEJB0473: JNDI bindings for session bean named 'LogAuditoriaService' in deployment unit 'deployment "sisam-backend-internet.war"' are as follows:
+
+	java:global/sisam-bell/LogAuditoriaService!br.gov.caixa.sisam.commons.service.auditoria.LogAuditoriaService
+	java:app/sisam-bell/LogAuditoriaService!br.gov.caixa.sisam.commons.service.auditoria.LogAuditoriaService
+	java:module/LogAuditoriaService!br.gov.caixa.sisam.commons.service.auditoria.LogAuditoriaService
+	java:global/sisam-bell/LogAuditoriaService
+	java:app/sisam-bell/LogAuditoriaService
+	java:module/LogAuditoriaService
+
+2026-07-10 16:10:04,345 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-2) WFLYEJB0473: JNDI bindings for session bean named 'ProponenteService' in deployment unit 'deployment "sisam-backend-internet.war"' are as follows:
+
+	java:global/sisam-bell/ProponenteService!br.gov.caixa.sisam.internet.control.service.ProponenteService
+	java:app/sisam-bell/ProponenteService!br.gov.caixa.sisam.internet.control.service.ProponenteService
+	java:module/ProponenteService!br.gov.caixa.sisam.internet.control.service.ProponenteService
+	java:global/sisam-bell/ProponenteService
+	java:app/sisam-bell/ProponenteService
+	java:module/ProponenteService
+
+2026-07-10 16:10:04,345 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-2) WFLYEJB0473: JNDI bindings for session bean named 'ApiManagerFacade' in deployment unit 'deployment "sisam-backend-internet.war"' are as follows:
+
+	java:global/sisam-bell/ApiManagerFacade!br.gov.caixa.sisam.internet.control.facade.ApiManagerFacade
+	java:app/sisam-bell/ApiManagerFacade!br.gov.caixa.sisam.internet.control.facade.ApiManagerFacade
+	java:module/ApiManagerFacade!br.gov.caixa.sisam.internet.control.facade.ApiManagerFacade
+	java:global/sisam-bell/ApiManagerFacade
+	java:app/sisam-bell/ApiManagerFacade
+	java:module/ApiManagerFacade
+
+2026-07-10 16:10:04,345 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-2) WFLYEJB0473: JNDI bindings for session bean named 'TipoPatrocinioService' in deployment unit 'deployment "sisam-backend-internet.war"' are as follows:
+
+	java:global/sisam-bell/TipoPatrocinioService!br.gov.caixa.sisam.commons.service.TipoPatrocinioService
+	java:app/sisam-bell/TipoPatrocinioService!br.gov.caixa.sisam.commons.service.TipoPatrocinioService
+	java:module/TipoPatrocinioService!br.gov.caixa.sisam.commons.service.TipoPatrocinioService
+	java:global/sisam-bell/TipoPatrocinioService
+	java:app/sisam-bell/TipoPatrocinioService
+	java:module/TipoPatrocinioService
+
+2026-07-10 16:10:04,345 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-2) WFLYEJB0473: JNDI bindings for session bean named 'ClasseSocialService' in deployment unit 'deployment "sisam-backend-internet.war"' are as follows:
+
+	java:global/sisam-bell/ClasseSocialService!br.gov.caixa.sisam.commons.service.ClasseSocialService
+	java:app/sisam-bell/ClasseSocialService!br.gov.caixa.sisam.commons.service.ClasseSocialService
+	java:module/ClasseSocialService!br.gov.caixa.sisam.commons.service.ClasseSocialService
+	java:global/sisam-bell/ClasseSocialService
+	java:app/sisam-bell/ClasseSocialService
+	java:module/ClasseSocialService
+
+2026-07-10 16:10:04,345 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-2) WFLYEJB0473: JNDI bindings for session bean named 'OcorrenciaService' in deployment unit 'deployment "sisam-backend-internet.war"' are as follows:
+
+	java:global/sisam-bell/OcorrenciaService!br.gov.caixa.sisam.internet.control.service.OcorrenciaService
+	java:app/sisam-bell/OcorrenciaService!br.gov.caixa.sisam.internet.control.service.OcorrenciaService
+	java:module/OcorrenciaService!br.gov.caixa.sisam.internet.control.service.OcorrenciaService
+	java:global/sisam-bell/OcorrenciaService
+	java:app/sisam-bell/OcorrenciaService
+	java:module/OcorrenciaService
+
+2026-07-10 16:10:04,346 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-2) WFLYEJB0473: JNDI bindings for session bean named 'MunicipioService' in deployment unit 'deployment "sisam-backend-internet.war"' are as follows:
+
+	java:global/sisam-bell/MunicipioService!br.gov.caixa.sisam.commons.service.MunicipioService
+	java:app/sisam-bell/MunicipioService!br.gov.caixa.sisam.commons.service.MunicipioService
+	java:module/MunicipioService!br.gov.caixa.sisam.commons.service.MunicipioService
+	java:global/sisam-bell/MunicipioService
+	java:app/sisam-bell/MunicipioService
+	java:module/MunicipioService
+
+2026-07-10 16:10:04,346 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-2) WFLYEJB0473: JNDI bindings for session bean named 'DatabaseService' in deployment unit 'deployment "sisam-backend-internet.war"' are as follows:
+
+	java:global/sisam-bell/DatabaseService!br.gov.caixa.sisam.commons.service.db.DatabaseService
+	java:app/sisam-bell/DatabaseService!br.gov.caixa.sisam.commons.service.db.DatabaseService
+	java:module/DatabaseService!br.gov.caixa.sisam.commons.service.db.DatabaseService
+	java:global/sisam-bell/DatabaseService
+	java:app/sisam-bell/DatabaseService
+	java:module/DatabaseService
+
+2026-07-10 16:10:04,346 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-2) WFLYEJB0473: JNDI bindings for session bean named 'PortalDivulgacaoService' in deployment unit 'deployment "sisam-backend-internet.war"' are as follows:
+
+	java:global/sisam-bell/PortalDivulgacaoService!br.gov.caixa.sisam.commons.service.PortalDivulgacaoService
+	java:app/sisam-bell/PortalDivulgacaoService!br.gov.caixa.sisam.commons.service.PortalDivulgacaoService
+	java:module/PortalDivulgacaoService!br.gov.caixa.sisam.commons.service.PortalDivulgacaoService
+	java:global/sisam-bell/PortalDivulgacaoService
+	java:app/sisam-bell/PortalDivulgacaoService
+	java:module/PortalDivulgacaoService
+
+2026-07-10 16:10:04,346 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-2) WFLYEJB0473: JNDI bindings for session bean named 'ContrapartidaService' in deployment unit 'deployment "sisam-backend-internet.war"' are as follows:
+
+	java:global/sisam-bell/ContrapartidaService!br.gov.caixa.sisam.commons.service.ContrapartidaService
+	java:app/sisam-bell/ContrapartidaService!br.gov.caixa.sisam.commons.service.ContrapartidaService
+	java:module/ContrapartidaService!br.gov.caixa.sisam.commons.service.ContrapartidaService
+	java:global/sisam-bell/ContrapartidaService
+	java:app/sisam-bell/ContrapartidaService
+	java:module/ContrapartidaService
+
+2026-07-10 16:10:04,346 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-2) WFLYEJB0473: JNDI bindings for session bean named 'EmpregadoService' in deployment unit 'deployment "sisam-backend-internet.war"' are as follows:
+
+	java:global/sisam-bell/EmpregadoService!br.gov.caixa.sisam.commons.service.EmpregadoService
+	java:app/sisam-bell/EmpregadoService!br.gov.caixa.sisam.commons.service.EmpregadoService
+	java:module/EmpregadoService!br.gov.caixa.sisam.commons.service.EmpregadoService
+	java:global/sisam-bell/EmpregadoService
+	java:app/sisam-bell/EmpregadoService
+	java:module/EmpregadoService
+
+2026-07-10 16:10:04,346 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-2) WFLYEJB0473: JNDI bindings for session bean named 'ProponenteFacade' in deployment unit 'deployment "sisam-backend-internet.war"' are as follows:
+
+	java:global/sisam-bell/ProponenteFacade!br.gov.caixa.sisam.internet.control.facade.ProponenteFacade
+	java:app/sisam-bell/ProponenteFacade!br.gov.caixa.sisam.internet.control.facade.ProponenteFacade
+	java:module/ProponenteFacade!br.gov.caixa.sisam.internet.control.facade.ProponenteFacade
+	java:global/sisam-bell/ProponenteFacade
+	java:app/sisam-bell/ProponenteFacade
+	java:module/ProponenteFacade
+
+2026-07-10 16:10:04,927 INFO  [org.jipijapa] (MSC service thread 1-1) JIPIORMV53020253: Second level cache enabled for sisam-backend-internet.war#SISAM_INTERNET_PU
+2026-07-10 16:10:05,019 WARN  [org.jboss.as.jaxrs] (MSC service thread 1-1) WFLYRS0018: Explicit usage of Jackson annotation in a Jakarta RESTful Web Services deployment; the system will disable Jakarta JSON Binding processing for the current deployment. Consider setting the 'resteasy.preferJacksonOverJsonB' property to 'false' to restore Jakarta JSON Binding.
+2026-07-10 16:10:05,032 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-1) WFLYJCA0004: Deploying JDBC-compliant driver class com.microsoft.sqlserver.jdbc.SQLServerDriver (version 12.4)
+2026-07-10 16:10:05,051 INFO  [org.jboss.weld.Version] (MSC service thread 1-1) WELD-000900: 3.1.6 (redhat)
+2026-07-10 16:10:05,154 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-1) WFLYJCA0018: Started Driver service with driver-name = sisam-backend-internet.war_com.microsoft.sqlserver.jdbc.SQLServerDriver_12_4
+2026-07-10 16:10:07,034 INFO  [org.jgroups.protocols.pbcast.GMS] (ServerService Thread Pool -- 78) sisam-backend-internet-tqs-7-4f826: no members discovered after 3002 ms: creating cluster as coordinator
+2026-07-10 16:10:08,134 INFO  [org.infinispan.CONTAINER] (ServerService Thread Pool -- 81) ISPN000128: Infinispan version: Red Hat Data Grid 'Infinispan 11.0.9.Final-redhat-00001' 8.1.1.GA
+2026-07-10 16:10:08,333 INFO  [org.infinispan.PERSISTENCE] (ServerService Thread Pool -- 81) ISPN000556: Starting user marshaller 'org.wildfly.clustering.infinispan.spi.marshalling.InfinispanProtoStreamMarshaller'
+2026-07-10 16:10:08,333 INFO  [org.infinispan.PERSISTENCE] (ServerService Thread Pool -- 80) ISPN000556: Starting user marshaller 'org.wildfly.clustering.infinispan.spi.marshalling.InfinispanProtoStreamMarshaller'
+2026-07-10 16:10:08,333 INFO  [org.infinispan.PERSISTENCE] (ServerService Thread Pool -- 78) ISPN000556: Starting user marshaller 'org.wildfly.clustering.infinispan.spi.marshalling.InfinispanProtoStreamMarshaller'
+2026-07-10 16:10:08,333 INFO  [org.infinispan.PERSISTENCE] (ServerService Thread Pool -- 82) ISPN000556: Starting user marshaller 'org.wildfly.clustering.infinispan.marshalling.jboss.JBossMarshaller'
+2026-07-10 16:10:08,719 INFO  [org.infinispan.CLUSTER] (ServerService Thread Pool -- 81) ISPN000078: Starting JGroups channel ejb
+2026-07-10 16:10:08,719 INFO  [org.infinispan.CLUSTER] (ServerService Thread Pool -- 80) ISPN000078: Starting JGroups channel ejb
+2026-07-10 16:10:08,719 INFO  [org.infinispan.CLUSTER] (ServerService Thread Pool -- 82) ISPN000078: Starting JGroups channel ejb
+2026-07-10 16:10:08,719 INFO  [org.infinispan.CLUSTER] (ServerService Thread Pool -- 78) ISPN000078: Starting JGroups channel ejb
+2026-07-10 16:10:08,721 INFO  [org.infinispan.CLUSTER] (ServerService Thread Pool -- 82) ISPN000094: Received new cluster view for channel ejb: [sisam-backend-internet-tqs-7-4f826|0] (1) [sisam-backend-internet-tqs-7-4f826]
+2026-07-10 16:10:08,721 INFO  [org.infinispan.CLUSTER] (ServerService Thread Pool -- 80) ISPN000094: Received new cluster view for channel ejb: [sisam-backend-internet-tqs-7-4f826|0] (1) [sisam-backend-internet-tqs-7-4f826]
+2026-07-10 16:10:08,721 INFO  [org.infinispan.CLUSTER] (ServerService Thread Pool -- 81) ISPN000094: Received new cluster view for channel ejb: [sisam-backend-internet-tqs-7-4f826|0] (1) [sisam-backend-internet-tqs-7-4f826]
+2026-07-10 16:10:08,721 INFO  [org.infinispan.CLUSTER] (ServerService Thread Pool -- 78) ISPN000094: Received new cluster view for channel ejb: [sisam-backend-internet-tqs-7-4f826|0] (1) [sisam-backend-internet-tqs-7-4f826]
+2026-07-10 16:10:08,726 INFO  [org.infinispan.CLUSTER] (ServerService Thread Pool -- 81) ISPN000079: Channel ejb local address is sisam-backend-internet-tqs-7-4f826, physical addresses are [127.0.0.1:55200]
+2026-07-10 16:10:08,727 INFO  [org.infinispan.CLUSTER] (ServerService Thread Pool -- 82) ISPN000079: Channel ejb local address is sisam-backend-internet-tqs-7-4f826, physical addresses are [127.0.0.1:55200]
+2026-07-10 16:10:08,726 INFO  [org.infinispan.CLUSTER] (ServerService Thread Pool -- 80) ISPN000079: Channel ejb local address is sisam-backend-internet-tqs-7-4f826, physical addresses are [127.0.0.1:55200]
+2026-07-10 16:10:08,726 INFO  [org.infinispan.CLUSTER] (ServerService Thread Pool -- 78) ISPN000079: Channel ejb local address is sisam-backend-internet-tqs-7-4f826, physical addresses are [127.0.0.1:55200]
+2026-07-10 16:10:08,822 INFO  [org.infinispan.CONFIG] (MSC service thread 1-1) ISPN000152: Passivation configured without an eviction policy being selected. Only manually evicted entities will be passivated.
+2026-07-10 16:10:08,822 INFO  [org.infinispan.CONFIG] (MSC service thread 1-1) ISPN000152: Passivation configured without an eviction policy being selected. Only manually evicted entities will be passivated.
+2026-07-10 16:10:09,220 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 78) WFLYCLINF0002: Started http-remoting-connector cache from ejb container
+2026-07-10 16:10:09,316 ERROR [org.jboss.as.controller.management-operation] (Controller Boot Thread) WFLYCTL0013: Operation ("deploy") failed - address: ([("deployment" => "sisam-backend-internet.war")]) - failure description: {
+    "WFLYCTL0412: Required services that are not installed:" => ["jboss.naming.context.java.datasources.sqlserver.sisam-xa"],
+    "WFLYCTL0180: Services with missing/unavailable dependencies" => [
+        "jboss.persistenceunit.\"sisam-backend-internet.war#SISAM_INTERNET_PU\" is missing [jboss.naming.context.java.datasources.sqlserver.sisam-xa]",
+        "jboss.persistenceunit.\"sisam-backend-internet.war#SISAM_INTERNET_PU\".__FIRST_PHASE__ is missing [jboss.naming.context.java.datasources.sqlserver.sisam-xa]",
+        "jboss.naming.context.java.module.sisam-bell.sisam-bell.env.\"br.gov.caixa.sisam.commons.service.db.DatabaseService\".dataSource is missing [jboss.naming.context.java.datasources.sqlserver.sisam-xa]"
+    ]
+}
+2026-07-10 16:10:09,344 ERROR [org.jboss.as.controller.management-operation] (Controller Boot Thread) WFLYCTL0013: Operation ("add") failed - address: ([
+    ("subsystem" => "datasources"),
+    ("xa-data-source" => "sisam-sqlserver-xa")
+]) - failure description: "WFLYCTL0211: Cannot resolve expression '${VAULT::SISAM-BACKEND-INTERNET-DES::SISAM_DATASOURCE_PASSWORD::1}'"
+2026-07-10 16:10:09,350 INFO  [org.jboss.as.server] (ServerService Thread Pool -- 45) WFLYSRV0010: Deployed "sisam-backend-internet.war" (runtime-name : "sisam-backend-internet.war")
+2026-07-10 16:10:09,417 INFO  [org.jboss.as.controller] (Controller Boot Thread) WFLYCTL0183: Service status report
+WFLYCTL0184:    New missing/unsatisfied dependencies:
+      service jboss.naming.context.java.datasources.sqlserver.sisam-xa (missing) dependents: [service jboss.persistenceunit."sisam-backend-internet.war#SISAM_INTERNET_PU", service jboss.persistenceunit."sisam-backend-internet.war#SISAM_INTERNET_PU".__FIRST_PHASE__, service jboss.naming.context.java.module.sisam-bell.sisam-bell.env."br.gov.caixa.sisam.commons.service.db.DatabaseService".dataSource] 
+WFLYCTL0448: 91 additional services are down due to their dependencies being missing or failed
+2026-07-10 16:10:09,515 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0212: Resuming server
+2026-07-10 16:10:09,517 ERROR [org.jboss.as] (Controller Boot Thread) WFLYSRV0026: JBoss EAP 7.4.0.GA (WildFly Core 15.0.2.Final-redhat-00001) started (with errors) in 18575ms - Started 801 of 1120 services (95 services failed or missing dependencies, 446 services are lazy, passive or on-demand)
+2026-07-10 16:10:09,519 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0060: Http management interface listening on http://127.0.0.1:9990/management
+2026-07-10 16:10:09,519 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0051: Admin console listening on http://127.0.0.1:9990
