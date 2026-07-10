@@ -1,2 +1,6 @@
-Sonia de Carvalho Palhares Beira, bom dia! Consegui os passos com o colega, é a mesma documentação da wiki mesmo (Configuração do Application Insights no JBoss - VM).
-Situação atual: já temos proxy e DNS liberados pro ambiente DES do SISME. O que falta agora é o recurso Application Insights no Azure — ele ainda não foi criado pro SISME. A wiki não deixa claro qual equipe especificamente provisiona esse recurso (ela assume que ele já existe), então estou validando isso usando outro sistema (SISAG) como referência de padrão, e vou abrir a solicitação pra criação assim que confirmar o caminho certo. Te aviso assim que tiver retorno.
+APPLICATIONINSIGHTS_CONNECTION_STRING = <connection string da Azure, sem aspas>
+APPLICATIONINSIGHTS_ROLE_NAME = SILCE
+APPLICATIONINSIGHTS_SAMPLING_PERCENTAGE = 100
+APPLICATIONINSIGHTS_INSTRUMENTATION_LOGGING_LEVEL = INFO
+APPLICATIONINSIGHTS_SELF_DIAGNOSTICS_LEVEL = INFO
+URL_PROXY = proxydes.caixa
