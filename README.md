@@ -1,28 +1,23 @@
-2026-07-13T19:45:39.6155545Z ##[section]Starting: Bash Script
-2026-07-13T19:45:39.6159079Z ==============================================================================
-2026-07-13T19:45:39.6159158Z Task         : Bash
-2026-07-13T19:45:39.6159235Z Description  : Run a Bash script on macOS, Linux, or Windows
-2026-07-13T19:45:39.6159308Z Version      : 3.227.0
-2026-07-13T19:45:39.6159353Z Author       : Microsoft Corporation
-2026-07-13T19:45:39.6159456Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/bash
-2026-07-13T19:45:39.6159530Z ==============================================================================
-2026-07-13T19:45:40.1018080Z Generating script.
-2026-07-13T19:45:40.1029009Z ========================== Starting Command Output ===========================
-2026-07-13T19:45:40.1036012Z [command]/usr/bin/bash /opt/ads-agent/_work/_temp/619dbc8e-7729-4e11-9757-3a1091985d51.sh
-2026-07-13T19:45:40.1092212Z ===== TESTANDO BLOCO 3 (overwrite) =====
-2026-07-13T19:45:40.1098734Z /opt/ads-agent/_work/_temp/619dbc8e-7729-4e11-9757-3a1091985d51.sh: line 3: Enviroment: command not found
-2026-07-13T19:45:40.1099365Z Enviroment (raw) = []
-2026-07-13T19:45:40.1100613Z 
-2026-07-13T19:45:40.1100956Z Comando que seria montado:
-2026-07-13T19:45:40.1103544Z /opt/ads-agent/_work/_temp/619dbc8e-7729-4e11-9757-3a1091985d51.sh: line 6: Enviroment: command not found
-2026-07-13T19:45:40.1104406Z oc set env  deploymentconfig "simpi-med-des" -c "simpi-med-des" --overwrite=true -n simpi-des
-2026-07-13T19:45:40.1104521Z 
-2026-07-13T19:45:40.1105005Z + [[ -n $(Enviroment) ]]
-2026-07-13T19:45:40.1108944Z ++ Enviroment
-2026-07-13T19:45:40.1110543Z /opt/ads-agent/_work/_temp/619dbc8e-7729-4e11-9757-3a1091985d51.sh: line 10: Enviroment: command not found
-2026-07-13T19:45:40.1111961Z + oc set env deploymentconfig simpi-med-des -c simpi-med-des --overwrite=true -n simpi-des
-2026-07-13T19:45:40.2317481Z Warning: apps.openshift.io/v1 DeploymentConfig is deprecated in v4.14+, unavailable in v4.10000+
-2026-07-13T19:45:40.2443544Z error: at least one environment variable must be provided
-2026-07-13T19:45:40.2496794Z + set +x
-2026-07-13T19:45:40.2497181Z ==========================================
-2026-07-13T19:45:40.2553557Z ##[section]Finishing: Bash Script
+Prezados,
+
+Durante a análise de uma falha recorrente de deployment no repositório SIMPI-med (ambiente DES), identificamos, ao inspecionar os artefatos do projeto (pom.xml e application.properties), indícios de inconsistências no código-fonte que fogem ao escopo desta equipe de esteiras/pipeline e requerem avaliação do time de desenvolvimento responsável pela aplicação.
+
+Pontos identificados para verificação:
+
+1. Divergência de nomenclatura entre propriedades: uso simultâneo de "CERT_ASSINATURA_ISSUER_NAME"/"CERT_ASSINATURA_SERIAL_NUMBER" e "CER_ASSINATURA_ISSUER_NAME"/"CER_ASSINATURA_SERIAL_NUMBER" em blocos distintos do mesmo arquivo, o que pode resultar em propriedades não resolvidas em tempo de execução.
+
+2. Múltiplas variáveis com nomes similares referentes à URL de integração com o BACEN ("BACEN_MED_URL", "BACEN_MED_V2_URL" e "BACEN_V2_URL"), sendo que apenas a última é efetivamente referenciada pelo rest-client "bacen-v2". Solicitamos avaliação quanto à real necessidade das demais.
+
+3. Valor da propriedade "MED_KEYSTORE_PASSWORD" definido com aspas simples literais (`'${SIMPI_KSPIX_01}'`), o que pode gerar inclusão indevida dos caracteres de aspas na senha efetiva utilizada no keystore, a depender do tratamento realizado pela aplicação.
+
+4. Coexistência de duas convenções de nomenclatura para configuração do HSM (formato com ponto, ex.: "HSM.HOSTNAME", e formato utilizado de fato pela aplicação via "dict.hsm.hostname"), sugerindo possível resíduo de configuração não utilizada.
+
+5. Estrutura do arquivo application.properties aparentemente contendo blocos duplicados (CORS, OpenAPI, logging, entre outros) com valores distintos, o que pode indicar concatenação indevida de arquivos de configuração de ambientes diferentes.
+
+Solicitamos que o time de desenvolvimento realize uma análise no código-fonte e nos arquivos de configuração do repositório SIMPI-med, a fim de validar se os pontos acima são intencionais ou representam inconsistências a serem corrigidas, evitando impactos em futuras implantações.
+
+Permanecemos à disposição para mais detalhes ou para reprodução do cenário observado.
+
+Atenciosamente,
+Jessé Batista
+DevOps/Esteiras - CTIS/CESTI
