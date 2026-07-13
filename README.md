@@ -1,1 +1,6 @@
-Prezados, a mudança encontra-se fechada desde o dia 12/07 com validação na data de hoje às 6h da manhã. No entanto a mudança é relacionada a banco de dados e meu chamado está relacionado ao ambiente do jboss da aplicação. Solicito atendimento urgente devido ao impacto.
+grep -B2 -A2 "server-group\|server name=" /opt/jboss/jboss-eap/hc/configuration/host-slave.xml
+
+
+tail -100 /logs/jboss-eap/hc/servers/siouv_node1_lx0002/server.log | grep -i "oracle\|orad01ng\|connect\|refused\|timeout"
+
+
