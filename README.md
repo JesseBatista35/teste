@@ -1,21 +1,42 @@
--sh-4.1$ ps -ef | grep jboss
-p585600   2845  2734  0 12:18 pts/3    00:00:00 grep jboss
-jboss    13519 53733  0 Jul12 ?        00:00:36 java -D[Process Controller] -server -Xms1g -Xmx1g -XX:MaxPermSize=512m -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs=org.jboss.byteman -Djava.awt.headless=true -Djboss.modules.policy-permissions=true -Dorg.jboss.boot.log.file=/logs/jboss-eap/hc/process-controller.log -Dlogging.configuration=file:/opt/jboss/jboss-eap/hc/configuration/logging.properties -jar /opt/jboss/jboss-eap/jboss-modules.jar -mp /opt/jboss/jboss-eap/modules org.jboss.as.process-controller -jboss-home /opt/jboss/jboss-eap -jvm java -mp /opt/jboss/jboss-eap/modules -- -Dorg.jboss.boot.log.file=/logs/jboss-eap/hc/host-controller.log -Dlogging.configuration=file:/opt/jboss/jboss-eap/hc/configuration/logging.properties -server -Xms1g -Xmx1g -XX:MaxPermSize=512m -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs=org.jboss.byteman -Djava.awt.headless=true -Djboss.modules.policy-permissions=true -- -default-jvm java -b 10.116.88.30 -bmanagement 10.116.88.30 -Djboss.domain.master.address=10.116.88.20 -Djboss.bind.address.unsecure=10.116.88.30 --host-config=host-slave.xml -Djboss.domain.log.dir=/logs/jboss-eap/hc/ -Djboss.domain.base.dir=/opt/jboss/jboss-eap/hc -Djdk.tls.disabledAlgorithms=SSLv3,TLSv1,TLSv1.1,RC4,DES,3DES,MD5withRSA,DHkeySize -Dhttps.protocols=TLSv1.2,TLSv1.3 -c domain.xml
-jboss    13536 13519  0 Jul12 ?        00:01:13 java -D[Host Controller] -Dorg.jboss.boot.log.file=/logs/jboss-eap/hc/host-controller.log -Dlogging.configuration=file:/opt/jboss/jboss-eap/hc/configuration/logging.properties -server -Xms1g -Xmx1g -XX:MaxPermSize=512m -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs=org.jboss.byteman -Djava.awt.headless=true -Djboss.modules.policy-permissions=true -jar /opt/jboss/jboss-eap/jboss-modules.jar -mp /opt/jboss/jboss-eap/modules -jaxpmodule javax.xml.jaxp-provider org.jboss.as.host-controller -mp /opt/jboss/jboss-eap/modules --pc-address 127.0.0.1 --pc-port 42873 -default-jvm java -b 10.116.88.30 -bmanagement 10.116.88.30 -Djboss.domain.master.address=10.116.88.20 -Djboss.bind.address.unsecure=10.116.88.30 --host-config=host-slave.xml -Djboss.domain.log.dir=/logs/jboss-eap/hc/ -Djboss.domain.base.dir=/opt/jboss/jboss-eap/hc -Djdk.tls.disabledAlgorithms=SSLv3,TLSv1,TLSv1.1,RC4,DES,3DES,MD5withRSA,DHkeySize -Dhttps.protocols=TLSv1.2,TLSv1.3 -c domain.xml -Djboss.home.dir=/opt/jboss/jboss-eap
-jboss    13585 13519  0 Jul12 ?        00:01:33 /usr/lib/jvm/jdk-1.8.0_451-oracle-x64/jre/bin/java -D[Server:siouv_node1_lx0002] -XX:PermSize=512m -XX:MaxPermSize=512m -Xms2048m -Xmx2048m -Djava.awt.headless=true -Dhttp.proxyHost=proxydes.caixa -Dhttp.proxyPort=80 -Dhttps.proxyHost=proxydes.caixa -Dhttps.proxyPort=80 -Dhttps.protocols=TLSv1.2 -Dhttp.proxySet=true -Dhttp.nonProxyHosts=*.caixa|*.intra.caixa.gov.br|*.extracaixa|*.siapenet.gov.br|*.caixa.gov.br -Djavax.net.ssl.trustStore=/upload/des/siouv/certificados.jks -DSIOUV.SEC.SSO.URL=https://login.des.caixa/auth -Djboss.domain.master.address=10.116.88.20 -Djboss.bind.address.unsecure=10.116.88.30 -Djavax.net.ssl.trustStorePassword=jbosseap -DSIOUV.URL.SERVICO.INSS=https://hbancos-api.dataprev.gov.br/ouvidoria/v3.1.0 -Djava.net.preferIPv4Stack=true -Dhttps.proxyPort=80 -Djboss.home.dir=/opt/jboss/jboss-eap -Djboss.modules.policy-permissions=true -Djdk.tls.disabledAlgorithms=SSLv3,TLSv1,TLSv1.1,RC4,DES,3DES,MD5withRSA,DHkeySize -DDATAPREV_ECONSIGNADO_PASSWORD=Skyline00@ -DSIOUV.CAIXA.CNPJ.BACEN=00.360.305/0001-04 -DSIOUV.INT.API.KEY=l7d33bd2074eda45aa8d53329fa3676395 -DSIOUV.LIGAR.SERVICO.BACEN=true -DSIOUV.SEC.SSO.REALM=intranet -DSIOUV.LIGAR.SERVICO.INSS=true -DSIOUV.USUARIO.SERVICO.BACEN=211047910.S-CEF06954 -Djboss.modules.system.pkgs=org.jboss.byteman -Djboss.domain.base.dir=/opt/jboss/jboss-eap/hc -Djboss.bind.address=10.116.88.30 -DSIOUV.URL.SERVICO.RDR.BACEN=https://www9.bcb.gov.br/hml/rdrws/ -Dhttps.proxyHost=proxydes.caixa -DDATAPREV_CERTIFICADO_CAIXA_PATH=/upload/des/siouv/dataprev.des.p12 -Doracle.jdbc.J2EE13Compliant=true -DSIOUV.SEC.SSO.CLIENT-ID=cli-ser-ouv -Djboss.domain.log.dir=/logs/jboss-eap/hc/ -Dhttps.protocols=TLSv1.2,TLSv1.3 -Djava.awt.headless=true -DSIOUV.SEC.SSO.CLIENT-SECRET=6be019c7-d1b2-4f6d-b681-44b25780e916 -Djboss.bind.address.management=10.116.88.30 -DSIOUV.INT.API.MANAGER.URL=https://api.des.caixa:8443 -Djboss.server.log.dir=/logs/jboss-eap/hc/servers/siouv_node1_lx0002 -Djboss.server.temp.dir=/opt/jboss/jboss-eap/hc/tmp/servers/siouv_node1_lx0002 -Djboss.server.data.dir=/opt/jboss/jboss-eap/hc/data/servers/siouv_node1_lx0002 -Dlogging.configuration=file:/opt/jboss/jboss-eap/hc/data/servers/siouv_node1_lx0002/logging.properties -jar /opt/jboss/jboss-eap/jboss-modules.jar -mp /opt/jboss/jboss-eap/modules -jaxpmodule javax.xml.jaxp-provider org.jboss.as.server
-root     53731     1  0 May06 ?        00:00:00 su - jboss -c JBOSS_PIDFILE=/opt/jboss/jboss-eap/hc/tmp/jboss_hc.pid LAUNCH_JBOSS_IN_BACKGROUND=1 /opt/jboss/jboss-eap/bin/domain.sh                -b 10.116.88.30                -bmanagement 10.116.88.30                -Djboss.domain.master.address=10.116.88.20                -Djboss.bind.address.unsecure=10.116.88.30                --host-config=host-slave.xml                -Djboss.domain.log.dir=/logs/jboss-eap/hc/                 -Djboss.domain.base.dir=/opt/jboss/jboss-eap/hc                -Djdk.tls.disabledAlgorithms=SSLv3,TLSv1,TLSv1.1,RC4,DES,3DES,MD5withRSA,DHkeySize                -Dhttps.protocols=TLSv1.2,TLSv1.3                -c domain.xml
-jboss    53733 53731  0 May06 ?        00:00:00 /bin/sh /opt/jboss/jboss-eap/bin/domain.sh -b 10.116.88.30 -bmanagement 10.116.88.30 -Djboss.domain.master.address=10.116.88.20 -Djboss.bind.address.unsecure=10.116.88.30 --host-config=host-slave.xml -Djboss.domain.log.dir=/logs/jboss-eap/hc/ -Djboss.domain.base.dir=/opt/jboss/jboss-eap/hc -Djdk.tls.disabledAlgorithms=SSLv3,TLSv1,TLSv1.1,RC4,DES,3DES,MD5withRSA,DHkeySize -Dhttps.protocols=TLSv1.2,TLSv1.3 -c domain.xml
--sh-4.1$
--sh-4.1$
--sh-4.1$
--sh-4.1$
--sh-4.1$ ls -la /opt/jboss*/standalone/configuration/satandalon.xml 2>/dev/null
--sh-4.1$ ls -la /opt/jboss*/standalone/configuration/standalone.xml 2>/dev/null
--sh-4.1$
--sh-4.1$
--sh-4.1$ grep -i "datasource" -A 20 /opt/jboss*/standalone/configuration/standalone.xml | grep -i "connection-url\|jndi-name"
-grep: /opt/jboss*/standalone/configuration/standalone.xml: No such file or directory
--sh-4.1$
--sh-4.1$
--sh-4.1$
+À CAIXA.
 
+Prezados
+
+
+Identificamos que a indisponibilidade do SIOUV (JBoss 6.4) no ambiente de Desenvolvimento está relacionada à migração do banco de dados Oracle já em tratamento por meio da CRQ abaixo:
+
+CRQ000001446706 - ORACLE - Desenvolvimento - Migração orad01ng para CDBD01NGPDB001
+
+Dessa forma, a demanda já possui tratativa em andamento pela equipe responsável. Solicitamos acompanhar a conclusão da CRQ e, após a finalização das atividades, realizar um novo deploy/revalidação da aplicação para confirmar o restabelecimento da conectividade com o banco de dados.
+
+Encerramos esta W.O por se tratar de ocorrência já vinculada à tratativa existente. Em caso de persistência do problema após a conclusão da CRQ, favor abrir novo acionamento para análise complementar.
+
+
+Atenciosamente,
+
+Jessé Mouta Pereira Batista
+Analista
+CTIS / CESTI Esteira DEVOPS DES TQS NPRD
+
+
+Erros de Conexão com Banco de Dados em Desenvolvimento
+ 
+Para alinharmos o tratamento dos chamados relacionados a erro de conexão com banco de dados em ambiente de desenvolvimento, Pós migração , segue a orientação atualizada após a migração realizada neste final de semana.
+ 
+O que aconteceu?
+Foi realizada a migração do banco de dados Oracle do ambiente de desenvolvimento. 
+Como consequência, algumas aplicações estão apontando para a URL de conexão antiga, gerando erros de comunicação ou conexão com o banco. 
+ 
+Como proceder ao receber uma WO com erro de conexão de banco de dados?
+Verificar a URL de conexão configurada na aplicação. 
+Confirmar se a aplicação está utilizando a URL antiga. jdbc:oracle:thin:@cnpexdadvm01-scan4.extra.caixa.gov.br:1521/orad01ng 
+Caso esteja, substituir pela URL nova  jdbc:oracle:thin:@oracle-nprd-1000.caixa:1521/prim_D01NGSRV de conexão do ambiente de desenvolvimento.
+Após a alteração, fechar a WO solicitando que a equipe gere uma nova release.
+Atenção
+Nem todo erro de conexão está necessariamente relacionado à migração do banco.
+Não encerrar os atendimentos apenas informando a existência da CRQ de migração, sem antes verificar o apontamento da aplicação. 
+Caso a URL já esteja correta e o erro persista, seguir a análise normal da aplicação e, se necessário, acionar a equipe responsável pelo sistema. 
+Resumo
+Erro de conexão → Verificar URL → Se estiver na URL antiga, atualizar para a nova → Encerrar a WO solicitando que seja gerado uma nova release
+ 
+Vamos seguir esse procedimento para garantir uniformidade nos atendimentos e evitar encaminhamentos incorretos.
