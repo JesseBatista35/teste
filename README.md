@@ -1,28 +1,72 @@
-Prezados, time de Infraestrutura/Imagens,
+Por favor, verificar e ajustar
 
-Estamos com uma falha de deploy no ambiente DES (siamc-dev-internet) que foi rastreada até uma incompatibilidade de versão do adapter Keycloak instalado na imagem da VM JBoss, e precisamos de apoio para verificar se existe uma imagem alternativa já disponível com a versão correta.
+Repositório: SIMPI-med
 
-Resumo técnico:
+Erro para gerar Release:
 
-- Sistema: SIAMC-INTERNET (siamc-ear.ear / siamc-web-3.0.0-SNAPSHOT.war)
-- Ambiente: DES (esteira esteira-jboss-vm-v2, host caddeapllx2620.agil.nprd.caixa.gov.br)
-- Sintoma: deploy falha na fase DEPENDENCIES com o erro:
-  "Legacy WildFly security layer is no longer supported by the Keycloak WildFly adapter"
-  (origem: org.keycloak.subsystem.adapter.extension.KeycloakDependencyProcessorWildFly)
+**Atualizando Variáveis de Ambiente**
 
-- Causa raiz identificada: a imagem da VM possui o módulo Keycloak adapter na versão 22.0.5 (confirmado em /opt/jboss-eap/modules/system/add-ons/keycloak/), que não suporta mais o legacy security layer do JBoss EAP. A aplicação está configurada no standalone-full-ha.xml com o subsystem legado "urn:jboss:domain:keycloak:1.1" (secure-deployment para siamc-web, realm "internet", auth-server logindes.caixa.gov.br), que depende justamente desse legacy security layer.
+Link da release:
+https://devops.caixa/projetos/Caixa/_releaseProgress?_a=release-environment-logs&releaseId=499537&environmentId=2321697
 
-- O chamado original desta esteira solicitava explicitamente Keycloak 10.x para a VM, versão compatível com essa configuração legada. Verificamos que o módulo 22.0.5 já está presente na imagem desde 24/10/2023 (data de modificação do jar keycloak-core-22.0.5.jar), ou seja, não é instalado dinamicamente pelo pipeline — está fixo na imagem/template base.
+Log de erro:
 
-Solicitação:
+2026-07-13T15:06:55.5628031Z ##[section]Starting: Atualizando Variáveis de Ambiente
+2026-07-13T15:06:55.5631320Z ==============================================================================
+2026-07-13T15:06:55.5631402Z Task         : Bash
+2026-07-13T15:06:55.5631550Z Description  : Run a Bash script on macOS, Linux, or Windows
+2026-07-13T15:06:55.5631626Z Version      : 3.227.0
+2026-07-13T15:06:55.5631671Z Author       : Microsoft Corporation
+2026-07-13T15:06:55.5631722Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/bash
+2026-07-13T15:06:55.5631803Z ==============================================================================
+2026-07-13T15:06:55.7006390Z Generating script.
+2026-07-13T15:06:55.7018954Z ========================== Starting Command Output ===========================
+2026-07-13T15:06:55.7027005Z [command]/usr/bin/bash /opt/ads-agent/_work/_temp/2c46ce25-c82b-4dad-95b9-1a5d7dd89730.sh
+2026-07-13T15:06:55.7078835Z Nova APP: false
+2026-07-13T15:06:55.7806671Z Warning: apps.openshift.io/v1 DeploymentConfig is deprecated in v4.14+, unavailable in v4.10000+
+2026-07-13T15:06:55.8609200Z Warning: apps.openshift.io/v1 DeploymentConfig is deprecated in v4.14+, unavailable in v4.10000+
+2026-07-13T15:06:55.9122788Z error: there is no need to specify a resource type as a separate argument when passing arguments in resource/name form (e.g. 'oc get resource/<resource_name>' instead of 'oc get resource resource/<resource_name>'
+2026-07-13T15:06:55.9171757Z ##[error]Bash exited with code '1'.
+2026-07-13T15:06:55.9206260Z ##[section]Finishing:
 
-1. Poderiam verificar se existe uma imagem/template de build para essa esteira (JBoss EAP VM) que já contenha o Keycloak adapter na versão 10.x, compatível com o legacy security layer?
-2. Caso exista, qual o procedimento para apontarmos a esteira para essa imagem?
-3. Caso não exista, poderiam avaliar a viabilidade de gerar uma variante da imagem com essa versão do adapter, já que a aplicação depende dela na configuração atual?
 
-Fico à disposição para fornecer mais detalhes, logs completos ou acesso aos artefatos de deploy, conforme necessário.
 
-Atenciosamente,
-Jessé Batista
-Analista de Esteiras - CTIS/CESTI
-DEVOPS DES TQS NPRD
+
+a aplicaçao nunca suiu 
+
+
+AMBIENTE
+des
+AMBIENTE_BUILD
+build-images-ads
+CGC_UNIDADE_DES
+7390
+CGC_UNIDADE_OPS
+7259
+PASSWORD_TRUSTSTORE
+changeit
+sistema_nome
+simpi-med
+SITE
+ocp_nprd
+TemplateRelease_OKD
+openshift/quarkus-caixa-release
+
+
+AMBIENTE
+des
+AMBIENTE_BUILD
+build-images-ads
+CGC_UNIDADE_DES
+7390
+CGC_UNIDADE_OPS
+7259
+PASSWORD_TRUSTSTORE
+changeit
+sistema_nome
+simpi-med
+SITE
+ocp_nprd
+TemplateRelease_OKD
+openshift/quarkus-caixa-release
+
