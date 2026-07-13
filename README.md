@@ -1,16 +1,7 @@
 
--sh-4.1$ telnet oracle-nprd-1000.caixa 1521
-Trying 10.116.101.17...
-Connected to oracle-nprd-1000.caixa.
-Escape character is '^]'.
-^C
-^CConnection closed by foreign host.
--sh-4.1$
--sh-4.1$
--sh-4.1$
--sh-4.1$
--sh-4.1$ nc -zv oracle-nprd-1000.caixa 1521
-Connection to oracle-nprd-1000.caixa 1521 port [tcp/ncube-lm] succeeded!
--sh-4.1$
--sh-4.1$
--sh-4.1$
+A CRQ000001446706 (migração orad01ng → CDBD01NGPDB001) foi validada, porém o erro de conexão do SIOUV persiste por uma causa distinta, já identificada na análise abaixo, e que está fora do escopo desta esteira.
+Diagnóstico realizado:
+Confirmado no log da aplicação (server.log, host siouv_node1_lx0002) o erro Listener refused the connection, no datasource java:/jdbc/OracleSiouvDS. Verificamos a connection-url configurada no domain controller (profile full-ha-siouv) e ela já está correta, apontando para oracle-nprd-1000.caixa:1521/prim_D01NGSRV. Também testamos a conectividade de rede do host de aplicação até o novo banco na porta 1521, e a conexão TCP responde normalmente, descartando bloqueio de firewall ou rede.
+Ou seja: não se trata de URL antiga (já corrigida) nem de bloqueio de rede (conectividade confirmada). O erro persiste mesmo após a correção da URL, inclusive em horário posterior à confirmação. A causa está em outra camada, fora do acesso desta esteira.
+Recomendamos que a equipe responsável verifique: se o service name prim_D01NGSRV está ativo e registrado no listener Oracle, a validade da credencial SOUVBD01 no banco de destino, e a sincronização entre o domain controller e o host de aplicação (não foi possível confirmar essa sincronização durante a análise, pois o canal de management estava indisponível).
+Encaminhamento sugerido: equipe de banco de dados (DBA), em paralelo com a equipe responsável pela aplicação SIOUV.
