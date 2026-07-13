@@ -1,7 +1,5 @@
-O build usa `ng build --configuration production`, e o `angular.json` faz um fileReplacement que troca o environment.ts pelo environment.prod.ts em tempo de build — esse arquivo tem a URL de SSO de PRD fixa (DnsSSO.PRD). Como é padrão da Caixa usar sempre `--configuration production`, não dá pra simplesmente criar uma configuration separada pra DES/TQS.
-
-A solução é resolver a URL de SSO via variável/token no pipeline (pós-build), não em tempo de build — assim o mesmo bundle production serve DES, TQS e PRD, cada um pegando a URL certa pela Variable Group do ambiente. 
+Rafael (ajusta o nome do dev), sobre a tela de login errada: o problema é que o environment.prod.ts no seu código tem a URL de SSO de PRD fixa, e o build de vocês usa --configuration production sempre. Isso é ajuste que precisa ser feito no código da aplicação (environments/config), não é algo que dá pra resolver via pipeline. Pode ver com seu time como estruturar isso pra não depender de qual ambiente o build está rodando?
 
 
-Pessoal, sobre a branch principal: vamos precisar abrir uma REQ pra restringir commits diretos e passar a exigir Pull Request obrigatório, com aprovação do Matheus (tech lead) antes do merge.
-Assim que a REQ for aprovada e a policy configurada, o fluxo de vocês continua o mesmo (criar branch de feature, dar push, abrir PR) — só deixa de ser possível commitar direto na branch protegida. Vou abrir a REQ e aviso quando estiver valendo.
+Pessoal, sobre a branch principal: vou verificar se dá pra configurar direto pelas configurações do repositório (Branch Policies), sem precisar de REQ. Se não tiver essa permissão liberada, aí sim abro REQ. De qualquer forma, o objetivo é: commit direto bloqueado, só entra via Pull Request com aprovação do Matheus (tech lead) antes do merge.
+Assim que estiver configurado, aviso vocês. O fluxo de trabalho de vocês continua o mesmo (branch de feature, push, PR).
