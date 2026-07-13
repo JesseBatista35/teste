@@ -1,42 +1,14 @@
-À CAIXA.
-
-Prezados
+find /opt/jboss/jboss-eap -iname "*.xml" 2>/dev/null | grep -i "domain\|host"
 
 
-Identificamos que a indisponibilidade do SIOUV (JBoss 6.4) no ambiente de Desenvolvimento está relacionada à migração do banco de dados Oracle já em tratamento por meio da CRQ abaixo:
+grep -ril "orad01ng\|cnpexdadvm01\|siouv" /opt/jboss/jboss-eap/hc/ 2>/dev/null
 
-CRQ000001446706 - ORACLE - Desenvolvimento - Migração orad01ng para CDBD01NGPDB001
+grep -i "orad01ng\|connection-url\|jndi-name\|pool-name" -B5 -A5 <caminho_do_arquivo_encontrado>
 
-Dessa forma, a demanda já possui tratativa em andamento pela equipe responsável. Solicitamos acompanhar a conclusão da CRQ e, após a finalização das atividades, realizar um novo deploy/revalidação da aplicação para confirmar o restabelecimento da conectividade com o banco de dados.
+cat /opt/jboss/jboss-eap/hc/configuration/host-slave.xml | grep -i "domain-controller\|remote"
 
-Encerramos esta W.O por se tratar de ocorrência já vinculada à tratativa existente. Em caso de persistência do problema após a conclusão da CRQ, favor abrir novo acionamento para análise complementar.
+/opt/jboss/jboss-eap/bin/jboss-cli.sh -c --controller=10.116.88.30:9990
 
+/host=*/server=siouv_node1_lx0002/subsystem=datasources:read-resource(recursive=true)**
 
-Atenciosamente,
-
-Jessé Mouta Pereira Batista
-Analista
-CTIS / CESTI Esteira DEVOPS DES TQS NPRD
-
-
-Erros de Conexão com Banco de Dados em Desenvolvimento
- 
-Para alinharmos o tratamento dos chamados relacionados a erro de conexão com banco de dados em ambiente de desenvolvimento, Pós migração , segue a orientação atualizada após a migração realizada neste final de semana.
- 
-O que aconteceu?
-Foi realizada a migração do banco de dados Oracle do ambiente de desenvolvimento. 
-Como consequência, algumas aplicações estão apontando para a URL de conexão antiga, gerando erros de comunicação ou conexão com o banco. 
- 
-Como proceder ao receber uma WO com erro de conexão de banco de dados?
-Verificar a URL de conexão configurada na aplicação. 
-Confirmar se a aplicação está utilizando a URL antiga. jdbc:oracle:thin:@cnpexdadvm01-scan4.extra.caixa.gov.br:1521/orad01ng 
-Caso esteja, substituir pela URL nova  jdbc:oracle:thin:@oracle-nprd-1000.caixa:1521/prim_D01NGSRV de conexão do ambiente de desenvolvimento.
-Após a alteração, fechar a WO solicitando que a equipe gere uma nova release.
-Atenção
-Nem todo erro de conexão está necessariamente relacionado à migração do banco.
-Não encerrar os atendimentos apenas informando a existência da CRQ de migração, sem antes verificar o apontamento da aplicação. 
-Caso a URL já esteja correta e o erro persista, seguir a análise normal da aplicação e, se necessário, acionar a equipe responsável pelo sistema. 
-Resumo
-Erro de conexão → Verificar URL → Se estiver na URL antiga, atualizar para a nova → Encerrar a WO solicitando que seja gerado uma nova release
- 
-Vamos seguir esse procedimento para garantir uniformidade nos atendimentos e evitar encaminhamentos incorretos.
+**
