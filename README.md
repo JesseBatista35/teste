@@ -1,9 +1,13 @@
-Favor realizar a aprovação do pull request com alteração do arquivo copilot.instructions.md, a fim de melhor utilização do copilot, uma vez que segundo workflow, como arquivo está na pasta ./github, o pull request ficará bloqueado. 
+Olá, Izabella!
 
-Pull Request:
-https://github.com/caixagithub/SIPGE-frontend-intranet/pull/7
+Obrigado pelo contato referente ao Pull Request #7 (Feat/instructions.md) do repositório SIPGE-frontend-intranet.
 
+Após análise, identificamos que a aprovação desse PR está fora do escopo da nossa equipe (DEVOPS DES TQS NPRD). Nosso time atua na esteira de CI/CD e infraestrutura de ambientes não produtivos (DES e TQS), e não possui write access nem responsabilidade de governança sobre o conteúdo do repositório da aplicação, como é o caso do arquivo copilot.instructions.md.
 
-<img width="1919" height="1040" alt="image" src="https://github.com/user-attachments/assets/5ea3a900-a60c-4227-aa2b-2bc34286570c" />
+A aprovação de alterações desse tipo deve ser realizada por alguém com permissão de escrita no repositório, normalmente o dono da aplicação ou o P.O. responsável pelo sistema. Recomendamos que você acione essa pessoa para dar sequência à revisão e aprovação do PR.
 
+Ficamos à disposição para qualquer suporte relacionado à esteira de deploy, caso necessário.
 
+Atenciosamente,
+Jessé Batista
+DEVOPS DES TQS NPRD
