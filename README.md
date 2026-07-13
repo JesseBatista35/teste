@@ -3,3 +3,8 @@ Rafael (ajusta o nome do dev), sobre a tela de login errada: o problema é que o
 
 Pessoal, sobre a branch principal: vou verificar se dá pra configurar direto pelas configurações do repositório (Branch Policies), sem precisar de REQ. Se não tiver essa permissão liberada, aí sim abro REQ. De qualquer forma, o objetivo é: commit direto bloqueado, só entra via Pull Request com aprovação do Matheus (tech lead) antes do merge.
 Assim que estiver configurado, aviso vocês. O fluxo de trabalho de vocês continua o mesmo (branch de feature, push, PR).
+
+
+
+eu posso alterar para ele executar ng build em vez de ng build--configuration production? seria mais fácil
+ 
