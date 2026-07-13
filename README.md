@@ -7,4 +7,6 @@ Assim que estiver configurado, aviso vocês. O fluxo de trabalho de vocês conti
 
 
 eu posso alterar para ele executar ng build em vez de ng build--configuration production? seria mais fácil
- 
+
+
+ Não resolve não. Seu angular.json tem defaultConfiguration: "production", então mesmo rodando só ng build sem o --configuration, ele vai continuar usando a configuration production por padrão — mesmo fileReplacement, mesma URL de PRD. O ajuste real precisa ser no código (como o app resolve a URL do SSO), não no comando de build.
