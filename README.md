@@ -1,66 +1,215 @@
+[p585600@scttqapllx0032 opt]$ sudo su
+Sorry, user p585600 is not allowed to execute '/bin/su' as root on scttqapllx0032.df.caixa.
+[p585600@scttqapllx0032 opt]$ sudo
+usage: sudo [-D level] -h | -K | -k | -V
+usage: sudo -v [-AknS] [-D level] [-g groupname|#gid] [-p prompt] [-u user name|#uid]
+usage: sudo -l[l] [-AknS] [-D level] [-g groupname|#gid] [-p prompt] [-U user name] [-u user name|#uid] [-g groupname|#gid] [command]
+usage: sudo [-AbEHknPS] [-r role] [-t type] [-C fd] [-D level] [-g groupname|#gid] [-p prompt] [-u user name|#uid] [-g groupname|#gid] [VAR=value] [-i|-s] [<command>]
+usage: sudo -e [-AknS] [-r role] [-t type] [-C fd] [-D level] [-g groupname|#gid] [-p prompt] [-u user name|#uid] file ...
+[p585600@scttqapllx0032 opt]$
+[p585600@scttqapllx0032 opt]$
+[p585600@scttqapllx0032 opt]$ sudo su
+Sorry, user p585600 is not allowed to execute '/bin/su' as root on scttqapllx0032.df.caixa.
+[p585600@scttqapllx0032 opt]$ cd ..
+[p585600@scttqapllx0032 /]$ sudo su
+Sorry, user p585600 is not allowed to execute '/bin/su' as root on scttqapllx0032.df.caixa.
+[p585600@scttqapllx0032 /]$
+[p585600@scttqapllx0032 /]$
+[p585600@scttqapllx0032 /]$ history
+    1  ps -ef | grep sismh
+    2  sudo su
+    3  sudo -i
+    4  cd /opt/etc/init.d/jboss-master
+    5  ps -ef | grep jboss
+    6  Favor alterar os parâmetros da etapa Publica no Nexus na esteira do projeto sisag-documento-digital-lib, seguindo a configuração do projeto sisag-spring-util.
+    7
+    8  EXEMPLO:
+    9  mvn deploy:deploy-file
+   10  -Dversion.app=1.12.0.0
+   11  -DgroupId=br.gov.caixa.sisag
+   12  -DartifactId=sisag-spring-util
+   13  -Dversion=1.12.0.0
+   14  -Dpackaging=jar
+   15  -Dfile=./target/sisag-spring-util-1.12.0.0.jar
+   16  -DrepositoryId=NEXUS_INTERNO
+   17  -DgeneratePom=true
+   18  -Durl=http://binario.caixa:8081/repository/releases
+   19
+   20  ------------------------------------------------------
+   21
+   22  COMO ESTÁ:
+   23  mvn deploy:deploy-file
+   24  -DgroupId=br.gov.caixa.sisag
+   25  -DartifactId=documento-digital-lib
+   26  -Dversion=1.0.0.0
+   27  -Dpackaging=zip
+   28  -Dfile=documento-digital-lib-1-0-0-0.zip
+   29  -DrepositoryId=NEXUS_INTERNO
+   30  -DgeneratePom=true
+   31  -Durl=http://binario.caixa:8081/repository/releases
+   32
+   33  systctl -a | grep -i jboss
+   34  systemctl -a | grep -i jboss
+   35  ps -ef | grep log
+   36  cd /usr/local/EAP-6.0.1/jboss-eap-6.0/standalone
+   37  ls -ltrh
+   38  cd log/
+   39  ls -ltrh
+   40  tail -100f server.log
+   41  pwd
+   42  cd /logs
+   43  pwd
+   44  cd /opt/
+   45  ls -la
+   46  sudo su
+   47  sudo
+   48  sudo su
+   49  cd ..
+   50  sudo su
+   51  history
+[p585600@scttqapllx0032 /]$ ^C
+[p585600@scttqapllx0032 /]$ systemctl -a | grep -i jboss
+-bash: systemctl: comando não encontrado
+[p585600@scttqapllx0032 /]$ ps -ef | grep -i jboss
+p585600   13288  13248  0 12:08 pts/2    00:00:00 grep -i jboss
+root      99445      1  0 Jun15 ?        00:00:00 su - jboss -c LAUNCH_JBOSS_IN_BACKGROUND=1 JBOSS_PIDFILE=/usr/local/EAP-6.0.1/jboss-eap-6.0/lock/lock.file /usr/local/EAP-6.0.1/jboss-eap-6.0/bin/standalone.sh -Djboss.bind.address.management=0.0.0.0 -Djboss.socket.binding.port-offset=1
+jboss     99448  99445  0 Jun15 ?        00:00:00 /bin/sh /usr/local/EAP-6.0.1/jboss-eap-6.0/bin/standalone.sh -Djboss.bind.address.management=0.0.0.0 -Djboss.socket.binding.port-offset=1
+jboss     99496  99448  0 Jun15 ?        00:57:00 /usr/lib/jvm/java-1.7.0-openjdk-1.7.0.261.x86_64/jre/bin/java -D[Standalone] -server -XX:+UseCompressedOops -Xms1303m -Xmx1303m -XX:MaxPermSize=256m -Djava.net.preferIPv4Stack=true -Dorg.jboss.resolver.warning=true -Dsun.rmi.dgc.client.gcInterval=3600000 -Dsun.rmi.dgc.server.gcInterval=3600000 -Djboss.modules.system.pkgs=org.jboss.byteman -Djava.awt.headless=true -Djboss.server.default.config=standalone.xml -Dorg.jboss.boot.log.file=/usr/local/EAP-6.0.1/jboss-eap-6.0/standalone/log/boot.log -Dlogging.configuration=file:/usr/local/EAP-6.0.1/jboss-eap-6.0/standalone/configuration/logging.properties -jar /usr/local/EAP-6.0.1/jboss-eap-6.0/jboss-modules.jar -mp /usr/local/EAP-6.0.1/jboss-eap-6.0/modules -jaxpmodule javax.xml.jaxp-provider org.jboss.as.standalone -Djboss.home.dir=/usr/local/EAP-6.0.1/jboss-eap-6.0 -Djboss.server.base.dir=/usr/local/EAP-6.0.1/jboss-eap-6.0/standalone -Djboss.bind.address.management=0.0.0.0 -Djboss.socket.binding.port-offset=1
+[p585600@scttqapllx0032 /]$
+[p585600@scttqapllx0032 /]$
+[p585600@scttqapllx0032 /]$
+[p585600@scttqapllx0032 /]$
+[p585600@scttqapllx0032 /]$ ps -ef | grep log
+root       1925      1  0 Feb05 ?        00:00:05 /sbin/rsyslogd -i /var/run/syslogd.pid -c 5
+root       2506      1  0 Feb05 ?        00:00:00 /usr/sbin/mcelog --daemon
+postgres   2728   2726  0 Feb05 ?        00:00:00 postgres: logger process
+p585600   13293  13248  0 12:08 pts/2    00:00:00 grep log
+jboss     99496  99448  0 Jun15 ?        00:57:00 /usr/lib/jvm/java-1.7.0-openjdk-1.7.0.261.x86_64/jre/bin/java -D[Standalone] -server -XX:+UseCompressedOops -Xms1303m -Xmx1303m -XX:MaxPermSize=256m -Djava.net.preferIPv4Stack=true -Dorg.jboss.resolver.warning=true -Dsun.rmi.dgc.client.gcInterval=3600000 -Dsun.rmi.dgc.server.gcInterval=3600000 -Djboss.modules.system.pkgs=org.jboss.byteman -Djava.awt.headless=true -Djboss.server.default.config=standalone.xml -Dorg.jboss.boot.log.file=/usr/local/EAP-6.0.1/jboss-eap-6.0/standalone/log/boot.log -Dlogging.configuration=file:/usr/local/EAP-6.0.1/jboss-eap-6.0/standalone/configuration/logging.properties -jar /usr/local/EAP-6.0.1/jboss-eap-6.0/jboss-modules.jar -mp /usr/local/EAP-6.0.1/jboss-eap-6.0/modules -jaxpmodule javax.xml.jaxp-provider org.jboss.as.standalone -Djboss.home.dir=/usr/local/EAP-6.0.1/jboss-eap-6.0 -Djboss.server.base.dir=/usr/local/EAP-6.0.1/jboss-eap-6.0/standalone -Djboss.bind.address.management=0.0.0.0 -Djboss.socket.binding.port-offset=1
+[p585600@scttqapllx0032 /]$ tail -100f server.log
+tail: não foi possível abrir "server.log" para leitura: Arquivo ou diretório não encontrado
+tail: nenhum aquivo restante
+[p585600@scttqapllx0032 /]$ systemctl restart jboss
+-bash: systemctl: comando não encontrado
+[p585600@scttqapllx0032 /]$ systemctl -a | grep -i jboss
+-bash: systemctl: comando não encontrado
+[p585600@scttqapllx0032 /]$ sudo systemctl -a | grep jboss
+sudo: systemctl: command not found
+[p585600@scttqapllx0032 /]$
+[p585600@scttqapllx0032 /]$
+[p585600@scttqapllx0032 /]$
+[p585600@scttqapllx0032 /]$ hystory | grep start
+-bash: hystory: comando não encontrado
+[p585600@scttqapllx0032 /]$ history | grep start
+   56  systemctl restart jboss
+   59  hystory | grep start
+   60  history | grep start
+[p585600@scttqapllx0032 /]$
+[p585600@scttqapllx0032 /]$
+[p585600@scttqapllx0032 /]$
+[p585600@scttqapllx0032 /]$
+[p585600@scttqapllx0032 /]$
+[p585600@scttqapllx0032 /]$ ps -ef | grep jboss
+p585600   13323  13248  0 12:11 pts/2    00:00:00 grep jboss
+root      99445      1  0 Jun15 ?        00:00:00 su - jboss -c LAUNCH_JBOSS_IN_BACKGROUND=1 JBOSS_PIDFILE=/usr/local/EAP-6.0.1/jboss-eap-6.0/lock/lock.file /usr/local/EAP-6.0.1/jboss-eap-6.0/bin/standalone.sh -Djboss.bind.address.management=0.0.0.0 -Djboss.socket.binding.port-offset=1
+jboss     99448  99445  0 Jun15 ?        00:00:00 /bin/sh /usr/local/EAP-6.0.1/jboss-eap-6.0/bin/standalone.sh -Djboss.bind.address.management=0.0.0.0 -Djboss.socket.binding.port-offset=1
+jboss     99496  99448  0 Jun15 ?        00:57:01 /usr/lib/jvm/java-1.7.0-openjdk-1.7.0.261.x86_64/jre/bin/java -D[Standalone] -server -XX:+UseCompressedOops -Xms1303m -Xmx1303m -XX:MaxPermSize=256m -Djava.net.preferIPv4Stack=true -Dorg.jboss.resolver.warning=true -Dsun.rmi.dgc.client.gcInterval=3600000 -Dsun.rmi.dgc.server.gcInterval=3600000 -Djboss.modules.system.pkgs=org.jboss.byteman -Djava.awt.headless=true -Djboss.server.default.config=standalone.xml -Dorg.jboss.boot.log.file=/usr/local/EAP-6.0.1/jboss-eap-6.0/standalone/log/boot.log -Dlogging.configuration=file:/usr/local/EAP-6.0.1/jboss-eap-6.0/standalone/configuration/logging.properties -jar /usr/local/EAP-6.0.1/jboss-eap-6.0/jboss-modules.jar -mp /usr/local/EAP-6.0.1/jboss-eap-6.0/modules -jaxpmodule javax.xml.jaxp-provider org.jboss.as.standalone -Djboss.home.dir=/usr/local/EAP-6.0.1/jboss-eap-6.0 -Djboss.server.base.dir=/usr/local/EAP-6.0.1/jboss-eap-6.0/standalone -Djboss.bind.address.management=0.0.0.0 -Djboss.socket.binding.port-offset=1
+[p585600@scttqapllx0032 /]$ tail -f /usr/local/EAP-6.0.1/jboss-eap-6.0/standalone/log/server.log
+12:10:12,091 WARN  [net.bull.javamelody] (javamelody sismh) exception while collecting data: java.lang.OutOfMemoryError: PermGen space: java.lang.OutOfMemoryError: PermGen space
 
--sh-4.1$ ^C
--sh-4.1$ hostname -f
-sbrdeapllx0011
--sh-4.1$ ip a | grep inet
-    inet 127.0.0.1/8 scope host lo
-    inet6 ::1/128 scope host
-    inet 10.116.88.30/23 brd 10.116.89.255 scope global eth0
-    inet6 fe80::250:56ff:fe8e:2cb7/64 scope link
-    inet 192.168.229.47/19 brd 192.168.255.255 scope global eth1
-    inet6 fe80::250:56ff:fe86:56a5/64 scope link
-    inet 10.184.18.196/14 brd 10.187.255.255 scope global eth2
-    inet6 fe80::250:56ff:fe82:d804/64 scope link
--sh-4.1$ cat /etc/hosts | grep -i siouv
--sh-4.1$
--sh-4.1$
--sh-4.1$
--sh-4.1$
--sh-4.1$ ps - ef | grep jboss
-ERROR: Garbage option.
-********* simple selection *********  ********* selection by list *********
--A all processes                      -C by command name
--N negate selection                   -G by real group ID (supports names)
--a all w/ tty except session leaders  -U by real user ID (supports names)
--d all except session leaders         -g by session OR by effective group name
--e all processes                      -p by process ID
-                                      -q by process ID (unsorted & quick)
-T  all processes on this terminal     -s processes in the sessions given
-a  all w/ tty, including other users  -t by tty
-g  OBSOLETE -- DO NOT USE             -u by effective user ID (supports names)
-r  only running processes             U  processes for specified users
-x  processes w/o controlling ttys     t  by tty
-*********** output format **********  *********** long options ***********
--o,o user-defined  -f full            --Group --User --pid --cols --ppid
--j,j job control   s  signal          --group --user --sid --rows --info
--O,O preloaded -o  v  virtual memory  --cumulative --format --deselect
--l,l long          u  user-oriented   --sort --tty --forest --version
--F   extra full    X  registers       --heading --no-heading --context
-                                      --quick-pid
-                    ********* misc options *********
--V,V  show version      L  list format codes  f  ASCII art forest
--m,m,-L,-T,H  threads   S  children in sum    -y change -l format
--M,Z  security data     c  true command name  -c scheduling class
--w,w  wide output       n  numeric WCHAN,UID  -H process hierarchy
--sh-4.1$
--sh-4.1$
--sh-4.1$ ps -ef | grep jboss
-p585600   2845  2734  0 12:18 pts/3    00:00:00 grep jboss
-jboss    13519 53733  0 Jul12 ?        00:00:36 java -D[Process Controller] -server -Xms1g -Xmx1g -XX:MaxPermSize=512m -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs=org.jboss.byteman -Djava.awt.headless=true -Djboss.modules.policy-permissions=true -Dorg.jboss.boot.log.file=/logs/jboss-eap/hc/process-controller.log -Dlogging.configuration=file:/opt/jboss/jboss-eap/hc/configuration/logging.properties -jar /opt/jboss/jboss-eap/jboss-modules.jar -mp /opt/jboss/jboss-eap/modules org.jboss.as.process-controller -jboss-home /opt/jboss/jboss-eap -jvm java -mp /opt/jboss/jboss-eap/modules -- -Dorg.jboss.boot.log.file=/logs/jboss-eap/hc/host-controller.log -Dlogging.configuration=file:/opt/jboss/jboss-eap/hc/configuration/logging.properties -server -Xms1g -Xmx1g -XX:MaxPermSize=512m -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs=org.jboss.byteman -Djava.awt.headless=true -Djboss.modules.policy-permissions=true -- -default-jvm java -b 10.116.88.30 -bmanagement 10.116.88.30 -Djboss.domain.master.address=10.116.88.20 -Djboss.bind.address.unsecure=10.116.88.30 --host-config=host-slave.xml -Djboss.domain.log.dir=/logs/jboss-eap/hc/ -Djboss.domain.base.dir=/opt/jboss/jboss-eap/hc -Djdk.tls.disabledAlgorithms=SSLv3,TLSv1,TLSv1.1,RC4,DES,3DES,MD5withRSA,DHkeySize -Dhttps.protocols=TLSv1.2,TLSv1.3 -c domain.xml
-jboss    13536 13519  0 Jul12 ?        00:01:13 java -D[Host Controller] -Dorg.jboss.boot.log.file=/logs/jboss-eap/hc/host-controller.log -Dlogging.configuration=file:/opt/jboss/jboss-eap/hc/configuration/logging.properties -server -Xms1g -Xmx1g -XX:MaxPermSize=512m -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs=org.jboss.byteman -Djava.awt.headless=true -Djboss.modules.policy-permissions=true -jar /opt/jboss/jboss-eap/jboss-modules.jar -mp /opt/jboss/jboss-eap/modules -jaxpmodule javax.xml.jaxp-provider org.jboss.as.host-controller -mp /opt/jboss/jboss-eap/modules --pc-address 127.0.0.1 --pc-port 42873 -default-jvm java -b 10.116.88.30 -bmanagement 10.116.88.30 -Djboss.domain.master.address=10.116.88.20 -Djboss.bind.address.unsecure=10.116.88.30 --host-config=host-slave.xml -Djboss.domain.log.dir=/logs/jboss-eap/hc/ -Djboss.domain.base.dir=/opt/jboss/jboss-eap/hc -Djdk.tls.disabledAlgorithms=SSLv3,TLSv1,TLSv1.1,RC4,DES,3DES,MD5withRSA,DHkeySize -Dhttps.protocols=TLSv1.2,TLSv1.3 -c domain.xml -Djboss.home.dir=/opt/jboss/jboss-eap
-jboss    13585 13519  0 Jul12 ?        00:01:33 /usr/lib/jvm/jdk-1.8.0_451-oracle-x64/jre/bin/java -D[Server:siouv_node1_lx0002] -XX:PermSize=512m -XX:MaxPermSize=512m -Xms2048m -Xmx2048m -Djava.awt.headless=true -Dhttp.proxyHost=proxydes.caixa -Dhttp.proxyPort=80 -Dhttps.proxyHost=proxydes.caixa -Dhttps.proxyPort=80 -Dhttps.protocols=TLSv1.2 -Dhttp.proxySet=true -Dhttp.nonProxyHosts=*.caixa|*.intra.caixa.gov.br|*.extracaixa|*.siapenet.gov.br|*.caixa.gov.br -Djavax.net.ssl.trustStore=/upload/des/siouv/certificados.jks -DSIOUV.SEC.SSO.URL=https://login.des.caixa/auth -Djboss.domain.master.address=10.116.88.20 -Djboss.bind.address.unsecure=10.116.88.30 -Djavax.net.ssl.trustStorePassword=jbosseap -DSIOUV.URL.SERVICO.INSS=https://hbancos-api.dataprev.gov.br/ouvidoria/v3.1.0 -Djava.net.preferIPv4Stack=true -Dhttps.proxyPort=80 -Djboss.home.dir=/opt/jboss/jboss-eap -Djboss.modules.policy-permissions=true -Djdk.tls.disabledAlgorithms=SSLv3,TLSv1,TLSv1.1,RC4,DES,3DES,MD5withRSA,DHkeySize -DDATAPREV_ECONSIGNADO_PASSWORD=Skyline00@ -DSIOUV.CAIXA.CNPJ.BACEN=00.360.305/0001-04 -DSIOUV.INT.API.KEY=l7d33bd2074eda45aa8d53329fa3676395 -DSIOUV.LIGAR.SERVICO.BACEN=true -DSIOUV.SEC.SSO.REALM=intranet -DSIOUV.LIGAR.SERVICO.INSS=true -DSIOUV.USUARIO.SERVICO.BACEN=211047910.S-CEF06954 -Djboss.modules.system.pkgs=org.jboss.byteman -Djboss.domain.base.dir=/opt/jboss/jboss-eap/hc -Djboss.bind.address=10.116.88.30 -DSIOUV.URL.SERVICO.RDR.BACEN=https://www9.bcb.gov.br/hml/rdrws/ -Dhttps.proxyHost=proxydes.caixa -DDATAPREV_CERTIFICADO_CAIXA_PATH=/upload/des/siouv/dataprev.des.p12 -Doracle.jdbc.J2EE13Compliant=true -DSIOUV.SEC.SSO.CLIENT-ID=cli-ser-ouv -Djboss.domain.log.dir=/logs/jboss-eap/hc/ -Dhttps.protocols=TLSv1.2,TLSv1.3 -Djava.awt.headless=true -DSIOUV.SEC.SSO.CLIENT-SECRET=6be019c7-d1b2-4f6d-b681-44b25780e916 -Djboss.bind.address.management=10.116.88.30 -DSIOUV.INT.API.MANAGER.URL=https://api.des.caixa:8443 -Djboss.server.log.dir=/logs/jboss-eap/hc/servers/siouv_node1_lx0002 -Djboss.server.temp.dir=/opt/jboss/jboss-eap/hc/tmp/servers/siouv_node1_lx0002 -Djboss.server.data.dir=/opt/jboss/jboss-eap/hc/data/servers/siouv_node1_lx0002 -Dlogging.configuration=file:/opt/jboss/jboss-eap/hc/data/servers/siouv_node1_lx0002/logging.properties -jar /opt/jboss/jboss-eap/jboss-modules.jar -mp /opt/jboss/jboss-eap/modules -jaxpmodule javax.xml.jaxp-provider org.jboss.as.server
-root     53731     1  0 May06 ?        00:00:00 su - jboss -c JBOSS_PIDFILE=/opt/jboss/jboss-eap/hc/tmp/jboss_hc.pid LAUNCH_JBOSS_IN_BACKGROUND=1 /opt/jboss/jboss-eap/bin/domain.sh                -b 10.116.88.30                -bmanagement 10.116.88.30                -Djboss.domain.master.address=10.116.88.20                -Djboss.bind.address.unsecure=10.116.88.30                --host-config=host-slave.xml                -Djboss.domain.log.dir=/logs/jboss-eap/hc/                 -Djboss.domain.base.dir=/opt/jboss/jboss-eap/hc                -Djdk.tls.disabledAlgorithms=SSLv3,TLSv1,TLSv1.1,RC4,DES,3DES,MD5withRSA,DHkeySize                -Dhttps.protocols=TLSv1.2,TLSv1.3                -c domain.xml
-jboss    53733 53731  0 May06 ?        00:00:00 /bin/sh /opt/jboss/jboss-eap/bin/domain.sh -b 10.116.88.30 -bmanagement 10.116.88.30 -Djboss.domain.master.address=10.116.88.20 -Djboss.bind.address.unsecure=10.116.88.30 --host-config=host-slave.xml -Djboss.domain.log.dir=/logs/jboss-eap/hc/ -Djboss.domain.base.dir=/opt/jboss/jboss-eap/hc -Djdk.tls.disabledAlgorithms=SSLv3,TLSv1,TLSv1.1,RC4,DES,3DES,MD5withRSA,DHkeySize -Dhttps.protocols=TLSv1.2,TLSv1.3 -c domain.xml
--sh-4.1$
--sh-4.1$
--sh-4.1$
--sh-4.1$
--sh-4.1$ ls -la /opt/jboss*/standalone/configuration/satandalon.xml 2>/dev/null
--sh-4.1$ ls -la /opt/jboss*/standalone/configuration/standalone.xml 2>/dev/null
--sh-4.1$
--sh-4.1$
--sh-4.1$ grep -i "datasource" -A 20 /opt/jboss*/standalone/configuration/standalone.xml | grep -i "connection-url\|jndi-name"
-grep: /opt/jboss*/standalone/configuration/standalone.xml: No such file or directory
--sh-4.1$
--sh-4.1$
--sh-4.1$
+12:11:12,077 WARN  [net.bull.javamelody] (javamelody sismh) exception while collecting data: java.lang.OutOfMemoryError: PermGen space: java.lang.OutOfMemoryError: PermGen space
+
+12:12:13,485 WARN  [net.bull.javamelody] (javamelody sismh) exception while collecting data: java.lang.OutOfMemoryError: PermGen space: java.lang.OutOfMemoryError: PermGen space
+
+12:13:12,053 WARN  [net.bull.javamelody] (javamelody sismh) exception while collecting data: java.lang.OutOfMemoryError: PermGen space: java.lang.OutOfMemoryError: PermGen space
+
+12:14:12,076 WARN  [net.bull.javamelody] (javamelody sismh) exception while collecting data: java.lang.OutOfMemoryError: PermGen space: java.lang.OutOfMemoryError: PermGen space
+
+
+
+
+^C
+[p585600@scttqapllx0032 /]$ ps -ef | grep -i jboss cat /usr/local/EAP-6.0.1/jboss-eap-6.0/lock/lock.file
+grep: cat: Arquivo ou diretório não encontrado
+[p585600@scttqapllx0032 /]$ ls -l /usr/local/EAP-6.0.1/jboss-eap-6.0/standalone/log
+total 150128
+-rwxr-xr-x. 1 jboss jboss      6621 Jun 15 11:41 boot.log
+-rw-rw-r--. 1 jboss jboss    514578 Jul 13 12:14 server.log
+-rwxr-xr-x. 1 jboss jboss   4870522 Jun  9 23:01 server.log.2026-06-09
+-rwxr-xr-x. 1 jboss jboss   3091542 Jun 10 23:01 server.log.2026-06-10
+-rwxr-xr-x. 1 jboss jboss   2656767 Jun 11 23:01 server.log.2026-06-11
+-rwxr-xr-x. 1 jboss jboss   3178061 Jun 12 23:01 server.log.2026-06-12
+-rwxr-xr-x. 1 jboss jboss     45355 Jun 13 23:01 server.log.2026-06-13
+-rwxr-xr-x. 1 jboss jboss     45400 Jun 14 23:01 server.log.2026-06-14
+-rwxr-xr-x. 1 jboss jboss   1690037 Jun 15 23:41 server.log.2026-06-15
+-rw-rw-r--. 1 jboss jboss    435126 Jun 16 23:41 server.log.2026-06-16
+-rw-rw-r--. 1 jboss jboss   1505660 Jun 17 23:41 server.log.2026-06-17
+-rw-rw-r--. 1 jboss jboss    478703 Jun 18 23:41 server.log.2026-06-18
+-rw-rw-r--. 1 jboss jboss    213036 Jun 19 23:41 server.log.2026-06-19
+-rw-rw-r--. 1 jboss jboss     36757 Jun 20 23:41 server.log.2026-06-20
+-rw-rw-r--. 1 jboss jboss     36757 Jun 21 23:41 server.log.2026-06-21
+-rw-rw-r--. 1 jboss jboss     36902 Jun 22 23:41 server.log.2026-06-22
+-rw-rw-r--. 1 jboss jboss    528703 Jun 23 23:41 server.log.2026-06-23
+-rw-rw-r--. 1 jboss jboss   2662879 Jun 24 23:41 server.log.2026-06-24
+-rw-rw-r--. 1 jboss jboss    615899 Jun 25 23:41 server.log.2026-06-25
+-rw-rw-r--. 1 jboss jboss    865737 Jun 26 23:50 server.log.2026-06-26
+-rw-rw-r--. 1 jboss jboss     36810 Jun 27 23:41 server.log.2026-06-27
+-rw-rw-r--. 1 jboss jboss     45400 Jun 28 23:41 server.log.2026-06-28
+-rw-rw-r--. 1 jboss jboss   3088307 Jun 29 23:41 server.log.2026-06-29
+-rw-rw-r--. 1 jboss jboss   4158069 Jun 30 23:41 server.log.2026-06-30
+-rw-rw-r--. 1 jboss jboss   1268544 Jul  1 23:41 server.log.2026-07-01
+-rw-rw-r--. 1 jboss jboss     45398 Jul  2 23:41 server.log.2026-07-02
+-rw-rw-r--. 1 jboss jboss   4630468 Jul  3 23:41 server.log.2026-07-03
+-rw-rw-r--. 1 jboss jboss     45336 Jul  4 23:41 server.log.2026-07-04
+-rw-rw-r--. 1 jboss jboss     45398 Jul  5 23:41 server.log.2026-07-05
+-rw-rw-r--. 1 jboss jboss    662381 Jul  6 23:41 server.log.2026-07-06
+-rw-rw-r--. 1 jboss jboss   1486740 Jul  7 23:41 server.log.2026-07-07
+-rw-rw-r--. 1 jboss jboss 109676907 Jul  8 23:41 server.log.2026-07-08
+-rw-rw-r--. 1 jboss jboss   3993400 Jul  9 23:41 server.log.2026-07-09
+-rw-rw-r--. 1 jboss jboss    724042 Jul 10 23:41 server.log.2026-07-10
+-rw-rw-r--. 1 jboss jboss     45490 Jul 11 23:41 server.log.2026-07-11
+-rw-rw-r--. 1 jboss jboss     45470 Jul 12 23:41 server.log.2026-07-12
+[p585600@scttqapllx0032 /]$
+[p585600@scttqapllx0032 /]$
+[p585600@scttqapllx0032 /]$ cat /usr/local/EAP-6.0.1/jboss-eap-6.0/lock/lock.file
+99496
+[p585600@scttqapllx0032 /]$  sudo -u jboss /usr/local/EAP-6.0.1/jboss-eap-6.0/bin/jboss-cli.sh --connect controller=127.0.0.1:9991 command=":shutdown"
+org.jboss.as.cli.CliInitializationException: Failed to connect to the controller
+        at org.jboss.as.cli.impl.CliLauncher.initCommandContext(CliLauncher.java:264)
+        at org.jboss.as.cli.impl.CliLauncher.main(CliLauncher.java:230)
+        at org.jboss.as.cli.CommandLineMain.main(CommandLineMain.java:34)
+        at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+        at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+        at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+        at java.lang.reflect.Method.invoke(Method.java:607)
+        at org.jboss.modules.Module.run(Module.java:270)
+        at org.jboss.modules.Main.main(Main.java:294)
+Caused by: org.jboss.as.cli.CommandLineException: The controller is not available at 127.0.0.1:9991
+        at org.jboss.as.cli.impl.CommandContextImpl.tryConnection(CommandContextImpl.java:888)
+        at org.jboss.as.cli.impl.CommandContextImpl.connectController(CommandContextImpl.java:727)
+        at org.jboss.as.cli.impl.CommandContextImpl.connectController(CommandContextImpl.java:704)
+        at org.jboss.as.cli.impl.CliLauncher.initCommandContext(CliLauncher.java:262)
+        ... 8 more
+Caused by: java.io.IOException: java.net.ConnectException: JBAS012144: Não foi possível conectar-se ao remote://127.0.0.1:9991. A conexão entrou em intervalo
+        at org.jboss.as.controller.client.impl.AbstractModelControllerClient.executeForResult(AbstractModelControllerClient.java:129)
+        at org.jboss.as.controller.client.impl.AbstractModelControllerClient.execute(AbstractModelControllerClient.java:71)
+        at org.jboss.as.cli.impl.CommandContextImpl.tryConnection(CommandContextImpl.java:866)
+        ... 11 more
+Caused by: java.net.ConnectException: JBAS012144: Não foi possível conectar-se ao remote://127.0.0.1:9991. A conexão entrou em intervalo
+        at org.jboss.as.protocol.ProtocolConnectionUtils.connectSync(ProtocolConnectionUtils.java:120)
+        at org.jboss.as.protocol.ProtocolConnectionManager$EstablishingConnection.connect(ProtocolConnectionManager.java:247)
+        at org.jboss.as.protocol.ProtocolConnectionManager.connect(ProtocolConnectionManager.java:70)
+        at org.jboss.as.protocol.mgmt.FutureManagementChannel$Establishing.getChannel(FutureManagementChannel.java:176)
+        at org.jboss.as.controller.client.impl.RemotingModelControllerClient.getOrCreateChannel(RemotingModelControllerClient.java:146)
+        at org.jboss.as.controller.client.impl.RemotingModelControllerClient$1.getChannel(RemotingModelControllerClient.java:67)
+        at org.jboss.as.protocol.mgmt.ManagementChannelHandler.executeRequest(ManagementChannelHandler.java:115)
+        at org.jboss.as.protocol.mgmt.ManagementChannelHandler.executeRequest(ManagementChannelHandler.java:98)
+        at org.jboss.as.controller.client.impl.AbstractModelControllerClient.executeRequest(AbstractModelControllerClient.java:236)
+        at org.jboss.as.controller.client.impl.AbstractModelControllerClient.execute(AbstractModelControllerClient.java:141)
+        at org.jboss.as.controller.client.impl.AbstractModelControllerClient.executeForResult(AbstractModelControllerClient.java:127)
+        ... 13 more
+[p585600@scttqapllx0032 /]$ ps -p 99496 && echo "ainda rodando" || echo "parou"
+   PID TTY          TIME CMD
+ 99496 ?        00:57:04 java
+ainda rodando
+[p585600@scttqapllx0032 /]$ ^C
+[p585600@scttqapllx0032 /]$
