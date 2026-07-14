@@ -1,15 +1,1 @@
-#!/bin/bash
-
-IFS=$'\n'
-var_split="-e"
-
-for OUTPUT in `printenv | sort`
-do
-if [[ "$OUTPUT" =~ ^_ENV_.*  ]]; then
-
-    Enviroment="${Enviroment} $var_split ${OUTPUT#"_ENV_"}"
-    echo ${OUTPUT#"_ENV_"}
-fi
-done
-
-echo "##vso[task.setvariable variable=Enviroment;]$Enviroment"
+<img width="1708" height="972" alt="image" src="https://github.com/user-attachments/assets/9224b781-cd8d-465d-93a5-0b39728e95c5" />
