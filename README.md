@@ -1,37 +1,169 @@
-2026-07-14T19:37:47.0146718Z ##[section]Starting: Bash Script
-2026-07-14T19:37:47.0150270Z ==============================================================================
-2026-07-14T19:37:47.0150352Z Task         : Bash
-2026-07-14T19:37:47.0150526Z Description  : Run a Bash script on macOS, Linux, or Windows
-2026-07-14T19:37:47.0150617Z Version      : 3.227.0
-2026-07-14T19:37:47.0150664Z Author       : Microsoft Corporation
-2026-07-14T19:37:47.0150717Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/bash
-2026-07-14T19:37:47.0150813Z ==============================================================================
-2026-07-14T19:37:47.1721971Z Generating script.
-2026-07-14T19:37:47.1733760Z ========================== Starting Command Output ===========================
-2026-07-14T19:37:47.1741317Z [command]/usr/bin/bash /opt/ads-agent/_work/_temp/4c9db281-5dd1-4adf-b4bc-594e0474f137.sh
-2026-07-14T19:37:47.1806365Z ===== VALOR REAL DE Enviroment ANTES DO GRUPO Cria_APP_OKD =====
-2026-07-14T19:37:47.1808489Z Enviroment=[ -e BACEN_MED_MAX_CONNECTIONS=50 -e BACEN_V2_URL=https://dict-h.pi.rsfn.net.br/api/v2 -e CERT_ASSINATURA_ISSUER_NAME= -e CERT_ASSINATURA_SERIAL_NUMBER= -e HSM_HOSTNAME=hsmdes.extra.caixa.gov.br -e HSM_PASSWORD= -e HSM_PRIVATE_KEY_NAME= -e HSM_USER_ID=SMPISD01 -e ISPB_CAIXA=00360305 -e MED_KEYSTORE_PASSWORD= -e MED_KEYSTORE_PATH=/deployments/simpi-des-keystore-092025.jks -e MED_TRUSTSTORE_PASSWORD=123456 -e MED_TRUSTSTORE_PATH=/deployments/simpi-des-truststore-202602.jks -e PIX_FRAMEWORK_VALIDACAO_TOKEN_SSO_EMISSOR=https://login.des.caixa/auth/realms/intranet -e PIX_FRAMEWORK_VALIDACAO_TOKEN_SSO_URL=https://sispi-api-proxy-sso-des.apps.pixnprd4.caixa/auth/realms/intranet;https://login.des.caixa/auth/realms/intranet -e PIX_FRAMEWORK_VALIDACAO_TOKEN_VALIDACAO_GLOBAL=true]
-2026-07-14T19:37:47.1809113Z KIND_DEPLOY=[deploymentconfig]
-2026-07-14T19:37:47.1809284Z resource_app=[simpi-med-des]
-2026-07-14T19:37:47.1809429Z ==================================================================
-2026-07-14T19:37:47.1885597Z ##[section]Finishing: Bash Script
+Por favor, verificar e ajustar
+
+Estamos enfrentando um problema com a imagem atualmente utilizada na pipeline dos módulos JBOSS. Ela não contém o JAR do novo provider HSM da NetDefence, que precisará substituir o provider atual, cuja licença expira em agosto. Embora a implementação da integração com o novo provider já tenha sido realizada no código utilizando a API JCA/JCE, ela não funciona na imagem atual devido à ausência dessa dependência.
+
+Documentação:
+
+https://en.docs.dinamonetworks.io/hsm/integration/jca/instalation/#
+
+Skip to content
+DINAMO is now DINAMO Security Company !
+then
+DINAMO Docs
+Installation
 
 
-2026-07-14T19:37:47.7513486Z ##[section]Starting: Atualizando Variáveis de Ambiente
-2026-07-14T19:37:47.7517334Z ==============================================================================
-2026-07-14T19:37:47.7517431Z Task         : Bash
-2026-07-14T19:37:47.7517477Z Description  : Run a Bash script on macOS, Linux, or Windows
-2026-07-14T19:37:47.7517676Z Version      : 3.227.0
-2026-07-14T19:37:47.7517740Z Author       : Microsoft Corporation
-2026-07-14T19:37:47.7517795Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/bash
-2026-07-14T19:37:47.7517870Z ==============================================================================
-2026-07-14T19:37:47.8971106Z Generating script.
-2026-07-14T19:37:47.8982559Z ========================== Starting Command Output ===========================
-2026-07-14T19:37:47.8990094Z [command]/usr/bin/bash /opt/ads-agent/_work/_temp/39c5e360-d30f-4e6f-8809-728ccdefee9b.sh
-2026-07-14T19:37:47.9048867Z Nova APP: false
-2026-07-14T19:37:47.9802984Z Warning: apps.openshift.io/v1 DeploymentConfig is deprecated in v4.14+, unavailable in v4.10000+
-2026-07-14T19:37:48.0676003Z Warning: apps.openshift.io/v1 DeploymentConfig is deprecated in v4.14+, unavailable in v4.10000+
-2026-07-14T19:37:48.1234955Z error: one or more resources must be specified as <resource> <name> or <resource>/<name>
-2026-07-14T19:37:48.1235836Z See 'oc set env -h' for help and examples
-2026-07-14T19:37:48.1306885Z ##[error]Bash exited with code '1'.
-2026-07-14T19:37:48.1362628Z ##[section]Finishing: Atualizando Variáveis de Ambiente
+
+Search
+ 
+HSM
+Pocket
+Downloads
+HSM
+Equipment
+Description
+HSM operation
+Software
+Partition
+Return Codes
+API
+Integration
+MS Crypto API
+JCA/JCE
+Algorithms
+Implementation
+Installation
+Configuration
+PKCS#11
+OpenSSL engine
+KMIP
+Guides
+Troubleshooting
+Contents
+Project Import
+Prerequisites
+Manual installation
+HSM
+Integration
+JCA/JCE
+Installation
+Project Import
+Reference the official Java Maven package from HSM DINAMO in your project.
+
+Prerequisites
+Java 8 or higher.
+Manual installation
+This form of installation is most commonly used for third-party applications where you don't have access to the source code.
+
+Download the jar file for the HSM Java package, click on Versions and then Browse. In the list download the file which is usually named as follows dinamo-hsm-M .N.P.jar where M.N.P is the version.
+
+Copy the file to JDK.
+
+
+Java 8
+Java 9 or higher
+Copiar o arquivo dinamo-hsm-M.N.P.jar para a pasta <JAVA_HOME>\jre\lib\ext .
+
+E.g.: C:\Program Files\Java\jdk1.8.0_211\jre\lib\ext
+
+
+Include the JCA class DINAMO in the JVM's list of encryption providers. This can be done in various ways, for example:
+
+
+Java 8
+Java 9 or higher
+Via application-specific parameters.
+
+E.g.: jarsigner ... -providerClass br.com.trueaccess.provider.netdfence.ND.
+
+Inclusão no arquivo de configuração <JAVA_HOME>\jre\lib\security\java.security a referência para a CSP Java do HSM security.provider.X=br.com.trueaccess.provider.netdfence.ND onde X deve ser substituído pela posição da CSP na lista de ordenamento de CSPs.
+
+Example:
+
+
+.
+.
+.
+#
+# List of providers and their preference orders (see above):
+#
+security.provider.1=sun.security.provider.Sun
+security.provider.2=com.sun.net.ssl.internal.ssl.Provider
+security.provider.3=com.sun.rsajca.Provider
+security.provider.4=com.sun.crypto.provider.SunJCE
+security.provider.5=sun.security.jgss.SunProvider
+security.provider.6=br.com.trueaccess.provider.netdfence.ND
+.
+.
+.
+
+ Back to top
+Previous
+Implementation
+Next
+Configuration
+Copyright © 2016–2024 DINAMO
+Made with Material for MkDocs
+
+
+
+o modulo é o simp-caontainer-dict
+
+boa tarde tudo bem
+ 
+Boa tarde
+ 
+recebi uma w.o para ajuste no HSM
+ 
+td joia
+ 
+Jesse Mouta Pereira Batista
+recebi uma w.o para ajuste no HSM
+ah sim
+ 
+porem lá na informa qual o modulo
+ 
+só fala do sispi
+ 
+Jesse Mouta Pereira Batista
+porem lá na informa qual o modulo
+é o SIMPI-container-dict
+ 
+ 
+Suporte ao ambiente de aplicação nas esteiras DevOps
+Qual o nome do Sistema?*:
+Qual o ambiente*:
+ 
+ 
+ 
+Jesse Mouta Pereira Batista
+Suporte ao ambiente de aplicação nas esteiras DevOps   Qual o nome do Sistema?*:   Qual o ambiente*:
+SISPI
+DES
+ 
+aqui ele colocou SISPI
+ 
+Lucas Nogueira de Carvalho
+é o SIMPI-container-dict
+o modulo é esse
+ 
+Jesse Mouta Pereira Batista
+📷
+Então basicamente a gente precisa coloca um jar no jdk da aplicação para que fique disponível para a JVM
+ 
+seguindo a documentação aqui:
+ 
+Installation - DINAMO Docs
+Installation - DINAMO Docs
+Technical documentation for DINAMO Hardware Security Modules and other products
+ 
+isso, voce consegue colocar uma nota informando que o modulo é o SIMP-container-dict, pois não vou conseguir atuar sem essa informação na w.o
+ 
+Jesse Mouta Pereira Batista
+isso, voce consegue colocar uma nota informando que o modulo é o SIMP-container-dict, pois não vou conseguir atuar sem essa informação na w.o
+vou colocar
+ 
+obrigado
+ 
+ja vou verificar aqui
+ 
