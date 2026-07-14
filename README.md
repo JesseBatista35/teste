@@ -1,315 +1,80 @@
-Starting: npm install
-==============================================================================
-Task         : npm
-Description  : Install and publish npm packages, or run an npm command. Supports npmjs.com and authenticated registries like Azure Artifacts.
-Version      : 1.221.0
-Author       : Microsoft Corporation
-Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/package/npm
-==============================================================================
-/opt/ads-agent/_work/_tool/node/22.13.1/x64/bin/npm --version
-10.9.2
-/opt/ads-agent/_work/_tool/node/22.13.1/x64/bin/npm config list
-npm verbose cli /opt/ads-agent/_work/_tool/node/22.13.1/x64/bin/node /opt/ads-agent/_work/_tool/node/22.13.1/x64/bin/npm
-; "project" config from /opt/ads-agent/_work/361/s/.npmrc
-
-disturl = "http://binario.caixa:8081/repository/nodejs/"
-email = (protected)
-registry = "http://binario.caixa:8081/repository/npm-all/"
-sass_binary_site = "http://binario.caixa:8081/repository/node-sass/"
-
-; "env" config from environment
-
-loglevel = "verbose"
-userconfig = "/opt/ads-agent/_work/361/npm/770729.npmrc"
-
-; node bin location = /opt/ads-agent/_work/_tool/node/22.13.1/x64/bin/node
-; node version = v22.13.1
-; npm local prefix = /opt/ads-agent/_work/361/s
-; npm version = 10.9.2
-; cwd = /opt/ads-agent/_work/361/s
-; HOME = /home/sadscp01
-; Run `npm config ls -l` to show all defaults.
-npm info using npm@10.9.2
-/opt/ads-agent/_work/_tool/node/22.13.1/x64/bin/npm install --no-audit --verbose
-npm info using node@v22.13.1
-npm verbose title npm config list
-npm verbose argv "config" "list"
-npm verbose logfile logs-max:10 dir:/home/sadscp01/.npm/_logs/2026-07-14T18_36_21_131Z-
-npm verbose logfile /home/sadscp01/.npm/_logs/2026-07-14T18_36_21_131Z-debug-0.log
-npm verbose cwd /opt/ads-agent/_work/361/s
-npm verbose os Linux 5.14.0-362.8.1.el9_3.x86_64
-
-
-npm verbose logfile /home/sadscp01/.npm/_logs/2026-07-14T18_36_21_237Z-debug-0.log
-npm http cache http://binario.caixa:8081/repository/npm-all/@angular%2fcdk 33ms (cache hit)
-npm http cache http://binario.caixa:8081/repository/npm-all/@angular%2fcommon 24ms (cache hit)
-npm http cache http://binario.caixa:8081/repository/npm-all/@angular%2fcore 17ms (cache hit)
-npm http cache http://binario.caixa:8081/repository/npm-all/@angular%2fcompiler 7ms (cache hit)
-npm http cache http://binario.caixa:8081/repository/npm-all/rxjs 7ms (cache hit)
-npm http cache http://binario.caixa:8081/repository/npm-all/zone.js 7ms (cache hit)
-npm verbose stack Error: could not resolve
-npm verbose stack     at PlaceDep.failPeerConflict (/opt/ads-agent/_work/_tool/node/22.13.1/x64/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/place-dep.js:503:25)
-npm verbose stack     at new PlaceDep (/opt/ads-agent/_work/_tool/node/22.13.1/x64/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/place-dep.js:157:21)
-npm verbose stack     at #buildDepStep (/opt/ads-agent/_work/_tool/node/22.13.1/x64/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/build-ideal-tree.js:920:18)
-npm verbose stack     at async Arborist.buildIdealTree (/opt/ads-agent/_work/_tool/node/22.13.1/x64/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/build-ideal-tree.js:181:7)
-npm verbose stack     at async Promise.all (index 1)
-npm verbose stack     at async Arborist.reify (/opt/ads-agent/_work/_tool/node/22.13.1/x64/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/reify.js:131:5)
-npm verbose stack     at async Install.exec (/opt/ads-agent/_work/_tool/node/22.13.1/x64/lib/node_modules/npm/lib/commands/install.js:150:5)
-npm verbose stack     at async Npm.exec (/opt/ads-agent/_work/_tool/node/22.13.1/x64/lib/node_modules/npm/lib/npm.js:207:9)
-npm verbose stack     at async module.exports (/opt/ads-agent/_work/_tool/node/22.13.1/x64/lib/node_modules/npm/lib/cli/entry.js:74:5)
-npm error code ERESOLVE
-npm error ERESOLVE could not resolve
-
-npm error   @angular/cdk@"20.2.4" from the root project
-npm error   peer @angular/cdk@"20.2.4" from @angular/material@20.2.4
-npm error   node_modules/@angular/material
-npm error     @angular/material@"20.2.4" from the root project
-npm error     peer @angular/material@"20.2.4" from @angular/material-date-fns-adapter@20.2.4
-npm error     node_modules/@angular/material-date-fns-adapter
-npm error       @angular/material-date-fns-adapter@"20.2.4" from the root project
-npm error   1 more (primeng)
-npm error
-npm error Could not resolve dependency:
-npm error peer @angular/cdk@"^20.2.14" from @caixa/sdsc-angular@0.1.17
-npm error node_modules/@caixa/sdsc-angular
-npm error   @caixa/sdsc-angular@"0.1.17" from the root project
-npm error
-npm error Conflicting peer dependency: @angular/cdk@20.2.14
-npm error node_modules/@angular/cdk
-npm error   peer @angular/cdk@"^20.2.14" from @caixa/sdsc-angular@0.1.17
-npm error   node_modules/@caixa/sdsc-angular
-npm error     @caixa/sdsc-angular@"0.1.17" from the root project
-npm error
-npm error Fix the upstream dependency conflict, or retry
-npm error this command with --force or --legacy-peer-deps
-npm error to accept an incorrect (and potentially broken) dependency resolution.
-npm error
-npm error
-npm error For a full report see:
-npm error /home/sadscp01/.npm/_logs/2026-07-14T18_36_21_237Z-eresolve-report.txt
-npm verbose cwd /opt/ads-agent/_work/361/s
-npm verbose os Linux 5.14.0-362.8.1.el9_3.x86_64
-npm verbose node v22.13.1
-npm verbose npm  v10.9.2
-npm verbose exit 1
-npm verbose code 1
-npm error A complete log of this run can be found in: /home/sadscp01/.npm/_logs/2026-07-14T18_36_21_237Z-debug-0.log
-##[warning]Couldn't find a debug log in the cache or working directory
-##[error]Error: Npm failed with return code: 1
-Finishing: npm install
-
-
 {
-  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1,
-  "newProjectRoot": "projects",
-  "projects": {
-    "SIASC": {
-      "root": "",
-      "sourceRoot": "src",
-      "prefix": "app",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:browser",
-          "options": {
-            "outputPath": "dist",
-            "index": "src/index.html",
-            "main": "src/main.ts",
-            "polyfills": "src/polyfills.ts",
-            "tsConfig": "tsconfig.json",
-            "inlineStyleLanguage": "scss",
-            "assets": [
-              "src/favicon.ico",
-              {
-                "glob": "**/*",
-                "input": "src/assets",
-                "output": "/assets/",
-                "ignore": ["**/fonts/fontawesome-webfont.*"]
-              }
-            ],
-            "styles": [
-              "./src/assets/sass/main.scss",
-              "./src/assets/less/main.less",
-              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "./src/assets/css/fonts-google-open_sans.css",
-              "./node_modules/quill/dist/quill.bubble.css",
-              "./node_modules/quill/dist/quill.snow.css",
-              "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
-              "node_modules/@caixa/sdsc-angular/styles/main.scss"
-            ],
-            "scripts": [
-              "./src/scripts/pace.config.js",
-              "./node_modules/pace-js/pace.min.js",
-              "./node_modules/jquery/dist/jquery.min.js",
-              "./node_modules/bootstrap/dist/js/bootstrap.min.js",
-              "./node_modules/highcharts/highcharts.js",
-              "./node_modules/keycloak-js/dist/keycloak.js",
-              "./node_modules/quill/dist/quill.js"
-            ],
-            "allowedCommonJsDependencies": [
-              "date-fns-tz",
-              "date-fns/_lib/cloneObject/index.js",
-              "date-fns/format/index.js",
-              "date-fns/_lib/getTimezoneOffsetInMilliseconds/index.js",
-              "date-fns/_lib/toInteger/index.js",
-              "keycloak-js",
-              "quill",
-              "quill-delta",
-              "angular2-text-mask",
-              "jquery",
-              "js-sha256"
-            ]
-          },
-          "configurations": {
-            "production": {
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "100mb",
-                  "maximumError": "120mb"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "100mb",
-                  "maximumError": "120mb"
-                }
-              ],
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.srv.ts"
-                }
-              ],
-              "outputHashing": "all"
-            },
-            "development": {
-              "buildOptimizer": false,
-              "optimization": false,
-              "vendorChunk": true,
-              "extractLicenses": false,
-              "sourceMap": true,
-              "namedChunks": true
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
-          "configurations": {
-            "production": {
-              "buildTarget": "SIASC:build:production"
-            },
-            "development": {
-              "buildTarget": "SIASC:build:development"
-            }
-          },
-          "defaultConfiguration": "development"
-        },
-        "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "buildTarget": "SIASC:build"
-          }
-        },
-        "test": {
-          "builder": "@angular-builders/jest:run",
-          "options": {
-            "tsConfig": "tsconfig.spec.json"
-          }
-        }
-      }
-    }
+  "name": "siasc-novo",
+  "version": "0.0.0",
+  "scripts": {
+    "build": "node ./node_modules/@angular/cli/bin/ng build --output-hashing=all --base-href=./",
+    "start": "ng serve --host 0.0.0.0 --proxy-config proxy.conf.js",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "test:ci": "jest --ci --coverage --maxWorkers=2",
+    "compile:core": "tsc -p .",
+    "compile:test": "tsc -p e2e/tsconfig.e2e.json",
+    "errors": "node run-with-logs.js"
   },
-  "cli": {
-    "analytics": "7c93777c-82db-4c26-ac37-e26962194223"
+  "private": true,
+  "engines": {
+    "node": "^20.19.0 || ^22.12.0 || ^24.0.0",
+    "npm": ">=10.0.0"
+  },
+  "dependencies": {
+    "@angular/animations": "20.2.4",
+    "@angular/cdk": "20.2.4",
+    "@angular/common": "20.2.4",
+    "@angular/compiler": "20.2.4",
+    "@angular/core": "20.2.4",
+    "@angular/forms": "20.2.4",
+    "@angular/material": "20.2.4",
+    "@angular/material-date-fns-adapter": "20.2.4",
+    "@angular/platform-browser": "20.2.4",
+    "@angular/platform-browser-dynamic": "20.2.4",
+    "@angular/router": "20.2.4",
+    "@angular/service-worker": "20.2.4",
+    "@auth0/angular-jwt": "^5.2.0",
+    "@caixa/sdsc-angular": "0.1.17",
+    "@fortawesome/fontawesome-free": "^6.5.2",
+    "@ng-idle/core": "^16.0.0",
+    "@primeuix/themes": "1.2.5",
+    "angular-mydatepicker": "^0.11.5",
+    "bootstrap": "3.3.7",
+    "chart.js": "^4.4.3",
+    "date-fns": "^3.6.0",
+    "date-fns-tz": "^3.2.0",
+    "file-saver": "2.0.5",
+    "highcharts": "11.4.6",
+    "html-to-pdfmake": "2.5.10",
+    "inputmask": "^5.0.9-beta.62",
+    "jquery": "3.7.1",
+    "keycloak-js": "25.0.1",
+    "lottie-web": "^5.12.0",
+    "moment": "2.30.1",
+    "ng2-currency-mask": "^13.0.3",
+    "ng2-pdf-viewer": "^9.1.5",
+    "ngx-bootstrap": "^20.0.0",
+    "ngx-mask": "^20.0.0",
+    "ngx-pagination": "6.0.3",
+    "pace-js": "^1.2.4",
+    "pako": "2.1.0",
+    "pdfmake": "0.2.10",
+    "primeicons": "^7.0.0",
+    "primeng": "^20.0.0",
+    "quill": "^1.3.7",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.15.0"
+  },
+  "devDependencies": {
+    "@angular-builders/jest": "^20.0.0",
+    "@angular-devkit/build-angular": "20.2.2",
+    "@angular/cli": "20.2.2",
+    "@angular/compiler-cli": "20.2.4",
+    "@types/file-saver": "^2.0.5",
+    "@types/jest": "^29.5.14",
+    "@types/jquery": "^3.5.29",
+    "@types/node": "~22.0.0",
+    "@types/pako": "^2.0.0",
+    "jest": "^29.7.0",
+    "jest-preset-angular": "^14.0.0",
+    "typescript": "~5.8.2"
   }
 }
-
-
-
-Skip to main content
-Azure DevOps
-projetos
-/
-Caixa
-/
-Repos
-/
-Files
-/
-
-SIASC-frontend-novo
-Search
-
-
-Caixa
-
-Overview
-
-Boards
-
-Repos
-Files
-Commits
-Pushes
-Branches
-Tags
-Pull requests
-
-Pipelines
-
-Test Plans
-
-Artifacts
-Project settings
-SIASC-frontend-novo
-
-.s2i
-.vscode
-src
-.angular-cli.json
-.editorconfig
-.gitignore
-.npmrc
-angular.json
-browserslist
-jest.config.js
-karma.conf.js
-package-lock.json
-package.json
-proxy.conf.js
-README.md
-setup-jest.ts
-
-tsconfig.app.json
-tsconfig.json
-tsconfig.spec.json
-tslint.json
-
-migracaoangular-v1
-
-/
-setup-jest.ts
-setup-jest.ts
-
-Edit
-
-Contents
-History
-Compare
-Blame
-
-1234567891011121314151617181920212223242526272829303132333435363738394041424344
-import 'jest-preset-angular/setup-jest';
-
-// Mock do localStorage
-const localStorageMock = {
-  getItem: jest.fn(),
-  setItem: jest.fn(),
-  removeItem: jest.fn(),
-  clear: jest.fn(),
-};
-global.localStorage = localStorageMock as any;
-
-
-
