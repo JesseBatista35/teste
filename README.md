@@ -1,4 +1,1 @@
-<img width="1887" height="981" alt="image" src="https://github.com/user-attachments/assets/3fbc9d93-e74a-47d3-980a-1998e974251d" />
-
-
-me ajdua a char isso no nexus, entao
+<img width="1899" height="993" alt="image" src="https://github.com/user-attachments/assets/2cbb8393-0a0b-4f04-8162-215da99adc01" />
