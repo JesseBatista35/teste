@@ -1,50 +1,79 @@
-2026-07-14T14:48:27.5765685Z ##[section]Starting: Atualizando Variáveis de Ambiente
-2026-07-14T14:48:27.5769023Z ==============================================================================
-2026-07-14T14:48:27.5769102Z Task         : Bash
-2026-07-14T14:48:27.5769149Z Description  : Run a Bash script on macOS, Linux, or Windows
-2026-07-14T14:48:27.5769238Z Version      : 3.227.0
-2026-07-14T14:48:27.5769284Z Author       : Microsoft Corporation
-2026-07-14T14:48:27.5769489Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/bash
-2026-07-14T14:48:27.5769589Z ==============================================================================
-2026-07-14T14:48:27.7261038Z Generating script.
-2026-07-14T14:48:27.7271803Z ========================== Starting Command Output ===========================
-2026-07-14T14:48:27.7278973Z [command]/usr/bin/bash /opt/ads-agent/_work/_temp/93b4d806-71d9-450b-956f-6f7570fdbdd8.sh
-2026-07-14T14:48:27.7328969Z Nova APP: false
-2026-07-14T14:48:27.8043190Z Warning: apps.openshift.io/v1 DeploymentConfig is deprecated in v4.14+, unavailable in v4.10000+
-2026-07-14T14:48:27.8961734Z Warning: apps.openshift.io/v1 DeploymentConfig is deprecated in v4.14+, unavailable in v4.10000+
-2026-07-14T14:48:27.9392760Z error: one or more resources must be specified as <resource> <name> or <resource>/<name>
-2026-07-14T14:48:27.9393285Z See 'oc set env -h' for help and examples
-2026-07-14T14:48:27.9438251Z ##[error]Bash exited with code '1'.
-2026-07-14T14:48:27.9482117Z ##[section]Finishing: Atualizando Variáveis de Ambiente
+
+Starting: npm install
+==============================================================================
+Task         : npm
+Description  : Install and publish npm packages, or run an npm command. Supports npmjs.com and authenticated registries like Azure Artifacts.
+Version      : 1.221.0
+Author       : Microsoft Corporation
+Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/package/npm
+==============================================================================
+/opt/ads-agent/_work/_tool/node/20.18.2/x64/bin/npm --version
+10.8.2
+/opt/ads-agent/_work/_tool/node/20.18.2/x64/bin/npm config list
+npm verbose cli /opt/ads-agent/_work/_tool/node/20.18.2/x64/bin/node /opt/ads-agent/_work/_tool/node/20.18.2/x64/bin/npm
+npm info using npm@10.8.2
+npm info using node@v20.18.2
+npm verbose title npm config list
+npm verbose argv "config" "list"
+npm verbose logfile logs-max:10 dir:/home/sadscp01/.npm/_logs/2026-07-13T14_31_08_734Z-
+npm verbose logfile /home/sadscp01/.npm/_logs/2026-07-13T14_31_08_734Z-debug-0.log
+npm verbose cwd /opt/ads-agent/_work/272/s
+npm verbose os Linux 5.14.0-362.8.1.el9_3.x86_64
+npm verbose node v20.18.2
+npm verbose npm  v10.8.2
+npm verbose exit 0
+npm info ok
+; "project" config from /opt/ads-agent/_work/272/s/.npmrc
+
+disturl = "http://binario.caixa:8081/repository/nodejs/"
+email = (protected)
+registry = "http://binario.caixa:8081/repository/npm-all/"
+sass_binary_site = "http://binario.caixa:8081/repository/node-sass/"
+
+; "env" config from environment
+
+loglevel = "verbose"
+userconfig = "/opt/ads-agent/_work/272/npm/769192.npmrc"
+
+; node bin location = /opt/ads-agent/_work/_tool/node/20.18.2/x64/bin/node
+; node version = v20.18.2
+; npm local prefix = /opt/ads-agent/_work/272/s
+; npm version = 10.8.2
 
 
-
-2026-07-14T14:48:27.9893231Z ##[section]Starting: Logs da Aplicação
-2026-07-14T14:48:27.9896593Z ==============================================================================
-2026-07-14T14:48:27.9896675Z Task         : Bash
-2026-07-14T14:48:27.9896720Z Description  : Run a Bash script on macOS, Linux, or Windows
-2026-07-14T14:48:27.9896882Z Version      : 3.227.0
-2026-07-14T14:48:27.9896929Z Author       : Microsoft Corporation
-2026-07-14T14:48:27.9896985Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/bash
-2026-07-14T14:48:27.9897063Z ==============================================================================
-2026-07-14T14:48:28.1299670Z Generating script.
-2026-07-14T14:48:28.1311630Z ========================== Starting Command Output ===========================
-2026-07-14T14:48:28.1320066Z [command]/usr/bin/bash /opt/ads-agent/_work/_temp/9bb36040-a2da-49e1-9b6a-a9814c88f46f.sh
-2026-07-14T14:48:28.1375523Z + shopt -s expand_aliases
-2026-07-14T14:48:28.1377056Z + [[ -n ocp_nprd ]]
-2026-07-14T14:48:28.1377243Z + [[ ocp_nprd =~ ocp ]]
-2026-07-14T14:48:28.1377402Z + app=simpi-med-des
-2026-07-14T14:48:28.1377560Z + arquivo=/usr/local/bin/oc-v4.13
-2026-07-14T14:48:28.1377728Z + '[' -e /usr/local/bin/oc-v4.13 ']'
-2026-07-14T14:48:28.1377840Z + oc version
-2026-07-14T14:48:28.2021203Z Client Version: v4.2.0-alpha.0-1394-g45460a5
-2026-07-14T14:48:28.2021428Z Server Version: 4.15.59
-2026-07-14T14:48:28.2021653Z Kubernetes Version: v1.28.15+d227d65
-2026-07-14T14:48:28.2055042Z ++ oc get pod -l name=simpi-med-des -n simpi-des -o 'jsonpath={range .items[*]}{.metadata.name}{"\n"}' --sort-by=.metadata.creationTimestamp
-2026-07-14T14:48:28.2055309Z ++ tac
-2026-07-14T14:48:28.2056309Z ++ grep -v '^$'
-2026-07-14T14:48:28.2056473Z ++ head -n1
-2026-07-14T14:48:28.2945664Z + last_pod=
-2026-07-14T14:48:28.2972176Z ##[error]Bash exited with code '1'.
-2026-07-14T14:48:28.3011201Z ##[section]Finishing: Logs da Aplicação
-
+npm verbose stack     at async Promise.all (index 1)
+npm verbose stack     at async Arborist.reify (/opt/ads-agent/_work/_tool/node/20.18.2/x64/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/reify.js:131:5)
+npm verbose stack     at async Install.exec (/opt/ads-agent/_work/_tool/node/20.18.2/x64/lib/node_modules/npm/lib/commands/install.js:150:5)
+npm verbose stack     at async Npm.exec (/opt/ads-agent/_work/_tool/node/20.18.2/x64/lib/node_modules/npm/lib/npm.js:207:9)
+npm verbose stack     at async module.exports (/opt/ads-agent/_work/_tool/node/20.18.2/x64/lib/node_modules/npm/lib/cli/entry.js:74:5)
+npm error code ERESOLVE
+npm error ERESOLVE could not resolve
+npm error
+npm error While resolving: @caixa/sdsc-angular@0.1.17
+npm error Found: @angular/cdk@20.2.4
+npm error node_modules/@angular/cdk
+npm error   @angular/cdk@"20.2.4" from the root project
+npm error   peer @angular/cdk@"20.2.4" from @angular/material@20.2.4
+npm error   node_modules/@angular/material
+npm error     @angular/material@"20.2.4" from the root project
+npm error     peer @angular/material@"20.2.4" from @angular/material-date-fns-adapter@20.2.4
+npm error     node_modules/@angular/material-date-fns-adapter
+npm error       @angular/material-date-fns-adapter@"20.2.4" from the root project
+npm error   1 more (primeng)
+npm error
+npm error Could not resolve dependency:
+npm error peer @angular/cdk@"^20.2.14" from @caixa/sdsc-angular@0.1.17
+npm error node_modules/@caixa/sdsc-angular
+npm error   @caixa/sdsc-angular@"0.1.17" from the root project
+npm error
+npm error Conflicting peer dependency: @angular/cdk@20.2.14
+npm error node_modules/@angular/cdk
+npm error   peer @angular/cdk@"^20.2.14" from @caixa/sdsc-angular@0.1.17
+npm error   node_modules/@caixa/sdsc-angular
+npm error     @caixa/sdsc-angular@"0.1.17" from the root project
+npm error
+npm error Fix the upstream dependency conflict, or retry
+npm error this command with --force or --legacy-peer-deps
+npm error to accept an incorrect (and potentially broken) dependency resolution.
+npm error
+npm error
