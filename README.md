@@ -1,93 +1,10 @@
-esse aqui voce nao ta vendo
+find / -iname "*taccon*" 2>/dev/null
+find / -iname "*dinamo*" -not -path "*/proc/*" 2>/dev/null
+find / -iname "*.ini" -o -iname "*hsm*" 2>/dev/null | grep -v proc
 
-Caused by: java.lang.IllegalStateException: WFLYEE0042: Failed to construct component instance
-	at org.jboss.as.ee.component.BasicComponent.constructComponentInstance(BasicComponent.java:163)
-	at org.jboss.as.ee.component.BasicComponent.constructComponentInstance(BasicComponent.java:134)
-	at org.jboss.as.ee.component.BasicComponent.createInstance(BasicComponent.java:88)
-	at org.jboss.as.ejb3.component.stateless.StatelessSessionComponent$1.create(StatelessSessionComponent.java:64)
-	at org.jboss.as.ejb3.component.stateless.StatelessSessionComponent$1.create(StatelessSessionComponent.java:61)
-	at org.jboss.as.ejb3.pool.AbstractPool.create(AbstractPool.java:56)
-	at org.jboss.as.ejb3.pool.strictmax.StrictMaxPool.get(StrictMaxPool.java:124)
-	at org.jboss.as.ejb3.component.pool.PooledInstanceInterceptor.processInvocation(PooledInstanceInterceptor.java:47)
-	at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:422)
-	at org.jboss.as.ejb3.component.interceptors.AdditionalSetupInterceptor.processInvocation(AdditionalSetupInterceptor.java:54)
-	at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:422)
-	at org.jboss.as.ejb3.tx.CMTTxInterceptor.invokeInNoTx(CMTTxInterceptor.java:264)
-	... 174 more
-Caused by: javax.ejb.EJBException: java.lang.IllegalStateException: Falha ao carregar KeyStoreTACCON via HSM: Missing configuration file.
-	at org.jboss.as.ejb3.tx.CMTTxInterceptor.handleExceptionInNoTx(CMTTxInterceptor.java:214)
-	at org.jboss.as.ejb3.tx.CMTTxInterceptor.invokeInNoTx(CMTTxInterceptor.java:266)
-	at org.jboss.as.ejb3.tx.LifecycleCMTTxInterceptor.notSupported(LifecycleCMTTxInterceptor.java:110)
-	at org.jboss.as.ejb3.tx.LifecycleCMTTxInterceptor.processInvocation(LifecycleCMTTxInterceptor.java:70)
-	at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:422)
-	at org.jboss.as.weld.injection.WeldInjectionContextInterceptor.processInvocation(WeldInjectionContextInterceptor.java:43)
-	at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:422)
-	at org.jboss.as.ejb3.component.interceptors.CurrentInvocationContextInterceptor.processInvocation(CurrentInvocationContextInterceptor.java:41)
-	at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:422)
-	at org.jboss.as.ee.concurrent.ConcurrentContextInterceptor.processInvocation(ConcurrentContextInterceptor.java:45)
-	at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:422)
-	at org.jboss.invocation.ContextClassLoaderInterceptor.processInvocation(ContextClassLoaderInterceptor.java:60)
-	at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:422)
-	at org.jboss.invocation.ChainedInterceptor.processInvocation(ChainedInterceptor.java:53)
-	at org.jboss.as.ee.component.BasicComponent.constructComponentInstance(BasicComponent.java:161)
-	... 185 more
-Caused by: java.lang.IllegalStateException: Falha ao carregar KeyStoreTACCON via HSM: Missing configuration file.
-	at br.gov.caixa.mpi.dict.ejb.hsm.BaseHsmManager.lambda$new$0(BaseHsmManager.java:37)
-	at br.gov.caixa.mpi.dict.ejb.hsm.KeystoreHolder.<init>(KeystoreHolder.java:25)
-	at br.gov.caixa.mpi.dict.ejb.hsm.BaseHsmManager.<init>(BaseHsmManager.java:39)
-	at br.gov.caixa.mpi.dict.ejb.hsm.SignerManager.<init>(SignerManager.java:17)
-	at br.gov.caixa.mpi.dict.ejb.HsmCaixaEjb.init(HsmCaixaEjb.java:44)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.jboss.as.ee.component.ManagedReferenceLifecycleMethodInterceptor.processInvocation(ManagedReferenceLifecycleMethodInterceptor.java:96)
-	at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:422)
-	at org.jboss.as.weld.interceptors.Jsr299BindingsInterceptor.doLifecycleInterception(Jsr299BindingsInterceptor.java:122)
-	at org.jboss.as.weld.interceptors.Jsr299BindingsInterceptor.processInvocation(Jsr299BindingsInterceptor.java:111)
-	at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:422)
-	at org.jboss.invocation.InterceptorContext$Invocation.proceed(InterceptorContext.java:509)
-	at org.jboss.weld.ejb.AbstractEJBRequestScopeActivationInterceptor.aroundInvoke(AbstractEJBRequestScopeActivationInterceptor.java:64)
-	at org.jboss.as.weld.ejb.EjbRequestScopeActivationInterceptor.processInvocation(EjbRequestScopeActivationInterceptor.java:89)
-	at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:422)
-	at org.jboss.as.weld.injection.WeldInjectionInterceptor.processInvocation(WeldInjectionInterceptor.java:53)
-	at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:422)
-	at org.jboss.as.ee.component.AroundConstructInterceptorFactory$1.processInvocation(AroundConstructInterceptorFactory.java:28)
-	at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:422)
-	at org.jboss.as.weld.injection.WeldInterceptorInjectionInterceptor.processInvocation(WeldInterceptorInjectionInterceptor.java:56)
-	at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:422)
-	at org.jboss.as.weld.interceptors.Jsr299BindingsCreateInterceptor.processInvocation(Jsr299BindingsCreateInterceptor.java:105)
-	at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:422)
-	at org.jboss.as.ee.component.NamespaceContextInterceptor.processInvocation(NamespaceContextInterceptor.java:50)
-	at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:422)
-	at org.jboss.as.ejb3.tx.CMTTxInterceptor.invokeInNoTx(CMTTxInterceptor.java:264)
-	... 198 more
-Caused by: java.lang.RuntimeException: Missing configuration file.
-	at br.com.trueaccess.provider.netdfence.NDSession.initializeSession(NDSession.java:63)
-	at br.com.trueaccess.provider.netdfence.NDSession.<init>(NDSession.java:41)
-	at br.com.trueaccess.provider.netdfence.KeyStore.SyncKeyStoreList(KeyStore.java:1025)
-	at br.com.trueaccess.provider.netdfence.KeyStore.engineLoad(KeyStore.java:649)
-	at java.security.KeyStore.load(KeyStore.java:1445)
-	at br.gov.caixa.mpi.dict.ejb.hsm.BaseHsmManager.lambda$new$0(BaseHsmManager.java:33)
-	... 226 more
 
-2026-07-14 17:39:49,763 ERROR [br.gov.caixa.mpi.dict.feign.RequestInterceptorFeign] (default task-13) [CORRELATION-ID:33396f8e-763c-4018-a8ad-82b332641e15][SIMPI-DICT] Erro RequestInterceptorFeign: javax.ejb.EJBException: java.lang.IllegalStateException: WFLYEE0042: Failed to construct component instance
-2026-07-14 17:39:49,764 ERROR [org.jboss.as.ejb3.invocation] (default task-13) [CORRELATION-ID:33396f8e-763c-4018-a8ad-82b332641e15]WFLYEJB0034: EJB Invocation failed on component CriarVinculoDictFacade for method public br.gov.caixa.mpi.dict.api.dto.v2.ChaveDto br.gov.caixa.mpi.dict.v2.facade.directory.CriarVinculoDictFacade.executar(br.gov.caixa.mpi.dict.api.dto.v2.ChaveDto): javax.ejb.EJBException: br.gov.caixa.dict.comum.exceptions.DictException: javax.ejb.EJBException: java.lang.IllegalStateException: WFLYEE0042: Failed to construct component instance
-	at org.jboss.as.ejb3.tx.CMTTxInterceptor.handleExceptionInOurTx(CMTTxInterceptor.java:188)
-	at org.jboss.as.ejb3.tx.CMTTxInterceptor.invokeInOurTx(CMTTxInterceptor.java:277)
-	at org.jboss.as.ejb3.tx.CMTTxInterceptor.required(CMTTxInterceptor.java:332)
-	at org.jboss.as.ejb3.tx.CMTTxInterceptor.processInvocation(CMTTxInterceptor.java:240)
-	at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:422)
-	at org.jboss.invocation.InterceptorContext$Invocation.proceed(InterceptorContext.java:509)
-	at org.jboss.weld.ejb.AbstractEJBRequestScopeActivationInterceptor.aroundInvoke(AbstractEJBRequestScopeActivationInterceptor.java:64)
-	at org.jboss.as.weld.ejb.EjbRequestScopeActivationInterceptor.processInvocation(EjbRequestScopeActivationInterceptor.java:89)
-	at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:422)
-	at org.jboss.as.ejb3.component.interceptors.CurrentInvocationContextInterceptor.processInvocation(CurrentInvocationContextInterceptor.java:41)
-	at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:422)
-	at org.jboss.as.ejb3.component.invocationmetrics.WaitTimeInterceptor.processInvocation(WaitTimeInterceptor.java:47)
-	at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:422)
-	at org.jboss.as.ejb3.security.SecurityContextInterceptor.processInvocation(SecurityContextInterceptor.java:100)
-	at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:422)
-	at org.jboss.as.ejb3.deployment.processors.StartupAwaitInterceptor.processInvocation(StartupAwaitInterceptor.java:22)
-	at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:422)
-	at org.jboss.as.ejb3.component.interceptors.ShutDownInterceptorFactory$1.processInvocation(ShutDownInterceptorFactory.java:64)
+env | grep -i hsm
+env | grep -i dinamo
+env | grep -i tac
+
+find /opt -iname "*.properties" | xargs grep -li "hsm\|dinamo\|taccon" 2>/dev/null
