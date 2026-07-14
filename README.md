@@ -97,3 +97,219 @@ npm error A complete log of this run can be found in: /home/sadscp01/.npm/_logs/
 ##[warning]Couldn't find a debug log in the cache or working directory
 ##[error]Error: Npm failed with return code: 1
 Finishing: npm install
+
+
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "SIASC": {
+      "root": "",
+      "sourceRoot": "src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "src/favicon.ico",
+              {
+                "glob": "**/*",
+                "input": "src/assets",
+                "output": "/assets/",
+                "ignore": ["**/fonts/fontawesome-webfont.*"]
+              }
+            ],
+            "styles": [
+              "./src/assets/sass/main.scss",
+              "./src/assets/less/main.less",
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "./src/assets/css/fonts-google-open_sans.css",
+              "./node_modules/quill/dist/quill.bubble.css",
+              "./node_modules/quill/dist/quill.snow.css",
+              "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
+              "node_modules/@caixa/sdsc-angular/styles/main.scss"
+            ],
+            "scripts": [
+              "./src/scripts/pace.config.js",
+              "./node_modules/pace-js/pace.min.js",
+              "./node_modules/jquery/dist/jquery.min.js",
+              "./node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "./node_modules/highcharts/highcharts.js",
+              "./node_modules/keycloak-js/dist/keycloak.js",
+              "./node_modules/quill/dist/quill.js"
+            ],
+            "allowedCommonJsDependencies": [
+              "date-fns-tz",
+              "date-fns/_lib/cloneObject/index.js",
+              "date-fns/format/index.js",
+              "date-fns/_lib/getTimezoneOffsetInMilliseconds/index.js",
+              "date-fns/_lib/toInteger/index.js",
+              "keycloak-js",
+              "quill",
+              "quill-delta",
+              "angular2-text-mask",
+              "jquery",
+              "js-sha256"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "100mb",
+                  "maximumError": "120mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "100mb",
+                  "maximumError": "120mb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.srv.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "SIASC:build:production"
+            },
+            "development": {
+              "buildTarget": "SIASC:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "buildTarget": "SIASC:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-builders/jest:run",
+          "options": {
+            "tsConfig": "tsconfig.spec.json"
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "analytics": "7c93777c-82db-4c26-ac37-e26962194223"
+  }
+}
+
+
+
+Skip to main content
+Azure DevOps
+projetos
+/
+Caixa
+/
+Repos
+/
+Files
+/
+
+SIASC-frontend-novo
+Search
+
+
+Caixa
+
+Overview
+
+Boards
+
+Repos
+Files
+Commits
+Pushes
+Branches
+Tags
+Pull requests
+
+Pipelines
+
+Test Plans
+
+Artifacts
+Project settings
+SIASC-frontend-novo
+
+.s2i
+.vscode
+src
+.angular-cli.json
+.editorconfig
+.gitignore
+.npmrc
+angular.json
+browserslist
+jest.config.js
+karma.conf.js
+package-lock.json
+package.json
+proxy.conf.js
+README.md
+setup-jest.ts
+
+tsconfig.app.json
+tsconfig.json
+tsconfig.spec.json
+tslint.json
+
+migracaoangular-v1
+
+/
+setup-jest.ts
+setup-jest.ts
+
+Edit
+
+Contents
+History
+Compare
+Blame
+
+1234567891011121314151617181920212223242526272829303132333435363738394041424344
+import 'jest-preset-angular/setup-jest';
+
+// Mock do localStorage
+const localStorageMock = {
+  getItem: jest.fn(),
+  setItem: jest.fn(),
+  removeItem: jest.fn(),
+  clear: jest.fn(),
+};
+global.localStorage = localStorageMock as any;
+
+
+
