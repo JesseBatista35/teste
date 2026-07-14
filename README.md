@@ -1,3 +1,5 @@
+esse aqui voce nao ta vendo
+
 Caused by: java.lang.IllegalStateException: WFLYEE0042: Failed to construct component instance
 	at org.jboss.as.ee.component.BasicComponent.constructComponentInstance(BasicComponent.java:163)
 	at org.jboss.as.ee.component.BasicComponent.constructComponentInstance(BasicComponent.java:134)
