@@ -1,1 +1,6 @@
-<img width="1708" height="972" alt="image" src="https://github.com/user-attachments/assets/9224b781-cd8d-465d-93a5-0b39728e95c5" />
+#!/bin/bash
+echo "===== VALOR REAL DE Enviroment ANTES DO GRUPO Cria_APP_OKD ====="
+echo "Enviroment=[$(Enviroment)]"
+echo "KIND_DEPLOY=[$(KIND_DEPLOY)]"
+echo "resource_app=[$(resource_app)]"
+echo "=================================================================="
