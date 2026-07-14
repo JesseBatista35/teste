@@ -1,4 +1,7 @@
-a versão exatamente homologada, não sei dizer, mas a nível de recomendação minha como dev recomendo utilizar a mais recente no caso a 4.26
+<img width="1545" height="902" alt="image" src="https://github.com/user-attachments/assets/eaea47b6-828b-4da1-87b8-e7c9242e3b9b" />
 
 
-<img width="1875" height="975" alt="image" src="https://github.com/user-attachments/assets/bc80d3aa-7672-4723-88e1-55d1f48e7a0e" />
+<img width="1896" height="952" alt="image" src="https://github.com/user-attachments/assets/f4cfc89d-6e29-43cd-91c4-1c65315e0427" />
+
+
+Onde vejo o downlkerfile
