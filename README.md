@@ -15,3 +15,23 @@
 2026-07-14T19:37:47.1809284Z resource_app=[simpi-med-des]
 2026-07-14T19:37:47.1809429Z ==================================================================
 2026-07-14T19:37:47.1885597Z ##[section]Finishing: Bash Script
+
+
+2026-07-14T19:37:47.7513486Z ##[section]Starting: Atualizando Variáveis de Ambiente
+2026-07-14T19:37:47.7517334Z ==============================================================================
+2026-07-14T19:37:47.7517431Z Task         : Bash
+2026-07-14T19:37:47.7517477Z Description  : Run a Bash script on macOS, Linux, or Windows
+2026-07-14T19:37:47.7517676Z Version      : 3.227.0
+2026-07-14T19:37:47.7517740Z Author       : Microsoft Corporation
+2026-07-14T19:37:47.7517795Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/bash
+2026-07-14T19:37:47.7517870Z ==============================================================================
+2026-07-14T19:37:47.8971106Z Generating script.
+2026-07-14T19:37:47.8982559Z ========================== Starting Command Output ===========================
+2026-07-14T19:37:47.8990094Z [command]/usr/bin/bash /opt/ads-agent/_work/_temp/39c5e360-d30f-4e6f-8809-728ccdefee9b.sh
+2026-07-14T19:37:47.9048867Z Nova APP: false
+2026-07-14T19:37:47.9802984Z Warning: apps.openshift.io/v1 DeploymentConfig is deprecated in v4.14+, unavailable in v4.10000+
+2026-07-14T19:37:48.0676003Z Warning: apps.openshift.io/v1 DeploymentConfig is deprecated in v4.14+, unavailable in v4.10000+
+2026-07-14T19:37:48.1234955Z error: one or more resources must be specified as <resource> <name> or <resource>/<name>
+2026-07-14T19:37:48.1235836Z See 'oc set env -h' for help and examples
+2026-07-14T19:37:48.1306885Z ##[error]Bash exited with code '1'.
+2026-07-14T19:37:48.1362628Z ##[section]Finishing: Atualizando Variáveis de Ambiente
