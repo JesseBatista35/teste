@@ -1,2 +1,1 @@
-Confirmando aqui: como o ajuste é feito na imagem JBoss atualmente utilizada no pipeline deste módulo, e eu tenho acesso a essa imagem no ambiente não produtivo (DES/TQS), posso realizar essa customização diretamente. Vou incluir o JAR do novo provider e ajustar o java.security (ou parâmetro de JVM) conforme a documentação da DINAMO.
-Só preciso que seja confirmada a versão exata do pacote dinamo-hsm a ser utilizada, já que no Maven Central existem múltiplas versões disponíveis (por exemplo, 4.26.0). Qual é a versão homologada para substituir o provider atual antes do vencimento da licença em agosto?
+a versão exatamente homologada, não sei dizer, mas a nível de recomendação minha como dev recomendo utilizar a mais recente no caso a 4.26
