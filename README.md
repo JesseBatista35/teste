@@ -1,80 +1,10 @@
-{
-  "name": "siasc-novo",
-  "version": "0.0.0",
-  "scripts": {
-    "build": "node ./node_modules/@angular/cli/bin/ng build --output-hashing=all --base-href=./",
-    "start": "ng serve --host 0.0.0.0 --proxy-config proxy.conf.js",
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage",
-    "test:ci": "jest --ci --coverage --maxWorkers=2",
-    "compile:core": "tsc -p .",
-    "compile:test": "tsc -p e2e/tsconfig.e2e.json",
-    "errors": "node run-with-logs.js"
-  },
-  "private": true,
-  "engines": {
-    "node": "^20.19.0 || ^22.12.0 || ^24.0.0",
-    "npm": ">=10.0.0"
-  },
-  "dependencies": {
-    "@angular/animations": "20.2.4",
-    "@angular/cdk": "20.2.4",
-    "@angular/common": "20.2.4",
-    "@angular/compiler": "20.2.4",
-    "@angular/core": "20.2.4",
-    "@angular/forms": "20.2.4",
-    "@angular/material": "20.2.4",
-    "@angular/material-date-fns-adapter": "20.2.4",
-    "@angular/platform-browser": "20.2.4",
-    "@angular/platform-browser-dynamic": "20.2.4",
-    "@angular/router": "20.2.4",
-    "@angular/service-worker": "20.2.4",
-    "@auth0/angular-jwt": "^5.2.0",
-    "@caixa/sdsc-angular": "0.1.17",
-    "@fortawesome/fontawesome-free": "^6.5.2",
-    "@ng-idle/core": "^16.0.0",
-    "@primeuix/themes": "1.2.5",
-    "angular-mydatepicker": "^0.11.5",
-    "bootstrap": "3.3.7",
-    "chart.js": "^4.4.3",
-    "date-fns": "^3.6.0",
-    "date-fns-tz": "^3.2.0",
-    "file-saver": "2.0.5",
-    "highcharts": "11.4.6",
-    "html-to-pdfmake": "2.5.10",
-    "inputmask": "^5.0.9-beta.62",
-    "jquery": "3.7.1",
-    "keycloak-js": "25.0.1",
-    "lottie-web": "^5.12.0",
-    "moment": "2.30.1",
-    "ng2-currency-mask": "^13.0.3",
-    "ng2-pdf-viewer": "^9.1.5",
-    "ngx-bootstrap": "^20.0.0",
-    "ngx-mask": "^20.0.0",
-    "ngx-pagination": "6.0.3",
-    "pace-js": "^1.2.4",
-    "pako": "2.1.0",
-    "pdfmake": "0.2.10",
-    "primeicons": "^7.0.0",
-    "primeng": "^20.0.0",
-    "quill": "^1.3.7",
-    "rxjs": "~7.8.0",
-    "tslib": "^2.3.0",
-    "zone.js": "~0.15.0"
-  },
-  "devDependencies": {
-    "@angular-builders/jest": "^20.0.0",
-    "@angular-devkit/build-angular": "20.2.2",
-    "@angular/cli": "20.2.2",
-    "@angular/compiler-cli": "20.2.4",
-    "@types/file-saver": "^2.0.5",
-    "@types/jest": "^29.5.14",
-    "@types/jquery": "^3.5.29",
-    "@types/node": "~22.0.0",
-    "@types/pako": "^2.0.0",
-    "jest": "^29.7.0",
-    "jest-preset-angular": "^14.0.0",
-    "typescript": "~5.8.2"
-  }
-}
+Prezados,
+Durante a execução do pipeline de build do projeto SIASC-frontend-novo, foi identificada uma falha na etapa de npm install, com erro ERESOLVE de conflito de dependências.
+O erro ocorre porque o pacote @caixa/sdsc-angular na versão 0.1.17 exige como peer dependency a versão 20.2.14 ou superior de @angular/cdk. No entanto, o package.json do projeto fixa as versões de @angular/cdk, @angular/material e @angular/material-date-fns-adapter em 20.2.4, versão anterior à exigida, o que impede a resolução da árvore de dependências pelo npm.
+Solicitamos que a equipe de desenvolvimento realize o ajuste das seguintes dependências no package.json, atualizando-as para a versão 20.2.14:
+@angular/cdk
+@angular/material
+@angular/material-date-fns-adapter
+Após a alteração, recomenda-se executar o npm install localmente para regerar o package-lock.json de forma consistente, e verificar se o pacote primeng, também apontado no log de erro como consumidor do mesmo peer dependency, permanece compatível com a nova versão do cdk. Em seguida, o package.json e o package-lock.json atualizados devem ser commitados juntos no repositório.
+Ficamos à disposição para apoiar caso seja necessário validar novamente a execução do pipeline após o ajuste.
+Atenciosamente,
