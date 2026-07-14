@@ -1,13 +1,34 @@
-Olá, Izabella!
+Estamos fazendo a integração do JCA/JCE do hsm no siabm-autenticação-api.
+Estamos usando a versão 4.10.2 da lib do HSM. 
 
-Obrigado pelo contato referente ao Pull Request #7 (Feat/instructions.md) do repositório SIPGE-frontend-intranet.
+Conseguimos fazer funcionar localmente após fazer como é pedido no manual .
 
-Após análise, identificamos que a aprovação desse PR está fora do escopo da nossa equipe (DEVOPS DES TQS NPRD). Nosso time atua na esteira de CI/CD e infraestrutura de ambientes não produtivos (DES e TQS), e não possui write access nem responsabilidade de governança sobre o conteúdo do repositório da aplicação, como é o caso do arquivo copilot.instructions.md.
+Mas de acordo com a instalação, precisamos levar essa lib para a pasta ext do Jre do ambiente.
 
-A aprovação de alterações desse tipo deve ser realizada por alguém com permissão de escrita no repositório, normalmente o dono da aplicação ou o P.O. responsável pelo sistema. Recomendamos que você acione essa pessoa para dar sequência à revisão e aprovação do PR.
+Instalação - Docs DINAMO
 
-Ficamos à disposição para qualquer suporte relacionado à esteira de deploy, caso necessário.
+O Dev fez esse ajuste localmente e conseguiu utilizar  JCA/JCE ai estou querendo validar para pedir para esteira.
 
-Atenciosamente,
-Jessé Batista
-DEVOPS DES TQS NPRD
+Consegue nos ajudar?
+
+consegue me ajudar acredito que esse arqvuio ja ta aqui
+
+
+
+-sh-4.2$ oc login --token=sha256~HjnOtBkODRoLJ53GKDv8gyzmE8kFlCH78sAGRzuBCzI --server=https://api.nprd.caixa:6443
+Logged into "https://api.nprd.caixa:6443" as "p981778@corp.caixa.gov.br" using the token provided.
+
+You have access to 969 projects, the list has been suppressed. You can list all projects with 'oc projects'
+
+Using project "sisam-tqs".
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$ oc get project siabm-des
+NAME        DISPLAY NAME   STATUS
+siabm-des                  Active
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+
+
