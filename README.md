@@ -1,8 +1,5 @@
-
--sh-4.2$ oc rsh -c siabm-autenticacao-api-des siabm-autenticacao-api-des-201-vqr9x
-sh-4.4$
-sh-4.4$
-sh-4.4$
-sh-4.4$
-sh-4.4$
-sh-4.4$
+echo $JAVA_HOME
+ls -la $JAVA_HOME/jre/lib/ext/
+find / -iname "*dinamo*" 2>/dev/null
+find / -iname "*ndjca*" 2>/dev/null
+find / -iname "*trueaccess*" 2>/dev/null
