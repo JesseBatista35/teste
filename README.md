@@ -1,62 +1,7 @@
+oc logs siabm-autenticacao-api-des-195-zvv72 -n siabm-des
 
-siabm-autenticacao-24horas-des-158-deploy                               0/1       Completed   0          14d
-siabm-autenticacao-24horas-des-159-64ndn                                1/1       Running     0          6d17h
-siabm-autenticacao-24horas-des-159-cv2j2                                1/1       Running     0          6d17h
-siabm-autenticacao-24horas-des-159-deploy                               0/1       Completed   0          6d17h
-siabm-autenticacao-24horas-des-159-gmpfm                                1/1       Running     0          6d17h
-siabm-autenticacao-24horas-des-159-m5fqp                                1/1       Running     0          6d17h
-siabm-autenticacao-24horas-sandbox-des-24-deploy                        0/1       Completed   0          21d
-siabm-autenticacao-24horas-sandbox-des-25-deploy                        0/1       Completed   0          15d
-siabm-autenticacao-24horas-sandbox-des-25-pqxdq                         1/1       Running     0          15d
-siabm-autenticacao-api-des-187-deploy                                   0/1       Completed   0          11d
-siabm-autenticacao-api-des-188-deploy                                   0/1       Completed   0          42h
-siabm-autenticacao-api-des-188-fqnmq                                    1/1       Running     0          42h
-siabm-autenticacao-api-des-195-deploy                                   1/1       Running     0          26s
-siabm-autenticacao-api-des-195-zvv72                                    0/1       Running     0          23s
-siabm-autenticacao-api-sandbox-des-13-deploy                            0/1       Completed   0          5d18h
-siabm-autenticacao-api-sandbox-des-14-584bj                             1/1       Running     0          23h
-siabm-autenticacao-api-sandbox-des-14-deploy                            0/1       Completed   0          23h
-siabm-cadastramento-api-des-151-deploy                                  0/1       Completed   0          140d
-siabm-cadastramento-api-des-152-deploy                                  0/1       Completed   0          111d
-siabm-cadastramento-api-des-153-deploy                                  0/1       Completed   0          111d
-siabm-cadastramento-api-des-155-deploy                                  0/1       Completed   0          91d
-siabm-cadastramento-api-des-156-deploy                                  0/1       Completed   0          91d
-siabm-cadastramento-api-des-157-deploy                                  0/1       Completed   0          91d
-siabm-cadastramento-api-des-158-deploy                                  0/1       Completed   0          91d
-siabm-cadastramento-api-des-159-deploy                                  0/1       Completed   0          90d
-siabm-cadastramento-api-des-160-deploy                                  0/1       Completed   0          90d
-siabm-cadastramento-api-des-161-deploy                                  0/1       Completed   0          82d
-siabm-cadastramento-api-des-162-deploy                                  0/1       Completed   0          81d
-siabm-cadastramento-api-des-163-deploy                                  0/1       Completed   0          79d
-siabm-cadastramento-api-des-164-deploy                                  0/1       Completed   0          77d
-siabm-cadastramento-api-des-165-deploy                                  0/1       Completed   0          69d
-siabm-cadastramento-api-des-166-deploy                                  0/1       Completed   0          20d
-siabm-cadastramento-api-des-166-hrzmt                                   1/1       Running     0          20d
-siabm-cadastramento-api-sandbox-des-16-deploy                           0/1       Completed   0          20d
-siabm-cadastramento-api-sandbox-des-17-deploy                           0/1       Completed   0          5d18h
-siabm-cadastramento-api-sandbox-des-17-vsh57                            1/1       Running     0          5d18h
-siabm-file-system-ged-des-149-deploy                                    0/1       Completed   0          14d
-siabm-file-system-ged-des-150-deploy                                    0/1       Completed   0          13d
-siabm-file-system-ged-des-150-glh9t                                     1/1       Running     0          13d
-siabm-frontend-des-50-deploy                                            0/1       Completed   0          89d
-siabm-frontend-des-51-6dq4v                                             2/2       Running     0          78d
-siabm-frontend-des-51-deploy                                            0/1       Completed   0          78d
-siabm-frontend-sandbox-des-5-deploy                                     0/1       Completed   0          158d
-siabm-frontend-sandbox-des-6-rf6q4                                      2/2       Running     0          158d
-siabm-matcher-des-16-deploy                                             0/1       Completed   0          225d
-siabm-matcher-des-17-7bp97                                              1/1       Running     0          221d
-siabm-matcher-des-17-deploy                                             0/1       Completed   0          221d
-siabm-relatorio-api-des-212-deploy                                      0/1       Completed   0          78d
-siabm-relatorio-api-des-212-nnkv2                                       1/1       Running     0          78d
-siabm-relatorio-api-sandbox-des-13-deploy                               0/1       Completed   0          48d
-siabm-relatorio-api-sandbox-des-14-deploy                               0/1       Completed   0          21d
-siabm-relatorio-api-sandbox-des-14-q6b9q                                1/1       Running     0          21d
-siabm-seguranca-biometria-consulta-api-des-73-deploy                    0/1       Completed   0          154d
-siabm-seguranca-biometria-consulta-api-des-74-deploy                    0/1       Completed   0          89d
-siabm-seguranca-biometria-consulta-api-sandbox-des-2-deploy             0/1       Completed   0          187d
-siabm-seguranca-biometria-consulta-api-sandbox-des-2-wv6nt              1/1       Running     0          11d
-siabm-seguranca-biometria-registros-autenticacao-des-18-deploy          0/1       Completed   0          158d
-siabm-seguranca-biometria-registros-autenticacao-des-19-deploy          0/1       Completed   0          89d
-siabm-seguranca-biometria-registros-autenticacao-sandbox-des-5-deploy   0/1       Completed   0          99d
-siabm-troca-criptografia-des-37-5slln                                   1/1       Running     0          277d
--sh-4.2$
+
+oc rollout pause dc/siabm-autenticacao-api-des -n siabm-des
+
+
+oc get pod siabm-autenticacao-api-des-195-zvv72 -n siabm-des -o jsonpath='{.spec.containers[*].image}'
