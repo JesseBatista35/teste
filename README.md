@@ -1,9 +1,7 @@
-md5sum /usr/java/latest/jre/lib/ext/ndjca-4.10.2.jar
-sha256sum /usr/java/latest/jre/lib/ext/ndjca-4.10.2.jar
-ls -la /usr/java/latest/jre/lib/ext/ndjca-4.10.2.jar
+7.4.11-jdk8-hsm-bt-23.3.1
 
 
-esse quirov baixaod do maven central consseguimos colocar ele aqui dentro??
-dinamo-hsm-4.26.0
+voltei a imgem que tava antes vamosrodar com ele ae ver qual aruivo ta la??
 
-e subistittuir esse outro
+beleza?
+
