@@ -1,7 +1,11 @@
-7.4.11-jdk8-hsm-bt-23.3.1
+oc get pods -n siabm-des -l deploymentconfig=siabm-autenticacao-api-des --sort-by=.metadata.creationTimestamp
 
 
-voltei a imgem que tava antes vamosrodar com ele ae ver qual aruivo ta la??
+oc rsh -c siabm-autenticacao-api-des <nome-do-pod-atual> -n siabm-des
 
-beleza?
+
+ls -la $JAVA_HOME/jre/lib/ext/ 2>&1
+find / -iname "*dinamo*" 2>/dev/null
+find / -iname "*ndjca*" 2>/dev/null
+find / -iname "*trueaccess*" 2>/dev/null
 
