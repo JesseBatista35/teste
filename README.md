@@ -611,3 +611,146 @@ caixa-base-chart:
 
 
 
+pera ai que acho que deu certo ele apareceu no argocd so que com nome diferente
+
+
+
+Argo
+v2.14.21+206a6ee
+Argo
+Applications
+Settings
+User Info
+Documentation
+Resource filters
+NAME
+NAME
+KINDS
+KINDS
+SYNC STATUS
+Synced
+5
+OutOfSync
+1
+HEALTH STATUS
+Progressing
+1
+Suspended
+0
+Healthy
+3
+Degraded
+2
+Missing
+1
+Unknown
+0
+NAMESPACES
+NAMESPACES
+Applications
+ sisva-frontend-transacional-frontend-des
+Application Details List
+Log out
+APP HEALTH 
+ Degraded
+SYNC STATUS 
+
+ OutOfSync
+from HEAD (0e422ed)
+Auto sync is enabled.
+Author:
+Jesse Mouta Pereira Batista <p585600@corp.caixa.gov.br> -
+Comment:
+Update akvs-sisva-transacional-des-caixa-ssl-certificate.yaml
+LAST SYNC 
+
+ Syncing
+Running a few seconds ago (Thu Jul 16 2026 14:12:56 GMT-0300)
+one or more objects failed to apply, reason: namespaces "aks-istio-ingress" not found due to application controller sync timeout. Retrying attempt #2 at 5:12PM.
+Previous12Next
+Items per page: 10 
+NAME
+GROUP/KIND
+SYNC ORDER
+NAMESPACE
+CREATED AT
+STATUS
+Pod
+pod
+sisva-frontend-transacional-frontend-des-65487bf855-mc5vg
+Pod
+-
+sisva-frontend-transacional-frontend
+6 hours ago   07/16/26
+ Degraded  
+Secret
+secret
+akv2k8s-sisva-frontend-transacional-frontend-des
+Secret
+-
+sisva-frontend-transacional-frontend
+21 hours ago   07/15/26
+Ingress
+ing
+sisva-frontend-transacional-frontend-des-custom
+networking.k8s.io/Ingress
+-
+sisva-frontend-transacional-frontend
+21 hours ago   07/15/26
+ Healthy   Synced
+Ingress
+ing
+sisva-frontend-transacional-frontend-des-internal
+networking.k8s.io/Ingress
+-
+sisva-frontend-transacional-frontend
+21 hours ago   07/15/26
+ Healthy   Synced
+ConfigMap
+cm
+cm-sisva-transacional-frontend
+ConfigMap
+-
+sisva-frontend-transacional-frontend
+21 hours ago   07/15/26
+ Synced
+Endpoints
+ep
+sisva-frontend-transacional-frontend-des
+Endpoints
+-
+sisva-frontend-transacional-frontend
+21 hours ago   07/15/26
+Service
+svc
+sisva-frontend-transacional-frontend-des
+Service
+-
+sisva-frontend-transacional-frontend
+21 hours ago   07/15/26
+ Healthy   Synced
+Deployment
+deploy
+sisva-frontend-transacional-frontend-des
+apps/Deployment
+-
+sisva-frontend-transacional-frontend
+21 hours ago   07/15/26
+ Degraded   Synced
+ReplicaSet
+rs
+sisva-frontend-transacional-frontend-des-65487bf855
+apps/ReplicaSet
+-
+sisva-frontend-transacional-frontend
+21 hours ago   07/15/26
+ Progressing  
+EndpointSlice
+endpointslice
+sisva-frontend-transacional-frontend-des-xnm87
+discovery.k8s.io/EndpointSlice
+-
+sisva-frontend-transacional-frontend
+21 hours ago   07/15/26
+Previous12Next
+Items per page: 10 
