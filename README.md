@@ -1,40 +1,6 @@
-<img width="1860" height="936" alt="image" src="https://github.com/user-attachments/assets/9a98163e-bae9-4f59-a904-9895983a5b02" />
-
-eu rodei um deploy ele criou com mesmo nome antigo
-<img width="1792" height="889" alt="image" src="https://github.com/user-attachments/assets/1e365c84-a7e2-4156-8667-dc129ea83a47" />
-
-
-
-
-app:
-  name: sisva-transacional-frontend-des
-project:
-  name: des
-labels:
-  appName: sisva-transacional-frontend
-  environment: des
-source:
-  repo: "https://github.com/caixagithub/sisva-transacional-frontend-infranprd"
-  path: des
-sourcevar:
-  repo: "https://github.com/caixagithub/sisva-globalnprd"
-  path: des
-  values: global.yaml  
-cluster:
-  destination:  
-    name: aks-aixa-des
-    namespace: sisva-transacional-frontend
-
-
-    <img width="1830" height="924" alt="image" src="https://github.com/user-attachments/assets/dd23861b-ca7b-42ad-861b-301c52cec4fb" />
-
-
-to vendo que o nome aqui ta errado. 
-
-acredito que temos que pedir pra eles recraira ou ajustar isso no fusionx
-
-<img width="1875" height="960" alt="image" src="https://github.com/user-attachments/assets/8c4165a1-860e-4773-a062-ffb1bc5972a4" />
-
-
-oui voce consegue me ajudar a corrgiri isso?
-
+Prezados,
+Identificamos que o componente referente ao sistema SISVA Transacional Frontend está cadastrado no catálogo do FusionX com o nome incorreto sisva-frontend-transacional-frontend (com o termo "frontend" duplicado/fora de ordem).
+O nome correto do sistema, conforme repositório de origem, é sisva-transacional-frontend.
+Esse cadastro incorreto está fazendo com que a Application gerada no ArgoCD para o ambiente DES seja recriada automaticamente com o nome errado (sisva-frontend-transacional-frontend-des) a cada execução da pipeline, mesmo após ajuste manual do arquivo de definição do app no repositório de GitOps (sisva-transacional-frontend-infranprd).
+Solicitamos a correção do nome do componente no catálogo do FusionX para sisva-transacional-frontend, de forma a refletir corretamente nas próximas execuções.
+Em caso de dúvidas, favor contactar p585600 (Jesse Mouta Pereira Batista) no Teams.
