@@ -1,31 +1,6 @@
-[root@nfs-test /]# for ip in 100 101 102 103 104 108 109 111; do
-  echo -n "192.168.224.$ip: "
-  timeout 3 bash -c "cat < /dev/null > /dev/tcp/192.168.224.$ip/2049" 2>/dev/null && echo "ABERTA" || echo "FECHADA/TIMEOUT"
-done
-192.168.224.100:
-FECHADA/TIMEOUT
-192.168.224.101:
-FECHADA/TIMEOUT
-192.168.224.102:
-FECHADA/TIMEOUT
-192.168.224.103:
-
-FECHADA/TIMEOUT
-192.168.224.104:
-FECHADA/TIMEOUT
-192.168.224.108:
-FECHADA/TIMEOUT
-192.168.224.109:
-FECHADA/TIMEOUT
-192.168.224.111:
-FECHADA/TIMEOUT
-[root@nfs-test /]#
-[root@nfs-test /]#
-[root@nfs-test /]#
-[root@nfs-test /]#
-[root@nfs-test /]#
-[root@nfs-test /]#
-[root@nfs-test /]#
-[root@nfs-test /]#
-[root@nfs-test /]#
-[root@nfs-test /]#
+Prezados,
+Em análise ao chamado referente ao sistema SIRSA, foi identificado que o erro reportado nos logs (LinkageError / UnsupportedClassVersionError ao carregar a classe org.springframework.boot.loader.launch.JarLauncher) decorre de incompatibilidade entre a versão de Java utilizada na compilação da aplicação e a versão de Java disponível em tempo de execução no ambiente.
+O artefato (JAR) foi compilado com Java 17 (class file version 61.0), porém o ambiente de execução possui Java 11 instalado, que reconhece somente class files até a versão 55.0. Por se tratar de uma incompatibilidade de versão superior para inferior, a JVM não consegue carregar a classe principal da aplicação, resultando na falha de inicialização.
+Os warnings referentes às opções MaxPermSize e PermSize presentes no início do log não têm relação com o erro apresentado, tratando-se apenas de parâmetros obsoletos, ignorados desde o Java 8 em diante.
+Constatou-se que a aplicação foi executada com sucesso em ambiente com Java 17 disponível, confirmando que a causa é exclusivamente a divergência de versão de runtime, e não uma falha de configuração de pipeline ou de deploy.
+Diante do exposto, encerra-se o presente chamado, uma vez que a subida em ambiente DES ocorreu de forma satisfatória. Caso seja necessário o ajuste definitivo da versão de Java no ambiente correspondente, tal providência deve ser tratada junto à equipe responsável pela infraestrutura/plataforma do ambiente em questão.
