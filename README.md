@@ -1,20 +1,9 @@
-oc get cm jboss-config-sihdg-jboss8 -n sihdg-des -o jsonpath='{.data.standalone-okd\.xml}' > /tmp/standalone-okd.xml
-
-sed -i 's#jndi-name="java:jboss/datasources/ExampleDS" pool-name="sihdgDS"#jndi-name="java:jboss/jdbc/sihdgDS" pool-name="sihdgDS"#' /tmp/standalone-okd.xml
-
-oc create cm jboss-config-sihdg-jboss8 -n sihdg-des --from-file=standalone-okd.xml=/tmp/standalone-okd.xml --dry-run=client -o yaml | oc apply -f -
-
-oc rollout latest dc/sihdg-jboss8-des -n sihdg-des
 
 
-oc rollout status dc/sihdg-jboss8-des -n sihdg-des --watch
+<img width="1822" height="910" alt="image" src="https://github.com/user-attachments/assets/79fc3f30-2e90-4a2b-aae6-82fe18d19c40" />
 
 
+<img width="1879" height="920" alt="image" src="https://github.com/user-attachments/assets/5a743a8b-25af-419b-a60d-b543a7efe0d0" />
 
--sh-4.2$
--sh-4.2$ oc get cm jboss-config-sihdg-jboss8 -n sihdg-des -o jsonpath='{.data.standalone-okd.xml}' > /tmp/standalone-okd.xml
--sh: /tmp/standalone-okd.xml: Permissão negada
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$
+
+masi nos repos so tem isso
