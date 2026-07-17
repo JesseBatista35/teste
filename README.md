@@ -137,29 +137,13 @@
         <subsystem xmlns="urn:jboss:domain:core-management:1.0"/>
         <subsystem xmlns="urn:jboss:domain:datasources:7.0">
             <datasources>
-                <datasource jndi-name="java:jboss/datasources/ExampleDS" pool-name="ExampleDS" enabled="true" use-java-context="true">
-                    <connection-url>jdbc:h2:mem:test;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE</connection-url>
-                    <driver>h2</driver>
-                    <security>
-                        <user-name>sa</user-name>
-                        <password>sa</password>
-                    </security>
-                </datasource>
-                <datasource jndi-name="java:jboss/jdbc/SIAUD01" pool-name="SIAUD01" enabled="true" use-java-context="true">
-                    <connection-url>jdbc:h2:mem:aud;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE</connection-url>
-                    <driver>h2</driver>
-                    <security>
-                        <user-name>sa</user-name>
-                        <password>sa</password>
-                    </security>
-                </datasource>
                 <datasource jta="true" jndi-name="java:jboss/jdbc/sihdgDS" pool-name="sihdgDS" enabled="true" use-ccm="true">
-                    <connection-url>jdbc:sqlserver://sctdedadnt0039.corp.caixa.gov.br:1433;databaseName=HDGDB001</connection-url>
+                    <connection-url>DATASOURCE_CONNECTION_URL</connection-url>
                     <driver-class>com.microsoft.sqlserver.jdbc.SQLServerDriver</driver-class>
                     <driver>sqlserver</driver>
                     <security>
-                        <user-name>sihdguser</user-name>
-                        <password>sihdguser</password>
+                        <user-name>DATASOURCE_USER_NAME</user-name>
+                        <password>DATASOURCE_PASSWORD</password>
                     </security>
                     <validation>
                         <valid-connection-checker class-name="org.jboss.jca.adapters.jdbc.extensions.mssql.MSSQLValidConnectionChecker"/>
@@ -167,13 +151,9 @@
                     </validation>
                 </datasource>
                 <drivers>
-                    <driver name="h2" module="com.h2database.h2">
-                        <xa-datasource-class>org.h2.jdbcx.JdbcDataSource</xa-datasource-class>
-                    </driver>
                     <driver name="sqlserver" module="com.microsoft.sqlserver.jdbc">
                         <driver-class>com.microsoft.sqlserver.jdbc.SQLServerDriver</driver-class>
-                        <xa-datasource-class>com.microsoft.sqlserver.jdbc.SQLServerXADataSource</xa-datasource-class>
-                    </driver>
+                    </driver>					
                 </drivers>
             </datasources>
         </subsystem>
