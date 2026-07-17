@@ -1,27 +1,6 @@
-oc create cm jboss-config-sihdg-jboss8 -n sihdg-des --from-file=standalone.xml=~/standalone-okd.xml --dry-run=true -o yaml | oc apply -f -
+oc create cm jboss-config-sihdg-jboss8 -n sihdg-des --from-file=standalone.xml=$HOME/standalone-okd.xml --dry-run=true -o yaml | oc apply -f -
 
 
-oc patch dc sihdg-jboss8-des -n sihdg-des --type=json -p='[
-  {"op":"replace","path":"/spec/template/spec/containers/0/volumeMounts/0/mountPath","value":"/opt/server/standalone/configuration/standalone.xml"},
-  {"op":"replace","path":"/spec/template/spec/containers/0/volumeMounts/0/subPath","value":"standalone.xml"}
-]'
-
-
-oc rollout latest dc/sihdg-jboss8-des -n sihdg-des
-
-
-oc rollout status dc/sihdg-jboss8-des -n sihdg-des --watch
-
-oc get dc sihdg-jboss8-des -n sihdg-des -o jsonpath='{.spec.template.spec.containers[*].name}'
-
-
-
-
-
--sh-4.2$ oc create cm jboss-config-sihdg-jboss8 -n sihdg-des --from-file=standalone.xml=~/standalone-okd.xml --dry-run=true -o yaml | oc apply -f -
-error: error reading ~/standalone-okd.xml: no such file or directory
-error: no objects passed to apply
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$
+oc get cm jboss-config-sihdg-jboss8 -n sihdg-des -o jsonpath='{.data.standalone-okd\.xml}' > $HOME/standalone-okd.xml
+sed -i 's#jndi-name="java:jboss/datasources/ExampleDS" pool-name="sihdgDS"#jndi-name="java:jboss/jdbc/sihdgDS" pool-name="sihdgDS"#' $HOME/standalone-okd.xml
+grep "pool-name=\"sihdgDS\"" $HOME/standalone-okd.xml
