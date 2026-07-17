@@ -1,26 +1,14 @@
-[root@nfs-test /]# ping -c 4 nfsctcnprd.ctc.caixa
-bash: ping: command not found
-[root@nfs-test /]#
-[root@nfs-test /]#
-[root@nfs-test /]#
-[root@nfs-test /]#
-[root@nfs-test /]#
-[root@nfs-test /]#
-[root@nfs-test /]# timeout 5 bash -c 'cat < /dev/null > /dev/tcp/nfsctcnprd.ctc.caixa/2049' && echo "PORTA ABERTA" || echo "PORTA FECHADA OU SEM RESPOSTA"
-PORTA FECHADA OU SEM RESPOSTA
-[root@nfs-test /]#
-[root@nfs-test /]#
-[root@nfs-test /]#
-[root@nfs-test /]#
-[root@nfs-test /]#
-[root@nfs-test /]# bash -c 'exec 3<>/dev/tcp/nfsctcnprd.ctc.caixa/2049 && echo CONECTOU || echo FALHOU'
-^C
-[root@nfs-test /]#
-[root@nfs-test /]#
-[root@nfs-test /]#
-[root@nfs-test /]#
-[root@nfs-test /]# timeout 5 bash -c 'cat < /dev/null > /dev/tcp/nfsctcnprd.ctc.caixa/111' && echo "PORTA 111 ABERTA" || echo "PORTA 111 FECHADA OU SEM RESPOSTA"
-PORTA 111 FECHADA OU SEM RESPOSTA
-[root@nfs-test /]# timeout 5 bash -c 'cat < /dev/null > /dev/tcp/nfsctcnprd.ctc.caixa/111' && echo "PORTA 111 ABERTA" || echo "PORTA 111 FECHADA OU SEM RESPOSTA"
-PORTA 111 FECHADA OU SEM RESPOSTA
-[root@nfs-test /]#
+Boa ideia. Pra quem for de Rede conseguir agir rápido, prepara esse conjunto de informações — é basicamente tudo que eles vão te pedir de qualquer forma:
+Origem (de onde a conexão está saindo):
+
+Node OKD: ceadecldlx062.nprd.caixa
+IP do node: 10.116.208.82
+Namespace/cluster: sifof-tqs (OKD4/NPRD)
+Pod IP de teste (efêmero, mas útil de referência): 25.1.45.189 (era o IP do pod que falhou, pode já ter mudado)
+
+Destino (pra onde a conexão está tentando ir):
+
+Servidor: nfsctcnprd.ctc.caixa
+IP resolvido: 192.168.224.108
+Portas testadas: 2049 (NFS) e 111 (RPC/portmapper) — ambas sem resposta (timeout)
+Path do share: /ifs/CADSVISISD4/SERVIDORES/CESTI/SIFOF
