@@ -1,8 +1,95 @@
-Segue nota pronta para envio:
+Sistema: 7259APL-SIACI
+Segmento: Bancário/São Paulo
+Produto: Outros
+Ambiente: Multiplataforma
+Comunidade: Habitação
+Unidade Demandante: 5088-CESOA
+Telefone para contato: 49991245005
+Caixa postal da unidade demandante: cesoa021@caixa.gov.br
 
-Prezados,
-Encaminhamos para verificação da equipe de desenvolvimento uma ocorrência identificada no ambiente DES da aplicação siifx-caixinhas-api-aplicacao (namespace siifx-des).
-Durante a execução de requisições ao endpoint /v1/saldos/saldo-analitico, a aplicação apresentou erro ORA-00904 (invalid identifier) ao consultar a tabela IFX.IFXTBC13_SLDO_CSLDO_CXNHA. Foi observado que o identificador inválido variou entre execuções distintas, tendo sido reportado em um primeiro momento a coluna VR_SLDO_DISPONIVEL_RENDA_FIXA e, posteriormente, a coluna NU_OFERTA_CAIXINHA.
-Esse comportamento indica possível divergência entre a estrutura de colunas esperada pelo mapeamento da aplicação (entidade JPA/Panache referente ao repositório de saldo) e a estrutura real da tabela no schema IFX do ambiente DES, possivelmente decorrente da migração de banco Oracle realizada recentemente.
-Solicitamos à equipe de desenvolvimento a verificação do DDL atual da tabela IFXTBC13_SLDO_CSLDO_CXNHA no ambiente DES, comparando as colunas existentes com as colunas referenciadas no mapeamento da entidade responsável pela consulta de saldo analítico, de forma a confirmar se há colunas ausentes, renomeadas ou desatualizadas em relação ao modelo esperado pela aplicação.
-Ressaltamos que a atuação da nossa equipe está restrita à esteira de deploy em ambiente não produtivo (DES/TQS), sem acesso ao schema ou à estrutura das tabelas do banco de dados, motivo pelo qual a verificação e eventual ajuste do DDL dependem da equipe de desenvolvimento em conjunto com a DBA responsável.
+
+Descrições adicionais: Referente ao repositório: siaci-api-integracao-padrao-java
+Aplicação na nuvem (AZURE)
+
+Realizamos a configuração no arquivo yaml para ambiente DES, entretanto, falha na etapa do ArgoCD_Deploy (TQS) na etapa GET KUBERNETS DESTINATION,
+
+Run caixagithub/DevSecOps-Actions/.github/integrations/argocd/argocd-get-destination@main
+Run set -euo pipefail
+ENVIRONMENT_LOWER=des
+APP_NAME_LOWER=siaci-api-integracao-padrao-java
+Falha ao obter Application ou erro retornado:
+{"error":"permission denied","code":7,"message":"permission denied"}
+Error: Process completed with exit code 1.
+
+OBS: favor utilizar cluster de DES (aks-hab-des), conforme orientação do colega do COE em anexo e conforme configuração feita para outro repositório na REQ000143579604
+
+
+
+
+ja fiz aqui:
+
+
+Sistema: 7259APL-SIACI
+Segmento: Bancário/São Paulo
+Produto: Outros
+Ambiente: Multiplataforma
+Comunidade: Habitação
+Unidade Demandante: 5088-CESOA
+Telefone para contato: 49991245005
+Caixa postal da unidade demandante: cesoa021@caixa.gov.br
+
+
+Descrições adicionais: Referente ao repositório: siaci-api-integracao-padrao-java
+Aplicação na nuvem (AZURE)
+
+Realizamos a configuração no arquivo yaml para ambiente DES, entretanto, falha na etapa do ArgoCD_Deploy (TQS) na etapa GET KUBERNETS DESTINATION,
+
+Run caixagithub/DevSecOps-Actions/.github/integrations/argocd/argocd-get-destination@main
+Run set -euo pipefail
+ENVIRONMENT_LOWER=des
+APP_NAME_LOWER=siaci-api-integracao-padrao-java
+Falha ao obter Application ou erro retornado:
+{"error":"permission denied","code":7,"message":"permission denied"}
+Error: Process completed with exit code 1.
+
+OBS: favor utilizar cluster de DES (aks-hab-des), conforme orientação do colega do COE em anexo e conforme configuração feita para outro repositório na REQ000143579604
+
+
+siaci-api-integracao-padrao-java-infranprd/des/templates
+/cm-siaci-api-integracao-padrao-java.yaml
+
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cm-siaci-api-integracao-padrao-java
+  labels:
+    {{- include "caixa-base-chart.labels" . | nindent 4 }}
+data:
+  KEY: "VALUE"
+
+
+siaci-api-integracao-padrao-java-infranprd/des/templates
+/akvs-siaci-api-integracao-padrao-java.yaml
+
+
+apiVersion: spv.no/v2beta1
+kind: AzureKeyVaultSecret
+metadata:
+  name: akvs-siaci-api-integracao-padrao-java
+  namespace: aks-istio-ingress
+  labels:
+    {{- include "caixa-base-chart.labels" . | nindent 4 }}
+spec:
+  vault:
+    name: <NOME_DO_KEYVAULT>
+    object:
+      name: siaci-api-integracao-padrao-java
+      type: secret
+  output: 
+    secret:
+      name: akvs-siaci-api-integracao-padrao-java
+      type: kubernetes.io/tls
+
+      
+
