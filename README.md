@@ -7,3 +7,7 @@
 
 
 masi nos repos so tem isso
+
+-sh-4.2$ oc get cm jboss-config-sihdg-jboss8 -n sihdg-des -o jsonpath='{.data.standalone-okd.xml}' > /tmp/standalone-okd.xml
+-sh: /tmp/standalone-okd.xml: Permissão negada
+-sh-4.2$
