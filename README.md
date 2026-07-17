@@ -1,95 +1,150 @@
-Sistema: 7259APL-SIACI
-Segmento: Bancário/São Paulo
-Produto: Outros
-Ambiente: Multiplataforma
-Comunidade: Habitação
-Unidade Demandante: 5088-CESOA
-Telefone para contato: 49991245005
-Caixa postal da unidade demandante: cesoa021@caixa.gov.br
-
-
-Descrições adicionais: Referente ao repositório: siaci-api-integracao-padrao-java
-Aplicação na nuvem (AZURE)
-
-Realizamos a configuração no arquivo yaml para ambiente DES, entretanto, falha na etapa do ArgoCD_Deploy (TQS) na etapa GET KUBERNETS DESTINATION,
-
-Run caixagithub/DevSecOps-Actions/.github/integrations/argocd/argocd-get-destination@main
-Run set -euo pipefail
-ENVIRONMENT_LOWER=des
-APP_NAME_LOWER=siaci-api-integracao-padrao-java
-Falha ao obter Application ou erro retornado:
-{"error":"permission denied","code":7,"message":"permission denied"}
-Error: Process completed with exit code 1.
-
-OBS: favor utilizar cluster de DES (aks-hab-des), conforme orientação do colega do COE em anexo e conforme configuração feita para outro repositório na REQ000143579604
+<img width="1854" height="924" alt="image" src="https://github.com/user-attachments/assets/20444551-b779-4c7e-8efe-6ef19e009e8e" />
 
 
 
+Argo
+v2.14.21+206a6ee
+Argo
+Applications
+Settings
+User Info
+Documentation
+Resource filters
+NAME
+NAME
+KINDS
+KINDS
+SYNC STATUS
+Synced
+6
+OutOfSync
+0
+HEALTH STATUS
+Progressing
+5
+Suspended
+0
+Healthy
+1
+Degraded
+0
+Missing
+0
+Unknown
+0
+NAMESPACES
+NAMESPACES
+Show Orphaned
+Applications
+ siaci-api-integracao-padrao-java-des
+Application Details List
+Log out
+APP HEALTH 
+ Progressing
+SYNC STATUS 
 
-ja fiz aqui:
+ Synced
+to HEAD (5418a5c)
+Auto sync is enabled.
+Author:
+ansible-connect-emu[bot] <230244411+ansible-connect-emu[bot]@users.noreply.github.com> -
+Comment:
+Merge pull request #3 from caixagithub/update-image-siaci-api-in
+LAST SYNC 
 
-
-Sistema: 7259APL-SIACI
-Segmento: Bancário/São Paulo
-Produto: Outros
-Ambiente: Multiplataforma
-Comunidade: Habitação
-Unidade Demandante: 5088-CESOA
-Telefone para contato: 49991245005
-Caixa postal da unidade demandante: cesoa021@caixa.gov.br
-
-
-Descrições adicionais: Referente ao repositório: siaci-api-integracao-padrao-java
-Aplicação na nuvem (AZURE)
-
-Realizamos a configuração no arquivo yaml para ambiente DES, entretanto, falha na etapa do ArgoCD_Deploy (TQS) na etapa GET KUBERNETS DESTINATION,
-
-Run caixagithub/DevSecOps-Actions/.github/integrations/argocd/argocd-get-destination@main
-Run set -euo pipefail
-ENVIRONMENT_LOWER=des
-APP_NAME_LOWER=siaci-api-integracao-padrao-java
-Falha ao obter Application ou erro retornado:
-{"error":"permission denied","code":7,"message":"permission denied"}
-Error: Process completed with exit code 1.
-
-OBS: favor utilizar cluster de DES (aks-hab-des), conforme orientação do colega do COE em anexo e conforme configuração feita para outro repositório na REQ000143579604
-
-
-siaci-api-integracao-padrao-java-infranprd/des/templates
-/cm-siaci-api-integracao-padrao-java.yaml
-
-
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: cm-siaci-api-integracao-padrao-java
-  labels:
-    {{- include "caixa-base-chart.labels" . | nindent 4 }}
-data:
-  KEY: "VALUE"
-
-
-siaci-api-integracao-padrao-java-infranprd/des/templates
-/akvs-siaci-api-integracao-padrao-java.yaml
-
-
-apiVersion: spv.no/v2beta1
-kind: AzureKeyVaultSecret
-metadata:
-  name: akvs-siaci-api-integracao-padrao-java
-  namespace: aks-istio-ingress
-  labels:
-    {{- include "caixa-base-chart.labels" . | nindent 4 }}
-spec:
-  vault:
-    name: <NOME_DO_KEYVAULT>
-    object:
-      name: siaci-api-integracao-padrao-java
-      type: secret
-  output: 
-    secret:
-      name: akvs-siaci-api-integracao-padrao-java
-      type: kubernetes.io/tls
-
-      
-
+ Sync OK
+to 5418a5c
+Succeeded 3 minutes ago (Fri Jul 17 2026 16:41:06 GMT-0300)
+Author:
+ansible-connect-emu[bot] <230244411+ansible-connect-emu[bot]@users.noreply.github.com> -
+Comment:
+Merge pull request #3 from caixagithub/update-image-siaci-api-in
+APP CONDITIONS
+ 1 Warning
+Previous12Next
+Items per page: 10 
+NAME
+GROUP/KIND
+SYNC ORDER
+NAMESPACE
+CREATED AT
+STATUS
+Pod
+pod
+siaci-api-integracao-padrao-java-des-548cf996b4-c4tcs
+Pod
+-
+siaci-api-integracao-padrao-java
+3 minutes ago   07/17/26
+ Progressing  
+ReplicaSet
+rs
+siaci-api-integracao-padrao-java-des-548cf996b4
+apps/ReplicaSet
+-
+siaci-api-integracao-padrao-java
+3 minutes ago   07/17/26
+ Progressing  
+Pod
+pod
+siaci-api-integracao-padrao-java-des-6d897974f8-mljcx
+Pod
+-
+siaci-api-integracao-padrao-java
+7 minutes ago   07/17/26
+ Progressing  
+Secret
+secret
+akv2k8s-siaci-api-integracao-padrao-java-des
+Secret
+-
+siaci-api-integracao-padrao-java
+7 minutes ago   07/17/26
+ConfigMap
+cm
+cm-siaci-api-integracao-padrao-java
+ConfigMap
+-
+siaci-api-integracao-padrao-java
+7 minutes ago   07/17/26
+ Synced
+Endpoints
+ep
+siaci-api-integracao-padrao-java-des
+Endpoints
+-
+siaci-api-integracao-padrao-java
+7 minutes ago   07/17/26
+Service
+svc
+siaci-api-integracao-padrao-java-des
+Service
+-
+siaci-api-integracao-padrao-java
+7 minutes ago   07/17/26
+ Healthy   Synced
+Deployment
+deploy
+siaci-api-integracao-padrao-java-des
+apps/Deployment
+-
+siaci-api-integracao-padrao-java
+7 minutes ago   07/17/26
+ Progressing   Synced
+ReplicaSet
+rs
+siaci-api-integracao-padrao-java-des-6d897974f8
+apps/ReplicaSet
+-
+siaci-api-integracao-padrao-java
+7 minutes ago   07/17/26
+ Progressing  
+EndpointSlice
+endpointslice
+siaci-api-integracao-padrao-java-des-6h8mt
+discovery.k8s.io/EndpointSlice
+-
+siaci-api-integracao-padrao-java
+7 minutes ago   07/17/26
+Previous12Next
+Items per page: 10 
