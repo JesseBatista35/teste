@@ -44,3 +44,9 @@ Script executado com sucesso!
 Pod utilizado: siaci-api-integracao-padrao-java-des-548cf996b4-c4tcs
 Falha na sincronização
 Error: Process completed with exit code 1.
+
+
+<img width="1700" height="932" alt="image" src="https://github.com/user-attachments/assets/cfd82b2c-5e09-48ab-b90c-d12c79a0c67a" />
+
+
+
