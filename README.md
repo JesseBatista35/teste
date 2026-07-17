@@ -1,12 +1,19 @@
-aqui no fusionx parece ewsta certo. 
+Verificar OpenJDK 64-Bit Server VM warning: Ignoring option MaxPermSize; support was removed in 8.0
+OpenJDK 64-Bit Server VM warning: Ignoring option PermSize; support was removed in 8.0
+Erro: ocorreu LinkageError ao carregar a classe principal org.springframework.boot.loader.launch.JarLauncher
+	java.lang.UnsupportedClassVersionError: org/springframework/boot/loader/launch/JarLauncher has been compiled by a more recent vers\
+ion of the Java Runtime (class file version 61.0), this version of the Java Runtime only recognizes class file versions up to 55.0
+
+SIRSA
 
 
+recebi essa demanda e nao enteido uma amigo meu analistou rodou e funcionou
 
 
-<img width="1877" height="914" alt="image" src="https://github.com/user-attachments/assets/53709f3b-492c-42e7-901e-138b16fca13c" />
+ele idsse isso
 
+O java instalado na máquina é o 11, mas o JAR foi compilado com java 17. por isso o erro que ele recebe no Log 
 
-o problema parece esta so no repositorio do gitops
+na amquina ou seja no jboss
 
-
-<img width="1887" height="854" alt="image" src="https://github.com/user-attachments/assets/c3e9e98e-c0e4-4101-86d7-b786c01de1a0" />
+me ajuda a enteder para eu conversaer com demandte ou simplemte finalizar pois em des subiu
