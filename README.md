@@ -1,480 +1,5 @@
-#!/usr/bin/python
-# -*- coding: utf-8 -*-
-import os
-import sys
-import time
-import json
-import urllib3
-import requests
-import subprocess
-from netaddr import *
 
-import isi_sdk_8_1_1 as isilon
-from isi_sdk_8_1_1.rest import ApiException
-
-# Disable SSL warnings
-requests.packages.urllib3.disable_warnings()
-
-#variaveis vindas do ADS
-ambiente =  os.getenv("SISTEMAAMBIENTE", os.getenv("SISTEMA_AMBIENTE", "")).lower()
-sistema = os.getenv("SISTEMANOME", os.getenv("SISTEMA_NOME", "")).lower()
-site = os.getenv("SITE", "").lower()
- 
-funcao = str(sys.argv[1])
-# URL Portal
-url_portal = 'https://infradevops-novoportal-backend-prd.apps.produtos4.caixa/api.php'
-
-home_ansible = os.getenv('HOME_ADS_AGENT','')+'/'+os.getenv('DIR_ANSIBLE','')
-
-# Dados de Conexao AlocaIP
-id_alocaip = os.getenv("ID_ALOCAIP","")
-pw_alocaip = os.getenv("PW_ALOCAIP", "")
-
-usuario =  os.getenv("USR_ISILON","")
-senha = os.getenv("PW_ISILON","")
-
-if len(sys.argv) >=10:
-  sistema=str(sys.argv[2]).lower()
-  ambiente=str(sys.argv[3]).lower()
-  site=str(sys.argv[4]).lower()
-  home_ansible=str(sys.argv[5])
-  id_alocaip=str(sys.argv[6])
-  pw_alocaip=str(sys.argv[7])
-  usuario=str(sys.argv[8])
-  senha=str(sys.argv[9])
-  nfs_list_str=str(sys.argv[10])
-  nfs_list_str=nfs_list_str.replace("\\","")
-  nfs_list= json.loads(nfs_list_str)
-
-
-
-# Variaveis Global
-zona = ''
-endpoint_isilon = ''
-api_instance = ''
-
-def get_variables_with_prefix(prefix):
-  variables = {}
-  for key, value in os.environ.items():
-    if key.startswith(prefix):
-        variables[key] = value
-  return variables
-
-def get_variables_with_prefix(prefix, obj):
-    variables = {}
-
-    for item in obj:
-        for key, value in item.items():
-            if key.startswith(prefix):
-                variables[key] = value
-
-    return variables
-
-
-# Interacao com o Portal Infra.DevOps
-def consultaPortal(url_portal,payload, tipo):
-  try:
-    request = requests.get(url_portal, params=payload,verify=False)
-    request.raise_for_status()
-    if 'info' in request.json():
-      if tipo == "nfs_link":
-        print("Sem compartilhamentos configurados")
-        sys.exit(0)
-      raise Exception("Variavel Sistema ou Ambiente inexistente")
-
-    return request.json()
-
-  except requests.exceptions.HTTPError as http_error:
-    print("HTTP Error:", http_error)
-  except requests.exceptions.ConnectionError as con_error:
-    print("Erro de conexao:",con_error)
-  except requests.exceptions.Timeout as time_error:
-    print("Conexao expirada", time_error)
-  except requests.exceptions.RequestException as error:
-    print("Erro:",error)
-  except Exception as e:
-    print ("Error:", e.args[0])
-    sys.exit(1)
-
-def ip_backup():
-  payload_sistema = (('acao','listarServidoresCadastrados'),('sistema',sistema),('ambiente',ambiente),('status','ativado'),('site', site))
-  tipo = "backup"
-  sistemas = consultaPortal(url_portal,payload_sistema, tipo)['dados']
-
-  servidores_sem_bkp = {}
-
-  for servidor in sistemas:
-    if servidor['ipbackup'] == "" or servidor['ipbackup'] == None:
-      servidores_sem_bkp[servidor['servidores_json'][0]['nome']] = aloca_ip()
-
-  if len(servidores_sem_bkp) != 0:
-    # Atualiza Portal com os IPs
-
-    for servidor,ip in servidores_sem_bkp.items():
-      try:
-        atualiza_portal(servidor, ip, sistema, ambiente)
-      except Exception as e:
-        print ("Erro ao atalizar o portal:", e)
-        desaloca_ip(ip)
-        sys.exit(1)
-
-
-def atualiza_portal(hostname, ipbackup, sistema, ambiente):
-  url_atualiza = url_portal+'?acao=editarServidor'
-  payload = {
-    "dados": {
-    "ipbackup": ipbackup,
-    },
-    "consulta": {
-        "sistema": sistema,
-        "ambiente": ambiente,
-        "hostname": hostname,
-        "site": site
-    }
-  }
-  retorno = requests.post(url_atualiza, data=json.dumps(payload),verify=False)
-  print("{:<35} {:<35} {:<35} {:<35}".format(hostname, ipbackup, sistema, ambiente))
-
-  return retorno.json()['retorno']['status']
-
-
-def aloca_ip():
-  url_alocaip = 'https://api.alocaip.telecom.caixa/ApiAlocaIP/Gerar'
-  header = {'Content-Type': 'application/json', 'cache-control': 'no-cache'}
-  data = {"id": id_alocaip,
-          "senha": pw_alocaip,
-          "site":"CTC",
-          "vertical": "",
-          "ambiente": "",
-          "unidade": "",
-          "categoria":"Linux",
-          "descricao":"Projeto Esteiras - interfaces-bkp",
-          "red_num": "",
-          "par":"S",
-          "parCriado":"S"
-          
-         }
-  try:
-    if ambiente.lower() == "prd":
-      #red_num = "829" # nfsctc.ctc.caixa - Rede backup 10.122.16.0/20
-                      # 2nfs20.ctc.caixa - Rede backup 10.122.32.0/20 
-      endpoint_decisao = nfs_list[0]['NFS_ENDPOINT_VM'] 
-      if endpoint_decisao.startswith("hyperprd"):
-        data["red_num"] = "14201"
-        data["unidade"] = "CEPTIBR"
-        data["vertical"] = "Backup"
-        data["ambiente"] = "Backup"
-        data["inicioRange"] = "10.187.240.0" 
-        data["fimRange"] = "10.187.255.254"
-        
-      else: 
-        data["red_num"] = "4088"
-        data["unidade"] = "CEPTIBR"
-        data["vertical"] = "Backup"
-        data["ambiente"] = "Backup"
-      
-    else:
-      data["vertical"] = "Desenvolvimento"
-      data["ambiente"] = 'Backup'
-      data["red_num"] = '4718'
-      data["unidade"] = 'CETAD'
-      
-    print("Informacoes da Rede:\nVertical:{}\nAmbiente:{}\nRede:{}\nUnidade:".format(data['vertical'], data['ambiente'], data['red_num'], data['unidade']))
-    response = requests.post(url_alocaip, data=json.dumps(data), headers=header,timeout = 60, verify=False)
-    #alocaip = []
-    
-    try:
-      if response.status_code in (200,299):
-        resposta = response.content.decode('utf-8-sig')
-        dados = json.loads(resposta)
-        alocaip = [str(item) if item is not None else "" for item in dados['Gerar']] 
-        print("Dados Retornados AlocaIP:{}".format(dados))
-    except Exception as error:
-      print("A api nao retornou um IP de Backup:\n{}".format(error))
-    
-    if  len(alocaip) >= 1:
-      hostname = alocaip[0]
-      ip = alocaip[1]
-      ip_n_conv = alocaip[2]
-      gw = alocaip[3]
-      if alocaip[3] == "10.184.0.1":
-        #mask = alocaip[4]
-        mask= "255.252.0.0"
-      else:
-        mask = alocaip[4]
-      vlan = alocaip[5]
-      descricao = alocaip[6]
-
-       
-      subnet = IPNetwork(ip+'/'+mask)
-
-      # Valida Retorno do AlocaIP
-
-      retorna_ip = False
-
-      if not IPAddress(mask).is_netmask():
-        print("Mascara Incorreta ", mask)
-        retorna_ip = True
-
-      if IPAddress(ip) == subnet.network:
-        print("Erro, IP de Host e de Rede sao iguais: ", ip)
-        retorna_ip = True
-
-      if IPAddress(ip) == subnet.broadcast:
-        print("Erro, IP de Host e de Broadcast sao iguais: ", ip)
-        retorna_ip = True
-      
-      if not IPAddress(ip).is_private():
-        print("IP Incorreto ", ip)
-        retorna_ip = True
-
-      if gw != "":
-        if IPAddress(ip) == IPAddress(gw):
-          print("Ip do Host e o Gateway sao o mesmo")
-          print("IP: ",ip)
-          print("Gateway: ",gw)
-          retorna_ip = True
-
-      if retorna_ip:
-        desaloca_ip(ip)
-
-      return ip
-    else:
-      print("Lista retornada pela api nao tem os dados necessarios:\n{}".format(alocaip))
-      return ""
-    
-  except Exception as error:
-    print("Ocorreu error ao tentar alocar IP de Backup:\n{}".format(error))
-    return ""
-
-def desaloca_ip(ip):
-  url_desalocaip = 'https://api.alocaip.telecom.caixa/ApiAlocaIP/Desalocar'
-  header = {'Content-Type': 'application/json', 'cache-control': 'no-cache'}
-
-  ip_decimal = int(IPAddress(ip))
-
-  data = {"id": id_alocaip,
-          "senha": pw_alocaip,
-          "IpConvertido":ip,
-          "IpnaoConvertido":ip_decimal
-         }
-
-  desalocaip = requests.post(url_desalocaip, data = json.dumps(data), headers=header, verify=False)
-  desaloca_status=desalocaip.json()['Desalocar'][0]
-  print(desaloca_status.capitalize()+" ao desalocar o IP "+ip)
-
-def create_ip_bck(nfs_endpoints, nfs_mount_points):
-
-  print("{:<35} {:<35} {:<35} {:<35} {:<35} {:<35}".format('Nome', 'Endpoint', 'Mountpoint', 'Tipo', 'Ip', 'Ambiente'))
-  print("{:-<210}".format("-"))
-  print("NFS ENDPOINT: " + str(nfs_endpoints) + " | NFS MOUNTPOINTS: " + str(nfs_mount_points))
-  combined_variables = sorted(zip(nfs_endpoints.items(), nfs_mount_points.items()), key=lambda x: x[0][0])
-
-  print("Variaveis combinadas"+str(combined_variables))
-  for (endpoint_name, nfs_endpoint), (mount_point_name, nfs_mount_point) in combined_variables:
-
-    if '/' in nfs_endpoint:
-      nome = nfs_endpoint.upper().strip().split(":")[0].lower()
-    else:
-      nome = nfs_endpoint.upper().strip()
-
-    endpoint = nfs_endpoint.strip().split(":")[1]
-    mountpoint = nfs_mount_point.strip()
-    tipo = endpoint_name.strip().split("_")[2]
-    ip = nfs_endpoint.strip().split(":")[0]
-    ambiente_portal = ambiente
-    print("Variaveis que chegam "+str(endpoint)+str(mountpoint)+str(tipo)+str(ip)+str(ambiente_portal))
-    if tipo.lower().startswith('isilon') or tipo.lower().startswith('huawei') or tipo.lower().startswith('vm'):
-
-      ip_backup()
-
-    if not tipo.lower().startswith('isilon') and not tipo.lower().startswith('vm') and not tipo.lower().startswith('huawei') :
-      print("Tipo Inexistente para Montagem")
-
-    print("{:<35} {:<35} {:<35} {:<35} {:<35} {:<35}".format(nome, endpoint, mountpoint, tipo, ip, ambiente_portal))
-
-def mount(nfs_endpoints, nfs_mount_points):
-
-  print("{:<35} {:<35} {:<35} {:<35} {:<35} {:<35}".format('Nome', 'Endpoint', 'Mountpoint', 'Tipo', 'Ip', 'Ambiente'))
-  print("{:-<210}".format("-"))
-
-  combined_variables = sorted(zip(nfs_endpoints.items(), nfs_mount_points.items()), key=lambda x: x[0][0])
-
-
-  for (endpoint_name, nfs_endpoint), (mount_point_name, nfs_mount_point) in combined_variables:
-
-    if '/' in nfs_endpoint:
-      nome = nfs_endpoint.upper().strip().split(":")[0].lower()
-    else:
-      nome = nfs_endpoint.upper().strip()
-
-    endpoint = nfs_endpoint.strip().split(":")[1]
-    mountpoint = nfs_mount_point.strip()
-    tipo = endpoint_name.strip().split("_")[2]
-    ip = nfs_endpoint.strip().split(":")[0]
-    ambiente_portal = ambiente
-
-    print("{:<35} {:<35} {:<35} {:<35} {:<35} {:<35}".format(nome, endpoint, mountpoint, tipo, ip, ambiente_portal))
-
-
-    if ambiente_portal == ambiente:
-
-      if tipo.lower().startswith('isilon'):
-
-        escolhaIsilon(nome)
-
-        instanciaIsilon(endpoint_isilon)
-
-        configuracao_nfs, nfs_id = getConfiguracao(zona, endpoint)
-
-        lista_servidores = pega_lista_servidores(sistema,ambiente)
-
-        updateNfs(configuracao_nfs, nfs_id, lista_servidores)
-
-        montagem(mountpoint, nome, endpoint)
-
-      if tipo.lower().startswith('vm'):
-        montagem(mountpoint, ip, endpoint)
-
-      if not tipo.lower().startswith('isilon') and not tipo.lower().startswith('vm') :
-        print("Tipo Inexistente para Montagem")
-
-    print("{:<35} {:<35} {:<35} {:<35} {:<35} {:<35}".format(nome, endpoint, mountpoint, tipo, ip, ambiente_portal))
-
-# Interacao Isilon
-
-def escolhaIsilon(nome):
-
-  global zona
-  global endpoint_isilon
-
-  storages_isilon = {
-        'CADSVISISD1':[{'nomes':['nfsdtc.dtc.caixa','nfsccp.dtc.caixa','1nfs20.dtc.caixa'],'ip_gerencia':'isilondtc.dtc.caixa','zona':'ZONEINTRA'}],
-        'CADSVISISD2':[{'nomes':['nfsctc.ctc.caixa','nfsdcp.ctc.caixa','2nfs20.ctc.caixa'],'ip_gerencia':'isilonctc.ctc.caixa','zona':'SERVIDORES'}],
-        'CADSVISISD3':[{'nomes':['nfsprdctc3.ctc.caixa','nfsprddcp3.ctc.caixa'],'ip_gerencia':'isilonhdfsctc.prd.bigdata.caixa','zona':'SERVIDORES-PRD'}],
-        'CADSVISISD4':[{'nomes':['nfsctcnprd.ctc.caixa'],'ip_gerencia':'10.122.148.76','zona':'SERVIDORES'}]
-  }
-
-  for storage in storages_isilon.keys():
-    if nome in storages_isilon[storage][0]['nomes']:
-      zona = storages_isilon[storage][0]['zona']
-      endpoint_isilon = storages_isilon[storage][0]['ip_gerencia']
-
-
-# Configura Instancia Isilon
-def instanciaIsilon(endpoint_isilon):
-  global api_instance
-  configuration = isilon.Configuration()
-  configuration.host = endpoint_isilon
-  configuration.username =  usuario
-  configuration.password = senha
-  configuration.verify_ssl = False
-  api_instance = isilon.ProtocolsApi(isilon.ApiClient(configuration))
-
-def getExportId(zone,path):
-  try:
-    api_response_id = api_instance.list_nfs_exports(zone=zone, path=path.strip())
-
-  except ApiException as e:
-    print("Exception when callin ProtocolsApi->list_nfs_exports: %s\n" % e)
-
-  return api_response_id.exports[0].id
-
-def getConfiguracao(zone,path):
-  nfs_export_id = getExportId(zone,path)
-  try:
-    nfs_response = api_instance.get_nfs_export(nfs_export_id, zone=zone)
-  except ApiException as e:
-    print("Exception when callin ProtocolsApi->list_nfs_exports: %s\n" % e)
-
-  return nfs_response, nfs_export_id
-
-# Pega informacoes do Portal IIF e Decide por Storage ou Servidor NFS em VM
-
-def pega_lista_servidores(sistema,ambiente):
-  payload_sistema = (('acao','listarServidoresCadastrados'),('sistema',sistema),('ambiente',ambiente),('status','ativado'))
-  tipo = "backup"
-  sistemas = consultaPortal(url_portal,payload_sistema, tipo)['dados']
-
-  lista_servidores = []
-
-  for servidor in sistemas:
-    lista_servidores.append(servidor['ipbackup'])
-
-  return lista_servidores
-
-def updateNfs(instancia_nfs, id_nfs, clientes_nfs):
-  updated_clients = updateClientes(instancia_nfs,list(clientes_nfs))
-  nfs_export = isilon.NfsExport()
-  if len(updated_clients) > 0:
-    nfs_export.clients = updated_clients
-    nfs_export.read_write_clients = updated_clients
-    nfs_export.root_clients = updated_clients
-  try:
-    api_instance.update_nfs_export(nfs_export, id_nfs, zone=zona)
-  except ApiException as e:
-    print("Exception when callin ProtocolsApi->get_nfs_expor: %s\n" % e)
-
-def updateClientes(instancia_nfs, clientes):
-  clientes_cadastrados = instancia_nfs.exports[0].clients
-  if len(clientes_cadastrados) > 0:
-    for cliente in clientes:
-      if cliente not in clientes_cadastrados:
-        clientes_cadastrados.append(cliente)
-  return clientes_cadastrados
-
-def dicionario_servidores(sistema, ambiente):
-  payload_sistema = (('acao','listarServidoresCadastrados'),('sistema',sistema),('ambiente',ambiente),('status','ativado'))
-  tipo = "backup"
-  sistemas = consultaPortal(url_portal,payload_sistema, tipo)['dados']
-
-  servidores = {}
-
-  for servidor in sistemas:
-    servidores[servidor['servidores_json'][0]['nome'].encode('utf-8')] =  servidor['ipbackup']
-
-  return servidores
-
-def montagem(mountpoint, ip, endpoint):
-
-  servidores = {'servidores':dicionario_servidores(sistema,ambiente)}
-  print('nfs_path={}'.format(mountpoint))
-  print('nfs_src={0}:{1}'.format(ip,endpoint))
-  # try:
-
-  #   subprocess.check_call(['ansible-playbook', '{}/roles/nfs/tasks/stack_nfs.yml'.format(home_ansible), '-e', 'nfs_path={}'.format(mountpoint),  '-e', '{}'.format(servidores), '-e', 'nfs_src="{0}:{1}"'.format(ip,endpoint)])
-
-  # except subprocess.CalledProcessError:
-  #   print("Erro ao montar {0}:{1}, vericar o infradevops.caixa".format(ip,endpoint))
-  #   sys.exit(2)
-
-if __name__ == "__main__":
-
-  if nfs_list is None:
-    nfs_endpoints = get_variables_with_prefix('NFS_ENDPOINT', os.environ.items())
-    nfs_mount_points = get_variables_with_prefix('NFS_MOUNT_POINT', os.environ.items())
-  else:
-    print(nfs_list)
-    nfs_endpoints = get_variables_with_prefix('NFS_ENDPOINT', nfs_list)
-    nfs_mount_points = get_variables_with_prefix('NFS_MOUNT_POINT', nfs_list)
-
-  if nfs_endpoints or nfs_mount_points:
-    if funcao == "create_ip_bck":
-      create_ip_bck(nfs_endpoints,nfs_mount_points)
-    if funcao == "montagem":
-      mount(nfs_endpoints,nfs_mount_points)
-
-
-<img width="1886" height="968" alt="image" src="https://github.com/user-attachments/assets/667ca111-8cdd-4675-950f-9c805b196af3" />
-
-
-
-
-
-o aruivo ta aqui mais ele é do repositro de infraestrutura.. o que posso fazer e crirar uma task de teste.. mais pelo que vi o problema nao é nesse aqruivo e nos endpoisnt que el fez 
-
-
-MANUAL 
+fiz o seu ajute e nao deu certo
 
 
 Skip to main content
@@ -483,122 +8,149 @@ projetos
 /
 Caixa
 /
-Overview
+Pipelines
 /
-Wiki
+Releases
 /
-Azure Wiki
-/
-NFS VM Terraform - Montagem de Compartilhamento
+SIEXC-web-aplicacao
 Search
 
 
 Caixa
 
 Overview
-Summary
-Dashboards
-Wiki
 
 Boards
 
 Repos
 
 Pipelines
+Pipelines
+Environments
+Releases
+Library
+Task groups
+Deployment groups
+Portal Infra
 
 Test Plans
 
 Artifacts
 Project settings
+All pipelines
+
+SIEXC
+
+SIEXC-web-aplicacao
+Predefined variables
+Usuario-Azure-DevOps (12)
+Scopes: Release
+OKD-PRODUTOS (8)
+Credenciais para o Cluster OKD4 de PRODUTOS
+Scopes: Release
+SonarQube Variables (1)
+Variáveis com dados do SonarQube
+Scopes: Release
+MONITORACAO_LOGS (4)
+REQ000143540550 - Conforme autorizado na req por FLAVIO ALMEIDA GAGLIARDI, removido as variáveis JAVA_OPTS_MONITORING e URL_APM_SERVER, por entrar em conflitos com releases que utilizam o Application Insights
+Scopes: Release
+TERRAFORM-ESTEIRA-COMMON (6)
+WO0000079295714 - add variável INFRAFACIL
+Scopes: Release
+ANSIBLE_JBOSS_VM_VERSION_3 (7)
+WO0000072264656 - Config Portal Infrafácil NO_PROXY cadsvgerap027-1.intra.caixa.gov.br, 10.122.144.168
+Scopes: Release
+ADAPTER_VARIABLES (9)
+Variáveis disponíveis para todas os projetos do tipo ADAPTER.
+Scopes: Release
+Compartilhamentos (4)
+Scopes: Release
+TERRAFORM-ESTEIRA-NPRD (15)
+Variáveis do terraform para automação de ambientes
+Scopes: EC DES,EC TQS,EC HMP
+SIEXC-web-aplicacao-des (27)
 
-Caixa.wiki
-
-NFS
-
-
-New page
-NFS VM Terraform - Montagem de Compartilhamento
-
-Follow
-3
-
-Edit
-
-Thiago Jorge Araujo
-2 de jul. de 2025
-1. Introdução
-Procedimento para montagem automatizada de compartilhamentos NFS na Esteira DevOps. Esta automação interage diretamente com o Portal Infra.DevOps , com as VMs criadas pelo ADS e com o storage Dell Isilon.
-
-Futuras versões incluirão interação com storages Huawei e montagem de automática em projetos OKD.
-
-O sucesso da automação depende do cadastro correto realizado pelo usuário. Caso tenha dúvidas pergunte, não faça cadastros incompletos, pois pode prejudicar a implantação ou atualização do sistema.
-
-Leia com atenção os avisos.
-
-2. Avisos
-A automação não cria o compartilhamento nos storages ou servidores NFS, ela habilita a utilização de um compartilhamento existente.
-Antes de cadastrar um novo servidor, verifique se este já não está cadastrado. Essa ação evita duplicatas e inconsistências.
-Compartilhamentos que utilizam servidores NFS (que não são storage) devem ter regras de firewall e de exports criadas. Neste caso, segue-se o procedimento tradicional.
-3.Processo
-Uma vez que tenha caminho a ser montado no servidor, o primeiro passo é cadastrar um Backend NFS no devops.caixa. O cadastro deve ser realizado criando as variáveis de NFS nas libraries do sistema.
-Lembre que o disco já precisa ter sido solicitado por meio de WO à equipe de armazenamento através do FREI - Formulário de Requisição de Espaço em ISILON.docx e a mesma já ter sido atendida.
-
-3.1. Cadastro de endpoint e mountpoint no ADS.
-O cadastro de endpoint e mountpoint devem seguir a seguinte nomenclatura para o correto funcionamento da esteira:
-
-Compartilhamento ISILON:
+Scopes: EC DES
+DB_HOST
+10.116.92.41
+DB_HOST_ORA
+jdbc:oracle:thin:@cnpexdadvm01-scan4.extra.caixa.gov.br:1521/ORAD71NG
+DB_NAME
+excdb002
+DB_PASS
+pwsexcbd02
+DB_PASS_ORA
+pswexc01$
+DB_PORT
+5104
+DB_USER
+sexcbd02
+DB_USER_ORA
+SEXCBD01
+JVM_HEAP_MAX
+2548m
+JVM_HEAP_MIN
+1024m
+JVM_METASPACE_MAX
+1024m
+JVM_METASPACE_MIN
+256m
 NFS_ENDPOINT_ISILON
-NFS_MOUNT_POINT_ISILON
-Segue abaixo um exemplo de cadastro no ADS:
-image.png
-
-Caso exista mais de um compartilhamento basta seguir a nomenclatura acima e acrescentar um número na variável, Ex: NFS_ENDPOINT_ISILON_2, NFS_ENDPOINT_ISILON_2, NFS_MOUNT_POINT_ISILON_3, NFS_MOUNT_POINT_ISILON_3, NFS_ENDPOINT_VM_2,NFS_MOUNT_POINT_VM_2.
-
-Compartilhamento VM:
-
+nfsctcnprd.ctc.caixa:/ifs/CADSVISISD4/SERVIDORES/CEPTIBR/SIEXC
+NFS_ENDPOINT_ISILON_2
+nfsctcnprd.ctc.caixa:/ifs/CADSVISISD4/SERVIDORES/CEPTISP/SIISF
+NFS_ENDPOINT_ISILON_3
+nfsctcnprd.ctc.caixa:/ifs/CADSVISISD4/SERVIDORES/CETAD/SIAPC
 NFS_ENDPOINT_VM
-NFS_MOUNT_POINT_VM
-Segue abaixo um exemplo de cadastro no ADS:
-image.png
-Nomenclatura para servidores VM -> h6007v020.ad.caixa:/
+10.116.88.160:/export/sigdb/sicql
+NFS_ENDPOINT_VM_2
+10.116.88.160:/export/sigdb/sitec
+NFS_ENDPOINT_VM_3
+10.116.88.160:/export/sicql_bovespa
+NFS_ENDPOINT_VM_4
+10.116.88.160:/export/upload_prd
+NFS_MOUNT_POINT_ISILON
+/integracoes/SIEXC
+NFS_MOUNT_POINT_ISILON_2
+/integracoes/SIISF
+NFS_MOUNT_POINT_ISILON_3
+/integracoes/SIAPC
+NFS_MOUNT_POINT_ISILON_VM
+/opt/sigdb
+NFS_MOUNT_POINT_VM_2
+/opt/sigdb/sitec
+NFS_MOUNT_POINT_VM_3
+/opt/jboss/bovespa
+NFS_MOUNT_POINT_VM_4
+/upload
+URL_GESTOR
+https://siexc-web-aplicacao.esteiras.des.caixa/swifter-webapp
+SIEXC-web-aplicacao-tqs (19)
+Scopes: EC TQS
+TERRAFORM-ESTEIRA-PRD-CTC-NPCN (15)
+Variáveis do terraform para automação de ambientes TERRAFORM_VSPHERE_POOL - RP_ESTEIRAS_AGEIS_NPCN_CTC_V7 13/03/2025
+Scopes: EC PRD CTC
+TERRAFORM-ESTEIRA-PRD-DTC-PCN (15)
+Variáveis do terraform para automação de ambientes
+Scopes: EC PRD DTC
+|Manage variable groups
+Row 4
 
-4. Linkar Variable Groups Compartilhamentos.
-compatilhamento.png
+Row 2
 
-86 visits in last 30 days
-Marcio Correia de Oliveira
-commented 12 de mar. de 2024
-
-O texto ficou dificíl de entender não tem um passo a passo, e confuso. Se puderem reescrever de forma sequencial.
-Exemplo:
-
-1 - Solicitar criação da VM via infra devops
-2- Solicitar a criação do servidor NFS.
-3- Solicitar a criação do compartilhamento NFS.
+Showing filters 1 through 2
 
 
-👍7
+esto logado no jbos me auda a saber se esse nfs ja esta configurado mesmo
 
-Collapsed
 
-Expanded
+[p585600@caddeapllx2193 monitoracao]$ ps -ef | grep jboss
+root      578967       1  0 jul16 ?        00:00:00 runuser jboss -c LAUNCH_JBOSS_IN_BACKGROUND=1 JBOSS_PIDFILE=/opt/jboss-eap/standalone/tmp/jboss-eap-standalone.pid /opt/jboss-eap/bin/standalone.sh                -b 0.0.0.0                -bmanagement 0.0.0.0                -Djboss.server.base.dir=/opt/jboss-eap/standalone                -Djboss.server.log.dir=/logs/jboss/jboss-eap/standalone/siexc-web-aplicacao -c standalone-full-ha.xml
+jboss     578970  578967  0 jul16 ?        00:00:00 /bin/sh /opt/jboss-eap/bin/standalone.sh -b 0.0.0.0 -bmanagement 0.0.0.0 -Djboss.server.base.dir=/opt/jboss-eap/standalone -Djboss.server.log.dir=/logs/jboss/jboss-eap/standalone/siexc-web-aplicacao -c standalone-full-ha.xml
+jboss     579200  578970  0 jul16 ?        00:55:13 java -D[Standalone] -verbose:gc -Xloggc:/logs/jboss/jboss-eap/standalone/siexc-web-aplicacao/gc.log -XX:+PrintGCDetails -XX:+PrintGCDateStamps -XX:+UseGCLogFileRotation -XX:NumberOfGCLogFiles=5 -XX:GCLogFileSize=3M -XX:-TraceClassUnloading -Djdk.serialFilter=maxbytes=10485760;maxdepth=128;maxarray=100000;maxrefs=300000 -Xms4G -Xmx4G -XX:MetaspaceSize=512M -XX:MaxMetaspaceSize=1G -Djava.net.preferIPv4Stack=true -Duser.language=pt -Duser.country=BR -Duser.timezone=GMT -Dsinqia.azure.tenantId=Teste_tenantId -Dsinqia.azure.clientId=Teste_clientId -Dsinqia.azure.clientSecret=Teste_clientSecret -Dsinqia.azure.redirectUriSignIn=Teste_redirectUriSignIn -Dsinqia.azure.authorityUrl=Teste_authorityUrl -Dsinqia.azure.proxyUrl=Teste_proxyUrl -Dsinqia.azure.proxyPort=Teste_proxyPort -Dsinqia.azure.scope=openid,profile,email,offline_access -Xms4G -Xmx4G -XX:MetaspaceSize=512m -XX:MaxMetaspaceSize=1G -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs=org.jboss.byteman,org.jboss.logmanager -Djava.awt.headless=true -Djavax.net.ssl.trustStore=/opt/jboss-eap/standalone/configuration/caixa-truststore-acteste-nprd.jks -Djavax.net.ssl.trustStorePassword=changeit -Djboss.modules.policy-permissions=true -server -XX:+ExplicitGCInvokesConcurrent -XX:+UseG1GC -XX:MaxGCPauseMillis=500 -Xbootclasspath/a:/opt/jboss-eap/modules/system/layers/base/org/wildfly/common/main/wildfly-common-1.5.4.Final-redhat-00001.jar -Xbootclasspath/a:/opt/jboss-eap/modules/system/layers/base/org/jboss/logmanager/main/jboss-logmanager-2.1.18.Final-redhat-00001.jar -Dsun.util.logging.disableCallerCheck=true -Dcom.ibm.msg.client.commonservices.log.outputName=/opt/jboss-eap/standalone/log/mqjms.log -Djava.util.logging.manager=org.jboss.logmanager.LogManager -Dorg.jboss.boot.log.file=/logs/jboss/jboss-eap/standalone/siexc-web-aplicacao/server.log -Dlogging.configuration=file:/opt/jboss-eap/standalone/configuration/logging.properties -jar /opt/jboss-eap/jboss-modules.jar -mp /opt/jboss-eap/modules org.jboss.as.standalone -Djboss.home.dir=/opt/jboss-eap -Djboss.server.base.dir=/opt/jboss-eap/standalone -b 0.0.0.0 -bmanagement 0.0.0.0 -Djboss.server.base.dir=/opt/jboss-eap/standalone -Djboss.server.log.dir=/logs/jboss/jboss-eap/standalone/siexc-web-aplicacao -c standalone-full-ha.xml
+p585600   669191  663492  0 14:50 pts/0    00:00:00 grep --color=auto jboss
+[p585600@caddeapllx2193 monitoracao]$
 
-Showing filters 1 through 6
 
-Showing filters 1 through 6
 
-Collapsed
 
-Expanded
-
-Showing filters 1 through 1
-
-683 results found
-
-79 results found
-
-7 results found
-
-Expanded
-
-Collapsed
