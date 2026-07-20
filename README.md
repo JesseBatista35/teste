@@ -1,17 +1,480 @@
-Analisar 
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+import os
+import sys
+import time
+import json
+import urllib3
+import requests
+import subprocess
+from netaddr import *
 
-ERRO NO BUILD ESTEIRA SIEXC
+import isi_sdk_8_1_1 as isilon
+from isi_sdk_8_1_1.rest import ApiException
 
-Link esteira do SIEXC:
-https://devops.caixa/projetos/Caixa/_git/SIEXC-web-aplicacao-config
+# Disable SSL warnings
+requests.packages.urllib3.disable_warnings()
 
-Adicionei os endpoint e mount points dos NFS anexados à library de DES do SIEXC e o build falhou. Por favor realizar a montagem adequada e rodar o build com sucesso
+#variaveis vindas do ADS
+ambiente =  os.getenv("SISTEMAAMBIENTE", os.getenv("SISTEMA_AMBIENTE", "")).lower()
+sistema = os.getenv("SISTEMANOME", os.getenv("SISTEMA_NOME", "")).lower()
+site = os.getenv("SITE", "").lower()
+ 
+funcao = str(sys.argv[1])
+# URL Portal
+url_portal = 'https://infradevops-novoportal-backend-prd.apps.produtos4.caixa/api.php'
 
-Log do erro em anexo
-Documento com instruções das montagens que foram adicionadas em anexo. Favor não remover nenhum ponto de montagem do SIEXC.
+home_ansible = os.getenv('HOME_ADS_AGENT','')+'/'+os.getenv('DIR_ANSIBLE','')
 
-Link da release com erro:
-https://devops.caixa/projetos/Caixa/_releaseProgress?releaseId=502739&environmentId=2335617&itemType=VariableGroups&_a=release-environment-logs
+# Dados de Conexao AlocaIP
+id_alocaip = os.getenv("ID_ALOCAIP","")
+pw_alocaip = os.getenv("PW_ALOCAIP", "")
+
+usuario =  os.getenv("USR_ISILON","")
+senha = os.getenv("PW_ISILON","")
+
+if len(sys.argv) >=10:
+  sistema=str(sys.argv[2]).lower()
+  ambiente=str(sys.argv[3]).lower()
+  site=str(sys.argv[4]).lower()
+  home_ansible=str(sys.argv[5])
+  id_alocaip=str(sys.argv[6])
+  pw_alocaip=str(sys.argv[7])
+  usuario=str(sys.argv[8])
+  senha=str(sys.argv[9])
+  nfs_list_str=str(sys.argv[10])
+  nfs_list_str=nfs_list_str.replace("\\","")
+  nfs_list= json.loads(nfs_list_str)
+
+
+
+# Variaveis Global
+zona = ''
+endpoint_isilon = ''
+api_instance = ''
+
+def get_variables_with_prefix(prefix):
+  variables = {}
+  for key, value in os.environ.items():
+    if key.startswith(prefix):
+        variables[key] = value
+  return variables
+
+def get_variables_with_prefix(prefix, obj):
+    variables = {}
+
+    for item in obj:
+        for key, value in item.items():
+            if key.startswith(prefix):
+                variables[key] = value
+
+    return variables
+
+
+# Interacao com o Portal Infra.DevOps
+def consultaPortal(url_portal,payload, tipo):
+  try:
+    request = requests.get(url_portal, params=payload,verify=False)
+    request.raise_for_status()
+    if 'info' in request.json():
+      if tipo == "nfs_link":
+        print("Sem compartilhamentos configurados")
+        sys.exit(0)
+      raise Exception("Variavel Sistema ou Ambiente inexistente")
+
+    return request.json()
+
+  except requests.exceptions.HTTPError as http_error:
+    print("HTTP Error:", http_error)
+  except requests.exceptions.ConnectionError as con_error:
+    print("Erro de conexao:",con_error)
+  except requests.exceptions.Timeout as time_error:
+    print("Conexao expirada", time_error)
+  except requests.exceptions.RequestException as error:
+    print("Erro:",error)
+  except Exception as e:
+    print ("Error:", e.args[0])
+    sys.exit(1)
+
+def ip_backup():
+  payload_sistema = (('acao','listarServidoresCadastrados'),('sistema',sistema),('ambiente',ambiente),('status','ativado'),('site', site))
+  tipo = "backup"
+  sistemas = consultaPortal(url_portal,payload_sistema, tipo)['dados']
+
+  servidores_sem_bkp = {}
+
+  for servidor in sistemas:
+    if servidor['ipbackup'] == "" or servidor['ipbackup'] == None:
+      servidores_sem_bkp[servidor['servidores_json'][0]['nome']] = aloca_ip()
+
+  if len(servidores_sem_bkp) != 0:
+    # Atualiza Portal com os IPs
+
+    for servidor,ip in servidores_sem_bkp.items():
+      try:
+        atualiza_portal(servidor, ip, sistema, ambiente)
+      except Exception as e:
+        print ("Erro ao atalizar o portal:", e)
+        desaloca_ip(ip)
+        sys.exit(1)
+
+
+def atualiza_portal(hostname, ipbackup, sistema, ambiente):
+  url_atualiza = url_portal+'?acao=editarServidor'
+  payload = {
+    "dados": {
+    "ipbackup": ipbackup,
+    },
+    "consulta": {
+        "sistema": sistema,
+        "ambiente": ambiente,
+        "hostname": hostname,
+        "site": site
+    }
+  }
+  retorno = requests.post(url_atualiza, data=json.dumps(payload),verify=False)
+  print("{:<35} {:<35} {:<35} {:<35}".format(hostname, ipbackup, sistema, ambiente))
+
+  return retorno.json()['retorno']['status']
+
+
+def aloca_ip():
+  url_alocaip = 'https://api.alocaip.telecom.caixa/ApiAlocaIP/Gerar'
+  header = {'Content-Type': 'application/json', 'cache-control': 'no-cache'}
+  data = {"id": id_alocaip,
+          "senha": pw_alocaip,
+          "site":"CTC",
+          "vertical": "",
+          "ambiente": "",
+          "unidade": "",
+          "categoria":"Linux",
+          "descricao":"Projeto Esteiras - interfaces-bkp",
+          "red_num": "",
+          "par":"S",
+          "parCriado":"S"
+          
+         }
+  try:
+    if ambiente.lower() == "prd":
+      #red_num = "829" # nfsctc.ctc.caixa - Rede backup 10.122.16.0/20
+                      # 2nfs20.ctc.caixa - Rede backup 10.122.32.0/20 
+      endpoint_decisao = nfs_list[0]['NFS_ENDPOINT_VM'] 
+      if endpoint_decisao.startswith("hyperprd"):
+        data["red_num"] = "14201"
+        data["unidade"] = "CEPTIBR"
+        data["vertical"] = "Backup"
+        data["ambiente"] = "Backup"
+        data["inicioRange"] = "10.187.240.0" 
+        data["fimRange"] = "10.187.255.254"
+        
+      else: 
+        data["red_num"] = "4088"
+        data["unidade"] = "CEPTIBR"
+        data["vertical"] = "Backup"
+        data["ambiente"] = "Backup"
+      
+    else:
+      data["vertical"] = "Desenvolvimento"
+      data["ambiente"] = 'Backup'
+      data["red_num"] = '4718'
+      data["unidade"] = 'CETAD'
+      
+    print("Informacoes da Rede:\nVertical:{}\nAmbiente:{}\nRede:{}\nUnidade:".format(data['vertical'], data['ambiente'], data['red_num'], data['unidade']))
+    response = requests.post(url_alocaip, data=json.dumps(data), headers=header,timeout = 60, verify=False)
+    #alocaip = []
+    
+    try:
+      if response.status_code in (200,299):
+        resposta = response.content.decode('utf-8-sig')
+        dados = json.loads(resposta)
+        alocaip = [str(item) if item is not None else "" for item in dados['Gerar']] 
+        print("Dados Retornados AlocaIP:{}".format(dados))
+    except Exception as error:
+      print("A api nao retornou um IP de Backup:\n{}".format(error))
+    
+    if  len(alocaip) >= 1:
+      hostname = alocaip[0]
+      ip = alocaip[1]
+      ip_n_conv = alocaip[2]
+      gw = alocaip[3]
+      if alocaip[3] == "10.184.0.1":
+        #mask = alocaip[4]
+        mask= "255.252.0.0"
+      else:
+        mask = alocaip[4]
+      vlan = alocaip[5]
+      descricao = alocaip[6]
+
+       
+      subnet = IPNetwork(ip+'/'+mask)
+
+      # Valida Retorno do AlocaIP
+
+      retorna_ip = False
+
+      if not IPAddress(mask).is_netmask():
+        print("Mascara Incorreta ", mask)
+        retorna_ip = True
+
+      if IPAddress(ip) == subnet.network:
+        print("Erro, IP de Host e de Rede sao iguais: ", ip)
+        retorna_ip = True
+
+      if IPAddress(ip) == subnet.broadcast:
+        print("Erro, IP de Host e de Broadcast sao iguais: ", ip)
+        retorna_ip = True
+      
+      if not IPAddress(ip).is_private():
+        print("IP Incorreto ", ip)
+        retorna_ip = True
+
+      if gw != "":
+        if IPAddress(ip) == IPAddress(gw):
+          print("Ip do Host e o Gateway sao o mesmo")
+          print("IP: ",ip)
+          print("Gateway: ",gw)
+          retorna_ip = True
+
+      if retorna_ip:
+        desaloca_ip(ip)
+
+      return ip
+    else:
+      print("Lista retornada pela api nao tem os dados necessarios:\n{}".format(alocaip))
+      return ""
+    
+  except Exception as error:
+    print("Ocorreu error ao tentar alocar IP de Backup:\n{}".format(error))
+    return ""
+
+def desaloca_ip(ip):
+  url_desalocaip = 'https://api.alocaip.telecom.caixa/ApiAlocaIP/Desalocar'
+  header = {'Content-Type': 'application/json', 'cache-control': 'no-cache'}
+
+  ip_decimal = int(IPAddress(ip))
+
+  data = {"id": id_alocaip,
+          "senha": pw_alocaip,
+          "IpConvertido":ip,
+          "IpnaoConvertido":ip_decimal
+         }
+
+  desalocaip = requests.post(url_desalocaip, data = json.dumps(data), headers=header, verify=False)
+  desaloca_status=desalocaip.json()['Desalocar'][0]
+  print(desaloca_status.capitalize()+" ao desalocar o IP "+ip)
+
+def create_ip_bck(nfs_endpoints, nfs_mount_points):
+
+  print("{:<35} {:<35} {:<35} {:<35} {:<35} {:<35}".format('Nome', 'Endpoint', 'Mountpoint', 'Tipo', 'Ip', 'Ambiente'))
+  print("{:-<210}".format("-"))
+  print("NFS ENDPOINT: " + str(nfs_endpoints) + " | NFS MOUNTPOINTS: " + str(nfs_mount_points))
+  combined_variables = sorted(zip(nfs_endpoints.items(), nfs_mount_points.items()), key=lambda x: x[0][0])
+
+  print("Variaveis combinadas"+str(combined_variables))
+  for (endpoint_name, nfs_endpoint), (mount_point_name, nfs_mount_point) in combined_variables:
+
+    if '/' in nfs_endpoint:
+      nome = nfs_endpoint.upper().strip().split(":")[0].lower()
+    else:
+      nome = nfs_endpoint.upper().strip()
+
+    endpoint = nfs_endpoint.strip().split(":")[1]
+    mountpoint = nfs_mount_point.strip()
+    tipo = endpoint_name.strip().split("_")[2]
+    ip = nfs_endpoint.strip().split(":")[0]
+    ambiente_portal = ambiente
+    print("Variaveis que chegam "+str(endpoint)+str(mountpoint)+str(tipo)+str(ip)+str(ambiente_portal))
+    if tipo.lower().startswith('isilon') or tipo.lower().startswith('huawei') or tipo.lower().startswith('vm'):
+
+      ip_backup()
+
+    if not tipo.lower().startswith('isilon') and not tipo.lower().startswith('vm') and not tipo.lower().startswith('huawei') :
+      print("Tipo Inexistente para Montagem")
+
+    print("{:<35} {:<35} {:<35} {:<35} {:<35} {:<35}".format(nome, endpoint, mountpoint, tipo, ip, ambiente_portal))
+
+def mount(nfs_endpoints, nfs_mount_points):
+
+  print("{:<35} {:<35} {:<35} {:<35} {:<35} {:<35}".format('Nome', 'Endpoint', 'Mountpoint', 'Tipo', 'Ip', 'Ambiente'))
+  print("{:-<210}".format("-"))
+
+  combined_variables = sorted(zip(nfs_endpoints.items(), nfs_mount_points.items()), key=lambda x: x[0][0])
+
+
+  for (endpoint_name, nfs_endpoint), (mount_point_name, nfs_mount_point) in combined_variables:
+
+    if '/' in nfs_endpoint:
+      nome = nfs_endpoint.upper().strip().split(":")[0].lower()
+    else:
+      nome = nfs_endpoint.upper().strip()
+
+    endpoint = nfs_endpoint.strip().split(":")[1]
+    mountpoint = nfs_mount_point.strip()
+    tipo = endpoint_name.strip().split("_")[2]
+    ip = nfs_endpoint.strip().split(":")[0]
+    ambiente_portal = ambiente
+
+    print("{:<35} {:<35} {:<35} {:<35} {:<35} {:<35}".format(nome, endpoint, mountpoint, tipo, ip, ambiente_portal))
+
+
+    if ambiente_portal == ambiente:
+
+      if tipo.lower().startswith('isilon'):
+
+        escolhaIsilon(nome)
+
+        instanciaIsilon(endpoint_isilon)
+
+        configuracao_nfs, nfs_id = getConfiguracao(zona, endpoint)
+
+        lista_servidores = pega_lista_servidores(sistema,ambiente)
+
+        updateNfs(configuracao_nfs, nfs_id, lista_servidores)
+
+        montagem(mountpoint, nome, endpoint)
+
+      if tipo.lower().startswith('vm'):
+        montagem(mountpoint, ip, endpoint)
+
+      if not tipo.lower().startswith('isilon') and not tipo.lower().startswith('vm') :
+        print("Tipo Inexistente para Montagem")
+
+    print("{:<35} {:<35} {:<35} {:<35} {:<35} {:<35}".format(nome, endpoint, mountpoint, tipo, ip, ambiente_portal))
+
+# Interacao Isilon
+
+def escolhaIsilon(nome):
+
+  global zona
+  global endpoint_isilon
+
+  storages_isilon = {
+        'CADSVISISD1':[{'nomes':['nfsdtc.dtc.caixa','nfsccp.dtc.caixa','1nfs20.dtc.caixa'],'ip_gerencia':'isilondtc.dtc.caixa','zona':'ZONEINTRA'}],
+        'CADSVISISD2':[{'nomes':['nfsctc.ctc.caixa','nfsdcp.ctc.caixa','2nfs20.ctc.caixa'],'ip_gerencia':'isilonctc.ctc.caixa','zona':'SERVIDORES'}],
+        'CADSVISISD3':[{'nomes':['nfsprdctc3.ctc.caixa','nfsprddcp3.ctc.caixa'],'ip_gerencia':'isilonhdfsctc.prd.bigdata.caixa','zona':'SERVIDORES-PRD'}],
+        'CADSVISISD4':[{'nomes':['nfsctcnprd.ctc.caixa'],'ip_gerencia':'10.122.148.76','zona':'SERVIDORES'}]
+  }
+
+  for storage in storages_isilon.keys():
+    if nome in storages_isilon[storage][0]['nomes']:
+      zona = storages_isilon[storage][0]['zona']
+      endpoint_isilon = storages_isilon[storage][0]['ip_gerencia']
+
+
+# Configura Instancia Isilon
+def instanciaIsilon(endpoint_isilon):
+  global api_instance
+  configuration = isilon.Configuration()
+  configuration.host = endpoint_isilon
+  configuration.username =  usuario
+  configuration.password = senha
+  configuration.verify_ssl = False
+  api_instance = isilon.ProtocolsApi(isilon.ApiClient(configuration))
+
+def getExportId(zone,path):
+  try:
+    api_response_id = api_instance.list_nfs_exports(zone=zone, path=path.strip())
+
+  except ApiException as e:
+    print("Exception when callin ProtocolsApi->list_nfs_exports: %s\n" % e)
+
+  return api_response_id.exports[0].id
+
+def getConfiguracao(zone,path):
+  nfs_export_id = getExportId(zone,path)
+  try:
+    nfs_response = api_instance.get_nfs_export(nfs_export_id, zone=zone)
+  except ApiException as e:
+    print("Exception when callin ProtocolsApi->list_nfs_exports: %s\n" % e)
+
+  return nfs_response, nfs_export_id
+
+# Pega informacoes do Portal IIF e Decide por Storage ou Servidor NFS em VM
+
+def pega_lista_servidores(sistema,ambiente):
+  payload_sistema = (('acao','listarServidoresCadastrados'),('sistema',sistema),('ambiente',ambiente),('status','ativado'))
+  tipo = "backup"
+  sistemas = consultaPortal(url_portal,payload_sistema, tipo)['dados']
+
+  lista_servidores = []
+
+  for servidor in sistemas:
+    lista_servidores.append(servidor['ipbackup'])
+
+  return lista_servidores
+
+def updateNfs(instancia_nfs, id_nfs, clientes_nfs):
+  updated_clients = updateClientes(instancia_nfs,list(clientes_nfs))
+  nfs_export = isilon.NfsExport()
+  if len(updated_clients) > 0:
+    nfs_export.clients = updated_clients
+    nfs_export.read_write_clients = updated_clients
+    nfs_export.root_clients = updated_clients
+  try:
+    api_instance.update_nfs_export(nfs_export, id_nfs, zone=zona)
+  except ApiException as e:
+    print("Exception when callin ProtocolsApi->get_nfs_expor: %s\n" % e)
+
+def updateClientes(instancia_nfs, clientes):
+  clientes_cadastrados = instancia_nfs.exports[0].clients
+  if len(clientes_cadastrados) > 0:
+    for cliente in clientes:
+      if cliente not in clientes_cadastrados:
+        clientes_cadastrados.append(cliente)
+  return clientes_cadastrados
+
+def dicionario_servidores(sistema, ambiente):
+  payload_sistema = (('acao','listarServidoresCadastrados'),('sistema',sistema),('ambiente',ambiente),('status','ativado'))
+  tipo = "backup"
+  sistemas = consultaPortal(url_portal,payload_sistema, tipo)['dados']
+
+  servidores = {}
+
+  for servidor in sistemas:
+    servidores[servidor['servidores_json'][0]['nome'].encode('utf-8')] =  servidor['ipbackup']
+
+  return servidores
+
+def montagem(mountpoint, ip, endpoint):
+
+  servidores = {'servidores':dicionario_servidores(sistema,ambiente)}
+  print('nfs_path={}'.format(mountpoint))
+  print('nfs_src={0}:{1}'.format(ip,endpoint))
+  # try:
+
+  #   subprocess.check_call(['ansible-playbook', '{}/roles/nfs/tasks/stack_nfs.yml'.format(home_ansible), '-e', 'nfs_path={}'.format(mountpoint),  '-e', '{}'.format(servidores), '-e', 'nfs_src="{0}:{1}"'.format(ip,endpoint)])
+
+  # except subprocess.CalledProcessError:
+  #   print("Erro ao montar {0}:{1}, vericar o infradevops.caixa".format(ip,endpoint))
+  #   sys.exit(2)
+
+if __name__ == "__main__":
+
+  if nfs_list is None:
+    nfs_endpoints = get_variables_with_prefix('NFS_ENDPOINT', os.environ.items())
+    nfs_mount_points = get_variables_with_prefix('NFS_MOUNT_POINT', os.environ.items())
+  else:
+    print(nfs_list)
+    nfs_endpoints = get_variables_with_prefix('NFS_ENDPOINT', nfs_list)
+    nfs_mount_points = get_variables_with_prefix('NFS_MOUNT_POINT', nfs_list)
+
+  if nfs_endpoints or nfs_mount_points:
+    if funcao == "create_ip_bck":
+      create_ip_bck(nfs_endpoints,nfs_mount_points)
+    if funcao == "montagem":
+      mount(nfs_endpoints,nfs_mount_points)
+
+
+<img width="1886" height="968" alt="image" src="https://github.com/user-attachments/assets/667ca111-8cdd-4675-950f-9c805b196af3" />
+
+
+
+
+
+o aruivo ta aqui mais ele é do repositro de infraestrutura.. o que posso fazer e crirar uma task de teste.. mais pelo que vi o problema nao é nesse aqruivo e nos endpoisnt que el fez 
+
+
+MANUAL 
 
 
 Skip to main content
@@ -20,337 +483,122 @@ projetos
 /
 Caixa
 /
-Pipelines
+Overview
 /
-Releases
+Wiki
 /
-SIEXC-web-aplicacao
+Azure Wiki
+/
+NFS VM Terraform - Montagem de Compartilhamento
 Search
 
 
 Caixa
 
 Overview
+Summary
+Dashboards
+Wiki
 
 Boards
 
 Repos
 
 Pipelines
-Pipelines
-Environments
-Releases
-Library
-Task groups
-Deployment groups
-Portal Infra
 
 Test Plans
 
 Artifacts
 Project settings
-All pipelines
-
-SIEXC
-
-SIEXC-web-aplicacao
-Predefined variables
-Usuario-Azure-DevOps (12)
-Scopes: Release
-OKD-PRODUTOS (8)
-Credenciais para o Cluster OKD4 de PRODUTOS
-Scopes: Release
-SonarQube Variables (1)
-Variáveis com dados do SonarQube
-Scopes: Release
-MONITORACAO_LOGS (4)
-REQ000143540550 - Conforme autorizado na req por FLAVIO ALMEIDA GAGLIARDI, removido as variáveis JAVA_OPTS_MONITORING e URL_APM_SERVER, por entrar em conflitos com releases que utilizam o Application Insights
-Scopes: Release
-TERRAFORM-ESTEIRA-COMMON (6)
-WO0000079295714 - add variável INFRAFACIL
-Scopes: Release
-ANSIBLE_JBOSS_VM_VERSION_3 (7)
-WO0000072264656 - Config Portal Infrafácil NO_PROXY cadsvgerap027-1.intra.caixa.gov.br, 10.122.144.168
-Scopes: Release
-ADAPTER_VARIABLES (9)
-Variáveis disponíveis para todas os projetos do tipo ADAPTER.
-Scopes: Release
-Compartilhamentos (4)
-Scopes: Release
-TERRAFORM-ESTEIRA-NPRD (15)
-Variáveis do terraform para automação de ambientes
-Scopes: EC DES,EC TQS,EC HMP
-SIEXC-web-aplicacao-des (27)
 
-Scopes: EC DES
-DB_HOST
-10.116.92.41
-DB_HOST_ORA
-jdbc:oracle:thin:@cnpexdadvm01-scan4.extra.caixa.gov.br:1521/ORAD71NG
-DB_NAME
-excdb002
-DB_PASS
-pwsexcbd02
-DB_PASS_ORA
-pswexc01$
-DB_PORT
-5104
-DB_USER
-sexcbd02
-DB_USER_ORA
-SEXCBD01
-JVM_HEAP_MAX
-2548m
-JVM_HEAP_MIN
-1024m
-JVM_METASPACE_MAX
-1024m
-JVM_METASPACE_MIN
-256m
+Caixa.wiki
+
+NFS
+
+
+New page
+NFS VM Terraform - Montagem de Compartilhamento
+
+Follow
+3
+
+Edit
+
+Thiago Jorge Araujo
+2 de jul. de 2025
+1. Introdução
+Procedimento para montagem automatizada de compartilhamentos NFS na Esteira DevOps. Esta automação interage diretamente com o Portal Infra.DevOps , com as VMs criadas pelo ADS e com o storage Dell Isilon.
+
+Futuras versões incluirão interação com storages Huawei e montagem de automática em projetos OKD.
+
+O sucesso da automação depende do cadastro correto realizado pelo usuário. Caso tenha dúvidas pergunte, não faça cadastros incompletos, pois pode prejudicar a implantação ou atualização do sistema.
+
+Leia com atenção os avisos.
+
+2. Avisos
+A automação não cria o compartilhamento nos storages ou servidores NFS, ela habilita a utilização de um compartilhamento existente.
+Antes de cadastrar um novo servidor, verifique se este já não está cadastrado. Essa ação evita duplicatas e inconsistências.
+Compartilhamentos que utilizam servidores NFS (que não são storage) devem ter regras de firewall e de exports criadas. Neste caso, segue-se o procedimento tradicional.
+3.Processo
+Uma vez que tenha caminho a ser montado no servidor, o primeiro passo é cadastrar um Backend NFS no devops.caixa. O cadastro deve ser realizado criando as variáveis de NFS nas libraries do sistema.
+Lembre que o disco já precisa ter sido solicitado por meio de WO à equipe de armazenamento através do FREI - Formulário de Requisição de Espaço em ISILON.docx e a mesma já ter sido atendida.
+
+3.1. Cadastro de endpoint e mountpoint no ADS.
+O cadastro de endpoint e mountpoint devem seguir a seguinte nomenclatura para o correto funcionamento da esteira:
+
+Compartilhamento ISILON:
 NFS_ENDPOINT_ISILON
-nfsctcnprd.ctc.caixa:/ifs/CADSVISISD4/SERVIDORES/CEPTIBR/SIEXC
-NFS_ENDPOINT_ISILON_2
-nfsctcnprd.ctc.caixa:/ifs/CADSVISISD4/SERVIDORES/CEPTISP/SIISF
-NFS_ENDPOINT_ISILON_3
-nfsctcnprd.ctc.caixa:/ifs/CADSVISISD4/SERVIDORES/CETAD/SIAPC
-NFS_ENDPOINT_ISILON_4
-10.116.88.160:/export/sigdb/sicql
-NFS_ENDPOINT_ISILON_5
-10.116.88.160:/export/sigdb/sitec
-NFS_ENDPOINT_ISILON_6
-10.116.88.160:/export/sicql_bovespa
-NFS_ENDPOINT_ISILON_7
-10.116.88.160:/export/upload_prd
 NFS_MOUNT_POINT_ISILON
-/integracoes/SIEXC
-NFS_MOUNT_POINT_ISILON_2
-/integracoes/SIISF
-NFS_MOUNT_POINT_ISILON_3
-/integracoes/SIAPC
-NFS_MOUNT_POINT_ISILON_4
-/opt/sigdb
-NFS_MOUNT_POINT_ISILON_5
-/opt/sigdb/sitec
-NFS_MOUNT_POINT_ISILON_6
-/opt/jboss/bovespa
-NFS_MOUNT_POINT_ISILON_7
-/upload
-URL_GESTOR
-https://siexc-web-aplicacao.esteiras.des.caixa/swifter-webapp
-SIEXC-web-aplicacao-tqs (19)
-Scopes: EC TQS
-TERRAFORM-ESTEIRA-PRD-CTC-NPCN (15)
-Variáveis do terraform para automação de ambientes TERRAFORM_VSPHERE_POOL - RP_ESTEIRAS_AGEIS_NPCN_CTC_V7 13/03/2025
-Scopes: EC PRD CTC
-TERRAFORM-ESTEIRA-PRD-DTC-PCN (15)
-Variáveis do terraform para automação de ambientes
-Scopes: EC PRD DTC
-|Manage variable groups
-Row 2. Clickable
+Segue abaixo um exemplo de cadastro no ADS:
+image.png
 
-Showing 5 filtered items.
+Caso exista mais de um compartilhamento basta seguir a nomenclatura acima e acrescentar um número na variável, Ex: NFS_ENDPOINT_ISILON_2, NFS_ENDPOINT_ISILON_2, NFS_MOUNT_POINT_ISILON_3, NFS_MOUNT_POINT_ISILON_3, NFS_ENDPOINT_VM_2,NFS_MOUNT_POINT_VM_2.
 
-Get started and run this pipeline for the first time!
+Compartilhamento VM:
 
-1 pipelines found
+NFS_ENDPOINT_VM
+NFS_MOUNT_POINT_VM
+Segue abaixo um exemplo de cadastro no ADS:
+image.png
+Nomenclatura para servidores VM -> h6007v020.ad.caixa:/
 
-Row 2
+4. Linkar Variable Groups Compartilhamentos.
+compatilhamento.png
 
-Row 2
+86 visits in last 30 days
+Marcio Correia de Oliveira
+commented 12 de mar. de 2024
 
-Row 2
+O texto ficou dificíl de entender não tem um passo a passo, e confuso. Se puderem reescrever de forma sequencial.
+Exemplo:
 
-Showing filters 1 through 2
+1 - Solicitar criação da VM via infra devops
+2- Solicitar a criação do servidor NFS.
+3- Solicitar a criação do compartilhamento NFS.
 
 
+👍7
 
+Collapsed
 
-2026-07-20T14:31:12.6854144Z ##[debug]Evaluating condition for step: 'Deploy Config no JBOSS'
-2026-07-20T14:31:12.6854574Z ##[debug]Evaluating: succeeded()
-2026-07-20T14:31:12.6854729Z ##[debug]Evaluating succeeded:
-2026-07-20T14:31:12.6854976Z ##[debug]=> True
-2026-07-20T14:31:12.6855173Z ##[debug]Result: True
-2026-07-20T14:31:12.6855376Z ##[section]Starting: Deploy Config no JBOSS
-2026-07-20T14:31:12.6858338Z ==============================================================================
-2026-07-20T14:31:12.6858419Z Task         : Bash
-2026-07-20T14:31:12.6858463Z Description  : Run a Bash script on macOS, Linux, or Windows
-2026-07-20T14:31:12.6858525Z Version      : 3.227.0
-2026-07-20T14:31:12.6858578Z Author       : Microsoft Corporation
-2026-07-20T14:31:12.6858628Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/bash
-2026-07-20T14:31:12.6858709Z ==============================================================================
-2026-07-20T14:31:13.5768258Z ##[debug]Using node path: /opt/ads-agent/externals/node16/bin/node
-2026-07-20T14:31:13.6493372Z ##[debug]agent.TempDirectory=/opt/ads-agent/_work/_temp
-2026-07-20T14:31:13.6500993Z ##[debug]loading inputs and endpoints
-2026-07-20T14:31:13.6504228Z ##[debug]loading INPUT_TARGETTYPE
-2026-07-20T14:31:13.6512148Z ##[debug]loading INPUT_FILEPATH
-2026-07-20T14:31:13.6520316Z ##[debug]loading INPUT_SCRIPT
-2026-07-20T14:31:13.6520767Z ##[debug]loading INPUT_WORKINGDIRECTORY
-2026-07-20T14:31:13.6521081Z ##[debug]loading INPUT_FAILONSTDERR
-2026-07-20T14:31:13.6521411Z ##[debug]loading ENDPOINT_AUTH_SYSTEMVSSCONNECTION
-2026-07-20T14:31:13.6521760Z ##[debug]loading ENDPOINT_AUTH_SCHEME_SYSTEMVSSCONNECTION
-2026-07-20T14:31:13.6522128Z ##[debug]loading ENDPOINT_AUTH_PARAMETER_SYSTEMVSSCONNECTION_ACCESSTOKEN
-2026-07-20T14:31:13.6523257Z ##[debug]loading SECRET_TOKEN_INFRAFACIL_MUDANCA
-2026-07-20T14:31:13.6524866Z ##[debug]loading SECRET_PW_ISILON
-2026-07-20T14:31:13.6526333Z ##[debug]loading SECRET_FORTIFY_PASS
-2026-07-20T14:31:13.6528195Z ##[debug]loading SECRET_TOKEN_CRQ
-2026-07-20T14:31:13.6531057Z ##[debug]loading SECRET_ANSIBLE_VAULT
-2026-07-20T14:31:13.6531570Z ##[debug]loading SECRET_OKD_TOKEN_PRODUTOS
-2026-07-20T14:31:13.6532338Z ##[debug]loading SECRET_PW_ALOCAIP
-2026-07-20T14:31:13.6532964Z ##[debug]loading SECRET_AZPAT
-2026-07-20T14:31:13.6533598Z ##[debug]loading SECRET_ARM_ACCESS_KEY
-2026-07-20T14:31:13.6534131Z ##[debug]loading SECRET_OKD_TOKEN_KAFKA
-2026-07-20T14:31:13.6534706Z ##[debug]loading SECRET_BT_SECRETS_PATH
-2026-07-20T14:31:13.6535953Z ##[debug]loading SECRET_GRAYLOG_PASSWORD
-2026-07-20T14:31:13.6536488Z ##[debug]loading SECRET_FORTIFY_APITOKEN
-2026-07-20T14:31:13.6537119Z ##[debug]loading SECRET_TERRAFORM_ESX_PASSWORD
-2026-07-20T14:31:13.6538326Z ##[debug]loaded 22
-2026-07-20T14:31:13.6542942Z ##[debug]Agent.ProxyUrl=undefined
-2026-07-20T14:31:13.6543199Z ##[debug]Agent.CAInfo=undefined
-2026-07-20T14:31:13.6543427Z ##[debug]Agent.ClientCert=undefined
-2026-07-20T14:31:13.6543747Z ##[debug]Agent.SkipCertValidation=True
-2026-07-20T14:31:13.6559182Z ##[debug]check path : /opt/ads-agent/_work/_tasks/Bash_6c731c3c-3c68-459a-a5c9-bde6e6595b5b/3.227.0/task.json
-2026-07-20T14:31:13.6561237Z ##[debug]adding resource file: /opt/ads-agent/_work/_tasks/Bash_6c731c3c-3c68-459a-a5c9-bde6e6595b5b/3.227.0/task.json
-2026-07-20T14:31:13.6561526Z ##[debug]system.culture=en-US
-2026-07-20T14:31:13.6570735Z ##[debug]failOnStderr=false
-2026-07-20T14:31:13.6581018Z ##[debug]workingDirectory=/opt/ads-agent/_work/r12350/a
-2026-07-20T14:31:13.6581315Z ##[debug]check path : /opt/ads-agent/_work/r12350/a
-2026-07-20T14:31:13.6581554Z ##[debug]targetType=inline
-2026-07-20T14:31:13.6581791Z ##[debug]bashEnvValue=undefined
-2026-07-20T14:31:13.6582468Z ##[debug]script=REPO=$(echo _SIEXC-web-aplicacao | sed 's/_//')
-ansible-playbook /opt/ads-agent/_work/r12350/a/esteira-jboss-vm-v2/site.yml --tags git_conf -e sistema_ambiente=des -e sistema_nome=siexc-web-aplicacao -e default_working_directory_tfs=/opt/ads-agent/_work/r12350/a -e build_repository_name_tfs=$REPO -e quantidade_vm=$(quantidade_vm) -e package_path=/opt/ads-agent/_work/r12350/a/binario/`basename http://binario.caixa:8081/repository/thirdparty/br/com/caixa/siexc/siexc-web-aplicacao/1.1.10/siexc-web-aplicacao-1.1.10.ear` -e use_wmq=$(USE_WMQ) -e jks_file=/opt/ads-agent/_work/_temp/caixa-truststore-acteste-nprd.jks -e site=ctc_nprd -e url_deploy="`echo "http://binario.caixa:8081/repository/thirdparty/br/com/caixa/siexc/siexc-web-aplicacao/1.1.10/siexc-web-aplicacao-1.1.10.ear" | tr -d "\'"`"
-2026-07-20T14:31:13.6583255Z Generating script.
-2026-07-20T14:31:13.6584260Z ##[debug]which 'bash'
-2026-07-20T14:31:13.6590247Z ##[debug]found: '/bin/bash'
-2026-07-20T14:31:13.6591000Z ##[debug]Agent.Version=3.225.2
-2026-07-20T14:31:13.6591456Z ##[debug]agent.tempDirectory=/opt/ads-agent/_work/_temp
-2026-07-20T14:31:13.6591723Z ##[debug]check path : /opt/ads-agent/_work/_temp
-2026-07-20T14:31:13.6593347Z ========================== Starting Command Output ===========================
-2026-07-20T14:31:13.6594425Z ##[debug]which '/bin/bash'
-2026-07-20T14:31:13.6595082Z ##[debug]found: '/bin/bash'
-2026-07-20T14:31:13.6595837Z ##[debug]/bin/bash arg: /opt/ads-agent/_work/_temp/9acea63b-7d57-4c17-aece-912515928933.sh
-2026-07-20T14:31:13.6598384Z ##[debug]exec tool: /bin/bash
-2026-07-20T14:31:13.6598606Z ##[debug]arguments:
-2026-07-20T14:31:13.6598860Z ##[debug]   /opt/ads-agent/_work/_temp/9acea63b-7d57-4c17-aece-912515928933.sh
-2026-07-20T14:31:13.6600766Z [command]/bin/bash /opt/ads-agent/_work/_temp/9acea63b-7d57-4c17-aece-912515928933.sh
-2026-07-20T14:31:13.6689023Z /opt/ads-agent/_work/_temp/9acea63b-7d57-4c17-aece-912515928933.sh: line 2: quantidade_vm: comando não encontrado
-2026-07-20T14:31:13.6704138Z /opt/ads-agent/_work/_temp/9acea63b-7d57-4c17-aece-912515928933.sh: line 2: USE_WMQ: comando não encontrado
-2026-07-20T14:31:15.9037755Z 
-2026-07-20T14:31:15.9038363Z PLAY [local] *******************************************************************
-2026-07-20T14:31:15.9338659Z 
-2026-07-20T14:31:15.9339258Z PLAY [Configurando o DNS] ******************************************************
-2026-07-20T14:31:16.1312287Z 
-2026-07-20T14:31:16.1312793Z PLAY [local] *******************************************************************
-2026-07-20T14:31:16.1347712Z 
-2026-07-20T14:31:16.1348266Z PLAY [Verificando serviços] ****************************************************
-2026-07-20T14:31:16.1432113Z 
-2026-07-20T14:31:16.1433126Z PLAY [Configuração LDAP] *******************************************************
-2026-07-20T14:31:16.1463667Z [WARNING]: Found variable using reserved name: when
-2026-07-20T14:31:16.1470154Z 
-2026-07-20T14:31:16.1470309Z PLAY [jboss] *******************************************************************
-2026-07-20T14:31:16.1564303Z 
-2026-07-20T14:31:16.1564888Z PLAY [Stack Jboss] *************************************************************
-2026-07-20T14:31:16.1831967Z Monday 20 July 2026  11:31:16 -0300 (0:00:00.348)       0:00:00.348 *********** 
-2026-07-20T14:31:16.6989634Z 
-2026-07-20T14:31:16.6990711Z TASK [Verifica ser o Jboss já foi instalado] ***********************************
-2026-07-20T14:31:16.6990953Z ok: [caddeapllx2193.agil.nprd.caixa.gov.br]
-2026-07-20T14:31:16.6991323Z [DEPRECATION WARNING]: Distribution rhel 9.3 on host 
-2026-07-20T14:31:16.6991642Z caddeapllx2193.agil.nprd.caixa.gov.br should use /usr/libexec/platform-python, 
-2026-07-20T14:31:16.6991830Z but is using /usr/bin/python for backward compatibility with prior Ansible 
-2026-07-20T14:31:16.6992009Z releases. A future Ansible release will default to using the discovered 
-2026-07-20T14:31:16.6992171Z platform python for this host. See https://docs.ansible.com/ansible/2.9/referen
-2026-07-20T14:31:16.6992334Z ce_appendices/interpreter_discovery.html for more information. This feature 
-2026-07-20T14:31:16.6992493Z will be removed in version 2.12. Deprecation warnings can be disabled by 
-2026-07-20T14:31:16.6992640Z setting deprecation_warnings=False in ansible.cfg.
-2026-07-20T14:31:16.7000327Z 
-2026-07-20T14:31:16.7000496Z PLAY [jboss] *******************************************************************
-2026-07-20T14:31:16.7076240Z Monday 20 July 2026  11:31:16 -0300 (0:00:00.524)       0:00:00.873 *********** 
-2026-07-20T14:31:17.0738697Z 
-2026-07-20T14:31:17.0739329Z TASK [Verifica se o arquivo nfs_config.json existe] ****************************
-2026-07-20T14:31:17.0739497Z ok: [caddeapllx2193.agil.nprd.caixa.gov.br]
-2026-07-20T14:31:17.0781694Z Monday 20 July 2026  11:31:17 -0300 (0:00:00.370)       0:00:01.243 *********** 
-2026-07-20T14:31:17.1271658Z included: /opt/ads-agent/_work/r12350/a/esteira-jboss-vm-v2/roles/nfs/tasks/get_nfs.yml for caddeapllx2193.agil.nprd.caixa.gov.br
-2026-07-20T14:31:17.1323671Z Monday 20 July 2026  11:31:17 -0300 (0:00:00.053)       0:00:01.297 *********** 
-2026-07-20T14:31:17.1916276Z 
-2026-07-20T14:31:17.1917258Z TASK [nfs : Criar variáveis] ***************************************************
-2026-07-20T14:31:17.1917470Z ok: [caddeapllx2193.agil.nprd.caixa.gov.br]
-2026-07-20T14:31:17.1970854Z Monday 20 July 2026  11:31:17 -0300 (0:00:00.064)       0:00:01.362 *********** 
-2026-07-20T14:31:17.6672281Z 
-2026-07-20T14:31:17.6672935Z TASK [nfs : Coletar variáveis de ambiente] *************************************
-2026-07-20T14:31:17.6673127Z ok: [caddeapllx2193.agil.nprd.caixa.gov.br]
-2026-07-20T14:31:17.6711947Z Monday 20 July 2026  11:31:17 -0300 (0:00:00.474)       0:00:01.836 *********** 
-2026-07-20T14:31:17.7301529Z 
-2026-07-20T14:31:17.7302472Z TASK [nfs : Exibir resultado em JSON] ******************************************
-2026-07-20T14:31:17.7306165Z ok: [caddeapllx2193.agil.nprd.caixa.gov.br] => {
-2026-07-20T14:31:17.7306307Z     "nfs_vars_json": {
-2026-07-20T14:31:17.7306434Z         "changed": false, 
-2026-07-20T14:31:17.7306758Z         "cmd": "cat /opt/ads-agent/_work/r12350/a/nfs_config.json", 
-2026-07-20T14:31:17.7306912Z         "delta": "0:00:00.006320", 
-2026-07-20T14:31:17.7307089Z         "end": "2026-07-20 11:31:17.649840", 
-2026-07-20T14:31:17.7307209Z         "failed": false, 
-2026-07-20T14:31:17.7307310Z         "rc": 0, 
-2026-07-20T14:31:17.7307516Z         "start": "2026-07-20 11:31:17.643520", 
-2026-07-20T14:31:17.7307668Z         "stderr": "", 
-2026-07-20T14:31:17.7307784Z         "stderr_lines": [], 
-2026-07-20T14:31:17.7308291Z         "stdout": "[{\"NFS_ENDPOINT_ISILON\": \"nfsctcnprd.ctc.caixa:/ifs/CADSVISISD4/SERVIDORES/CEPTIBR/SIEXC\",\"NFS_MOUNT_POINT_ISILON\": \"/integracoes/SIEXC\"},{\"NFS_ENDPOINT_ISILON_3\": \"nfsctcnprd.ctc.caixa:/ifs/CADSVISISD4/SERVIDORES/CETAD/SIAPC\",\"NFS_MOUNT_POINT_ISILON_3\": \"/integracoes/SIAPC\"},{\"NFS_ENDPOINT_ISILON_2\": \"nfsctcnprd.ctc.caixa:/ifs/CADSVISISD4/SERVIDORES/CEPTISP/SIISF\",\"NFS_MOUNT_POINT_ISILON_2\": \"/integracoes/SIISF\"},{\"NFS_ENDPOINT_ISILON_5\": \"10.116.88.160:/export/sigdb/sitec\",\"NFS_MOUNT_POINT_ISILON_5\": \"/opt/sigdb/sitec\"},{\"NFS_ENDPOINT_ISILON_4\": \"10.116.88.160:/export/sigdb/sicql\",\"NFS_MOUNT_POINT_ISILON_4\": \"/opt/sigdb\"},{\"NFS_ENDPOINT_ISILON_7\": \"10.116.88.160:/export/upload_prd\",\"NFS_MOUNT_POINT_ISILON_7\": \"/upload\"},{\"NFS_ENDPOINT_ISILON_6\": \"10.116.88.160:/export/sicql_bovespa\",\"NFS_MOUNT_POINT_ISILON_6\": \"/opt/jboss/bovespa\"}]", 
-2026-07-20T14:31:17.7309082Z         "stdout_lines": [
-2026-07-20T14:31:17.7309664Z             "[{\"NFS_ENDPOINT_ISILON\": \"nfsctcnprd.ctc.caixa:/ifs/CADSVISISD4/SERVIDORES/CEPTIBR/SIEXC\",\"NFS_MOUNT_POINT_ISILON\": \"/integracoes/SIEXC\"},{\"NFS_ENDPOINT_ISILON_3\": \"nfsctcnprd.ctc.caixa:/ifs/CADSVISISD4/SERVIDORES/CETAD/SIAPC\",\"NFS_MOUNT_POINT_ISILON_3\": \"/integracoes/SIAPC\"},{\"NFS_ENDPOINT_ISILON_2\": \"nfsctcnprd.ctc.caixa:/ifs/CADSVISISD4/SERVIDORES/CEPTISP/SIISF\",\"NFS_MOUNT_POINT_ISILON_2\": \"/integracoes/SIISF\"},{\"NFS_ENDPOINT_ISILON_5\": \"10.116.88.160:/export/sigdb/sitec\",\"NFS_MOUNT_POINT_ISILON_5\": \"/opt/sigdb/sitec\"},{\"NFS_ENDPOINT_ISILON_4\": \"10.116.88.160:/export/sigdb/sicql\",\"NFS_MOUNT_POINT_ISILON_4\": \"/opt/sigdb\"},{\"NFS_ENDPOINT_ISILON_7\": \"10.116.88.160:/export/upload_prd\",\"NFS_MOUNT_POINT_ISILON_7\": \"/upload\"},{\"NFS_ENDPOINT_ISILON_6\": \"10.116.88.160:/export/sicql_bovespa\",\"NFS_MOUNT_POINT_ISILON_6\": \"/opt/jboss/bovespa\"}]"
-2026-07-20T14:31:17.7310224Z         ]
-2026-07-20T14:31:17.7310319Z     }
-2026-07-20T14:31:17.7310403Z }
-2026-07-20T14:31:17.7342745Z Monday 20 July 2026  11:31:17 -0300 (0:00:00.063)       0:00:01.899 *********** 
-2026-07-20T14:31:17.7956120Z 
-2026-07-20T14:31:17.7956869Z TASK [nfs : Criar variáveis] ***************************************************
-2026-07-20T14:31:17.7957119Z ok: [caddeapllx2193.agil.nprd.caixa.gov.br]
-2026-07-20T14:31:17.8008309Z Monday 20 July 2026  11:31:17 -0300 (0:00:00.066)       0:00:01.966 *********** 
-2026-07-20T14:31:23.9203126Z 
-2026-07-20T14:31:23.9203921Z TASK [nfs : execute montagem script] *******************************************
-2026-07-20T14:31:23.9213258Z fatal: [caddeapllx2193.agil.nprd.caixa.gov.br]: FAILED! => {"changed": true, "cmd": ["python", "/opt/ads-agent/_work/r12350/a/esteira-jboss-vm-v2/roles/nfs/files/nfs.py", "montagem", "siexc-web-aplicacao", "des", "ctc_nprd", "/opt/ads-agent/_work/r12350/a/esteira-jboss-vm-v2", "C&t@d02", "***", "s736651@corp.caixa.gov.br", "***", "[{\"NFS_ENDPOINT_ISILON\": \"nfsctcnprd.ctc.caixa:/ifs/CADSVISISD4/SERVIDORES/CEPTIBR/SIEXC\",\"NFS_MOUNT_POINT_ISILON\": \"/integracoes/SIEXC\"},{\"NFS_ENDPOINT_ISILON_3\": \"nfsctcnprd.ctc.caixa:/ifs/CADSVISISD4/SERVIDORES/CETAD/SIAPC\",\"NFS_MOUNT_POINT_ISILON_3\": \"/integracoes/SIAPC\"},{\"NFS_ENDPOINT_ISILON_2\": \"nfsctcnprd.ctc.caixa:/ifs/CADSVISISD4/SERVIDORES/CEPTISP/SIISF\",\"NFS_MOUNT_POINT_ISILON_2\": \"/integracoes/SIISF\"},{\"NFS_ENDPOINT_ISILON_5\": \"10.116.88.160:/export/sigdb/sitec\",\"NFS_MOUNT_POINT_ISILON_5\": \"/opt/sigdb/sitec\"},{\"NFS_ENDPOINT_ISILON_4\": \"10.116.88.160:/export/sigdb/sicql\",\"NFS_MOUNT_POINT_ISILON_4\": \"/opt/sigdb\"},{\"NFS_ENDPOINT_ISILON_7\": \"10.116.88.160:/export/upload_prd\",\"NFS_MOUNT_POINT_ISILON_7\": \"/upload\"},{\"NFS_ENDPOINT_ISILON_6\": \"10.116.88.160:/export/sicql_bovespa\",\"NFS_MOUNT_POINT_ISILON_6\": \"/opt/jboss/bovespa\"}]"], "delta": "0:00:05.762951", "end": "2026-07-20 11:31:23.902406", "msg": "non-zero return code", "rc": 1, "start": "2026-07-20 11:31:18.139455", "stderr": "Traceback (most recent call last):\n  File \"/opt/ads-agent/_work/r12350/a/esteira-jboss-vm-v2/roles/nfs/files/nfs.py\", line 465, in <module>\n    mount(nfs_endpoints,nfs_mount_points)\n  File \"/opt/ads-agent/_work/r12350/a/esteira-jboss-vm-v2/roles/nfs/files/nfs.py\", line 328, in mount\n    configuracao_nfs, nfs_id = getConfiguracao(zona, endpoint)\n  File \"/opt/ads-agent/_work/r12350/a/esteira-jboss-vm-v2/roles/nfs/files/nfs.py\", line 384, in getConfiguracao\n    nfs_export_id = getExportId(zone,path)\n  File \"/opt/ads-agent/_work/r12350/a/esteira-jboss-vm-v2/roles/nfs/files/nfs.py\", line 381, in getExportId\n    return api_response_id.exports[0].id\nIndexError: list index out of range", "stderr_lines": ["Traceback (most recent call last):", "  File \"/opt/ads-agent/_work/r12350/a/esteira-jboss-vm-v2/roles/nfs/files/nfs.py\", line 465, in <module>", "    mount(nfs_endpoints,nfs_mount_points)", "  File \"/opt/ads-agent/_work/r12350/a/esteira-jboss-vm-v2/roles/nfs/files/nfs.py\", line 328, in mount", "    configuracao_nfs, nfs_id = getConfiguracao(zona, endpoint)", "  File \"/opt/ads-agent/_work/r12350/a/esteira-jboss-vm-v2/roles/nfs/files/nfs.py\", line 384, in getConfiguracao", "    nfs_export_id = getExportId(zone,path)", "  File \"/opt/ads-agent/_work/r12350/a/esteira-jboss-vm-v2/roles/nfs/files/nfs.py\", line 381, in getExportId", "    return api_response_id.exports[0].id", "IndexError: list index out of range"], "stdout": "[{u'NFS_MOUNT_POINT_ISILON': u'/integracoes/SIEXC', u'NFS_ENDPOINT_ISILON': u'nfsctcnprd.ctc.caixa:/ifs/CADSVISISD4/SERVIDORES/CEPTIBR/SIEXC'}, {u'NFS_MOUNT_POINT_ISILON_3': u'/integracoes/SIAPC', u'NFS_ENDPOINT_ISILON_3': u'nfsctcnprd.ctc.caixa:/ifs/CADSVISISD4/SERVIDORES/CETAD/SIAPC'}, {u'NFS_MOUNT_POINT_ISILON_2': u'/integracoes/SIISF', u'NFS_ENDPOINT_ISILON_2': u'nfsctcnprd.ctc.caixa:/ifs/CADSVISISD4/SERVIDORES/CEPTISP/SIISF'}, {u'NFS_ENDPOINT_ISILON_5': u'10.116.88.160:/export/sigdb/sitec', u'NFS_MOUNT_POINT_ISILON_5': u'/opt/sigdb/sitec'}, {u'NFS_ENDPOINT_ISILON_4': u'10.116.88.160:/export/sigdb/sicql', u'NFS_MOUNT_POINT_ISILON_4': u'/opt/sigdb'}, {u'NFS_ENDPOINT_ISILON_7': u'10.116.88.160:/export/upload_prd', u'NFS_MOUNT_POINT_ISILON_7': u'/upload'}, {u'NFS_ENDPOINT_ISILON_6': u'10.116.88.160:/export/sicql_bovespa', u'NFS_MOUNT_POINT_ISILON_6': u'/opt/jboss/bovespa'}]\nNome                                Endpoint                            Mountpoint                          Tipo                                Ip                                  Ambiente                           \n------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\nnfsctcnprd.ctc.caixa                /ifs/CADSVISISD4/SERVIDORES/CEPTIBR/SIEXC /integracoes/SIAPC                  ISILON                              nfsctcnprd.ctc.caixa                des                                \nnfs_path=/integracoes/SIAPC\nnfs_src=nfsctcnprd.ctc.caixa:/ifs/CADSVISISD4/SERVIDORES/CEPTIBR/SIEXC\nnfsctcnprd.ctc.caixa                /ifs/CADSVISISD4/SERVIDORES/CEPTIBR/SIEXC /integracoes/SIAPC                  ISILON                              nfsctcnprd.ctc.caixa                des                                \nnfsctcnprd.ctc.caixa                /ifs/CADSVISISD4/SERVIDORES/CEPTISP/SIISF /upload                             ISILON                              nfsctcnprd.ctc.caixa                des                                \nnfs_path=/upload\nnfs_src=nfsctcnprd.ctc.caixa:/ifs/CADSVISISD4/SERVIDORES/CEPTISP/SIISF\nnfsctcnprd.ctc.caixa                /ifs/CADSVISISD4/SERVIDORES/CEPTISP/SIISF /upload                             ISILON                              nfsctcnprd.ctc.caixa                des                                \nnfsctcnprd.ctc.caixa                /ifs/CADSVISISD4/SERVIDORES/CETAD/SIAPC /integracoes/SIISF                  ISILON                              nfsctcnprd.ctc.caixa                des                                \nnfs_path=/integracoes/SIISF\nnfs_src=nfsctcnprd.ctc.caixa:/ifs/CADSVISISD4/SERVIDORES/CETAD/SIAPC\nnfsctcnprd.ctc.caixa                /ifs/CADSVISISD4/SERVIDORES/CETAD/SIAPC /integracoes/SIISF                  ISILON                              nfsctcnprd.ctc.caixa                des                                \n10.116.88.160                       /export/sigdb/sicql                 /integracoes/SIEXC                  ISILON                              10.116.88.160                       des                                ", "stdout_lines": ["[{u'NFS_MOUNT_POINT_ISILON': u'/integracoes/SIEXC', u'NFS_ENDPOINT_ISILON': u'nfsctcnprd.ctc.caixa:/ifs/CADSVISISD4/SERVIDORES/CEPTIBR/SIEXC'}, {u'NFS_MOUNT_POINT_ISILON_3': u'/integracoes/SIAPC', u'NFS_ENDPOINT_ISILON_3': u'nfsctcnprd.ctc.caixa:/ifs/CADSVISISD4/SERVIDORES/CETAD/SIAPC'}, {u'NFS_MOUNT_POINT_ISILON_2': u'/integracoes/SIISF', u'NFS_ENDPOINT_ISILON_2': u'nfsctcnprd.ctc.caixa:/ifs/CADSVISISD4/SERVIDORES/CEPTISP/SIISF'}, {u'NFS_ENDPOINT_ISILON_5': u'10.116.88.160:/export/sigdb/sitec', u'NFS_MOUNT_POINT_ISILON_5': u'/opt/sigdb/sitec'}, {u'NFS_ENDPOINT_ISILON_4': u'10.116.88.160:/export/sigdb/sicql', u'NFS_MOUNT_POINT_ISILON_4': u'/opt/sigdb'}, {u'NFS_ENDPOINT_ISILON_7': u'10.116.88.160:/export/upload_prd', u'NFS_MOUNT_POINT_ISILON_7': u'/upload'}, {u'NFS_ENDPOINT_ISILON_6': u'10.116.88.160:/export/sicql_bovespa', u'NFS_MOUNT_POINT_ISILON_6': u'/opt/jboss/bovespa'}]", "Nome                                Endpoint                            Mountpoint                          Tipo                                Ip                                  Ambiente                           ", "------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------", "nfsctcnprd.ctc.caixa                /ifs/CADSVISISD4/SERVIDORES/CEPTIBR/SIEXC /integracoes/SIAPC                  ISILON                              nfsctcnprd.ctc.caixa                des                                ", "nfs_path=/integracoes/SIAPC", "nfs_src=nfsctcnprd.ctc.caixa:/ifs/CADSVISISD4/SERVIDORES/CEPTIBR/SIEXC", "nfsctcnprd.ctc.caixa                /ifs/CADSVISISD4/SERVIDORES/CEPTIBR/SIEXC /integracoes/SIAPC                  ISILON                              nfsctcnprd.ctc.caixa                des                                ", "nfsctcnprd.ctc.caixa                /ifs/CADSVISISD4/SERVIDORES/CEPTISP/SIISF /upload                             ISILON                              nfsctcnprd.ctc.caixa                des                                ", "nfs_path=/upload", "nfs_src=nfsctcnprd.ctc.caixa:/ifs/CADSVISISD4/SERVIDORES/CEPTISP/SIISF", "nfsctcnprd.ctc.caixa                /ifs/CADSVISISD4/SERVIDORES/CEPTISP/SIISF /upload                             ISILON                              nfsctcnprd.ctc.caixa                des                                ", "nfsctcnprd.ctc.caixa                /ifs/CADSVISISD4/SERVIDORES/CETAD/SIAPC /integracoes/SIISF                  ISILON                              nfsctcnprd.ctc.caixa                des                                ", "nfs_path=/integracoes/SIISF", "nfs_src=nfsctcnprd.ctc.caixa:/ifs/CADSVISISD4/SERVIDORES/CETAD/SIAPC", "nfsctcnprd.ctc.caixa                /ifs/CADSVISISD4/SERVIDORES/CETAD/SIAPC /integracoes/SIISF                  ISILON                              nfsctcnprd.ctc.caixa                des                                ", "10.116.88.160                       /export/sigdb/sicql                 /integracoes/SIEXC                  ISILON                              10.116.88.160                       des                                "]}
-2026-07-20T14:31:23.9217228Z 
-2026-07-20T14:31:23.9217392Z PLAY RECAP *********************************************************************
-2026-07-20T14:31:23.9217577Z caddeapllx2193.agil.nprd.caixa.gov.br : ok=7    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
-2026-07-20T14:31:23.9217668Z 
-2026-07-20T14:31:23.9217895Z Monday 20 July 2026  11:31:23 -0300 (0:00:06.120)       0:00:08.086 *********** 
-2026-07-20T14:31:23.9218070Z =============================================================================== 
-2026-07-20T14:31:23.9218295Z nfs : execute montagem script ------------------------------------------- 6.12s
-2026-07-20T14:31:23.9218579Z Verifica ser o Jboss já foi instalado ----------------------------------- 0.52s
-2026-07-20T14:31:23.9218888Z nfs : Coletar variáveis de ambiente ------------------------------------- 0.47s
-2026-07-20T14:31:23.9219731Z Verifica se o arquivo nfs_config.json existe ---------------------------- 0.37s
-2026-07-20T14:31:23.9219963Z nfs : Criar variáveis --------------------------------------------------- 0.07s
-2026-07-20T14:31:23.9220180Z nfs : Criar variáveis --------------------------------------------------- 0.06s
-2026-07-20T14:31:23.9220402Z nfs : Exibir resultado em JSON ------------------------------------------ 0.06s
-2026-07-20T14:31:23.9220624Z nfs : include_tasks ----------------------------------------------------- 0.05s
-2026-07-20T14:31:23.9220777Z Playbook run took 0 days, 0 hours, 0 minutes, 8 seconds
-2026-07-20T14:31:23.9804264Z ##[debug]Exit code 2 received from tool '/bin/bash'
-2026-07-20T14:31:23.9809884Z ##[debug]STDIO streams have closed for tool '/bin/bash'
-2026-07-20T14:31:23.9851529Z ##[error]Bash exited with code '2'.
-2026-07-20T14:31:23.9852046Z ##[debug]Processed: ##vso[task.issue type=error;]Bash exited with code '2'.
-2026-07-20T14:31:23.9852480Z ##[debug]task result: Failed
-2026-07-20T14:31:23.9853656Z ##[debug]Processed: ##vso[task.complete result=Failed;done=true;]
-2026-07-20T14:31:23.9854625Z ##[section]Finishing: Deploy Config no JBOSS
+Expanded
 
+Showing filters 1 through 6
 
+Showing filters 1 through 6
 
-Warning: Permanently added '10.116.199.181' (ED25519) to the list of known hosts.
-p585600@10.116.199.181's password:
-[p585600@caddeapllx2193 ~]$
-[p585600@caddeapllx2193 ~]$
-[p585600@caddeapllx2193 ~]$
-[p585600@caddeapllx2193 ~]$
-[p585600@caddeapllx2193 ~]$
-[p585600@caddeapllx2193 ~]$
-[p585600@caddeapllx2193 ~]$
-[p585600@caddeapllx2193 ~]$
-[p585600@caddeapllx2193 ~]$
-[p585600@caddeapllx2193 ~]$
-[p585600@caddeapllx2193 ~]$
-[p585600@caddeapllx2193 ~]$ ps -ef | grep jboss
-root      578967       1  0 jul16 ?        00:00:00 runuser jboss -c LAUNCH_JBOSS_IN_BACKGROUND=1 JBOSS_PIDFILE=/opt/jboss-eap/standalone/tmp/jboss-eap-standalone.pid /opt/jboss-eap/bin/standalone.sh                -b 0.0.0.0                -bmanagement 0.0.0.0                -Djboss.server.base.dir=/opt/jboss-eap/standalone                -Djboss.server.log.dir=/logs/jboss/jboss-eap/standalone/siexc-web-aplicacao -c standalone-full-ha.xml
-jboss     578970  578967  0 jul16 ?        00:00:00 /bin/sh /opt/jboss-eap/bin/standalone.sh -b 0.0.0.0 -bmanagement 0.0.0.0 -Djboss.server.base.dir=/opt/jboss-eap/standalone -Djboss.server.log.dir=/logs/jboss/jboss-eap/standalone/siexc-web-aplicacao -c standalone-full-ha.xml
-jboss     579200  578970  0 jul16 ?        00:54:59 java -D[Standalone] -verbose:gc -Xloggc:/logs/jboss/jboss-eap/standalone/siexc-web-aplicacao/gc.log -XX:+PrintGCDetails -XX:+PrintGCDateStamps -XX:+UseGCLogFileRotation -XX:NumberOfGCLogFiles=5 -XX:GCLogFileSize=3M -XX:-TraceClassUnloading -Djdk.serialFilter=maxbytes=10485760;maxdepth=128;maxarray=100000;maxrefs=300000 -Xms4G -Xmx4G -XX:MetaspaceSize=512M -XX:MaxMetaspaceSize=1G -Djava.net.preferIPv4Stack=true -Duser.language=pt -Duser.country=BR -Duser.timezone=GMT -Dsinqia.azure.tenantId=Teste_tenantId -Dsinqia.azure.clientId=Teste_clientId -Dsinqia.azure.clientSecret=Teste_clientSecret -Dsinqia.azure.redirectUriSignIn=Teste_redirectUriSignIn -Dsinqia.azure.authorityUrl=Teste_authorityUrl -Dsinqia.azure.proxyUrl=Teste_proxyUrl -Dsinqia.azure.proxyPort=Teste_proxyPort -Dsinqia.azure.scope=openid,profile,email,offline_access -Xms4G -Xmx4G -XX:MetaspaceSize=512m -XX:MaxMetaspaceSize=1G -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs=org.jboss.byteman,org.jboss.logmanager -Djava.awt.headless=true -Djavax.net.ssl.trustStore=/opt/jboss-eap/standalone/configuration/caixa-truststore-acteste-nprd.jks -Djavax.net.ssl.trustStorePassword=changeit -Djboss.modules.policy-permissions=true -server -XX:+ExplicitGCInvokesConcurrent -XX:+UseG1GC -XX:MaxGCPauseMillis=500 -Xbootclasspath/a:/opt/jboss-eap/modules/system/layers/base/org/wildfly/common/main/wildfly-common-1.5.4.Final-redhat-00001.jar -Xbootclasspath/a:/opt/jboss-eap/modules/system/layers/base/org/jboss/logmanager/main/jboss-logmanager-2.1.18.Final-redhat-00001.jar -Dsun.util.logging.disableCallerCheck=true -Dcom.ibm.msg.client.commonservices.log.outputName=/opt/jboss-eap/standalone/log/mqjms.log -Djava.util.logging.manager=org.jboss.logmanager.LogManager -Dorg.jboss.boot.log.file=/logs/jboss/jboss-eap/standalone/siexc-web-aplicacao/server.log -Dlogging.configuration=file:/opt/jboss-eap/standalone/configuration/logging.properties -jar /opt/jboss-eap/jboss-modules.jar -mp /opt/jboss-eap/modules org.jboss.as.standalone -Djboss.home.dir=/opt/jboss-eap -Djboss.server.base.dir=/opt/jboss-eap/standalone -b 0.0.0.0 -bmanagement 0.0.0.0 -Djboss.server.base.dir=/opt/jboss-eap/standalone -Djboss.server.log.dir=/logs/jboss/jboss-eap/standalone/siexc-web-aplicacao -c standalone-full-ha.xml
-p585600   663521  663492  0 14:25 pts/0    00:00:00 grep --color=auto jboss
-[p585600@caddeapllx2193 ~]$
-[p585600@caddeapllx2193 ~]$
-[p585600@caddeapllx2193 ~]$
-[p585600@caddeapllx2193 ~]$
+Collapsed
 
+Expanded
 
+Showing filters 1 through 1
+
+683 results found
+
+79 results found
+
+7 results found
+
+Expanded
+
+Collapsed
