@@ -12177,6 +12177,3 @@
 2026-07-20T20:10:52.5216319Z 2026-07-20 17:10:14.748-03:00 WARN  c.a.m.o.e.i.q.QuickPulsePingSender - In the last 5 minutes, the following operation has failed 5 times (out of 5): Pinging live metrics endpoint:
 2026-07-20T20:10:52.5216555Z  * javax.net.ssl.SSLException: failure when writing TLS control frames (https://southcentralus.livediagnostics.monitor.azure.com/QuickPulseService.svc) (5 times)
 2026-07-20T20:10:52.5221359Z ##[section]Finishing: Logs da Aplicação
-
-
-
