@@ -1,4 +1,7 @@
-<img width="1746" height="927" alt="image" src="https://github.com/user-attachments/assets/c12b944a-36bc-46a5-b661-ce861b76f3c9" />
-
-
-nesse casdtro do portal do infra facil tem isso aqui
+IPs dos servidores de aplicação da esteira:
+DES: 10.116.199.181
+TQS: 10.116.201.141
+IPs de rede de backup:
+DES: 192.168.233.69
+TQS: 192.168.242.137
+Conforme o FREI original, é necessário liberar tanto os IPs de aplicação quanto os IPs de backup dos servidores acima para que a montagem seja efetiva.
