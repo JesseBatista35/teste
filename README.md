@@ -1,37 +1,64 @@
-2026-07-21T12:21:45.7872650Z ##[section]Starting: Git clone https://devops.caixa/projetos/Infraestrutura/_git/esteira-logs
-2026-07-21T12:21:45.7878279Z ==============================================================================
-2026-07-21T12:21:45.7878361Z Task         : Bash
-2026-07-21T12:21:45.7878411Z Description  : Run a Bash script on macOS, Linux, or Windows
-2026-07-21T12:21:45.7878527Z Version      : 3.227.0
-2026-07-21T12:21:45.7878573Z Author       : Microsoft Corporation
-2026-07-21T12:21:45.7878631Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/bash
-2026-07-21T12:21:45.7878881Z ==============================================================================
-2026-07-21T12:21:45.9782487Z Generating script.
-2026-07-21T12:21:45.9795824Z ========================== Starting Command Output ===========================
-2026-07-21T12:21:45.9803854Z [command]/usr/bin/bash /opt/ads-agent/_work/_temp/ef7d91d7-4ff2-459d-a772-4218a26256a3.sh
-2026-07-21T12:21:45.9968601Z Clonando o repositório...
-2026-07-21T12:21:45.9990555Z Cloning into 'esteira-logs'...
-2026-07-21T12:21:46.0772811Z mv: cannot move 'esteira-logs' to a subdirectory of itself, '/opt/ads-agent/esteira-logs/esteira-logs'
-2026-07-21T12:21:46.0773736Z Fazendo fetch da branch master...
-2026-07-21T12:21:46.1239156Z Mudando para a branch master...
-2026-07-21T12:21:46.1276564Z Already on 'master'
-2026-07-21T12:21:46.1278720Z Your branch is up to date with 'origin/master'.
-2026-07-21T12:21:46.1282134Z Hash: 
-2026-07-21T12:21:46.1299517Z 0dde411503b628b365adf425b64871df8d569d93
-2026-07-21T12:21:46.1301259Z Processo concluído.
-2026-07-21T12:21:46.1382769Z ##[section]Finishing: Git clone https://devops.caixa/projetos/Infraestrutura/_git/esteira-logs
+troquei o agent
+
+2026-07-21T12:25:20.0909312Z ##[section]Starting: Criando novo Projeto
+2026-07-21T12:25:20.0912690Z ==============================================================================
+2026-07-21T12:25:20.0912767Z Task         : Bash
+2026-07-21T12:25:20.0912843Z Description  : Run a Bash script on macOS, Linux, or Windows
+2026-07-21T12:25:20.0912907Z Version      : 3.227.0
+2026-07-21T12:25:20.0912949Z Author       : Microsoft Corporation
+2026-07-21T12:25:20.0913024Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/bash
+2026-07-21T12:25:20.0913094Z ==============================================================================
+2026-07-21T12:25:20.2126157Z Generating script.
+2026-07-21T12:25:20.2138771Z ========================== Starting Command Output ===========================
+2026-07-21T12:25:20.2146191Z [command]/usr/bin/bash /opt/ads-agent/_work/_temp/8e9f148d-a9d2-40fc-a3e4-6c3a861e6e66.sh
+2026-07-21T12:25:21.1001030Z NAME        DISPLAY NAME   STATUS
+2026-07-21T12:25:21.1001707Z sigfa-des                  Active
+2026-07-21T12:25:21.2392452Z namespace/sigfa-des not labeled
+2026-07-21T12:25:21.4398068Z namespace/sigfa-des not labeled
+2026-07-21T12:25:21.5885255Z namespace/sigfa-des not labeled
+2026-07-21T12:25:21.7256683Z netnamespace.network.openshift.io/sigfa-des not labeled
+2026-07-21T12:25:21.7338683Z ##[section]Finishing: Criando novo Projeto
 
 
-2026-07-21T12:21:46.1411109Z ##[section]Starting: Cria Streams Graylog
-2026-07-21T12:21:46.1416488Z ==============================================================================
-2026-07-21T12:21:46.1416620Z Task         : Python script
-2026-07-21T12:21:46.1416678Z Description  : Run a Python file or inline script
-2026-07-21T12:21:46.1416738Z Version      : 0.213.0
-2026-07-21T12:21:46.1416839Z Author       : Microsoft Corporation
-2026-07-21T12:21:46.1416900Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/python-script
-2026-07-21T12:21:46.1416979Z ==============================================================================
-2026-07-21T12:21:46.3344971Z [command]/usr/bin/python3 /opt/ads-agent/esteira-logs/full_streams.py ***
-2026-07-21T12:21:46.5790357Z URL BASE:  http://10.122.154.249:9000/api/streams
-2026-07-21T12:21:46.5790599Z Expecting value: line 1 column 1 (char 0)
-2026-07-21T12:21:46.5991836Z ##[error]The process '/usr/bin/python3' failed with exit code 2
-2026-07-21T12:21:46.6024305Z ##[section]Finishing: Cria Streams Graylog
+
+2026-07-21T12:25:21.7402917Z ##[section]Starting: Criando nova APP
+2026-07-21T12:25:21.7406030Z ==============================================================================
+2026-07-21T12:25:21.7406226Z Task         : Bash
+2026-07-21T12:25:21.7406272Z Description  : Run a Bash script on macOS, Linux, or Windows
+2026-07-21T12:25:21.7406346Z Version      : 3.227.0
+2026-07-21T12:25:21.7406388Z Author       : Microsoft Corporation
+2026-07-21T12:25:21.7406437Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/bash
+2026-07-21T12:25:21.7406504Z ==============================================================================
+2026-07-21T12:25:21.8543943Z Generating script.
+2026-07-21T12:25:21.8555230Z ========================== Starting Command Output ===========================
+2026-07-21T12:25:21.8568199Z [command]/usr/bin/bash /opt/ads-agent/_work/_temp/41f55cfc-cd0e-4e11-8895-2a80d62a1a1f.sh
+2026-07-21T12:25:21.8679024Z OKD4 NPRD - des, tqs ou hmp
+2026-07-21T12:25:21.9686659Z oc v3.11.0+0cbc58b
+2026-07-21T12:25:21.9687275Z kubernetes v1.11.0+d4cacc0
+2026-07-21T12:25:21.9688560Z features: Basic-Auth GSSAPI Kerberos SPNEGO
+2026-07-21T12:25:21.9800074Z 
+2026-07-21T12:25:21.9800875Z Server https://api.nprd.caixa:6443
+2026-07-21T12:25:21.9803413Z kubernetes v1.25.0-2824+27e744f55d2e99-dirty
+2026-07-21T12:25:22.1599950Z Essa aplicação já está criada.
+2026-07-21T12:25:22.3050051Z deploymentconfig.apps.openshift.io/sigfa-api-saldo-consolidado-des not patched
+2026-07-21T12:25:22.4353599Z scc "anyuid" added to groups: ["system:serviceaccounts:sigfa-des"]
+2026-07-21T12:25:22.4435462Z ##[section]Finishing: Criando nova APP
+
+2026-07-21T12:25:22.4454257Z ##[section]Starting: Atualizando Variáveis de Ambiente
+2026-07-21T12:25:22.4457490Z ==============================================================================
+2026-07-21T12:25:22.4457619Z Task         : Bash
+2026-07-21T12:25:22.4457675Z Description  : Run a Bash script on macOS, Linux, or Windows
+2026-07-21T12:25:22.4457782Z Version      : 3.227.0
+2026-07-21T12:25:22.4457836Z Author       : Microsoft Corporation
+2026-07-21T12:25:22.4457897Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/bash
+2026-07-21T12:25:22.4458022Z ==============================================================================
+2026-07-21T12:25:22.5622348Z Generating script.
+2026-07-21T12:25:22.5634303Z ========================== Starting Command Output ===========================
+2026-07-21T12:25:22.5642351Z [command]/usr/bin/bash /opt/ads-agent/_work/_temp/5a8cdae7-6ade-4422-9249-520517ff81ed.sh
+2026-07-21T12:25:22.5689084Z Nova APP: false
+2026-07-21T12:25:22.9703846Z error: one or more resources must be specified as <resource> <name> or <resource>/<name>
+2026-07-21T12:25:22.9704899Z See 'oc set env -h' for help and examples.
+2026-07-21T12:25:22.9769005Z ##[error]Bash exited with code '1'.
+2026-07-21T12:25:22.9780630Z ##[section]Finishing: Atualizando Variáveis de Ambiente
+
+
