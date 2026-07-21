@@ -1,9 +1,8 @@
-normalmente), então é só:
+<img width="1766" height="898" alt="image" src="https://github.com/user-attachments/assets/a4c7dc76-504e-419b-8743-d0c4ac0cc035" />
 
-Baixar o tarball do JDK 17 no seu PC:
-https://adoptium.net/temurin/releases/?version=17 → Linux, x64, .tar.gz
-Mandar direto via scp do seu PC pro servidor:
 
-bashscp OpenJDK17U-jdk_x64_linux_hotspot_17.0.13_11.tar.gz p585600@caddeapllx1369.agil.nprd.caixa.gov.br:/tmp/
-Isso é tudo. Sem Nexus, sem agente de build, sem burocracia — só um scp direto de ponta a ponta.
-Isso funciona no seu caso, ou o seu acesso ao caddeapllx1369 passa por algum jump host / bastion que não deixa scp de arquivo externo passar direto?
+
+<img width="1904" height="947" alt="image" src="https://github.com/user-attachments/assets/d38ab4b7-9028-49ca-83d7-817637db5464" />
+
+
+tem essas aqui
