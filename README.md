@@ -1,6 +1,6 @@
-<img width="875" height="697" alt="image" src="https://github.com/user-attachments/assets/be50a758-dddd-4961-afa2-23419c46d1ef" />
-
-
-REQ NUMERO: REQ000144970385.
-
-
+Prezados,
+Em análise à demanda referente à ausência de amostras da aplicação SIGFA-api-saldo-consolidado (módulos DES e TQS) no Application Insights (LDAI-Cambio-Investimentos-Merc-Capitais), foi verificado que a configuração das variáveis de ambiente do agente (APPLICATIONINSIGHTS_CONNECTION_STRING, versão do agente, InstrumentationKey e demais parâmetros) está corretamente vinculada, conforme padrão estabelecido no manual de configuração do Application Insights no Quarkus.
+Através da análise do log do agente diretamente no pod, foi identificado que a causa da ausência de telemetria não está relacionada à configuração da aplicação, mas sim a uma restrição de rede no proxy corporativo (proxydes.caixa), que está bloqueando explicitamente a comunicação com os endpoints do Azure Application Insights, conforme evidenciado pelo erro registrado:
+Forefront TMG denied the specified Uniform Resource Locator (URL), status 502 Proxy Error, ao tentar acessar os endpoints southcentralus-3.in.applicationinsights.azure.com e southcentralus.livediagnostics.monitor.azure.com.
+Diante disso, foi solicitada a liberação da regra de firewall no proxy para os ambientes DES e TQS através da REQ000144970385, contemplando os IPs de origem 10.116.220.79 (DES) e 10.116.220.87 (TQS), com destino aos endpoints do Application Insights, protocolo HTTPS na porta 443.
+A configuração da aplicação está correta e não requer alterações adicionais. O encerramento efetivo do monitoramento fica condicionado à aprovação e execução da REQ000144970385 pela equipe responsável pelo proxy.
