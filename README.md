@@ -1,9 +1,6 @@
+<img width="875" height="697" alt="image" src="https://github.com/user-attachments/assets/be50a758-dddd-4961-afa2-23419c46d1ef" />
 
 
+REQ NUMERO: REQ000144970385.
 
-<img width="827" height="694" alt="image" src="https://github.com/user-attachments/assets/78f152f5-11a3-4aee-ae19-9543714fde9b" />
 
-
-tqs
-
-<img width="714" height="589" alt="image" src="https://github.com/user-attachments/assets/2b907590-e5f4-4afa-95de-7ff65fe1b7b9" />
