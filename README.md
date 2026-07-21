@@ -1,269 +1,1110 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>br.gov.caixa.investimentos</groupId>
-    <artifactId>sigfa-api-saldo-consolidado</artifactId>
-    <version>1.2.0.0</version>
-    <packaging>jar</packaging>
+log do pod: sigfa-api-saldo-consolidado-des-49-fd972
+Running
 
-    <properties>
-        <compiler-plugin.version>3.15.0</compiler-plugin.version>
-        <maven.compiler.release>21</maven.compiler.release>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <quarkus.platform.artifact-id>quarkus-bom</quarkus.platform.artifact-id>
-        <quarkus.platform.group-id>io.quarkus.platform</quarkus.platform.group-id>
-        <quarkus.platform.version>3.33.1.1</quarkus.platform.version>
-        <sigfa-api-exceptions.version>3.0.0.0</sigfa-api-exceptions.version>
-        <skipITs>true</skipITs>
-        <surefire-plugin.version>3.5.4</surefire-plugin.version>
-        <applicationinsights-agent.version>3.6.2</applicationinsights-agent.version>
 
-        <org.projectlombok.version>1.18.32</org.projectlombok.version>
-        <lombok-mapstruct-binding.version>0.2.0</lombok-mapstruct-binding.version>
-        <org.mapstruct.version>1.5.5.Final</org.mapstruct.version>
-        <jacoco.version>0.8.12</jacoco.version>
 
-        <sigfa-api-security.version>3.0.0.1</sigfa-api-security.version>
-        <sigfa-api-commons.version>3.0.0.1</sigfa-api-commons.version>
-    </properties>
+exec java -Dquarkus.http.host=0.0.0.0 -Dquarkus.http.port=8080 -Djava.util.logging.manager=org.jboss.logmanager.LogManager -Djavax.net.ssl.trustStore=/deployments/caixa-truststore-acteste-nprd.jks -javaagent:/deployments/lib/main/com.microsoft.azure.applicationinsights-agent-3.6.2.jar -Dhttps.proxyHost=proxydes.caixa -Dhttps.proxyPort=80 -Dhttp.nonProxyHosts=*.caixa|*.caixa.gov.br -XX:+ExitOnOutOfMemoryError -cp . -jar /deployments/quarkus-run.jar
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+2026-07-21 10:52:45.070-03:00 INFO  c.m.applicationinsights.agent - Application Insights Java Agent 3.6.2 started successfully (PID 8, JVM running for 5.369 s)
+2026-07-21 10:52:45.072-03:00 INFO  c.m.applicationinsights.agent - Java version: 21.0.1, vendor: Oracle Corporation, home: /usr/java/jdk-21.0.1
+2026-07-21 10:52:46.760-03:00 WARN  c.m.a.a.i.t.AppIdSupplier$GetAppIdTask - Retrieving appId: exception sending request to https://southcentralus-3.in.applicationinsights.azure.com/api/profiles/f572e239-b089-4d0c-82a5-4c33b3325748/appId (future warnings will be aggregated and logged once every 5 minutes)
+reactor.core.Exceptions$ReactiveException: javax.net.ssl.SSLException: failure when writing TLS control frames
+	at reactor.core.Exceptions.propagate(Exceptions.java:396)
+	at reactor.core.publisher.BlockingSingleSubscriber.blockingGet(BlockingSingleSubscriber.java:98)
+	at reactor.core.publisher.Mono.block(Mono.java:1742)
+	at com.microsoft.applicationinsights.agent.internal.telemetry.AppIdSupplier$GetAppIdTask.run(AppIdSupplier.java:121)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.base/java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+	Suppressed: java.lang.Exception: #block terminated with an error
+		at reactor.core.publisher.BlockingSingleSubscriber.blockingGet(BlockingSingleSubscriber.java:100)
+		... 8 common frames omitted
+Caused by: javax.net.ssl.SSLException: failure when writing TLS control frames
+	at io.netty.handler.ssl.SslHandler.setHandshakeFailureTransportFailure(SslHandler.java:2038)
+	at io.netty.handler.ssl.SslHandler.access$600(SslHandler.java:170)
+	at io.netty.handler.ssl.SslHandler$2.operationComplete(SslHandler.java:988)
+	at io.netty.handler.ssl.SslHandler$2.operationComplete(SslHandler.java:983)
+	at io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:590)
+	at io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:557)
+	at io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:492)
+	at io.netty.util.concurrent.DefaultPromise.setValue0(DefaultPromise.java:636)
+	at io.netty.util.concurrent.DefaultPromise.setFailure0(DefaultPromise.java:629)
+	at io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:118)
+	at io.netty.channel.PendingWriteQueue.safeFail(PendingWriteQueue.java:298)
+	at io.netty.channel.PendingWriteQueue.removeAndFailAll(PendingWriteQueue.java:196)
+	at io.netty.handler.proxy.ProxyHandler.failPendingWrites(ProxyHandler.java:437)
+	at io.netty.handler.proxy.ProxyHandler.failPendingWritesAndClose(ProxyHandler.java:354)
+	at io.netty.handler.proxy.ProxyHandler.setConnectFailure(ProxyHandler.java:349)
+	at io.netty.handler.proxy.ProxyHandler.channelRead(ProxyHandler.java:269)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:442)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.fireChannelRead(CombinedChannelDuplexHandler.java:436)
+	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:346)
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:318)
+	at io.netty.channel.CombinedChannelDuplexHandler.channelRead(CombinedChannelDuplexHandler.java:251)
+	at io.netty.handler.proxy.HttpProxyHandler$HttpClientCodecWrapper.channelRead(HttpProxyHandler.java:284)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:444)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1357)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:440)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:868)
+	at io.netty.channel.epoll.AbstractEpollStreamChannel$EpollStreamUnsafe.epollInReady(AbstractEpollStreamChannel.java:799)
+	at io.netty.channel.epoll.AbstractEpollChannel$AbstractEpollUnsafe.epollRdHupReady(AbstractEpollChannel.java:480)
+	at io.netty.channel.epoll.EpollEventLoop.processReady(EpollEventLoop.java:508)
+	at io.netty.channel.epoll.EpollEventLoop.run(EpollEventLoop.java:399)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	... 1 common frames omitted
+Caused by: io.netty.handler.proxy.HttpProxyHandler$HttpProxyConnectException: http, none, proxydes.caixa/10.252.32.63:80 => southcentralus-3.in.applicationinsights.azure.com/<unresolved>:443, status: 502 Proxy Error ( Forefront TMG denied the specified Uniform Resource Locator (URL).  )
+	at io.netty.handler.proxy.HttpProxyHandler.handleResponse(HttpProxyHandler.java:212)
+	at io.netty.handler.proxy.ProxyHandler.channelRead(ProxyHandler.java:260)
+	... 23 common frames omitted
+2026-07-21 10:52:47.064-03:00 WARN  c.a.m.o.e.i.q.QuickPulsePingSender - Pinging live metrics endpoint: javax.net.ssl.SSLException: failure when writing TLS control frames (https://southcentralus.livediagnostics.monitor.azure.com/QuickPulseService.svc) (future warnings will be aggregated and logged once every 5 minutes)
+reactor.core.Exceptions$ReactiveException: javax.net.ssl.SSLException: failure when writing TLS control frames
+	at reactor.core.Exceptions.propagate(Exceptions.java:396)
+	at reactor.core.publisher.BlockingSingleSubscriber.blockingGet(BlockingSingleSubscriber.java:98)
+	at reactor.core.publisher.Mono.block(Mono.java:1742)
+	at com.azure.core.http.HttpClient.sendSync(HttpClient.java:42)
+	at com.azure.core.http.HttpPipelineNextSyncPolicy.processSync(HttpPipelineNextSyncPolicy.java:51)
+	at com.azure.core.http.policy.HttpLoggingPolicy.processSync(HttpLoggingPolicy.java:175)
+	at com.azure.core.http.HttpPipelineNextSyncPolicy.processSync(HttpPipelineNextSyncPolicy.java:53)
+	at com.azure.core.http.policy.RedirectPolicy.attemptRedirectSync(RedirectPolicy.java:110)
+	at com.azure.core.http.policy.RedirectPolicy.processSync(RedirectPolicy.java:78)
+	at com.azure.core.http.HttpPipelineNextSyncPolicy.processSync(HttpPipelineNextSyncPolicy.java:53)
+	at com.azure.core.http.HttpPipeline.sendSync(HttpPipeline.java:138)
+	at com.azure.monitor.opentelemetry.exporter.implementation.quickpulse.QuickPulsePingSender.ping(QuickPulsePingSender.java:79)
+	at com.azure.monitor.opentelemetry.exporter.implementation.quickpulse.QuickPulseCoordinator.ping(QuickPulseCoordinator.java:100)
+	at com.azure.monitor.opentelemetry.exporter.implementation.quickpulse.QuickPulseCoordinator.run(QuickPulseCoordinator.java:53)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+	Suppressed: java.lang.Exception: #block terminated with an error
+		at reactor.core.publisher.BlockingSingleSubscriber.blockingGet(BlockingSingleSubscriber.java:100)
+		... 13 common frames omitted
+Caused by: javax.net.ssl.SSLException: failure when writing TLS control frames
+	at io.netty.handler.ssl.SslHandler.setHandshakeFailureTransportFailure(SslHandler.java:2038)
+	at io.netty.handler.ssl.SslHandler.access$600(SslHandler.java:170)
+	at io.netty.handler.ssl.SslHandler$2.operationComplete(SslHandler.java:988)
+	at io.netty.handler.ssl.SslHandler$2.operationComplete(SslHandler.java:983)
+	at io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:590)
+	at io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:557)
+	at io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:492)
+	at io.netty.util.concurrent.DefaultPromise.setValue0(DefaultPromise.java:636)
+	at io.netty.util.concurrent.DefaultPromise.setFailure0(DefaultPromise.java:629)
+	at io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:118)
+	at io.netty.channel.PendingWriteQueue.safeFail(PendingWriteQueue.java:298)
+	at io.netty.channel.PendingWriteQueue.removeAndFailAll(PendingWriteQueue.java:196)
+	at io.netty.handler.proxy.ProxyHandler.failPendingWrites(ProxyHandler.java:437)
+	at io.netty.handler.proxy.ProxyHandler.failPendingWritesAndClose(ProxyHandler.java:354)
+	at io.netty.handler.proxy.ProxyHandler.setConnectFailure(ProxyHandler.java:349)
+	at io.netty.handler.proxy.ProxyHandler.channelRead(ProxyHandler.java:269)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:442)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.fireChannelRead(CombinedChannelDuplexHandler.java:436)
+	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:346)
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:318)
+	at io.netty.channel.CombinedChannelDuplexHandler.channelRead(CombinedChannelDuplexHandler.java:251)
+	at io.netty.handler.proxy.HttpProxyHandler$HttpClientCodecWrapper.channelRead(HttpProxyHandler.java:284)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:444)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1357)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:440)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:868)
+	at io.netty.channel.epoll.AbstractEpollStreamChannel$EpollStreamUnsafe.epollInReady(AbstractEpollStreamChannel.java:799)
+	at io.netty.channel.epoll.AbstractEpollChannel$AbstractEpollUnsafe$1.run(AbstractEpollChannel.java:425)
+	at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:173)
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:166)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:472)
+	at io.netty.channel.epoll.EpollEventLoop.run(EpollEventLoop.java:405)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	... 1 common frames omitted
+Caused by: io.netty.handler.proxy.HttpProxyHandler$HttpProxyConnectException: http, none, proxydes.caixa/10.252.32.63:80 => southcentralus.livediagnostics.monitor.azure.com/<unresolved>:443, status: 502 Proxy Error ( Forefront TMG denied the specified Uniform Resource Locator (URL).  )
+	at io.netty.handler.proxy.HttpProxyHandler.handleResponse(HttpProxyHandler.java:212)
+	at io.netty.handler.proxy.ProxyHandler.channelRead(ProxyHandler.java:260)
+	... 25 common frames omitted
+__  ____  __  _____   ___  __ ____  ______ 
+ --/ __ \/ / / / _ | / _ \/ //_/ / / / __/ 
+ -/ /_/ / /_/ / __ |/ , _/ ,< / /_/ /\ \   
+--\___\_\____/_/ |_/_/|_/_/|_|\____/___/   
+2026-07-21 10:52:43,803 DEBUG [jdk.event.security] (main) X509Certificate: Alg:SHA384withRSA, Serial:59b1b579e8e2132e23907bda777755c, Subject:CN=DigiCert Trusted Root G4, OU=www.digicert.com, O=DigiCert Inc, C=US, Issuer:CN=DigiCert Trusted Root G4, OU=www.digicert.com, O=DigiCert Inc, C=US, Key type:RSA, Length:4096, Cert Id:1057369358, Valid from:8/1/13, 9:00?AM, Valid until:1/15/38, 9:00?AM
+2026-07-21 10:52:43,860 DEBUG [jdk.event.security] (main) X509Certificate: Alg:SHA384withRSA, Serial:8ad40b260d29c4c9f5ecda9bd93aed9, Subject:CN=DigiCert Trusted G4 Code Signing RSA4096 SHA384 2021 CA1, O="DigiCert, Inc.", C=US, Issuer:CN=DigiCert Trusted Root G4, OU=www.digicert.com, O=DigiCert Inc, C=US, Key type:RSA, Length:4096, Cert Id:3406046841, Valid from:4/28/21, 9:00?PM, Valid until:4/28/36, 8:59?PM
+2026-07-21 10:52:43,860 DEBUG [jdk.event.security] (main) X509Certificate: Alg:SHA256withRSA, Serial:d1f02a4a2c5a3d3a37dda07199a3620, Subject:CN=Microsoft Corporation, OU=Java Signing (SHA2), O=Microsoft Corporation, L=Redmond, ST=Washington, C=US, Issuer:CN=DigiCert Trusted G4 Code Signing RSA4096 SHA384 2021 CA1, O="DigiCert, Inc.", C=US, Key type:RSA, Length:4096, Cert Id:1223504232, Valid from:8/29/24, 9:00?PM, Valid until:10/29/27, 8:59?PM
+2026-07-21 10:52:43,872 DEBUG [jdk.event.security] (main) X509Certificate: Alg:SHA256withRSA, Serial:bae66bc5aba7f9587c6f9e904e33304, Subject:CN=DigiCert Timestamp 2024, O=DigiCert, C=US, Issuer:CN=DigiCert Trusted G4 RSA4096 SHA256 TimeStamping CA, O="DigiCert, Inc.", C=US, Key type:RSA, Length:4096, Cert Id:3934399196, Valid from:9/25/24, 9:00?PM, Valid until:11/25/35, 8:59?PM
+2026-07-21 10:52:43,872 DEBUG [jdk.event.security] (main) X509Certificate: Alg:SHA256withRSA, Serial:73637b724547cd847acfd28662a5e5b, Subject:CN=DigiCert Trusted G4 RSA4096 SHA256 TimeStamping CA, O="DigiCert, Inc.", C=US, Issuer:CN=DigiCert Trusted Root G4, OU=www.digicert.com, O=DigiCert Inc, C=US, Key type:RSA, Length:4096, Cert Id:3207540671, Valid from:3/22/22, 9:00?PM, Valid until:3/22/37, 8:59?PM
+2026-07-21 10:52:43,872 DEBUG [jdk.event.security] (main) X509Certificate: Alg:SHA384withRSA, Serial:e9b188ef9d02de7efdb50e20840185a, Subject:CN=DigiCert Trusted Root G4, OU=www.digicert.com, O=DigiCert Inc, C=US, Issuer:CN=DigiCert Assured ID Root CA, OU=www.digicert.com, O=DigiCert Inc, C=US, Key type:RSA, Length:4096, Cert Id:845088433, Valid from:7/31/22, 9:00?PM, Valid until:11/9/31, 8:59?PM
+2026-07-21 10:52:45,673 DEBUG [jdk.event.security] (AppIdSupplier-0) X509Certificate: Alg:SHA384withRSA, Serial:ce22972800344766b49ca5d407cd039, Subject:CN=Valid Certificadora RSA DV SSL CA, O=Valid Certificadora Digital LTDA, C=BR, Issuer:CN=USERTrust RSA Certification Authority, O=The USERTRUST Network, L=Jersey City, ST=New Jersey, C=US, Key type:RSA, Length:3072, Cert Id:131886298, Valid from:8/1/23, 9:00?PM, Valid until:8/1/33, 8:59?PM
+2026-07-21 10:52:45,682 DEBUG [jdk.event.security] (AppIdSupplier-0) X509Certificate: Alg:SHA1withRSA, Serial:83be056904246b1a1756ac95991c74a, Subject:CN=DigiCert Global Root CA, OU=www.digicert.com, O=DigiCert Inc, C=US, Issuer:CN=DigiCert Global Root CA, OU=www.digicert.com, O=DigiCert Inc, C=US, Key type:RSA, Length:2048, Cert Id:1341898239, Valid from:11/9/06, 10:00?PM, Valid until:11/9/31, 9:00?PM
+2026-07-21 10:52:45,683 DEBUG [jdk.event.security] (AppIdSupplier-0) X509Certificate: Alg:SHA384withRSA, Serial:397a66cc2756362e0daa87ca6eabe3b1, Subject:CN=Sectigo Public Server Authentication CA DV R36, O=Sectigo Limited, C=GB, Issuer:CN=Sectigo Public Server Authentication Root R46, O=Sectigo Limited, C=GB, Key type:RSA, Length:3072, Cert Id:1180805919, Valid from:3/21/21, 9:00?PM, Valid until:3/21/36, 8:59?PM
+2026-07-21 10:52:45,684 DEBUG [jdk.event.security] (AppIdSupplier-0) X509Certificate: Alg:SHA512withRSA, Serial:47b583ffce303b8047ba716d908e88d2, Subject:CN=AC Icptestes Raiz, O=Caixa Economica Federal, C=BR, Issuer:CN=AC Icptestes Raiz, O=Caixa Economica Federal, C=BR, Key type:RSA, Length:4096, Cert Id:71683228, Valid from:12/23/22, 11:55?AM, Valid until:12/23/42, 12:05?PM
+2026-07-21 10:52:45,755 DEBUG [jdk.event.security] (AppIdSupplier-0) X509Certificate: Alg:SHA512withRSA, Serial:1, Subject:CN=Autoridade Certificadora Raiz Brasileira v5, OU=Instituto Nacional de Tecnologia da Informacao - ITI, O=ICP-Brasil, C=BR, Issuer:CN=Autoridade Certificadora Raiz Brasileira v5, OU=Instituto Nacional de Tecnologia da Informacao - ITI, O=ICP-Brasil, C=BR, Key type:RSA, Length:4096, Cert Id:827042461, Valid from:3/2/16, 10:01?AM, Valid until:3/2/29, 8:59?PM
+2026-07-21 10:52:45,756 DEBUG [jdk.event.security] (AppIdSupplier-0) X509Certificate: Alg:SHA384withRSA, Serial:1ed397095fd8b4b347701eaabe7f45b3, Subject:CN=Microsoft RSA Root Certificate Authority 2017, O=Microsoft Corporation, C=US, Issuer:CN=Microsoft RSA Root Certificate Authority 2017, O=Microsoft Corporation, C=US, Key type:RSA, Length:4096, Cert Id:2848349048, Valid from:12/18/19, 7:51?PM, Valid until:7/18/42, 8:00?PM
+2026-07-21 10:52:45,757 DEBUG [jdk.event.security] (AppIdSupplier-0) X509Certificate: Alg:SHA384withRSA, Serial:36825e7fb5a481937ef6d1736bb93ca6, Subject:CN=COMODO RSA Organization Validation Secure Server CA, O=COMODO CA Limited, L=Salford, ST=Greater Manchester, C=GB, Issuer:CN=COMODO RSA Certification Authority, O=COMODO CA Limited, L=Salford, ST=Greater Manchester, C=GB, Key type:RSA, Length:2048, Cert Id:245647897, Valid from:2/11/14, 10:00?PM, Valid until:2/11/29, 8:59?PM
+2026-07-21 10:52:45,758 DEBUG [jdk.event.security] (AppIdSupplier-0) X509Certificate: Alg:SHA256withRSA, Serial:1ee5f221dfc623bd4333a8557, Subject:CN=GlobalSign RSA OV SSL CA 2018, O=GlobalSign nv-sa, C=BE, Issuer:CN=GlobalSign, O=GlobalSign, OU=GlobalSign Root CA - R3, Key type:RSA, Length:2048, Cert Id:930132802, Valid from:11/20/18, 10:00?PM, Valid until:11/20/28, 9:00?PM
+2026-07-21 10:52:45,759 DEBUG [jdk.event.security] (AppIdSupplier-0) X509Certificate: Alg:SHA384withRSA, Serial:3972443af922b751d7d36c10dd313595, Subject:CN=USERTrust RSA Certification Authority, O=The USERTRUST Network, L=Jersey City, ST=New Jersey, C=US, Issuer:CN=AAA Certificate Services, O=Comodo CA Limited, L=Salford, ST=Greater Manchester, C=GB, Key type:RSA, Length:4096, Cert Id:3160189236, Valid from:3/11/19, 9:00?PM, Valid until:12/31/28, 8:59?PM
+2026-07-21 10:52:45,759 DEBUG [jdk.event.security] (AppIdSupplier-0) X509Certificate: Alg:SHA512withRSA, Serial:2, Subject:CN=Autoridade Certificadora do SERPRO Final SSL, OU=Servico Federal de Processamento de Dados - SERPRO, OU=CSPB-1, O=ICP-Brasil, C=BR, Issuer:CN=Autoridade Certificadora SERPRO v4, OU=Autoridade Certificadora Raiz Brasileira v5, O=ICP-Brasil, C=BR, Key type:RSA, Length:4096, Cert Id:4146249541, Valid from:1/9/17, 5:36?PM, Valid until:2/15/29, 4:36?PM
+2026-07-21 10:52:45,760 DEBUG [jdk.event.security] (AppIdSupplier-0) X509Certificate: Alg:SHA512withRSA, Serial:600000000299b24b9d7901ea84000000000002, Subject:CN=AC Icptestes Sub, O=Caixa Economica Federal, C=BR, Issuer:CN=AC Icptestes Raiz, O=Caixa Economica Federal, C=BR, Key type:RSA, Length:4096, Cert Id:2447629493, Valid from:12/23/22, 12:47?PM, Valid until:12/23/42, 12:05?PM
+2026-07-21 10:52:45,761 DEBUG [jdk.event.security] (AppIdSupplier-0) X509Certificate: Alg:SHA384withRSA, Serial:758dfd8bae7c0700faa925a7e1c7ad14, Subject:CN=Sectigo Public Server Authentication Root R46, O=Sectigo Limited, C=GB, Issuer:CN=Sectigo Public Server Authentication Root R46, O=Sectigo Limited, C=GB, Key type:RSA, Length:4096, Cert Id:3806652169, Valid from:3/21/21, 9:00?PM, Valid until:3/21/46, 8:59?PM
+2026-07-21 10:52:45,762 DEBUG [jdk.event.security] (AppIdSupplier-0) X509Certificate: Alg:SHA384withRSA, Serial:1fd6d30fca3ca51a81bbc640e35032d, Subject:CN=USERTrust RSA Certification Authority, O=The USERTRUST Network, L=Jersey City, ST=New Jersey, C=US, Issuer:CN=USERTrust RSA Certification Authority, O=The USERTRUST Network, L=Jersey City, ST=New Jersey, C=US, Key type:RSA, Length:4096, Cert Id:3947601401, Valid from:1/31/10, 10:00?PM, Valid until:1/18/38, 8:59?PM
+2026-07-21 10:52:45,763 DEBUG [jdk.event.security] (AppIdSupplier-0) X509Certificate: Alg:SHA1withRSA, Serial:40000000001154b5ac394, Subject:CN=GlobalSign Root CA, OU=Root CA, O=GlobalSign nv-sa, C=BE, Issuer:CN=GlobalSign Root CA, OU=Root CA, O=GlobalSign nv-sa, C=BE, Key type:RSA, Length:2048, Cert Id:536948034, Valid from:9/1/98, 9:00?AM, Valid until:1/28/28, 9:00?AM
+2026-07-21 10:52:45,763 DEBUG [jdk.event.security] (AppIdSupplier-0) X509Certificate: Alg:SHA256withRSA, Serial:33af1e6a711a9a0bb2864b11d09fae5, Subject:CN=DigiCert Global Root G2, OU=www.digicert.com, O=DigiCert Inc, C=US, Issuer:CN=DigiCert Global Root G2, OU=www.digicert.com, O=DigiCert Inc, C=US, Key type:RSA, Length:2048, Cert Id:1136084297, Valid from:8/1/13, 9:00?AM, Valid until:1/15/38, 9:00?AM
+2026-07-21 10:52:45,764 DEBUG [jdk.event.security] (AppIdSupplier-0) X509Certificate: Alg:SHA384withRSA, Serial:7d5b5126b476ba11db74160bbc530da7, Subject:CN=Sectigo RSA Domain Validation Secure Server CA, O=Sectigo Limited, L=Salford, ST=Greater Manchester, C=GB, Issuer:CN=USERTrust RSA Certification Authority, O=The USERTRUST Network, L=Jersey City, ST=New Jersey, C=US, Key type:RSA, Length:2048, Cert Id:2459870160, Valid from:11/1/18, 9:00?PM, Valid until:12/31/30, 8:59?PM
+2026-07-21 10:52:45,765 DEBUG [jdk.event.security] (AppIdSupplier-0) X509Certificate: Alg:SHA256withRSA, Serial:90ee8c5de5bfa62d2ae2ff7097c4857, Subject:CN=Thawte TLS RSA CA G1, OU=www.digicert.com, O=DigiCert Inc, C=US, Issuer:CN=DigiCert Global Root G2, OU=www.digicert.com, O=DigiCert Inc, C=US, Key type:RSA, Length:2048, Cert Id:96139010, Valid from:11/2/17, 10:24?AM, Valid until:11/2/27, 9:24?AM
+2026-07-21 10:52:45,765 DEBUG [jdk.event.security] (AppIdSupplier-0) X509Certificate: Alg:SHA1withRSA, Serial:83be056904246b1a1756ac95991c74a, Subject:CN=DigiCert Global Root CA, OU=www.digicert.com, O=DigiCert Inc, C=US, Issuer:CN=DigiCert Global Root CA, OU=www.digicert.com, O=DigiCert Inc, C=US, Key type:RSA, Length:2048, Cert Id:1341898239, Valid from:11/9/06, 10:00?PM, Valid until:11/9/31, 9:00?PM
+2026-07-21 10:52:45,766 DEBUG [jdk.event.security] (AppIdSupplier-0) X509Certificate: Alg:SHA512withRSA, Serial:4188b0e1a030eda84084ca76a3b1be32, Subject:CN=AC Interna Caixa, O=Caixa Economica Federal, C=BR, Issuer:CN=AC Interna Caixa, O=Caixa Economica Federal, C=BR, Key type:RSA, Length:4096, Cert Id:2506492458, Valid from:10/13/22, 2:25?PM, Valid until:10/13/42, 2:35?PM
+2026-07-21 10:52:45,767 DEBUG [jdk.event.security] (AppIdSupplier-0) X509Certificate: Alg:SHA512withRSA, Serial:62000000027328772c722ac752000000000002, Subject:CN=AC Interna APL, O=Caixa Economica Federal, C=BR, Issuer:CN=AC Interna Caixa, O=Caixa Economica Federal, C=BR, Key type:RSA, Length:4096, Cert Id:3746844432, Valid from:10/13/22, 3:34?PM, Valid until:10/13/42, 2:35?PM
+2026-07-21 10:52:45,767 DEBUG [jdk.event.security] (AppIdSupplier-0) X509Certificate: Alg:SHA384withRSA, Serial:3972443af922b751d7d36c10dd313595, Subject:CN=USERTrust RSA Certification Authority, O=The USERTRUST Network, L=Jersey City, ST=New Jersey, C=US, Issuer:CN=AAA Certificate Services, O=Comodo CA Limited, L=Salford, ST=Greater Manchester, C=GB, Key type:RSA, Length:4096, Cert Id:3160189236, Valid from:3/11/19, 9:00?PM, Valid until:12/31/28, 8:59?PM
+2026-07-21 10:52:45,768 DEBUG [jdk.event.security] (AppIdSupplier-0) X509Certificate: Alg:SHA256withRSA, Serial:1ee5f221dfc623bd4333a8557, Subject:CN=GlobalSign RSA OV SSL CA 2018, O=GlobalSign nv-sa, C=BE, Issuer:CN=GlobalSign, O=GlobalSign, OU=GlobalSign Root CA - R3, Key type:RSA, Length:2048, Cert Id:930132802, Valid from:11/20/18, 10:00?PM, Valid until:11/20/28, 9:00?PM
+2026-07-21 10:52:45,769 DEBUG [jdk.event.security] (AppIdSupplier-0) X509Certificate: Alg:SHA512withRSA, Serial:5, Subject:CN=Autoridade Certificadora SERPRO v4, OU=Autoridade Certificadora Raiz Brasileira v5, O=ICP-Brasil, C=BR, Issuer:CN=Autoridade Certificadora Raiz Brasileira v5, OU=Instituto Nacional de Tecnologia da Informacao - ITI, O=ICP-Brasil, C=BR, Key type:RSA, Length:4096, Cert Id:1380576325, Valid from:9/14/16, 10:10?AM, Valid until:3/2/29, 9:00?AM
+2026-07-21 10:52:45,769 DEBUG [jdk.event.security] (AppIdSupplier-0) X509Certificate: Alg:SHA1withRSA, Serial:1, Subject:CN=AAA Certificate Services, O=Comodo CA Limited, L=Salford, ST=Greater Manchester, C=GB, Issuer:CN=AAA Certificate Services, O=Comodo CA Limited, L=Salford, ST=Greater Manchester, C=GB, Key type:RSA, Length:2048, Cert Id:3097386402, Valid from:12/31/03, 10:00?PM, Valid until:12/31/28, 8:59?PM
+2026-07-21 10:52:45,770 DEBUG [jdk.event.security] (AppIdSupplier-0) X509Certificate: Alg:SHA1withRSA, Serial:1, Subject:CN=AAA Certificate Services, O=Comodo CA Limited, L=Salford, ST=Greater Manchester, C=GB, Issuer:CN=AAA Certificate Services, O=Comodo CA Limited, L=Salford, ST=Greater Manchester, C=GB, Key type:RSA, Length:2048, Cert Id:3097386402, Valid from:12/31/03, 10:00?PM, Valid until:12/31/28, 8:59?PM
+2026-07-21 10:52:45,770 DEBUG [jdk.event.security] (AppIdSupplier-0) X509Certificate: Alg:SHA384withRSA, Serial:7d5b5126b476ba11db74160bbc530da7, Subject:CN=Sectigo RSA Domain Validation Secure Server CA, O=Sectigo Limited, L=Salford, ST=Greater Manchester, C=GB, Issuer:CN=USERTrust RSA Certification Authority, O=The USERTRUST Network, L=Jersey City, ST=New Jersey, C=US, Key type:RSA, Length:2048, Cert Id:2459870160, Valid from:11/1/18, 9:00?PM, Valid until:12/31/30, 8:59?PM
+2026-07-21 10:52:45,771 DEBUG [jdk.event.security] (AppIdSupplier-0) X509Certificate: Alg:SHA384withRSA, Serial:36825e7fb5a481937ef6d1736bb93ca6, Subject:CN=COMODO RSA Organization Validation Secure Server CA, O=COMODO CA Limited, L=Salford, ST=Greater Manchester, C=GB, Issuer:CN=COMODO RSA Certification Authority, O=COMODO CA Limited, L=Salford, ST=Greater Manchester, C=GB, Key type:RSA, Length:2048, Cert Id:245647897, Valid from:2/11/14, 10:00?PM, Valid until:2/11/29, 8:59?PM
+2026-07-21 10:52:45,774 DEBUG [org.jboss.logging] (main) Logging Provider: org.jboss.logging.JBossLogManagerProvider found via system property
+2026-07-21 10:52:45,775 DEBUG [io.smallrye.config] (main) SRCFG01006: Loaded ConfigSource BuildTime RunTime Fixed with ordinal 2147483647
+2026-07-21 10:52:45,775 DEBUG [io.smallrye.config] (main) SRCFG01006: Loaded ConfigSource DefaultValuesConfigSource with ordinal -2147483648
+2026-07-21 10:52:45,981 DEBUG [io.smallrye.config] (main) SRCFG01006: Loaded ConfigSource BuildTime RunTime Fixed with ordinal 2147483647
+2026-07-21 10:52:45,981 DEBUG [io.smallrye.config] (main) SRCFG01006: Loaded ConfigSource SysPropConfigSource with ordinal 400
+2026-07-21 10:52:45,982 DEBUG [io.smallrye.config] (main) SRCFG01006: Loaded ConfigSource EnvConfigSource with ordinal 300
+2026-07-21 10:52:45,982 DEBUG [io.smallrye.config] (main) SRCFG01006: Loaded ConfigSource PropertiesConfigSource[source=jar:file:///deployments/app/sigfa-api-saldo-consolidado-1.2.0.0.jar!/application.properties] with ordinal 250
+2026-07-21 10:52:45,982 DEBUG [io.smallrye.config] (main) SRCFG01006: Loaded ConfigSource FileSystemConfigSource[dir=/usr/src/app/secrets_files/SIGFA_DES] with ordinal 100
+2026-07-21 10:52:45,982 DEBUG [io.smallrye.config] (main) SRCFG01006: Loaded ConfigSource Runtime Values with ordinal 0
+2026-07-21 10:52:45,982 DEBUG [io.smallrye.config] (main) SRCFG01006: Loaded ConfigSource DefaultValuesConfigSource with ordinal -2147483648
+2026-07-21 10:52:46,175 DEBUG [org.jose4j.jwa.AlgorithmFactoryFactory] (main) Initializing jose4j (running with Java 21.0.1 from Oracle Corporation at /usr/java/jdk-21.0.1 with [SUN version 21, SunRsaSign version 21, SunEC version 21, SunJSSE version 21, SunJCE version 21, SunJGSS version 21, SunSASL version 21, XMLDSig version 21, SunPCSC version 21, JdkLDAP version 21, JdkSASL version 21, SunPKCS11 version 21] security providers installed)...
+2026-07-21 10:52:46,177 DEBUG [org.jose4j.jwa.AlgorithmFactory->JsonWebSignatureAlgorithm] (main) org.jose4j.jws.UnsecuredNoneAlgorithm(none|null) registered for alg algorithm none
+2026-07-21 10:52:46,179 DEBUG [org.jose4j.jwa.AlgorithmFactory->JsonWebSignatureAlgorithm] (main) org.jose4j.jws.HmacUsingShaAlgorithm$HmacSha256(HS256|HmacSHA256) registered for alg algorithm HS256
+2026-07-21 10:52:46,179 DEBUG [org.jose4j.jwa.AlgorithmFactory->JsonWebSignatureAlgorithm] (main) org.jose4j.jws.HmacUsingShaAlgorithm$HmacSha384(HS384|HmacSHA384) registered for alg algorithm HS384
+2026-07-21 10:52:46,179 DEBUG [org.jose4j.jwa.AlgorithmFactory->JsonWebSignatureAlgorithm] (main) org.jose4j.jws.HmacUsingShaAlgorithm$HmacSha512(HS512|HmacSHA512) registered for alg algorithm HS512
+2026-07-21 10:52:46,180 DEBUG [org.jose4j.jwa.AlgorithmFactory->JsonWebSignatureAlgorithm] (main) org.jose4j.jws.EdDsaAlgorithm(EdDSA|EdDSA) registered for alg algorithm EdDSA
+2026-07-21 10:52:46,181 DEBUG [org.jose4j.jwa.AlgorithmFactory->JsonWebSignatureAlgorithm] (main) org.jose4j.jws.EcdsaUsingShaAlgorithm$EcdsaP256UsingSha256(ES256|SHA256withECDSA) registered for alg algorithm ES256
+2026-07-21 10:52:46,182 DEBUG [org.jose4j.jwa.AlgorithmFactory->JsonWebSignatureAlgorithm] (main) org.jose4j.jws.EcdsaUsingShaAlgorithm$EcdsaP384UsingSha384(ES384|SHA384withECDSA) registered for alg algorithm ES384
+2026-07-21 10:52:46,255 DEBUG [org.jose4j.jwa.AlgorithmFactory->JsonWebSignatureAlgorithm] (main) org.jose4j.jws.EcdsaUsingShaAlgorithm$EcdsaP521UsingSha512(ES512|SHA512withECDSA) registered for alg algorithm ES512
+2026-07-21 10:52:46,270 DEBUG [org.jose4j.jws.EcdsaUsingShaAlgorithm$EcdsaSECP256K1UsingSha256] (main) ES256K is not available due to org.jose4j.lang.JoseException: Problem creating signature.; caused by: java.security.SignatureException: Curve not supported: java.security.spec.ECParameterSpec@62158991
+2026-07-21 10:52:46,270 DEBUG [org.jose4j.jwa.AlgorithmFactory->JsonWebSignatureAlgorithm] (main) ES256K is unavailable so will not be registered for alg algorithms.
+2026-07-21 10:52:46,271 DEBUG [org.jose4j.jwa.AlgorithmFactory->JsonWebSignatureAlgorithm] (main) org.jose4j.jws.RsaUsingShaAlgorithm$RsaSha256(RS256|SHA256withRSA) registered for alg algorithm RS256
+2026-07-21 10:52:46,271 DEBUG [org.jose4j.jwa.AlgorithmFactory->JsonWebSignatureAlgorithm] (main) org.jose4j.jws.RsaUsingShaAlgorithm$RsaSha384(RS384|SHA384withRSA) registered for alg algorithm RS384
+2026-07-21 10:52:46,271 DEBUG [org.jose4j.jwa.AlgorithmFactory->JsonWebSignatureAlgorithm] (main) org.jose4j.jws.RsaUsingShaAlgorithm$RsaSha512(RS512|SHA512withRSA) registered for alg algorithm RS512
+2026-07-21 10:52:46,272 DEBUG [org.jose4j.jwa.AlgorithmFactory->JsonWebSignatureAlgorithm] (main) org.jose4j.jws.RsaUsingShaAlgorithm$RsaPssSha256(PS256|RSASSA-PSS) registered for alg algorithm PS256
+2026-07-21 10:52:46,274 DEBUG [org.jose4j.jwa.AlgorithmFactory->JsonWebSignatureAlgorithm] (main) org.jose4j.jws.RsaUsingShaAlgorithm$RsaPssSha384(PS384|RSASSA-PSS) registered for alg algorithm PS384
+2026-07-21 10:52:46,275 DEBUG [org.jose4j.jwa.AlgorithmFactory->JsonWebSignatureAlgorithm] (main) org.jose4j.jws.RsaUsingShaAlgorithm$RsaPssSha512(PS512|RSASSA-PSS) registered for alg algorithm PS512
+2026-07-21 10:52:46,275 DEBUG [org.jose4j.jwa.AlgorithmFactoryFactory] (main) JWS signature algorithms: [none, HS256, HS384, HS512, EdDSA, ES256, ES384, ES512, RS256, RS384, RS512, PS256, PS384, PS512]
+2026-07-21 10:52:46,278 DEBUG [org.jose4j.jwa.AlgorithmFactory->KeyManagementAlgorithm] (main) org.jose4j.jwe.RsaKeyManagementAlgorithm$Rsa1_5(RSA1_5|RSA/ECB/PKCS1Padding) registered for alg algorithm RSA1_5
+2026-07-21 10:52:46,279 DEBUG [org.jose4j.jwa.AlgorithmFactory->KeyManagementAlgorithm] (main) org.jose4j.jwe.RsaKeyManagementAlgorithm$RsaOaep(RSA-OAEP|RSA/ECB/OAEPWithSHA-1AndMGF1Padding) registered for alg algorithm RSA-OAEP
+2026-07-21 10:52:46,285 DEBUG [org.jose4j.jwa.AlgorithmFactory->KeyManagementAlgorithm] (main) org.jose4j.jwe.RsaKeyManagementAlgorithm$RsaOaep256(RSA-OAEP-256|RSA/ECB/OAEPWithSHA-256AndMGF1Padding) registered for alg algorithm RSA-OAEP-256
+2026-07-21 10:52:46,285 DEBUG [org.jose4j.jwa.AlgorithmFactory->KeyManagementAlgorithm] (main) org.jose4j.jwe.DirectKeyManagementAlgorithm(dir|null) registered for alg algorithm dir
+2026-07-21 10:52:46,286 DEBUG [org.jose4j.jwa.AlgorithmFactory->KeyManagementAlgorithm] (main) org.jose4j.jwe.AesKeyWrapManagementAlgorithm$Aes128(A128KW|AESWrap) registered for alg algorithm A128KW
+2026-07-21 10:52:46,287 DEBUG [org.jose4j.jwa.AlgorithmFactory->KeyManagementAlgorithm] (main) org.jose4j.jwe.AesKeyWrapManagementAlgorithm$Aes192(A192KW|AESWrap) registered for alg algorithm A192KW
+2026-07-21 10:52:46,287 DEBUG [org.jose4j.jwa.AlgorithmFactory->KeyManagementAlgorithm] (main) org.jose4j.jwe.AesKeyWrapManagementAlgorithm$Aes256(A256KW|AESWrap) registered for alg algorithm A256KW
+2026-07-21 10:52:46,358 DEBUG [org.jose4j.jwa.AlgorithmFactory->KeyManagementAlgorithm] (main) org.jose4j.jwe.EcdhKeyAgreementAlgorithm(ECDH-ES|ECDH) registered for alg algorithm ECDH-ES
+2026-07-21 10:52:46,361 DEBUG [org.jose4j.jwa.AlgorithmFactory->KeyManagementAlgorithm] (main) org.jose4j.jwe.EcdhKeyAgreementWithAesKeyWrapAlgorithm$EcdhKeyAgreementWithAes128KeyWrapAlgorithm(ECDH-ES+A128KW|N/A) registered for alg algorithm ECDH-ES+A128KW
+2026-07-21 10:52:46,364 DEBUG [org.jose4j.jwa.AlgorithmFactory->KeyManagementAlgorithm] (main) org.jose4j.jwe.EcdhKeyAgreementWithAesKeyWrapAlgorithm$EcdhKeyAgreementWithAes192KeyWrapAlgorithm(ECDH-ES+A192KW|N/A) registered for alg algorithm ECDH-ES+A192KW
+2026-07-21 10:52:46,367 DEBUG [org.jose4j.jwa.AlgorithmFactory->KeyManagementAlgorithm] (main) org.jose4j.jwe.EcdhKeyAgreementWithAesKeyWrapAlgorithm$EcdhKeyAgreementWithAes256KeyWrapAlgorithm(ECDH-ES+A256KW|N/A) registered for alg algorithm ECDH-ES+A256KW
+2026-07-21 10:52:46,369 DEBUG [org.jose4j.jwa.AlgorithmFactory->KeyManagementAlgorithm] (main) org.jose4j.jwe.Pbes2HmacShaWithAesKeyWrapAlgorithm$HmacSha256Aes128(PBES2-HS256+A128KW|n/a) registered for alg algorithm PBES2-HS256+A128KW
+2026-07-21 10:52:46,369 DEBUG [org.jose4j.jwa.AlgorithmFactory->KeyManagementAlgorithm] (main) org.jose4j.jwe.Pbes2HmacShaWithAesKeyWrapAlgorithm$HmacSha384Aes192(PBES2-HS384+A192KW|n/a) registered for alg algorithm PBES2-HS384+A192KW
+2026-07-21 10:52:46,370 DEBUG [org.jose4j.jwa.AlgorithmFactory->KeyManagementAlgorithm] (main) org.jose4j.jwe.Pbes2HmacShaWithAesKeyWrapAlgorithm$HmacSha512Aes256(PBES2-HS512+A256KW|n/a) registered for alg algorithm PBES2-HS512+A256KW
+2026-07-21 10:52:46,374 DEBUG [org.jose4j.jwa.AlgorithmFactory->KeyManagementAlgorithm] (main) org.jose4j.jwe.AesGcmKeyEncryptionAlgorithm$Aes128Gcm(A128GCMKW|AES/GCM/NoPadding) registered for alg algorithm A128GCMKW
+2026-07-21 10:52:46,375 DEBUG [org.jose4j.jwa.AlgorithmFactory->KeyManagementAlgorithm] (main) org.jose4j.jwe.AesGcmKeyEncryptionAlgorithm$Aes192Gcm(A192GCMKW|AES/GCM/NoPadding) registered for alg algorithm A192GCMKW
+2026-07-21 10:52:46,376 DEBUG [org.jose4j.jwa.AlgorithmFactory->KeyManagementAlgorithm] (main) org.jose4j.jwe.AesGcmKeyEncryptionAlgorithm$Aes256Gcm(A256GCMKW|AES/GCM/NoPadding) registered for alg algorithm A256GCMKW
+2026-07-21 10:52:46,376 DEBUG [org.jose4j.jwa.AlgorithmFactoryFactory] (main) JWE key management algorithms: [RSA1_5, RSA-OAEP, RSA-OAEP-256, dir, A128KW, A192KW, A256KW, ECDH-ES, ECDH-ES+A128KW, ECDH-ES+A192KW, ECDH-ES+A256KW, PBES2-HS256+A128KW, PBES2-HS384+A192KW, PBES2-HS512+A256KW, A128GCMKW, A192GCMKW, A256GCMKW]
+2026-07-21 10:52:46,456 DEBUG [org.jose4j.jwa.AlgorithmFactory->ContentEncryptionAlgorithm] (main) org.jose4j.jwe.AesCbcHmacSha2ContentEncryptionAlgorithm$Aes128CbcHmacSha256(A128CBC-HS256|AES/CBC/PKCS5Padding) registered for enc algorithm A128CBC-HS256
+2026-07-21 10:52:46,457 DEBUG [org.jose4j.jwa.AlgorithmFactory->ContentEncryptionAlgorithm] (main) org.jose4j.jwe.AesCbcHmacSha2ContentEncryptionAlgorithm$Aes192CbcHmacSha384(A192CBC-HS384|AES/CBC/PKCS5Padding) registered for enc algorithm A192CBC-HS384
+2026-07-21 10:52:46,457 DEBUG [org.jose4j.jwa.AlgorithmFactory->ContentEncryptionAlgorithm] (main) org.jose4j.jwe.AesCbcHmacSha2ContentEncryptionAlgorithm$Aes256CbcHmacSha512(A256CBC-HS512|AES/CBC/PKCS5Padding) registered for enc algorithm A256CBC-HS512
+2026-07-21 10:52:46,459 DEBUG [org.jose4j.jwa.AlgorithmFactory->ContentEncryptionAlgorithm] (main) org.jose4j.jwe.AesGcmContentEncryptionAlgorithm$Aes128Gcm(A128GCM|AES/GCM/NoPadding) registered for enc algorithm A128GCM
+2026-07-21 10:52:46,459 DEBUG [org.jose4j.jwa.AlgorithmFactory->ContentEncryptionAlgorithm] (main) org.jose4j.jwe.AesGcmContentEncryptionAlgorithm$Aes192Gcm(A192GCM|AES/GCM/NoPadding) registered for enc algorithm A192GCM
+2026-07-21 10:52:46,460 DEBUG [org.jose4j.jwa.AlgorithmFactory->ContentEncryptionAlgorithm] (main) org.jose4j.jwe.AesGcmContentEncryptionAlgorithm$Aes256Gcm(A256GCM|AES/GCM/NoPadding) registered for enc algorithm A256GCM
+2026-07-21 10:52:46,460 DEBUG [org.jose4j.jwa.AlgorithmFactoryFactory] (main) JWE content encryption algorithms: [A128CBC-HS256, A192CBC-HS384, A256CBC-HS512, A128GCM, A192GCM, A256GCM]
+2026-07-21 10:52:46,461 DEBUG [org.jose4j.zip.DeflateRFC1951CompressionAlgorithm] (main) 
+2026-07-21 10:52:46,461 DEBUG [org.jose4j.jwa.AlgorithmFactory->CompressionAlgorithm] (main) org.jose4j.zip.DeflateRFC1951CompressionAlgorithm@6cc56b32 registered for zip algorithm DEF
+2026-07-21 10:52:46,461 DEBUG [org.jose4j.jwa.AlgorithmFactoryFactory] (main) JWE compression algorithms: [DEF]
+2026-07-21 10:52:46,461 DEBUG [org.jose4j.jwa.AlgorithmFactoryFactory] (main) Initialized jose4j in 285ms
+2026-07-21 10:52:46,561 DEBUG [org.hibernate.quarkus.feature] (main) Hibernate Features Enabled
+2026-07-21 10:52:46,561 DEBUG [io.quarkus.hibernate.orm] (main) List of entities found by Quarkus deployment:
+[br.gov.caixa.investimentos.shared.autorizacao.infra.db.entity.SistemaClienteEntity, br.gov.caixa.investimentos.shared.autorizacao.infra.db.entity.SistemaFuncionalidadeEntity, br.gov.caixa.investimentos.shared.log.infra.db.entity.ComunicacaoApiEntity, br.gov.caixa.investimentos.shared.log.infra.db.entity.FuncionalidadeEntity, br.gov.caixa.investimentos.shared.log.infra.db.entity.IntegracaoSistemaEntity, br.gov.caixa.investimentos.shared.log.infra.db.entity.ServicoExternoEntity]
+2026-07-21 10:52:46,789 DEBUG [io.quarkus.flyway.runtime.FlywayRecorder] (main) Setting the following application migration files: [db/migration/V1__create.sql, db/migration/V2__seed.sql]
+2026-07-21 10:52:46,789 DEBUG [io.quarkus.flyway.runtime.FlywayRecorder] (main) Setting the following application migration classes: []
+2026-07-21 10:52:46,789 DEBUG [io.quarkus.flyway.runtime.FlywayRecorder] (main) Setting application callbacks: 1 total
+2026-07-21 10:52:47,580 DEBUG [io.quarkus.arc.impl] (main) ArC DI container initialized [beans=191, observers=23]
+2026-07-21 10:52:47,589 DEBUG [org.hibernate.orm.jpa] (main) HHH008541: PersistenceUnitInfo [
+	name: <default>
+	persistence provider classname: null
+	classloader: null
+	excludeUnlistedClasses: true
+	JTA datasource: null
+	Non JTA datasource: null
+	Transaction type: JTA
+	PU root URL: null
+	Shared Cache Mode: null
+	Validation Mode: null
+	Jar files URLs []
+	Managed classes names [
+		br.gov.caixa.investimentos.shared.autorizacao.infra.db.entity.SistemaClienteEntity
+		br.gov.caixa.investimentos.shared.autorizacao.infra.db.entity.SistemaFuncionalidadeEntity
+		br.gov.caixa.investimentos.shared.autorizacao.infra.db.entity.keys.SistemaFuncionalidadeEntityKey
+		br.gov.caixa.investimentos.shared.log.infra.db.entity.ComunicacaoApiEntity
+		br.gov.caixa.investimentos.shared.log.infra.db.entity.FuncionalidadeEntity
+		br.gov.caixa.investimentos.shared.log.infra.db.entity.IntegracaoSistemaEntity
+		br.gov.caixa.investimentos.shared.log.infra.db.entity.ServicoExternoEntity
+		io.quarkus.hibernate.orm.panache.PanacheEntity
+		io.quarkus.hibernate.orm.panache.PanacheEntityBase]
+	Mapping files names []
+	Properties [
+		hibernate.hbm2ddl.skip_default_import_file: true
+		hibernate.query.plan_cache_max_size: 2048
+		hibernate.default_batch_fetch_size: 16
+		hibernate.query.fail_on_pagination_over_collection_fetch: false
+		hibernate.discriminator.ignore_explicit_for_joined: false
+		hibernate.hbm2ddl.charset_name: UTF-8
+		hibernate.cache.use_reference_entries: null
+		hibernate.cache.use_query_cache: null
+		hibernate.query.in_clause_parameter_padding: true
+		hibernate.cache.use_second_level_cache: null
+		jakarta.persistence.sharedCache.mode: null
+		jakarta.persistence.database-product-name: Oracle
+		hibernate.id.sequence.increment_size_mismatch_strategy: null
+		hibernate.id.optimizer.pooled.preferred: pooled-lo
+		hibernate.order_by.default_null_ordering: none
+		jakarta.persistence.validation.mode: AUTO]
+2026-07-21 10:52:47,987 DEBUG [org.hibernate.orm.core] (main) HHH000001: Hibernate ORM core version 7.2.6.Final
+2026-07-21 10:52:47,987 DEBUG [org.hibernate.orm.core] (main) HHH000206: 'hibernate.properties' not found
+2026-07-21 10:52:48,672 DEBUG [org.hibernate.orm.boot] (main) HHH160188: Ignoring 0 XML mappings due to 'hibernate.xml_mapping_enabled'
+2026-07-21 10:52:49,293 DEBUG [org.hibernate.orm.dialect] (main) HHH035001: Using dialect: org.hibernate.dialect.OracleDialect, version: 19.0
+2026-07-21 10:52:49,363 DEBUG [org.hibernate.orm.jdbc.lob] (main) HHH10010002: Disabling contextual LOB creation as connection was null
+2026-07-21 10:52:49,366 DEBUG [org.hibernate.orm.jdbc] (main) HHH100122: Using default JDBC fetch size: -1
+2026-07-21 10:52:49,370 DEBUG [org.hibernate.orm.connections.pooling] (main) HHH10001005: Database info:
+	Database JDBC URL [undefined/unknown]
+	Database driver: undefined/unknown
+	Database dialect: OracleDialect
+	Database version: 19.0
+	Default catalog/schema: unknown/unknown
+	Autocommit mode: undefined/unknown
+	Isolation level: <unknown>
+	JDBC fetch size: undefined/unknown
+	Pool: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-07-21 10:52:49,956 DEBUG [org.infinispan.quarkus.hibernate.cache.QuarkusInfinispanRegionFactory] (main) Stop region factory
+2026-07-21 10:52:49,956 DEBUG [org.infinispan.quarkus.hibernate.cache.QuarkusInfinispanRegionFactory] (main) Clear region references
+2026-07-21 10:52:49,968 DEBUG [io.quarkus.arc.runtime.ArcRecorder] (main) Bean container listener io.quarkus.hibernate.orm.runtime.HibernateOrmRecorder$1 finished in 2384 ms
+2026-07-21 10:52:49,985 DEBUG [org.hibernate.validator.internal.util.Version] (main) HV000001: Hibernate Validator 9.1.0.Final
+2026-07-21 10:52:49,989 DEBUG [org.hibernate.validator.internal.engine.AbstractConfigurationImpl] (main) Setting custom LocaleResolver of type io.quarkus.hibernate.validator.runtime.locale.LocaleResolversWrapper
+2026-07-21 10:52:49,992 DEBUG [org.hibernate.validator.internal.engine.AbstractConfigurationImpl] (main) Setting custom BeanMetaDataClassNormalizer of type io.quarkus.hibernate.validator.runtime.ArcProxyBeanMetaDataClassNormalizer
+2026-07-21 10:52:49,992 DEBUG [org.hibernate.validator.internal.engine.AbstractConfigurationImpl] (main) Setting custom ConstraintValidatorFactory of type io.quarkus.hibernate.validator.runtime.ArcConstraintValidatorFactoryImpl
+2026-07-21 10:52:49,993 DEBUG [org.hibernate.validator.internal.engine.AbstractConfigurationImpl] (main) Setting custom TraversableResolver of type io.quarkus.hibernate.validator.runtime.HibernateValidatorRecorder$DelegatingTraversableResolver
+2026-07-21 10:52:49,993 DEBUG [org.hibernate.validator.internal.engine.AbstractConfigurationImpl] (main) Setting custom ClockProvider of type io.quarkus.hibernate.validator.runtime.clockprovider.RuntimeReinitializedDefaultClockProvider
+2026-07-21 10:52:49,994 DEBUG [org.hibernate.validator.internal.engine.AbstractConfigurationImpl] (main) HV000002: Ignoring XML configuration.
+2026-07-21 10:52:50,091 DEBUG [org.hibernate.validator.resourceloading.PlatformResourceBundleLocator] (main) ValidationMessages found.
+2026-07-21 10:52:50,091 DEBUG [org.hibernate.validator.resourceloading.PlatformResourceBundleLocator] (main) ValidationMessages found.
+2026-07-21 10:52:50,092 DEBUG [org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper] (main) HV000255: Using io.quarkus.hibernate.validator.runtime.locale.LocaleResolversWrapper as locale resolver.
+2026-07-21 10:52:50,156 DEBUG [org.hibernate.validator.resourceloading.PlatformResourceBundleLocator] (main) ContributorValidationMessages not found.
+2026-07-21 10:52:50,156 DEBUG [org.hibernate.validator.resourceloading.PlatformResourceBundleLocator] (main) HV000270: Message resource bundle for the en_US locale is not available and was not pre-loaded.
+2026-07-21 10:52:50,156 DEBUG [org.hibernate.validator.resourceloading.PlatformResourceBundleLocator] (main) ContributorValidationMessages not found.
+2026-07-21 10:52:50,156 DEBUG [org.hibernate.validator.resourceloading.PlatformResourceBundleLocator] (main) HV000270: Message resource bundle for the pt_BR locale is not available and was not pre-loaded.
+2026-07-21 10:52:50,157 DEBUG [org.hibernate.validator.resourceloading.PlatformResourceBundleLocator] (main) org.hibernate.validator.ValidationMessages found.
+2026-07-21 10:52:50,158 DEBUG [org.hibernate.validator.resourceloading.PlatformResourceBundleLocator] (main) org.hibernate.validator.ValidationMessages found.
+2026-07-21 10:52:50,164 DEBUG [org.hibernate.validator.messageinterpolation.ResourceBundleMessageInterpolator] (main) Loaded expression factory via original TCCL
+2026-07-21 10:52:50,167 DEBUG [org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper] (main) HV000252: Using org.hibernate.validator.internal.engine.DefaultPropertyNodeNameProvider as property node name provider.
+2026-07-21 10:52:50,292 DEBUG [org.hibernate.validator.internal.metadata.descriptor.ConstraintDescriptorImpl] (main) Adding composing constraint: ConstraintDescriptorImpl{annotation=j.v.c.Pattern, payloads=[], hasComposingConstraints=true, isReportAsSingleInvalidConstraint=false, constraintLocationKind=PARAMETER, definedOn=DEFINED_LOCALLY, groups=[interface jakarta.validation.groups.Default], attributes={message={jakarta.validation.constraints.Pattern.message}, payload=[Ljava.lang.Class;@475454ae, groups=[Ljava.lang.Class;@6efd83ac, regexp=([0-9]{3}[.]?[0-9]{3}[.]?[0-9]{3}-[0-9]{2})|([0-9]{11}), flags=[Ljakarta.validation.constraints.Pattern$Flag;@117e9a56}, constraintType=GENERIC, valueUnwrapping=DEFAULT}.
+2026-07-21 10:52:50,293 DEBUG [org.hibernate.validator.internal.metadata.descriptor.ConstraintDescriptorImpl] (main) Adding composing constraint: ConstraintDescriptorImpl{annotation=j.v.c.Pattern, payloads=[], hasComposingConstraints=true, isReportAsSingleInvalidConstraint=false, constraintLocationKind=PARAMETER, definedOn=DEFINED_LOCALLY, groups=[interface jakarta.validation.groups.Default], attributes={message={jakarta.validation.constraints.Pattern.message}, payload=[Ljava.lang.Class;@443819d5, groups=[Ljava.lang.Class;@465a121d, regexp=^(?:(?!000\.?000\.?000-?00).)*$, flags=[Ljakarta.validation.constraints.Pattern$Flag;@117e9a56}, constraintType=GENERIC, valueUnwrapping=DEFAULT}.
+2026-07-21 10:52:50,293 DEBUG [org.hibernate.validator.internal.metadata.descriptor.ConstraintDescriptorImpl] (main) Adding composing constraint: ConstraintDescriptorImpl{annotation=j.v.c.Pattern, payloads=[], hasComposingConstraints=true, isReportAsSingleInvalidConstraint=false, constraintLocationKind=PARAMETER, definedOn=DEFINED_LOCALLY, groups=[interface jakarta.validation.groups.Default], attributes={message={jakarta.validation.constraints.Pattern.message}, payload=[Ljava.lang.Class;@643bef2a, groups=[Ljava.lang.Class;@6049b4c9, regexp=^(?:(?!111\.?111\.?111-?11).)*$, flags=[Ljakarta.validation.constraints.Pattern$Flag;@117e9a56}, constraintType=GENERIC, valueUnwrapping=DEFAULT}.
+2026-07-21 10:52:50,293 DEBUG [org.hibernate.validator.internal.metadata.descriptor.ConstraintDescriptorImpl] (main) Adding composing constraint: ConstraintDescriptorImpl{annotation=j.v.c.Pattern, payloads=[], hasComposingConstraints=true, isReportAsSingleInvalidConstraint=false, constraintLocationKind=PARAMETER, definedOn=DEFINED_LOCALLY, groups=[interface jakarta.validation.groups.Default], attributes={message={jakarta.validation.constraints.Pattern.message}, payload=[Ljava.lang.Class;@495cac83, groups=[Ljava.lang.Class;@7225583d, regexp=^(?:(?!222\.?222\.?222-?22).)*$, flags=[Ljakarta.validation.constraints.Pattern$Flag;@117e9a56}, constraintType=GENERIC, valueUnwrapping=DEFAULT}.
+2026-07-21 10:52:50,293 DEBUG [org.hibernate.validator.internal.metadata.descriptor.ConstraintDescriptorImpl] (main) Adding composing constraint: ConstraintDescriptorImpl{annotation=j.v.c.Pattern, payloads=[], hasComposingConstraints=true, isReportAsSingleInvalidConstraint=false, constraintLocationKind=PARAMETER, definedOn=DEFINED_LOCALLY, groups=[interface jakarta.validation.groups.Default], attributes={message={jakarta.validation.constraints.Pattern.message}, payload=[Ljava.lang.Class;@5e92a27, groups=[Ljava.lang.Class;@297db6ad, regexp=^(?:(?!333\.?333\.?333-?33).)*$, flags=[Ljakarta.validation.constraints.Pattern$Flag;@117e9a56}, constraintType=GENERIC, valueUnwrapping=DEFAULT}.
+2026-07-21 10:52:50,293 DEBUG [org.hibernate.validator.internal.metadata.descriptor.ConstraintDescriptorImpl] (main) Adding composing constraint: ConstraintDescriptorImpl{annotation=j.v.c.Pattern, payloads=[], hasComposingConstraints=true, isReportAsSingleInvalidConstraint=false, constraintLocationKind=PARAMETER, definedOn=DEFINED_LOCALLY, groups=[interface jakarta.validation.groups.Default], attributes={message={jakarta.validation.constraints.Pattern.message}, payload=[Ljava.lang.Class;@1469015e, groups=[Ljava.lang.Class;@581da9e6, regexp=^(?:(?!444\.?444\.?444-?44).)*$, flags=[Ljakarta.validation.constraints.Pattern$Flag;@117e9a56}, constraintType=GENERIC, valueUnwrapping=DEFAULT}.
+2026-07-21 10:52:50,293 DEBUG [org.hibernate.validator.internal.metadata.descriptor.ConstraintDescriptorImpl] (main) Adding composing constraint: ConstraintDescriptorImpl{annotation=j.v.c.Pattern, payloads=[], hasComposingConstraints=true, isReportAsSingleInvalidConstraint=false, constraintLocationKind=PARAMETER, definedOn=DEFINED_LOCALLY, groups=[interface jakarta.validation.groups.Default], attributes={message={jakarta.validation.constraints.Pattern.message}, payload=[Ljava.lang.Class;@6296c184, groups=[Ljava.lang.Class;@3ea95f79, regexp=^(?:(?!555\.?555\.?555-?55).)*$, flags=[Ljakarta.validation.constraints.Pattern$Flag;@117e9a56}, constraintType=GENERIC, valueUnwrapping=DEFAULT}.
+2026-07-21 10:52:50,294 DEBUG [org.hibernate.validator.internal.metadata.descriptor.ConstraintDescriptorImpl] (main) Adding composing constraint: ConstraintDescriptorImpl{annotation=j.v.c.Pattern, payloads=[], hasComposingConstraints=true, isReportAsSingleInvalidConstraint=false, constraintLocationKind=PARAMETER, definedOn=DEFINED_LOCALLY, groups=[interface jakarta.validation.groups.Default], attributes={message={jakarta.validation.constraints.Pattern.message}, payload=[Ljava.lang.Class;@1a6ab328, groups=[Ljava.lang.Class;@4e24db00, regexp=^(?:(?!666\.?666\.?666-?66).)*$, flags=[Ljakarta.validation.constraints.Pattern$Flag;@117e9a56}, constraintType=GENERIC, valueUnwrapping=DEFAULT}.
+2026-07-21 10:52:50,294 DEBUG [org.hibernate.validator.internal.metadata.descriptor.ConstraintDescriptorImpl] (main) Adding composing constraint: ConstraintDescriptorImpl{annotation=j.v.c.Pattern, payloads=[], hasComposingConstraints=true, isReportAsSingleInvalidConstraint=false, constraintLocationKind=PARAMETER, definedOn=DEFINED_LOCALLY, groups=[interface jakarta.validation.groups.Default], attributes={message={jakarta.validation.constraints.Pattern.message}, payload=[Ljava.lang.Class;@452d4bb2, groups=[Ljava.lang.Class;@a1143cc, regexp=^(?:(?!777\.?777\.?777-?77).)*$, flags=[Ljakarta.validation.constraints.Pattern$Flag;@117e9a56}, constraintType=GENERIC, valueUnwrapping=DEFAULT}.
+2026-07-21 10:52:50,294 DEBUG [org.hibernate.validator.internal.metadata.descriptor.ConstraintDescriptorImpl] (main) Adding composing constraint: ConstraintDescriptorImpl{annotation=j.v.c.Pattern, payloads=[], hasComposingConstraints=true, isReportAsSingleInvalidConstraint=false, constraintLocationKind=PARAMETER, definedOn=DEFINED_LOCALLY, groups=[interface jakarta.validation.groups.Default], attributes={message={jakarta.validation.constraints.Pattern.message}, payload=[Ljava.lang.Class;@48149568, groups=[Ljava.lang.Class;@674b2703, regexp=^(?:(?!888\.?888\.?888-?88).)*$, flags=[Ljakarta.validation.constraints.Pattern$Flag;@117e9a56}, constraintType=GENERIC, valueUnwrapping=DEFAULT}.
+2026-07-21 10:52:50,294 DEBUG [org.hibernate.validator.internal.metadata.descriptor.ConstraintDescriptorImpl] (main) Adding composing constraint: ConstraintDescriptorImpl{annotation=j.v.c.Pattern, payloads=[], hasComposingConstraints=true, isReportAsSingleInvalidConstraint=false, constraintLocationKind=PARAMETER, definedOn=DEFINED_LOCALLY, groups=[interface jakarta.validation.groups.Default], attributes={message={jakarta.validation.constraints.Pattern.message}, payload=[Ljava.lang.Class;@2ea2f965, groups=[Ljava.lang.Class;@4271960c, regexp=^(?:(?!999\.?999\.?999-?99).)*$, flags=[Ljakarta.validation.constraints.Pattern$Flag;@117e9a56}, constraintType=GENERIC, valueUnwrapping=DEFAULT}.
+2026-07-21 10:52:50,294 DEBUG [org.hibernate.validator.internal.metadata.descriptor.ConstraintDescriptorImpl] (main) Adding composing constraint: ConstraintDescriptorImpl{annotation=o.h.v.c.b.CPF, payloads=[], hasComposingConstraints=false, isReportAsSingleInvalidConstraint=true, constraintLocationKind=PARAMETER, definedOn=DEFINED_LOCALLY, groups=[interface jakarta.validation.groups.Default], attributes={message={org.hibernate.validator.constraints.br.CPF.message}, payload=[Ljava.lang.Class;@3b870ed3, groups=[Ljava.lang.Class;@2d7b117}, constraintType=GENERIC, valueUnwrapping=DEFAULT}.
+2026-07-21 10:52:50,295 DEBUG [org.hibernate.validator.internal.metadata.descriptor.ConstraintDescriptorImpl] (main) Adding Bool org.hibernate.validator.constraints.ConstraintComposition.
+2026-07-21 10:52:50,295 DEBUG [org.hibernate.validator.internal.metadata.descriptor.ConstraintDescriptorImpl] (main) Adding composing constraint: ConstraintDescriptorImpl{annotation=b.g.c.i.s.a.c.v.CnpjAlfa, payloads=[], hasComposingConstraints=true, isReportAsSingleInvalidConstraint=true, constraintLocationKind=PARAMETER, definedOn=DEFINED_LOCALLY, groups=[interface jakarta.validation.groups.Default], attributes={message=, payload=[Ljava.lang.Class;@7294c9fe, groups=[Ljava.lang.Class;@65e639f2}, constraintType=GENERIC, valueUnwrapping=DEFAULT}.
+2026-07-21 10:52:50,295 DEBUG [org.hibernate.validator.internal.metadata.descriptor.ConstraintDescriptorImpl] (main) Adding Bool org.hibernate.validator.constraints.ConstraintComposition.
+2026-07-21 10:52:50,295 DEBUG [org.hibernate.validator.internal.metadata.descriptor.ConstraintDescriptorImpl] (main) Adding composing constraint: ConstraintDescriptorImpl{annotation=b.g.c.i.s.a.c.v.CpfCnpj, payloads=[], hasComposingConstraints=false, isReportAsSingleInvalidConstraint=true, constraintLocationKind=PARAMETER, definedOn=DEFINED_LOCALLY, groups=[interface jakarta.validation.groups.Default], attributes={message=, payload=[Ljava.lang.Class;@28357fc3, groups=[Ljava.lang.Class;@7c48ea9e}, constraintType=GENERIC, valueUnwrapping=DEFAULT}.
+2026-07-21 10:52:50,295 DEBUG [org.hibernate.validator.internal.metadata.descriptor.ConstraintDescriptorImpl] (main) Adding Bool org.hibernate.validator.constraints.ConstraintComposition.
+2026-07-21 10:52:50,372 DEBUG [io.quarkus.arc.impl] (main) Loaded 98 removed beans lazily
+2026-07-21 10:52:50,455 DEBUG [org.hibernate.validator.internal.metadata.descriptor.ConstraintDescriptorImpl] (main) Adding composing constraint: ConstraintDescriptorImpl{annotation=j.v.c.Pattern, payloads=[], hasComposingConstraints=true, isReportAsSingleInvalidConstraint=false, constraintLocationKind=PARAMETER, definedOn=DEFINED_IN_HIERARCHY, groups=[interface jakarta.validation.groups.Default, interface br.gov.caixa.investimentos.saldos.api.v1.ISaldoConsolidadoV1Resource], attributes={message={jakarta.validation.constraints.Pattern.message}, payload=[Ljava.lang.Class;@1a524c6b, groups=[Ljava.lang.Class;@2408ca4c, regexp=([0-9]{3}[.]?[0-9]{3}[.]?[0-9]{3}-[0-9]{2})|([0-9]{11}), flags=[Ljakarta.validation.constraints.Pattern$Flag;@117e9a56}, constraintType=GENERIC, valueUnwrapping=DEFAULT}.
+2026-07-21 10:52:50,455 DEBUG [org.hibernate.validator.internal.metadata.descriptor.ConstraintDescriptorImpl] (main) Adding composing constraint: ConstraintDescriptorImpl{annotation=j.v.c.Pattern, payloads=[], hasComposingConstraints=true, isReportAsSingleInvalidConstraint=false, constraintLocationKind=PARAMETER, definedOn=DEFINED_IN_HIERARCHY, groups=[interface jakarta.validation.groups.Default, interface br.gov.caixa.investimentos.saldos.api.v1.ISaldoConsolidadoV1Resource], attributes={message={jakarta.validation.constraints.Pattern.message}, payload=[Ljava.lang.Class;@5f745970, groups=[Ljava.lang.Class;@57cd77e1, regexp=^(?:(?!000\.?000\.?000-?00).)*$, flags=[Ljakarta.validation.constraints.Pattern$Flag;@117e9a56}, constraintType=GENERIC, valueUnwrapping=DEFAULT}.
+2026-07-21 10:52:50,455 DEBUG [org.hibernate.validator.internal.metadata.descriptor.ConstraintDescriptorImpl] (main) Adding composing constraint: ConstraintDescriptorImpl{annotation=j.v.c.Pattern, payloads=[], hasComposingConstraints=true, isReportAsSingleInvalidConstraint=false, constraintLocationKind=PARAMETER, definedOn=DEFINED_IN_HIERARCHY, groups=[interface jakarta.validation.groups.Default, interface br.gov.caixa.investimentos.saldos.api.v1.ISaldoConsolidadoV1Resource], attributes={message={jakarta.validation.constraints.Pattern.message}, payload=[Ljava.lang.Class;@6b71fded, groups=[Ljava.lang.Class;@1633962a, regexp=^(?:(?!111\.?111\.?111-?11).)*$, flags=[Ljakarta.validation.constraints.Pattern$Flag;@117e9a56}, constraintType=GENERIC, valueUnwrapping=DEFAULT}.
+2026-07-21 10:52:50,455 DEBUG [org.hibernate.validator.internal.metadata.descriptor.ConstraintDescriptorImpl] (main) Adding composing constraint: ConstraintDescriptorImpl{annotation=j.v.c.Pattern, payloads=[], hasComposingConstraints=true, isReportAsSingleInvalidConstraint=false, constraintLocationKind=PARAMETER, definedOn=DEFINED_IN_HIERARCHY, groups=[interface jakarta.validation.groups.Default, interface br.gov.caixa.investimentos.saldos.api.v1.ISaldoConsolidadoV1Resource], attributes={message={jakarta.validation.constraints.Pattern.message}, payload=[Ljava.lang.Class;@33fefbbe, groups=[Ljava.lang.Class;@5784f6b9, regexp=^(?:(?!222\.?222\.?222-?22).)*$, flags=[Ljakarta.validation.constraints.Pattern$Flag;@117e9a56}, constraintType=GENERIC, valueUnwrapping=DEFAULT}.
+2026-07-21 10:52:50,456 DEBUG [org.hibernate.validator.internal.metadata.descriptor.ConstraintDescriptorImpl] (main) Adding composing constraint: ConstraintDescriptorImpl{annotation=j.v.c.Pattern, payloads=[], hasComposingConstraints=true, isReportAsSingleInvalidConstraint=false, constraintLocationKind=PARAMETER, definedOn=DEFINED_IN_HIERARCHY, groups=[interface jakarta.validation.groups.Default, interface br.gov.caixa.investimentos.saldos.api.v1.ISaldoConsolidadoV1Resource], attributes={message={jakarta.validation.constraints.Pattern.message}, payload=[Ljava.lang.Class;@1b7c1c6f, groups=[Ljava.lang.Class;@5f9b37b5, regexp=^(?:(?!333\.?333\.?333-?33).)*$, flags=[Ljakarta.validation.constraints.Pattern$Flag;@117e9a56}, constraintType=GENERIC, valueUnwrapping=DEFAULT}.
+2026-07-21 10:52:50,456 DEBUG [org.hibernate.validator.internal.metadata.descriptor.ConstraintDescriptorImpl] (main) Adding composing constraint: ConstraintDescriptorImpl{annotation=j.v.c.Pattern, payloads=[], hasComposingConstraints=true, isReportAsSingleInvalidConstraint=false, constraintLocationKind=PARAMETER, definedOn=DEFINED_IN_HIERARCHY, groups=[interface jakarta.validation.groups.Default, interface br.gov.caixa.investimentos.saldos.api.v1.ISaldoConsolidadoV1Resource], attributes={message={jakarta.validation.constraints.Pattern.message}, payload=[Ljava.lang.Class;@17abef0f, groups=[Ljava.lang.Class;@6ccf06f1, regexp=^(?:(?!444\.?444\.?444-?44).)*$, flags=[Ljakarta.validation.constraints.Pattern$Flag;@117e9a56}, constraintType=GENERIC, valueUnwrapping=DEFAULT}.
+2026-07-21 10:52:50,456 DEBUG [org.hibernate.validator.internal.metadata.descriptor.ConstraintDescriptorImpl] (main) Adding composing constraint: ConstraintDescriptorImpl{annotation=j.v.c.Pattern, payloads=[], hasComposingConstraints=true, isReportAsSingleInvalidConstraint=false, constraintLocationKind=PARAMETER, definedOn=DEFINED_IN_HIERARCHY, groups=[interface jakarta.validation.groups.Default, interface br.gov.caixa.investimentos.saldos.api.v1.ISaldoConsolidadoV1Resource], attributes={message={jakarta.validation.constraints.Pattern.message}, payload=[Ljava.lang.Class;@1455d0f5, groups=[Ljava.lang.Class;@5c4e86e7, regexp=^(?:(?!555\.?555\.?555-?55).)*$, flags=[Ljakarta.validation.constraints.Pattern$Flag;@117e9a56}, constraintType=GENERIC, valueUnwrapping=DEFAULT}.
+2026-07-21 10:52:50,456 DEBUG [org.hibernate.validator.internal.metadata.descriptor.ConstraintDescriptorImpl] (main) Adding composing constraint: ConstraintDescriptorImpl{annotation=j.v.c.Pattern, payloads=[], hasComposingConstraints=true, isReportAsSingleInvalidConstraint=false, constraintLocationKind=PARAMETER, definedOn=DEFINED_IN_HIERARCHY, groups=[interface jakarta.validation.groups.Default, interface br.gov.caixa.investimentos.saldos.api.v1.ISaldoConsolidadoV1Resource], attributes={message={jakarta.validation.constraints.Pattern.message}, payload=[Ljava.lang.Class;@5fc82de5, groups=[Ljava.lang.Class;@65208c91, regexp=^(?:(?!666\.?666\.?666-?66).)*$, flags=[Ljakarta.validation.constraints.Pattern$Flag;@117e9a56}, constraintType=GENERIC, valueUnwrapping=DEFAULT}.
+2026-07-21 10:52:50,456 DEBUG [org.hibernate.validator.internal.metadata.descriptor.ConstraintDescriptorImpl] (main) Adding composing constraint: ConstraintDescriptorImpl{annotation=j.v.c.Pattern, payloads=[], hasComposingConstraints=true, isReportAsSingleInvalidConstraint=false, constraintLocationKind=PARAMETER, definedOn=DEFINED_IN_HIERARCHY, groups=[interface jakarta.validation.groups.Default, interface br.gov.caixa.investimentos.saldos.api.v1.ISaldoConsolidadoV1Resource], attributes={message={jakarta.validation.constraints.Pattern.message}, payload=[Ljava.lang.Class;@125447a0, groups=[Ljava.lang.Class;@cede70a, regexp=^(?:(?!777\.?777\.?777-?77).)*$, flags=[Ljakarta.validation.constraints.Pattern$Flag;@117e9a56}, constraintType=GENERIC, valueUnwrapping=DEFAULT}.
+2026-07-21 10:52:50,456 DEBUG [org.hibernate.validator.internal.metadata.descriptor.ConstraintDescriptorImpl] (main) Adding composing constraint: ConstraintDescriptorImpl{annotation=j.v.c.Pattern, payloads=[], hasComposingConstraints=true, isReportAsSingleInvalidConstraint=false, constraintLocationKind=PARAMETER, definedOn=DEFINED_IN_HIERARCHY, groups=[interface jakarta.validation.groups.Default, interface br.gov.caixa.investimentos.saldos.api.v1.ISaldoConsolidadoV1Resource], attributes={message={jakarta.validation.constraints.Pattern.message}, payload=[Ljava.lang.Class;@2a45c6f0, groups=[Ljava.lang.Class;@1a9cfd5f, regexp=^(?:(?!888\.?888\.?888-?88).)*$, flags=[Ljakarta.validation.constraints.Pattern$Flag;@117e9a56}, constraintType=GENERIC, valueUnwrapping=DEFAULT}.
+2026-07-21 10:52:50,456 DEBUG [org.hibernate.validator.internal.metadata.descriptor.ConstraintDescriptorImpl] (main) Adding composing constraint: ConstraintDescriptorImpl{annotation=j.v.c.Pattern, payloads=[], hasComposingConstraints=true, isReportAsSingleInvalidConstraint=false, constraintLocationKind=PARAMETER, definedOn=DEFINED_IN_HIERARCHY, groups=[interface jakarta.validation.groups.Default, interface br.gov.caixa.investimentos.saldos.api.v1.ISaldoConsolidadoV1Resource], attributes={message={jakarta.validation.constraints.Pattern.message}, payload=[Ljava.lang.Class;@51fadd20, groups=[Ljava.lang.Class;@550ce3a9, regexp=^(?:(?!999\.?999\.?999-?99).)*$, flags=[Ljakarta.validation.constraints.Pattern$Flag;@117e9a56}, constraintType=GENERIC, valueUnwrapping=DEFAULT}.
+2026-07-21 10:52:50,456 DEBUG [org.hibernate.validator.internal.metadata.descriptor.ConstraintDescriptorImpl] (main) Adding composing constraint: ConstraintDescriptorImpl{annotation=o.h.v.c.b.CPF, payloads=[], hasComposingConstraints=false, isReportAsSingleInvalidConstraint=true, constraintLocationKind=PARAMETER, definedOn=DEFINED_IN_HIERARCHY, groups=[interface jakarta.validation.groups.Default, interface br.gov.caixa.investimentos.saldos.api.v1.ISaldoConsolidadoV1Resource], attributes={message={org.hibernate.validator.constraints.br.CPF.message}, payload=[Ljava.lang.Class;@56554e7, groups=[Ljava.lang.Class;@2f19ab6}, constraintType=GENERIC, valueUnwrapping=DEFAULT}.
+2026-07-21 10:52:50,456 DEBUG [org.hibernate.validator.internal.metadata.descriptor.ConstraintDescriptorImpl] (main) Adding Bool org.hibernate.validator.constraints.ConstraintComposition.
+2026-07-21 10:52:50,456 DEBUG [org.hibernate.validator.internal.metadata.descriptor.ConstraintDescriptorImpl] (main) Adding composing constraint: ConstraintDescriptorImpl{annotation=b.g.c.i.s.a.c.v.CnpjAlfa, payloads=[], hasComposingConstraints=true, isReportAsSingleInvalidConstraint=true, constraintLocationKind=PARAMETER, definedOn=DEFINED_IN_HIERARCHY, groups=[interface jakarta.validation.groups.Default, interface br.gov.caixa.investimentos.saldos.api.v1.ISaldoConsolidadoV1Resource], attributes={message=, payload=[Ljava.lang.Class;@b7e53b1, groups=[Ljava.lang.Class;@5545c42}, constraintType=GENERIC, valueUnwrapping=DEFAULT}.
+2026-07-21 10:52:50,456 DEBUG [org.hibernate.validator.internal.metadata.descriptor.ConstraintDescriptorImpl] (main) Adding Bool org.hibernate.validator.constraints.ConstraintComposition.
+2026-07-21 10:52:50,456 DEBUG [org.hibernate.validator.internal.metadata.descriptor.ConstraintDescriptorImpl] (main) Adding composing constraint: ConstraintDescriptorImpl{annotation=b.g.c.i.s.a.c.v.CpfCnpj, payloads=[], hasComposingConstraints=false, isReportAsSingleInvalidConstraint=true, constraintLocationKind=PARAMETER, definedOn=DEFINED_IN_HIERARCHY, groups=[interface jakarta.validation.groups.Default, interface br.gov.caixa.investimentos.saldos.api.v1.ISaldoConsolidadoV1Resource], attributes={message=, payload=[Ljava.lang.Class;@66df2165, groups=[Ljava.lang.Class;@41cec7b0}, constraintType=GENERIC, valueUnwrapping=DEFAULT}.
+2026-07-21 10:52:50,456 DEBUG [org.hibernate.validator.internal.metadata.descriptor.ConstraintDescriptorImpl] (main) Adding Bool org.hibernate.validator.constraints.ConstraintComposition.
+2026-07-21 10:52:50,466 DEBUG [org.hibernate.validator.internal.metadata.descriptor.ConstraintDescriptorImpl] (main) Adding composing constraint: ConstraintDescriptorImpl{annotation=j.v.c.Pattern, payloads=[], hasComposingConstraints=true, isReportAsSingleInvalidConstraint=false, constraintLocationKind=TYPE, definedOn=DEFINED_LOCALLY, groups=[interface jakarta.validation.groups.Default], attributes={message={jakarta.validation.constraints.Pattern.message}, payload=[Ljava.lang.Class;@7280785f, groups=[Ljava.lang.Class;@589dd717, regexp=([0-9]{3}[.]?[0-9]{3}[.]?[0-9]{3}-[0-9]{2})|([0-9]{11}), flags=[Ljakarta.validation.constraints.Pattern$Flag;@117e9a56}, constraintType=GENERIC, valueUnwrapping=DEFAULT}.
+2026-07-21 10:52:50,466 DEBUG [org.hibernate.validator.internal.metadata.descriptor.ConstraintDescriptorImpl] (main) Adding composing constraint: ConstraintDescriptorImpl{annotation=j.v.c.Pattern, payloads=[], hasComposingConstraints=true, isReportAsSingleInvalidConstraint=false, constraintLocationKind=TYPE, definedOn=DEFINED_LOCALLY, groups=[interface jakarta.validation.groups.Default], attributes={message={jakarta.validation.constraints.Pattern.message}, payload=[Ljava.lang.Class;@12c55199, groups=[Ljava.lang.Class;@63f6811e, regexp=^(?:(?!000\.?000\.?000-?00).)*$, flags=[Ljakarta.validation.constraints.Pattern$Flag;@117e9a56}, constraintType=GENERIC, valueUnwrapping=DEFAULT}.
+2026-07-21 10:52:50,467 DEBUG [org.hibernate.validator.internal.metadata.descriptor.ConstraintDescriptorImpl] (main) Adding composing constraint: ConstraintDescriptorImpl{annotation=j.v.c.Pattern, payloads=[], hasComposingConstraints=true, isReportAsSingleInvalidConstraint=false, constraintLocationKind=TYPE, definedOn=DEFINED_LOCALLY, groups=[interface jakarta.validation.groups.Default], attributes={message={jakarta.validation.constraints.Pattern.message}, payload=[Ljava.lang.Class;@4832813d, groups=[Ljava.lang.Class;@70c3483b, regexp=^(?:(?!111\.?111\.?111-?11).)*$, flags=[Ljakarta.validation.constraints.Pattern$Flag;@117e9a56}, constraintType=GENERIC, valueUnwrapping=DEFAULT}.
+2026-07-21 10:52:50,467 DEBUG [org.hibernate.validator.internal.metadata.descriptor.ConstraintDescriptorImpl] (main) Adding composing constraint: ConstraintDescriptorImpl{annotation=j.v.c.Pattern, payloads=[], hasComposingConstraints=true, isReportAsSingleInvalidConstraint=false, constraintLocationKind=TYPE, definedOn=DEFINED_LOCALLY, groups=[interface jakarta.validation.groups.Default], attributes={message={jakarta.validation.constraints.Pattern.message}, payload=[Ljava.lang.Class;@5ccc07ae, groups=[Ljava.lang.Class;@ab5e63, regexp=^(?:(?!222\.?222\.?222-?22).)*$, flags=[Ljakarta.validation.constraints.Pattern$Flag;@117e9a56}, constraintType=GENERIC, valueUnwrapping=DEFAULT}.
+2026-07-21 10:52:50,467 DEBUG [org.hibernate.validator.internal.metadata.descriptor.ConstraintDescriptorImpl] (main) Adding composing constraint: ConstraintDescriptorImpl{annotation=j.v.c.Pattern, payloads=[], hasComposingConstraints=true, isReportAsSingleInvalidConstraint=false, constraintLocationKind=TYPE, definedOn=DEFINED_LOCALLY, groups=[interface jakarta.validation.groups.Default], attributes={message={jakarta.validation.constraints.Pattern.message}, payload=[Ljava.lang.Class;@1b12c870, groups=[Ljava.lang.Class;@27df4dcb, regexp=^(?:(?!333\.?333\.?333-?33).)*$, flags=[Ljakarta.validation.constraints.Pattern$Flag;@117e9a56}, constraintType=GENERIC, valueUnwrapping=DEFAULT}.
+2026-07-21 10:52:50,467 DEBUG [org.hibernate.validator.internal.metadata.descriptor.ConstraintDescriptorImpl] (main) Adding composing constraint: ConstraintDescriptorImpl{annotation=j.v.c.Pattern, payloads=[], hasComposingConstraints=true, isReportAsSingleInvalidConstraint=false, constraintLocationKind=TYPE, definedOn=DEFINED_LOCALLY, groups=[interface jakarta.validation.groups.Default], attributes={message={jakarta.validation.constraints.Pattern.message}, payload=[Ljava.lang.Class;@d88d9d7, groups=[Ljava.lang.Class;@54c15e, regexp=^(?:(?!444\.?444\.?444-?44).)*$, flags=[Ljakarta.validation.constraints.Pattern$Flag;@117e9a56}, constraintType=GENERIC, valueUnwrapping=DEFAULT}.
+2026-07-21 10:52:50,467 DEBUG [org.hibernate.validator.internal.metadata.descriptor.ConstraintDescriptorImpl] (main) Adding composing constraint: ConstraintDescriptorImpl{annotation=j.v.c.Pattern, payloads=[], hasComposingConstraints=true, isReportAsSingleInvalidConstraint=false, constraintLocationKind=TYPE, definedOn=DEFINED_LOCALLY, groups=[interface jakarta.validation.groups.Default], attributes={message={jakarta.validation.constraints.Pattern.message}, payload=[Ljava.lang.Class;@4acae4c7, groups=[Ljava.lang.Class;@1c7da28, regexp=^(?:(?!555\.?555\.?555-?55).)*$, flags=[Ljakarta.validation.constraints.Pattern$Flag;@117e9a56}, constraintType=GENERIC, valueUnwrapping=DEFAULT}.
+2026-07-21 10:52:50,467 DEBUG [org.hibernate.validator.internal.metadata.descriptor.ConstraintDescriptorImpl] (main) Adding composing constraint: ConstraintDescriptorImpl{annotation=j.v.c.Pattern, payloads=[], hasComposingConstraints=true, isReportAsSingleInvalidConstraint=false, constraintLocationKind=TYPE, definedOn=DEFINED_LOCALLY, groups=[interface jakarta.validation.groups.Default], attributes={message={jakarta.validation.constraints.Pattern.message}, payload=[Ljava.lang.Class;@39b50027, groups=[Ljava.lang.Class;@24c4370a, regexp=^(?:(?!666\.?666\.?666-?66).)*$, flags=[Ljakarta.validation.constraints.Pattern$Flag;@117e9a56}, constraintType=GENERIC, valueUnwrapping=DEFAULT}.
+2026-07-21 10:52:50,467 DEBUG [org.hibernate.validator.internal.metadata.descriptor.ConstraintDescriptorImpl] (main) Adding composing constraint: ConstraintDescriptorImpl{annotation=j.v.c.Pattern, payloads=[], hasComposingConstraints=true, isReportAsSingleInvalidConstraint=false, constraintLocationKind=TYPE, definedOn=DEFINED_LOCALLY, groups=[interface jakarta.validation.groups.Default], attributes={message={jakarta.validation.constraints.Pattern.message}, payload=[Ljava.lang.Class;@41a3656f, groups=[Ljava.lang.Class;@5086e144, regexp=^(?:(?!777\.?777\.?777-?77).)*$, flags=[Ljakarta.validation.constraints.Pattern$Flag;@117e9a56}, constraintType=GENERIC, valueUnwrapping=DEFAULT}.
+2026-07-21 10:52:50,467 DEBUG [org.hibernate.validator.internal.metadata.descriptor.ConstraintDescriptorImpl] (main) Adding composing constraint: ConstraintDescriptorImpl{annotation=j.v.c.Pattern, payloads=[], hasComposingConstraints=true, isReportAsSingleInvalidConstraint=false, constraintLocationKind=TYPE, definedOn=DEFINED_LOCALLY, groups=[interface jakarta.validation.groups.Default], attributes={message={jakarta.validation.constraints.Pattern.message}, payload=[Ljava.lang.Class;@231d5119, groups=[Ljava.lang.Class;@79cfc008, regexp=^(?:(?!888\.?888\.?888-?88).)*$, flags=[Ljakarta.validation.constraints.Pattern$Flag;@117e9a56}, constraintType=GENERIC, valueUnwrapping=DEFAULT}.
+2026-07-21 10:52:50,467 DEBUG [org.hibernate.validator.internal.metadata.descriptor.ConstraintDescriptorImpl] (main) Adding composing constraint: ConstraintDescriptorImpl{annotation=j.v.c.Pattern, payloads=[], hasComposingConstraints=true, isReportAsSingleInvalidConstraint=false, constraintLocationKind=TYPE, definedOn=DEFINED_LOCALLY, groups=[interface jakarta.validation.groups.Default], attributes={message={jakarta.validation.constraints.Pattern.message}, payload=[Ljava.lang.Class;@3470c771, groups=[Ljava.lang.Class;@7d2ccd7f, regexp=^(?:(?!999\.?999\.?999-?99).)*$, flags=[Ljakarta.validation.constraints.Pattern$Flag;@117e9a56}, constraintType=GENERIC, valueUnwrapping=DEFAULT}.
+2026-07-21 10:52:50,467 DEBUG [org.hibernate.validator.internal.metadata.descriptor.ConstraintDescriptorImpl] (main) Adding composing constraint: ConstraintDescriptorImpl{annotation=o.h.v.c.b.CPF, payloads=[], hasComposingConstraints=false, isReportAsSingleInvalidConstraint=true, constraintLocationKind=TYPE, definedOn=DEFINED_LOCALLY, groups=[interface jakarta.validation.groups.Default], attributes={message={org.hibernate.validator.constraints.br.CPF.message}, payload=[Ljava.lang.Class;@40ef1198, groups=[Ljava.lang.Class;@72161dbb}, constraintType=GENERIC, valueUnwrapping=DEFAULT}.
+2026-07-21 10:52:50,468 DEBUG [org.hibernate.validator.internal.metadata.descriptor.ConstraintDescriptorImpl] (main) Adding Bool org.hibernate.validator.constraints.ConstraintComposition.
+2026-07-21 10:52:50,468 DEBUG [org.hibernate.validator.internal.metadata.descriptor.ConstraintDescriptorImpl] (main) Adding composing constraint: ConstraintDescriptorImpl{annotation=b.g.c.i.s.a.c.v.CnpjAlfa, payloads=[], hasComposingConstraints=true, isReportAsSingleInvalidConstraint=true, constraintLocationKind=TYPE, definedOn=DEFINED_LOCALLY, groups=[interface jakarta.validation.groups.Default], attributes={message=, payload=[Ljava.lang.Class;@f41db7f, groups=[Ljava.lang.Class;@4df8f4e9}, constraintType=GENERIC, valueUnwrapping=DEFAULT}.
+2026-07-21 10:52:50,468 DEBUG [org.hibernate.validator.internal.metadata.descriptor.ConstraintDescriptorImpl] (main) Adding Bool org.hibernate.validator.constraints.ConstraintComposition.
+2026-07-21 10:52:50,471 DEBUG [org.hibernate.validator.internal.metadata.descriptor.ConstraintDescriptorImpl] (main) Adding composing constraint: ConstraintDescriptorImpl{annotation=j.v.c.Pattern, payloads=[], hasComposingConstraints=true, isReportAsSingleInvalidConstraint=false, constraintLocationKind=PARAMETER, definedOn=DEFINED_LOCALLY, groups=[interface jakarta.validation.groups.Default], attributes={message={jakarta.validation.constraints.Pattern.message}, payload=[Ljava.lang.Class;@1ef4179, groups=[Ljava.lang.Class;@322f6283, regexp=([0-9]{3}[.]?[0-9]{3}[.]?[0-9]{3}-[0-9]{2})|([0-9]{11}), flags=[Ljakarta.validation.constraints.Pattern$Flag;@117e9a56}, constraintType=GENERIC, valueUnwrapping=DEFAULT}.
+2026-07-21 10:52:50,471 DEBUG [org.hibernate.validator.internal.metadata.descriptor.ConstraintDescriptorImpl] (main) Adding composing constraint: ConstraintDescriptorImpl{annotation=j.v.c.Pattern, payloads=[], hasComposingConstraints=true, isReportAsSingleInvalidConstraint=false, constraintLocationKind=PARAMETER, definedOn=DEFINED_LOCALLY, groups=[interface jakarta.validation.groups.Default], attributes={message={jakarta.validation.constraints.Pattern.message}, payload=[Ljava.lang.Class;@4756c8f3, groups=[Ljava.lang.Class;@3cc9bde9, regexp=^(?:(?!000\.?000\.?000-?00).)*$, flags=[Ljakarta.validation.constraints.Pattern$Flag;@117e9a56}, constraintType=GENERIC, valueUnwrapping=DEFAULT}.
+2026-07-21 10:52:50,471 DEBUG [org.hibernate.validator.internal.metadata.descriptor.ConstraintDescriptorImpl] (main) Adding composing constraint: ConstraintDescriptorImpl{annotation=j.v.c.Pattern, payloads=[], hasComposingConstraints=true, isReportAsSingleInvalidConstraint=false, constraintLocationKind=PARAMETER, definedOn=DEFINED_LOCALLY, groups=[interface jakarta.validation.groups.Default], attributes={message={jakarta.validation.constraints.Pattern.message}, payload=[Ljava.lang.Class;@197bf5ef, groups=[Ljava.lang.Class;@681ba763, regexp=^(?:(?!111\.?111\.?111-?11).)*$, flags=[Ljakarta.validation.constraints.Pattern$Flag;@117e9a56}, constraintType=GENERIC, valueUnwrapping=DEFAULT}.
+2026-07-21 10:52:50,471 DEBUG [org.hibernate.validator.internal.metadata.descriptor.ConstraintDescriptorImpl] (main) Adding composing constraint: ConstraintDescriptorImpl{annotation=j.v.c.Pattern, payloads=[], hasComposingConstraints=true, isReportAsSingleInvalidConstraint=false, constraintLocationKind=PARAMETER, definedOn=DEFINED_LOCALLY, groups=[interface jakarta.validation.groups.Default], attributes={message={jakarta.validation.constraints.Pattern.message}, payload=[Ljava.lang.Class;@33012e6f, groups=[Ljava.lang.Class;@7593716d, regexp=^(?:(?!222\.?222\.?222-?22).)*$, flags=[Ljakarta.validation.constraints.Pattern$Flag;@117e9a56}, constraintType=GENERIC, valueUnwrapping=DEFAULT}.
+2026-07-21 10:52:50,471 DEBUG [org.hibernate.validator.internal.metadata.descriptor.ConstraintDescriptorImpl] (main) Adding composing constraint: ConstraintDescriptorImpl{annotation=j.v.c.Pattern, payloads=[], hasComposingConstraints=true, isReportAsSingleInvalidConstraint=false, constraintLocationKind=PARAMETER, definedOn=DEFINED_LOCALLY, groups=[interface jakarta.validation.groups.Default], attributes={message={jakarta.validation.constraints.Pattern.message}, payload=[Ljava.lang.Class;@3a7be6e6, groups=[Ljava.lang.Class;@33c590, regexp=^(?:(?!333\.?333\.?333-?33).)*$, flags=[Ljakarta.validation.constraints.Pattern$Flag;@117e9a56}, constraintType=GENERIC, valueUnwrapping=DEFAULT}.
+2026-07-21 10:52:50,471 DEBUG [org.hibernate.validator.internal.metadata.descriptor.ConstraintDescriptorImpl] (main) Adding composing constraint: ConstraintDescriptorImpl{annotation=j.v.c.Pattern, payloads=[], hasComposingConstraints=true, isReportAsSingleInvalidConstraint=false, constraintLocationKind=PARAMETER, definedOn=DEFINED_LOCALLY, groups=[interface jakarta.validation.groups.Default], attributes={message={jakarta.validation.constraints.Pattern.message}, payload=[Ljava.lang.Class;@1934a7c1, groups=[Ljava.lang.Class;@7c9d2ed7, regexp=^(?:(?!444\.?444\.?444-?44).)*$, flags=[Ljakarta.validation.constraints.Pattern$Flag;@117e9a56}, constraintType=GENERIC, valueUnwrapping=DEFAULT}.
+2026-07-21 10:52:50,471 DEBUG [org.hibernate.validator.internal.metadata.descriptor.ConstraintDescriptorImpl] (main) Adding composing constraint: ConstraintDescriptorImpl{annotation=j.v.c.Pattern, payloads=[], hasComposingConstraints=true, isReportAsSingleInvalidConstraint=false, constraintLocationKind=PARAMETER, definedOn=DEFINED_LOCALLY, groups=[interface jakarta.validation.groups.Default], attributes={message={jakarta.validation.constraints.Pattern.message}, payload=[Ljava.lang.Class;@223e51e4, groups=[Ljava.lang.Class;@1e08f0cd, regexp=^(?:(?!555\.?555\.?555-?55).)*$, flags=[Ljakarta.validation.constraints.Pattern$Flag;@117e9a56}, constraintType=GENERIC, valueUnwrapping=DEFAULT}.
+2026-07-21 10:52:50,471 DEBUG [org.hibernate.validator.internal.metadata.descriptor.ConstraintDescriptorImpl] (main) Adding composing constraint: ConstraintDescriptorImpl{annotation=j.v.c.Pattern, payloads=[], hasComposingConstraints=true, isReportAsSingleInvalidConstraint=false, constraintLocationKind=PARAMETER, definedOn=DEFINED_LOCALLY, groups=[interface jakarta.validation.groups.Default], attributes={message={jakarta.validation.constraints.Pattern.message}, payload=[Ljava.lang.Class;@ab7ac41, groups=[Ljava.lang.Class;@5ad67d82, regexp=^(?:(?!666\.?666\.?666-?66).)*$, flags=[Ljakarta.validation.constraints.Pattern$Flag;@117e9a56}, constraintType=GENERIC, valueUnwrapping=DEFAULT}.
+2026-07-21 10:52:50,471 DEBUG [org.hibernate.validator.internal.metadata.descriptor.ConstraintDescriptorImpl] (main) Adding composing constraint: ConstraintDescriptorImpl{annotation=j.v.c.Pattern, payloads=[], hasComposingConstraints=true, isReportAsSingleInvalidConstraint=false, constraintLocationKind=PARAMETER, definedOn=DEFINED_LOCALLY, groups=[interface jakarta.validation.groups.Default], attributes={message={jakarta.validation.constraints.Pattern.message}, payload=[Ljava.lang.Class;@3c3a8246, groups=[Ljava.lang.Class;@bd8f424, regexp=^(?:(?!777\.?777\.?777-?77).)*$, flags=[Ljakarta.validation.constraints.Pattern$Flag;@117e9a56}, constraintType=GENERIC, valueUnwrapping=DEFAULT}.
+2026-07-21 10:52:50,472 DEBUG [org.hibernate.validator.internal.metadata.descriptor.ConstraintDescriptorImpl] (main) Adding composing constraint: ConstraintDescriptorImpl{annotation=j.v.c.Pattern, payloads=[], hasComposingConstraints=true, isReportAsSingleInvalidConstraint=false, constraintLocationKind=PARAMETER, definedOn=DEFINED_LOCALLY, groups=[interface jakarta.validation.groups.Default], attributes={message={jakarta.validation.constraints.Pattern.message}, payload=[Ljava.lang.Class;@6a06b374, groups=[Ljava.lang.Class;@2c634c0, regexp=^(?:(?!888\.?888\.?888-?88).)*$, flags=[Ljakarta.validation.constraints.Pattern$Flag;@117e9a56}, constraintType=GENERIC, valueUnwrapping=DEFAULT}.
+2026-07-21 10:52:50,472 DEBUG [org.hibernate.validator.internal.metadata.descriptor.ConstraintDescriptorImpl] (main) Adding composing constraint: ConstraintDescriptorImpl{annotation=j.v.c.Pattern, payloads=[], hasComposingConstraints=true, isReportAsSingleInvalidConstraint=false, constraintLocationKind=PARAMETER, definedOn=DEFINED_LOCALLY, groups=[interface jakarta.validation.groups.Default], attributes={message={jakarta.validation.constraints.Pattern.message}, payload=[Ljava.lang.Class;@71d2bc34, groups=[Ljava.lang.Class;@2e903c69, regexp=^(?:(?!999\.?999\.?999-?99).)*$, flags=[Ljakarta.validation.constraints.Pattern$Flag;@117e9a56}, constraintType=GENERIC, valueUnwrapping=DEFAULT}.
+2026-07-21 10:52:50,472 DEBUG [org.hibernate.validator.internal.metadata.descriptor.ConstraintDescriptorImpl] (main) Adding composing constraint: ConstraintDescriptorImpl{annotation=o.h.v.c.b.CPF, payloads=[], hasComposingConstraints=false, isReportAsSingleInvalidConstraint=true, constraintLocationKind=PARAMETER, definedOn=DEFINED_LOCALLY, groups=[interface jakarta.validation.groups.Default], attributes={message={org.hibernate.validator.constraints.br.CPF.message}, payload=[Ljava.lang.Class;@4f290f46, groups=[Ljava.lang.Class;@2bfe398b}, constraintType=GENERIC, valueUnwrapping=DEFAULT}.
+2026-07-21 10:52:50,472 DEBUG [org.hibernate.validator.internal.metadata.descriptor.ConstraintDescriptorImpl] (main) Adding Bool org.hibernate.validator.constraints.ConstraintComposition.
+2026-07-21 10:52:50,472 DEBUG [org.hibernate.validator.internal.metadata.descriptor.ConstraintDescriptorImpl] (main) Adding composing constraint: ConstraintDescriptorImpl{annotation=b.g.c.i.s.a.c.v.CnpjAlfa, payloads=[], hasComposingConstraints=true, isReportAsSingleInvalidConstraint=true, constraintLocationKind=PARAMETER, definedOn=DEFINED_LOCALLY, groups=[interface jakarta.validation.groups.Default], attributes={message=, payload=[Ljava.lang.Class;@5d96b0f, groups=[Ljava.lang.Class;@5f31385e}, constraintType=GENERIC, valueUnwrapping=DEFAULT}.
+2026-07-21 10:52:50,472 DEBUG [org.hibernate.validator.internal.metadata.descriptor.ConstraintDescriptorImpl] (main) Adding Bool org.hibernate.validator.constraints.ConstraintComposition.
+2026-07-21 10:52:50,472 DEBUG [org.hibernate.validator.internal.metadata.descriptor.ConstraintDescriptorImpl] (main) Adding composing constraint: ConstraintDescriptorImpl{annotation=b.g.c.i.s.a.c.v.CpfCnpj, payloads=[], hasComposingConstraints=false, isReportAsSingleInvalidConstraint=true, constraintLocationKind=PARAMETER, definedOn=DEFINED_LOCALLY, groups=[interface jakarta.validation.groups.Default], attributes={message=, payload=[Ljava.lang.Class;@6e48b9ed, groups=[Ljava.lang.Class;@38ed9fb2}, constraintType=GENERIC, valueUnwrapping=DEFAULT}.
+2026-07-21 10:52:50,472 DEBUG [org.hibernate.validator.internal.metadata.descriptor.ConstraintDescriptorImpl] (main) Adding Bool org.hibernate.validator.constraints.ConstraintComposition.
+2026-07-21 10:52:50,474 DEBUG [org.hibernate.validator.internal.metadata.descriptor.ConstraintDescriptorImpl] (main) Adding composing constraint: ConstraintDescriptorImpl{annotation=j.v.c.Pattern, payloads=[], hasComposingConstraints=true, isReportAsSingleInvalidConstraint=false, constraintLocationKind=TYPE, definedOn=DEFINED_LOCALLY, groups=[interface jakarta.validation.groups.Default], attributes={message={jakarta.validation.constraints.Pattern.message}, payload=[Ljava.lang.Class;@9930ff6, groups=[Ljava.lang.Class;@5d571179, regexp=([0-9]{3}[.]?[0-9]{3}[.]?[0-9]{3}-[0-9]{2})|([0-9]{11}), flags=[Ljakarta.validation.constraints.Pattern$Flag;@117e9a56}, constraintType=GENERIC, valueUnwrapping=DEFAULT}.
+2026-07-21 10:52:50,474 DEBUG [org.hibernate.validator.internal.metadata.descriptor.ConstraintDescriptorImpl] (main) Adding composing constraint: ConstraintDescriptorImpl{annotation=j.v.c.Pattern, payloads=[], hasComposingConstraints=true, isReportAsSingleInvalidConstraint=false, constraintLocationKind=TYPE, definedOn=DEFINED_LOCALLY, groups=[interface jakarta.validation.groups.Default], attributes={message={jakarta.validation.constraints.Pattern.message}, payload=[Ljava.lang.Class;@4a609803, groups=[Ljava.lang.Class;@5b1dd206, regexp=^(?:(?!000\.?000\.?000-?00).)*$, flags=[Ljakarta.validation.constraints.Pattern$Flag;@117e9a56}, constraintType=GENERIC, valueUnwrapping=DEFAULT}.
+2026-07-21 10:52:50,475 DEBUG [org.hibernate.validator.internal.metadata.descriptor.ConstraintDescriptorImpl] (main) Adding composing constraint: ConstraintDescriptorImpl{annotation=j.v.c.Pattern, payloads=[], hasComposingConstraints=true, isReportAsSingleInvalidConstraint=false, constraintLocationKind=TYPE, definedOn=DEFINED_LOCALLY, groups=[interface jakarta.validation.groups.Default], attributes={message={jakarta.validation.constraints.Pattern.message}, payload=[Ljava.lang.Class;@73611fbb, groups=[Ljava.lang.Class;@3d0f2154, regexp=^(?:(?!111\.?111\.?111-?11).)*$, flags=[Ljakarta.validation.constraints.Pattern$Flag;@117e9a56}, constraintType=GENERIC, valueUnwrapping=DEFAULT}.
+2026-07-21 10:52:50,475 DEBUG [org.hibernate.validator.internal.metadata.descriptor.ConstraintDescriptorImpl] (main) Adding composing constraint: ConstraintDescriptorImpl{annotation=j.v.c.Pattern, payloads=[], hasComposingConstraints=true, isReportAsSingleInvalidConstraint=false, constraintLocationKind=TYPE, definedOn=DEFINED_LOCALLY, groups=[interface jakarta.validation.groups.Default], attributes={message={jakarta.validation.constraints.Pattern.message}, payload=[Ljava.lang.Class;@106dee26, groups=[Ljava.lang.Class;@6b0aa757, regexp=^(?:(?!222\.?222\.?222-?22).)*$, flags=[Ljakarta.validation.constraints.Pattern$Flag;@117e9a56}, constraintType=GENERIC, valueUnwrapping=DEFAULT}.
+2026-07-21 10:52:50,475 DEBUG [org.hibernate.validator.internal.metadata.descriptor.ConstraintDescriptorImpl] (main) Adding composing constraint: ConstraintDescriptorImpl{annotation=j.v.c.Pattern, payloads=[], hasComposingConstraints=true, isReportAsSingleInvalidConstraint=false, constraintLocationKind=TYPE, definedOn=DEFINED_LOCALLY, groups=[interface jakarta.validation.groups.Default], attributes={message={jakarta.validation.constraints.Pattern.message}, payload=[Ljava.lang.Class;@1d0695da, groups=[Ljava.lang.Class;@62e55482, regexp=^(?:(?!333\.?333\.?333-?33).)*$, flags=[Ljakarta.validation.constraints.Pattern$Flag;@117e9a56}, constraintType=GENERIC, valueUnwrapping=DEFAULT}.
+2026-07-21 10:52:50,475 DEBUG [org.hibernate.validator.internal.metadata.descriptor.ConstraintDescriptorImpl] (main) Adding composing constraint: ConstraintDescriptorImpl{annotation=j.v.c.Pattern, payloads=[], hasComposingConstraints=true, isReportAsSingleInvalidConstraint=false, constraintLocationKind=TYPE, definedOn=DEFINED_LOCALLY, groups=[interface jakarta.validation.groups.Default], attributes={message={jakarta.validation.constraints.Pattern.message}, payload=[Ljava.lang.Class;@2aa176de, groups=[Ljava.lang.Class;@3208e15, regexp=^(?:(?!444\.?444\.?444-?44).)*$, flags=[Ljakarta.validation.constraints.Pattern$Flag;@117e9a56}, constraintType=GENERIC, valueUnwrapping=DEFAULT}.
+2026-07-21 10:52:50,475 DEBUG [org.hibernate.validator.internal.metadata.descriptor.ConstraintDescriptorImpl] (main) Adding composing constraint: ConstraintDescriptorImpl{annotation=j.v.c.Pattern, payloads=[], hasComposingConstraints=true, isReportAsSingleInvalidConstraint=false, constraintLocationKind=TYPE, definedOn=DEFINED_LOCALLY, groups=[interface jakarta.validation.groups.Default], attributes={message={jakarta.validation.constraints.Pattern.message}, payload=[Ljava.lang.Class;@4cf99283, groups=[Ljava.lang.Class;@6d4f1a44, regexp=^(?:(?!555\.?555\.?555-?55).)*$, flags=[Ljakarta.validation.constraints.Pattern$Flag;@117e9a56}, constraintType=GENERIC, valueUnwrapping=DEFAULT}.
+2026-07-21 10:52:50,475 DEBUG [org.hibernate.validator.internal.metadata.descriptor.ConstraintDescriptorImpl] (main) Adding composing constraint: ConstraintDescriptorImpl{annotation=j.v.c.Pattern, payloads=[], hasComposingConstraints=true, isReportAsSingleInvalidConstraint=false, constraintLocationKind=TYPE, definedOn=DEFINED_LOCALLY, groups=[interface jakarta.validation.groups.Default], attributes={message={jakarta.validation.constraints.Pattern.message}, payload=[Ljava.lang.Class;@6deb2b19, groups=[Ljava.lang.Class;@6d86d1ad, regexp=^(?:(?!666\.?666\.?666-?66).)*$, flags=[Ljakarta.validation.constraints.Pattern$Flag;@117e9a56}, constraintType=GENERIC, valueUnwrapping=DEFAULT}.
+2026-07-21 10:52:50,475 DEBUG [org.hibernate.validator.internal.metadata.descriptor.ConstraintDescriptorImpl] (main) Adding composing constraint: ConstraintDescriptorImpl{annotation=j.v.c.Pattern, payloads=[], hasComposingConstraints=true, isReportAsSingleInvalidConstraint=false, constraintLocationKind=TYPE, definedOn=DEFINED_LOCALLY, groups=[interface jakarta.validation.groups.Default], attributes={message={jakarta.validation.constraints.Pattern.message}, payload=[Ljava.lang.Class;@51b1732d, groups=[Ljava.lang.Class;@65b639e1, regexp=^(?:(?!777\.?777\.?777-?77).)*$, flags=[Ljakarta.validation.constraints.Pattern$Flag;@117e9a56}, constraintType=GENERIC, valueUnwrapping=DEFAULT}.
+2026-07-21 10:52:50,475 DEBUG [org.hibernate.validator.internal.metadata.descriptor.ConstraintDescriptorImpl] (main) Adding composing constraint: ConstraintDescriptorImpl{annotation=j.v.c.Pattern, payloads=[], hasComposingConstraints=true, isReportAsSingleInvalidConstraint=false, constraintLocationKind=TYPE, definedOn=DEFINED_LOCALLY, groups=[interface jakarta.validation.groups.Default], attributes={message={jakarta.validation.constraints.Pattern.message}, payload=[Ljava.lang.Class;@35b8b69f, groups=[Ljava.lang.Class;@6fca831e, regexp=^(?:(?!888\.?888\.?888-?88).)*$, flags=[Ljakarta.validation.constraints.Pattern$Flag;@117e9a56}, constraintType=GENERIC, valueUnwrapping=DEFAULT}.
+2026-07-21 10:52:50,475 DEBUG [org.hibernate.validator.internal.metadata.descriptor.ConstraintDescriptorImpl] (main) Adding composing constraint: ConstraintDescriptorImpl{annotation=j.v.c.Pattern, payloads=[], hasComposingConstraints=true, isReportAsSingleInvalidConstraint=false, constraintLocationKind=TYPE, definedOn=DEFINED_LOCALLY, groups=[interface jakarta.validation.groups.Default], attributes={message={jakarta.validation.constraints.Pattern.message}, payload=[Ljava.lang.Class;@31b11287, groups=[Ljava.lang.Class;@414d5660, regexp=^(?:(?!999\.?999\.?999-?99).)*$, flags=[Ljakarta.validation.constraints.Pattern$Flag;@117e9a56}, constraintType=GENERIC, valueUnwrapping=DEFAULT}.
+2026-07-21 10:52:50,475 DEBUG [org.hibernate.validator.internal.metadata.descriptor.ConstraintDescriptorImpl] (main) Adding Bool org.hibernate.validator.constraints.ConstraintComposition.
+2026-07-21 10:52:50,478 DEBUG [org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper] (main) HV000234: Using org.hibernate.validator.messageinterpolation.ResourceBundleMessageInterpolator as ValidatorFactory-scoped message interpolator.
+2026-07-21 10:52:50,478 DEBUG [org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper] (main) HV000234: Using io.quarkus.hibernate.validator.runtime.HibernateValidatorRecorder$DelegatingTraversableResolver as ValidatorFactory-scoped traversable resolver.
+2026-07-21 10:52:50,478 DEBUG [org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper] (main) HV000234: Using org.hibernate.validator.internal.util.ExecutableParameterNameProvider as ValidatorFactory-scoped parameter name provider.
+2026-07-21 10:52:50,478 DEBUG [org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper] (main) HV000234: Using io.quarkus.hibernate.validator.runtime.clockprovider.RuntimeReinitializedDefaultClockProvider as ValidatorFactory-scoped clock provider.
+2026-07-21 10:52:50,479 DEBUG [org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper] (main) HV000234: Using org.hibernate.validator.internal.engine.scripting.DefaultScriptEvaluatorFactory as ValidatorFactory-scoped script evaluator factory.
+2026-07-21 10:52:50,496 DEBUG [io.quarkus.arc.runtime.BeanContainerImpl] (main) No matching bean found for type class org.jboss.resteasy.reactive.server.vertx.serializers.ServerVertxBufferMessageBodyWriter and qualifiers []. The bean might have been marked as unused and removed during build.
+2026-07-21 10:52:50,497 DEBUG [io.quarkus.arc.runtime.BeanContainerImpl] (main) No matching bean found for type class org.jboss.resteasy.reactive.server.vertx.serializers.ServerMutinyBufferMessageBodyWriter and qualifiers []. The bean might have been marked as unused and removed during build.
+2026-07-21 10:52:50,498 DEBUG [io.quarkus.arc.runtime.BeanContainerImpl] (main) No matching bean found for type class org.jboss.resteasy.reactive.server.vertx.serializers.ServerVertxAsyncFileMessageBodyWriter and qualifiers []. The bean might have been marked as unused and removed during build.
+2026-07-21 10:52:50,499 DEBUG [io.quarkus.arc.runtime.BeanContainerImpl] (main) No matching bean found for type class org.jboss.resteasy.reactive.server.vertx.serializers.ServerMutinyAsyncFileMessageBodyWriter and qualifiers []. The bean might have been marked as unused and removed during build.
+2026-07-21 10:52:50,557 DEBUG [io.quarkus.arc.runtime.BeanContainerImpl] (main) No matching bean found for type class io.quarkus.resteasy.reactive.jackson.runtime.serialisers.vertx.VertxJsonArrayMessageBodyWriter and qualifiers []. The bean might have been marked as unused and removed during build.
+2026-07-21 10:52:50,558 DEBUG [io.quarkus.arc.runtime.BeanContainerImpl] (main) No matching bean found for type class io.quarkus.resteasy.reactive.jackson.runtime.serialisers.vertx.VertxJsonObjectMessageBodyWriter and qualifiers []. The bean might have been marked as unused and removed during build.
+2026-07-21 10:52:50,558 DEBUG [io.quarkus.arc.runtime.BeanContainerImpl] (main) No matching bean found for type class io.quarkus.resteasy.reactive.server.runtime.QuarkusServerPathBodyHandler and qualifiers []. The bean might have been marked as unused and removed during build.
+2026-07-21 10:52:50,559 DEBUG [io.quarkus.arc.runtime.BeanContainerImpl] (main) No matching bean found for type class io.quarkus.resteasy.reactive.jackson.runtime.serialisers.vertx.VertxJsonArrayMessageBodyReader and qualifiers []. The bean might have been marked as unused and removed during build.
+2026-07-21 10:52:50,560 DEBUG [io.quarkus.arc.runtime.BeanContainerImpl] (main) No matching bean found for type class io.quarkus.resteasy.reactive.jackson.runtime.serialisers.vertx.VertxJsonObjectMessageBodyReader and qualifiers []. The bean might have been marked as unused and removed during build.
+2026-07-21 10:52:50,560 DEBUG [io.quarkus.arc.runtime.BeanContainerImpl] (main) No matching bean found for type class org.jboss.resteasy.reactive.server.providers.serialisers.ServerStringMessageBodyHandler and qualifiers []. The bean might have been marked as unused and removed during build.
+2026-07-21 10:52:50,560 DEBUG [io.quarkus.arc.runtime.BeanContainerImpl] (main) No matching bean found for type class org.jboss.resteasy.reactive.server.providers.serialisers.ServerStringMessageBodyHandler and qualifiers []. The bean might have been marked as unused and removed during build.
+2026-07-21 10:52:50,560 DEBUG [io.quarkus.arc.runtime.BeanContainerImpl] (main) No matching bean found for type class org.jboss.resteasy.reactive.server.providers.serialisers.ServerStringMessageBodyHandler and qualifiers []. The bean might have been marked as unused and removed during build.
+2026-07-21 10:52:50,560 DEBUG [io.quarkus.arc.runtime.BeanContainerImpl] (main) No matching bean found for type class org.jboss.resteasy.reactive.server.providers.serialisers.ServerStringMessageBodyHandler and qualifiers []. The bean might have been marked as unused and removed during build.
+2026-07-21 10:52:50,560 DEBUG [io.quarkus.arc.runtime.BeanContainerImpl] (main) No matching bean found for type class org.jboss.resteasy.reactive.server.providers.serialisers.ServerStringMessageBodyHandler and qualifiers []. The bean might have been marked as unused and removed during build.
+2026-07-21 10:52:50,560 DEBUG [io.quarkus.arc.runtime.BeanContainerImpl] (main) No matching bean found for type class org.jboss.resteasy.reactive.server.providers.serialisers.ServerCharArrayMessageBodyHandler and qualifiers []. The bean might have been marked as unused and removed during build.
+2026-07-21 10:52:50,560 DEBUG [io.quarkus.arc.runtime.BeanContainerImpl] (main) No matching bean found for type class org.jboss.resteasy.reactive.server.providers.serialisers.ServerByteArrayMessageBodyHandler and qualifiers []. The bean might have been marked as unused and removed during build.
+2026-07-21 10:52:50,560 DEBUG [io.quarkus.arc.runtime.BeanContainerImpl] (main) No matching bean found for type class org.jboss.resteasy.reactive.server.providers.serialisers.ServerFormUrlEncodedProvider and qualifiers []. The bean might have been marked as unused and removed during build.
+2026-07-21 10:52:50,560 DEBUG [io.quarkus.arc.runtime.BeanContainerImpl] (main) No matching bean found for type class org.jboss.resteasy.reactive.server.providers.serialisers.ServerInputStreamMessageBodyHandler and qualifiers []. The bean might have been marked as unused and removed during build.
+2026-07-21 10:52:50,560 DEBUG [io.quarkus.arc.runtime.BeanContainerImpl] (main) No matching bean found for type class org.jboss.resteasy.reactive.server.providers.serialisers.StreamingOutputMessageBodyWriter and qualifiers []. The bean might have been marked as unused and removed during build.
+2026-07-21 10:52:50,560 DEBUG [io.quarkus.arc.runtime.BeanContainerImpl] (main) No matching bean found for type class org.jboss.resteasy.reactive.server.providers.serialisers.ServerReaderBodyHandler and qualifiers []. The bean might have been marked as unused and removed during build.
+2026-07-21 10:52:50,560 DEBUG [io.quarkus.arc.runtime.BeanContainerImpl] (main) No matching bean found for type class org.jboss.resteasy.reactive.server.providers.serialisers.ServerFileBodyHandler and qualifiers []. The bean might have been marked as unused and removed during build.
+2026-07-21 10:52:50,560 DEBUG [io.quarkus.arc.runtime.BeanContainerImpl] (main) No matching bean found for type class org.jboss.resteasy.reactive.server.providers.serialisers.ServerFilePartBodyHandler and qualifiers []. The bean might have been marked as unused and removed during build.
+2026-07-21 10:52:50,560 DEBUG [io.quarkus.arc.runtime.BeanContainerImpl] (main) No matching bean found for type class org.jboss.resteasy.reactive.server.core.multipart.MultipartMessageBodyWriter and qualifiers []. The bean might have been marked as unused and removed during build.
+2026-07-21 10:52:50,560 DEBUG [io.quarkus.arc.runtime.BeanContainerImpl] (main) No matching bean found for type class org.jboss.resteasy.reactive.server.providers.serialisers.ServerPathBodyHandler and qualifiers []. The bean might have been marked as unused and removed during build.
+2026-07-21 10:52:50,560 DEBUG [io.quarkus.arc.runtime.BeanContainerImpl] (main) No matching bean found for type class org.jboss.resteasy.reactive.server.providers.serialisers.ServerPathPartBodyHandler and qualifiers []. The bean might have been marked as unused and removed during build.
+2026-07-21 10:52:50,560 DEBUG [io.quarkus.arc.runtime.BeanContainerImpl] (main) No matching bean found for type class org.jboss.resteasy.reactive.server.providers.serialisers.ServerStringMessageBodyHandler and qualifiers []. The bean might have been marked as unused and removed during build.
+2026-07-21 10:52:50,560 DEBUG [io.quarkus.arc.runtime.BeanContainerImpl] (main) No matching bean found for type class org.jboss.resteasy.reactive.server.providers.serialisers.ServerBooleanMessageBodyHandler and qualifiers []. The bean might have been marked as unused and removed during build.
+2026-07-21 10:52:50,561 DEBUG [io.quarkus.arc.runtime.BeanContainerImpl] (main) No matching bean found for type class org.jboss.resteasy.reactive.server.providers.serialisers.ServerCharacterMessageBodyHandler and qualifiers []. The bean might have been marked as unused and removed during build.
+2026-07-21 10:52:50,561 DEBUG [io.quarkus.arc.runtime.BeanContainerImpl] (main) No matching bean found for type class org.jboss.resteasy.reactive.server.providers.serialisers.ServerNumberMessageBodyHandler and qualifiers []. The bean might have been marked as unused and removed during build.
+2026-07-21 10:52:50,561 DEBUG [io.quarkus.arc.runtime.BeanContainerImpl] (main) No matching bean found for type class org.jboss.resteasy.reactive.server.providers.serialisers.ServerInputStreamMessageBodyHandler and qualifiers []. The bean might have been marked as unused and removed during build.
+2026-07-21 10:52:50,561 DEBUG [io.quarkus.arc.runtime.BeanContainerImpl] (main) No matching bean found for type class org.jboss.resteasy.reactive.server.providers.serialisers.ServerReaderBodyHandler and qualifiers []. The bean might have been marked as unused and removed during build.
+2026-07-21 10:52:50,561 DEBUG [io.quarkus.arc.runtime.BeanContainerImpl] (main) No matching bean found for type class io.quarkus.resteasy.reactive.server.runtime.QuarkusServerFileBodyHandler and qualifiers []. The bean might have been marked as unused and removed during build.
+2026-07-21 10:52:50,561 DEBUG [io.quarkus.arc.runtime.BeanContainerImpl] (main) No matching bean found for type class org.jboss.resteasy.reactive.server.providers.serialisers.ServerByteArrayMessageBodyHandler and qualifiers []. The bean might have been marked as unused and removed during build.
+2026-07-21 10:52:50,561 DEBUG [io.quarkus.arc.runtime.BeanContainerImpl] (main) No matching bean found for type class org.jboss.resteasy.reactive.server.providers.serialisers.ServerDefaultTextPlainBodyHandler and qualifiers []. The bean might have been marked as unused and removed during build.
+2026-07-21 10:52:50,562 DEBUG [io.quarkus.arc.runtime.BeanContainerImpl] (main) No matching bean found for type class io.quarkus.resteasy.reactive.jackson.runtime.mappers.BuiltinMismatchedInputExceptionMapper and qualifiers []. The bean might have been marked as unused and removed during build.
+2026-07-21 10:52:50,563 DEBUG [io.quarkus.arc.runtime.BeanContainerImpl] (main) No matching bean found for type class io.quarkus.resteasy.reactive.server.runtime.exceptionmappers.AuthenticationCompletionExceptionMapper and qualifiers []. The bean might have been marked as unused and removed during build.
+2026-07-21 10:52:50,563 DEBUG [io.quarkus.arc.runtime.BeanContainerImpl] (main) No matching bean found for type class io.quarkus.resteasy.reactive.server.runtime.exceptionmappers.AuthenticationRedirectExceptionMapper and qualifiers []. The bean might have been marked as unused and removed during build.
+2026-07-21 10:52:50,564 DEBUG [io.quarkus.arc.runtime.BeanContainerImpl] (main) No matching bean found for type class io.quarkus.rest.runtime.__QuarkusInit and qualifiers []. The bean might have been marked as unused and removed during build.
+2026-07-21 10:52:50,696 DEBUG [io.netty.util.internal.logging.InternalLoggerFactory] (main) Using SLF4J as the default logging framework
+2026-07-21 10:52:50,760 DEBUG [io.smallrye.config] (main) SRCFG01006: Loaded ConfigSource BuildTime RunTime Fixed with ordinal 2147483647
+2026-07-21 10:52:50,760 DEBUG [io.smallrye.config] (main) SRCFG01006: Loaded ConfigSource ValueRegistryConfigSource with ordinal 2147483637
+2026-07-21 10:52:50,760 DEBUG [io.smallrye.config] (main) SRCFG01006: Loaded ConfigSource DevServicesOverrideConfigSource with ordinal 410
+2026-07-21 10:52:50,760 DEBUG [io.smallrye.config] (main) SRCFG01006: Loaded ConfigSource SysPropConfigSource with ordinal 400
+2026-07-21 10:52:50,760 DEBUG [io.smallrye.config] (main) SRCFG01006: Loaded ConfigSource EnvConfigSource with ordinal 300
+2026-07-21 10:52:50,760 DEBUG [io.smallrye.config] (main) SRCFG01006: Loaded ConfigSource PropertiesConfigSource[source=jar:file:///deployments/app/sigfa-api-saldo-consolidado-1.2.0.0.jar!/application.properties] with ordinal 250
+2026-07-21 10:52:50,760 DEBUG [io.smallrye.config] (main) SRCFG01006: Loaded ConfigSource DevServicesConfigSource with ordinal 240
+2026-07-21 10:52:50,760 DEBUG [io.smallrye.config] (main) SRCFG01006: Loaded ConfigSource FileSystemConfigSource[dir=/usr/src/app/secrets_files/SIGFA_DES] with ordinal 100
+2026-07-21 10:52:50,760 DEBUG [io.smallrye.config] (main) SRCFG01006: Loaded ConfigSource Runtime Values with ordinal 0
+2026-07-21 10:52:50,760 DEBUG [io.smallrye.config] (main) SRCFG01006: Loaded ConfigSource QuarkusUUIDConfigSource with ordinal -2147483648
+2026-07-21 10:52:50,760 DEBUG [io.smallrye.config] (main) SRCFG01006: Loaded ConfigSource DefaultValuesConfigSource with ordinal -2147483648
+2026-07-21 10:52:51,171 DEBUG [com.arjuna.ats.jta] (main) Setting up node identifiers '[quarkus]' for which recovery will be performed
+2026-07-21 10:52:51,178 WARN  [io.quarkus.runtime.logging.LoggingSetupRecorder] (main) Root log level TRACE set below minimum logging level DEBUG, promoting it to DEBUG. Set the build time configuration property 'quarkus.log.min-level' to 'TRACE' to avoid this warning
+2026-07-21 10:52:51,440 DEBUG [io.vertx.core.logging.LoggerFactory] (main) Using io.vertx.core.logging.SLF4JLogDelegateFactory
+2026-07-21 10:52:51,584 DEBUG [io.quarkus.vertx.core.runtime.VertxCoreRecorder] (main) Vert.x Cache configured to: /tmp/vertx-cache/-4161868010894334179
+2026-07-21 10:52:51,665 DEBUG [io.netty.util.internal.PlatformDependent0] (main) Java version: 21
+2026-07-21 10:52:51,665 DEBUG [io.netty.util.internal.PlatformDependent0] (main) -Dio.netty.noUnsafe: false
+2026-07-21 10:52:51,667 DEBUG [io.netty.util.internal.PlatformDependent0] (main) java.nio.Buffer.address: available
+2026-07-21 10:52:51,668 DEBUG [io.netty.util.internal.PlatformDependent0] (main) java.nio.Bits.unaligned: available, true
+2026-07-21 10:52:51,668 DEBUG [io.netty.util.internal.PlatformDependent0] (main) java.nio.DirectByteBuffer.<init>(long, {int,long}): unavailable
+2026-07-21 10:52:51,669 DEBUG [io.netty.util.internal.PlatformDependent] (main) sun.misc.Unsafe: available
+2026-07-21 10:52:51,669 DEBUG [io.netty.util.internal.PlatformDependent] (main) -Dio.netty.tmpdir: /tmp (java.io.tmpdir)
+2026-07-21 10:52:51,669 DEBUG [io.netty.util.internal.PlatformDependent] (main) -Dio.netty.bitMode: 64 (sun.arch.data.model)
+2026-07-21 10:52:51,670 DEBUG [io.netty.util.internal.PlatformDependent] (main) -Dio.netty.maxDirectMemory: -1 bytes
+2026-07-21 10:52:51,670 DEBUG [io.netty.util.internal.PlatformDependent] (main) -Dio.netty.uninitializedArrayAllocationThreshold: -1
+2026-07-21 10:52:51,670 DEBUG [io.netty.util.internal.CleanerJava9] (main) java.nio.ByteBuffer.cleaner(): available
+2026-07-21 10:52:51,670 DEBUG [io.netty.util.internal.PlatformDependent] (main) -Dio.netty.noPreferDirect: false
+2026-07-21 10:52:51,687 DEBUG [io.netty.util.ResourceLeakDetector] (main) -Dio.netty.leakDetection.level: simple
+2026-07-21 10:52:51,687 DEBUG [io.netty.util.ResourceLeakDetector] (main) -Dio.netty.leakDetection.targetRecords: 4
+2026-07-21 10:52:51,868 DEBUG [io.netty.channel.MultithreadEventLoopGroup] (main) -Dio.netty.eventLoopThreads: 2
+2026-07-21 10:52:51,965 DEBUG [io.netty.util.concurrent.GlobalEventExecutor] (main) -Dio.netty.globalEventExecutor.quietPeriodSeconds: 1
+2026-07-21 10:52:51,982 DEBUG [io.netty.util.internal.InternalThreadLocalMap] (main) -Dio.netty.threadLocalMap.stringBuilder.initialSize: 1024
+2026-07-21 10:52:51,982 DEBUG [io.netty.util.internal.InternalThreadLocalMap] (main) -Dio.netty.threadLocalMap.stringBuilder.maxSize: 4096
+2026-07-21 10:52:52,086 DEBUG [io.netty.channel.nio.NioEventLoop] (main) -Dio.netty.noKeySetOptimization: false
+2026-07-21 10:52:52,086 DEBUG [io.netty.channel.nio.NioEventLoop] (main) -Dio.netty.selectorAutoRebuildThreshold: 512
+2026-07-21 10:52:52,093 DEBUG [io.netty.util.internal.PlatformDependent] (main) org.jctools-core.MpscChunkedArrayQueue: available
+2026-07-21 10:52:52,169 DEBUG [io.quarkus.vertx.core.runtime.VertxCoreRecorder] (main) Vertx has Native Transport Enabled: false
+2026-07-21 10:52:52,187 WARN  [io.quarkus.runtime.configuration.ConfigRecorder] (main) Build time property cannot be changed at runtime:
+ - quarkus.log.min-level is set to 'TRACE' but it is build time fixed to 'DEBUG'. Did you change the property quarkus.log.min-level after building the application?
+2026-07-21 10:52:52,272 FINE  [jakarta.json.spi.JsonProvider] (main) Checking system property jakarta.json.provider
+2026-07-21 10:52:52,273 FINE  [jakarta.json.spi.JsonProvider] (main) Checking ServiceLoader
+2026-07-21 10:52:52,276 FINE  [jakarta.json.spi.JsonProvider] (main) ServiceLoader loading Facility used; returning object [org.eclipse.parsson.JsonProviderImpl]
+2026-07-21 10:52:52,281 FINE  [jakarta.json.spi.JsonProvider] (main) Checking system property jakarta.json.provider
+2026-07-21 10:52:52,281 FINE  [jakarta.json.spi.JsonProvider] (main) Checking ServiceLoader
+2026-07-21 10:52:52,281 FINE  [jakarta.json.spi.JsonProvider] (main) ServiceLoader loading Facility used; returning object [org.eclipse.parsson.JsonProviderImpl]
+2026-07-21 10:52:52,386 DEBUG [io.quarkus.flyway.runtime.QuarkusPathLocationScanner] (main) Locations: [classpath:db/migration]
+2026-07-21 10:52:52,387 DEBUG [io.quarkus.flyway.runtime.QuarkusPathLocationScanner] (main) Loading db/migration/V1__create.sql
+2026-07-21 10:52:52,388 DEBUG [io.quarkus.flyway.runtime.QuarkusPathLocationScanner] (main) Loading db/migration/V2__seed.sql
+2026-07-21 10:52:52,899 DEBUG [io.netty.util.NetUtil] (main) -Djava.net.preferIPv4Stack: false
+2026-07-21 10:52:52,899 DEBUG [io.netty.util.NetUtil] (main) -Djava.net.preferIPv6Addresses: false
+2026-07-21 10:52:52,901 DEBUG [io.netty.util.NetUtilInitializations] (main) Loopback interface: lo (lo, 0:0:0:0:0:0:0:1%lo)
+2026-07-21 10:52:52,901 DEBUG [io.netty.util.NetUtil] (main) /proc/sys/net/core/somaxconn: 4096
+2026-07-21 10:52:53,156 DEBUG [io.netty.channel.DefaultChannelId] (vert.x-eventloop-thread-0) -Dio.netty.processId: 8 (auto-detected)
+2026-07-21 10:52:53,156 DEBUG [io.netty.channel.DefaultChannelId] (vert.x-eventloop-thread-0) -Dio.netty.machineId: 7d:08:3b:1b:5c:83:98:f0 (user-set)
+2026-07-21 10:52:53,275 DEBUG [io.netty.buffer.PooledByteBufAllocator] (vert.x-eventloop-thread-0) -Dio.netty.allocator.numHeapArenas: 2
+2026-07-21 10:52:53,276 DEBUG [io.netty.buffer.PooledByteBufAllocator] (vert.x-eventloop-thread-0) -Dio.netty.allocator.numDirectArenas: 2
+2026-07-21 10:52:53,276 DEBUG [io.netty.buffer.PooledByteBufAllocator] (vert.x-eventloop-thread-0) -Dio.netty.allocator.pageSize: 8192
+2026-07-21 10:52:53,276 DEBUG [io.netty.buffer.PooledByteBufAllocator] (vert.x-eventloop-thread-0) -Dio.netty.allocator.maxOrder: 3
+2026-07-21 10:52:53,276 DEBUG [io.netty.buffer.PooledByteBufAllocator] (vert.x-eventloop-thread-0) -Dio.netty.allocator.chunkSize: 65536
+2026-07-21 10:52:53,276 DEBUG [io.netty.buffer.PooledByteBufAllocator] (vert.x-eventloop-thread-0) -Dio.netty.allocator.smallCacheSize: 256
+2026-07-21 10:52:53,276 DEBUG [io.netty.buffer.PooledByteBufAllocator] (vert.x-eventloop-thread-0) -Dio.netty.allocator.normalCacheSize: 64
+2026-07-21 10:52:53,276 DEBUG [io.netty.buffer.PooledByteBufAllocator] (vert.x-eventloop-thread-0) -Dio.netty.allocator.maxCachedBufferCapacity: 32768
+2026-07-21 10:52:53,276 DEBUG [io.netty.buffer.PooledByteBufAllocator] (vert.x-eventloop-thread-0) -Dio.netty.allocator.cacheTrimInterval: 8192
+2026-07-21 10:52:53,276 DEBUG [io.netty.buffer.PooledByteBufAllocator] (vert.x-eventloop-thread-0) -Dio.netty.allocator.cacheTrimIntervalMillis: 0
+2026-07-21 10:52:53,276 DEBUG [io.netty.buffer.PooledByteBufAllocator] (vert.x-eventloop-thread-0) -Dio.netty.allocator.useCacheForAllThreads: false
+2026-07-21 10:52:53,276 DEBUG [io.netty.buffer.PooledByteBufAllocator] (vert.x-eventloop-thread-0) -Dio.netty.allocator.maxCachedByteBuffersPerChunk: 1023
+2026-07-21 10:52:53,276 DEBUG [io.netty.buffer.PooledByteBufAllocator] (vert.x-eventloop-thread-0) -Dio.netty.allocator.disableCacheFinalizersForFastThreadLocalThreads: true
+2026-07-21 10:52:53,284 DEBUG [io.netty.buffer.ByteBufUtil] (vert.x-eventloop-thread-0) -Dio.netty.allocator.type: pooled
+2026-07-21 10:52:53,284 DEBUG [io.netty.buffer.ByteBufUtil] (vert.x-eventloop-thread-0) -Dio.netty.threadLocalDirectBufferSize: 0
+2026-07-21 10:52:53,284 DEBUG [io.netty.buffer.ByteBufUtil] (vert.x-eventloop-thread-0) -Dio.netty.maxThreadLocalCharBufferSize: 16384
+2026-07-21 10:52:53,297 DEBUG [io.netty.bootstrap.ChannelInitializerExtensions] (vert.x-eventloop-thread-0) -Dio.netty.bootstrap.extensions: null
+2026-07-21 10:52:53,362 DEBUG [io.netty.handler.ssl.JdkSslContext] (vert.x-eventloop-thread-0) Default protocols (JDK): [TLSv1.3, TLSv1.2] 
+2026-07-21 10:52:53,362 DEBUG [io.netty.handler.ssl.JdkSslContext] (vert.x-eventloop-thread-0) Default cipher suites (JDK): [TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA, TLS_RSA_WITH_AES_128_GCM_SHA256, TLS_RSA_WITH_AES_128_CBC_SHA, TLS_RSA_WITH_AES_256_CBC_SHA, TLS_AES_128_GCM_SHA256, TLS_AES_256_GCM_SHA384]
+2026-07-21 10:52:53,463 DEBUG [io.netty.buffer.AbstractByteBuf] (vert.x-eventloop-thread-0) -Dio.netty.buffer.checkAccessible: true
+2026-07-21 10:52:53,463 DEBUG [io.netty.buffer.AbstractByteBuf] (vert.x-eventloop-thread-0) -Dio.netty.buffer.checkBounds: true
+2026-07-21 10:52:53,464 DEBUG [io.netty.util.ResourceLeakDetectorFactory] (vert.x-eventloop-thread-0) Loaded default ResourceLeakDetector: io.netty.util.ResourceLeakDetector@568114fe
+2026-07-21 10:52:53,470 DEBUG [io.netty.util.Recycler] (vert.x-eventloop-thread-0) -Dio.netty.recycler.maxCapacityPerThread: 4096
+2026-07-21 10:52:53,470 DEBUG [io.netty.util.Recycler] (vert.x-eventloop-thread-0) -Dio.netty.recycler.ratio: 8
+2026-07-21 10:52:53,471 DEBUG [io.netty.util.Recycler] (vert.x-eventloop-thread-0) -Dio.netty.recycler.chunkSize: 32
+2026-07-21 10:52:53,471 DEBUG [io.netty.util.Recycler] (vert.x-eventloop-thread-0) -Dio.netty.recycler.blocking: false
+2026-07-21 10:52:53,471 DEBUG [io.netty.util.Recycler] (vert.x-eventloop-thread-0) -Dio.netty.recycler.batchFastThreadLocalOnly: true
+2026-07-21 10:52:53,488 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA256withRSA, Serial:bf9115f6920eba9cfdc101587a7402cc, Subject:CN=logindes.caixa.gov.br, Issuer:CN=Sectigo Public Server Authentication CA DV R36, O=Sectigo Limited, C=GB, Key type:RSA, Length:2048, Cert Id:1321442559, Valid from:6/15/26, 9:00?PM, Valid until:12/31/26, 8:59?PM
+2026-07-21 10:52:53,489 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA384withRSA, Serial:397a66cc2756362e0daa87ca6eabe3b1, Subject:CN=Sectigo Public Server Authentication CA DV R36, O=Sectigo Limited, C=GB, Issuer:CN=Sectigo Public Server Authentication Root R46, O=Sectigo Limited, C=GB, Key type:RSA, Length:3072, Cert Id:1180805919, Valid from:3/21/21, 9:00?PM, Valid until:3/21/36, 8:59?PM
+2026-07-21 10:52:53,500 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) ValidationChain: 1180805919, 1321442559
+2026-07-21 10:52:53,557 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA256withRSA, Serial:570a119742c4e3cc, Subject:CN=Actalis Authentication Root CA, O=Actalis S.p.A./03358520967, L=Milan, C=IT, Issuer:CN=Actalis Authentication Root CA, O=Actalis S.p.A./03358520967, L=Milan, C=IT, Key type:RSA, Length:4096, Cert Id:1729119956, Valid from:9/22/11, 8:22?AM, Valid until:9/22/30, 8:22?AM
+2026-07-21 10:52:53,559 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA1withRSA, Serial:1, Subject:CN=AddTrust External CA Root, OU=AddTrust External TTP Network, O=AddTrust AB, C=SE, Issuer:CN=AddTrust External CA Root, OU=AddTrust External TTP Network, O=AddTrust AB, C=SE, Key type:RSA, Length:2048, Cert Id:3968614624, Valid from:5/30/00, 7:48?AM, Valid until:5/30/20, 7:48?AM
+2026-07-21 10:52:53,559 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA1withRSA, Serial:1, Subject:CN=AddTrust Qualified CA Root, OU=AddTrust TTP Network, O=AddTrust AB, C=SE, Issuer:CN=AddTrust Qualified CA Root, OU=AddTrust TTP Network, O=AddTrust AB, C=SE, Key type:RSA, Length:2048, Cert Id:607365522, Valid from:5/30/00, 7:44?AM, Valid until:5/30/20, 7:44?AM
+2026-07-21 10:52:53,560 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA256withRSA, Serial:7777062726a9b17c, Subject:CN=AffirmTrust Commercial, O=AffirmTrust, C=US, Issuer:CN=AffirmTrust Commercial, O=AffirmTrust, C=US, Key type:RSA, Length:2048, Cert Id:630485644, Valid from:1/29/10, 12:06?PM, Valid until:12/31/30, 11:06?AM
+2026-07-21 10:52:53,561 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA1withRSA, Serial:7c4f04391cd4992d, Subject:CN=AffirmTrust Networking, O=AffirmTrust, C=US, Issuer:CN=AffirmTrust Networking, O=AffirmTrust, C=US, Key type:RSA, Length:2048, Cert Id:651670175, Valid from:1/29/10, 12:08?PM, Valid until:12/31/30, 11:08?AM
+2026-07-21 10:52:53,562 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA384withRSA, Serial:6d8c1446b1a60aee, Subject:CN=AffirmTrust Premium, O=AffirmTrust, C=US, Issuer:CN=AffirmTrust Premium, O=AffirmTrust, C=US, Key type:RSA, Length:4096, Cert Id:2164683341, Valid from:1/29/10, 12:10?PM, Valid until:12/31/40, 11:10?AM
+2026-07-21 10:52:53,562 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA384withECDSA, Serial:7497258ac73f7a54, Subject:CN=AffirmTrust Premium ECC, O=AffirmTrust, C=US, Issuer:CN=AffirmTrust Premium ECC, O=AffirmTrust, C=US, Key type:EC, Length:384, Cert Id:2214603510, Valid from:1/29/10, 12:20?PM, Valid until:12/31/40, 11:20?AM
+2026-07-21 10:52:53,563 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA256withRSA, Serial:66c9fcf99bf8c0a39e2f0788a43e696365bca, Subject:CN=Amazon Root CA 1, O=Amazon, C=US, Issuer:CN=Amazon Root CA 1, O=Amazon, C=US, Key type:RSA, Length:2048, Cert Id:2822522334, Valid from:5/25/15, 9:00?PM, Valid until:1/16/38, 9:00?PM
+2026-07-21 10:52:53,564 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA384withRSA, Serial:66c9fd29635869f0a0fe58678f85b26bb8a37, Subject:CN=Amazon Root CA 2, O=Amazon, C=US, Issuer:CN=Amazon Root CA 2, O=Amazon, C=US, Key type:RSA, Length:4096, Cert Id:2528834908, Valid from:5/25/15, 9:00?PM, Valid until:5/25/40, 9:00?PM
+2026-07-21 10:52:53,565 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA256withECDSA, Serial:66c9fd5749736663f3b0b9ad9e89e7603f24a, Subject:CN=Amazon Root CA 3, O=Amazon, C=US, Issuer:CN=Amazon Root CA 3, O=Amazon, C=US, Key type:EC, Length:256, Cert Id:2732679773, Valid from:5/25/15, 9:00?PM, Valid until:5/25/40, 9:00?PM
+2026-07-21 10:52:53,565 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA384withECDSA, Serial:66c9fd7c1bb104c2943e5717b7b2cc81ac10e, Subject:CN=Amazon Root CA 4, O=Amazon, C=US, Issuer:CN=Amazon Root CA 4, O=Amazon, C=US, Key type:EC, Length:384, Cert Id:2640694783, Valid from:5/25/15, 9:00?PM, Valid until:5/25/40, 9:00?PM
+2026-07-21 10:52:53,566 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA1withRSA, Serial:20000b9, Subject:CN=Baltimore CyberTrust Root, OU=CyberTrust, O=Baltimore, C=IE, Issuer:CN=Baltimore CyberTrust Root, OU=CyberTrust, O=Baltimore, C=IE, Key type:RSA, Length:2048, Cert Id:1425294543, Valid from:5/12/00, 3:46?PM, Valid until:5/12/25, 8:59?PM
+2026-07-21 10:52:53,567 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA256withRSA, Serial:2, Subject:CN=Buypass Class 2 Root CA, O=Buypass AS-983163327, C=NO, Issuer:CN=Buypass Class 2 Root CA, O=Buypass AS-983163327, C=NO, Key type:RSA, Length:4096, Cert Id:969960563, Valid from:10/26/10, 6:38?AM, Valid until:10/26/40, 5:38?AM
+2026-07-21 10:52:53,568 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA256withRSA, Serial:2, Subject:CN=Buypass Class 3 Root CA, O=Buypass AS-983163327, C=NO, Issuer:CN=Buypass Class 3 Root CA, O=Buypass AS-983163327, C=NO, Key type:RSA, Length:4096, Cert Id:1264269967, Valid from:10/26/10, 6:28?AM, Valid until:10/26/40, 5:28?AM
+2026-07-21 10:52:53,568 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA1withRSA, Serial:a3da427ea4b1aeda, Subject:CN=Chambers of Commerce Root - 2008, O=AC Camerfirma S.A., SERIALNUMBER=A82743287, L=Madrid (see current address at www.camerfirma.com/address), C=EU, Issuer:CN=Chambers of Commerce Root - 2008, O=AC Camerfirma S.A., SERIALNUMBER=A82743287, L=Madrid (see current address at www.camerfirma.com/address), C=EU, Key type:RSA, Length:4096, Cert Id:4266703372, Valid from:8/1/08, 9:29?AM, Valid until:7/31/38, 9:29?AM
+2026-07-21 10:52:53,569 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA1withRSA, Serial:0, Subject:CN=Chambers of Commerce Root, OU=http://www.chambersign.org, O=AC Camerfirma SA CIF A82743287, C=EU, Issuer:CN=Chambers of Commerce Root, OU=http://www.chambersign.org, O=AC Camerfirma SA CIF A82743287, C=EU, Key type:RSA, Length:2048, Cert Id:1827306452, Valid from:9/30/03, 1:13?PM, Valid until:9/30/37, 1:13?PM
+2026-07-21 10:52:53,570 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA1withRSA, Serial:c9cdd3e9d57d23ce, Subject:CN=Global Chambersign Root - 2008, O=AC Camerfirma S.A., SERIALNUMBER=A82743287, L=Madrid (see current address at www.camerfirma.com/address), C=EU, Issuer:CN=Global Chambersign Root - 2008, O=AC Camerfirma S.A., SERIALNUMBER=A82743287, L=Madrid (see current address at www.camerfirma.com/address), C=EU, Key type:RSA, Length:4096, Cert Id:1271252776, Valid from:8/1/08, 9:31?AM, Valid until:7/31/38, 9:31?AM
+2026-07-21 10:52:53,571 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA1withRSA, Serial:fedce3010fc948ff, Subject:CN=Certigna, O=Dhimyotis, C=FR, Issuer:CN=Certigna, O=Dhimyotis, C=FR, Key type:RSA, Length:2048, Cert Id:3506875840, Valid from:6/29/07, 12:13?PM, Valid until:6/29/27, 12:13?PM
+2026-07-21 10:52:53,571 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA256withRSA, Serial:cae91b89f155030da3e6416dc4e3a6e1, Subject:CN=Certigna Root CA, OU=0002 48146308100036, O=Dhimyotis, C=FR, Issuer:CN=Certigna Root CA, OU=0002 48146308100036, O=Dhimyotis, C=FR, Key type:RSA, Length:4096, Cert Id:356684591, Valid from:10/1/13, 5:32?AM, Valid until:10/1/33, 5:32?AM
+2026-07-21 10:52:53,572 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA1withRSA, Serial:10020, Subject:CN=Certum CA, O=Unizeto Sp. z o.o., C=PL, Issuer:CN=Certum CA, O=Unizeto Sp. z o.o., C=PL, Key type:RSA, Length:2048, Cert Id:3550516030, Valid from:6/11/02, 7:46?AM, Valid until:6/11/27, 7:46?AM
+2026-07-21 10:52:53,572 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA1withRSA, Serial:444c0, Subject:CN=Certum Trusted Network CA, OU=Certum Certification Authority, O=Unizeto Technologies S.A., C=PL, Issuer:CN=Certum Trusted Network CA, OU=Certum Certification Authority, O=Unizeto Technologies S.A., C=PL, Key type:RSA, Length:2048, Cert Id:2014002193, Valid from:10/22/08, 10:07?AM, Valid until:12/31/29, 9:07?AM
+2026-07-21 10:52:53,573 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA1withRSA, Serial:15c8bd65475cafb897005ee406d2bc9d, Subject:OU=ePKI Root Certification Authority, O="Chunghwa Telecom Co., Ltd.", C=TW, Issuer:OU=ePKI Root Certification Authority, O="Chunghwa Telecom Co., Ltd.", C=TW, Key type:RSA, Length:4096, Cert Id:3632331159, Valid from:12/20/04, 12:31?AM, Valid until:12/19/34, 11:31?PM
+2026-07-21 10:52:53,573 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA1withRSA, Serial:1, Subject:CN=AAA Certificate Services, O=Comodo CA Limited, L=Salford, ST=Greater Manchester, C=GB, Issuer:CN=AAA Certificate Services, O=Comodo CA Limited, L=Salford, ST=Greater Manchester, C=GB, Key type:RSA, Length:2048, Cert Id:3097386402, Valid from:12/31/03, 10:00?PM, Valid until:12/31/28, 8:59?PM
+2026-07-21 10:52:53,574 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA384withECDSA, Serial:1f47afaa62007050544c019e9b63992a, Subject:CN=COMODO ECC Certification Authority, O=COMODO CA Limited, L=Salford, ST=Greater Manchester, C=GB, Issuer:CN=COMODO ECC Certification Authority, O=COMODO CA Limited, L=Salford, ST=Greater Manchester, C=GB, Key type:EC, Length:384, Cert Id:1146488932, Valid from:3/5/08, 9:00?PM, Valid until:1/18/38, 8:59?PM
+2026-07-21 10:52:53,574 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA384withRSA, Serial:4caaf9cadb636fe01ff74ed85b03869d, Subject:CN=COMODO RSA Certification Authority, O=COMODO CA Limited, L=Salford, ST=Greater Manchester, C=GB, Issuer:CN=COMODO RSA Certification Authority, O=COMODO CA Limited, L=Salford, ST=Greater Manchester, C=GB, Key type:RSA, Length:4096, Cert Id:1769425049, Valid from:1/18/10, 10:00?PM, Valid until:1/18/38, 8:59?PM
+2026-07-21 10:52:53,575 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA256withRSA, Serial:b931c3ad63967ea6723bfc3af9af44b, Subject:CN=DigiCert Assured ID Root G2, OU=www.digicert.com, O=DigiCert Inc, C=US, Issuer:CN=DigiCert Assured ID Root G2, OU=www.digicert.com, O=DigiCert Inc, C=US, Key type:RSA, Length:2048, Cert Id:3909568913, Valid from:8/1/13, 9:00?AM, Valid until:1/15/38, 9:00?AM
+2026-07-21 10:52:53,575 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA384withECDSA, Serial:ba15afa1ddfa0b54944afcd24a06cec, Subject:CN=DigiCert Assured ID Root G3, OU=www.digicert.com, O=DigiCert Inc, C=US, Issuer:CN=DigiCert Assured ID Root G3, OU=www.digicert.com, O=DigiCert Inc, C=US, Key type:EC, Length:384, Cert Id:3649430051, Valid from:8/1/13, 9:00?AM, Valid until:1/15/38, 9:00?AM
+2026-07-21 10:52:53,576 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA1withRSA, Serial:ce7e0e517d846fe8fe560fc1bf03039, Subject:CN=DigiCert Assured ID Root CA, OU=www.digicert.com, O=DigiCert Inc, C=US, Issuer:CN=DigiCert Assured ID Root CA, OU=www.digicert.com, O=DigiCert Inc, C=US, Key type:RSA, Length:2048, Cert Id:3434562768, Valid from:11/9/06, 10:00?PM, Valid until:11/9/31, 9:00?PM
+2026-07-21 10:52:53,576 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA1withRSA, Serial:83be056904246b1a1756ac95991c74a, Subject:CN=DigiCert Global Root CA, OU=www.digicert.com, O=DigiCert Inc, C=US, Issuer:CN=DigiCert Global Root CA, OU=www.digicert.com, O=DigiCert Inc, C=US, Key type:RSA, Length:2048, Cert Id:1341898239, Valid from:11/9/06, 10:00?PM, Valid until:11/9/31, 9:00?PM
+2026-07-21 10:52:53,576 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA256withRSA, Serial:33af1e6a711a9a0bb2864b11d09fae5, Subject:CN=DigiCert Global Root G2, OU=www.digicert.com, O=DigiCert Inc, C=US, Issuer:CN=DigiCert Global Root G2, OU=www.digicert.com, O=DigiCert Inc, C=US, Key type:RSA, Length:2048, Cert Id:1136084297, Valid from:8/1/13, 9:00?AM, Valid until:1/15/38, 9:00?AM
+2026-07-21 10:52:53,577 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA384withECDSA, Serial:55556bcf25ea43535c3a40fd5ab4572, Subject:CN=DigiCert Global Root G3, OU=www.digicert.com, O=DigiCert Inc, C=US, Issuer:CN=DigiCert Global Root G3, OU=www.digicert.com, O=DigiCert Inc, C=US, Key type:EC, Length:384, Cert Id:3498998753, Valid from:8/1/13, 9:00?AM, Valid until:1/15/38, 9:00?AM
+2026-07-21 10:52:53,577 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA1withRSA, Serial:2ac5c266a0b409b8f0b79f2ae462577, Subject:CN=DigiCert High Assurance EV Root CA, OU=www.digicert.com, O=DigiCert Inc, C=US, Issuer:CN=DigiCert High Assurance EV Root CA, OU=www.digicert.com, O=DigiCert Inc, C=US, Key type:RSA, Length:2048, Cert Id:2884286942, Valid from:11/9/06, 10:00?PM, Valid until:11/9/31, 9:00?PM
+2026-07-21 10:52:53,578 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA384withRSA, Serial:59b1b579e8e2132e23907bda777755c, Subject:CN=DigiCert Trusted Root G4, OU=www.digicert.com, O=DigiCert Inc, C=US, Issuer:CN=DigiCert Trusted Root G4, OU=www.digicert.com, O=DigiCert Inc, C=US, Key type:RSA, Length:4096, Cert Id:1057369358, Valid from:8/1/13, 9:00?AM, Valid until:1/15/38, 9:00?AM
+2026-07-21 10:52:53,578 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA256withRSA, Serial:983f3, Subject:CN=D-TRUST Root Class 3 CA 2 2009, O=D-Trust GmbH, C=DE, Issuer:CN=D-TRUST Root Class 3 CA 2 2009, O=D-Trust GmbH, C=DE, Key type:RSA, Length:2048, Cert Id:1430153102, Valid from:11/5/09, 6:35?AM, Valid until:11/5/29, 5:35?AM
+2026-07-21 10:52:53,579 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA256withRSA, Serial:983f4, Subject:CN=D-TRUST Root Class 3 CA 2 EV 2009, O=D-Trust GmbH, C=DE, Issuer:CN=D-TRUST Root Class 3 CA 2 EV 2009, O=D-Trust GmbH, C=DE, Key type:RSA, Length:2048, Cert Id:971313728, Valid from:11/5/09, 6:50?AM, Valid until:11/5/29, 5:50?AM
+2026-07-21 10:52:53,579 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA1withRSA, Serial:3863def8, Subject:CN=Entrust.net Certification Authority (2048), OU=(c) 1999 Entrust.net Limited, OU=www.entrust.net/CPS_2048 incorp. by ref. (limits liab.), O=Entrust.net, Issuer:CN=Entrust.net Certification Authority (2048), OU=(c) 1999 Entrust.net Limited, OU=www.entrust.net/CPS_2048 incorp. by ref. (limits liab.), O=Entrust.net, Key type:RSA, Length:2048, Cert Id:3966431214, Valid from:12/24/99, 3:50?PM, Valid until:7/24/29, 11:15?AM
+2026-07-21 10:52:53,580 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA1withRSA, Serial:456b5054, Subject:CN=Entrust Root Certification Authority, OU="(c) 2006 Entrust, Inc.", OU=www.entrust.net/CPS is incorporated by reference, O="Entrust, Inc.", C=US, Issuer:CN=Entrust Root Certification Authority, OU="(c) 2006 Entrust, Inc.", OU=www.entrust.net/CPS is incorporated by reference, O="Entrust, Inc.", C=US, Key type:RSA, Length:2048, Cert Id:3033563200, Valid from:11/27/06, 6:23?PM, Valid until:11/27/26, 5:53?PM
+2026-07-21 10:52:53,581 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA384withECDSA, Serial:a68b79290000000050d091f9, Subject:CN=Entrust Root Certification Authority - EC1, OU="(c) 2012 Entrust, Inc. - for authorized use only", OU=See www.entrust.net/legal-terms, O="Entrust, Inc.", C=US, Issuer:CN=Entrust Root Certification Authority - EC1, OU="(c) 2012 Entrust, Inc. - for authorized use only", OU=See www.entrust.net/legal-terms, O="Entrust, Inc.", C=US, Key type:EC, Length:384, Cert Id:924514073, Valid from:12/18/12, 1:25?PM, Valid until:12/18/37, 12:55?PM
+2026-07-21 10:52:53,581 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA256withRSA, Serial:4a538c28, Subject:CN=Entrust Root Certification Authority - G2, OU="(c) 2009 Entrust, Inc. - for authorized use only", OU=See www.entrust.net/legal-terms, O="Entrust, Inc.", C=US, Issuer:CN=Entrust Root Certification Authority - G2, OU="(c) 2009 Entrust, Inc. - for authorized use only", OU=See www.entrust.net/legal-terms, O="Entrust, Inc.", C=US, Key type:RSA, Length:2048, Cert Id:1936920337, Valid from:7/7/09, 2:25?PM, Valid until:12/7/30, 2:55?PM
+2026-07-21 10:52:53,582 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA256withRSA, Serial:d9b5437fafa9390f000000005565ad58, Subject:CN=Entrust Root Certification Authority - G4, OU="(c) 2015 Entrust, Inc. - for authorized use only", OU=See www.entrust.net/legal-terms, O="Entrust, Inc.", C=US, Issuer:CN=Entrust Root Certification Authority - G4, OU="(c) 2015 Entrust, Inc. - for authorized use only", OU=See www.entrust.net/legal-terms, O="Entrust, Inc.", C=US, Key type:RSA, Length:4096, Cert Id:1368037548, Valid from:5/27/15, 8:11?AM, Valid until:12/27/37, 8:41?AM
+2026-07-21 10:52:53,582 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA1withRSA, Serial:23456, Subject:CN=GeoTrust Global CA, O=GeoTrust Inc., C=US, Issuer:CN=GeoTrust Global CA, O=GeoTrust Inc., C=US, Key type:RSA, Length:2048, Cert Id:2266349922, Valid from:5/21/02, 1:00?AM, Valid until:5/21/22, 1:00?AM
+2026-07-21 10:52:53,583 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA1withRSA, Serial:18acb56afd69b6153a636cafdafac4a1, Subject:CN=GeoTrust Primary Certification Authority, O=GeoTrust Inc., C=US, Issuer:CN=GeoTrust Primary Certification Authority, O=GeoTrust Inc., C=US, Key type:RSA, Length:2048, Cert Id:3329622139, Valid from:11/26/06, 10:00?PM, Valid until:7/16/36, 8:59?PM
+2026-07-21 10:52:53,583 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA384withECDSA, Serial:3cb2f4480a00e2feeb243b5e603ec36b, Subject:CN=GeoTrust Primary Certification Authority - G2, OU=(c) 2007 GeoTrust Inc. - For authorized use only, O=GeoTrust Inc., C=US, Issuer:CN=GeoTrust Primary Certification Authority - G2, OU=(c) 2007 GeoTrust Inc. - For authorized use only, O=GeoTrust Inc., C=US, Key type:EC, Length:384, Cert Id:3180663474, Valid from:11/4/07, 10:00?PM, Valid until:1/18/38, 8:59?PM
+2026-07-21 10:52:53,584 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA256withRSA, Serial:15ac6e9419b2794b41f627a9c3180f1f, Subject:CN=GeoTrust Primary Certification Authority - G3, OU=(c) 2008 GeoTrust Inc. - For authorized use only, O=GeoTrust Inc., C=US, Issuer:CN=GeoTrust Primary Certification Authority - G3, OU=(c) 2008 GeoTrust Inc. - For authorized use only, O=GeoTrust Inc., C=US, Key type:RSA, Length:2048, Cert Id:2964813538, Valid from:4/1/08, 9:00?PM, Valid until:12/1/37, 8:59?PM
+2026-07-21 10:52:53,584 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA1withRSA, Serial:1, Subject:CN=GeoTrust Universal CA, O=GeoTrust Inc., C=US, Issuer:CN=GeoTrust Universal CA, O=GeoTrust Inc., C=US, Key type:RSA, Length:4096, Cert Id:313566089, Valid from:3/4/04, 2:00?AM, Valid until:3/4/29, 2:00?AM
+2026-07-21 10:52:53,584 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA1withRSA, Serial:40000000001154b5ac394, Subject:CN=GlobalSign Root CA, OU=Root CA, O=GlobalSign nv-sa, C=BE, Issuer:CN=GlobalSign Root CA, OU=Root CA, O=GlobalSign nv-sa, C=BE, Key type:RSA, Length:2048, Cert Id:536948034, Valid from:9/1/98, 9:00?AM, Valid until:1/28/28, 9:00?AM
+2026-07-21 10:52:53,585 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA256withECDSA, Serial:2a38a41c960a04de42b228a50be8349802, Subject:CN=GlobalSign, O=GlobalSign, OU=GlobalSign ECC Root CA - R4, Issuer:CN=GlobalSign, O=GlobalSign, OU=GlobalSign ECC Root CA - R4, Key type:EC, Length:256, Cert Id:2371693751, Valid from:11/12/12, 10:00?PM, Valid until:1/19/38, 12:14?AM
+2026-07-21 10:52:53,585 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA384withECDSA, Serial:605949e0262ebb55f90a778a71f94ad86c, Subject:CN=GlobalSign, O=GlobalSign, OU=GlobalSign ECC Root CA - R5, Issuer:CN=GlobalSign, O=GlobalSign, OU=GlobalSign ECC Root CA - R5, Key type:EC, Length:384, Cert Id:1997048439, Valid from:11/12/12, 10:00?PM, Valid until:1/19/38, 12:14?AM
+2026-07-21 10:52:53,586 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA256withRSA, Serial:4000000000121585308a2, Subject:CN=GlobalSign, O=GlobalSign, OU=GlobalSign Root CA - R3, Issuer:CN=GlobalSign, O=GlobalSign, OU=GlobalSign Root CA - R3, Key type:RSA, Length:2048, Cert Id:733875591, Valid from:3/18/09, 7:00?AM, Valid until:3/18/29, 7:00?AM
+2026-07-21 10:52:53,586 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA384withRSA, Serial:45e6bb038333c3856548e6ff4551, Subject:CN=GlobalSign, O=GlobalSign, OU=GlobalSign Root CA - R6, Issuer:CN=GlobalSign, O=GlobalSign, OU=GlobalSign Root CA - R6, Key type:RSA, Length:4096, Cert Id:3788339543, Valid from:12/9/14, 10:00?PM, Valid until:12/9/34, 9:00?PM
+2026-07-21 10:52:53,587 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA1withRSA, Serial:0, Subject:OU=Go Daddy Class 2 Certification Authority, O="The Go Daddy Group, Inc.", C=US, Issuer:OU=Go Daddy Class 2 Certification Authority, O="The Go Daddy Group, Inc.", C=US, Key type:RSA, Length:2048, Cert Id:4023522997, Valid from:6/29/04, 2:06?PM, Valid until:6/29/34, 2:06?PM
+2026-07-21 10:52:53,587 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA256withRSA, Serial:0, Subject:CN=Go Daddy Root Certificate Authority - G2, O="GoDaddy.com, Inc.", L=Scottsdale, ST=Arizona, C=US, Issuer:CN=Go Daddy Root Certificate Authority - G2, O="GoDaddy.com, Inc.", L=Scottsdale, ST=Arizona, C=US, Key type:RSA, Length:2048, Cert Id:439600313, Valid from:8/31/09, 9:00?PM, Valid until:12/31/37, 8:59?PM
+2026-07-21 10:52:53,587 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA384withRSA, Serial:203e5936f31b01349886ba217, Subject:CN=GTS Root R1, O=Google Trust Services LLC, C=US, Issuer:CN=GTS Root R1, O=Google Trust Services LLC, C=US, Key type:RSA, Length:4096, Cert Id:657172038, Valid from:6/21/16, 9:00?PM, Valid until:6/21/36, 9:00?PM
+2026-07-21 10:52:53,588 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA384withRSA, Serial:203e5aec58d04251aab1125aa, Subject:CN=GTS Root R2, O=Google Trust Services LLC, C=US, Issuer:CN=GTS Root R2, O=Google Trust Services LLC, C=US, Key type:RSA, Length:4096, Cert Id:948387669, Valid from:6/21/16, 9:00?PM, Valid until:6/21/36, 9:00?PM
+2026-07-21 10:52:53,588 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA384withECDSA, Serial:203e5b882eb20f825276d3d66, Subject:CN=GTS Root R3, O=Google Trust Services LLC, C=US, Issuer:CN=GTS Root R3, O=Google Trust Services LLC, C=US, Key type:EC, Length:384, Cert Id:1163081155, Valid from:6/21/16, 9:00?PM, Valid until:6/21/36, 9:00?PM
+2026-07-21 10:52:53,589 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA384withECDSA, Serial:203e5c068ef631a9c72905052, Subject:CN=GTS Root R4, O=Google Trust Services LLC, C=US, Issuer:CN=GTS Root R4, O=Google Trust Services LLC, C=US, Key type:EC, Length:384, Cert Id:1326433111, Valid from:6/21/16, 9:00?PM, Valid until:6/21/36, 9:00?PM
+2026-07-21 10:52:53,589 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA256withECDSA, Serial:0, Subject:CN=Hellenic Academic and Research Institutions ECC RootCA 2015, O=Hellenic Academic and Research Institutions Cert. Authority, L=Athens, C=GR, Issuer:CN=Hellenic Academic and Research Institutions ECC RootCA 2015, O=Hellenic Academic and Research Institutions Cert. Authority, L=Athens, C=GR, Key type:EC, Length:384, Cert Id:513613456, Valid from:7/7/15, 7:37?AM, Valid until:6/30/40, 7:37?AM
+2026-07-21 10:52:53,589 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA256withRSA, Serial:0, Subject:CN=Hellenic Academic and Research Institutions RootCA 2015, O=Hellenic Academic and Research Institutions Cert. Authority, L=Athens, C=GR, Issuer:CN=Hellenic Academic and Research Institutions RootCA 2015, O=Hellenic Academic and Research Institutions Cert. Authority, L=Athens, C=GR, Key type:RSA, Length:4096, Cert Id:3491990565, Valid from:7/7/15, 7:11?AM, Valid until:6/30/40, 7:11?AM
+2026-07-21 10:52:53,590 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA256withRSA, Serial:a0142800000014523c844b500000002, Subject:CN=IdenTrust Commercial Root CA 1, O=IdenTrust, C=US, Issuer:CN=IdenTrust Commercial Root CA 1, O=IdenTrust, C=US, Key type:RSA, Length:4096, Cert Id:1232565210, Valid from:1/16/14, 4:12?PM, Valid until:1/16/34, 3:12?PM
+2026-07-21 10:52:53,590 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA256withRSA, Serial:a0142800000014523cf467c00000002, Subject:CN=IdenTrust Public Sector Root CA 1, O=IdenTrust, C=US, Issuer:CN=IdenTrust Public Sector Root CA 1, O=IdenTrust, C=US, Key type:RSA, Length:4096, Cert Id:2123370772, Valid from:1/16/14, 3:53?PM, Valid until:1/16/34, 2:53?PM
+2026-07-21 10:52:53,591 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA256withRSA, Serial:8210cfb0d240e3594463e0bb63828b00, Subject:CN=ISRG Root X1, O=Internet Security Research Group, C=US, Issuer:CN=ISRG Root X1, O=Internet Security Research Group, C=US, Key type:RSA, Length:4096, Cert Id:1521974916, Valid from:6/4/15, 8:04?AM, Valid until:6/4/35, 8:04?AM
+2026-07-21 10:52:53,591 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA256withRSA, Serial:a7ea6df4b449eda6a24859ee6b815d3167fbbb1, Subject:CN=LuxTrust Global Root 2, O=LuxTrust S.A., C=LU, Issuer:CN=LuxTrust Global Root 2, O=LuxTrust S.A., C=LU, Key type:RSA, Length:4096, Cert Id:3055636602, Valid from:3/5/15, 10:21?AM, Valid until:3/5/35, 10:21?AM
+2026-07-21 10:52:53,591 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA256withRSA, Serial:bb8, Subject:CN=LuxTrust Global Root, O=LuxTrust s.a., C=LU, Issuer:CN=LuxTrust Global Root, O=LuxTrust s.a., C=LU, Key type:RSA, Length:2048, Cert Id:1714819687, Valid from:3/17/11, 6:51?AM, Valid until:3/17/21, 6:51?AM
+2026-07-21 10:52:53,592 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA384withECDSA, Serial:66f23daf87de8bb14aea0c573101c2ec, Subject:CN=Microsoft ECC Root Certificate Authority 2017, O=Microsoft Corporation, C=US, Issuer:CN=Microsoft ECC Root Certificate Authority 2017, O=Microsoft Corporation, C=US, Key type:EC, Length:384, Cert Id:3240761285, Valid from:12/18/19, 8:06?PM, Valid until:7/18/42, 8:16?PM
+2026-07-21 10:52:53,592 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA384withRSA, Serial:1ed397095fd8b4b347701eaabe7f45b3, Subject:CN=Microsoft RSA Root Certificate Authority 2017, O=Microsoft Corporation, C=US, Issuer:CN=Microsoft RSA Root Certificate Authority 2017, O=Microsoft Corporation, C=US, Key type:RSA, Length:4096, Cert Id:2848349048, Valid from:12/18/19, 7:51?PM, Valid until:7/18/42, 8:00?PM
+2026-07-21 10:52:53,593 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA1withRSA, Serial:3ab6508b, Subject:CN=QuoVadis Root Certification Authority, OU=Root Certification Authority, O=QuoVadis Limited, C=BM, Issuer:CN=QuoVadis Root Certification Authority, OU=Root Certification Authority, O=QuoVadis Limited, C=BM, Key type:RSA, Length:2048, Cert Id:2412561694, Valid from:3/19/01, 3:33?PM, Valid until:3/17/21, 3:33?PM
+2026-07-21 10:52:53,656 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA256withRSA, Serial:78585f2ead2c194be3370735341328b596d46593, Subject:CN=QuoVadis Root CA 1 G3, O=QuoVadis Limited, C=BM, Issuer:CN=QuoVadis Root CA 1 G3, O=QuoVadis Limited, C=BM, Key type:RSA, Length:4096, Cert Id:3532531262, Valid from:1/12/12, 3:27?PM, Valid until:1/12/42, 2:27?PM
+2026-07-21 10:52:53,656 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA1withRSA, Serial:509, Subject:CN=QuoVadis Root CA 2, O=QuoVadis Limited, C=BM, Issuer:CN=QuoVadis Root CA 2, O=QuoVadis Limited, C=BM, Key type:RSA, Length:4096, Cert Id:338250116, Valid from:11/24/06, 4:27?PM, Valid until:11/24/31, 3:23?PM
+2026-07-21 10:52:53,657 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA256withRSA, Serial:445734245b81899b35f2ceb82b3b5ba726f07528, Subject:CN=QuoVadis Root CA 2 G3, O=QuoVadis Limited, C=BM, Issuer:CN=QuoVadis Root CA 2 G3, O=QuoVadis Limited, C=BM, Key type:RSA, Length:4096, Cert Id:696763521, Valid from:1/12/12, 4:59?PM, Valid until:1/12/42, 3:59?PM
+2026-07-21 10:52:53,657 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA1withRSA, Serial:5c6, Subject:CN=QuoVadis Root CA 3, O=QuoVadis Limited, C=BM, Issuer:CN=QuoVadis Root CA 3, O=QuoVadis Limited, C=BM, Key type:RSA, Length:4096, Cert Id:1470392860, Valid from:11/24/06, 5:11?PM, Valid until:11/24/31, 4:06?PM
+2026-07-21 10:52:53,658 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA256withRSA, Serial:2ef59b0228a7db7affd5a3a9eebd03a0cf126a1d, Subject:CN=QuoVadis Root CA 3 G3, O=QuoVadis Limited, C=BM, Issuer:CN=QuoVadis Root CA 3 G3, O=QuoVadis Limited, C=BM, Key type:RSA, Length:4096, Cert Id:3589344305, Valid from:1/12/12, 6:26?PM, Valid until:1/12/42, 5:26?PM
+2026-07-21 10:52:53,658 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA256withRSA, Serial:0, Subject:OU=Security Communication RootCA2, O="SECOM Trust Systems CO.,LTD.", C=JP, Issuer:OU=Security Communication RootCA2, O="SECOM Trust Systems CO.,LTD.", C=JP, Key type:RSA, Length:2048, Cert Id:1521072570, Valid from:5/29/09, 2:00?AM, Valid until:5/29/29, 2:00?AM
+2026-07-21 10:52:53,659 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA1withRSA, Serial:cf08e5c0816a5ad427ff0eb271859d0, Subject:CN=SecureTrust CA, O=SecureTrust Corporation, C=US, Issuer:CN=SecureTrust CA, O=SecureTrust Corporation, C=US, Key type:RSA, Length:2048, Cert Id:2034155325, Valid from:11/7/06, 5:31?PM, Valid until:12/31/29, 4:40?PM
+2026-07-21 10:52:53,659 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA256withECDSA, Serial:75e6dfcbc1685ba8, Subject:CN=SSL.com Root Certification Authority ECC, O=SSL Corporation, L=Houston, ST=Texas, C=US, Issuer:CN=SSL.com Root Certification Authority ECC, O=SSL Corporation, L=Houston, ST=Texas, C=US, Key type:EC, Length:384, Cert Id:2926673683, Valid from:2/12/16, 4:14?PM, Valid until:2/12/41, 3:14?PM
+2026-07-21 10:52:53,660 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA256withRSA, Serial:56b629cd34bc78f6, Subject:CN=SSL.com EV Root Certification Authority RSA R2, O=SSL Corporation, L=Houston, ST=Texas, C=US, Issuer:CN=SSL.com EV Root Certification Authority RSA R2, O=SSL Corporation, L=Houston, ST=Texas, C=US, Key type:RSA, Length:4096, Cert Id:1381862403, Valid from:5/31/17, 3:14?PM, Valid until:5/30/42, 3:14?PM
+2026-07-21 10:52:53,660 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA256withRSA, Serial:7b2c9bd316803299, Subject:CN=SSL.com Root Certification Authority RSA, O=SSL Corporation, L=Houston, ST=Texas, C=US, Issuer:CN=SSL.com Root Certification Authority RSA, O=SSL Corporation, L=Houston, ST=Texas, C=US, Key type:RSA, Length:4096, Cert Id:156725711, Valid from:2/12/16, 3:39?PM, Valid until:2/12/41, 2:39?PM
+2026-07-21 10:52:53,660 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA1withRSA, Serial:0, Subject:OU=Starfield Class 2 Certification Authority, O="Starfield Technologies, Inc.", C=US, Issuer:OU=Starfield Class 2 Certification Authority, O="Starfield Technologies, Inc.", C=US, Key type:RSA, Length:2048, Cert Id:1825617644, Valid from:6/29/04, 2:39?PM, Valid until:6/29/34, 2:39?PM
+2026-07-21 10:52:53,661 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA256withRSA, Serial:0, Subject:CN=Starfield Root Certificate Authority - G2, O="Starfield Technologies, Inc.", L=Scottsdale, ST=Arizona, C=US, Issuer:CN=Starfield Root Certificate Authority - G2, O="Starfield Technologies, Inc.", L=Scottsdale, ST=Arizona, C=US, Key type:RSA, Length:2048, Cert Id:3268325709, Valid from:8/31/09, 9:00?PM, Valid until:12/31/37, 8:59?PM
+2026-07-21 10:52:53,661 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA256withRSA, Serial:0, Subject:CN=Starfield Services Root Certificate Authority - G2, O="Starfield Technologies, Inc.", L=Scottsdale, ST=Arizona, C=US, Issuer:CN=Starfield Services Root Certificate Authority - G2, O="Starfield Technologies, Inc.", L=Scottsdale, ST=Arizona, C=US, Key type:RSA, Length:2048, Cert Id:1964785574, Valid from:8/31/09, 9:00?PM, Valid until:12/31/37, 8:59?PM
+2026-07-21 10:52:53,662 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA1withRSA, Serial:bb401c43f55e4fb0, Subject:CN=SwissSign Gold CA - G2, O=SwissSign AG, C=CH, Issuer:CN=SwissSign Gold CA - G2, O=SwissSign AG, C=CH, Key type:RSA, Length:4096, Cert Id:1516221943, Valid from:10/25/06, 5:30?AM, Valid until:10/25/36, 5:30?AM
+2026-07-21 10:52:53,662 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA1withRSA, Serial:4eb200670c035d4f, Subject:CN=SwissSign Platinum CA - G2, O=SwissSign AG, C=CH, Issuer:CN=SwissSign Platinum CA - G2, O=SwissSign AG, C=CH, Key type:RSA, Length:4096, Cert Id:771312514, Valid from:10/25/06, 5:36?AM, Valid until:10/25/36, 5:36?AM
+2026-07-21 10:52:53,663 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA1withRSA, Serial:4f1bd42f54bb2f4b, Subject:CN=SwissSign Silver CA - G2, O=SwissSign AG, C=CH, Issuer:CN=SwissSign Silver CA - G2, O=SwissSign AG, C=CH, Key type:RSA, Length:4096, Cert Id:126726124, Valid from:10/25/06, 5:32?AM, Valid until:10/25/36, 5:32?AM
+2026-07-21 10:52:53,663 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA1withRSA, Serial:95be16a0f72e46f17b398272fa8bcd96, Subject:CN=TeliaSonera Root CA v1, O=TeliaSonera, Issuer:CN=TeliaSonera Root CA v1, O=TeliaSonera, Key type:RSA, Length:4096, Cert Id:1495358374, Valid from:10/18/07, 10:00?AM, Valid until:10/18/32, 9:00?AM
+2026-07-21 10:52:53,663 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA1withRSA, Serial:344ed55720d5edec49f42fce37db2b6d, Subject:CN=thawte Primary Root CA, OU="(c) 2006 thawte, Inc. - For authorized use only", OU=Certification Services Division, O="thawte, Inc.", C=US, Issuer:CN=thawte Primary Root CA, OU="(c) 2006 thawte, Inc. - For authorized use only", OU=Certification Services Division, O="thawte, Inc.", C=US, Key type:RSA, Length:2048, Cert Id:643000026, Valid from:11/16/06, 10:00?PM, Valid until:7/16/36, 8:59?PM
+2026-07-21 10:52:53,664 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA384withECDSA, Serial:35fc265cd9844fc93d263d579baed756, Subject:CN=thawte Primary Root CA - G2, OU="(c) 2007 thawte, Inc. - For authorized use only", O="thawte, Inc.", C=US, Issuer:CN=thawte Primary Root CA - G2, OU="(c) 2007 thawte, Inc. - For authorized use only", O="thawte, Inc.", C=US, Key type:EC, Length:384, Cert Id:2068083090, Valid from:11/4/07, 10:00?PM, Valid until:1/18/38, 8:59?PM
+2026-07-21 10:52:53,664 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA256withRSA, Serial:600197b746a7eab4b49ad64b2ff790fb, Subject:CN=thawte Primary Root CA - G3, OU="(c) 2008 thawte, Inc. - For authorized use only", OU=Certification Services Division, O="thawte, Inc.", C=US, Issuer:CN=thawte Primary Root CA - G3, OU="(c) 2008 thawte, Inc. - For authorized use only", OU=Certification Services Division, O="thawte, Inc.", C=US, Key type:RSA, Length:2048, Cert Id:1032730720, Valid from:4/1/08, 9:00?PM, Valid until:12/1/37, 8:59?PM
+2026-07-21 10:52:53,665 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA256withRSA, Serial:1, Subject:CN=T-TeleSec GlobalRoot Class 2, OU=T-Systems Trust Center, O=T-Systems Enterprise Services GmbH, C=DE, Issuer:CN=T-TeleSec GlobalRoot Class 2, OU=T-Systems Trust Center, O=T-Systems Enterprise Services GmbH, C=DE, Key type:RSA, Length:2048, Cert Id:3056503257, Valid from:10/1/08, 7:40?AM, Valid until:10/1/33, 8:59?PM
+2026-07-21 10:52:53,665 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA256withRSA, Serial:1, Subject:CN=T-TeleSec GlobalRoot Class 3, OU=T-Systems Trust Center, O=T-Systems Enterprise Services GmbH, C=DE, Issuer:CN=T-TeleSec GlobalRoot Class 3, OU=T-Systems Trust Center, O=T-Systems Enterprise Services GmbH, C=DE, Key type:RSA, Length:2048, Cert Id:1894096264, Valid from:10/1/08, 7:29?AM, Valid until:10/1/33, 8:59?PM
+2026-07-21 10:52:53,666 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA256withRSA, Serial:cbe, Subject:CN=TWCA Global Root CA, OU=Root CA, O=TAIWAN-CA, C=TW, Issuer:CN=TWCA Global Root CA, OU=Root CA, O=TAIWAN-CA, C=TW, Key type:RSA, Length:4096, Cert Id:861175838, Valid from:6/27/12, 3:28?AM, Valid until:12/31/30, 12:59?PM
+2026-07-21 10:52:53,666 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA384withECDSA, Serial:5c8b99c55a94c5d27156decd8980cc26, Subject:CN=USERTrust ECC Certification Authority, O=The USERTRUST Network, L=Jersey City, ST=New Jersey, C=US, Issuer:CN=USERTrust ECC Certification Authority, O=The USERTRUST Network, L=Jersey City, ST=New Jersey, C=US, Key type:EC, Length:384, Cert Id:3329287386, Valid from:1/31/10, 10:00?PM, Valid until:1/18/38, 8:59?PM
+2026-07-21 10:52:53,666 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA384withRSA, Serial:1fd6d30fca3ca51a81bbc640e35032d, Subject:CN=USERTrust RSA Certification Authority, O=The USERTRUST Network, L=Jersey City, ST=New Jersey, C=US, Issuer:CN=USERTrust RSA Certification Authority, O=The USERTRUST Network, L=Jersey City, ST=New Jersey, C=US, Key type:RSA, Length:4096, Cert Id:3947601401, Valid from:1/31/10, 10:00?PM, Valid until:1/18/38, 8:59?PM
+2026-07-21 10:52:53,667 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA1withRSA, Serial:44be0c8b500024b411d3362de0b35f1b, Subject:CN=UTN-USERFirst-Object, OU=http://www.usertrust.com, O=The USERTRUST Network, L=Salt Lake City, ST=UT, C=US, Issuer:CN=UTN-USERFirst-Object, OU=http://www.usertrust.com, O=The USERTRUST Network, L=Salt Lake City, ST=UT, C=US, Key type:RSA, Length:2048, Cert Id:3997913868, Valid from:7/9/99, 3:31?PM, Valid until:7/9/19, 3:40?PM
+2026-07-21 10:52:53,667 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA1withRSA, Serial:9b7e0649a33e62b9d5ee90487129ef57, Subject:CN=VeriSign Class 3 Public Primary Certification Authority - G3, OU="(c) 1999 VeriSign, Inc. - For authorized use only", OU=VeriSign Trust Network, O="VeriSign, Inc.", C=US, Issuer:CN=VeriSign Class 3 Public Primary Certification Authority - G3, OU="(c) 1999 VeriSign, Inc. - For authorized use only", OU=VeriSign Trust Network, O="VeriSign, Inc.", C=US, Key type:RSA, Length:2048, Cert Id:2057300190, Valid from:9/30/99, 9:00?PM, Valid until:7/16/36, 8:59?PM
+2026-07-21 10:52:53,668 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA384withECDSA, Serial:2f80fe238c0e220f486712289187acb3, Subject:CN=VeriSign Class 3 Public Primary Certification Authority - G4, OU="(c) 2007 VeriSign, Inc. - For authorized use only", OU=VeriSign Trust Network, O="VeriSign, Inc.", C=US, Issuer:CN=VeriSign Class 3 Public Primary Certification Authority - G4, OU="(c) 2007 VeriSign, Inc. - For authorized use only", OU=VeriSign Trust Network, O="VeriSign, Inc.", C=US, Key type:EC, Length:384, Cert Id:4163473319, Valid from:11/4/07, 10:00?PM, Valid until:1/18/38, 8:59?PM
+2026-07-21 10:52:53,668 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA1withRSA, Serial:18dad19e267de8bb4a2158cdcc6b3b4a, Subject:CN=VeriSign Class 3 Public Primary Certification Authority - G5, OU="(c) 2006 VeriSign, Inc. - For authorized use only", OU=VeriSign Trust Network, O="VeriSign, Inc.", C=US, Issuer:CN=VeriSign Class 3 Public Primary Certification Authority - G5, OU="(c) 2006 VeriSign, Inc. - For authorized use only", OU=VeriSign Trust Network, O="VeriSign, Inc.", C=US, Key type:RSA, Length:2048, Cert Id:303010488, Valid from:11/7/06, 10:00?PM, Valid until:7/16/36, 8:59?PM
+2026-07-21 10:52:53,669 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA256withRSA, Serial:401ac46421b31321030ebbe4121ac51d, Subject:CN=VeriSign Universal Root Certification Authority, OU="(c) 2008 VeriSign, Inc. - For authorized use only", OU=VeriSign Trust Network, O="VeriSign, Inc.", C=US, Issuer:CN=VeriSign Universal Root Certification Authority, OU="(c) 2008 VeriSign, Inc. - For authorized use only", OU=VeriSign Trust Network, O="VeriSign, Inc.", C=US, Key type:RSA, Length:2048, Cert Id:2318285810, Valid from:4/1/08, 9:00?PM, Valid until:12/1/37, 8:59?PM
+2026-07-21 10:52:53,669 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA1withRSA, Serial:50946cec18ead59c4dd597ef758fa0ad, Subject:CN=XRamp Global Certification Authority, O=XRamp Security Services Inc, OU=www.xrampsecurity.com, C=US, Issuer:CN=XRamp Global Certification Authority, O=XRamp Security Services Inc, OU=www.xrampsecurity.com, C=US, Key type:RSA, Length:2048, Cert Id:3342493210, Valid from:11/1/04, 2:14?PM, Valid until:1/1/35, 2:37?AM
+2026-07-21 10:52:53,688 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0)  TLSHandshake: logindes.caixa.gov.br:443, TLSv1.2, TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256, 1321442559
+2026-07-21 10:52:53,758 DEBUG [io.netty.handler.ssl.SslHandler] (vert.x-eventloop-thread-0) [id: 0x8920e5b4, L:/25.3.43.137:38988 - R:logindes.caixa.gov.br/10.116.81.75:443] HANDSHAKEN: protocol:TLSv1.2 cipher suite:TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256
+2026-07-21 10:52:53,978 DEBUG [io.quarkus.oidc.common.runtime.OidcCommonUtils] (vert.x-eventloop-thread-0) Discovered OIDC metadata: {"issuer":"https://logindes.caixa.gov.br/auth/realms/internet","authorization_endpoint":"https://logindes.caixa.gov.br/auth/realms/internet/protocol/openid-connect/auth","token_endpoint":"https://logindes.caixa.gov.br/auth/realms/internet/protocol/openid-connect/token","token_introspection_endpoint":"https://logindes.caixa.gov.br/auth/realms/internet/protocol/openid-connect/token/introspect","userinfo_endpoint":"https://logindes.caixa.gov.br/auth/realms/internet/protocol/openid-connect/userinfo","end_session_endpoint":"https://logindes.caixa.gov.br/auth/realms/internet/protocol/openid-connect/logout","jwks_uri":"https://logindes.caixa.gov.br/auth/realms/internet/protocol/openid-connect/certs","check_session_iframe":"https://logindes.caixa.gov.br/auth/realms/internet/protocol/openid-connect/login-status-iframe.html","grant_types_supported":["authorization_code","implicit","refresh_token","password","client_credentials"],"response_types_supported":["code","none","id_token","token","id_token token","code id_token","code token","code id_token token"],"subject_types_supported":["public","pairwise"],"id_token_signing_alg_values_supported":["ES384","RS384","HS256","HS512","ES256","RS256","HS384","ES512","RS512"],"userinfo_signing_alg_values_supported":["ES384","RS384","HS256","HS512","ES256","RS256","HS384","ES512","RS512","none"],"request_object_signing_alg_values_supported":["ES384","RS384","ES256","RS256","ES512","RS512","none"],"response_modes_supported":["query","fragment","form_post"],"registration_endpoint":"https://logindes.caixa.gov.br/auth/realms/internet/clients-registrations/openid-connect","token_endpoint_auth_methods_supported":["private_key_jwt","client_secret_basic","client_secret_post","client_secret_jwt"],"token_endpoint_auth_signing_alg_values_supported":["RS256"],"claims_supported":["sub","iss","auth_time","name","given_name","family_name","preferred_username","email"],"claim_types_supported":["normal"],"claims_parameter_supported":false,"scopes_supported":["openid","Web-Confidential","operacao_fiduciaria","agente_moradia","lotecobv.write","cobv.read","pix.write","pix.read","payloadlocation.read","dados-cadastro","cob.write","cobv.write","webhook.read","webhook.write","realizarSimulacao","consultarSimulacao","manterImovel","consultarParametros","cpf","cob.read","lotecobv.read","payloadlocation.write","audience_cli-mob-arq","instituicao_financeira","acessoIrrestrito","saque_doenca_pmf","profile","email","address","phone","offline_access","roles","web-origins","audience_cli-ser-set","audience_cli-web-lce","audience_cli-ser-sgr-batch","audience_cli-mob-sfd","audience_cli-mob-aic","audience_cli-ser-aic","audience_cli-mob-lce","conta","alienacao_cessao","acessoIrrestrito2","pingfederate_admin","acessoConstrutoras","celularseguro.notificacao","guia-spvat","econsignado-fgts","imoveis_caixa","pixautomatico.write","audience_cli-ser-mpd","audience_CLI-SER-GPD1","audience_cli-ser-csa","audience_cli-ser-atd","audience_cli-ext-05463212000129-3","audience_cli-ext-26190690000182-1","caixa-credito-contrato","dromos","audience_cli-ser-oba","audience_cli-ser-api-monitoracao","audience_cli-ser-sme","audience_cli-ser-pbs","audience_cli-ser-gts","acessoParceiro","convenio","conformidade","acessoAdministracao","audience_cli-ser-mtr","audience_cli-ser-bko","audience_cli-ser-cve","audience_cli-ser-sap","audience_cli-ser-fge-edital","audience_cli-ser-set-integracao","audience_cli-ser-nov","audience_cli-ser-pnl","audience_cli-ser-fes-msfesmec","audience_cli-ser-fgg","audience_cli-ser-goc","audience_cli-ser-sfd","audience_cli-ser-apt","audience_cli-ser-dmf_teste","audience_cli-ser-cax","audience_cli-ser-sou","audience_cli-ser-gcb","audience_cli-ser-ceh","audience_cli-ser-teste","audience_cli-ser-nsh","audience_cli-ser-x07","audience_cli-ser-gpd","audience_cli-ser-fec_api","audience_cli-ser-caj","audience_cli-ser-pcs","audience_cli-ser-jur","audience_cli-ser-mtx","audience_cli-ser-fep","audience_cli-ser-mov","audience_cli-ser-spl","audience_cli-ser-gms","audience_cli-ser-set-melhoria","audience_cli-ser-lce","audience_cli-ser-opi","audience_cli-ser-ecm","audience_cli-ser-lot","audience_CLI-SER-GPD2","audience_cli-ser-apd","pixautomatico.read","audience_cli-ser-cbs2","audience_cli-ser-sandbox_fug","audience_cli-ser-pix-tstprd","audience_cli-ser-sde","audience_cli-ser-mtc","audience_cli-ser-gsr","audience_cli-ser-crf","audience_cli-ser-ccr","audience_cli-ser-fug","audience_cli-ser-nep","audience_cli-ser-nch","audience_cli-ser-cbp","audience_cli-ser-msc","audience_cli-ser-hab","audience_cli-ser-nac","audience_cli-ser-mpl","audience_cli-ser-iav","audience_cli-ser-gpf-cca","audience_cli-ser-bec","audience_cli-ser-sfg","audience_cli-ser-x10","audience_cli-ser-fes","audience_cli-ser-abe","audience_cli-ser-b2b","audience_cli-ser-dep-mif","audience_cli-ser-set-qualidade","audience_cli-ser-pdc","audience_cli-ser-gai","audience_cli-ser-bem","audience_cli-ser-cbs","audience_cli-ser-rta","audience_cli-ser-iso","audience_cli-ser-don_teste","audience_cli-ser-dep-vat","audience_cli-ser-ipc-xid","teste","audience_cli-ser-ipc-isd","audience_cli-ser-fam","audience_cli-ser-cdt","audience_cli-ser-ceq-pj","audience_cli-ser-gpm","audience_cli-ser-gsj-dromos","audience_cli-ser-obr","audience_cli-ser-avl","audience_cli-ser-ipc","audience_cli-ser-ceq-1","audience_cli-ser-b24","audience_cli-ser-mil-prc","audience_cli-ser-rur","audience_cli-ser-wfc","audience_cli-ser-asc","audience_cli-ser-vgl","audience_cli-ser-aaf","audience_cli-ser-rff","audience_cli-ser-deo_teste","audience_cli-ser-acc-convenios","audience_cli-ser-cnpj","audience_cli-ser-ppg","audience_cli-ser-nbc","audience_cli-ser-itx","audience_cli-ser-mai","audience_cli-ser-gsj","audience_cli-ser-caj_001","audience_cli-ser-ags","audience_cli-ser-mil","audience_cli-ser-wic-pes","mp-desenrola-2.0-trab","audience_cli-ser-cfg","audience_cli-ser-tst-carga","audience_cli-ser-fec","audience_cli-ser-fge-crflote","audience_cli-ser-du","audience_cli-ser-seg","audience_cli-ser-pdm","audience_cli-ser-crm","audience_cli-ser-gcx","audience_cli-ser-aud","audience_cli-ser-mmm-ceptirj20","audience_cli-ser-epr","mp-desenrola-2.0-if","audience_cli-ser-dpn","audience_cli-ser-fsa","audience_cli-ser-sra","audience_cli-ser-ceq-pf","audience_cli-ser-ncr","audience_cli-ser-cli","audience_cli-ser-acg","audience_cli-ser-ptn","audience_cli-ser-nda","audience_cli-ser-rep","audience_cli-ser-clo","audience_cli-ser-cid","audience_cli-ser-gam","audience_cli-ser-sam","audience_cli-ser-bsa","audience_cli-ser-fge-portal","audience_cli-ser-dmf","audience_cli-ser-cdc","audience_cli-ser-clb","audience_cli-ser-b2c","audience_cli-ser-brj","audience_cli-ser-cvc","audience_cli-ser-deo","audience_cli-ser-rex","audience_cli-ser-rfe","audience_cli-ser-caq","audience_cli-ser-aff","audience_cli-ser-nop","audience_cli-ser-ath","audience_cli-ser-tae","audience_cli-ser-cmo","audience_cli-ser-cap","audience_cli-ser-don","audience_cli-ser-saq","audience_cli-ser-rfo","audience_cli-ser-nbm_appcaixa","audience_cli-ser-sag","audience_cli-ser-fap","audience_cli-ser-avo-gov","audience_cli-ser-ibc","audience_cli-ser-agf","audience_cli-ser-oba-login1","audience_cli-ser-cac","audience_cli-ser-sgr","audience_cli-ser-cash-b2b","audience_cli-ser-gpf","audience_cli-ser-d01","audience_cli-ser-bot","audience_cli-ser-dun","audience_cli-ser-sgr-servicos","audience_cli-ser-spf","audience_cli-ser-neb","audience_cli-ser-spi","audience_cli-ser-atc","audience_cli-ser-pnc","audience_cli-ser-ran","audience_cli-ser-pfb","audience_cli-ext-33145514000194-1"],"request_parameter_supported":true,"request_uri_parameter_supported":true,"code_challenge_methods_supported":["plain","S256"],"tls_client_certificate_bound_access_tokens":true,"introspection_endpoint":"https://logindes.caixa.gov.br/auth/realms/internet/protocol/openid-connect/token/introspect"}
+2026-07-21 10:52:53,994 DEBUG [io.quarkus.oidc.runtime.OidcProviderClientImpl] (vert.x-eventloop-thread-0) Get verification JWT Key Set at https://logindes.caixa.gov.br/auth/realms/internet/protocol/openid-connect/certs
+2026-07-21 10:52:54,056 DEBUG [io.quarkus.oidc.runtime.OidcProviderClientImpl] (vert.x-eventloop-thread-0) Request succeeded: {"keys":[{"kid":"olg3hbVEM3_gRt1DdpXMwOXtS-E2MQQDb0Bhw6IvZdo","kty":"RSA","alg":"RS256","use":"sig","n":"xz8PNmiUW5J1669pWY0APB4flqqDnghAv_QV5DIHyXE39fj9u1DPXbgfDUhUfK0i_B0CHJukbI44Rgo_vuhCMImTnLjS49XuTH6GI4lU_CtdzE_qACMO_GUky73m0Uszo2Bh1wNV-fvw_mMQVAGKj6_qXjSB9npRZKydoXnwGPIepcrqF6KkMJIFtZ-0w35J9SYwgLNezUbAJgs9dq3yMj4ussSfxMFcUC9UKziJJSg0UQfl0fOQGMsrsnUbS2GgXeDqdskbZq9_wfL0ikU2pWf0hKjX-PXtqZI0SVWurVyydc0efbTE7qIlrwF8lWZ8NZ8zcV2oVk7TjoIktZ4zBw","e":"AQAB"},{"kid":"zmUUujfZkLoxF58jzts8Ke7Dup43YxYhARhoJld9XSk","kty":"EC","alg":"ES256","use":"sig","crv":"P-256","x":"Kl1-JvGr3YYYFf0t_cwwo7z0qXylKagLf0TBHtGOnK4","y":"ZiLGcGTFpwYE5R77iMIRweenImOe7DKDzXIa2mRq4c8"},{"kid":"-9HupIERpaXF8qoFw92OgMI1iOJsrbOHFw8_x0anSac","kty":"RSA","alg":"RS384","use":"sig","n":"mfI4WqM4tBug08wkwSbM-BA6GTqxIG5FO5uao5pqf5td68mUlqBDKp0t8_EI6J0dCZqnNPLVbCuf0E1BwTKQV8sHbWs0PdWOoAIDx5FBqBrJ72vgisCv5mW5SSK64WeRy6OxlbGG0Lx96jiuU8P3HUE45Y1UgtYhl1Ho8j72W9JbSmje5P2o907UvZ-sEEKjFQVlk1CpVzFkmVKzTbitsTd1970iX-1pjh1j1Cf9t1cIpfKOxsRq1X5GTsg91Xxh1qGG3zPNghESAV3iTIYKkTEECzWaD2U7UXFD9EK_kt52WmACzJeuOH-8_0W1qO6LRETj_t7GOWhrHVMnQZhSOQ","e":"AQAB"}]}
+2026-07-21 10:52:54,072 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA512withRSA, Serial:7e00000143ae5d3eeaa54228a8000000000143, Subject:CN=login.des.caixa, O=Caixa Economica Federal, C=BR, Issuer:CN=AC Icptestes Sub, O=Caixa Economica Federal, C=BR, Key type:RSA, Length:2048, Cert Id:3776494143, Valid from:6/4/24, 1:14?PM, Valid until:6/4/29, 1:24?PM
+2026-07-21 10:52:54,073 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA512withRSA, Serial:600000000299b24b9d7901ea84000000000002, Subject:CN=AC Icptestes Sub, O=Caixa Economica Federal, C=BR, Issuer:CN=AC Icptestes Raiz, O=Caixa Economica Federal, C=BR, Key type:RSA, Length:4096, Cert Id:2447629493, Valid from:12/23/22, 12:47?PM, Valid until:12/23/42, 12:05?PM
+2026-07-21 10:52:54,073 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) X509Certificate: Alg:SHA512withRSA, Serial:47b583ffce303b8047ba716d908e88d2, Subject:CN=AC Icptestes Raiz, O=Caixa Economica Federal, C=BR, Issuer:CN=AC Icptestes Raiz, O=Caixa Economica Federal, C=BR, Key type:RSA, Length:4096, Cert Id:71683228, Valid from:12/23/22, 11:55?AM, Valid until:12/23/42, 12:05?PM
+2026-07-21 10:52:54,075 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0) ValidationChain: 2447629493, 3776494143
+2026-07-21 10:52:54,079 DEBUG [jdk.event.security] (vert.x-eventloop-thread-0)  TLSHandshake: login.des.caixa:443, TLSv1.2, TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256, 3776494143
+2026-07-21 10:52:54,080 DEBUG [io.netty.handler.ssl.SslHandler] (vert.x-eventloop-thread-0) [id: 0xaa14c244, L:/25.3.43.137:42460 - R:login.des.caixa/10.116.81.74:443] HANDSHAKEN: protocol:TLSv1.2 cipher suite:TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256
+2026-07-21 10:52:54,091 DEBUG [io.quarkus.oidc.common.runtime.OidcCommonUtils] (vert.x-eventloop-thread-0) Discovered OIDC metadata: {"issuer":"https://login.des.caixa/auth/realms/intranet","authorization_endpoint":"https://login.des.caixa/auth/realms/intranet/protocol/openid-connect/auth","token_endpoint":"https://login.des.caixa/auth/realms/intranet/protocol/openid-connect/token","token_introspection_endpoint":"https://login.des.caixa/auth/realms/intranet/protocol/openid-connect/token/introspect","userinfo_endpoint":"https://login.des.caixa/auth/realms/intranet/protocol/openid-connect/userinfo","end_session_endpoint":"https://login.des.caixa/auth/realms/intranet/protocol/openid-connect/logout","jwks_uri":"https://login.des.caixa/auth/realms/intranet/protocol/openid-connect/certs","check_session_iframe":"https://login.des.caixa/auth/realms/intranet/protocol/openid-connect/login-status-iframe.html","grant_types_supported":["authorization_code","implicit","refresh_token","password","client_credentials"],"response_types_supported":["code","none","id_token","token","id_token token","code id_token","code token","code id_token token"],"subject_types_supported":["public","pairwise"],"id_token_signing_alg_values_supported":["ES384","RS384","HS256","HS512","ES256","RS256","HS384","ES512","RS512"],"userinfo_signing_alg_values_supported":["ES384","RS384","HS256","HS512","ES256","RS256","HS384","ES512","RS512","none"],"request_object_signing_alg_values_supported":["ES384","RS384","ES256","RS256","ES512","RS512","none"],"response_modes_supported":["query","fragment","form_post"],"registration_endpoint":"https://login.des.caixa/auth/realms/intranet/clients-registrations/openid-connect","token_endpoint_auth_methods_supported":["private_key_jwt","client_secret_basic","client_secret_post","client_secret_jwt"],"token_endpoint_auth_signing_alg_values_supported":["RS256"],"claims_supported":["sub","iss","auth_time","name","given_name","family_name","preferred_username","email"],"claim_types_supported":["normal"],"claims_parameter_supported":false,"scopes_supported":["openid","profile","email","address","phone","offline_access","roles","web-origins","audience_cli-ser-nda","webhook.write","payloadlocation.write","manterImovel","consultarSimulacao","lotecobv.read","pix.read","audience_cli-ser-sgr","cob.write","cob.read","cobv.read","lotecobv.write","pix.write","payloadlocation.read","webhook.read","pld","cobv.write","consultarParametros","audience_cli-ser-cli","acessoIrrestrito","realizarSimulacao","segmento_sistema","instituicao_financeira","audience_cli-ser-set","audience_cli-ser-aic","agente_moradia","operacao_fiduciaria","cobr.write","payloadlocationrec.read","solicrec.write","payloadlocationrec.write","webhookrec.write","pixautomatico.read","acessoAdministracao","audience_cli-ser-d01","audience_cli-ser-mtc","audience_cli-ser-spl","audience_cli-ser-ibc","audience_cli-ser-dep-mmi","audience_cli-ser-wic-pes","audience_cli-ser-sem","audience_cli-ser-mpg","audience_cli-ser-ouv","audience_cli-ser-x04","audience_cli-ser-gro","audience_cli-ser-sde2","audience_cli-ser-don_teste","audience_cli-ser-naf","audience_cli-ser-abe","audience_cli-ser-acx","audience_cli-ser-ptn","audience_cli-ser-fug","audience_cli-ser-gel_novo","audience_cli-ser-tkn","audience_cli-ser-alc","audience_cli-ser-pnc","audience_cli-ser-brj","audience_cli-ser-itx","audience_cli-ser-apc","audience_cli-ser-agf-dados","audience_cli-ser-atr","audience_cli-ser-gce","audience_cli-ser-nda_avld","audience_cli-ser-rfo","audience_cli-ser-bko","audience_cli-ser-gsr","audience_cli-ser-pgp","audience_cli-ser-fgd","audience_cli-ser-gec","audience_cli-ser-pab","audience_cli-ser-sag","audience_cli-ser-nbc","audience_cli-ser-cvo","audience_cli-ser-mcn","audience_cli-ser-ccr","audience_cli-ser-voc","audience_cli-ser-sam","audience_cli-ser-mtr-val","audience_cli-ser-api-sgh","econsignado-fgts","solicrec.read","audience_cli-ser-gfa","instituicao_reformas","audience_cli-ser-aaf","audience_cli-ser-got","audience_cli-ser-nch","audience_cli-ser-ppm","audience_cli-ser-acg","audience_cli-ser-gdu","audience_cli-ser-dep-mif","audience_cli-ser-gam","audience_cli-ser-dep-guardiao","audience_cli-ser-ng","audience_cli-ser-vit","audience_cli-ser-com","audience_cli-ser-red","audience_cli-ser-pcs","audience_cli-web-avl","acessoConstrutoras","conformidade","sitrr","webhookrec.read","pixautomatico.write","audience_cli-ser-nda_gtl","audience_cli-ser-dmf","audience_cli-ser-pah","audience_cli-ser-ana","audience_cli-ser-gpd","audience_cli-ser-acm","audience_cli-ser-sde","audience_cli-ser-nda_icod","audience_cli-ser-mtr-flexdoc","audience_cli-ser-nda_perd","audience_cli-ser-cdc","audience_cli-ser-mai","audience_cli-ser-crd","audience_cli-ser-dep-sufug-fgts-servicos","audience_cli-ser-cap","audience_cli-ser-iso","Audience_cli-ser-cpl","audience_cli-ser-nda_cac","audience_cli-ser-gpi","audience_cli-ser-gpd1","audience_cli-ser-gec-opf","audience_cli-ser-ri","audience_cli-ser-nda_out","audience_cli-ser-spl-captacao","audience_cli-ser-bpm","audience_cli-ser-spf","audience_cli-ser-bot","audience_cli-ser-avo","audience_cli-ser-ipv","audience_cli-ser-spl-lotericas","audience_cli-ser-cbp","audience_cli-ser-bsa","audience_cli-ser-dep-sufug-fgts","audience_cli-ser-gvc","audience_cli-ser-npc","audience_cli-ser-gts","audience_cli-ser-mkt","audience_cli-ser-iag","audience_cli-ser-idx","audience_cli-ser-bar-catalogo","audience_cli-ser-crf","audience_cli-ser-sfg","audience_cli-ser-wpc","audience_cli-ser-mpi","audience_cli-ser-api-geate","audience_cli-ser-nda_pcs","audience_cli-ser-seg","audience_cli-ser-gcn","audience_cli-ser-dun_sgf","audience_cli-ser-jur-com","audience_cli-ser-d02","audience_cli-ser-dcn","audience_cli-ser-ran","audience_cli-ser-mil-precificacao-api","audience_cli-ser-ceh","audience_cli-ser-wic-pen","audience_cli-ser-gdf","audience_cli-ser-afs","audience_cli-ser-dun2","snd","convenio","webhookcobr.read","rec.write","rec.read","cobr.read","webhookcobr.write","scope:api_a","scope:api_b","audience_cli-ser-smn-05","audience_cli-ser-gal","audience_cli-ser-tax-api","audience_cli-ser-nda_ctdd","audience_cli-ser-cpc","audience_cli-ser-nda_pcsd","audience_cli-ser-saq","audience_cli-ser-x02","audience_cli-ser-gde","audience_cli-ser-iac","audience_cli-ser-jur","audience_cli-ser-pcl_bpm","audience_cli-ser-bem","audience_cli-ser-gai","audience_cli-ser-mtr-credmei","audience_cli-ser-dmp","audience_cli-ser-hab","audience_cli-ser-b24","audience_cli-ser-pge","audience_cli-ser-ath","audience_cli-ser-mpp","audience_cli-ser-nda_gms","audience_cli-ser-gsr-backend","audience_cli-ser-lic","audience_cli-ser-rfe","audience_cli-ser-cgr","audience_cli-ser-nda_ocrd","audience_cli-ser-sgf","audience_cli-ser-nda_pesd","audience_cli-ser-cuc","audience_cli-ser-rep","audience_cli-ser-dep-ouv","audience_cli-ser-rft","audience_cli-ser-cmo","audience_cli-ser-dep-sdcff","audience_cli-ser-avi","audience_cli-ser-cir","audience_cli-ser-aci","audience_cli-ser-mov","audience_cli-ser-aoc","audience_cli-ser-arj","audience_cli-ser-cql","audience_cli-ser-sib","audience_cli-ser-ecm","audience_cli-ser-gos","audience_cli-ser-pen","audience_cli-ser-apd","audience_cli-ser-dep-360","audience_cli-ser-nda_clid","audience_cli-ser-dep-genop","audience_cli-ser-cap-web","audience_cli-ser-inp","audience_cli-ser-spe","audience_cli-ser-png","audience_cli-ser-lcr","audience_cli-ser-sgc","audience_cli-ser-iad","audience_cli-ser-gcb","audience_cli-ser-cbs","audience_cli-ser-spx","audience_cli-ser-gct","audience_cli-ser-rex","audience_cli-ser-csu","audience_cli-ser-gip","audience_cli-ser-vir","audience_cli-ser-fes-mtr","audience_cli-ser-wic-apim","audience_cli-ser-nda_sid03","audience_cli-ser-nda_d09","audience_cli-ser-dro","audience_cli-ser-sme","audience_cli-ser-crb","audience_cli-ser-d03","audience_cli-ser-goc","audience_cli-ser-abm","audience_cli-ser-nbm","audience_cli-ser-dun","audience_cli-ser-nep","audience_cli-ser-pon-trava","audience_cli-ser-gta","audience_cli-ser-gpl","audience_cli-ser-atc","audience_cli-ser-ara","audience_cli-ser-x10","audience_cli-ser-bar","audience_cli-ser-vcc","audience_cli-ser-cdf","audience_cli-ser-caq","audience_cli-ser-aur","audience_cli-ser-epr","audience_cli-ser-dep-bdh","audience_cli-ser-aop","audience_cli-ser-ctd","audience_cli-ser-cft","audience_cli-ser-aoi","audience_cli-ser-obr","audience_cli-ser-cea","audience_cli-ser-nda_botd","audience_cli-ser-ipc-isd","audience_cli-ser-dep-pag","audience_cli-ser-contratos","audience_cli-ser-dep-sou","audience_cli-ser-nop","audience_cli-ser-nda_ofc","audience_cli-ser-opm","audience_cli-ser-x06","audience_cli-ser-caj_001","audience_cli-ser-per","audience_cli-ser-dpn","audience_cli-ser-acc-pxa","audience_cli-ser-tcs","audience_cli-ser-nda_frc","audience_cli-ser-apo","audience_cli-ser-hoj","audience_cli-ser-nda_ecmd","audience_cli-ser-atd","audience_cli-ser-wic-pesd","audience_cli-ser-rta","audience_cli-ser-rmc-marcas","audience_cli-ser-nda_atcd","Audience_cli-ser-bnc","audience_cli-ser-fcp","audience_cli-ser-dep-pld","audience_cli-ser-set-integra","audience_cli-ser-neb","audience_cli-ser-iav","audience_cli-ser-sph","audience_cli-ser-ipc","audience_cli-ser-fes","audience_cli-ser-lce","audience_cli-ser-mje","audience_cli-ser-ele","audience_cli-ser-gpf","audience_cli-ser-ncr-canais","audience_cli-ser-sns","audience_cli-ser-sfc","audience_cli-ser-trs","audience_cli-ser-sgr-intra","audience_cli-ser-vgl","audience_cli-ser-fdl","audience_cli-ser-erc","audience_cli-ser-spi-qrcode","audience_cli-ser-bbr","audience_cli-ser-mil","audience_cli-ser-pld","audience_cli-ser-crm","audience_cli-ser-mpl","audience_cli-ser-spb_tst","audience_cli-ser-smn","audience_cli-ser-ccv","audience_cli-ser-mpr","audience_cli-ser-sbg","audience_cli-ser-gpf-batch","audience_cli-ser-apf","audience_cli-ser-cfd","audience_cli-ser-nda_cacd","audience_cli-ser-caj","audience_cli-ser-aud","audience_cli-ser-pmc","audience_cli-ser-avd","audience_cli-ser-dep-vat","audience_cli-ser-gmc","audience_cli-ser-gbs","audience_cli-ser-ico","audience_cli-ser-mil-prc","audience_cli-ser-pag","audience_cli-ser-605","audience_cli-ser-mfi","audience_cli-ser-sdc","audience_cli-ser-dep-sufug-fgts-crm","audience_cli-ser-gic","audience_cli-ser-gsj","audience_cli-ser-int","audience_cli-ser-cgb","audience_cli-ser-na_d09d","audience_cli-ser-acc-convenios","audience_cli-ser-nda_pcsr","audience_cli-ser-acc","audience_cli-ser-deo","audience_cli-ser-qpe","audience_cli-ser-rur","audience_cli-ser-dep-epf","audience_cli-ser-alg","audience_cli-ser-pan","audience_cli-ser-nov","audience_cli-ser-gpn","audience_cli-ser-api-monitoracao","audience_cli-ser-adimplencia-dep","audience_cli-ser-aas","audience_cli-ser-exc","audience_cli-ser-gdd2","audience_cli-ser-ced","audience_cli-ser-fap","audience_cli-ser-smn-00","audience_cli-ser-sou","audience_cli-ser-sgr-profile","audience_cli-ser-mtx","audience_cli-ser-aff","audience_cli-ser-b2b","mp-desenrola-2.0-if","audience_cli-web-opl","audience_cli-ser-fec_api","audience_cli-ser-ead","audience_cli-ser-cco","audience_cli-ser-gec-com","audience_cli-ser-fec","audience_cli-ser-mtr-montreal","audience_cli-ser-acc-pix","audience_cli-ser-sra","audience_cli-ser-api","audience_cli-ser-efi","audience_cli-ser-don","audience_cli-ser-cvr","audience_cli-ser-fgg","audience_cli-ser-dep-sufug-ceemp","audience_cli-ser-cod","audience_cli-ser-dep-sufug-fgts-acessos","audience_cli-ser-pfi","audience_cli-ser-nda_gmsd","audience_cli-ser-wic-batch","audience_cli-ser-dis","audience_cli-ser-lis","audience_cli-ser-icd","audience_cli-ser-clb","audience_cli-ser-b2c","audience_cli-ser-lco","audience_cli-ser-clo","audience_cli-ser-epa","audience_cli-ser-rsa","audience_cli-ser-ipc-xid","audience_cli-ser-seq","audience_cli-ser-dep-iat","audience_cli-ser-dep-hoje","audience_cli-ser-dep-sufug-gerfu","audience_cli-ser-nda_ran","audience_cli-ser-apa","audience_cli-ser-pdd","audience_cli-ser-gcd","audience_cli-ser-alf","audience_cli-ser-nac","audience_cli-ser-cdt","audience_cli-ser-dce","audience_cli-ser-aef","audience_cli-ser-opl","audience_cli-ser-dev","audience_cli-ser-clg","audience_cli-ser-arg","audience_cli-ser-trr","audience_cli-ser-cld","audience_cli-ser-ncr","audience_cli-ser-gfp","audience_cli-ser-spl_jboss","audience_cli-ser-wfc","audience_cli-ser-avp","audience_cli-ser-iga","audience_cli-ser-cas","audience_cli-ser-sfw-teste","audience_cli-ser-bec","audience_cli-ser-acg_cip","audience_cli-ser-nda_pcse","audience_cli-ser-avo-gov","audience_cli-ser-pdc","audience_cli-ser-fin","audience_cli-ser-smn-10","audience_cli-ser-fep","audience_cli-ser-cac","audience_cli-ser-mtr","audience_cli-ser-ocr","audience_cli-ser-spl-atendimento","audience_cli-ser-ifx","audience_cli-ser-evj","audience_cli-ser-cfg","audience_cli-ser-autorh","audience_cli-ser-ach","audience_cli-ser-ags","audience_cli-ser-cet","audience_cli-ser-dep-sufug-fgts-tinegocios","audience_cli-ser-nda_simtr","audience_cli-ser-gdd","audience_cli-ser-ath-atendimento","audience_cli-ser-arq","audience_cli-ser-oba","audience_cli-ser-arr","audience_cli-ser-ago","audience_cli-ser-dep-sufug-ceret-indicadores","audience_cli-ser-alf-dep-opi","audience_cli-ser-nsh","audience_cli-ser-gms","audience_cli-ser-dcx","audience_cli-ser-ipc-novo","audience_cli-ser-wic","audience_cli-ser-pdm","audience_cli-ser-tma","audience_cli-ser-ifn","audience_cli-ser-nda_b24","audience_cli-ser-gcb-api","audience_cli-ser-sig","audience_cli-ser-dep-pju","audience_cli-ser-nda-flexd","audience_cli-ser-ceq-1","audience_cli-ser-fpp","audience_cli-ser-nrp","audience_cli-ser-otr","audience_cli-ser-tgv","audience_cli-ser-msc","audience_cli-ser-cve","tst_scope_opt","audience_cli-ser-aij","audience_cli-ser-dep-sufug-fgts-projetosti","audience_cli-ser-ati","audience_cli-ser-pbf","audience_cli-ser-spi","audience_cli-ser-nda_d09d","audience_cli-ser-mtr-bpm","audience_cli-ser-ife","audience_cli-ser-gcx","audience_cli-ser-gda","audience_cli-ser-fcg","audience_cli-ser-sgh","audience_cli-ser-pqv","audience_cli-ser-mtr-outsourcing","audience_cli-ser-tdf","audience_cli-ser-etl","audience_cli-ser-rff","audience_cli-ser-emp","audience_cli-ser-rpl","audience_cli-ser-dgc","audience_cli-ser-ehc","audience_cli-ser-cas_dep","audience_cli-ser-obs","audience_cli-ser-teste","audience_cli-ser-rin","audience_cli-ser-cpf","audience_cli-ser-agt","audience_cli-ser-pnl","audience_cli-ser-wpc-apis","audience_cli-ser-itl","audience_cli-ser-mcx","audience_cli-ser-agf","audience_cli-ser-pps","audience_cli-ser-nda_pes","audience_cli-ser-dmf_teste","audience_cli-ser-srh","audience_cli-wic-ser-pen","audience_cli-ser-dre","audience_cli-ser-ric","audience_cli-ser-gel","audience_cli-ser-pas","audience_cli-ser-pol","audience_cli-ser-azq","audience_cli-ser-gec-csc","audience_cli-ser-sun","audience_cli-ser-nda_mtrd","audience_cli-ser-mpd","audience_cli-ser-pdi","audience_cli-ser-igo","audience_cli-ser-bff","audience_cli-ser-dip","audience_cli-ser-gpd2","audience_cli-ser-pfb","audience_cli-ser-jks","audience_cli-ser-nda_mtr","audience_cli-ser-spb","audience_cli-ser-art","audience_cli-ser-dep-wfcv","audience_cli-ser-rmc","audience_cli-ser-avl","audience_cli-ser-connect-comex","audience_cli-ser-pix-tstprd","audience_cli-ser-fce","audience_cli-ser-fsa","audience_cli-ser-avs","audience_cli-ser-opi","audience_cli-ser-enc","audience_cli-ser-acc-api","audience_cli-ser-csd","audience_cli-ser-top-con","audience_cli-ser-ppg","audience_cli-ser-iso2","audience_cli-ser-rsp","audience_cli-ser-cow","audience_cli-ser-flow","audience_cli-ser-cid","audience_cli-ser-fge","audience_cli-ser-frs","audience_cli-ser-tch","audience_cli-ser-nda_rand","audience_cli-ser-asc","audience_cli-ser-pbs","audience_cli-ser-top","audience_cli-ser-ocg","audience_cli-ser-edd","audience_cli-ser-tae","audience_cli-ser-sei","audience_cli-ser-eti","mp-desenrola-2.0-trab","tst_scope_opt_2"],"request_parameter_supported":true,"request_uri_parameter_supported":true,"code_challenge_methods_supported":["plain","S256"],"tls_client_certificate_bound_access_tokens":true,"introspection_endpoint":"https://login.des.caixa/auth/realms/intranet/protocol/openid-connect/token/introspect"}
+2026-07-21 10:52:54,093 DEBUG [io.quarkus.oidc.runtime.OidcProviderClientImpl] (vert.x-eventloop-thread-0) Get verification JWT Key Set at https://login.des.caixa/auth/realms/intranet/protocol/openid-connect/certs
+2026-07-21 10:52:54,097 DEBUG [io.quarkus.oidc.runtime.OidcProviderClientImpl] (vert.x-eventloop-thread-0) Request succeeded: {"keys":[{"kid":"MFeJ65_D-xqNy3VmkMHoMVKScfP7KmYk7mV0IhK-kAw","kty":"RSA","alg":"RS256","use":"sig","n":"zcYY_UbvrEldbQRd4TgLeP9bS8YnaL67MZUsfozWRyocBF3S0L7UEbkPaPoCoBnhoRv8VJHp0grqe3mqEmkMuDlt20Vx6q04ADDyS0c8xaU-Ot-g1Pgwjze944ATUjZogEMko6jvqqUGTt_Nt64yCCIaMaTB119vOBExQim7vPHNe_o7hLxh6VBYINxFA_esxjz8j28_uJWIiK0Gvt07Yx7ycn2DJlQHjnH2GzCSUL87AAYmjyYxW2JZaPLLvRlpcHIWrlr9GNtLiq0--xfJ0jFYxQWs1jxhlfXdqr8NE5vfA_RRRjRFnWzFOhIsOnIHPO9eEwwYzCZSoW2zXkFDYw","e":"AQAB"}]}
+2026-07-21 10:52:54,164 DEBUG [io.quarkus.hibernate.orm.runtime.FastBootHibernatePersistenceProvider] (JPA Startup Thread) Located 1 persistence units; checking each
+2026-07-21 10:52:54,164 DEBUG [io.quarkus.hibernate.orm.runtime.FastBootHibernatePersistenceProvider] (JPA Startup Thread) Checking persistence-unit [name=<default>, explicit-provider=null] against incoming persistence unit name [<default>]
+2026-07-21 10:52:54,164 DEBUG [io.quarkus.hibernate.orm.runtime.FastBootHibernatePersistenceProvider] (JPA Startup Thread) No PersistenceProvider explicitly requested, assuming Hibernate
+2026-07-21 10:52:54,191 DEBUG [io.quarkus.agroal.runtime.DataSources] (JPA Startup Thread) Started datasource <default> connected to jdbc:oracle:thin:@cnpexdadvm01-scan8.extra.caixa.gov.br:1521/ORAD05BC
+2026-07-21 10:52:54,266 DEBUG [org.hibernate.orm.resource.jdbc] (JPA Startup Thread) HHH10003030: 'hibernate.connection.provider_disables_autocommit' was enabled. This setting should only be enabled when JDBC Connections obtained by Hibernate from the ConnectionProvider have auto-commit disabled. Enabling this setting when connections have auto-commit enabled leads to execution of SQL operations outside of any JDBC transaction.
+2026-07-21 10:52:55,482 DEBUG [org.hibernate.orm.jdbc] (JPA Startup Thread) HHH100017: Database:
+	name: Oracle
+	version: Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
+Version 19.22.0.0.0
+	major: 19
+	minor: 22
+2026-07-21 10:52:55,482 DEBUG [org.hibernate.orm.jdbc] (JPA Startup Thread) HHH100018: Driver:
+	name: Oracle JDBC driver
+	version: 23.26.0.0.0
+	major: 23
+	minor: 26
+	JDBC version: 4.3
+2026-07-21 10:52:55,563 WARN  [org.hibernate.orm.jdbc] (JPA Startup Thread) HHH100123: Low default JDBC fetch size: 10 (consider setting 'hibernate.jdbc.fetch_size')
+2026-07-21 10:52:55,564 DEBUG [org.hibernate.orm.connections.pooling] (JPA Startup Thread) HHH10001005: Database info:
+	Database JDBC URL [undefined/unknown]
+	Database driver: undefined/unknown
+	Database dialect: OracleDialect
+	Database version: 19.0
+	Default catalog/schema: unknown/unknown
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	JDBC fetch size: undefined/unknown
+	Pool: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-07-21 10:52:55,683 DEBUG [org.hibernate.orm.factory] (JPA Startup Thread) HHH90020001: Instantiating factory [04af886d-3fe5-4f23-9400-96d20737fc15] with settings: {jakarta.persistence.validation.mode=AUTO, hibernate.hbm2ddl.schema-generation.script.append=false, hibernate.connection.handling_mode=DELAYED_ACQUISITION_AND_RELEASE_BEFORE_TRANSACTION_COMPLETION, jakarta.persistence.sql-load-script-source=null, hibernate.cache.use_query_cache=true, hibernate.hbm2ddl.charset_name=UTF-8, jakarta.persistence.database-product-name=Oracle, hibernate.xml_mapping_enabled=false, hibernate.query.plan_cache_max_size=2048, hibernate.id.sequence.increment_size_mismatch_strategy=NONE, hibernate.hbm2ddl.skip_default_import_file=true, jakarta.persistence.sharedCache.mode=ENABLE_SELECTIVE, hibernate.id.optimizer.pooled.preferred=pooled-lo, org.hibernate.flushMode=AUTO, jakarta.persistence.create-database-schemas=false, hibernate.order_updates=true, hibernate.query.fail_on_pagination_over_collection_fetch=false, hibernate.order_by.default_null_ordering=none, jakarta.persistence.schema-generation.scripts.action=none, hibernate.cdi.extensions=false, hibernate.allow_update_outside_transaction=false, hibernate.boot.allow_jdbc_metadata_access=true, hibernate.cache.use_reference_entries=true, hibernate.persistenceUnitName=<default>, hibernate.cache.use_second_level_cache=true, hibernate.query.in_clause_parameter_padding=true, hibernate.discriminator.ignore_explicit_for_joined=false, hibernate.transaction.coordinator_class=class org.hibernate.resource.transaction.backend.jta.internal.JtaTransactionCoordinatorBuilderImpl, hibernate.type.json_format_mapper=org.hibernate.type.format.jackson.JacksonJsonFormatMapper@5331b132, hibernate.connection.provider_disables_autocommit=true, hibernate.connection.datasource=io.agroal.pool.DataSource@2435bc75, hibernate.cache.region.factory_class=org.infinispan.quarkus.hibernate.cache.QuarkusInfinispanRegionFactory, jakarta.persistence.schema-generation.database.action=none, jakarta.persistence.database-product-version=null, hibernate.default_batch_fetch_size=16}
+2026-07-21 10:52:55,687 DEBUG [org.infinispan.quarkus.hibernate.cache.QuarkusInfinispanRegionFactory] (JPA Startup Thread) Starting Infinispan region factory
+2026-07-21 10:52:55,694 DEBUG [org.infinispan.quarkus.hibernate.cache.QuarkusInfinispanRegionFactory] (JPA Startup Thread) Building timestamps cache region [default-update-timestamps-region]
+2026-07-21 10:52:55,704 DEBUG [org.infinispan.quarkus.hibernate.cache.QuarkusInfinispanRegionFactory] (JPA Startup Thread) Building query results cache region [default-query-results-region]
+2026-07-21 10:52:55,860 DEBUG [org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator] (JPA Startup Thread) No schema actions specified for contributor 'orm'
+2026-07-21 10:52:56,071 DEBUG [org.hibernate.HQL_FUNCTIONS] (JPA Startup Thread) Available HQL Functions:
+	abs(NUMERIC arg)
+	Double acos(NUMERIC arg)
+	add_months(DATE datetime, INTEGER months)
+	Boolean any(BOOLEAN arg)
+	array( ... )
+	array_agg(arg)
+	array_append( ... )
+	array_concat( ... )
+	Boolean array_contains(ARRAY haystackArray, OBJECT needleElementOrArray)
+	Boolean array_contains_nullable(ARRAY haystackArray, OBJECT needleElementOrArray)
+	array_fill(OBJECT element, INTEGER elementCount)
+	array_fill_list(OBJECT element, INTEGER elementCount)
+	array_get( ... )
+	Boolean array_includes(ARRAY haystackArray, OBJECT needleArray)
+	Boolean array_includes_nullable(ARRAY haystackArray, OBJECT needleArray)
+	Boolean array_intersects(ARRAY array0, OBJECT array1)
+	Boolean array_intersects_nullable(ARRAY array0, OBJECT array1)
+	Integer array_length(ARRAY array)
+	array_list( ... )
+	Boolean array_overlaps(ARRAY array0, OBJECT array1)
+	Boolean array_overlaps_nullable(ARRAY array0, OBJECT array1)
+	Integer array_position(ARRAY array, OBJECT element[, INTEGER startPosition])
+	int[] array_positions(ARRAY array, OBJECT element)
+	List array_positions_list(ARRAY array, OBJECT element)
+	array_prepend( ... )
+	array_remove( ... )
+	array_remove_index( ... )
+	array_replace( ... )
+	array_set( ... )
+	array_slice( ... )
+	String array_to_string( ... )
+	array_trim( ... )
+	Integer ascii(STRING arg)
+	Double asin(NUMERIC arg)
+	Double atan(NUMERIC arg)
+	Double atan2(NUMERIC arg0, NUMERIC arg1)
+	avg(arg)
+	Integer bit_length(STRING_OR_CLOB arg)
+	bitand(arg0, arg1)
+	bitor(arg0, arg1)
+	bitxor(arg0, arg1)
+	cast(arg as Type)
+	ceil(NUMERIC arg)
+	ceiling(NUMERIC arg)
+	Character char(INTEGER arg)
+	Integer character_length(STRING_OR_CLOB arg)
+	Character chr(INTEGER arg)
+	coalesce(arg0[, arg1[, ...]])
+	String collate(STRING string as COLLATION collation)
+	String concat(STRING string0[, STRING string1[, ...]])
+	Double corr(NUMERIC arg0, NUMERIC arg1)
+	Double cos(NUMERIC arg)
+	Double cosh(NUMERIC arg)
+	Long count([distinct ]{arg|*})
+	Double covar_pop(NUMERIC arg0, NUMERIC arg1)
+	Double covar_samp(NUMERIC arg0, NUMERIC arg1)
+	Double cume_dist([arg0[, ...]])
+	Date current date
+	Time current time
+	Timestamp current timestamp
+	Date current_date
+	Instant current_instant
+	Time current_time
+	Timestamp current_timestamp
+	dateadd(TEMPORAL_UNIT field, INTEGER magnitude, TEMPORAL datetime)
+	Long|Double datediff(TEMPORAL_UNIT field, TEMPORAL start, TEMPORAL end)
+	Double degrees(NUMERIC arg)
+	Long dense_rank([arg0[, ...]])
+	Boolean every(BOOLEAN arg)
+	Double exp(NUMERIC arg)
+	extract(TEMPORAL_UNIT field from TEMPORAL arg)
+	first_valueANY value
+	floor(NUMERIC arg)
+	String format(TEMPORAL datetime as STRING pattern)
+	greatest(COMPARABLE arg0, COMPARABLE arg1[, arg2[, ...]])
+	String hex(arg)
+	ifnull(arg0, arg1)
+	String initcap(arg)
+	Instant instant
+	Integer instr(STRING string, STRING pattern[, INTEGER start[, INTEGER occurrence]])
+	String json_array([arg0[, ...]])
+	String json_array_append(IMPLICIT_JSON arg0, STRING arg1, ANY arg2)
+	String json_array_insert(IMPLICIT_JSON arg0, STRING arg1, ANY arg2)
+	String json_arrayagg(arg0[, arg1])
+	Boolean json_exists(IMPLICIT_JSON arg0, STRING arg1)
+	String json_insert(IMPLICIT_JSON arg0, STRING arg1, ANY arg2)
+	String json_mergepatch(IMPLICIT_JSON arg0, IMPLICIT_JSON arg1[, arg2[, ...]])
+	String json_object( ... )
+	String json_objectagg(arg0, arg1[, arg2, arg3])
+	String json_query( ... )
+	String json_remove(IMPLICIT_JSON arg0, STRING arg1)
+	String json_replace(IMPLICIT_JSON arg0, STRING arg1, ANY arg2)
+	String json_set(IMPLICIT_JSON arg0, STRING arg1, ANY arg2)
+	json_value( ... )
+	lagANY value[, INTEGER offset[, ANY default]]
+	Date last_day(DATE arg)
+	last_valueANY value
+	leadANY value[, INTEGER offset[, ANY default]]
+	least(COMPARABLE arg0, COMPARABLE arg1[, arg2[, ...]])
+	String left(STRING string, INTEGER length)
+	length
+	String listagg(STRING arg0, STRING arg1)
+	Double ln(NUMERIC arg)
+	LocalDate local date
+	LocalDateTime local datetime
+	LocalTime local time
+	LocalDate local_date
+	LocalDateTime local_datetime
+	LocalTime local_time
+	Integer locate(pattern, string[, start])
+	Double log(NUMERIC arg0[, NUMERIC arg1])
+	Double log10(NUMERIC arg)
+	String lower(STRING string)
+	String lpad(STRING string, INTEGER length[, STRING padding])
+	String ltrim(STRING string[, STRING characters])
+	max(COMPARABLE arg)
+	byte[] md5(arg)
+	Double median(NUMERIC arg)
+	min(COMPARABLE arg)
+	Integer mod(INTEGER arg0, INTEGER arg1)
+	mode()
+	Integer months_between(DATE end, DATE start)
+	nth_valueANY value, INTEGER nth
+	nullif(arg0, arg1)
+	Integer octet_length(STRING_OR_CLOB arg)
+	OffsetDateTime offset datetime
+	OffsetDateTime offset_datetime
+	Integer ordinal(ENUM arg)
+	String overlay(STRING string placing STRING replacement from INTEGER start[ for INTEGER length])
+	String pad(STRING string with INTEGER length {leading|trailing}[ STRING character])
+	Double percent_rank([arg0[, ...]])
+	percentile_cont(NUMERIC arg)
+	percentile_disc(NUMERIC arg)
+	Double pi
+	Integer position(STRING pattern in STRING string)
+	Double power(NUMERIC arg0, NUMERIC arg1)
+	Double radians(NUMERIC arg)
+	Long rank([arg0[, ...]])
+	(STRING string, STRING pattern[, STRING flags])
+	Double regr_avgx(NUMERIC arg0, NUMERIC arg1)
+	Double regr_avgy(NUMERIC arg0, NUMERIC arg1)
+	Double regr_count(NUMERIC arg0, NUMERIC arg1)
+	Double regr_intercept(NUMERIC arg0, NUMERIC arg1)
+	Double regr_r2(NUMERIC arg0, NUMERIC arg1)
+	Double regr_slope(NUMERIC arg0, NUMERIC arg1)
+	Double regr_sxx(NUMERIC arg0, NUMERIC arg1)
+	Double regr_sxy(NUMERIC arg0, NUMERIC arg1)
+	Double regr_syy(NUMERIC arg0, NUMERIC arg1)
+	String repeat(STRING string, INTEGER times)
+	String replace(STRING string, STRING pattern, STRING replacement)
+	String right(STRING string, INTEGER length)
+	round(NUMERIC number[, INTEGER places])
+	Long row_number()
+	Long rowid
+	Long rownum
+	String rpad(STRING string, INTEGER length[, STRING padding])
+	String rtrim(STRING string[, STRING characters])
+	byte[] sha(arg)
+	Integer sign(NUMERIC arg)
+	Double sin(NUMERIC arg)
+	Double sinh(NUMERIC arg)
+	String soundex(arg)
+	sql
+	Double sqrt(NUMERIC arg)
+	Double stddev(NUMERIC arg)
+	Double stddev_pop(NUMERIC arg)
+	Double stddev_samp(NUMERIC arg)
+	String str(arg)
+	String string(ENUM arg)
+	String substr(STRING string, INTEGER start[, INTEGER length])
+	String substring(STRING string{ from|,} INTEGER start[{ for|,} INTEGER length])
+	sum(arg)
+	Timestamp sysdate
+	Timestamp systimestamp
+	Double tan(NUMERIC arg)
+	Double tanh(NUMERIC arg)
+	timestampadd(TEMPORAL_UNIT field, INTEGER magnitude, TEMPORAL datetime)
+	Long|Double timestampdiff(TEMPORAL_UNIT field, TEMPORAL start, TEMPORAL end)
+	String to_char(ANY arg0[, STRING arg1, STRING arg2])
+	Date to_date(STRING arg0[, STRING arg1, STRING arg2])
+	Double to_number(STRING arg0[, STRING arg1, STRING arg2])
+	Timestamp to_timestamp(STRING arg0[, STRING arg1, STRING arg2])
+	String translate(STRING arg0, STRING arg1, STRING arg2)
+	String trim([[{leading|trailing|both} ][STRING arg0 ]from] STRING arg1)
+	trunc( ... )
+	truncate( ... )
+	String upper(STRING string)
+	Double var_pop(NUMERIC arg)
+	Double var_samp(NUMERIC arg)
+	Double variance(NUMERIC arg)
+	String xmlagg( ... )
+	String xmlcomment(STRING arg)
+	String xmlconcat( ... )
+	String xmlelement( ... )
+	Boolean xmlexists( ... )
+	String xmlforest( ... )
+	String xmlpi( ... )
+	String xmlquery( ... )
 
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>${quarkus.platform.group-id}</groupId>
-                <artifactId>${quarkus.platform.artifact-id}</artifactId>
-                <version>${quarkus.platform.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
+2026-07-21 10:52:56,391 DEBUG [org.hibernate.orm.core] (JPA Startup Thread) HHH000157: Lazy property fetching available for: br.gov.caixa.investimentos.shared.log.infra.db.entity.ComunicacaoApiEntity
+2026-07-21 10:52:56,970 DEBUG [org.hibernate.orm.service] (JPA Startup Thread) HHH010454: EventListenerRegistry access via ServiceRegistry is deprecated - use 'sessionFactory.getEventEngine().getListenerRegistry()' instead
+2026-07-21 10:52:56,971 DEBUG [org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator] (JPA Startup Thread) No schema actions specified for contributor 'orm'
+2026-07-21 10:52:56,971 DEBUG [org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator] (JPA Startup Thread) No schema management actions found
+2026-07-21 10:52:56,981 DEBUG [io.smallrye.config] (main) SRCFG01006: Loaded ConfigSource OpenApiConfigHelper with ordinal 1
+2026-07-21 10:52:56,981 DEBUG [io.smallrye.config] (main) SRCFG01006: Loaded ConfigSource DefaultValuesConfigSource with ordinal -2147483648
+2026-07-21 10:52:57,283 DEBUG [io.smallrye.openapi.runtime.io] (main) SROAP02009: Processing a single Schema json object.
+2026-07-21 10:52:57,288 DEBUG [io.smallrye.openapi.runtime.io] (main) SROAP02009: Processing a single Schema json object.
+2026-07-21 10:52:57,288 DEBUG [io.smallrye.openapi.runtime.io] (main) SROAP02009: Processing a single Schema json object.
+2026-07-21 10:52:57,289 DEBUG [io.smallrye.openapi.runtime.io] (main) SROAP02009: Processing a single Schema json object.
+2026-07-21 10:52:57,289 DEBUG [io.smallrye.openapi.runtime.io] (main) SROAP02009: Processing a single Schema json object.
+2026-07-21 10:52:57,289 DEBUG [io.smallrye.openapi.runtime.io] (main) SROAP02009: Processing a single Schema json object.
+2026-07-21 10:52:57,289 DEBUG [io.smallrye.openapi.runtime.io] (main) SROAP02009: Processing a single Schema json object.
+2026-07-21 10:52:57,289 DEBUG [io.smallrye.openapi.runtime.io] (main) SROAP02009: Processing a single Schema json object.
+2026-07-21 10:52:57,289 DEBUG [io.smallrye.openapi.runtime.io] (main) SROAP02009: Processing a single Schema json object.
+2026-07-21 10:52:57,289 DEBUG [io.smallrye.openapi.runtime.io] (main) SROAP02009: Processing a single Schema json object.
+2026-07-21 10:52:57,290 DEBUG [io.smallrye.openapi.runtime.io] (main) SROAP02009: Processing a single Schema json object.
+2026-07-21 10:52:57,290 DEBUG [io.smallrye.openapi.runtime.io] (main) SROAP02009: Processing a single Schema json object.
+2026-07-21 10:52:57,290 DEBUG [io.smallrye.openapi.runtime.io] (main) SROAP02009: Processing a single Schema json object.
+2026-07-21 10:52:57,290 DEBUG [io.smallrye.openapi.runtime.io] (main) SROAP02009: Processing a single Schema json object.
+2026-07-21 10:52:57,290 DEBUG [io.smallrye.openapi.runtime.io] (main) SROAP02009: Processing a single Schema json object.
+2026-07-21 10:52:57,291 DEBUG [io.smallrye.openapi.runtime.io] (main) SROAP02009: Processing a single Schema json object.
+2026-07-21 10:52:57,291 DEBUG [io.smallrye.openapi.runtime.io] (main) SROAP02009: Processing a single Schema json object.
+2026-07-21 10:52:57,291 DEBUG [io.smallrye.openapi.runtime.io] (main) SROAP02009: Processing a single Schema json object.
+2026-07-21 10:52:57,291 DEBUG [io.smallrye.openapi.runtime.io] (main) SROAP02009: Processing a single Schema json object.
+2026-07-21 10:52:57,291 DEBUG [io.smallrye.openapi.runtime.io] (main) SROAP02009: Processing a single Schema json object.
+2026-07-21 10:52:57,291 DEBUG [io.smallrye.openapi.runtime.io] (main) SROAP02009: Processing a single Schema json object.
+2026-07-21 10:52:57,291 DEBUG [io.smallrye.openapi.runtime.io] (main) SROAP02009: Processing a single Schema json object.
+2026-07-21 10:52:57,291 DEBUG [io.smallrye.openapi.runtime.io] (main) SROAP02009: Processing a single Schema json object.
+2026-07-21 10:52:57,291 DEBUG [io.smallrye.openapi.runtime.io] (main) SROAP02009: Processing a single Schema json object.
+2026-07-21 10:52:57,291 DEBUG [io.smallrye.openapi.runtime.io] (main) SROAP02009: Processing a single Schema json object.
+2026-07-21 10:52:57,291 DEBUG [io.smallrye.openapi.runtime.io] (main) SROAP02009: Processing a single Schema json object.
+2026-07-21 10:52:57,291 DEBUG [io.smallrye.openapi.runtime.io] (main) SROAP02009: Processing a single Schema json object.
+2026-07-21 10:52:57,291 DEBUG [io.smallrye.openapi.runtime.io] (main) SROAP02009: Processing a single Schema json object.
+2026-07-21 10:52:57,292 DEBUG [io.smallrye.openapi.runtime.io] (main) SROAP02009: Processing a single Schema json object.
+2026-07-21 10:52:57,292 DEBUG [io.smallrye.openapi.runtime.io] (main) SROAP02009: Processing a single Schema json object.
+2026-07-21 10:52:57,292 DEBUG [io.smallrye.openapi.runtime.io] (main) SROAP02009: Processing a single Schema json object.
+2026-07-21 10:52:57,292 DEBUG [io.smallrye.openapi.runtime.io] (main) SROAP02009: Processing a single Schema json object.
+2026-07-21 10:52:57,292 DEBUG [io.smallrye.openapi.runtime.io] (main) SROAP02009: Processing a single Schema json object.
+2026-07-21 10:52:57,292 DEBUG [io.smallrye.openapi.runtime.io] (main) SROAP02009: Processing a single Schema json object.
+2026-07-21 10:52:57,292 DEBUG [io.smallrye.openapi.runtime.io] (main) SROAP02009: Processing a single Schema json object.
+2026-07-21 10:52:57,292 DEBUG [io.smallrye.openapi.runtime.io] (main) SROAP02009: Processing a single Schema json object.
+2026-07-21 10:52:57,292 DEBUG [io.smallrye.openapi.runtime.io] (main) SROAP02009: Processing a single Schema json object.
+2026-07-21 10:52:57,292 DEBUG [io.smallrye.openapi.runtime.io] (main) SROAP02009: Processing a single Schema json object.
+2026-07-21 10:52:57,292 DEBUG [io.smallrye.openapi.runtime.io] (main) SROAP02009: Processing a single Schema json object.
+2026-07-21 10:52:57,293 DEBUG [io.smallrye.openapi.runtime.io] (main) SROAP02009: Processing a single Schema json object.
+2026-07-21 10:52:57,293 DEBUG [io.smallrye.openapi.runtime.io] (main) SROAP02009: Processing a single Schema json object.
+2026-07-21 10:52:57,293 DEBUG [io.smallrye.openapi.runtime.io] (main) SROAP02009: Processing a single Schema json object.
+2026-07-21 10:52:57,293 DEBUG [io.smallrye.openapi.runtime.io] (main) SROAP02009: Processing a single Schema json object.
+2026-07-21 10:52:57,294 DEBUG [io.smallrye.openapi.runtime.io] (main) SROAP02009: Processing a single Schema json object.
+2026-07-21 10:52:57,294 DEBUG [io.smallrye.openapi.runtime.io] (main) SROAP02009: Processing a single Schema json object.
+2026-07-21 10:52:57,294 DEBUG [io.smallrye.openapi.runtime.io] (main) SROAP02009: Processing a single Schema json object.
+2026-07-21 10:52:57,294 DEBUG [io.smallrye.openapi.runtime.io] (main) SROAP02009: Processing a single Schema json object.
+2026-07-21 10:52:57,294 DEBUG [io.smallrye.openapi.runtime.io] (main) SROAP02009: Processing a single Schema json object.
+2026-07-21 10:52:57,294 DEBUG [io.smallrye.openapi.runtime.io] (main) SROAP02009: Processing a single Schema json object.
+2026-07-21 10:52:57,295 DEBUG [io.smallrye.openapi.runtime.io] (main) SROAP02009: Processing a single Schema json object.
+2026-07-21 10:52:57,295 DEBUG [io.smallrye.openapi.runtime.io] (main) SROAP02009: Processing a single Schema json object.
+2026-07-21 10:52:57,355 DEBUG [io.smallrye.openapi.runtime.io] (main) SROAP02009: Processing a single Schema json object.
+2026-07-21 10:52:57,356 DEBUG [io.smallrye.openapi.runtime.io] (main) SROAP02009: Processing a single Schema json object.
+2026-07-21 10:52:57,356 DEBUG [io.smallrye.openapi.runtime.io] (main) SROAP02009: Processing a single Schema json object.
+2026-07-21 10:52:57,357 DEBUG [io.smallrye.openapi.runtime.io] (main) SROAP02009: Processing a single Schema json object.
+2026-07-21 10:52:57,357 DEBUG [io.smallrye.openapi.runtime.io] (main) SROAP02009: Processing a single Schema json object.
+2026-07-21 10:52:57,357 DEBUG [io.smallrye.openapi.runtime.io] (main) SROAP02009: Processing a single Schema json object.
+2026-07-21 10:52:57,357 DEBUG [io.smallrye.openapi.runtime.io] (main) SROAP02009: Processing a single Schema json object.
+2026-07-21 10:52:57,357 DEBUG [io.smallrye.openapi.runtime.io] (main) SROAP02009: Processing a single Schema json object.
+2026-07-21 10:52:57,358 DEBUG [io.smallrye.openapi.api] (main) SROAP00500: Adding model from custom static file...
+2026-07-21 10:52:57,359 DEBUG [io.smallrye.openapi.api] (main) SROAP00501: Adding model callbacks from custom static file: <no>
+2026-07-21 10:52:57,359 DEBUG [io.smallrye.openapi.api] (main) SROAP00501: Adding model examples from custom static file: 8
+2026-07-21 10:52:57,359 DEBUG [io.smallrye.openapi.api] (main) SROAP00501: Adding model headers from custom static file: <no>
+2026-07-21 10:52:57,359 DEBUG [io.smallrye.openapi.api] (main) SROAP00501: Adding model links from custom static file: <no>
+2026-07-21 10:52:57,360 DEBUG [io.smallrye.openapi.api] (main) SROAP00501: Adding model parameters from custom static file: <no>
+2026-07-21 10:52:57,360 DEBUG [io.smallrye.openapi.api] (main) SROAP00501: Adding model request bodies from custom static file: <no>
+2026-07-21 10:52:57,360 DEBUG [io.smallrye.openapi.api] (main) SROAP00501: Adding model responses from custom static file: 8
+2026-07-21 10:52:57,360 DEBUG [io.smallrye.openapi.api] (main) SROAP00501: Adding model schemas from custom static file: 7
+2026-07-21 10:52:57,360 DEBUG [io.smallrye.openapi.api] (main) SROAP00501: Adding model security schemes from custom static file: 2
+2026-07-21 10:52:57,361 DEBUG [io.smallrye.openapi.api] (main) SROAP00501: Adding model servers from custom static file: 1
+2026-07-21 10:52:57,361 DEBUG [io.smallrye.openapi.api] (main) SROAP00501: Adding model path items from custom static file: 1
+2026-07-21 10:52:57,361 DEBUG [io.smallrye.openapi.api] (main) SROAP00501: Adding model security from custom static file: 1
+2026-07-21 10:52:57,361 DEBUG [io.smallrye.openapi.api] (main) SROAP00501: Adding model tags from custom static file: 2
+2026-07-21 10:52:57,361 DEBUG [io.smallrye.openapi.api] (main) SROAP00501: Adding model extensions from custom static file: <no>
+2026-07-21 10:52:57,558 DEBUG [br.gov.caixa.investimentos.sigfa.api.commons.config.ResourceBundleConfig] (main) -----[ Iniciando mapeamento de arquivos de mensagens ]-----
+2026-07-21 10:52:57,559 DEBUG [br.gov.caixa.investimentos.sigfa.api.commons.config.ResourceBundleConfig] (main) Avaliando arquivo BuildTime RunTime Fixed
+2026-07-21 10:52:57,559 DEBUG [br.gov.caixa.investimentos.sigfa.api.commons.config.ResourceBundleConfig] (main) Avaliando arquivo ValueRegistryConfigSource
+2026-07-21 10:52:57,559 DEBUG [br.gov.caixa.investimentos.sigfa.api.commons.config.ResourceBundleConfig] (main) Avaliando arquivo DevServicesOverrideConfigSource
+2026-07-21 10:52:57,559 DEBUG [br.gov.caixa.investimentos.sigfa.api.commons.config.ResourceBundleConfig] (main) Avaliando arquivo SysPropConfigSource
+2026-07-21 10:52:57,559 DEBUG [br.gov.caixa.investimentos.sigfa.api.commons.config.ResourceBundleConfig] (main) Avaliando arquivo EnvConfigSource
+2026-07-21 10:52:57,559 DEBUG [br.gov.caixa.investimentos.sigfa.api.commons.config.ResourceBundleConfig] (main) Avaliando arquivo PropertiesConfigSource[source=jar:file:///deployments/app/sigfa-api-saldo-consolidado-1.2.0.0.jar!/application.properties]
+2026-07-21 10:52:57,559 DEBUG [br.gov.caixa.investimentos.sigfa.api.commons.config.ResourceBundleConfig] (main) Avaliando arquivo DevServicesConfigSource
+2026-07-21 10:52:57,559 DEBUG [br.gov.caixa.investimentos.sigfa.api.commons.config.ResourceBundleConfig] (main) Avaliando arquivo FileSystemConfigSource[dir=/usr/src/app/secrets_files/SIGFA_DES]
+2026-07-21 10:52:57,559 DEBUG [br.gov.caixa.investimentos.sigfa.api.commons.config.ResourceBundleConfig] (main) Avaliando arquivo Runtime Values
+2026-07-21 10:52:57,559 DEBUG [br.gov.caixa.investimentos.sigfa.api.commons.config.ResourceBundleConfig] (main) Avaliando arquivo QuarkusUUIDConfigSource
+2026-07-21 10:52:57,559 DEBUG [br.gov.caixa.investimentos.sigfa.api.commons.config.ResourceBundleConfig] (main) Avaliando arquivo DefaultValuesConfigSource
+2026-07-21 10:52:57,559 DEBUG [br.gov.caixa.investimentos.sigfa.api.commons.config.ResourceBundleConfig] (main) -----[ Finalizando mapeamento de arquivos de mensagens ]-----
+2026-07-21 10:52:57,670 INFO  [io.quarkus] (main) sigfa-api-saldo-consolidado 1.2.0.0 on JVM (powered by Quarkus 3.33.1.1) started in 12.515s. Listening on: http://0.0.0.0:8080
+2026-07-21 10:52:57,670 INFO  [io.quarkus] (main) Profile prod activated. 
+2026-07-21 10:52:57,670 INFO  [io.quarkus] (main) Installed features: [agroal, cdi, flyway, hibernate-orm, hibernate-orm-panache, hibernate-validator, jdbc-h2, jdbc-oracle, narayana-jta, oidc, rest, rest-jackson, security, sigfa-api-commons, sigfa-api-exceptions, sigfa-api-security, smallrye-context-propagation, smallrye-health, smallrye-openapi, swagger-ui, vertx]
+2026-07-21 10:53:11.923-03:00 WARN  c.a.m.o.e.i.p.TelemetryPipeline - Sending telemetry to the ingestion service (retry from disk): failure when writing TLS control frames (https://southcentralus-3.in.applicationinsights.azure.com/v2.1/track) (will be retried again) (future warnings will be aggregated and logged once every 5 minutes)
+javax.net.ssl.SSLException: failure when writing TLS control frames
+	at io.netty.handler.ssl.SslHandler.setHandshakeFailureTransportFailure(SslHandler.java:2038)
+	at io.netty.handler.ssl.SslHandler.access$600(SslHandler.java:170)
+	at io.netty.handler.ssl.SslHandler$2.operationComplete(SslHandler.java:988)
+	at io.netty.handler.ssl.SslHandler$2.operationComplete(SslHandler.java:983)
+	at io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:590)
+	at io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:557)
+	at io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:492)
+	at io.netty.util.concurrent.DefaultPromise.setValue0(DefaultPromise.java:636)
+	at io.netty.util.concurrent.DefaultPromise.setFailure0(DefaultPromise.java:629)
+	at io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:118)
+	at io.netty.channel.PendingWriteQueue.safeFail(PendingWriteQueue.java:298)
+	at io.netty.channel.PendingWriteQueue.removeAndFailAll(PendingWriteQueue.java:196)
+	at io.netty.handler.proxy.ProxyHandler.failPendingWrites(ProxyHandler.java:437)
+	at io.netty.handler.proxy.ProxyHandler.failPendingWritesAndClose(ProxyHandler.java:354)
+	at io.netty.handler.proxy.ProxyHandler.setConnectFailure(ProxyHandler.java:349)
+	at io.netty.handler.proxy.ProxyHandler.channelRead(ProxyHandler.java:269)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:442)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.fireChannelRead(CombinedChannelDuplexHandler.java:436)
+	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:346)
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:318)
+	at io.netty.channel.CombinedChannelDuplexHandler.channelRead(CombinedChannelDuplexHandler.java:251)
+	at io.netty.handler.proxy.HttpProxyHandler$HttpClientCodecWrapper.channelRead(HttpProxyHandler.java:284)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:444)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1357)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:440)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:868)
+	at io.netty.channel.epoll.AbstractEpollStreamChannel$EpollStreamUnsafe.epollInReady(AbstractEpollStreamChannel.java:799)
+	at io.netty.channel.epoll.EpollEventLoop.processReady(EpollEventLoop.java:501)
+	at io.netty.channel.epoll.EpollEventLoop.run(EpollEventLoop.java:399)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: io.netty.handler.proxy.HttpProxyHandler$HttpProxyConnectException: http, none, proxydes.caixa/10.252.32.63:80 => southcentralus-3.in.applicationinsights.azure.com/<unresolved>:443, status: 502 Proxy Error ( Forefront TMG denied the specified Uniform Resource Locator (URL).  )
+	at io.netty.handler.proxy.HttpProxyHandler.handleResponse(HttpProxyHandler.java:212)
+	at io.netty.handler.proxy.ProxyHandler.channelRead(ProxyHandler.java:260)
+	... 22 common frames omitted
+2026-07-21 10:53:45,029 DEBUG [java.lang.ProcessBuilder] (PerformanceCounterContainer-0) ProcessBuilder.start(): pid: 155, dir: null, cmd: "/sbin/ldconfig": java.lang.RuntimeException: ProcessBuilder.start() debug
+	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1147)
+	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1089)
+	at java.base/java.lang.Runtime.exec(Runtime.java:681)
+	at java.base/java.lang.Runtime.exec(Runtime.java:491)
+	at java.base/java.lang.Runtime.exec(Runtime.java:366)
+	at com.sun.jna.NativeLibrary.getLinuxLdPaths(NativeLibrary.java:1023)
+	at com.sun.jna.NativeLibrary.<clinit>(NativeLibrary.java:965)
+	at com.sun.jna.Library$Handler.<init>(Library.java:197)
+	at com.sun.jna.Native.load(Native.java:618)
+	at com.sun.jna.Native.load(Native.java:592)
+	at com.sun.jna.platform.linux.Udev.<clinit>(Udev.java:37)
+	at oshi.software.os.linux.LinuxOperatingSystem.<clinit>(LinuxOperatingSystem.java:86)
+	at oshi.SystemInfo.createOperatingSystem(SystemInfo.java:85)
+	at oshi.util.Memoizer$1.get(Memoizer.java:61)
+	at oshi.SystemInfo.getOperatingSystem(SystemInfo.java:76)
+	at com.microsoft.applicationinsights.agent.internal.perfcounter.OshiPerformanceCounter.report(OshiPerformanceCounter.java:47)
+	at com.microsoft.applicationinsights.agent.internal.perfcounter.PerformanceCounterContainer$1.run(PerformanceCounterContainer.java:130)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:358)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
 
-    <dependencies>
-        <dependency>
-            <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-arc</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-rest-jackson</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-smallrye-openapi</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-hibernate-orm-panache</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-jdbc-oracle</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-smallrye-health</artifactId>
-        </dependency>
+2026-07-21 10:53:45,045 DEBUG [java.lang.ProcessBuilder] (PerformanceCounterContainer-0) ProcessBuilder.start(): pid: 158, dir: null, cmd: "uname": java.lang.RuntimeException: ProcessBuilder.start() debug
+	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1147)
+	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1089)
+	at java.base/java.lang.Runtime.exec(Runtime.java:681)
+	at java.base/java.lang.Runtime.exec(Runtime.java:577)
+	at oshi.util.ExecutingCommand.runNative(ExecutingCommand.java:86)
+	at oshi.util.ExecutingCommand.runNative(ExecutingCommand.java:68)
+	at oshi.util.ExecutingCommand.runNative(ExecutingCommand.java:55)
+	at oshi.util.ExecutingCommand.getAnswerAt(ExecutingCommand.java:154)
+	at oshi.util.ExecutingCommand.getFirstAnswer(ExecutingCommand.java:143)
+	at oshi.software.os.linux.LinuxOperatingSystem.<clinit>(LinuxOperatingSystem.java:142)
+	at oshi.SystemInfo.createOperatingSystem(SystemInfo.java:85)
+	at oshi.util.Memoizer$1.get(Memoizer.java:61)
+	at oshi.SystemInfo.getOperatingSystem(SystemInfo.java:76)
+	at com.microsoft.applicationinsights.agent.internal.perfcounter.OshiPerformanceCounter.report(OshiPerformanceCounter.java:47)
+	at com.microsoft.applicationinsights.agent.internal.perfcounter.PerformanceCounterContainer$1.run(PerformanceCounterContainer.java:130)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:358)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
 
-        <!-- Caixa -->
-        <dependency>
-            <groupId>br.gov.caixa.investimentos</groupId>
-            <artifactId>sigfa-api-security</artifactId>
-            <version>${sigfa-api-security.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>br.gov.caixa.investimentos</groupId>
-            <artifactId>sigfa-api-commons</artifactId>
-            <version>${sigfa-api-commons.version}</version>
-        </dependency>
-
-        <!-- VAULT -->
-        <dependency>
-            <groupId>io.smallrye.config</groupId>
-            <artifactId>smallrye-config-source-file-system</artifactId>
-            <version>3.13.2</version>
-        </dependency>
-
-        <!--outros-->
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>${org.projectlombok.version}</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.mapstruct</groupId>
-            <artifactId>mapstruct</artifactId>
-            <version>${org.mapstruct.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.microsoft.azure</groupId>
-            <artifactId>applicationinsights-agent</artifactId>
-            <version>${applicationinsights-agent.version}</version>
-        </dependency>
-
-        <!-- Teste -->
-        <dependency>
-            <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-junit</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-junit-mockito</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>io.rest-assured</groupId>
-            <artifactId>rest-assured</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-smallrye-jwt-build</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-flyway</artifactId>
-            <!--scope>test</scope-->
-        </dependency>
-        <dependency>
-            <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-jdbc-h2</artifactId>
-            <!--scope>test</scope-->
-        </dependency>
-        <dependency>
-            <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-test-oidc-server</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-jacoco</artifactId>
-        </dependency>
-    </dependencies>
-
-    <build>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>org.jacoco</groupId>
-                    <artifactId>jacoco-maven-plugin</artifactId>
-                    <version>${jacoco.version}</version>
-                </plugin>
-            </plugins>
-        </pluginManagement>
-
-        <plugins>
-            <plugin>
-                <groupId>${quarkus.platform.group-id}</groupId>
-                <artifactId>quarkus-maven-plugin</artifactId>
-                <version>${quarkus.platform.version}</version>
-                <extensions>true</extensions>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>build</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>${compiler-plugin.version}</version>
-                <configuration>
-                    <parameters>true</parameters>
-                    <annotationProcessorPaths>
-                        <path>
-                            <groupId>org.mapstruct</groupId>
-                            <artifactId>mapstruct-processor</artifactId>
-                            <version>${org.mapstruct.version}</version>
-                        </path>
-                        <path>
-                            <groupId>org.projectlombok</groupId>
-                            <artifactId>lombok</artifactId>
-                            <version>${org.projectlombok.version}</version>
-                        </path>
-                        <path>
-                            <groupId>org.projectlombok</groupId>
-                            <artifactId>lombok-mapstruct-binding</artifactId>
-                            <version>${lombok-mapstruct-binding.version}</version>
-                        </path>
-                        <path>
-                            <groupId>org.mapstruct</groupId>
-                            <artifactId>mapstruct-processor</artifactId>
-                            <version>${org.mapstruct.version}</version>
-                        </path>
-                    </annotationProcessorPaths>
-                </configuration>
-            </plugin>
-            <plugin>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>${surefire-plugin.version}</version>
-                <configuration>
-                    <argLine>@{argLine}</argLine>
-                    <systemPropertyVariables>
-                        <java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
-                        <maven.home>${maven.home}</maven.home>
-                    </systemPropertyVariables>
-                </configuration>
-            </plugin>
-            <plugin>
-                <artifactId>maven-failsafe-plugin</artifactId>
-                <version>${surefire-plugin.version}</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>integration-test</goal>
-                            <goal>verify</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <argLine>@{argLine}</argLine>
-                    <systemPropertyVariables>
-                        <native.image.path>${project.build.directory}/${project.build.finalName}-runner</native.image.path>
-                        <java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
-                        <maven.home>${maven.home}</maven.home>
-                    </systemPropertyVariables>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.jacoco</groupId>
-                <artifactId>jacoco-maven-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>prepare-agent</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>report</id>
-                        <phase>test</phase>
-                        <goals>
-                            <goal>report</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
-
-    <profiles>
-        <profile>
-            <id>native</id>
-            <activation>
-                <property>
-                    <name>native</name>
-                </property>
-            </activation>
-            <properties>
-                <quarkus.package.jar.enabled>false</quarkus.package.jar.enabled>
-                <skipITs>false</skipITs>
-                <quarkus.native.enabled>true</quarkus.native.enabled>
-            </properties>
-        </profile>
-    </profiles>
-</project>
+2026-07-21 10:54:11.889-03:00 WARN  c.a.m.o.e.i.p.TelemetryPipeline - Sending telemetry to the ingestion service (retry from disk): failure when writing TLS control frames (https://southcentralus-3.in.applicationinsights.azure.com/v2.1/track) (will be retried again) (future warnings will be aggregated and logged once every 5 minutes)
+javax.net.ssl.SSLException: failure when writing TLS control frames
+	at io.netty.handler.ssl.SslHandler.setHandshakeFailureTransportFailure(SslHandler.java:2038)
+	at io.netty.handler.ssl.SslHandler.access$600(SslHandler.java:170)
+	at io.netty.handler.ssl.SslHandler$2.operationComplete(SslHandler.java:988)
+	at io.netty.handler.ssl.SslHandler$2.operationComplete(SslHandler.java:983)
+	at io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:590)
+	at io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:557)
+	at io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:492)
+	at io.netty.util.concurrent.DefaultPromise.setValue0(DefaultPromise.java:636)
+	at io.netty.util.concurrent.DefaultPromise.setFailure0(DefaultPromise.java:629)
+	at io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:118)
+	at io.netty.channel.PendingWriteQueue.safeFail(PendingWriteQueue.java:298)
+	at io.netty.channel.PendingWriteQueue.removeAndFailAll(PendingWriteQueue.java:196)
+	at io.netty.handler.proxy.ProxyHandler.failPendingWrites(ProxyHandler.java:437)
+	at io.netty.handler.proxy.ProxyHandler.failPendingWritesAndClose(ProxyHandler.java:354)
+	at io.netty.handler.proxy.ProxyHandler.setConnectFailure(ProxyHandler.java:349)
+	at io.netty.handler.proxy.ProxyHandler.channelRead(ProxyHandler.java:269)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:442)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.fireChannelRead(CombinedChannelDuplexHandler.java:436)
+	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:346)
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:318)
+	at io.netty.channel.CombinedChannelDuplexHandler.channelRead(CombinedChannelDuplexHandler.java:251)
+	at io.netty.handler.proxy.HttpProxyHandler$HttpClientCodecWrapper.channelRead(HttpProxyHandler.java:284)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:444)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1357)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:440)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:868)
+	at io.netty.channel.epoll.AbstractEpollStreamChannel$EpollStreamUnsafe.epollInReady(AbstractEpollStreamChannel.java:799)
+	at io.netty.channel.epoll.AbstractEpollChannel$AbstractEpollUnsafe$1.run(AbstractEpollChannel.java:425)
+	at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:173)
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:166)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:472)
+	at io.netty.channel.epoll.EpollEventLoop.run(EpollEventLoop.java:405)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: io.netty.handler.proxy.HttpProxyHandler$HttpProxyConnectException: http, none, proxydes.caixa/10.252.32.63:80 => southcentralus-3.in.applicationinsights.azure.com/<unresolved>:443, status: 502 Proxy Error ( Forefront TMG denied the specified Uniform Resource Locator (URL).  )
+	at io.netty.handler.proxy.HttpProxyHandler.handleResponse(HttpProxyHandler.java:212)
+	at io.netty.handler.proxy.ProxyHandler.channelRead(ProxyHandler.java:260)
+	... 25 common frames omitted
+2026-07-21 10:57:46.763-03:00 WARN  c.m.a.a.i.t.AppIdSupplier$GetAppIdTask - In the last 5 minutes, the following operation has failed 9 times (out of 9): Retrieving appId:
+ * exception sending request to https://southcentralus-3.in.applicationinsights.azure.com/api/profiles/f572e239-b089-4d0c-82a5-4c33b3325748/appId (9 times)
+2026-07-21 10:57:47.065-03:00 WARN  c.a.m.o.e.i.q.QuickPulsePingSender - In the last 5 minutes, the following operation has failed 4 times (out of 4): Pinging live metrics endpoint:
+ * javax.net.ssl.SSLException: failure when writing TLS control frames (https://southcentralus.livediagnostics.monitor.azure.com/QuickPulseService.svc) (4 times)
+2026-07-21 10:58:11.923-03:00 WARN  c.a.m.o.e.i.p.TelemetryPipeline - In the last 5 minutes, the following operation has failed 9 times (out of 9): Sending telemetry to the ingestion service (retry from disk):
+ * failure when writing TLS control frames (https://southcentralus-3.in.applicationinsights.azure.com/v2.1/track) (will be retried again) (9 times)
+2026-07-21 10:59:11.890-03:00 WARN  c.a.m.o.e.i.p.TelemetryPipeline - In the last 5 minutes, the following operation has failed 9 times (out of 9): Sending telemetry to the ingestion service (retry from disk):
+ * failure when writing TLS control frames (https://southcentralus-3.in.applicationinsights.azure.com/v2.1/track) (will be retried again) (9 times)
