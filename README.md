@@ -1,7 +1,38 @@
-Prezados,
+Está apresentando erro para rodar a pipeline no github do projeto silce-carrinho:
 
-Identificamos que o namespace simil-des, no cluster OKD4 NPRD, está com a ResourceQuota "quota-resources" praticamente saturada em CPU (limits.cpu: 7/8 a 7.5/8, conforme momento), o que está impedindo a conclusão de rollouts de novas releases. Especificamente, a release 9 da aplicação simil-api-des falhou repetidamente ao criar o pod, com o erro "exceeded quota: quota-resources, requested: limits.cpu=1, used: limits.cpu=7500m, limited: limits.cpu=8", resultando em timeout no pipeline de deploy e reversão automática do rollout pelo DeploymentConfig.
+https://github.com/caixagithub/silce-carrinho/actions/runs/29845763509/job/88928079012
 
-O namespace hospeda atualmente 7 sistemas em execução simultânea (simil-api-des, simil-precificacao-api-des, simil-precificacao-frontend-des, simil-precificacao-internet-api-des, simil-precificacao-internet-frontend-des, simil-precificacao-intranet-api-des, simil-precificacao-queue-des), vários com container exporter adicional, o que eleva o consumo agregado de CPU e reduz a margem disponível para rolling updates.
+Logs do pod otel-silce-carrinho-des-56cfd9f455-wbtpv:
+================================================
+Exibindo os Logs:
+container silce-carrinho-des is not valid for pod otel-silce-carrinho-des-56cfd9f455-wbtpv
 
-Solicitamos avaliação e ampliação do limite de limits.cpu na ResourceQuota "quota-resources" do namespace simil-des, de forma a comportar com folga os rollouts futuros sem impacto às aplicações já em execução.
+================================================
+Script executado com sucesso!
+Pod utilizado: otel-silce-carrinho-des-56cfd9f455-wbtpv
+Falha na sincronização
+Error: Process completed with exit code 1.
+
+
+Run caixagithub/DevSecOps-Actions/.github/integrations/argocd/logs@main
+Run echo "REPO_NAME=$(echo 'caixagithub/silce-carrinho' | cut -d'/' -f2)" >> $GITHUB_ENV
+INPUT_IMAGE_TAG: '29845763509'
+Run RESOURCE_TREE_URL="https://openshift-gitops-server-openshift-gitops.apps.aroidpprd.brazilsouth.aroapp.io/api/v1/applications/silce-carrinho-des/resource-tree?appNamespace=openshift-gitops"
+Fazendo requisição para: https://openshift-gitops-server-openshift-gitops.apps.aroidpprd.brazilsouth.aroapp.io/api/v1/applications/silce-carrinho-des/resource-tree?appNamespace=openshift-gitops
+Resource-tree obtido com sucesso
+Filtrando pods e encontrando o mais recente...
+Pod mais recente encontrado: otel-silce-carrinho-des-56cfd9f455-wbtpv
+URL dos logs: https://openshift-gitops-server-openshift-gitops.apps.aroidpprd.brazilsouth.aroapp.io/api/v1/applications/silce-carrinho-des/logs?appNamespace=openshift-gitops&container=silce-carrinho-des&namespace=silce-carrinho&follow=false&podName=otel-silce-carrinho-des-56cfd9f455-wbtpv&tailLines=1000&sinceSeconds=0
+Logs obtidos com sucesso
+Logs do pod otel-silce-carrinho-des-56cfd9f455-wbtpv:
+================================================
+Exibindo os Logs:
+container silce-carrinho-des is not valid for pod otel-silce-carrinho-des-56cfd9f455-wbtpv
+
+================================================
+Script executado com sucesso!
+Pod utilizado: otel-silce-carrinho-des-56cfd9f455-wbtpv
+Falha na sincronização
+Error: Process completed with exit code 1.
+
+
