@@ -1,21 +1,7 @@
+Prezados,
 
--sh-4.2$ oc get pods -n simil-des --field-selector=status.phase=Running -o json | \
->   jq -r '.items[] | .metadata.name as $n | (.spec.containers + (.spec.initContainers // [])) [] | "\($n)\t\(.name)\t\(.resources.limits.cpu // "none")"'
-simil-api-des-4-f6k6t   simil-api-des   1
-simil-precificacao-api-des-115-mqlr9    simil-precificacao-api-des      1
-simil-precificacao-frontend-des-65-2wnq2        simil-precificacao-frontend-des 500m
-simil-precificacao-frontend-des-65-2wnq2        simil-precificacao-frontend-des-exporter        500m
-simil-precificacao-internet-api-des-31-49wl4    simil-precificacao-internet-api-des     1
-simil-precificacao-internet-frontend-des-8-m9lp6        simil-precificacao-internet-frontend-des        500m
-simil-precificacao-internet-frontend-des-8-m9lp6        simil-precificacao-internet-frontend-des-exporter       500m
-simil-precificacao-intranet-api-des-49-fp5jm    simil-precificacao-intranet-api-des     1
-simil-precificacao-queue-des-38-xjgk2   simil-precificacao-queue-des    1
--sh-4.2$   oc get pods -n simil-des --field-selector=status.phase=Running -o jsonpath='{range .items[*]}{.metadata.name}{"\n"}{range .spec.initContainers[*]}  init:{.name}={.resources.limits.cpu}{"\n"}{end}{range .spec.containers[*]}  main:{.name}={.resources.limits.cpu}{"\n"}{end}{"\n"}{end}'
-simil-api-des-4-f6k6t
-simil-precificacao-api-des-115-mqlr9
-simil-precificacao-frontend-des-65-2wnq2
-simil-precificacao-internet-api-des-31-49wl4
-simil-precificacao-internet-frontend-des-8-m9lp6
-simil-precificacao-intranet-api-des-49-fp5jm
-simil-precificacao-queue-des-38-xjgk2
--sh-4.2$
+Identificamos que o namespace simil-des, no cluster OKD4 NPRD, está com a ResourceQuota "quota-resources" praticamente saturada em CPU (limits.cpu: 7/8 a 7.5/8, conforme momento), o que está impedindo a conclusão de rollouts de novas releases. Especificamente, a release 9 da aplicação simil-api-des falhou repetidamente ao criar o pod, com o erro "exceeded quota: quota-resources, requested: limits.cpu=1, used: limits.cpu=7500m, limited: limits.cpu=8", resultando em timeout no pipeline de deploy e reversão automática do rollout pelo DeploymentConfig.
+
+O namespace hospeda atualmente 7 sistemas em execução simultânea (simil-api-des, simil-precificacao-api-des, simil-precificacao-frontend-des, simil-precificacao-internet-api-des, simil-precificacao-internet-frontend-des, simil-precificacao-intranet-api-des, simil-precificacao-queue-des), vários com container exporter adicional, o que eleva o consumo agregado de CPU e reduz a margem disponível para rolling updates.
+
+Solicitamos avaliação e ampliação do limite de limits.cpu na ResourceQuota "quota-resources" do namespace simil-des, de forma a comportar com folga os rollouts futuros sem impacto às aplicações já em execução.
