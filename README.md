@@ -1,89 +1,21 @@
-name: 'ARGOCD GET POD LOGS'
-description: 'ARGOCD GET LOGS PODS'
+Prezados,
 
-inputs:
-  ARGOCD_SERVER:
-    description: 'Argo SERVER'
-    required: true
-    type: string
-  ARGOCD_APP:
-    description: 'ARGOCD_APP'
-    required: true
-    type: string
-  AMBIENTE:
-    description: 'AMBIENTE'
-    required: true
-    type: string
-  IMAGE_TAG:
-    description: 'TAG repo infra'
-    required: true
-    type: string
-  HEALTH_CHECK_WAS_SUCCESSFUL:
-    required: true
-    type: string
-runs:
-  using: "composite"
-  steps:
-    - name: Formate ARGO REPOSITORY
-      run: |
-        echo "REPO_NAME=$(echo '${{ inputs.ARGOCD_APP }}' | cut -d'/' -f2)" >> $GITHUB_ENV
-        echo "INPUT_IMAGE_TAG: '${{ inputs.IMAGE_TAG }}'"
-        echo "AMBIENTE_LOWER=$(echo '${{ inputs.AMBIENTE }}' | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV
-      shell: bash
+Solicito avaliação e correção de um defeito identificado na Action compartilhada DevSecOps-Actions, no arquivo .github/integrations/argocd/logs/action.yaml, utilizada por pipelines de diversos times para coleta automática de logs de pods via ArgoCD após o deploy.
 
-    - name: Coletando logs dos pods
-      run: |
-        RESOURCE_TREE_URL="${{ inputs.ARGOCD_SERVER }}/api/v1/applications/${{ env.REPO_NAME }}-${{ env.environment }}/resource-tree?appNamespace=openshift-gitops"
-        echo "Fazendo requisição para: ${RESOURCE_TREE_URL}"
+Descrição do problema:
 
-        RESOURCE_TREE_JSON=$(curl -s -H "Authorization: Bearer ${ARGOCD_AUTH_TOKEN}" "${RESOURCE_TREE_URL}")
-        if [ $? -ne 0 ]; then
-          echo "Erro ao fazer requisição para o resource-tree"
-          exit 1
-        fi
+O script seleciona o pod mais recente da aplicação a partir do resource-tree do ArgoCD, ordenando todos os Pods do namespace exclusivamente pelo campo createdAt, sem aplicar nenhum filtro por nome ou label que garanta que o pod escolhido pertença de fato ao componente principal da aplicação. Com isso, caso exista qualquer outro pod associado à mesma aplicação com criação mais recente, como um pod de sidecar ou de coleta (por exemplo, OpenTelemetry Collector), esse pod acaba sendo selecionado indevidamente no lugar do pod da aplicação.
 
-        echo "Resource-tree obtido com sucesso"
+Como consequência, o script tenta buscar logs do container com nome da aplicação dentro de um pod que não o possui, gerando a falha container [nome] is not valid for pod [nome do pod incorreto] e resultando em exit code 1, mesmo quando o deploy da aplicação foi concluído com sucesso e o pod real está com status Healthy e Synced no ArgoCD. Isso gera falso-positivo de falha de pipeline sem impacto funcional real no ambiente.
 
-        echo "Filtrando pods e encontrando o mais recente..."
+Exemplo observado:
 
-        LATEST_POD=$(echo "$RESOURCE_TREE_JSON" | jq -r '
-          .nodes // [] |
-          map(select(.kind == "Pod" and .createdAt != null)) |
-          sort_by(.createdAt) |
-          last |
-          .name // empty
-        ')
+Aplicação silce-carrinho-des, execução do workflow em 22/07/2026. O ArgoCD confirmou a aplicação como Synced e Healthy, com o pod silce-carrinho-des-85b474cbf7-bc59b iniciado corretamente e em execução normal. No entanto, a Action selecionou o pod otel-silce-carrinho-des-56cfd9f455-wbtpv como mais recente, resultando na falha reportada.
 
-        if [ -z "$LATEST_POD" ]; then
-          echo "Nenhum pod encontrado ou JSON não contém dados esperados"
-          exit 0
-        fi
+Sugestão de correção:
 
-        echo "Pod mais recente encontrado: ${LATEST_POD}"
+Incluir um filtro adicional no jq responsável por selecionar o pod, restringindo a seleção a pods cujo nome inicie com o nome da aplicação (REPO_NAME-environment), antes de aplicar a ordenação por createdAt. Isso evitaria que pods de componentes auxiliares, como sidecars de observabilidade, sejam selecionados incorretamente no lugar do pod principal da aplicação.
 
-        LOGS_URL="${{ inputs.ARGOCD_SERVER }}/api/v1/applications/${{ env.REPO_NAME }}-${{ env.environment }}/logs?appNamespace=openshift-gitops&container=${{ env.REPO_NAME }}-${{ env.environment }}&namespace=${{ env.REPO_NAME }}&follow=false&podName=${LATEST_POD}&tailLines=1000&sinceSeconds=0"
-        echo "URL dos logs: ${LOGS_URL}"
+Como esse arquivo é mantido de forma centralizada e utilizado por múltiplos times, não temos permissão para alterá-lo diretamente. Solicitamos avaliação e, se pertinente, a correção do filtro de seleção de pod nessa Action, uma vez que o problema tende a se repetir em outras aplicações que também possuam pods auxiliares no mesmo namespace.
 
-        LOGS_RESPONSE=$(curl -s -H "Authorization: Bearer ${ARGOCD_AUTH_TOKEN}" "${LOGS_URL}")
-
-        if [ $? -ne 0 ]; then
-          echo "Erro ao obter logs do pod"
-          exit 1
-        fi
-
-        echo "Logs obtidos com sucesso"
-        echo "Logs do pod ${LATEST_POD}:"
-        echo "================================================"
-
-        echo "Exibindo os Logs:"
-        echo "$LOGS_RESPONSE" | jq -r '.result.content'
-
-        echo "================================================"
-        echo "Script executado com sucesso!"
-        echo "Pod utilizado: ${LATEST_POD}"
-
-        if [ "${{ inputs.HEALTH_CHECK_WAS_SUCCESSFUL }}" = "false" ]; then
-          echo "Falha na sincronização"
-          exit 1
-        fi
-      shell: bash
+Ficamos à disposição para mais detalhes ou testes adicionais, caso necessário.
