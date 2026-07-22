@@ -1,70 +1,14 @@
-vi aqui que foi removido no atendimento dessa CRQ000001454659
+Prezado Erico Macedo, bom dia/tarde.
 
+Estou atuando na correção do pipeline de release SISOU-sac-okd (Definição 6486), que está apresentando falha na etapa "Valida Variáveis Obrigatórias" por ausência da variável CGC_UNIDADE_OPS.
 
-{
-  "source": "restApi",
-  "revision": 35,
-  "description": null,
-  "createdBy": {
-    "displayName": "s736660",
-    "url": "https://devops.caixa/projetos/_apis/Identities/a26ef484-035c-4751-979b-db962a18bfa7",
-    "_links": {
-      "avatar": {
-        "href": "https://devops.caixa/projetos/_apis/GraphProfile/MemberAvatars/win.Uy0xLTUtMjEtMjk5NDYzNzUxMS03OTAwMzE5NzgtMTc5Nzc0NDY2NS0xNjc0MTA1"
-      }
-    },
-    "id": "a26ef484-035c-4751-979b-db962a18bfa7",
-    "uniqueName": "CORPCAIXA\\s736660",
-    "imageUrl": "https://devops.caixa/projetos/_apis/GraphProfile/MemberAvatars/win.Uy0xLTUtMjEtMjk5NDYzNzUxMS03OTAwMzE5NzgtMTc5Nzc0NDY2NS0xNjc0MTA1",
-    "descriptor": "win.Uy0xLTUtMjEtMjk5NDYzNzUxMS03OTAwMzE5NzgtMTc5Nzc0NDY2NS0xNjc0MTA1"
-  },
-  "createdOn": "2026-03-19T18:29:02.403Z",
-  "modifiedBy": {
-    "displayName": "Allysson de Oliveira Vieira",
-    "url": "https://devops.caixa/projetos/_apis/Identities/47e7574f-0dc4-480a-bb8e-ce149451c3d5",
-    "_links": {
-      "avatar": {
-        "href": "https://devops.caixa/projetos/_apis/GraphProfile/MemberAvatars/win.Uy0xLTUtMjEtMjk5NDYzNzUxMS03OTAwMzE5NzgtMTc5Nzc0NDY2NS05NTEzMw"
-      }
-    },
-    "id": "47e7574f-0dc4-480a-bb8e-ce149451c3d5",
-    "uniqueName": "CORPCAIXA\\c109896",
-    "imageUrl": "https://devops.caixa/projetos/_apis/GraphProfile/MemberAvatars/win.Uy0xLTUtMjEtMjk5NDYzNzUxMS03OTAwMzE5NzgtMTc5Nzc0NDY2NS05NTEzMw",
-    "descriptor": "win.Uy0xLTUtMjEtMjk5NDYzNzUxMS03OTAwMzE5NzgtMTc5Nzc0NDY2NS05NTEzMw"
-  },
-  "modifiedOn": "2026-07-20T19:35:32.397Z",
-  "isDeleted": false,
-  "variables": {
-    "AMBIENTE_BUILD": {
-      "value": "build-images-ads"
-    },
-    "CGC_UNIDADE_DES": {
-      "value": "7390"
-    },
-    "CGC_UNIDADE_OPS": {
-      "value": "7259"
-    },
-    "PATH_DESTINO_SECRET": {
-      "value": "/opt/jboss/standalone/configuration/"
-    },
-    "SITE": {
-      "value": "okd4_nprd"
-    },
-    "TemplateRelease_OKD": {
-      "value": "openshift/jboss-caixa-release"
-    },
-    "UNIDADE": {
-      "value": "BR"
-    },
-    "URL_APM_SERVER": {
-      "value": "https://apm-server-devops.apps.produtos4.caixa/"
-    }
-  },
-  "variableGroups": [
-    55,
-    28,
-    120,
-    262,
+Ao verificar o histórico da CRQ000001454659, identifiquei que essa variável (valor 7259) foi removida na revisão 35, com modificação registrada em 20/07/2026 pelo usuário Allysson de Oliveira Vieira.
 
+Como essa remoção está impactando diretamente a execução do release, gostaria de validar com o senhor, como demandante, se essa exclusão foi intencional (por exemplo, decorrente de alguma mudança de unidade ou processo) ou se ocorreu de forma inadvertida durante o atendimento da CRQ.
 
-	foi removido e ano sabemos o porque que tirou.. 
+Enquanto aguardo esse retorno, vou restaurar o valor da variável (CGC_UNIDADE_OPS = 7259) na definição do release para destravar o pipeline, evitando impacto às demais atividades em andamento. Caso haja algum motivo específico para a remoção que eu deva considerar, peço a gentileza de me informar o quanto antes.
+
+Fico à disposição para mais esclarecimentos.
+
+Atenciosamente,
+Jessé Batista
