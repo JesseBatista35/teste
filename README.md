@@ -1,21 +1,246 @@
-Prezados,
 
-Solicito avaliação e correção de um defeito identificado na Action compartilhada DevSecOps-Actions, no arquivo .github/integrations/argocd/logs/action.yaml, utilizada por pipelines de diversos times para coleta automática de logs de pods via ArgoCD após o deploy.
 
-Descrição do problema:
 
-O script seleciona o pod mais recente da aplicação a partir do resource-tree do ArgoCD, ordenando todos os Pods do namespace exclusivamente pelo campo createdAt, sem aplicar nenhum filtro por nome ou label que garanta que o pod escolhido pertença de fato ao componente principal da aplicação. Com isso, caso exista qualquer outro pod associado à mesma aplicação com criação mais recente, como um pod de sidecar ou de coleta (por exemplo, OpenTelemetry Collector), esse pod acaba sendo selecionado indevidamente no lugar do pod da aplicação.
+Skip to content
+GitHub Enterprise
+Users managed by Caixa Economica Federal
+caixagithub
+sisva-frontend-transacional
+Repository navigation
+Code
+Issues
+Pull requests
+Actions
+Projects
+Models
+Wiki
+Security and quality
+16
+ (16)
+Insights
+Settings
+CI/CD Workflow Generic
+caixagithub/sisva-frontend-transacional_feat/adaptacao-frontend_29850860726.4 #4
+All jobs
+Run details
+Annotations
+1 error and 1 warning
+CI_DES / ArgoCD_Deploy / ArgoCD_Deploy (DES)
+failed yesterday in 1m 20s
+Search logs
+10s
+0s
+0s
+0s
+0s
+0s
+0s
+0s
+0s
+0s
+0s
+0s
+27s
+0s
+5s
+0s
+3s
+0s
+1s
+0s
+21s
+5s
+0s
+Run caixagithub/DevSecOps-Actions/.github/integrations/argocd/argocd-get-destination@main
+  with:
+    argocd_server: https://openshift-gitops-server-openshift-gitops.apps.aroidpprd.brazilsouth.aroapp.io
+    app_name: sisva-frontend-transacional
+    environment: DES
+  env:
+    APIM_VERSIONAPI: 
+    APIM_displaynameAPI: 
+    APIM_PATH: 
+    APIM_SWAGGERPATH: 
+    APIM_TAGSAPI: 
+    APIM_POLICIESALLOPERATIONSPATH: 
+    environment: des
+    repository_suffix: infranprd
+    REPO: sisva-frontend-transacional
+    JOB_ID: 120920
+    ARGOCD_AUTH_TOKEN: ***
+Run set -euo pipefail
+  set -euo pipefail
+  
+  # Converte environment para lowercase
+  ENVIRONMENT_LOWER=$(echo "${ENVIRONMENT}" | tr '[:upper:]' '[:lower:]')
+  
+  echo "ENVIRONMENT_LOWER=${ENVIRONMENT_LOWER}"
+  
+  APP_NAME_LOWER=$(echo "${APP_NAME}" | tr '[:upper:]' '[:lower:]')
+  
+  echo "APP_NAME_LOWER=${APP_NAME_LOWER}"
+  
+  # Concatena app_name com ambiente
+  FULL_APP_NAME="${APP_NAME_LOWER}-${ENVIRONMENT_LOWER}"
+  
+  # Monta a URL
+  URL="${ARGOCD_SERVER}/api/v1/applications/${FULL_APP_NAME}"
+  
+  # Consulta a API
+  RESP="$(curl -sS -H "Authorization: ***" -H "Content-Type: application/json" "$URL")"
+  
+  # Valida resposta básica
+  if [ -z "$RESP" ] || echo "$RESP" | jq -e '.code, .status, .error' >/dev/null 2>&1; then
+    echo "Falha ao obter Application ou erro retornado:"
+    echo "$RESP"
+    exit 1
+  fi
+  
+  echo "::group::Resposta bruta da API"
+  echo "$RESP" | jq .
+  echo "::endgroup::"
+  
+0s
+0s
+0s
+0s
+0s
+0s
+0s
+0s
+0s
+0s
+0s
+1s
+0s
+0s
+<img width="1889" height="954" alt="image" src="https://github.com/user-attachments/assets/b8135266-061c-4963-a8be-7ec8bf541f6f" />
 
-Como consequência, o script tenta buscar logs do container com nome da aplicação dentro de um pod que não o possui, gerando a falha container [nome] is not valid for pod [nome do pod incorreto] e resultando em exit code 1, mesmo quando o deploy da aplicação foi concluído com sucesso e o pod real está com status Healthy e Synced no ArgoCD. Isso gera falso-positivo de falha de pipeline sem impacto funcional real no ambiente.
 
-Exemplo observado:
+Argo
+v2.14.21+206a6ee
+Argo
+Applications
+Settings
+User Info
+Documentation
+Resource filters
+NAME
+NAME
+KINDS
+KINDS
+SYNC STATUS
+Synced
+5
+OutOfSync
+1
+HEALTH STATUS
+Progressing
+2
+Suspended
+0
+Healthy
+3
+Degraded
+1
+Missing
+1
+Unknown
+0
+NAMESPACES
+NAMESPACES
+Applications
+ sisva-frontend-transacional-des
+Application Details Tree
+Log out
+APP HEALTH 
+ Degraded
+SYNC STATUS 
 
-Aplicação silce-carrinho-des, execução do workflow em 22/07/2026. O ArgoCD confirmou a aplicação como Synced e Healthy, com o pod silce-carrinho-des-85b474cbf7-bc59b iniciado corretamente e em execução normal. No entanto, a Action selecionou o pod otel-silce-carrinho-des-56cfd9f455-wbtpv como mais recente, resultando na falha reportada.
+ OutOfSync
+from HEAD (ffaab11)
+Auto sync is enabled.
+Author:
+ansible-connect-emu[bot] <230244411+ansible-connect-emu[bot]@users.noreply.github.com> -
+Comment:
+Merge pull request #3 from caixagithub/update-image-sisva-fronte
+LAST SYNC 
 
-Sugestão de correção:
+ Sync failed
+to ffaab11
+Failed a day ago (Tue Jul 21 2026 15:10:43 GMT-0300)
+Author:
+ansible-connect-emu[bot] <230244411+ansible-connect-emu[bot]@users.noreply.github.com> -
+Comment:
+Merge pull request #3 from caixagithub/update-image-sisva-fronte
+APP CONDITIONS
+ 1 Error
+ConfigMap
+cm
+cm-sisva-frontend-transacional
+a day
 
-Incluir um filtro adicional no jq responsável por selecionar o pod, restringindo a seleção a pods cujo nome inicie com o nome da aplicação (REPO_NAME-environment), antes de aplicar a ordenação por createdAt. Isso evitaria que pods de componentes auxiliares, como sidecars de observabilidade, sejam selecionados incorretamente no lugar do pod principal da aplicação.
+sisva-frontend-transacional-des
+  
+a day
+Service
+svc
+sisva-frontend-transacional-des
+a day
+Endpoints
+ep
+sisva-frontend-transacional-des
+a day
+EndpointSlice
+endpointslice
+sisva-frontend-transacional-des-72zr5
+a day
+Deployment
+deploy
+sisva-frontend-transacional-des
+a dayRev:1
+ReplicaSet
+rs
+sisva-frontend-transacional-des-d565dc848
+a dayRev:1
+Pod
+pod
+sisva-frontend-transacional-des-d565dc848-ssgqp
+2 hoursContainerCreating0/1
+Secret
+secret
+akv2k8s-sisva-frontend-transacional-des
+a day
+Ingress
+ing
+sisva-frontend-transacional-des-custom
+ 
+a day
+Ingress
+ing
+sisva-frontend-transacional-des-internal
+ 
+a day
+AKVS
+azurekeyvaultsecret
+akvs-sisva-transacional-des-caixa-ssl-certificate
 
-Como esse arquivo é mantido de forma centralizada e utilizado por múltiplos times, não temos permissão para alterá-lo diretamente. Solicitamos avaliação e, se pertinente, a correção do filtro de seleção de pod nessa Action, uma vez que o problema tende a se repetir em outras aplicações que também possuam pods auxiliares no mesmo namespace.
+Podpod
+sisva-frontend-transacional-des-d565dc848-ssgqp
+ SUMMARY EVENTS LOGS
+REASON
+MESSAGE
+COUNT
+FIRST OCCURRED
+LAST OCCURRED
+FailedMount
+MountVolume.SetUp failed for volume "config-volume" : configmap "cm-siacx-chatcaixa-frontend" not found
+55
+1h ago
+Today at 2:20 PM
+2m ago
+Today at 3:56 PM
 
-Ficamos à disposição para mais detalhes ou testes adicionais, caso necessário.
+
+container "sisva-frontend-transacional-des" in pod "sisva-frontend-transacional-des-d565dc848-ssgqp" is waiting to start: ContainerCreating
+
