@@ -1,246 +1,101 @@
-Skip to main content
-Azure DevOps
-projetos
-/
-Caixa
-/
-Pipelines
-/
-Releases
-/
-SICMU-intranet-update
-Search
+---
+- name: Lendo artefatos do arquivo CSV
+  read_csv:
+    path: "{{ item.item }}/jboss-modules-custom"
+    delimiter: ":"
+  register: modules
+  delegate_to: localhost
+
+- name: Mostra lista de artefatos
+  debug:
+    msg: "Artefato: {{ item.artifact_id }} - versao {{ item.version }}"
+  loop: "{{ modules.list }}"
+  delegate_to: localhost
+
+- name: Listar arquivos no diretório baixados anteriormente
+  find:
+    paths: "{{ dir_dest }}"
+    recurse: no
+    file_type: file
+  register: files_found
 
 
-Caixa
+- maven_artifact:
+    group_id: "{{ inner_item.group_id }}"
+    artifact_id: "{{ inner_item.artifact_id }}"
+    extension: "{{ inner_item.extension|default('jar',true) }}"
+    repository_url: "http://binario.caixa:8081/repository/caixa-group-br"
+    version: "{{ inner_item.version }}"
+    dest: "{{ item.item }}/{{ filetype }}/{{ inner_item.artifact_id }}-{{ inner_item.version }}.{{ inner_item.extension|default('jar',true) }}"
+    timeout: 60
+    mode: 0777
+  loop: "{{ modules.list }}"
+  loop_control:
+    loop_var: "inner_item"
+  delegate_to: localhost
+  when: (inner_item.artifact_id ~ '-' ~ inner_item.version ~ '.' ~ (inner_item.extension | default('jar', true))) not in (files_found.files | map(attribute='path') | map('basename') | list)
 
-Overview
+- name: Verifica se o arquivo jboss-modules-custom tem conteudo
+  stat:
+    path: "{{ item.item }}/jboss-custom.cli"
+  register: jbosscli
+  changed_when: false
+  delegate_to: localhost
 
-Boards
+- name: Copiando artefatos (Modules) para o(s) servidor(es) Jboss
+  copy:
+    src: "{{ item.item }}/{{ filetype }}/"
+    dest: "{{ dir_dest }}"
+    owner: jboss
+    group: jboss
+    mode: 0644 
 
-Repos
+- name: Copiando artefato (jboss-custom.cli) para o(s) servidor(es) Jboss
+  copy:
+    src: "{{ item.item }}/jboss-custom.cli"
+    dest: "{{ dir_dest }}"
+    owner: jboss
+    group: jboss
+    mode: 0644
+  when: jbosscli.stat.exists
 
-Pipelines
-Pipelines
-Environments
-Releases
-Library
-Task groups
-Deployment groups
-Portal Infra
+- name: Executando o jboss-custom.cli
+  shell:
+    cmd: ./jboss-cli.sh --file=/tmp/src/jboss-custom.cli
+    chdir: "{{ jboss_home }}/bin"
+  when: item.stat.exists and jbosscli.stat.exists and item.stat.size > 0 and jbosscli.stat.size > 0
 
-Test Plans
+- name: Encontrar todos os arquivos module.xml
+  find:
+    paths: "{{ jboss_home }}/modules"  # Modifique para o caminho desejado
+    patterns: "module.xml"
+    excludes: "system"
+    recurse: yes
+  register: arquivos_encontrados
+  when: item.stat.exists and jbosscli.stat.exists and item.stat.size > 0 and jbosscli.stat.size > 0
 
-Artifacts
-Project settings
-All pipelines
-
-SICMU
-
-SICMU-intranet-update
-Artifacts
-Schedule not set
-Stages
-Artifact
-Git - esteira-jboss-vm-v2
-Project
-Infraestrutura
-Source (repository)
-esteira-jboss-vm-v2
-Default branch
-fix/WO0000079987976
-Default version
-Latest from the default branch
-Checkout submodules
-Checkout files from LFS
-Shallow fetch depth
-Source alias
-esteira-jboss-vm-v2
-Row 2. Clickable
+- name: Filtrar arquivos dentro da pasta system na raiz
+  set_fact:
+    arquivos_filtrados: "{{ arquivos_encontrados.files | selectattr('path', 'search', '^/opt/jboss-eap/modules/system/') | list }}"
+  when: item.stat.exists and jbosscli.stat.exists and item.stat.size > 0 and jbosscli.stat.size > 0  
 
-Showing 3 filtered items.
+- name: Filtrar arquivos fora da pasta system na raiz
+  set_fact:
+    arquivos_validos: "{{ arquivos_encontrados.files | difference(arquivos_filtrados) }}"
+  when: item.stat.exists and jbosscli.stat.exists and item.stat.size > 0 and jbosscli.stat.size > 0  
 
-Get started and run this pipeline for the first time!
+- name: Modificar versões nas dependências dentro das tags <module>
+  lineinfile:
+    path: "{{ inner_item.path }}"
+    regexp: '(module name="[^"]*):slot=([0-9a-zA-Z.-]+)"(.*)/>'
+    line: '<\1" slot="\2"\3/>'
+    backrefs: yes
+  loop: "{{ arquivos_validos }}"
+  loop_control:
+    loop_var: "inner_item"
+  when: item.stat.exists and jbosscli.stat.exists and item.stat.size > 0 and jbosscli.stat.size > 0  
 
-Expanded
-
-Collapsed
-
-Collapsed
-
-Expanded
-
-Collapsed
-
-539 pipelines found
-
-Select a release pipeline to view its releases
-
-4 pipelines found
-
-Row 5
-
-Expanded
-
-Collapsed
-
-Collapsed
-
-
-
-parece que e ta usando a artefato um branch especifica
-
-
-
-Skip to main content
-Azure DevOps
-projetos
-/
-Infraestrutura
-/
-Repos
-/
-Files
-/
-
-esteira-jboss-vm-v2
-Search
-
-
-Infraestrutura
-
-Overview
-
-Boards
-
-Repos
-Files
-Commits
-Pushes
-Branches
-Tags
-Pull requests
-
-Pipelines
-
-Test Plans
-
-Artifacts
-Project settings
-esteira-jboss-vm-v2
-
-group_vars
-inventory
-library
-roles
-validadores
-.gitignore
-.vault.sh
-ansible.cfg
-LICENSE
-
-README.md
-requirements.txt
-restart_jboss.yml
-secure-files.yml
-site.yml
-stack_apache.yml
-stack_batch.yml
-stack_controlm.yml
-stack_custom.yml
-stack_deployments_custom.yml
-stack_disable_unit_jboss.yml
-stack_hosts.yml
-stack_jboss_handlers.yml
-stack_jboss.yml
-stack_ldap.yml
-stack_modules_custom.yml
-stack_monitoracao.yml
-stack_tsm.yml
-stack_vm.yml
-stop_jboss.yml
-summary.j2
-summary.yml
-teste.yaml
-
-fix/WO0000079987976
-
-/
-Type to find a file or folder...
-Files
-failed
-
-Clone
-
-Contents
-History
-
-
-Updated stack_modules_custom_block.yml
-00a64f41
-Jesse Mouta Pereira Batista
-7 de abr. at 12:22
-failed
-Merged PR 130419: Ajuste de espaçamento
-58e80ab6
-Dyego dos Santos Barros
-2 de abr. at 14:40
-in progress
-Updated all
-9b73c6b2
-Dyego dos Santos Barros
-2 de abr. at 14:37
-Merged PR 130413: Troca de cluster e resource pool do vcenter https://cadsvgerap30-1.intra.caix...
-e06b7de0
-Dyego dos Santos Barros
-2 de abr. at 14:29
-failed
-Troca de cluster e resource pool do vcenter https://cadsvgerap30-1.intra.caixa.gov.br
-44702a9c
-Dyego dos Santos Barros
-2 de abr. at 14:22
-Merged PR 129203: fix validação de certificado.
-89061c15
-Dyego dos Santos Barros
-26 de mar. at 17:17
-failed
-fix validação de certificado.
-de7eff08
-Dyego dos Santos Barros
-26 de mar. at 17:10
-succeeded
-Merged PR 129083: Updated range de ip canais pix
-2e193f52
-Dyego dos Santos Barros
-26 de mar. at 16:44
-failed
-Updated range de ip canais pix
-c71f5a68
-Dyego dos Santos Barros
-17 de mar. at 10:36
-failed
-Merged PR 129082: Inclusão da versão 5 do script do Satellite
-f5c38ea6
-Dyego dos Santos Barros
-26 de mar. at 14:25
-failed
-Updated main.yml
-144b2558
-Dyego dos Santos Barros
-12 de mar. at 10:13
-failed
-Updated RegistraSatellite-v5.sh
-07ede779
-Dyego dos Santos Barros
-12 de mar. at 10:08
-Renamed RegistraSatellite-v3.sh to RegistraSatellite-v5.sh
-f1a3dc0f
-Dyego dos Santos Barros
-12 de mar. at 10:04
-Expanded
-
-Finished loading items
-
-Showing 47 items.
-
-Collapsed
+- name: Sem modules adicionais
+  debug:
+    msg: "Sem modules adicional"
+  when: modules.list | length == 0
