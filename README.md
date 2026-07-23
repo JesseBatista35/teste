@@ -1,3 +1,5 @@
+segue com ta DES
+
 Skip to main content
 Azure DevOps
 projetos
@@ -95,10 +97,6 @@ USER_CGC
 $(USER_CGC)
 Control Options
 Output Variables
-Collapsed
-
-Collapsed
-
 Select a release pipeline to view its releases
 
 1 pipelines found
@@ -130,6 +128,10 @@ Showing filters 1 through 2
 Showing filters 1 through 2
 
 Showing filters 1 through 2
+
+Expanded
+
+Collapsed
 
 Expanded
 
