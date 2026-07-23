@@ -1,21 +1,149 @@
-alternatives --display keytool
+Histórico de Informações de Trabalho da Ordem de Trabalho
+ID da Ordem de Trabalho	 WO0000081132605
+Criado em	 23/07/2026 14:31:29
+Criado por	 P903171
+Origem de Comunicação	 
+Exibir Acesso	 Público
+Notas	 Falta IP de rede de backup do Hostname crjtqapllx046
+IP 10.116.26.200
+ID da Ordem de Trabalho	 WO0000081132605
+Criado em	 23/07/2026 10:19:16
+Criado por	 P668948
+Origem de Comunicação	 
+Exibir Acesso	 Público
+Notas	 FQDN: hypernprd56.ad.caixa - 10.188.0.0/16
+ID da Ordem de Trabalho	 WO0000081132605
+Criado em	 23/07/2026 10:18:01
+Criado por	 P668948
+Origem de Comunicação	 
+Exibir Acesso	 Público
+Notas	 Solicitação atendida:
 
+p668948@Vstore_NPRD:/>show share nfs |filterRow column=Alias predict=match value=/fs_sippg_tqs_fgw
 
-Prezados,
+ Share ID  File System ID  Description      Local Path          Alias              File System Name
+ --------  --------------  ---------------  ------------------  -----------------  ----------------
+ 144       186             WO0000081132605  /fs_sippg_tqs_fgw/  /fs_sippg_tqs_fgw  fs_sippg_tqs_fgw
 
-Em atendimento à WO0000081122941, informamos a conclusão da atualização da JVM no servidor caddeapllx1567.agil.nprd.caixa.gov.br (ambiente SIRSA-batch, DES).
+p668948@Vstore_NPRD:/>show share_permission nfs share_name=/fs_sippg_tqs_fgw
 
-Resumo da execução:
+ Share Permission ID  Access Name   Share ID  Access Type  Sync Enabled  All Squash Enabled  Root Squash Enabled  Secure Enabled  Security Type  Share Name         KRB5 Access Type  KRB5I Access Type  KRB5P Access Type  Charset  Access Protocol
+ -------------------  ------------  --------  -----------  ------------  ------------------  -------------------  --------------  -------------  -----------------  ----------------  -----------------  -----------------  -------  ---------------
+ 1971                 10.188.5.179  144       Read Write   Yes           No                  No                   No              unix           /fs_sippg_tqs_fgw  No Permission     No
+ 
+ID da Ordem de Trabalho	 WO0000081132605
+Criado em	 23/07/2026 09:26:43
+Criado por	 C099028
+Origem de Comunicação	 
+Exibir Acesso	 Público
+Notas	 Autorizamos a demanda.
+Att.,
+CESTI33
+ID da Ordem de Trabalho	 WO0000081132605
+Criado em	 22/07/2026 11:24:39
+Criado por	 P765995
+Origem de Comunicação	 
+Exibir Acesso	 Público
+Notas	 Segue plano de ação, foi informado apenas um IP de backup em notas anteriores , NOME DO NFS CORRIGIDO
+ID da Ordem de Trabalho	 WO0000081132605
+Criado em	 22/07/2026 11:21:41
+Criado por	 P765995
+Origem de Comunicação	 
+Exibir Acesso	 Público
+Notas	 DESCONSIDERAR NOTA ANTERIOR
+ID da Ordem de Trabalho	 WO0000081132605
+Criado em	 22/07/2026 11:00:32
+Criado por	 P765995
+Origem de Comunicação	 
+Exibir Acesso	 Público
+Notas	 Segue plano de ação, foi informado apenas um IP de backup em notas anteriores
+ID da Ordem de Trabalho	 WO0000081132605
+Criado em	 22/07/2026 01:54:46
+Criado por	 P568291
+Origem de Comunicação	 
+Exibir Acesso	 Público
+Notas	 WO0000081132605 - Criação NFS (fs_sippg)
+---------------------------------------------------------------------------------------------------------------------
+AÇÃO: Criação NFS (fs_sippg)
+---------------------------------------------------------------------------------------------------------------------
+JUSTIFICATIVA: Criação
+---------------------------------------------------------------------------------------------------------------------
+SITE (CTC OU DTC) - CTC
+---------------------------------------------------------------------------------------------------------------------
+AMBIENTE (Bancário, Negocial, Social, NPRD, HMP, Departamental): NPRD
+---------------------------------------------------------------------------------------------------------------------
+RISCO: Baixo  
+---------------------------------------------------------------------------------------------------------------------
+IMPACTO: SIM (   ) NÃO ( X )
+---------------------------------------------------------------------------------------------------------------------  
+ITEM OU ITENS DE CONFIGURAÇÃO (IC):
+---------------------------------------------------------------------------------------------------------------------
+PLANO DE EXECUÇÃO: SIM ( X ) NÃO (   )
+---------------------------------------------------------------------------------------------------------------------
+VALIDAÇÃO: SIM ( X ) NÃO (   )
+---------------------------------------------------------------------------------------------------------------------
+RETORNO: SIM ( X ) NÃO (   )
+---------------------------------------------------------------------------------------------------------------------
 
-1. Instalado o Eclipse Temurin JDK 21 (build 21.0.11+10) via tarball, em /usr/java/jdk-21.0.11+10, compatível com o sistema operacional do servidor (Red Hat Enterprise Linux 7.9).
+Att.,
+Glauber Farias
+Armazenamento Open
+ID da Ordem de Trabalho	 WO0000081132605
+Criado em	 21/07/2026 22:09:30
+Criado por	 P635388
+Origem de Comunicação	 
+Exibir Acesso	 Público
+Notas	 Prezados,
 
-2. Configurado o utilitário alternatives do sistema para apontar java, javac e keytool para o JDK 21 como padrão, mantendo o JDK 8 original preservado como fallback.
+Favor encaminhar à equipe de armazenamento.
 
-3. Realizado teste manual de execução do pacote sirsa-batch.jar com o novo JDK. A aplicação inicializou corretamente, reconhecendo Java 21.0.11 sem qualquer erro de compatibilidade de bytecode.
+Segue ip de backup da VM
 
-4. Durante o teste, foi identificado um erro de conexão com o banco de dados Oracle (ORA-01033: Oracle initialization or shutdown in progress), indicando que a instância estava em processo de inicialização/manutenção no momento do teste. Esse erro é de natureza distinta e não está relacionado à atualização da JVM.
+10.188.5.179
 
-A atualização da JVM para a versão 21 está concluída e validada tecnicamente. Ficamos à disposição para esclarecimentos adicionais.
+Att
+ID da Ordem de Trabalho	 WO0000081132605
+Criado em	 21/07/2026 20:35:31
+Criado por	 P719768
+Origem de Comunicação	 
+Exibir Acesso	 Público
+Notas	 Prezados,
+Devido ao processo de migração dos compartilhamentos NFS para o novo ambiente, solicitamos informar os IPs de backup dos hosts que necessitarão de acesso ao compartilhamento,
+obrigatoriamente pertencentes a uma das redes abaixo:
+
+Backup Produção (PRD): 10.184.0.0/14 (VLAN 1140)
+Backup Não Produção (NPRD): 10.188.0.0/16 (VLAN 1141)
+
+Após o envio dessas informações, poderemos dar prosseguimento ao provisionamento do acesso no novo ambiente.
+Ficamos no aguardo.
 
 Atenciosamente,
-Jessé Batista
+Armazenamento Sonda.
+ID da Ordem de Trabalho	 WO0000081132605
+Criado em	 21/07/2026 20:15:51
+Criado por	 P779123
+Origem de Comunicação	 
+Exibir Acesso	 Público
+Notas	 Demanda inicial sem viés de falha, erro, degradação ou esgotamento de infraestrutura, serviço, máquina, armazenamento, rotina ou situação que não esteja na iminência de tornar-se incidente. Previsto atendimento em até 72 horas. [CENTRAL-SID]
+ID da Ordem de Trabalho	 WO0000081132605
+Criado em	 21/07/2026 19:50:42
+Criado por	 P571997
+Origem de Comunicação	 
+Exibir Acesso	 Público
+Notas	 Prezado(a),
+
+Acusamos o recebimento desta WO.
+- Informamos que sua solicitação entrou em fila de atendimento.
+- Informações futuras serão adicionadas a esta WO.
+
+Qualquer dúvida, estamos à disposição
+
+Preposto Armazenamento
+CTIS / CESTI / Armazenamento CESTI53.
+ID da Ordem de Trabalho	 WO0000081132605
+Criado em	 21/07/2026 19:44:22
+Criado por	 Remedy Application Service
+Origem de Comunicação	 E-mail
+Exibir Acesso	 Interno
+Notas	 Este ticket foi criado a partir do sistema de solicitação de serviço.
+Impresso por P585600 em Quinta-feira, 23/07/2026 15:32:14
