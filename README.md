@@ -1,28 +1,108 @@
-https://devops.caixa/projetos/Caixa/_releaseProgress?_a=release-environment-logs&releaseId=504238&environmentId=2342298
+Skip to content
+GitHub Enterprise
+Users managed by Caixa Economica Federal
+caixagithub
+silce-backend-valida-assinatura
+Repository navigation
+Code
+Issues
+Pull requests
+2
+ (2)
+Actions
+Projects
+Models
+Wiki
+Security and quality
+5
+ (5)
+Insights
+Settings
+CI/CD Workflow Generic
+caixagithub/silce-backend-valida-assinatura_main_30029704866.7 #7
+All jobs
+Run details
+Annotations
+1 error and 1 warning
+deploy - [silce-backend-valida-assinatura] / ArgoCD_Deploy / ArgoCD_Deploy (DES)
+failed 7 minutes ago in 3m 3s
+Search logs
+13s
+0s
+0s
+0s
+0s
+0s
+0s
+0s
+0s
+0s
+0s
+0s
+31s
+0s
+5s
+0s
+4s
+0s
+1s
+0s
+21s
+4s
+0s
+0s
+1s
+1m 20s
+1s
+16s
+Run caixagithub/DevSecOps-Actions/.github/integrations/apim/import/dotnet@main
+Install Az CLI
+12s
+Login on Azure
+4s
+Publish API to APIM
+1s
+Run set -x  # Ativa o modo de depuração
+  + echo 'Iniciando a publicação da API para APIM...'
+  Iniciando a publicação da API para APIM...
+  Verificando a URL do Swagger: http://silce-backend-valida-assinatura.apl.des-nprd.private.azure/q/openapi
+  + swaggerUrl=http://silce-backend-valida-assinatura.apl.des-nprd.private.azure/q/openapi
+  + echo 'Verificando a URL do Swagger: http://silce-backend-valida-assinatura.apl.des-nprd.private.azure/q/openapi'
+  ++ curl -k --max-time 10 --write-out '%{http_code}' --silent --output /dev/null http://silce-backend-valida-assinatura.apl.des-nprd.private.azure/q/openapi
+  + httpStatus=000
+  Error: Process completed with exit code 6.
+0s
+0s
+0s
+0s
+0s
+0s
+1s
+0s
+0s
 
-2026-07-22T19:40:08.3597635Z ##[section]Starting: Upload de App - Faixa Internal Test
-2026-07-22T19:40:08.3601173Z ==============================================================================
-2026-07-22T19:40:08.3601332Z Task         : Google Play - Release
-2026-07-22T19:40:08.3601477Z Description  : Release an app to the Google Play Store
-2026-07-22T19:40:08.3601556Z Version      : 3.172.0
-2026-07-22T19:40:08.3601608Z Author       : Microsoft Corporation
-2026-07-22T19:40:08.3601674Z Help         : ms-resource:loc.helpMarkDown
-2026-07-22T19:40:08.3601737Z ==============================================================================
-2026-07-22T19:40:08.9376878Z Found main APK to upload: /opt/temp/simsc/app-7.1.1.504238/simsc-7.1.1-Piloto.504238.apk (version code 202613019)
-2026-07-22T19:40:09.1724689Z Authenticated with Google Play and getting new edit 
-2026-07-22T19:40:23.9458959Z Updating track information...
-2026-07-22T19:40:26.5206678Z ##[error]Error: Changes cannot be sent for review automatically. Please set the query parameter changesNotSentForReview to true. Once committed, the changes in this edit can be sent for review from the Google Play Console UI.
-2026-07-22T19:40:26.5270514Z ##[section]Finishing: Upload de App - Faixa Internal Test
 
 
-
-solicitamos suporte no erro apontado acima.
-
-
-conforme avaliacao da fsw a alteracao do parametro deverá ser nos stages de envio a loja para "changesNotSentForReview=true"
-
-Isso faz com que a publicação seja carregada e salva no Play Console, mas não seja submetida automaticamente para revisão. A revisão deverá ser iniciada manualmente na interface do Google Play Console, permitindo assim o ajuste do erro apontado pela revisao anterior daquela loja
+deu bom passou 
 
 
+I0723 14:36:12.609767       1 version.go:31] "version info" version="" commit="1e11cd2" buildDate="2024-10-04T10:20:06Z" component="vaultenv"
+I0723 14:36:12.609895       1 main.go:184] "azure key vault env injector initializing"
+I0723 14:36:12.610089       1 main.go:253] "found original container command" cmd="/usr/bin/java" args=["java","-jar","/opt/deploy/quarkus-run.jar"]
+I0723 14:36:12.610140       1 authentication.go:110] "checking if current auth service credentials are stale" url="http://akv2k8s-envinjector.akv2k8s.svc:80/auth/silce-backend-valida-assinatura/silce-backend-valida-assinatura-des-6986b8dc7b-nm4b7?secret=akv2k8s-silce-backend-valida-assinatura-des"
+I0723 14:36:12.685227       1 authentication.go:123] "auth service credentials ok" url="http://akv2k8s-envinjector.akv2k8s.svc:80/auth/silce-backend-valida-assinatura/silce-backend-valida-assinatura-des-6986b8dc7b-nm4b7?secret=akv2k8s-silce-backend-valida-assinatura-des"
+I0723 14:36:12.685487       1 authentication.go:159] "requesting azure key vault oauth token" url="https://akv2k8s-envinjector.akv2k8s.svc:9443/auth/silce-backend-valida-assinatura/silce-backend-valida-assinatura-des-6986b8dc7b-nm4b7"
+I0723 14:36:12.715924       1 authentication.go:179] "successfully received oauth token"
+I0723 14:36:12.910128       1 main.go:338] "secret injected into env var" azurekeyvaultsecret="silce-backend-valida-assinatura/akvs-env-siper-password" env="CICS_PASSWORD"
+I0723 14:36:12.910159       1 main.go:343] "starting process with secrets in env vars" cmd="/usr/bin/java" args=["java","-jar","/opt/deploy/quarkus-run.jar"]
+__  ____  __  _____   ___  __ ____  ______
+ --/ __ \/ / / / _ | / _ \/ //_/ / / / __/
+ -/ /_/ / /_/ / __ |/ , _/ ,< / /_/ /\ \
+--\___\_\____/_/ |_/_/|_/_/|_|\____/___/
+2026-07-23 14:36:15,746 WARN  [io.qua.cxf.fea.dep.log.DeprecatedLoggingRecorder] (main) io.quarkiverse.cxf:quarkus-cxf-rt-features-logging is deprecated and will be removed in the future. Use io.quarkiverse.cxf:quarkus-cxf instead.
+2026-07-23 14:36:17,147 INFO  [io.quarkus] (main) backend-valida-assinatura 1.0.0 on JVM (powered by Quarkus 3.27.1) started in 4.179s. Listening on: http://0.0.0.0:8080
+2026-07-23 14:36:17,147 INFO  [io.quarkus] (main) Profile prod activated.
+2026-07-23 14:36:17,148 INFO  [io.quarkus] (main) Installed features: [cdi, cxf, hibernate-va
 
-<img width="1898" height="901" alt="image" src="https://github.com/user-attachments/assets/73cb1518-5ccd-4105-9009-394058ed5191" />
+<img width="1630" height="904" alt="image" src="https://github.com/user-attachments/assets/2b29916e-2b95-4bcc-a102-8d6c97efd54f" />
+
