@@ -1,149 +1,59 @@
-Histórico de Informações de Trabalho da Ordem de Trabalho
-ID da Ordem de Trabalho	 WO0000081132605
-Criado em	 23/07/2026 14:31:29
-Criado por	 P903171
-Origem de Comunicação	 
-Exibir Acesso	 Público
-Notas	 Falta IP de rede de backup do Hostname crjtqapllx046
-IP 10.116.26.200
-ID da Ordem de Trabalho	 WO0000081132605
-Criado em	 23/07/2026 10:19:16
-Criado por	 P668948
-Origem de Comunicação	 
-Exibir Acesso	 Público
-Notas	 FQDN: hypernprd56.ad.caixa - 10.188.0.0/16
-ID da Ordem de Trabalho	 WO0000081132605
-Criado em	 23/07/2026 10:18:01
-Criado por	 P668948
-Origem de Comunicação	 
-Exibir Acesso	 Público
-Notas	 Solicitação atendida:
+Ir para Conteúdo Principal
+SINCC
+#INTERNO.TODOS
+VMs
+Linhas
 
-p668948@Vstore_NPRD:/>show share nfs |filterRow column=Alias predict=match value=/fs_sippg_tqs_fgw
+50
+1 - 1 de 1
+VCenter
+Cluster
+VM Name
+DNS Name
+VM Host
+Serial Number
+Datacenter
+Datastores
+Resource Pool
+Folder
+Status
+IPs
+Subnets
+Tipos
+Nr. de CPUs
+Memória (GB)
+Sistema Operacional
+Tamanho de Disco (GB)
+Notas
+Data da Coleta
+VCenter
+Cluster
+VM Name
+DNS Name
+VM Host
+Serial Number
+Datacenter
+Datastores
+Resource Pool
+Folder
+Status
+IPs
+Subnets
+Tipos
+Nr. de CPUs
+Memória (GB)
+Sistema Operacional
+Tamanho de Disco (GB)
+Notas
+Data da Coleta
+cadsvgerap030-1.intra.caixa.gov.br	CTC_NPRDXF2488HV7_NPRD	CRJTQAPLLX046	crjtqapllx046	cadsvgersh482.intra.caixa.gov.br	PI00988800000131	NPRD	CTCHWNPRDC011_0001,CTCHWNPRDC011_0007,CTCHWNPRDC011_0009,CTCHWNPRDC011_0010,CTCHWNPRDC011_0012,CTCHWNPRDC011_0262,CTCHWNPRDC011_0265,CTCHWNPRDC011_0267	RP_NPRD_003	TQS	Ligado	10.116.26.200, 192.168.237.16, 10.122.38.3, 10.184.19.251	10.116.26.0/23, 192.168.224.0/19, 10.122.32.0/20, 10.184.0.0/14	Vmxnet3, Vmxnet3, Vmxnet3, Vmxnet3	6	20	Red Hat Enterprise Linux 8 (64-bit)	273,13	
+Sistema: B2B Sterling File Gateway - Descrição: WO0000069746006 (Criado por P926712 pelo infrasimples)
 
- Share ID  File System ID  Description      Local Path          Alias              File System Name
- --------  --------------  ---------------  ------------------  -----------------  ----------------
- 144       186             WO0000081132605  /fs_sippg_tqs_fgw/  /fs_sippg_tqs_fgw  fs_sippg_tqs_fgw
+23/07/2026 15:02:11
+1 - 1 de 1
+v1.2.0 - 12/08/2024 :: v1.9.5 - 09/07/2026
 
-p668948@Vstore_NPRD:/>show share_permission nfs share_name=/fs_sippg_tqs_fgw
 
- Share Permission ID  Access Name   Share ID  Access Type  Sync Enabled  All Squash Enabled  Root Squash Enabled  Secure Enabled  Security Type  Share Name         KRB5 Access Type  KRB5I Access Type  KRB5P Access Type  Charset  Access Protocol
- -------------------  ------------  --------  -----------  ------------  ------------------  -------------------  --------------  -------------  -----------------  ----------------  -----------------  -----------------  -------  ---------------
- 1971                 10.188.5.179  144       Read Write   Yes           No                  No                   No              unix           /fs_sippg_tqs_fgw  No Permission     No
- 
-ID da Ordem de Trabalho	 WO0000081132605
-Criado em	 23/07/2026 09:26:43
-Criado por	 C099028
-Origem de Comunicação	 
-Exibir Acesso	 Público
-Notas	 Autorizamos a demanda.
-Att.,
-CESTI33
-ID da Ordem de Trabalho	 WO0000081132605
-Criado em	 22/07/2026 11:24:39
-Criado por	 P765995
-Origem de Comunicação	 
-Exibir Acesso	 Público
-Notas	 Segue plano de ação, foi informado apenas um IP de backup em notas anteriores , NOME DO NFS CORRIGIDO
-ID da Ordem de Trabalho	 WO0000081132605
-Criado em	 22/07/2026 11:21:41
-Criado por	 P765995
-Origem de Comunicação	 
-Exibir Acesso	 Público
-Notas	 DESCONSIDERAR NOTA ANTERIOR
-ID da Ordem de Trabalho	 WO0000081132605
-Criado em	 22/07/2026 11:00:32
-Criado por	 P765995
-Origem de Comunicação	 
-Exibir Acesso	 Público
-Notas	 Segue plano de ação, foi informado apenas um IP de backup em notas anteriores
-ID da Ordem de Trabalho	 WO0000081132605
-Criado em	 22/07/2026 01:54:46
-Criado por	 P568291
-Origem de Comunicação	 
-Exibir Acesso	 Público
-Notas	 WO0000081132605 - Criação NFS (fs_sippg)
----------------------------------------------------------------------------------------------------------------------
-AÇÃO: Criação NFS (fs_sippg)
----------------------------------------------------------------------------------------------------------------------
-JUSTIFICATIVA: Criação
----------------------------------------------------------------------------------------------------------------------
-SITE (CTC OU DTC) - CTC
----------------------------------------------------------------------------------------------------------------------
-AMBIENTE (Bancário, Negocial, Social, NPRD, HMP, Departamental): NPRD
----------------------------------------------------------------------------------------------------------------------
-RISCO: Baixo  
----------------------------------------------------------------------------------------------------------------------
-IMPACTO: SIM (   ) NÃO ( X )
----------------------------------------------------------------------------------------------------------------------  
-ITEM OU ITENS DE CONFIGURAÇÃO (IC):
----------------------------------------------------------------------------------------------------------------------
-PLANO DE EXECUÇÃO: SIM ( X ) NÃO (   )
----------------------------------------------------------------------------------------------------------------------
-VALIDAÇÃO: SIM ( X ) NÃO (   )
----------------------------------------------------------------------------------------------------------------------
-RETORNO: SIM ( X ) NÃO (   )
----------------------------------------------------------------------------------------------------------------------
 
-Att.,
-Glauber Farias
-Armazenamento Open
-ID da Ordem de Trabalho	 WO0000081132605
-Criado em	 21/07/2026 22:09:30
-Criado por	 P635388
-Origem de Comunicação	 
-Exibir Acesso	 Público
-Notas	 Prezados,
+<img width="1889" height="867" alt="image" src="https://github.com/user-attachments/assets/ae308c73-3472-431c-9a51-8fd1ca35f968" />
 
-Favor encaminhar à equipe de armazenamento.
-
-Segue ip de backup da VM
-
-10.188.5.179
-
-Att
-ID da Ordem de Trabalho	 WO0000081132605
-Criado em	 21/07/2026 20:35:31
-Criado por	 P719768
-Origem de Comunicação	 
-Exibir Acesso	 Público
-Notas	 Prezados,
-Devido ao processo de migração dos compartilhamentos NFS para o novo ambiente, solicitamos informar os IPs de backup dos hosts que necessitarão de acesso ao compartilhamento,
-obrigatoriamente pertencentes a uma das redes abaixo:
-
-Backup Produção (PRD): 10.184.0.0/14 (VLAN 1140)
-Backup Não Produção (NPRD): 10.188.0.0/16 (VLAN 1141)
-
-Após o envio dessas informações, poderemos dar prosseguimento ao provisionamento do acesso no novo ambiente.
-Ficamos no aguardo.
-
-Atenciosamente,
-Armazenamento Sonda.
-ID da Ordem de Trabalho	 WO0000081132605
-Criado em	 21/07/2026 20:15:51
-Criado por	 P779123
-Origem de Comunicação	 
-Exibir Acesso	 Público
-Notas	 Demanda inicial sem viés de falha, erro, degradação ou esgotamento de infraestrutura, serviço, máquina, armazenamento, rotina ou situação que não esteja na iminência de tornar-se incidente. Previsto atendimento em até 72 horas. [CENTRAL-SID]
-ID da Ordem de Trabalho	 WO0000081132605
-Criado em	 21/07/2026 19:50:42
-Criado por	 P571997
-Origem de Comunicação	 
-Exibir Acesso	 Público
-Notas	 Prezado(a),
-
-Acusamos o recebimento desta WO.
-- Informamos que sua solicitação entrou em fila de atendimento.
-- Informações futuras serão adicionadas a esta WO.
-
-Qualquer dúvida, estamos à disposição
-
-Preposto Armazenamento
-CTIS / CESTI / Armazenamento CESTI53.
-ID da Ordem de Trabalho	 WO0000081132605
-Criado em	 21/07/2026 19:44:22
-Criado por	 Remedy Application Service
-Origem de Comunicação	 E-mail
-Exibir Acesso	 Interno
-Notas	 Este ticket foi criado a partir do sistema de solicitação de serviço.
-Impresso por P585600 em Quinta-feira, 23/07/2026 15:32:14
