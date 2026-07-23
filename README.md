@@ -1,77 +1,37 @@
-Nome
-Tipo
-Status
-Data de validade
-APOSTADOR-APP-TQS--ENV-AM-REDIS-PASSWORD
-Password
-Habilitado
-APOSTADOR-APP-TQS--ENV-IBM-MQ-PASSWORD
-Habilitado
-APOSTADOR-APP-TQS--ENV-REDIS-PASSWORD
-Habilitado
-APOSTADOR-APP-TQS--ENV-SSO-SECRET
-Habilitado
-CARRINHO-APP-TQS--ENV-DATASOURCE-PASSWORD
-Habilitado
-CARRINHO-APP-TQS--ENV-SILCE-CARRINHO-APIKEY
-Habilitado
-CARRINHO-APP-TQS--ENV-SSO-SECRET
-Habilitado
-CARRINHO-PROCESSAMENTO-APP-TQS--ENV-APIM-INTRANET-APIKEY
-Habilitado
-CARRINHO-PROCESSAMENTO-APP-TQS--ENV-DATASOURCE-PASSWORD
-Habilitado
-CARRINHO-PROCESSAMENTO-APP-TQS--ENV-SSO-SECRET
-Habilitado
-COMPRA-ADM-TQS--DATASOURCE-PASSWORD
-Habilitado
-COMPRA-SER-TQS--DATASOURCE-PASSWORD
-Habilitado
-COMPRAS-DB-TQS--ENV-DATASOURCE-PASSWORD
-Habilitado
-COMPRAS-SER-DB-TQS-AZ-ENV-DATASOURCE-PASSWORD
-Habilitado
-MEIO-PAGAMENTO-APP-TQS--ENV-IBM-MQ-PASSWORD
-Habilitado
-MEIO-PAGAMENTO-APP-TQS--ENV-MERCADO-PAGO-ACCESS-TOKEN
-Habilitado
-MEIO-PAGAMENTO-APP-TQS--ENV-MERCADO-PAGO-PUBLIC-KEY
-Habilitado
-MEIO-PAGAMENTO-APP-TQS--ENV-OIDC-SECRET
-Habilitado
-MEIO-PAGAMENTO-APP-TQS--ENV-RECARGAPAY-APOSTADOR-CLIENT-SECRET
-Habilitado
-MEIO-PAGAMENTO-APP-TQS--ENV-RECARGAPAY-CLIENT-SECRET
-Habilitado
-MEIO-PAGAMENTO-APP-TQS--ENV-SILCE-PARAMETROS-CLIENT-SECRET
-Habilitado
-MEIO-PAGAMENTO-DEBITO-APP-TQS--ENV-SIATR-PASSWORD
-Habilitado
-MEIO-PAGAMENTO-PIX-APP-TQS--ENV-OIDC-SECRET
-Habilitado
-MEIO-PAGAMENTO-PIX-TQS--ISTIO-CA-CRT
-Habilitado
-MEIO-PAGAMENTO-PIX-TQS--ISTIO-TLS-CRT
-Habilitado
-MEIO-PAGAMENTO-PIX-TQS--ISTIO-TLS-KEY
-Habilitado
-mssqlsrv-localadmin-password
-password
-Habilitado
-REGISTRO-APOSTA-APP-TQS--ENV-AMQP-PASSWORD
-Habilitado
-REGISTRO-APOSTA-APP-TQS--ENV-DATASOURCE-PASSWORD
-Habilitado
-REGISTRO-APOSTA-APP-TQS--ENV-IBM-MQ-PASSWORD
-Habilitado
-REGISTRO-APOSTA-APP-TQS--ENV-OIDC-SECRET
-Habilitado
-SERVICE-BUS-CONNECTION-STRING
-Habilitado
-SILCE-MEIO-PAGAMENTO-PIX-TQS--ISTIO-TLS-CRT
-Habilitado
-SILCE-MEIO-PAGAMENTO-PIX-TQS--ISTIO-TLS-KEY
-Habilitado
-SILCE-PIX-CHAVE
-Habilitado
-vmjumper-localadmin-password
+Solicitamos a alteração do CRON JOB agendamento-sisou na infra OKD do Projeto SISOU-DES PROJETO:
+
+https://console-openshift-console.apps.nprd.caixa/k8s/cluster/projects/sisou-des
+
+O campo comando deve ter o seguinte registro:
+
+DE
+-------------------------------
+
+curl --fail \
+  "http://sisou-sac-okd-des.sisou-des.svc.cluster.local:8080/sac/cronjob/indecx/pesquisa-satisfacao" 
+
+
+PARA
+-------------------------------
+
+KEYCLOAK_URL="https://login.des.caixa/auth/realms/intranet/protocol/openid-connect/token"
+CLIENT_ID="cli-ser-sou"
+CLIENT_SECRET=$(printenv KEYCLOAK_SECRET)
+
+#echo "teste por fora do cluster"
+TARGET_DNS="https://sisou-sac-okd-des.apps.nprd.caixa"
+
+TOKEN=$(curl -s -X POST "${KEYCLOAK_URL}" \
+  -H "Content-Type: application/x-www-form-urlencoded" \
+  -d "grant_type=client_credentials" \
+  -d "client_id=${CLIENT_ID}" \
+  -d "client_secret=${CLIENT_SECRET}" \
+| sed -n 's/.*"access_token":"\([^"]*\)".*/\1/p')
+
+#echo "Token obtido"
+[[ -n "$TOKEN" ]] && echo "== TOKEN recuperado =="
+
+curl -v -w "\n HTTP_CODE = %{http_code}\n" \
+  -H "Authorization: Bearer ${TOKEN}" \
+  -H "Content-Type: application/json" \
+  "$TARGET_DNS/sac/cronjob/indecx/pesquisa-satisfacao"
