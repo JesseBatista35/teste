@@ -90,3 +90,6 @@ APP_NAME_LOWER=silce-backend-valida-assinatura
 Falha ao obter Application ou erro retornado:
 {"error":"permission denied","code":7,"message":"permission denied"}
 Error: Process completed with exit code 1.
+
+
+
