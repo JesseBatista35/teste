@@ -1,359 +1,111 @@
-de DES
-
-caixa-base-chart:
-
-#-------#
-# IMAGE #
-#-------#
-
-  image:
-    # variavel de imagem do tipo de aplicação
-    repository: acrcentralcaixanprd.azurecr.io/silce/backend-valida-assinatura/silce-backend-valida-assinatura
-    tag: "30045899652"
-    pullPolicy: Always
-
-
-#-----#
-# HPA #
-#-----#
-  replicaCount: 1
-
-  autoscaling:
-    enabled: false
-    minReplicas: 1
-    maxReplicas: 1
-    targetCPUUtilizationPercentage: 85
-    targetMemoryUtilizationPercentage: 85
-    behavior:
-      scaleUp:
-        stabilizationWindowSeconds: 0
-        selectPolicy: Max
-        policies:
-        - type: Pods
-          value: 15
-          periodSeconds: 30
-      scaleDown:
-        stabilizationWindowSeconds: 800
-        selectPolicy: Max
-        policies:
-        - type: Pods
-          value: 1
-          periodSeconds: 60
-
-#-----#
-# PDB #
-#-----#
-
-  pdb:
-    enabled: true
-    minAvailable: 1
-
-#-----------------#
-# ROLLING UPDATE STRATEGY #
-#-----------------#
-
-  strategy:
-    maxSurge: 25%
-    maxUnavailable: 50%
-
-#-----------------------------#
-#  topologySpreadConstraints  #
-#-----------------------------#
-
-  topologySpreadConstraints:
-  - maxSkew: 1
-    topologyKey: topology.kubernetes.io/zone
-    whenUnsatisfiable: ScheduleAnyway
-    labelSelector:
-      matchLabels:
-        appName: silce-backend-valida-assinatura
-        
-#-----------#
-#  SERVICE  #
-#-----------#
-  
-  service:
-    type: "ClusterIP"
-    ports:
-      - name: "port"
-        protocol: TCP
-        port: 80
-        targetPort: 8080
-
-#---------#
-# INGRESS #
-#---------#
-
-  ingress:
-
-    - name: internal
-      enabled: true
-      className: "azure-application-gateway"
-      annotations:
-        appgw.ingress.kubernetes.io/backend-path-prefix: "/"
-        appgw.ingress.kubernetes.io/backend-protocol: "http"
-        appgw.ingress.kubernetes.io/request-timeout: "60"
-        appgw.ingress.kubernetes.io/ssl-redirect: "false"
-        appgw.ingress.kubernetes.io/connection-draining: "true"
-        appgw.ingress.kubernetes.io/connection-draining-timeout: "60"
-        appgw.ingress.kubernetes.io/use-private-ip: "true"
-      rules:
-        # variavel do nome do projeto
-        - host: "silce-backend-valida-assinatura.apl.des.private.azure"
-          paths:
-            - path: "/"
-              targetPort: 8080
-
-
-#-------------#
-#  RESOURCES  #
-#-------------#
-
-  resources:
-    requests:
-      cpu: 250m
-      memory: 256Mi
-    limits:
-      cpu: 500m
-      memory: 512Mi
-
-
-#----------#
-#  PROBES  #
-#----------#
-
-  probes:
-    enabled: true
-    useDefaults: false  
-    livenessProbe: 
-      initialDelaySeconds: 60
-      periodSeconds: 20
-      failureThreshold: 2
-      successThreshold: 1
-      httpGet:
-        path: /q/health/live
-        port: 8080
-    readinessProbe: 
-      initialDelaySeconds: 60
-      periodSeconds: 20
-      failureThreshold: 1
-      successThreshold: 1
-      httpGet:
-        path: /q/health/ready    
-        port: 8080
-    startupProbe:
-      httpGet:
-        enabled: true
-        path: '/q/health/live'
-      initialDelaySeconds: 60             # Tempo de delay inicial para o startupProbe
-      periodSeconds: 20                   # Tempo entre as verificações do startupProbe
-      failureThreshold: 3                 # Número de falhas consecutivas antes de considerar o pod como não saudável   
-
-
-#-------------#
-#  CONFIGMAP  #
-#-------------#
-
-  configMapRefs:
-    - name: cm-silce-backend-valida-assinatura
-
-    
-#---------------#
-#  TOLERATIONS  #
-#---------------#
-
-  tolerations:
-    - key: "kubernetes.azure.com/scalesetpriority"
-      effect: "NoSchedule"
-      operator: "Equal"
-      value: "spot"
-
-#-------------# 
-#   SECRETS   # 
-#-------------# 
-#  secretRefs:
-  env:
-  - name: CICS_PASSWORD
-    value: akvs-env-siper-password@azurekeyvault
-
-
-
-    DE TQS
-
-
-
-    caixa-base-chart:
-
-#-------#
-# IMAGE #
-#-------#
-
-  image:
-    # variavel de imagem do tipo de aplicação
-    repository: acrcentralcaixanprd.azurecr.io/silce/backend-valida-assinatura/silce-backend-valida-assinatura
-    tag: "30044722659"
-    pullPolicy: Always
-
-#-----#
-# HPA #
-#-----#
-  replicaCount: 1
-
-  autoscaling:
-    enabled: false
-    minReplicas: 1
-    maxReplicas: 1
-    targetCPUUtilizationPercentage: 85
-    targetMemoryUtilizationPercentage: 85
-    behavior:
-      scaleUp:
-        stabilizationWindowSeconds: 0
-        selectPolicy: Max
-        policies:
-        - type: Pods
-          value: 15
-          periodSeconds: 30
-      scaleDown:
-        stabilizationWindowSeconds: 800
-        selectPolicy: Max
-        policies:
-        - type: Pods
-          value: 1
-          periodSeconds: 60
-
-#-----#
-# PDB #
-#-----#
-
-  pdb:
-    enabled: true
-    minAvailable: 1
-
-#-----------------#
-# ROLLING UPDATE STRATEGY #
-#-----------------#
-
-  strategy:
-    maxSurge: 25%
-    maxUnavailable: 50%
-
-#-----------------------------#
-#  topologySpreadConstraints  #
-#-----------------------------#
-  topologySpreadConstraints:
-  - maxSkew: 1
-    topologyKey: topology.kubernetes.io/zone
-    whenUnsatisfiable: ScheduleAnyway
-    labelSelector:
-      matchLabels:
-        appName: silce-backend-valida-assinatura
-        
-#-----------#
-#  SERVICE  #
-#-----------#
-  
-  service:
-    type: "ClusterIP"
-    ports:
-      - name: "port"
-        protocol: TCP
-        port: 80
-        targetPort: 8080
-
-#---------#
-# INGRESS #
-#---------#
-  istio:  
-    - name: internal
-      enabled: true
-      servers:
-      - port:
-          number: 80
-          name: http-default
-          protocol: HTTP
-        hosts:
-        - "silce-backend-valida-assinatura.apl.des-nprd.private.azure"
-      #- port:
-      #    number: 443
-      #    name: https-custom
-      #    protocol: HTTPS
-      #  tls:
-      #    mode: SIMPLE
-      #    credentialName: akvs-silce-backend-valida-assinatura-certificate # Nome do secret do certificado
-      #  hosts:
-      #    - silce-backend-valida-assinatura.des-nprd.caixa
-      prefix:
-        - /
-      targetPort: 8080
-  
-#-----------
-
-#-------------#
-#  RESOURCES  #
-#-------------#
-
-  resources:
-    requests:
-      cpu: 250m
-      memory: 256Mi
-    limits:
-      cpu: 500m
-      memory: 512Mi
-
-
-#----------#
-#  PROBES  #
-#----------#
-
-  probes:
-    enabled: true
-    useDefaults: false  
-    livenessProbe: 
-      initialDelaySeconds: 60
-      periodSeconds: 20
-      failureThreshold: 2
-      successThreshold: 1
-      httpGet:
-        path: /q/health/live
-        port: 8080
-    readinessProbe: 
-      initialDelaySeconds: 60
-      periodSeconds: 20
-      failureThreshold: 1
-      successThreshold: 1
-      httpGet:
-        path: /q/health/ready    
-        port: 8080
-    startupProbe:
-      httpGet:
-        enabled: true
-        path: '/q/health/live'
-      initialDelaySeconds: 60             # Tempo de delay inicial para o startupProbe
-      periodSeconds: 20                   # Tempo entre as verificações do startupProbe
-      failureThreshold: 3                 # Número de falhas consecutivas antes de considerar o pod como não saudável   
-
-
-#-------------#
-#  CONFIGMAP  #
-#-------------#
-
-  configMapRefs:
-    - name: cm-silce-backend-valida-assinatura
-#---------------#
-#  TOLERATIONS  #
-#---------------#
-
-  tolerations:
-    - key: "kubernetes.azure.com/scalesetpriority"
-      effect: "NoSchedule"
-      operator: "Equal"
-      value: "spot"
-
-#-------------# 
-#   SECRETS   # 
-#-------------# 
-
-#  secretRefs:
-  env:
-  - name: CICS_PASSWORD
-    value: akvs-env-siper-password@azurekeyvault
+
+A configuração de rede do Kubenet não terá mais suporte após 31 de março de 2028. Para garantir o suporte e a compatibilidade contínuos, migre seus clusters do AKS para a Sobreposição da CNI do Azure. Saiba mais
+Exibição JSON
+Grupo de recursos
+:
+rg-silce-tqs
+Estado de energia
+:
+Em execução
+Status da operação do cluster
+:
+Bem-sucedido
+Assinatura
+:
+Loterias - Silce - TQS
+Localização
+:
+Brazil South
+ID da Assinatura
+:
+4a3d50af-f771-42af-973e-e4824b82af98
+Versão do Kubernetes
+:
+1.35.5
+Endereço do servidor da API
+:
+dns-aks-silce-tqs-ff0vfa4j.hcp.brazilsouth.azmk8s.io
+SKU
+:
+Base
+Tipo de preço
+:
+Standard
+Configuração da rede
+:
+kubenet
+Pools de nós
+:
+2 pools de nós
+Registros de contêineres
+:
+acrcentralcaixanprdMais (1)
+Data de criação
+:
+21 de agosto de 2024 às 19:15
+Gerenciador de frota
+:
+Clique aqui para atribuir
+Rótulos  (editar)
+:
+Serviços do Kubernetes
+Tipo de criptografia
+Criptografia em repouso com uma chave de criptografia gerenciada pela plataforma
+Pools de nós virtuais
+Não habilitado
+Pools de nós
+Pools de nós
+2 pools de nós
+Versões do Kubernetes
+1.35.5
+Tamanho dos nós
+Standard_D8ds_v5
+Provisionamento automático de nó
+Não habilitado
+Atualizações
+Versão do Kubernetes
+1.35.5
+Tipo de Atualização Automática
+Patch
+Agendador de atualização automática
+A cada 1 mês(es) em second Monday
+Tipo de canal de atualização de nó
+Imagem do Nó
+Agendador do canal de atualização de nó
+-
+Configuração de segurança
+Autenticação e Autorização
+Autenticação do Microsoft Entra ID com o RBAC do Azure
+Contas locais
+Desabilitado
+Extensões + aplicativos
+aks-managed-azure-monitor-metrics
+aks-managed-azure-monitor-logs
+Rede
+Endereço do servidor da API
+dns-aks-silce-tqs-ff0vfa4j.hcp.brazilsouth.azmk8s.io
+Configuração da rede
+kubenet
+CIDR do Pod
+192.168.0.0/16
+Serviço de CIDR
+10.245.0.0/22
+IP do serviço DNS
+10.245.0.10
+Mecanismo de política de rede
+Nenhum
+Balanceador de carga
+standard
+Cluster particular
+Habilitado
+Intervalos de IP autorizados
+Não habilitado
+Controlador de entrada do Gateway de Aplicativo
+Habilitado
+Integrações
+Insights do contêiner
+Habilitado
+ID do recurso do workspace
+law-silce-tqs
+Malha de Serviço – Istio
+Habilitado
