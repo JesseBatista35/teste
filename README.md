@@ -1,28 +1,9 @@
-esse ta funcionando
- silce-api-consulta-compras-des
-
-app:
-  name: silce-api-consulta-compras-des
-project:
-  name: des
-labels:
-  appName: silce-api-consulta-compras
-  environment: des
-source:
-  repo: "https://github.com/caixagithub/silce-api-consulta-compras-infranprd"
-  path: des
-sourcevar:
-  repo: "https://github.com/caixagithub/silce-globalnprd"
-  path: des
-  values: global.yaml  
-cluster:
-  destination:  
-    name: aks-silce-des
-    namespace: silce-api-consulta-compras
+silce-apostador-infranprd/des
+/values.yaml
+app-actions-for-ci-cd[bot]
 
 
-
- caixa-base-chart:
+caixa-base-chart:mais um ele me confgifmou que esse dauqi funciona
 
 #-------#
 # IMAGE #
@@ -30,10 +11,9 @@ cluster:
 
   image:
     # variavel de imagem do tipo de aplicação
-    repository: acrcentralcaixanprd.azurecr.io/silce/api-consulta-compras/silce-api-consulta-compras
-    tag: "29928431999"
+    repository: acrcentralcaixanprd.azurecr.io/silce/apostador/silce-apostador
+    tag: "29591576120"
     pullPolicy: Always
-
 
 #-----#
 # HPA #
@@ -67,7 +47,7 @@ cluster:
 #-----#
 
   pdb:
-    enabled: false
+    enabled: true
     minAvailable: 1
 
 #-----------------#
@@ -75,12 +55,12 @@ cluster:
 #-----------------#
 
   strategy:
-    maxSurge: "0%"
-    maxUnavailable: 100%
+    maxSurge: 25%
+    maxUnavailable: 0%
 
-#-----------------------------#
-#  topologySpreadConstraints  #
-#-----------------------------#
+#-----------------#
+# topologySpreadConstraints #
+#-----------------#
 
   topologySpreadConstraints:
   - maxSkew: 1
@@ -88,8 +68,8 @@ cluster:
     whenUnsatisfiable: ScheduleAnyway
     labelSelector:
       matchLabels:
-        appName: silce-api-consulta-compras
-        
+        appName: silce-apostador
+
 #-----------#
 #  SERVICE  #
 #-----------#
@@ -99,7 +79,7 @@ cluster:
     ports:
       - name: "port"
         protocol: TCP
-        port: 8080
+        port: 80
         targetPort: 8080
 
 #---------#
@@ -121,7 +101,7 @@ cluster:
         appgw.ingress.kubernetes.io/use-private-ip: "true"
       rules:
         # variavel do nome do projeto
-        - host: "silce-api-consulta-compras.apl.des.private.azure"
+        - host: "silce-apostador.apl.des.private.azure"
           paths:
             - path: "/"
               targetPort: 8080
@@ -134,10 +114,11 @@ cluster:
   resources:
     requests:
       cpu: 250m
-      memory: 512Mi
+      memory: 256Mi
     limits:
       cpu: 500m
-      memory: 1Gi
+      memory: 512Mi
+
 
 
 #----------#
@@ -145,12 +126,12 @@ cluster:
 #----------#
 
   probes:
-    enabled: true
+    enabled: true  
     useDefaults: false  
     livenessProbe: 
       initialDelaySeconds: 60
       periodSeconds: 20
-      failureThreshold: 3
+      failureThreshold: 2
       successThreshold: 1
       httpGet:
         path: /q/health/live
@@ -158,7 +139,7 @@ cluster:
     readinessProbe: 
       initialDelaySeconds: 60
       periodSeconds: 20
-      failureThreshold: 3
+      failureThreshold: 1
       successThreshold: 1
       httpGet:
         path: /q/health/ready    
@@ -177,7 +158,8 @@ cluster:
 #-------------#
 
   configMapRefs:
-    - name: cm-silce-api-consulta-compras-des
+    - name: cm-silce-apostador
+    - name: cm-silce-apostador-app-des
     
 #---------------#
 #  TOLERATIONS  #
@@ -189,10 +171,26 @@ cluster:
       operator: "Equal"
       value: "spot"
 
+
 #-------------# 
 #   SECRETS   # 
 #-------------# 
 
+#  secretRefs:
+#    - name: my-beyondtrust-secret
   env:
-    - name: DATABASE_PASSWORD
-      value: akvs-env-database-password@azurekeyvault
+  - name: OKD_APIM_API_KEY
+    value: akvs-env-apim-api-key@azurekeyvault
+  - name: REDIS_PASSWORD
+    value: akvs-env-redis-password@azurekeyvault
+  - name: SSO_SECRET
+    value: akvs-env-sso-secret@azurekeyvault
+  - name: HOSTNAME
+    valueFrom:
+      fieldRef:
+        fieldPath: metadata.name
+  - name: NODE_IP
+    valueFrom:
+      fieldRef:
+        apiVersion: v1
+        fieldPath: status.hostIP
