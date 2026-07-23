@@ -253,3 +253,37 @@ Successfully assigned silce-backend-valida-assinatura/silce-backend-valida-assin
 Today at 7:36 PM
 5m ago
 Today at 7:36 PM
+
+
+
+Jesse Mouta Pereira Batista
+📷
+ah, outra coisa, o ingress de tqs ta diferente do de des, no values.yml
+ 
+eu peguei o de des de um projeto nosso que funfa
+ 
+opa mano
+ 
+Joao Gustavo Matos Maranhao
+ao invés de silce-backend-nsu ser silce-backend-gerador-nsu
+fica mais claro de entender o projeto
+ 
+posso criar aqui?
+ 
+Joao Gustavo Matos Maranhao
+ah, outra coisa, o ingress de tqs ta diferente do de des, no values.yml
+sim esse era o problema da apim
+ 
+o host tava com nprd
+ 
+ 
+e na zonas de DNS tem esses aqui configurados
+ 
+Joao Gustavo Matos Maranhao
+posso criar aqui?
+pode sim
+ 
+vamos excluir  o outro
+ 
+acho que ainda vai quebrar em TQS
+ 
