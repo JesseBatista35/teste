@@ -1,15 +1,21 @@
-Prezados,
-
-Em análise à falha de build reportada no pipeline do projeto SIACC-pixautomatico-mq-suporte (buildId 779620), identificou-se que a causa raiz está relacionada à resolução de dependência via range de versão SNAPSHOT (br.gov.caixa.siacc.pix.suporte:SIACC-pixautomatico-api-suporte), declarada no pom.xml como [1.0.169-SNAPSHOT,1.1.0-SNAPSHOT).
-
-Constatou-se que, embora o artefato mais recente estivesse devidamente publicado e disponível no repositório Nexus (binario.caixa), a resolução por range não estava localizando a versão vigente durante o build, resultando em falha por inexistência aparente do artefato.
-
-Como ajuste de contorno, a dependência foi fixada em uma versão exata (1.0.179-SNAPSHOT) em substituição ao range de versão, alteração validada com sucesso na branch CESTI-teste, restabelecendo o build do projeto.
-
-Diante disso, solicita-se que o time de desenvolvimento responsável pela aplicação avalie a alteração realizada e, caso concorde com a abordagem, aplique o ajuste também na branch principal do repositório, de forma a manter a build estável de forma definitiva.
-
-Ressalta-se que a alteração foi restrita à declaração de versão da dependência no pom.xml, sem impacto em regras de negócio ou funcionalidades da aplicação.
-
-Considerando que a fixação de versão exata resolve o problema de forma direta e sem necessidade de intervenção estrutural em repositório compartilhado por múltiplos projetos, não há necessidade de escalonamento ao time gestor do Nexus neste momento.
-
-Encerra-se o atendimento com o ajuste aplicado e validado no ambiente de teste, ficando sob responsabilidade do time de desenvolvimento a aplicação definitiva na branch principal.
+Segue a lista só com os repositórios principais (sem as duplicatas com sufixo -infranprd/-infraprd, já que a exclusão pelo Fusion X cuida dessas automaticamente):
+sisfm-ext-auditoria
+sisfm-ext-xid
+sisfm-ext-exceptions
+sisfm-ext-commons
+sisfm-ext-logger
+sisfm-host-20260316
+sisfm-host
+sisfm-sisfm-host-s3-teste-1603
+sisfm-api-perfil-20260317
+sisfm-quarkus-teste-01-1703
+sisfm-mfe-angular-s3-teste-01-170
+sisfm-mfe-angular-s3-teste-01-1703
+sisfm-mfe-host-20260320
+sisfm-lib-ext-perfilconta
+sisfm-lib-seguranca
+sisfm-lib-endpointmetadata
+sisfm-lib-lib-bom
+sisfm-lib-framework
+Total: 18 repositórios principais (de 42 linhas na lista original, o restante eram as variantes -infranprd/-infraprd).
+Repara que sisfm-mfe-angular-s3-teste-01-170 e sisfm-mfe-angular-s3-teste-01-1703 são nomes diferentes (um termina em "170" e outro em "1703") — mantive os dois separados, só por garantia, já que pode ser erro de digitação no README original ou repositórios distintos mesmo. Vale confirmar isso antes de mandar pro Fusion X.
