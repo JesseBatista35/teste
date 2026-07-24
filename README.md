@@ -1,21 +1,37 @@
-oc get cronjob agendamento-sisou -o jsonpath='{.spec.jobTemplate.spec.template.spec.containers[0].env}'
+For more info see: https://angular.io/guide/build#configuring-commonjs-dependencies
 
-cat > ~/patch-agendamento-sisou-v2.json << 'EOF'
-[
-  {
-    "op": "replace",
-    "path": "/spec/jobTemplate/spec/template/spec/containers/0/command",
-    "value": ["/bin/bash", "-c"]
-  },
-  {
-    "op": "replace",
-    "path": "/spec/jobTemplate/spec/template/spec/containers/0/args",
-    "value": [
-      "KEYCLOAK_URL=\"$(printenv KEYCLOAK_URL)/realms/intranet/protocol/openid-connect/token\"\nCLIENT_ID=\"cli-ser-sou\"\nCLIENT_SECRET=$(printenv KEYCLOAK_SECRET)\nHOSTNAME=$(printenv HTTP_SERVICE_API_SAC)\nTOKEN=$(curl -s -X POST \"${KEYCLOAK_URL}\" -H \"Content-Type: application/x-www-form-urlencoded\" -d \"grant_type=client_credentials\" -d \"client_id=${CLIENT_ID}\" -d \"client_secret=${CLIENT_SECRET}\" | sed -n 's/.*\"access_token\":\"\\([^\"]*\\)\".*/\\1/p')\n#echo \"Token obtido\"\n[[ -n \"$TOKEN\" ]] && echo \"== TOKEN recuperado ==\"\ncurl -v -w \"\\n HTTP_CODE = %{http_code}\\n\" -H \"Authorization: Bearer ${TOKEN}\" -H \"Content-Type: application/json\" \"$HOSTNAME/sac/cronjob/indecx/pesquisa-satisfacao\""
-    ]
-  }
-]
-EOF
+Warning: /opt/ads-agent/_work/8/s/node_modules/sipnc-componentes/fesm2022/sipnc-componentes.mjs depends on 'moment'. CommonJS or AMD dependencies can cause optimization bailouts.
+For more info see: https://angular.io/guide/build#configuring-commonjs-dependencies
+
+Warning: /opt/ads-agent/_work/8/s/node_modules/sipnc-componentes/fesm2022/sipnc-componentes.mjs depends on 'utf8'. CommonJS or AMD dependencies can cause optimization bailouts.
+For more info see: https://angular.io/guide/build#configuring-commonjs-dependencies
+
+Warning: /opt/ads-agent/_work/8/s/src/styles.scss?ngGlobalStyle depends on '!../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js'. CommonJS or AMD dependencies can cause optimization bailouts.
+For more info see: https://angular.io/guide/build#configuring-commonjs-dependencies
+
+Warning: /opt/ads-agent/_work/8/s/src/styles.scss?ngGlobalStyle depends on '!../node_modules/style-loader/dist/runtime/insertBySelector.js'. CommonJS or AMD dependencies can cause optimization bailouts.
+For more info see: https://angular.io/guide/build#configuring-commonjs-dependencies
+
+Warning: /opt/ads-agent/_work/8/s/src/styles.scss?ngGlobalStyle depends on '!../node_modules/style-loader/dist/runtime/insertStyleElement.js'. CommonJS or AMD dependencies can cause optimization bailouts.
+For more info see: https://angular.io/guide/build#configuring-commonjs-dependencies
+
+Warning: /opt/ads-agent/_work/8/s/src/styles.scss?ngGlobalStyle depends on '!../node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js'. CommonJS or AMD dependencies can cause optimization bailouts.
+For more info see: https://angular.io/guide/build#configuring-commonjs-dependencies
+
+Warning: /opt/ads-agent/_work/8/s/src/styles.scss?ngGlobalStyle depends on '!../node_modules/style-loader/dist/runtime/styleDomAPI.js'. CommonJS or AMD dependencies can cause optimization bailouts.
+For more info see: https://angular.io/guide/build#configuring-commonjs-dependencies
+
+Warning: /opt/ads-agent/_work/8/s/src/styles.scss?ngGlobalStyle depends on '!../node_modules/style-loader/dist/runtime/styleTagTransform.js'. CommonJS or AMD dependencies can cause optimization bailouts.
+For more info see: https://angular.io/guide/build#configuring-commonjs-dependencies
 
 
-oc patch cronjob agendamento-sisou --type='json' -p="$(cat ~/patch-agendamento-sisou-v2.json)"
+
+Error: src/app/services/notificacao-snackbar.service.ts:33:37 - error TS2339: Property 'snackBar' does not exist on type 'DscSnackbarService'.
+
+33             this.dscSnackbarService.snackBar.dismiss();
+                                       ~~~~~~~~
+
+
+
+##[error]Bash exited with code '1'.
+Finishing: Build Application
