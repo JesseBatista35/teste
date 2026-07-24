@@ -1,208 +1,21 @@
-Skip to main content
-Azure DevOps
-projetos
-/
-Caixa
-/
-Repos
-/
-Files
-/
+Segue a nota atualizada, já com o caminho exato do arquivo, pronta pra enviar:
 
-SIAVL-enviomsgativa-microfront
-Search
+Assunto: Falha crítica no script de entrypoint da imagem – SIAVL-enviomsgativa-microfront (afeta todos os ambientes)
 
+Prezados,
 
-Caixa
+Identificamos a causa raiz da falha de deployment da aplicação siavl-enviomsgativa-microfront, que impede a subida do componente em todos os ambientes (DES, TQS e demais).
 
-Overview
+O script responsável por realizar as substituições de variáveis e iniciar o nginx no container, localizado no repositório em .s2i/bin/run (branch feature/STRY00014921), contém um erro de sintaxe em sua última linha:
 
-Boards
+exec nginx -g "daemon off;*
 
-Repos
-Files
-Commits
-Pushes
-Branches
-Tags
-Pull requests
+O caractere de fechamento da aspa dupla foi substituído por um asterisco (*), impedindo o fechamento correto da string. Como consequência, o shell interpreta o script como incompleto (erro: unexpected EOF while looking for matching '"'), o comando nginx nunca é executado, o processo do container não inicia, o readiness probe falha indefinidamente e o rollout do DeploymentConfig é revertido após o tempo limite de 600 segundos.
 
-Pipelines
+Esse comportamento foi validado diretamente na imagem publicada em produtos4 (build-images-ads/siavl-enviomsgativa-microfront:1.0.0-SNAPSHOT), por meio de execução isolada do container, e ocorre independentemente das variáveis de ambiente configuradas (AMBIENTE, CERT_REQUIRED), o que explica a falha consistente em todos os ambientes.
 
-Test Plans
+Solicitamos a correção do arquivo .s2i/bin/run na origem, restaurando a linha final para:
 
-Artifacts
-Project settings
-SIAVL-enviomsgativa-microfront
+exec nginx -g "daemon off;"
 
-.s2i
-.sonarlint
-src
-.eslintrc.js
-.gitignore
-.npmrc
-angular.json
-browserslist
-extra-webpack.config.js
-karma.conf.js
-package.json
-README.md
-sonar-project.properties
-tsconfig.app.json
-tsconfig.json
-tsconfig.spec.json
-
-feature/STRY00014921
-
-/
-Type to find a file or folder...
-Files
-failed
-
-Clone
-
-Contents
-History
-
-.s2i
-14 de jul.
-d2f7eaac
-STRY00014921/01: Configuração inicial do MFE Envio de Mensagem. Ronaldo Rosa Junior
-.sonarlint
-14 de jul.
-d2f7eaac
-STRY00014921/01: Configuração inicial do MFE Envio de Mensagem. Ronaldo Rosa Junior
-src
-Yesterday
-895883d5
-STRY00014921/01: Implementação da inclusão manual de clientes no pré-lote. Ronaldo Rosa Junior
-.eslintrc.js
-14 de jul.
-d2f7eaac
-STRY00014921/01: Configuração inicial do MFE Envio de Mensagem. Ronaldo Rosa Junior
-.gitignore
-14 de jul.
-d2f7eaac
-STRY00014921/01: Configuração inicial do MFE Envio de Mensagem. Ronaldo Rosa Junior
-.npmrc
-14 de jul.
-d2f7eaac
-STRY00014921/01: Configuração inicial do MFE Envio de Mensagem. Ronaldo Rosa Junior
-angular.json
-14 de jul.
-d2f7eaac
-STRY00014921/01: Configuração inicial do MFE Envio de Mensagem. Ronaldo Rosa Junior
-browserslist
-14 de jul.
-d2f7eaac
-STRY00014921/01: Configuração inicial do MFE Envio de Mensagem. Ronaldo Rosa Junior
-extra-webpack.config.js
-14 de jul.
-d2f7eaac
-STRY00014921/01: Configuração inicial do MFE Envio de Mensagem. Ronaldo Rosa Junior
-karma.conf.js
-14 de jul.
-d2f7eaac
-STRY00014921/01: Configuração inicial do MFE Envio de Mensagem. Ronaldo Rosa Junior
-package.json
-Yesterday
-895883d5
-STRY00014921/01: Implementação da inclusão manual de clientes no pré-lote. Ronaldo Rosa Junior
-README.md
-14 de jul.
-d2f7eaac
-STRY00014921/01: Configuração inicial do MFE Envio de Mensagem. Ronaldo Rosa Junior
-sonar-project.properties
-14 de jul.
-d2f7eaac
-STRY00014921/01: Configuração inicial do MFE Envio de Mensagem. Ronaldo Rosa Junior
-tsconfig.app.json
-14 de jul.
-d2f7eaac
-STRY00014921/01: Configuração inicial do MFE Envio de Mensagem. Ronaldo Rosa Junior
-tsconfig.json
-14 de jul.
-d2f7eaac
-STRY00014921/01: Configuração inicial do MFE Envio de Mensagem. Ronaldo Rosa Junior
-tsconfig.spec.json
-14 de jul.
-d2f7eaac
-STRY00014921/01: Configuração inicial do MFE Envio de Mensagem. Ronaldo Rosa Junior
-SIAVL Envio de Mensagem - Microfrontend
-Microfrontend do SIAVL responsável pela composição e pelo envio de mensagens para clientes CAIXA.
-
-O projeto utiliza Angular 16, Single-SPA e o Design System CAIXA (DSC), com execução integrada ao Host da Plataforma.CAIXA.
-
-Objetivo
-A jornada do MFE será composta pelas seguintes etapas:
-
-inclusão e seleção de clientes;
-seleção da mensagem;
-revisão do envio;
-resultado do processamento.
-O primeiro escopo de desenvolvimento é:
-
-[MFE Envio de Mensagem] Inserção manual de clientes - Step 1
-
-Tecnologias
-Angular 16;
-TypeScript;
-Single-SPA;
-Design System CAIXA;
-Karma e Jasmine;
-ESLint;
-SonarQube.
-As versões das dependências estão definidas no package.json.
-
-Instalação
-Instale as dependências do projeto:
-
-npm install
-O repositório corporativo de pacotes está configurado no arquivo .npmrc.
-
-Execução local
-Inicie o MFE:
-
-npm start
-Por se tratar de um microfrontend, a validação completa deve ser realizada por meio do Host da Plataforma.CAIXA.
-
-Build
-Gere o build de produção:
-
-npm run build
-Testes
-Execute os testes com Firefox Headless e cobertura:
-
-npm test
-Execute os testes com Chrome Headless:
-
-npm run test:simple
-Execute os testes com Chrome Headless e cobertura:
-
-npm run test:coverage
-Execute os testes utilizados pela esteira:
-
-npm run test:devops
-Lint
-Execute a análise estática:
-
-npm run lint
-Variáveis de ambiente
-As configurações dos ambientes estão nos arquivos:
-
-src/environments/environment.ts;
-src/environments/environment.prod.ts.
-No ambiente de produção, os placeholders abaixo são substituídos durante a inicialização do container:
-
-__SIAVL_BACKEND_ENVIOMSGATIVA__;
-__CERT_REQUIRED__;
-__CODIGO_CANAL_SIIPC__.
-As substituições são realizadas pelo arquivo .s2i/bin/run.
-
-Qualidade
-As configurações de testes e análise de qualidade estão nos arquivos:
-
-karma.conf.js;
-tsconfig.spec.json;
-sonar-project.properties;
-.eslintrc.js.
+Após a correção e nova geração da imagem
