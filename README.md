@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
+    "preinstall": "npx npm-force-resolutions",
     "start": "ng serve --host 0.0.0.0 --proxy-config proxy.conf.js",
     "build": "ng build --base-href ./",
     "build-cast": "ng build --configuration=cast --base-href /siced-web/",
@@ -12,6 +13,9 @@
     "e2e": "ng e2e"
   },
   "private": true,
+  "resolutions": {
+    "file-saver": "1.3.8"
+  },
   "dependencies": {
     "@angular/animations": "^7.2.14",
     "@angular/cdk": "^7.3.7",
@@ -44,3 +48,39 @@
     "ngx-bootstrap": "^4.0.0",
     "ngx-clipboard": "^10.0.0",
     "ngx-currency": "^2.5.2",
+    "ngx-editor": "^4.1.1",
+    "ngx-mask": "^8.1.6",
+    "ngx-spinner": "^7.2.0",
+    "ngx-toastr": "^10.1.0",
+    "rxjs": "^6.6.3",
+    "ts-xlsx": "0.0.11",
+    "tslib": "^2.2.0",
+    "zone.js": "~0.8.26"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "~0.13.0",
+    "@angular/cli": "~7.3.8",
+    "@angular/compiler-cli": "~7.2.0",
+    "@angular/language-service": "~7.2.0",
+    "@types/jasmine": "^2.8.8",
+    "@types/jasminewd2": "~2.0.3",
+    "@types/jspdf": "^1.3.3",
+    "@types/node": "^8.10.66",
+    "codelyzer": "~4.5.0",
+    "jasmine-core": "^2.99.1",
+    "jasmine-spec-reporter": "~4.2.1",
+    "karma": "~4.0.0",
+    "karma-chrome-launcher": "~2.2.0",
+    "karma-coverage-istanbul-reporter": "~2.0.1",
+    "karma-jasmine": "~1.1.2",
+    "karma-jasmine-html-reporter": "^0.2.2",
+    "karma-junit-reporter": "^2.0.1",
+    "karma-sonarqube-reporter": "^1.4.0",
+    "karma-spec-reporter": "0.0.36",
+    "npm-force-resolutions": "0.0.4",
+    "protractor": "~5.4.0",
+    "ts-node": "~7.0.0",
+    "tslint": "~5.11.0",
+    "typescript": "~3.2.2"
+  }
+}
