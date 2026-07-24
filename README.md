@@ -1,86 +1,37 @@
-{
-  "name": "siceds",
-  "version": "0.0.0",
-  "scripts": {
-    "ng": "ng",
-    "preinstall": "npx npm-force-resolutions",
-    "start": "ng serve --host 0.0.0.0 --proxy-config proxy.conf.js",
-    "build": "ng build --base-href ./",
-    "build-cast": "ng build --configuration=cast --base-href /siced-web/",
-    "build-cast-prod": "ng build --prod --configuration=cast --base-href /siced-web/",
-    "test": "ng test --code-coverage --watch=false --source-map=false",
-    "lint": "ng lint",
-    "e2e": "ng e2e"
-  },
-  "private": true,
-  "resolutions": {
-    "file-saver": "1.3.8"
-  },
-  "dependencies": {
-    "@angular/animations": "^7.2.14",
-    "@angular/cdk": "^7.3.7",
-    "@angular/common": "^7.2.14",
-    "@angular/compiler": "^7.2.14",
-    "@angular/core": "^7.2.14",
-    "@angular/flex-layout": "^7.0.0-beta.24",
-    "@angular/forms": "^7.2.14",
-    "@angular/material": "^7.3.7",
-    "@angular/material-moment-adapter": "^7.3.7",
-    "@angular/platform-browser": "^7.2.14",
-    "@angular/platform-browser-dynamic": "^7.2.14",
-    "@angular/router": "^7.2.14",
-    "@types/html2canvas": "0.0.35",
-    "@types/xlsx": "0.0.36",
-    "chart.js": "2.8.0",
-    "chartjs-plugin-datalabels": "^0.7.0",
-    "core-js": "^2.6.11",
-    "file-system": "^2.2.2",
-    "font-awesome": "^4.7.0",
-    "fs-filesystem": "^2.1.2",
-    "hammerjs": "^2.0.8",
-    "html2canvas": "^1.0.0-rc.7",
-    "jspdf": "^1.5.3",
-    "keycloak-angular": "^5.1.0",
-    "keycloak-js": "^6.0.1",
-    "lodash": "^4.17.20",
-    "moment": "^2.29.4",
-    "ng2-charts": "2.2.3",
-    "ngx-bootstrap": "^4.0.0",
-    "ngx-clipboard": "^10.0.0",
-    "ngx-currency": "^2.5.2",
-    "ngx-editor": "^4.1.1",
-    "ngx-mask": "^8.1.6",
-    "ngx-spinner": "^7.2.0",
-    "ngx-toastr": "^10.1.0",
-    "rxjs": "^6.6.3",
-    "ts-xlsx": "0.0.11",
-    "tslib": "^2.2.0",
-    "zone.js": "~0.8.26"
-  },
-  "devDependencies": {
-    "@angular-devkit/build-angular": "~0.13.0",
-    "@angular/cli": "~7.3.8",
-    "@angular/compiler-cli": "~7.2.0",
-    "@angular/language-service": "~7.2.0",
-    "@types/jasmine": "^2.8.8",
-    "@types/jasminewd2": "~2.0.3",
-    "@types/jspdf": "^1.3.3",
-    "@types/node": "^8.10.66",
-    "codelyzer": "~4.5.0",
-    "jasmine-core": "^2.99.1",
-    "jasmine-spec-reporter": "~4.2.1",
-    "karma": "~4.0.0",
-    "karma-chrome-launcher": "~2.2.0",
-    "karma-coverage-istanbul-reporter": "~2.0.1",
-    "karma-jasmine": "~1.1.2",
-    "karma-jasmine-html-reporter": "^0.2.2",
-    "karma-junit-reporter": "^2.0.1",
-    "karma-sonarqube-reporter": "^1.4.0",
-    "karma-spec-reporter": "0.0.36",
-    "npm-force-resolutions": "0.0.4",
-    "protractor": "~5.4.0",
-    "ts-node": "~7.0.0",
-    "tslint": "~5.11.0",
-    "typescript": "~3.2.2"
-  }
-}
+Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/bash
+==============================================================================
+Generating script.
+========================== Starting Command Output ===========================
+/bin/bash /opt/ads-agent/_work/_temp/53e8adde-fa4c-4ccf-90fc-21e0ddddf828.sh
+ng build --prod --configuration=production --outputPath=dist
+<----ANGULAR---->
+ENOENT: no such file or directory, scandir '/opt/ads-agent/_work/341/s/web/node_modules'
+Error: ENOENT: no such file or directory, scandir '/opt/ads-agent/_work/341/s/web/node_modules'
+    at Object.readdirSync (fs.js:790:3)
+    at VersionCommand.run (/usr/local/lib/node/nodejs/lib/node_modules/@angular/cli/commands/version-impl.js:48:41)
+    at VersionCommand.validateAndRun (/usr/local/lib/node/nodejs/lib/node_modules/@angular/cli/models/command.js:124:31)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:834:11)
+    at findNodeScript.then.existing (/opt/ads-agent/_work/_tool/node/10.24.1/x64/lib/node_modules/npm/node_modules/libnpx/index.js:268:14)
+Schema validation failed with the following errors:
+  Data path ".builders['app-shell']" should have required property 'class'.
+Error: Schema validation failed with the following errors:
+  Data path ".builders['app-shell']" should have required property 'class'.
+    at MergeMapSubscriber._registry.compile.pipe.operators_1.concatMap.validatorResult [as project] (/usr/local/lib/node/nodejs/lib/node_modules/@angular/cli/node_modules/@angular-devkit/core/src/workspace/workspace.js:215:42)
+    at MergeMapSubscriber._tryNext (/usr/local/lib/node/nodejs/lib/node_modules/@angular/cli/node_modules/rxjs/internal/operators/mergeMap.js:69:27)
+    at MergeMapSubscriber._next (/usr/local/lib/node/nodejs/lib/node_modules/@angular/cli/node_modules/rxjs/internal/operators/mergeMap.js:59:18)
+    at MergeMapSubscriber.Subscriber.next (/usr/local/lib/node/nodejs/lib/node_modules/@angular/cli/node_modules/rxjs/internal/Subscriber.js:67:18)
+    at MergeMapSubscriber.notifyNext (/usr/local/lib/node/nodejs/lib/node_modules/@angular/cli/node_modules/rxjs/internal/operators/mergeMap.js:92:26)
+    at InnerSubscriber._next (/usr/local/lib/node/nodejs/lib/node_modules/@angular/cli/node_modules/rxjs/internal/InnerSubscriber.js:28:21)
+    at InnerSubscriber.Subscriber.next (/usr/local/lib/node/nodejs/lib/node_modules/@angular/cli/node_modules/rxjs/internal/Subscriber.js:67:18)
+    at MapSubscriber._next (/usr/local/lib/node/nodejs/lib/node_modules/@angular/cli/node_modules/rxjs/internal/operators/map.js:55:26)
+    at MapSubscriber.Subscriber.next (/usr/local/lib/node/nodejs/lib/node_modules/@angular/cli/node_modules/rxjs/internal/Subscriber.js:67:18)
+    at SwitchMapSubscriber.notifyNext (/usr/local/lib/node/nodejs/lib/node_modules/@angular/cli/node_modules/rxjs/internal/operators/switchMap.js:86:26)
+    at InnerSubscriber._next (/usr/local/lib/node/nodejs/lib/node_modules/@angular/cli/node_modules/rxjs/internal/InnerSubscriber.js:28:21)
+    at InnerSubscriber.Subscriber.next (/usr/local/lib/node/nodejs/lib/node_modules/@angular/cli/node_modules/rxjs/internal/Subscriber.js:67:18)
+    at /usr/local/lib/node/nodejs/lib/node_modules/@angular/cli/node_modules/rxjs/internal/util/subscribeTo.js:17:28
+    at Object.subscribeToResult (/usr/local/lib/node/nodejs/lib/node_modules/@angular/cli/node_modules/rxjs/internal/util/subscribeToResult.js:10:45)
+    at SwitchMapSubscriber._innerSub (/usr/local/lib/node/nodejs/lib/node_modules/@angular/cli/node_modules/rxjs/internal/operators/switchMap.js:65:54)
+    at SwitchMapSubscriber._next (/usr/local/lib/node/nodejs/lib/node_modules/@angular/cli/node_modules/rxjs/internal/operators/switchMap.js:55:14)
+##[error]Bash exited with code '1'.
+Finishing: Build Application
