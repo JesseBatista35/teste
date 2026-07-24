@@ -3,7 +3,6 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "preinstall": "npx npm-force-resolutions",
     "start": "ng serve --host 0.0.0.0 --proxy-config proxy.conf.js",
     "build": "ng build --base-href ./",
     "build-cast": "ng build --configuration=cast --base-href /siced-web/",
@@ -13,9 +12,6 @@
     "e2e": "ng e2e"
   },
   "private": true,
-  "resolutions": {
-    "file-saver": "1.3.8"
-  },
   "dependencies": {
     "@angular/animations": "^7.2.14",
     "@angular/cdk": "^7.3.7",
@@ -77,7 +73,6 @@
     "karma-junit-reporter": "^2.0.1",
     "karma-sonarqube-reporter": "^1.4.0",
     "karma-spec-reporter": "0.0.36",
-    "npm-force-resolutions": "0.0.4",
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0",
