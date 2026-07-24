@@ -76,3 +76,6 @@ sipcs-digital-pay-provisionamento-visa-des-16-m66cr   0/1       CrashLoopBackOff
 -sh-4.2$
 -sh-4.2$ oc exec -n sipcs-des sipcs-digital-pay-provisionamento-visa-des-16-m66cr -- curl -s -o /dev/null -w "%{http_code}\n" http://localhost:8080/cartoes/cartao-credito/digital-pay/provisionamento/visa/q/health/live
 
+health/live
+error: Internal error occurred: error executing command in container: container is not created or running
+-sh-4.2$
