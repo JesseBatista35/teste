@@ -1,21 +1,54 @@
-Patricia Vourakis Barbosa Braga
- 
-bom dia
- 
-tudo bem?
- 
-esqueci de mandar ontem
- 
-é pra colocar o tipo de atendimento que fazemos?
- 
+ATUAÇÃO (mantive o que já estava e completei com o que você atende e que não constava):
+ADS (BUILD, LIBRARY, RELEASE), JAVA (CONFIGURAÇÃO), ANGULAR, NODE JS, NPM, ANSIBLE, QUARKUS, SPRING BOOT, APACHE, JBOSS, JENKINS, MFP/PMF (ON PREMISE), NEXUS, NGINX, OKD, AKS, AWS, MTA, SSO, PROXY, LDAP, MQ SERIES, JDBC (INTEGRAÇÃO COM APLICAÇÃO), CERTIFICADOS, VAULT, .NET, IIS, TERRAFORM, CONTROL-M, ARGOCD, GITHUB ACTIONS, AZURE DEVOPS, HELM, MOBILE (ANDROID E IOS), GRAYLOG, APPLICATION INSIGHTS, BEYONDTRUST
 
-
-Jesse bom dia , corrige as informações abaixo estiverem erradas por favor , são as que o Rodrigo já havia colocado na nossa planilha, mandei como exemplo o q o Roger informou 
+MATRÍCULA: p585600
+SITE: BSB
+HORÁRIO: 09 as 18
+SERVIDORES QUE ACESSA: BSB, RJ e SP
+SERVIDORES QUE NÃO ACESSA: N/A
+TECNOLOGIA QUE NÃO TEM ACESSO: Ambientes PRD e HMP (atua somente em DES e TQS)
 
 
 
 
 
-<img width="1672" height="300" alt="image" src="https://github.com/user-attachments/assets/cfe62a94-ba01-46c1-b1fe-e4f5aa172135" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
