@@ -1,24 +1,296 @@
-Segue a lista só com os repositórios principais (sem as duplicatas com sufixo -infranprd/-infraprd, já que a exclusão pelo Fusion X cuida dessas automaticamente):
+Avaliar Falha durante o build do projeto (pipeline), está apontando a inexistência de um artefato que está disponível. 
 
-sisfm-ext-auditoria
-sisfm-ext-xid
-sisfm-ext-exceptions
-sisfm-ext-commons
-sisfm-ext-logger
-sisfm-host-20260316
-sisfm-host
-sisfm-sisfm-host-s3-teste-1603
-sisfm-api-perfil-20260317
-sisfm-quarkus-teste-01-1703
-sisfm-mfe-angular-s3-teste-01-170
-sisfm-mfe-angular-s3-teste-01-1703
-sisfm-mfe-host-20260320
-sisfm-lib-ext-perfilconta
-sisfm-lib-seguranca
-sisfm-lib-endpointmetadata
-sisfm-lib-lib-bom
-sisfm-lib-framework
+Esse artefato existe e funciona no build dos demais projetos que necessitam dele, logo há um problema específico no build desse projeto.
 
-Total: 18 repositórios principais (de 42 linhas na lista original, o restante eram as variantes -infranprd/-infraprd).
+Link: https://devops.caixa/projetos/Caixa/_build/results?buildId=779620&view=logs&j=275f1d19-1bd8-5591-b06b-07d489ea915a&t=a2c59c87-17bb-59ca-9eb1-609815e0f5dc
 
-Repara que sisfm-mfe-angular-s3-teste-01-170 e sisfm-mfe-angular-s3-teste-01-1703 são nomes diferentes (um termina em "170" e outro em "1703") — mantive os dois separados, só por garantia, já que pode ser erro de digitação no README original ou repositórios distintos mesmo. Vale confirmar isso antes de mandar pro Fusion X.
+
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"	
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"	
+xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>br.gov.caixa.siacc.pix.suporte</groupId>
+  <artifactId>SIACC-pixautomatico-mq-suporte</artifactId>
+  <version>1.0.18-SNAPSHOT</version>
+  <properties>
+		<compiler-plugin.version>3.12.1</compiler-plugin.version>
+		<maven.compiler.release>17</maven.compiler.release>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<quarkus.platform.artifact-id>quarkus-bom</quarkus.platform.artifact-id>
+		<quarkus.platform.group-id>io.quarkus.platform</quarkus.platform.group-id>
+		<quarkus.platform.version>3.8.3</quarkus.platform.version>
+		<skipITs>true</skipITs>
+		<surefire-plugin.version>3.2.5</surefire-plugin.version>
+		<timestamp>${maven.build.timestamp}</timestamp>
+		<platform-version>${quarkus.platform.version}</platform-version>
+		<applicationinsights-agent.version>3.4.15</applicationinsights-agent.version>
+	</properties>
+	
+<!--	<repositories>
+		<repository>
+			<id>snapshots</id>
+			<url>http://binario.caixa:8081/repository/snapshots/</url>
+			<snapshots>
+			<enabled>true</enabled>
+			</snapshots>
+			<releases>
+			<enabled>false</enabled>
+			</releases>
+		</repository>
+	</repositories>	-->
+	
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>${quarkus.platform.group-id}</groupId>
+				<artifactId>${quarkus.platform.artifact-id}</artifactId>
+				<version>${quarkus.platform.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+	
+	<dependencies>
+		<dependency>
+			<groupId>br.gov.caixa.siacc.pix.suporte</groupId>
+			<artifactId>SIACC-pixautomatico-api-suporte</artifactId>			
+			<version>[1.0.169-SNAPSHOT,1.1.0-SNAPSHOT)</version><!--  usar sempre a ultima revisao 1.0.x -->
+		</dependency>
+		
+<!--		<dependency>
+			<groupId>br.gov.caixa.siacc.pix.suporte</groupId>
+			<artifactId>SIACC-pixautomatico-db-suporte</artifactId>			   
+			   <version>[1.0.153-SNAPSHOT,1.1.0-SNAPSHOT)</version>  usar sempre a ultima revisao 1.0.x 
+		</dependency>-->
+
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-inline</artifactId>
+			<version>5.2.0</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>io.quarkus</groupId>
+			<artifactId>quarkus-panache-mock</artifactId>
+			<scope>test</scope>
+		</dependency>	
+		
+		<dependency>
+		    <groupId>io.quarkus</groupId>
+		    <artifactId>quarkus-smallrye-reactive-messaging</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.apache.activemq</groupId>
+			<artifactId>artemis-server</artifactId>
+			<!-- <version>2.32.0</version> para jdk 17 -->
+			<version>2.32.0</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>io.quarkiverse.artemis</groupId>
+		    <artifactId>quarkus-artemis-jms</artifactId>
+		    <!-- <version>3.2.1</version> para jdk 17 -->
+		    <version>3.1.4</version> <!--  ultima para JDK 11 -->
+		</dependency>	
+		
+		<dependency>
+			<groupId>io.smallrye.reactive</groupId>
+			<artifactId>smallrye-reactive-messaging-jms</artifactId>
+			<!-- <version>4.20.0</version> -->
+		</dependency>
+		
+		 <dependency>
+		    <groupId>io.smallrye.reactive</groupId>
+		    <artifactId>smallrye-reactive-messaging-jackson</artifactId>
+		    <!-- <version>4.20.0</version> -->
+		</dependency>
+		
+		<dependency>
+            <groupId>com.ibm.mq</groupId>
+            <artifactId>com.ibm.mq.jakarta.client</artifactId>
+            <version>9.3.4.1</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.messaginghub</groupId>
+            <artifactId>pooled-jms</artifactId>
+            <version>3.1.5</version>
+        </dependency>
+
+	</dependencies>
+	
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>${quarkus.platform.group-id}</groupId>
+				<artifactId>quarkus-maven-plugin</artifactId>
+				<version>${quarkus.platform.version}</version>
+				<extensions>true</extensions>
+				<executions>
+					<execution>
+						<goals>
+							<goal>build</goal>
+							<goal>generate-code</goal>
+							<goal>generate-code-tests</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${compiler-plugin.version}</version>
+				<configuration>
+					<compilerArgs>
+						<arg>-parameters</arg>
+					</compilerArgs>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>3.1.0</version>
+				<configuration>
+					<archive>
+						<manifest>
+							<addClasspath>false</addClasspath>
+							<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+							<addDefaultSpecificationEntries>false</addDefaultSpecificationEntries>
+						</manifest>
+						<manifestEntries>
+							<Artifact-Id>${project.artifactId}</Artifact-Id>
+							<Build-Time>${maven.build.timestamp}</Build-Time>
+							<Platform-Version>${platform-version}</Platform-Version>
+						</manifestEntries>
+					</archive>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>${surefire-plugin.version}</version>
+				<configuration>
+					<systemPropertyVariables>
+						<java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
+						<maven.home>${maven.home}</maven.home>
+					</systemPropertyVariables>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-failsafe-plugin</artifactId>
+				<version>${surefire-plugin.version}</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>integration-test</goal>
+							<goal>verify</goal>
+						</goals>
+						<configuration>
+							<systemPropertyVariables>
+								<native.image.path>${project.build.directory}/${project.build.finalName}-runner</native.image.path>
+								<java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
+								<maven.home>${maven.home}</maven.home>
+							</systemPropertyVariables>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>3.6.0</version>
+				<executions>
+					<execution>
+						<id>copy-agent</id>
+						<phase>package</phase>
+						<goals>
+							<goal>copy</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<artifactItems>
+						<artifactItem>
+							<groupId>com.microsoft.azure</groupId>
+							<artifactId>applicationinsights-agent</artifactId>
+							<version>${applicationinsights-agent.version}</version>
+							<outputDirectory>${project.build.directory}/agent</outputDirectory>
+							<destFileName>applicationinsights-agent.jar</destFileName>
+						</artifactItem>
+					</artifactItems>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.sonarsource.scanner.maven</groupId>
+				<artifactId>sonar-maven-plugin</artifactId>
+				<version>3.9.0.2155</version>
+			</plugin>
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>0.8.8</version>
+				<configuration>
+					<append>true</append>
+  					<systemPropertyVariables>
+				        <jacoco-agent.destfile>target/jacoco.exec</jacoco-agent.destfile>
+				    </systemPropertyVariables>					
+<!--			        <excludes>
+			            <exclude>**/*</exclude>
+			        </excludes>					
+-->				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>post-unit-test</id>
+						<phase>test</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+	<profiles>
+		<profile>
+			<id>native</id>
+			<activation>
+				<property>
+					<name>native</name>
+				</property>
+			</activation>
+			<properties>
+				<skipITs>false</skipITs>
+				<quarkus.package.type>native</quarkus.package.type>
+			</properties>
+		</profile>
+	</profiles>
+</project>
+
+
+<dependencies>
+        <dependency>
+            <groupId>br.gov.caixa.siacc.pix.suporte</groupId>
+            <artifactId>SIACC-pixautomatico-api-suporte</artifactId>            
+            <version>[1.0.169-SNAPSHOT,1.1.0-SNAPSHOT)</version><!--  usar sempre a ultima revisao 1.0.x -->
+        </dependency>
+        
+ 
+Porem o artefato que está reclamando é esse 
+
+
+
+<img width="1915" height="912" alt="image" src="https://github.com/user-attachments/assets/fd9d854c-a563-41b5-ac88-99ec913c716f" />
+
+
+<img width="1623" height="501" alt="image" src="https://github.com/user-attachments/assets/bcc39588-d2c0-4a7b-b4b4-1290b91119a9" />
+
+
