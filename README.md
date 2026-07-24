@@ -1,30 +1,15 @@
-Segue a nota:
+1.  Solicitamos reciclar o servidor node cadtqapllx044 com IP: 10.116.24.199
 
-Prezados,
 
-Informamos que foi realizada, via Fusion X, a exclusão dos repositórios relacionados ao sistema SISFM, conforme solicitação registrada. A exclusão do repositório principal de cada componente contempla automaticamente a remoção do respectivo repositório de infraestrutura (sufixo infranprd/infraprd) e sua retirada do GitOps.
 
-Repositórios excluídos:
-
-sisfm-ext-auditoria
-sisfm-ext-xid
-sisfm-ext-exceptions
-sisfm-ext-commons
-sisfm-ext-logger
-sisfm-mfe-angular-s3-teste-01-170
-sisfm-mfe-angular-s3-teste-01-1703
-sisfm-mfe-host-20260320
-sisfm-lib-ext-perfilconta
-sisfm-lib-seguranca
-sisfm-host-20260316
-sisfm-host
-sisfm-sisfm-host-s3-teste-1603
-sisfm-api-perfil-20260317
-sisfm-quarkus-teste-01-1703
-sisfm-lib-endpointmetadata
-sisfm-lib-lib-bom
-sisfm-lib-framework
-
-Solicitamos a gentileza de verificar, junto à equipe responsável pela AWS, se os recursos e credenciais associados a estes repositórios também foram removidos, uma vez que essa etapa não é abrangida pela exclusão via Fusion X.
-
-Permanecemos à disposição para eventuais esclarecimentos.
+[p585600@cadtqapllx044 ~]$
+[p585600@cadtqapllx044 ~]$
+[p585600@cadtqapllx044 ~]$ ps -ef | grep jboss
+sirot    1989284 1989255  0 Apr17 ?        01:07:43 /opt/jboss/jdk/bin/java -server -classpath /connector/lib/ceflib2.0.5.jar:/connector/lib/connector-2.2.2.jar:/connector/lib/parser.jar:/connector/lib/xercesImpl.jar:/connector/lib/xml-apis.jar:/connector/lib/crimson.jar:/connector/lib/jaxp-api.jar:/connector/lib/ceflog2.0.1.jar:/connector/lib/mail.jar:/connector/lib/activation.jar:/connector/lib/sirotconEjb-lib_v2.2.7.jar:/connector/lib/log4j-1.2.8.jar:/connector/config:/connector/lib/jcert.jar:/connector/lib/jnet.jar:/connector/lib/jsse.jar:/connector/lib/ceflib2.0.5.jar:/connector/lib/connector-2.2.2.jar:/connector/lib/parser.jar:/connector/lib/xercesImpl.jar:/connector/lib/xml-apis.jar:/connector/lib/crimson.jar:/connector/lib/jaxp-api.jar:/connector/lib/ceflog2.0.1.jar:/connector/lib/mail.jar:/connector/lib/activation.jar:/connector/lib/sirotconEjb-lib_v2.2.7.jar:/connector/lib/log4j-1.2.8.jar:/connector/config:/connector/lib/jcert.jar:/connector/lib/jnet.jar:/connector/lib/jsse.jar: br.gov.caixa.sirot.connector.Connector /connector/config/connector.properties /connector/config/map.properties
+p585600  3012094 3011699  0 13:05 pts/2    00:00:00 grep --color=auto jboss
+[p585600@cadtqapllx044 ~]$ history
+    1  07/24/26 - 13:05:05 ps -ef | grep jboss
+    2  07/24/26 - 13:05:53 history
+[p585600@cadtqapllx044 ~]$ hostname -f
+cadtqapllx044
+[p585600@cadtqapllx044 ~]$
