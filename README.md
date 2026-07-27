@@ -1,3 +1,490 @@
+
+
+
+
+2026-07-27 14:28:18,691 DEBUG [org.jboss.jca.core.connectionmanager.pool.strategy.OnePool] (default task-17) db2sgr: getConnection(null, WrappedConnectionRequestInfo@2005dcd0[userName=SSGRDR01]) [0/32]
+2026-07-27 14:28:18,693 DEBUG [org.jboss.jca.core.connectionmanager.pool.strategy.OnePool] (default task-17) db2sgr: returnConnection(68a20402, false) [0/32]
+2026-07-27 14:28:18,693 DEBUG [br.gov.caixa.sisgr.acessoseguro.model.oauth.bean.SisgrAutenticacaoModel] (default task-17) Tipo de Credencial Recebida da SP: 98
+2026-07-27 14:28:18,693 DEBUG [br.gov.caixa.sisgr.acessoseguro.model.oauth.bean.SisgrAutenticacaoModel] (default task-17) Codigo de Credencial Recebida da SP: f929540
+2026-07-27 14:28:18,693 DEBUG [br.gov.caixa.sisgr.acessoseguro.model.oauth.bean.SisgrAutenticacaoModel] (default task-17)
+------------------------------------------------------------------------------------------
+
+2026-07-27 14:28:18,693 DEBUG [br.gov.caixa.sisgr.acessoseguro.model.oauth.bean.SisgrAutenticacaoModel] (default task-17) Credencial  Enviada[9998|f929540] igual a Credencial Recebido da SP[MATRICULA|f929540] : true
+2026-07-27 14:28:18,693 DEBUG [br.gov.caixa.sisgr.acessoseguro.model.oauth.bean.SisgrAutenticacaoModel] (default task-17)
+------------------------------------------------------------------------------------------
+
+2026-07-27 14:28:18,693 DEBUG [br.gov.caixa.sisgr.acessoseguro.model.oauth.bean.SisgrAutenticacaoAppModel] (default task-17) Buscando a APP: [sicrb-intra]
+2026-07-27 14:28:18,693 DEBUG [org.jboss.jca.core.connectionmanager.pool.strategy.OnePool] (default task-17) db2sgr: getConnection(null, WrappedConnectionRequestInfo@2005dcd0[userName=SSGRDR01]) [0/32]
+2026-07-27 14:28:18,697 DEBUG [org.jboss.jca.core.connectionmanager.pool.strategy.OnePool] (default task-17) db2sgr: returnConnection(68a20402, false) [0/32]
+2026-07-27 14:28:18,698 DEBUG [br.gov.caixa.sisgr.acessoseguro.model.oauth.bean.SisgrAutenticacaoAppModel] (default task-17) Buscando a APP: [sicrb-intra] - Encontrado!
+2026-07-27 14:28:18,698 DEBUG [br.gov.caixa.sisgr.acessoseguro.model.oauth.bean.SisgrDominioModel] (default task-17) Buscando o domínio para aplicação: [sicrb-intra]
+2026-07-27 14:28:18,698 DEBUG [org.jboss.jca.core.connectionmanager.pool.strategy.OnePool] (default task-17) db2sgr: getConnection(null, WrappedConnectionRequestInfo@2005dcd0[userName=SSGRDR01]) [0/32]
+2026-07-27 14:28:18,701 DEBUG [org.jboss.jca.core.connectionmanager.pool.strategy.OnePool] (default task-17) db2sgr: returnConnection(68a20402, false) [0/32]
+2026-07-27 14:28:18,701 DEBUG [br.gov.caixa.sisgr.acessoseguro.model.oauth.bean.SisgrDominioModel] (default task-17) Buscando o domínio para aplicação:  [sicrb-intra] - Domínio: [intranet]
+2026-07-27 14:28:18,701 DEBUG [br.gov.caixa.sisgr.acessoseguro.model.oauth.bean.SisgrCodeSessionModel] (default task-17) Salvando o código de Autorização gerado: [4dec737d-515b-4b78-ab49-9c48d39b0ca4] para o usuário: [W|W0000001|9998|F929540] e IP: [10.111.18.1]
+2026-07-27 14:28:18,701 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-17) INICIO METODO :: ACSSGR  salvarCodigoAutorizacao(....
+2026-07-27 14:28:18,701 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-17) P_NO_CHAMADOR :: ACSSGR
+2026-07-27 14:28:18,701 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-17) P_NO_DOMINIO :: intranet
+2026-07-27 14:28:18,701 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-17) P_NO_USUARIO :: W|W0000001|9998|F929540
+2026-07-27 14:28:18,701 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-17) P_DE_URL_ORIGEM :: http://srjdeapllx130:8080/intranet/auth/login
+2026-07-27 14:28:18,701 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-17) P_DE_USUARIO :: {"tipoCredencial":"9998","codigoCredencial":"f929540","tipoAmbiente":"W","siglaAmbiente":"W0000001","nivelAutenticacao":"99","nomeUsuario":"MARINALDO OLIVEIRA SANTOS JUNIOR","numeroNatural":"0000000000000","certificacao":"070530001429","estagioAmbiente":"DESENVOLVIMENTO","data":""}
+2026-07-27 14:28:18,701 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-17) P_DE_ESTADO_SESSAO :: 0
+2026-07-27 14:28:18,701 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-17) P_NO_DISPOSITIVO :: Google Chrome|PC|WIN32
+2026-07-27 14:28:18,701 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-17) P_CO_IP_USUARIO :: 10.111.18.1
+2026-07-27 14:28:18,701 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-17)  REFAZENDO O IP
+2026-07-27 14:28:18,701 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-17) MANTEVE O IP 11
+2026-07-27 14:28:18,701 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-17) P_NO_APLICACAO :: sicrb-intra
+2026-07-27 14:28:18,701 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-17) P_CO_AUTORIZACAO :: 4dec737d-515b-4b78-ab49-9c48d39b0ca4
+2026-07-27 14:28:18,701 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-17) P_SG_SISTEMA :: SGR
+2026-07-27 14:28:18,701 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-17) P_IC_AMBIENTE_EXEC :: W
+2026-07-27 14:28:18,701 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-17) P_SG_AMBIENTE_EXEC :: W0000001
+2026-07-27 14:28:18,701 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-17) P_CO_TPUSUARIO_EXEC :: 9998
+2026-07-27 14:28:18,701 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-17) P_CO_USUARIO_EXEC :: F929540
+2026-07-27 14:28:18,701 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-17) P_CO_TOKEN_EXEC :: 10.111.18.1
+2026-07-27 14:28:18,701 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-17) INFORMACOES DO NOVO P_CO_TOKEN_EXEC AJUSTADO :: 10.111.18.1
+2026-07-27 14:28:18,701 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-17) P_CO_DISPOSITIVO_CANAL :: 1
+2026-07-27 14:28:18,701 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-17) P_DE_URL :: http://srjdeapllx130:8080/intranet/auth/login
+2026-07-27 14:28:18,701 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-17) P_CO_IP :: 10.116.85.230
+2026-07-27 14:28:18,701 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-17) P_DE_SERVICO :: ACSREST
+2026-07-27 14:28:18,701 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-17) P_NO_SERVIDOR_TRANSACAO :: 10.116.94.88
+2026-07-27 14:28:18,702 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-17) P_NO_INSTANCIA_SERVIDOR :: 10.116.85.230
+2026-07-27 14:28:18,702 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-17) :::::::::::::::: OS PARAMETROS ABAIXO NAO SAO INFORMADOS :::::::::::::::::::::::
+2026-07-27 14:28:18,702 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-17) P_CO_TPEMPRESA ::
+2026-07-27 14:28:18,702 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-17) P_CO_ESTABELECIMENTO ::
+2026-07-27 14:28:18,702 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-17) P_CO_PROCESSO_SGR ::
+2026-07-27 14:28:18,702 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-17) P_DE_TIPO_RECURSO ::
+2026-07-27 14:28:18,702 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-17) P_DE_RECURSO ::
+2026-07-27 14:28:18,702 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-17) P_CO_NIVEL_AUTENTICACAO ::
+2026-07-27 14:28:18,702 DEBUG [org.jboss.jca.core.connectionmanager.pool.strategy.OnePool] (default task-17) db2sgr: getConnection(null, WrappedConnectionRequestInfo@2005dcd0[userName=SSGRDR01]) [0/32]
+2026-07-27 14:28:18,712 DEBUG [org.jboss.jca.core.connectionmanager.pool.strategy.OnePool] (default task-17) db2sgr: returnConnection(68a20402, false) [0/32]
+2026-07-27 14:28:18,712 DEBUG [br.gov.caixa.sisgr.acessoseguro.login.controller.LoginController] (default task-17) :: REDIRECIONANDO PARA O SISTEMA ::
+2026-07-27 14:28:18,712 DEBUG [br.gov.caixa.sisgr.acessoseguro.login.controller.LoginController] (default task-17) :: FIM AUENTICACAO SISGR ::: protected void doPost(
+2026-07-27 14:28:22,839 DEBUG [org.jboss.jca.core.connectionmanager.pool.strategy.OnePool] (default task-21) db2sgr: getConnection(null, WrappedConnectionRequestInfo@2005dcd0[userName=SSGRDR01]) [0/32]
+2026-07-27 14:28:22,844 DEBUG [org.jboss.jca.core.connectionmanager.pool.strategy.OnePool] (default task-21) db2sgr: returnConnection(68a20402, false) [0/32]
+2026-07-27 14:28:22,846 DEBUG [br.gov.caixa.sisgr.acessoseguro.model.oauth.bean.SisgrTokenSessionModel] (default task-21) Buscando o usuário pelo cookie: [W|W0000001|9998|F929540]:
+2026-07-27 14:28:22,846 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2UsuarioTokenDAO] (default task-21)  INICIO ::: public Retorno<TokenUsuario> existeUsuarioDispositivo
+2026-07-27 14:28:22,846 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2UsuarioTokenDAO] (default task-21)  ::::::::::: dispositivo ::::::::::::::::::::: Google Chrome|PC|WIN32
+2026-07-27 14:28:22,846 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2UsuarioTokenDAO] (default task-21)  ::::::::::: nomeUsuario ::::::::::::::::::::: W|W0000001|9998|F929540
+2026-07-27 14:28:22,846 DEBUG [org.jboss.jca.core.connectionmanager.pool.strategy.OnePool] (default task-21) db2sgr: getConnection(null, WrappedConnectionRequestInfo@2005dcd0[userName=SSGRDR01]) [0/32]
+2026-07-27 14:28:22,849 DEBUG [org.jboss.jca.core.connectionmanager.pool.strategy.OnePool] (default task-21) db2sgr: returnConnection(68a20402, false) [0/32]
+2026-07-27 14:28:22,849 DEBUG [br.gov.caixa.sisgr.acessoseguro.model.oauth.bean.SisgrTokenSessionModel] (default task-21) Buscando o usuário pelo cookie: [W|W0000001|9998|F929540]: CODIGO DE RETORNO: 0 - MENSAGEM: BUSCA REALIZADA COM SUCESSO
+2026-07-27 14:28:22,849 DEBUG [br.gov.caixa.sisgr.acessoseguro.model.dao.DB2AutenticacaoDAO] (default task-21) CALL SGR.SGRSP081_BUSCAR_AUTENTICACAO
+2026-07-27 14:28:22,849 DEBUG [org.jboss.jca.core.connectionmanager.pool.strategy.OnePool] (default task-21) db2sgr: getConnection(null, WrappedConnectionRequestInfo@2005dcd0[userName=SSGRDR01]) [0/32]
+2026-07-27 14:28:22,855 DEBUG [org.jboss.jca.core.connectionmanager.pool.strategy.OnePool] (default task-21) db2sgr: returnConnection(68a20402, false) [0/32]
+2026-07-27 14:28:22,855 DEBUG [br.gov.caixa.sisgr.acessoseguro.model.oauth.bean.SisgrAutenticacaoAppModel] (default task-21) Buscando a APP: [sicrb-intra]
+2026-07-27 14:28:22,855 DEBUG [org.jboss.jca.core.connectionmanager.pool.strategy.OnePool] (default task-21) db2sgr: getConnection(null, WrappedConnectionRequestInfo@2005dcd0[userName=SSGRDR01]) [0/32]
+2026-07-27 14:28:22,858 DEBUG [org.jboss.jca.core.connectionmanager.pool.strategy.OnePool] (default task-21) db2sgr: returnConnection(68a20402, false) [0/32]
+2026-07-27 14:28:22,858 DEBUG [br.gov.caixa.sisgr.acessoseguro.model.oauth.bean.SisgrAutenticacaoAppModel] (default task-21) Buscando a APP: [sicrb-intra] - Encontrado!
+2026-07-27 14:28:22,858 DEBUG [br.gov.caixa.sisgr.acessoseguro.model.oauth.bean.SisgrDominioModel] (default task-21) Buscando o domínio para aplicação: [sicrb-intra]
+2026-07-27 14:28:22,858 DEBUG [org.jboss.jca.core.connectionmanager.pool.strategy.OnePool] (default task-21) db2sgr: getConnection(null, WrappedConnectionRequestInfo@2005dcd0[userName=SSGRDR01]) [0/32]
+2026-07-27 14:28:22,862 DEBUG [org.jboss.jca.core.connectionmanager.pool.strategy.OnePool] (default task-21) db2sgr: returnConnection(68a20402, false) [0/32]
+2026-07-27 14:28:22,862 DEBUG [br.gov.caixa.sisgr.acessoseguro.model.oauth.bean.SisgrDominioModel] (default task-21) Buscando o domínio para aplicação:  [sicrb-intra] - Domínio: [intranet]
+2026-07-27 14:28:22,862 DEBUG [br.gov.caixa.sisgr.acessoseguro.model.oauth.bean.SisgrCodeSessionModel] (default task-21) Salvando o código de Autorização gerado: [318527b8-8eac-4570-9765-a91ea4b8c609] para o usuário: [W|W0000001|9998|F929540] e IP: [10.111.18.1]
+2026-07-27 14:28:22,862 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-21) INICIO METODO :: ACSSGR  salvarCodigoAutorizacao(....
+2026-07-27 14:28:22,862 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-21) P_NO_CHAMADOR :: ACSSGR
+2026-07-27 14:28:22,862 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-21) P_NO_DOMINIO :: intranet
+2026-07-27 14:28:22,862 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-21) P_NO_USUARIO :: W|W0000001|9998|F929540
+2026-07-27 14:28:22,862 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-21) P_DE_URL_ORIGEM :: http://srjdeapllx130:8080/intranet/auth
+2026-07-27 14:28:22,862 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-21) P_DE_USUARIO :: {"tipoCredencial":"9998","codigoCredencial":"F929540","tipoAmbiente":"W","siglaAmbiente":"W0000001","nivelAutenticacao":"99","nomeUsuario":"MARINALDO SANTOS","unidade":"5088","certificacao":"070530001429","estagioAmbiente":"DESENVOLVIMENTO","ultimo":1785173298685}
+2026-07-27 14:28:22,862 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-21) P_DE_ESTADO_SESSAO :: 0
+2026-07-27 14:28:22,862 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-21) P_NO_DISPOSITIVO :: Google Chrome|PC|WIN32
+2026-07-27 14:28:22,862 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-21) P_CO_IP_USUARIO :: 10.111.18.1
+2026-07-27 14:28:22,862 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-21)  REFAZENDO O IP
+2026-07-27 14:28:22,862 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-21) MANTEVE O IP 11
+2026-07-27 14:28:22,862 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-21) P_NO_APLICACAO :: sicrb-intra
+2026-07-27 14:28:22,862 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-21) P_CO_AUTORIZACAO :: 318527b8-8eac-4570-9765-a91ea4b8c609
+2026-07-27 14:28:22,862 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-21) P_SG_SISTEMA :: SGR
+2026-07-27 14:28:22,862 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-21) P_IC_AMBIENTE_EXEC :: W
+2026-07-27 14:28:22,862 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-21) P_SG_AMBIENTE_EXEC :: W0000001
+2026-07-27 14:28:22,862 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-21) P_CO_TPUSUARIO_EXEC :: 9998
+2026-07-27 14:28:22,862 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-21) P_CO_USUARIO_EXEC :: F929540
+2026-07-27 14:28:22,862 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-21) P_CO_TOKEN_EXEC :: 10.111.18.1
+2026-07-27 14:28:22,862 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-21) INFORMACOES DO NOVO P_CO_TOKEN_EXEC AJUSTADO :: 10.111.18.1
+2026-07-27 14:28:22,862 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-21) P_CO_DISPOSITIVO_CANAL :: 1
+2026-07-27 14:28:22,863 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-21) P_DE_URL :: http://srjdeapllx130:8080/intranet/auth
+2026-07-27 14:28:22,863 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-21) P_CO_IP :: 10.116.85.230
+2026-07-27 14:28:22,863 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-21) P_DE_SERVICO :: ACSREST
+2026-07-27 14:28:22,863 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-21) P_NO_SERVIDOR_TRANSACAO :: 10.116.94.88
+2026-07-27 14:28:22,863 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-21) P_NO_INSTANCIA_SERVIDOR :: 10.116.85.230
+2026-07-27 14:28:22,863 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-21) :::::::::::::::: OS PARAMETROS ABAIXO NAO SAO INFORMADOS :::::::::::::::::::::::
+2026-07-27 14:28:22,863 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-21) P_CO_TPEMPRESA ::
+2026-07-27 14:28:22,863 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-21) P_CO_ESTABELECIMENTO ::
+2026-07-27 14:28:22,863 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-21) P_CO_PROCESSO_SGR ::
+2026-07-27 14:28:22,863 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-21) P_DE_TIPO_RECURSO ::
+2026-07-27 14:28:22,863 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-21) P_DE_RECURSO ::
+2026-07-27 14:28:22,863 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-21) P_CO_NIVEL_AUTENTICACAO ::
+2026-07-27 14:28:22,863 DEBUG [org.jboss.jca.core.connectionmanager.pool.strategy.OnePool] (default task-21) db2sgr: getConnection(null, WrappedConnectionRequestInfo@2005dcd0[userName=SSGRDR01]) [0/32]
+2026-07-27 14:28:22,867 DEBUG [org.jboss.jca.core.connectionmanager.pool.strategy.OnePool] (default task-21) db2sgr: returnConnection(68a20402, false) [0/32]
+2026-07-27 14:28:23,304 DEBUG [org.jboss.resteasy.resteasy_jaxrs.i18n] (default task-18) RESTEASY002315: PathInfo: /auth/token
+2026-07-27 14:28:23,305 DEBUG [org.jboss.resteasy.cdi.i18n] (default task-18) RESTEASY010520: Beans found for class br.gov.caixa.sisgr.acessoseguro.auth.rest.resource.TokenResource : [Managed Bean [class br.gov.caixa.sisgr.acessoseguro.auth.rest.resource.TokenResource] with qualifiers [@Any @Default]]
+2026-07-27 14:28:23,305 DEBUG [org.jboss.resteasy.resteasy_jaxrs.i18n] (default task-18) Interceptor Context: org.jboss.resteasy.core.interception.ServerReaderInterceptorContext,  Method : proceed
+2026-07-27 14:28:23,305 DEBUG [org.jboss.resteasy.resteasy_jaxrs.i18n] (default task-18) ReaderInterceptor: org.jboss.resteasy.security.doseta.DigitalVerificationInterceptor
+2026-07-27 14:28:23,305 DEBUG [org.jboss.resteasy.resteasy_jaxrs.i18n] (default task-18) Interceptor Context: org.jboss.resteasy.core.interception.ServerReaderInterceptorContext,  Method : proceed
+2026-07-27 14:28:23,305 DEBUG [org.jboss.resteasy.resteasy_jaxrs.i18n] (default task-18) MessageBodyReader: org.jboss.resteasy.spi.ResteasyProviderFactory$SortedKey
+2026-07-27 14:28:23,305 DEBUG [org.jboss.resteasy.resteasy_jaxrs.i18n] (default task-18) MessageBodyReader: org.jboss.resteasy.plugins.providers.ServerFormUrlEncodedProvider
+2026-07-27 14:28:23,305 DEBUG [org.jboss.resteasy.resteasy_jaxrs.i18n] (default task-18) Provider : org.jboss.resteasy.plugins.providers.ServerFormUrlEncodedProvider,  Method : readFrom
+2026-07-27 14:28:23,305 DEBUG [org.jboss.resteasy.resteasy_jaxrs.i18n] (default task-18) Provider : org.jboss.resteasy.plugins.providers.ServerFormUrlEncodedProvider,  Method : readFrom
+2026-07-27 14:28:23,305 DEBUG [org.jboss.resteasy.plugins.validation.i18n] (default task-18) RESTEASY008510: ResteasyCdiExtension is on the classpath.
+2026-07-27 14:28:23,305 INFO  [br.gov.caixa.sisgr.acessoseguro.auth.rest.resource.TokenResource] (default task-18)  ============================ INICIO METODO /aut/token ==========================================
+2026-07-27 14:28:23,306 DEBUG [org.jboss.jca.core.connectionmanager.pool.strategy.OnePool] (default task-18) db2sgr: getConnection(null, WrappedConnectionRequestInfo@2005dcd0[userName=SSGRDR01]) [0/32]
+2026-07-27 14:28:23,309 DEBUG [org.jboss.jca.core.connectionmanager.pool.strategy.OnePool] (default task-18) db2sgr: returnConnection(68a20402, false) [0/32]
+2026-07-27 14:28:23,309 DEBUG [br.gov.caixa.sisgr.acessoseguro.model.oauth.bean.SisgrCodeSessionModel] (default task-18) Buscando as informações por Código de Autorização: [318527b8-8eac-4570-9765-a91ea4b8c609]
+2026-07-27 14:28:23,309 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2UsuarioTokenDAO] (default task-18)  INICIO ::: public Retorno<TokenUsuario> buscarUsuarioCodAutorizacao
+2026-07-27 14:28:23,309 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2UsuarioTokenDAO] (default task-18)  ::::::::::: codigoAutorizacao ::::::::::::::::::::: 318527b8-8eac-4570-9765-a91ea4b8c609
+2026-07-27 14:28:23,309 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2UsuarioTokenDAO] (default task-18)  ::::::::::: nomeAplicacao ::::::::::::::::::::: sicrb-intra
+2026-07-27 14:28:23,309 DEBUG [org.jboss.jca.core.connectionmanager.pool.strategy.OnePool] (default task-18) db2sgr: getConnection(null, WrappedConnectionRequestInfo@2005dcd0[userName=SSGRDR01]) [0/32]
+2026-07-27 14:28:23,313 DEBUG [org.jboss.jca.core.connectionmanager.pool.strategy.OnePool] (default task-18) db2sgr: returnConnection(68a20402, false) [0/32]
+2026-07-27 14:28:23,313 DEBUG [br.gov.caixa.sisgr.acessoseguro.model.oauth.bean.SisgrCodeSessionModel] (default task-18) Codigo de Autorização: [318527b8-8eac-4570-9765-a91ea4b8c609], Usuario: [W|W0000001|9998|F929540], IP Recebido do BD: [10.111.24.203], IP da Requisição: [10.116.85.230]
+2026-07-27 14:28:23,313 DEBUG [br.gov.caixa.sisgr.acessoseguro.model.oauth.bean.SisgrAutenticacaoAppModel] (default task-18) Autenticando a APP: [sicrb-intra]
+2026-07-27 14:28:23,313 DEBUG [org.jboss.jca.core.connectionmanager.pool.strategy.OnePool] (default task-18) db2sgr: getConnection(null, WrappedConnectionRequestInfo@2005dcd0[userName=SSGRDR01]) [0/32]
+2026-07-27 14:28:23,316 DEBUG [org.jboss.jca.core.connectionmanager.pool.strategy.OnePool] (default task-18) db2sgr: returnConnection(68a20402, false) [0/32]
+2026-07-27 14:28:23,316 DEBUG [br.gov.caixa.sisgr.acessoseguro.model.oauth.bean.SisgrAutenticacaoAppModel] (default task-18) Autenticando a APP: [sicrb-intra] - Autenticado!
+2026-07-27 14:28:23,316 DEBUG [br.gov.caixa.sisgr.acessoseguro.model.oauth.bean.SisgrDominioModel] (default task-18) Buscando o domínio para aplicação: [sicrb-intra]
+2026-07-27 14:28:23,316 DEBUG [org.jboss.jca.core.connectionmanager.pool.strategy.OnePool] (default task-18) db2sgr: getConnection(null, WrappedConnectionRequestInfo@2005dcd0[userName=SSGRDR01]) [0/32]
+2026-07-27 14:28:23,320 DEBUG [org.jboss.jca.core.connectionmanager.pool.strategy.OnePool] (default task-18) db2sgr: returnConnection(68a20402, false) [0/32]
+2026-07-27 14:28:23,320 DEBUG [br.gov.caixa.sisgr.acessoseguro.model.oauth.bean.SisgrDominioModel] (default task-18) Buscando o domínio para aplicação:  [sicrb-intra] - Domínio: [intranet]
+2026-07-27 14:28:23,321 DEBUG [br.gov.caixa.sisgr.acessoseguro.model.oauth.bean.SisgrTokenSessionModel] (default task-18) Criando a autenticação do usuário [W|W0000001|9998|F929540]:
+2026-07-27 14:28:23,322 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-18) INICIO METODO :: ACSSGR  criarAutenticacao(....
+2026-07-27 14:28:23,322 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-18) P_NO_CHAMADOR :: ACSSGR
+2026-07-27 14:28:23,322 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-18) P_NO_DOMINIO :: intranet
+2026-07-27 14:28:23,322 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-18) P_NO_USUARIO :: W|W0000001|9998|F929540
+2026-07-27 14:28:23,322 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-18) P_DE_URL_ORIGEM :: http://srjdeapllx130:8080/intranet/auth/login
+2026-07-27 14:28:23,322 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-18) P_DE_USUARIO :: {"tipoCredencial":"9998","codigoCredencial":"F929540","tipoAmbiente":"W","siglaAmbiente":"W0000001","nivelAutenticacao":"99","nomeUsuario":"MARINALDO SANTOS","unidade":"5088","certificacao":"070530001429","estagioAmbiente":"DESENVOLVIMENTO","ultimo":1785173298685}
+2026-07-27 14:28:23,322 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-18) P_DE_ESTADO_SESSAO :: 05351227-c68d-4d87-b36c-3ff12502a525
+2026-07-27 14:28:23,322 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-18) P_NO_DISPOSITIVO :: Google Chrome|PC|WIN32
+2026-07-27 14:28:23,322 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-18) P_CO_IP_USUARIO :: 10.111.24.203
+2026-07-27 14:28:23,322 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-18)  REFAZENDO O IP
+2026-07-27 14:28:23,322 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-18) MANTEVE O IP 13
+2026-07-27 14:28:23,322 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-18) P_NO_APLICACAO :: sicrb-intra
+2026-07-27 14:28:23,322 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-18) P_CO_AUTORIZACAO :: 0cc5100e-a6c5-4089-9e0e-703265a9f12d
+2026-07-27 14:28:23,322 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-18) P_SG_SISTEMA :: SGR
+2026-07-27 14:28:23,322 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-18) P_IC_AMBIENTE_EXEC :: W
+2026-07-27 14:28:23,322 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-18) P_SG_AMBIENTE_EXEC :: W0000001
+2026-07-27 14:28:23,322 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-18) P_CO_TPUSUARIO_EXEC :: 9998
+2026-07-27 14:28:23,322 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-18) P_CO_USUARIO_EXEC :: F929540
+2026-07-27 14:28:23,322 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-18) P_CO_TOKEN_EXEC :: 10.111.24.203
+2026-07-27 14:28:23,322 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-18) INFORMACOES DO NOVO P_CO_TOKEN_EXEC AJUSTADO :: 10.111.24.203
+2026-07-27 14:28:23,322 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-18) P_CO_DISPOSITIVO_CANAL :: 1
+2026-07-27 14:28:23,322 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-18) P_DE_URL :: http://srjdeapllx130:8080/api/auth/token
+2026-07-27 14:28:23,322 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-18) P_CO_IP :: 10.116.85.230
+2026-07-27 14:28:23,322 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-18) P_DE_SERVICO :: ACSREST
+2026-07-27 14:28:23,322 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-18) P_NO_SERVIDOR_TRANSACAO :: 10.116.94.88
+2026-07-27 14:28:23,322 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-18) P_NO_INSTANCIA_SERVIDOR :: 10.116.85.230
+2026-07-27 14:28:23,322 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-18) :::::::::::::::: OS PARAMETROS ABAIXO NAO SAO INFORMADOS :::::::::::::::::::::::
+2026-07-27 14:28:23,322 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-18) P_CO_TPEMPRESA ::
+2026-07-27 14:28:23,322 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-18) P_CO_ESTABELECIMENTO ::
+2026-07-27 14:28:23,322 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-18) P_CO_PROCESSO_SGR ::
+2026-07-27 14:28:23,322 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-18) P_DE_TIPO_RECURSO ::
+2026-07-27 14:28:23,322 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-18) P_DE_RECURSO ::
+2026-07-27 14:28:23,322 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2AutenticacaoDAO] (default task-18) P_CO_NIVEL_AUTENTICACAO ::
+2026-07-27 14:28:23,322 DEBUG [org.jboss.jca.core.connectionmanager.pool.strategy.OnePool] (default task-18) db2sgr: getConnection(null, WrappedConnectionRequestInfo@2005dcd0[userName=SSGRDR01]) [0/32]
+2026-07-27 14:28:23,327 DEBUG [org.jboss.jca.core.connectionmanager.pool.strategy.OnePool] (default task-18) db2sgr: returnConnection(68a20402, false) [0/32]
+2026-07-27 14:28:23,327 DEBUG [br.gov.caixa.sisgr.acessoseguro.model.oauth.bean.SisgrTokenSessionModel] (default task-18) Criando a autenticação do usuário [W|W0000001|9998|F929540]: CODIGO DE RETORNO: 0 - MENSAGEM: TOKENS DE AUTENTICACAO SALVO COM SUCESSO
+2026-07-27 14:28:23,328 INFO  [br.gov.caixa.sisgr.acessoseguro.auth.rest.resource.TokenResource] (default task-18)   Response getToken TOKEN GERADO NA AUTENTICACAO ==>br.gov.caixa.sisgr.token.oauth.jwt.object.JWT@7ea4198e
+2026-07-27 14:28:23,329 DEBUG [org.jboss.resteasy.resteasy_jaxrs.i18n] (default task-18) MessageBodyWriter: org.jboss.resteasy.spi.ResteasyProviderFactory$SortedKey
+2026-07-27 14:28:23,329 DEBUG [org.jboss.resteasy.resteasy_jaxrs.i18n] (default task-18) MessageBodyWriter: org.jboss.resteasy.plugins.providers.StringTextStar
+2026-07-27 14:28:23,329 DEBUG [org.jboss.resteasy.resteasy_jaxrs.i18n] (default task-18) MessageBodyWriter: org.jboss.resteasy.plugins.providers.StringTextStar
+2026-07-27 14:28:23,329 DEBUG [org.jboss.resteasy.resteasy_jaxrs.i18n] (default task-18) Interceptor Context: org.jboss.resteasy.core.interception.ServerWriterInterceptorContext,  Method : proceed
+2026-07-27 14:28:23,329 DEBUG [org.jboss.resteasy.resteasy_jaxrs.i18n] (default task-18) WriterInterceptor: org.jboss.resteasy.security.doseta.DigitalSigningInterceptor
+2026-07-27 14:28:23,329 DEBUG [org.jboss.resteasy.resteasy_jaxrs.i18n] (default task-18) Interceptor Context: org.jboss.resteasy.core.interception.ServerWriterInterceptorContext,  Method : proceed
+2026-07-27 14:28:23,329 DEBUG [org.jboss.resteasy.resteasy_jaxrs.i18n] (default task-18) MessageBodyWriter: org.jboss.resteasy.spi.ResteasyProviderFactory$SortedKey
+2026-07-27 14:28:23,329 DEBUG [org.jboss.resteasy.resteasy_jaxrs.i18n] (default task-18) MessageBodyWriter: org.jboss.resteasy.plugins.providers.StringTextStar
+2026-07-27 14:28:23,332 DEBUG [br.gov.caixa.sisgr.acessoseguro.login.filter.UrlOriginFilter] (default task-16) CorsFilter - Login: Inicio
+2026-07-27 14:28:23,332 DEBUG [br.gov.caixa.sisgr.acessoseguro.login.filter.UrlOriginFilter] (default task-16) get Method: POST
+2026-07-27 14:28:23,332 DEBUG [org.jboss.resteasy.resteasy_jaxrs.i18n] (default task-16) RESTEASY002315: PathInfo: /processos/listar
+2026-07-27 14:28:23,332 DEBUG [org.jboss.resteasy.cdi.i18n] (default task-16) RESTEASY010520: Beans found for class br.gov.caixa.sisgr.acessoseguro.sisgr.rest.resource.ProcessosResource : [Managed Bean [class br.gov.caixa.sisgr.acessoseguro.sisgr.rest.resource.ProcessosResource] with qualifiers [@Any @Default]]
+2026-07-27 14:28:23,336 DEBUG [org.jboss.resteasy.resteasy_jaxrs.i18n] (default task-16) Interceptor Context: org.jboss.resteasy.core.interception.ServerReaderInterceptorContext,  Method : proceed
+2026-07-27 14:28:23,336 DEBUG [org.jboss.resteasy.resteasy_jaxrs.i18n] (default task-16) ReaderInterceptor: org.jboss.resteasy.security.doseta.DigitalVerificationInterceptor
+2026-07-27 14:28:23,336 DEBUG [org.jboss.resteasy.resteasy_jaxrs.i18n] (default task-16) Interceptor Context: org.jboss.resteasy.core.interception.ServerReaderInterceptorContext,  Method : proceed
+2026-07-27 14:28:23,336 DEBUG [org.jboss.resteasy.resteasy_jaxrs.i18n] (default task-16) MessageBodyReader: org.jboss.resteasy.spi.ResteasyProviderFactory$SortedKey
+2026-07-27 14:28:23,336 DEBUG [org.jboss.resteasy.resteasy_jaxrs.i18n] (default task-16) MessageBodyReader: org.jboss.resteasy.plugins.providers.jackson.ResteasyJackson2Provider
+2026-07-27 14:28:23,340 DEBUG [org.jboss.resteasy.plugins.validation.i18n] (default task-16) RESTEASY008510: ResteasyCdiExtension is on the classpath.
+2026-07-27 14:28:23,340 INFO  [br.gov.caixa.sisgr.acessoseguro.sisgr.rest.resource.ProcessosResource] (default task-16)  ============================ INICIO METODO /processo/listar ==========================================
+2026-07-27 14:28:23,340 INFO  [br.gov.caixa.sisgr.acessoseguro.sisgr.rest.resource.SisgrResource] (default task-16) =================================== INICIO METODO protected Response getResponse(... )====================================
+2026-07-27 14:28:23,341 INFO  [br.gov.caixa.sisgr.acessoseguro.sisgr.rest.resource.SisgrResource] (default task-16) :: JWT passado para o servico :: eyJ0eXAiOiJKV1MiLCJhbGciOiJITUFDU0hBMjU2IiwiY3R5IjoiYXBwbGljYXRpb24vanNvbiJ9.eyJqdGkiOiJXfFcwMDAwMDAxfDk5OTh8RjkyOTU0MCIsImlzcyI6Imh0dHA6Ly9zcmpkZWFwbGx4MTMwOjgwODAvaW50cmFuZXQvYXV0aC9sb2dpbiIsInN1YiI6Ild8VzAwMDAwMDF8OTk5OHxGOTI5NTQwIiwiYXVkIjoic2ljcmItaW50cmEiLCJleHAiOiIxNzg1MTczMzYzMzIwIiwiYXpwIjoic2ljcmItaW50cmEiLCJjbGFpbXMiOnsidGlwb0NyZWRlbmNpYWwiOiI5OTk4IiwiY29kaWdvQ3JlZGVuY2lhbCI6IkY5Mjk1NDAiLCJ0aXBvQW1iaWVudGUiOiJXIiwic2lnbGFBbWJpZW50ZSI6IlcwMDAwMDAxIiwibml2ZWxBdXRlbnRpY2FjYW8iOiI5OSIsIm5vbWVVc3VhcmlvIjoiTUFSSU5BTERPIFNBTlRPUyIsInVuaWRhZGUiOiI1MDg4IiwiY2VydGlmaWNhY2FvIjoiMDcwNTMwMDAxNDI5IiwiZXN0YWdpb0FtYmllbnRlIjoiREVTRU5WT0xWSU1FTlRPIiwidWx0aW1vIjoxNzg1MTczMjk4Njg1fX0=.mvi2I1x6__jtwjf5q8XIDTauLnT2JIBWhCuJMuKdT9vY=
+2026-07-27 14:28:23,341 DEBUG [br.gov.caixa.sisgr.acessoseguro.model.oauth.bean.SisgrTokenSessionModel] (default task-16) Buscando o token de Acesso para o usuário:  [W|W0000001|9998|F929540]:
+2026-07-27 14:28:23,341 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2UsuarioTokenDAO] (default task-16)  INICIO ::: public Retorno<TokenUsuario> buscarUsuarioTokenAcesso
+2026-07-27 14:28:23,341 INFO  [br.gov.caixa.sisgr.acessoseguro.model.oauth.dao.DB2UsuarioTokenDAO] (default task-16)  ::::::::::: accessToken ::::::::::::::::::::: eyJ0eXAiOiJKV1MiLCJhbGciOiJITUFDU0hBMjU2IiwiY3R5IjoiYXBwbGljYXRpb24vanNvbiJ9.eyJqdGkiOiJXfFcwMDAwMDAxfDk5OTh8RjkyOTU0MCIsImlzcyI6Imh0dHA6Ly9zcmpkZWFwbGx4MTMwOjgwODAvaW50cmFuZXQvYXV0aC9sb2dpbiIsInN1YiI6Ild8VzAwMDAwMDF8OTk5OHxGOTI5NTQwIiwiYXVkIjoic2ljcmItaW50cmEiLCJleHAiOiIxNzg1MTczMzYzMzIwIiwiYXpwIjoic2ljcmItaW50cmEiLCJjbGFpbXMiOnsidGlwb0NyZWRlbmNpYWwiOiI5OTk4IiwiY29kaWdvQ3JlZGVuY2lhbCI6IkY5Mjk1NDAiLCJ0aXBvQW1iaWVudGUiOiJXIiwic2lnbGFBbWJpZW50ZSI6IlcwMDAwMDAxIiwibml2ZWxBdXRlbnRpY2FjYW8iOiI5OSIsIm5vbWVVc3VhcmlvIjoiTUFSSU5BTERPIFNBTlRPUyIsInVuaWRhZGUiOiI1MDg4IiwiY2VydGlmaWNhY2FvIjoiMDcwNTMwMDAxNDI5IiwiZXN0YWdpb0FtYmllbnRlIjoiREVTRU5WT0xWSU1FTlRPIiwidWx0aW1vIjoxNzg1MTczMjk4Njg1fX0=.mvi2I1x6__jtwjf5q8XIDTauLnT2JIBWhCuJMuKdT9vY=
+2026-07-27 14:28:23,342 DEBUG [org.jboss.jca.core.connectionmanager.pool.strategy.OnePool] (default task-16) db2sgr: getConnection(null, WrappedConnectionRequestInfo@2005dcd0[userName=SSGRDR01]) [0/32]
+2026-07-27 14:28:23,344 DEBUG [org.jboss.jca.core.connectionmanager.pool.strategy.OnePool] (default task-16) db2sgr: returnConnection(68a20402, false) [0/32]
+2026-07-27 14:28:23,344 DEBUG [br.gov.caixa.sisgr.acessoseguro.model.oauth.bean.SisgrTokenSessionModel] (default task-16) Buscando o token de Acesso para o usuário: [W|W0000001|9998|F929540]: CODIGO DE RETORNO: 0 - MENSAGEM: BUSCA REALIZADA COM SUCESSO
+2026-07-27 14:28:23,354 DEBUG [org.jboss.jca.core.connectionmanager.pool.strategy.OnePool] (default task-16) db2sgr: getConnection(null, WrappedConnectionRequestInfo@2005dcd0[userName=SSGRDR01]) [0/32]
+2026-07-27 14:28:23,375 DEBUG [org.jboss.jca.core.connectionmanager.pool.strategy.OnePool] (default task-16) db2sgr: returnConnection(68a20402, false) [0/32]
+2026-07-27 14:28:23,375 DEBUG [org.jboss.resteasy.resteasy_jaxrs.i18n] (default task-16) MessageBodyWriter: org.jboss.resteasy.spi.ResteasyProviderFactory$SortedKey
+2026-07-27 14:28:23,375 DEBUG [org.jboss.resteasy.resteasy_jaxrs.i18n] (default task-16) MessageBodyWriter: org.jboss.resteasy.plugins.providers.jackson.ResteasyJackson2Provider
+2026-07-27 14:28:23,375 DEBUG [org.jboss.resteasy.resteasy_jaxrs.i18n] (default task-16) MessageBodyWriter: org.jboss.resteasy.plugins.providers.jackson.ResteasyJackson2Provider
+2026-07-27 14:28:23,375 DEBUG [org.jboss.resteasy.resteasy_jaxrs.i18n] (default task-16) Interceptor Context: org.jboss.resteasy.core.interception.ServerWriterInterceptorContext,  Method : proceed
+2026-07-27 14:28:23,375 DEBUG [org.jboss.resteasy.resteasy_jaxrs.i18n] (default task-16) WriterInterceptor: org.jboss.resteasy.security.doseta.DigitalSigningInterceptor
+2026-07-27 14:28:23,375 DEBUG [org.jboss.resteasy.resteasy_jaxrs.i18n] (default task-16) Interceptor Context: org.jboss.resteasy.core.interception.ServerWriterInterceptorContext,  Method : proceed
+2026-07-27 14:28:23,375 DEBUG [org.jboss.resteasy.resteasy_jaxrs.i18n] (default task-16) MessageBodyWriter: org.jboss.resteasy.spi.ResteasyProviderFactory$SortedKey
+2026-07-27 14:28:23,375 DEBUG [org.jboss.resteasy.resteasy_jaxrs.i18n] (default task-16) MessageBodyWriter: org.jboss.resteasy.plugins.providers.jackson.ResteasyJackson2Provider
+2026-07-27 14:28:35,719 DEBUG [org.jboss.jca.core.connectionmanager.pool.idle.IdleRemover] (IdleRemover) Notifying pools, interval: 30000
+2026-07-27 14:28:38,364 DEBUG [org.jboss.ejb.client.txn] (Periodic Recovery) Send recover request for transaction origin node identifier 1 to EJB receiver with node name srjdeapllx130:srjdeapllx130_acessoseguro_intra_5500
+2026-07-27 14:28:42,726 DEBUG [org.jboss.jca.core.connectionmanager.pool.validator.ConnectionValidator] (ConnectionValidator) Notifying pools, interval: 30000
+2026-07-27 14:28:42,726 DEBUG [org.jboss.jca.core.connectionmanager.pool.strategy.OnePool] (ConnectionValidator) Checking for connection within frequency
+2026-07-27 14:28:42,726 DEBUG [org.jboss.jca.core.connectionmanager.pool.strategy.OnePool] (ConnectionValidator) Checking for connection within frequency
+2026-07-27 14:28:42,726 DEBUG [org.jboss.jca.core.connectionmanager.pool.strategy.OnePool] (ConnectionValidator) Checking for connection within frequency
+2026-07-27 14:28:48,365 DEBUG [org.jboss.ejb.client.txn] (Periodic Recovery) Send recover request for transaction origin node identifier 1 to EJB receiver with node name srjdeapllx130:srjdeapllx130_acessoseguro_intra_5500
+[p585600@srjdeapllx130 ~]$ grep -i -B3 -A20 "siset" /infra_app/logs/sisgr/server-srjdeapllx130_acessoseguro_intra_5500.log | tail -n 200
+2026-07-27 10:26:25,105 INFO  [br.gov.caixa.sisgr.matrizacesso.dao.ManutencaoUsuarioExternoDAO] (default task-26) A PROPRIEDADE DE ROLE (SISET) ESTÁ: true
+2026-07-27 10:26:25,105 INFO  [stdout] (default task-26) 2026-07-27 10:26:25 [default task-26] DEBUG ManutencaoUsuarioExternoDAO:144 - Conectando ao Datasource: java:jboss/db2sgr
+2026-07-27 10:26:25,105 DEBUG [org.jboss.jca.core.connectionmanager.pool.strategy.OnePool] (default task-26) db2sgr: getConnection(null, WrappedConnectionRequestInfo@2005dcd0[userName=SSGRDR01]) [0/32]
+2026-07-27 10:26:25,105 INFO  [stdout] (default task-26) 2026-07-27 10:26:25 [default task-26] DEBUG ManutencaoUsuarioExternoDAO:147 - Preparando a procedure: SGR.SGRSPS05_BUSCAR_ROLE(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+2026-07-27 10:26:25,105 INFO  [stdout] (default task-26) 2026-07-27 10:26:25 [default task-26] DEBUG ManutencaoUsuarioExternoDAO:201 - Executando com os parâmetros: W,W0000001,9998,F526225,99,030229201128,BES,S31S10S04,,,,,10.211.18.131,http://srjdeapllx130:8080/matrizacesso/v1/manutencaoUsuarioExterno/autorizar,SGRSPS05_BUSCAR_ROLE,srjdeapllx130.host.trj,srjdeapllx130_acessoseguro_intra_5500,JAVA,null,1,?outParameter?,?outParameter?
+2026-07-27 10:26:25,109 INFO  [stdout] (default task-26) 2026-07-27 10:26:25 [default task-26] DEBUG ManutencaoUsuarioExternoDAO:249 - Fechando a Conexão: java:jboss/db2sgr
+2026-07-27 10:26:25,109 DEBUG [org.jboss.jca.core.connectionmanager.pool.strategy.OnePool] (default task-26) db2sgr: returnConnection(14dc3abf, false) [0/32]
+2026-07-27 10:26:25,109 INFO  [br.gov.caixa.sisgr.matrizacesso.service.siset.UserRoleService] (default task-26) Acessando serviço de OBTENÇÃO DOS DADOS do usuário 03215925737
+2026-07-27 10:26:25,111 DEBUG [org.jboss.resteasy.resteasy_jaxrs.i18n] (default task-26) Provider : org.jboss.resteasy.plugins.providers.DocumentProvider,  Method : DocumentProvider
+2026-07-27 10:26:25,111 DEBUG [org.jboss.resteasy.resteasy_jaxrs.i18n] (default task-26) RESTEASY002330: Unable to retrieve config: expandEntityReferences defaults to false
+2026-07-27 10:26:25,111 DEBUG [org.jboss.resteasy.resteasy_jaxrs.i18n] (default task-26) RESTEASY002335: Unable to retrieve config: enableSecureProcessingFeature defaults to true
+2026-07-27 10:26:25,111 DEBUG [org.jboss.resteasy.resteasy_jaxrs.i18n] (default task-26) RESTEASY002325: Unable to retrieve config: disableDTDs defaults to true
+2026-07-27 10:26:25,111 DEBUG [org.jboss.resteasy.resteasy_jaxrs.i18n] (default task-26) Provider : org.jboss.resteasy.plugins.providers.DocumentProvider,  Method : DocumentProvider
+2026-07-27 10:26:25,111 DEBUG [org.jboss.resteasy.resteasy_jaxrs.i18n] (default task-26) RESTEASY002330: Unable to retrieve config: expandEntityReferences defaults to false
+2026-07-27 10:26:25,111 DEBUG [org.jboss.resteasy.resteasy_jaxrs.i18n] (default task-26) RESTEASY002335: Unable to retrieve config: enableSecureProcessingFeature defaults to true
+2026-07-27 10:26:25,111 DEBUG [org.jboss.resteasy.resteasy_jaxrs.i18n] (default task-26) RESTEASY002325: Unable to retrieve config: disableDTDs defaults to true
+2026-07-27 10:26:25,119 DEBUG [br.gov.caixa.sisgr.integracao.siset.service.ServiceProxy] (default task-26) Url: https://logindes.caixa.gov.br
+2026-07-27 10:26:25,120 DEBUG [org.jboss.resteasy.resteasy_jaxrs.i18n] (default task-26) Provider : org.jboss.resteasy.plugins.providers.FormUrlEncodedProvider,  Method : writeTo
+2026-07-27 10:26:25,120 DEBUG [org.apache.http.impl.conn.BasicClientConnectionManager] (default task-26) Get connection for route {s}->https://logindes.caixa.gov.br:443
+2026-07-27 10:26:25,121 DEBUG [org.apache.http.impl.conn.DefaultClientConnectionOperator] (default task-26) Connecting to logindes.caixa.gov.br:443
+2026-07-27 10:26:25,125 DEBUG [org.apache.http.impl.conn.DefaultClientConnection] (default task-26) Connection org.apache.http.impl.conn.DefaultClientConnection@38b3a865 closed
+2026-07-27 10:26:25,125 DEBUG [org.apache.http.impl.conn.DefaultClientConnection] (default task-26) Connection org.apache.http.impl.conn.DefaultClientConnection@38b3a865 shut down
+2026-07-27 10:26:25,125 DEBUG [org.apache.http.impl.conn.BasicClientConnectionManager] (default task-26) Releasing connection org.apache.http.impl.conn.ManagedClientConnectionImpl@2b84be40
+2026-07-27 10:26:25,125 ERROR [br.gov.caixa.sisgr.matrizacesso.service.siset.UserRoleService] (default task-26) Ocorreu um error no serviço de OBTENÇÃO DOS DADOS do usuário 03215925737
+2026-07-27 10:26:25,125 ERROR [br.gov.caixa.sisgr.matrizacesso.service.siset.UserRoleService] (default task-26) [CAUSE]: RESTEASY004655: Unable to invoke request
+2026-07-27 10:26:25,125 SEVERE [br.gov.caixa.sisgr.matrizacesso.application.ApplicationException] (default task-26) Não foi possível executar a ação devido a falha de comunicação com o SISET.: br.gov.caixa.sisgr.matrizacesso.exception.SisetServiceException: Não foi possível executar a ação devido a falha de comunicação com o SISET.
+        at br.gov.caixa.sisgr.matrizacesso.service.siset.UserRoleService.hasRole(UserRoleService.java:118)
+        at br.gov.caixa.sisgr.matrizacesso.dao.ManutencaoUsuarioExternoDAO.autorizar(ManutencaoUsuarioExternoDAO.java:478)
+        at br.gov.caixa.sisgr.matrizacesso.dao.ManutencaoUsuarioExternoDAO$Proxy$_$$_WeldClientProxy.autorizar(Unknown Source)
+        at br.gov.caixa.sisgr.matrizacesso.service.ManutencaoUsuarioExternoBean.autorizar(ManutencaoUsuarioExternoBean.java:134)
+        at sun.reflect.GeneratedMethodAccessor272.invoke(Unknown Source)
+        at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+        at java.lang.reflect.Method.invoke(Method.java:498)
+        at org.jboss.as.ee.component.ManagedReferenceMethodInterceptor.processInvocation(ManagedReferenceMethodInterceptor.java:52)
+        at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:340)
+        at org.jboss.invocation.InterceptorContext$Invocation.proceed(InterceptorContext.java:437)
+        at org.jboss.as.weld.ejb.Jsr299BindingsInterceptor.doMethodInterception(Jsr299BindingsInterceptor.java:82)
+        at org.jboss.as.weld.ejb.Jsr299BindingsInterceptor.processInvocation(Jsr299BindingsInterceptor.java:93)
+        at org.jboss.as.ee.component.interceptors.UserInterceptorFactory$1.processInvocation(UserInterceptorFactory.java:63)
+        at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:340)
+        at org.jboss.as.ejb3.component.invocationmetrics.ExecutionTimeInterceptor.processInvocation(ExecutionTimeInterceptor.java:43)
+        at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:340)
+        at org.jboss.as.jpa.interceptor.SBInvocationInterceptor.processInvocation(SBInvocationInterceptor.java:47)
+        at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:340)
+        at org.jboss.invocation.InterceptorContext$Invocation.proceed(InterceptorContext.java:437)
+        at org.jboss.weld.ejb.AbstractEJBRequestScopeActivationInterceptor.aroundInvoke(AbstractEJBRequestScopeActivationInterceptor.java:64)
+        at org.jboss.as.weld.ejb.EjbRequestScopeActivationInterceptor.processInvocation(EjbRequestScopeActivationInterceptor.java:83)
+--
+2026-07-27 12:31:21,204 DEBUG [org.jboss.jca.core.connectionmanager.pool.strategy.OnePool] (default task-26) db2sgr: returnConnection(381354c7, false) [0/32]
+2026-07-27 12:31:21,204 INFO  [br.gov.caixa.sisgr.matrizacesso.dao.ManutencaoUsuarioExternoDAO] (default task-26) VERIFICANDO SE O SISTEMA TEM ROLE
+2026-07-27 12:31:21,204 INFO  [br.gov.caixa.sisgr.matrizacesso.dao.ManutencaoUsuarioExternoDAO] (default task-26) O SISTEMA [BES] tem role
+2026-07-27 12:31:21,204 INFO  [br.gov.caixa.sisgr.matrizacesso.dao.ManutencaoUsuarioExternoDAO] (default task-26) A PROPRIEDADE DE ROLE (SISET) ESTÁ: true
+2026-07-27 12:31:21,204 INFO  [stdout] (default task-26) 2026-07-27 12:31:21 [default task-26] DEBUG ManutencaoUsuarioExternoDAO:144 - Conectando ao Datasource: java:jboss/db2sgr
+2026-07-27 12:31:21,204 DEBUG [org.jboss.jca.core.connectionmanager.pool.strategy.OnePool] (default task-26) db2sgr: getConnection(null, WrappedConnectionRequestInfo@2005dcd0[userName=SSGRDR01]) [0/32]
+2026-07-27 12:31:21,205 INFO  [stdout] (default task-26) 2026-07-27 12:31:21 [default task-26] DEBUG ManutencaoUsuarioExternoDAO:147 - Preparando a procedure: SGR.SGRSPS05_BUSCAR_ROLE(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+2026-07-27 12:31:21,205 INFO  [stdout] (default task-26) 2026-07-27 12:31:21 [default task-26] DEBUG ManutencaoUsuarioExternoDAO:201 - Executando com os parâmetros: W,W0000001,9998,F569498,99,050811221710,BES,S31S10S04,,,,,10.111.25.65,http://srjdeapllx130:8080/matrizacesso/v1/manutencaoUsuarioExterno/autorizar,SGRSPS05_BUSCAR_ROLE,srjdeapllx130.host.trj,srjdeapllx130_acessoseguro_intra_5500,JAVA,null,1,?outParameter?,?outParameter?
+2026-07-27 12:31:21,210 INFO  [stdout] (default task-26) 2026-07-27 12:31:21 [default task-26] DEBUG ManutencaoUsuarioExternoDAO:249 - Fechando a Conexão: java:jboss/db2sgr
+2026-07-27 12:31:21,210 DEBUG [org.jboss.jca.core.connectionmanager.pool.strategy.OnePool] (default task-26) db2sgr: returnConnection(381354c7, false) [0/32]
+2026-07-27 12:31:21,210 INFO  [br.gov.caixa.sisgr.matrizacesso.service.siset.UserRoleService] (default task-26) Acessando serviço de OBTENÇÃO DOS DADOS do usuário 02903762708
+2026-07-27 12:31:21,211 DEBUG [org.jboss.resteasy.resteasy_jaxrs.i18n] (default task-26) Provider : org.jboss.resteasy.plugins.providers.DocumentProvider,  Method : DocumentProvider
+2026-07-27 12:31:21,211 DEBUG [org.jboss.resteasy.resteasy_jaxrs.i18n] (default task-26) RESTEASY002330: Unable to retrieve config: expandEntityReferences defaults to false
+2026-07-27 12:31:21,211 DEBUG [org.jboss.resteasy.resteasy_jaxrs.i18n] (default task-26) RESTEASY002335: Unable to retrieve config: enableSecureProcessingFeature defaults to true
+2026-07-27 12:31:21,211 DEBUG [org.jboss.resteasy.resteasy_jaxrs.i18n] (default task-26) RESTEASY002325: Unable to retrieve config: disableDTDs defaults to true
+2026-07-27 12:31:21,211 DEBUG [org.jboss.resteasy.resteasy_jaxrs.i18n] (default task-26) Provider : org.jboss.resteasy.plugins.providers.DocumentProvider,  Method : DocumentProvider
+2026-07-27 12:31:21,211 DEBUG [org.jboss.resteasy.resteasy_jaxrs.i18n] (default task-26) RESTEASY002330: Unable to retrieve config: expandEntityReferences defaults to false
+2026-07-27 12:31:21,211 DEBUG [org.jboss.resteasy.resteasy_jaxrs.i18n] (default task-26) RESTEASY002335: Unable to retrieve config: enableSecureProcessingFeature defaults to true
+2026-07-27 12:31:21,211 DEBUG [org.jboss.resteasy.resteasy_jaxrs.i18n] (default task-26) RESTEASY002325: Unable to retrieve config: disableDTDs defaults to true
+2026-07-27 12:31:21,217 DEBUG [br.gov.caixa.sisgr.integracao.siset.service.ServiceProxy] (default task-26) Url: https://logindes.caixa.gov.br
+2026-07-27 12:31:21,217 DEBUG [org.jboss.resteasy.resteasy_jaxrs.i18n] (default task-26) Provider : org.jboss.resteasy.plugins.providers.FormUrlEncodedProvider,  Method : writeTo
+2026-07-27 12:31:21,217 DEBUG [org.apache.http.impl.conn.BasicClientConnectionManager] (default task-26) Get connection for route {s}->https://logindes.caixa.gov.br:443
+2026-07-27 12:31:21,218 DEBUG [org.apache.http.impl.conn.DefaultClientConnectionOperator] (default task-26) Connecting to logindes.caixa.gov.br:443
+2026-07-27 12:31:21,221 DEBUG [org.apache.http.impl.conn.DefaultClientConnection] (default task-26) Connection org.apache.http.impl.conn.DefaultClientConnection@79511164 closed
+2026-07-27 12:31:21,221 DEBUG [org.apache.http.impl.conn.DefaultClientConnection] (default task-26) Connection org.apache.http.impl.conn.DefaultClientConnection@79511164 shut down
+2026-07-27 12:31:21,221 DEBUG [org.apache.http.impl.conn.BasicClientConnectionManager] (default task-26) Releasing connection org.apache.http.impl.conn.ManagedClientConnectionImpl@7e4ed7c0
+2026-07-27 12:31:21,221 ERROR [br.gov.caixa.sisgr.matrizacesso.service.siset.UserRoleService] (default task-26) Ocorreu um error no serviço de OBTENÇÃO DOS DADOS do usuário 02903762708
+2026-07-27 12:31:21,221 ERROR [br.gov.caixa.sisgr.matrizacesso.service.siset.UserRoleService] (default task-26) [CAUSE]: RESTEASY004655: Unable to invoke request
+2026-07-27 12:31:21,221 SEVERE [br.gov.caixa.sisgr.matrizacesso.application.ApplicationException] (default task-26) Não foi possível executar a ação devido a falha de comunicação com o SISET.: br.gov.caixa.sisgr.matrizacesso.exception.SisetServiceException: Não foi possível executar a ação devido a falha de comunicação com o SISET.
+        at br.gov.caixa.sisgr.matrizacesso.service.siset.UserRoleService.hasRole(UserRoleService.java:118)
+        at br.gov.caixa.sisgr.matrizacesso.dao.ManutencaoUsuarioExternoDAO.autorizar(ManutencaoUsuarioExternoDAO.java:478)
+        at br.gov.caixa.sisgr.matrizacesso.dao.ManutencaoUsuarioExternoDAO$Proxy$_$$_WeldClientProxy.autorizar(Unknown Source)
+        at br.gov.caixa.sisgr.matrizacesso.service.ManutencaoUsuarioExternoBean.autorizar(ManutencaoUsuarioExternoBean.java:134)
+        at sun.reflect.GeneratedMethodAccessor272.invoke(Unknown Source)
+        at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+        at java.lang.reflect.Method.invoke(Method.java:498)
+        at org.jboss.as.ee.component.ManagedReferenceMethodInterceptor.processInvocation(ManagedReferenceMethodInterceptor.java:52)
+        at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:340)
+        at org.jboss.invocation.InterceptorContext$Invocation.proceed(InterceptorContext.java:437)
+        at org.jboss.as.weld.ejb.Jsr299BindingsInterceptor.doMethodInterception(Jsr299BindingsInterceptor.java:82)
+        at org.jboss.as.weld.ejb.Jsr299BindingsInterceptor.processInvocation(Jsr299BindingsInterceptor.java:93)
+        at org.jboss.as.ee.component.interceptors.UserInterceptorFactory$1.processInvocation(UserInterceptorFactory.java:63)
+        at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:340)
+        at org.jboss.as.ejb3.component.invocationmetrics.ExecutionTimeInterceptor.processInvocation(ExecutionTimeInterceptor.java:43)
+        at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:340)
+        at org.jboss.as.jpa.interceptor.SBInvocationInterceptor.processInvocation(SBInvocationInterceptor.java:47)
+        at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:340)
+        at org.jboss.invocation.InterceptorContext$Invocation.proceed(InterceptorContext.java:437)
+        at org.jboss.weld.ejb.AbstractEJBRequestScopeActivationInterceptor.aroundInvoke(AbstractEJBRequestScopeActivationInterceptor.java:64)
+        at org.jboss.as.weld.ejb.EjbRequestScopeActivationInterceptor.processInvocation(EjbRequestScopeActivationInterceptor.java:83)
+--
+2026-07-27 12:31:26,464 DEBUG [org.jboss.jca.core.connectionmanager.pool.strategy.OnePool] (default task-36) db2sgr: returnConnection(381354c7, false) [0/32]
+2026-07-27 12:31:26,464 INFO  [br.gov.caixa.sisgr.matrizacesso.dao.ManutencaoUsuarioExternoDAO] (default task-36) VERIFICANDO SE O SISTEMA TEM ROLE
+2026-07-27 12:31:26,464 INFO  [br.gov.caixa.sisgr.matrizacesso.dao.ManutencaoUsuarioExternoDAO] (default task-36) O SISTEMA [BES] tem role
+2026-07-27 12:31:26,464 INFO  [br.gov.caixa.sisgr.matrizacesso.dao.ManutencaoUsuarioExternoDAO] (default task-36) A PROPRIEDADE DE ROLE (SISET) ESTÁ: true
+2026-07-27 12:31:26,464 INFO  [stdout] (default task-36) 2026-07-27 12:31:26 [default task-36] DEBUG ManutencaoUsuarioExternoDAO:144 - Conectando ao Datasource: java:jboss/db2sgr
+2026-07-27 12:31:26,464 DEBUG [org.jboss.jca.core.connectionmanager.pool.strategy.OnePool] (default task-36) db2sgr: getConnection(null, WrappedConnectionRequestInfo@2005dcd0[userName=SSGRDR01]) [0/32]
+2026-07-27 12:31:26,464 INFO  [stdout] (default task-36) 2026-07-27 12:31:26 [default task-36] DEBUG ManutencaoUsuarioExternoDAO:147 - Preparando a procedure: SGR.SGRSPS05_BUSCAR_ROLE(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+2026-07-27 12:31:26,465 INFO  [stdout] (default task-36) 2026-07-27 12:31:26 [default task-36] DEBUG ManutencaoUsuarioExternoDAO:201 - Executando com os parâmetros: W,W0000001,9998,F569498,99,050811221710,BES,S31S10S04,,,,,10.111.25.65,http://srjdeapllx130:8080/matrizacesso/v1/manutencaoUsuarioExterno/autorizar,SGRSPS05_BUSCAR_ROLE,srjdeapllx130.host.trj,srjdeapllx130_acessoseguro_intra_5500,JAVA,null,1,?outParameter?,?outParameter?
+2026-07-27 12:31:26,470 INFO  [stdout] (default task-36) 2026-07-27 12:31:26 [default task-36] DEBUG ManutencaoUsuarioExternoDAO:249 - Fechando a Conexão: java:jboss/db2sgr
+2026-07-27 12:31:26,470 DEBUG [org.jboss.jca.core.connectionmanager.pool.strategy.OnePool] (default task-36) db2sgr: returnConnection(381354c7, false) [0/32]
+2026-07-27 12:31:26,470 INFO  [br.gov.caixa.sisgr.matrizacesso.service.siset.UserRoleService] (default task-36) Acessando serviço de OBTENÇÃO DOS DADOS do usuário 02903762708
+2026-07-27 12:31:26,470 DEBUG [org.jboss.resteasy.resteasy_jaxrs.i18n] (default task-36) Provider : org.jboss.resteasy.plugins.providers.DocumentProvider,  Method : DocumentProvider
+2026-07-27 12:31:26,471 DEBUG [org.jboss.resteasy.resteasy_jaxrs.i18n] (default task-36) RESTEASY002330: Unable to retrieve config: expandEntityReferences defaults to false
+2026-07-27 12:31:26,471 DEBUG [org.jboss.resteasy.resteasy_jaxrs.i18n] (default task-36) RESTEASY002335: Unable to retrieve config: enableSecureProcessingFeature defaults to true
+2026-07-27 12:31:26,471 DEBUG [org.jboss.resteasy.resteasy_jaxrs.i18n] (default task-36) RESTEASY002325: Unable to retrieve config: disableDTDs defaults to true
+2026-07-27 12:31:26,471 DEBUG [org.jboss.resteasy.resteasy_jaxrs.i18n] (default task-36) Provider : org.jboss.resteasy.plugins.providers.DocumentProvider,  Method : DocumentProvider
+2026-07-27 12:31:26,471 DEBUG [org.jboss.resteasy.resteasy_jaxrs.i18n] (default task-36) RESTEASY002330: Unable to retrieve config: expandEntityReferences defaults to false
+2026-07-27 12:31:26,471 DEBUG [org.jboss.resteasy.resteasy_jaxrs.i18n] (default task-36) RESTEASY002335: Unable to retrieve config: enableSecureProcessingFeature defaults to true
+2026-07-27 12:31:26,471 DEBUG [org.jboss.resteasy.resteasy_jaxrs.i18n] (default task-36) RESTEASY002325: Unable to retrieve config: disableDTDs defaults to true
+2026-07-27 12:31:26,476 DEBUG [br.gov.caixa.sisgr.integracao.siset.service.ServiceProxy] (default task-36) Url: https://logindes.caixa.gov.br
+2026-07-27 12:31:26,477 DEBUG [org.jboss.resteasy.resteasy_jaxrs.i18n] (default task-36) Provider : org.jboss.resteasy.plugins.providers.FormUrlEncodedProvider,  Method : writeTo
+2026-07-27 12:31:26,477 DEBUG [org.apache.http.impl.conn.BasicClientConnectionManager] (default task-36) Get connection for route {s}->https://logindes.caixa.gov.br:443
+2026-07-27 12:31:26,477 DEBUG [org.apache.http.impl.conn.DefaultClientConnectionOperator] (default task-36) Connecting to logindes.caixa.gov.br:443
+2026-07-27 12:31:26,480 DEBUG [org.apache.http.impl.conn.DefaultClientConnection] (default task-36) Connection org.apache.http.impl.conn.DefaultClientConnection@5bbe4049 closed
+2026-07-27 12:31:26,480 DEBUG [org.apache.http.impl.conn.DefaultClientConnection] (default task-36) Connection org.apache.http.impl.conn.DefaultClientConnection@5bbe4049 shut down
+2026-07-27 12:31:26,480 DEBUG [org.apache.http.impl.conn.BasicClientConnectionManager] (default task-36) Releasing connection org.apache.http.impl.conn.ManagedClientConnectionImpl@6c5ed78f
+2026-07-27 12:31:26,480 ERROR [br.gov.caixa.sisgr.matrizacesso.service.siset.UserRoleService] (default task-36) Ocorreu um error no serviço de OBTENÇÃO DOS DADOS do usuário 02903762708
+2026-07-27 12:31:26,480 ERROR [br.gov.caixa.sisgr.matrizacesso.service.siset.UserRoleService] (default task-36) [CAUSE]: RESTEASY004655: Unable to invoke request
+2026-07-27 12:31:26,480 SEVERE [br.gov.caixa.sisgr.matrizacesso.application.ApplicationException] (default task-36) Não foi possível executar a ação devido a falha de comunicação com o SISET.: br.gov.caixa.sisgr.matrizacesso.exception.SisetServiceException: Não foi possível executar a ação devido a falha de comunicação com o SISET.
+        at br.gov.caixa.sisgr.matrizacesso.service.siset.UserRoleService.hasRole(UserRoleService.java:118)
+        at br.gov.caixa.sisgr.matrizacesso.dao.ManutencaoUsuarioExternoDAO.autorizar(ManutencaoUsuarioExternoDAO.java:478)
+        at br.gov.caixa.sisgr.matrizacesso.dao.ManutencaoUsuarioExternoDAO$Proxy$_$$_WeldClientProxy.autorizar(Unknown Source)
+        at br.gov.caixa.sisgr.matrizacesso.service.ManutencaoUsuarioExternoBean.autorizar(ManutencaoUsuarioExternoBean.java:134)
+        at sun.reflect.GeneratedMethodAccessor272.invoke(Unknown Source)
+        at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+        at java.lang.reflect.Method.invoke(Method.java:498)
+        at org.jboss.as.ee.component.ManagedReferenceMethodInterceptor.processInvocation(ManagedReferenceMethodInterceptor.java:52)
+        at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:340)
+        at org.jboss.invocation.InterceptorContext$Invocation.proceed(InterceptorContext.java:437)
+        at org.jboss.as.weld.ejb.Jsr299BindingsInterceptor.doMethodInterception(Jsr299BindingsInterceptor.java:82)
+        at org.jboss.as.weld.ejb.Jsr299BindingsInterceptor.processInvocation(Jsr299BindingsInterceptor.java:93)
+        at org.jboss.as.ee.component.interceptors.UserInterceptorFactory$1.processInvocation(UserInterceptorFactory.java:63)
+        at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:340)
+        at org.jboss.as.ejb3.component.invocationmetrics.ExecutionTimeInterceptor.processInvocation(ExecutionTimeInterceptor.java:43)
+        at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:340)
+        at org.jboss.as.jpa.interceptor.SBInvocationInterceptor.processInvocation(SBInvocationInterceptor.java:47)
+        at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:340)
+        at org.jboss.invocation.InterceptorContext$Invocation.proceed(InterceptorContext.java:437)
+        at org.jboss.weld.ejb.AbstractEJBRequestScopeActivationInterceptor.aroundInvoke(AbstractEJBRequestScopeActivationInterceptor.java:64)
+        at org.jboss.as.weld.ejb.EjbRequestScopeActivationInterceptor.processInvocation(EjbRequestScopeActivationInterceptor.java:83)
+--
+2026-07-27 12:31:29,613 DEBUG [org.jboss.jca.core.connectionmanager.pool.strategy.OnePool] (default task-40) db2sgr: returnConnection(381354c7, false) [0/32]
+2026-07-27 12:31:29,613 INFO  [br.gov.caixa.sisgr.matrizacesso.dao.ManutencaoUsuarioExternoDAO] (default task-40) VERIFICANDO SE O SISTEMA TEM ROLE
+2026-07-27 12:31:29,613 INFO  [br.gov.caixa.sisgr.matrizacesso.dao.ManutencaoUsuarioExternoDAO] (default task-40) O SISTEMA [BES] tem role
+2026-07-27 12:31:29,613 INFO  [br.gov.caixa.sisgr.matrizacesso.dao.ManutencaoUsuarioExternoDAO] (default task-40) A PROPRIEDADE DE ROLE (SISET) ESTÁ: true
+2026-07-27 12:31:29,613 INFO  [stdout] (default task-40) 2026-07-27 12:31:29 [default task-40] DEBUG ManutencaoUsuarioExternoDAO:144 - Conectando ao Datasource: java:jboss/db2sgr
+2026-07-27 12:31:29,614 DEBUG [org.jboss.jca.core.connectionmanager.pool.strategy.OnePool] (default task-40) db2sgr: getConnection(null, WrappedConnectionRequestInfo@2005dcd0[userName=SSGRDR01]) [0/32]
+2026-07-27 12:31:29,614 INFO  [stdout] (default task-40) 2026-07-27 12:31:29 [default task-40] DEBUG ManutencaoUsuarioExternoDAO:147 - Preparando a procedure: SGR.SGRSPS05_BUSCAR_ROLE(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+2026-07-27 12:31:29,614 INFO  [stdout] (default task-40) 2026-07-27 12:31:29 [default task-40] DEBUG ManutencaoUsuarioExternoDAO:201 - Executando com os parâmetros: W,W0000001,9998,F569498,99,050811221710,BES,S31S10S04,,,,,10.111.25.65,http://srjdeapllx130:8080/matrizacesso/v1/manutencaoUsuarioExterno/autorizar,SGRSPS05_BUSCAR_ROLE,srjdeapllx130.host.trj,srjdeapllx130_acessoseguro_intra_5500,JAVA,null,1,?outParameter?,?outParameter?
+2026-07-27 12:31:29,618 INFO  [stdout] (default task-40) 2026-07-27 12:31:29 [default task-40] DEBUG ManutencaoUsuarioExternoDAO:249 - Fechando a Conexão: java:jboss/db2sgr
+2026-07-27 12:31:29,618 DEBUG [org.jboss.jca.core.connectionmanager.pool.strategy.OnePool] (default task-40) db2sgr: returnConnection(381354c7, false) [0/32]
+2026-07-27 12:31:29,618 INFO  [br.gov.caixa.sisgr.matrizacesso.service.siset.UserRoleService] (default task-40) Acessando serviço de OBTENÇÃO DOS DADOS do usuário 02903762708
+2026-07-27 12:31:29,619 DEBUG [org.jboss.resteasy.resteasy_jaxrs.i18n] (default task-40) Provider : org.jboss.resteasy.plugins.providers.DocumentProvider,  Method : DocumentProvider
+2026-07-27 12:31:29,619 DEBUG [org.jboss.resteasy.resteasy_jaxrs.i18n] (default task-40) RESTEASY002330: Unable to retrieve config: expandEntityReferences defaults to false
+2026-07-27 12:31:29,619 DEBUG [org.jboss.resteasy.resteasy_jaxrs.i18n] (default task-40) RESTEASY002335: Unable to retrieve config: enableSecureProcessingFeature defaults to true
+2026-07-27 12:31:29,619 DEBUG [org.jboss.resteasy.resteasy_jaxrs.i18n] (default task-40) RESTEASY002325: Unable to retrieve config: disableDTDs defaults to true
+2026-07-27 12:31:29,619 DEBUG [org.jboss.resteasy.resteasy_jaxrs.i18n] (default task-40) Provider : org.jboss.resteasy.plugins.providers.DocumentProvider,  Method : DocumentProvider
+2026-07-27 12:31:29,619 DEBUG [org.jboss.resteasy.resteasy_jaxrs.i18n] (default task-40) RESTEASY002330: Unable to retrieve config: expandEntityReferences defaults to false
+2026-07-27 12:31:29,619 DEBUG [org.jboss.resteasy.resteasy_jaxrs.i18n] (default task-40) RESTEASY002335: Unable to retrieve config: enableSecureProcessingFeature defaults to true
+2026-07-27 12:31:29,619 DEBUG [org.jboss.resteasy.resteasy_jaxrs.i18n] (default task-40) RESTEASY002325: Unable to retrieve config: disableDTDs defaults to true
+2026-07-27 12:31:29,625 DEBUG [br.gov.caixa.sisgr.integracao.siset.service.ServiceProxy] (default task-40) Url: https://logindes.caixa.gov.br
+2026-07-27 12:31:29,626 DEBUG [org.jboss.resteasy.resteasy_jaxrs.i18n] (default task-40) Provider : org.jboss.resteasy.plugins.providers.FormUrlEncodedProvider,  Method : writeTo
+2026-07-27 12:31:29,626 DEBUG [org.apache.http.impl.conn.BasicClientConnectionManager] (default task-40) Get connection for route {s}->https://logindes.caixa.gov.br:443
+2026-07-27 12:31:29,626 DEBUG [org.apache.http.impl.conn.DefaultClientConnectionOperator] (default task-40) Connecting to logindes.caixa.gov.br:443
+2026-07-27 12:31:29,628 DEBUG [org.apache.http.impl.conn.DefaultClientConnection] (default task-40) Connection org.apache.http.impl.conn.DefaultClientConnection@4982faa1 closed
+2026-07-27 12:31:29,628 DEBUG [org.apache.http.impl.conn.DefaultClientConnection] (default task-40) Connection org.apache.http.impl.conn.DefaultClientConnection@4982faa1 shut down
+2026-07-27 12:31:29,628 DEBUG [org.apache.http.impl.conn.BasicClientConnectionManager] (default task-40) Releasing connection org.apache.http.impl.conn.ManagedClientConnectionImpl@2c592e87
+2026-07-27 12:31:29,629 ERROR [br.gov.caixa.sisgr.matrizacesso.service.siset.UserRoleService] (default task-40) Ocorreu um error no serviço de OBTENÇÃO DOS DADOS do usuário 02903762708
+2026-07-27 12:31:29,629 ERROR [br.gov.caixa.sisgr.matrizacesso.service.siset.UserRoleService] (default task-40) [CAUSE]: RESTEASY004655: Unable to invoke request
+2026-07-27 12:31:29,629 SEVERE [br.gov.caixa.sisgr.matrizacesso.application.ApplicationException] (default task-40) Não foi possível executar a ação devido a falha de comunicação com o SISET.: br.gov.caixa.sisgr.matrizacesso.exception.SisetServiceException: Não foi possível executar a ação devido a falha de comunicação com o SISET.
+        at br.gov.caixa.sisgr.matrizacesso.service.siset.UserRoleService.hasRole(UserRoleService.java:118)
+        at br.gov.caixa.sisgr.matrizacesso.dao.ManutencaoUsuarioExternoDAO.autorizar(ManutencaoUsuarioExternoDAO.java:478)
+        at br.gov.caixa.sisgr.matrizacesso.dao.ManutencaoUsuarioExternoDAO$Proxy$_$$_WeldClientProxy.autorizar(Unknown Source)
+        at br.gov.caixa.sisgr.matrizacesso.service.ManutencaoUsuarioExternoBean.autorizar(ManutencaoUsuarioExternoBean.java:134)
+        at sun.reflect.GeneratedMethodAccessor272.invoke(Unknown Source)
+        at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+        at java.lang.reflect.Method.invoke(Method.java:498)
+        at org.jboss.as.ee.component.ManagedReferenceMethodInterceptor.processInvocation(ManagedReferenceMethodInterceptor.java:52)
+        at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:340)
+        at org.jboss.invocation.InterceptorContext$Invocation.proceed(InterceptorContext.java:437)
+        at org.jboss.as.weld.ejb.Jsr299BindingsInterceptor.doMethodInterception(Jsr299BindingsInterceptor.java:82)
+        at org.jboss.as.weld.ejb.Jsr299BindingsInterceptor.processInvocation(Jsr299BindingsInterceptor.java:93)
+        at org.jboss.as.ee.component.interceptors.UserInterceptorFactory$1.processInvocation(UserInterceptorFactory.java:63)
+        at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:340)
+        at org.jboss.as.ejb3.component.invocationmetrics.ExecutionTimeInterceptor.processInvocation(ExecutionTimeInterceptor.java:43)
+        at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:340)
+        at org.jboss.as.jpa.interceptor.SBInvocationInterceptor.processInvocation(SBInvocationInterceptor.java:47)
+        at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:340)
+        at org.jboss.invocation.InterceptorContext$Invocation.proceed(InterceptorContext.java:437)
+        at org.jboss.weld.ejb.AbstractEJBRequestScopeActivationInterceptor.aroundInvoke(AbstractEJBRequestScopeActivationInterceptor.java:64)
+        at org.jboss.as.weld.ejb.EjbRequestScopeActivationInterceptor.processInvocation(EjbRequestScopeActivationInterceptor.java:83)
+[p585600@srjdeapllx130 ~]$ grep -i -E "exception|timeout|connect|refused|failed" /infra_app/logs/sisgr/server-srjdeapllx130_acessoseguro_intra_5500.log | tail -n 100
+2026-07-27 14:28:18,677 DEBUG [br.gov.caixa.psc.connector.model.CicsArea] (default task-17) setParameter: TIMESTAMP-WS: 0000000000000000 tamanho: [16]
+2026-07-27 14:28:18,677 DEBUG [br.gov.caixa.psc.connector.model.CicsArea] (default task-17) setParameter: TRANSACTION-SERVER:                           tamanho: [25]
+2026-07-27 14:28:18,677 DEBUG [br.gov.caixa.psc.connector.model.CicsArea] (default task-17) setParameter: TIMESTAMP-TS: 0000000000000000 tamanho: [16]
+2026-07-27 14:28:18,677 DEBUG [br.gov.caixa.psc.connector.model.CicsArea] (default task-17) setParameter: AMBIENTE:   tamanho: [1]
+2026-07-27 14:28:18,677 DEBUG [br.gov.caixa.psc.connector.model.CicsArea] (default task-17) setParameter: TP-USUARIO:    tamanho: [2]
+2026-07-27 14:28:18,677 DEBUG [br.gov.caixa.psc.connector.model.CicsArea] (default task-17) setParameter: CO-USERID:          tamanho: [8]
+2026-07-27 14:28:18,677 DEBUG [br.gov.caixa.psc.connector.model.CicsArea] (default task-17) setParameter: NIS: 00000000000 tamanho: [11]
+2026-07-27 14:28:18,677 DEBUG [br.gov.caixa.psc.connector.model.CicsArea] (default task-17) setParameter: NIVEL-AUTENT: 00 tamanho: [2]
+2026-07-27 14:28:18,677 DEBUG [br.gov.caixa.psc.connector.model.CicsArea] (default task-17) setParameter: SISTEMA:        tamanho: [6]
+2026-07-27 14:28:18,677 DEBUG [br.gov.caixa.psc.connector.model.CicsArea] (default task-17) setParameter: FUNCAO:            tamanho: [10]
+2026-07-27 14:28:18,677 DEBUG [br.gov.caixa.psc.connector.model.CicsArea] (default task-17) setParameter: OPERACAO:                  tamanho: [16]
+2026-07-27 14:28:18,677 DEBUG [br.gov.caixa.psc.connector.model.CicsArea] (default task-17) setParameter: NO-PROGRAMA:          tamanho: [8]
+2026-07-27 14:28:18,677 DEBUG [br.gov.caixa.psc.connector.model.CicsArea] (default task-17) setParameter: AREA-A-PASSAR-PARA-PGM:   tamanho: [1]
+2026-07-27 14:28:18,677 DEBUG [br.gov.caixa.psc.connector.model.CicsArea] (default task-17) setParameter: FORMA-DE-CHAMAR-O-PGM:   tamanho: [1]
+2026-07-27 14:28:18,677 DEBUG [br.gov.caixa.psc.connector.model.CicsArea] (default task-17) setParameter: INDICADOR-DE-DISPLAY:   tamanho: [1]
+2026-07-27 14:28:18,677 DEBUG [br.gov.caixa.psc.connector.model.CicsArea] (default task-17) setParameter: TAMANHO-SEND-WEB: 00000 tamanho: [5]
+2026-07-27 14:28:18,677 DEBUG [br.gov.caixa.psc.connector.model.CicsArea] (default task-17) setParameter: RG-OCOR:                                                                        tamanho: [70]
+2026-07-27 14:28:18,677 DEBUG [br.gov.caixa.psc.connector.model.CicsArea] (default task-17) setParameter: NO-ENCAP:          tamanho: [8]
+2026-07-27 14:28:18,677 DEBUG [br.gov.caixa.psc.connector.model.CicsArea] (default task-17) setParameter: CO-TPEMPRESA:   tamanho: [1]
+2026-07-27 14:28:18,677 DEBUG [br.gov.caixa.psc.connector.model.CicsArea] (default task-17) setParameter: CO-EMPRESA: 00000000000000 tamanho: [14]
+2026-07-27 14:28:18,677 DEBUG [br.gov.caixa.psc.connector.model.CicsArea] (default task-17) setParameter: IC-SEGURANCA:   tamanho: [1]
+2026-07-27 14:28:18,677 DEBUG [br.gov.caixa.psc.connector.model.CicsArea] (default task-17) setParameter: SG-SIS-SGR:     tamanho: [3]
+2026-07-27 14:28:18,677 DEBUG [br.gov.caixa.psc.connector.model.CicsArea] (default task-17) setParameter: CO-PROC-SGR:                          tamanho: [24]
+2026-07-27 14:28:18,677 DEBUG [br.gov.caixa.psc.connector.model.CicsArea] (default task-17) setParameter: CO-CERT-SGR:              tamanho: [12]
+2026-07-27 14:28:18,677 DEBUG [br.gov.caixa.psc.connector.model.CicsArea] (default task-17) setParameter: DE-TPREC-SGR:                 tamanho: [15]
+2026-07-27 14:28:18,677 DEBUG [br.gov.caixa.psc.connector.model.CicsArea] (default task-17) setParameter: DE-RECURSO-SGR:                           tamanho: [25]
+2026-07-27 14:28:18,677 DEBUG [br.gov.caixa.psc.connector.model.CicsArea] (default task-17) setParameter: FILLER:                            tamanho: [26]
+2026-07-27 14:28:18,677 DEBUG [br.gov.caixa.psc.connector.model.CicsArea] (default task-17) setParameter: ID-CICS:      tamanho: [4]
+2026-07-27 14:28:18,677 DEBUG [br.gov.caixa.psc.connector.model.CicsArea] (default task-17) setParameter: NUM-TAM-RECEIVE: 00 tamanho: [2]
+2026-07-27 14:28:18,677 DEBUG [br.gov.caixa.psc.connector.model.CicsArea] (default task-17) setParameter: TS-INICIO:                  tamanho: [16]
+2026-07-27 14:28:18,677 DEBUG [br.gov.caixa.psc.connector.model.CicsArea] (default task-17) setParameter: TS-EVENTO:                  tamanho: [16]
+2026-07-27 14:28:18,677 DEBUG [br.gov.caixa.psc.connector.model.CicsArea] (default task-17) setParameter: TAM-DEVOLVIDO:       tamanho: [5]
+2026-07-27 14:28:18,677 DEBUG [br.gov.caixa.psc.connector.model.CicsArea] (default task-17) setParameter: NO-PROGRAMA: SGR00AUT tamanho: [8]
+2026-07-27 14:28:18,677 DEBUG [br.gov.caixa.psc.connector.model.CicsArea] (default task-17) setParameter: FORMA-DE-CHAMAR-O-PGM: L tamanho: [1]
+2026-07-27 14:28:18,677 DEBUG [br.gov.caixa.psc.connector.model.CicsArea] (default task-17) setParameter: INDICADOR-DE-DISPLAY: S tamanho: [1]
+2026-07-27 14:28:18,677 DEBUG [br.gov.caixa.psc.connector.model.CicsArea] (default task-17) setParameter: TIMESTAMP-WS: 2026072714281867 tamanho: [16]
+2026-07-27 14:28:18,677 DEBUG [br.gov.caixa.psc.connector.model.CicsArea] (default task-17) setParameter: IC-SEGURANCA:   tamanho: [1]
+2026-07-27 14:28:18,677 DEBUG [br.gov.caixa.psc.connector.model.pscpslnk.PSCAreaDeEntrada] (default task-17) PSCAreaDeEntrada=> Tamanho recebido: 151
+2026-07-27 14:28:18,677 DEBUG [br.gov.caixa.psc.connector.model.CicsArea] (default task-17) setParameter: CO-REGRA-NEG-E:       tamanho: [5]
+2026-07-27 14:28:18,677 INFO  [br.gov.caixa.psc.connector.client.jcicsdirect.JCICSDirectClient] (default task-17) *************JCICSDIRECT*************
+2026-07-27 14:28:18,677 DEBUG [br.gov.caixa.psc.connector.client.jcicsdirect.JCICSDirectClient] (default task-17) Configurando cliente JCICSDIRECT:
+2026-07-27 14:28:18,677 INFO  [br.gov.caixa.psc.connector.client.jcicsdirect.JCICSDirectClient] (default task-17) Target: :[tgsgrs145]
+Timeout:[20000]
+2026-07-27 14:28:18,677 DEBUG [br.gov.caixa.psc.connector.client.jcicsdirect.JCICSDirectClient] (default task-17) Cliente JCICSDIRECT Configurado.
+2026-07-27 14:28:18,677 DEBUG [br.gov.caixa.psc.connector.client.jcicsdirect.JCICSDirectClient] (default task-17) Efetuando o Login.
+2026-07-27 14:28:18,677 DEBUG [br.gov.caixa.psc.connector.client.jcicsdirect.JCICSDirectClient] (default task-17) Verificando o token para o target [tgsgrs145]
+2026-07-27 14:28:18,677 DEBUG [br.gov.caixa.psc.connector.client.jcicsdirect.JCICSDirectClient] (default task-17) Token reuse for tgsgrs145
+2026-07-27 14:28:18,677 DEBUG [br.gov.caixa.psc.connector.client.jcicsdirect.JCICSDirectClient] (default task-17) Login Completo.
+2026-07-27 14:28:18,677 DEBUG [br.gov.caixa.psc.connector.client.jcicsdirect.JCICSDirectClient] (default task-17) Dados a Executar: [                             2026072714281867                         0000000000000000           0000000000000                                SGR00AUT LS00000                                                                               00000000000000                                                                                                              00                                          WW00000019998f929540                                                                                                                      Trynit72     ]
+2026-07-27 14:28:18,677 DEBUG [br.gov.caixa.util.jcicsconnect.JCicsConnect] (default task-17) execute(): S1 SSGRDR01   PSCPSDI3 3.S145 [                             2026072714281867                         0000000000000000           0000000000000                                SGR00AUT LS00000                                                                               00000000000000                                                                                                              00                                          WW00000019998f929540                                                                                                                      Trynit72     ]
+2026-07-27 14:28:18,690 DEBUG [br.gov.caixa.util.jcicsconnect.JCicsConnect] (default task-17) execute() retorno: S1 SSGRDR01   PSCPSDI1 [12ms][Erro CICS: 0][Resp: 0000][Resp2: 0000][Erro SQL: 0][Compl.: 0000][     000                                                                                                    SGRSBAUT          00000000000000000DESENVOLVIMENTO                                   MARINALDO OLIVEIRA SANTOS JUNIOR                                      5088                                                    070530001429990000000000000                                                                                        
+
+
+
+2026-07-27 14:28:18,690 INFO  [br.gov.caixa.psc.connector.client.jcicsdirect.JCICSDirectClient] (default task-17) => JCICSDirect tempo de resposta =13 em milisegundos
+2026-07-27 14:28:18,690 DEBUG [br.gov.caixa.psc.connector.client.jcicsdirect.JCICSDirectClient] (default task-17) Saída: [     000                                                                                                    SGRSBAUT          00000000000000000DESENVOLVIMENTO                                   MARINALDO OLIVEIRA SANTOS JUNIOR                                      5088                                                    070530001429990000000000000 
+
+
 2026-07-27 14:28:18,691 INFO  [br.gov.caixa.psc.connector.client.jcicsdirect.JCICSDirectClient] (default task-17) *******JCICSDIRECT*COMPLETE**********
 2026-07-27 14:28:18,691 DEBUG [org.jboss.jca.core.connectionmanager.pool.strategy.OnePool] (default task-17) db2sgr: getConnection(null, WrappedConnectionRequestInfo@2005dcd0[userName=SSGRDR01]) [0/32]
 2026-07-27 14:28:18,693 DEBUG [org.jboss.jca.core.connectionmanager.pool.strategy.OnePool] (default task-17) db2sgr: returnConnection(68a20402, false) [0/32]
