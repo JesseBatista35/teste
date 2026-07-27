@@ -1,15 +1,37 @@
-Prezado(a),
+No momento da realização do deploy via PuTTY, no servidor host 10.116.89.101, estamos recebendo a seguinte mensagem de falha:
 
-Após análise técnica, foi identificado que a aplicação SISGR, ao executar o fluxo de autorização de usuário externo (matrizacesso), apresentava falha na comunicação com o serviço SISET (https://logindes.caixa.gov.br), retornando a mensagem: Não foi possível executar a ação devido a falha de comunicação com o SISET.
+login as: c159641
+Pre-authentication banner message from server:
+| #########################################################################
+| #          Ambiente administrado e monitorado por Brasilia
+| #########################################################################
+| #
+| # Site: CTC
+| # Hostname: sspdeaplux0100.caixa
+| # SO Release: Solaris 11.4.53.132.2
+| # Serial Number: AK00289677
+| # Memoria Total: 32.00 GB
+| # VCPUs: 16 Modelo: SPARC M6-32
+| # Control domain: cadcogerux031
+| # Ambiente:
+| # Descricao: SIGOV Aplicacao SJSAS8
+| #########################################################################
+End of banner message from server
+Keyboard-interactive authentication prompts from server:
+| Password:
+End of keyboard-interactive prompts from server
+Last login: Mon Jul 27 14:41:36 2026 from 10.205.248.239
+-bash-5.1$ sudo -u sjsas8 /opt/SUNWas8/bin/asadmin deploy --host 10.116.89.101 --port 14848 --user ASadmin --passwordfile /opt/SUNWas8/config/passwordfile.conf --target dsv05 sitcs_internet.ear
 
-A causa raiz do problema foi identificada como uma falha de handshake TLS decorrente da renovação do certificado do SISET sob uma nova cadeia da autoridade certificadora Sectigo (Sectigo Public Server Authentication CA DV R36 e Root R46). O truststore customizado da aplicação, localizado no servidor srjdeapllx130, ainda continha apenas a cadeia Sectigo anterior, o que impedia a validação do novo certificado e resultava na rejeição da conexão.
+We trust you have received the usual lecture from the local System
+Administrator. It usually boils down to these three things:
 
-Foi realizada a atualização do truststore da aplicação com a importação da nova cadeia de certificados Sectigo, seguida de backup do arquivo original e reinicialização dos servidores JBoss (srjdeapllx130_acessoseguro_intra_5500 e srjdeapllx130_webservice_intra_5502) para que a nova configuração fosse carregada.
+    #1) Respect the privacy of others.
+    #2) Think before you type.
+    #3) With great power comes great responsibility.
 
-Após a reinicialização, o ambiente foi validado pelo solicitante, que confirmou o restabelecimento da comunicação com o SISET e o funcionamento correto da aplicação.
-
-Diante do exposto, encerramos esta demanda como concluída com sucesso.
-
-Atte.
-
-Jessé Batista / CTIS/CESTI — Esteira DevOps DES TQS NPRD
+Senha SUDO:
+Jul 27, 2026 2:42:30 PM com.sun.appserv.management.client.ProxyFactory getInstance
+SEVERE: ProxyFactory.getInstance: Failure trying to create a new ProxyFactory: java.io.IOException: Unable to connect to admin-server.  Please check if the server is up and running and that the host and port provided are correct.
+CLI175 The target dsv05 is invalid. Valid target types are cluster, domain, unclustered server instance, domain administration server.
+CLI137 Command deploy failed.
