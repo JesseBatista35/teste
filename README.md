@@ -1,131 +1,175 @@
-=========================================================================
-
-  JBoss Bootstrap Environment
-
-  JBOSS_HOME: /opt/jboss
-
-  JAVA: /usr/java/latest/bin/java
-
-  JAVA_OPTS:  -verbose:gc -Xloggc:"/opt/jboss/standalone/log/gc.log" -XX:+PrintGCDetails -XX:+PrintGCDateStamps -XX:+UseGCLogFileRotation -XX:NumberOfGCLogFiles=5 -XX:GCLogFileSize=3M -XX:-TraceClassUnloading -Xms1024m -Xmx2048m -XX:MetaspaceSize=96m -XX:MaxMetaspaceSize=512m -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs=org.jboss.byteman -Djava.awt.headless=true -Djboss.modules.policy-permissions=true -server -XX:+ExplicitGCInvokesConcurrent -XX:+UseG1GC -XX:MaxGCPauseMillis=500 -Xbootclasspath/p:/opt/jboss/modules/system/layers/base/org/jboss/logmanager/main/jboss-logmanager-2.0.7.Final-redhat-1.jar -Djboss.modules.system.pkgs=org.jboss.byteman,org.jboss.logmanager -Djava.util.logging.manager=org.jboss.logmanager.LogManager -javaagent:/opt/jmx_exporter/jmx_prometheus.jar=8778:/opt/jmx_exporter/jmx_prometheus.yaml -Dnetworkaddress.cache.ttl=720 -XX:+AggressiveOpts -Dhttp.maxConnections=128 -Dsun.net.http.errorstream.enableBuffering=true -javaagent:/opt/apm_agent/elastic-apm-agent.jar -Delastic.apm.config_file=/opt/apm_agent/elasticapm.properties -Delastic.apm.service_name=sispl -Delastic.apm.environment=DES -Delastic.apm.application_packages=br.gov.caixa -Delastic.apm.server_urls=http://apm-server-devops.produtos.caixa -Delastic.apm.global_labels=deployment=sispl-canal-webhook-pix-des-esteiras
-
-=========================================================================
-
-[0m15:23:01,419 INFO  [org.jboss.modules] (main) JBoss Modules version 1.6.0.Final-redhat-1
-[0m[33m15:23:02,018 WARN  [org.jboss.as.server] (main) WFLYSRV0266: Server home is set to '/opt/jboss/standalone', but server real home is '/opt/jboss-eap-7.1/standalone' - unpredictable results may occur.
-[0m[0m15:23:02,031 INFO  [org.jboss.msc] (main) JBoss MSC version 1.2.7.SP1-redhat-1
-[0m[0m15:23:02,600 INFO  [org.jboss.as] (MSC service thread 1-8) WFLYSRV0049: JBoss EAP 7.1.0.GA (WildFly Core 3.0.10.Final-redhat-1) starting
-[0m[0m15:23:02,718 INFO  [org.jboss.vfs] (MSC service thread 1-1) VFS000002: Failed to clean existing content for temp file provider of type temp. Enable DEBUG level log to find what caused this
-[0m[31m15:23:06,307 ERROR [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0230: Vault is not initialized; resolution of vault expressions is not possible
-[0m[0m15:23:06,315 INFO  [org.jboss.as.controller.management-deprecated] (Controller Boot Thread) WFLYCTL0028: Attribute 'security-realm' in the resource at address '/core-service=management/management-interface=http-interface' is deprecated, and may be removed in future version. See the attribute description in the output of the read-resource-description operation to learn more about the deprecation.
-[0m[0m15:23:06,401 INFO  [org.jboss.as.controller.management-deprecated] (ServerService Thread Pool -- 15) WFLYCTL0028: Attribute 'security-realm' in the resource at address '/subsystem=undertow/server=default-server/https-listener=https' is deprecated, and may be removed in future version. See the attribute description in the output of the read-resource-description operation to learn more about the deprecation.
-[0m[0m15:23:06,404 INFO  [org.wildfly.security] (ServerService Thread Pool -- 18) ELY00001: WildFly Elytron version 1.1.7.Final-redhat-1
-[0m[0m15:23:07,001 INFO  [org.jboss.as.repository] (ServerService Thread Pool -- 7) WFLYDR0001: Content added at location /opt/jboss-eap-7.1/standalone/data/content/55/e351450f83a5286bf1a25b50f12a0e4c74563a/content
-[0m[0m15:23:07,043 INFO  [org.jboss.as.repository] (ServerService Thread Pool -- 7) WFLYDR0001: Content added at location /opt/jboss-eap-7.1/standalone/data/content/73/f3f95d33993f968113d1ff268860bbbc737daa/content
-[0m[31m15:23:07,209 ERROR [org.jboss.as.controller.management-operation] (Controller Boot Thread) WFLYCTL0013: Operation ("add") failed - address: ([("core-service" => "vault")]): org.jboss.as.server.services.security.VaultReaderException: WFLYSRV0076: Error initializing vault --  org.jboss.security.vault.SecurityVaultException: java.lang.RuntimeException: PBOX00140: Unable to get keystore (/opt/jboss/standalone/configuration/vaultcaixa-sispl-DES.keystore)
-	at org.jboss.as.server.services.security.RuntimeVaultReader.createVault(RuntimeVaultReader.java:93) [wildfly-server-3.0.10.Final-redhat-1.jar:3.0.10.Final-redhat-1]
-	at org.jboss.as.server.services.security.VaultAddHandler.performRuntime(VaultAddHandler.java:84) [wildfly-server-3.0.10.Final-redhat-1.jar:3.0.10.Final-redhat-1]
-	at org.jboss.as.controller.AbstractAddStepHandler.performRuntime(AbstractAddStepHandler.java:337) [wildfly-controller-3.0.10.Final-redhat-1.jar:3.0.10.Final-redhat-1]
-	at org.jboss.as.controller.AbstractAddStepHandler$1.execute(AbstractAddStepHandler.java:151) [wildfly-controller-3.0.10.Final-redhat-1.jar:3.0.10.Final-redhat-1]
-	at org.jboss.as.controller.AbstractOperationContext.executeStep(AbstractOperationContext.java:982) [wildfly-controller-3.0.10.Final-redhat-1.jar:3.0.10.Final-redhat-1]
-	at org.jboss.as.controller.AbstractOperationContext.processStages(AbstractOperationContext.java:726) [wildfly-controller-3.0.10.Final-redhat-1.jar:3.0.10.Final-redhat-1]
-	at org.jboss.as.controller.AbstractOperationContext.executeOperation(AbstractOperationContext.java:450) [wildfly-controller-3.0.10.Final-redhat-1.jar:3.0.10.Final-redhat-1]
-	at org.jboss.as.controller.OperationContextImpl.executeOperation(OperationContextImpl.java:1402) [wildfly-controller-3.0.10.Final-redhat-1.jar:3.0.10.Final-redhat-1]
-	at org.jboss.as.controller.ModelControllerImpl.boot(ModelControllerImpl.java:516) [wildfly-controller-3.0.10.Final-redhat-1.jar:3.0.10.Final-redhat-1]
-	at org.jboss.as.controller.AbstractControllerService.boot(AbstractControllerService.java:468) [wildfly-controller-3.0.10.Final-redhat-1.jar:3.0.10.Final-redhat-1]
-	at org.jboss.as.controller.AbstractControllerService.boot(AbstractControllerService.java:430) [wildfly-controller-3.0.10.Final-redhat-1.jar:3.0.10.Final-redhat-1]
-	at org.jboss.as.server.ServerService.boot(ServerService.java:437) [wildfly-server-3.0.10.Final-redhat-1.jar:3.0.10.Final-redhat-1]
-	at org.jboss.as.server.ServerService.boot(ServerService.java:396) [wildfly-server-3.0.10.Final-redhat-1.jar:3.0.10.Final-redhat-1]
-	at org.jboss.as.controller.AbstractControllerService$1.run(AbstractControllerService.java:370) [wildfly-controller-3.0.10.Final-redhat-1.jar:3.0.10.Final-redhat-1]
-	at java.lang.Thread.run(Thread.java:748) [rt.jar:1.8.0_131]
-Caused by: org.jboss.security.vault.SecurityVaultException: java.lang.RuntimeException: PBOX00140: Unable to get keystore (/opt/jboss/standalone/configuration/vaultcaixa-sispl-DES.keystore)
-	at org.picketbox.plugins.vault.PicketBoxSecurityVault.init(PicketBoxSecurityVault.java:210) [picketbox-5.0.2.Final-redhat-1.jar:5.0.2.Final-redhat-1]
-	at org.jboss.as.server.services.security.RuntimeVaultReader.createVault(RuntimeVaultReader.java:91) [wildfly-server-3.0.10.Final-redhat-1.jar:3.0.10.Final-redhat-1]
-	... 14 more
-Caused by: java.lang.RuntimeException: PBOX00140: Unable to get keystore (/opt/jboss/standalone/configuration/vaultcaixa-sispl-DES.keystore)
-	at org.picketbox.plugins.vault.PicketBoxSecurityVault.getKeyStore(PicketBoxSecurityVault.java:691) [picketbox-5.0.2.Final-redhat-1.jar:5.0.2.Final-redhat-1]
-	at org.picketbox.plugins.vault.PicketBoxSecurityVault.init(PicketBoxSecurityVault.java:205) [picketbox-5.0.2.Final-redhat-1.jar:5.0.2.Final-redhat-1]
-	... 15 more
-Caused by: java.io.FileNotFoundException: /opt/jboss/standalone/configuration/vaultcaixa-sispl-DES.keystore (No such file or directory)
-	at java.io.FileInputStream.open0(Native Method) [rt.jar:1.8.0_131]
-	at java.io.FileInputStream.open(FileInputStream.java:195) [rt.jar:1.8.0_131]
-	at java.io.FileInputStream.<init>(FileInputStream.java:138) [rt.jar:1.8.0_131]
-	at org.picketbox.util.KeyStoreUtil.getKeyStore(KeyStoreUtil.java:150) [picketbox-5.0.2.Final-redhat-1.jar:5.0.2.Final-redhat-1]
-	at org.picketbox.plugins.vault.PicketBoxSecurityVault.getKeyStore(PicketBoxSecurityVault.java:688) [picketbox-5.0.2.Final-redhat-1.jar:5.0.2.Final-redhat-1]
-	... 16 more
-
-[0m[31m15:23:07,214 FATAL [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0056: Server boot has failed in an unrecoverable manner; exiting. See previous messages for details.
-[0m[0m15:23:07,399 INFO  [org.jboss.as] (MSC service thread 1-5) WFLYSRV0050: JBoss EAP 7.1.0.GA (WildFly Core 3.0.10.Final-redhat-1) stopped in 92ms
-[0m
+<img width="1809" height="892" alt="image" src="https://github.com/user-attachments/assets/aa2f9f8b-fa8c-41d2-9fdf-51503f59ca75" />
 
 
+<img width="1821" height="923" alt="image" src="https://github.com/user-attachments/assets/1304a1ab-2900-4f79-a17f-daf17e31e6c3" />
 
+Skip to main content
+projetos
+/
+Caixa
+/
+Pipelines
+/
+Releases
+/
+SISPL-canal-webhook-pix-ocp4-plus
 
-    Topology
-    Pods
-    Deployments
-    DeploymentConfigs
-    StatefulSets
-    Secrets
-    ConfigMaps
-    CronJobs
-    Jobs
-    DaemonSets
-    ReplicaSets
-    ReplicationControllers
-    HorizontalPodAutoscalers
-    PodDisruptionBudgets
+    All pipelines
+    
+    SISPL
+    
 
-    Pods
+Predefined variables
+SonarQube Variables (1)
+Variáveis com dados do SonarQube
+Scopes: Release
+Usuario-Azure-DevOps (12)
+Scopes: Release
+EGRESS_IP_OKD (74)
+WO0000072264656 - Config Portal Infrafácil NO_PROXY
+Scopes: Release
+MONITORACAO_LOGS (4)
+REQ000143540550 - Conforme autorizado na req por FLAVIO ALMEIDA GAGLIARDI, removido as variáveis JAVA_OPTS_MONITORING e URL_APM_SERVER, por entrar em conflitos com releases que utilizam o Application Insights
+Scopes: Release
+MUDANCA_GSC (3)
+WO0000079495945
+Scopes: Release
+OKD-REGISTRY-CENTRALIZADO (7)
+Credenciais para o Registry Centralizado - Produtos 4 (OKD)
+Scopes: Release
+OPENSHIFT-NPRD-LOTERIAS (8)
+Credenciais para o Cluster OPENSHIFT de NPRD LOTERIAS
+Scopes: EC DES,EC TQS,EC HMP
+SISPL-CANAL-LOTERICO-PIX-WEBHOOK-DES (40)
+Grupo de variáveis de Desenvolvimento
+Scopes: EC DES
+DATASOURCE_DB2_CONNECTION_URL
+jdbc:db2://10.192.224.76:5021/CSD1
+DATASOURCE_DB2_JNDI_NAME
+java:/sisplDS
+DATASOURCE_DB2_PASSWORD
+${VAULT::SISPL_DES::DATASOURCE_DB2_PASSWORD::1}
+DATASOURCE_DB2_POOL_NAME
+sisplDS
+DATASOURCE_DB2_USER_NAME
+${VAULT::SISPL_DES::DATASOURCE_DB2_USER_NAME::1}
+JKS_FILE
+/opt/jboss/jboss-eap/cacerts.jks
+JVM_HEAP_MAX
+2048m
+JVM_HEAP_MIN
+1024m
+JVM_METASPACE_MAX
+512m
+JVM_METASPACE_MIN
+96m
+JVM_PASSWORD_TRUSTSTORE
+changeit
+LOG_LEVEL
+DEBUG
+MQ_ADMIN_JNDI_NAME_RESPOSTA_PIX
+java:/jms/queueRspPix
+MQ_ADMIN_JNDI_NAME_RESPOSTA_PIX_DEAD
+java:/jms/queueRspPixDead
+MQ_ADMIN_NOME_DA_FILA_RESPOSTA_PIX
+LQ.RSP.SISPL.RETORNO_PIX
+MQ_ADMIN_NOME_DA_FILA_RESPOSTA_PIX_DEAD
+LQ.RSP.SISPL.RETORNO_PIX.DEAD
+MQ_ADMIN_POOL_NAME_RESPOSTA_PIX
+jms/queueRspPix
+MQ_ADMIN_POOL_NAME_RESPOSTA_PIX_DEAD
+jms/queueRspPixDead
+MQ_FACTORY_CANAL_SISPL
+BRD6.SVRCONN.SILCE
+MQ_FACTORY_HOST_NAME_SISPL
+10.192.228.145
+MQ_FACTORY_JNDI_NAME_SISPL
+java:/conn/MQ-ALTA-BR-SISPL
+MQ_FACTORY_PASSWORD_SISPL
+${VAULT::SISPL_DES::MQ_FACTORY_PASSWORD_SISPL::1}
+MQ_FACTORY_POOL_NAME_SISPL
+java:/MQ-ALTA-BR-SISPL
+MQ_FACTORY_PORT_SISPL
+1418
+MQ_FACTORY_QUEUE_MANAGER_SISPL
+BRD6
+MQ_FACTORY_USERNAME_SISPL
+${VAULT::SISPL_DES::MQ_FACTORY_USERNAME_SISPL::1}
+SISPL.CERTIFICATE.REQUIRED
+N
+SISTEMA_AMBIENTE
+des
+sispl.ds.connection-url
+jdbc:db2://10.192.224.76:5021/CSD1
+sispl.ds.jndi-name
+java:/sisplDS
+sispl.ds.password
+${VAULT::SISPL_DES::sispl.ds.password::1}
+sispl.ds.user-name
+${VAULT::SISPL_DES::sispl.ds.username::1}
+sispl.mq.channel
+BRD6.SVRCONN.SILCE
+sispl.mq.hostName
+10.192.228.145
+sispl.mq.jndi-name
+java:/conn/MQ-ALTA-BR-SISPL
+sispl.mq.password
+${VAULT::SISPL_DES::sispl.mq.password::1}
+sispl.mq.pool-name
+java:/MQ-ALTA-BR-SISPL
+sispl.mq.port
+1418
+sispl.mq.queueManager
+BRD6
+sispl.mq.userName
+${VAULT::SISPL_DES::sispl.mq.userName::1}
+SISPL-CANAL-LOTERICO-PIX-WEBHOOK-TQS (40)
+Grupo de variáveis de Testes
+Scopes: EC TQS
+SISPL-CANAL-LOTERICO-PIX-WEBHOOK-HMP (40)
+Grupo de variáveis de Desenvolvimento
+Scopes: EC HMP
+SISPL-CANAL-LOTERICO-PIX-WEBHOOK-PRD - OKD4 (42)
+Grupo de variáveis de PRD
+Scopes: EC PRD
+|Manage variable groups
 
-    Pod details
+Showing filters 1 through 2
 
-PodP sispl-canal-webhook-pix-des-59dbb59bc5-g2z5z
-CrashLoopBackOff
+Showing 4 deployments
 
-    Details
-    Metrics
-    YAML
-    Environment
-    Logs
-    Events
-    Terminal
+Showing 4 deployments
 
-Streaming events...
-Showing 8 events
-Older events are not stored.
-PodPsispl-canal-webhook-pix-des-59dbb59bc5-g2z5zNamespaceNSsispl-des
-Just now
-Generated from kubelet on nctvmrh001-scgft-worker-0-5k79t
-10 times in the last 1 minute
-Back-off restarting failed container sispl-canal-webhook-pix-des in pod sispl-canal-webhook-pix-des-59dbb59bc5-g2z5z_sispl-des(6a616767-a70c-4485-ba8a-bc6159393aeb)
-PodPsispl-canal-webhook-pix-des-59dbb59bc5-g2z5zNamespaceNSsispl-des
-Just now
-Generated from kubelet on nctvmrh001-scgft-worker-0-5k79t
-4 times in the last 1 minute
-Container image "default-route-openshift-image-registry.apps.produtos4.caixa/build-images-ads/sispl-canal-webhook-pix:2.2.0.10" already present on machine
-PodPsispl-canal-webhook-pix-des-59dbb59bc5-g2z5zNamespaceNSsispl-des
-Just now
-Generated from kubelet on nctvmrh001-scgft-worker-0-5k79t
-5 times in the last 2 minutes
-Created container: sispl-canal-webhook-pix-des
-PodPsispl-canal-webhook-pix-des-59dbb59bc5-g2z5zNamespaceNSsispl-des
-Just now
-Generated from kubelet on nctvmrh001-scgft-worker-0-5k79t
-5 times in the last 2 minutes
-Started container sispl-canal-webhook-pix-des
-PodPsispl-canal-webhook-pix-des-59dbb59bc5-g2z5zNamespaceNSsispl-des
-há 2 minutos
-Generated from kubelet on nctvmrh001-scgft-worker-0-5k79t
-Successfully pulled image "default-route-openshift-image-registry.apps.produtos4.caixa/build-images-ads/sispl-canal-webhook-pix:2.2.0.10" in 890ms (890ms including waiting). Image size: 890929878 bytes.
-PodPsispl-canal-webhook-pix-des-59dbb59bc5-g2z5zNamespaceNSsispl-des
-há 2 minutos
-Generated from multus
-Add eth0 [25.131.1.152/23] from ovn-kubernetes
-PodPsispl-canal-webhook-pix-des-59dbb59bc5-g2z5zNamespaceNSsispl-des
-há 2 minutos
-Generated from kubelet on nctvmrh001-scgft-worker-0-5k79t
-Pulling image "default-route-openshift-image-registry.apps.produtos4.caixa/build-images-ads/sispl-canal-webhook-pix:2.2.0.10"
-PodPsispl-canal-webhook-pix-des-59dbb59bc5-g2z5zNamespaceNSsispl-des
-há 2 minutos
-Generated from default-scheduler
-Successfully assigned sispl-des/sispl-canal-webhook-pix-des-59dbb59bc5-g2z5z to nctvmrh001-scgft-worker-0-5k79t
+1 pipelines found
+
+Showing 3 deployments
+
+Showing filters 1 through 2
+
+Showing filters 1 through 2
+
+Showing 4 deployments
+
+Row 3
+
+Expanded
+
+Row 2
+
+Collapsed
+
+Showing 3 deployments
+
+Row 2
+
+Row 2
+
+Row 2
+
+Row 2
+
+Row 2
+
+Row 2
+
+Showing filters 1 through 2
