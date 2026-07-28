@@ -1,160 +1,221 @@
-SISPL-canal-webhook-pix
-
-
-
-
-Skip to main content
-Azure DevOps
-projetos
-/
-Caixa
-/
-Pipelines
-/
-Releases
-/
-SISPL-canal-webhook-pix-ocp4-plus
-Caixa
-Overview
-Boards
-Repos
-Pipelines
-Pipelines
-Environments
-Releases
-Library
-Task groups
-Deployment groups
-Portal Infra
-Test Plans
-Artifacts
-Project settings
-
-    All pipelines
-    
-    SISPL
-    
-
-Predefined variables
-Scope
-
-
-AMBIENTE
-
-des
-
-AMBIENTE
-
-tqs
-
-AMBIENTE
-
-hmp
-
-AMBIENTE
-
-prd
-
-AMBIENTE_BUILD
-
-build-images-ads
-
-CGC_UNIDADE_DES
-
-7390
-
-CGC_UNIDADE_OPS
-
-7259
-
-PASSWORD_TRUSTSTORE
-
-changeit
-
-SISTEMA_AMBIENTE
-
-DES
-
-SISTEMA_AMBIENTE
-
-TQS
-
-SISTEMA_AMBIENTE
-
-HMP
-
-SISTEMA_AMBIENTE
-
-prd
-
-SISTEMANOME
-
-sispl-canal-webhook-pix
-
-SITE
-
-openshift_nprd_loterias
-
-SITE
-
-openshift_nprd_loterias
-
-SITE
-
-openshift_nprd_loterias
-
-SITE
-
-ocp_loterias
-
-TemplateRelease_OKD
-
-openshift/jboss-caixa-release
-
-UNIDADE
-
-7259
-
-URL_APM_SERVER
-
-http://apm-server-devops.produtos.caixa
-
-Row 2
-
-Row 2
-
-Row 2
-
-Row 2
-
-Row 2
-
-Showing filters 1 through 2
-
-1 pipelines found
-
-Row 2
-
-Showing filters 1 through 2
-
-1 pipelines found
-
-Row 2
-
-Showing filters 1 through 2
-
-1 pipelines found
-
-Row 2
-
-Row 2
-
-Showing filters 1 through 2
-
-Showing filters 1 through 2
-
-Row 2
-
-Showing filters 1 through 2
-
-Showing filters 1 through 2
+=========================================================================
+
+  JBoss Bootstrap Environment
+
+  JBOSS_HOME: /opt/jboss
+
+  JAVA: /usr/java/latest/bin/java
+
+  JAVA_OPTS:  -verbose:gc -Xloggc:"/opt/jboss/standalone/log/gc.log" -XX:+PrintGCDetails -XX:+PrintGCDateStamps -XX:+UseGCLogFileRotation -XX:NumberOfGCLogFiles=5 -XX:GCLogFileSize=3M -XX:-TraceClassUnloading -Xms1024m -Xmx2048m -XX:MetaspaceSize=96m -XX:MaxMetaspaceSize=512m -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs=org.jboss.byteman -Djava.awt.headless=true -Djboss.modules.policy-permissions=true -server -XX:+ExplicitGCInvokesConcurrent -XX:+UseG1GC -XX:MaxGCPauseMillis=500 -Xbootclasspath/p:/opt/jboss/modules/system/layers/base/org/jboss/logmanager/main/jboss-logmanager-2.0.7.Final-redhat-1.jar -Djboss.modules.system.pkgs=org.jboss.byteman,org.jboss.logmanager -Djava.util.logging.manager=org.jboss.logmanager.LogManager -javaagent:/opt/jmx_exporter/jmx_prometheus.jar=8778:/opt/jmx_exporter/jmx_prometheus.yaml -Dnetworkaddress.cache.ttl=720 -XX:+AggressiveOpts -Dhttp.maxConnections=128 -Dsun.net.http.errorstream.enableBuffering=true -javaagent:/opt/apm_agent/elastic-apm-agent.jar -Delastic.apm.config_file=/opt/apm_agent/elasticapm.properties -Delastic.apm.service_name=sispl -Delastic.apm.environment=DES -Delastic.apm.application_packages=br.gov.caixa -Delastic.apm.server_urls=http://apm-server-devops.produtos.caixa -Delastic.apm.global_labels=deployment=sispl-canal-webhook-pix-des-esteiras
+
+=========================================================================
+
+[0m16:49:06,094 INFO  [org.jboss.modules] (main) JBoss Modules version 1.6.0.Final-redhat-1
+[0m[33m16:49:06,704 WARN  [org.jboss.as.server] (main) WFLYSRV0266: Server home is set to '/opt/jboss/standalone', but server real home is '/opt/jboss-eap-7.1/standalone' - unpredictable results may occur.
+[0m[0m16:49:06,719 INFO  [org.jboss.msc] (main) JBoss MSC version 1.2.7.SP1-redhat-1
+[0m[0m16:49:07,304 INFO  [org.jboss.as] (MSC service thread 1-7) WFLYSRV0049: JBoss EAP 7.1.0.GA (WildFly Core 3.0.10.Final-redhat-1) starting
+[0m[0m16:49:07,507 INFO  [org.jboss.vfs] (MSC service thread 1-3) VFS000002: Failed to clean existing content for temp file provider of type temp. Enable DEBUG level log to find what caused this
+[0m[31m16:49:11,210 ERROR [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0230: Vault is not initialized; resolution of vault expressions is not possible
+[0m[0m16:49:11,218 INFO  [org.jboss.as.controller.management-deprecated] (Controller Boot Thread) WFLYCTL0028: Attribute 'security-realm' in the resource at address '/core-service=management/management-interface=http-interface' is deprecated, and may be removed in future version. See the attribute description in the output of the read-resource-description operation to learn more about the deprecation.
+[0m[0m16:49:11,305 INFO  [org.wildfly.security] (ServerService Thread Pool -- 11) ELY00001: WildFly Elytron version 1.1.7.Final-redhat-1
+[0m[0m16:49:11,391 INFO  [org.jboss.as.controller.management-deprecated] (ServerService Thread Pool -- 20) WFLYCTL0028: Attribute 'security-realm' in the resource at address '/subsystem=undertow/server=default-server/https-listener=https' is deprecated, and may be removed in future version. See the attribute description in the output of the read-resource-description operation to learn more about the deprecation.
+[0m[0m16:49:11,843 INFO  [org.jboss.as.repository] (ServerService Thread Pool -- 4) WFLYDR0001: Content added at location /opt/jboss-eap-7.1/standalone/data/content/3a/15be4f8fc3fb82fc2dea6b40a724b424cdddbe/content
+[0m[0m16:49:11,902 INFO  [org.jboss.as.repository] (ServerService Thread Pool -- 4) WFLYDR0001: Content added at location /opt/jboss-eap-7.1/standalone/data/content/73/f3f95d33993f968113d1ff268860bbbc737daa/content
+[0m[0m16:49:12,194 INFO  [org.jboss.security] (Controller Boot Thread) PBOX00361: Default Security Vault Implementation Initialized and Ready
+[0m[0m16:49:12,215 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0039: Creating http management service using socket-binding (management-http)
+[0m[0m16:49:12,297 INFO  [org.xnio] (MSC service thread 1-5) XNIO version 3.5.4.Final-redhat-1
+[0m[0m16:49:12,303 INFO  [org.xnio.nio] (MSC service thread 1-5) XNIO NIO Implementation Version 3.5.4.Final-redhat-1
+[0m2026-07-28 16:49:12,492 WARN  [org.jboss.as.txn] (ServerService Thread Pool -- 61) WFLYTX0013: The node-identifier attribute on the /subsystem=transactions is set to the default value. This is a danger for environments running multiple servers. Please make sure the attribute value is unique.
+2026-07-28 16:49:12,498 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 44) WFLYCLINF0001: Activating Infinispan subsystem.
+2026-07-28 16:49:12,500 INFO  [org.jboss.as.jsf] (ServerService Thread Pool -- 50) WFLYJSF0007: Activated the following JSF Implementations: [main]
+2026-07-28 16:49:12,593 INFO  [org.jboss.as.security] (ServerService Thread Pool -- 60) WFLYSEC0002: Activating Security Subsystem
+2026-07-28 16:49:12,595 INFO  [org.jboss.as.jaxrs] (ServerService Thread Pool -- 45) WFLYRS0016: RESTEasy version 3.0.24.Final-redhat-1
+2026-07-28 16:49:12,594 INFO  [org.jboss.as.webservices] (ServerService Thread Pool -- 63) WFLYWS0002: Activating WebServices Extension
+2026-07-28 16:49:12,593 INFO  [org.jboss.as.naming] (ServerService Thread Pool -- 52) WFLYNAM0001: Activating Naming Subsystem
+2026-07-28 16:49:12,792 INFO  [org.jboss.as.security] (MSC service thread 1-4) WFLYSEC0001: Current PicketBox version=5.0.2.Final-redhat-1
+2026-07-28 16:49:12,803 INFO  [org.jboss.as.connector] (MSC service thread 1-6) WFLYJCA0009: Starting JCA Subsystem (WildFly/IronJacamar 1.4.6.Final-redhat-1)
+2026-07-28 16:49:12,899 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-3) WFLYUT0003: Undertow 1.4.18.Final-redhat-2 starting
+2026-07-28 16:49:13,098 INFO  [org.jboss.remoting] (MSC service thread 1-5) JBoss Remoting version 5.0.5.Final-redhat-1
+2026-07-28 16:49:13,193 INFO  [org.jboss.as.connector.subsystems.datasources] (ServerService Thread Pool -- 38) WFLYJCA0004: Deploying JDBC-compliant driver class com.ibm.db2.jcc.DB2Driver (version 4.16)
+2026-07-28 16:49:13,294 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-1) WFLYJCA0018: Started Driver service with driver-name = db2
+2026-07-28 16:49:13,393 INFO  [org.jboss.as.naming] (MSC service thread 1-7) WFLYNAM0003: Starting Naming Service
+2026-07-28 16:49:13,398 INFO  [org.jboss.as.mail.extension] (MSC service thread 1-1) WFLYMAIL0001: Bound mail session [java:jboss/mail/Default]
+2026-07-28 16:49:14,992 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-3) WFLYUT0012: Started server default-server.
+2026-07-28 16:49:14,994 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-6) WFLYUT0018: Host default-host starting
+2026-07-28 16:49:15,093 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-7) WFLYJCA0098: Bound non-transactional data source: java:/sisplDS
+2026-07-28 16:49:15,296 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-4) WFLYUT0006: Undertow HTTP listener default listening on 0.0.0.0:8080
+2026-07-28 16:49:15,298 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-8) WFLYUT0006: Undertow AJP listener ajp listening on 0.0.0.0:8009
+2026-07-28 16:49:15,404 INFO  [org.jboss.as.ejb3] (MSC service thread 1-8) WFLYEJB0493: EJB subsystem suspension complete
+2026-07-28 16:49:15,899 INFO  [org.jboss.as.patching] (MSC service thread 1-8) WFLYPAT0050: JBoss EAP cumulative patch ID is: base, one-off patches include: none
+2026-07-28 16:49:15,992 WARN  [org.jboss.as.domain.management.security] (MSC service thread 1-6) WFLYDM0111: Keystore /opt/jboss-eap-7.1/standalone/configuration/application.keystore not found, it will be auto generated on first use with a self signed certificate for host localhost
+2026-07-28 16:49:15,993 INFO  [org.wildfly.extension.messaging-activemq] (MSC service thread 1-2) WFLYMSGAMQ0075: AIO wasn't located on this platform, it will fall back to using pure Java NIO. Your platform is Linux, install LibAIO to enable the AIO journal and achieve optimal performance.
+2026-07-28 16:49:16,000 INFO  [org.jboss.as.server.deployment.scanner] (MSC service thread 1-8) WFLYDS0013: Started FileSystemDeploymentService for directory /opt/jboss-eap-7.1/standalone/deployments
+2026-07-28 16:49:16,191 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-5) WFLYSRV0027: Starting deployment of "wmq.jmsra.rar" (runtime-name: "wmq.jmsra.rar")
+2026-07-28 16:49:16,192 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-4) WFLYSRV0027: Starting deployment of "sispl-canal-webhook-pix.war" (runtime-name: "sispl-canal-webhook-pix.war")
+2026-07-28 16:49:16,295 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-8) WFLYUT0006: Undertow HTTPS listener https listening on 0.0.0.0:8443
+2026-07-28 16:49:16,694 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 66) AMQ221000: live Message Broker is starting with configuration Broker Configuration (clustered=false,journalDirectory=/opt/jboss-eap-7.1/standalone/data/activemq/journal,bindingsDirectory=/opt/jboss-eap-7.1/standalone/data/activemq/bindings,largeMessagesDirectory=/opt/jboss-eap-7.1/standalone/data/activemq/largemessages,pagingDirectory=/opt/jboss-eap-7.1/standalone/data/activemq/paging)
+2026-07-28 16:49:16,991 INFO  [org.jboss.ws.common.management] (MSC service thread 1-8) JBWS022052: Starting JBossWS 5.1.9.Final-redhat-1 (Apache CXF 3.1.12.redhat-1) 
+2026-07-28 16:49:17,000 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 66) AMQ221013: Using NIO Journal
+2026-07-28 16:49:17,295 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 66) AMQ221043: Protocol module found: [artemis-server]. Adding protocol support for: CORE
+2026-07-28 16:49:17,296 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 66) AMQ221043: Protocol module found: [artemis-hornetq-protocol]. Adding protocol support for: HORNETQ
+2026-07-28 16:49:17,799 INFO  [org.wildfly.extension.messaging-activemq] (MSC service thread 1-7) WFLYMSGAMQ0016: Registered HTTP upgrade for activemq-remoting protocol handled by http-acceptor acceptor
+2026-07-28 16:49:17,891 INFO  [org.wildfly.extension.messaging-activemq] (MSC service thread 1-1) WFLYMSGAMQ0016: Registered HTTP upgrade for activemq-remoting protocol handled by http-acceptor-throughput acceptor
+2026-07-28 16:49:17,891 INFO  [org.wildfly.extension.messaging-activemq] (MSC service thread 1-2) WFLYMSGAMQ0016: Registered HTTP upgrade for activemq-remoting protocol handled by http-acceptor-throughput acceptor
+2026-07-28 16:49:17,891 INFO  [org.wildfly.extension.messaging-activemq] (MSC service thread 1-8) WFLYMSGAMQ0016: Registered HTTP upgrade for activemq-remoting protocol handled by http-acceptor acceptor
+2026-07-28 16:49:19,793 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 66) AMQ221007: Server is now live
+2026-07-28 16:49:19,793 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 66) AMQ221001: Apache ActiveMQ Artemis Message Broker version 1.5.5.008-redhat-1 [default, nodeID=6a796a85-8abd-11f1-b98a-0a581982070f] 
+2026-07-28 16:49:20,095 INFO  [org.wildfly.extension.messaging-activemq] (ServerService Thread Pool -- 66) WFLYMSGAMQ0002: Bound messaging object to jndi name java:/ConnectionFactory
+2026-07-28 16:49:20,392 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-5) WFLYSRV0059: Class Path entry connector.jar in /content/wmq.jmsra.rar/com.ibm.mq.jar  does not point to a valid jar for a Class-Path reference.
+2026-07-28 16:49:20,392 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 68) AMQ221003: Deploying queue jms.queue.DLQ
+2026-07-28 16:49:20,400 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-5) WFLYSRV0059: Class Path entry jta.jar in /content/wmq.jmsra.rar/com.ibm.mq.jmqi.jar  does not point to a valid jar for a Class-Path reference.
+2026-07-28 16:49:20,401 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-5) WFLYSRV0059: Class Path entry ldap.jar in /content/wmq.jmsra.rar/com.ibm.mqjms.jar  does not point to a valid jar for a Class-Path reference.
+2026-07-28 16:49:20,401 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-5) WFLYSRV0059: Class Path entry jndi.jar in /content/wmq.jmsra.rar/com.ibm.mqjms.jar  does not point to a valid jar for a Class-Path reference.
+2026-07-28 16:49:20,401 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-5) WFLYSRV0059: Class Path entry fscontext.jar in /content/wmq.jmsra.rar/com.ibm.mqjms.jar  does not point to a valid jar for a Class-Path reference.
+2026-07-28 16:49:20,401 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-5) WFLYSRV0059: Class Path entry providerutil.jar in /content/wmq.jmsra.rar/com.ibm.mqjms.jar  does not point to a valid jar for a Class-Path reference.
+2026-07-28 16:49:20,403 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-5) WFLYSRV0059: Class Path entry jms.jar in /content/wmq.jmsra.rar/com.ibm.msg.client.jms.jar  does not point to a valid jar for a Class-Path reference.
+2026-07-28 16:49:20,492 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-5) WFLYSRV0059: Class Path entry rmm.jar in /content/wmq.jmsra.rar/com.ibm.msg.client.wmq.v6.jar  does not point to a valid jar for a Class-Path reference.
+2026-07-28 16:49:20,492 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-5) WFLYSRV0059: Class Path entry CL3Export.jar in /content/wmq.jmsra.rar/com.ibm.msg.client.wmq.v6.jar  does not point to a valid jar for a Class-Path reference.
+2026-07-28 16:49:20,492 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-5) WFLYSRV0059: Class Path entry CL3Nonexport.jar in /content/wmq.jmsra.rar/com.ibm.msg.client.wmq.v6.jar  does not point to a valid jar for a Class-Path reference.
+2026-07-28 16:49:20,797 INFO  [org.jboss.as.connector.deployment] (MSC service thread 1-3) WFLYJCA0007: Registered connection factory java:/JmsXA
+2026-07-28 16:49:21,294 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 69) AMQ221003: Deploying queue jms.queue.ExpiryQueue
+2026-07-28 16:49:21,397 WARN  [org.apache.activemq.artemis.jms.server] (ServerService Thread Pool -- 67) AMQ122005: Invalid "host" value "0.0.0.0" detected for "http-connector" connector. Switching to "sispl-canal-webhook-pix-des-758dccb6c-n2vxg". If this new address is incorrect please manually configure the connector to use the proper one.
+2026-07-28 16:49:21,398 INFO  [org.wildfly.extension.messaging-activemq] (ServerService Thread Pool -- 67) WFLYMSGAMQ0002: Bound messaging object to jndi name java:jboss/exported/jms/RemoteConnectionFactory
+2026-07-28 16:49:22,098 INFO  [org.apache.activemq.artemis.ra] (MSC service thread 1-3) Resource adaptor started
+2026-07-28 16:49:22,099 INFO  [org.jboss.as.connector.services.resourceadapters.ResourceAdapterActivatorService$ResourceAdapterActivator] (MSC service thread 1-3) IJ020002: Deployed: file://RaActivatoractivemq-ra
+2026-07-28 16:49:22,192 INFO  [org.wildfly.extension.messaging-activemq] (MSC service thread 1-2) WFLYMSGAMQ0002: Bound messaging object to jndi name java:jboss/DefaultJMSConnectionFactory
+2026-07-28 16:49:22,192 INFO  [org.jboss.as.connector.deployment] (MSC service thread 1-8) WFLYJCA0002: Bound JCA ConnectionFactory [java:/JmsXA]
+2026-07-28 16:49:23,895 INFO  [org.jboss.as.connector.deployers.RADeployer] (MSC service thread 1-8) IJ020001: Required license terms for file:/opt/jboss-eap-7.1/standalone/tmp/vfs/temp/temp367a2c4618e18884/content-98a6a1efcca6a9b/contents/
+2026-07-28 16:49:23,899 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) WFLYSRV0003: Could not index class module-info.class at /content/sispl-canal-webhook-pix.war/WEB-INF/lib/gson-2.8.9.jar: java.lang.IllegalStateException: Unknown tag! pos=4 poolCount = 33
+	at org.jboss.jandex.Indexer.processConstantPool(Indexer.java:1417)
+	at org.jboss.jandex.Indexer.index(Indexer.java:1451)
+	at org.jboss.as.server.deployment.annotation.ResourceRootIndexer.indexResourceRoot(ResourceRootIndexer.java:99)
+	at org.jboss.as.server.deployment.annotation.AnnotationIndexProcessor.deploy(AnnotationIndexProcessor.java:51)
+	at org.jboss.as.server.deployment.DeploymentUnitPhaseService.start(DeploymentUnitPhaseService.java:165)
+	at org.jboss.msc.service.ServiceControllerImpl$StartTask.startService(ServiceControllerImpl.java:2032)
+	at org.jboss.msc.service.ServiceControllerImpl$StartTask.run(ServiceControllerImpl.java:1955)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:748)
+
+2026-07-28 16:49:25,090 INFO  [org.infinispan.factories.GlobalComponentRegistry] (MSC service thread 1-5) ISPN000128: Infinispan version: Infinispan 'Chakra' 8.2.8.Final-redhat-1
+2026-07-28 16:49:25,894 WARN  [org.jboss.as.connector.deployers.RADeployer] (MSC service thread 1-8) IJ020017: Invalid archive: file:/opt/jboss-eap-7.1/standalone/tmp/vfs/temp/temp367a2c4618e18884/content-98a6a1efcca6a9b/contents/
+2026-07-28 16:49:25,898 INFO  [org.jboss.as.connector.deployers.RaXmlDeployer] (MSC service thread 1-2) IJ020001: Required license terms for file:/opt/jboss-eap-7.1/standalone/tmp/vfs/temp/temp367a2c4618e18884/content-98a6a1efcca6a9b/contents/
+2026-07-28 16:49:25,998 INFO  [org.jboss.as.connector.deployment] (MSC service thread 1-2) WFLYJCA0007: Registered connection factory java:/conn/MQ-ALTA-BR-SISPL
+2026-07-28 16:49:25,999 WARN  [org.jboss.as.connector.deployers.RaXmlDeployer] (MSC service thread 1-2) IJ020016: Missing <recovery> element. XA recovery disabled for: java:/conn/MQ-ALTA-BR-SISPL
+2026-07-28 16:49:26,794 INFO  [org.jboss.as.connector.deployment] (MSC service thread 1-2) WFLYJCA0006: Registered admin object at java:/jms/queueRspPix
+2026-07-28 16:49:26,795 INFO  [org.jboss.as.connector.deployment] (MSC service thread 1-2) WFLYJCA0006: Registered admin object at java:/jms/queueRspPixDead
+2026-07-28 16:49:26,796 WARN  [org.jboss.as.connector.deployers.RaXmlDeployer] (MSC service thread 1-2) IJ020017: Invalid archive: file:/opt/jboss-eap-7.1/standalone/tmp/vfs/temp/temp367a2c4618e18884/content-98a6a1efcca6a9b/contents/
+2026-07-28 16:49:26,798 INFO  [org.jboss.as.connector.deployers.RaXmlDeployer] (MSC service thread 1-2) IJ020002: Deployed: file:/opt/jboss-eap-7.1/standalone/tmp/vfs/temp/temp367a2c4618e18884/content-98a6a1efcca6a9b/contents/
+2026-07-28 16:49:26,799 INFO  [org.jboss.as.connector.deployment] (MSC service thread 1-5) WFLYJCA0002: Bound JCA AdminObject [java:/jms/queueRspPixDead]
+2026-07-28 16:49:26,799 INFO  [org.jboss.as.connector.deployment] (MSC service thread 1-2) WFLYJCA0002: Bound JCA AdminObject [java:/jms/queueRspPix]
+2026-07-28 16:49:26,799 INFO  [org.jboss.as.connector.deployment] (MSC service thread 1-6) WFLYJCA0002: Bound JCA ConnectionFactory [java:/conn/MQ-ALTA-BR-SISPL]
+2026-07-28 16:49:27,198 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 67) WFLYCLINF0002: Started client-mappings cache from ejb container
+2026-07-28 16:49:27,313 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) WFLYSRV0059: Class Path entry com.ibm.mq.headers.jar in /content/sispl-canal-webhook-pix.war/WEB-INF/lib/com.ibm.mq.commonservices-7.0.1.3.jar  does not point to a valid jar for a Class-Path reference.
+2026-07-28 16:49:27,313 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) WFLYSRV0059: Class Path entry com.ibm.mq.pcf.jar in /content/sispl-canal-webhook-pix.war/WEB-INF/lib/com.ibm.mq.commonservices-7.0.1.3.jar  does not point to a valid jar for a Class-Path reference.
+2026-07-28 16:49:27,313 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) WFLYSRV0059: Class Path entry com.ibm.mq.jmqi.jar in /content/sispl-canal-webhook-pix.war/WEB-INF/lib/com.ibm.mq.commonservices-7.0.1.3.jar  does not point to a valid jar for a Class-Path reference.
+2026-07-28 16:49:27,313 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) WFLYSRV0059: Class Path entry connector.jar in /content/sispl-canal-webhook-pix.war/WEB-INF/lib/com.ibm.mq.commonservices-7.0.1.3.jar  does not point to a valid jar for a Class-Path reference.
+2026-07-28 16:49:27,313 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) WFLYSRV0059: Class Path entry com.ibm.mq.commonservices.jar in /content/sispl-canal-webhook-pix.war/WEB-INF/lib/com.ibm.mq.commonservices-7.0.1.3.jar  does not point to a valid jar for a Class-Path reference.
+2026-07-28 16:49:27,314 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) WFLYSRV0059: Class Path entry com.ibm.mq.jmqi.local.jar in /content/sispl-canal-webhook-pix.war/WEB-INF/lib/com.ibm.mq.jmqi-7.0.1.3.jar  does not point to a valid jar for a Class-Path reference.
+2026-07-28 16:49:27,314 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) WFLYSRV0059: Class Path entry com.ibm.mq.jmqi.remote.jar in /content/sispl-canal-webhook-pix.war/WEB-INF/lib/com.ibm.mq.jmqi-7.0.1.3.jar  does not point to a valid jar for a Class-Path reference.
+2026-07-28 16:49:27,314 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) WFLYSRV0059: Class Path entry com.ibm.mq.jmqi.system.jar in /content/sispl-canal-webhook-pix.war/WEB-INF/lib/com.ibm.mq.jmqi-7.0.1.3.jar  does not point to a valid jar for a Class-Path reference.
+2026-07-28 16:49:27,314 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) WFLYSRV0059: Class Path entry jta.jar in /content/sispl-canal-webhook-pix.war/WEB-INF/lib/com.ibm.mq.jmqi-7.0.1.3.jar  does not point to a valid jar for a Class-Path reference.
+2026-07-28 16:49:27,393 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) WFLYSRV0059: Class Path entry jms.jar in /content/sispl-canal-webhook-pix.war/WEB-INF/lib/com.ibm.msg.client.jms-detail-1.0.jar  does not point to a valid jar for a Class-Path reference.
+2026-07-28 16:49:27,393 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) WFLYSRV0059: Class Path entry com.ibm.msg.client.jms.internal.jar in /content/sispl-canal-webhook-pix.war/WEB-INF/lib/com.ibm.msg.client.jms-detail-1.0.jar  does not point to a valid jar for a Class-Path reference.
+2026-07-28 16:49:27,393 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) WFLYSRV0059: Class Path entry com.ibm.msg.client.commonservices.jar in /content/sispl-canal-webhook-pix.war/WEB-INF/lib/com.ibm.msg.client.jms-detail-1.0.jar  does not point to a valid jar for a Class-Path reference.
+2026-07-28 16:49:27,393 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) WFLYSRV0059: Class Path entry com.ibm.msg.client.provider.jar in /content/sispl-canal-webhook-pix.war/WEB-INF/lib/com.ibm.msg.client.jms-detail-1.0.jar  does not point to a valid jar for a Class-Path reference.
+2026-07-28 16:49:27,394 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) WFLYSRV0059: Class Path entry com.ibm.msg.client.jms.jar in /content/sispl-canal-webhook-pix.war/WEB-INF/lib/com.ibm.msg.client.jms.internal-7.0.1.3.jar  does not point to a valid jar for a Class-Path reference.
+2026-07-28 16:49:27,394 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) WFLYSRV0059: Class Path entry com.ibm.msg.client.provider.jar in /content/sispl-canal-webhook-pix.war/WEB-INF/lib/com.ibm.msg.client.jms.internal-7.0.1.3.jar  does not point to a valid jar for a Class-Path reference.
+2026-07-28 16:49:27,395 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) WFLYSRV0059: Class Path entry com.ibm.mq.jmqi.jar in /content/sispl-canal-webhook-pix.war/WEB-INF/lib/com.ibm.msg.client.wmq-7.0.1.3.jar  does not point to a valid jar for a Class-Path reference.
+2026-07-28 16:49:27,399 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) WFLYSRV0059: Class Path entry com.ibm.mqjms.jar in /content/sispl-canal-webhook-pix.war/WEB-INF/lib/com.ibm.mq.jms.admin-7.0.1.3.jar  does not point to a valid jar for a Class-Path reference.
+2026-07-28 16:49:27,401 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) WFLYSRV0059: Class Path entry jms.jar in /content/sispl-canal-webhook-pix.war/WEB-INF/lib/com.ibm.msg.client.jms-7.0.1.3.jar  does not point to a valid jar for a Class-Path reference.
+2026-07-28 16:49:27,401 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) WFLYSRV0059: Class Path entry com.ibm.msg.client.jms.internal.jar in /content/sispl-canal-webhook-pix.war/WEB-INF/lib/com.ibm.msg.client.jms-7.0.1.3.jar  does not point to a valid jar for a Class-Path reference.
+2026-07-28 16:49:27,401 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) WFLYSRV0059: Class Path entry com.ibm.msg.client.commonservices.jar in /content/sispl-canal-webhook-pix.war/WEB-INF/lib/com.ibm.msg.client.jms-7.0.1.3.jar  does not point to a valid jar for a Class-Path reference.
+2026-07-28 16:49:27,401 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) WFLYSRV0059: Class Path entry com.ibm.msg.client.provider.jar in /content/sispl-canal-webhook-pix.war/WEB-INF/lib/com.ibm.msg.client.jms-7.0.1.3.jar  does not point to a valid jar for a Class-Path reference.
+2026-07-28 16:49:27,402 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) WFLYSRV0059: Class Path entry com.ibm.msg.client.jms.jar in /content/sispl-canal-webhook-pix.war/WEB-INF/lib/com.ibm.msg.client.matchspace-7.0.1.3.jar  does not point to a valid jar for a Class-Path reference.
+2026-07-28 16:49:27,403 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) WFLYSRV0059: Class Path entry rmm.jar in /content/sispl-canal-webhook-pix.war/WEB-INF/lib/com.ibm.msg.client.wmq.v6-7.0.1.3.jar  does not point to a valid jar for a Class-Path reference.
+2026-07-28 16:49:27,406 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) WFLYSRV0059: Class Path entry CL3Export.jar in /content/sispl-canal-webhook-pix.war/WEB-INF/lib/com.ibm.msg.client.wmq.v6-7.0.1.3.jar  does not point to a valid jar for a Class-Path reference.
+2026-07-28 16:49:27,407 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) WFLYSRV0059: Class Path entry CL3Nonexport.jar in /content/sispl-canal-webhook-pix.war/WEB-INF/lib/com.ibm.msg.client.wmq.v6-7.0.1.3.jar  does not point to a valid jar for a Class-Path reference.
+2026-07-28 16:49:27,407 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) WFLYSRV0059: Class Path entry dhbcore.jar in /content/sispl-canal-webhook-pix.war/WEB-INF/lib/com.ibm.msg.client.wmq.v6-7.0.1.3.jar  does not point to a valid jar for a Class-Path reference.
+2026-07-28 16:49:27,408 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) WFLYSRV0059: Class Path entry dhbcore.jar in /content/sispl-canal-webhook-pix.war/WEB-INF/lib/com.ibm.dhbcore-DH610-GOLD.jar  does not point to a valid jar for a Class-Path reference.
+2026-07-28 16:49:27,409 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) WFLYSRV0059: Class Path entry com.ibm.mq.headers.jar in /content/sispl-canal-webhook-pix.war/WEB-INF/lib/com.ibm.mq-7.0.1.3.jar  does not point to a valid jar for a Class-Path reference.
+2026-07-28 16:49:27,409 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) WFLYSRV0059: Class Path entry com.ibm.mq.pcf.jar in /content/sispl-canal-webhook-pix.war/WEB-INF/lib/com.ibm.mq-7.0.1.3.jar  does not point to a valid jar for a Class-Path reference.
+2026-07-28 16:49:27,409 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) WFLYSRV0059: Class Path entry com.ibm.mq.jmqi.jar in /content/sispl-canal-webhook-pix.war/WEB-INF/lib/com.ibm.mq-7.0.1.3.jar  does not point to a valid jar for a Class-Path reference.
+2026-07-28 16:49:27,409 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) WFLYSRV0059: Class Path entry connector.jar in /content/sispl-canal-webhook-pix.war/WEB-INF/lib/com.ibm.mq-7.0.1.3.jar  does not point to a valid jar for a Class-Path reference.
+2026-07-28 16:49:27,409 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) WFLYSRV0059: Class Path entry com.ibm.mq.commonservices.jar in /content/sispl-canal-webhook-pix.war/WEB-INF/lib/com.ibm.mq-7.0.1.3.jar  does not point to a valid jar for a Class-Path reference.
+2026-07-28 16:49:27,411 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) WFLYSRV0059: Class Path entry com.ibm.mq.jmqi.jar in /content/sispl-canal-webhook-pix.war/WEB-INF/lib/com.ibm.msg.client.wmq.factories-7.0.1.3.jar  does not point to a valid jar for a Class-Path reference.
+2026-07-28 16:49:27,413 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) WFLYSRV0059: Class Path entry com.ibm.mq.jar in /content/sispl-canal-webhook-pix.war/WEB-INF/lib/com.ibm.mq.pcf-7.0.1.3.jar  does not point to a valid jar for a Class-Path reference.
+2026-07-28 16:49:27,413 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) WFLYSRV0059: Class Path entry com.ibm.mq.headers.jar in /content/sispl-canal-webhook-pix.war/WEB-INF/lib/com.ibm.mq.pcf-7.0.1.3.jar  does not point to a valid jar for a Class-Path reference.
+2026-07-28 16:49:27,419 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) WFLYSRV0059: Class Path entry com.ibm.mq.jar in /content/sispl-canal-webhook-pix.war/WEB-INF/lib/com.ibm.mq.headers-7.0.1.3.jar  does not point to a valid jar for a Class-Path reference.
+2026-07-28 16:49:27,421 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) WFLYSRV0059: Class Path entry com.ibm.msg.client.jms.jar in /content/sispl-canal-webhook-pix.war/WEB-INF/lib/com.ibm.mqjms-7.0.1.3.jar  does not point to a valid jar for a Class-Path reference.
+2026-07-28 16:49:27,421 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) WFLYSRV0059: Class Path entry com.ibm.msg.client.commonservices.j2se.jar in /content/sispl-canal-webhook-pix.war/WEB-INF/lib/com.ibm.mqjms-7.0.1.3.jar  does not point to a valid jar for a Class-Path reference.
+2026-07-28 16:49:27,421 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) WFLYSRV0059: Class Path entry com.ibm.msg.client.wmq.common.jar in /content/sispl-canal-webhook-pix.war/WEB-INF/lib/com.ibm.mqjms-7.0.1.3.jar  does not point to a valid jar for a Class-Path reference.
+2026-07-28 16:49:27,421 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) WFLYSRV0059: Class Path entry com.ibm.msg.client.wmq.factories.jar in /content/sispl-canal-webhook-pix.war/WEB-INF/lib/com.ibm.mqjms-7.0.1.3.jar  does not point to a valid jar for a Class-Path reference.
+2026-07-28 16:49:27,421 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) WFLYSRV0059: Class Path entry com.ibm.msg.client.wmq.jar in /content/sispl-canal-webhook-pix.war/WEB-INF/lib/com.ibm.mqjms-7.0.1.3.jar  does not point to a valid jar for a Class-Path reference.
+2026-07-28 16:49:27,421 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) WFLYSRV0059: Class Path entry com.ibm.msg.client.wmq.v6.jar in /content/sispl-canal-webhook-pix.war/WEB-INF/lib/com.ibm.mqjms-7.0.1.3.jar  does not point to a valid jar for a Class-Path reference.
+2026-07-28 16:49:27,421 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) WFLYSRV0059: Class Path entry com.ibm.mq.jar in /content/sispl-canal-webhook-pix.war/WEB-INF/lib/com.ibm.mqjms-7.0.1.3.jar  does not point to a valid jar for a Class-Path reference.
+2026-07-28 16:49:27,421 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) WFLYSRV0059: Class Path entry ldap.jar in /content/sispl-canal-webhook-pix.war/WEB-INF/lib/com.ibm.mqjms-7.0.1.3.jar  does not point to a valid jar for a Class-Path reference.
+2026-07-28 16:49:27,421 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) WFLYSRV0059: Class Path entry jndi.jar in /content/sispl-canal-webhook-pix.war/WEB-INF/lib/com.ibm.mqjms-7.0.1.3.jar  does not point to a valid jar for a Class-Path reference.
+2026-07-28 16:49:27,421 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) WFLYSRV0059: Class Path entry fscontext.jar in /content/sispl-canal-webhook-pix.war/WEB-INF/lib/com.ibm.mqjms-7.0.1.3.jar  does not point to a valid jar for a Class-Path reference.
+2026-07-28 16:49:27,421 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) WFLYSRV0059: Class Path entry providerutil.jar in /content/sispl-canal-webhook-pix.war/WEB-INF/lib/com.ibm.mqjms-7.0.1.3.jar  does not point to a valid jar for a Class-Path reference.
+2026-07-28 16:49:27,421 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) WFLYSRV0059: Class Path entry com.ibm.mq.jms.admin.jar in /content/sispl-canal-webhook-pix.war/WEB-INF/lib/com.ibm.mqjms-7.0.1.3.jar  does not point to a valid jar for a Class-Path reference.
+2026-07-28 16:49:27,895 INFO  [org.jboss.as.jpa] (MSC service thread 1-8) WFLYJPA0002: Read persistence.xml for sispl-pix-PU
+2026-07-28 16:49:28,102 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 67) WFLYJPA0010: Starting Persistence Unit (phase 1 of 2) Service 'sispl-canal-webhook-pix.war#sispl-pix-PU'
+2026-07-28 16:49:28,120 INFO  [org.hibernate.jpa.internal.util.LogHelper] (ServerService Thread Pool -- 67) HHH000204: Processing PersistenceUnitInfo [
+	name: sispl-pix-PU
+	...]
+2026-07-28 16:49:28,298 INFO  [org.jboss.weld.deployer] (MSC service thread 1-7) WFLYWELD0003: Processing weld deployment sispl-canal-webhook-pix.war
+2026-07-28 16:49:28,397 INFO  [org.hibernate.Version] (ServerService Thread Pool -- 67) HHH000412: Hibernate Core {5.1.10.Final-redhat-1}
+2026-07-28 16:49:28,398 INFO  [org.hibernate.cfg.Environment] (ServerService Thread Pool -- 67) HHH000206: hibernate.properties not found
+2026-07-28 16:49:28,400 INFO  [org.hibernate.cfg.Environment] (ServerService Thread Pool -- 67) HHH000021: Bytecode provider name : javassist
+2026-07-28 16:49:28,407 INFO  [org.hibernate.validator.internal.util.Version] (MSC service thread 1-7) HV000001: Hibernate Validator 5.3.5.Final-redhat-2
+2026-07-28 16:49:28,428 INFO  [org.hibernate.annotations.common.Version] (ServerService Thread Pool -- 67) HCANN000001: Hibernate Commons Annotations {5.0.1.Final-redhat-2}
+2026-07-28 16:49:28,798 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-7) WFLYEJB0473: JNDI bindings for session bean named 'NegocioPix' in deployment unit 'deployment "sispl-canal-webhook-pix.war"' are as follows:
+
+	java:global/sispl-canal-loterico-webhook-pix/NegocioPix!br.gov.caixa.sispl.pix.negocio.NegocioPix
+	java:app/sispl-canal-loterico-webhook-pix/NegocioPix!br.gov.caixa.sispl.pix.negocio.NegocioPix
+	java:module/NegocioPix!br.gov.caixa.sispl.pix.negocio.NegocioPix
+	java:global/sispl-canal-loterico-webhook-pix/NegocioPix
+	java:app/sispl-canal-loterico-webhook-pix/NegocioPix
+	java:module/NegocioPix
+
+2026-07-28 16:49:29,701 INFO  [org.jboss.weld.Version] (MSC service thread 1-7) WELD-000900: 2.4.3 (redhat)
+2026-07-28 16:49:30,121 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 67) WFLYJPA0010: Starting Persistence Unit (phase 2 of 2) Service 'sispl-canal-webhook-pix.war#sispl-pix-PU'
+2026-07-28 16:49:32,204 INFO  [org.hibernate.dialect.Dialect] (ServerService Thread Pool -- 67) HHH000400: Using dialect: br.gov.caixa.sispl.pix.dominio.hibernate.DB2CorrectedHibernateDialect
+2026-07-28 16:49:32,505 INFO  [org.hibernate.envers.boot.internal.EnversServiceImpl] (ServerService Thread Pool -- 67) Envers integration enabled? : true
+2026-07-28 16:49:35,117 INFO  [javax.enterprise.resource.webcontainer.jsf.config] (ServerService Thread Pool -- 66) Initializing Mojarra 2.2.13.SP4  for context '/sispl-canal-loterico-webhook-pix'
+2026-07-28 16:49:39,505 INFO  [org.jboss.resteasy.resteasy_jaxrs.i18n] (ServerService Thread Pool -- 66) RESTEASY002225: Deploying javax.ws.rs.core.Application: class br.gov.caixa.sispl.pix.web.rest.SisplApplication$Proxy$_$$_WeldClientProxy
+2026-07-28 16:49:40,210 INFO  [org.jboss.resteasy.resteasy_jaxrs.i18n] (ServerService Thread Pool -- 66) RESTEASY002205: Adding provider class br.gov.caixa.validacao.EmailValidator from Application class br.gov.caixa.sispl.pix.web.rest.SisplApplication$Proxy$_$$_WeldClientProxy
+2026-07-28 16:49:40,210 INFO  [org.jboss.resteasy.resteasy_jaxrs.i18n] (ServerService Thread Pool -- 66) RESTEASY002205: Adding provider class br.gov.caixa.sispl.pix.web.rest.exception.ThrowableMapper from Application class br.gov.caixa.sispl.pix.web.rest.SisplApplication$Proxy$_$$_WeldClientProxy
+2026-07-28 16:49:40,210 INFO  [org.jboss.resteasy.resteasy_jaxrs.i18n] (ServerService Thread Pool -- 66) RESTEASY002205: Adding provider class br.gov.caixa.validacao.NotEmptyValidator$ListNotEmptyValidator from Application class br.gov.caixa.sispl.pix.web.rest.SisplApplication$Proxy$_$$_WeldClientProxy
+2026-07-28 16:49:40,210 INFO  [org.jboss.resteasy.resteasy_jaxrs.i18n] (ServerService Thread Pool -- 66) RESTEASY002200: Adding class resource br.gov.caixa.sispl.pix.web.rest.servico.RestConfiguracaoKeycloak from Application class br.gov.caixa.sispl.pix.web.rest.SisplApplication$Proxy$_$$_WeldClientProxy
+2026-07-28 16:49:40,210 INFO  [org.jboss.resteasy.resteasy_jaxrs.i18n] (ServerService Thread Pool -- 66) RESTEASY002205: Adding provider class br.gov.caixa.validacao.CEPValidator from Application class br.gov.caixa.sispl.pix.web.rest.SisplApplication$Proxy$_$$_WeldClientProxy
+2026-07-28 16:49:40,210 INFO  [org.jboss.resteasy.resteasy_jaxrs.i18n] (ServerService Thread Pool -- 66) RESTEASY002205: Adding provider class br.gov.caixa.sispl.pix.web.rest.exception.JsonMappingExceptionMapper from Application class br.gov.caixa.sispl.pix.web.rest.SisplApplication$Proxy$_$$_WeldClientProxy
+2026-07-28 16:49:40,210 INFO  [org.jboss.resteasy.resteasy_jaxrs.i18n] (ServerService Thread Pool -- 66) RESTEASY002205: Adding provider class br.gov.caixa.validacao.NotEmptyValidator$StringNotEmptyValidator from Application class br.gov.caixa.sispl.pix.web.rest.SisplApplication$Proxy$_$$_WeldClientProxy
+2026-07-28 16:49:40,210 INFO  [org.jboss.resteasy.resteasy_jaxrs.i18n] (ServerService Thread Pool -- 66) RESTEASY002200: Adding class resource br.gov.caixa.sispl.pix.web.rest.servico.RestWebhookValida from Application class br.gov.caixa.sispl.pix.web.rest.SisplApplication$Proxy$_$$_WeldClientProxy
+2026-07-28 16:49:40,210 INFO  [org.jboss.resteasy.resteasy_jaxrs.i18n] (ServerService Thread Pool -- 66) RESTEASY002205: Adding provider class br.gov.caixa.validacao.NotEmptyValidator$CollectionNotEmptyValidator from Application class br.gov.caixa.sispl.pix.web.rest.SisplApplication$Proxy$_$$_WeldClientProxy
+2026-07-28 16:49:40,210 INFO  [org.jboss.resteasy.resteasy_jaxrs.i18n] (ServerService Thread Pool -- 66) RESTEASY002205: Adding provider class br.gov.caixa.validacao.DataValidator from Application class br.gov.caixa.sispl.pix.web.rest.SisplApplication$Proxy$_$$_WeldClientProxy
+2026-07-28 16:49:40,210 INFO  [org.jboss.resteasy.resteasy_jaxrs.i18n] (ServerService Thread Pool -- 66) RESTEASY002200: Adding class resource br.gov.caixa.sispl.pix.web.rest.servico.RestVersao from Application class br.gov.caixa.sispl.pix.web.rest.SisplApplication$Proxy$_$$_WeldClientProxy
+2026-07-28 16:49:40,210 INFO  [org.jboss.resteasy.resteasy_jaxrs.i18n] (ServerService Thread Pool -- 66) RESTEASY002200: Adding class resource io.swagger.jaxrs.listing.ApiListingResource from Application class br.gov.caixa.sispl.pix.web.rest.SisplApplication$Proxy$_$$_WeldClientProxy
+2026-07-28 16:49:40,210 INFO  [org.jboss.resteasy.resteasy_jaxrs.i18n] (ServerService Thread Pool -- 66) RESTEASY002200: Adding class resource br.gov.caixa.sispl.pix.web.rest.servico.RestHealthCheck from Application class br.gov.caixa.sispl.pix.web.rest.SisplApplication$Proxy$_$$_WeldClientProxy
+2026-07-28 16:49:40,210 INFO  [org.jboss.resteasy.resteasy_jaxrs.i18n] (ServerService Thread Pool -- 66) RESTEASY002205: Adding provider class br.gov.caixa.sispl.pix.web.rest.exception.NegocioExceptionMapper from Application class br.gov.caixa.sispl.pix.web.rest.SisplApplication$Proxy$_$$_WeldClientProxy
+2026-07-28 16:49:40,210 INFO  [org.jboss.resteasy.resteasy_jaxrs.i18n] (ServerService Thread Pool -- 66) RESTEASY002205: Adding provider class br.gov.caixa.sispl.pix.web.rest.exception.UnrecognizedPropertyExceptionMapper from Application class br.gov.caixa.sispl.pix.web.rest.SisplApplication$Proxy$_$$_WeldClientProxy
+2026-07-28 16:49:40,211 INFO  [org.jboss.resteasy.resteasy_jaxrs.i18n] (ServerService Thread Pool -- 66) RESTEASY002205: Adding provider class br.gov.caixa.validacao.NotEmptyValidator$SetNotEmptyValidator from Application class br.gov.caixa.sispl.pix.web.rest.SisplApplication$Proxy$_$$_WeldClientProxy
+2026-07-28 16:49:40,211 INFO  [org.jboss.resteasy.resteasy_jaxrs.i18n] (ServerService Thread Pool -- 66) RESTEASY002205: Adding provider class br.gov.caixa.validacao.TelefoneValidator$TelefoneObjectValidator from Application class br.gov.caixa.sispl.pix.web.rest.SisplApplication$Proxy$_$$_WeldClientProxy
+2026-07-28 16:49:40,211 INFO  [org.jboss.resteasy.resteasy_jaxrs.i18n] (ServerService Thread Pool -- 66) RESTEASY002205: Adding provider class br.gov.caixa.validacao.NotEmptyValidator$ArrayNotEmptyValidator from Application class br.gov.caixa.sispl.pix.web.rest.SisplApplication$Proxy$_$$_WeldClientProxy
+2026-07-28 16:49:40,211 INFO  [org.jboss.resteasy.resteasy_jaxrs.i18n] (ServerService Thread Pool -- 66) RESTEASY002205: Adding provider class br.gov.caixa.validacao.RangeValidator$NumberRangeValidator from Application class br.gov.caixa.sispl.pix.web.rest.SisplApplication$Proxy$_$$_WeldClientProxy
+2026-07-28 16:49:40,211 INFO  [org.jboss.resteasy.resteasy_jaxrs.i18n] (ServerService Thread Pool -- 66) RESTEASY002205: Adding provider class br.gov.caixa.sispl.pix.web.rest.exception.SegurancaExceptionMapper from Application class br.gov.caixa.sispl.pix.web.rest.SisplApplication$Proxy$_$$_WeldClientProxy
+2026-07-28 16:49:40,211 INFO  [org.jboss.resteasy.resteasy_jaxrs.i18n] (ServerService Thread Pool -- 66) RESTEASY002205: Adding provider class br.gov.caixa.sispl.pix.web.rest.exception.EJBAccessExceptionMapper from Application class br.gov.caixa.sispl.pix.web.rest.SisplApplication$Proxy$_$$_WeldClientProxy
+2026-07-28 16:49:40,211 INFO  [org.jboss.resteasy.resteasy_jaxrs.i18n] (ServerService Thread Pool -- 66) RESTEASY002205: Adding provider class br.gov.caixa.validacao.NotEmptyValidator$MapNotEmptyValidator from Application class br.gov.caixa.sispl.pix.web.rest.SisplApplication$Proxy$_$$_WeldClientProxy
+2026-07-28 16:49:40,211 INFO  [org.jboss.resteasy.resteasy_jaxrs.i18n] (ServerService Thread Pool -- 66) RESTEASY002205: Adding provider class br.gov.caixa.validacao.NotBlankValidator from Application class br.gov.caixa.sispl.pix.web.rest.SisplApplication$Proxy$_$$_WeldClientProxy
+2026-07-28 16:49:40,211 INFO  [org.jboss.resteasy.resteasy_jaxrs.i18n] (ServerService Thread Pool -- 66) RESTEASY002205: Adding provider class br.gov.caixa.validacao.CPFValidator from Application class br.gov.caixa.sispl.pix.web.rest.SisplApplication$Proxy$_$$_WeldClientProxy
+2026-07-28 16:49:40,211 INFO  [org.jboss.resteasy.resteasy_jaxrs.i18n] (ServerService Thread Pool -- 66) RESTEASY002205: Adding provider class br.gov.caixa.validacao.NotNullValidator from Application class br.gov.caixa.sispl.pix.web.rest.SisplApplication$Proxy$_$$_WeldClientProxy
+2026-07-28 16:49:40,211 INFO  [org.jboss.resteasy.resteasy_jaxrs.i18n] (ServerService Thread Pool -- 66) RESTEASY002205: Adding provider class br.gov.caixa.validacao.TelefoneValidator$TelefoneStringValidator from Application class br.gov.caixa.sispl.pix.web.rest.SisplApplication$Proxy$_$$_WeldClientProxy
+2026-07-28 16:49:40,211 INFO  [org.jboss.resteasy.resteasy_jaxrs.i18n] (ServerService Thread Pool -- 66) RESTEASY002205: Adding provider class io.swagger.jaxrs.listing.SwaggerSerializers from Application class br.gov.caixa.sispl.pix.web.rest.SisplApplication$Proxy$_$$_WeldClientProxy
+2026-07-28 16:49:40,211 INFO  [org.jboss.resteasy.resteasy_jaxrs.i18n] (ServerService Thread Pool -- 66) RESTEASY002205: Adding provider class br.gov.caixa.sispl.pix.web.rest.exception.ConstraintViolationExceptionMapper from Application class br.gov.caixa.sispl.pix.web.rest.SisplApplication$Proxy$_$$_WeldClientProxy
+2026-07-28 16:49:41,198 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 66) WFLYUT0021: Registered web context: '/sispl-canal-loterico-webhook-pix' for server 'default-server'
+2026-07-28 16:49:41,207 INFO  [org.jboss.as.server] (ServerService Thread Pool -- 39) WFLYSRV0010: Deployed "wmq.jmsra.rar" (runtime-name : "wmq.jmsra.rar")
+2026-07-28 16:49:41,207 INFO  [org.jboss.as.server] (ServerService Thread Pool -- 39) WFLYSRV0010: Deployed "sispl-canal-webhook-pix.war" (runtime-name : "sispl-canal-webhook-pix.war")
+2026-07-28 16:49:41,499 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0212: Resuming server
+2026-07-28 16:49:41,593 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0060: Http management interface listening on http://127.0.0.1:9990/management
+2026-07-28 16:49:41,593 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0051: Admin console listening on http://127.0.0.1:9990
+2026-07-28 16:49:41,593 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0025: JBoss EAP 7.1.0.GA (WildFly Core 3.0.10.Final-redhat-1) started in 36199ms - Started 537 of 763 services (371 services are lazy, passive or on-demand)
