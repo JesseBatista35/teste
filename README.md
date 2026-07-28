@@ -26,3 +26,26 @@ with open(patch_path, 'w') as f:
 
 print("Patch gerado com sucesso em:", patch_path)
 PYEOF
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+python3 -m json.tool ~/patch-agendamento-sisou-v3.json > /dev/null && echo "JSON válido" || echo "JSON INVÁLIDO"
+
+
+
+
+
+oc patch cronjob agendamento-sisou --type='json' -p="$(cat ~/patch-agendamento-sisou-v3.json)"
