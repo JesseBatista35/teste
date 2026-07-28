@@ -1,13 +1,135 @@
-Pessoal, sobre o deploy do SIGFA-api-aplicacao no ambiente TGE, identificamos 3 problemas distintos na esteira:
+Solicitamos a alteração do CRON JOB: agendamento-sisou
+Na infra: OKD
+No Projeto: SISOU-DES PROJETO
 
-1) Task "Create BT Sidecar" falhando com erro "RESOURCE_APP: comando não encontrado" e "resource name may not be empty". A variável RESOURCE_APP não estava sendo reconhecida no script, então o nome do deploymentconfig chegou vazio nos comandos oc, e a task não conseguiu adicionar/recriar o container secrets-agent-sidecar. Isso ainda não foi corrigido, precisa de ajuste no script da task.
+Em:
+https://console-openshift-console.apps.nprd.caixa/k8s/cluster/projects/sisou-des
 
-2) O deploymentconfig sigfa-api-aplicacao-okd4-pos-tqs estava pausado (paused), por isso o rollout cancel e o rollout latest falhavam. Resolvido com:
-oc rollout resume dc/sigfa-api-aplicacao-okd4-pos-tqs -n sigfa-tqs
-oc rollout latest dc/sigfa-api-aplicacao-okd4-pos-tqs -n sigfa-tqs
+O campo comando deve ter o seguinte registro:
 
-3) Depois do deploy subir, o container secrets-agent-sidecar do pod deu erro client_id parameter is missing ao autenticar no BeyondTrust. Verificamos o variable group SIGFA-API-APLICACAO-BT-VAULT-TGE no Azure DevOps e confirmamos que só existe a variável BT_SECRETS_LIST cadastrada. Faltam as variáveis BT_CLIENT_ID e BT_CLIENT_SECRET, que existem nos grupos equivalentes de DES e PRD (SIGFA-BT-VAULT-SECRET-DES e SIGFA-BT-VAULT-SECRET-PRD) mas não têm um grupo correspondente para TGE.
+/bin/bash -c set -euo pipefail
 
-Precisamos que seja criado o client_id/client_secret do BeyondTrust para a app SIGFA no ambiente TGE (path SIGFA_TGE), para que o time responsável cadastre essas credenciais no grupo de variáveis do TGE.
+echo "===== ENV ====="
+env | sort
+echo "==============="
 
-Jessé Batista / CTIS/CESTI — Esteira DevOps DES TQS NPRD
+echo "=== INICIO EXECUCAO CRONJOB ==="
+
+#
+# Recupera variaveis de ambiente
+#
+KEYCLOAK_AUTH_SERVER_URL="$(printenv KEYCLOAK_AUTH_SERVER_URL || true)"
+KEYCLOAK_CREDENTIAL_SECRET="$(printenv KEYCLOAK_CREDENTIAL_SECRET || true)"
+HOSTNAME="$(printenv HTTP_SERVICE_API_SAC || true)"
+
+CLIENT_ID="cli-ser-sou"
+
+#
+# Validacoes iniciais
+#
+if [ -z "${KEYCLOAK_AUTH_SERVER_URL}" ]; then
+    echo "[ERRO] Variavel KEYCLOAK_AUTH_SERVER_URL nao encontrada."
+    exit 1
+fi
+
+if [ -z "${KEYCLOAK_CREDENTIAL_SECRET}" ]; then
+    echo "[ERRO] Variavel KEYCLOAK_CREDENTIAL_SECRET nao encontrada."
+    exit 1
+fi
+
+if [ -z "${HOSTNAME}" ]; then
+    echo "[ERRO] Variavel HTTP_SERVICE_API_SAC nao encontrada."
+    exit 1
+fi
+
+#
+# Remove barras finais para evitar // na URL
+#
+KEYCLOAK_AUTH_SERVER_URL="${KEYCLOAK_AUTH_SERVER_URL%/}"
+HOSTNAME="${HOSTNAME%/}"
+
+#
+# Monta URL do Keycloak
+#
+KEYCLOAK_AUTH_SERVER_URL="${KEYCLOAK_AUTH_SERVER_URL}/realms/intranet/protocol/openid-connect/token"
+
+echo "[INFO] KEYCLOAK_AUTH_SERVER_URL = ${KEYCLOAK_AUTH_SERVER_URL}"
+echo "[INFO] HOSTNAME     = ${HOSTNAME}"
+echo "[INFO] CLIENT_ID    = ${CLIENT_ID}"
+
+#
+# Validacao simples das URLs
+#
+case "${KEYCLOAK_AUTH_SERVER_URL}" in
+    http://*|https://*)
+        ;;
+    *)
+        echo "[ERRO] KEYCLOAK_AUTH_SERVER_URL invalida: ${KEYCLOAK_AUTH_SERVER_URL}"
+        exit 1
+        ;;
+esac
+
+case "${HOSTNAME}" in
+    http://*|https://*)
+        ;;
+    *)
+        echo "[ERRO] HTTP_SERVICE_API_SAC invalida: ${HOSTNAME}"
+        exit 1
+        ;;
+esac
+
+#
+# Obtencao do token
+#
+echo "[INFO] Obtendo token..."
+
+TOKEN=$(
+curl --silent --show-error --fail \
+  -X POST "${KEYCLOAK_AUTH_SERVER_URL}" \
+  -H "Content-Type: application/x-www-form-urlencoded" \
+  -d "grant_type=client_credentials" \
+  -d "client_id=${CLIENT_ID}" \
+  -d "client_secret=${KEYCLOAK_CREDENTIAL_SECRET}" \
+| sed -n 's/.*"access_token":"\([^"]*\)".*/\1/p'
+)
+
+if [ -z "${TOKEN}" ]; then
+    echo "[ERRO] Nao foi possivel obter o access_token."
+    exit 1
+fi
+
+echo "[INFO] TOKEN recuperado com sucesso"
+
+#
+# Endpoint final
+#
+ENDPOINT="${HOSTNAME}/sac/cronjob/indecx/pesquisa-satisfacao"
+
+echo "[INFO] ENDPOINT = ${ENDPOINT}"
+
+#
+# Chamada da API
+#
+HTTP_CODE=$(
+curl \
+  --silent \
+  --show-error \
+  --location \
+  --output /tmp/cronjob-response.txt \
+  --write-out "%{http_code}" \
+  -H "Authorization: Bearer ${TOKEN}" \
+  -H "Content-Type: application/json" \
+  "${ENDPOINT}"
+)
+
+echo "HTTP_CODE = ${HTTP_CODE}"
+
+if [ "${HTTP_CODE}" -lt 200 ] || [ "${HTTP_CODE}" -ge 300 ]; then
+    echo "[ERRO] Chamada retornou HTTP ${HTTP_CODE}"
+    echo "=== RESPOSTA ==="
+    cat /tmp/cronjob-response.txt || true
+    exit 1
+fi
+
+echo "[SUCESSO] CronJob executado com sucesso."
+echo "=== FIM EXECUCAO CRONJOB ==="
