@@ -1,1 +1,5 @@
-A aplicação trava (hang) logo após o WARN do Hibernate, sem erro ou exceção nos logs, e é morta pelos probes antes de terminar o startup — mesmo com mais tempo de delay não resolve, então não é timing, é travamento real no início da inicialização.
+oc get netnamespace sispl-des -o yaml | grep -i egress
+
+oc get hostsubnet
+oc describe netnamespace sispl-des
+
