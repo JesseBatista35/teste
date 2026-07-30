@@ -1,108 +1,374 @@
-exec java -Dquarkus.http.host=0.0.0.0 -Dquarkus.http.port=8080 -Djava.util.logging.manager=org.jboss.logmanager.LogManager -Djavax.net.ssl.trustStore=/deployments/caixa-truststore-acteste-nprd.jks -javaagent:/deployments/lib/main/com.microsoft.azure.applicationinsights-agent-3.3.1.jar -XX:+ExitOnOutOfMemoryError -cp . -jar /deployments/quarkus-run.jar
-OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
-2026-07-30 15:13:05.306-03:00 INFO  c.m.applicationinsights.agent - ApplicationInsights Java Agent 3.3.1 started successfully (PID 3)
-2026-07-30 15:13:05.389-03:00 INFO  c.m.applicationinsights.agent - Java version: 11.0.11, vendor: Red Hat, Inc., home: /usr/lib/jvm/java-11-openjdk-11.0.11.0.9-2.el8_4.x86_64
-Model classes are defined for the default persistence unit idaa but configured datasource idaa not found: the default EntityManagerFactory will not be created. To solve this, configure the default datasource. Refer to https://quarkus.io/guides/datasource for guidance.
-2026-07-30 15:13:17.229-03:00 WARN  c.m.a.a.i.i.AppIdSupplier$GetAppIdTask - Unable to retrieve appId: exception sending request to https://brazilsouth-1.in.applicationinsights.azure.com/api/profiles/123909f2-cf26-409f-9b2b-d7d3087d43cd/appId (future warnings will be aggregated and logged once every 5 minutes)
-reactor.core.Exceptions$ReactiveException: io.netty.channel.AbstractChannel$AnnotatedNoRouteToHostException: null: brazilsouth-1.in.applicationinsights.azure.com/2603:1050:6:7:0:0:0:0:443
-	at reactor.core.Exceptions.propagate(Exceptions.java:392)
-	at reactor.core.publisher.BlockingSingleSubscriber.blockingGet(BlockingSingleSubscriber.java:97)
-	at reactor.core.publisher.Mono.block(Mono.java:1707)
-	at com.microsoft.applicationinsights.agent.internal.init.AppIdSupplier$GetAppIdTask.run(AppIdSupplier.java:139)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at java.base/java.lang.Thread.run(Thread.java:829)
-	Suppressed: java.lang.Exception: #block terminated with an error
-		at reactor.core.publisher.BlockingSingleSubscriber.blockingGet(BlockingSingleSubscriber.java:99)
-		... 8 common frames omitted
-Caused by: io.netty.channel.AbstractChannel$AnnotatedNoRouteToHostException: null: brazilsouth-1.in.applicationinsights.azure.com/2603:1050:6:7:0:0:0:0:443
-Caused by: java.net.NoRouteToHostException: null
-	at io.netty.channel.unix.Errors.newConnectException0(Errors.java:147)
-	at io.netty.channel.unix.Errors.handleConnectErrno(Errors.java:128)
-	at io.netty.channel.unix.Socket.connect(Socket.java:313)
-	at io.netty.channel.epoll.AbstractEpollChannel.doConnect0(AbstractEpollChannel.java:773)
-	at io.netty.channel.epoll.EpollSocketChannel.doConnect0(EpollSocketChannel.java:144)
-	at io.netty.channel.epoll.AbstractEpollChannel.doConnect(AbstractEpollChannel.java:758)
-	at io.netty.channel.epoll.AbstractEpollChannel$AbstractEpollUnsafe.connect(AbstractEpollChannel.java:600)
-	at io.netty.channel.DefaultChannelPipeline$HeadContext.connect(DefaultChannelPipeline.java:1342)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeConnect(AbstractChannelHandlerContext.java:548)
-	at io.netty.channel.AbstractChannelHandlerContext.connect(AbstractChannelHandlerContext.java:533)
-	at io.netty.handler.ssl.SslHandler.connect(SslHandler.java:713)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeConnect(AbstractChannelHandlerContext.java:548)
-	at io.netty.channel.AbstractChannelHandlerContext.connect(AbstractChannelHandlerContext.java:533)
-	at io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.connect(CombinedChannelDuplexHandler.java:495)
-	at io.netty.channel.ChannelOutboundHandlerAdapter.connect(ChannelOutboundHandlerAdapter.java:51)
-	at io.netty.channel.CombinedChannelDuplexHandler.connect(CombinedChannelDuplexHandler.java:296)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeConnect(AbstractChannelHandlerContext.java:548)
-	at io.netty.channel.AbstractChannelHandlerContext.connect(AbstractChannelHandlerContext.java:533)
-	at io.netty.channel.AbstractChannelHandlerContext.connect(AbstractChannelHandlerContext.java:517)
-	at io.netty.channel.AbstractChannelHandlerContext.connect(AbstractChannelHandlerContext.java:457)
-	at io.netty.channel.DefaultChannelPipeline.connect(DefaultChannelPipeline.java:942)
-	at io.netty.channel.AbstractChannel.connect(AbstractChannel.java:229)
-	at reactor.netty.transport.TransportConnector.lambda$doConnect$8(TransportConnector.java:198)
-	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:164)
-	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:469)
-	at io.netty.channel.epoll.EpollEventLoop.run(EpollEventLoop.java:394)
-	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:986)
-	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
-	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
-	at java.base/java.lang.Thread.run(Thread.java:829)
-2026-07-30 15:13:18.190-03:00 WARN  c.a.m.o.e.i.q.QuickPulsePingSender - Pinging live metrics endpoint: io.netty.channel.ConnectTimeoutException: connection timed out: brazilsouth.livediagnostics.monitor.azure.com/191.234.137.40:443 (https://brazilsouth.livediagnostics.monitor.azure.com/QuickPulseService.svc) (future warnings will be aggregated and logged once every 5 minutes)
-reactor.core.Exceptions$ReactiveException: io.netty.channel.ConnectTimeoutException: connection timed out: brazilsouth.livediagnostics.monitor.azure.com/191.234.137.40:443
-	at reactor.core.Exceptions.propagate(Exceptions.java:392)
-	at reactor.core.publisher.BlockingSingleSubscriber.blockingGet(BlockingSingleSubscriber.java:97)
-	at reactor.core.publisher.Mono.block(Mono.java:1707)
-	at com.azure.monitor.opentelemetry.exporter.implementation.quickpulse.QuickPulsePingSender.ping(QuickPulsePingSender.java:124)
-	at com.azure.monitor.opentelemetry.exporter.implementation.quickpulse.QuickPulseCoordinator.ping(QuickPulseCoordinator.java:110)
-	at com.azure.monitor.opentelemetry.exporter.implementation.quickpulse.QuickPulseCoordinator.run(QuickPulseCoordinator.java:67)
-	at java.base/java.lang.Thread.run(Thread.java:829)
-	Suppressed: java.lang.Exception: #block terminated with an error
-		at reactor.core.publisher.BlockingSingleSubscriber.blockingGet(BlockingSingleSubscriber.java:99)
-		... 5 common frames omitted
-Caused by: io.netty.channel.ConnectTimeoutException: connection timed out: brazilsouth.livediagnostics.monitor.azure.com/191.234.137.40:443
-	at io.netty.channel.epoll.AbstractEpollChannel$AbstractEpollUnsafe$2.run(AbstractEpollChannel.java:613)
-	at io.netty.util.concurrent.PromiseTask.runTask(PromiseTask.java:98)
-	at io.netty.util.concurrent.ScheduledFutureTask.run(ScheduledFutureTask.java:170)
-	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:164)
-	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:469)
-	at io.netty.channel.epoll.EpollEventLoop.run(EpollEventLoop.java:391)
-	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:986)
-	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
-	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
-	... 1 common frames omitted
-2026-07-30 15:13:18.193-03:00 WARN  c.a.m.o.e.i.p.TelemetryPipeline - Sending telemetry to the ingestion service: null: brazilsouth-1.in.applicationinsights.azure.com/2603:1050:6:7:0:0:0:0:443 (https://brazilsouth-1.in.applicationinsights.azure.com/v2.1/track) (future warnings will be aggregated and logged once every 5 minutes)
-io.netty.channel.AbstractChannel$AnnotatedNoRouteToHostException: null: brazilsouth-1.in.applicationinsights.azure.com/2603:1050:6:7:0:0:0:0:443
-Caused by: java.net.NoRouteToHostException: null
-	at io.netty.channel.unix.Errors.newConnectException0(Errors.java:147)
-	at io.netty.channel.unix.Errors.handleConnectErrno(Errors.java:128)
-	at io.netty.channel.unix.Socket.connect(Socket.java:313)
-	at io.netty.channel.epoll.AbstractEpollChannel.doConnect0(AbstractEpollChannel.java:773)
-	at io.netty.channel.epoll.EpollSocketChannel.doConnect0(EpollSocketChannel.java:144)
-	at io.netty.channel.epoll.AbstractEpollChannel.doConnect(AbstractEpollChannel.java:758)
-	at io.netty.channel.epoll.AbstractEpollChannel$AbstractEpollUnsafe.connect(AbstractEpollChannel.java:600)
-	at io.netty.channel.DefaultChannelPipeline$HeadContext.connect(DefaultChannelPipeline.java:1342)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeConnect(AbstractChannelHandlerContext.java:548)
-	at io.netty.channel.AbstractChannelHandlerContext.connect(AbstractChannelHandlerContext.java:533)
-	at io.netty.handler.ssl.SslHandler.connect(SslHandler.java:713)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeConnect(AbstractChannelHandlerContext.java:548)
-	at io.netty.channel.AbstractChannelHandlerContext.connect(AbstractChannelHandlerContext.java:533)
-	at io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.connect(CombinedChannelDuplexHandler.java:495)
-	at io.netty.channel.ChannelOutboundHandlerAdapter.connect(ChannelOutboundHandlerAdapter.java:51)
-	at io.netty.channel.CombinedChannelDuplexHandler.connect(CombinedChannelDuplexHandler.java:296)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeConnect(AbstractChannelHandlerContext.java:548)
-	at io.netty.channel.AbstractChannelHandlerContext.connect(AbstractChannelHandlerContext.java:533)
-	at io.netty.channel.AbstractChannelHandlerContext.connect(AbstractChannelHandlerContext.java:517)
-	at io.netty.channel.AbstractChannelHandlerContext.connect(AbstractChannelHandlerContext.java:457)
-	at io.netty.channel.DefaultChannelPipeline.connect(DefaultChannelPipeline.java:942)
-	at io.netty.channel.AbstractChannel.connect(AbstractChannel.java:229)
-	at reactor.netty.transport.TransportConnector.lambda$doConnect$8(TransportConnector.java:198)
-	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:164)
-	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:469)
-	at io.netty.channel.epoll.EpollEventLoop.run(EpollEventLoop.java:394)
-	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:986)
-	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
-	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
-	at java.base/java.lang.Thread.run(Thread.java:829)
+
+Skip to main content
+Azure DevOps
+projetos
+/
+Caixa
+/
+Pipelines
+/
+Releases
+/
+SISPL-captacao-mkp-ocp4-plus
+Caixa
+Overview
+Boards
+Repos
+Pipelines
+Pipelines
+Environments
+Releases
+Library
+Task groups
+Deployment groups
+Portal Infra
+Test Plans
+Artifacts
+Project settings
+
+    All pipelines
+    
+    SISPL
+    
+
+Predefined variables
+SonarQube Variables (1)
+Variáveis com dados do SonarQube
+Scopes: Release
+Usuario-Azure-DevOps (12)
+Scopes: Release
+EGRESS_IP_OKD (74)
+WO0000072264656 - Config Portal Infrafácil NO_PROXY
+Scopes: Release
+MONITORACAO_LOGS (4)
+REQ000143540550 - Conforme autorizado na req por FLAVIO ALMEIDA GAGLIARDI, removido as variáveis JAVA_OPTS_MONITORING e URL_APM_SERVER, por entrar em conflitos com releases que utilizam o Application Insights
+Scopes: Release
+OKD-REGISTRY-CENTRALIZADO (7)
+Credenciais para o Registry Centralizado - Produtos 4 (OKD)
+Scopes: Release
+OPENSHIFT-NPRD-LOTERIAS (8)
+Credenciais para o Cluster OPENSHIFT de NPRD LOTERIAS
+Scopes: EC DES,EC TQS,EC HMP
+SISPL-CAPTACAO-MKP-OCP4-DES (38)
+Scopes: EC DES
+ENV.QUARKUS_DATASOURCE_METRICS_ENABLED
+true
+PASS_DB
+sspldb01
+PASS_DB_IDAA
+SSPLTI01
+_ENV.QUARKUS_DATASOURCE_DB_KIND
+db2
+_ENV.QUARKUS_DATASOURCE_JDBC_ACQUISITION_TIMEOUT
+5
+_ENV.QUARKUS_DATASOURCE_JDBC_BACKGROUND-VALIDATION_INTERVAL
+1M
+_ENV.QUARKUS_DATASOURCE_JDBC_DRIVER
+com.ibm.db2.jcc.DB2Driver
+_ENV.QUARKUS_DATASOURCE_JDBC_INITIAL_SIZE
+15
+_ENV.QUARKUS_DATASOURCE_JDBC_MAX_SIZE
+60
+_ENV.QUARKUS_DATASOURCE_JDBC_MIN_SIZE
+5
+_ENV.QUARKUS_DATASOURCE_JDBC_TIMEOUT
+5
+_ENV.QUARKUS_DATASOURCE_JDBC_URL
+jdbc:db2://10.192.224.76:5021/CSD1
+_ENV.QUARKUS_DATASOURCE_USERNAME
+SSPLDB01
+_ENV.QUARKUS_DATASOURCE__IDAA__JDBC_URL
+jdbc:db2://10.192.224.76:5051/CSDA
+_ENV.QUARKUS_DATASOURCE__IDAA__USERNAME
+SSPLTI01
+_ENV.QUARKUS_HTTP_CORS
+true
+_ENV.QUARKUS_HTTP_TEST_PORT
+8083
+_ENV.QUARKUS_LOG_LEVEL
+INFO
+_ENV.QUARKUS_REST_CLIENT_CSWCRIPTOLOTE_URL
+http://cics.des.coredf.caixa:8080
+_ENV.QUARKUS_REST_CLIENT_CSWCRIPTO_CONNECTION_POOL_SIZE
+40
+_ENV.QUARKUS_REST_CLIENT_CSWCRIPTO_CONNECT_TIMEOUT
+10000
+_ENV.QUARKUS_REST_CLIENT_CSWCRIPTO_READ_TIMEOUT
+30000
+_ENV.QUARKUS_REST_CLIENT_CSWCRIPTO_SCOPE
+javax.enterprise.context.ApplicationScoped
+_ENV.QUARKUS_REST_CLIENT_CSWCRIPTO_URL
+http://d2df.coredf.caixa:1081
+_ENV.QUARKUS_REST_CLIENT_TOKENSSO_URL
+https://logindes.caixa.gov.br/auth/realms/internet/protocol/openid-connect/token
+_ENV.SISPL_MKP_CLIENTID
+cli-ser-spl
+_ENV.SISPL_MKP_CLIENTSECRET
+77a26834-9534-4693-8363-264d213b5fc4
+_ENV.SISPL_MQ_CHANNEL
+BRD6.SVRCONN.SILCE
+_ENV.SISPL_MQ_HOSTNAME
+10.192.228.145
+_ENV.SISPL_MQ_MANAGER
+BRD6
+_ENV.SISPL_MQ_PORT
+1418
+_ENV.SISPL_MQ_QUEUE_CAPTACAO
+LQ.LOG.SISPL.MARKETPLACE
+_ENV.SISPL_MQ_QUEUE_CAPTACAO_BACKOUT
+LQ.LOG.SISPL.MARKETPLACE.BACKOUT
+_ENV.SISPL_MQ_USERNAME
+SSPLBD01
+_SECRET.QUARKUS_DATASOURCE_PASSWORD
+#{PASS_DB}#
+_SECRET.QUARKUS_DATASOURCE__IDAA__PASSWORD
+#{PASS_DB_IDAA}#
+_SECRET.mock2
+#{mock2}#
+mock2
+changeit
+SISPL-CAPTACAO-MKP-OCP4-TQS (51)
+Scopes: EC TQS
+ENV.CAIXA_TEST_TOKEN
+teste
+ENV.QUARKUS_DATASOURCE_JDBC_NEW-CONNECTION-SQL
+SELECT 1 FROM SYSIBM.SYSDUMMY1 WITH UR
+ENV.QUARKUS_DATASOURCE_METRICS_ENABLED
+true
+ENV.QUARKUS_OIDC_ROLES_ROLE-CLAIM-PATH
+realm_access/roles
+ENV.SISPL_AMBIENTE
+TQS
+PASS_DB
+S493467
+PASS_DB_IDAA
+SSPLTI01
+_ENV.APPLICATIONINSIGHTS_CONNECTION_STRING
+"InstrumentationKey=123909f2-cf26-409f-9b2b-d7d3087d43cd;IngestionEndpoint=https://brazilsouth-1.in.applicationinsights.azure.com/;LiveEndpoint=https://brazilsouth.livediagnostics.monitor.azure.com/;ApplicationId=216a55ba-df96-4ac8-8b76-d59754f3b0fe/"
+_ENV.APPLICATIONINSIGHTS_INSTRUMENTATION_LOGGING_LEVEL
+INFO
+_ENV.APPLICATIONINSIGHTS_ROLE_NAME
+SISPL-CAPTACAO-MKP-TQS
+_ENV.APPLICATIONINSIGHTS_SAMPLING_PERCENTAGE
+10
+_ENV.APPLICATIONINSIGHTS_SELF_DIAGNOSTICS_LEVEL
+INFO
+_ENV.CAIXA_SECURITY_CLIENTS-AUTHORIZED
+cli-ser-spl+cli-ser-lce
+_ENV.HTTPS_PROXY
+http://proxydes.caixa:80/
+_ENV.NO_PROXY
+"*.caixa,*.caixa.gov.br"
+_ENV.QUARKUS_DATASOURCE_DB-KIND
+db2
+_ENV.QUARKUS_DATASOURCE_JDBC_ACQUISITION-TIMEOUT
+5
+_ENV.QUARKUS_DATASOURCE_JDBC_BACKGROUND-VALIDATION-INTERVAL
+1M
+_ENV.QUARKUS_DATASOURCE_JDBC_DRIVER
+com.ibm.db2.jcc.DB2Driver
+_ENV.QUARKUS_DATASOURCE_JDBC_INITIAL-SIZE
+15
+_ENV.QUARKUS_DATASOURCE_JDBC_MAX-SIZE
+60
+_ENV.QUARKUS_DATASOURCE_JDBC_MIN-SIZE
+5
+_ENV.QUARKUS_DATASOURCE_JDBC_TIMEOUT
+5
+_ENV.QUARKUS_DATASOURCE_JDBC_URL
+jdbc:db2://10.192.224.102:5031/CSD4
+_ENV.QUARKUS_DATASOURCE_USERNAME
+SSPLTB01
+_ENV.QUARKUS_DATASOURCE__IDAA__JDBC_URL
+jdbc:db2://10.192.224.76:5051/CSDA
+_ENV.QUARKUS_DATASOURCE__IDAA__USERNAME
+SSPLTI01
+_ENV.QUARKUS_HTTP_CORS
+true
+_ENV.QUARKUS_HTTP_TEST-PORT
+8083
+_ENV.QUARKUS_LOG_LEVEL
+INFO
+_ENV.QUARKUS_OIDC_APPLICATION-TYPE
+service
+_ENV.QUARKUS_OIDC_AUTH-SERVER-URL
+https://logindes.caixa.gov.br/auth/realms/internet
+_ENV.QUARKUS_OIDC_CLIENT-ID
+cli-ser-spl
+_ENV.QUARKUS_REST_CLIENT_CSWCRIPTO_CONNECTION_POOL_SIZE
+40
+_ENV.QUARKUS_REST_CLIENT_CSWCRIPTO_CONNECT_TIMEOUT
+10000
+_ENV.QUARKUS_REST_CLIENT_CSWCRIPTO_READ_TIMEOUT
+30000
+_ENV.QUARKUS_REST_CLIENT_CSWCRIPTO_SCOPE
+javax.enterprise.context.ApplicationScoped
+_ENV.QUARKUS_REST_CLIENT_CSWCRIPTO_URL
+http://d2df.coredf.caixa:1081
+_ENV.SISPL_MQ_CHANNEL
+BRD3.SVRCONN.SILCE
+_ENV.SISPL_MQ_HOSTNAME
+10.192.224.100
+_ENV.SISPL_MQ_MANAGER
+BRD3
+_ENV.SISPL_MQ_PASSWORD
+S493467
+_ENV.SISPL_MQ_PORT
+1415
+_ENV.SISPL_MQ_QUEUE_CAPTACAO
+LQ.LOG.SISPL.MARKETPLACE
+_ENV.SISPL_MQ_QUEUE_CAPTACAO_BACKOUT
+LQ.LOG.SISPL.MARKETPLACE.BACKOUT
+_ENV.SISPL_MQ_USERNAME
+SSPLBT01
+_ENV_JAVA_OPTIONS_APPEND
+"-Djavax.net.ssl.trustStore=/deployments/caixa-truststore-acteste-nprd.jks -javaagent:/deployments/lib/main/com.microsoft.azure.applicationinsights-agent-3.3.1.jar"
+_SECRET.QUARKUS_DATASOURCE_PASSWORD
+#{PASS_DB}#
+_SECRET.QUARKUS_DATASOURCE__IDAA__PASSWORD
+#{PASS_DB_IDAA}#
+_SECRET.mock2
+#{mock2}#
+mock2
+changeit
+SISPL-CAPTACAO-MKP-OCP4-HMP (49)
+Scopes: EC HMP
+APPLICATIONINSIGHTS_SAMPLING_PERCENTAGE
+10
+ENV.CAIXA_TEST_TOKEN
+teste
+ENV.QUARKUS_DATASOURCE_JDBC_NEW-CONNECTION-SQL
+SELECT 1 FROM SYSIBM.SYSDUMMY1 WITH UR
+ENV.QUARKUS_DATASOURCE_METRICS_ENABLED
+true
+ENV.QUARKUS_OIDC_ROLES_ROLE-CLAIM-PATH
+realm_access/roles
+ENV.SISPL_AMBIENTE
+DES
+PASS_DB
+********
+_ENV.APPLICATIONINSIGHTS_CONNECTION_STRING
+"InstrumentationKey=123909f2-cf26-409f-9b2b-d7d3087d43cd;IngestionEndpoint=https://brazilsouth-1.in.applicationinsights.azure.com/;LiveEndpoint=https://brazilsouth.livediagnostics.monitor.azure.com/;ApplicationId=216a55ba-df96-4ac8-8b76-d59754f3b0fe/"
+_ENV.APPLICATIONINSIGHTS_INSTRUMENTATION_LOGGING_LEVEL
+INFO
+_ENV.APPLICATIONINSIGHTS_ROLE_NAME
+SISPL-CAPTACAO-MKP-HMP
+_ENV.APPLICATIONINSIGHTS_SELF_DIAGNOSTICS_LEVEL
+INFO
+_ENV.CAIXA_SECURITY_CLIENTS-AUTHORIZED
+cli-ser-spl+cli-ser-lce
+_ENV.QUARKUS_DATASOURCE_DB_KIND
+db2
+_ENV.QUARKUS_DATASOURCE_JDBC_ACQUISITION_TIMEOUT
+5
+_ENV.QUARKUS_DATASOURCE_JDBC_BACKGROUND-VALIDATION_INTERVAL
+1M
+_ENV.QUARKUS_DATASOURCE_JDBC_DRIVER
+com.ibm.db2.jcc.DB2Driver
+_ENV.QUARKUS_DATASOURCE_JDBC_INITIAL_SIZE
+15
+_ENV.QUARKUS_DATASOURCE_JDBC_MAX_SIZE
+60
+_ENV.QUARKUS_DATASOURCE_JDBC_MIN_SIZE
+5
+_ENV.QUARKUS_DATASOURCE_JDBC_TIMEOUT
+5
+_ENV.QUARKUS_DATASOURCE_JDBC_URL
+jdbc:db2://10.192.232.92:5021/CSH1
+_ENV.QUARKUS_DATASOURCE_USERNAME
+SPLJDBC
+_ENV.QUARKUS_HTTP_CORS
+true
+_ENV.QUARKUS_HTTP_TEST_PORT
+8083
+_ENV.QUARKUS_LOG_LEVEL
+INFO
+_ENV.QUARKUS_OIDC_APPLICATION_TYPE
+service
+_ENV.QUARKUS_OIDC_AUTH-SERVER_URL
+https://login.hmp.caixa/auth/realms/internet
+_ENV.QUARKUS_OIDC_CLIENT_ID
+cli-ser-spl
+_ENV.QUARKUS_OIDC_PUBLIC_KEY
+477ee84a-6f81-4faa-acdb-c261c0180bc0
+_ENV.QUARKUS_REST_CLIENT_CSWCRIPTOLOTE_URL
+http://10.192.232.92:8083
+_ENV.QUARKUS_REST_CLIENT_CSWCRIPTO_CONNECTION_POOL_SIZE
+40
+_ENV.QUARKUS_REST_CLIENT_CSWCRIPTO_CONNECT_TIMEOUT
+10000
+_ENV.QUARKUS_REST_CLIENT_CSWCRIPTO_READ_TIMEOUT
+30000
+_ENV.QUARKUS_REST_CLIENT_CSWCRIPTO_SCOPE
+javax.enterprise.context.ApplicationScoped
+_ENV.QUARKUS_REST_CLIENT_CSWCRIPTO_URL
+http://10.192.232.92:1081
+_ENV.QUARKUS_REST_CLIENT_TOKENSSO_URL
+https://login.hmp.corp.caixa.gov.br/auth/realms/internet/protocol/openid-connect/token
+_ENV.SISPL_MKP_CLIENTID
+cli-ser-spl
+_ENV.SISPL_MKP_CLIENTSECRET
+0fb22b14-5a3f-493c-aba6-2c95ae26815b
+_ENV.SISPL_MQ_CHANNEL
+SYSTEM.DEF.SVRCONN
+_ENV.SISPL_MQ_HOSTNAME
+10.192.232.92
+_ENV.SISPL_MQ_MANAGER
+BRH1
+_ENV.SISPL_MQ_PORT
+1414
+_ENV.SISPL_MQ_QUEUE_CAPTACAO
+LQ.LOG.SISPL.MARKETPLACE
+_ENV.SISPL_MQ_QUEUE_CAPTACAO_BACKOUT
+LQ.LOG.SISPL.MARKETPLACE.BACKOUT
+_ENV.SISPL_MQ_USERNAME
+SSPLBH03
+_ENV_JAVA_OPTIONS_APPEND
+"-Djavax.net.ssl.trustStore=/deployments/caixa-truststore-acteste-nprd.jks -javaagent:/deployments/lib/main/com.microsoft.azure.applicationinsights-agent-3.3.1.jar"
+_SECRET.QUARKUS_DATASOURCE_PASSWORD
+#{PASS_DB}#
+_SECRET.mock2
+#{mock2}#
+mock2
+changeit
+|Manage variable groups
+
+1 pipelines found
+
+Select a release pipeline to view its releases
+
+4 pipelines found
+
+Showing filters 1 through 2
+
+EC HMPDeploy release
+
+EC HMPDeploy release
+
+Showing filters 1 through 2
+
+Showing filters 1 through 2
+
+EC HMPDeploy release
+
+Row 2
+
+Expanded
+
+Row 3
+
+Collapsed
+
+Expanded
+
+Row 3
+
+Collapsed
+
+Expanded
+
+Row 3
+
+Collapsed
+
+Showing filters 1 through 2
