@@ -36,8 +36,8 @@ Pods
 Pod details
 Pod
 P
-sispl-canal-webhook-pix-tqs-54cb654c99-8767g
-ImagePullBackOff
+sispl-canal-webhook-pix-tqs-6dffbbcc6c-5drxz
+CrashLoopBackOff
 
 Actions
 Details
@@ -48,48 +48,42 @@ Logs
 Events
 Terminal
 Streaming events...
-Showing 7 events
+Showing 6 events
 Older events are not stored.
-PodPsispl-canal-webhook-pix-tqs-54cb654c99-8767g
-NamespaceNSsispl-tqs
-Just now
-Generated from kubelet on nctvmrh001-scgft-worker-0-cs2xc
-3 times in the last 0 minutes
-Failed to pull image "sispl-canal-webhook-pix-tqs:2.2.0.10": unable to pull image or OCI artifact: pull image err: initializing source docker://sispl-canal-webhook-pix-tqs:2.2.0.10: reading manifest 2.2.0.10 in docker.io/library/sispl-canal-webhook-pix-tqs: requested access to the resource is denied; artifact err: get manifest: build image source: reading manifest 2.2.0.10 in docker.io/library/sispl-canal-webhook-pix-tqs: requested access to the resource is denied
-PodPsispl-canal-webhook-pix-tqs-54cb654c99-8767g
-NamespaceNSsispl-tqs
-Just now
-Generated from kubelet on nctvmrh001-scgft-worker-0-cs2xc
-3 times in the last 0 minutes
-Error: ErrImagePull
-PodPsispl-canal-webhook-pix-tqs-54cb654c99-8767g
-NamespaceNSsispl-tqs
-Just now
-Generated from kubelet on nctvmrh001-scgft-worker-0-cs2xc
-3 times in the last 1 minute
-Pulling image "sispl-canal-webhook-pix-tqs:2.2.0.10"
-PodPsispl-canal-webhook-pix-tqs-54cb654c99-8767g
-NamespaceNSsispl-tqs
-Just now
-Generated from kubelet on nctvmrh001-scgft-worker-0-cs2xc
-2 times in the last 0 minutes
-Back-off pulling image "sispl-canal-webhook-pix-tqs:2.2.0.10"
-PodPsispl-canal-webhook-pix-tqs-54cb654c99-8767g
-NamespaceNSsispl-tqs
-Just now
-Generated from kubelet on nctvmrh001-scgft-worker-0-cs2xc
-2 times in the last 0 minutes
-Error: ImagePullBackOff
-PodPsispl-canal-webhook-pix-tqs-54cb654c99-8767g
+PodPsispl-canal-webhook-pix-tqs-6dffbbcc6c-5drxz
 NamespaceNSsispl-tqs
 há 1 minuto
+Generated from kubelet on nctvmrh001-scgft-worker-0-txtg5
+9 times in the last 18 minutes
+Container image "default-route-openshift-image-registry.apps.produtos4.caixa/build-images-ads/sispl-canal-webhook-pix:2.2.0.10" already present on machine
+PodPsispl-canal-webhook-pix-tqs-6dffbbcc6c-5drxz
+NamespaceNSsispl-tqs
+há 1 minuto
+Generated from kubelet on nctvmrh001-scgft-worker-0-txtg5
+9 times in the last 18 minutes
+Created container: sispl-canal-webhook-pix-tqs
+PodPsispl-canal-webhook-pix-tqs-6dffbbcc6c-5drxz
+NamespaceNSsispl-tqs
+há 1 minuto
+Generated from kubelet on nctvmrh001-scgft-worker-0-txtg5
+9 times in the last 18 minutes
+Started container sispl-canal-webhook-pix-tqs
+PodPsispl-canal-webhook-pix-tqs-6dffbbcc6c-5drxz
+NamespaceNSsispl-tqs
+há 2 minutos
+Generated from kubelet on nctvmrh001-scgft-worker-0-txtg5
+72 times in the last 17 minutes
+Back-off restarting failed container sispl-canal-webhook-pix-tqs in pod sispl-canal-webhook-pix-tqs-6dffbbcc6c-5drxz_sispl-tqs(6c2a8f0f-1da1-4872-a221-99db2ef2aa54)
+PodPsispl-canal-webhook-pix-tqs-6dffbbcc6c-5drxz
+NamespaceNSsispl-tqs
+30 de jul. de 2026, 11:38
 Generated from multus
-Add eth0 [25.129.3.138/23] from ovn-kubernetes
-PodPsispl-canal-webhook-pix-tqs-54cb654c99-8767g
+Add eth0 [25.128.6.209/23] from ovn-kubernetes
+PodPsispl-canal-webhook-pix-tqs-6dffbbcc6c-5drxz
 NamespaceNSsispl-tqs
-há 1 minuto
+30 de jul. de 2026, 11:38
 Generated from default-scheduler
-Successfully assigned sispl-tqs/sispl-canal-webhook-pix-tqs-54cb654c99-8767g to nctvmrh001-scgft-worker-0-cs2xc
+Successfully assigned sispl-tqs/sispl-canal-webhook-pix-tqs-6dffbbcc6c-5drxz to nctvmrh001-scgft-worker-0-txtg5
 
 
 
@@ -105,18 +99,18 @@ Successfully assigned sispl-tqs/sispl-canal-webhook-pix-tqs-54cb654c99-8767g to 
 
 =========================================================================
 
-[0m11:39:30,020 INFO  [org.jboss.modules] (main) JBoss Modules version 1.6.0.Final-redhat-1
-[0m[33m11:39:30,543 WARN  [org.jboss.as.server] (main) WFLYSRV0266: Server home is set to '/opt/jboss/standalone', but server real home is '/opt/jboss-eap-7.1/standalone' - unpredictable results may occur.
-[0m[0m11:39:30,616 INFO  [org.jboss.msc] (main) JBoss MSC version 1.2.7.SP1-redhat-1
-[0m[0m11:39:31,132 INFO  [org.jboss.as] (MSC service thread 1-7) WFLYSRV0049: JBoss EAP 7.1.0.GA (WildFly Core 3.0.10.Final-redhat-1) starting
-[0m[0m11:39:31,408 INFO  [org.jboss.vfs] (MSC service thread 1-7) VFS000002: Failed to clean existing content for temp file provider of type temp. Enable DEBUG level log to find what caused this
-[0m[31m11:39:34,911 ERROR [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0230: Vault is not initialized; resolution of vault expressions is not possible
-[0m[0m11:39:34,921 INFO  [org.jboss.as.controller.management-deprecated] (Controller Boot Thread) WFLYCTL0028: Attribute 'security-realm' in the resource at address '/core-service=management/management-interface=http-interface' is deprecated, and may be removed in future version. See the attribute description in the output of the read-resource-description operation to learn more about the deprecation.
-[0m[0m11:39:34,940 INFO  [org.jboss.as.controller.management-deprecated] (ServerService Thread Pool -- 19) WFLYCTL0028: Attribute 'security-realm' in the resource at address '/subsystem=undertow/server=default-server/https-listener=https' is deprecated, and may be removed in future version. See the attribute description in the output of the read-resource-description operation to learn more about the deprecation.
-[0m[0m11:39:34,942 INFO  [org.wildfly.security] (ServerService Thread Pool -- 8) ELY00001: WildFly Elytron version 1.1.7.Final-redhat-1
-[0m[0m11:39:35,557 INFO  [org.jboss.as.repository] (ServerService Thread Pool -- 28) WFLYDR0001: Content added at location /opt/jboss-eap-7.1/standalone/data/content/55/e351450f83a5286bf1a25b50f12a0e4c74563a/content
-[0m[0m11:39:35,647 INFO  [org.jboss.as.repository] (ServerService Thread Pool -- 28) WFLYDR0001: Content added at location /opt/jboss-eap-7.1/standalone/data/content/73/f3f95d33993f968113d1ff268860bbbc737daa/content
-[0m[31m11:39:35,819 ERROR [org.jboss.as.controller.management-operation] (Controller Boot Thread) WFLYCTL0013: Operation ("add") failed - address: ([("core-service" => "vault")]): org.jboss.as.server.services.security.VaultReaderException: WFLYSRV0076: Error initializing vault --  org.jboss.security.vault.SecurityVaultException: java.lang.RuntimeException: PBOX00140: Unable to get keystore (/opt/jboss/standalone/configuration/vaultcaixa-sispl-TQS.keystore)
+[0m11:55:16,114 INFO  [org.jboss.modules] (main) JBoss Modules version 1.6.0.Final-redhat-1
+[0m[33m11:55:16,648 WARN  [org.jboss.as.server] (main) WFLYSRV0266: Server home is set to '/opt/jboss/standalone', but server real home is '/opt/jboss-eap-7.1/standalone' - unpredictable results may occur.
+[0m[0m11:55:16,720 INFO  [org.jboss.msc] (main) JBoss MSC version 1.2.7.SP1-redhat-1
+[0m[0m11:55:17,308 INFO  [org.jboss.as] (MSC service thread 1-8) WFLYSRV0049: JBoss EAP 7.1.0.GA (WildFly Core 3.0.10.Final-redhat-1) starting
+[0m[0m11:55:17,507 INFO  [org.jboss.vfs] (MSC service thread 1-7) VFS000002: Failed to clean existing content for temp file provider of type temp. Enable DEBUG level log to find what caused this
+[0m[31m11:55:21,042 ERROR [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0230: Vault is not initialized; resolution of vault expressions is not possible
+[0m[0m11:55:21,107 INFO  [org.jboss.as.controller.management-deprecated] (Controller Boot Thread) WFLYCTL0028: Attribute 'security-realm' in the resource at address '/core-service=management/management-interface=http-interface' is deprecated, and may be removed in future version. See the attribute description in the output of the read-resource-description operation to learn more about the deprecation.
+[0m[0m11:55:21,123 INFO  [org.wildfly.security] (ServerService Thread Pool -- 26) ELY00001: WildFly Elytron version 1.1.7.Final-redhat-1
+[0m[0m11:55:21,128 INFO  [org.jboss.as.controller.management-deprecated] (ServerService Thread Pool -- 14) WFLYCTL0028: Attribute 'security-realm' in the resource at address '/subsystem=undertow/server=default-server/https-listener=https' is deprecated, and may be removed in future version. See the attribute description in the output of the read-resource-description operation to learn more about the deprecation.
+[0m[0m11:55:21,673 INFO  [org.jboss.as.repository] (ServerService Thread Pool -- 9) WFLYDR0001: Content added at location /opt/jboss-eap-7.1/standalone/data/content/55/e351450f83a5286bf1a25b50f12a0e4c74563a/content
+[0m[0m11:55:21,742 INFO  [org.jboss.as.repository] (ServerService Thread Pool -- 9) WFLYDR0001: Content added at location /opt/jboss-eap-7.1/standalone/data/content/73/f3f95d33993f968113d1ff268860bbbc737daa/content
+[0m[31m11:55:21,928 ERROR [org.jboss.as.controller.management-operation] (Controller Boot Thread) WFLYCTL0013: Operation ("add") failed - address: ([("core-service" => "vault")]): org.jboss.as.server.services.security.VaultReaderException: WFLYSRV0076: Error initializing vault --  org.jboss.security.vault.SecurityVaultException: java.lang.RuntimeException: PBOX00140: Unable to get keystore (/opt/jboss/standalone/configuration/vaultcaixa-sispl-TQS.keystore)
 	at org.jboss.as.server.services.security.RuntimeVaultReader.createVault(RuntimeVaultReader.java:93) [wildfly-server-3.0.10.Final-redhat-1.jar:3.0.10.Final-redhat-1]
 	at org.jboss.as.server.services.security.VaultAddHandler.performRuntime(VaultAddHandler.java:84) [wildfly-server-3.0.10.Final-redhat-1.jar:3.0.10.Final-redhat-1]
 	at org.jboss.as.controller.AbstractAddStepHandler.performRuntime(AbstractAddStepHandler.java:337) [wildfly-controller-3.0.10.Final-redhat-1.jar:3.0.10.Final-redhat-1]
@@ -148,6 +142,6 @@ Caused by: java.io.FileNotFoundException: /opt/jboss/standalone/configuration/va
 	at org.picketbox.plugins.vault.PicketBoxSecurityVault.getKeyStore(PicketBoxSecurityVault.java:688) [picketbox-5.0.2.Final-redhat-1.jar:5.0.2.Final-redhat-1]
 	... 16 more
 
-[0m[31m11:39:35,825 FATAL [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0056: Server boot has failed in an unrecoverable manner; exiting. See previous messages for details.
-[0m[0m11:39:36,012 INFO  [org.jboss.as] (MSC service thread 1-6) WFLYSRV0050: JBoss EAP 7.1.0.GA (WildFly Core 3.0.10.Final-redhat-1) stopped in 96ms
+[0m[31m11:55:22,011 FATAL [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0056: Server boot has failed in an unrecoverable manner; exiting. See previous messages for details.
+[0m[0m11:55:22,125 INFO  [org.jboss.as] (MSC service thread 1-5) WFLYSRV0050: JBoss EAP 7.1.0.GA (WildFly Core 3.0.10.Final-redhat-1) stopped in 18ms
 [0m
