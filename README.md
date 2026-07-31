@@ -1,15 +1,22 @@
-<img width="1460" height="729" alt="image" src="https://github.com/user-attachments/assets/2c795c09-02f4-4a65-89bb-779e0aabaa23" />
+Prezados,
 
+Identificado que a aplicação sirmc-frontend-campanhas-gestao não realiza o deploy em ambiente TQS pois não existe destino provisionado para esse ambiente.
 
-<img width="1670" height="802" alt="image" src="https://github.com/user-attachments/assets/089e8fdd-4307-4ddc-a168-1bd67d8d917c" />
+Verificado o seguinte:
 
+No Centro do Kubernetes (Azure), o subscription BOX - Dados possui apenas os clusters aks-sicrm-des e aks-sicrm-prd. Não existe cluster AKS provisionado para o ambiente TQS.
+No repositório GitOps (gitops/apps/sirmc-frontend-campanhas-gestao), existem apenas as pastas des e prd. Não existe a pasta tqs com o respectivo config.yaml apontando o destination do ArgoCD.
+Como consequência, o pipeline de deploy falha ao consultar a Application no ArgoCD Server com o erro permission denied, pois a Application sirmc-frontend-campanhas-gestao-tqs não está registrada.
 
-a pasta nao existe no gitops, por isso a aplicação nao vai para o argocd
+Cheguei a criar manualmente a pasta tqs no repositório GitOps para teste, porém revertida a alteração em seguida, visto que esse repositório é de alta criticidade e edições manuais podem quebrar as automações existentes nos merges.
 
-eu criei aqui mais nao sei se deiva criar
+Solicito ao time de Nuvem a avaliação e execução dos seguintes pontos:
 
+Provisionamento do cluster AKS para o ambiente TQS
+Criação padronizada da pasta tqs no repositório GitOps infranprd, com o config.yaml correto apontando o destination do novo cluster
+Registro do destination e da Application sirmc-frontend-campanhas-gestao-tqs no ArgoCD, com o AppProject e RBAC liberando o acesso via pipeline
 
-<img width="1873" height="846" alt="image" src="https://github.com/user-attachments/assets/9bafc349-eaf5-4248-aff0-065e46e5f084" />
+Ficamos no aguardo do retorno para prosseguirmos com o deploy em TQS.
 
-
-outra quetsao nao existe cluster para tqs
+Atenciosamente,
+Jessé Batista / CTIS/CESTI — Esteira DevOps DES TQS NPRD
