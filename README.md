@@ -1,3 +1,28 @@
-ls -la /opt/jboss-eap/standalone/deployments/ | grep -i sisaq
-cat /opt/jboss-eap/standalone/deployments/*sisaq*/META-INF/MANIFEST.MF 2>/dev/null | grep -i version
-
+4.2$
+-sh-4.2$ ls -la /opt/jboss-eap/standalone/deployments/ | grep -i sisaq
+-rwxrw-rw- 1 jboss jboss 57243212 Jul 29 17:28 sisaq-ear.ear
+-rw-r--r-- 1 jboss jboss       13 Jul 29 17:28 sisaq-ear.ear.deployed
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$ date
+Sex Jul 31 09:26:14 -03 2026
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$ cat /opt/jboss-eap/standalone/deployments/*sisaq*/META-INF/MANIFEST.MF 2>/dev/null | grep -i version
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
