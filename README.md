@@ -1,26 +1,21 @@
-O Modulo precisa acessar a api Loterias consultas publicas do SISPL.
 
-=====> Origem <=====
+Solicito liberação de regra de firewall para o seguinte fluxo, conforme abaixo:
+
+Origem:
 Ambiente: Piloto
-
 Sistema vinculado: 7259APL-SINEP
-
 Módulo: sinep-api
-
 Tipo: Intranet
+VM ou Container: Container
+Container: sinep-api-des
+Ambiente: DES
 
-VM ou Container? Container
-
-=====> Destino <=====
-URL / Porta / IP: HOST=sbrdeapllx060.extra.caixa.gov.br
-PORT=13990
-
+Destino:
+Host: sbrdeapllx060.extra.caixa.gov.br
+Porta: 13990
 Proxy: Não
 
-Justificativa: O Modulo precisa acessar a api Loterias consultas publicas do SISPL.
+Justificativa: o módulo sinep-api necessita acessar a API de Loterias (consultas públicas) do SISPL para funcionamento em ambiente DES.
 
-ambiente:  DES
-
-container :  sinep-api-des
-
+Solicito validação e criação da regra de liberação entre origem e destino informados.
 
