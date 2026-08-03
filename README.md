@@ -1,9 +1,24 @@
-Chamado referente à falha na execução da análise de código (SonarQube) do pipeline SIMIL-precificacao-internet-frontend, componente SIMIL-precificacao-internet-frontend, ambiente TQS.
+Estou enfrentando falha de acesso ao cache DataGrid no ambiente DES.
 
-Diagnóstico: identificado que a variável SONAR_PROPERTIES estava definida em duplicidade, simultaneamente em Pipeline Variables e no Variable Group SONAR_VARIABLES - ESTEIRA vinculado ao pipeline. Essa duplicidade fazia com que o Azure DevOps concatenasse os dois valores na montagem do comando sonar-scanner, gerando parâmetros repetidos e colados sem separador, o que corrompia a leitura das propriedades pelo scanner e resultava em falha na execução da etapa Run Code Analisis.
+A aplicação conecta ao endpoint configurado, autentica com sucesso e recebe a versão do Infinispan, porém falha ao processar a topologia retornada pelo cluster.
 
-Ação realizada: removida a definição duplicada da variável SONAR_PROPERTIES em Pipeline Variables, mantendo somente a referência ao Variable Group SONAR_VARIABLES - ESTEIRA. Ajustado também o conteúdo da propriedade, removendo o parâmetro sonar.testExecutionReportPaths, que apontava para um arquivo de relatório de testes não gerado na pipeline (reports/sonar-report.xml).
+Configuração utilizada:
+quarkus.infinispan-client.hosts=rhdg.sispi-datagrid-des.svc
+quarkus.infinispan-client.username=developer
 
-Resultado: pipeline executado com sucesso após o ajuste, etapa de análise de código concluída sem erros.
+A aplicação sobe e retorna:
+ISPN004021: Infinispan version: Infinispan 'I'm Still Standing' 15.0.8.Final
 
-Encerrado sem necessidade de acionamento de outras equipes, tratativa realizada integralmente pela Esteira DevOps.
+Ao tentar acessar o cache:
+ISPN004005: Error received from the server:
+java.lang.IllegalArgumentException:
+No interface address matching '/25.129.4.33'
+in MultiHomedServerAddress{
+    port=11222,
+    addresses=[
+        /25.130.4.24/23,
+        /127.0.0.1/8
+    ]
+}
+
+Observe que o cliente consegue conectar ao serviço rhdg.sispi-datagrid-des.svc (porta HotRod 11222), mas falha após receber os endereços retornados pelo servidor.
