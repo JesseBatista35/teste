@@ -1,11 +1,31 @@
-Prezados,
+O que você deseja?*:	Suporte ao ambiente de aplicação Multiplataformas
+***Atenção***:	Essa opção deve ser utilizada para obter suporte para ambientes e produtos que não são relacionados às Esteiras DevOps.
+.:	Ex: Aplicações Jboss legado, Aplicações Windows legado, Jenkins departamental, Git Lab Departamental, Nexus Departamental, Sonar Departamental.
+Qual o ambiente*:	DES
+Qual é o site?*:	Negocial-Brasília
+Qual o nome do sistema?*:	Portal SOA
+Selecione a sua Comunidade*:	Canais Próprios Interno
+Formas de contato*:	61999552792
+Descrição da necessidade*:	Solicitamos verificar a indisponibilidade do portal SOA:
 
-Durante execução da esteira de build do siasc-novo, o npm install falhou com erro ERESOLVE por conflito de dependencias entre pacotes @angular. O log aponta @angular/common resolvido na versao 20.1.8, enquanto @angular/forms exige exatamente a versao 20.3.27 como peer dependency, e o ngx-bootstrap@20.0.2 exige @angular/common e @angular/animations na faixa ^20.0.2. Ou seja, as versoes dos pacotes @angular no package.json do projeto estao dessincronizadas entre si, o que impede a resolucao da arvore de dependencias pelo npm.
+10.121.16.3 https://portalsoa.caixa/#/principal
 
-Solicitamos que o time de desenvolvimento alinhe todas as bibliotecas @angular (core, common, compiler, forms, animations, cdk, material, router, platform-browser, platform-browser-dynamic, service-worker, etc) para uma mesma versao compativel no package.json, de preferencia a 20.3.27, e valide a compatibilidade com o ngx-bootstrap instalado. Apos o ajuste, recomendamos apagar o package-lock.json e a pasta node_modules e rodar o npm install novamente para regerar a arvore de dependencias de forma limpa.
 
-Este ajuste esta fora do escopo da esteira DevOps DES TQS NPRD, pois trata de definicao de versoes de dependencias no codigo da aplicacao, cabendo ao time de desenvolvimento a correcao e validacao.
 
-Ficamos a disposicao para novos testes de pipeline apos o ajuste.
+<img width="1890" height="1036" alt="image" src="https://github.com/user-attachments/assets/e6ea5269-8cc5-4da3-907a-ce3972adcfb0" />
 
-Jessé Batista / CTIS/CESTI — Esteira DevOps DES TQS NPRD
+
+<img width="1888" height="977" alt="image" src="https://github.com/user-attachments/assets/f414f1d5-62dc-4b58-abe2-d1273632fab9" />
+
+
+<img width="1825" height="546" alt="image" src="https://github.com/user-attachments/assets/96237d37-29fc-4e6e-9d53-bc578cc97822" />
+
+
+
+ssh: connect to host 10.121.16.3 port 22: Connection refused
+[p585600@cadsvitrlx100 ~]$
+
+
+
+quanodo é vip nao temos acesso, acredito que a equipe de infra deva ter acesso. me ajuda com a  nota para encmainhar para infra
+
