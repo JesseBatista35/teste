@@ -1,3 +1,1 @@
-SONAR_PROPERTIES
-
--Dproject.settings=NONE -Dsonar.branch.name=$(sonar_branch) -Dsonar.testExecutionReportPaths=reports/sonar-report.xml -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info -Dsonar.test.inclusions=**/*.spec.ts,**/*.spec.js,**/*.js,**/*.spec.jsx,**/*.jsx-Dproject.settings=NONE -Dsonar.branch.name=$(sonar_branch) -Dsonar.testExecutionReportPaths=reports/sonar-report.xml -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info -Dsonar.test.inclusions=**/*.spec.ts,**/*.spec.js,**/*.js,**/*.spec.jsx,**/*.jsx
+-Dproject.settings=NONE -Dsonar.branch.name=$(sonar_branch) -Dsonar.testExecutionReportPaths=reports/sonar-report.xml -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info -Dsonar.test.inclusions=**/*.spec.ts,**/*.spec.js,**/*.js,**/*.spec.jsx,**/*.jsx
