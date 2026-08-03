@@ -1,31 +1,13 @@
-O que você deseja?*:	Suporte ao ambiente de aplicação Multiplataformas
-***Atenção***:	Essa opção deve ser utilizada para obter suporte para ambientes e produtos que não são relacionados às Esteiras DevOps.
-.:	Ex: Aplicações Jboss legado, Aplicações Windows legado, Jenkins departamental, Git Lab Departamental, Nexus Departamental, Sonar Departamental.
-Qual o ambiente*:	DES
-Qual é o site?*:	Negocial-Brasília
-Qual o nome do sistema?*:	Portal SOA
-Selecione a sua Comunidade*:	Canais Próprios Interno
-Formas de contato*:	61999552792
-Descrição da necessidade*:	Solicitamos verificar a indisponibilidade do portal SOA:
+Prezados,
 
-10.121.16.3 https://portalsoa.caixa/#/principal
+Identificamos indisponibilidade no Portal SOA (https://portalsoa.caixa/#/principal), apresentando a mensagem "Ocorreu um erro ao listar os serviços" ao carregar o catálogo, com falhas de retorno HTTP 404 em endpoints da API (ex.: /sigsr/v1/propriedad_boss/urlbasenexus:1, /sigsr/v1/tipointerface:1, /sigsr/v1/area-negoc_os=tipoServico::1:1).
 
+Ao tentar validar o host associado (10.121.16.3) via bastion, obtivemos recusa de conexão na porta 22 (ssh: connect to host 10.121.16.3 port 22: Connection refused). Consultando o GestioIP, o IP 10.121.16.3 está classificado como VIP (VIP - INTRANET, hostname SP_SIDEV, site CTC), ou seja, trata-se de um endereço de balanceamento, sem acesso SSH direto por não ser um host real.
 
+Como o escopo da nossa esteira não contempla VIPs/balanceadores, solicitamos à equipe de infraestrutura/rede a verificação da saúde dos backends por trás desse VIP, bem como do balanceamento, visto que o erro reportado na aplicação sugere falha ao consultar os serviços de backend do SIGSR/Portal SOA.
 
-<img width="1890" height="1036" alt="image" src="https://github.com/user-attachments/assets/e6ea5269-8cc5-4da3-907a-ce3972adcfb0" />
-
-
-<img width="1888" height="977" alt="image" src="https://github.com/user-attachments/assets/f414f1d5-62dc-4b58-abe2-d1273632fab9" />
-
-
-<img width="1825" height="546" alt="image" src="https://github.com/user-attachments/assets/96237d37-29fc-4e6e-9d53-bc578cc97822" />
-
-
-
-ssh: connect to host 10.121.16.3 port 22: Connection refused
-[p585600@cadsvitrlx100 ~]$
-
-
-
-quanodo é vip nao temos acesso, acredito que a equipe de infra deva ter acesso. me ajuda com a  nota para encmainhar para infra
-
+Ambiente: DES
+Site: Negocial-Brasília
+Sistema: Portal SOA / SIGSR - Governança de Serviços
+Comunidade: Canais Próprios Interno
+Contato: 61999552792
