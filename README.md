@@ -1,258 +1,97 @@
-exec java -Dquarkus.http.host=0.0.0.0 -Dquarkus.http.port=8080 -Djava.util.logging.manager=org.jboss.logmanager.LogManager -Djavax.net.ssl.trustStore=/deployments/caixa-truststore-azure_v12.jks -javaagent:/deployments/lib/main/com.microsoft.azure.applicationinsights-agent-3.5.1.jar -XX:+ExitOnOutOfMemoryError -cp . -jar /deployments/quarkus-run.jar
-OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
-2026-08-03 16:10:46.689-03:00 WARN  c.a.c.h.netty.implementation.Utility - The following Netty dependencies have versions that do not match the versions specified in the azure-core-http-netty pom.xml file. This may result in unexpected behavior. If your application runs without issue this message can be ignored, otherwise please update the Netty dependencies to match the versions specified in the pom.xml file. Versions found in runtime: 'io.netty:netty-common' version not found (expected: 4.1.101.Final),'io.netty:netty-handler' version not found (expected: 4.1.101.Final),'io.netty:netty-handler-proxy' version not found (expected: 4.1.101.Final),'io.netty:netty-buffer' version not found (expected: 4.1.101.Final),'io.netty:netty-codec' version not found (expected: 4.1.101.Final),'io.netty:netty-codec-http' version not found (expected: 4.1.101.Final),'io.netty:netty-codec-http2' version not found (expected: 4.1.101.Final)
-2026-08-03 16:10:54.066-03:00 INFO  c.m.applicationinsights.agent - Application Insights Java Agent 3.5.1 started successfully (PID 3, JVM running for 9.359 s)
-2026-08-03 16:10:54.067-03:00 INFO  c.m.applicationinsights.agent - Java version: 11.0.11, vendor: Red Hat, Inc., home: /usr/lib/jvm/java-11-openjdk-11.0.11.0.9-2.el8_4.x86_64
-2026-08-03 16:11:02.863-03:00 WARN  c.m.a.a.i.t.AppIdSupplier$GetAppIdTask - Retrieving appId: exception sending request to https://southcentralus-3.in.applicationinsights.azure.com/api/profiles/464ece72-0f22-4cb8-bf54-a13c2af06800/appId (future warnings will be aggregated and logged once every 5 minutes)
-reactor.core.Exceptions$ReactiveException: javax.net.ssl.SSLException: failure when writing TLS control frames
-	at reactor.core.Exceptions.propagate(Exceptions.java:408)
-	at reactor.core.publisher.BlockingSingleSubscriber.blockingGet(BlockingSingleSubscriber.java:101)
-	at reactor.core.publisher.Mono.block(Mono.java:1712)
-	at com.microsoft.applicationinsights.agent.internal.telemetry.AppIdSupplier$GetAppIdTask.run(AppIdSupplier.java:121)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
-	at java.base/java.util.concurrent.FutureTask.run(Unknown Source)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(Unknown Source)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
-	at java.base/java.lang.Thread.run(Thread.java:829)
-	Suppressed: java.lang.Exception: #block terminated with an error
-		at reactor.core.publisher.BlockingSingleSubscriber.blockingGet(BlockingSingleSubscriber.java:103)
-		... 8 common frames omitted
-Caused by: javax.net.ssl.SSLException: failure when writing TLS control frames
-	at io.netty.handler.ssl.SslHandler.setHandshakeFailureTransportFailure(SslHandler.java:1999)
-	at io.netty.handler.ssl.SslHandler.access$600(SslHandler.java:171)
-	at io.netty.handler.ssl.SslHandler$2.operationComplete(SslHandler.java:982)
-	at io.netty.handler.ssl.SslHandler$2.operationComplete(SslHandler.java:977)
-	at io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:590)
-	at io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:557)
-	at io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:492)
-	at io.netty.util.concurrent.DefaultPromise.setValue0(DefaultPromise.java:636)
-	at io.netty.util.concurrent.DefaultPromise.setFailure0(DefaultPromise.java:629)
-	at io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:118)
-	at io.netty.channel.PendingWriteQueue.safeFail(PendingWriteQueue.java:298)
-	at io.netty.channel.PendingWriteQueue.removeAndFailAll(PendingWriteQueue.java:196)
-	at io.netty.handler.proxy.ProxyHandler.failPendingWrites(ProxyHandler.java:437)
-	at io.netty.handler.proxy.ProxyHandler.failPendingWritesAndClose(ProxyHandler.java:354)
-	at io.netty.handler.proxy.ProxyHandler.setConnectFailure(ProxyHandler.java:349)
-	at io.netty.handler.proxy.ProxyHandler.channelRead(ProxyHandler.java:269)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:442)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
-	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
-	at io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.fireChannelRead(CombinedChannelDuplexHandler.java:436)
-	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:346)
-	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:318)
-	at io.netty.channel.CombinedChannelDuplexHandler.channelRead(CombinedChannelDuplexHandler.java:251)
-	at io.netty.handler.proxy.HttpProxyHandler$HttpClientCodecWrapper.channelRead(HttpProxyHandler.java:284)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:444)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
-	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
-	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1410)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:440)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
-	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:919)
-	at io.netty.channel.epoll.AbstractEpollStreamChannel$EpollStreamUnsafe.epollInReady(AbstractEpollStreamChannel.java:800)
-	at io.netty.channel.epoll.AbstractEpollChannel$AbstractEpollUnsafe.epollRdHupReady(AbstractEpollChannel.java:480)
-	at io.netty.channel.epoll.EpollEventLoop.processReady(EpollEventLoop.java:516)
-	at io.netty.channel.epoll.EpollEventLoop.run(EpollEventLoop.java:407)
-	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
-	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
-	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
-	... 1 common frames omitted
-Caused by: io.netty.handler.proxy.HttpProxyHandler$HttpProxyConnectException: http, none, proxynuvem.caixa/10.123.68.79:80 => southcentralus-3.in.applicationinsights.azure.com:443, status: 502 Proxy Error ( Forefront TMG denied the specified Uniform Resource Locator (URL).  )
-	at io.netty.handler.proxy.HttpProxyHandler.handleResponse(HttpProxyHandler.java:212)
-	at io.netty.handler.proxy.ProxyHandler.channelRead(ProxyHandler.java:260)
-	... 23 common frames omitted
-2026-08-03 16:11:02.863-03:00 WARN  c.a.m.o.e.i.q.QuickPulsePingSender - Pinging live metrics endpoint: javax.net.ssl.SSLException: failure when writing TLS control frames (https://rt.services.visualstudio.com/QuickPulseService.svc) (future warnings will be aggregated and logged once every 5 minutes)
-reactor.core.Exceptions$ReactiveException: javax.net.ssl.SSLException: failure when writing TLS control frames
-	at reactor.core.Exceptions.propagate(Exceptions.java:408)
-	at reactor.core.publisher.BlockingSingleSubscriber.blockingGet(BlockingSingleSubscriber.java:101)
-	at reactor.core.publisher.Mono.block(Mono.java:1712)
-	at com.azure.monitor.opentelemetry.exporter.implementation.quickpulse.QuickPulsePingSender.ping(QuickPulsePingSender.java:102)
-	at com.azure.monitor.opentelemetry.exporter.implementation.quickpulse.QuickPulseCoordinator.ping(QuickPulseCoordinator.java:100)
-	at com.azure.monitor.opentelemetry.exporter.implementation.quickpulse.QuickPulseCoordinator.run(QuickPulseCoordinator.java:53)
-	at java.base/java.lang.Thread.run(Thread.java:829)
-	Suppressed: java.lang.Exception: #block terminated with an error
-		at reactor.core.publisher.BlockingSingleSubscriber.blockingGet(BlockingSingleSubscriber.java:103)
-		... 5 common frames omitted
-Caused by: javax.net.ssl.SSLException: failure when writing TLS control frames
-	at io.netty.handler.ssl.SslHandler.setHandshakeFailureTransportFailure(SslHandler.java:1999)
-	at io.netty.handler.ssl.SslHandler.access$600(SslHandler.java:171)
-	at io.netty.handler.ssl.SslHandler$2.operationComplete(SslHandler.java:982)
-	at io.netty.handler.ssl.SslHandler$2.operationComplete(SslHandler.java:977)
-	at io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:590)
-	at io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:557)
-	at io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:492)
-	at io.netty.util.concurrent.DefaultPromise.setValue0(DefaultPromise.java:636)
-	at io.netty.util.concurrent.DefaultPromise.setFailure0(DefaultPromise.java:629)
-	at io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:118)
-	at io.netty.channel.PendingWriteQueue.safeFail(PendingWriteQueue.java:298)
-	at io.netty.channel.PendingWriteQueue.removeAndFailAll(PendingWriteQueue.java:196)
-	at io.netty.handler.proxy.ProxyHandler.failPendingWrites(ProxyHandler.java:437)
-	at io.netty.handler.proxy.ProxyHandler.failPendingWritesAndClose(ProxyHandler.java:354)
-	at io.netty.handler.proxy.ProxyHandler.setConnectFailure(ProxyHandler.java:349)
-	at io.netty.handler.proxy.ProxyHandler.channelRead(ProxyHandler.java:269)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:442)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
-	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
-	at io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.fireChannelRead(CombinedChannelDuplexHandler.java:436)
-	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:346)
-	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:318)
-	at io.netty.channel.CombinedChannelDuplexHandler.channelRead(CombinedChannelDuplexHandler.java:251)
-	at io.netty.handler.proxy.HttpProxyHandler$HttpClientCodecWrapper.channelRead(HttpProxyHandler.java:284)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:444)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
-	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
-	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1410)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:440)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
-	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:919)
-	at io.netty.channel.epoll.AbstractEpollStreamChannel$EpollStreamUnsafe.epollInReady(AbstractEpollStreamChannel.java:800)
-	at io.netty.channel.epoll.EpollEventLoop.processReady(EpollEventLoop.java:509)
-	at io.netty.channel.epoll.EpollEventLoop.run(EpollEventLoop.java:407)
-	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
-	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
-	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
-	... 1 common frames omitted
-Caused by: io.netty.handler.proxy.HttpProxyHandler$HttpProxyConnectException: http, none, proxynuvem.caixa/10.123.68.79:80 => rt.services.visualstudio.com:443, status: 502 Proxy Error ( Forefront TMG denied the specified Uniform Resource Locator (URL).  )
-	at io.netty.handler.proxy.HttpProxyHandler.handleResponse(HttpProxyHandler.java:212)
-	at io.netty.handler.proxy.ProxyHandler.channelRead(ProxyHandler.java:260)
-	... 22 common frames omitted
-2026-08-03 16:11:04.161-03:00 WARN  c.a.m.o.e.i.p.TelemetryPipeline - Sending telemetry to the ingestion service: failure when writing TLS control frames (https://southcentralus-3.in.applicationinsights.azure.com/v2.1/track) (telemetry will be stored to disk and retried) (future warnings will be aggregated and logged once every 5 minutes)
-javax.net.ssl.SSLException: failure when writing TLS control frames
-	at io.netty.handler.ssl.SslHandler.setHandshakeFailureTransportFailure(SslHandler.java:1999)
-	at io.netty.handler.ssl.SslHandler.access$600(SslHandler.java:171)
-	at io.netty.handler.ssl.SslHandler$2.operationComplete(SslHandler.java:982)
-	at io.netty.handler.ssl.SslHandler$2.operationComplete(SslHandler.java:977)
-	at io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:590)
-	at io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:557)
-	at io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:492)
-	at io.netty.util.concurrent.DefaultPromise.setValue0(DefaultPromise.java:636)
-	at io.netty.util.concurrent.DefaultPromise.setFailure0(DefaultPromise.java:629)
-	at io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:118)
-	at io.netty.channel.PendingWriteQueue.safeFail(PendingWriteQueue.java:298)
-	at io.netty.channel.PendingWriteQueue.removeAndFailAll(PendingWriteQueue.java:196)
-	at io.netty.handler.proxy.ProxyHandler.failPendingWrites(ProxyHandler.java:437)
-	at io.netty.handler.proxy.ProxyHandler.failPendingWritesAndClose(ProxyHandler.java:354)
-	at io.netty.handler.proxy.ProxyHandler.setConnectFailure(ProxyHandler.java:349)
-	at io.netty.handler.proxy.ProxyHandler.channelRead(ProxyHandler.java:269)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:442)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
-	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
-	at io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.fireChannelRead(CombinedChannelDuplexHandler.java:436)
-	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:346)
-	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:318)
-	at io.netty.channel.CombinedChannelDuplexHandler.channelRead(CombinedChannelDuplexHandler.java:251)
-	at io.netty.handler.proxy.HttpProxyHandler$HttpClientCodecWrapper.channelRead(HttpProxyHandler.java:284)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:444)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
-	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
-	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1410)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:440)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
-	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:919)
-	at io.netty.channel.epoll.AbstractEpollStreamChannel$EpollStreamUnsafe.epollInReady(AbstractEpollStreamChannel.java:800)
-	at io.netty.channel.epoll.AbstractEpollChannel$AbstractEpollUnsafe.epollRdHupReady(AbstractEpollChannel.java:480)
-	at io.netty.channel.epoll.EpollEventLoop.processReady(EpollEventLoop.java:516)
-	at io.netty.channel.epoll.EpollEventLoop.run(EpollEventLoop.java:407)
-	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
-	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
-	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
-	at java.base/java.lang.Thread.run(Thread.java:829)
-Caused by: io.netty.handler.proxy.HttpProxyHandler$HttpProxyConnectException: http, none, proxynuvem.caixa/10.123.68.79:80 => southcentralus-3.in.applicationinsights.azure.com:443, status: 502 Proxy Error ( Forefront TMG denied the specified Uniform Resource Locator (URL).  )
-	at io.netty.handler.proxy.HttpProxyHandler.handleResponse(HttpProxyHandler.java:212)
-	at io.netty.handler.proxy.ProxyHandler.channelRead(ProxyHandler.java:260)
-	... 23 common frames omitted
-2026-08-03 16:11:16.987-03:00 WARN  c.a.m.o.e.i.p.TelemetryPipeline - Sending telemetry to the ingestion service (retry from disk): failure when writing TLS control frames (https://southcentralus-3.in.applicationinsights.azure.com/v2.1/track) (will be retried again) (future warnings will be aggregated and logged once every 5 minutes)
-javax.net.ssl.SSLException: failure when writing TLS control frames
-	at io.netty.handler.ssl.SslHandler.setHandshakeFailureTransportFailure(SslHandler.java:1999)
-	at io.netty.handler.ssl.SslHandler.access$600(SslHandler.java:171)
-	at io.netty.handler.ssl.SslHandler$2.operationComplete(SslHandler.java:982)
-	at io.netty.handler.ssl.SslHandler$2.operationComplete(SslHandler.java:977)
-	at io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:590)
-	at io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:557)
-	at io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:492)
-	at io.netty.util.concurrent.DefaultPromise.setValue0(DefaultPromise.java:636)
-	at io.netty.util.concurrent.DefaultPromise.setFailure0(DefaultPromise.java:629)
-	at io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:118)
-	at io.netty.channel.PendingWriteQueue.safeFail(PendingWriteQueue.java:298)
-	at io.netty.channel.PendingWriteQueue.removeAndFailAll(PendingWriteQueue.java:196)
-	at io.netty.handler.proxy.ProxyHandler.failPendingWrites(ProxyHandler.java:437)
-	at io.netty.handler.proxy.ProxyHandler.failPendingWritesAndClose(ProxyHandler.java:354)
-	at io.netty.handler.proxy.ProxyHandler.setConnectFailure(ProxyHandler.java:349)
-	at io.netty.handler.proxy.ProxyHandler.channelRead(ProxyHandler.java:269)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:442)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
-	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
-	at io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.fireChannelRead(CombinedChannelDuplexHandler.java:436)
-	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:346)
-	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:318)
-	at io.netty.channel.CombinedChannelDuplexHandler.channelRead(CombinedChannelDuplexHandler.java:251)
-	at io.netty.handler.proxy.HttpProxyHandler$HttpClientCodecWrapper.channelRead(HttpProxyHandler.java:284)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:444)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
-	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
-	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1410)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:440)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
-	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:919)
-	at io.netty.channel.epoll.AbstractEpollStreamChannel$EpollStreamUnsafe.epollInReady(AbstractEpollStreamChannel.java:800)
-	at io.netty.channel.epoll.EpollEventLoop.processReady(EpollEventLoop.java:509)
-	at io.netty.channel.epoll.EpollEventLoop.run(EpollEventLoop.java:407)
-	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
-	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
-	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
-	at java.base/java.lang.Thread.run(Thread.java:829)
-Caused by: io.netty.handler.proxy.HttpProxyHandler$HttpProxyConnectException: http, none, proxynuvem.caixa/10.123.68.79:80 => southcentralus-3.in.applicationinsights.azure.com:443, status: 502 Proxy Error ( Forefront TMG denied the specified Uniform Resource Locator (URL).  )
-	at io.netty.handler.proxy.HttpProxyHandler.handleResponse(HttpProxyHandler.java:212)
-	at io.netty.handler.proxy.ProxyHandler.channelRead(ProxyHandler.java:260)
-	... 22 common frames omitted
-__  ____  __  _____   ___  __ ____  ______ 
- --/ __ \/ / / / _ | / _ \/ //_/ / / / __/ 
- -/ /_/ / /_/ / __ |/ , _/ ,< / /_/ /\ \   
---\___\_\____/_/ |_/_/|_/_/|_|\____/___/   
-2026-08-03 16:11:01,764 WARN  [io.qua.config] (main) Unrecognized configuration key "quarkus.rest-client.sispl2-api.disable-default-mapper" was provided; it will be ignored; verify that the dependency extension for this configuration is set or that you did not make a typo
-2026-08-03 16:11:22,308 WARN  [io.qua.oid.com.run.OidcCommonUtils] (vert.x-eventloop-thread-1) OIDC Server is not available:: io.netty.channel.ConnectTimeoutException: connection timed out: login.caixa.gov.br/10.120.32.19:443
-	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe$1.run(AbstractNioChannel.java:261)
-	at io.netty.util.concurrent.PromiseTask.runTask(PromiseTask.java:98)
-	at io.netty.util.concurrent.ScheduledFutureTask.run(ScheduledFutureTask.java:153)
-	at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:174)
-	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:167)
-	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:470)
-	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:569)
-	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
-	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
-	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
-	at java.base/java.lang.Thread.run(Thread.java:829)
+2026-08-03T19:28:39.3824506Z ##[section]Starting: Executando Tag na Imagem do ambiente de build OKD3, OKD4 e OCP
+2026-08-03T19:28:39.3827491Z ==============================================================================
+2026-08-03T19:28:39.3827562Z Task         : Bash
+2026-08-03T19:28:39.3827611Z Description  : Run a Bash script on macOS, Linux, or Windows
+2026-08-03T19:28:39.3827670Z Version      : 3.227.0
+2026-08-03T19:28:39.3827715Z Author       : Microsoft Corporation
+2026-08-03T19:28:39.3827773Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/bash
+2026-08-03T19:28:39.3827838Z ==============================================================================
+2026-08-03T19:28:40.1050804Z Generating script.
+2026-08-03T19:28:40.1061240Z ========================== Starting Command Output ===========================
+2026-08-03T19:28:40.1069124Z [command]/bin/bash /opt/ads-agent/_work/_temp/a5c94959-ee75-46e3-b680-d72e66424d48.sh
+2026-08-03T19:28:40.1144833Z + echo openshift_nprd_loterias
+2026-08-03T19:28:40.1145178Z + egrep -q '^(okd4|ocp|openshift)'
+2026-08-03T19:28:40.1164382Z ++ check_status_code https://default-route-openshift-image-registry.apps.produtos4.caixa/v2/build-images-ads/sispl-captacao-mkp/manifests/2.5.0.3
+2026-08-03T19:28:40.1167297Z ++ local url=https://default-route-openshift-image-registry.apps.produtos4.caixa/v2/build-images-ads/sispl-captacao-mkp/manifests/2.5.0.3
+2026-08-03T19:28:40.1169818Z ++ curl --location --request GET https://default-route-openshift-image-registry.apps.produtos4.caixa/v2/build-images-ads/sispl-captacao-mkp/manifests/2.5.0.3 --header 'Authorization: Bearer ***' --header 'Content-Type: text/plain' -s -k -o /dev/null -w '%{http_code}'
+2026-08-03T19:28:40.3088821Z + status_code=200
+2026-08-03T19:28:40.3089947Z + [[ 200 -ne 200 ]]
+2026-08-03T19:28:40.3090506Z + [[ tqs == \p\r\d ]]
+2026-08-03T19:28:40.3090829Z + build=sispl-captacao-mkp
+2026-08-03T19:28:40.3090981Z + app=sispl-captacao-mkp-tqs
+2026-08-03T19:28:40.3091092Z + [[ tqs == \p\r\d ]]
+2026-08-03T19:28:40.3091846Z + oc set image deployment/sispl-captacao-mkp-tqs sispl-captacao-mkp-tqs=default-route-openshift-image-registry.apps.produtos4.caixa/build-images-ads/sispl-captacao-mkp:2.5.0.3 -n sispl-tqs
+2026-08-03T19:28:40.5031430Z + echo openshift/quarkus-caixa-release
+2026-08-03T19:28:40.5031684Z + egrep -q openshift/angular-caixa-release
+2026-08-03T19:28:40.5066960Z + echo openshift/quarkus-caixa-release
+2026-08-03T19:28:40.5068488Z + egrep -q openshift/php-caixa-release
+2026-08-03T19:28:40.5097666Z + echo 'Template não é angular nem php e não precisa deste replace'
+2026-08-03T19:28:40.5100782Z + oc patch --type merge deployment/sispl-captacao-mkp-tqs -p '{"spec":{"template":{"spec":{"imagePullSecrets":[{"name":"registry-secret"}]}}}}' -n sispl-tqs
+2026-08-03T19:28:40.5101029Z Template não é angular nem php e não precisa deste replace
+2026-08-03T19:28:40.7327103Z deployment.apps/sispl-captacao-mkp-tqs not patched
+2026-08-03T19:28:40.7362141Z + oc get secret registry-secret -n sispl-tqs
+2026-08-03T19:28:40.9482452Z NAME              TYPE                             DATA      AGE
+2026-08-03T19:28:40.9483202Z registry-secret   kubernetes.io/dockerconfigjson   1         30d
+2026-08-03T19:28:40.9516019Z + [[ deployment == deployment ]]
+2026-08-03T19:28:40.9516722Z + oc rollout pause deployment/sispl-captacao-mkp-tqs -n sispl-tqs
+2026-08-03T19:28:41.1473785Z error: deployments.apps "sispl-captacao-mkp-tqs" is already paused
+2026-08-03T19:28:41.1500563Z + sleep 20
+2026-08-03T19:29:01.1518593Z + oc rollout resume deployment/sispl-captacao-mkp-tqs -n sispl-tqs
+2026-08-03T19:29:01.3670526Z deployment.apps/sispl-captacao-mkp-tqs resumed
+2026-08-03T19:29:01.3703906Z + oc rollout restart deployment/sispl-captacao-mkp-tqs -n sispl-tqs
+2026-08-03T19:29:01.4708507Z error: unknown command "restart deployment/sispl-captacao-mkp-tqs"
+2026-08-03T19:29:01.4708769Z See 'oc rollout -h' for help and examples.
+2026-08-03T19:29:01.4774240Z ##[error]Bash exited with code '1'.
+2026-08-03T19:29:01.4776839Z ##[section]Finishing: Executando Tag na Imagem do ambiente de build OKD3, OKD4 e OCP
 
-2026-08-03 16:11:22,371 WARN  [io.qua.agr.run.AgroalConnectionConfigurer] (main) Agroal does not support detecting if a connection is still usable after an exception for database kind: db2
-2026-08-03 16:11:22,765 INFO  [io.qua.sma.ope.run.OpenApiRecorder] (main) CORS filtering is disabled and cross-origin resource sharing is allowed without restriction, which is not recommended in production. Please configure the CORS filter through 'quarkus.http.cors.*' properties. For more information, see Quarkus HTTP CORS documentation
-2026-08-03 16:11:28,767 WARN  [org.hib.eng.jdb.env.int.JdbcEnvironmentInitiator] (JPA Startup Thread) HHH000342: Could not obtain connection to query metadata: java.sql.SQLException: Acquisition timeout while waiting for new connection
-	at io.agroal.pool.ConnectionPool.handlerFromSharedCache(ConnectionPool.java:320)
-	at io.agroal.pool.ConnectionPool.getConnection(ConnectionPool.java:248)
-	at io.agroal.pool.DataSource.getConnection(DataSource.java:86)
-	at io.quarkus.hibernate.orm.runtime.customized.QuarkusConnectionProvider.getConnection(QuarkusConnectionProvider.java:23)
-	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:181)
-	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:68)
-	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:35)
-	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:101)
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:272)
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:246)
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:223)
-	at org.hibernate.engine.jdbc.internal.JdbcServicesImpl.configure(JdbcServicesImpl.java:51)
-	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:107)
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:255)
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:223)
-	at org.hibernate.boot.internal.SessionFactoryOptionsBuilder.<init>(SessionFactoryOptionsBuilder.java:272)
-	at io.quarkus.hibernate.orm.runtime.recording.PrevalidatedQuarkusMetadata.buildSessionFactoryOptionsBuilder(PrevalidatedQuarkusMetadata.java:68)
-	at io.quarkus.hibernate.orm.runtime.boot.FastBootEntityManagerFactoryBuilder.build(FastBootEntityManagerFactoryBuilder.java:72)
-	at io.quarkus.hibernate.orm.runtime.FastBootHibernatePersistenceProvider.createEntityManagerFactory(FastBootHibernatePersistenceProvider.java:72)
-	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:80)
-	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:55)
-	at io.quarkus.hibernate.orm.runtime.JPAConfig$LazyPersistenceUnit.get(JPAConfig.java:167)
-	at io.quarkus.hibernate.orm.runtime.JPAConfig$1.run(JPAConfig.java:68)
-	at java.base/java.lang.Thread.run(Thread.java:829)
-Caused by: java.util.concurrent.TimeoutException
-	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:204)
-	at io.agroal.pool.ConnectionPool.handlerFromSharedCache(ConnectionPool.java:279)
-	... 23 more
+
+2026-08-03T19:29:01.4949173Z ##[section]Starting: Logs da Aplicação
+2026-08-03T19:29:01.4952357Z ==============================================================================
+2026-08-03T19:29:01.4952438Z Task         : Bash
+2026-08-03T19:29:01.4952478Z Description  : Run a Bash script on macOS, Linux, or Windows
+2026-08-03T19:29:01.4952536Z Version      : 3.227.0
+2026-08-03T19:29:01.4952583Z Author       : Microsoft Corporation
+2026-08-03T19:29:01.4952628Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/bash
+2026-08-03T19:29:01.4952693Z ==============================================================================
+2026-08-03T19:29:02.4207702Z Generating script.
+2026-08-03T19:29:02.4219197Z ========================== Starting Command Output ===========================
+2026-08-03T19:29:02.4227716Z [command]/bin/bash /opt/ads-agent/_work/_temp/232c8da7-f7d2-4745-bfa4-72da4a67ee86.sh
+2026-08-03T19:29:02.4277884Z + shopt -s expand_aliases
+2026-08-03T19:29:02.4278458Z + [[ -n openshift_nprd_loterias ]]
+2026-08-03T19:29:02.4278868Z + [[ openshift_nprd_loterias =~ ocp ]]
+2026-08-03T19:29:02.4279478Z + [[ -n openshift_nprd_loterias ]]
+2026-08-03T19:29:02.4279637Z + [[ openshift_nprd_loterias =~ (okd4|openshift) ]]
+2026-08-03T19:29:02.4279796Z + app=sispl-captacao-mkp-tqs
+2026-08-03T19:29:02.4279900Z + oc version
+2026-08-03T19:29:02.5769930Z oc v3.11.0+0cbc58b
+2026-08-03T19:29:02.5770108Z kubernetes v1.11.0+d4cacc0
+2026-08-03T19:29:02.5771714Z features: Basic-Auth GSSAPI Kerberos SPNEGO
+2026-08-03T19:29:02.5959156Z 
+2026-08-03T19:29:02.5959671Z Server https://api.nctvmrh001.nuvem.caixa:6443
+2026-08-03T19:29:02.5959801Z kubernetes v1.33.12
+2026-08-03T19:29:02.5993052Z ++ oc get pod -l name=sispl-captacao-mkp-tqs -n sispl-tqs -o 'jsonpath={range .items[*]}{.metadata.name}{"\n"}' --sort-by=.metadata.creationTimestamp
+2026-08-03T19:29:02.5993264Z ++ tac
+2026-08-03T19:29:02.6005820Z ++ grep -v '^$'
+2026-08-03T19:29:02.6011330Z ++ head -n1
+2026-08-03T19:29:02.8393647Z + last_pod=sispl-captacao-mkp-tqs-66f9484c76-9jz4b
+2026-08-03T19:29:02.8395312Z + echo 'Logs do POD: sispl-captacao-mkp-tqs-66f9484c76-9jz4b'
+2026-08-03T19:29:02.8395810Z + oc logs sispl-captacao-mkp-tqs-66f9484c76-9jz4b -c sispl-captacao-mkp-tqs -n sispl-tqs
+2026-08-03T19:29:02.8397906Z Logs do POD: sispl-captacao-mkp-tqs-66f9484c76-9jz4b
+2026-08-03T19:29:03.1830347Z exec java -Dquarkus.http.host=0.0.0.0 -Dquarkus.http.port=8080 -Djava.util.logging.manager=org.jboss.logmanager.LogManager -Djavax.net.ssl.trustStore=/deployments/caixa-truststore-acteste-nprd.jks -javaagent:/deployments/lib/main/com.microsoft.azure.applicationinsights-agent-3.3.1.jar -Dhttps.proxyHost=proxydes.caixa -Dhttps.proxyPort=80 -Dhttp.nonProxyHosts=*.caixa|*.caixa.gov.br|*.corecaixa -XX:+ExitOnOutOfMemoryError -cp . -jar /deployments/quarkus-run.jar
+2026-08-03T19:29:03.1831168Z OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+2026-08-03T19:29:03.1832010Z 2026-08-03 16:21:02.893-03:00 INFO  c.m.applicationinsights.agent - ApplicationInsights Java Agent 3.3.1 started successfully (PID 3)
+2026-08-03T19:29:03.1832470Z 2026-08-03 16:21:02.895-03:00 INFO  c.m.applicationinsights.agent - Java version: 11.0.11, vendor: Red Hat, Inc., home: /usr/lib/jvm/java-11-openjdk-11.0.11.0.9-2.el8_4.x86_64
+2026-08-03T19:29:03.1832654Z __  ____  __  _____   ___  __ ____  ______ 
+2026-08-03T19:29:03.1832813Z  --/ __ \/ / / / _ | / _ \/ //_/ / / / __/ 
+2026-08-03T19:29:03.1832955Z  -/ /_/ / /_/ / __ |/ , _/ ,< / /_/ /\ \   
+2026-08-03T19:29:03.1834424Z --\___\_\____/_/ |_/_/|_/_/|_|\____/___/   
+2026-08-03T19:29:03.1834666Z 2026-08-03 16:21:11,053 INFO  [br.gov.cai.lot.sis.MQConsumer] (main) INICIALIZANDO MQ...
+2026-08-03T19:29:03.1834898Z 2026-08-03 16:21:11,511 INFO  [br.gov.cai.lot.sis.MQConsumer] (main) START MQ
+2026-08-03T19:29:03.1835253Z 2026-08-03 16:21:12,399 INFO  [io.quarkus] (main) sispl-captacao-mkp 2.5.0.1 on JVM (powered by Quarkus 2.16.4.Final) started in 9.404s. Listening on: http://0.0.0.0:8080
+2026-08-03T19:29:03.1859852Z 2026-08-03 16:21:12,399 INFO  [io.quarkus] (main) Profile prod activated. 
+2026-08-03T19:29:03.1860418Z 2026-08-03 16:21:12,400 INFO  [io.quarkus] (main) Installed features: [agroal, cdi, hibernate-orm, hibernate-orm-panache, hibernate-orm-rest-data-panache, hibernate-validator, jdbc-db2, loterias-api-commons, loterias-api-exceptions, narayana-jta, qpid-jms, rest-client, resteasy, resteasy-jackson, smallrye-context-propagation, smallrye-health, smallrye-openapi, vertx]
+2026-08-03T19:29:03.1860826Z 2026-08-03 16:21:12,529 INFO  [br.gov.cai.lot.sis.MQConsumer] (pool-14-thread-1) LQ.LOG.SISPL.MARKETPLACE
+2026-08-03T19:29:03.1861092Z 2026-08-03 16:21:12,530 INFO  [br.gov.cai.lot.sis.MQConsumer] (pool-14-thread-1) LQ.LOG.SISPL.MARKETPLACE.BACKOUT
+2026-08-03T19:29:03.1862386Z 2026-08-03 16:21:12,530 INFO  [br.gov.cai.lot.sis.MQConsumer] (pool-14-thread-1) MQ CONECTADO COM SUCESSO.
+2026-08-03T19:29:03.1917932Z ##[section]Finishing: Logs da Aplicação
 
