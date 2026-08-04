@@ -1,17 +1,14 @@
-ssunto: Falha em Action de publicação APIM — runner sem acesso à VNET (host interno não resolve)
+#!/bin/bash
+set -o pipefail
 
-Olá, pessoal do time de Nuvem,
+PROJECT_POM_PROPERTIES_FILE=$(timeout 30 find "$(Build.SourcesDirectory)/target" -maxdepth 6 -name pom.properties 2>/dev/null | head -n1)
 
-Estamos com falha na execução da Action de publicação no APIM do repositório sirmc-api-emailmarketing-rastreamento (workflow reutilizável generic-apim.yaml, em DevSecOps-Solutions).
+if [ -z "$PROJECT_POM_PROPERTIES_FILE" ]; then
+  echo "##vso[task.logissue type=error]pom.properties não encontrado em target/ dentro de 30s. Verifique se o Maven gerou o arquivo ou se há lentidão de storage/NFS no agente."
+  exit 1
+fi
 
-O erro ocorre no step "Publish API to APIM", ao tentar validar a URL do Swagger interno:
+p_version=$(egrep version "$PROJECT_POM_PROPERTIES_FILE" | awk -F = '{print $2}')
 
-http://sirmc-api-emailmarketing-rastreamento.apl.des.private.azure/swagger/v1/swagger.json
-
-Retorno: httpStatus=000, Error: Process completed with exit code 6 (curl: Could not resolve host).
-
-Esse host é o ingress interno do Istio, resolvido via Private DNS Zone vinculada à VNET do cluster aks-crm-nprd. A configuração da zone/DNS foi validada e está correta.
-
-Pela sequência do log (instalação do Az CLI via curl público, apt do Ubuntu, download de kubectl/kubelogin direto do GitHub releases), o job parece estar executando em um runner GitHub-hosted, sem peering/link com a VNET do aks-crm-nprd — por isso a resolução do host interno falha.
-
-Solicitamos verificação de qual runner está configurado no workflow generic-apim.yaml (repositório DevSecOps-Solutions) e se ele possui rota/DNS para a VNET do cluster aks-crm-nprd.
+echo "##vso[task.setvariable variable=POM_VERSION;]$p_version"
+echo "##vso[task.setvariable variable=POM_PATH;]pom.xml"
