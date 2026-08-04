@@ -1,5 +1,12 @@
-oc get pods -n sipnc-des -l name=sipnc-beneficiossociais-backend-des
-oc describe pod <pod-antigo> -n sipnc-des | tail -40
-oc get events -n sipnc-des --sort-by='.lastTimestamp' | tail -20
+Verificar PROJETO : agendamento-sisou
 
-oc delete pod <pod-antigo> -n sipnc-des --grace-period=0 --force
+
+Solicitamos a instalação do certificado no pod: agendamento-sisou em https://console-openshift-console.apps.nprd.caixa/k8s/ns/sisou-des/cronjobs/agendamento-sisou
+
+SSO em DES:
+https://login.des.caixa/auth
+
+
+ERRO ao executar o scriot via CronJOB ao acessar o SSO:
+===
+curl: (60) SSL certificate problem: self signed certificate in certificate chain
