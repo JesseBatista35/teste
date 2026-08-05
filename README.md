@@ -3,17 +3,17 @@
   "version": "1.0.00.0",
   "scripts": {
     "ng": "ng",
-    "start": "NODE_OPTIONS=--openssl-legacy-provider ng serve",
-    "start:local": "NODE_OPTIONS=--openssl-legacy-provider ng serve --configuration=local",
-    "start:remote": "NODE_OPTIONS=--openssl-legacy-provider ng serve --configuration=remote",
-    "build": "NODE_OPTIONS=--openssl-legacy-provider ng build",
-    "build:local": "NODE_OPTIONS=--openssl-legacy-provider ng build --configuration=local",
-    "build:remote": "NODE_OPTIONS=--openssl-legacy-provider ng build --configuration=remote",
-    "test": "NODE_OPTIONS=--openssl-legacy-provider ng test --code-coverage=true --watch=false",
-    "test:local": "NODE_OPTIONS=--openssl-legacy-provider ng test --code-coverage=true --watch=true",
-    "lint": "NODE_OPTIONS=--openssl-legacy-provider ng lint",
-    "e2e": "NODE_OPTIONS=--openssl-legacy-provider ng e2e",
-    "test-husky": "set NODE_OPTIONS=--openssl-legacy-provider --trace-deprecation && ng test --watch=false --code-coverage=false"
+    "start": "ng serve",
+    "start:local": "ng serve --configuration=local",
+    "start:remote": "ng serve --configuration=remote",
+    "build": "ng build",
+    "build:local": "ng build --configuration=local",
+    "build:remote": "ng build --configuration=remote",
+    "test": "ng test --code-coverage=true --watch=false",
+    "test:local": "ng test --code-coverage=true --watch=true",
+    "lint": "ng lint",
+    "e2e": "ng e2e",
+    "test-husky": "ng test --watch=false --code-coverage=false"
   },
   "private": true,
   "dependencies": {
@@ -60,10 +60,3 @@
     "karma-coverage": "~2.0.3",
     "karma-firefox-launcher": "^2.1.3",
     "karma-jasmine": "^4.0.2",
-    "karma-jasmine-html-reporter": "^1.5.4",
-    "protractor": "~7.0.0",
-    "ts-node": "~8.3.0",
-    "tslint": "~6.1.0",
-    "typescript": "~4.1.5"
-  }
-}
