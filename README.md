@@ -1,28 +1,18 @@
-sh-4.2$ oc get dc
+-sh-4.2$ oc get dc
 NAME                 REVISION   DESIRED   CURRENT   TRIGGERED BY
-siorf-backend-tqs    123        1         1
-siorf-frontend-tqs   73         1         1
--sh-4.2$
--sh-4.2$
--sh-4.2$ oc get deployment
-No resources found.
--sh-4.2$ oc get deployment
-No resources found.
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$ oc get dc siorf-backend-tqs -o yaml | grep -A15 "volumes:"
+siorf-backend-des    358        2         2
+siorf-frontend-des   193        1         1
+-sh-4.2$ oc get dc siorf-backend-des -o yaml | grep -A15 "volumes:"
             f:volumes:
               .: {}
-              k:{"name":"caixa-truststore-acteste-nprd-jks"}:
+              k:{"name":"accaixa-v4"}:
                 .: {}
                 f:name: {}
                 f:secret:
                   .: {}
                   f:defaultMode: {}
                   f:secretName: {}
-              k:{"name":"caixa-truststore-azure2023v3-jks"}:
+              k:{"name":"dskeystore-siorf-des-jceks"}:
                 .: {}
                 f:name: {}
                 f:secret:
@@ -30,23 +20,40 @@ No resources found.
                   f:defaultMode: {}
                   f:secretName: {}
 --
+            f:volumes:
+              k:{"name":"siorf-backend-data-des"}:
+                .: {}
+                f:name: {}
+                f:persistentVolumeClaim:
+                  .: {}
+                  f:claimName: {}
+    manager: kubectl-set
+    operation: Update
+    time: 2026-07-27T20:34:03Z
+  - apiVersion: apps.openshift.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:status:
+        f:availableReplicas: {}
+        f:conditions:
+--
       volumes:
-      - name: caixa-truststore-loginmicrosoftv2-jks
+      - name: dskeystore-siorf-des-jceks
         secret:
           defaultMode: 420
-          secretName: caixa-truststore-loginmicrosoftv2-jks
-      - name: caixa-truststore-azure2023v3-jks
+          secretName: dskeystore-siorf-des-jceks
+      - name: accaixa-v4
         secret:
           defaultMode: 420
-          secretName: caixa-truststore-azure2023v3-jks
-      - name: dskeystore-siorf-tqs-jceks
-        secret:
+          secretName: accaixa-v4
+      - name: siorf-backend-data-des
+        persistentVolumeClaim:
+          claimName: siorf-backend-data-des
+      - configMap:
           defaultMode: 420
-          secretName: dskeystore-siorf-tqs-jceks
-      - name: caixa-truststore-acteste-nprd-jks
-        secret:
-          defaultMode: 420
--sh-4.2$ oc get dc siorf-backend-tqs -o yaml | grep -A20 volumeMounts
+          name: jboss-config-siorf-backend
+        name: jboss-config-siorf-backend
+-sh-4.2$ oc get dc siorf-backend-des -o yaml | grep -A20 volumeMounts
                 f:volumeMounts:
                   .: {}
                   k:{"mountPath":"/opt/jboss/bin/standalone.conf"}:
@@ -59,29 +66,47 @@ No resources found.
                     f:mountPath: {}
                     f:name: {}
                     f:subPath: {}
-                  k:{"mountPath":"/opt/jboss/standalone/configuration/caixa-truststore-azure2023v3.jks"}:
+                  k:{"mountPath":"/opt/jboss/standalone/configuration/dskeystore_siorf_des.jceks"}:
                     .: {}
                     f:mountPath: {}
                     f:name: {}
                     f:subPath: {}
-                  k:{"mountPath":"/opt/jboss/standalone/configuration/caixa-truststore-loginmicrosoftv2.jks"}:
+                  k:{"mountPath":"/tmp/standalone-okd.xml"}:
                     .: {}
                     f:mountPath: {}
                     f:name: {}
 --
+                f:volumeMounts:
+                  k:{"mountPath":"/siorf/Convenio/Resultado"}:
+                    .: {}
+                    f:mountPath: {}
+                    f:name: {}
+            f:volumes:
+              k:{"name":"siorf-backend-data-des"}:
+                .: {}
+                f:name: {}
+                f:persistentVolumeClaim:
+                  .: {}
+                  f:claimName: {}
+    manager: kubectl-set
+    operation: Update
+    time: 2026-07-27T20:34:03Z
+  - apiVersion: apps.openshift.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:status:
+        f:availableReplicas: {}
+        f:conditions:
+--
         volumeMounts:
-        - mountPath: /opt/jboss/standalone/configuration/caixa-truststore-loginmicrosoftv2.jks
-          name: caixa-truststore-loginmicrosoftv2-jks
-          subPath: caixa-truststore-loginmicrosoftv2.jks
-        - mountPath: /opt/jboss/standalone/configuration/caixa-truststore-azure2023v3.jks
-          name: caixa-truststore-azure2023v3-jks
-          subPath: caixa-truststore-azure2023v3.jks
-        - mountPath: /opt/jboss/standalone/configuration/dskeystore_siorf_tqs.jceks
-          name: dskeystore-siorf-tqs-jceks
-          subPath: dskeystore_siorf_tqs.jceks
+        - mountPath: /opt/jboss/standalone/configuration/dskeystore_siorf_des.jceks
+          name: dskeystore-siorf-des-jceks
+          subPath: dskeystore_siorf_des.jceks
         - mountPath: /opt/jboss/standalone/configuration/caixa-truststore-acteste-nprd.jks
-          name: caixa-truststore-acteste-nprd-jks
+          name: accaixa-v4
           subPath: caixa-truststore-acteste-nprd.jks
+        - mountPath: /siorf/Convenio/Resultado
+          name: siorf-backend-data-des
         - mountPath: /tmp/standalone-okd.xml
           name: jboss-config-siorf-backend
           subPath: standalone-okd.xml
@@ -90,4 +115,8 @@ No resources found.
           subPath: standalone.conf
       dnsPolicy: ClusterFirst
       imagePullSecrets:
+      - name: registry-secret
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
 -sh-4.2$
