@@ -1,16 +1,17 @@
-Prezado(a),
+Solicito que esses componentes sejam criados também. Nome do módulo: SIGAP-personalizacao-chip-gestao
 
-Durante a análise técnica, identificamos duas possíveis aplicações SINAD que podem ser objeto desta solicitação:
+Na REQ000145139808, informei que não estava conseguindo criar um módulo através do Infra Fácil. 
 
-1. Ambiente legado (VM sbrdeapllx114, JBoss EAP domain mode): não possui truststore/keystore customizado nem estrutura de módulo dedicada em /upload/des/ para o SINAD.
+O atendente criou o repositório manualmente, mas não criou as pipelines de build, de release nem as libraries de DES, PRD etc. 
 
-2. Ambiente de esteira (pipeline "SINAD-api" no Azure DevOps Releases): possui deploys ativos nos estágios EC DES, EC TQS, EC HMP e EC PRD, indicando aplicação containerizada (OKD/AKS).
+Solicito que esses componentes sejam criados também.
 
-Para prosseguirmos com a instalação do certificado do API Manager (CN https://api.des.caixa), solicitamos a confirmação do demandante sobre:
-1. Em qual dos dois ambientes (legado ou esteira) o certificado deve ser instalado;
-2. Caso seja na esteira, qual o namespace/cluster correspondente ao ambiente DES da aplicação SINAD-api.
+Nome do módulo: SIGAP-personalizacao-chip-gestao
 
-Ficamos no aguardo para dar continuidade ao atendimento.
+ATENÇÃO: a pipeline precisa ser preparada para um projeto Java Spring
 
-Atenciosamente,
-Esteira Devops DES TQS NPRD
+
+
+
+
+
