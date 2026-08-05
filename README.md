@@ -1,37 +1,33 @@
-Prezada,
 
-Em atenção à sua solicitação, informamos o resultado da análise técnica realizada nos ambientes DES e TQS referente ao sistema SIORF:
 
-1. Sobre a criação das pastas /siorf/Convenio/Processar e /siorf/Convenio/Resultado em DES e TQS:
+Creating home directory for p585600.
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$ ps -ef | grep jboss
+p585600  10184 10142  0 10:36 pts/0    00:00:00 grep --color=auto jboss
+root     14566     1  0 Jul31 ?        00:00:00 runuser jboss -c LAUNCH_JBOSS_IN_BACKGROUND=1 JBOSS_PIDFILE=/opt/jboss-eap/standalone/tmp/jboss-eap-standalone.pid /opt/jboss-eap/bin/standalone.sh                -b 0.0.0.0                -bmanagement 0.0.0.0                -Djboss.server.base.dir=/opt/jboss-eap/standalone                -Djboss.server.log.dir=/logs/jboss/jboss-eap/standalone/sisme -c standalone-full-ha.xml
+jboss    14569 14566  0 Jul31 ?        00:00:00 /bin/sh /opt/jboss-eap/bin/standalone.sh -b 0.0.0.0 -bmanagement 0.0.0.0 -Djboss.server.base.dir=/opt/jboss-eap/standalone -Djboss.server.log.dir=/logs/jboss/jboss-eap/standalone/sisme -c standalone-full-ha.xml
+jboss    14729 14569  1 Jul31 ?        01:31:07 java -D[Standalone] -verbose:gc -Xloggc:/logs/jboss/jboss-eap/standalone/sisme/gc.log -XX:+PrintGCDetails -XX:+PrintGCDateStamps -XX:+UseGCLogFileRotation -XX:NumberOfGCLogFiles=5 -XX:GCLogFileSize=3M -XX:-TraceClassUnloading -Xms1024m -Xmx2048m -XX:MetaspaceSize=96M -XX:MaxMetaspaceSize=256m -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs=org.jboss.byteman,org.jboss.logmanager -Djava.awt.headless=true -Djavax.net.ssl.trustStore=/opt/jboss-eap/standalone/configuration/caixa-truststore-acteste-nprd.jks -Djavax.net.ssl.trustStorePassword=changeit -Djboss.modules.policy-permissions=true -server -XX:+ExplicitGCInvokesConcurrent -XX:+UseG1GC -XX:MaxGCPauseMillis=500 -Xbootclasspath/a:/opt/jboss-eap/modules/system/layers/base/org/wildfly/common/main/wildfly-common-1.5.4.Final-redhat-00001.jar -Xbootclasspath/a:/opt/jboss-eap/modules/system/layers/base/org/jboss/logmanager/main/jboss-logmanager-2.1.18.Final-redhat-00001.jar -Dsun.util.logging.disableCallerCheck=true -Djava.util.logging.manager=org.jboss.logmanager.LogManager -javaagent:/opt/jmx_exporter/jmx_prometheus.jar=8778:/opt/jmx_exporter/jmx_prometheus.yaml -javaagent:/opt/jboss-eap/standalone/deployments/applicationinsights-agent.jar -Dapplicationinsights.configuration.file=/opt/jboss-eap/standalone/configuration/applicationinsights.json -Djava.net.useSystemProxies=false -Dhttp.proxyHost=proxydes.caixa -Dhttp.proxyPort=80 -Dhttps.proxyHost=proxydes.caixa -Dhttps.proxyPort=80 -Dhttp.nonProxyHosts=localhost|127.0.0.1|*.caixa|*.caixa.gov.br -Dorg.jboss.boot.log.file=/logs/jboss/jboss-eap/standalone/sisme/server.log -Dlogging.configuration=file:/opt/jboss-eap/standalone/configuration/logging.properties -jar /opt/jboss-eap/jboss-modules.jar -mp /opt/jboss-eap/modules org.jboss.as.standalone -Djboss.home.dir=/opt/jboss-eap -Djboss.server.base.dir=/opt/jboss-eap/standalone -b 0.0.0.0 -bmanagement 0.0.0.0 -Djboss.server.base.dir=/opt/jboss-eap/standalone -Djboss.server.log.dir=/logs/jboss/jboss-eap/standalone/sisme -c standalone-full-ha.xml
+-sh-4.2$ ps -ef | grep java
+p585600  10190 10142  0 10:36 pts/0    00:00:00 grep --color=auto java
+jboss    14729 14569  1 Jul31 ?        01:31:07 java -D[Standalone] -verbose:gc -Xloggc:/logs/jboss/jboss-eap/standalone/sisme/gc.log -XX:+PrintGCDetails -XX:+PrintGCDateStamps -XX:+UseGCLogFileRotation -XX:NumberOfGCLogFiles=5 -XX:GCLogFileSize=3M -XX:-TraceClassUnloading -Xms1024m -Xmx2048m -XX:MetaspaceSize=96M -XX:MaxMetaspaceSize=256m -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs=org.jboss.byteman,org.jboss.logmanager -Djava.awt.headless=true -Djavax.net.ssl.trustStore=/opt/jboss-eap/standalone/configuration/caixa-truststore-acteste-nprd.jks -Djavax.net.ssl.trustStorePassword=changeit -Djboss.modules.policy-permissions=true -server -XX:+ExplicitGCInvokesConcurrent -XX:+UseG1GC -XX:MaxGCPauseMillis=500 -Xbootclasspath/a:/opt/jboss-eap/modules/system/layers/base/org/wildfly/common/main/wildfly-common-1.5.4.Final-redhat-00001.jar -Xbootclasspath/a:/opt/jboss-eap/modules/system/layers/base/org/jboss/logmanager/main/jboss-logmanager-2.1.18.Final-redhat-00001.jar -Dsun.util.logging.disableCallerCheck=true -Djava.util.logging.manager=org.jboss.logmanager.LogManager -javaagent:/opt/jmx_exporter/jmx_prometheus.jar=8778:/opt/jmx_exporter/jmx_prometheus.yaml -javaagent:/opt/jboss-eap/standalone/deployments/applicationinsights-agent.jar -Dapplicationinsights.configuration.file=/opt/jboss-eap/standalone/configuration/applicationinsights.json -Djava.net.useSystemProxies=false -Dhttp.proxyHost=proxydes.caixa -Dhttp.proxyPort=80 -Dhttps.proxyHost=proxydes.caixa -Dhttps.proxyPort=80 -Dhttp.nonProxyHosts=localhost|127.0.0.1|*.caixa|*.caixa.gov.br -Dorg.jboss.boot.log.file=/logs/jboss/jboss-eap/standalone/sisme/server.log -Dlogging.configuration=file:/opt/jboss-eap/standalone/configuration/logging.properties -jar /opt/jboss-eap/jboss-modules.jar -mp /opt/jboss-eap/modules org.jboss.as.standalone -Djboss.home.dir=/opt/jboss-eap -Djboss.server.base.dir=/opt/jboss-eap/standalone -b 0.0.0.0 -bmanagement 0.0.0.0 -Djboss.server.base.dir=/opt/jboss-eap/standalone -Djboss.server.log.dir=/logs/jboss/jboss-eap/standalone/sisme -c standalone-full-ha.xml
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$ hostname -f
+caddeapllx1441.agil.nprd.caixa.gov.br
+-sh-4.2$
 
-Em DES, apenas a pasta /siorf/Convenio/Resultado foi criada e está montada, com 50GB de capacidade via NFS (fs_siorf). A pasta /siorf/Convenio/Processar não existe no ambiente.
 
-Em TQS, nenhuma das duas pastas foi criada. O compartilhamento NFS não foi provisionado neste ambiente e não há volume ou ponto de montagem configurado no servidor de aplicação.
 
-2. Sobre o acesso 777 dos usuários de serviço SORFDB01 e SORFTB01:
 
-A pasta /siorf/Convenio/Resultado (única existente) está com permissão 777 (leitura, escrita e execução para todos), porém o proprietário do diretório é o usuário nobody, e não SORFDB01 ou SORFTB01. Como a permissão já contempla acesso total, isso não deve impactar a gravação/leitura pelos usuários de serviço, mas o registro de propriedade diverge do informado.
+oi.. o ambiente está muito lento..
+ 
+vou repassar os detalhes ja ja
+ 
+Jesse Mouta Pereira Batista - segue a informação do time:
+o sistema chegou a apresentar a tela de login, porém ao informar a senha e usuário ele demora muito e depois retorna a tela de "Service Unavailable"
 
-3. Sobre a configuração do JBoss com os paths:
 
-Apenas o path /siorf/Convenio/Resultado está configurado no servidor de aplicação (JBoss), via volumeMount direto associado a um PVC, seguindo o modelo de um path por pasta (não há path único resolvido em tempo de execução). O path /siorf/Convenio/Processar não está configurado, e nenhum path está configurado no ambiente TQS.
 
-Importante: Ao analisarmos o histórico completo das solicitações REQ000144998295 e REQ000144998297, mencionadas por você como base para a criação das pastas Processar e Resultado em DES e TQS, verificamos que essa solicitação, como descrita, não consta nos registros dessas REQs.
-
-O que foi de fato solicitado e tramitado nas referidas REQs foi a criação do compartilhamento NFS (fs_siorf) e do ponto de montagem /siorf/Convenio/Resultado, exclusivamente no ambiente DES. Não há registro, em nenhuma das duas REQs, de solicitação da pasta Processar nem de provisionamento no ambiente TQS.
-
-Próximos passos:
-
-Como não existe nenhum compartilhamento NFS, volume ou mount configurado para TQS, e a pasta Processar também não foi criada em DES, o processo para regularizar ambos precisa seguir o fluxo abaixo:
-
-Você deverá abrir nova(s) solicitação(ões) de armazenamento pelo Infrafácil, no módulo de Solicitação de Armazenamento, indicando o sistema (siorf), ambiente, ponto de montagem desejado e volumetria — da mesma forma que foi feito para o Resultado em DES;
-A equipe de Armazenamento fica responsável por criar o(s) compartilhamento(s) NFS no storage e liberar os IPs de acesso correspondentes;
-Após a criação pelo Armazenamento, a Esteiras realiza a configuração do volume/volumeMount no OKD para montar o path no JBoss.
-
-Assim que a(s) solicitação(ões) forem abertas no Infrafácil, favor nos indicar o(s) número(s) da REQ para darmos continuidade na configuração pela Esteiras.
-
-Atenciosamente,
-
-Jessé Mouta Pereira Batista
-Analista
-CTIS/CESTI — Esteira DevOps DES TQS NPRD
+ 
