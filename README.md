@@ -1,62 +1,43 @@
-{
-  "name": "sigsj-frontend",
-  "version": "1.0.00.0",
-  "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "start:local": "ng serve --configuration=local",
-    "start:remote": "ng serve --configuration=remote",
-    "build": "ng build",
-    "build:local": "ng build --configuration=local",
-    "build:remote": "ng build --configuration=remote",
-    "test": "ng test --code-coverage=true --watch=false",
-    "test:local": "ng test --code-coverage=true --watch=true",
-    "lint": "ng lint",
-    "e2e": "ng e2e",
-    "test-husky": "ng test --watch=false --code-coverage=false"
-  },
-  "private": true,
-  "dependencies": {
-    "@angular/animations": "~11.2.14",
-    "@angular/common": "~11.2.14",
-    "@angular/compiler": "~11.2.14",
-    "@angular/core": "~11.2.14",
-    "@angular/forms": "~11.2.14",
-    "@angular/platform-browser": "~11.2.14",
-    "@angular/platform-browser-dynamic": "~11.2.14",
-    "@angular/router": "~11.2.14",
-    "bootstrap": "^4.6.1",
-    "dsc-components": "0.2.9",
-    "file-saver": "^2.0.5",
-    "jquery": "^3.7.1",
-    "jquery-mask-plugin": "^1.14.16",
-    "ng-recaptcha": "^8.0.1",
-    "ng2-currency-mask": "^11.0.0",
-    "ngx-bootstrap": "^7.1.0",
-    "ngx-mask": "^12.0.0",
-    "ngx-select-dropdown": "^2.0.0",
-    "ngx-spinner": "^11.0.2",
-    "node-forge": "^1.3.1",
-    "rxjs": "~6.6.0",
-    "tslib": "^2.0.0",
-    "zone.js": "~0.11.3"
-  },
-  "devDependencies": {
-    "@angular-devkit/build-angular": "^0.1102.19",
-    "@angular/cli": "~11.2.15",
-    "@angular/compiler-cli": "~11.2.14",
-    "@types/file-saver": "^2.0.5",
-    "@types/jasmine": "~3.6.0",
-    "@types/jquery": "^3.5.32",
-    "@types/jquery-mask-plugin": "^1.14.6",
-    "@types/node": "^12.11.1",
-    "@types/node-forge": "^1.3.11",
-    "codelyzer": "^6.0.0",
-    "husky": "^9.1.7",
-    "jasmine-core": "~3.10.1",
-    "jasmine-spec-reporter": "~5.0.0",
-    "karma": "^6.1.2",
-    "karma-chrome-launcher": "^3.2.0",
-    "karma-coverage": "~2.0.3",
-    "karma-firefox-launcher": "^2.1.3",
-    "karma-jasmine": "^4.0.2",
+    Generating script.
+    ========================== Starting Command Output ===========================
+    /usr/bin/bash /opt/ads-agent/_work/_temp/1ff5c054-79d9-433f-9257-9190364e78b5.sh
+    ng build --configuration production --build-optimizer --aot --output-path=dist && npm test
+    <----ANGULAR---->
+
+         _                      _                 ____ _     ___
+    ... animations, cli, common, compiler, compiler-cli, core, forms
+    ... platform-browser, platform-browser-dynamic, router
+
+    Package                         Version
+    ---------------------------------------------------------
+    @angular-devkit/architect       0.13.7 (cli-only)
+    @angular-devkit/build-angular   <error>
+    @angular-devkit/core            7.3.7 (cli-only)
+    @angular-devkit/schematics      7.3.7 (cli-only)
+    @schematics/angular             7.3.7 (cli-only)
+    @schematics/update              0.13.7 (cli-only)
+    rxjs                            6.3.3 (cli-only)
+    typescript                      <error>
+        
+    Schema validation failed with the following errors:
+      Data path ".builders['app-shell']" should have required property 'class'.
+    Error: Schema validation failed with the following errors:
+      Data path ".builders['app-shell']" should have required property 'class'.
+        at MergeMapSubscriber.project (/usr/local/lib/node/nodejs/lib/node_modules/@angular/cli/node_modules/@angular-devkit/core/src/workspace/workspace.js:215:42)
+        at MergeMapSubscriber._tryNext (/usr/local/lib/node/nodejs/lib/node_modules/@angular/cli/node_modules/rxjs/internal/operators/mergeMap.js:69:27)
+        at MergeMapSubscriber._next (/usr/local/lib/node/nodejs/lib/node_modules/@angular/cli/node_modules/rxjs/internal/operators/mergeMap.js:59:18)
+        at MergeMapSubscriber.Subscriber.next (/usr/local/lib/node/nodejs/lib/node_modules/@angular/cli/node_modules/rxjs/internal/Subscriber.js:67:18)
+        at MergeMapSubscriber.notifyNext (/usr/local/lib/node/nodejs/lib/node_modules/@angular/cli/node_modules/rxjs/internal/operators/mergeMap.js:92:26)
+        at InnerSubscriber._next (/usr/local/lib/node/nodejs/lib/node_modules/@angular/cli/node_modules/rxjs/internal/InnerSubscriber.js:28:21)
+        at InnerSubscriber.Subscriber.next (/usr/local/lib/node/nodejs/lib/node_modules/@angular/cli/node_modules/rxjs/internal/Subscriber.js:67:18)
+        at MapSubscriber._next (/usr/local/lib/node/nodejs/lib/node_modules/@angular/cli/node_modules/rxjs/internal/operators/map.js:55:26)
+        at MapSubscriber.Subscriber.next (/usr/local/lib/node/nodejs/lib/node_modules/@angular/cli/node_modules/rxjs/internal/Subscriber.js:67:18)
+        at SwitchMapSubscriber.notifyNext (/usr/local/lib/node/nodejs/lib/node_modules/@angular/cli/node_modules/rxjs/internal/operators/switchMap.js:86:26)
+        at InnerSubscriber._next (/usr/local/lib/node/nodejs/lib/node_modules/@angular/cli/node_modules/rxjs/internal/InnerSubscriber.js:28:21)
+        at InnerSubscriber.Subscriber.next (/usr/local/lib/node/nodejs/lib/node_modules/@angular/cli/node_modules/rxjs/internal/Subscriber.js:67:18)
+        at /usr/local/lib/node/nodejs/lib/node_modules/@angular/cli/node_modules/rxjs/internal/util/subscribeTo.js:17:28
+        at Object.subscribeToResult (/usr/local/lib/node/nodejs/lib/node_modules/@angular/cli/node_modules/rxjs/internal/util/subscribeToResult.js:10:45)
+        at SwitchMapSubscriber._innerSub (/usr/local/lib/node/nodejs/lib/node_modules/@angular/cli/node_modules/rxjs/internal/operators/switchMap.js:65:54)
+        at SwitchMapSubscriber._next (/usr/local/lib/node/nodejs/lib/node_modules/@angular/cli/node_modules/rxjs/internal/operators/switchMap.js:55:14)
+    ##[error]Bash exited with code '1'.
+    Finishing: Build Application
