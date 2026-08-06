@@ -1,3 +1,4 @@
+
 [root@sbrdeapllx114 tmp]# ss -tlnp | grep 999
 LISTEN     0      50     10.116.94.221:9999                     *:*                   users:(("java",pid=27411,fd=91))
 [root@sbrdeapllx114 tmp]# grep -A5 "management-interfaces" /opt/jboss/jboss-eap/hc/configuration/host-slave.xml
@@ -30,4 +31,14 @@ LISTEN     0      50     10.116.94.221:9999                     *:*             
 [domain@10.116.94.221:9999 /] /opt/jboss/jboss-eap/bin/jboss-cli.sh --connect --controller=10.116.94.221:9999 \
 >   --command="/host=NOME_DO_HOST/server-config=sinad_node1_lx114:reload"
 Node path format is wrong around 'opt' (index=1).
+[domain@10.116.94.221:9999 /] ls /host
+sbrdeapllx114_risco
+
+[domain@10.116.94.221:9999 /] :read-chidren-names(child-type=host)
+Failed to get the list of the operation properties: "WFLYCTL0162: Não existe operação read-chidren-names registrada no endereço []"
+[domain@10.116.94.221:9999 /] :read-children-names(child-type=host)
+{
+    "outcome" => "success",
+    "result" => ["sbrdeapllx114_risco"]
+}
 [domain@10.116.94.221:9999 /]
