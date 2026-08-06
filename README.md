@@ -1,147 +1,34 @@
-name: Default container build Workflow
-run-name: ${{ github.repository }}_${{ github.ref_name }}_${{ github.run_id }}.${{ github.run_number }}
-on:
-  workflow_call:
-    inputs:
-      DEPLOY_ENVIRONMENTS:
-        required: true
-        type: string
-      USES_PACKAGES:
-        required: false
-        type: boolean
-      USES_NEXUS:
-        required: false
-        type: boolean
-      CLOUD_PROVIDER:
-        required: false
-        type: string
-        default: azure
-      ORG:
-        required: false
-        default: caixagithub
-        type: string
-    secrets:
-      client_id_idp_org:
-        required: true
-      aws_ecr_role:
-        required: false
-      GH_APP_ID:
-        required: true
-      GH_APP_PRIVATE_KEY:
-        required: true
-      TOKEN_GITHUB_ORG:
-        required: true
-    outputs:
-      image_tag:
-        description: 'Tag da Imagem'
-        value: ${{ jobs.BUILD.outputs.image_tag }}
-      image_dir:
-        description: 'Diretório da Imagem'
-        value: ${{ jobs.BUILD.outputs.image_dir }}
-      valid_envs:
-        description: 'Environments Válidos'
-        value: ${{ jobs.BUILD.outputs.valid_envs }}
-      system:
-        description: 'Sigla do Sistema'
-        value: ${{ jobs.BUILD.outputs.system }}
-      module:
-        description: 'Módulo do Sistema'
-        value: ${{ jobs.BUILD.outputs.module }}
-      registry_url:
-        description: 'Url do registry'
-        value: ${{ jobs.BUILD.outputs.registry_url }}
-      registry_url_prd:
-        description: 'Url do resgitry of prd'
-        value: ${{ jobs.BUILD.outputs.registry_url_prd }}
+Prezados,
 
-jobs:
-  BUILD:
-    runs-on:
-      group: Default
-    outputs:
-      source_digest: ${{ steps.push_image.outputs.source_digest }}
-      image_tag: ${{ steps.docker_build.outputs.image_tag }}
-      image_dir: ${{ steps.docker_build.outputs.image_dir }}
-      registry_url: ${{ steps.docker_build.outputs.registry_url}}
-      registry_url_prd: ${{ steps.docker_build.outputs.registry_url_prd}}
-      valid_envs: ${{ steps.verificar.outputs.valid_envs }}
-      system: ${{ steps.setting_outputs.outputs.system }}
-      module: ${{ steps.setting_outputs.outputs.module }}
-      nprd_envs: ${{ steps.set_nprd.outputs.nprd_envs }}
+Identificamos falha de autenticação bloqueando builds em ambiente DES, com causa raiz já isolada até o secret organizacional específico. Solicito verificação e correção da credencial.
 
-    environment: DES
-    steps:
-    - name: Create GitHub App token for caixagithub
-      if: ${{ matrix.environment != 'PFM' }}
-      id: app_token-caixagithub
-      uses: actions/create-github-app-token@v2
-      with:
-        app-id: ${{ secrets.GH_APP_ID }}
-        private-key: ${{ secrets.GH_APP_PRIVATE_KEY }}
-        owner: caixagithub
+Repositório afetado: siaci-api-integracao-padrao-java
+Execução: run 31044766822, job BUILD (CI_DES)
+Link: https://github.com/caixagithub/siaci-api-integracao-padrao-java/actions/runs/31044766822/job/92437744197
 
-    - name: Create GitHub App token for caixadepartamental
-      if: ${{ matrix.environment != 'PFM' }}
-      id: app_token-caixadepartamental
-      uses: actions/create-github-app-token@v2
-      with:
-        app-id: ${{ secrets.GH_APP_ID }}
-        private-key: ${{ secrets.GH_APP_PRIVATE_KEY }}
-        owner: caixadepartamental
+Descrição do erro:
+O build falha na etapa de compilação Maven (mvnw clean package -DskipTests, dentro do Dockerfile) ao resolver dependências publicadas no GitHub Packages do repositório siaci-lib-integracao-core-java. O Maven retorna 401 Unauthorized ao acessar https://maven.pkg.github.com/caixagithub/siaci-lib-integracao-core-java para os artefatos:
 
-    - name: checkout
-      uses: actions/checkout@v5
+com.unisys.br.jrac:jrac:pom:17.0
+br.gov.caixa.siaci:lib-integracao-core-java-comunicacao:pom:0.0.1
+br.gov.caixa.siaci:lib-integracao-core-java-resolver:pom:0.0.1
+br.gov.caixa.siaci:lib-integracao-core-java-autorizacao:pom:0.0.1
 
-    - name: Load variables as configmap for caixagithub
-      if: ${{ inputs.ORG == 'caixagithub' }}
-      uses: caixagithub/DevSecOps-Actions/.github/util/load_variables_from_configmap@main
-      with:
-        environment: DES
-        github_token: ${{ steps.app_token-caixagithub.outputs.token }}
-        ORG: ${{ inputs.ORG }}
+Causa raiz identificada (rastreamento completo da esteira):
 
-    - name: Load variables as configmap for caixadepartamental
-      if: ${{ inputs.ORG == 'caixadepartamental' }}
-      uses: caixagithub/DevSecOps-Actions/.github/util/load_variables_from_configmap@main
-      with:
-        environment: DES
-        github_token: ${{ steps.app_token-caixadepartamental.outputs.token }}
-        ORG: ${{ inputs.ORG }}
+Confirmado que o repositório siaci-lib-integracao-core-java é privado, os pacotes estão publicados e ativos (versão 0.0.1, há 2 dias) - problema não está na publicação.
+Rastreada a cadeia de workflows reutilizáveis: siaci-api-integracao-padrao-java (secrets: inherit) → DevSecOps-Solutions/generic-pipelines.yaml (secrets: inherit) → DevSecOps-Workflow-Jobs/default-container-build-job.yaml.
+Neste último arquivo, no step "Docker Container Build" (uses: caixagithub/DevSecOps-Actions/.github/chaintools/dockercontainer/build@main), a credencial usada para autenticação Maven/GitHub Packages é passada explicitamente como:
+github_token_org: ${{ secrets.TOKEN_GITHUB_ORG }}
+O secret organizacional TOKEN_GITHUB_ORG foi atualizado há aproximadamente 1 mês, o que coincide com o início das falhas de build.
 
-    - name: Initial Tasks
-      if: ${{ inputs.CLOUD_PROVIDER == 'azure'}}
-      run: |
-        sudo apt-get update && sudo apt-get install tree -y
-        sudo ls -ltr
-        sudo pwd
-        sudo tree ${{ github.workspace }}
-      shell: bash
+Solicitação:
+Favor verificar se o token armazenado em TOKEN_GITHUB_ORG (secret de organização) está válido, não expirado, e possui permissão de leitura (read:packages) sobre o repositório siaci-lib-integracao-core-java. Caso tenha sido rotacionado recentemente, favor confirmar se o novo valor foi gerado com o escopo/permissão correta antes de substituir o secret.
 
-    - name: Setup Azure CLI
-      if: ${{ inputs.CLOUD_PROVIDER == 'azure'}}
-      uses: caixagithub/DevSecOps-Actions/.github/integrations/azure/installAzCli@main
+Este bloqueio está impedindo builds em DES do sistema SIACI e depende de correção na credencial organizacional, fora do escopo de configuração deste time de esteira.
 
-    - name: Formatando dados SIGLA e MODULO
-      id: setting_outputs
-      uses: caixagithub/DevSecOps-Actions/.github/util/setting_initial_vars@main
+Fico à disposição para mais informações ou testes adicionais.
 
-    - name: Docker Container Build
-      id: docker_build
-      uses: caixagithub/DevSecOps-Actions/.github/chaintools/dockercontainer/build@main
-      with:
-        buildContext: ${{ github.workspace }}
-        sigla: ${{ steps.setting_outputs.outputs.system }}
-        modulo: ${{ steps.setting_outputs.outputs.module }}
-        uses_packages: ${{ env.USES_PACKAGES || inputs.USES_PACKAGES }}
-        uses_nexus: ${{ env.USES_NEXUS || inputs.USES_NEXUS }}
-        client_id_runner: ${{  inputs.CLOUD_PROVIDER == 'azure' && secrets.client_id_idp_org || secrets.aws_ecr_role }}
-        cloud_provider: ${{ inputs.CLOUD_PROVIDER }}
-        github_token_org: ${{ secrets.TOKEN_GITHUB_ORG }}
-
-    - name: Teste
-      run: |
-        echo "registry_url=$REGISTRY_URL"
-        echo "image_dir=$IMAGE_DIR"
-      env:
-        REGISTRY_URL: ${{ steps.docker_build.outputs.registry_url}}
-        IMAGE_DIR: ${{ steps.docker_build.outputs.image_dir }}
+Atenciosamente,
+Jessé Batista
+Analista de Esteiras - CTIS/CESTI
