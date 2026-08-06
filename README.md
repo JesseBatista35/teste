@@ -1,52 +1,94 @@
-caixagithub
-siaci-api-integracao-padrao-java
-Repository navigation
-Code
-Issues
-Pull requests
-Actions
-Projects
-Wiki
-Security and quality
-2
- (2)
-Insights
-Settings
-Files
-Go to file
-t
-T
-src content loaded
-.github
-workflows
-call-generic-pipelines.yaml
-call-generic-qa-pipelines.yaml
-call-generic-sec-pipelines.yaml
-call-sisph-devsecops-policies.yaml
-pull_request_template.md
-.mvn
-wrapper
-settings.xml
-certificates
-login.des.caixa.crt
-docs
-section1
-index.md
-src
-main
-test/java/br/gov/caixa/siaci/api_integracao_padrao_java
-.dockerignore
-.env-example
-.gitattributes
-.gitignore
-Dockerfile
-FixFromFusion.ps1
-README.md
-catalog-info.yaml
-mkdocs.yaml
-mvnw
-mvnw.cmd
-pom.xml
-sisph-codeql-trigger.md
-siaci-api-integracao-padrao-java/docs
-/index.md
+# ============================================================================= #
+#             CAIXA DEVSECOPS - TEMPLATE DE WORKFLOW CI/CD v1.0                 #
+# ============================================================================= #
+# Este workflow é um modelo padrão para todos os desenvolvedores da Caixa.      #
+# Ele automatiza processos de integração contínua (CI) e entrega contínua (CD), #
+# promovendo segurança, padronização e eficiência no ciclo de desenvolvimento.  #
+# Todas as alterações devem ser realizadas por meio do Fusionx                  #
+# ============================================================================= #
+
+# ============================================================================= #
+# Nome do workflow para facilitar a identificação nas execuções                 #
+# ============================================================================= #
+
+name: CI/CD Workflow Generic
+
+# ============================================================================= #
+# Nome dinâmico da execução, útil para rastreamento e auditoria                 #
+# ============================================================================= #
+
+run-name: ${{ github.repository }}_${{ github.ref_name }}_${{ github.run_id }}.${{ github.run_number }}
+
+# ========================================================================================================================== #
+# Eventos que disparam o workflow                                                                                            #
+# ========================================================================================================================== #
+# workflow_dispatch -> Permite execução manual via interface do GitHub                                                       #
+# push              -> Executa automaticamente em push, de acordo com os filtros                                             #
+# branches          -> Filtro de execução. O workflow, no evento push, será executado apenas nas branches main e develop     #
+# paths-ignore      -> Filtro de execução. O workflow, no evento push, não será executado quando existir alteração           #
+#                   -> nos caminhos .github/** e no arquivo catalog-info.yaml                                                #
+#                                                                                                                            #
+# Documentação de referência                                                                                                 #
+# https://docs.github.com/en/actions/how-tos/write-workflows/choose-when-workflows-run/trigger-a-workflow                    #
+# ========================================================================================================================== #
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+      - develop
+    paths-ignore:
+      - '.github/**'
+      - 'catalog-info.yaml'
+
+
+# ============================================================================================================================ #
+# Permissões necessárias para o workflow interagir com o repositório de automação de CI/CD e serviços                          #
+# ============================================================================================================================ #
+# contents: write        -> Permite escrever nos arquivos do repositório                                                       #
+# security-events: write -> Permite registrar eventos de segurança                                                             #
+# packages: read         -> Permite ler pacotes (ex: npm, docker)                                                              #
+# actions: read          -> Permite ler ações do GitHub                                                                        #
+# issues: write          -> Permite criar/editar issues                                                                        #
+# pull-requests: write   -> Permite criar/editar pull requests                                                                 #
+# pull-requests: write   -> Permite gerar token oidc do github                                                                 #
+#                                                                                                                              #
+# Documentação de referência                                                                                                   #
+# https://docs.github.com/en/actions/tutorials/authenticate-with-github_token#modifying-the-permissions-for-the-github_token   #
+# ============================================================================================================================ #
+
+permissions:
+  contents: write
+  security-events: write
+  packages: read
+  actions: read
+  issues: write
+  pull-requests: write
+  id-token: write
+
+# ====================================================================================================================================================== #
+# Definição dos jobs que serão executados                                                                                                                #
+# ====================================================================================================================================================== #
+# name: CI_DES                                                                        -> Nome do job, aparece na interface do GitHub Actions             #
+# uses: caixagithub/DevSecOps-Solutions/.github/workflows/generic-pipelines.yaml@main -> Template reutilizado                                            #
+# secrets: inherit                                                                    -> Herda os segredos definidos no repositório principal            #
+# DEPLOY_ENVIRONMENTS: '["DES"]'                                                      -> Define o ambiente de implantação como Desenvolvimento (DES).    #
+#                                                                                     -> PossÍveis ambientes: DES, TST, TQS, SANDBOX, HMP, PTL E PRD     #
+# IMPORT_APIM: false                                                                  -> Desativa importação automática de APIs no Azure API Management. #
+#                                                                                     -> Possíveis valores: true ou false                                #
+#                                                                                                                                                        #
+# Documentação de referência                                                                                                                             #
+# https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/use-jobs                                                           #
+# https://docs.github.com/en/actions/how-tos/reuse-automations/reuse-workflows                                                                           #
+# ====================================================================================================================================================== #
+
+jobs:
+  Generic-Solution:
+    name: CI_DES
+    uses: caixagithub/DevSecOps-Solutions/.github/workflows/generic-pipelines.yaml@main
+    secrets: inherit
+    with:
+      DEPLOY_ENVIRONMENTS: '["DES", "TQS", "HMP", "PRD"]'
+      IMPORT_APIM: false
+      USES_PACKAGES: true
