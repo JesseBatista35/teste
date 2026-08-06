@@ -1,1 +1,6 @@
-Análise do erro de build da pipeline SIAVL. O erro reportado não é relacionado à configuração da esteira DevOps, sendo de responsabilidade da camada de código da aplicação. Identificados os seguintes problemas na compilação Angular: ausência dos módulos importar-unidade-dialog.component, unidade-siico.model e bloco-alerta-importacao.component, referenciados em múltiplos pontos do código porém não encontrados no repositório, além da ausência dos arquivos de template conferencia-unidade-siico.component.html e conflito-unidade-inativa.component.html. Verificado também que o arquivo environment.prod.ts está desatualizado em relação ao código fonte, uma vez que auth-init.ts, auth.interceptor.ts, siavl-health.service.ts e unidade-api.service.ts fazem referência às propriedades environment.authentication, environment.siavlGerencialBackend e environment.baseUrl, nenhuma das quais existe atualmente no objeto environment, que possui apenas a propriedade SIAVL_GERENCIAL_BACKEND em maiúsculo. Diante do exposto, a demanda está sendo encaminhada à equipe de desenvolvimento para verificação do commit dos arquivos faltantes e atualização do environment.prod.ts, não cabendo tratativa por parte da esteira DevOps. Encerro a chamada por parte deste time.
+Prezados,
+
+O certificado deve ser instalado na aplicação JBOSS do ambiente legado.
+
+Atenciosamente,
+SUDEA07
