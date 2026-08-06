@@ -1,19 +1,14 @@
-Faz sentido — se não é escopo de vocês, o levantamento técnico é responsabilidade de quem vai executar (Redes). Segue nota pronta pra encaminhamento:
-
-Nota de encaminhamento:
-
-Prezados,
-
-Encaminhamos a presente demanda para avaliação e tratativa da equipe de Redes/Teledata, tendo em vista que se trata de solicitação de liberação de comunicação (proxydes ou regra de firewall alternativa) para que o Nginx da aplicação SICPU-painel possa acessar endereço de destino externo/rede corporativa.
-
-A demanda está fora do escopo de atendimento desta esteira (Esteira DevOps DES TQS NPRD), sendo necessária avaliação técnica da equipe de Redes quanto aos dados de origem/destino, portas e demais informações necessárias para a liberação.
-
-Dados disponíveis até o momento:
-
-Ambiente: DES/TQS
-Namespace: sicpu-des (OpenShift/nprd.caixa)
-Console do pod: https://console-openshift-console.apps.nprd.caixa/k8s/ns/sicpu-des/core~v1~Pod
-Repositório da aplicação: https://devops.caixa/projetos/Caixa/_git/SICPU-painel
-Repositório de configuração do Nginx: https://devops.caixa/projetos/Caixa/_git/SICPU-painel-config
-
-O demandante não informou o endereço de destino, porta, nem se a comunicação é interna ou externa ao cluster. Solicitamos que a equipe de Redes realize o levantamento dessas informações diretamente com o demandante, conforme necessidade técnica para a análise e execução da liberação.
+Informamos que Foi identificada vulnerabilidade de segurança do tipo Clickjacking no sistema SIMIL, especificamente no endpoint:
+ 
+https://www.simil.caixa.gov.br/simil/login.xhtml
+ 
+Segundo avaliação da arquitetura, a correção não demanda alteração de código da aplicação, devendo ser implementada no proxy reverso Nginx responsável pela publicação do sistema.
+ 
+Solicitamos avaliação da equipe responsável pelo ambiente DES quanto à inclusão dos seguintes cabeçalhos de segurança no proxy reverso:
+ 
+add_header Strict-Transport-Security "max-age=31536000; includeSubDomains; preload" always;
+add_header Content-Security-Policy "default-src 'self';";
+add_header X-Frame-Options SAMEORIGIN always;
+add_header X-Content-Type-Options nosniff always;
+add_header Referrer-Policy "strict-origin-when-cross-origin" always;
+add_header Permissions-Policy "geolocation=(), midi=(), sync-xhr=(), microphone=(), camera=(), magnetometer=(), gyroscope=(), fullscreen=(self), payment=()";
