@@ -1,19 +1,82 @@
-<img width="1884" height="922" alt="image" src="https://github.com/user-attachments/assets/8fa40e8d-e67c-4bb4-92d8-8aeb67743eb6" />
->
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
+    <groupId>com.migration</groupId>
+    <artifactId>pg-to-oracle-migration</artifactId>
+    <version>1.0.0</version>
+    <packaging>jar</packaging>
 
+    <properties>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
 
-<img width="1675" height="878" alt="image" src="https://github.com/user-attachments/assets/46d6ae12-a588-4a96-933d-ac4beb79c44a" />
+    <dependencies>
+        <!-- PostgreSQL JDBC Driver -->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.7.3</version>
+        </dependency>
 
+        <!-- Oracle JDBC Driver -->
+        <!-- 
+            ATENÇÃO: O driver Oracle não está no Maven Central.
+            Faça o download do ojdbc8.jar em:
+            https://www.oracle.com/database/technologies/appdev/jdbc-downloads.html
+            e instale localmente:
+            mvn install:install-file -Dfile=ojdbc8.jar -DgroupId=com.oracle.database.jdbc \
+              -DartifactId=ojdbc8 -Dversion=21.9.0.0 -Dpackaging=jar
+        -->
+        <dependency>
+            <groupId>com.oracle.database.jdbc</groupId>
+            <artifactId>ojdbc8</artifactId>
+            <version>21.9.0.0</version>
+        </dependency>
 
+        <!-- Logging -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>2.0.13</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.5.6</version>
+        </dependency>
+    </dependencies>
 
-tem esse cara aqui>>
-
-
-posso clonar ele. e so trocar o repo
-
-<img width="1645" height="844" alt="image" src="https://github.com/user-attachments/assets/92fc7077-af70-4b09-9743-1c463f5fe0e0" />
-
-
-mae esle tem imagem de jboss ta certo isso?
-
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>3.7.1</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>com.migration.MigrationMain</mainClass>
+                        </manifest>
+                    </archive>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
