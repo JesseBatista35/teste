@@ -1,7 +1,19 @@
-<img width="1874" height="939" alt="image" src="https://github.com/user-attachments/assets/333107d6-4aa0-4c75-9860-bf0b03302582" />
+<img width="1884" height="922" alt="image" src="https://github.com/user-attachments/assets/8fa40e8d-e67c-4bb4-92d8-8aeb67743eb6" />
+>
 
 
-<img width="1882" height="929" alt="image" src="https://github.com/user-attachments/assets/bdf03333-34cb-48b5-8f0e-2a0fe734a863" />
+
+<img width="1675" height="878" alt="image" src="https://github.com/user-attachments/assets/46d6ae12-a588-4a96-933d-ac4beb79c44a" />
 
 
-o que voce acha, a gente faz por aqui pelo repo pelo botal set up build, ou clocnaos alguma pipiline e so apontamos o repo?
+
+tem esse cara aqui>>
+
+
+posso clonar ele. e so trocar o repo
+
+<img width="1645" height="844" alt="image" src="https://github.com/user-attachments/assets/92fc7077-af70-4b09-9743-1c463f5fe0e0" />
+
+
+mae esle tem imagem de jboss ta certo isso?
+
