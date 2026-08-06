@@ -1,169 +1,91 @@
-Skip to content
-GitHub Enterprise
-Users managed by Caixa Economica Federal
-caixagithub
-DevSecOps-Solutions
-Repository navigation
-Code
-Issues
-Pull requests
-10
- (10)
-Actions
-Projects
-Wiki
-Security and quality
-3
- (3)
-Insights
-Settings
-Files
-Go to file
-t
-T
-.github/workflows
-pipelines-extends
-CODEOWNERS
-adapter-pipelines.yaml
-akv.yml
-android-libs-pipelines.yaml
-arc-runner-aws-test-run.yaml
-codeql-pipelines.yaml
-dockerfile-validation-pipelines.yaml
-dotnet-azureapps-pipelines.yaml
-dotnet-build-pipelines-onpremise.yaml
-dotnet-build-win-pipelines.yaml
-dotnet-libs-pipelines.yml
-generic-android-apk-pipelines.yaml
-generic-apigtw.yaml
-generic-apim.yaml
-generic-blob-pipelines.yaml
-generic-pipelines-app-android.yaml
-generic-pipelines-departamental.yaml
-generic-pipelines.yaml
-generic-s3-pipelines.yaml
-generic-sdk-ios.yaml
-gsc-integration-generic-pipeline.yaml
-gsc-integration-generic-sdk-ios.yaml
-ios-pipelines.yaml
-java-libs-pipelines-multimodules.yaml
-java-libs-pipelines.yaml
-java-maven-build-pipelines-onpremise.yaml
-java-maven-build-pipelines.yaml
-mkdocs-pipelines.yaml
-node-lib-pipelines.yaml
-quality-assurance.yml
-techdocs-pipelines.yaml
-typescript-build-pipelines-onpremise.yaml
-.gitignore
-README.md
-debug.log
-DevSecOps-Solutions/.github
-/workflows/
-c161210_caixa
-c161210_caixa
-Merge pull request #268 from caixagithub/fix/apigw_prd_env
-b409f99
- · 
-yesterday
-Name	Last commit message	Last commit date
-..
-pipelines-extends
-android-pipelines (unused)
-3 months ago
-CODEOWNERS
-Correção para recuperar a versão da tag e acrescentar os revisores Ma…
-7 months ago
-adapter-pipelines.yaml
-pipeline refs change: adapter-pipelines.yaml
-3 months ago
-akv.yml
-action 5: akv
-3 months ago
-android-libs-pipelines.yaml
-Removing unecessary triggers
-10 months ago
-arc-runner-aws-test-run.yaml
-Enhance package validation in ARC Runner workflow to include checks a…
-4 months ago
-codeql-pipelines.yaml
-Release/v1.0.0 (#271)
-last week
-dockerfile-validation-pipelines.yaml
-Validação de dockerfile (#167)
-8 months ago
-dotnet-azureapps-pipelines.yaml
-fixing az cli action
-3 months ago
-dotnet-build-pipelines-onpremise.yaml
-Alterar a maneira de fazer pull das imagens
-4 months ago
-dotnet-build-win-pipelines.yaml
-final branch
-5 months ago
-dotnet-libs-pipelines.yml
-Código complementar dotnet, escrita para o binário (#274)
-2 days ago
-generic-android-apk-pipelines.yaml
-Removing conflict merge duplicated inputs
-2 months ago
-generic-apigtw.yaml
-Update generic-apigtw.yaml
-yesterday
-generic-apim.yaml
-remove APIM AWS JOB from generic apim
-5 months ago
-generic-blob-pipelines.yaml
-fixing az cli action
-3 months ago
-generic-pipelines-app-android.yaml
-Pointing new actions on DevSecOps-Actions
-3 months ago
-generic-pipelines-departamental.yaml
-Release/v1.0.0 (#271)
-last week
-generic-pipelines.yaml
-Update generic-pipelines.yaml
-4 months ago
-generic-s3-pipelines.yaml
-runner aws
-5 months ago
-generic-sdk-ios.yaml
-action 3: load_variables_from_configmap
-3 months ago
-gsc-integration-generic-pipeline.yaml
-Feat/change toggle variable name (#247)
-3 months ago
-gsc-integration-generic-sdk-ios.yaml
-Pointing new actions on DevSecOps-Actions
-3 months ago
-ios-pipelines.yaml
-Pointing new actions on DevSecOps-Actions
-3 months ago
-java-libs-pipelines-multimodules.yaml
-Update java-libs-pipelines-multimodules.yaml
-5 months ago
-java-libs-pipelines.yaml
-Update java-libs-pipelines.yaml
-last week
-java-maven-build-pipelines-onpremise.yaml
-Configuração para fazer o pull de muiltiplos registries de container
-4 months ago
-java-maven-build-pipelines.yaml
-Configuração para fazer o pull de muiltiplos registries de container
-4 months ago
-mkdocs-pipelines.yaml
-Update mkdocs-pipelines.yaml
-last year
-node-lib-pipelines.yaml
-return to main after test
-6 months ago
-quality-assurance.yml
-Update quality-assurance.yml
-2 months ago
-techdocs-pipelines.yaml
-action 3: load_variables_from_configmap
-3 months ago
-typescript-build-pipelines-onpremise.yaml
-Alterar a maneira de fazer pull das imagens
-4 months ago
+name: Generic Projects Workflow
+run-name: ${{ github.repository }}_${{ github.ref_name }}_${{ github.run_id }}.${{ github.run_number }}-${{ inputs.ambiente }}
+on:
+  workflow_call:
+    inputs:
+      DEPLOY_ENVIRONMENTS:
+        required: false
+        type: string
+        default: '["DES"]'
+      IMPORT_APIM:
+        required: false
+        type: boolean
+        default: false
+      USES_PACKAGES:
+        required: false
+        type: boolean
+        default: false
+
+jobs:
+  DOCKERFILE_VALIDATION:
+    uses: caixagithub/DevSecOps-Solutions/.github/workflows/dockerfile-validation-pipelines.yaml@main
+
+# ========================================================================================================================== #
+# Environment Validation Result                                                                                              #
+# ========================================================================================================================== #
+# valid_deploy_environments -> Usage: ${{ jobs.VALIDATION.outputs.valid_deploy_environments }}                               #
+#                           -> Description: Array of validated deploy environments                                           #
+# ========================================================================================================================== #
+  VALIDATION:
+    needs: [DOCKERFILE_VALIDATION]
+    uses: caixagithub/DevSecOps-Workflow-Jobs/.github/workflows/default-validation-job.yaml@main
+    with:
+      DEPLOY_ENVIRONMENTS: ${{ inputs.DEPLOY_ENVIRONMENTS }}
+      SOLUTION: 'GENERIC'
+    secrets: inherit
+
+
+# ========================================================================================================================== #
+# Build Job Outputs                                                                                                          #
+# ========================================================================================================================== #
+# image_tag              -> Usage: ${{ jobs.BUILD.outputs.image_tag }}                                                       #
+#                        -> Description: Tag of the built image                                                              #
+#                                                                                                                            #
+# image_dir              -> Usage: ${{ jobs.BUILD.outputs.image_dir }}                                                       #
+#                        -> Description: Directory path where the image is stored                                            #
+#                                                                                                                            #
+# valid_envs             -> Usage: ${{ jobs.BUILD.outputs.valid_envs }}                                                      #
+#                        -> Description: Array of validated environments                                                     #
+#                                                                                                                            #
+# system                 -> Usage: ${{ jobs.BUILD.outputs.system }}                                                          #
+#                        -> Description: Acronym of the system                                                               #
+#                                                                                                                            #
+# module                 -> Usage: ${{ jobs.BUILD.outputs.module }}                                                          #
+#                        -> Description: Module name of the system                                                           #
+# ========================================================================================================================== #
+
+  BUILD:
+    needs: VALIDATION
+    uses: caixagithub/DevSecOps-Workflow-Jobs/.github/workflows/default-container-build-job.yaml@main
+    with:
+      DEPLOY_ENVIRONMENTS: ${{ needs.VALIDATION.outputs.valid_deploy_environments }}
+      USES_PACKAGES: ${{ fromJSON(inputs.USES_PACKAGES) }}
+      CLOUD_PROVIDER: ${{ needs.VALIDATION.outputs.cloud_provider }}
+    secrets: inherit
+
+  ArgoCD_Deploy:
+    needs: [BUILD, VALIDATION]
+    uses: caixagithub/DevSecOps-Workflow-Jobs/.github/workflows/default-argo-cd-deploy-job.yaml@main
+    with:
+      environments: ${{ toJSON(fromJSON(needs.VALIDATION.outputs.valid_deploy_environments || '["__empty__"]')) }}
+      image_tag: ${{ needs.BUILD.outputs.image_tag }}
+      image_dir:  ${{ needs.BUILD.outputs.image_dir }}
+      registry_url: ${{ needs.BUILD.outputs.registry_url }}
+      registry_url_prd: ${{ needs.BUILD.outputs.registry_url_prd }}
+      ANSIBLE_USER_ORG: ${{ vars.ANSIBLE_USER_ORG }}
+      ARGOCD_SERVER_ORG: ${{ vars.ARGOCD_SERVER_ORG }}
+      ARGOCD_USERNAME_ORG: ${{ vars.ARGOCD_USERNAME_ORG }}
+      system: ${{ needs.BUILD.outputs.system }}
+      module: ${{ needs.BUILD.outputs.module }}
+      valid_deploy_environments: ${{ needs.VALIDATION.outputs.valid_deploy_environments }}
+      IMPORT_APIM: ${{ inputs.IMPORT_APIM }}
+      workflows: generic
+      nprd_envs: ${{ needs.VALIDATION.outputs.nprd_envs }}
+      QA_TEST_JSON:  ${{ needs.VALIDATION.outputs.qa_test_json }}
+    secrets:
+      GH_APP_ID: ${{ secrets.GH_APP_ID }}
+      GH_APP_PRIVATE_KEY: ${{ secrets.GH_APP_PRIVATE_KEY }}
+      CLIENT_ID_IDP_ORG: ${{ secrets.CLIENT_ID_IDP_ORG }}
+      ANSIBLE_PASSWORD_ORG: ${{ secrets.ANSIBLE_PASSWORD_ORG }}
+      ARGOCD_PASSWORD_ORG: ${{ secrets.ARGOCD_PASSWORD_ORG }}
+      LOAD_TEST_SUBSCRIPTION_ORG: ${{ secrets.LOAD_TEST_SUBSCRIPTION_ORG }}
