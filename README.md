@@ -1,17 +1,69 @@
+A etapa de QA não esta executando, com mensagem:
 
-Prezado(a),
+-> caixagithub/DevSecOps-Solutions/.github/workflows/quality-assurance.yml@refs/heads/main (b409f99028fd7c8c66a86ff10bbe26c1b33922ea)
+Waiting for a runner to pick up this job...
 
-Certificado do API Manager (CN https://api.des.caixa, número de série 7e00000860471c4eedc7ea0650000000000860, emissor AC Icptestes Sub) instalado com sucesso no ambiente legado, servidor sbrdeapllx114 (instância sinad_node1_lx114).
 
-Procedimento realizado:
-- Obtenção da cadeia completa de certificados (raiz, intermediária e folha) via conexão TLS direta com api.des.caixa:8443, com validação do número de série conforme informado nesta WO;
-- Importação dos três certificados no cacerts da JVM em uso pela aplicação (/usr/lib/jvm/jdk-1.8.0_471-oracle-x64/jre/lib/security/cacerts);
-- Reload isolado da instância sinad_node1_lx114 via jboss-cli, sem impacto às demais aplicações hospedadas no mesmo host controller;
-- Validação do log da aplicação após o reload, sem ocorrência de erros de SSL/PKIX.
+A esteira DevOps para o projetos abaixo:
 
-Instância confirmada em status STARTED, operando normalmente.
+https://github.com/caixagithub/sibko-pos-venda-api/actions/runs/31125472127/job/92695079351?pr=344
 
-Encerramos o atendimento desta demanda.
+A etapa de QA não esta executando, com mensagem:
 
-Atenciosamente,
-Esteira Devops DES TQS NPRD
+-> caixagithub/DevSecOps-Solutions/.github/workflows/quality-assurance.yml@refs/heads/main (b409f99028fd7c8c66a86ff10bbe26c1b33922ea)
+
+Waiting for a runner to pick up this job...
+
+
+Skip to content
+GitHub Enterprise
+Users managed by Caixa Economica Federal
+caixagithub
+sibko-pos-venda-api
+Repository navigation
+Code
+Issues
+40
+ (40)
+Pull requests
+3
+ (3)
+Actions
+Projects
+Wiki
+Security and quality
+8
+ (8)
+Insights
+Settings
+Back to pull request #344
+caixagithub/sibko-pos-venda-api_344/merge_31125472127.402 #402
+All jobs
+Run details
+QA / Quality Assurance
+Started 2h 21m 43s ago
+Requested labels: arc-runner-set-default-nprod
+Job defined at: caixagithub/DevSecOps-Solutions/.github/workflows/quality-assurance.yml@refs/heads/main
+Reusable workflow chain:
+caixagithub/sibko-pos-venda-api/.github/workflows/call-generic-qa-pipelines.yaml@refs/pull/344/merge (77379ffe3eab16b58d205e7c1ba41a7484b2811a)
+-> caixagithub/DevSecOps-Solutions/.github/workflows/quality-assurance.yml@refs/heads/main (b409f99028fd7c8c66a86ff10bbe26c1b33922ea)
+Waiting for a runner to pick up this job...
+Evaluating Solution-Angular.if
+Evaluating: success()
+Result: true
+Evaluating Solution-Angular.QA.if
+Evaluating: success()
+Result: true
+Job is about to start running on the runner: arc-runner-set-default-nprod
+Requested labels: arc-runner-set-default-nprod
+Job defined at: caixagithub/DevSecOps-Solutions/.github/workflows/quality-assurance.yml@refs/heads/main
+Reusable workflow chain:
+caixagithub/sibko-pos-venda-api/.github/workflows/call-generic-qa-pipelines.yaml@refs/pull/344/merge (77379ffe3eab16b58d205e7c1ba41a7484b2811a)
+-> caixagithub/DevSecOps-Solutions/.github/workflows/quality-assurance.yml@refs/heads/main (b409f99028fd7c8c66a86ff10bbe26c1b33922ea)
+Waiting for a runner to pick up this job...
+Requested labels: arc-runner-set-default-nprod
+Job defined at: caixagithub/DevSecOps-Solutions/.github/workflows/quality-assurance.yml@refs/heads/main
+Reusable workflow chain:
+caixagithub/sibko-pos-venda-api/.github/workflows/call-generic-qa-pipelines.yaml@refs/pull/344/merge (77379ffe3eab16b58d205e7c1ba41a7484b2811a)
+-> caixagithub/DevSecOps-Solutions/.github/workflows/quality-assurance.yml@refs/heads/main (b409f99028fd7c8c66a86ff10bbe26c1b33922ea)
+Waiting for a runner to pick up this job...
