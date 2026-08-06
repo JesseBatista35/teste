@@ -1,89 +1,67 @@
-Favor verificar o  Erro na hora do BUILD em DES
-
-Repositório: siaci-api-integracao-padrao-java
-
-https://github.com/caixagithub/siaci-api-integracao-padrao-java/actions/runs/31044766822/job/92437744197
-
-Skip to content
-GitHub Enterprise
-Users managed by Caixa Economica Federal
-caixagithub
-siaci-api-integracao-padrao-java
-Repository navigation
-Code
-Issues
-Pull requests
-Actions
-Projects
-Wiki
-Security and quality
-2
- (2)
-Insights
-Settings
-CI/CD Workflow Generic
-caixagithub/siaci-api-integracao-padrao-java_main_31044766822.7 #7
-All jobs
-Run details
-Annotations
-1 error and 1 warning
-CI_DES / BUILD / BUILD
-failed 16 hours ago in 2m 41s
-Search logs
-7s
-1s
-0s
-1s
-14s
-0s
-9s
-23s
-0s
-1m 31s
-Run caixagithub/DevSecOps-Actions/.github/chaintools/dockercontainer/build@main
-  with:
-    buildContext: /home/runner/_work/siaci-api-integracao-padrao-java/siaci-api-integracao-padrao-java
-    sigla: siaci
-    modulo: api-integracao-padrao-java
-    uses_packages: true
-    uses_nexus: false
-    client_id_runner: ***
-    cloud_provider: azure
-    github_token_org: ***
-    repository: siaci-api-integracao-padrao-java
-    command: build
-    Dockerfile: ./Dockerfile
-  env:
-    pythonLocation: /home/runner/_work/_tool/Python/3.11.15/x64
-    PKG_CONFIG_PATH: /home/runner/_work/_tool/Python/3.11.15/x64/lib/pkgconfig
-    Python_ROOT_DIR: /home/runner/_work/_tool/Python/3.11.15/x64
-    Python2_ROOT_DIR: /home/runner/_work/_tool/Python/3.11.15/x64
-    Python3_ROOT_DIR: /home/runner/_work/_tool/Python/3.11.15/x64
-    LD_LIBRARY_PATH: /home/runner/_work/_tool/Python/3.11.15/x64/lib
-    LANGUAGES: ["java"]
-    REPOSITORY_ARTIFACTS_APP: PACKAGES
-Package Connect Dotnet
-0s
-Package Connect Java
-0s
-Run cat > settings.xml <<'EOF'
-Set up QEMU
-9s
-  Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
-Run docker/setup-qemu-action@v3
-Docker info
-Pulling binfmt Docker image
-Image info
-Binfmt version
-Installing QEMU static binaries
-0s
-8s
-0s
-1s
-0s
-1s
-0s
-
-
-
-
+ Downloaded from central: https://repo.maven.apache.org/maven2/org/xmlunit/xmlunit-parent/2.10.2/xmlunit-parent-2.10.2.pom (23 kB at 1.1 MB/s)
+  #16 59.72 Downloading from github: https://maven.pkg.github.com/caixagithub/siaci-lib-integracao-core-java/com/oracle/database/jdbc/ojdbc11/23.7.0.25.01/ojdbc11-23.7.0.25.01.pom
+  #16 59.85 Downloading from central: https://repo.maven.apache.org/maven2/com/oracle/database/jdbc/ojdbc11/23.7.0.25.01/ojdbc11-23.7.0.25.01.pom
+  #16 59.87 Progress (1): 996 B
+  Progress (1): 1.5 kB
+                      
+  Downloaded from central: https://repo.maven.apache.org/maven2/com/oracle/database/jdbc/ojdbc11/23.7.0.25.01/ojdbc11-23.7.0.25.01.pom (1.5 kB at 73 kB/s)
+  #16 59.87 Downloading from github: https://maven.pkg.github.com/caixagithub/siaci-lib-integracao-core-java/com/unisys/br/jrac/jrac/17.0/jrac-17.0.pom
+  #16 59.99 Downloading from central: https://repo.maven.apache.org/maven2/com/unisys/br/jrac/jrac/17.0/jrac-17.0.pom
+  #16 60.31 Downloading from github: https://maven.pkg.github.com/caixagithub/siaci-lib-integracao-core-java/br/gov/caixa/siaci/lib-integracao-core-java-comunicacao/0.0.1/lib-integracao-core-java-comunicacao-0.0.1.pom
+  #16 60.44 Downloading from central: https://repo.maven.apache.org/maven2/br/gov/caixa/siaci/lib-integracao-core-java-comunicacao/0.0.1/lib-integracao-core-java-comunicacao-0.0.1.pom
+  #16 60.70 Downloading from github: https://maven.pkg.github.com/caixagithub/siaci-lib-integracao-core-java/br/gov/caixa/siaci/lib-integracao-core-java-resolver/0.0.1/lib-integracao-core-java-resolver-0.0.1.pom
+  #16 60.82 Downloading from central: https://repo.maven.apache.org/maven2/br/gov/caixa/siaci/lib-integracao-core-java-resolver/0.0.1/lib-integracao-core-java-resolver-0.0.1.pom
+  #16 61.08 Downloading from github: https://maven.pkg.github.com/caixagithub/siaci-lib-integracao-core-java/br/gov/caixa/siaci/lib-integracao-core-java-autorizacao/0.0.1/lib-integracao-core-java-autorizacao-0.0.1.pom
+  #16 61.20 Downloading from central: https://repo.maven.apache.org/maven2/br/gov/caixa/siaci/lib-integracao-core-java-autorizacao/0.0.1/lib-integracao-core-java-autorizacao-0.0.1.pom
+  #16 61.49 [INFO] ------------------------------------------------------------------------
+  #16 61.49 [INFO] BUILD FAILURE
+  #16 61.49 [INFO] ------------------------------------------------------------------------
+  #16 61.49 [INFO] Total time:  59.727 s
+  #16 61.49 [INFO] Finished at: 2026-08-05T20:38:43Z
+  #16 61.49 [INFO] ------------------------------------------------------------------------
+  #16 61.49 [ERROR] Failed to execute goal on project api-integracao-padrao-java: Could not collect dependencies for project br.gov.caixa.siaci:api-integracao-padrao-java:jar:0.0.1
+  #16 61.49 [ERROR] Failed to read artifact descriptor for com.unisys.br.jrac:jrac:jar:17.0
+  #16 61.49 [ERROR] 	Caused by: The following artifacts could not be resolved: com.unisys.br.jrac:jrac:pom:17.0 (absent): Could not transfer artifact com.unisys.br.jrac:jrac:pom:17.0 from/to github (https://maven.pkg.github.com/caixagithub/siaci-lib-integracao-core-java): status code: 401, reason phrase: Unauthorized (401)
+  #16 61.49 [ERROR] Failed to read artifact descriptor for br.gov.caixa.siaci:lib-integracao-core-java-comunicacao:jar:0.0.1
+  #16 61.49 [ERROR] 	Caused by: The following artifacts could not be resolved: br.gov.caixa.siaci:lib-integracao-core-java-comunicacao:pom:0.0.1 (absent): Could not transfer artifact br.gov.caixa.siaci:lib-integracao-core-java-comunicacao:pom:0.0.1 from/to github (https://maven.pkg.github.com/caixagithub/siaci-lib-integracao-core-java): status code: 401, reason phrase: Unauthorized (401)
+  #16 61.49 [ERROR] Failed to read artifact descriptor for br.gov.caixa.siaci:lib-integracao-core-java-resolver:jar:0.0.1
+  #16 61.49 [ERROR] 	Caused by: The following artifacts could not be resolved: br.gov.caixa.siaci:lib-integracao-core-java-resolver:pom:0.0.1 (absent): Could not transfer artifact br.gov.caixa.siaci:lib-integracao-core-java-resolver:pom:0.0.1 from/to github (https://maven.pkg.github.com/caixagithub/siaci-lib-integracao-core-java): status code: 401, reason phrase: Unauthorized (401)
+  #16 61.49 [ERROR] Failed to read artifact descriptor for br.gov.caixa.siaci:lib-integracao-core-java-autorizacao:jar:0.0.1
+  #16 61.49 [ERROR] 	Caused by: The following artifacts could not be resolved: br.gov.caixa.siaci:lib-integracao-core-java-autorizacao:pom:0.0.1 (absent): Could not transfer artifact br.gov.caixa.siaci:lib-integracao-core-java-autorizacao:pom:0.0.1 from/to github (https://maven.pkg.github.com/caixagithub/siaci-lib-integracao-core-java): status code: 401, reason phrase: Unauthorized (401)
+  #16 61.49 [ERROR] 
+  #16 61.49 [ERROR] -> [Help 1]
+  #16 61.49 [ERROR] 
+  #16 61.49 [ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+  #16 61.49 [ERROR] Re-run Maven using the -X switch to enable full debug logging.
+  #16 61.49 [ERROR] 
+  #16 61.49 [ERROR] For more information about the errors and possible solutions, please read the following articles:
+  #16 61.49 [ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/DependencyResolutionException
+  #16 ERROR: process "/bin/sh -c ./mvnw clean package -DskipTests" did not complete successfully: exit code: 1
+  ------
+   > importing cache manifest from acrcentralcaixanprd.azurecr.io/siaci/api-integracao-padrao-java/siaci-api-integracao-padrao-java:buildcache:
+  ------
+  ------
+   > [build 8/8] RUN ./mvnw clean package -DskipTests:
+  61.49 [ERROR] Failed to read artifact descriptor for br.gov.caixa.siaci:lib-integracao-core-java-autorizacao:jar:0.0.1
+  61.49 [ERROR] 	Caused by: The following artifacts could not be resolved: br.gov.caixa.siaci:lib-integracao-core-java-autorizacao:pom:0.0.1 (absent): Could not transfer artifact br.gov.caixa.siaci:lib-integracao-core-java-autorizacao:pom:0.0.1 from/to github (https://maven.pkg.github.com/caixagithub/siaci-lib-integracao-core-java): status code: 401, reason phrase: Unauthorized (401)
+  61.49 [ERROR] 
+  61.49 [ERROR] -> [Help 1]
+  61.49 [ERROR] 
+  61.49 [ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+  61.49 [ERROR] Re-run Maven using the -X switch to enable full debug logging.
+  61.49 [ERROR] 
+  61.49 [ERROR] For more information about the errors and possible solutions, please read the following articles:
+  61.49 [ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/DependencyResolutionException
+  ------
+  Dockerfile:18
+  --------------------
+    16 |     
+    17 |     # Compila o projeto
+    18 | >>> RUN ./mvnw clean package -DskipTests
+    19 |     
+    20 |     # Imagem final
+  --------------------
+  ERROR: failed to build: failed to solve: process "/bin/sh -c ./mvnw clean package -DskipTests" did not complete successfully: exit code: 1
+Reference
+Check build summary support
+  Error: buildx failed with: ERROR: failed to build: failed to solve: process "/bin/sh -c ./mvnw clean package -DskipTests" did not complete successfully: exit code: 1
