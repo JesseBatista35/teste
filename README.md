@@ -1,28 +1,64 @@
-À equipe de Redes/CETEL - DHCP, DNS e Proxy de Serviços
 
-Ciente do direcionamento de Anderson Campelo Serpa Gama (CETEL/DHCP, DNS e Proxy) informando que a liberação de comunicação via proxydes (ou regra alternativa de firewall) deve ser tratada por meio de demanda específica no catálogo de serviços, e não por esta WO.
-
-Encaminhamos ao demandante (C159844) a orientação para abertura de nova solicitação no catálogo abaixo, com os dados já levantados no decorrer deste atendimento:
-
-Catálogo: servicos.caixa > Tecnologia da Informação e Comunicação > Redes e Telecomunicações > Serviços de Rede > Proxy
-
-Dados para a nova demanda:
-Origem: Nginx da aplicação SICPU-painel, namespace sicpu-des, ambiente DES/TQS (OpenShift/nprd.caixa)
-Destino: https://apppushcaixades.azurewebsites.net
-Porta: 443
-Tipo de comunicação: externa ao cluster
-
-Diante do exposto, e por se tratar de demanda fora do escopo de atuação desta esteira (Esteira DevOps DES TQS NPRD), encerramos o presente atendimento, permanecendo à disposição para eventuais esclarecimentos adicionais.
-
-Atenciosamente,
-
-Jessé Batista
-CTIS/CESTI - Esteira DevOps DES TQS NPRD
+-sh-4.2$ oc get pods -n sicpu-des -o wide
+NAME                         READY     STATUS      RESTARTS       AGE       IP            NODE                       NOMINATED NODE   READINESS GATES
+sicpu-painel-des-89-deploy   0/1       Completed   0              3d4h      25.2.41.138   ceadecldlx082.nprd.caixa   <none>           <none>
+sicpu-painel-des-90-deploy   0/1       Completed   0              3d2h      25.3.19.205   ceadecldlx043.nprd.caixa   <none>           <none>
+sicpu-painel-des-90-pxzq8    2/2       Running     1 (3d2h ago)   3d2h      25.3.23.17    ceadecldlx034.nprd.caixa   <none>           <none>
+-sh-4.2$
 
 
 
-vamos fazer assim vamos abrir a w.o e informar ela nessa demanda e fechar ela
-
-<img width="728" height="497" alt="image" src="https://github.com/user-attachments/assets/8df83279-281f-4cf1-8ac7-330fb1059d36" />
-
-
+-sh-4.2$ oc get network.config/cluster -o yaml
+apiVersion: config.openshift.io/v1
+kind: Network
+metadata:
+  creationTimestamp: 2022-11-09T20:25:16Z
+  generation: 2
+  managedFields:
+  - apiVersion: config.openshift.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:spec:
+        .: {}
+        f:clusterNetwork: {}
+        f:externalIP:
+          .: {}
+          f:policy: {}
+        f:networkType: {}
+        f:serviceNetwork: {}
+      f:status: {}
+    manager: cluster-bootstrap
+    operation: Update
+    time: 2022-11-09T20:25:16Z
+  - apiVersion: config.openshift.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:status:
+        f:clusterNetwork: {}
+        f:clusterNetworkMTU: {}
+        f:networkType: {}
+        f:serviceNetwork: {}
+    manager: cluster-network-operator
+    operation: Update
+    time: 2022-11-09T20:28:53Z
+  name: cluster
+  resourceVersion: "3167"
+  uid: 62c1e972-7bb1-424e-aa58-4d071bd64dc2
+spec:
+  clusterNetwork:
+  - cidr: 25.0.0.0/14
+    hostPrefix: 23
+  externalIP:
+    policy: {}
+  networkType: OpenShiftSDN
+  serviceNetwork:
+  - 25.128.0.0/16
+status:
+  clusterNetwork:
+  - cidr: 25.0.0.0/14
+    hostPrefix: 23
+  clusterNetworkMTU: 1450
+  networkType: OpenShiftSDN
+  serviceNetwork:
+  - 25.128.0.0/16
+-sh-4.2$
