@@ -18,3 +18,11 @@ Atenciosamente,
 
 Jessé Batista
 CTIS/CESTI - Esteira DevOps DES TQS NPRD
+
+
+
+vamos fazer assim vamos abrir a w.o e informar ela nessa demanda e fechar ela
+
+<img width="728" height="497" alt="image" src="https://github.com/user-attachments/assets/8df83279-281f-4cf1-8ac7-330fb1059d36" />
+
+
