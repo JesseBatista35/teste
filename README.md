@@ -1,20 +1,40 @@
-curl -I https://binario.caixa/repository/npm-all/node-releases/-/node-releases-2.0.27.tgz
+Starting: Build Application
+==============================================================================
+Task         : Bash
+Description  : Run a Bash script on macOS, Linux, or Windows
+Version      : 3.227.0
+Author       : Microsoft Corporation
+Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/bash
+==============================================================================
+Generating script.
+========================== Starting Command Output ===========================
+/usr/bin/bash /opt/ads-agent/_work/_temp/fd3665ac-1630-4721-8659-d3b9e0184469.sh
+ng build --configuration production --build-optimizer --aot --output-path=dist --output-hashing=none && npm test
+<----ANGULAR---->
 
+     _                      _                 ____ _     ___
+    / \   _ __   __ _ _   _| | __ _ _ __     / ___| |   |_ _|
+   / △ \ | '_ \ / _` | | | | |/ _` | '__|   | |   | |    | |
+  / ___ \| | | | (_| | |_| | | (_| | |      | |___| |___ | |
+ /_/   \_\_| |_|\__, |\__,_|_|\__,_|_|       \____|_____|___|
+                |___/
+    
 
+Angular CLI: 16.2.16
+Node: 18.19.0
+Package Manager: npm 10.2.3
+OS: linux x64
 
+Angular: 16.2.12
+... animations, common, compiler, compiler-cli, core, forms
+... platform-browser, platform-browser-dynamic, router
 
-C:\Users\p585600>curl -I https://binario.caixa/repository/npm-all/node-releases/-/node-releases-2.0.27.tgz
-HTTP/1.1 200 OK
-Date: Fri, 07 Aug 2026 20:33:46 GMT
-Strict-Transport-Security: max-age=7776000
-Server: Nexus/3.70.1-02 (OSS)
-X-Content-Type-Options: nosniff
-Content-Security-Policy: sandbox allow-forms allow-modals allow-popups allow-presentation allow-scripts allow-top-navigation
-X-XSS-Protection: 1; mode=block
-ETag: "fd0b5266e0a5bc7acd78ca1028a82b87"
-Last-Modified: Wed, 29 Oct 2025 16:03:00 GMT
-Content-Type: application/octet-stream
-Content-Length: 5223
-
-
-C:\Users\p585600>
+Package                              Version
+--------------------------------------------------------------
+@angular-devkit/architect            0.1602.16
+@angular-devkit/build-angular        16.2.16
+@angular-devkit/core                 16.2.16
+@angular-devkit/schematics           16.2.16
+@angular/cdk                         16.2.14
+@angular/cli                         16.2.16
+@angular/material                    16.2.14
