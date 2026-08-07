@@ -1,178 +1,161 @@
-
-2026-08-07T18:02:06.6907696Z ##[section]Starting: npm install
-2026-08-07T18:02:06.6911671Z ==============================================================================
-2026-08-07T18:02:06.6911750Z Task         : npm
-2026-08-07T18:02:06.6911803Z Description  : Install and publish npm packages, or run an npm command. Supports npmjs.com and authenticated registries like Azure Artifacts.
-2026-08-07T18:02:06.6911892Z Version      : 1.221.0
-2026-08-07T18:02:06.6911944Z Author       : Microsoft Corporation
-2026-08-07T18:02:06.6911992Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/package/npm
-2026-08-07T18:02:06.6912064Z ==============================================================================
-2026-08-07T18:02:07.1254284Z [command]/opt/ads-agent/work_ads/_tool/node/12.18.3/x64/bin/npm --version
-2026-08-07T18:02:07.2712067Z 6.14.6
-2026-08-07T18:02:07.6063503Z [command]/opt/ads-agent/work_ads/_tool/node/12.18.3/x64/bin/npm config list
-2026-08-07T18:02:07.7619330Z npm info it worked if it ends with ok
-2026-08-07T18:02:07.7619645Z npm verb cli [
-2026-08-07T18:02:07.7619745Z ; cli configs
-2026-08-07T18:02:07.7620103Z metrics-registry = "http://binario.caixa:8081/repository/npm-all/"
-2026-08-07T18:02:07.7620234Z scope = ""
-2026-08-07T18:02:07.7620403Z user-agent = "npm/6.14.6 node/v12.18.3 linux x64"
-2026-08-07T18:02:07.7620639Z npm verb cli   '/opt/ads-agent/work_ads/_tool/node/12.18.3/x64/bin/node',
-2026-08-07T18:02:07.7620851Z npm verb cli   '/opt/ads-agent/work_ads/_tool/node/12.18.3/x64/bin/npm',
-2026-08-07T18:02:07.7621015Z npm verb cli   'config',
-2026-08-07T18:02:07.7621162Z npm verb cli   'list'
-2026-08-07T18:02:07.7621252Z npm verb cli ]
-2026-08-07T18:02:07.7621351Z npm info using npm@6.14.6
-2026-08-07T18:02:07.7621457Z npm info using node@v12.18.3
-2026-08-07T18:02:07.7621564Z npm verb exit [ 0, true ]
-2026-08-07T18:02:07.7621672Z npm timing npm Completed in 24ms
-2026-08-07T18:02:07.7621771Z npm info ok 
-2026-08-07T18:02:07.7621808Z 
-2026-08-07T18:02:07.7621900Z ; environment configs
-2026-08-07T18:02:07.7622003Z loglevel = "verbose"
-2026-08-07T18:02:07.7622209Z userconfig = "/opt/ads-agent/work_ads/7411/npm/791668.npmrc"
-2026-08-07T18:02:07.7622320Z 
-2026-08-07T18:02:07.7622482Z ; project config /opt/ads-agent/work_ads/7411/s/.npmrc
-2026-08-07T18:02:07.7622625Z disturl = "http://binario.caixa:8081/repository/nodejs/"
-2026-08-07T18:02:07.7622786Z email = "pipeline-agil@mail.caixa"
-2026-08-07T18:02:07.7622972Z registry = "http://binario.caixa:8081/repository/npm-all/"
-2026-08-07T18:02:07.7623185Z sass_binary_site = "http://binario.caixa:8081/repository/node-sass/"
-2026-08-07T18:02:07.7623555Z 
-2026-08-07T18:02:07.7623767Z ; node bin location = /opt/ads-agent/work_ads/_tool/node/12.18.3/x64/bin/node
-2026-08-07T18:02:07.7624017Z ; cwd = /opt/ads-agent/work_ads/7411/s
-2026-08-07T18:02:07.7624132Z ; HOME = /home/sadscp01
-2026-08-07T18:02:07.7624286Z ; "npm config ls -l" to show all defaults.
-2026-08-07T18:02:07.7624335Z 
-2026-08-07T18:02:07.7625572Z [command]/opt/ads-agent/work_ads/_tool/node/12.18.3/x64/bin/npm install --no-audit --verbose
-2026-08-07T18:02:25.1849668Z npm info it worked if it ends with ok
-2026-08-07T18:02:25.1849989Z npm verb cli [
-2026-08-07T18:02:25.1850511Z npm verb cli   '/opt/ads-agent/work_ads/_tool/node/12.18.3/x64/bin/node',
-2026-08-07T18:02:25.1850857Z npm verb cli   '/opt/ads-agent/work_ads/_tool/node/12.18.3/x64/bin/npm',
-2026-08-07T18:02:25.1851129Z npm verb cli   'install',
-2026-08-07T18:02:25.1851353Z npm verb cli   '--no-audit',
-2026-08-07T18:02:25.1851586Z npm verb cli   '--verbose'
-2026-08-07T18:02:25.1851737Z npm verb cli ]
-2026-08-07T18:02:25.1851931Z npm info using npm@6.14.6
-2026-08-07T18:02:25.1852119Z npm info using node@v12.18.3
-2026-08-07T18:02:25.1852371Z npm verb npm-session 235c9015b8a1cdad
-2026-08-07T18:02:25.1852698Z npm info lifecycle siaef-web@1.0.0-snapshot~preinstall: siaef-web@1.0.0-snapshot
-2026-08-07T18:02:25.1853008Z npm timing stage:loadCurrentTree Completed in 10ms
-2026-08-07T18:02:25.1853253Z npm timing stage:loadIdealTree:cloneCurrentTree Completed in 0ms
-2026-08-07T18:02:25.1853934Z npm timing stage:loadIdealTree:loadShrinkwrap Completed in 4ms
-2026-08-07T18:02:25.1854386Z npm http fetch GET 304 http://binario.caixa:8081/repository/npm-all/@types%2fdatatables.net-select 127ms (from cache)
-2026-08-07T18:02:25.1854835Z npm http fetch GET 304 http://binario.caixa:8081/repository/npm-all/@types%2fsystemjs 124ms (from cache)
-2026-08-07T18:02:25.1855282Z npm http fetch GET 304 http://binario.caixa:8081/repository/npm-all/@types%2fdatatables.net 135ms (from cache)
-2026-08-07T18:02:25.1855727Z npm http fetch GET 304 http://binario.caixa:8081/repository/npm-all/@compodoc%2fcompodoc 141ms (from cache)
-2026-08-07T18:02:25.1856177Z npm http fetch GET 304 http://binario.caixa:8081/repository/npm-all/@babel%2fcompat-data 148ms (from cache)
-2026-08-07T18:02:25.1856603Z npm http fetch GET 304 http://binario.caixa:8081/repository/npm-all/@types%2fjasmine 153ms (from cache)
-2026-08-07T18:02:25.1857024Z npm http fetch GET 304 http://binario.caixa:8081/repository/npm-all/@types%2fjquery 157ms (from cache)
-2026-08-07T18:02:25.1857463Z npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/@types/jasmine/-/jasmine-2.5.53.tgz 49ms
-2026-08-07T18:02:25.1858074Z npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/@types/jquery/-/jquery-3.2.1.tgz 50ms
-2026-08-07T18:02:25.1858516Z npm http fetch GET 304 http://binario.caixa:8081/repository/npm-all/@types%2fzone.js 68ms (from cache)
-2026-08-07T18:02:25.1858942Z npm http fetch GET 304 http://binario.caixa:8081/repository/npm-all/codelyzer 71ms (from cache)
-2026-08-07T18:02:25.1859371Z npm http fetch GET 304 http://binario.caixa:8081/repository/npm-all/@types%2fyargs 79ms (from cache)
-2026-08-07T18:02:25.1859787Z npm http fetch GET 304 http://binario.caixa:8081/repository/npm-all/@angular%2fcdk 284ms (from cache)
-2026-08-07T18:02:25.1860217Z npm http fetch GET 304 http://binario.caixa:8081/repository/npm-all/debug 112ms (from cache)
-2026-08-07T18:02:25.1860629Z npm http fetch GET 304 http://binario.caixa:8081/repository/npm-all/jasmine-core 111ms (from cache)
-2026-08-07T18:02:25.1861083Z npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/@types/zone.js/-/zone.js-0.0.27.tgz 56ms (from cache)
-2026-08-07T18:02:25.1861549Z npm http fetch GET 304 http://binario.caixa:8081/repository/npm-all/@angular-devkit%2fbuild-angular 337ms (from cache)
-2026-08-07T18:02:25.1862006Z npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/debug/-/debug-2.6.9.tgz 85ms (from cache)
-2026-08-07T18:02:25.1862419Z npm http fetch GET 304 http://binario.caixa:8081/repository/npm-all/jasmine-spec-reporter 168ms (from cache)
-2026-08-07T18:02:25.1863026Z npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/jasmine-core/-/jasmine-core-2.7.0.tgz 98ms
-2026-08-07T18:02:25.1863796Z npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/jasmine-spec-reporter/-/jasmine-spec-reporter-4.1.1.tgz 27ms (from cache)
-2026-08-07T18:02:25.1864248Z npm http fetch GET 304 http://binario.caixa:8081/repository/npm-all/karma-cli 74ms (from cache)
-2026-08-07T18:02:25.1864681Z npm http fetch GET 304 http://binario.caixa:8081/repository/npm-all/karma-chrome-launcher 80ms (from cache)
-2026-08-07T18:02:25.1865137Z npm http fetch GET 304 http://binario.caixa:8081/repository/npm-all/karma-coverage-istanbul-reporter 77ms (from cache)
-2026-08-07T18:02:25.1865571Z npm http fetch GET 304 http://binario.caixa:8081/repository/npm-all/karma-jasmine 79ms (from cache)
-2026-08-07T18:02:25.1866010Z npm http fetch GET 304 http://binario.caixa:8081/repository/npm-all/karma-jasmine-html-reporter 77ms (from cache)
-2026-08-07T18:02:25.1866463Z npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/karma-cli/-/karma-cli-1.0.1.tgz 20ms (from cache)
-2026-08-07T18:02:25.1866984Z npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/karma-chrome-launcher/-/karma-chrome-launcher-2.2.0.tgz 23ms (from cache)
-
-
-
-2026-08-07T18:02:06.6907696Z ##[section]Starting: npm install
-2026-08-07T18:02:06.6911671Z ==============================================================================
-2026-08-07T18:02:06.6911750Z Task         : npm
-2026-08-07T18:02:06.6911803Z Description  : Install and publish npm packages, or run an npm command. Supports npmjs.com and authenticated registries like Azure Artifacts.
-2026-08-07T18:02:06.6911892Z Version      : 1.221.0
-2026-08-07T18:02:06.6911944Z Author       : Microsoft Corporation
-2026-08-07T18:02:06.6911992Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/package/npm
-2026-08-07T18:02:06.6912064Z ==============================================================================
-2026-08-07T18:02:07.1254284Z [command]/opt/ads-agent/work_ads/_tool/node/12.18.3/x64/bin/npm --version
-2026-08-07T18:02:07.2712067Z 6.14.6
-2026-08-07T18:02:07.6063503Z [command]/opt/ads-agent/work_ads/_tool/node/12.18.3/x64/bin/npm config list
-2026-08-07T18:02:07.7619330Z npm info it worked if it ends with ok
-2026-08-07T18:02:07.7619645Z npm verb cli [
-2026-08-07T18:02:07.7619745Z ; cli configs
-2026-08-07T18:02:07.7620103Z metrics-registry = "http://binario.caixa:8081/repository/npm-all/"
-2026-08-07T18:02:07.7620234Z scope = ""
-2026-08-07T18:02:07.7620403Z user-agent = "npm/6.14.6 node/v12.18.3 linux x64"
-2026-08-07T18:02:07.7620639Z npm verb cli   '/opt/ads-agent/work_ads/_tool/node/12.18.3/x64/bin/node',
-2026-08-07T18:02:07.7620851Z npm verb cli   '/opt/ads-agent/work_ads/_tool/node/12.18.3/x64/bin/npm',
-2026-08-07T18:02:07.7621015Z npm verb cli   'config',
-2026-08-07T18:02:07.7621162Z npm verb cli   'list'
-2026-08-07T18:02:07.7621252Z npm verb cli ]
-2026-08-07T18:02:07.7621351Z npm info using npm@6.14.6
-2026-08-07T18:02:07.7621457Z npm info using node@v12.18.3
-2026-08-07T18:02:07.7621564Z npm verb exit [ 0, true ]
-2026-08-07T18:02:07.7621672Z npm timing npm Completed in 24ms
-2026-08-07T18:02:07.7621771Z npm info ok 
-2026-08-07T18:02:07.7621808Z 
-2026-08-07T18:02:07.7621900Z ; environment configs
-2026-08-07T18:02:07.7622003Z loglevel = "verbose"
-2026-08-07T18:02:07.7622209Z userconfig = "/opt/ads-agent/work_ads/7411/npm/791668.npmrc"
-2026-08-07T18:02:07.7622320Z 
-2026-08-07T18:02:07.7622482Z ; project config /opt/ads-agent/work_ads/7411/s/.npmrc
-2026-08-07T18:02:07.7622625Z disturl = "http://binario.caixa:8081/repository/nodejs/"
-2026-08-07T18:02:07.7622786Z email = "pipeline-agil@mail.caixa"
-2026-08-07T18:02:07.7622972Z registry = "http://binario.caixa:8081/repository/npm-all/"
-2026-08-07T18:02:07.7623185Z sass_binary_site = "http://binario.caixa:8081/repository/node-sass/"
-2026-08-07T18:02:07.7623555Z 
-2026-08-07T18:02:07.7623767Z ; node bin location = /opt/ads-agent/work_ads/_tool/node/12.18.3/x64/bin/node
-2026-08-07T18:02:07.7624017Z ; cwd = /opt/ads-agent/work_ads/7411/s
-2026-08-07T18:02:07.7624132Z ; HOME = /home/sadscp01
-2026-08-07T18:02:07.7624286Z ; "npm config ls -l" to show all defaults.
-2026-08-07T18:02:07.7624335Z 
-2026-08-07T18:02:07.7625572Z [command]/opt/ads-agent/work_ads/_tool/node/12.18.3/x64/bin/npm install --no-audit --verbose
-2026-08-07T18:02:25.1849668Z npm info it worked if it ends with ok
-2026-08-07T18:02:25.1849989Z npm verb cli [
-2026-08-07T18:02:25.1850511Z npm verb cli   '/opt/ads-agent/work_ads/_tool/node/12.18.3/x64/bin/node',
-2026-08-07T18:02:25.1850857Z npm verb cli   '/opt/ads-agent/work_ads/_tool/node/12.18.3/x64/bin/npm',
-2026-08-07T18:02:25.1851129Z npm verb cli   'install',
-2026-08-07T18:02:25.1851353Z npm verb cli   '--no-audit',
-2026-08-07T18:02:25.1851586Z npm verb cli   '--verbose'
-2026-08-07T18:02:25.1851737Z npm verb cli ]
-2026-08-07T18:02:25.1851931Z npm info using npm@6.14.6
-2026-08-07T18:02:25.1852119Z npm info using node@v12.18.3
-2026-08-07T18:02:25.1852371Z npm verb npm-session 235c9015b8a1cdad
-2026-08-07T18:02:25.1852698Z npm info lifecycle siaef-web@1.0.0-snapshot~preinstall: siaef-web@1.0.0-snapshot
-2026-08-07T18:02:25.1853008Z npm timing stage:loadCurrentTree Completed in 10ms
-2026-08-07T18:02:25.1853253Z npm timing stage:loadIdealTree:cloneCurrentTree Completed in 0ms
-2026-08-07T18:02:25.1853934Z npm timing stage:loadIdealTree:loadShrinkwrap Completed in 4ms
-2026-08-07T18:02:25.1854386Z npm http fetch GET 304 http://binario.caixa:8081/repository/npm-all/@types%2fdatatables.net-select 127ms (from cache)
-2026-08-07T18:02:25.1854835Z npm http fetch GET 304 http://binario.caixa:8081/repository/npm-all/@types%2fsystemjs 124ms (from cache)
-2026-08-07T18:02:25.1855282Z npm http fetch GET 304 http://binario.caixa:8081/repository/npm-all/@types%2fdatatables.net 135ms (from cache)
-2026-08-07T18:02:25.1855727Z npm http fetch GET 304 http://binario.caixa:8081/repository/npm-all/@compodoc%2fcompodoc 141ms (from cache)
-2026-08-07T18:02:25.1856177Z npm http fetch GET 304 http://binario.caixa:8081/repository/npm-all/@babel%2fcompat-data 148ms (from cache)
-2026-08-07T18:02:25.1856603Z npm http fetch GET 304 http://binario.caixa:8081/repository/npm-all/@types%2fjasmine 153ms (from cache)
-2026-08-07T18:02:25.1857024Z npm http fetch GET 304 http://binario.caixa:8081/repository/npm-all/@types%2fjquery 157ms (from cache)
-2026-08-07T18:02:25.1857463Z npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/@types/jasmine/-/jasmine-2.5.53.tgz 49ms
-2026-08-07T18:02:25.1858074Z npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/@types/jquery/-/jquery-3.2.1.tgz 50ms
-2026-08-07T18:02:25.1858516Z npm http fetch GET 304 http://binario.caixa:8081/repository/npm-all/@types%2fzone.js 68ms (from cache)
-2026-08-07T18:02:25.1858942Z npm http fetch GET 304 http://binario.caixa:8081/repository/npm-all/codelyzer 71ms (from cache)
-2026-08-07T18:02:25.1859371Z npm http fetch GET 304 http://binario.caixa:8081/repository/npm-all/@types%2fyargs 79ms (from cache)
-2026-08-07T18:02:25.1859787Z npm http fetch GET 304 http://binario.caixa:8081/repository/npm-all/@angular%2fcdk 284ms (from cache)
-2026-08-07T18:02:25.1860217Z npm http fetch GET 304 http://binario.caixa:8081/repository/npm-all/debug 112ms (from cache)
-2026-08-07T18:02:25.1860629Z npm http fetch GET 304 http://binario.caixa:8081/repository/npm-all/jasmine-core 111ms (from cache)
-2026-08-07T18:02:25.1861083Z npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/@types/zone.js/-/zone.js-0.0.27.tgz 56ms (from cache)
-2026-08-07T18:02:25.1861549Z npm http fetch GET 304 http://binario.caixa:8081/repository/npm-all/@angular-devkit%2fbuild-angular 337ms (from cache)
-2026-08-07T18:02:25.1862006Z npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/debug/-/debug-2.6.9.tgz 85ms (from cache)
-2026-08-07T18:02:25.1862419Z npm http fetch GET 304 http://binario.caixa:8081/repository/npm-all/jasmine-spec-reporter 168ms (from cache)
-2026-08-07T18:02:25.1863026Z npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/jasmine-core/-/jasmine-core-2.7.0.tgz 98ms
-2026-08-07T18:02:25.1863796Z npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/jasmine-spec-reporter/-/jasmine-spec-reporter-4.1.1.tgz 27ms (from cache)
-2026-08-07T18:02:25.1864248Z npm http fetch GET 304 http://binario.caixa:8081/repository/npm-all/karma-cli 74ms (from cache)
-2026-08-07T18:02:25.1864681Z npm http fetch GET 304 http://binario.caixa:8081/repository/npm-all/karma-chrome-launcher 80ms (from cache)
-2026-08-07T18:02:25.1865137Z npm http fetch GET 304 http://binario.caixa:8081/repository/npm-all/karma-coverage-istanbul-reporter 77ms (from cache)
-2026-08-07T18:02:25.1865571Z npm http fetch GET 304 http://binario.caixa:8081/repository/npm-all/karma-jasmine 79ms (from cache)
-2026-08-07T18:02:25.1866010Z npm http fetch GET 304 http://binario.caixa:8081/repository/npm-all/karma-jasmine-html-reporter 77ms (from cache)
-2026-08-07T18:02:25.1866463Z npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/karma-cli/-/karma-cli-1.0.1.tgz 20ms (from cache)
-2026-08-07T18:02:25.1866984Z npm http fetch GET 200 http://binario.caixa:8081/repository/npm-all/karma-chrome-launcher/-/karma-chrome-launcher-2.2.0.tgz 23ms (from cache)
+{
+  "name": "siaef-web",
+  "version": "1.0.22",
+  "description": "Web",
+  "homepage": "siaef.des.caixa",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.cast.com.br/?"
+  },
+  "license": "commercial use",
+  "scripts": {
+    "compodoc": "node_modules/.bin/compodoc -d src/documentation -p tsconfig.json --customLogo ./logo.jpg --customFavicon ./src/assets/favicon/favicon.ico --name SIAEF-Documentação",
+    "serve.compodoc": "node_modules/.bin/compodoc -s",
+    "###postinstall": "gulp check.versions && npm prune && gulp webdriver && gulp print.banner",
+    "clean": "npm-run-all -p clean:core clean:test clean:tmp",
+    "clean:core": "rimraf lib",
+    "clean:test": "rimraf dist",
+    "clean:tmp": "rimraf tmp",
+    "compile": "npm-run-all -p compile:core compile:test -s",
+    "compile:core": "tsc -p .",
+    "compile:test": "tsc -p e2e/tsconfig.e2e.json",
+    "lint": "npm-run-all -p lint:global",
+    "lint:global": "tslint --project tsconfig.json --format stylish --type-check # a pasta test inclui 'src' também",
+    "test": "npm-run-all test:pre -p test:mocha test:rules",
+    "test:pre": "npm install",
+    "test:mocha": "mocha --reporter spec --colors \"dist/test/**/*Tests.js\"",
+    "test:rules": "node ./dist/test/ruleTestRunner.js",
+    "verify": "npm-run-all clean compile lint test # docs (pendente de definição de lib para documentação)",
+    "coverage": "rimraf coverage .nyc_output && nyc npm test",
+    "build": "ng build --env=local",
+    "build_prd": "ng build --prod --env=prd",
+    "e2e": "protractor",
+    "###gulp.start": "gulp serve.dev --color",
+    "###gulp.test": "gulp test --color",
+    "###gulp.lint": "gulp tslint",
+    "###build.dev": "gulp build.dev --color --env-config dev",
+    "###build.dev.watch": "gulp build.dev.watch --color",
+    "###build.e2e": "gulp build.e2e --color",
+    "###build.prod": "gulp build.prod --color --env-config prod --build-type prod",
+    "###build.prod.exp": "gulp build.prod.aot --color --env-config prod --build-type prod",
+    "###build.prod.rollup.aot": "gulp build.prod.rollup.aot --color --env-config prod --build-type prod",
+    "###build.prod.aot": "gulp build.prod.aot --color --env-config prod --build-type prod",
+    "###build.test": "gulp build.test --color",
+    "###test.watch": "gulp test.watch --color",
+    "###generate.manifest": "gulp generate.manifest --color",
+    "###e2e.live": "protractor --elementExplorer",
+    "###i18n": "ng-xi18n && gulp clean.i18n",
+    "###karma.start": "karma start",
+    "###serve.coverage": "gulp serve.coverage --color",
+    "###serve.dev": "gulp serve.dev --color --env-config dev",
+    "###serve.e2e": "gulp serve.e2e --color",
+    "###serve.prod": "gulp serve.prod --color --env-config prod --build-type prod",
+    "###serve.prod.aot": "gulp serve.prod.aot --color --env-config prod --build-type prod",
+    "###serve.prod.exp": "gulp serve.prod.aot --color --env-config prod --build-type prod",
+    "###serve.prod.rollup.aot": "gulp serve.prod.rollup.aot --color --env-config prod --build-type prod",
+    "###start.deving": "gulp start.deving --color",
+    "###tasks.list": "gulp --tasks-simple --color",
+    "###e2e.ci": "gulp build.prod --color && gulp build.e2e --color && gulp e2e --color",
+    "###tests.all": "npm test && npm run e2e.ci",
+    "###webdriver-start": "webdriver-manager start",
+    "###webdriver-update": "node_modules/protractor/bin/webdriver-manager update",
+    "###compodoc": "node_modules/.bin/compodoc -p src/client/tsconfig.json",
+    "###serve.compodoc": "node_modules/.bin/compodoc -s"
+  },
+  "dependencies": {
+    "@angular/animations": "^8.2.8",
+    "@angular/cdk": "~8.2.3",
+    "@angular/cli": "8.3.6",
+    "@angular/common": "^8.2.8",
+    "@angular/compiler": "^8.2.8",
+    "@angular/compiler-cli": "^8.2.8",
+    "@angular/core": "^8.2.8",
+    "@angular/forms": "^8.2.8",
+    "@angular/material": "^8.2.3",
+    "@angular/material-moment-adapter": "^8",
+    "@angular/platform-browser": "^8.2.8",
+    "@angular/platform-browser-dynamic": "^8.2.8",
+    "@angular/platform-server": "^8.2.8",
+    "@angular/router": "^8.2.8",
+    "@angular/service-worker": "^8.2.8",
+    "@auth0/angular-jwt": "3.0.0",
+    "@fortawesome/fontawesome-free": "^5.15.4",
+    "@mdi/font": "^5.1.45",
+    "@ng-idle/core": "8.0.0-beta.4",
+    "@types/overlayscrollbars": "^1.12.0",
+    "axios": "^1.7.9",
+    "bootstrap": "^4.3.1",
+    "chart.js": "^2.8.0",
+    "class-transformer": "^0.1.8",
+    "core-js": "^2.4.1",
+    "fast-xml-parser": "^3.21.1",
+    "file-saver": "^1.3.3",
+    "font-awesome": "^4.7.0",
+    "hammerjs": "^2.0.8",
+    "he": "^1.2.0",
+    "jquery": "^3.2.1",
+    "keycloak-js": "^7.0.0",
+    "material-design-icons-iconfont": "^5.0.1",
+    "moment": "^2.29.4",
+    "ng-recaptcha": "^5.0.0",
+    "ng2-file-upload": "^1.2.1",
+    "ngx-bootstrap": "5.1.2",
+    "ngx-materialize": "^6.1.3",
+    "ngx-pagination": "^4.1.0",
+    "ngx-quill": "^7.3.1",
+    "ngx-trim-directive": "^1.0.8",
+    "normalize.css": "^6.0.0",
+    "overlayscrollbars": "^1.13.0",
+    "overlayscrollbars-ngx": "^0.2.2",
+    "pace-progress": "1.0.2",
+    "pako": "^1.0.6",
+    "popper.js": "^1.15.0",
+    "primeicons": "^2.0.0",
+    "primeng": "^8.0.3",
+    "quill": "^1.3.7",
+    "reflect-metadata": "^0.1.12",
+    "rxjs": "6.5.3",
+    "rxjs-compat": "^6.2.2",
+    "tslib": "^1.10.0",
+    "typescript": "~3.5.3",
+    "zone.js": "^0.9.1"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "~0.803.29",
+    "@angular/cdk": "^8.2.1",
+    "@babel/compat-data": "7.9.0",
+    "@compodoc/compodoc": "^1.1.11",
+    "@types/datatables.net": "~1.10.27",
+    "@types/datatables.net-select": "~1.2.2",
+    "@types/jasmine": "2.5.53",
+    "@types/jquery": "3.2.1",
+    "@types/node": "^8.10.66",
+    "@types/systemjs": "^0.20.2",
+    "@types/yargs": "^8.0.2",
+    "@types/zone.js": "^0.0.27",
+    "codelyzer": "^5.0.1",
+    "debug": "^2.6.4",
+    "jasmine-core": "~2.7.0",
+    "jasmine-spec-reporter": "~4.1.1",
+    "karma": "~1.7.0",
+    "karma-chrome-launcher": "~2.2.0",
+    "karma-cli": "~1.0.1",
+    "karma-coverage-istanbul-reporter": "^1.0.0",
+    "karma-jasmine": "~1.1.0",
+    "karma-jasmine-html-reporter": "^0.2.2",
+    "karma-mocha-reporter": "^2.2.0",
+    "npm-run-all": "^4.0.2",
+    "nyc": "^10.2.0",
+    "prettier": "2.1.1",
+    "protractor": "~5.1.0",
+    "slash": "~1.0.0",
+    "supports-color": "^4.2.1",
+    "ts-node": "~3.0.2",
+    "tslint": "^5.20.1",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-plugin-prettier": "^2.3.0",
+    "tsutils": "^2.8.0",
+    "yargs": "^8.0.2"
+  }
+}
