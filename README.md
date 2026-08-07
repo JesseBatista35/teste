@@ -1,33 +1,5 @@
-Jesse, bom dia
- 
-abri um REQ pelo infrafacil
- 
-REQ000145163866
- 
-depois abrirei um suporte para a parte de jboss
- 
-bom dia, Luciana, certo vou acompanhar aguardar o pessoal do armazenamento configurar
- 
-acho que podemos usar a mesma req
- 
-pois quando eles finalizam eles ja enviam pra gente. 
- 
+Sobre o path no JBoss: melhor não criar um path por pasta. Como serão vários tipos (convenio, empenho, etc.), o ideal é montar só um path raiz, tipo /siorf, e em tempo de execução a aplicação completa com o restante (/convenio/resultado, /empenho/processar, etc).
 
+Assim fica mais fácil de manter, sem precisar mexer no JBoss toda vez que surgir um tipo novo. Só precisamos garantir que as subpastas existam dentro do NFS.
 
-outra coisa, serão vários tipos de arquivos:
- 
-siorf/convenio/processar
-siorf/convenio/resultado
-siorf/empenho/processar
-siorf/empenho/resultado
-etc.
- 
-para casa um terei que criar um path no jboss certo?
- 
-ou poderia colocar so o inicio do path
- 
-siorf/
- 
-e em tempo de execução path + "/convenio/resultado"
- 
-pq como serão muitas pastas, talvez fosse melhor nao separar por tipo...so siorf/processar e siorf/convenio
+Vamos seguir acompanhando essa REQ que você abriu e quando o armazenamento finalizar, a gente configura o path.
