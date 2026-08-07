@@ -1,22 +1,3 @@
-Starting: Build Application
-==============================================================================
-Task         : Bash
-Description  : Run a Bash script on macOS, Linux, or Windows
-Version      : 3.227.0
-Author       : Microsoft Corporation
-Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/bash
-==============================================================================
-Generating script.
-========================== Starting Command Output ===========================
-/usr/bin/bash /opt/ads-agent/_work/_temp/fd3665ac-1630-4721-8659-d3b9e0184469.sh
-ng build --configuration production --build-optimizer --aot --output-path=dist --output-hashing=none && npm test
-<----ANGULAR---->
-
-     _                      _                 ____ _     ___
-    / \   _ __   __ _ _   _| | __ _ _ __     / ___| |   |_ _|
-   / △ \ | '_ \ / _` | | | | |/ _` | '__|   | |   | |    | |
-  / ___ \| | | | (_| | |_| | | (_| | |      | |___| |___ | |
- /_/   \_\_| |_|\__, |\__,_|_|\__,_|_|       \____|_____|___|
                 |___/
     
 
@@ -38,3 +19,52 @@ Package                              Version
 @angular/cdk                         16.2.14
 @angular/cli                         16.2.16
 @angular/material                    16.2.14
+@angular/material-date-fns-adapter   16.2.14
+@schematics/angular                  16.2.16
+rxjs                                 7.8.2
+typescript                           5.1.6
+zone.js                              0.13.3
+    
+One or more browsers which are configured in the project's Browserslist configuration will be ignored as ES5 output is not supported by the Angular CLI.
+Ignored browsers: kaios 2.5, op_mini all
+- Generating browser application bundles (phase: setup)...
+✔ Browser application bundle generation complete.
+✔ Browser application bundle generation complete.
+
+Warning: /opt/ads-agent/_work/8/s/node_modules/sicbp-componentes/fesm2022/sicbp-componentes.mjs depends on 'base-64'. CommonJS or AMD dependencies can cause optimization bailouts.
+For more info see: https://angular.io/guide/build#configuring-commonjs-dependencies
+
+Warning: /opt/ads-agent/_work/8/s/node_modules/sicbp-componentes/fesm2022/sicbp-componentes.mjs depends on 'moment'. CommonJS or AMD dependencies can cause optimization bailouts.
+For more info see: https://angular.io/guide/build#configuring-commonjs-dependencies
+
+Warning: /opt/ads-agent/_work/8/s/node_modules/sicbp-componentes/fesm2022/sicbp-componentes.mjs depends on 'utf8'. CommonJS or AMD dependencies can cause optimization bailouts.
+
+
+Warning: /opt/ads-agent/_work/8/s/node_modules/sicbp-componentes/fesm2022/sicbp-componentes.mjs depends on 'utf8'. CommonJS or AMD dependencies can cause optimization bailouts.
+For more info see: https://angular.io/guide/build#configuring-commonjs-dependencies
+
+Warning: /opt/ads-agent/_work/8/s/src/styles.scss?ngGlobalStyle depends on '!../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js'. CommonJS or AMD dependencies can cause optimization bailouts.
+For more info see: https://angular.io/guide/build#configuring-commonjs-dependencies
+
+Warning: /opt/ads-agent/_work/8/s/src/styles.scss?ngGlobalStyle depends on '!../node_modules/style-loader/dist/runtime/insertBySelector.js'. CommonJS or AMD dependencies can cause optimization bailouts.
+For more info see: https://angular.io/guide/build#configuring-commonjs-dependencies
+
+Warning: /opt/ads-agent/_work/8/s/src/styles.scss?ngGlobalStyle depends on '!../node_modules/style-loader/dist/runtime/insertStyleElement.js'. CommonJS or AMD dependencies can cause optimization bailouts.
+For more info see: https://angular.io/guide/build#configuring-commonjs-dependencies
+
+Warning: /opt/ads-agent/_work/8/s/src/styles.scss?ngGlobalStyle depends on '!../node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js'. CommonJS or AMD dependencies can cause optimization bailouts.
+For more info see: https://angular.io/guide/build#configuring-commonjs-dependencies
+
+Warning: /opt/ads-agent/_work/8/s/src/styles.scss?ngGlobalStyle depends on '!../node_modules/style-loader/dist/runtime/styleDomAPI.js'. CommonJS or AMD dependencies can cause optimization bailouts.
+For more info see: https://angular.io/guide/build#configuring-commonjs-dependencies
+
+Warning: /opt/ads-agent/_work/8/s/src/styles.scss?ngGlobalStyle depends on '!../node_modules/style-loader/dist/runtime/styleTagTransform.js'. CommonJS or AMD dependencies can cause optimization bailouts.
+For more info see: https://angular.io/guide/build#configuring-commonjs-dependencies
+
+
+
+./node_modules/sidsc-components/fesm2022/sidsc-components-dsc-datepicker.mjs:23:0-56 - Error: Module not found: Error: Package path ./dist/inputmask.es6.js is exported from package /opt/ads-agent/_work/8/s/node_modules/inputmask, but no valid target file was found (see exports field in /opt/ads-agent/_work/8/s/node_modules/inputmask/package.json)
+
+
+##[error]Bash exited with code '1'.
+Finishing: Build Application
