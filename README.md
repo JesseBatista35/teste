@@ -1,70 +1,17 @@
-                |___/
-    
+Prezados,
 
-Angular CLI: 16.2.16
-Node: 18.19.0
-Package Manager: npm 10.2.3
-OS: linux x64
+Dando sequência ao chamado do MFE caixa-sicbp-avaliarisco-mfe: o problema anterior (404 do node-releases no Nexus) foi resolvido do lado da infraestrutura, com o cache do repositório npm-all invalidado.
 
-Angular: 16.2.12
-... animations, common, compiler, compiler-cli, core, forms
-... platform-browser, platform-browser-dynamic, router
+Identificamos também que a pipeline estava configurada anteriormente com Node 22, versão não suportada pelo Angular 16 do projeto. Já ajustamos a etapa de instalação para Node 16, compatível com o Angular utilizado.
 
-Package                              Version
---------------------------------------------------------------
-@angular-devkit/architect            0.1602.16
-@angular-devkit/build-angular        16.2.16
-@angular-devkit/core                 16.2.16
-@angular-devkit/schematics           16.2.16
-@angular/cdk                         16.2.14
-@angular/cli                         16.2.16
-@angular/material                    16.2.14
-@angular/material-date-fns-adapter   16.2.14
-@schematics/angular                  16.2.16
-rxjs                                 7.8.2
-typescript                           5.1.6
-zone.js                              0.13.3
-    
-One or more browsers which are configured in the project's Browserslist configuration will be ignored as ES5 output is not supported by the Angular CLI.
-Ignored browsers: kaios 2.5, op_mini all
-- Generating browser application bundles (phase: setup)...
-✔ Browser application bundle generation complete.
-✔ Browser application bundle generation complete.
+Na etapa de build, surgiu um novo erro, desta vez de dependência do projeto e não de infraestrutura: o pacote sidsc-components (versão 16.6.1) tenta importar o inputmask através do caminho ./dist/inputmask.es6.js, mas esse caminho não está declarado no campo exports da versão do inputmask atualmente instalada (^5.0.9-beta.62). Isso indica incompatibilidade entre a versão do inputmask e a versão esperada pelo sidsc-components.
 
-Warning: /opt/ads-agent/_work/8/s/node_modules/sicbp-componentes/fesm2022/sicbp-componentes.mjs depends on 'base-64'. CommonJS or AMD dependencies can cause optimization bailouts.
-For more info see: https://angular.io/guide/build#configuring-commonjs-dependencies
+Solicitamos que o time de desenvolvimento verifique qual versão de inputmask é compatível com o sidsc-components 16.6.1, fixe essa versão via overrides no package.json, da mesma forma que foi feito com o node-releases, ou avalie atualizar o sidsc-components para uma versão que já resolva essa dependência. Depois, regenerar o package-lock.json localmente e commitar.
 
-Warning: /opt/ads-agent/_work/8/s/node_modules/sicbp-componentes/fesm2022/sicbp-componentes.mjs depends on 'moment'. CommonJS or AMD dependencies can cause optimization bailouts.
-For more info see: https://angular.io/guide/build#configuring-commonjs-dependencies
+Reforçamos que esse novo erro não é da pipeline nem do Nexus, é compatibilidade de dependências no código do projeto.
 
-Warning: /opt/ads-agent/_work/8/s/node_modules/sicbp-componentes/fesm2022/sicbp-componentes.mjs depends on 'utf8'. CommonJS or AMD dependencies can cause optimization bailouts.
+Ficamos à disposição para reexecutar a pipeline assim que ajustado.
 
-
-Warning: /opt/ads-agent/_work/8/s/node_modules/sicbp-componentes/fesm2022/sicbp-componentes.mjs depends on 'utf8'. CommonJS or AMD dependencies can cause optimization bailouts.
-For more info see: https://angular.io/guide/build#configuring-commonjs-dependencies
-
-Warning: /opt/ads-agent/_work/8/s/src/styles.scss?ngGlobalStyle depends on '!../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js'. CommonJS or AMD dependencies can cause optimization bailouts.
-For more info see: https://angular.io/guide/build#configuring-commonjs-dependencies
-
-Warning: /opt/ads-agent/_work/8/s/src/styles.scss?ngGlobalStyle depends on '!../node_modules/style-loader/dist/runtime/insertBySelector.js'. CommonJS or AMD dependencies can cause optimization bailouts.
-For more info see: https://angular.io/guide/build#configuring-commonjs-dependencies
-
-Warning: /opt/ads-agent/_work/8/s/src/styles.scss?ngGlobalStyle depends on '!../node_modules/style-loader/dist/runtime/insertStyleElement.js'. CommonJS or AMD dependencies can cause optimization bailouts.
-For more info see: https://angular.io/guide/build#configuring-commonjs-dependencies
-
-Warning: /opt/ads-agent/_work/8/s/src/styles.scss?ngGlobalStyle depends on '!../node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js'. CommonJS or AMD dependencies can cause optimization bailouts.
-For more info see: https://angular.io/guide/build#configuring-commonjs-dependencies
-
-Warning: /opt/ads-agent/_work/8/s/src/styles.scss?ngGlobalStyle depends on '!../node_modules/style-loader/dist/runtime/styleDomAPI.js'. CommonJS or AMD dependencies can cause optimization bailouts.
-For more info see: https://angular.io/guide/build#configuring-commonjs-dependencies
-
-Warning: /opt/ads-agent/_work/8/s/src/styles.scss?ngGlobalStyle depends on '!../node_modules/style-loader/dist/runtime/styleTagTransform.js'. CommonJS or AMD dependencies can cause optimization bailouts.
-For more info see: https://angular.io/guide/build#configuring-commonjs-dependencies
-
-
-
-./node_modules/sidsc-components/fesm2022/sidsc-components-dsc-datepicker.mjs:23:0-56 - Error: Module not found: Error: Package path ./dist/inputmask.es6.js is exported from package /opt/ads-agent/_work/8/s/node_modules/inputmask, but no valid target file was found (see exports field in /opt/ads-agent/_work/8/s/node_modules/inputmask/package.json)
-
-
-##[error]Bash exited with code '1'.
-Finishing: Build Application
+Atenciosamente,
+Jessé Batista
+CTIS/CESTI — Esteira DevOps DES TQS NPRD
