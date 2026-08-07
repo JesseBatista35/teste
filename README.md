@@ -1,132 +1,88 @@
-Eu e outros membros da equipe estamos enfrentando problemas para passar código de MFEs Angular v16.2.15 e Node v22.13.1 novo na pipeline do devops. Está sempre quebrando na etapa do "npm install". Trecho final da descrição do erro ao finalizar:
-
-npm verb argv "/opt/ads-agent/_work/_tool/node/16.14.0/x64/bin/node" "/opt/ads-agent/_work/_tool/node/16.14.0/x64/bin/npm" "install" "--no-audit" "--verbose"
-npm verb node v16.14.0
-npm verb npm  v8.3.1
-npm ERR! code E404
-npm ERR! 404 Not Found - GET http://binario.caixa:8081/repository/npm-all/node-releases/-/node-releases-2.0.53.tgz
-npm ERR! 404 
-npm ERR! 404  'node-releases@http://binario.caixa:8081/repository/npm-all/node-releases/-/node-releases-2.0.53.tgz' is not in this registry.
-npm ERR! 404 You should bug the author to publish it (or use the name yourself!)
-npm ERR! 404 
-npm ERR! 404 Note that you can also install from a
-npm ERR! 404 tarball, folder, http url, or git url.
-npm verb exit 1
-npm timing npm Completed in 87063ms
-npm verb unfinished npm timer reify 1786127157573
-npm verb unfinished npm timer reify:unpack 1786127221637
-npm verb unfinished npm timer reifyNode:node_modules/node-releases 1786127221655
-npm verb unfinished npm timer reifyNode:node_modules/electron-to-chromium 1786127221655
-npm verb code 1
-
-npm ERR! A complete log of this run can be found in:
-npm ERR!     /opt/ads-agent/.npm/_logs/2026-08-07T18_25_57_370Z-debug-0.log
-##[warning]Couldn't find a debug log in the cache or working directory
-##[error]Error: Npm failed with return code: 1 
-Finishing: npm install
-
-
-Starting: npm install
-==============================================================================
-Task         : npm
-Description  : Install and publish npm packages, or run an npm command. Supports npmjs.com and authenticated registries like Azure Artifacts.
-Version      : 1.221.0
-Author       : Microsoft Corporation
-Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/package/npm
-==============================================================================
-/opt/ads-agent/_work/_tool/node/16.14.0/x64/bin/npm --version
-8.3.1
-/opt/ads-agent/_work/_tool/node/16.14.0/x64/bin/npm config list
-npm verb cli [
-; "user" config from /opt/ads-agent/_work/14434/npm/791881.npmrc
-npm verb cli   '/opt/ads-agent/_work/_tool/node/16.14.0/x64/bin/node',
-npm verb cli   '/opt/ads-agent/_work/_tool/node/16.14.0/x64/bin/npm',
-npm verb cli   'config',
-npm verb cli   'list'
-npm verb cli ]
-npm info using npm@8.3.1
-npm info using node@v16.14.0
-npm timing npm:load:whichnode Completed in 0ms
-npm timing config:load:defaults Completed in 1ms
-npm timing config:load:file:/opt/ads-agent/_work/_tool/node/16.14.0/x64/lib/node_modules/npm/npmrc Completed in 1ms
-npm timing config:load:builtin Completed in 1ms
-npm timing config:load:cli Completed in 1ms
-npm timing config:load:env Completed in 1ms
-npm timing config:load:file:/opt/ads-agent/_work/14434/s/.npmrc Completed in 5ms
-npm timing config:load:project Completed in 7ms
-npm timing config:load:file:/opt/ads-agent/_work/14434/npm/791881.npmrc Completed in 0ms
-npm timing config:load:user Completed in 0ms
-npm timing config:load:file:/opt/ads-agent/_work/_tool/node/16.14.0/x64/etc/npmrc Completed in 0ms
-npm timing config:load:global Completed in 0ms
-npm timing config:load:validate Completed in 1ms
-npm timing config:load:credentials Completed in 1ms
-npm timing config:load:setEnvs Completed in 1ms
-npm timing config:load Completed in 14ms
-npm timing npm:load:configload Completed in 14ms
-npm timing npm:load:setTitle Completed in 0ms
-npm timing config:load:flatten Completed in 2ms
-npm timing npm:load:display Completed in 4ms
-; email = "pipeline-agil@mail.caixa" ; overridden by project
-
-; "project" config from /opt/ads-agent/_work/14434/s/.npmrc
-
-disturl = "http://binario.caixa:8081/repository/nodejs/" 
-email = "pipeline-agil@mail.caixa" 
-registry = "http://binario.caixa:8081/repository/npm-all/" 
-sass_binary_site = "http://binario.caixa:8081/repository/node-sass/" 
-
-; "env" config from environment
-
-loglevel = "verbose" 
-userconfig = "/opt/ads-agent/_work/14434/npm/791881.npmrc" 
-
-; node bin location = /opt/ads-agent/_work/_tool/node/16.14.0/x64/bin/node
-; cwd = /opt/ads-agent/_work/14434/s
-; HOME = /home/sadscp01
-; Run `npm config ls -l` to show all defaults.
-/opt/ads-agent/_work/_tool/node/16.14.0/x64/bin/npm install --no-audit --verbose
-npm verb cli [
-npm verb cli   '/opt/ads-agent/_work/_tool/node/16.14.0/x64/bin/node',
-npm verb cli   '/opt/ads-agent/_work/_tool/node/16.14.0/x64/bin/npm',
-npm verb cli   'install',
-npm verb cli   '--no-audit',
-npm verb cli   '--verbose'
-npm verb cli ]
-npm info using npm@8.3.1
-npm info using node@v16.14.0
-npm timing npm:load:whichnode Completed in 0ms
-npm timing config:load:defaults Completed in 1ms
-npm timing config:load:file:/opt/ads-agent/_work/_tool/node/
-
-
-; email = "pipeline-agil@mail.caixa" ; overridden by project
-
-; "project" config from /opt/ads-agent/_work/14434/s/.npmrc
-
-disturl = "http://binario.caixa:8081/repository/nodejs/" 
-email = "pipeline-agil@mail.caixa" 
-registry = "http://binario.caixa:8081/repository/npm-all/" 
-sass_binary_site = "http://binario.caixa:8081/repository/node-sass/" 
-
-; "env" config from environment
-
-loglevel = "verbose" 
-userconfig = "/opt/ads-agent/_work/14434/npm/791881.npmrc" 
-
-; node bin location = /opt/ads-agent/_work/_tool/node/16.14.0/x64/bin/node
-; cwd = /opt/ads-agent/_work/14434/s
-; HOME = /home/sadscp01
-; Run `npm config ls -l` to show all defaults.
-/opt/ads-agent/_work/_tool/node/16.14.0/x64/bin/npm install --no-audit --verbose
-npm verb cli [
-npm verb cli   '/opt/ads-agent/_work/_tool/node/16.14.0/x64/bin/node',
-npm verb cli   '/opt/ads-agent/_work/_tool/node/16.14.0/x64/bin/npm',
-npm verb cli   'install',
-npm verb cli   '--no-audit',
-npm verb cli   '--verbose'
-npm verb cli ]
-npm info using npm@8.3.1
-npm info using node@v16.14.0
-npm timing npm:load:whichnode Completed in 0ms
-npm timing config:load:defaults Completed in 1ms
-npm timing config:load:file:/opt/ads-agent/_work/_tool/node/
+{
+  "name": "caixa-sicbp-avaliarisco-mfe",
+  "version": "0.0.0.37",
+  "scripts": {
+    "ng": "ng",
+    "start": "npm run serve:single-spa",
+    "build": "npm run build:single-spa",
+    "lint": "ng lint",
+    "sonar": "sonar-scanner",
+    "test": "jest --coverage",
+    "test:verbose": "jest --verbose",
+    "test:watch": "jest --watchAll",
+    "build:single-spa": "ng build --configuration production",
+    "serve:single-spa": "ng serve --disable-host-check --port 4331 --live-reload false"
+  },
+  "private": true,
+  "overrides": {
+    "node-releases": "2.0.27"
+  },
+  "dependencies": {
+    "@angular/animations": "^16.2.12",
+    "@angular/cdk": "^16.2.7",
+    "@angular/common": "^16.2.12",
+    "@angular/compiler": "^16.2.0",
+    "@angular/core": "^16.2.12",
+    "@angular/forms": "^16.2.12",
+    "@angular/material": "^16.2.12",
+    "@angular/material-date-fns-adapter": "^16.2.13",
+    "@angular/platform-browser": "^16.2.0",
+    "@angular/platform-browser-dynamic": "^16.2.0",
+    "@angular/router": "^16.2.0",
+    "@fortawesome/fontawesome-free": "^5.15.4",
+    "@ng-select/ng-select": "^11.1.1",
+    "angular-datatables": "^16.0.0",
+    "base-64": "^0.1.0",
+    "browser-crypto": "^1.4.0",
+    "inputmask": "^5.0.9-beta.62",
+    "jquery": "^3.7.1",
+    "moment": "^2.29.4",
+    "ng2-currency-mask": "^13.0.3",
+    "ngx-mask": "^16.4.2",
+    "ngx-pagination": "^6.0.3",
+    "popper.js": "^1.16.1",
+    "rxjs": "~7.8.0",
+    "sicbp-componentes": "0.0.3",
+    "sidsc-components": "^16.6.1",
+    "single-spa": ">=4.0.0",
+    "single-spa-angular": "^8.1.0",
+    "systemjs-webpack-interop": "^2.3.7",
+    "utf8": "^3.0.0",
+    "vanilla-masker": "^1.2.0",
+    "zone.js": "~0.13.0"
+  },
+  "devDependencies": {
+    "@angular-builders/custom-webpack": "16.0.1",
+    "@angular-builders/jest": "^16.0.0",
+    "@angular-devkit/build-angular": "^16.2.1",
+    "@angular-eslint/builder": "^16.3.1",
+    "@angular-eslint/eslint-plugin": "^16.3.1",
+    "@angular-eslint/schematics": "^16.3.1",
+    "@angular/cli": "~16.2.1",
+    "@angular/compiler-cli": "^16.2.0",
+    "@types/base-64": "^1.0.0",
+    "@types/datatables.net": "^1.10.24",
+    "@types/jest": "^29.5.12",
+    "@types/jquery": "^3.5.19",
+    "@types/mocha": "^10.0.6",
+    "@types/node": "^20.12.11",
+    "@types/utf8": "^3.0.1",
+    "@types/vanilla-masker": "^1.2.2",
+    "@typescript-eslint/eslint-plugin": "^6.12.0",
+    "@typescript-eslint/parser": "^6.12.0",
+    "eslint": "^7.26.0",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "jest-preset-angular": "^14.5.5",
+    "jest-sonar": "^0.2.16",
+    "jest-sonar-reporter": "^2.0.0",
+    "jest-transform-stub": "^2.0.0",
+    "sonarqube-scanner": "^3.5.0",
+    "style-loader": "^3.3.1",
+    "ts-node": "^8.10.2",
+    "tslib": "^2.6.2",
+    "typescript": "~5.1.3",
+    "webpack-config-single-spa": "^5.2.0",
+    "webpack-merge": "^5.8.0"
+  }
+}
