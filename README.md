@@ -1,258 +1,206 @@
-# Manual Operacional — Ambiente Legado SIGEC
-**Repasse de:** Murilo Silva Andrade Souza | **Recebido por:** Jesse Mouta Pereira Batista e Patricia Vourakis Barbosa Braga
-**Data do repasse:** 07/08/2026
-**Motivo deste documento:** Murilo está afastado para cirurgia — este manual consolida os comandos e o passo a passo para sustentação do SIGEC durante o período.
-
----
-
-## ⚠️ REGRA DE OURO — Leia antes de qualquer alteração
-
-Antes de editar o `domain.xml` no Domain Controller, **sempre avisar previamente**:
-- **Cledson** — referência principal (Domain Controller, ambientes legados, problemas de deploy)
-- **Cláudio** — apoio (aplicações legadas, diagnóstico operacional, Domain XML)
-
-**Motivo:** enquanto um admin edita o `domain.xml`, desenvolvedores podem estar fazendo deploy ao mesmo tempo → conflito de hashes/deployments → aplicações podem não subir, deploys falham, múltiplos sistemas ficam indisponíveis.
-
----
-
-## 1. Acesso e navegação de logs
-
-```bash
-# Elevar privilégios
-sudo su -
-
-# Buscar comando no histórico
-Ctrl + R
-# depois digitar:
-tail
-# ou
-log
-```
-
-**Log principal:** componente **Batch** — é o que mais quebra, mais é solicitado por usuários, normalmente exige reciclagem/restart.
-
----
-
-## 2. Estrutura de arquivos compartilhados
-
-| Item | Caminho |
-|---|---|
-| Diretório principal (certificados, config, integrações, Azure) | `/upload` |
-| Certificados das aplicações | `/upload/sigec` |
-| Config de integração Azure Service Bus / Filas MQ / métricas | `/upload/AzureSB.properties` |
-
-**Atenção:** `/upload` **não é local** — está montado via **NFS** em `10.116.95.13`. Qualquer alteração ali pode impactar vários sistemas ao mesmo tempo.
-
----
-
-## 3. JBoss Domain Controller
-
-**Host Domain Controller:** `10.116.89.0` (eap70-nprd.des.caixa / sbrdeapllx069) — responsável por profiles, datasources, configs de servidor, deploys e gerenciamento das instâncias.
-
-**Host principal do SIGEC:** servidor `104`
-
-**Servidores importantes:**
-- `sigec-portabilidade-batch` (Batch)
-- `sigec-portabilidade-2` (Online)
-
-### Conectar no CLI
-```bash
-connect
-# usar TAB para autocompletar e listar hosts/servidores
-```
-
-### Reiniciar instância (procedimento recomendado do Murilo)
-```bash
-stop
-kill
-start
-```
-**Por quê nessa ordem:** às vezes o `stop` não finaliza o processo completamente. O `kill` garante encerramento definitivo do PID antes de subir limpo com `start`.
-
-Outros comandos disponíveis no CLI: `resume`, `suspend`, `restart`.
-
----
-
-## 4. Editar o domain.xml
-
-```bash
-cd /jboss/eap/dc/configuration
-vim domain.xml
-```
-
-**Comandos úteis no vim:**
-| Ação | Comando |
-|---|---|
-| Mostrar número da linha | `:set number` |
-| Ir para o início | `gg` ou `:1` |
-| Ir para o final | `Shift + G` |
-| Buscar texto | `/profile` ou `/sigec` |
-| Entrar em edição | `i` |
-| Salvar | `:wq` |
-| Sair sem salvar | `:q!` |
-
-Dentro do profile SIGEC: URLs de conexão, configs DB2, pools de conexão. **Banco predominante: DB2.**
-
-⚠️ Não esqueça o aviso prévio ao Cledson/Cláudio (seção acima) antes de editar.
-
----
-
-## 5. Console JBoss
-
-```
-https://<servidor>:9443
-```
-Permite visualizar deploys, controlar servidores, ver profiles, gerenciar grupos e fazer deploy manual.
-
----
-
-## 6. Camada Apache (Apresentação)
-
-```bash
-# Locais comuns de config
-/etc/httpd
-# ou
-/opt
-
-# Ver virtual hosts / sites publicados
-cd sites-enabled
-```
-
-### Recarregar configuração (comando seguro)
-```bash
-reload
-```
-**Nunca usar `stop`** no Apache — pode derrubar dezenas de aplicações simultaneamente.
-
----
-
-## 7. Diagnóstico de fluxo (nslookup)
-
-```bash
-nslookup <url>
-```
-Permite identificar: VIP → Apache responsável → caminho da aplicação.
-
-**Fluxo da arquitetura:**
-```
-Internet → Balanceador (VIP/Citrix) → Apache (Apresentação) → JBoss (Aplicação) → Banco DB2
-```
-- **VIP/Balanceador Citrix:** sem acesso administrativo da equipe.
-- **Apache:** equipe tem acesso (virtual hosts, redirects, proxy, publicação de sites).
-- **JBoss:** equipe tem acesso (deploy, datasource, logs, configuração).
-
----
-
-## 8. Problemas recorrentes do SIGEC e possíveis ações
-
-| Sintoma | Ação sugerida |
-|---|---|
-| Metaspace / memória | Ajustar parâmetros de memória, checar comportamento da JVM, revisar parâmetros de inicialização |
-| Alertas de Garbage Collector | Revisar config de monitoramento do GC do JBoss; avaliar se desativar elimina falso-positivo |
-| Certificado expirado/inválido | Atualizar/renovar em `/upload/sigec` |
-| Instância travada/não responde | `stop` → `kill` → `start` via CLI no host correto |
-
----
-
-## 9. Tabela de servidores/consoles JBoss (Domain Controllers)
-
-| URL | IP | Hostname | Versão JBoss |
-|---|---|---|---|
-| dc001.nprd.console.caixa | 10.116.95.3 | cspdeapllx001 | 7.1 |
-| dc002.console.des.caixa | 10.116.95.197 | cspdeapllx052 | 7.3 |
-| dc003.console.des.caixa | 10.116.88.97 | sspdeapllx0040 | 7.0 |
-| dc004.console.des.caixa | 10.116.88.73 | sspdeapllx0016 | 6.4 |
-| dc005.console.des.caixa | 10.116.88.114 | sspdeapllx0042 | 6.4 |
-| dc006.console.des.caixa | 10.116.97.21 | cspdeapllx074 | 7.4 |
-| dc007.console.des.caixa | 10.116.94.224 | sspdeapllx191 | 7.0 |
-| dc008.console.des.caixa (keystore) | 10.116.24.124 | cadtqapllx032 | 7.4 |
-| jboss.sinbcpj.des.caixa | 10.116.88.120 | sspdeapllx0051 | 6.4 |
-| eap64-nprd.des.caixa | 10.116.88.20 | sbrdeapllx0001 | 6.4 |
-| **eap70-nprd.des.caixa (Domain Controller)** | **10.116.89.0** | **sbrdeapllx069** | **7.1** |
-| jbloteriasdc.caixa (DES/TQS) | 10.116.89.238 | sbrdeapllx059 | 7.0 |
-
-### SIFEC Legado
-- **DES:** SIFEC1 → sbrdeapllx0009 (10.116.88.28) | SIFEC2–5 → sbrdeapllx067 (10.116.94.187)
-- **TQS:** SIFEC1–4 → sbrtqapllx0009 (10.116.24.101)
-
-### Servidores web compartilhados Esteiras (DES/TQS)
-- DES: caddeapllx135 (10.116.223.231), caddeapllx136 (10.116.223.232)
-- TQS: caddeapllx137 (10.116.223.233), caddeapllx138 (10.116.223.234)
-- VIP: 10.116.80.21
-
-### Apaches legados
-- Mais antigo: sbrdeaprlx0001 (10.116.84.136:6666), sbrdeaprlx0002 (10.116.84.137:6666)
-- TQS BSB: 10.116.18.72 / 10.116.18.73
-- Para configurar `siecmhealthcheck.des.caixa`: sbrdeaprlx052 (10.116.98.52), sbrdeaprlx053 (10.116.98.53)
-
-### Logins DES/TQS
-| Sistema | URL | Ambiente | Rede | Apache | IP Apache | JBoss | IP JBoss | Versão |
-|---|---|---|---|---|---|---|---|---|
-| siset | login.tqs.caixa | TQS | intra | srjtqaprlx037 | 10.116.18.235 | srjtqapllx0008 | 10.116.24.132 | jb73 |
-| siset | logintqs.caixa.gov.br | TQS | inter | srjtqaprlx037 | 10.116.18.236 | srjtqapllx0009 | 10.116.24.133 | jb73 |
-| siset | login.des.caixa | DES | intra | srjtqaprlx015 | 10.116.84.243 | srjdeapllx074 | 10.116.89.236 | jb73 |
-| siset | logindes.caixa.gov.br | DES | inter | crjdeaprlx062 | 10.116.84.244 | srjdeapllx075 | 10.116.89.237 | jb73 |
-
-REQ de referência: REQ000145164854
-
----
-
-## 10. Contatos de apoio
-
-| Nome | Área de apoio |
-|---|---|
-| **Cledson** | Domain Controller, ambientes legados, problemas de deploy |
-| **Cláudio** | Aplicações legadas, diagnóstico operacional, Domain XML |
-| Jorge | Citado como contato de apoio adicional no repasse |
-
----
-
-## 11. Template — Registro de Atendimento / Acionamento SIGEC
-
-> Copie o bloco abaixo a cada novo acionamento e preencha.
-
-```
-REGISTRO DE ATENDIMENTO — AMBIENTE LEGADO SIGEC
-Data/Hora do acionamento: 
-Aberto por (usuário/equipe): 
-REC/Chamado nº: 
-
-SISTEMA AFETADO: 
-AMBIENTE (DES/TQS/NPRD): 
-SERVIDOR(ES) ENVOLVIDO(S): 
-INSTÂNCIA (Batch/Online): 
-
-SINTOMA RELATADO:
-
-
-DIAGNÓSTICO:
-[ ] Metaspace/memória
-[ ] Garbage Collector
-[ ] Certificado (verificar /upload/sigec)
-[ ] Instância travada
-[ ] Falha de deploy (verificar concorrência com Domain Controller)
-[ ] Outro: 
-
-AÇÕES REALIZADAS:
-1. 
-2. 
-3. 
-
-CONTATOS ACIONADOS (se alteração em domain.xml):
-[ ] Cledson avisado — Hora: 
-[ ] Cláudio avisado — Hora: 
-
-RESULTADO:
-[ ] Resolvido
-[ ] Escalado para: 
-[ ] Pendente
-
-OBSERVAÇÕES / RECOMENDAÇÃO PARA PRÓXIMO ATENDIMENTO:
-
-
-Responsável pelo atendimento: Jesse Mouta Pereira Batista, CTIS/CESTI — Esteira DevOps DES TQS NPRD
-```
-
----
-
-*Documento consolidado a partir do repasse técnico de 07/08/2026 (Murilo Silva Andrade Souza). Use este manual como referência rápida; para qualquer dúvida na hora do incidente, me envie o sintoma que te ajudo a montar o diagnóstico e o registro.*
+Starting: Maven
+==============================================================================
+Task         : Maven
+Description  : Build, test, and deploy with Apache Maven
+Version      : 4.225.0
+Author       : Microsoft Corporation
+Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/build/maven
+==============================================================================
+/opt/apache-maven/apache-maven-3.8.5/bin/mvn -version
+Apache Maven 3.8.5 (3599d3414f046de2324203b78ddcf9b5e4388aa0)
+Maven home: /opt/apache-maven/apache-maven-3.8.5
+Java version: 1.8.0_221, vendor: Oracle Corporation, runtime: /usr/java/jdk1.8.0_221/jre
+Default locale: pt_BR, platform encoding: UTF-8
+OS name: "linux", version: "3.10.0-1062.9.1.el7.x86_64", arch: "amd64", family: "unix"
+/opt/apache-maven/apache-maven-3.8.5/bin/mvn -f /opt/ads-agent/_work/7648/s/pom.xml clean compile install -Drevision=790980
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for br.gov.caixa.dict:sispi-dict-batch-polling-ear:ear:790980
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-compiler-plugin is missing. @ br.gov.caixa.dict:sispi-dict-batch-polling:${revision}, /opt/ads-agent/_work/7648/s/pom.xml, line 95, column 12
+[WARNING] 'build.plugins.plugin.version' for org.jacoco:jacoco-maven-plugin is missing. @ br.gov.caixa.dict:sispi-dict-batch-polling:${revision}, /opt/ads-agent/_work/7648/s/pom.xml, line 76, column 12
+[WARNING] 'build.plugins.plugin.version' for org.jboss.as.plugins:jboss-as-maven-plugin is missing. @ br.gov.caixa.dict:sispi-dict-batch-polling-ear:${revision}, /opt/ads-agent/_work/7648/s/sispi-dict-batch-ear/pom.xml, line 49, column 12
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for br.gov.caixa.dict:sispi-dict-batch-polling-ejb:ejb:790980
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-compiler-plugin is missing. @ br.gov.caixa.dict:sispi-dict-batch-polling:${revision}, /opt/ads-agent/_work/7648/s/pom.xml, line 95, column 12
+[WARNING] 'build.plugins.plugin.version' for org.jacoco:jacoco-maven-plugin is missing. @ br.gov.caixa.dict:sispi-dict-batch-polling:${revision}, /opt/ads-agent/_work/7648/s/pom.xml, line 76, column 12
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for br.gov.caixa.dict:sispi-dict-batch-polling-war:war:790980
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-compiler-plugin is missing. @ br.gov.caixa.dict:sispi-dict-batch-polling:${revision}, /opt/ads-agent/_work/7648/s/pom.xml, line 95, column 12
+[WARNING] 'build.plugins.plugin.version' for org.jacoco:jacoco-maven-plugin is missing. @ br.gov.caixa.dict:sispi-dict-batch-polling:${revision}, /opt/ads-agent/_work/7648/s/pom.xml, line 76, column 12
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for br.gov.caixa.dict:sispi-dict-batch-polling:pom:790980
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-compiler-plugin is missing. @ br.gov.caixa.dict:sispi-dict-batch-polling:${revision}, /opt/ads-agent/_work/7648/s/pom.xml, line 95, column 12
+[WARNING] 'build.plugins.plugin.version' for org.jacoco:jacoco-maven-plugin is missing. @ br.gov.caixa.dict:sispi-dict-batch-polling:${revision}, /opt/ads-agent/_work/7648/s/pom.xml, line 76, column 12
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+
+
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] sispi-dict-batch-polling                                           [pom]
+[INFO] sispi-dict-batch-polling-ejb                                       [ejb]
+[INFO] sispi-dict-batch-war                                               [war]
+[INFO] sispi-dict-batch-polling-ear                                       [ear]
+[INFO] 
+[INFO] -------------< br.gov.caixa.dict:sispi-dict-batch-polling >-------------
+[INFO] Building sispi-dict-batch-polling 790980                           [1/4]
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ sispi-dict-batch-polling ---
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.8.15:prepare-agent (agent-for-ut) @ sispi-dict-batch-polling ---
+[INFO] argLine set to -javaagent:/opt/ads-agent/.m2/repository/org/jacoco/org.jacoco.agent/0.8.15/org.jacoco.agent-0.8.15-runtime.jar=destfile=/opt/ads-agent/_work/7648/s/target/jacoco.exec
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.8.15:prepare-agent (agent-for-ut) @ sispi-dict-batch-polling ---
+[INFO] argLine set to -javaagent:/opt/ads-agent/.m2/repository/org/jacoco/org.jacoco.agent/0.8.15/org.jacoco.agent-0.8.15-runtime.jar=destfile=/opt/ads-agent/_work/7648/s/target/jacoco.exec
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.8.15:report (post-unit-test) @ sispi-dict-batch-polling ---
+[INFO] Skipping JaCoCo execution due to missing execution data file.
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ sispi-dict-batch-polling ---
+[INFO] Installing /opt/ads-agent/_work/7648/s/pom.xml to /opt/ads-agent/.m2/repository/br/gov/caixa/dict/sispi-dict-batch-polling/790980/sispi-dict-batch-polling-790980.pom
+[INFO] 
+[INFO] -----------< br.gov.caixa.dict:sispi-dict-batch-polling-ejb >-----------
+[INFO] Building sispi-dict-batch-polling-ejb 790980                       [2/4]
+[INFO] --------------------------------[ ejb ]---------------------------------
+Downloading from Nexus Caixa: http://binario.caixa:8081/repository/caixa-group-br/br/gov/caixa/dict/simpi-dict-api-model/2.26.0.0/simpi-dict-api-model-2.26.0.0.pom
+Progress (1): 414 B
+
+Downloaded from Nexus Caixa: http://binario.caixa:8081/repository/caixa-group-br/br/gov/caixa/dict/simpi-dict-api-model/2.26.0.0/simpi-dict-api-model-2.26.0.0.jar (453 kB at 352 kB/s)
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ sispi-dict-batch-polling-ejb ---
+[INFO] Deleting /opt/ads-agent/_work/7648/s/sispi-dict-batch-ejb/target
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.8.15:prepare-agent (agent-for-ut) @ sispi-dict-batch-polling-ejb ---
+[INFO] argLine set to -javaagent:/opt/ads-agent/.m2/repository/org/jacoco/org.jacoco.agent/0.8.15/org.jacoco.agent-0.8.15-runtime.jar=destfile=/opt/ads-agent/_work/7648/s/sispi-dict-batch-ejb/target/jacoco.exec
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ sispi-dict-batch-polling-ejb ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ sispi-dict-batch-polling-ejb ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 316 source files to /opt/ads-agent/_work/7648/s/sispi-dict-batch-ejb/target/classes
+[WARNING] /opt/ads-agent/_work/7648/s/sispi-dict-batch-ejb/src/main/java/br/gov/caixa/spi/dict/ejb/UsuarioServicoEJB.java: Some input files use or override a deprecated API.
+[WARNING] /opt/ads-agent/_work/7648/s/sispi-dict-batch-ejb/src/main/java/br/gov/caixa/spi/dict/ejb/UsuarioServicoEJB.java: Recompile with -Xlint:deprecation for details.
+[WARNING] /opt/ads-agent/_work/7648/s/sispi-dict-batch-ejb/src/main/java/br/gov/caixa/spi/dict/dao/ReconciliacaoDao.java: Some input files use unchecked or unsafe operations.
+[WARNING] /opt/ads-agent/_work/7648/s/sispi-dict-batch-ejb/src/main/java/br/gov/caixa/spi/dict/dao/ReconciliacaoDao.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.8.15:prepare-agent (agent-for-ut) @ sispi-dict-batch-polling-ejb ---
+[INFO] argLine set to -javaagent:/opt/ads-agent/.m2/repository/org/jacoco/org.jacoco.agent/0.8.15/org.jacoco.agent-0.8.15-runtime.jar=destfile=/opt/ads-agent/_work/7648/s/sispi-dict-batch-ejb/target/jacoco.exec
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ sispi-dict-batch-polling-ejb ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ sispi-dict-batch-polling-ejb ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ sispi-dict-batch-polling-ejb ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 2 resources
+
+
+WARNING] /opt/ads-agent/_work/7648/s/sispi-dict-batch-ejb/src/test/java/br/gov/caixa/spi/dict/ejb/EventoDevolucaoBacenEjbTest.java: Some input files use unchecked or unsafe operations.
+[WARNING] /opt/ads-agent/_work/7648/s/sispi-dict-batch-ejb/src/test/java/br/gov/caixa/spi/dict/ejb/EventoDevolucaoBacenEjbTest.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ sispi-dict-batch-polling-ejb ---
+[INFO] Surefire report directory: /opt/ads-agent/_work/7648/s/sispi-dict-batch-ejb/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running br.gov.caixa.spi.dict.util.DataUtilsTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.135 sec
+Running br.gov.caixa.spi.dict.util.DictNameNormalizerTest
+Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.02 sec
+Running br.gov.caixa.spi.dict.util.RelatoInfracaoUtilTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec
+Running br.gov.caixa.spi.dict.ejb.FilaControleTempoEjbTest
+log4j:WARN No appenders could be found for logger (br.gov.caixa.spi.dict.ejb.FilaControleTempoEjb).
+log4j:WARN Please initialize the log4j system properly.
+log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.32 sec
+Running br.gov.caixa.spi.dict.ejb.ValidacaoPosseChaveEjbTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 sec
+
+
+Running br.gov.caixa.spi.dict.factory.ReconciliacaoFactoryTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec
+Running br.gov.caixa.spi.dict.factory.PoliticaLimitacaoFactoryTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec
+Running br.gov.caixa.spi.dict.sibar.SibarEjbTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec
+
+
+
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 sec
+Running br.gov.caixa.spi.dict.ejb.EventoDevolucaoPixAutomaticoTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.055 sec
+Running br.gov.caixa.spi.dict.ejb.EventoDevolucaoAbertaAutomaticoEjbTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 sec
+Running br.gov.caixa.spi.dict.ejb.FuncionalidadeSistemaEjbTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec
+Running br.gov.caixa.spi.dict.ejb.ChavesCorrecaoBacenEjbTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.038 sec
+Running br.gov.caixa.spi.dict.ejb.PushEjbTest
+Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.032 sec
+Running br.gov.caixa.spi.dict.ejb.PoliticaLimitacaoEjbTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.695 sec
+Running br.gov.caixa.spi.dict.ejb.PagamentoEjbTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 sec
+Running br.gov.caixa.spi.dict.ejb.CidsEjbTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 sec
+Running br.gov.caixa.spi.dict.ejb.RelatoInfracaoManualEjbTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 sec
+Running br.gov.caixa.spi.dict.ejb.ValidacaoPosseChaveDaoTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+Running br.gov.caixa.spi.dict.ejb.FecharDevolucaoEjbTest
+Tests run: 60, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.149 sec
+Running br.gov.caixa.spi.dict.ejb.ChaveEjbTest
+Tests run: 58, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 282.353 sec
+Running br.gov.caixa.spi.dict.ejb.DevolucaoPagamentoEjbTest
+Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 sec
+Running br.gov.caixa.spi.dict.ejb.ParametroSPIEjbTest
+Tests run: 79, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 sec
+Running br.gov.caixa.spi.dict.ejb.ContaEjbTest
+Tests run: 27, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.033 sec
+Running br.gov.caixa.spi.dict.ejb.MigracaoContaEjbTest
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time e
+Results :
+
+Failed tests:   testTrataNovaDevolucaoPixAutomaticoSucesso(br.gov.caixa.spi.dict.ejb.EventoDevolucaoBacenHelperEjbTest)
+
+Tests run: 684, Failures: 1, Errors: 0, Skipped: 0
+
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for sispi-dict-batch-polling 790980:
+[INFO] 
+[INFO] sispi-dict-batch-polling ........................... SUCCESS [  0.481 s]
+[INFO] sispi-dict-batch-polling-ejb ....................... FAILURE [05:02 min]
+[INFO] sispi-dict-batch-war ............................... SKIPPED
+[INFO] sispi-dict-batch-polling-ear ....................... SKIPPED
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  05:02 min
+[INFO] Finished at: 2026-08-06T20:42:15-03:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.12.4:test (default-test) on project sispi-dict-batch-polling-ejb: There are test failures.
+[ERROR] 
+[ERROR] Please refer to /opt/ads-agent/_work/7648/s/sispi-dict-batch-ejb/target/surefire-reports for the individual test results.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <args> -rf :sispi-dict-batch-polling-ejb
+The process '/opt/apache-maven/apache-maven-3.8.5/bin/mvn' failed with exit code 1
