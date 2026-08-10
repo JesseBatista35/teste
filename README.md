@@ -1,17 +1,20 @@
-#!/bin/bash
-set -e
+gerar pom.properties
 
-GROUP_ID=$(grep -m1 -oP '(?<=<groupId>).*(?=</groupId>)' pom.xml)
-ARTIFACT_ID=$(grep -m1 -oP '(?<=<artifactId>).*(?=</artifactId>)' pom.xml)
-VERSION=$(grep -m1 -oP '(?<=<version>).*(?=</version>)' pom.xml)
+View raw log
 
-mkdir -p target/maven-archiver
-
-cat > target/maven-archiver/pom.properties <<EOF
-groupId=${GROUP_ID}
-artifactId=${ARTIFACT_ID}
-version=${VERSION}
-EOF
-
-echo "pom.properties gerado:"
-cat target/maven-archiver/pom.properties
+Starting: gerar pom.properties
+==============================================================================
+Task         : Bash
+Description  : Run a Bash script on macOS, Linux, or Windows
+Version      : 3.227.0
+Author       : Microsoft Corporation
+Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/bash
+==============================================================================
+Generating script.
+========================== Starting Command Output ===========================
+/usr/bin/bash /opt/ads-agent/_work/_temp/5fee8d46-9ba5-4d0f-b85f-a0a8640d803f.sh
+pom.properties gerado:
+groupId=br.gov.caixa
+artifactId=sipes-api-scpc
+version=1.0.0.0
+Finishing: gerar pom.properties
