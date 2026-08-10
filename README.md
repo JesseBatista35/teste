@@ -1,382 +1,104 @@
 Skip to main content
+Azure DevOps
 projetos
 /
-Caixa
+Infraestrutura
 /
-Pipelines
+Repos
+/
+Files
+/
+
+esteira-vm-build-image-packer
 Search
 
 
+Infraestrutura
 
+Overview
 
+Boards
 
+Repos
+Files
+Commits
+Pushes
+Branches
+Tags
+Pull requests
 
+Pipelines
 
+Test Plans
 
-
-SISPI
-
-SISPI-batch-busca-pendencia
+Artifacts
+Project settings
+esteira-vm-build-image-packer
 
-Tasks
+ansible
+winnt
+anaconda-ks.cfg
+ks.cfg
+README.md
+rhel7_build.json
+rhel8_build.json
+rhel9_build.json
 
-Variables
+master
 
-Triggers
+/
+README.md
+README.md
 
-Options
+Edit
 
+Contents
+Preview
 History
-BUILD_DEFAULT_QUARKUS_OPENJDK
-Task version
-7.*
-Display name
-BUILD_DEFAULT_QUARKUS_JDK11
-AZPAT
-$(AZPAT)
-FORTIFY_API
-$(FORTIFY_API)
-FORTIFY_APITOKEN
-$(FORTIFY_APITOKEN)
-FORTIFY_BUILD
-$(FORTIFY_BUILD)
-FORTIFY_CI_TOKEN
-$(FORTIFY_CI_TOKEN)
-FORTIFY_CLIENT_AUTH_TOKEN
-$(FORTIFY_CLIENT_AUTH_TOKEN)
-fortify_disable
-$(fortify_disable)
-FORTIFY_FPR_NAME
-$(FORTIFY_FPR_NAME)
-FORTIFY_NEW_VERSION
-$(FORTIFY_NEW_VERSION)
-FORTIFY_PASS
-$(FORTIFY_PASS)
-FORTIFY_POOL_GOLD_NOVO
-$(FORTIFY_POOL_GOLD_NOVO)
-FORTIFY_POOL_SILVER_NOVO
-$(FORTIFY_POOL_SILVER_NOVO)
-FORTIFY_REGEX
-$(FORTIFY_REGEX)
-FORTIFY_SENSOR_POOL
-$(FORTIFY_SENSOR_POOL)
-FORTIFY_UPTOKEN
-$(FORTIFY_UPTOKEN)
-FORTIFY_URL
-$(FORTIFY_URL)
-FORTIFY_URL_CONTROLLER
-$(FORTIFY_URL_CONTROLLER)
-FORTIFY_USER
-$(FORTIFY_USER)
-FORTIFY_VERSION_BUILD
-$(FORTIFY_VERSION_BUILD)
-FTFY_MVN_GOAL
-$(FTFY_MVN_GOAL)
-GradleVersion
-$(GradleVersion)
-JAVA_VERSION
-open-jdk-21.0.5
-KEYSTORE_SECUREFILEPATH
-$(KEYSTORE_SECUREFILEPATH)
-lista_versao
-$(lista_versao)
-MAVEN_VERSION
-3.8.5
-MVN_GOAL
-clean package -U
-nexus_interno_pass
-$(nexus_interno_pass)
-nexus_interno_user
-$(nexus_interno_user)
-NEXUS_REPOSITORY_ID
-$(NEXUS_REPOSITORY_ID)
-NEXUS_URL_MAVEN_RELEASE
-$(NEXUS_URL_MAVEN_RELEASE)
-NEXUS_URL_MAVEN_SNAPSHOT
-$(NEXUS_URL_MAVEN_SNAPSHOT)
-NODE_EXTRA_CA_CERTS
-$(NODE_EXTRA_CA_CERTS)
-p_language
-$(p_language)
-POM_PATH
-pom.xml
-POM_VERSION
-$(POM_VERSION)
-project.group
-$(project.group)
-project.name
-$(project.name)
-project.version
-$(project.version)
-REPO_FINAL_NAME
-$(REPO_FINAL_NAME)
-REPOSITORIO
-$(REPOSITORIO)
-SCANCENTRAL_URL
-$(SCANCENTRAL_URL)
-SONAR_LOGIN
-$(SONAR_LOGIN)
-SONAR_PASSWORD
-$(SONAR_PASSWORD)
-SONAR_PROPERTIES
-$(SONAR_PROPERTIES)
-SONAR_URL
-$(SONAR_URL)
-tbuild
-$(tbuild)
-token
-$(token)
-token_id
-$(token_id)
-valida.vec
-$(valida.vec)
-version.app
-$(version.app)
-versionApp
-$(versionApp)
-Control Options
-Output Variables
-Row 2. Clickable
-
-Showing 25 filtered items.
-
-Get started and run this pipeline for the first time!
-
-Showing 35 filtered items.
-
-Showing 25 filtered items.
-
-Row 2. Clickable
-
-Row 2. Clickable
-
-Row 2. Clickable
-
-Showing 25 filtered items.
-
-Get started and run this pipeline for the first time!
-
-Showing 35 filtered items.
-
-Showing 25 filtered items.
-
-
-
-
-
-
-qual que eu uso aqui?
-
-
-
-Sem sistema |
-  Trocar:  
-Digite o sistema
-:  
-Wiki Fácil
-Chamados
-Aprovações
-Gestão
-Home
-Consultas
-Ambientes
-Esteiras DevOps
-Cadastros
-Sistemas Tradicionais
-Soluções Departamentais
-Serviços
-Nuvem Pública
-Rede
-Armazenamento
-Data Center
-Transferências
-Banco de Dados
-Ajuda
-Analytics
-Cadastros / Templates/Imagens
-Plataforma:
-Container
-Nome	Plataforma	Versão	Status	Ações
-jboss-eap	container	7.0.9	ativo
-  
-  
-jboss-eap	container	7.3.1-jdk11	ativo
-  
-  
-jboss-eap	container	7.4.4-java11-fonts.1	ativo
-  
-  
-jboss-eap	container	7.1.0-mscore-fonts	ativo
-  
-  
-jboss-eap	container	7.1.6	ativo
-  
-  
-quarkus-java-binary-s2i	container	8.2-hsm	ativo
-  
-  
-jboss-eap	container	7.4.4-java11	ativo
-  
-  
-jboss-eap	container	7.4.11-openjdk11	ativo
-  
-  
-dotnet-runtime	container	5.0	ativo
-  
-  
-jboss-eap	container	7.1.0	ativo
-  
-  
-quarkus-java-binary-s2i	container	8.2-java-append	ativo
-  
-  
-jboss-eap	container	7.2.0	ativo
-  
-  
-jboss-eap	container	7.3.0	ativo
-  
-  
-spring-boot	container	8.2	ativo
-  
-  
-dotnet-runtime	container	6.0	ativo
-  
-  
-jboss-eap	container	7.4-update4	ativo
-  
-  
-nginx	container	1.18	ativo
-  
-  
-jboss-eap	container	7.2.8	ativo
-  
-  
-quarkus-java-binary-s2i	container	8.2	ativo
-  
-  
-jboss-eap	container	7.3.1	ativo
-  
-  
-quarkus-java-binary-s2i	container	openjdk17	ativo
-  
-  
-jboss-eap	container	7.0.0	ativo
-  
-  
-jboss-eap	container	7.1.6-jdk8-301	ativo
-  
-  
-rhel8	container	openjdk17	ativo
-  
-  
-php-portaldevops	container	7.3	ativo
-  
-  
-nginx	container	1.12	ativo
-  
-  
-jboss-eap	container	7.4.11-openjdk8	ativo
-  
-  
-php	container	8.1	ativo
-  
-  
-jboss-eap	container	7.4.11-openjdk8-v2	ativo
-  
-  
-jboss-eap	container	7.4.11-openjdk-8	ativo
-  
-  
-dotnet	container	6.0	ativo
-  
-  
-dotnet-runtime	container	6.0.411	ativo
-  
-  
-jboss-eap	container	7.4.11-openjdk17	ativo
-  
-  
-php	container	7.3	ativo
-  
-  
-jboss-eap	container	7.4.11-openjdk-17	ativo
-  
-  
-nginx	container	1.24	ativo
-  
-  
-jboss-eap	container	7.4.1	ativo
-  
-  
-nginx	container	1.26	ativo
-  
-  
-jboss-eap	container	7.1.6-jdk8-301-hsm-4.10.2	ativo
-  
-  
-jboss-eap	container	7.1.6-jdk8-301-user	ativo
-  
-  
-jboss-eap	container	7.4.11	ativo
-  
-  
-jboss-eap	container	7.4.4-openjdk11	ativo
-  
-  
-jboss-eap	container	7.4.14-openjdk-17	ativo
-  
-  
-nginx	container	1.20-ubi8	ativo
-  
-  
-jboss-eap	container	7.1.6-appinsights	ativo
-  
-  
-nginx	container	1.24-test	ativo
-  
-  
-nginx	container	1.26-test	ativo
-  
-  
-jboss-eap	container	7.4.11-jdk8-hsm	ativo
-  
-  
-jboss-eap	container	7.4.14-openjdk-17-test	ativo
-  
-  
-jboss-eap	container	eap7.1.6-mscore-fonts-openjdk1.8.0_422	ativo
-  
-  
-quarkus-java-binary-s2i	container	8.2-openjdk21.0.1	ativo
-  
-  
-dotnet-runtime	container	8.0	ativo
-  
-  
-jboss-pipeline	container	7.0.5-probe	ativo
-  
-  
-jboss-eap	container	7.4.18-jdk8-301-hsm-4.10.2	ativo
-  
-  
-quarkus-java-binary-s2i	container	openjdk17-hsm	ativo
-  
-  
-jboss-eap	container	7.0.5-db2	ativo
-  
-  
-nginx	container	1.24-test-apache	ativo
-  
-  
-jboss-eap	container	7.4.11-openjdk-8-ubi9	ativo
-  
-  
-nginx	container	1.24-test-default	ativo
-  
-  
-php	container	8.2-laravel-10	ativo
-  
-  
-php	container	8.2-laravel-10-1	ativo
-  
-  
+Compare
+Blame
+Definição das imagens
+Novos Templates com nomes e openjdk-8/11/17
+ID	RHEL	JBOSS	JAVA	APACHE	STATUS
+ads-agent-container-build	OKD	XXXXXXXX	XXXXXXXX	XXXXXXXX	
+ads-agent-container-qa	OKD	XXXXXXXX	XXXXXXXX	XXXXXXXX	
+ads-agent-container-release	OKD	XXXXXXXX	XXXXXXXX	XXXXXXXX	
+adsagent2181-rhel79-v022	RHEL-7.9	XXXXXXXX	XXXXXXXX	XXXXXXXX	
+-------------------------------------------------------------	-------------	----------	--------------------	-------------	-------------------------------------
+eap70-jdk8-apache24-rhel79-v008	RHEL-7.9	7.0.9	jdk-1.8.331	2.4.23-SP3	
+-------------------------------------------------------------	-------------	----------	--------------------	-------------	-------------------------------------
+eap71-jdk8-apache24-rhel79-v019	RHEL-7.9	7.1.6	jdk-1.8.331	2.4.29-SP3	
+eap71-openjdk8-apache24-rhel79-v010	RHEL-7.9	7.1.6	openjdk-1.8.262	2.4.29-SP3	
+eap71-openjdk11-apache24-rhel79-v018	RHEL-7.9	7.1.6	openjdk-11.0.23	2.4.29-SP3	/logs 5G -Zabbix 5
+eap71-openjdk8-apache24-rhel93-v003	RHEL-9.3	7.1.6	openjdk-1.8.422	2.4.57-SP6	
+-------------------------------------------------------------	-------------	----------	--------------------	-------------	-------------------------------------
+eap73-openjdk8-apache24-rhel79-v004	RHEL-7.9	7.3.10	openjdk-1.8.412	2.4.37-SP11	
+eap73-openjdk11-apache24-rhel79-v011	RHEL-7.9	7.3.10	openjdk-11.0.23	2.4.37-SP11	
+-------------------------------------------------------------	-------------	----------	--------------------	-------------	-------------------------------------
+eap74-openjdk8-apache24-rhel79-v025	RHEL-7.9	7.4.18	openjdk-1.8.412	2.4.37-SP11	
+eap74-openjdk11-apache24-rhel79-v043	RHEL-7.9	7.4.18	openjdk-11.0.23	2.4.37-SP11	
+eap74-openjdk8-apache24-rhel93-v015	RHEL-9.3	7.4.18	openjdk-1.8.422	2.4.57-SP6	
+eap74-openjdk17-apache24-rhel93-v013	RHEL-9.3	7.4.18	openjdk-17.0.12	2.4.57-SP6	
+-------------------------------------------------------------	-------------	----------	--------------------	-------------	-------------------------------------
+eap80-openjdk17-apache24-rhel93-v006	RHEL-9.3	8.0.4	openjdk-17.0.12	2.4.57-SP6	
+eap80-openjdk21-apache24-rhel93-v004	RHEL-9.3	8.0.4	openjdk-21.0.x	2.4.57-SP6	
+-------------------------------------------------------------	-------------	----------	--------------------	-------------	-------------------------------------
+controlm-openjdk11-rhel79-v019	RHEL-7.9	XXXXXXXX	openjdk-11.0.8	XXXXXXXX	ControlM v9-19.200
+controlm-v9-19-200-openjdk8-rhel79-v007	RHEL-7.9	XXXXXXXX	openjdk-1.8.262	XXXXXXXX	ControlM v9-19.200
+controlm-plugins-v9-19-200-openjdk11-rhel79-v006	RHEL-7.9	XXXXXXXX	openjdk-11.0.8	XXXXXXXX	ControlM v9-19.200_pluguin
+controlm9p-openjdk17-rhel93-v040	RHEL-9.3	XXXXXXXX	openjdk-17.0.10	XXXXXXXX	ControlM v9-19.200_pluguin
+controlm9p-dotnet8-openjdk17-rhel93-v011	RHEL-9.3	XXXXXXXX	openjdk-17.0.12	XXXXXXXX	ControlM v9-19.200_pluguin
+controlm-21.200-AP-openjdk17-rhel93-v017	RHEL-9.3	XXXXXXXX	openjdk-17.0.14	XXXXXXXX	ControlM v9-21.200_AP
+controlm-21.200-AG-openjdk17-rhel93-v004	RHEL-9.3	XXXXXXXX	openjdk-17.0.14	XXXXXXXX	ControlM v9-21.200_AG
+controlm-21.200-AG-DATA-openjdk17-rhel93-v004	RHEL-9.3	XXXXXXXX	openjdk-17.0.14	XXXXXXXX	ControlM v9-21.200_AG-DATA
+controlm-21.200-AG-DATA-oracli-openjdk17-rhel93-v057	RHEL-9.3	XXXXXXXX	openjdk-17.0.14	XXXXXXXX	ControlM v9-21.200_AG-DATA-OraCli
+controlm-21.300-AG-openjdk21-rhel93-v023	RHEL-9.3	XXXXXXXX	openjdk-21.0.11	XXXXXXXX	ControlM v9-21.300_AG
+controlm-21.300-AG-DATA-openjdk21-rhel93-v003	RHEL-9.3	XXXXXXXX	openjdk-21.0.11	XXXXXXXX	ControlM v9-21.300_AG-DATA
+-------------------------------------------------------------	-------------	----------	--------------------	-------------	-------------------------------------
+openjdk8-rhel79-v002	RHEL-7.9	XXXXXXXX	openjdk-1.8.262	XXXXXXXX	
+-------------------------------------------------------------	-------------	----------	--------------------	-------------	-------------------------------------
+openjdk11-apache24-rhel79-v013	RHEL-7.9	XXXXXXXX	openjdk-11.0.8	2.4.37-SP6	RHSSO 7.6.2
+openjdk11-rhel79-v005	RHEL-7.9	XXXXXXXX	openjdk-11.0.8	XXXXXXXX	
+openjdk11-rhel93-v005	RHEL-9.3	XXXXXXXX	openjdk-1.8.262	XXXXXXXX	
+-------------------------------------------------------------	-------------	----------	--------------------	-------------	-------------------------------------
+rhel93-v015	XXXXXXXX	XXXXXXXX	xxxxxxxxxxxxxxx	xxxxxxxx	Template gerado para SITDF
