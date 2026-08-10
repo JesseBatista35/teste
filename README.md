@@ -1,55 +1,32 @@
-[p585600@caddeapllx2666 ~]$
-[p585600@caddeapllx2666 ~]$ netstat -tulpn | grep :80
-(Nem todos os processos puderam ser identificados, informações sobre processos
- de outrem não serão mostrados, você deve ser root para vê-los todos.)
-tcp        0      0 0.0.0.0:8080            0.0.0.0:*               OUÇA       -
-[p585600@caddeapllx2666 ~]$
-[p585600@caddeapllx2666 ~]$
-[p585600@caddeapllx2666 ~]$
-[p585600@caddeapllx2666 ~]$ curl -v http://localhost:80/
-*   Trying ::1:80...
-* connect to ::1 port 80 failed: Conexão recusada
-*   Trying 127.0.0.1:80...
-* connect to 127.0.0.1 port 80 failed: Conexão recusada
-* Failed to connect to localhost port 80: Conexão recusada
-* Closing connection 0
-curl: (7) Failed to connect to localhost port 80: Conexão recusada
-[p585600@caddeapllx2666 ~]$
-[p585600@caddeapllx2666 ~]$
-[p585600@caddeapllx2666 ~]$ curl -v http://127.0.0.1:80/
-*   Trying 127.0.0.1:80...
-* connect to 127.0.0.1 port 80 failed: Conexão recusada
-* Failed to connect to 127.0.0.1 port 80: Conexão recusada
-* Closing connection 0
-curl: (7) Failed to connect to 127.0.0.1 port 80: Conexão recusada
-[p585600@caddeapllx2666 ~]$
-[p585600@caddeapllx2666 ~]$
-[p585600@caddeapllx2666 ~]$  curl -v http://10.116.201.122:80/
-*   Trying 10.116.201.122:80...
-* connect to 10.116.201.122 port 80 failed: Conexão recusada
-* Failed to connect to 10.116.201.122 port 80: Conexão recusada
-* Closing connection 0
-curl: (7) Failed to connect to 10.116.201.122 port 80: Conexão recusada
-[p585600@caddeapllx2666 ~]$ curl -v http://10.116.201.122:80/
-*   Trying 10.116.201.122:80...
-* connect to 10.116.201.122 port 80 failed: Conexão recusada
-* Failed to connect to 10.116.201.122 port 80: Conexão recusada
-* Closing connection 0
-curl: (7) Failed to connect to 10.116.201.122 port 80: Conexão recusada
-[p585600@caddeapllx2666 ~]$ sudo su
+Aqui está a nota, pronta para colar na WO0000081056391:
 
-Presumimos que você recebeu as instruções de sempre do administrador
-de sistema local. Basicamente, resume-se a estas três coisas:
+À
+TELEDATA/CETEL/REDES,
 
-    #1) Respeite a privacidade dos outros.
-    #2) Pense antes de digitar.
-    #3) Com grandes poderes vêm grandes responsabilidades.
+Prezados,
 
-[sudo] senha para p585600:
-[root@caddeapllx2666 p585600]# curl -v http://10.116.201.122:80/
-*   Trying 10.116.201.122:80...
-* connect to 10.116.201.122 port 80 failed: Conexão recusada
-* Failed to connect to 10.116.201.122 port 80: Conexão recusada
-* Closing connection 0
-curl: (7) Failed to connect to 10.116.201.122 port 80: Conexão recusada
-[root@caddeapllx2666 p585600]#
+Realizamos a análise solicitada no servidor 10.116.201.122 referente à indisponibilidade do VIP 10.116.181.187 (siamc-dev-intranet.esteiras.des.caixa).
+
+Diagnóstico:
+
+Confirmamos, via acesso ao servidor, que a aplicação está ativa e íntegra, porém publicada na porta 8080, e não na porta 80:
+
+netstat -tulpn | grep :80
+tcp    0    0 0.0.0.0:8080    0.0.0.0:*    LISTEN
+
+Testes de conectividade local confirmam que não há serviço escutando na porta 80 do servidor (conexão recusada em localhost, 127.0.0.1 e no IP 10.116.201.122, inclusive com privilégio root):
+
+curl http://10.116.201.122:80/ → Falha na conexão: Conexão recusada
+
+Ou seja, o VIP está configurado corretamente do ponto de vista de rede, porém o serviceGroup/bind aponta para a porta 80 no backend, enquanto a aplicação real está publicada na porta 8080. Por esse motivo o monitor de saúde (CEF_TCP_DEFAULT_MON) não consegue validar o servidor, e o VIP permanece DOWN.
+
+Solicitação:
+
+Favor ajustar o serviceGroup LB_SG_10.116.181.187_HTTP_80, alterando o bind do server 10.116.201.122 da porta 80 para a porta 8080, mantendo o restante da configuração do VIP (VIP 10.116.181.187, redirecionamento HTTP→HTTPS e vserver SSL 443 com o certificado já vinculado).
+
+Ficamos no aguardo da correção para validarmos a disponibilização da aplicação.
+
+At.te,
+
+Jessé Batista
+CTIS/CESTI — Esteira DevOps DES TQS NPRD
