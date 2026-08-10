@@ -1,22 +1,12 @@
 
-[root@sbrdeapllx069 p981778]# /opt/jboss/jboss-eap/bin/jboss-cli.sh --connect --controller=10.116.89.0:9999
-[domain@10.116.89.0:9999 /] /host=sbrdeapllx104_credito/server-config=si
-sigec-comercial_node_lx104             sigec-portabilidade-batch_node1_lx104  sigec-portabilidade3_node1_lx104       sirim_node1_lx104
-sigec-csc_node1_lx104                  sigec-portabilidade2_node1_lx104       sipon_node1_lx104
-[domain@10.116.89.0:9999 /] /host=sbrdeapllx104_credito/server-config=sigec-portabilidade-batch_node1_lx104:start
-{
-    "outcome" => "success",
-    "result" => "STARTING"
-}
-[domain@10.116.89.0:9999 /] /host=sbrdeapllx104_credito/server-config=sigec-portabilidade2_node1_lx104:start
-{
-    "outcome" => "success",
-    "result" => "STARTING"
-}
-[domain@10.116.89.0:9999 /]
+Nota de Fechamento
 
+Identificada indisponibilidade na aplicação SIGEC Portabilidade (DES), instância Batch, com retorno de erro 404 ao acessar o endpoint da aplicação.
 
+Realizada verificação junto ao Domain Controller JBoss, constatando que as instâncias sigec-portabilidade-batch_node1_lx104 e sigec-portabilidade2_node1_lx104 encontravam-se paradas no host sbrdeapllx104_credito.
 
+Efetuado reinício das instâncias via JBoss CLI, com posterior validação de acesso à aplicação, confirmando normalização do serviço.
 
+Chamado encerrado com sucesso.
 
-<img width="1913" height="1035" alt="image" src="https://github.com/user-attachments/assets/ab291ffe-d2da-48cb-81bd-c7f768afde4e" />
+Jessé Batista, CTIS/CESTI — Esteira DevOps DES TQS NPRD
