@@ -1,18 +1,11 @@
 
-[p585600@caddeapllx2725 deployments]$
-[p585600@caddeapllx2725 deployments]$
-[p585600@caddeapllx2725 deployments]$ ss -tlnp | grep -E ':8080|:8009|:9990'
-LISTEN 0      10000        0.0.0.0:8080      0.0.0.0:*
-LISTEN 0      10000        0.0.0.0:8009      0.0.0.0:*
-LISTEN 0      50           0.0.0.0:9990      0.0.0.0:*
-[p585600@caddeapllx2725 deployments]$
-[p585600@caddeapllx2725 deployments]$
-[p585600@caddeapllx2725 deployments]$ netstat -tlnp | grep -E ':8080|:8009|:9990'
-(Nem todos os processos puderam ser identificados, informações sobre processos
- de outrem não serão mostrados, você deve ser root para vê-los todos.)
-tcp        0      0 0.0.0.0:8080            0.0.0.0:*               OUÇA       -
-tcp        0      0 0.0.0.0:8009            0.0.0.0:*               OUÇA       -
-tcp        0      0 0.0.0.0:9990            0.0.0.0:*               OUÇA       -
-[p585600@caddeapllx2725 deployments]$
-[p585600@caddeapllx2725 deployments]$
-[p585600@caddeapllx2725 deployments]$
+[root@caddeapllx2725 deployments]# kill -9 859957 859791 859788
+[root@caddeapllx2725 deployments]#
+[root@caddeapllx2725 deployments]#
+[root@caddeapllx2725 deployments]# ss -tlnp | grep -E ':8080|:8009|:9990'
+[root@caddeapllx2725 deployments]#
+[root@caddeapllx2725 deployments]#
+[root@caddeapllx2725 deployments]#
+[root@caddeapllx2725 deployments]# ps -ef | grep java | grep -v grep
+jboss    1192621 1192455 25 11:01 ?        00:00:30 java -D[Standalone] -verbose:gc -Xloggc:/logs/jboss/jboss-eap/standalone/siacc-tela-branca/gc.log -XX:+PrintGCDetails -XX:+PrintGCDateStamps -XX:+UseGCLogFileRotation -XX:NumberOfGCLogFiles=5 -XX:GCLogFileSize=3M -XX:-TraceClassUnloading -Djdk.serialFilter=maxbytes=10485760;maxdepth=128;maxarray=100000;maxrefs=300000 -Xms1024m -Xmx2048m -XX:MetaspaceSize=96M -XX:MaxMetaspaceSize=256m -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs=org.jboss.byteman,org.jboss.logmanager -Djava.awt.headless=true -Djavax.net.ssl.trustStore=/opt/jboss-eap/standalone/configuration/caixa-truststore-acteste-nprd.jks -Djavax.net.ssl.trustStorePassword=changeit -Djboss.modules.policy-permissions=true -server -XX:+ExplicitGCInvokesConcurrent -XX:+UseG1GC -XX:MaxGCPauseMillis=500 -Xbootclasspath/a:/opt/jboss-eap/modules/system/layers/base/org/wildfly/common/main/wildfly-common-1.5.4.Final-redhat-00001.jar -Xbootclasspath/a:/opt/jboss-eap/modules/system/layers/base/org/jboss/logmanager/main/jboss-logmanager-2.1.18.Final-redhat-00001.jar -Dsun.util.logging.disableCallerCheck=true -Djava.util.logging.manager=org.jboss.logmanager.LogManager -Dhttp.nonProxyHosts=localhost|127.0.0.1|*.caixa|*.caixa.gov.br -Dorg.jboss.boot.log.file=/logs/jboss/jboss-eap/standalone/siacc-tela-branca/server.log -Dlogging.configuration=file:/opt/jboss-eap/standalone/configuration/logging.properties -jar /opt/jboss-eap/jboss-modules.jar -mp /opt/jboss-eap/modules org.jboss.as.standalone -Djboss.home.dir=/opt/jboss-eap -Djboss.server.base.dir=/opt/jboss-eap/standalone -b 0.0.0.0 -bmanagement 0.0.0.0 -Djboss.server.base.dir=/opt/jboss-eap/standalone -Djboss.server.log.dir=/logs/jboss/jboss-eap/standalone/siacc-tela-branca -c standalone-full-ha.xml
+[root@caddeapllx2725 deployments]#
