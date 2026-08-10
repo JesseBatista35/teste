@@ -5,116 +5,240 @@
 
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>br.gov.caixa.dict</groupId>
-	<artifactId>sispi-dict-batch-polling</artifactId>
-	<version>${revision}</version>
-	<packaging>pom</packaging>
+	<parent>
+		<artifactId>sispi-dict-batch-polling</artifactId>
+		<groupId>br.gov.caixa.dict</groupId>
+		<version>${revision}</version>
+	</parent>
 
-	<modules>
-		<module>sispi-dict-batch-ear</module>
-		<module>sispi-dict-batch-ejb</module>
-		<module>sispi-dict-batch-war</module>
-	</modules>
+	<artifactId>sispi-dict-batch-polling-ejb</artifactId>
+	<name>sispi-dict-batch-polling-ejb</name>
+	<packaging>ejb</packaging>
 
 	<properties>
-		<revision>1.0.0-SNAPSHOT</revision>
-		<java.version>1.8</java.version>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
-		<!-- other plugin versions -->
-		<version.ear.plugin>2.6</version.ear.plugin>
-		<version.ejb.plugin>2.4</version.ejb.plugin>
-		<version.war.plugin>2.1.1</version.war.plugin>
-
-		<!-- maven-compiler-plugin -->
-		<maven.compiler.target>1.8</maven.compiler.target>
 		<maven.compiler.source>1.8</maven.compiler.source>
-		<maven.compiler.encoding>UTF-8</maven.compiler.encoding>
-
-		<version.feign>9.5.1</version.feign>
-		<version.lombok>1.18.12</version.lombok>
-		<resteasy.version>3.11.2.Final</resteasy.version>
-		<mapstruct.version>1.5.5.Final</mapstruct.version>
-
-		<version.infinispan>12.1.7.Final-redhat-00001</version.infinispan>
-		
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<failOnMissingWebXml>false</failOnMissingWebXml>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
-	<dependencyManagement>
-		<dependencies>
 
-			<dependency>
-				<groupId>br.gov.caixa.dict</groupId>
-				<artifactId>sispi-dict-batch-polling-ejb</artifactId>
-				<version>${project.version}</version>
-			</dependency>
+	<repositories>
+		<repository>
+			<id>snapshots</id>
+			<url>
+				http://binario.caixa:8081/repository/snapshots/
+			</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+		</repository>
+	</repositories>
 
-			<dependency>
-				<groupId>br.gov.caixa.dict</groupId>
-				<artifactId>sispi-dict-batch-polling-war</artifactId>
-				<version>${project.version}</version>
-			</dependency>
 
-			<dependency>
-				<groupId>org.infinispan</groupId>
-				<artifactId>infinispan-bom</artifactId>
-				<version>${version.infinispan}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
+	<dependencies>
+		<dependency>
+			<groupId>org.jboss.resteasy</groupId>
+			<artifactId>resteasy-client</artifactId>
+			<scope>provided</scope>
+			<version>${resteasy.version}</version>
+		</dependency>
 
-			<dependency>
-				<groupId>com.microsoft.azure</groupId>
-				<artifactId>azure-servicebus</artifactId>
-				<version>3.6.7</version>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
+		<dependency>
+			<groupId>com.microsoft.azure</groupId>
+			<artifactId>azure-servicebus</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>br.gov.caixa.dict</groupId>
+			<artifactId>simpi-dict-api-model</artifactId>
+			<version>2.26.0.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>br.gov.caixa.sispi</groupId>
+			<artifactId>sispi-integracao</artifactId>
+			<version>2.8.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+			<version>8.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.7.25</version>
+		</dependency>
+
+	   <dependency>
+	       <groupId>org.slf4j</groupId>
+	       <artifactId>slf4j-log4j12</artifactId>
+	       <version>1.7.5</version>
+	   </dependency>
+
+		<dependency>
+			<groupId>io.github.openfeign</groupId>
+			<artifactId>feign-okhttp</artifactId>
+			<version>${version.feign}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>4.5.6</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.github.openfeign</groupId>
+			<artifactId>feign-gson</artifactId>
+			<version>${version.feign}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>${version.lombok}</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>5.0.12.Final</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.swagger</groupId>
+			<artifactId>swagger-jaxrs</artifactId>
+			<version>1.5.7</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.xlate</groupId>
+			<artifactId>property-inject</artifactId>
+			<version>1.0.5</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20190722</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.5</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>1.14</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.auth0</groupId>
+			<artifactId>java-jwt</artifactId>
+			<version>3.3.0</version>
+		</dependency>
+
+		<!-- Test -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-all</artifactId>
+			<version>1.10.19</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-annotations -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-annotations</artifactId>
+			<version>2.9.9</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.jboss.ejb3</groupId>
+			<artifactId>jboss-ejb3-ext-api</artifactId>
+			<version>2.2.0.Final</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.jboss.resteasy</groupId>
+			<artifactId>resteasy-multipart-provider</artifactId>
+			<version>2.3.6.Final</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-jaxrs</artifactId>
+			<version>1.9.13</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.9.9</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.infinispan</groupId>
+			<artifactId>infinispan-client-hotrod</artifactId>
+		</dependency>
+
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct</artifactId>
+            <version>${mapstruct.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct-processor</artifactId>
+            <version>${mapstruct.version}</version>
+            <scope>provided</scope>
+        </dependency>
+	</dependencies>
+
+
 
 	<build>
+		<finalName>${project.artifactId}</finalName>
+
 		<plugins>
 			<plugin>
-				<groupId>org.jacoco</groupId>
-				<artifactId>jacoco-maven-plugin</artifactId>
-				<executions>
-					<execution>
-						<id>agent-for-ut</id>
-						<goals>
-							<goal>prepare-agent</goal>
-						</goals>
-					</execution>
-					<execution>
-						<id>post-unit-test</id>
-						<phase>test</phase>
-						<goals>
-							<goal>report</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
-				<artifactId>maven-compiler-plugin</artifactId>
+				<artifactId>maven-ejb-plugin</artifactId>
+				<version>${version.ejb.plugin}</version>
 				<configuration>
-					<compilerArgs>
-						<arg>-parameters</arg>
-					</compilerArgs>
-					<annotationProcessorPaths>
-						<path>
-							<groupId>org.projectlombok</groupId>
-							<artifactId>lombok</artifactId>
-							<version>${version.lombok}</version>
-						</path>
-						<path>
-							<groupId>org.mapstruct</groupId>
-							<artifactId>mapstruct-processor</artifactId>
-							<version>${mapstruct.version}</version>
-						</path>
-					</annotationProcessorPaths>
+					<!-- Tell Maven we are using EJB 3.1 -->
+					<ejbVersion>3.1</ejbVersion>
+					<archive>
+						<manifest>
+							<addClasspath>true</addClasspath>
+						</manifest>
+					</archive>
 				</configuration>
 			</plugin>
 
 		</plugins>
+
 	</build>
+
 
 </project>
 
@@ -157,46 +281,113 @@ Project settings
 SISPI-dict-batch-polling
 
 sispi-dict-batch-ear
-sispi-dict-batch-ejb
-sispi-dict-batch-war
-.0.current
-.gitignore
-compile.bat
-jboss-deployments
 pom.xml
-readme.md
+sispi-dict-batch-ejb
+src
+main
+test
+java
+br
+gov
+caixa
+spi
+dict
+component
+convert
+ejb
+enums
+factory
+integracao
+mapper
+mdb
+scheduler
+sibar
+util
+v2
+resources
+META-INF
+
+data-dict.sql
+persistence.xml
+pom.xml
+sispi-dict-batch-war
+src
+.gitignore
 
 1.46.31.00
 
 /
-pom.xml
-pom.xml
+sispi-dict-batch-ejb
+/
+src
+/
+test
+/
+java
+/
+br
+/
+gov
+/
+caixa
+/
+spi
+/
+dict
+dict
 
-Edit
+New
 
 Contents
 History
-Compare
-Blame
 
-1234567891011121314151617181920212223242526272829303132333435363738394041424344
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+component
+23 de fev.
+8feca793
+ref#2435928: Teste unitário: BuscaReivindicacaoBacenComponent, CidsEjb, Confi... c160706
+convert
+12 de jun.
+2cf86ccb
+[RTC-24818918] - ajuste sonar Vinicius Vitor das Neves Silva
+ejb
+quinta-feira
+209bee3d
+Merge branch 'master' into feature/RTC-24904647-24904532-MED-manual-v8.2 Leandro Khalel Pimentel dos Santos
+enums
+10 de dez. de 2025
+760df989
+RTC[24500123] Ajuste teste enum politicas Renan Rodrigues Lacerda
+factory
+16 de mai. de 2023
+c0f45e1e
+wip #20753670: PoliticaLimitacaoFactoryTest Mario Henrique Rodrigues Lopes
+integracao
+25 de mai.
+a538816a
+[RTC-24746609]: Removendo lançamento de exception no envio da NI do sistema d... f535116
+mapper
+1 de abr.
+a583683a
+[RTC-24746609]:Testes unitários e adicionando uma propriedade para poder igno... f535116
 
-	<modelVersion>4.0.0</modelVersion>
-
-	<groupId>br.gov.caixa.dict</groupId>
-	<artifactId>sispi-dict-batch-polling</artifactId>
-	<version>${revision}</version>
-…						</path>
-					</annotationProcessorPaths>
-				</configuration>
-			</plugin>
-
-		</plugins>
-	</build>
-
-</project>
+mdb
+12 de fev.
+a17a43e2
+ref#2435928: Teste unitário: ArquivoReconciliacaoEjb, FechamentoSolicitacaoDe... c160706
+scheduler
+15 de jul.
+24b6199d
+[STRY00033197] desativa polling manual relatos V1 Leandro Khalel Pimentel dos Santos
+sibar
+6 de fev.
+5f5baa0b
+ref#2435928: Teste unitário: CanalComunicacaoEjb, HistoricoChaveEjb, SibarEjb c160706
+util
+26 de mar.
+a648ef9d
+wip #24709435: validação de nomes pix c161485
+v2
+27 de mai.
+27d71fe8
+Ajustes testes Renan Rodrigues Lacerda
 
