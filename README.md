@@ -4,15 +4,16 @@
     <groupId>br.gov.caixa</groupId>
     <artifactId>sipes-api-serasa</artifactId>
     <version>1.0.1.0</version>
+    <packaging>quarkus</packaging>
 
     <properties>
         <compiler-plugin.version>3.14.0</compiler-plugin.version>
-        <maven.compiler.release>17</maven.compiler.release>
+        <maven.compiler.release>21</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <quarkus.platform.artifact-id>quarkus-bom</quarkus.platform.artifact-id>
         <quarkus.platform.group-id>io.quarkus.platform</quarkus.platform.group-id>
-        <quarkus.platform.version>3.20.0</quarkus.platform.version>
+        <quarkus.platform.version>3.33.2.1</quarkus.platform.version>
         <skipITs>true</skipITs>
         <surefire-plugin.version>3.5.2</surefire-plugin.version>
     </properties>
@@ -28,6 +29,13 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+
+    <repositories>
+        <repository>
+            <id>caixa-group</id>
+            <url>http://binario.caixa:8081/repository/caixa-group/</url>
+        </repository>
+    </repositories>
 
     <dependencies>
         <dependency>
@@ -195,9 +203,3 @@
         </profile>
     </profiles>
 </project>
-
-
-
-esse aqui ta funcionado porem ajava 17 o que esamos mechendo e java 21.
-
-da pra adptar?
