@@ -1,11 +1,18 @@
+Segue o texto pronto pra colar no fechamento da WO:
 
-[root@caddeapllx2725 deployments]# kill -9 859957 859791 859788
-[root@caddeapllx2725 deployments]#
-[root@caddeapllx2725 deployments]#
-[root@caddeapllx2725 deployments]# ss -tlnp | grep -E ':8080|:8009|:9990'
-[root@caddeapllx2725 deployments]#
-[root@caddeapllx2725 deployments]#
-[root@caddeapllx2725 deployments]#
-[root@caddeapllx2725 deployments]# ps -ef | grep java | grep -v grep
-jboss    1192621 1192455 25 11:01 ?        00:00:30 java -D[Standalone] -verbose:gc -Xloggc:/logs/jboss/jboss-eap/standalone/siacc-tela-branca/gc.log -XX:+PrintGCDetails -XX:+PrintGCDateStamps -XX:+UseGCLogFileRotation -XX:NumberOfGCLogFiles=5 -XX:GCLogFileSize=3M -XX:-TraceClassUnloading -Djdk.serialFilter=maxbytes=10485760;maxdepth=128;maxarray=100000;maxrefs=300000 -Xms1024m -Xmx2048m -XX:MetaspaceSize=96M -XX:MaxMetaspaceSize=256m -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs=org.jboss.byteman,org.jboss.logmanager -Djava.awt.headless=true -Djavax.net.ssl.trustStore=/opt/jboss-eap/standalone/configuration/caixa-truststore-acteste-nprd.jks -Djavax.net.ssl.trustStorePassword=changeit -Djboss.modules.policy-permissions=true -server -XX:+ExplicitGCInvokesConcurrent -XX:+UseG1GC -XX:MaxGCPauseMillis=500 -Xbootclasspath/a:/opt/jboss-eap/modules/system/layers/base/org/wildfly/common/main/wildfly-common-1.5.4.Final-redhat-00001.jar -Xbootclasspath/a:/opt/jboss-eap/modules/system/layers/base/org/jboss/logmanager/main/jboss-logmanager-2.1.18.Final-redhat-00001.jar -Dsun.util.logging.disableCallerCheck=true -Djava.util.logging.manager=org.jboss.logmanager.LogManager -Dhttp.nonProxyHosts=localhost|127.0.0.1|*.caixa|*.caixa.gov.br -Dorg.jboss.boot.log.file=/logs/jboss/jboss-eap/standalone/siacc-tela-branca/server.log -Dlogging.configuration=file:/opt/jboss-eap/standalone/configuration/logging.properties -jar /opt/jboss-eap/jboss-modules.jar -mp /opt/jboss-eap/modules org.jboss.as.standalone -Djboss.home.dir=/opt/jboss-eap -Djboss.server.base.dir=/opt/jboss-eap/standalone -b 0.0.0.0 -bmanagement 0.0.0.0 -Djboss.server.base.dir=/opt/jboss-eap/standalone -Djboss.server.log.dir=/logs/jboss/jboss-eap/standalone/siacc-tela-branca -c standalone-full-ha.xml
-[root@caddeapllx2725 deployments]#
+Ação Realizada:
+
+Verificado que os releases do sistema SIACC-TELA-BRANCA (ambiente DES, servidor caddeapllx2725) estavam falhando na etapa de deployment do JBoss EAP, com os pacotes siacc-ear.ear e applicationinsights-agent.jar sendo revertidos pela controller sem indicar erro de aplicação.
+
+Diagnóstico:
+
+Identificado, via análise do server.log, que a instância anterior do JBoss (processo ativo desde 07/08) não havia sido finalizada corretamente, permanecendo com as portas 8080 (HTTP), 8009 (AJP) e 9990 (Management) em uso. Ao subir uma nova instância na tentativa de deploy, o controller do WildFly não conseguiu registrar os serviços de gerenciamento por indisponibilidade das portas, acionando reversão automática da operação de composição (WFLYCTL0459) e, consequentemente, o rollback dos deployments do EAR e do agente do Application Insights.
+
+Correção:
+
+Finalizado manualmente o processo Java remanescente da instância anterior (PIDs 859957/859791/859788) para liberação das portas. Confirmada a liberação via ss -tlnp. Reexecutada a pipeline de deploy, com subida de nova instância do JBoss (PID 1192621) sem conflito de portas. Confirmado deployment bem-sucedido dos pacotes siacc-ear.ear e applicationinsights-agent.jar, sem status .failed nos deployments.
+
+Status: Resolvido.
+
+Jessé Batista
+CTIS/CESTI — Esteira DevOps DES TQS NPRD
