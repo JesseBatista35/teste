@@ -1,12 +1,11 @@
-Solicitamos verificação e resolução de indisponibilidade na instância SIGEC Portabilidade DES, Java Batch.
 
-Instâncias
-SIGEC PORTABILIDADE - DES (batch)
-SIGEC-PORTABILIDADE-BATCH-DEPLOY-DES
-Link: https://sigec.des.caixa/gec-web/por/
-
-
-
-<img width="1881" height="782" alt="image" src="https://github.com/user-attachments/assets/7eea4053-97d0-4f89-971f-b1529fe58e68" />
-
-
+-sh-4.2$ ps -ef | grep sigec
+p585600   46333  46267  0 11:18 pts/3    00:00:00 grep --color=auto sigec
+-sh-4.2$ ps -ef | grep jboss
+p585600   46371  46267  0 11:18 pts/3    00:00:00 grep --color=auto jboss
+root      83958      1  0 Ago07 ?        00:00:00 su - jboss -c LAUNCH_JBOSS_IN_BACKGROUND=1 JBOSS_PIDFILE=/opt/jboss/jboss-eap/hc/tmp/jboss-hc-des.pid /opt/jboss/jboss-eap/bin/domain.sh --host-config=host-slave.xml  -b 10.116.94.211 -bmanagement 10.116.94.211 -Djboss.domain.base.dir=/opt/jboss/jboss-eap/hc -Djboss.domain.master.address=10.116.89.0 -Djboss.server.log.dir=/logs/jboss-eap/servers -c domain.xml
+jboss     83961  83958  0 Ago07 ?        00:00:00 /bin/sh /opt/jboss/jboss-eap/bin/domain.sh --host-config=host-slave.xml -b 10.116.94.211 -bmanagement 10.116.94.211 -Djboss.domain.base.dir=/opt/jboss/jboss-eap/hc -Djboss.domain.master.address=10.116.89.0 -Djboss.server.log.dir=/logs/jboss-eap/servers -c domain.xml
+jboss     84291  83961  0 Ago07 ?        00:01:27 java -D[Process Controller] -server -Xms64m -Xmx512m -XX:MaxMetaspaceSize=256m -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs=org.jboss.byteman -Djava.awt.headless=true -Dorg.jboss.boot.log.file=/opt/jboss/jboss-eap/hc/log/process-controller.log -Dlogging.configuration=file:/opt/jboss/jboss-eap/hc/configuration/logging.properties -jar /opt/jboss/jboss-eap/jboss-modules.jar -mp /opt/jboss/jboss-eap/modules org.jboss.as.process-controller -jboss-home /opt/jboss/jboss-eap -jvm java -mp /opt/jboss/jboss-eap/modules -- -Dorg.jboss.boot.log.file=/opt/jboss/jboss-eap/hc/log/host-controller.log -Dlogging.configuration=file:/opt/jboss/jboss-eap/hc/configuration/logging.properties -server -Xms64m -Xmx512m -XX:MaxMetaspaceSize=256m -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs=org.jboss.byteman -Djava.awt.headless=true -- -default-jvm java --host-config=host-slave.xml -b 10.116.94.211 -bmanagement 10.116.94.211 -Djboss.domain.base.dir=/opt/jboss/jboss-eap/hc -Djboss.domain.master.address=10.116.89.0 -Djboss.server.log.dir=/logs/jboss-eap/servers -c domain.xml
+jboss     84308  84291  0 Ago07 ?        00:01:57 java -D[Host Controller] -Dorg.jboss.boot.log.file=/opt/jboss/jboss-eap/hc/log/host-controller.log -Dlogging.configuration=file:/opt/jboss/jboss-eap/hc/configuration/logging.properties -server -Xms64m -Xmx512m -XX:MaxMetaspaceSize=256m -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs=org.jboss.byteman -Djava.awt.headless=true -jar /opt/jboss/jboss-eap/jboss-modules.jar -mp /opt/jboss/jboss-eap/modules org.jboss.as.host-controller -mp /opt/jboss/jboss-eap/modules --pc-address 127.0.0.1 --pc-port 40186 -default-jvm java --host-config=host-slave.xml -b 10.116.94.211 -bmanagement 10.116.94.211 -Djboss.domain.base.dir=/opt/jboss/jboss-eap/hc -Djboss.domain.master.address=10.116.89.0 -Djboss.server.log.dir=/logs/jboss-eap/servers -c domain.xml -Djboss.home.dir=/opt/jboss/jboss-eap
+jboss     84431  84291  0 Ago07 ?        00:07:38 /usr/lib/jvm/jdk-1.8.0_471-oracle-x64/jre/bin/java -D[Server:sipon_node1_lx104] -Xms2048m -Xmx2048m -Djava.awt.headless=true -Djava.net.preferIPv4Stack=true -Djboss.bind.address=10.116.94.211 -Djboss.bind.address.management=10.116.94.211 -Djboss.domain.base.dir=/opt/jboss/jboss-eap/hc -Djboss.domain.master.address=10.116.89.0 -Djboss.home.dir=/opt/jboss/jboss-eap -Djboss.modules.system.pkgs=org.jboss.byteman -Djboss.server.log.dir=/opt/jboss/jboss-eap/hc/log/servers/sipon_node1_lx104 -Djboss.server.temp.dir=/opt/jboss/jboss-eap/hc/tmp/servers/sipon_node1_lx104 -Djboss.server.data.dir=/opt/jboss/jboss-eap/hc/data/servers/sipon_node1_lx104 -Dlogging.configuration=file:/opt/jboss/jboss-eap/hc/data/servers/sipon_node1_lx104/logging.properties -jar /opt/jboss/jboss-eap/jboss-modules.jar -mp /opt/jboss/jboss-eap/modules org.jboss.as.server
+-sh-4.2$
