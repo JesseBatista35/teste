@@ -1,244 +1,162 @@
-<?xml version="1.0"?>
-<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd"
-         xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>br.gov.caixa.sispi</groupId>
-    <artifactId>sispi-batch-busca-pendencia</artifactId>
-    <version>1.0-SNAPSHOT</version>
-    <properties>
-        <compiler-plugin.version>3.8.1</compiler-plugin.version>
-        <maven.compiler.parameters>true</maven.compiler.parameters>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
-        <org.projectlombok.version>1.18.12</org.projectlombok.version>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <quarkus.platform.version>2.6.2.Final</quarkus.platform.version>
-        <quarkus.platform.artifact-id>quarkus-universe-bom</quarkus.platform.artifact-id>
-        <quarkus.platform.group-id>io.quarkus</quarkus.platform.group-id>
-        <surefire-plugin.version>3.0.0-M5</surefire-plugin.version>
-        <jacoco.version>0.8.5</jacoco.version>
-    </properties>
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>${quarkus.platform.group-id}</groupId>
-                <artifactId>${quarkus.platform.artifact-id}</artifactId>
-                <version>${quarkus.platform.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-    <dependencies>
-  
-        <!-- Esta é a dependência do PIX-Suporte   -->
-        <dependency>
-            <groupId>br.gov.caixa.pix.suporte</groupId>
-            <artifactId>pix-api-suporte</artifactId>
-            <version>[1.0,)</version><!--  usar sempre a ultima revisao -->
-        </dependency>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>${org.projectlombok.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>javax.jms</groupId>
-            <artifactId>javax.jms-api</artifactId>
-            <version>2.0.1</version>
-        </dependency>
-        <dependency>
-			<groupId>com.google.code.gson</groupId>
-			<artifactId>gson</artifactId>
-		</dependency>
-        <dependency>
-            <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-smallrye-context-propagation</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-jsonb</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.smallrye.reactive</groupId>
-            <artifactId>smallrye-reactive-messaging-jms</artifactId>
-            <version>2.7.0</version>
-        </dependency>
-        <dependency>
-            <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-smallrye-reactive-messaging-amqp</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.ibm.mq</groupId>
-            <artifactId>com.ibm.mq.allclient</artifactId>
-            <version>9.4.3.0</version>
-        </dependency>
-        <dependency>
-            <groupId>io.swagger</groupId>
-            <artifactId>swagger-jaxrs</artifactId>
-            <version>1.5.7</version>
-        </dependency>
-        <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>12.0</version>
-        </dependency>
-        <dependency>
-            <groupId>com.sun.xml.ws</groupId>
-            <artifactId>jaxws-ri</artifactId>
-            <version>2.3.2</version>
-            <type>pom</type>
-        </dependency>
-        <dependency>
-            <groupId>org.mockito</groupId>
-            <artifactId>mockito-junit-jupiter</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>io.smallrye.config</groupId>
-            <artifactId>smallrye-config-source-file-system</artifactId>
-            <version>2.4.2</version>
-        </dependency>
-        <dependency>
-            <groupId>org.mockito</groupId>
-            <artifactId>mockito-inline</artifactId>
-            <version>4.11.0</version>
-            <scope>test</scope>
-        </dependency>
+Skip to main content
+projetos
+/
+Caixa
+/
+Pipelines
+Search
 
-        <dependency>
-            <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-smallrye-reactive-messaging-kafka</artifactId>
-        </dependency>
-    </dependencies>
-    <build>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>org.jacoco</groupId>
-                    <artifactId>jacoco-maven-plugin</artifactId>
-                    <version>${jacoco.version}</version>
-                </plugin>
-            </plugins>
-        </pluginManagement>
-        <plugins>
-            <plugin>
-				<groupId>org.codehaus.gmavenplus</groupId>
-				<artifactId>gmavenplus-plugin</artifactId>
-				<version>3.0.2</version>
-				<dependencies>
-					<!-- Groovy e obrigatorio como dependencia explicita do gmavenplus -->
-					<dependency>
-						<groupId>org.codehaus.groovy</groupId>
-						<artifactId>groovy-all</artifactId>
-						<version>3.0.19</version>
-						<type>pom</type>
-						<scope>runtime</scope>
-					</dependency>
-				</dependencies>
-				<executions>
-					<execution>
-						<id>gerar-docs</id>
-					<!-- Nao vinculado a nenhuma fase: executar explicitamente -->
-						<phase>none</phase>
-						<goals>
-							<goal>execute</goal>
-						</goals>
-						<configuration>
-							<scripts>
-								<script>file:///${project.basedir}/docs/gerar-docs.groovy</script>
-							</scripts>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-            <plugin>
-                <groupId>io.quarkus</groupId>
-                <artifactId>quarkus-maven-plugin</artifactId>
-                <version>${quarkus.platform.version}</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>build</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>${compiler-plugin.version}</version>
-                <configuration>
-                </configuration>
-            </plugin>
-            <plugin>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>${surefire-plugin.version}</version>
-                <configuration>
-                    <systemPropertyVariables>
-                        <java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
-                        <maven.home>${maven.home}</maven.home>
-                    </systemPropertyVariables>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.jacoco</groupId>
-                <artifactId>jacoco-maven-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>prepare-agent</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>report</id>
-                        <phase>test</phase>
-                        <goals>
-                            <goal>report</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
-    <profiles>
-        <profile>
-            <id>native</id>
-            <activation>
-                <property>
-                    <name>native</name>
-                </property>
-            </activation>
-            <build>
-                <plugins>
-                    <plugin>
-                        <artifactId>maven-failsafe-plugin</artifactId>
-                        <version>${surefire-plugin.version}</version>
-                        <executions>
-                            <execution>
-                                <goals>
-                                    <goal>integration-test</goal>
-                                    <goal>verify</goal>
-                                </goals>
-                                <configuration>
-                                    <systemPropertyVariables>
-                                        <native.image.path>
-                                            ${project.build.directory}/${project.build.finalName}-runner
-                                        </native.image.path>
-                                        <java.util.logging.manager>org.jboss.logmanager.LogManager
-                                        </java.util.logging.manager>
-                                        <maven.home>${maven.home}</maven.home>
-                                    </systemPropertyVariables>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-            <properties>
-                <quarkus.package.type>native</quarkus.package.type>
-            </properties>
-        </profile>
-    </profiles>
-</project>
+
+
+
+
+
+
+
+
+SISPI
+
+SISPI-batch-busca-pendencia
+
+Tasks
+
+Variables
+
+Triggers
+
+Options
+
+History
+BUILD_DEFAULT_QUARKUS_OPENJDK
+Task version
+7.*
+Display name
+BUILD_DEFAULT_QUARKUS_JDK11
+AZPAT
+$(AZPAT)
+FORTIFY_API
+$(FORTIFY_API)
+FORTIFY_APITOKEN
+$(FORTIFY_APITOKEN)
+FORTIFY_BUILD
+$(FORTIFY_BUILD)
+FORTIFY_CI_TOKEN
+$(FORTIFY_CI_TOKEN)
+FORTIFY_CLIENT_AUTH_TOKEN
+$(FORTIFY_CLIENT_AUTH_TOKEN)
+fortify_disable
+$(fortify_disable)
+FORTIFY_FPR_NAME
+$(FORTIFY_FPR_NAME)
+FORTIFY_NEW_VERSION
+$(FORTIFY_NEW_VERSION)
+FORTIFY_PASS
+$(FORTIFY_PASS)
+FORTIFY_POOL_GOLD_NOVO
+$(FORTIFY_POOL_GOLD_NOVO)
+FORTIFY_POOL_SILVER_NOVO
+$(FORTIFY_POOL_SILVER_NOVO)
+FORTIFY_REGEX
+$(FORTIFY_REGEX)
+FORTIFY_SENSOR_POOL
+$(FORTIFY_SENSOR_POOL)
+FORTIFY_UPTOKEN
+$(FORTIFY_UPTOKEN)
+FORTIFY_URL
+$(FORTIFY_URL)
+FORTIFY_URL_CONTROLLER
+$(FORTIFY_URL_CONTROLLER)
+FORTIFY_USER
+$(FORTIFY_USER)
+FORTIFY_VERSION_BUILD
+$(FORTIFY_VERSION_BUILD)
+FTFY_MVN_GOAL
+$(FTFY_MVN_GOAL)
+GradleVersion
+$(GradleVersion)
+JAVA_VERSION
+open-jdk-21.0.5
+KEYSTORE_SECUREFILEPATH
+$(KEYSTORE_SECUREFILEPATH)
+lista_versao
+$(lista_versao)
+MAVEN_VERSION
+3.8.5
+MVN_GOAL
+clean package -U
+nexus_interno_pass
+$(nexus_interno_pass)
+nexus_interno_user
+$(nexus_interno_user)
+NEXUS_REPOSITORY_ID
+$(NEXUS_REPOSITORY_ID)
+NEXUS_URL_MAVEN_RELEASE
+$(NEXUS_URL_MAVEN_RELEASE)
+NEXUS_URL_MAVEN_SNAPSHOT
+$(NEXUS_URL_MAVEN_SNAPSHOT)
+NODE_EXTRA_CA_CERTS
+$(NODE_EXTRA_CA_CERTS)
+p_language
+$(p_language)
+POM_PATH
+pom.xml
+POM_VERSION
+$(POM_VERSION)
+project.group
+$(project.group)
+project.name
+$(project.name)
+project.version
+$(project.version)
+REPO_FINAL_NAME
+$(REPO_FINAL_NAME)
+REPOSITORIO
+$(REPOSITORIO)
+SCANCENTRAL_URL
+$(SCANCENTRAL_URL)
+SONAR_LOGIN
+$(SONAR_LOGIN)
+SONAR_PASSWORD
+$(SONAR_PASSWORD)
+SONAR_PROPERTIES
+$(SONAR_PROPERTIES)
+SONAR_URL
+$(SONAR_URL)
+tbuild
+$(tbuild)
+token
+$(token)
+token_id
+$(token_id)
+valida.vec
+$(valida.vec)
+version.app
+$(version.app)
+versionApp
+$(versionApp)
+Control Options
+Output Variables
+Row 2. Clickable
+
+Showing 25 filtered items.
+
+Get started and run this pipeline for the first time!
+
+Showing 35 filtered items.
+
+Showing 25 filtered items.
+
+Row 2. Clickable
+
+Row 2. Clickable
+
+Row 2. Clickable
+
+Showing 25 filtered items.
+
+Get started and run this pipeline for the first time!
+
+Showing 35 filtered items.
+
+Showing 25 filtered items.
+
