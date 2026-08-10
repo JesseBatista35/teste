@@ -12,7 +12,16 @@ Qual pipeline especificamente está apresentando o erro (nome completo/link do p
 Se o problema é no frontend ou no backend do SIALI, uma vez que as notas anteriores são contraditórias quanto a isso;
 Qual o repositório/origem correta (SIALI_SRC ou outro) da atualização que motivou a reabertura da demanda.
 
-Diante da inconsistência das informações, esta solicitação está sendo devolvida como não acatada, aguardando esclarecimento e confirmação dos dados acima para que a análise possa prosseguir.
+Diante da inconsistência das informações, esta solicitação está sendo devolvida como não acatada.
+
 
 Atte.,
 Jessé Batista, CTIS/CESTI — Esteira DevOps DES TQS NPRD
+
+
+<img width="1857" height="910" alt="image" src="https://github.com/user-attachments/assets/37556609-d534-482a-a2e8-6f4df68d64ba" />
+
+
+DO SIALI TEM ESSQUE AQUI>.
+
+E TEM QUE CONFIRARMA TAMBE MA ESTEIRA POIS SER FOR ALM. A ESTEIRASDEVPOS NAO ATENDE
