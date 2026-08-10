@@ -2,20 +2,19 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>br.gov.caixa</groupId>
-    <artifactId>sipes-api-scpc</artifactId>
-    <version>1.0.0.0</version>
-    <packaging>quarkus</packaging>
+    <artifactId>sipes-api-serasa</artifactId>
+    <version>1.0.1.0</version>
 
     <properties>
-        <compiler-plugin.version>3.27.2</compiler-plugin.version>
-        <maven.compiler.release>21</maven.compiler.release>
+        <compiler-plugin.version>3.14.0</compiler-plugin.version>
+        <maven.compiler.release>17</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <quarkus.platform.artifact-id>quarkus-bom</quarkus.platform.artifact-id>
         <quarkus.platform.group-id>io.quarkus.platform</quarkus.platform.group-id>
-        <quarkus.platform.version>3.33.2.1</quarkus.platform.version>
+        <quarkus.platform.version>3.20.0</quarkus.platform.version>
         <skipITs>true</skipITs>
-        <surefire-plugin.version>3.5.4</surefire-plugin.version>
+        <surefire-plugin.version>3.5.2</surefire-plugin.version>
     </properties>
 
     <dependencyManagement>
@@ -30,29 +29,50 @@
         </dependencies>
     </dependencyManagement>
 
-    <repositories>
-        <repository>
-            <id>caixa-group</id>
-            <url>http://binario.caixa:8081/repository/caixa-group/</url>
-        </repository>
-    </repositories>
-
     <dependencies>
         <dependency>
             <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-messaging</artifactId>
+            <artifactId>quarkus-rest-jackson</artifactId>
         </dependency>
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-rest-client-jackson</artifactId>
         </dependency>
         <dependency>
-            <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-rest-client</artifactId>
+            <groupId>com.ibm.mq</groupId>
+            <artifactId>com.ibm.mq.jakarta.client</artifactId>
+            <version>9.4.3.0</version>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.jms</groupId>
+            <artifactId>jakarta.jms-api</artifactId>
+            <version>3.1.0</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-jacoco</artifactId>
+            <artifactId>quarkus-messaging</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.smallrye.reactive</groupId>
+            <artifactId>smallrye-reactive-messaging-jms</artifactId>
+            <version>4.15.0</version>
+        </dependency>
+        <dependency>
+            <groupId>io.smallrye.reactive</groupId>
+            <artifactId>smallrye-reactive-messaging-in-memory</artifactId>
+            <version>4.28.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.awaitility</groupId>
+            <artifactId>awaitility</artifactId>
+            <version>4.2.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-cache</artifactId>
         </dependency>
         <dependency>
             <groupId>io.quarkus</groupId>
@@ -60,11 +80,15 @@
         </dependency>
         <dependency>
             <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-arc</artifactId>
+            <artifactId>quarkus-scheduler</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
         </dependency>
         <dependency>
             <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-rest</artifactId>
+            <artifactId>quarkus-arc</artifactId>
         </dependency>
         <dependency>
             <groupId>io.quarkus</groupId>
@@ -72,9 +96,30 @@
             <scope>test</scope>
         </dependency>
         <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-jacoco</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
             <groupId>io.rest-assured</groupId>
             <artifactId>rest-assured</artifactId>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-junit5-mockito</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.24</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 
@@ -85,13 +130,13 @@
                 <artifactId>quarkus-maven-plugin</artifactId>
                 <version>${quarkus.platform.version}</version>
                 <extensions>true</extensions>
-
                 <executions>
                     <execution>
                         <goals>
                             <goal>build</goal>
                             <goal>generate-code</goal>
                             <goal>generate-code-tests</goal>
+                            <goal>native-image-agent</goal>
                         </goals>
                     </execution>
                 </executions>
@@ -107,7 +152,6 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${surefire-plugin.version}</version>
                 <configuration>
-                    <argLine>@{argLine}</argLine>
                     <systemPropertyVariables>
                         <java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
                         <maven.home>${maven.home}</maven.home>
@@ -126,7 +170,6 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <argLine>@{argLine}</argLine>
                     <systemPropertyVariables>
                         <native.image.path>${project.build.directory}/${project.build.finalName}-runner</native.image.path>
                         <java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
@@ -146,10 +189,15 @@
                 </property>
             </activation>
             <properties>
-                <quarkus.package.jar.enabled>false</quarkus.package.jar.enabled>
                 <skipITs>false</skipITs>
                 <quarkus.native.enabled>true</quarkus.native.enabled>
             </properties>
         </profile>
     </profiles>
 </project>
+
+
+
+esse aqui ta funcionado porem ajava 17 o que esamos mechendo e java 21.
+
+da pra adptar?
