@@ -31,3 +31,16 @@ No errors detected in compressed data of habitacao-5.12.0-Dev.512762.apk.
 [sadscp01@cadsvaprlx015 app-5.12.0.512762]$
 [sadscp01@cadsvaprlx015 app-5.12.0.512762]$
 [sadscp01@cadsvaprlx015 app-5.12.0.512762]$
+[sadscp01@cadsvaprlx015 app-5.12.0.512762]$ unzip -p habitacao-5.12.0-Dev.512762.apk AndroidManifest.xml | strings | grep -i "br.gov.caixa\|package" | grep head -20
+[sadscp01@cadsvaprlx015 app-5.12.0.512762]$
+
+
+[sadscp01@cadsvaprlx015 app-5.12.0.512762]$
+[sadscp01@cadsvaprlx015 app-5.12.0.512762]$ wich yum && sudo yum install -y android-tools 2>&1 | tail -5
+-bash: wich: comando não encontrado
+[sadscp01@cadsvaprlx015 app-5.12.0.512762]$
+[sadscp01@cadsvaprlx015 app-5.12.0.512762]$
+[sadscp01@cadsvaprlx015 app-5.12.0.512762]$
+[sadscp01@cadsvaprlx015 app-5.12.0.512762]$
+[sadscp01@cadsvaprlx015 app-5.12.0.512762]$
+
