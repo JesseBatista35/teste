@@ -4,7 +4,12 @@ O pipeline do sistema SIMSC-Android-Nativo está falhando na etapa "Android - Fi
 
 Error: failed to upload distribution. HTTP Error: 500, Unknown Error
 
-O mesmo erro se repete de forma consistente também no sistema SIAME-Android-Nativo, na mesma etapa, ao longo do dia — confirmando que não é problema pontual de um app específico.
+O mesmo erro está se repetindo de forma consistente também em outras aplicações, na mesma etapa "TQS - Firebase", no mesmo pool de agentes (Mobilidade-Linux-Proxy). Seguem exemplos concretos observados no histórico de execuções de hoje:
+
+SIAME-Android-Nativo 5.12.0, ID 512762 — falhas às 15:19, 15:15, 15:13, 15:07 e 15:06 (jobs 1636685, 1636662, 1636655, 1636618, 1636616, entre outros)
+SIMSC-Android-Nativo 7.1.2, ID 512900 — falha às 14:59 (job 1636581)
+
+Todas essas execuções falham no mesmo ponto, com o mesmo erro genérico, confirmando que não é problema pontual de um app específico, e sim do ambiente do agente.
 
 Agente: cadsvaprlx015.intra.caixa.gov.br (pool Mobilidade-Linux-Proxy)
 Usuário de execução: sadscp01
