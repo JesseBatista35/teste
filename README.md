@@ -45,3 +45,91 @@ firebase appdistribution:distribute ${App} \
 2026-08-10T19:03:27.6258553Z [1m[31mError:[39m[22m failed to upload distribution. HTTP Error: 500, Unknown Error
 2026-08-10T19:03:27.8963938Z ##[error]Bash exited with code '1'.
 2026-08-10T19:03:27.8974166Z ##[section]Finishing: Android - Firebase Distribution App
+
+
+
+
+Skip to main content
+projetos
+/
+Caixa
+/
+Pipelines
+/
+Releases
+/
+SIMSC-Android-Nativo
+/
+SIMSC-Android-Nativo 7.1.2 | ID 512232 | Code 202614040
+Search
+
+
+
+
+
+
+
+
+SIMSC-Android-Nativo
+
+SIMSC-Android-Nativo 7.1.2 | ID 512232 | Code 202614040
+
+
+TQS - Firebase
+
+Failed
+
+
+Pipeline
+
+Tasks
+
+Variables
+
+Logs
+
+Tests
+Predefined variables
+Filter by keywords
+Release (+1)
+
+
+AdapterGroupId
+$(PackageId)
+build.tools
+30.0.3
+BuildGradle
+gradle clean assemble$(typeApp) lint$(typeApp) -PversionApp=$(versionApp) -PversionCode=${CodeNew} -PminimoSDK=23
+BuildGradleSdkMinor
+gradle clean assemble$(typeApp)Release  -PversionApp=$(versionApp) -PversionCode=${CodeNew} -PminimoSDK=23
+FIREBASE_ID_APP
+1:840974012579:android:a99bcb3f459370366a6f16
+FIREBASE_NOTES
+NATIVO-$(versionApp)-$(typeApp).$(versionBuild)
+FORTIFY_BUILD
+assemble$(typeApp)
+GradleVersion
+8.11.1
+JavaVersion
+17.0.7
+nameApp
+simsc
+nameAppNexus
+saudecaixamobile
+system.debug
+false
+versionApp
+7.1.2
+versionBuild
+$(RELEASE.RELEASEID)
+versionCode
+202614039
+Row 2
+
+Row 2
+
+Row 2
+
+Showing filters 1 through 2
+
+
