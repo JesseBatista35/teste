@@ -1,7 +1,29 @@
-[11/Aug/2026:12:19:52 -0300] 127.0.0.1 - - - _ to: -: GET /stub_status HTTP/1.1 upstream_response_time - msec 1786461592.775 request_time 0.000 200 97 - NGINX-Prometheus-Exporter/v -
-2026/08/11 12:21:24 [error] 18#18: *2 directory index of "/opt/app-root/src/" is forbidden, client: 25.1.2.1, server: _, request: "GET / HTTP/1.1", host: "25.1.2.180:8080"
-[11/Aug/2026:12:21:24 -0300] 25.1.2.1 - - - _ to: -: GET / HTTP/1.1 upstream_response_time - msec 1786461684.944 request_time 0.000 403 146 - kube-probe/1.25 -
-2026/08/11 12:21:49 [error] 19#19: *4 directory index of "/opt/app-root/src/" is forbidden, client: 25.1.2.1, server: _, request: "GET / HTTP/1.1", host: "25.1.2.180:8080"
-2026/08/11 12:21:49 [error] 20#20: *3 directory index of "/opt/app-root/src/" is forbidden, client: 25.1.2.1, server: _, request: "GET / HTTP/1.1", host: "25.1.2.180:8080"
-[11/Aug/2026:12:21:49 -0300] 25.1.2.1 - - - _ to: -: GET / HTTP/1.1 upstream_response_time - msec 1786461709.130 request_time 0.000 403 146 - kube-probe/1.25 -
-[11/Aug/2026:12:21:49 -0300] 25.1.2.1 - - - _ to: -: GET / HTTP/1.1 upstream_response_time - msec 1786461709.130 request_time 0.000 403 146 - kube-probe/1.25 -
+#!/bin/bash
+
+#PHP Home
+NGINX_HOME=/opt/app-root
+
+# Source code provided to STI is at /tmp/src/
+LOCAL_SOURCE_DIR=/tmp/src
+
+# Resulting ZIP files will be deployed to /opt/app-root/src
+DEPLOY_DIR=$NGINX_HOME/src
+
+#/opt/app-root/src
+
+function copy_artifacts() {
+  if [ -d $LOCAL_SOURCE_DIR ]; then
+    echo "Copying all WAR, EAR, JAR and ZIP artifacts from $LOCAL_SOURCE_DIR directory into $DEPLOY_DIR for later deployment..."
+    cp -v $LOCAL_SOURCE_DIR/*.zip $LOCAL_SOURCE_DIR/*.jar $LOCAL_SOURCE_DIR/*.war $LOCAL_SOURCE_DIR/*.ear $DEPLOY_DIR 2> /dev/null
+   	unzip $DEPLOY_DIR/*.zip -d $DEPLOY_DIR 2> /dev/null
+    mv $DEPLOY_DIR/dist/*  $DEPLOY_DIR/.     
+	  rm -rf $DEPLOY_DIR/*.zip
+  fi
+}
+
+# Copy (probably binary) artifacts from the /tmp/src/
+# directory to the $NGINX_HOME/src
+# directory for later deployment
+copy_artifacts "deployments"
+
+exit 0
