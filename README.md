@@ -1,34 +1,25 @@
-o assemble ta assim
-
 #!/bin/bash
 
-#PHP Home
-NGINX_HOME=/opt/app-root
+source /opt/app-root/etc/generate_container_user
 
-# Source code provided to STI is at /tmp/src/
-LOCAL_SOURCE_DIR=/tmp/src
+set -e
 
-# Resulting ZIP files will be deployed to /opt/app-root/src
-DEPLOY_DIR=$NGINX_HOME/src
+source ${NGINX_CONTAINER_SCRIPTS_PATH}/common.sh
 
-#/opt/app-root/src
+process_extending_files ${NGINX_APP_ROOT}/src/nginx-start ${NGINX_CONTAINER_SCRIPTS_PATH}/nginx-start
 
-function copy_artifacts() {
-  if [ -d $LOCAL_SOURCE_DIR ]; then
-    echo "Copying all WAR, EAR, JAR and ZIP artifacts from $LOCAL_SOURCE_DIR directory into $DEPLOY_DIR for later deployment..."
-    cp -v $LOCAL_SOURCE_DIR/*.zip $LOCAL_SOURCE_DIR/*.jar $LOCAL_SOURCE_DIR/*.war $LOCAL_SOURCE_DIR/*.ear $DEPLOY_DIR 2> /dev/null
-   	unzip $DEPLOY_DIR/*.zip -d $DEPLOY_DIR 2> /dev/null
-    mv $DEPLOY_DIR/dist/*  $DEPLOY_DIR/.     
-	  rm -rf $DEPLOY_DIR/*.zip
-  fi
-}
+#replace static values with environment variables
+# The example below:
+#if [ -n "$VAR" ]; then
+#    sed -i "s#__VAR__#$VAR#g" /opt/app-root/src/main*.js
+#fi
 
-# Copy (probably binary) artifacts from the /tmp/src/
-# directory to the $NGINX_HOME/src
-# directory for later deployment
-copy_artifacts "deployments"
+if [ -n "$SIAVL_BACKEND_GERENCIAL" ]; then #alterar para o nome do seu MFE
+    sed -i "s#__SIAVL_BACKEND_GERENCIAL__#$SIAVL_BACKEND_GERENCIAL#g" /opt/app-root/src/main*.js #alterar para o nome do seu MFE
+fi
 
-exit 0
+if [ -n "$CERT_REQUIRED" ]; then
+    sed -i "s#__CERT_REQUIRED__#$CERT_REQUIRED#g" /opt/app-root/src/main*.js
+fi
 
-o run ta assim
-
+exec nginx -g "daemon off;"
