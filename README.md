@@ -1,10 +1,10 @@
-entendi. isso q eu preciso mesmo: montar só /siorf e a aplicação gerenciar as subpastas
- 
-Posso ajustar o mountPath do DES agora pra validar? > pode
- 
-Jesse Mouta Pereira Batista
-Luciana Maria Dias Soares, Desculpa a demora, e ntendi o que rolou. Na real, a resposta do storage tá certa em parte, mas confusa, o storage entrega só o export raiz (/fs_siorf), quem decide onde iss…
-então vamos trabalhar apenas com /siorf e /fs_siorf
- 
-foi criado em des. depois abro uma para tqs para fazer igual
+oc set volume dc/siorf-backend-des --add --overwrite --name=siorf-backend-data-des --mount-path=/siorf
+
+oc rollout status dc/siorf-backend-des
+
+oc get pods
+oc rsh <novo-pod> df -h
+oc rsh <novo-pod> ls -la /siorf/
+oc rsh <novo-pod> touch /siorf/teste.txt
+oc rsh <novo-pod> ls -la /siorf/
  
