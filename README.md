@@ -1,8 +1,14 @@
-oc get pods -n siavl-des | grep siavl-gerencial-frontend
-
-
-oc get is -n build-images-ads | grep siavl-gerencial-frontend
-
-
-
-oc get bc -n build-images-ads | grep siavl-gerencial-frontend
+-sh-4.2$
+-sh-4.2$ oc get pods -n siavl-des | grep siavl-gerencial-frontend
+siavl-gerencial-frontend-des-5-deploy           0/1       Error       0              12m
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$ oc get is -n build-images-ads | grep siavl-gerencial-frontend
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$ oc get bc -n build-images-ads | grep siavl-gerencial-frontend
+-sh-4.2$
