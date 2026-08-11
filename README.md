@@ -1,20 +1,12 @@
-<img width="1829" height="919" alt="image" src="https://github.com/user-attachments/assets/f167445a-b9f1-41b1-9cad-22c650c4c6d2" />
+# ver se teve update recente de pacotes/agente por volta de 14:xx hoje
+ls -lat /opt/ferramentas/agent-tfs/agent-mobile-linux-proxy-novo/ | head -20
 
+# procurar o binário do firebase mais a fundo, incluindo locais ocultos e do usuário do agente
+sudo find / -iname "*firebase*" -not -path "*/.git/*" 2>/dev/null | grep -v "\.git"
 
-2$ which firebase
-/usr/bin/which: no firebase in (/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/puppetlabs/bin:/opt/ferramentas/jdk/jdk1.8.0_221/bin:/home/sadscp01/.local/bin:/home/sadscp01/bin:)
--sh-4.2$
--sh-4.2$
--sh-4.2$ firebase login: list
--sh: firebase: comando não encontrado
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$ find / -iname "firebase" -type f 2>/dev/null
-/opt/ferramentas/agent-tfs/agent-mobile-linux/work_ads/11/s/.git/refs/remotes/origin/firebase
-/opt/ferramentas/agent-tfs/agent-mobile-linux/work_ads/11/s/.git/logs/refs/remotes/origin/firebase
-/opt/ferramentas/agent-tfs/agent-mobile-linux-2024/work_ads/2/s/.git/refs/remotes/origin/firebase
-/opt/ferramentas/agent-tfs/agent-mobile-linux-2024/work_ads/2/s/.git/logs/refs/remotes/origin/firebase
+# ver se roda via npx (instala on-the-fly a cada job, sem deixar binário fixo)
+grep -r "firebase" /opt/ferramentas/agent-tfs/agent-mobile-linux-proxy-novo/work_ads/*/s/*.sh 2>/dev/null | head -5
+find /opt/ferramentas/agent-tfs -maxdepth 3 -iname "*.yml" -o -iname "azure-pipelines*" 2>/dev/null
 
+# checar logs do sistema por volta de 14:38 de hoje (mudança no agente)
+sudo journalctl --since "today 14:00" --until "today 15:00" 2>/dev/null | grep -i -E "npm|firebase|update|install" | head -30
