@@ -214,11 +214,16 @@
         </dependency>
 
         <!-- FAKER -->
-
+        <!-- CORRIGIDO: adicionado scope=test. javafaker 1.0.2 traz snakeyaml antigo (~1.23)
+             como dependencia transitiva, que nao possui o metodo
+             LoaderOptions.setCodePointLimit(int) exigido pelo smallrye-openapi
+             (via Quarkus BOM 3.33.2.1). Sem o scope test, essa lib entrava no
+             classpath de runtime e quebrava o boot do Quarkus com NoSuchMethodError. -->
         <dependency>
             <groupId>com.github.javafaker</groupId>
             <artifactId>javafaker</artifactId>
             <version>1.0.2</version>
+            <scope>test</scope>
         </dependency>
 
     </dependencies>
