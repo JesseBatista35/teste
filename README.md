@@ -1,219 +1,83 @@
+Executando Build S2I Binary
 
--sh-4.2$
--sh-4.2$ oc get bc -n build-images-ads | grep siavl
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$ oc get builds -n build-images-ads | grep siavl-gerencial-frontend
-No resources found.
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$ oc project build-images-ads
-Now using project "build-images-ads" on server "https://api.nprd.caixa:6443".
--sh-4.2$
--sh-4.2$
--sh-4.2$ oc get bc
-NAME                                              TYPE      FROM      LATEST
-gerador-massa                                     Source    Binary    9
-loterias-parametros                               Source    Binary    9
-modelo-jboss                                      Source    Binary    5
-pix-gerenciador                                   Source    Binary    131
-repasse-jboss                                     Source    Binary    10
-sample-angular                                    Source    Binary    2
-sample-java                                       Source    Binary    3
-sample-quarkus                                    Source    Binary    3
-sample-spring-boot                                Source    Binary    6
-siaas-web                                         Source    Binary    7
-siabe-frontend                                    Source    Binary    8
-siabe-micro                                       Source    Binary    1
-siach-backend                                     Source    Binary    9
-siaef-api                                         Source    Binary    141
-siaef-frontend                                    Source    Binary    141
-siagt-backend                                     Source    Binary    348
-siagt-frontend                                    Source    Binary    144
-siali                                             Source    Binary    17
-siamc                                             Source    Binary    14
-siana-frontend                                    Source    Binary    3
-siapc-frontend                                    Source    Binary    4
-siapf-micro                                       Source    Binary    5
-siaud-backend                                     Source    Binary    310
-siaud-batch                                       Source    Binary    1
-siaud-frontend                                    Source    Binary    338
-sibdo                                             Source    Binary    2
-sibec                                             Source    Binary    3
-sicaj-backend                                     Source    Binary    2
-sicaj-backend-quarkus                             Source    Binary    42
-sicaj-frontend                                    Source    Binary    35
-sicaq-recebe-dcto-dig                             Source    Binary    3
-sicdm-intranet                                    Source    Binary    3
-sicfg-backend                                     Source    Binary    43
-sicfg-backend-internet                            Source    Binary    15
-sicfg-frontend                                    Source    Binary    60
-sicfg-frontend-internet                           Source    Binary    27
-sicir-backend                                     Source    Binary    28
-sicir-frontend                                    Source    Binary    22
-sicpj-api                                         Source    Binary    4
-sicpr-backend                                     Source    Binary    77
-sicpr-frontend                                    Source    Binary    61
-sicrd-api                                         Source    Binary    39
-sictd-intranet                                    Source    Binary    1
-sicve-vendas-frontend                             Source    Binary    2
-sicvr                                             Source    Binary    1
-sicvr-api                                         Source    Binary    1
-sicvr-frontend                                    Source    Binary    2
-sid01-lancamentos-financeiros                     Source    Binary    18
-sid01-situacao-lancamentos-financeiros            Source    Binary    56
-sidcx-backend                                     Source    Binary    5
-sidip-api                                         Source    Binary    44
-sidip-batch                                       Source    Binary    2
-sidip-web                                         Source    Binary    13
-sidro-backend                                     Source    Binary    84
-sidro-frontend                                    Source    Binary    20
-sidun-frontend                                    Source    Binary    3
-siepa-api                                         Source    Binary    1
-siepa-batch                                       Source    Binary    1
-siepa-web                                         Source    Binary    2
-sieti                                             Source    Binary    9
-sifap-backend                                     Source    Binary    189
-sifap-frontend                                    Source    Binary    51
-sifug-siofg-api                                   Source    Binary    119
-sifug-siofg-batch-assincrono                      Source    Binary    11
-sifug-siofg-micro                                 Source    Binary    27
-sigcb-frontend                                    Source    Binary    3
-sigcn-celular-seguro                              Source    Binary    26
-sigdf-batch-bacen                                 Source    Binary    1
-sigel-arquivos-bacen                              Source    Binary    2
-sigfa-api-aplicacao                               Source    Binary    194
-sigfa-api-fundos                                  Source    Binary    25
-sigfa-api-garantias                               Source    Binary    42
-sigfa-api-openfinance                             Source    Binary    1
-sigfa-batch-processamento                         Source    Binary    39
-sigfa-frontend                                    Source    Binary    70
-sigmp-api                                         Source    Binary    2
-sigpm-api                                         Source    Binary    2
-sigpm-frontend                                    Source    Binary    16
-sigsj-dromos                                      Source    Binary    11
-sigsj-dromos-alvara                               Source    Binary    47
-sigvc-backend                                     Source    Binary    34
-sigvc-frontend                                    Source    Binary    37
-sihoj-atualizacaocadastral-backend                Source    Binary    121
-sihoj-atualizacaocadastral-microfront             Source    Binary    61
-sihoj-conquiste-backend                           Source    Binary    29
-sihoj-conquiste-microfront                        Source    Binary    2
-sihoj-painelatendimento-backend                   Source    Binary    171
-sihoj-painelatendimento-microfront                Source    Binary    74
-sihoj-timeline-backend                            Source    Binary    177
-sihoj-timeline-microfront                         Source    Binary    54
-siico-backend                                     Source    Binary    1
-siico-frontend                                    Source    Binary    3
-siifx-api-aplicacao                               Source    Binary    712
-siinp-batch                                       Source    Binary    1
-siinp-gestao                                      Source    Binary    127
-siinp-gestao-web                                  Source    Binary    130
-siinp-nucleo                                      Source    Binary    127
-siinp-nucleo-web                                  Source    Binary    21
-siipc-risco                                       Source    Binary    24
-silce-parametros                                  Source    Binary    48
-silcr-contratos                                   Source    Binary    14
-silcr-contratos-pessoa-fisica                     Source    Binary    2
-silic-v1-backend                                  Source    Binary    3
-silic-v1-frontend                                 Source    Binary    3
-silic-v2-backend                                  Source    Binary    1
-simkt-backend                                     Source    Binary    144
-simkt-frontend                                    Source    Binary    29
-simpd-v2-backend                                  Source    Binary    21
-simpd-v2-backend-internet                         Source    Binary    3
-simpd-v2-frontend                                 Source    Binary    14
-simpd-v2-frontend-internet                        Source    Binary    4
-simpf-backend                                     Source    Binary    73
-simpf-frontend                                    Source    Binary    30
-simpi-pix-router-frontend                         Source    Binary    2
-simpr-api                                         Source    Binary    1
-simpr-backend                                     Source    Binary    104
-simpr-batch                                       Source    Binary    18
-simpr-frontend                                    Source    Binary    48
-sinad-api                                         Source    Binary    39
-sinad-remessa                                     Source    Binary    30
-sinop-frontend                                    Source    Binary    5
-sinop-gerador-massa                               Source    Binary    99
-sinop-incidentes                                  Source    Binary    8
-sinop-motor                                       Source    Binary    173
-siopl-backend                                     Source    Binary    21
-siopl-frontend                                    Source    Binary    2
-siorf-backend                                     Source    Binary    27
-siorf-frontend                                    Source    Binary    43
-sipcs-auditoria                                   Source    Binary    13
-sipcs-cliente-dados-bancarios                     Source    Binary    19
-sipcs-cobranca-parcelamento                       Source    Binary    23
-sipcs-digital-pay                                 Source    Binary    23
-sipcs-fatura-formato                              Source    Binary    4
-sipcs-gestao                                      Source    Binary    15
-sipcs-internacional                               Source    Binary    11
-sipcs-painel-sia-autorizacoes                     Source    Binary    77
-sipdi-api                                         Source    Binary    44
-sipdi-api-informacoes-financeiras                 Source    Binary    5
-sipdi-saldo-consolidado                           Source    Binary    8
-sipfb-backend                                     Source    Binary    17
-sipfb-frontend                                    Source    Binary    15
-sipnc-conta1472-microfront                        Source    Binary    5
-sipnc-contaeleitoral1292-microfront               Source    Binary    5
-sipnc-contapedemeia-backend                       Source    Binary    1
-sipnc-contapedemeia-microfront                    Source    Binary    7
-sipnc-extratopix-microfront                       Source    Binary    10
-sipnc-limitespix-microfront                       Source    Binary    4
-sipnc-manutconta1471-microfront                   Source    Binary    6
-sipnc-manutconta1472-microfront                   Source    Binary    3
-sipnc-manuteleitoral1292-microfront               Source    Binary    5
-sipnc-manutseletorpj-microfront                   Source    Binary    2
-sipnc-seletorpf-microfront                        Source    Binary    15
-sippg-api                                         Source    Binary    467
-sippg-web                                         Source    Binary    119
-sipqv-frontend                                    Source    Binary    4
-siptn-backend                                     Source    Binary    40
-siptn-batch                                       Source    Binary    8
-siptn-frontend                                    Source    Binary    54
-sirex-backend                                     Source    Binary    66
-sirex-frontend                                    Source    Binary    96
-sirur-analise-negocial                            Source    Binary    37
-sirur-backend                                     Source    Binary    248
-sirur-cadastrotomador                             Source    Binary    84
-sirur-condicoes-negociais                         Source    Binary    115
-sirur-custeio-frontend                            Source    Binary    4
-sirur-custeio-renovavel                           Source    Binary    5
-sirur-documentos                                  Source    Binary    2
-sirur-frontend                                    Source    Binary    119
-sirur-glebas                                      Source    Binary    5
-sirur-parametrizacao                              Source    Binary    8
-sirur-sicli                                       Source    Binary    73
-sirur-siico                                       Source    Binary    56
-sirur-siric                                       Source    Binary    36
-sirur-trilha-auditoria                            Source    Binary    1
-sisag-bloqueio-desbloqueio-gerencial-microfront   Source    Binary    4
-sisag-componentes-microfront                      Source    Binary    4
-sisag-consulta-documento-digital-backend          Source    Binary    1
-sisag-consulta-transacao-microfront               Source    Binary    2
-sisag-manutencao-agencia-backend                  Source    Binary    17
-sisag-manutencao-agencia-microfront               Source    Binary    14
-sisag-trilha-auditoria-api                        Source    Binary    28
-sisdc-atnd                                        Source    Binary    3
-sisdc-web                                         Source    Binary    3
-sisib-backend                                     Source    Binary    122
-sisib-frontend                                    Source    Binary    76
-sisme                                             Source    Binary    2
-sisns-backend                                     Source    Binary    13
-sisns-frontend                                    Source    Binary    159
-sispl-parametros                                  Source    Binary    56
-sitch-jsf-backend                                 Source    Binary    1
-sitop-intranet                                    Source    Binary    10
-sitrf                                             Source    Binary    1
-sivir-api                                         Source    Binary    2
-sivir-backend                                     Source    Binary    19
-sivir-batch                                       Source    Binary    1
--sh-4.2$
--sh-4.2$
--sh-4.2$ oc get builds
-No resources found.
--sh-4.2$
+View raw log
+Starting: Executando Build S2I Binary
+==============================================================================
+Task         : Bash
+Description  : Run a Bash script on macOS, Linux, or Windows
+Version      : 3.227.0
+Author       : Microsoft Corporation
+Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/bash
+==============================================================================
+Generating script.
+========================== Starting Command Output ===========================
+/bin/bash /opt/ads-agent/_work/_temp/44461fbb-a3a5-4e82-a21f-2673dccf027b.sh
++ set -o errexit
++ set -o pipefail
++ echo okd4_nprd
++ egrep -q '^(okd4|ocp)'
++ buildconfig=siavl-gerencial-frontend
++ oc start-build siavl-gerencial-frontend --from-dir=/opt/ads-agent/_work/254/a --follow --wait=true -n build-images-ads -v=5
+I0811 11:53:16.444827 1761338 repository.go:450] Executing git show -s HEAD --format=%H%n%an%n%ae%n%cn%n%ce%n%B
+I0811 11:53:16.447187 1761338 repository.go:533] Error executing command: exit status 128
+Uploading directory "/opt/ads-agent/_work/254/a" as binary input for the build ...
+I0811 11:53:16.447734 1761338 tar.go:238] Adding "/opt/ads-agent/_work/254/a" to tar ...
+I0811 11:53:16.448286 1761338 tar.go:336] Adding to tar: /opt/ads-agent/_work/254/a/siavl-gerencial-frontend-0.0.0.zip as siavl-gerencial-frontend-0.0.0.zip
+.
+Uploading finished
+build.build.openshift.io/siavl-gerencial-frontend-13 started
+Adding cluster TLS certificate authority to trust store
+Receiving source from STDIN as archive ...
+Adding cluster TLS certificate authority to trust store
+Adding cluster TLS certificate authority to trust store
+time="2026-08-11T14:53:24Z" level=info msg="Not using native diff for overlay, this may cause degraded performance for building images: kernel has CONFIG_OVERLAY_FS_REDIRECT_DIR enabled"
+I0811 14:53:24.324461       1 defaults.go:102] Defaulting to storage driver "overlay" with options [mountopt=metacopy=on].
+Caching blobs under "/var/cache/blobs".
+Trying to pull image-registry.openshift-image-registry.svc:5000/openshift/nginx@sha256:d4c426a72029951c5b81d6ea57ecae73e9a4ea8aeeb115cf871bf7b375bcd44c...
+Getting image source signatures
+Copying blob sha256:06038631a24a25348b51d1bfc7d0a0ee555552a8998f8328f9b657d02dd4c64c
+Copying blob sha256:b7874c7c745526edc862e5c886bfa9b9ded6e01ef384d46ce1aee844f8a7eefc
+Copying blob sha256:16ced056df22eeca4ed0180b92a884beb321e53afded464e9c64bab3e5f7a650
+Copying blob sha256:44115d860fcecaa250b811cc4120d7ba18a2250bada1fe15199de53cefde7fc7
+Copying blob sha256:262268b65bd5f33784d6a61514964887bc18bc00c60c588bc62bfae7edca46f1
+Copying config sha256:90b0cf992825e3025554113313ee65e4bf7266435c790dcb45f1e6512958e3de
+
+
+
+STEP 5/9: COPY upload/src /tmp/src
+STEP 6/9: RUN chown -R 1001:0 /tmp/src
+STEP 7/9: USER 1001
+STEP 8/9: RUN /usr/libexec/s2i/assemble
+---> Installing application source
+---> Copying nginx start-hook scripts...
+STEP 9/9: CMD /usr/libexec/s2i/run
+COMMIT temp.builder.openshift.io/build-images-ads/siavl-gerencial-frontend-13:4cd095d5
+time="2026-08-11T14:53:32Z" level=warning msg="Adding metacopy option, configured globally"
+Getting image source signatures
+Copying blob sha256:1733579794674bb13464023e8b7839ad924216064387c3bc9f53c33a4b3cd3c1
+Copying blob sha256:47f871cfc125200d9264414fdf234fb7c57beea52683c16fc73a115463ed1454
+Copying blob sha256:ced3c19e38498b34993f3d72c5f4fb7089fafe5ac67ce947b2f86f1371e582ab
+Copying blob sha256:9b1f3195797934752eac7a7e5ac06cec1f38932871ec486a6a34f42375ab8183
+Copying blob sha256:0cd3bd1c23238e6574774c8ba7021fd95b4823599918fff9b8449f9b4373c317
+Copying blob sha256:c09889b8accfa94140a986dca1408172927f5c777b21ce7ded2a0b94e0544f7c
+Copying config sha256:83e0a45bd58e23cbcff3554da4445b4e2f6272f8fd905d093b00b6d56ab83793
+Writing manifest to image destination
+Storing signatures
+--> 83e0a45bd58
+Successfully tagged temp.builder.openshift.io/build-images-ads/siavl-gerencial-frontend-13:4cd095d5
+83e0a45bd58e23cbcff3554da4445b4e2f6272f8fd905d093b00b6d56ab83793
+
+Pushing image image-registry.openshift-image-registry.svc:5000/build-images-ads/siavl-gerencial-frontend:latest ...
+Getting image source signatures
+Copying blob sha256:44115d860fcecaa250b811cc4120d7ba18a2250bada1fe15199de53cefde7fc7
+Copying blob sha256:b7874c7c745526edc862e5c886bfa9b9ded6e01ef384d46ce1aee844f8a7eefc
+Copying blob sha256:16ced056df22eeca4ed0180b92a884beb321e53afded464e9c64bab3e5f7a650
+Copying blob sha256:262268b65bd5f33784d6a61514964887bc18bc00c60c588bc62bfae7edca46f1
+Copying blob sha256:06038631a24a25348b51d1bfc7d0a0ee555552a8998f8328f9b657d02dd4c64c
+Copying blob sha256:c09889b8accfa94140a986dca1408172927f5c777b21ce7ded2a0b94e0544f7c
+Copying config sha256:83e0a45bd58e23cbcff3554da4445b4e2f6272f8fd905d093b00b6d56ab83793
+Writing manifest to image destination
+Storing signatures
+Successfully pushed image-registry.openshift-image-registry.svc:5000/build-images-ads/siavl-gerencial-frontend@sha256:1601a377bbc5d3d11105d6e820bb370de8a57807251b27112c46606409c55e7c
+Push successful
+Finishing: Executando Build S2I Binary
