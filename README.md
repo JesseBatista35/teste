@@ -1,1 +1,11 @@
-grep -i "jconnector" /logs/jboss/jboss-eap/standalone/sicmu-intranet-update/server.log | grep -i "sicmu\|SICMU-ear"
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$ grep -i "jconnector" /logs/jboss/jboss-eap/standalone/sicmu-intranet-update/server.log | grep -i "sicmu|SICMU-ear"
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
