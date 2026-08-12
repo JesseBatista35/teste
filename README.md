@@ -1,13 +1,6 @@
+oc logs siint-saquetecban-pendencia-api-des-46-bk5s5 --previous > /tmp/crash.log 2>&1
+cat /tmp/crash.log
+wc -l /tmp/crash.log
 
--sh-4.2$
--sh-4.2$ oc logs siint-saquetecban-pendencia-api-des-46-bk5s5 --previous
-exec java -Dquarkus.http.host=0.0.0.0 -Dquarkus.http.port=8080 -Djava.util.logging.manager=org.jboss.logmanager.LogManager -Djavax.net.ssl.trustStore=/deployments/caixa-truststore-acteste-nprd.jks -XX:+ExitOnOutOfMemoryError -cp . -jar /deployments/quarkus-run.jar
-__  ____  __  _____   ___  __ ____  ______
- --/ __ \/ / / / _ | / _ \/ //_/ / / / __/
- -/ /_/ / /_/ / __ |/ , _/ ,< / /_/ /\ \
---\___\_\____/_/ |_/_/|_/_/|_|\____/___/
-2026-08-12 11:24:16,048 WARN  [io.quarkus.config] (main) The "quarkus.hibernate-orm.database.generation" config property is deprecated and should not be used anymore.
-Failed to load config value of type class java.lang.String for: api.confirmacao.siint-api-key
-Failed to load config value of type class java.lang.String for: api.confirmacao.client-secret
 
--sh-4.2$
+oc describe pod siint-saquetecban-pendencia-api-des-46-bk5s5 | grep -A 15 "State:\|Last State:"
