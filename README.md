@@ -1,6 +1,6 @@
-Solicitamos a alteração da porta que aponta o Java para o CICS Standalone (Porta 7000) para a porta que aponta para o CICSPLEX (porta 7057).
- 
-Justificativa:
-Estamos iniciando a migração dos SIGDU do CICS Standalone para o CICS PLEX, e precisamos alterar a porta de 7000 para 7057, de forma a apontar o Java de DES para o CICSPLEX.
- 
-seria nossa?
+O PR já foi aprovado (Margareth aprovou há 1h), mas o merge está bloqueado automaticamente pelo GitHub aguardando 2 checks obrigatórios que ainda não retornaram resultado:
+
+QA / Quality Assurance — status "waiting", ainda não reportou;
+CodeQL (code scanning) — aguardando resultado dos commits.
+
+Não é algo que dá pra forçar/pular manualmente — é regra de proteção de branch do repositório. Assim que esses checks concluírem (sucesso ou falha), o merge libera ou aponta o que precisa ajustar.
