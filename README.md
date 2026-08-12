@@ -1,22 +1,6 @@
-grep -A 1 "br.gov.caixa.psc.connector.util.Config" /opt/jboss-eap/standalone/configuration/standalone.xml
-
-<property name="br.gov.caixa.psc.connector.util.Config" value="/opt/jboss-eap/standalone/configuration/sicmu_jconnector.properties" />
-
-ls -la /opt/jboss-eap/standalone/configuration/sicmu_jconnector.properties
-
-tail -f /logs/jboss/jboss-eap/standalone/sicmu-intranet-update/server.log
-
-grep -i "jconnector" /logs/jboss/jboss-eap/standalone/sicmu-intranet-update/server.log | tail -30
-
-curl -Ik https://servicossociais.des.corerj.caixa/LoginIntranetAction.do
-
-
-
-
-
-<img width="1156" height="806" alt="image" src="https://github.com/user-attachments/assets/05598750-fb92-49a3-8a48-b2e673455f2a" />
-
-
-
-
-
+Solicitamos a alteração da porta que aponta o Java para o CICS Standalone (Porta 7000) para a porta que aponta para o CICSPLEX (porta 7057).
+ 
+Justificativa:
+Estamos iniciando a migração dos SIGDU do CICS Standalone para o CICS PLEX, e precisamos alterar a porta de 7000 para 7057, de forma a apontar o Java de DES para o CICSPLEX.
+ 
+seria nossa?
