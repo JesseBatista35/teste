@@ -1,13 +1,12 @@
-Aviso Firebase App Distribution — falha em upload (HTTP 500)
+	1 Solicitamos apoio na resolução do problema:  Não está disponível o ambiente TQS no CI/CD Workflow . Só está habilitado ambiente DES para o deploy
 
-Pessoal, identificamos falha recorrente na etapa "Android - Firebase Distribution App" (upload pro Firebase), afetando múltiplas aplicações: SIMSC-Android-Nativo e SIAME-Android-Nativo, em TQS e HMP.
 
-Erro apresentado: Error: failed to upload distribution. HTTP Error: 500, Unknown Error
+  <img width="1822" height="883" alt="image" src="https://github.com/user-attachments/assets/bf8a1035-066a-4f2d-8dd4-c5db945040e0" />
 
-Investigação já concluída — causa raiz identificada no ambiente do agente (Node.js e firebase-tools desatualizados no pool Mobilidade-Linux-Proxy). Rede, token e integridade do APK foram descartados como causa.
 
-Demanda já foi encaminhada para o time de infraestrutura de agentes com o diagnóstico completo, solicitando atualização do Node/firebase-tools no pool.
+<img width="1309" height="886" alt="image" src="https://github.com/user-attachments/assets/7f366b62-dde8-4b1f-a12b-3da6fb71dc5f" />
 
-Qualquer novo caso de falha nessa mesma etapa, é esse mesmo problema — não precisa abrir chamado novo, só sinalizar aqui.
 
-Atualizo assim que tiver retorno da infra.
+<img width="1878" height="883" alt="image" src="https://github.com/user-attachments/assets/713f926b-3170-4945-9843-f611766c5137" />
+
+
