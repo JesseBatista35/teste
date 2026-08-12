@@ -1,29 +1,53 @@
+#------------------------- Config API -------------------------
+PORTA=8443
+SCHEDULER_INTERVALO=5
 
--sh-4.2$
--sh-4.2$ oc logs siint-saquetecban-pendencia-api-des-47-d4m25 -f
-exec java -Dquarkus.http.host=0.0.0.0 -Dquarkus.http.port=8080 -Djava.util.logging.manager=org.jboss.logmanager.LogManager -Djavax.net.ssl.trustStore=/deployments/caixa-truststore-acteste-nprd.jks -XX:+ExitOnOutOfMemoryError -cp . -jar /deployments/quarkus-run.jar
-__  ____  __  _____   ___  __ ____  ______
- --/ __ \/ / / / _ | / _ \/ //_/ / / / __/
- -/ /_/ / /_/ / __ |/ , _/ ,< / /_/ /\ \
---\___\_\____/_/ |_/_/|_/_/|_|\____/___/
-2026-08-12 11:32:47,053 WARN  [io.quarkus.config] (main) The "quarkus.hibernate-orm.database.generation" config property is deprecated and should not be used anymore.
-Failed to load config value of type class java.lang.String for: api.confirmacao.siint-api-key
-Failed to load config value of type class java.lang.String for: api.confirmacao.client-secret
+#------------------------- DB ---------------------------------
+QUARKUS_DATASOURCE_JDBC_URL=jdbc:db2://10.192.225.76:2905/DBD0
 
--sh-4.2$
--sh-4.2$
--sh-4.2$ oc logs siint-saquetecban-pendencia-api-des-47-d4m25 --tail=-1 --timestamps
-2026-08-12T14:34:11.909449004Z exec java -Dquarkus.http.host=0.0.0.0 -Dquarkus.http.port=8080 -Djava.util.logging.manager=org.jboss.logmanager.LogManager -Djavax.net.ssl.trustStore=/deployments/caixa-truststore-acteste-nprd.jks -XX:+ExitOnOutOfMemoryError -cp . -jar /deployments/quarkus-run.jar
-2026-08-12T14:34:14.237365913Z __  ____  __  _____   ___  __ ____  ______
-2026-08-12T14:34:14.237365913Z  --/ __ \/ / / / _ | / _ \/ //_/ / / / __/
-2026-08-12T14:34:14.237365913Z  -/ /_/ / /_/ / __ |/ , _/ ,< / /_/ /\ \
-2026-08-12T14:34:14.237365913Z --\___\_\____/_/ |_/_/|_/_/|_|\____/___/
-2026-08-12T14:34:14.237365913Z 2026-08-12 11:34:14,234 WARN  [io.quarkus.config] (main) The "quarkus.hibernate-orm.database.generation" config property is deprecated and should not be used anymore.
-2026-08-12T14:34:14.334388935Z Failed to load config value of type class java.lang.String for: api.confirmacao.siint-api-key
-2026-08-12T14:34:14.334388935Z Failed to load config value of type class java.lang.String for: api.confirmacao.client-secret
-2026-08-12T14:34:14.334388935Z
--sh-4.2$
--sh-4.2$
--sh-4.2$ oc exec siint-saquetecban-pendencia-api-des-47-d4m25 -- cat /usr/src/app/secrets_files/SIINT_DES/SINTDS03_DB2
-error: unable to upgrade connection: container not found ("siint-saquetecban-pendencia-api-des")
--sh-4.2$
+scheduler.intervalo=${SCHEDULER_INTERVALO}m
+
+#------------------------- API TecBan B24 -------------------------
+quarkus.rest-client.tecban-resolve-pendencia.url=https://api.des.caixa:8443
+quarkus.rest-client.gen-token.url=https://login.des.caixa
+
+#------------------------- API SIINT -------------------------
+quarkus.rest-client.tecban-confirmacao-pendencia.url=https://api.des.caixa:8443
+
+api.confirmacao.client-id=${API_CLIENT_ID}
+api.confirmacao.client-secret=${API_CLIENT_SECRET}
+api.confirmacao.siint-api-key=${API_KEY}
+api.confirmacao.grant-type=${API_GRANT_TYPE}
+
+#------------------------- Keystore -------------------------
+##quarkus.ssl.trust-store-path=client.p12
+##quarkus.http.ssl.certificate.trust-store-password=${SENHA_SSL}
+##quarkus.http.ssl.certificate.trust-store-file-type=PKCS12
+#
+#quarkus.rest-client.tecban-resolve-pendencia.trust-store=truststore.jks
+#quarkus.rest-client.tecban-resolve-pendencia.trust-store-password=caixa14
+#
+#quarkus.rest-client.tecban-confirmacao-pendencia.trust-store=truststore.jks
+#quarkus.rest-client.tecban-confirmacao-pendencia.trust-store-password=caixa14
+#
+#quarkus.rest-client.gen-token.trust-store=truststore.jks
+#quarkus.rest-client.gen-token.trust-store-password=caixa14
+#
+##quarkus.tls.key-store-file=keystore.p12
+##quarkus.tls.key-store-password=senha
+##quarkus.tls.key-store-file-type=PKCS12
+
+#------------------------- Configuração DataSource -------------------------
+quarkus.datasource.db-kind=db2
+quarkus.datasource.jdbc.url=${QUARKUS_DATASOURCE_JDBC_URL}
+quarkus.datasource.username=${QUARKUS_DATASOURCE_USERNAME}
+quarkus.datasource.password=${QUARKUS_DATASOURCE_PASSWORD}
+quarkus.datasource.jdbc.driver=com.ibm.db2.jcc.DB2Driver
+
+#------------------------- Configuração Hibernate -------------------------
+quarkus.hibernate-orm.database.generation=none
+quarkus.hibernate-orm.validate-in-dev-mode=false
+
+#------------------------- DEBUG ------------------------------------------
+quarkus.log.category."org.jboss.resteasy.reactive.client".level=DEBUG
+quarkus.log.category."org.apache.http".level=DEBUG
