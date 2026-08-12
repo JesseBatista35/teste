@@ -1,3 +1,6 @@
+<img width="1847" height="903" alt="image" src="https://github.com/user-attachments/assets/24d8887d-9ffc-4843-8492-33c641668395" />
+
+
 br.gov.caixa.psc.connector.client.ClientFactory=br.gov.caixa.psc.connector.client.jcicsdirect.JCICSDirectFactory
 
 # Target cicsiso
@@ -84,13 +87,3 @@ br.gov.caixa.psc.connector.client.jcicsdirect.port.tgsgrs144=__CICS_PORT__
 br.gov.caixa.psc.connector.client.jcicsdirect.mincommarea.tgsgrs144=0
 br.gov.caixa.psc.connector.client.jcicsdirect.programtype.tgsgrs144=3
 br.gov.caixa.psc.connector.client.jcicsdirect.reuselogin.tgsgrs144=true
-
-
-
-<img width="1651" height="918" alt="image" src="https://github.com/user-attachments/assets/49e86e18-5e39-42f3-bcdf-a7b662efbb04" />
-
-
-
-ele disse que ese é oqruivo mais nao tem esse repo apontado na release
-
-<img width="1881" height="913" alt="image" src="https://github.com/user-attachments/assets/c127b8d5-3266-496e-a2bc-9849bca5408b" />
