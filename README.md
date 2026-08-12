@@ -1,7 +1,13 @@
-find / -path "*/infra_app/config*" 2>/dev/null
 
-
-find / -iname "jconnector.properties" 2>/dev/null
-
-
-find / -type d -iname "infra_app" 2>/dev/null
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$ find / -path "*/infra_app/config*" 2>/dev/null
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$ find / -iname "jconnector.properties" 2>/dev/null
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$ find / -type d -iname "infra_app" 2>/dev/null
+-sh-4.2$
