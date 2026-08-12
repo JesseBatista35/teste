@@ -1,4 +1,11 @@
-
+-sh-4.2$ oc get pod siint-saquetecban-pendencia-api-des-37-8clsc -o jsonpath='{.spec.containers[0].image}{"\n"}'
+default-route-openshift-image-registry.apps.produtos4.caixa/build-images-ads/siint-saquetecban-pendencia-api:20260806.0959-1.0.0-SNAPSHOT
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$ oc get pod siint-saquetecban-pendencia-api-des-47-d4m25 -o jsonpath='{.spec.containers[0].image}{"\n"}' 2>/dev/null
+default-route-openshift-image-registry.apps.produtos4.caixa/build-images-ads/siint-saquetecban-pendencia-api:1.0.0.10
+-sh-4.2$
+-sh-4.2$
 -sh-4.2$
 -sh-4.2$ oc get pods -w &
 [1] 99032
@@ -51,4 +58,11 @@ siint-saquetecban-pendencia-api-des-48-fjhpz   0/1       Pending   0         0s
 siint-saquetecban-pendencia-api-des-48-fjhpz   0/1       Pending   0         0s
 siint-saquetecban-pendencia-api-des-48-fjhpz   0/1       Init:0/2   0         0s
 siint-saquetecban-pendencia-api-des-48-fjhpz   0/1       Init:0/2   0         2s
+siint-saquetecban-pendencia-api-des-48-fjhpz   0/1       Init:0/2   0         2s
+siint-saquetecban-pendencia-api-des-48-fjhpz   0/1       Init:1/2   0         4s
+siint-saquetecban-pendencia-api-des-48-fjhpz   0/1       PodInitializing   0         5s
+siint-saquetecban-pendencia-api-des-48-fjhpz   0/1       Running   0         6s
+siint-saquetecban-pendencia-api-des-48-fjhpz   0/1       Error     0         8s
+siint-saquetecban-pendencia-api-des-48-fjhpz   0/1       Running   1         9s
+siint-saquetecban-pendencia-api-des-48-fjhpz   0/1       Error     1         11s
 
