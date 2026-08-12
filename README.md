@@ -1,4 +1,27 @@
-<img width="1780" height="905" alt="image" src="https://github.com/user-attachments/assets/e40a7ea9-1304-4fa7-be3e-f430a42a5170" />
+SIINT-SAQUETECBAN-PENDENCIA-API-DES (11)
+Grupo de variáveis de SIINT-SAQUETECBAN-PENDENCIA-API-DES
+Scopes: EC DES
+QUARKUS_DATASOURCE_PASSWORD
+********
+_ENV.API_CLIENT_ID
+cli-ser-int
+_ENV.API_GRANT_TYPE
+client_credentials
+_ENV.JAVA_OPTIONS_APPEND
+-Djavax.net.ssl.trustStore=/deployments/caixa-truststore-acteste-nprd.jks
+_ENV.QUARKUS_DATASOURCE_JDBC_URL
+jdbc:db2://10.192.225.76:2905/DBD0
+_ENV.QUARKUS_DATASOURCE_PASSWORD
+'${SINTDS03_DB2}'
+_ENV.QUARKUS_DATASOURCE_USERNAME
+SINTDS03
+_ENV.SMALLRYE.CONFIG.SOURCE.FILE.LOCATIONS
+/usr/src/app/secrets_files/SIINT_DES/
+_SECRET.API_CLIENT_SECRET
+8d78faea-64a1-4b00-a9c7-4dc7501ae6f5
+_SECRET.API_KEY
+l70b96355b16d04a56b4db2c991509759f
+_SECRET.QUARKUS_DATASOURCE_PASSWORD
+#{QUARKUS_DATASOURCE_PASSWORD}#
 
 
-é taks group nao da pra mecher
