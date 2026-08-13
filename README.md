@@ -1,147 +1,83 @@
-quarkus.console.color=true
+package gov.caixa.microfpp.services.apiService.retry;
 
-# ==============================
-# HTTP E DOCUMENTACAO
-# ==============================
-quarkus.http.port=8082
-quarkus.swagger-ui.path=/swagger-ui
-quarkus.swagger-ui.always-include=true
-quarkus.swagger-ui.enable=true
-quarkus.swagger-ui.theme=material
+import gov.caixa.microfpp.dto.request.IncluirBoletoRequest;
+import gov.caixa.microfpp.dto.response.IncluirBoletoResponse;
+import gov.caixa.microfpp.infra.client.IncluirBoletoApiClient;
+import gov.caixa.microfpp.infra.exceptions.ExternalServiceException;
+import jakarta.inject.Inject;
+import jakarta.inject.Singleton;
+import jakarta.ws.rs.ProcessingException;
+import jakarta.ws.rs.WebApplicationException;
+import jakarta.ws.rs.core.Response;
+import org.eclipse.microprofile.faulttolerance.Retry;
+import org.eclipse.microprofile.rest.client.inject.RestClient;
+import org.jboss.logging.Logger;
 
-# ==============================
-# HEALTH CHECK
-# ==============================
-quarkus.smallrye-health.root-path=/health
+@Singleton
+public class IncluirBoletoApiRetryService {
+    private static final Logger LOG = Logger.getLogger(IncluirBoletoApiRetryService.class);
 
-# ==============================
-# SSO - KEYCLOAK CONFIGURATION
-# ==============================
-sso.keycloak.auth-server-url=https://login.des.caixa
-sso.keycloak.realm=intranet
-sso.keycloak.client-id=cli-ser-fpp
-sso.keycloak.client-secret=e435c692-b526-434b-b0fc-3d486f51d632
-sso.keycloak.grant-type=client_credentials
-sso.keycloak.scope=openid
-sso.keycloak.retry.max-retries=3
-sso.keycloak.retry.delay-millis=200
-sso.token.cache-duration-minutes=55
+    @Inject
+    @RestClient
+    IncluirBoletoApiClient boletoApiClient;
 
-# REST Client Configuration - Keycloak
-# URL base: endpoint /token será anexado via @Path("/token") no cliente
-quarkus.rest-client."sso.keycloak".url=https://login.des.caixa/auth/realms/intranet/protocol/openid-connect
-%dev.quarkus.rest-client."sso.keycloak".insecure=true
-%prod.quarkus.rest-client."sso.keycloak".insecure=false
+    @Retry(
+            maxRetries = 3,
+            delay = 2000,
+            retryOn = RetryableExternalServiceException.class
+    )
+    public IncluirBoletoResponse incluiBoleto(String authHeader, IncluirBoletoRequest boletoRequest) {
+        try {
+            return boletoApiClient.incluiBoleto(authHeader, boletoRequest);
+        } catch (WebApplicationException e) {
+            int status = e.getResponse() != null ? e.getResponse().getStatus() : Response.Status.BAD_GATEWAY.getStatusCode();
+            String responseBody = extractResponseBody(e);
+            LOG.error("Erro HTTP ao consumir API de boleto - Status: " + status);
+            if (!responseBody.isBlank()) {
+                LOG.error("Response: " + responseBody);
+            }
 
-# ==============================
-# BOLETO API CONFIGURATION
-# ==============================
-boleto.api.base-url=https://api.des.caixa:8443
-boleto.api.endpoint=/cobranca/boletos/v1/incluiBoleto
-boleto.api.key=l7eb61df18ac414f8ab82f3abbe3577a78
-boleto.api.connect-timeout=5000
-boleto.api.read-timeout=10000
-boleto.api.retry.max-retries=3
-boleto.api.retry.delay-millis=200
+            if (status >= 500) {
+                LOG.warn("Falha transitória na API de boleto. Retry via MicroProfile - código: BOLETO_API_ERROR");
+                throw new RetryableExternalServiceException(
+                        "BOLETO_API_ERROR",
+                        "Falha ao consumir a API de boleto. Status HTTP upstream: " + status + formatDetail(responseBody),
+                        status,
+                        e
+                );
+            }
 
-# REST Client Configuration - Boleto API
-# A API DES usa certificado que nao esta no truststore padrao da JVM.
-# Para este cliente, configure um bucket TLS dedicado aceitando o certificado
-# apenas neste ambiente controlado.
-quarkus.rest-client."boleto.api".url=https://api.des.caixa:8443
-quarkus.rest-client."boleto.api".tls-configuration-name=boleto-api-des
+            throw new ExternalServiceException(
+                    "BOLETO_API_ERROR",
+                    "Falha ao consumir a API de boleto. Status HTTP upstream: " + status + formatDetail(responseBody),
+                    status,
+                    e
+            );
+        } catch (ProcessingException e) {
+            LOG.error("Erro de comunicação ao consumir API de boleto", e);
+            LOG.warn("Falha transitória na API de boleto. Retry via MicroProfile - código: BOLETO_API_COMMUNICATION_ERROR");
+            throw new RetryableExternalServiceException(
+                    "BOLETO_API_COMMUNICATION_ERROR",
+                    "Falha de comunicação com a API de boleto: " + e.getMessage(),
+                    Response.Status.BAD_GATEWAY.getStatusCode(),
+                    e
+            );
+        }
+    }
 
-# TLS dedicado para a API de boleto em DES
-quarkus.tls.boleto-api-des.trust-all=true
-quarkus.tls.boleto-api-des.hostname-verification-algorithm=NONE
+    private String extractResponseBody(WebApplicationException exception) {
+        try {
+            if (exception.getResponse() == null || !exception.getResponse().hasEntity()) {
+                return "";
+            }
+            String body = exception.getResponse().readEntity(String.class);
+            return body != null ? body.trim() : "";
+        } catch (Exception ignored) {
+            return "";
+        }
+    }
 
-# Configuração global do Vert.x para aceitar certificados inválidos em DEV
-%dev.vertx.tls.allow-insecure=true
-%prod.vertx.tls.allow-insecure=false
-
-# ==============================
-# REST CLIENT LOGGING
-# ==============================
-quarkus.rest-client.logging.scope=request-response
-quarkus.rest-client.logging.level=VERBOSE
-
-# ==============================
-# FAULT TOLERANCE - RETRY
-# ==============================
-#quarkus.fault-tolerance."gov.caixa.microfpp.services.apiService.retry.IncluirBoletoApiRetryService/incluiBoleto".retry.max-retries=${boleto.api.retry.max-retries}
-#quarkus.fault-tolerance."gov.caixa.microfpp.services.apiService.retry.IncluirBoletoApiRetryService/incluiBoleto".retry.delay=${boleto.api.retry.delay-millis}
-#quarkus.fault-tolerance."gov.caixa.microfpp.services.apiService.retry.IncluirBoletoApiRetryService/incluiBoleto".retry.delay-unit=millis
-
-#quarkusquarkus.fault-tolerance."gov.caixa.microfpp.services.apiService.SSOTokenRetryService/solicitarNovoToken".retry.max-retries=${sso.keycloak.retry.max-retries}
-#quarkusquarkus.fault-tolerance."gov.caixa.microfpp.services.apiService.SSOTokenRetryService/solicitarNovoToken".retry.delay=${sso.keycloak.retry.delay-millis}
-#quarkusquarkus.fault-tolerance."gov.caixa.microfpp.services.apiService.SSOTokenRetryService/solicitarNovoToken".retry.delay-unit=millis
-
-
-#CONFIG CORS
-quarkus.http.cors=true
-quarkus.http.cors.origins=*
-quarkus.http.cors.methods=GET,PUT,POST,DELETE,OPTIONS
-quarkus.http.cors.headers=accept,authorization,content-type,x-requested-with
-quarkus.http.cors.exposed-headers=Content-Disposition
-#quarkus.http.cors.origins=https://login.des.caixa/auth/realms/intranet
-
-
-#######################
-####    DATABASE   ####
-#######################
-
-quarkus.datasource.db-kind=mssql
-quarkus.datasource.jdbc.driver=com.microsoft.sqlserver.jdbc.SQLServerDriver
-quarkus.datasource.jdbc.url=${QUARKUS_DATASOURCE_JDBC_URL}
-quarkus.datasource.username=${QUARKUS_DATASOURCE_USERNAME}
-quarkus.datasource.password=${QUARKUS_DATASOURCE_PASSWORD}
-
-
-##########################
-####   LOGS CONFIG    ####
-##########################
-
-
-############################
-#### API MANAGER CONFIG ####
-############################
-
-# Caixa API Manager
-#api.manager.url=https://api.des.caixa:8443/
-#api.manager.key=l7cf7839a6152c496da545ec6d05789810
-
-#############################
-#### INTERFACES EXTERNAS ####
-#############################
-
-#GARANTIA-MS
-quarkus.rest-client.garantia.url=${ROUTES.MS-GARANTIA}
-
-
-##############################
-## CRIPTOGRAFIA DE RESPOSTA ##
-##############################
-#api.criptografia.secret-key=${SECRET_KEY_BASE64}
-#api.criptografia.init-vector=${INIT_VECTOR_BASE64}
-
-# SIISO
-#siiso-api.url=${SIISO_URL}
-#siiso-api.manager.url=${api.manager.url}informacoes-sociais/
-#siiso-api/mp-rest/url=${siiso-api.manager.url:${siiso-api.url}}
-#siiso-api/mp-rest/scope=javax.inject.Singleton
-#%dev.siiso-api/mp-rest/trustStore=${truststore.file}
-#%dev.siiso-api/mp-rest/trustStorePassword=${truststore.password}
-#%dev.siiso-api/mp-rest/trustStoreFileType=JKS
-
-# Open Telemetry Config
-# quarkus.otel.enabled=true
-# quarkus.otel.exporter.otlp.endpoint=http://localhost:4317
-# quarkus.otel.exporter.otlp.protocol=http/protobuf
-
-#SSO-Keycloak
-quarkus.oidc.auth-server-url=https://login.des.caixa/auth/realms/intranet
-quarkus.oidc.client-id=cli-ser-fpp
-quarkus.oidc.credentials.secret=e435c692-b526-434b-b0fc-3d486f51d632
-quarkus.oidc.enabled=false
-
-
+    private String formatDetail(String responseBody) {
+        return responseBody.isBlank() ? "" : ". Detalhe: " + responseBody;
+    }
+}
