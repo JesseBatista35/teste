@@ -1,209 +1,147 @@
-package gov.caixa.microfpp.dto.request;
+quarkus.console.color=true
+
+# ==============================
+# HTTP E DOCUMENTACAO
+# ==============================
+quarkus.http.port=8082
+quarkus.swagger-ui.path=/swagger-ui
+quarkus.swagger-ui.always-include=true
+quarkus.swagger-ui.enable=true
+quarkus.swagger-ui.theme=material
+
+# ==============================
+# HEALTH CHECK
+# ==============================
+quarkus.smallrye-health.root-path=/health
+
+# ==============================
+# SSO - KEYCLOAK CONFIGURATION
+# ==============================
+sso.keycloak.auth-server-url=https://login.des.caixa
+sso.keycloak.realm=intranet
+sso.keycloak.client-id=cli-ser-fpp
+sso.keycloak.client-secret=e435c692-b526-434b-b0fc-3d486f51d632
+sso.keycloak.grant-type=client_credentials
+sso.keycloak.scope=openid
+sso.keycloak.retry.max-retries=3
+sso.keycloak.retry.delay-millis=200
+sso.token.cache-duration-minutes=55
+
+# REST Client Configuration - Keycloak
+# URL base: endpoint /token será anexado via @Path("/token") no cliente
+quarkus.rest-client."sso.keycloak".url=https://login.des.caixa/auth/realms/intranet/protocol/openid-connect
+%dev.quarkus.rest-client."sso.keycloak".insecure=true
+%prod.quarkus.rest-client."sso.keycloak".insecure=false
+
+# ==============================
+# BOLETO API CONFIGURATION
+# ==============================
+boleto.api.base-url=https://api.des.caixa:8443
+boleto.api.endpoint=/cobranca/boletos/v1/incluiBoleto
+boleto.api.key=l7eb61df18ac414f8ab82f3abbe3577a78
+boleto.api.connect-timeout=5000
+boleto.api.read-timeout=10000
+boleto.api.retry.max-retries=3
+boleto.api.retry.delay-millis=200
+
+# REST Client Configuration - Boleto API
+# A API DES usa certificado que nao esta no truststore padrao da JVM.
+# Para este cliente, configure um bucket TLS dedicado aceitando o certificado
+# apenas neste ambiente controlado.
+quarkus.rest-client."boleto.api".url=https://api.des.caixa:8443
+quarkus.rest-client."boleto.api".tls-configuration-name=boleto-api-des
+
+# TLS dedicado para a API de boleto em DES
+quarkus.tls.boleto-api-des.trust-all=true
+quarkus.tls.boleto-api-des.hostname-verification-algorithm=NONE
+
+# Configuração global do Vert.x para aceitar certificados inválidos em DEV
+%dev.vertx.tls.allow-insecure=true
+%prod.vertx.tls.allow-insecure=false
+
+# ==============================
+# REST CLIENT LOGGING
+# ==============================
+quarkus.rest-client.logging.scope=request-response
+quarkus.rest-client.logging.level=VERBOSE
+
+# ==============================
+# FAULT TOLERANCE - RETRY
+# ==============================
+#quarkus.fault-tolerance."gov.caixa.microfpp.services.apiService.retry.IncluirBoletoApiRetryService/incluiBoleto".retry.max-retries=${boleto.api.retry.max-retries}
+#quarkus.fault-tolerance."gov.caixa.microfpp.services.apiService.retry.IncluirBoletoApiRetryService/incluiBoleto".retry.delay=${boleto.api.retry.delay-millis}
+#quarkus.fault-tolerance."gov.caixa.microfpp.services.apiService.retry.IncluirBoletoApiRetryService/incluiBoleto".retry.delay-unit=millis
+
+#quarkusquarkus.fault-tolerance."gov.caixa.microfpp.services.apiService.SSOTokenRetryService/solicitarNovoToken".retry.max-retries=${sso.keycloak.retry.max-retries}
+#quarkusquarkus.fault-tolerance."gov.caixa.microfpp.services.apiService.SSOTokenRetryService/solicitarNovoToken".retry.delay=${sso.keycloak.retry.delay-millis}
+#quarkusquarkus.fault-tolerance."gov.caixa.microfpp.services.apiService.SSOTokenRetryService/solicitarNovoToken".retry.delay-unit=millis
+
+
+#CONFIG CORS
+quarkus.http.cors=true
+quarkus.http.cors.origins=*
+quarkus.http.cors.methods=GET,PUT,POST,DELETE,OPTIONS
+quarkus.http.cors.headers=accept,authorization,content-type,x-requested-with
+quarkus.http.cors.exposed-headers=Content-Disposition
+#quarkus.http.cors.origins=https://login.des.caixa/auth/realms/intranet
+
+
+#######################
+####    DATABASE   ####
+#######################
+
+quarkus.datasource.db-kind=mssql
+quarkus.datasource.jdbc.driver=com.microsoft.sqlserver.jdbc.SQLServerDriver
+quarkus.datasource.jdbc.url=${QUARKUS_DATASOURCE_JDBC_URL}
+quarkus.datasource.username=${QUARKUS_DATASOURCE_USERNAME}
+quarkus.datasource.password=${QUARKUS_DATASOURCE_PASSWORD}
+
+
+##########################
+####   LOGS CONFIG    ####
+##########################
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.util.List;
+############################
+#### API MANAGER CONFIG ####
+############################
 
-public class IncluirBoletoRequest {
+# Caixa API Manager
+#api.manager.url=https://api.des.caixa:8443/
+#api.manager.key=l7cf7839a6152c496da545ec6d05789810
 
-    @JsonProperty("flagAceite")
-    private String flagAceite;
+#############################
+#### INTERFACES EXTERNAS ####
+#############################
 
-    @JsonProperty("fichaCompensacao")
-    private FichaCompensacaoRequest fichaCompensacao;
+#GARANTIA-MS
+quarkus.rest-client.garantia.url=${ROUTES.MS-GARANTIA}
 
-    @JsonProperty("endereco")
-    private EnderecoRequest endereco;
 
-    @JsonProperty("pagador")
-    private PagadorRequest pagador;
+##############################
+## CRIPTOGRAFIA DE RESPOSTA ##
+##############################
+#api.criptografia.secret-key=${SECRET_KEY_BASE64}
+#api.criptografia.init-vector=${INIT_VECTOR_BASE64}
 
-    @JsonProperty("tpidentcsacdravalst")
-    private Integer tpidentcsacdravalst;
+# SIISO
+#siiso-api.url=${SIISO_URL}
+#siiso-api.manager.url=${api.manager.url}informacoes-sociais/
+#siiso-api/mp-rest/url=${siiso-api.manager.url:${siiso-api.url}}
+#siiso-api/mp-rest/scope=javax.inject.Singleton
+#%dev.siiso-api/mp-rest/trustStore=${truststore.file}
+#%dev.siiso-api/mp-rest/trustStorePassword=${truststore.password}
+#%dev.siiso-api/mp-rest/trustStoreFileType=JKS
 
-    @JsonProperty("multa")
-    private MultaRequest multa;
+# Open Telemetry Config
+# quarkus.otel.enabled=true
+# quarkus.otel.exporter.otlp.endpoint=http://localhost:4317
+# quarkus.otel.exporter.otlp.protocol=http/protobuf
 
-    @JsonProperty("valor")
-    private Double valor;
+#SSO-Keycloak
+quarkus.oidc.auth-server-url=https://login.des.caixa/auth/realms/intranet
+quarkus.oidc.client-id=cli-ser-fpp
+quarkus.oidc.credentials.secret=e435c692-b526-434b-b0fc-3d486f51d632
+quarkus.oidc.enabled=false
 
-    @JsonProperty("posVencimento")
-    private PosVencimentoRequest posVencimento;
 
-    @JsonProperty("valorAbatimento")
-    private Double valorAbatimento;
-
-    @JsonProperty("tipoBoleto")
-    private String tipoBoleto;
-
-    @JsonProperty("dataEmissao")
-    private String dataEmissao;
-
-    @JsonProperty("tipoEspecie")
-    private Integer tipoEspecie;
-
-    @JsonProperty("reciboPagador")
-    private ReciboPagadorRequest reciboPagador;
-
-    @JsonProperty("idBeneficiario")
-    private String idBeneficiario;
-
-    @JsonProperty("jurosMora")
-    private JurosMoraRequest jurosMora;
-
-    @JsonProperty("descontos")
-    private List<Object> descontos;
-
-    @JsonProperty("dataVencimento")
-    private String dataVencimento;
-
-    @JsonProperty("carteira")
-    private Integer carteira;
-
-    @JsonProperty("nossoNumero")
-    private String nossoNumero;
-
-    @JsonProperty("numeroDocumento")
-    private String numeroDocumento;
-
-    @JsonProperty("codigoMoeda")
-    private Integer codigoMoeda;
-
-    @JsonProperty("pagamento")
-    private PagamentoRequest pagamento;
-
-    @JsonProperty("valorIof")
-    private Double valorIof;
-
-    @JsonProperty("identificacaoEmpresa")
-    private Integer identificacaoEmpresa;
-
-    // Getters e Setters
-    public String getFlagAceite() { return flagAceite; }
-    public void setFlagAceite(String flagAceite) { this.flagAceite = flagAceite; }
-
-    public FichaCompensacaoRequest getFichaCompensacao() { return fichaCompensacao; }
-    public void setFichaCompensacao(FichaCompensacaoRequest fichaCompensacao) { this.fichaCompensacao = fichaCompensacao; }
-
-    public EnderecoRequest getEndereco() { return endereco; }
-    public void setEndereco(EnderecoRequest endereco) { this.endereco = endereco; }
-
-    public PagadorRequest getPagador() { return pagador; }
-    public void setPagador(PagadorRequest pagador) { this.pagador = pagador; }
-
-    public Integer getTpidentcsacdravalst() { return tpidentcsacdravalst; }
-    public void setTpidentcsacdravalst(Integer tpidentcsacdravalst) { this.tpidentcsacdravalst = tpidentcsacdravalst; }
-
-    public MultaRequest getMulta() { return multa; }
-    public void setMulta(MultaRequest multa) { this.multa = multa; }
-
-    public Double getValor() { return valor; }
-    public void setValor(Double valor) { this.valor = valor; }
-
-    public PosVencimentoRequest getPosVencimento() { return posVencimento; }
-    public void setPosVencimento(PosVencimentoRequest posVencimento) { this.posVencimento = posVencimento; }
-
-    public Double getValorAbatimento() { return valorAbatimento; }
-    public void setValorAbatimento(Double valorAbatimento) { this.valorAbatimento = valorAbatimento; }
-
-    public String getTipoBoleto() { return tipoBoleto; }
-    public void setTipoBoleto(String tipoBoleto) { this.tipoBoleto = tipoBoleto; }
-
-    public String getDataEmissao() { return dataEmissao; }
-    public void setDataEmissao(String dataEmissao) { this.dataEmissao = dataEmissao; }
-
-    public Integer getTipoEspecie() { return tipoEspecie; }
-    public void setTipoEspecie(Integer tipoEspecie) { this.tipoEspecie = tipoEspecie; }
-
-    public ReciboPagadorRequest getReciboPagador() { return reciboPagador; }
-    public void setReciboPagador(ReciboPagadorRequest reciboPagador) { this.reciboPagador = reciboPagador; }
-
-    public String getIdBeneficiario() { return idBeneficiario; }
-    public void setIdBeneficiario(String idBeneficiario) { this.idBeneficiario = idBeneficiario; }
-
-    public JurosMoraRequest getJurosMora() { return jurosMora; }
-    public void setJurosMora(JurosMoraRequest jurosMora) { this.jurosMora = jurosMora; }
-
-    public List<Object> getDescontos() { return descontos; }
-    public void setDescontos(List<Object> descontos) { this.descontos = descontos; }
-
-    public String getDataVencimento() { return dataVencimento; }
-    public void setDataVencimento(String dataVencimento) { this.dataVencimento = dataVencimento; }
-
-    public Integer getCarteira() { return carteira; }
-    public void setCarteira(Integer carteira) { this.carteira = carteira; }
-
-    public String getNossoNumero() { return nossoNumero; }
-    public void setNossoNumero(String nossoNumero) { this.nossoNumero = nossoNumero; }
-
-    public String getNumeroDocumento() { return numeroDocumento; }
-    public void setNumeroDocumento(String numeroDocumento) { this.numeroDocumento = numeroDocumento; }
-
-    public Integer getCodigoMoeda() { return codigoMoeda; }
-    public void setCodigoMoeda(Integer codigoMoeda) { this.codigoMoeda = codigoMoeda; }
-
-    public PagamentoRequest getPagamento() { return pagamento; }
-    public void setPagamento(PagamentoRequest pagamento) { this.pagamento = pagamento; }
-
-    public Double getValorIof() { return valorIof; }
-    public void setValorIof(Double valorIof) { this.valorIof = valorIof; }
-
-    public Integer getIdentificacaoEmpresa() { return identificacaoEmpresa; }
-    public void setIdentificacaoEmpresa(Integer identificacaoEmpresa) { this.identificacaoEmpresa = identificacaoEmpresa;}
-}
-
-
-
-
-package gov.caixa.microfpp.dto.apiResponse;
-
-import gov.caixa.microfpp.dto.response.IncluirBoletoResponse;
-
-public class ApiResponseIncluirBoleto {
-    private String message;
-    private String token;
-    private IncluirBoletoResponse boletoResponse;
-
-    public ApiResponseIncluirBoleto() {
-    }
-
-    public ApiResponseIncluirBoleto(String message, String token, IncluirBoletoResponse boletoResponse) {
-        this.message = message;
-        this.token = token;
-        this.boletoResponse = boletoResponse;
-    }
-
-    // Getters e Setters
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    public String getToken() {
-        return token;
-    }
-
-    public void setToken(String token) {
-        this.token = token;
-    }
-
-    public IncluirBoletoResponse getBoletoResponse() {
-        return boletoResponse;
-    }
-
-    public void setBoletoResponse(IncluirBoletoResponse boletoResponse) {
-        this.boletoResponse = boletoResponse;
-    }
-
-    @Override
-    public String toString() {
-        return "HelloResponse{" +
-                "message='" + message + '\'' +
-                ", token='" + (token != null ? token.substring(0, Math.min(20, token.length())) + "..." : "null") + '\'' +
-                ", boletoResponse=" + boletoResponse +
-                '}';
-    }
-}
