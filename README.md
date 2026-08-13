@@ -1,4 +1,11 @@
-oc get pod <nome-do-pod> -n <namespace> -o jsonpath='{.spec.containers[0].env}' | grep -i URL_BOLETO
-
-oc rsh <nome-do-pod> env | grep URL_BOLETO
-
+-sh-4.2$
+-sh-4.2$ oc get pod sifpp-micro-des-35-8bfs8 -n sifpp-des -o jsonpath='{.spec.containers[0].env}' | grep -i URL_BOLETO
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$ oc rsh sifpp-micro-des-35-8bfs8 env | grep URL_BOLETO
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
