@@ -1,54 +1,136 @@
-Boa tarde,
- 
-Me passaram seu contato, pois estou configurando o vault na aplicação do SIPGC na esteira devops que é em .net.
- 
-O deploy em DES passou , mas estamos tomando o erro 500 ao tentar acessar a aplicação. Colocamos a senha do banco no vault do beyondtrust SPGCDR01_SQLSERVER que está no folder  SIPGC_DES
- 
-Implementos as libraries do módulo SIPGC-API-SEGURANÇA:  SIPGC-API-BT-VAULT-DES, SIPGC-BT-VAULT-SECRET-DES, SIPGC-API-SEGURANCA-DES.
- 
-Posso abrir um chamado se precisar, só ainda não abri, pois não seria para multiplataforma ou inserção de senha.
- 
-Livia Pereira Oliveira Santos, Boa tarde. vou dar uma olhada, qual seria o modulo do SIPGC? que eu posso te orientar melhor sobre a abertura da REQ
- 
-Opa, SIPGC-API-SEGURANCA
- 
+Skip to main content
+Azure DevOps
+projetos
+/
+Caixa
+/
+Pipelines
+/
+Releases
+/
+SIPGC-api-seguranca
+Search
 
 
+Caixa
 
----> Running application ...
-info: SIPGC.Infrastructure.BeyondTrust.BeyondTrustVariableResolver[0]
-      [BT] Configurando BeyondTrust - Ambiente: Production
-info: SIPGC.Infrastructure.BeyondTrust.BeyondTrustConfigurationProvider[0]
-      [BT] Carregando configurações BeyondTrust - Ambiente: Production
-info: SIPGC.Infrastructure.BeyondTrust.BeyondTrustService[0]
-      [BT] Carregando secrets do diretório: /usr/src/app/secrets_files/SIPGC_DES/
-info: SIPGC.Infrastructure.BeyondTrust.BeyondTrustService[0]
-      [BT] Encontrados 6 arquivos para processar
-info: SIPGC.Infrastructure.BeyondTrust.BeyondTrustService[0]
-      [BT] Carregamento concluído: 6 secrets processados
-info: SIPGC.Infrastructure.BeyondTrust.BeyondTrustConfigurationProvider[0]
-      [BT] Encontradas 1 variáveis com padrões ${}
-info: SIPGC.Infrastructure.BeyondTrust.BeyondTrustVariableResolver[0]
-      [BT-RESOLVER] Resolvendo 1 variáveis com padrões ${}
-info: SIPGC.Infrastructure.BeyondTrust.BeyondTrustVariableResolver[0]
-      [BT-RESOLVER] DB_PASSWORD_001: '${spgcdr01_sqlserver}' → resolvido
-info: SIPGC.Infrastructure.BeyondTrust.BeyondTrustVariableResolver[0]
-      [BT-RESOLVER] Resolução concluída: 1/1 variáveis resolvidas
-info: SIPGC.Infrastructure.BeyondTrust.BeyondTrustConfigurationProvider[0]
-      [BT] Resolvidas 1 variáveis
-info: SIPGC.Infrastructure.BeyondTrust.BeyondTrustConfigurationProvider[0]
-      [BT] Configuração completa: 7 itens carregados
-info: SIPGC.Infrastructure.BeyondTrust.BeyondTrustVariableResolver[0]
-      [BT] BeyondTrust configurado com sucesso
-warn: Microsoft.AspNetCore.DataProtection.Repositories.FileSystemXmlRepository[60]
-      Storing keys in a directory '/opt/app-root/.aspnet/DataProtection-Keys' that may not be persisted outside of the container. Protected data will be unavailable when container is destroyed. For more information go to https://aka.ms/aspnet/dataprotectionwarning
-warn: Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager[35]
-      No XML encryptor configured. Key {c1cf1d43-87a9-4923-a7b0-5fcc4d9d59b4} may be persisted to storage in unencrypted form.
-info: Microsoft.Hosting.Lifetime[14]
-      Now listening on: http://[::]:8080
-info: Microsoft.Hosting.Lifetime[0]
-      Application started. Press Ctrl+C to shut down.
-info: Microsoft.Hosting.Lifetime[0]
-      Hosting environment: Production
-info: Microsoft.Hosting.Lifetime[0]
-      Content root path: /opt/app-root/app
+Overview
+
+Boards
+
+Repos
+
+Pipelines
+Pipelines
+Environments
+Releases
+Library
+Task groups
+Deployment groups
+Portal Infra
+
+Test Plans
+
+Artifacts
+Project settings
+All pipelines
+
+sipgc
+
+SIPGC-api-seguranca
+Predefined variables
+SonarQube Variables (1)
+Variáveis com dados do SonarQube
+Scopes: Release
+Usuario-Azure-DevOps (12)
+Scopes: Release
+EGRESS_IP_OKD (81)
+WO0000072264656 - Config Portal Infrafácil NO_PROXY
+Scopes: Release
+MONITORACAO_LOGS (4)
+REQ000143540550 - Conforme autorizado na req por FLAVIO ALMEIDA GAGLIARDI, removido as variáveis JAVA_OPTS_MONITORING e URL_APM_SERVER, por entrar em conflitos com releases que utilizam o Application Insights
+Scopes: Release
+OKD-REGISTRY-CENTRALIZADO (7)
+Credenciais para o Registry Centralizado - Produtos 4 (OKD)
+Scopes: Release
+OKD-4-NPRD (12)
+Credenciais para o Cluster OKD4 de NPRD (DES/TQS/HMP)
+Scopes: Release
+SIPGC-API-SEGURANCA-DES (15)
+Grupo de variáveis de SIPGC-API-SEGURANCA-DES
+
+Scopes: EC DES
+AzureAd__Audience
+api://ef9bda30-3695-462e-911b-5252dcf3b2de
+AzureAd__ClientId
+ef9bda30-3695-462e-911b-5252dcf3b2de
+AzureAd__Instance
+https://login.microsoftonline.com/
+AzureAd__TenantId
+23bc12fb-512d-4bc8-9d29-a2da7eb6d281
+COMPlus_EnableDiagnostics
+0
+DB_SCHEMA
+PGC
+INIT
+Criado via api
+KEY_SQLSERVER
+********
+_ENV.BD_SERVER
+10.116.92.247,1433
+_ENV.BEYONDTRUST_LOGGING_ENABLED
+true
+_ENV.DB_DATABASE
+PGCDB001
+_ENV.DB_PASSWORD_001
+'${spgcdr01_sqlserver}'
+_ENV.DB_USER_001
+SPGCDR01
+_ENV.VAULT_LOCATION
+/usr/src/app/secrets_files/SIPGC_DES/
+_SECRET.DB_PASSWORD_0010
+#{KEY_SQLSERVER}#
+SIPGC-API-BT-VAULT-DES (1)
+WO0000081000538 - Criação da library WO0000081208166 - Alteração do nome da Library
+Scopes: EC DES
+SIPGC-BT-VAULT-SECRET-DES (2)
+WO0000081000538 - Criação de library
+Scopes: EC DES
+SIPGC-API-SEGURANCA-TQS (9)
+Grupo de variáveis de SIPGC-API-SEGURANCA-TQS
+Scopes: EC TQS
+SIPGC-API-BT-VAULT-TQS (1)
+conforme WO0000081318659
+Scopes: EC TQS
+SIPGC-API-SEGURANCA-HMP (1)
+Grupo de variáveis de SIPGC-API-SEGURANCA-HMP
+Scopes: EC HMP
+OKD-4-APL (12)
+Scopes: EC PRD
+ADAPTER_VARIABLES (9)
+Variáveis disponíveis para todas os projetos do tipo ADAPTER.
+Scopes: EC PRD
+SIPGC-API-SEGURANCA-PRD (6)
+Grupo de variáveis de SIPGC-API-SEGURANCA-PRD
+Scopes: EC PRD
+|Manage variable groups
+Expanded
+
+Showing 2 items.
+
+Collapsed
+
+Expanded
+
+Collapsed
+
+Expanded
+
+Collapsed
+
+1 pipelines found
+
+Row 2
+
+Showing filters 1 through 2
+
