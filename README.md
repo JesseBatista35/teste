@@ -1,10 +1,5 @@
-<img width="1878" height="873" alt="image" src="https://github.com/user-attachments/assets/5fe1f103-5992-4742-b2a9-2f0dba50b6f2" />
+582026-08-14T13:18:26.174Z Skipping step callCreateEcrRepository because its if condition was false592026-08-14T13:18:26.177Z Beginning step 📋 PASSO 10.1 - Preparação Fontes - Estrutura do catálogo-info.yaml602026-08-14T13:18:27.359Z Finished step 📋 PASSO 10.1 - Preparação Fontes - Estrutura do catálogo-info.yaml612026-08-14T13:18:27.362Z Beginning step 📤 PASSO 10.2 - Criando Pull Request do catálogo
+622026-08-14T13:18:27.674Z GithubResponseError: Pull request creation failed; caused by HttpError: Not Found - https://docs.github.com/rest/repos/repos#get-a-repository
 
+63    at Object.handler (/opt/app-root/src/dynamic-plugins-root/backstage-plugin-scaffolder-backend-module-github-dynamic-0.6.0/node_modules/@backstage/plugin-scaffolder-backend-module-github/dist/actions/githubPullRequest.cjs.js:317:15)64    at async NunjucksWorkflowRunner.executeStep (/opt/app-root/src/node_modules/@backstage/plugin-scaffolder-backend/dist/scaffolder/tasks/NunjucksWorkflowRunner.cjs.js:240:9)65    at async NunjucksWorkflowRunner.execute (/opt/app-root/src/node_modules/@backstage/plugin-scaffolder-backend/dist/scaffolder/tasks/NunjucksWorkflowRunner.cjs.js:356:9)66    at async TaskWorker.runOneTask (/opt/app-root/src/node_modules/@backstage/plugin-scaffolder-backend/dist/scaffolder/tasks/TaskWorker.cjs.js:119:26)67    at async run (/opt/app-root/src/node_modules/p-queue/dist/index.js:163:29)
 
-Execuções com falha:
-https://fusionx.caixa/create/tasks/6fe55380-16d8-4621-81d1-4149b3d27a1b
-https://fusionx.caixa/create/tasks/a054a09b-5c33-4b0f-aa04-de84e3ae0d4f
-
-Comunidade: Nova Plataforma de Crédito
-
-Contexto: Precisamos migrar para o FusionX, mas até o momento não estamos conseguindo criar projetos novos.
