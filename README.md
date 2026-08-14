@@ -1,32 +1,4 @@
----
-jboss_directory_grouping: by-type
-jboss_domain_instance: hc
-jboss_group: jboss
-jboss_home: /opt/jboss-eap
-jboss_host_config: host-slave.xml
-jboss_instance_dc: dc
-jboss_instance_hc: hc
-jboss_java_home: "{{ java_oracle_jdk_install_directory }}"
-jboss_java_version_major: 8
-jboss_java_version_minor: 221
-jboss_ldap_connection: no
-jboss_ldap_credential: X98g4v95gg
-jboss_ldap_search: uid=SEAPBP01,ou=users,o=caixa
-jboss_ldap_url: ldap://intranet.openldap.corecaixa:389
-jboss_log_dir: /logs/jboss
-jboss_mgmt_password: jboss!123
-jboss_mgmt_user: admin
-jboss_mode: domain
-jboss_nfs_ip: 192.168.17.110
-jboss_nfs_path: /exports/jboss_eap_71
-jboss_release_major: 7
-jboss_release_minor: 1
-jboss_shutdown_wait: 30
-jboss_startup_wait: 30
-jboss_user: jboss
-jboss_config: standalone-full-ha.xml
-jboss_modules_nfs: yes
-jboss_config_modcluster: yes
-git_config: no
-jboss_modules_add_ons: yes
-jboss_modcluster_balancer: sistema
+mount | grep jboss-eap
+
+df -h /opt/jboss-eap/modules
+
