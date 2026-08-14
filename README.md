@@ -3,27 +3,29 @@ GitHub Enterprise
 Users managed by Caixa Economica Federal
 caixagithub
 Teams
-ComunidadeFundosdeGoverno_Gestor
+SIGOS_Arquiteto
 Local navigation
 Members
-3
- (3)
+5
+ (5)
 Repositories
 16
  (16)
 Projects
-@caixagithub/comunidadefundosdegoverno_gestor
-ComunidadeFundosdeGoverno_Gestor
+@caixagithub/sigos_arquiteto
+SIGOS_Arquiteto
 About
-Time dos Gestores da Comunidade Fundos de Governo
+This team has no description
 
 Members
 Find a member…
 Loading
-3 members shown.
-@c144656_caixa	Antonio Rummenigg Bento Paiva c144656_caixa
-@c089191_caixa	Carlos Antonio Sari Moreira da Silva c089191_caixa
-@c126912_caixa	Daniel Moura de Lima c126912_caixa
+5 members shown.
+@c071605_caixa	Rafael Costa Cysneiros c071605_caixa
+@c153032_caixa	Marcos da Silva Ferreira c153032_caixa
+@c101476_caixa	Margareth Moscardini de Oliveira c101476_caixa
+@c159575_caixa	Matheus Victor Gomes Duarte Ribeiro c159575_caixa
+@c161741_caixa	Wendel Conceicao Souza c161741_caixa
 Footer
 © 2026 GitHub, Inc.
 Footer navigation
@@ -36,3 +38,8 @@ Docs
 Contact
 Manage cookies
 Do not share my personal information
+
+
+
+
+esses aqui sao adim ou seja a propir margareth
