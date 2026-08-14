@@ -1,24 +1,107 @@
-Nota de Fechamento — WO [preencher número]
+Skip to content
+GitHub Enterprise
+Users managed by Caixa Economica Federal
+caixagithub
+sigos-processamento-arquivos
+Repository navigation
+Code
+Issues
+6
+ (6)
+Pull requests
+1
+ (1)
+Actions
+Projects
+Wiki
+Security and quality
+4
+ (4)
+Insights
+Settings
+Update call-generic-pipelines.yaml- #36
+#36
+Open
+Jesse Mouta Pereira Batista (p585600_caixa)
+wants to merge 1 commit into
+main
+from
+p585600_caixa-patch-4
++2
+-2
+Lines changed: 2 additions & 2 deletions
+Conversation0 (0)
+Commits1 (1)
+Checks0 (0)
+Files changed1 (1)
+Conversation
+@p585600_caixa
+Jesse Mouta Pereira Batista (p585600_caixa)
+commented
+2 hours ago
+No description provided.
 
-Sistema: SIFPP-micro (sifpp-ms)
-Ambiente: DES
-Namespace: sifpp-des
+@p585600_caixa
+Update call-generic-pipelines.yaml
+6bcac82
+This branch has not been deployed
+No deployments
+Merge info
+Review required
+At least 1 approving review is required by reviewers with write access.
 
-Descrição do problema:
-Falha de comunicação ao consumir a API de boleto (/cobranca/boletos/v1/incluiBoleto) e ao recuperar o PDF do boleto gerado, com erro de proxy 502 Proxy Error (Forefront TMG denied the specified Uniform Resource Locator) / Tunnel failed, got: 502, mesmo os destinos sendo hosts/IPs internos (api.des.caixa, 10.116.82.66), dentro do escopo do NO_PROXY configurado no ambiente.
+Some checks haven't completed yet
+1 expected check
 
-Causa raiz:
-Identificados dois pontos distintos no código da aplicação onde clientes HTTP eram instanciados sem configuração explícita de proxy, herdando por padrão o proxy da JVM (https.proxyHost=proxydes.caixa) sem respeitar corretamente a lista de exceções (nonProxyHosts/NO_PROXY):
 
-REST Client do Quarkus (quarkus.rest-client."boleto.api") — ao consumir a API de boleto, o client não reconhecia o host api.des.caixa como interno, roteando a chamada pelo proxy corporativo, que bloqueava a requisição no Forefront TMG.
-HttpClient nativo do Java (BoletoResource.createUnsafeClient()) — utilizado para baixar o PDF do boleto via IP interno (10.116.82.66), com o mesmo comportamento: o parser de nonProxyHosts da JVM não interpreta corretamente notação CIDR (10.0.0.0/8), fazendo com que o IP não fosse reconhecido como exceção e a chamada fosse roteada pelo proxy, resultando em bloqueio.
+pending checks
+QA / Quality AssuranceExpected — Waiting for status to be reported
+Required
+Merging is blocked
+Code scanning is waiting for results from CodeQL for the commits 64546a0 or 6bcac82.
+New changes require approval from someone other than the last pusher.
+You can also merge this with the command line. 
+Still in progress?
+@p585600_caixa
 
-Correções aplicadas:
 
-No application.properties, adicionada a diretiva quarkus.rest-client."boleto.api".proxy-address=none, forçando esse client a nunca utilizar proxy.
-No método createUnsafeClient() (BoletoResource.java), adicionada a configuração .proxy(HttpClient.Builder.NO_PROXY) no builder do HttpClient, com o mesmo objetivo.
+Add a comment
+Comment
+ 
+Add your comment here...
+Remember, contributions to this repository should follow our GitHub Community Guidelines.
+ ProTip! Add comments to specific lines under Files changed.
+Reviewers
+No reviews—at least 1 approving review is required.
+Still in progress?
+Assignees
+No one—
+Labels
+None yet
+Projects
+None yet
+Milestone
+No milestone
+Development
+Successfully merging this pull request may close these issues.
 
-Validação:
-Após build e deploy das correções, o fluxo completo de /boletos/incluir foi testado com sucesso em DES, incluindo a geração do boleto e a conversão do PDF para base64, sem qualquer erro de proxy ou comunicação.
+None yet
 
-Status: Resolvido.
+
+Notifications
+Customize
+You’re receiving notifications because you authored the thread.
+1 participant
+@p585600_caixa
+Footer
+© 2026 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Community
+Docs
+Contact
+Manage cookies
+Do not share my personal information
