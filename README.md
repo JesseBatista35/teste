@@ -34,6 +34,13 @@ Conversation0 (0)
 Commits1 (1)
 Checks0 (0)
 Files changed1 (1)
+Open
+Update call-generic-pipelines.yaml#36
+Jesse Mouta Pereira Batista (p585600_caixa)
+wants to merge 1 commit into
+main
+from
+p585600_caixa-patch-4
 Conversation
 @p585600_caixa
 Jesse Mouta Pereira Batista (p585600_caixa)
@@ -44,11 +51,16 @@ No description provided.
 @p585600_caixa
 Update call-generic-pipelines.yaml
 6bcac82
+@p585600_caixa
+Jesse Mouta Pereira Batista (p585600_caixa) requested a review from Margareth Moscardini de Oliveira (c101476_caixa) 3 minutes ago
+c101476_caixa
+Margareth Moscardini de Oliveira (c101476_caixa) approved these changes 2 minutes ago
 This branch has not been deployed
 No deployments
 Merge info
-Review required
-At least 1 approving review is required by reviewers with write access.
+Changes approved
+1 approving review by reviewers with write access.
+
 
 Some checks haven't completed yet
 1 expected check
@@ -59,7 +71,6 @@ QA / Quality AssuranceExpected — Waiting for status to be reported
 Required
 Merging is blocked
 Code scanning is waiting for results from CodeQL for the commits 64546a0 or 6bcac82.
-New changes require approval from someone other than the last pusher.
 You can also merge this with the command line. 
 Still in progress?
 @p585600_caixa
@@ -70,9 +81,10 @@ Comment
  
 Add your comment here...
 Remember, contributions to this repository should follow our GitHub Community Guidelines.
- ProTip! Add comments to specific lines under Files changed.
+ ProTip! Add .patch or .diff to the end of URLs for Git’s plaintext views.
 Reviewers
-No reviews—at least 1 approving review is required.
+@c101476_caixa
+Margareth Moscardini de Oliveira (c101476_caixa)
 Still in progress?
 Assignees
 No one—
@@ -91,8 +103,9 @@ None yet
 Notifications
 Customize
 You’re receiving notifications because you authored the thread.
-1 participant
+2 participants
 @p585600_caixa
+@c101476_caixa
 Footer
 © 2026 GitHub, Inc.
 Footer navigation
