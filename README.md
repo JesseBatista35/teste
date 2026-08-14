@@ -1,147 +1,154 @@
-quarkus.console.color=true
-
-# ==============================
-# HTTP E DOCUMENTACAO
-# ==============================
-quarkus.http.port=8082
-quarkus.swagger-ui.path=/swagger-ui
-quarkus.swagger-ui.always-include=true
-quarkus.swagger-ui.enable=true
-quarkus.swagger-ui.theme=material
-
-# ==============================
-# HEALTH CHECK
-# ==============================
-quarkus.smallrye-health.root-path=/health
-
-# ==============================
-# SSO - KEYCLOAK CONFIGURATION
-# ==============================
-sso.keycloak.auth-server-url=${QUARKUS_OIDC_AUTH_SERVER_URL}
-sso.keycloak.realm=intranet
-sso.keycloak.client-id=${SSO_CLI_SER_FPP}
-sso.keycloak.client-secret=${SSO_PASS_CLI_SER_FPP}
-sso.keycloak.grant-type=client_credentials
-sso.keycloak.scope=openid
-sso.keycloak.retry.max-retries=3
-sso.keycloak.retry.delay-millis=200
-sso.token.cache-duration-minutes=55
-
-# REST Client Configuration - Keycloak
-# URL base: endpoint /token será anexado via @Path("/token") no cliente
-quarkus.rest-client."sso.keycloak".url=https://login.des.caixa/auth/realms/intranet/protocol/openid-connect
-%dev.quarkus.rest-client."sso.keycloak".insecure=true
-%prod.quarkus.rest-client."sso.keycloak".insecure=false
-
-# ==============================
-# BOLETO API CONFIGURATION
-# ==============================
-boleto.api.base-url=${URL_BOLETO}
-boleto.api.endpoint=${URL_BOLETO_ENDPOINT}
-boleto.api.key=l7eb61df18ac414f8ab82f3abbe3577a78
-boleto.api.connect-timeout=5000
-boleto.api.read-timeout=10000
-boleto.api.retry.max-retries=3
-boleto.api.retry.delay-millis=200
-
-# REST Client Configuration - Boleto API
-# A API DES usa certificado que nao esta no truststore padrao da JVM.
-# Para este cliente, configure um bucket TLS dedicado aceitando o certificado
-# apenas neste ambiente controlado.
-quarkus.rest-client."boleto.api".proxy-address=none
-quarkus.rest-client."boleto.api".tls-configuration-name=boleto-api-des
-
-# TLS dedicado para a API de boleto em DES
-quarkus.tls.boleto-api-des.trust-all=true
-quarkus.tls.boleto-api-des.hostname-verification-algorithm=NONE
-
-# Configuração global do Vert.x para aceitar certificados inválidos em DEV
-%dev.vertx.tls.allow-insecure=true
-%prod.vertx.tls.allow-insecure=false
-
-# ==============================
-# REST CLIENT LOGGING
-# ==============================
-quarkus.rest-client.logging.scope=request-response
-quarkus.rest-client.logging.level=VERBOSE
-
-# ==============================
-# FAULT TOLERANCE - RETRY
-# ==============================
-#quarkus.fault-tolerance."gov.caixa.microfpp.services.apiService.retry.IncluirBoletoApiRetryService/incluiBoleto".retry.max-retries=${boleto.api.retry.max-retries}
-#quarkus.fault-tolerance."gov.caixa.microfpp.services.apiService.retry.IncluirBoletoApiRetryService/incluiBoleto".retry.delay=${boleto.api.retry.delay-millis}
-#quarkus.fault-tolerance."gov.caixa.microfpp.services.apiService.retry.IncluirBoletoApiRetryService/incluiBoleto".retry.delay-unit=millis
-
-#quarkusquarkus.fault-tolerance."gov.caixa.microfpp.services.apiService.SSOTokenRetryService/solicitarNovoToken".retry.max-retries=${sso.keycloak.retry.max-retries}
-#quarkusquarkus.fault-tolerance."gov.caixa.microfpp.services.apiService.SSOTokenRetryService/solicitarNovoToken".retry.delay=${sso.keycloak.retry.delay-millis}
-#quarkusquarkus.fault-tolerance."gov.caixa.microfpp.services.apiService.SSOTokenRetryService/solicitarNovoToken".retry.delay-unit=millis
+Skip to main content
+Azure DevOps
+projetos
+/
+Caixa
+/
+Pipelines
+/
+Releases
+/
+SIFPP-micro
+Search
 
 
-#CONFIG CORS
-quarkus.http.cors=true
-quarkus.http.cors.origins=*
-quarkus.http.cors.methods=GET,PUT,POST,DELETE,OPTIONS
-quarkus.http.cors.headers=accept,authorization,content-type,x-requested-with
-quarkus.http.cors.exposed-headers=Content-Disposition
-#quarkus.http.cors.origins=https://login.des.caixa/auth/realms/intranet
+Caixa
 
+Overview
 
-#######################
-####    DATABASE   ####
-#######################
+Boards
 
-quarkus.datasource.db-kind=mssql
-quarkus.datasource.jdbc.driver=com.microsoft.sqlserver.jdbc.SQLServerDriver
-quarkus.datasource.jdbc.url=${QUARKUS_DATASOURCE_JDBC_URL}
-quarkus.datasource.username=${QUARKUS_DATASOURCE_USERNAME}
-quarkus.datasource.password=${QUARKUS_DATASOURCE_PASSWORD}
+Repos
 
+Pipelines
+Pipelines
+Environments
+Releases
+Library
+Task groups
+Deployment groups
+Portal Infra
 
-##########################
-####   LOGS CONFIG    ####
-##########################
+Test Plans
 
+Artifacts
+Project settings
+All pipelines
+
+SIFPP
+
+SIFPP-micro
+Predefined variables
+SonarQube Variables (1)
+Variáveis com dados do SonarQube
+Scopes: Release
+Usuario-Azure-DevOps (12)
+Scopes: Release
+MONITORACAO_LOGS (4)
+REQ000143540550 - Conforme autorizado na req por FLAVIO ALMEIDA GAGLIARDI, removido as variáveis JAVA_OPTS_MONITORING e URL_APM_SERVER, por entrar em conflitos com releases que utilizam o Application Insights
+Scopes: Release
+EGRESS_IP_OKD (81)
+WO0000072264656 - Config Portal Infrafácil NO_PROXY
+Scopes: Release
+OKD-REGISTRY-CENTRALIZADO (7)
+Credenciais para o Registry Centralizado - Produtos 4 (OKD)
+Scopes: Release
+OKD-4-NPRD (12)
+Credenciais para o Cluster OKD4 de NPRD (DES/TQS/HMP)
+Scopes: EC DES,EC TQS,EC HMP
+SIFPP-MICRO-DES (20)
+Grupo de variáveis de SIFPP-MICRO-DES
 
-############################
-#### API MANAGER CONFIG ####
-############################
+Scopes: EC DES
+APPLICATIONINSIGHTS_SAMPLING_PERCENTAGE
+100
+APPLICATIONINSIGHTS_SELF_DIAGNOSTICS_LEVEL
+INFO
+HTTP_SERVICE_API
+https://sifpp-micro-des.apps.nprd.caixa
+INIT
+Criado via api
+SSO_PASS_SER_OBR
+#{Abrir REQ}#
+_ENV.APPLICATIONINSIGHTS_CONNECTION_STRING
+"InstrumentationKey=f6b9b060-c8fc-4702-a924-a3632ca25bb1;IngestionEndpoint=https://brazilsouth-1.in.applicationinsights.azure.com/;LiveEndpoint=https://brazilsouth.livediagnostics.monitor.azure.com/"
+_ENV.APPLICATIONINSIGHTS_INSTRUMENTATION_LOGGING_LEVEL
+INFO
+_ENV.APPLICATIONINSIGHTS_ROLE_NAME
+SIFPP-DES
+_ENV.HEALTH_URL
+https://sifpp-micro-des.apps.nprd.caixa
+_ENV.HTTPS_PROXY
+http://proxydes.caixa:80
+_ENV.HTTP_PROXY
+http://proxydes.caixa:80
+_ENV.JAVA_OPTIONS_APPEND
+"-Djavax.net.ssl.trustStore=/deployments/caixa-truststore-acteste-nprd.jks"
+_ENV.NO_PROXY
+".caixa,.caixa.gov.br,10.0.0.0/8"
+_ENV.QUARKUS_LOG_LEVEL
+INFO
+_ENV.QUARKUS_OIDC_AUTH_SERVER_UR
+https://login.des.caixa
+_ENV.SSO_CLI_SER_FPP
+cli-ser-fpp
+_ENV.URL_BOLETO
+https://api.des.caixa:8443
+_ENV.URL_BOLETO_ENDPOINT
+/cobranca/boletos/v1/incluiBoleto
+_SECRET.SMALLRYE.CONFIG.SOURCE.FILE.LOCATIONS
+/usr/src/app/secrets_files/SIOBR-DES
+_SECRET.SSO_PASS_CLI_SER_FPP
+e435c692-b526-434b-b0fc-3d486f51d632
+SIFPP-MICRO-TQS (1)
+Grupo de variáveis de SIFPP-MICRO-TQS
+Scopes: EC TQS
+SIFPP-MICRO-HMP (1)
+Grupo de variáveis de SIFPP-MICRO-HMP
+Scopes: EC HMP
+OKD-4-APL (12)
+Scopes: EC PRD
+SIFPP-MICRO-PRD (1)
+Grupo de variáveis de SIFPP-MICRO-PRD
+Scopes: EC PRD
+|Manage variable groups
+Collapsed
 
-# Caixa API Manager
-#api.manager.url=https://api.des.caixa:8443/
-#api.manager.key=l7cf7839a6152c496da545ec6d05789810
+Expanded
 
-#############################
-#### INTERFACES EXTERNAS ####
-#############################
+Collapsed
 
-#GARANTIA-MS
-quarkus.rest-client.garantia.url=${ROUTES.MS-GARANTIA}
+4 pipelines found
 
+Row 4
 
-##############################
-## CRIPTOGRAFIA DE RESPOSTA ##
-##############################
-#api.criptografia.secret-key=${SECRET_KEY_BASE64}
-#api.criptografia.init-vector=${INIT_VECTOR_BASE64}
+Row 2
 
-# SIISO
-#siiso-api.url=${SIISO_URL}
-#siiso-api.manager.url=${api.manager.url}informacoes-sociais/
-#siiso-api/mp-rest/url=${siiso-api.manager.url:${siiso-api.url}}
-#siiso-api/mp-rest/scope=javax.inject.Singleton
-#%dev.siiso-api/mp-rest/trustStore=${truststore.file}
-#%dev.siiso-api/mp-rest/trustStorePassword=${truststore.password}
-#%dev.siiso-api/mp-rest/trustStoreFileType=JKS
+Row 2. Clickable
 
-# Open Telemetry Config
-# quarkus.otel.enabled=true
-# quarkus.otel.exporter.otlp.endpoint=http://localhost:4317
-# quarkus.otel.exporter.otlp.protocol=http/protobuf
+Showing 16 filtered items.
 
-#SSO-Keycloak
-quarkus.oidc.auth-server-url=https://login.des.caixa/auth/realms/intranet
-quarkus.oidc.client-id=${SSO_CLI_SER_FPP}
-quarkus.oidc.credentials.secret=${SSO_PASS_CLI_SER_FPP}
-quarkus.oidc.enabled=false
+Get started and run this pipeline for the first time!
 
+Showing 9 items.
+
+Finished loading items
+
+Expanded
+
+Collapsed
+
+Showing 17 filtered items.
+
+Get started and run this pipeline for the first time!
+
+331 pipelines found
+
+Select a release pipeline to view its releases
+
+3 pipelines found
+
+Row 3
+
+Showing filters 1 through 2
 
