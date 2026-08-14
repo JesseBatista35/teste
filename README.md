@@ -1,42 +1,13 @@
-scp SicemWEB_6.1.0.11.31.war p585600@10.116.88.24:/caixa/usr/p585600/
 
-ssh p585600@10.116.88.24
-ls -la /caixa/usr/p585600/SicemWEB_6.1.0.11.31.war
-
-
-
-
-/opt/jboss/jboss-eap/bin/jboss-cli.sh --connect --controller=10.116.88.20:9999
-
-deploy /caixa/usr/p585600/SicemWEB_6.1.0.11.31.war --server-groups=<nome_do_server_group>
-
-
-
-
-[p585600@cadsvitrlx100 ~]$ scp SicemWEB_6.1.0.11.31.war p585600@10.116.88.24:/caixa/usr/p585600/
-***********************************************************************
-(1) - Este e um computador privado de propriedade da Caixa Economica
-Federal. Usuarios autorizados e nao autorizados nao possuem direitos de
-divulgar as informacoes contidas aqui.
-(2) - Ao fazer uso do sistema, o usuario esta ciente que pode estar
-sendo monitorado, interceptado e auditado pelo departamento competente
-da Caixa Economica Federal.
-(3) - O uso nao autorizado ou improprio deste sistema pode resultar em
-um processo disciplinar administrativo e/ou punicao atraves de acoes
-civis ou criminais. Ao continuar o uso deste sistema, indica que voce
-esta ciente e concordando com os termos e condicoes acima descritos.
-
-Pressione <Control+D> IMEDIATAMENTE se voce nao concorda com as
-condicoes deste aviso
-***********************************************************************
-p585600@10.116.88.24's password:
-dest open("/caixa/usr/p585600/"): No such file or directory
-failed to upload file SicemWEB_6.1.0.11.31.war to /caixa/usr/p585600/
-[p585600@cadsvitrlx100 ~]$
-
-
-
-
-
-
-acho que no destino tem que jogar dentro da pasta tmp
+[root@sbrdeapllx0005 p585600]# pwd
+/home/p585600
+[root@sbrdeapllx0005 p585600]# ls -la
+total 28
+drwx------    3 p585600 usucef 4096 Aug 14 14:23 .
+drwxr-xr-x. 114 root    root   4096 Aug 14 14:23 ..
+-rw-------    1 p585600 usucef   18 Aug 14 14:23 .bash_logout
+-rw-------    1 p585600 usucef  176 Aug 14 14:23 .bash_profile
+-rw-------    1 p585600 usucef  124 Aug 14 14:23 .bashrc
+-rw-------    1 p585600 usucef  171 Aug 14 14:23 .kshrc
+drwx------    4 p585600 usucef 4096 Aug 14 14:23 .mozilla
+[root@sbrdeapllx0005 p585600]#
