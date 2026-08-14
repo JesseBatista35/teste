@@ -1,9 +1,9 @@
-Solicitado o deploy da versão SicemWEB_6.1.0.11.31 da aplicação SICEM, em ambiente de desenvolvimento (DES).
+cd /opt/jboss-eap/modules/system/layers/base/br/gov/caixa/sisgr/main/
 
-Realizado o transporte do pacote para o servidor correspondente e efetuado o deploy via console de administração do JBoss (Domain Controller), com atribuição ao server group correto.
+cat module.xml
 
-Validado o funcionamento da aplicação após o deploy, com login e operação normalizados.
+tail -100 /logs/jboss/jboss-eap/standalone/sicmu-intranet-update/server.log
 
-Demanda concluída com sucesso.
+grep -A 5 "NoClassDefFoundError" /logs/jboss/jboss-eap/standalone/sicmu-intranet-update/server.log | tail -30
 
-Jessé Batista, CTIS/CESTI — Esteira DevOps DES TQS NPRD
+tail -f /logs/jboss/jboss-eap/standalone/sicmu-intranet-update/server.log
