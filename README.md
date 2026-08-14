@@ -1,155 +1,113 @@
--sh-4.2$ oc rsh sifpp-micro-des-35-8bfs8 sh -c "/usr/java/jdk-21.0.1/bin/jar tf /deployments/app/sifpp-ms-0.0.0.1.jar | grep -i application"
-application.properties
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$ oc rsh sifpp-micro-des-35-8bfs8 sh -c "cd /tmp && /usr/java/jdk-21.0.1/bin/jar xf /deployments/app/sifpp-ms-0.0.0.1.jar application.properties && cat /tmp/application.properties"
-quarkus.console.color=true
+Skip to content
+GitHub Enterprise
+Users managed by Caixa Economica Federal
+caixagithub
+sigos-processamento-arquivos
+Repository navigation
+Code
+Issues
+6
+ (6)
+Pull requests
+1
+ (1)
+Actions
+Projects
+Wiki
+Security and quality
+4
+ (4)
+Insights
+Settings
+Update call-generic-pipelines.yaml- #35
+#35
+Open
+Jesse Mouta Pereira Batista (p585600_caixa)
+wants to merge 1 commit into
+main
+from
+p585600_caixa-patch-3
++1
+-1
+Lines changed: 1 addition & 1 deletion
+Conversation0 (0)
+Commits1 (1)
+Checks0 (0)
+Files changed1 (1)
+Conversation
+@p585600_caixa
+Jesse Mouta Pereira Batista (p585600_caixa)
+commented
+2 days ago
+WO0000081355721
 
-# ==============================
-# HTTP E DOCUMENTACAO
-# ==============================
-quarkus.http.port=8082
-quarkus.swagger-ui.path=/swagger-ui
-quarkus.swagger-ui.always-include=true
-quarkus.swagger-ui.enable=true
-quarkus.swagger-ui.theme=material
-
-# ==============================
-# HEALTH CHECK
-# ==============================
-quarkus.smallrye-health.root-path=/health
-
-# ==============================
-# SSO - KEYCLOAK CONFIGURATION
-# ==============================
-sso.keycloak.auth-server-url=https://login.des.caixa
-sso.keycloak.realm=intranet
-sso.keycloak.client-id=cli-ser-fpp
-sso.keycloak.client-secret=e435c692-b526-434b-b0fc-3d486f51d632
-sso.keycloak.grant-type=client_credentials
-sso.keycloak.scope=openid
-sso.keycloak.retry.max-retries=3
-sso.keycloak.retry.delay-millis=200
-sso.token.cache-duration-minutes=55
-
-# REST Client Configuration - Keycloak
-# URL base: endpoint /token ser▒ anexado via @Path("/token") no cliente
-quarkus.rest-client."sso.keycloak".url=https://login.des.caixa/auth/realms/intranet/protocol/openid-connect
-%dev.quarkus.rest-client."sso.keycloak".insecure=true
-%prod.quarkus.rest-client."sso.keycloak".insecure=false
-
-# ==============================
-# BOLETO API CONFIGURATION
-# ==============================
-boleto.api.base-url=https://api.des.caixa:8443
-boleto.api.endpoint=/cobranca/boletos/v1/incluiBoleto
-boleto.api.key=l7eb61df18ac414f8ab82f3abbe3577a78
-boleto.api.connect-timeout=5000
-boleto.api.read-timeout=10000
-boleto.api.retry.max-retries=3
-boleto.api.retry.delay-millis=200
-
-# REST Client Configuration - Boleto API
-# A API DES usa certificado que nao esta no truststore padrao da JVM.
-# Para este cliente, configure um bucket TLS dedicado aceitando o certificado
-# apenas neste ambiente controlado.
-quarkus.rest-client."boleto.api".url=https://api.des.caixa:8443
-quarkus.rest-client."boleto.api".tls-configuration-name=boleto-api-des
-
-# TLS dedicado para a API de boleto em DES
-quarkus.tls.boleto-api-des.trust-all=true
-quarkus.tls.boleto-api-des.hostname-verification-algorithm=NONE
-
-# Configura▒▒o global do Vert.x para aceitar certificados inv▒lidos em DEV
-%dev.vertx.tls.allow-insecure=true
-%prod.vertx.tls.allow-insecure=false
-
-# ==============================
-# REST CLIENT LOGGING
-# ==============================
-quarkus.rest-client.logging.scope=request-response
-quarkus.rest-client.logging.level=VERBOSE
-
-# ==============================
-# FAULT TOLERANCE - RETRY
-# ==============================
-#quarkus.fault-tolerance."gov.caixa.microfpp.services.apiService.retry.IncluirBoletoApiRetryService/incluiBoleto".retry.max-retries=${boleto.api.retry.max-retries}
-#quarkus.fault-tolerance."gov.caixa.microfpp.services.apiService.retry.IncluirBoletoApiRetryService/incluiBoleto".retry.delay=${boleto.api.retry.delay-millis}
-#quarkus.fault-tolerance."gov.caixa.microfpp.services.apiService.retry.IncluirBoletoApiRetryService/incluiBoleto".retry.delay-unit=millis
-
-#quarkusquarkus.fault-tolerance."gov.caixa.microfpp.services.apiService.SSOTokenRetryService/solicitarNovoToken".retry.max-retries=${sso.keycloak.retry.max-retries}
-#quarkusquarkus.fault-tolerance."gov.caixa.microfpp.services.apiService.SSOTokenRetryService/solicitarNovoToken".retry.delay=${sso.keycloak.retry.delay-millis}
-#quarkusquarkus.fault-tolerance."gov.caixa.microfpp.services.apiService.SSOTokenRetryService/solicitarNovoToken".retry.delay-unit=millis
+@p585600_caixa
+Update call-generic-pipelines.yaml 
+1589ae7
+@p651639_caixa
+Alandson Guilherme Oliveira Silva (p651639_caixa) requested a review from Margareth Moscardini de Oliveira (c101476_caixa) 2 days ago
+c101476_caixa
+Margareth Moscardini de Oliveira (c101476_caixa) approved these changes 2 days ago
+This branch has not been deployed
+No deployments
+Merge info
+Changes approved
+1 approving review by reviewers with write access.
 
 
-#CONFIG CORS
-quarkus.http.cors=true
-quarkus.http.cors.origins=*
-quarkus.http.cors.methods=GET,PUT,POST,DELETE,OPTIONS
-quarkus.http.cors.headers=accept,authorization,content-type,x-requested-with
-quarkus.http.cors.exposed-headers=Content-Disposition
-#quarkus.http.cors.origins=https://login.des.caixa/auth/realms/intranet
+Some checks haven't completed yet
+1 expected check
 
 
-#######################
-####    DATABASE   ####
-#######################
-
-quarkus.datasource.db-kind=mssql
-quarkus.datasource.jdbc.driver=com.microsoft.sqlserver.jdbc.SQLServerDriver
-quarkus.datasource.jdbc.url=${QUARKUS_DATASOURCE_JDBC_URL}
-quarkus.datasource.username=${QUARKUS_DATASOURCE_USERNAME}
-quarkus.datasource.password=${QUARKUS_DATASOURCE_PASSWORD}
-
-
-##########################
-####   LOGS CONFIG    ####
-##########################
+pending checks
+QA / Quality AssuranceExpected — Waiting for status to be reported
+Required
+Merging is blocked
+Code scanning is waiting for results from CodeQL for the commits 78b55e5 or 1589ae7.
+You can also merge this with the command line. 
+Still in progress?
+@p585600_caixa
 
 
-############################
-#### API MANAGER CONFIG ####
-############################
+Add a comment
+Comment
+ 
+Add your comment here...
+Remember, contributions to this repository should follow our GitHub Community Guidelines.
+ ProTip! Add .patch or .diff to the end of URLs for Git’s plaintext views.
+Reviewers
+@c101476_caixa
+Margareth Moscardini de Oliveira (c101476_caixa)
+Still in progress?
+Assignees
+No one—
+Labels
+None yet
+Projects
+None yet
+Milestone
+No milestone
+Development
+Successfully merging this pull request may close these issues.
 
-# Caixa API Manager
-#api.manager.url=https://api.des.caixa:8443/
-#api.manager.key=l7cf7839a6152c496da545ec6d05789810
-
-#############################
-#### INTERFACES EXTERNAS ####
-#############################
-
-#GARANTIA-MS
-quarkus.rest-client.garantia.url=${ROUTES.MS-GARANTIA}
-
-
-##############################
-## CRIPTOGRAFIA DE RESPOSTA ##
-##############################
-#api.criptografia.secret-key=${SECRET_KEY_BASE64}
-#api.criptografia.init-vector=${INIT_VECTOR_BASE64}
-
-# SIISO
-#siiso-api.url=${SIISO_URL}
-#siiso-api.manager.url=${api.manager.url}informacoes-sociais/
-#siiso-api/mp-rest/url=${siiso-api.manager.url:${siiso-api.url}}
-#siiso-api/mp-rest/scope=javax.inject.Singleton
-#%dev.siiso-api/mp-rest/trustStore=${truststore.file}
-#%dev.siiso-api/mp-rest/trustStorePassword=${truststore.password}
-#%dev.siiso-api/mp-rest/trustStoreFileType=JKS
-
-# Open Telemetry Config
-# quarkus.otel.enabled=true
-# quarkus.otel.exporter.otlp.endpoint=http://localhost:4317
-# quarkus.otel.exporter.otlp.protocol=http/protobuf
-
-#SSO-Keycloak
-quarkus.oidc.auth-server-url=https://login.des.caixa/auth/realms/intranet
-quarkus.oidc.client-id=cli-ser-fpp
-quarkus.oidc.credentials.secret=e435c692-b526-434b-b0fc-3d486f51d632
-quarkus.oidc.enabled=false
+None yet
 
 
--sh-4.2$
+Notifications
+Customize
+You’re receiving notifications because you authored the thread.
+2 participants
+@p585600_caixa
+@c101476_caixa
+Footer
+© 2026 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Community
+Docs
+Contact
+Manage cookies
+Do not share my personal information
