@@ -1,15 +1,9 @@
+Solicitado o deploy da versão SicemWEB_6.1.0.11.31 da aplicação SICEM, em ambiente de desenvolvimento (DES).
 
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$ mount | grep jboss-eap
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$ df -h /opt/jboss-eap/modules
-Sist. Arq.                       Tam. Usado Disp. Uso% Montado em
-/dev/mapper/VG_PRINCIPAL-LV_OPT   10G  878M  9,2G   9% /opt
--sh-4.2$
--sh-4.2$
--sh-4.2$
+Realizado o transporte do pacote para o servidor correspondente e efetuado o deploy via console de administração do JBoss (Domain Controller), com atribuição ao server group correto.
+
+Validado o funcionamento da aplicação após o deploy, com login e operação normalizados.
+
+Demanda concluída com sucesso.
+
+Jessé Batista, CTIS/CESTI — Esteira DevOps DES TQS NPRD
