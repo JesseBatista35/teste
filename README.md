@@ -1,5 +1,22 @@
-582026-08-14T13:18:26.174Z Skipping step callCreateEcrRepository because its if condition was false592026-08-14T13:18:26.177Z Beginning step 📋 PASSO 10.1 - Preparação Fontes - Estrutura do catálogo-info.yaml602026-08-14T13:18:27.359Z Finished step 📋 PASSO 10.1 - Preparação Fontes - Estrutura do catálogo-info.yaml612026-08-14T13:18:27.362Z Beginning step 📤 PASSO 10.2 - Criando Pull Request do catálogo
-622026-08-14T13:18:27.674Z GithubResponseError: Pull request creation failed; caused by HttpError: Not Found - https://docs.github.com/rest/repos/repos#get-a-repository
+<img width="800" height="648" alt="image" src="https://github.com/user-attachments/assets/cb0dbf40-fe89-451a-b8bf-29c4542fdeef" />
 
-63    at Object.handler (/opt/app-root/src/dynamic-plugins-root/backstage-plugin-scaffolder-backend-module-github-dynamic-0.6.0/node_modules/@backstage/plugin-scaffolder-backend-module-github/dist/actions/githubPullRequest.cjs.js:317:15)64    at async NunjucksWorkflowRunner.executeStep (/opt/app-root/src/node_modules/@backstage/plugin-scaffolder-backend/dist/scaffolder/tasks/NunjucksWorkflowRunner.cjs.js:240:9)65    at async NunjucksWorkflowRunner.execute (/opt/app-root/src/node_modules/@backstage/plugin-scaffolder-backend/dist/scaffolder/tasks/NunjucksWorkflowRunner.cjs.js:356:9)66    at async TaskWorker.runOneTask (/opt/app-root/src/node_modules/@backstage/plugin-scaffolder-backend/dist/scaffolder/tasks/TaskWorker.cjs.js:119:26)67    at async run (/opt/app-root/src/node_modules/p-queue/dist/index.js:163:29)
 
+<img width="995" height="816" alt="image" src="https://github.com/user-attachments/assets/1a8c0426-6958-47f2-90eb-428f29d0b54d" />
+
+
+
+Pessoal, boa tarde.
+ 
+Se vocês puderem nos ajudar. Estamos com uma dúvida e não sabemos se pode ser problema de proxy novamente.
+Quando geramos o boleto, a api nos retorna um endereço de imagem para exibição do qrcode. No nosso ambiente local a imagem está sendo apresentada corretamente, já no ambiente de DES não aparece.
+ 
+A api nos retorna essa url: https://200.201.168.67:8010/ecobranca/SIGCB/imprimir/0000273/14100000000206688/qrcode
+ 
+Para conseguir a exibição no ambiente local, precisamos alterar para outro IP, conforme link e imagem abaixo. https://10.116.82.66:8010/ecobranca/SIGCB/imprimir/0000273/14100000000206726/qrcode
+ 
+ 
+ 
+Já no ambiente de Desenvolvimento a imagem não aparece. 
+ 
+ 
+Já testamos em DES com os dois ips e mesmo assim não é apresentado.
