@@ -1,53 +1,3 @@
-appsettings.Development.json
-
-{
-  "Logging": {
-    "LogLevel": {
-      "Default": "Information",
-      "Microsoft.AspNetCore": "Warning"
-    }
-  },
-  "ConnectionStrings": {
-    "SIPGC3": "server=;database=;user id=;password=;encrypt=true;trustServerCertificate=true",
-    "SIPGC3_Local": "Server=10.116.92.247;Database=PGCDB001;Trusted_Connection=True;encrypt=true;trustServerCertificate=true",
-    "SIPGCOld": ""
-  },
-  "JwtSettings": {
-    "SecretKey": "sipgc3-des-secret-key-minimum-32-characters-long!!"
-  },
-  "AllowedHosts": "*",
-  "BEYONDTRUST_LOGGING_ENABLED": "BEYONDTRUST_LOGGING_ENABLED",
- 
-  "DB_PASSWORD_001": "DB_PASSWORD_001"
-}
-
-
-
-appsettings.json
-
-{
-  "Logging": {
-    "LogLevel": {
-      "Default": "Information",
-      "Microsoft.AspNetCore": "Warning"
-    }
-  },
-  "ConnectionStrings": {
-    "SIPGC3": "server=;database=;user id=;password=;encrypt=true;trustServerCertificate=true",
-    "SIPGC3_Local": "Server=10.116.92.247;Database=PGCDB001;Trusted_Connection=True;encrypt=true;trustServerCertificate=true",
-    "SIPGCOld": ""
-  },
-  "JwtSettings": {
-    "SecretKey": "sipgc3-des-secret-key-minimum-32-characters-long!!"
-  },
-  "AllowedHosts": "*",
-  "BEYONDTRUST_LOGGING_ENABLED": "BEYONDTRUST_LOGGING_ENABLED",
-  "VAULT_LOCATION": "VAULT_LOCATION",
-
-  "DB_PASSWORD_001": "DB_PASSWORD_001"
-}
-
-
 ---> Running application ...
 info: SIPGC.Infrastructure.BeyondTrust.BeyondTrustVariableResolver[0]
       [BT] Configurando BeyondTrust - Ambiente: des
@@ -82,7 +32,7 @@ info: Api.SIPGC-3[0]
 warn: Microsoft.AspNetCore.DataProtection.Repositories.FileSystemXmlRepository[60]
       Storing keys in a directory '/opt/app-root/.aspnet/DataProtection-Keys' that may not be persisted outside of the container. Protected data will be unavailable when container is destroyed. For more information go to https://aka.ms/aspnet/dataprotectionwarning
 warn: Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager[35]
-      No XML encryptor configured. Key {ee983ddc-772d-40c2-b687-0e95964728a4} may be persisted to storage in unencrypted form.
+      No XML encryptor configured. Key {8ce74e68-d0a7-4c42-9ff0-e1b0b2c7b325} may be persisted to storage in unencrypted form.
 info: Microsoft.Hosting.Lifetime[14]
       Now listening on: http://[::]:8080
 info: Microsoft.Hosting.Lifetime[0]
@@ -91,7 +41,13 @@ info: Microsoft.Hosting.Lifetime[0]
       Hosting environment: des
 info: Microsoft.Hosting.Lifetime[0]
       Content root path: /opt/app-root/app
-
-
-teste que fizemos ta pegando errado a seha
-
+warn: Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware[3]
+      Failed to determine the https port for redirect.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (18ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [p].[NU_MENU_SUBMENU], [p].[IC_MENU_ATIVO_INATIVO], [p].[TS_FIM_PERIODO], [p].[TS_INICIO_PERIODO], [p].[TS_ATUALIZACAO_MENU_SUBMENU], [p].[NO_ICONE_MENU_SUBMENU], [p].[NU_MENU_SUBMENU_SUPERIOR], [p].[NO_MENU_SUBMENU], [p].[DE_ROTA_MENU_SUBMENU], [p].[IC_MENU_SUBMENU], [p].[CO_USUARIO_ALTERACAO]
+      FROM [PGC].[PGCTB016_MENU_SUBMENU] AS [p]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (7ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [p].[NU_MENU_SUBMENU], [p].[IC_MENU_ATIVO_INATIVO], [p].[TS_FIM_PERIODO], [p].[TS_INICIO_PERIODO], [p].[TS_ATUALIZACAO_MENU_SUBMENU], [p].[NO_ICONE_MENU_SUBMENU], [p].[NU_MENU_SUBMENU_SUPERIOR], [p].[NO_MENU_SUBMENU], [p].[DE_ROTA_MENU_SUBMENU], [p].[IC_MENU_SUBMENU], [p].[CO_USUARIO_ALTERACAO]
+      FROM [PGC].[PGCTB016_MENU_SUBMENU] AS [p]
