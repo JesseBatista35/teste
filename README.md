@@ -1,10 +1,29 @@
-Analisando o deploy e os logs, o carregamento do vault está funcionando certinho — os secrets do BeyondTrust foram encontrados e a senha foi resolvida com sucesso. Então o vault em si não é o problema.
 
-Encontrei dois pontos na configuração que podem estar causando o 500:
+Felipe Lima Virgini
+ 
+bom dia tudo bem, estou com um erro aqui no run do fusion x. estava ate vendo a sala do IDP, e vi que teve algumas instabilidades, vi que a orientaçõ foi fazer a sanitização, porem eu não achei o nome do  sistema nem o modulo aqui para fazer a limpeza e depois  solicitar o demandante criar novamente, você sabe me dizer onde consigo essa info? 
+ 
+ 
+(1) Run of Criar um microsserviço | FusionX
+ 
+Fala Jesse Mouta Pereira Batista bom dia beleza!
+ 
+Você pode clicar em Start Over, que ele vai pegar os parâmetros de execução para reexecutar. 
+ 
+ 
+eu ate tinha vindo aqui antes, mais apareceu ali sem a sigla do sistema. 
+ 
+ai fiquei com receio de avançar.
+ 
+pel oque vi estão fazendo teste
+ 
+vou fechar a demanda pedindo para testarem novamente. kkkk
+ 
+Sim, a gente so sanitiza e pede para executarem denovo.
+ 
+Essa run inclusive está sanitizando automático, então ele precisa so reexecutar
+ 
+saquei ele rodou duas aqui. uma teste-a e uma teste. vou colocar a nota mano, vlw
 
-Não há a variável ASPNETCORE_ENVIRONMENT no grupo SIPGC-API-SEGURANCA-DES, então a aplicação está subindo como Production mesmo em DES (confirmado no log: "Hosting environment: Production"). Isso pode estar carregando configurações erradas.
-A variável _ENV.DB_PASSWORD_001 está com aspas simples em volta do placeholder ('${spgcdr01_sqlserver}'). Se essas aspas forem literais, a senha final pode sair errada depois de resolvida, quebrando a autenticação no banco.
 
-Por enquanto não precisa abrir chamado — são ajustes de configuração no grupo de variáveis, não é caso de liberação de acesso/multiplataforma. Vou revisar esses dois pontos e, se possível, ajustar antes da segunda-feira. Combinamos de testar a aplicação na segunda, certo?
-
-Bom final de semana!
+ 
