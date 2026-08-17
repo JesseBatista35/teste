@@ -1,54 +1,47 @@
+onde solicita é aqui
 
-[p585600@caddeapllx2423 ~]$ curl -k -v https://localhost:443/simrc/ 2>&1 | head -30
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0*   Trying ::1:443...
-* Connected to localhost (::1) port 443 (#0)
-* ALPN, offering h2
-* ALPN, offering http/1.1
-*  CAfile: /etc/pki/tls/certs/ca-bundle.crt
-* TLSv1.0 (OUT), TLS header, Certificate Status (22):
-} [5 bytes data]
-* TLSv1.3 (OUT), TLS handshake, Client hello (1):
-} [512 bytes data]
-* (5454) (IN), , Unknown (72):
-{ [5 bytes data]
-* error:0A00010B:SSL routines::wrong version number
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-* Closing connection 0
-curl: (35) error:0A00010B:SSL routines::wrong version number
-[p585600@caddeapllx2423 ~]$
-[p585600@caddeapllx2423 ~]$
-[p585600@caddeapllx2423 ~]$
-[p585600@caddeapllx2423 ~]$ curl -k -v https://localhost:8443/simrc/ 2>&1 | head -30
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0*   Trying ::1:8443...
-* connect to ::1 port 8443 failed: Conexão recusada
-*   Trying 127.0.0.1:8443...
-* Connected to localhost (127.0.0.1) port 8443 (#0)
-* ALPN, offering h2
-* ALPN, offering http/1.1
-*  CAfile: /etc/pki/tls/certs/ca-bundle.crt
-* TLSv1.0 (OUT), TLS header, Certificate Status (22):
-} [5 bytes data]
-* TLSv1.3 (OUT), TLS handshake, Client hello (1):
-} [512 bytes data]
-  0     0    0     0    0     0      0      0 --:--:--  0:00:04 --:--:--     0* TLSv1.2 (IN), TLS header, Certificate Status (22):
-{ [5 bytes data]
-* TLSv1.3 (IN), TLS handshake, Server hello (2):
-{ [94 bytes data]
-* TLSv1.2 (IN), TLS handshake, Certificate (11):
-{ [729 bytes data]
-* TLSv1.2 (IN), TLS handshake, Server key exchange (12):
-{ [300 bytes data]
-* TLSv1.2 (IN), TLS handshake, Server finished (14):
-{ [4 bytes data]
-* TLSv1.2 (OUT), TLS header, Certificate Status (22):
-} [5 bytes data]
-* TLSv1.2 (OUT), TLS handshake, Client key exchange (16):
-} [37 bytes data]
-* TLSv1.2 (OUT), TLS header, Finished (20):
-} [5 bytes data]
-* TLSv1.2 (OUT), TLS change cipher, Change cipher spec (1):
-[p585600@caddeapllx2423 ~]$
+
+
+
+
+
+Inclusão de Regras
+Não são mais emitidos tokens; a autorização poderá ser concedida na própria regra, desde que as justificativas estejam preenchidas e sejam válidas.
+As regras podem ser registradas sem PTR, o que não dispensa sua apresentação, caso seja necessária.
+Solicitante: P585600 - Jesse Mouta Pereira BatistaSigla do setor/unidade do responsável CAIXA: CESTI
+Matrícula do responsável CAIXA pela abertura da mudança (cXXXXXX)
+Matrícula do responsável CAIXA pela solicitação da regra (cXXXXXX)
+A justificativa deve ser clara e objetiva, contendo:
+a descrição do pedido; telefones para eventuais esclarecimentos; outras informações pertinentes; indicação dos sistemas e/ou serviços envolvidos.
+Evite o uso de siglas ou termos locais.
+Informar a caixa postal da unidade CAIXA.
+Selecione
+Para maior agilidade no atendimento das solicitações de regras de firewall, favor observar:
+No momento da criação da mudança, designar a equipe responsável pela validação das regras, indicando o nome do responsável na aba “Designação” da tarefa de validação. Caso contrário, a tarefa permanecerá com o status “Pendente”.
+Antes de iniciar a validação, garantir que o serviço no destino esteja em execução.
+Caso a validação não ocorra nas primeiras 24 horas após a execução da regra, a CETEL encerrará a tarefa por decurso de prazo.
+Em caso de falha, redesignar a tarefa de validação para o grupo
+“TELEDATA TECNOLOGIA EM CONECTIVIDADE LTDA / CETEL / Rede Data Center”, anexando:
+as evidências das regras que não funcionaram;
+evidências da disponibilidade do serviço no destino;
+a tabela de rotas da origem.
+
+(*) Campo Porta – Separar, por vírgula, os números das portas e/ou intervalos de portas a serem liberadas. Exemplo: 80,443,10050-10058,5529
+
+Precisando de ajuda? Consulte a FAQ ou entre em contato por meio da CPE cetel02@caixa.gov.br.
+Origem	Destino
+ID	Tipo	Hostname	IP	Máscara	Tipo	Hostname	IP	Máscara	Protocolo	Porta(*)	
+1	
+
+
+
+
+TCP
+© 2019 Caixa Econômica FederalSistema: Atividades técnicas
+
+
++Solicitação
++Listar
+#INTERNO.TODOS
+FAQ
+
