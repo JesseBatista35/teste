@@ -1,11 +1,9 @@
-Livia, achamos a causa. O erro não é mais de configuração da esteira — é autenticação rejeitada pelo SQL Server:
+Boa tarde,
+ 
+Então, validei com o Lucas Vinicius e antes de configurarmos o vault, acessávamos normalmente o banco
 
-Login failed for user 'SPGCDR01' (Error 18456, State 1)
 
-O BeyondTrust está funcionando corretamente (carrega e resolve a senha do cofre sem erro). O problema é que essa senha está sendo recusada pelo SQL Server 10.116.92.247. Precisamos validar com o time de banco de dados/DBA:
 
-Se a senha cadastrada no cofre BeyondTrust (spgcdr01_sqlserver) está atualizada e confere com a senha atual do usuário SPGCDR01 no SQL Server;
-Se o usuário SPGCDR01 está ativo (não bloqueado/expirado);
-Se a instância aceita autenticação SQL (mixed mode).
+<img width="1594" height="785" alt="image" src="https://github.com/user-attachments/assets/9b0fa93c-7274-4f1c-b2ed-836f593c8ac9" />
 
-Recomendo abrir chamado com o time de DBA/banco para validação da credencial — esse ponto está fora do escopo de configuração de pipeline/vault.
+
