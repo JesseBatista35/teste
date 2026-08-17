@@ -1,14 +1,19 @@
-using BaseMVVM.Data.Menu.Model;
+using BaseMVVM.Data.Base;
+using BaseMVVM.Data.Example.DI;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 
-namespace BaseMVVM.Data.Base;
+namespace BaseMVVM.Data.Common;
 
-public class DataBaseSqlServerConnection(DbContextOptions<DataBaseSqlServerConnection> options): DbContext(options), IDataBaseConnection
+public static class ServiceCollectionExtensions
 {
-    public DbContext GetDbContext()
+    public static void AddDataModules(this IServiceCollection services, IConfiguration configuration)
     {
-        return this;
+        services.AddDbContext<DataBaseSqlServerConnection>(options =>
+        {
+            options.UseSqlServer(configuration.GetConnectionString("SIPGC3"));
+        });
+        services.AddExampleData();
     }
-
-    public DbSet<MenuDataModel> Menu { get; set; }
 }
