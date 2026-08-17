@@ -1,9 +1,44 @@
+using BaseMVVM.Data.Common;
+using BaseMVVM.Domain.Common;
+using BaseMVVM.UI.Common;
 
--sh-4.2$ oc run sqlcmd-test --rm -it --restart=Never --image=mcr.microsoft.com/mssql-tools -n sipgc-des -- /opt/mssql-tools/bin/sqlcmd -S 10.116.92.247,1433 -U SPGCDR01 -P 'Btm693Lx23M7' -Q "SELECT 1"
+var builder = WebApplication.CreateBuilder(args);
 
------------
-          1
+//Cross
+builder.Services.AddCors(option =>
+{
+    option.AddPolicy("AllowAngularLocalhost",
+        policy => policy
+        .WithOrigins("http://localhost:4200")
+        .AllowAnyHeader()
+        .AllowAnyMethod()
+        .AllowCredentials());
+});
 
-(1 rows affected)
-pod "sqlcmd-test" deleted
--sh-4.2$
+// Add services to the container.
+builder.Services.AddDataModules(builder.Configuration);
+builder.Services.AddDomainModules();
+builder.Services.AddUIModules();
+builder.Services.AddControllers();
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+var app = builder.Build();
+app.UseCors("AllowAngularLocalhost");
+
+// Configure the HTTP request pipeline.
+if (app.Environment.IsDevelopment())
+{
+    app.UseDeveloperExceptionPage();
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
+
+app.UseHttpsRedirection();
+
+app.UseAuthorization();
+
+app.MapControllers();
+
+app.Run();
