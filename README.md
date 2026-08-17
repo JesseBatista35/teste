@@ -1,53 +1,25 @@
----> Running application ...
-info: SIPGC.Infrastructure.BeyondTrust.BeyondTrustVariableResolver[0]
-      [BT] Configurando BeyondTrust - Ambiente: des
-info: SIPGC.Infrastructure.BeyondTrust.BeyondTrustConfigurationProvider[0]
-      [BT] Carregando configurações BeyondTrust - Ambiente: des
-info: SIPGC.Infrastructure.BeyondTrust.BeyondTrustService[0]
-      [BT] Carregando secrets do diretório: /usr/src/app/secrets_files/SIPGC_DES/
-info: SIPGC.Infrastructure.BeyondTrust.BeyondTrustService[0]
-      [BT] Encontrados 6 arquivos para processar
-info: SIPGC.Infrastructure.BeyondTrust.BeyondTrustService[0]
-      [BT] Carregamento concluído: 6 secrets processados
-info: SIPGC.Infrastructure.BeyondTrust.BeyondTrustConfigurationProvider[0]
-      [BT] Encontradas 1 variáveis com padrões ${}
-info: SIPGC.Infrastructure.BeyondTrust.BeyondTrustVariableResolver[0]
-      [BT-RESOLVER] Resolvendo 1 variáveis com padrões ${}
-info: SIPGC.Infrastructure.BeyondTrust.BeyondTrustVariableResolver[0]
-      [BT-RESOLVER] DB_PASSWORD_001: '${spgcdr01_sqlserver}' → resolvido
-info: SIPGC.Infrastructure.BeyondTrust.BeyondTrustVariableResolver[0]
-      [BT-RESOLVER] Resolução concluída: 1/1 variáveis resolvidas
-info: SIPGC.Infrastructure.BeyondTrust.BeyondTrustConfigurationProvider[0]
-      [BT] Resolvidas 1 variáveis
-info: SIPGC.Infrastructure.BeyondTrust.BeyondTrustConfigurationProvider[0]
-      [BT] Configuração completa: 7 itens carregados
-info: SIPGC.Infrastructure.BeyondTrust.BeyondTrustVariableResolver[0]
-      [BT] BeyondTrust configurado com sucesso
-info: Api.SIPGC-3[0]
-      ENV DB_PASSWORD_001 encontrada: True | Tamanho: 21
-info: Api.SIPGC-3[0]
-      CONFIG DB_PASSWORD_001 encontrada: True | Tamanho: 12
-info: Api.SIPGC-3[0]
-      DB_PASSWORD_001: ***ver}
-warn: Microsoft.AspNetCore.DataProtection.Repositories.FileSystemXmlRepository[60]
-      Storing keys in a directory '/opt/app-root/.aspnet/DataProtection-Keys' that may not be persisted outside of the container. Protected data will be unavailable when container is destroyed. For more information go to https://aka.ms/aspnet/dataprotectionwarning
-warn: Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager[35]
-      No XML encryptor configured. Key {8ce74e68-d0a7-4c42-9ff0-e1b0b2c7b325} may be persisted to storage in unencrypted form.
-info: Microsoft.Hosting.Lifetime[14]
-      Now listening on: http://[::]:8080
-info: Microsoft.Hosting.Lifetime[0]
-      Application started. Press Ctrl+C to shut down.
-info: Microsoft.Hosting.Lifetime[0]
-      Hosting environment: des
-info: Microsoft.Hosting.Lifetime[0]
-      Content root path: /opt/app-root/app
-warn: Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware[3]
-      Failed to determine the https port for redirect.
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (18ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-      SELECT [p].[NU_MENU_SUBMENU], [p].[IC_MENU_ATIVO_INATIVO], [p].[TS_FIM_PERIODO], [p].[TS_INICIO_PERIODO], [p].[TS_ATUALIZACAO_MENU_SUBMENU], [p].[NO_ICONE_MENU_SUBMENU], [p].[NU_MENU_SUBMENU_SUPERIOR], [p].[NO_MENU_SUBMENU], [p].[DE_ROTA_MENU_SUBMENU], [p].[IC_MENU_SUBMENU], [p].[CO_USUARIO_ALTERACAO]
-      FROM [PGC].[PGCTB016_MENU_SUBMENU] AS [p]
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (7ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-      SELECT [p].[NU_MENU_SUBMENU], [p].[IC_MENU_ATIVO_INATIVO], [p].[TS_FIM_PERIODO], [p].[TS_INICIO_PERIODO], [p].[TS_ATUALIZACAO_MENU_SUBMENU], [p].[NO_ICONE_MENU_SUBMENU], [p].[NU_MENU_SUBMENU_SUPERIOR], [p].[NO_MENU_SUBMENU], [p].[DE_ROTA_MENU_SUBMENU], [p].[IC_MENU_SUBMENU], [p].[CO_USUARIO_ALTERACAO]
-      FROM [PGC].[PGCTB016_MENU_SUBMENU] AS [p]
+Mensagem pra Livia (Teams):
+
+Livia, resolvido! 🎉
+
+Confirmamos a causa raiz: o código estava lendo a senha do banco através da variável de ambiente bruta do container (Environment.GetEnvironmentVariable), que ainda continha o placeholder não resolvido (${spgcdr01_sqlserver}, 21 caracteres) em vez do valor já processado pelo BeyondTrust via IConfiguration (12 caracteres, senha correta).
+
+O vault e a configuração de pipeline estavam corretos o tempo todo — era um ajuste de código na forma de ler a variável.
+
+Com a correção (usar IConfiguration em vez da env var direta), a aplicação conectou normalmente e já está executando queries no banco sem erro.
+
+Qualquer coisa é só chamar!
+
+Texto formal de fechamento do atendimento/WO:
+
+Atendimento referente a erro 500 na aplicação SIPGC-api-seguranca em ambiente DES, ao acessar dados via integração com banco de dados SQL Server (PGCDB001).
+
+Diagnóstico: através de análise de logs da aplicação e testes de conectividade direta ao banco de dados via pod no cluster OKD4 DES, identificou-se que o carregamento e a resolução da senha pelo vault BeyondTrust ocorriam corretamente, disponibilizando o valor resolvido através do mecanismo de configuração padrão do .NET (IConfiguration). Entretanto, o código da aplicação realizava a leitura da senha diretamente da variável de ambiente do sistema operacional, através do método Environment.GetEnvironmentVariable, capturando o valor não resolvido do placeholder (formato ${nome_variavel}) ao invés do valor processado pelo BeyondTrust.
+
+Causa raiz: divergência entre o mecanismo de leitura de configuração utilizado no código da aplicação e o mecanismo de injeção de valores resolvidos pelo BeyondTrust, resultando em senha inválida na string de conexão com o banco de dados.
+
+Ação realizada: orientação técnica ao time de desenvolvimento para ajuste no código da aplicação, substituindo a leitura via variável de ambiente direta pela leitura via IConfiguration, garantindo o uso correto do valor resolvido pelo vault.
+
+Resultado: após o ajuste e novo deploy em DES, a aplicação conectou com sucesso ao banco de dados SQL Server, com execução normal de queries confirmada em log.
+
+Atendimento encerrado com sucesso.
