@@ -1,29 +1,14 @@
+Prezados,
 
-Felipe Lima Virgini
- 
-bom dia tudo bem, estou com um erro aqui no run do fusion x. estava ate vendo a sala do IDP, e vi que teve algumas instabilidades, vi que a orientaçõ foi fazer a sanitização, porem eu não achei o nome do  sistema nem o modulo aqui para fazer a limpeza e depois  solicitar o demandante criar novamente, você sabe me dizer onde consigo essa info? 
- 
- 
-(1) Run of Criar um microsserviço | FusionX
- 
-Fala Jesse Mouta Pereira Batista bom dia beleza!
- 
-Você pode clicar em Start Over, que ele vai pegar os parâmetros de execução para reexecutar. 
- 
- 
-eu ate tinha vindo aqui antes, mais apareceu ali sem a sigla do sistema. 
- 
-ai fiquei com receio de avançar.
- 
-pel oque vi estão fazendo teste
- 
-vou fechar a demanda pedindo para testarem novamente. kkkk
- 
-Sim, a gente so sanitiza e pede para executarem denovo.
- 
-Essa run inclusive está sanitizando automático, então ele precisa so reexecutar
- 
-saquei ele rodou duas aqui. uma teste-a e uma teste. vou colocar a nota mano, vlw
+Em análise à execução do template "Criar um microsserviço" no FusionX (task 6fe55380-16d8-4621-81d1-4149b3d27a1b e execução anterior), identificado erro na etapa de criação de Pull Request:
 
+GithubResponseError: Pull request creation failed; caused by HttpError: Not Found - https://docs.github.com/rest/repos/repos#get-a-repository
 
- 
+Após contato com o time responsável pela plataforma FusionX (Felipe Lima Virginio), foi confirmado que o erro está relacionado a instabilidades já conhecidas na plataforma (IDP), com sanitização automática dos repositórios criados de forma incompleta (teste e teste-a).
+
+O time da plataforma orientou que não é necessária ação manual de limpeza, pois a sanitização ocorre automaticamente. Solicitamos ao demandante que realize um novo teste, executando novamente a criação do microsserviço no FusionX.
+
+Encaminhamos a demanda para novo teste por parte do demandante.
+
+Atenciosamente,
+Jessé Batista
