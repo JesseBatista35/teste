@@ -1,253 +1,191 @@
-olicitação:*:	Incluir certificado mTLS no ambiente devops na aplicação SISGH-LINK
-Informar formas de contato:*:	pelo teams
-F552874
-F590912
-C093691
-
-
-
-<img width="1222" height="492" alt="image" src="https://github.com/user-attachments/assets/25476ee0-eb15-45e0-812c-dc6bdd813bcc" />
-
-
 Skip to main content
+Azure DevOps
 projetos
 /
 Caixa
 /
-Pipelines
+Overview
 /
-Releases
+Wiki
 /
-SISGH-link-okd4
+Comunidade Fomento, Depósitos Judiciais e FIES
 /
-SISGH-link-20260814.1247-9.4.0.20-SNAPSHOT(1)
+3. Arquitetura de Software
+/
+3.11. Solicitação mTLS
 Search
 
 
+Caixa
+
+Overview
+Summary
+Dashboards
+Wiki
+
+Boards
+
+Repos
+
+Pipelines
+
+Test Plans
+
+Artifacts
+Project settings
+
+Caixa.wiki
+
+mTLS
 
 
+New page
+3.11. Solicitação mTLS
 
+Follow
+1
 
+Edit
 
+c086948
+30 de jul.
+Configuração de mTLS com Entes Externos
+Objetivo
+Este documento descreve o processo para obtenção e instalação de certificados digitais necessários para estabelecimento de comunicação segura utilizando mTLS (Mutual TLS) entre a CAIXA e entes externos, como Banco do Brasil, Serpro, Dataprev, parceiros governamentais ou outras instituições.
 
-SISGH-link-okd4
-
-SISGH-link-20260814.1247-9.4.0.20-SNAPSHOT(1)
-
+O que é mTLS?
+O mTLS (Mutual Transport Layer Security) é um mecanismo de segurança que realiza autenticação mútua entre os participantes de uma conexão.
 
-EC DES
-
-Succeeded
+Diferentemente do TLS tradicional, em que apenas o cliente valida a identidade do servidor, no mTLS:
 
-
-Pipeline
+A CAIXA valida a identidade do parceiro externo.
+O parceiro externo valida a identidade da CAIXA.
+Ambos apresentam certificados digitais durante o processo de conexão.
+A comunicação é criptografada e autenticada em ambas as direções.
+Esse modelo é amplamente utilizado em integrações entre instituições financeiras, órgãos governamentais e APIs corporativas que exigem elevado nível de segurança.
 
-Tasks
+Visão Geral do Processo
+Para que uma integração mTLS funcione corretamente, são necessários três elementos:
 
-Variables
+Certificado digital da CAIXA.
+Certificado (ou cadeia de certificados) da instituição parceira.
+Configuração de confiança mútua entre as partes.
+Importante: Não basta apenas gerar o certificado da CAIXA. É necessário também instalar o certificado no ambiente que realizará a comunicação e obter a cadeia de certificados do parceiro externo.
 
-Logs
+Etapa 1 - Solicitar Certificado Digital A1
+Quando um parceiro externo solicitar um certificado da CAIXA para configuração de mTLS, deve ser aberta uma demanda de emissão de certificado.
 
-Tests
-Agent job
-Started: 14/08/2026, 12:49:58
-Pool:
-Release-Linux-OKD4
-·
-Agent: azp-ads-agent-release-5cd876f98-4fmdt
+Serviço
+Solicitar Certificado Digital - CSR - TE079
 
-2m 0s
+Caminho
+https://servicos.caixa/
 
-Initialize job
-·
-succeeded
-<1s
+Tecnologia da Informação e Comunicação
+ └─ Segurança Tecnológica
+     └─ Infraestrutura (HW / SW)
+         └─ Solicitar Certificado Digital - CSR - TE079
+Informações que devem constar na solicitação
+Informar explicitamente que:
 
-Pre-job: Download secure file
-·
-succeeded
-<1s
+O certificado deve ser do tipo A1.
+O certificado será utilizado para comunicação via mTLS.
+O certificado deve ser emitido por uma Autoridade Certificadora (AC) pública válida para Internet.
+O certificado deve seguir o padrão X.509.
+Exemplo de texto para a solicitação
+Solicito emissão de Certificado Digital do tipo A1 para utilização em comunicação segura via mTLS com ente externo. O certificado deve ser emitido por Autoridade Certificadora pública válida para Internet e seguir o padrão X.509.
 
-Pre-job: Download secure file
-·
-succeeded
-<1s
+Etapa 2 - Instalar o Certificado no Ambiente
+Após a emissão do certificado, deve ser solicitada sua instalação no ambiente responsável pela integração.
 
-Download Artifacts
-·
-succeeded
-1 warning
+Serviço
+Instalar Certificado Digital Existente - TE079
 
-<1s
+Caminho
+https://servicos.caixa/
 
-Exportando as variáveis do arquivo Trust Store
-·
-succeeded
-<1s
+Tecnologia da Informação e Comunicação
+ └─ Segurança Tecnológica
+     └─ Infraestrutura (HW / SW)
+         └─ Instalar Certificado Digital Existente - TE079
+Observações
+A instalação deve ocorrer no ambiente que realizará a chamada para o parceiro externo, como por exemplo:
 
-Recuperando nome do repositório
-·
-succeeded
-1s
+API Gateway
+Proxy
+Servidor de Aplicação
+Backend da solução
+Serviço de integração
+Sem essa instalação o certificado não será utilizado durante o handshake TLS e o mTLS não funcionará.
 
-Convertendo Minúsculo e Definindo nome do Projeto/Repositório
-·
-succeeded
-<1s
+Etapa 3 - Obter os Certificados do Parceiro Externo
+O mTLS exige confiança mútua.
 
-Git clone https://devops.caixa/projetos/Infraestrutura/_git/esteira-logs
-·
-succeeded
-<1s
+Além de fornecer o certificado da CAIXA ao parceiro externo, também é necessário solicitar ao parceiro:
 
-Cria Streams Graylog
-·
-succeeded
-1s
+Certificado público utilizado na autenticação mTLS.
+Certificados intermediários (quando existirem).
+Cadeia completa de certificação.
+Certificado da AC Raiz (quando aplicável).
+Esses certificados deverão ser configurados no ambiente da CAIXA para que a conexão seja considerada confiável.
 
-Recupera VEC
-·
-succeeded
-1s
+Fluxo de Confiança
++-------------------+                    +-------------------+
+|       CAIXA       |                    | Parceiro Externo  |
++-------------------+                    +-------------------+
+         |                                         |
+         | Envia Certificado CAIXA                 |
+         +---------------------------------------->
+         |                                         |
+         | Recebe Certificado/Cadeia do Parceiro   |
+         <-----------------------------------------+
+         |                                         |
+         | Configuração de confiança mútua         |
+         |                                         |
+         +-------------- mTLS ---------------------+
+Exemplo Prático - Banco do Brasil
+Durante uma integração com o Banco do Brasil, foi solicitado à CAIXA um Certificado Digital A1 para configuração de mTLS.
 
-VEC - Aferição
-·
-succeeded
-1 warning
-<1s
+Neste cenário foi necessário:
 
-Login OpenShift
-·
-succeeded
-<1s
+Solicitar a emissão do certificado A1 via serviço CSR - TE079.
+Encaminhar o certificado ao Banco do Brasil.
+Solicitar a instalação do certificado emitido via Instalar Certificado Digital Existente - TE079.
+Receber a cadeia de certificados utilizada pelo Banco do Brasil.
+Configurar a confiança da cadeia de certificados do BB no ambiente da CAIXA.
+Executar testes de conectividade mTLS.
+Checklist
+Certificado CAIXA
+ Certificado A1 solicitado.
+ Certificado emitido por AC pública válida para Internet.
+ Certificado segue padrão X.509.
+ Certificado disponibilizado ao parceiro externo.
+Instalação
+ Solicitação de instalação aberta.
+ Certificado instalado no ambiente da aplicação.
+ Ambiente reiniciado (quando necessário).
+Certificados do Parceiro
+ Certificado público recebido.
+ Cadeia de certificados recebida.
+ Certificados intermediários recebidos.
+ Cadeia configurada no ambiente CAIXA.
+Validação
+ Teste de handshake TLS realizado.
+ Teste de autenticação mútua realizado.
+ Teste funcional da integração realizado.
+ Evidências arquivadas no projeto.
+Observações Importantes
+A emissão do certificado da CAIXA não é suficiente para habilitar o mTLS.
+O parceiro externo deve confiar explicitamente no certificado da CAIXA.
+A CAIXA deve confiar explicitamente na cadeia de certificados utilizada pelo parceiro externo.
+Qualquer renovação ou troca de certificado deverá ser coordenada entre as partes para evitar indisponibilidade da integração.
+Recomenda-se validar previamente datas de expiração dos certificados para evitar interrupção dos serviços.
+5 visits in last 30 days
+c086948
+commented 10 de ago.
 
-Exportando Variáveis de Ambiente "_ENV."
-·
-succeeded
-<1s
-
-Criando novo Projeto
-·
-succeeded
-<1s
-
-Adicionando ISTIO_INJECTION
-·
-skipped
-
-
-Criando nova APP
-·
-succeeded
-<1s
-
-Atualizando Variáveis de Ambiente
-·
-succeeded
-3s
-
-Criando Rota Customizada
-·
-succeeded
-<1s
-
-Aplicando Service Mesh
-·
-skipped
-
-
-Exporta Variáveis de Ambiente "_SECRET."
-·
-succeeded
-<1s
-
-Alterando valores placeholder no exec_secret.sh
-·
-succeeded
-<1s
-
-Criando Secrets
-·
-succeeded
-<1s
-
-Vinculando Secrets
-·
-succeeded
-<1s
-
-Adicionando Multiplas Secrets
-·
-succeeded
-1s
-
-Executando Tag na Imagem do ambiente de build OKD3, OKD4 e OCP
-·
-succeeded
-20s
-
-Concedendo Acesso OKD
-·
-succeeded
-<1s
-
-Verificando IP de Saída
-·
-succeeded
-<1s
-
-Configurando IP de Saída - deployment
-·
-skipped
-
-
-Configurando IP de Saída - deploymentconfig
-·
-succeeded
-<1s
-
-Cadastrando no Portal IIF
-·
-succeeded
-<1s
-
-Verificando Status do Deployment
-·
-succeeded
-1m 17s
-
-Logs da Aplicação
-·
-succeeded
-<1s
-
-Resumo da Release
-·
-succeeded
-<1s
-
-Coletando dados da imagem
-·
-succeeded
-4s
-
-Atualizando versão no PortalIF
-·
-succeeded
-<1s
-
-Realizando Logout OKD
-·
-succeeded
-<1s
-
-Finalize Job
-·
-succeeded
-<1s
-Collapsed
-
-Select a release pipeline to view its releases
+https://mtls-apicaixa.caixa.gov.br/sandbox/
+https://mtls-apicaixa.caixa.gov.br
 
 672 pipelines found
 
@@ -263,25 +201,29 @@ Select a release pipeline to view its releases
 
 6 pipelines found
 
-Row 7
-
-Row 2
-
-Row 2
-
 2 pipelines found
 
-Row 3
-
-Row 2
-
-Row 3
-
-Row 2
-
-Row 3
-
-Row 2
-
 Showing filters 1 through 2
+
+Collapsed
+
+Expanded
+
+Collapsed
+
+Expanded
+
+Collapsed
+
+Showing filters 1 through 1
+
+712 results found
+
+542 results found
+
+5 results found
+
+2 results found
+
+2 results found
 
