@@ -1,12 +1,2 @@
-
--sh-4.2$
--sh-4.2$ oc set env dc/simpi-dict-api-des -n simpi-des --list | grep -i PIX_FRAMEWORK
-PIX_FRAMEWORK_VALIDACAO_TOKEN_SSO_EMISSOR=https://login.des.caixa/auth/realms/intranet
-PIX_FRAMEWORK_VALIDACAO_TOKEN_SSO_URL=https://sispi-api-proxy-sso-des.apps.pixnprd4.caixa/auth/realms/intranet;https://login.des.caixa/auth/realms/intranet
-PIX_FRAMEWORK_VALIDACAO_TOKEN_VALIDACAO_GLOBAL=true
--sh-4.2$
--sh-4.2$
--sh-4.2$ oc set env dc/simpi-dict-api-des -n simpi-des --list | grep -i "BT_CLIENT\|CLIENT_ID\|SECRET_ID"
--sh-4.2$
--sh-4.2$
--sh-4.2$
+exec java -Dquarkus.http.host=0.0.0.0 -Dquarkus.http.port=8080 -Djava.util.logging.manager=org.jboss.logmanager.LogManager -Xms1280m -Xmx1280m -Djavax.net.ssl.trustStore=/deployments/caixa-truststore-acteste-nprd.jks -XX:+ExitOnOutOfMemoryError -cp . -jar /deployments/quarkus-run.jar
+Failed to load config value of type class java.lang.String for: PIX.FRAMEWORK.TOKEN.SECRET_ID
