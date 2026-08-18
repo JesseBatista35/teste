@@ -1,31 +1,176 @@
-#CONFIG BASE
-quarkus.log.level=${LOGS_LEVEL:DEBUG}
-quarkus.jackson.timezone=America/Sao_Paulo
-quarkus.smallrye-openapi.open-api-version=3.0.3
-quarkus.http.cors.origins=*
-quarkus.http.cors.enabled=true
-
-quarkus.datasource.db-kind=oracle
-#quarkus.datasource.jdbc.url=${DB_URL:jdbc:oracle:thin:@cnpexdadvm01-scan8.extra.caixa.gov.br:1521/ORAD05BC}
-quarkus.datasource.jdbc.url=${DB_URL:jdbc:oracle:thin:@cnpexdadvm01-scan11.extra.caixa.gov.br:1521/ORAT07BC}
-quarkus.datasource.username=${DB_USER}
-quarkus.datasource.password=${DB_PASS}
-quarkus.datasource.jdbc.driver=oracle.jdbc.driver.OracleDriver
-quarkus.datasource.jdbc.acquisition-timeout=20
-quarkus.hibernate-orm.database.generation=none
-quarkus.datasource.jdbc.new-connection-sql=ALTER SESSION SET CURRENT_SCHEMA=GFA
-quarkus.hibernate-orm.log.sql=${SQL_LOGAR:true}
-quarkus.hibernate-orm.log.format-sql=${SQL_FORMATAR:true}
+Skip to main content
+projetos
+/
+Caixa
+/
+Pipelines
+/
+Releases
+/
+SIGFA-api-extratos
+Search
 
 
-quarkus.oidc.auth-server-url=https://login.des.caixa/auth/realms/intranet
-quarkus.oidc.roles.role-claim-path=realm_access/roles
-quarkus.oidc.token.allow-jwt-introspection=false
-quarkus.oidc.token.allow-opaque-token-introspection=false
 
 
-#caixa.security.canais=false
-DESLIGAR_REGISTRO_TRANSACAO=false
-caixa.sigfa.autorizacao.canais-liberados=cli-ser-gfa,cli-web-gfa
 
+
+
+
+All pipelines
+
+SIGFA
+
+SIGFA-api-extratos
+Predefined variables
+SonarQube Variables (1)
+Variáveis com dados do SonarQube
+Scopes: Release
+Usuario-Azure-DevOps (12)
+Scopes: Release
+MONITORACAO_LOGS (4)
+REQ000143540550 - Conforme autorizado na req por FLAVIO ALMEIDA GAGLIARDI, removido as variáveis JAVA_OPTS_MONITORING e URL_APM_SERVER, por entrar em conflitos com releases que utilizam o Application Insights
+Scopes: Release
+EGRESS_IP_OKD (81)
+WO0000072264656 - Config Portal Infrafácil NO_PROXY
+Scopes: Release
+OKD-REGISTRY-CENTRALIZADO (7)
+Credenciais para o Registry Centralizado - Produtos 4 (OKD)
+Scopes: Release
+OKD-4-NPRD (12)
+Credenciais para o Cluster OKD4 de NPRD (DES/TQS/HMP)
+Scopes: EC DES,EC TQS,EC HMP
+SIGFA-API-EXTRATOS-DES (49)
+Grupo de variáveis de SIGFA-API-EXTRATOS-DES
+
+Scopes: EC DES
+APPLICATIONINSIGHTS_SELF_DIAGNOSTICS_LEVEL
+INFO
+INIT
+Criado via api
+VAULT_LOCATION
+********
+_ENV.AMBIENTE
+des
+_ENV.APPLICATIONINSIGHTS_CONNECTION_STRING
+"InstrumentationKey=f572e239-b089-4d0c-82a5-4c33b3325748;IngestionEndpoint=https://southcentralus-3.in.applicationinsights.azure.com/;LiveEndpoint=https://southcentralus.livediagnostics.monitor.azure.com/"
+_ENV.APPLICATIONINSIGHTS_INSTRUMENTATION_LOGGING_LEVEL
+INFO
+_ENV.APPLICATIONINSIGHTS_PROXY
+http://proxydes.caixa:80
+_ENV.APPLICATIONINSIGHTS_ROLE_NAME
+SIGFA-api-extratos-DES
+_ENV.APPLICATIONINSIGHTS_SAMPLING_PERCENTAGE
+100
+_ENV.HTTPS_PROXY
+http://proxydes.caixa:80
+_ENV.JAVA_OPTIONS_APPEND
+"-Djavax.net.ssl.trustStore=/deployments/caixa-truststore-acteste-nprd.jks -javaagent:/deployments/lib/main/com.microsoft.azure.applicationinsights-agent-3.6.2.jar"
+_ENV.LOGS_LEVEL_REST_CLIENT
+INFO
+_ENV.LOG_TRANSACAO_ENABLED
+true
+_ENV.NO_PROXY
+"*.caixa,*.caixa.gov.br"
+_ENV.QUARKUS_DATASOURCE_JDBC_MAX_SIZE
+30
+_ENV.QUARKUS_DATASOURCE_JDBC_MIN_SIZE
+10
+_ENV.QUARKUS_DATASOURCE_JDBC_URL
+"jdbc:oracle:thin:@cnpexdadvm01-scan8.extra.caixa.gov.br:1521/ORAD05BC"
+_ENV.QUARKUS_DATASOURCE_PASSWORD
+'${SGFADS01_ORACLE}'
+_ENV.QUARKUS_DATASOURCE_USERNAME
+SGFADS01
+_ENV.QUARKUS_HIBERNATE_ORM_LOG_FORMAT_SQL
+false
+_ENV.QUARKUS_HIBERNATE_ORM_LOG_SQL
+false
+_ENV.QUARKUS_LOG_LEVEL
+INFO
+_ENV.QUARKUS_LOG_MIN_LEVEL
+INFO
+_ENV.QUARKUS_OIDC_AUTH_SERVER_URL
+https://login.des.caixa/auth/realms/intranet
+_ENV.QUARKUS_OIDC_CLIENT_AUTH_SERVER_URL
+https://login.des.caixa/auth/realms/intranet
+_ENV.QUARKUS_OIDC_CLIENT_CREDENTIALS_SECRET
+'${CLISERGFA_SSO_INTRA}'
+_ENV.QUARKUS_OIDC_INTERNET_AUTH_SERVER_URL
+https://logindes.caixa.gov.br/auth/realms/internet
+_ENV.QUARKUS_REST_CLIENT_APIMANAGER_CONNECTION_POOL_SIZE
+32
+_ENV.QUARKUS_REST_CLIENT_APIMANAGER_CONNECT_TIMEOUT
+300
+_ENV.QUARKUS_REST_CLIENT_APIMANAGER_READ_TIMEOUT
+7000
+_ENV.QUARKUS_REST_CLIENT_APIMANAGER_URL
+https://api.des.caixa:8443
+_ENV.QUARKUS_REST_CLIENT_FUNDOS_CONNECTION_POOL_SIZE
+32
+_ENV.QUARKUS_REST_CLIENT_FUNDOS_CONNECT_TIMEOUT
+10000
+_ENV.QUARKUS_REST_CLIENT_FUNDOS_READ_TIMEOUT
+10000
+_ENV.QUARKUS_REST_CLIENT_FUNDOS_URL
+https://sigfa-api-fundos-okd4-des.apps.nprd.caixa
+_ENV.QUARKUS_REST_CLIENT_SIBAR_CONNECTION_POOL_SIZE
+32
+_ENV.QUARKUS_REST_CLIENT_SIBAR_CONNECT_TIMEOUT
+3000
+_ENV.QUARKUS_REST_CLIENT_SIBAR_READ_TIMEOUT
+10000
+_ENV.QUARKUS_REST_CLIENT_SIBAR_URL
+https://des.barramento.caixa/sibar
+_ENV.QUARKUS_REST_CLIENT_SSO_CONNECTION_POOL_SIZE
+8
+_ENV.QUARKUS_REST_CLIENT_SSO_CONNECT_TIMEOUT
+3000
+_ENV.QUARKUS_REST_CLIENT_SSO_READ_TIMEOUT
+7000
+_ENV.QUARKUS_REST_CLIENT_SSO_URL
+https://login.des.caixa
+_ENV.QUARKUS_SWAGGER_UI_ALWAYS_INCLUDE
+true
+_ENV.SIGFA_API_KEY
+'${SIGFA_APIKEY}'
+_ENV.TOKEN_AUDIENCE
+audience_cli-ser-gfa
+_ENV.TOKEN_CLIENT_ID
+cli-ser-gfa
+_ENV.TOKEN_CLIENT_SECRET
+'${CLISERGFA_SSO_INTRA}'
+_SECRET.SMALLRYE.CONFIG.SOURCE.FILE.LOCATIONS
+#{VAULT_LOCATION}#
+SIGFA-BT-VAULT-SECRET-DES (2)
+Scopes: EC DES
+SIGFA-API-EXTRATOS-BT-VAULT-DES (1)
+WO0000081411399
+Scopes: EC DES
+SIGFA-API-EXTRATOS-TQS (47)
+Grupo de variáveis de SIGFA-API-EXTRATOS-TQS
+Scopes: EC TQS
+SIGFA-BT-VAULT-SECRET-TQS (2)
+Scopes: EC TQS
+SIGFA-API-EXTRATOS-BT-VAULT-TQS (1)
+WO0000081411399
+Scopes: EC TQS
+SIGFA-API-EXTRATOS-HMP (1)
+Grupo de variáveis de SIGFA-API-EXTRATOS-HMP
+Scopes: EC HMP
+OKD-4-APL (12)
+Scopes: EC PRD
+SIGFA-API-EXTRATOS-PRD (1)
+Grupo de variáveis de SIGFA-API-EXTRATOS-PRD
+Scopes: EC PRD
+|Manage variable groups
+Showing filters 1 through 2
+
+Row 2
+
+Row 2
+
+Row 2
+
+Showing filters 1 through 2
 
