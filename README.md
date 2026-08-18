@@ -1,108 +1,150 @@
-GitHub Enterprise
-Users managed by Caixa Economica Federal
-caixagithub
-siaci-api-worker-auditoria-infranprd
-Repository navigation
-Code
-Issues
-Pull requests
-Actions
-Projects
-Wiki
-Security and quality
-Insights
-Settings
-Files
-Go to file
-t
-T
-templates content loaded
-des
-templates
-.helmignore
-Chart.yaml
-README.md
-ci_cd_variables.yaml
-values.yaml
-hmp
-templates
-.helmignore
-Chart.yaml
-README.md
-ci_cd_variables.yaml
-values.yaml
-tqs
-templates
-akvs-all-secrets.yml
-akvs-siaci-api-worker-auditoria-tqs-caixa.yaml
-cm-siaci-api-worker-auditoria.yaml
-.helmignore
-Chart.yaml
-README.md
-ci_cd_variables.yaml
-values.yaml
-tst
-README.md
-siaci-api-worker-auditoria-infranprd/tqs/templates
-/cm-siaci-api-worker-auditoria.yaml
-c148183_caixa
-c148183_caixa
-adjust
+caixa-base-chart:
+
+#-------#
+# IMAGE #
+#-------#
+
+  image:
+    # variavel de imagem do tipo de aplicação
+    repository: acrcentralcaixanprd.azurecr.io/siaci/api-worker-auditoria/siaci-api-worker-auditoria
+    tag: "31217709994"
+    pullPolicy: Always
+
+#-----#
+# HPA #
+#-----#
+  replicaCount: 1
+
+  autoscaling:
+    enabled: false
+    minReplicas: 1
+    maxReplicas: 3
+    targetCPUUtilizationPercentage: 85
+    targetMemoryUtilizationPercentage: 85
+
+#-----------------#
+# ROLLING UPDATE STRATEGY #
+#-----------------#
+
+  strategy:
+    maxSurge: 25%
+    maxUnavailable: 50%
 
 
+#-----------#
+#  SERVICE  #
+#-----------#
+  
+  service:
+    type: "ClusterIP"
+    ports:
+      - name: "port"
+        protocol: TCP
+        port: 80
+        targetPort: 8080
 
-GitHub Enterprise
-Users managed by Caixa Economica Federal
-caixagithub
-siaci-api-worker-auditoria
-Repository navigation
-Code
-Issues
-Pull requests
-Actions
-Projects
-Wiki
-Security and quality
-2
- (2)
-Insights
-Settings
-Files
-Go to file
-t
-T
-docs content loaded
-.github
-workflows
-pull_request_template.md
-docs
-banco
-desenvolvimento
-mensageria
-operacao
-outros
-index.md
-src
-Auditoria.Application
-Auditoria.Domain
-Auditoria.Infra
-Auditoria.Interfaces
-Auditoria.Worker
-tests
-Auditoria.IntegrationTests
-Auditoria.UnitTests
-coverlet.runsettings
-.gitignore
-ApiAuditoria.sln
-Directory.Build.props
-Dockerfile
-README.md
-appsettings.Development.json
-appsettings.json
-catalog-info.yaml
-mkdocs.yaml
-sisph-codeql-trigger.md
-siaci-api-worker-auditoria
-/.github/
-c148183_caixac148183Copilot
-[STRY00000000] chore: auto mapper and test (adjust) (#6)
+#---------#
+# INGRESS #
+#---------#
+  istio:  
+    - name: internal
+      enabled: true
+      servers:
+      - port:
+          number: 80
+          name: http-default
+          protocol: HTTP
+        hosts:
+        - "siaci-api-worker-auditoria.apl.tqs-nprd.private.azure"
+      - port:
+         number: 443
+         name: https-custom
+         protocol: HTTPS
+        tls:
+          mode: SIMPLE
+          credentialName: akvs-siaci-api-worker-auditoria-tqs-caixa 
+        hosts:
+          - siaci-api-worker-auditoria.tqs.caixa
+        prefix:
+          - /
+        targetPort: 80 
+  
+#-------------#
+#  RESOURCES  #
+#-------------#
+
+  resources:
+    requests:
+      cpu: 250m
+      memory: 256Mi
+    limits:
+      cpu: 500m
+      memory: 512Mi
+
+
+#----------#
+#  PROBES  #
+#----------#
+
+  probes:  
+    enabled: true
+    useDefaults: false  
+    livenessProbe: 
+      initialDelaySeconds: 30
+      periodSeconds: 15
+      failureThreshold: 10
+      successThreshold: 1
+      httpGet:
+        path: /healthz     
+        port: 8080
+    readinessProbe: 
+      initialDelaySeconds: 15
+      periodSeconds: 15
+      failureThreshold: 3
+      successThreshold: 1
+      httpGet:
+        path: /healthz     
+        port: 8080
+
+
+#-------------#
+#  CONFIGMAP  #
+#-------------#
+
+  configMapRefs:
+    - name: cm-siaci-api-worker-auditoria-tqs
+#---------------#
+#  TOLERATIONS  #
+#---------------#
+
+  tolerations:
+    - key: "kubernetes.azure.com/scalesetpriority"
+      effect: "NoSchedule"
+      operator: "Equal"
+      value: "spot"
+    - key: "nuvem.caixa/nodepoolname"
+      effect: "NoSchedule"
+      operator: "Equal"
+      value: "appshab"
+
+#-------------# 
+#   SECRETS   # 
+#-------------# 
+
+#  secretRefs:
+  env:
+    # CosmosDB Connection String
+    - name: SIACI_CONNSTR_COSMO
+      value: akvs-siaci-kv-cosmodb-conn-string@azurekeyvault
+    
+    # EventHub Connection String
+    - name: EventHub__ConnectionString
+      value: akvs-siaci-kv-eventhub-conn-string@azurekeyvault
+    
+    # Blob Storage Connection String (para checkpoint do EventHub)
+    - name: BlobStorage__ConnectionString
+      value: akvs-siaci-des-blobstorage-connection-string@azurekeyvault
+
+    # Application insights Connection String
+    - name: SIACI_CONNSTR_APPINSIGHTS
+      value: akvs-siaci-apm-appinsights-conn-string@azurekeyvault
