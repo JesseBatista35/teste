@@ -1,24 +1,24 @@
 Prezados,
 
-Reportando falha recorrente ao criar novo microsserviço no FusionX para a sigla SINCR.
+Estamos avaliando a implantação do Azure Application Insights no sistema SIATD, inicialmente para o ambiente DES.
 
-Task: https://fusionx.caixa/create/tasks/9f440f12-e94d-47c5-bfb1-8f8bdf69a47a
-Erro: GithubResponseError - Pull request creation failed; caused by HttpError: Not Found - https://docs.github.com/rest/repos/repos#get-a-repository
+Durante a análise técnica foram consultadas as documentações corporativas da Esteira DevOps relacionadas ao Azure Application Insights para aplicações Java/JBoss e Quarkus. A documentação orienta que a variável APPLICATIONINSIGHTS_CONNECTION_STRING deve ser obtida a partir do workspace da comunidade na Azure.
 
-Variáveis preenchidas na execução:
-- Sigla: SINCR
-- Tipo de Repositório: API (mesmo erro também ocorreu testando tipo Backend)
-- Módulo: teste-fusionx
-- Modelo: Padrão
-- Linguagem: .NET
-- Implantação: Azure
-- Associar Aplicação: G_AZ_GITHUB_SINCR_DESENVOLVEDOR
+Também foram analisados os artefatos disponíveis na Esteira DevOps do SIATD, incluindo repositório de configuração, histórico do arquivo applicationinsights.json, Pull Requests, Variable Groups de referência, Wikis, código-fonte e Work Items, sem que fosse possível identificar:
 
-O demandante já testou múltiplos ciclos de vida e tipos de repositório (API e Backend), sempre com o mesmo erro. O GitHub Status está operando normalmente (All Systems Operational), descartando instabilidade externa. Já verificamos também o grupo G_AZ_GITHUB_SINCR_DESENVOLVEDOR no Backstage, que está corretamente catalogado e segue o mesmo padrão dos demais grupos da plataforma, descartando problema de cadastro do grupo.
+• o workspace Azure da comunidade responsável pelo SIATD;
+• a existência de recurso Azure Application Insights provisionado para o sistema;
+• a APPLICATIONINSIGHTS_CONNECTION_STRING a ser utilizada.
 
-Solicitamos verificação da integração/permissão do GitHub App do FusionX especificamente para a organização/repositórios da sigla SINCR, já que o erro se repete de forma consistente independente do tipo de repositório escolhido.
+Solicitamos orientação quanto ao workspace Azure associado ao SIATD, existência de recurso Application Insights já provisionado e obtenção da APPLICATIONINSIGHTS_CONNECTION_STRING.
 
-Fico à disposição para mais detalhes.
+Caso não exista recurso previamente provisionado, solicitamos orientação quanto ao fluxo adequado para criação/provisionamento do Azure Application Insights para o SIATD.
+
+Objetivo: viabilizar a implantação da monitoração do SIATD via Azure Application Insights conforme as orientações da Esteira DevOps.
+
 
 Atenciosamente,
-Jessé Batista
+
+
+Ronaldo C. Oliveira
+c140030
