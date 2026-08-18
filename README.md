@@ -1,165 +1,27 @@
-exec java -Dquarkus.http.host=0.0.0.0 -Dquarkus.http.port=8080 -Djava.util.logging.manager=org.jboss.logmanager.LogManager -Djavax.net.ssl.trustStore=/deployments/caixa-truststore-acteste-nprd.jks -javaagent:/deployments/lib/main/com.microsoft.azure.applicationinsights-agent-3.6.2.jar -Dhttps.proxyHost=proxydes.caixa -Dhttps.proxyPort=80 -Dhttp.nonProxyHosts=*.caixa|*.caixa.gov.br -XX:+ExitOnOutOfMemoryError -cp . -jar /deployments/quarkus-run.jar
-OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
-2026-08-18 16:10:36.428-03:00 INFO  c.m.applicationinsights.agent - Application Insights Java Agent 3.6.2 started successfully (PID 8, JVM running for 5.221 s)
-2026-08-18 16:10:36.430-03:00 INFO  c.m.applicationinsights.agent - Java version: 21.0.1, vendor: Oracle Corporation, home: /usr/java/jdk-21.0.1
-__  ____  __  _____   ___  __ ____  ______ 
- --/ __ \/ / / / _ | / _ \/ //_/ / / / __/ 
- -/ /_/ / /_/ / __ |/ , _/ ,< / /_/ /\ \   
---\___\_\____/_/ |_/_/|_/_/|_|\____/___/   
-2026-08-18 16:10:43,395 WARN  [io.quarkus.config] (main) The "quarkus.hibernate-orm.database.generation" config property is deprecated and should not be used anymore.
-2026-08-18 16:10:43,402 WARN  [io.quarkus.runtime.configuration.ConfigRecorder] (main) Build time property cannot be changed at runtime:
- - quarkus.log.min-level is set to 'INFO' but it is build time fixed to 'DEBUG'. Did you change the property quarkus.log.min-level after building the application?
-2026-08-18 16:10:44,889 ERROR [io.quarkus.oidc.runtime.OidcProviderClientImpl] (vert.x-eventloop-thread-0) Failed to create OidcProviderClientImpl: java.util.NoSuchElementException: No value present
-	at java.base/java.util.Optional.get(Optional.java:143)
+Prezados,
+
+Durante a investigação da falha de startup do sigfa-api-extratos em DES (pod em CrashLoopBackOff), identificamos e corrigimos os seguintes pontos do lado da esteira/infra:
+
+1. Causa raiz identificada e corrigida (config source):
+A variável VAULT_LOCATION no grupo SIGFA-API-EXTRATOS-BT-VAULT-DES/TQS estava com o token #{VAULT_LOCATION}# não resolvido. Corrigimos para o path literal /usr/src/app/secrets_files/SIGFA_DES/, alinhado ao mount do secrets-agent sidecar (BeyondTrust). Isso resolveu o NullPointerException inicial do FileSystemConfigSourceFactory.
+
+2. Segunda causa identificada e corrigida (nome de variável OIDC):
+Encontramos a variável _ENV.QUARKUS_OIDC_CLIENT_CREDENTIALS_SECRET no grupo SIGFA-API-EXTRATOS-DES/TQS. Essa env var mapeia para a propriedade quarkus.oidc-client.credentials.secret (extensão quarkus-oidc-client, usada para propagação de token em chamadas de saída), e não para quarkus.oidc.credentials.secret (extensão quarkus-oidc principal, que protege os endpoints da própria API — é exatamente onde o erro estava ocorrendo, em OidcProviderClientImpl/TenantContextFactory).
+
+Renomeamos a variável para _ENV.QUARKUS_OIDC_CREDENTIALS_SECRET (mantendo o mesmo valor ${CLISERGFA_SSO_INTRA}) em DES e TQS, e disparamos novo release.
+
+3. Situação atual:
+Confirmamos que os secrets do BeyondTrust (SGFADS01_ORACLE, CLISERGFA_SSO_INTRA, SIGFA_APIKEY) estão sendo lidos corretamente pelo secrets-agent e gravados no path esperado — validado via secrets-check (init container) e inspeção direta do arquivo dentro do pod (conteúdo íntegro, sem caracteres inválidos).
+
+Mesmo após a correção do nome da variável e novo deploy, o mesmo erro segue ocorrendo:
+
+ERROR [io.quarkus.oidc.runtime.OidcProviderClientImpl] Failed to create OidcProviderClientImpl: java.util.NoSuchElementException: No value present
 	at io.quarkus.oidc.common.runtime.OidcCommonUtils.initClientSecretBasicAuth(OidcCommonUtils.java:533)
-	at io.quarkus.oidc.runtime.OidcProviderClientImpl.lambda$of$20(OidcProviderClientImpl.java:635)
-	at io.smallrye.context.impl.wrappers.SlowContextualFunction.apply(SlowContextualFunction.java:21)
-	at io.smallrye.mutiny.groups.UniOnNotNull.lambda$transform$4(UniOnNotNull.java:116)
-	at io.smallrye.context.impl.wrappers.SlowContextualFunction.apply(SlowContextualFunction.java:21)
-	at io.smallrye.mutiny.operators.uni.UniOnItemTransform$UniOnItemTransformProcessor.onItem(UniOnItemTransform.java:36)
-	at io.smallrye.mutiny.operators.uni.builders.UniCreateFromKnownItem$KnownItemSubscription.forward(UniCreateFromKnownItem.java:42)
-	at io.smallrye.mutiny.operators.uni.builders.UniCreateFromKnownItem.subscribe(UniCreateFromKnownItem.java:23)
-	at io.smallrye.mutiny.operators.AbstractUni.subscribe(AbstractUni.java:35)
-	at io.smallrye.mutiny.operators.uni.UniOnItemTransform.subscribe(UniOnItemTransform.java:22)
-	at io.smallrye.mutiny.operators.AbstractUni.subscribe(AbstractUni.java:35)
-	at io.smallrye.mutiny.operators.uni.UniOnItemTransformToUni.subscribe(UniOnItemTransformToUni.java:25)
-	at io.smallrye.mutiny.operators.AbstractUni.subscribe(AbstractUni.java:35)
-	at io.smallrye.mutiny.operators.uni.UniOnItemConsume.subscribe(UniOnItemConsume.java:34)
-	at io.smallrye.mutiny.operators.AbstractUni.subscribe(AbstractUni.java:35)
-	at io.smallrye.mutiny.operators.uni.UniOnItemTransform.subscribe(UniOnItemTransform.java:22)
-	at io.smallrye.mutiny.operators.AbstractUni.subscribe(AbstractUni.java:35)
-	at io.smallrye.mutiny.operators.uni.UniOnItemOrFailureFlatMap$UniOnItemOrFailureFlatMapProcessor.performInnerSubscription(UniOnItemOrFailureFlatMap.java:99)
-	at io.smallrye.mutiny.operators.uni.UniOnItemOrFailureFlatMap$UniOnItemOrFailureFlatMapProcessor.onItem(UniOnItemOrFailureFlatMap.java:54)
-	at io.smallrye.mutiny.operators.uni.UniOnItemTransform$UniOnItemTransformProcessor.onItem(UniOnItemTransform.java:43)
-	at io.smallrye.mutiny.operators.uni.UniOperatorProcessor.onItem(UniOperatorProcessor.java:47)
-	at io.smallrye.mutiny.operators.uni.UniOperatorProcessor.onItem(UniOperatorProcessor.java:47)
-	at io.smallrye.mutiny.operators.uni.builders.UniCreateFromPublisher$PublisherSubscriber.onNext(UniCreateFromPublisher.java:76)
-	at io.smallrye.mutiny.subscription.MultiSubscriberAdapter.onItem(MultiSubscriberAdapter.java:27)
-	at io.smallrye.mutiny.subscription.MultiSubscriber.onNext(MultiSubscriber.java:61)
-	at io.smallrye.mutiny.subscription.SerializedSubscriber.onItem(SerializedSubscriber.java:74)
-	at io.smallrye.mutiny.operators.multi.MultiRetryWhenOp$RetryWhenOperator.onItem(MultiRetryWhenOp.java:118)
-	at io.smallrye.mutiny.subscription.MultiSubscriber.onNext(MultiSubscriber.java:61)
-	at io.smallrye.mutiny.converters.uni.UniToMultiPublisher$UniToMultiSubscription.onItem(UniToMultiPublisher.java:94)
-	at io.smallrye.mutiny.operators.uni.UniOnItemTransformToUni$UniOnItemTransformToUniProcessor.onItem(UniOnItemTransformToUni.java:60)
-	at io.smallrye.mutiny.operators.uni.UniOnItemTransform$UniOnItemTransformProcessor.onItem(UniOnItemTransform.java:43)
-	at io.smallrye.mutiny.operators.uni.builders.UniCreateFromKnownItem$KnownItemSubscription.forward(UniCreateFromKnownItem.java:42)
-	at io.smallrye.mutiny.operators.uni.builders.UniCreateFromKnownItem.subscribe(UniCreateFromKnownItem.java:23)
-	at io.smallrye.mutiny.operators.AbstractUni.subscribe(AbstractUni.java:35)
-	at io.smallrye.mutiny.operators.uni.UniOnItemTransform.subscribe(UniOnItemTransform.java:22)
-	at io.smallrye.mutiny.operators.AbstractUni.subscribe(AbstractUni.java:35)
-	at io.smallrye.mutiny.operators.uni.UniOnItemTransformToUni$UniOnItemTransformToUniProcessor.performInnerSubscription(UniOnItemTransformToUni.java:81)
-	at io.smallrye.mutiny.operators.uni.UniOnItemTransformToUni$UniOnItemTransformToUniProcessor.onItem(UniOnItemTransformToUni.java:57)
-	at io.smallrye.mutiny.operators.uni.UniOnItemTransformToUni$UniOnItemTransformToUniProcessor.onItem(UniOnItemTransformToUni.java:60)
-	at io.smallrye.mutiny.vertx.AsyncResultUni.lambda$subscribe$1(AsyncResultUni.java:35)
-	at io.smallrye.mutiny.vertx.DelegatingHandler.handle(DelegatingHandler.java:25)
-	at io.vertx.ext.web.client.impl.HttpContext.handleDispatchResponse(HttpContext.java:403)
-	at io.vertx.ext.web.client.impl.HttpContext.execute(HttpContext.java:385)
-	at io.vertx.ext.web.client.impl.HttpContext.next(HttpContext.java:363)
-	at io.vertx.ext.web.client.impl.HttpContext.fire(HttpContext.java:330)
-	at io.vertx.ext.web.client.impl.HttpContext.dispatchResponse(HttpContext.java:292)
-	at io.vertx.ext.web.client.impl.HttpContext.lambda$null$6(HttpContext.java:510)
-	at io.vertx.core.impl.ContextInternal.dispatch(ContextInternal.java:270)
-	at io.vertx.core.impl.ContextInternal.dispatch(ContextInternal.java:252)
-	at io.vertx.core.impl.ContextInternal.lambda$runOnContext$0(ContextInternal.java:50)
-	at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:173)
-	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:166)
-	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:472)
-	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:566)
-	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:998)
-	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
-	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
-	at java.base/java.lang.Thread.run(Thread.java:1583)
 
-2026-08-18 16:10:45,012 ERROR [io.quarkus.runtime.Application] (main) Failed to start application: java.lang.RuntimeException: Failed to start quarkus
-	at io.quarkus.runner.ApplicationImpl.doStart(Unknown Source)
-	at io.quarkus.runtime.Application.start(Application.java:112)
-	at io.quarkus.runtime.ApplicationLifecycleManager.run(ApplicationLifecycleManager.java:127)
-	at io.quarkus.runtime.Quarkus.run(Quarkus.java:79)
-	at io.quarkus.runtime.Quarkus.run(Quarkus.java:50)
-	at io.quarkus.runtime.Quarkus.run(Quarkus.java:143)
-	at io.quarkus.runner.GeneratedMain.main(Unknown Source)
-	at io.quarkus.bootstrap.runner.QuarkusEntryPoint.doRun(QuarkusEntryPoint.java:86)
-	at io.quarkus.bootstrap.runner.QuarkusEntryPoint.main(QuarkusEntryPoint.java:37)
-Caused by: io.smallrye.mutiny.CompositeException: Multiple exceptions caught:
-	[Exception 0] java.util.NoSuchElementException: No value present
-	[Exception 1] io.quarkus.oidc.OIDCException
-	at io.smallrye.mutiny.operators.uni.UniOnFailureFlatMap$UniOnFailureFlatMapProcessor.performInnerSubscription(UniOnFailureFlatMap.java:97)
-	at io.smallrye.mutiny.operators.uni.UniOnFailureFlatMap$UniOnFailureFlatMapProcessor.dispatch(UniOnFailureFlatMap.java:86)
-	at io.smallrye.mutiny.operators.uni.UniOnFailureFlatMap$UniOnFailureFlatMapProcessor.onFailure(UniOnFailureFlatMap.java:63)
-	at io.smallrye.mutiny.operators.uni.UniOperatorProcessor.onFailure(UniOperatorProcessor.java:55)
-	at io.smallrye.mutiny.operators.uni.UniOperatorProcessor.onFailure(UniOperatorProcessor.java:55)
-	at io.smallrye.mutiny.operators.uni.UniOnItemOrFailureFlatMap$UniOnItemOrFailureFlatMapProcessor.onFailure(UniOnItemOrFailureFlatMap.java:67)
-	at io.smallrye.mutiny.operators.uni.UniOperatorProcessor.onFailure(UniOperatorProcessor.java:55)
-	at io.smallrye.mutiny.operators.uni.UniOnItemConsume$UniOnItemComsumeProcessor.onFailure(UniOnItemConsume.java:59)
-	at io.smallrye.mutiny.operators.uni.UniOperatorProcessor.onFailure(UniOperatorProcessor.java:55)
-	at io.smallrye.mutiny.operators.uni.UniOnItemTransform$UniOnItemTransformProcessor.onItem(UniOnItemTransform.java:40)
-	at io.smallrye.mutiny.operators.uni.builders.UniCreateFromKnownItem$KnownItemSubscription.forward(UniCreateFromKnownItem.java:42)
-	at io.smallrye.mutiny.operators.uni.builders.UniCreateFromKnownItem.subscribe(UniCreateFromKnownItem.java:23)
-	at io.smallrye.mutiny.operators.AbstractUni.subscribe(AbstractUni.java:35)
-	at io.smallrye.mutiny.operators.uni.UniOnItemTransform.subscribe(UniOnItemTransform.java:22)
-	at io.smallrye.mutiny.operators.AbstractUni.subscribe(AbstractUni.java:35)
-	at io.smallrye.mutiny.operators.uni.UniOnItemTransformToUni.subscribe(UniOnItemTransformToUni.java:25)
-	at io.smallrye.mutiny.operators.AbstractUni.subscribe(AbstractUni.java:35)
-	at io.smallrye.mutiny.operators.uni.UniOnItemConsume.subscribe(UniOnItemConsume.java:34)
-	at io.smallrye.mutiny.operators.AbstractUni.subscribe(AbstractUni.java:35)
-	at io.smallrye.mutiny.operators.uni.UniOnItemTransform.subscribe(UniOnItemTransform.java:22)
-	at io.smallrye.mutiny.operators.AbstractUni.subscribe(AbstractUni.java:35)
-	at io.smallrye.mutiny.operators.uni.UniOnItemOrFailureFlatMap$UniOnItemOrFailureFlatMapProcessor.performInnerSubscription(UniOnItemOrFailureFlatMap.java:99)
-	at io.smallrye.mutiny.operators.uni.UniOnItemOrFailureFlatMap$UniOnItemOrFailureFlatMapProcessor.onItem(UniOnItemOrFailureFlatMap.java:54)
-	at io.smallrye.mutiny.operators.uni.UniOnItemTransform$UniOnItemTransformProcessor.onItem(UniOnItemTransform.java:43)
-	at io.smallrye.mutiny.operators.uni.UniOperatorProcessor.onItem(UniOperatorProcessor.java:47)
-	at io.smallrye.mutiny.operators.uni.UniOperatorProcessor.onItem(UniOperatorProcessor.java:47)
-	at io.smallrye.mutiny.operators.uni.builders.UniCreateFromPublisher$PublisherSubscriber.onNext(UniCreateFromPublisher.java:76)
-	at io.smallrye.mutiny.subscription.MultiSubscriberAdapter.onItem(MultiSubscriberAdapter.java:27)
-	at io.smallrye.mutiny.subscription.MultiSubscriber.onNext(MultiSubscriber.java:61)
-	at io.smallrye.mutiny.subscription.SerializedSubscriber.onItem(SerializedSubscriber.java:74)
-	at io.smallrye.mutiny.operators.multi.MultiRetryWhenOp$RetryWhenOperator.onItem(MultiRetryWhenOp.java:118)
-	at io.smallrye.mutiny.subscription.MultiSubscriber.onNext(MultiSubscriber.java:61)
-	at io.smallrye.mutiny.converters.uni.UniToMultiPublisher$UniToMultiSubscription.onItem(UniToMultiPublisher.java:94)
-	at io.smallrye.mutiny.operators.uni.UniOnItemTransformToUni$UniOnItemTransformToUniProcessor.onItem(UniOnItemTransformToUni.java:60)
-	at io.smallrye.mutiny.operators.uni.UniOnItemTransform$UniOnItemTransformProcessor.onItem(UniOnItemTransform.java:43)
-	at io.smallrye.mutiny.operators.uni.builders.UniCreateFromKnownItem$KnownItemSubscription.forward(UniCreateFromKnownItem.java:42)
-	at io.smallrye.mutiny.operators.uni.builders.UniCreateFromKnownItem.subscribe(UniCreateFromKnownItem.java:23)
-	at io.smallrye.mutiny.operators.AbstractUni.subscribe(AbstractUni.java:35)
-	at io.smallrye.mutiny.operators.uni.UniOnItemTransform.subscribe(UniOnItemTransform.java:22)
-	at io.smallrye.mutiny.operators.AbstractUni.subscribe(AbstractUni.java:35)
-	at io.smallrye.mutiny.operators.uni.UniOnItemTransformToUni$UniOnItemTransformToUniProcessor.performInnerSubscription(UniOnItemTransformToUni.java:81)
-	at io.smallrye.mutiny.operators.uni.UniOnItemTransformToUni$UniOnItemTransformToUniProcessor.onItem(UniOnItemTransformToUni.java:57)
-	at io.smallrye.mutiny.operators.uni.UniOnItemTransformToUni$UniOnItemTransformToUniProcessor.onItem(UniOnItemTransformToUni.java:60)
-	at io.smallrye.mutiny.vertx.AsyncResultUni.lambda$subscribe$1(AsyncResultUni.java:35)
-	at io.smallrye.mutiny.vertx.DelegatingHandler.handle(DelegatingHandler.java:25)
-	at io.vertx.ext.web.client.impl.HttpContext.handleDispatchResponse(HttpContext.java:403)
-	at io.vertx.ext.web.client.impl.HttpContext.execute(HttpContext.java:385)
-	at io.vertx.ext.web.client.impl.HttpContext.next(HttpContext.java:363)
-	at io.vertx.ext.web.client.impl.HttpContext.fire(HttpContext.java:330)
-	at io.vertx.ext.web.client.impl.HttpContext.dispatchResponse(HttpContext.java:292)
-	at io.vertx.ext.web.client.impl.HttpContext.lambda$null$6(HttpContext.java:510)
-	at io.vertx.core.impl.ContextInternal.dispatch(ContextInternal.java:270)
-	at io.vertx.core.impl.ContextInternal.dispatch(ContextInternal.java:252)
-	at io.vertx.core.impl.ContextInternal.lambda$runOnContext$0(ContextInternal.java:50)
-	at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:173)
-	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:166)
-	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:472)
-	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:566)
-	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:998)
-	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
-	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
-	at java.base/java.lang.Thread.run(Thread.java:1583)
-	Suppressed: io.quarkus.oidc.OIDCException
-		at io.quarkus.oidc.runtime.TenantContextFactory$2.apply(TenantContextFactory.java:130)
-		at io.quarkus.oidc.runtime.TenantContextFactory$2.apply(TenantContextFactory.java:111)
-		at io.smallrye.context.impl.wrappers.SlowContextualFunction.apply(SlowContextualFunction.java:21)
-		at io.smallrye.mutiny.groups.UniOnFailure.lambda$recoverWithItem$8(UniOnFailure.java:193)
-		at io.smallrye.mutiny.operators.uni.UniOnFailureFlatMap$UniOnFailureFlatMapProcessor.performInnerSubscription(UniOnFailureFlatMap.java:95)
-		... 61 more
-	Caused by: java.util.NoSuchElementException: No value present
-		at java.base/java.util.Optional.get(Optional.java:143)
-		at io.quarkus.oidc.common.runtime.OidcCommonUtils.initClientSecretBasicAuth(OidcCommonUtils.java:533)
-		at io.quarkus.oidc.runtime.OidcProviderClientImpl.lambda$of$20(OidcProviderClientImpl.java:635)
-		at io.smallrye.context.impl.wrappers.SlowContextualFunction.apply(SlowContextualFunction.java:21)
-		at io.smallrye.mutiny.groups.UniOnNotNull.lambda$transform$4(UniOnNotNull.java:116)
-		at io.smallrye.context.impl.wrappers.SlowContextualFunction.apply(SlowContextualFunction.java:21)
-		at io.smallrye.mutiny.operators.uni.UniOnItemTransform$UniOnItemTransformProcessor.onItem(UniOnItemTransform.java:36)
-		... 52 more
-Caused by: [CIRCULAR REFERENCE: java.util.NoSuchElementException: No value present]
+Pedido ao time de desenvolvimento:
+Como o valor do secret está confirmado íntegro no filesystem e o nome da env var já bate com a propriedade padrão do Quarkus (quarkus.oidc.credentials.secret), pedimos que revisem, no application.properties/application.yaml do código-fonte:
 
+Se existe alguma propriedade quarkus.oidc.credentials.client-secret.* (formato estendido) conflitando ou sobrepondo quarkus.oidc.credentials.secret — o Quarkus pode estar priorizando uma sobre a outra.
+Se há necessidade explícita de quarkus.oidc.credentials.client-secret.method=basic ou post configurado.
+Se o profile %prod ou algum override de build-time está fixando essa config de outra forma.
+Se o tenant OIDC (login.des.caixa/auth/realms/intranet, client cli-ser-gfa) está realmente exigindo client secret, ou se mudou o método de autenticação esperado do lado do Keycloak.
