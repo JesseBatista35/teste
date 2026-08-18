@@ -1,15 +1,76 @@
-Bom dia, Jesse.
-Sigla: SINCR
-Tipo: API
-Módulo: teste-fusionx
-Descrição: Teste.
-Modelo: padrão
-Linguagem: .NET
-Pipeline Ágil: Não
-Implantação: Azure
-Associar Aplicação: G_AZ_GITHUB_SINCR_DESENVOLVEDOR
-Ciclo de vida: já tentei todos e sempre recebi erro
-Linha de negócio: Crédito comercial
+​
+Search...
 
+Home logo
+Home
+Catalogo
+Self-service
+APIs
+Aprendizado
+Meu grupo
+Feedback
+Docs
+Notifications
+1
+group — team
 
-Também já testei repositório do tipo backend e o erro foi o mesmo.
+G_AZ_GITHUB_SINCR_DESENVOLVEDOR
+About
+View Source
+View TechDocs
+Description
+No description
+
+Owner
+No Owner
+
+Type
+team
+
+Tags
+No Tags
+
+G_AZ_GITHUB_SINCR_DESENVOLVEDOR
+Caixa Economica Federal
+Parent Group
+
+N/A
+Child Groups
+
+Ownership
+Direct Relations
+Aggregated Relations
+Members (16)
+of G_AZ_GITHUB_SINCR_DESENVOLVEDOR
+Andre Henrique dos Santos
+andre.h.santos@caixa.gov.br
+Eduardo Nascimento da Silva
+eduardo.n.silva@caixa.gov.br
+Elvis Irineu Elias
+elvis.elias@caixa.gov.br
+Erick Lopes de Souza
+erick.souza@caixa.gov.br
+Cleriston Willian Sousa de Arruda
+f530037@corp.caixa.gov.br
+Edir da Silva Ludolf
+f654712@corp.caixa.gov.br
+Fabiana Torres Guimaraes de Aguiar Souza
+fabiana.t.guimaraes@caixa.gov.br
+Jose Leandro Bruno da Silva Morais
+jose.l.morais@caixa.gov.br
+Julyana Lima Ferreira
+julyana.ferreira@caixa.gov.br
+Karyna da Costa Pirola
+karyna.pirola@caixa.gov.br
+Lucas Hermogenes Zanetti
+lucas.zanetti@caixa.gov.br
+Mayara do Nascimento Silva
+mayara.n.silva@caixa.gov.br
+Rafael Chagas Barbosa
+rafael.c.barbosa@caixa.gov.br
+Reulisson Gabriel da Silva Torres
+reulisson.torres@caixa.gov.br
+Thiago Luiz de Sousa
+thiago.l.sousa@caixa.gov.br
+Watson Junior Felipe de Sousa
+watson.sousa@caixa.gov.br
