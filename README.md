@@ -55,19 +55,19 @@ caixa-base-chart:
           name: http-default
           protocol: HTTP
         hosts:
-        - "siaci-api-worker-auditoria.apl.tqs-nprd.private.azure"
+        - "siaci-api-worker-auditoria.apl.des-nprd.private.azure"
       - port:
-         number: 443
-         name: https-custom
-         protocol: HTTPS
+          number: 443
+          name: https-custom
+          protocol: HTTPS
         tls:
           mode: SIMPLE
-          credentialName: akvs-siaci-api-worker-auditoria-tqs-caixa 
+          credentialName: akvs-siaci-api-worker-auditoria-des-caixa-certificate
         hosts:
-          - siaci-api-worker-auditoria.tqs.caixa
-        prefix:
-          - /
-        targetPort: 80 
+          - siaci-api-worker-auditoria.des.caixa
+      prefix:
+        - /
+      targetPort: 80 
   
 #-------------#
 #  RESOURCES  #
@@ -112,7 +112,7 @@ caixa-base-chart:
 #-------------#
 
   configMapRefs:
-    - name: cm-siaci-api-worker-auditoria-tqs
+    - name: cm-siaci-api-worker-auditoria
 #---------------#
 #  TOLERATIONS  #
 #---------------#
