@@ -83,7 +83,6 @@
        <property name="sismh.ambiente.teste" value="__SISMH_AMBIENTE_TESTE__"/>
        <property name="sismh.confidencialidade.nivel" value="__SISMH_CONFIDENCIALIDADE_NIVEL__"/>
        <property name="app_name" value="__APP_NAME__"/>
-       <property name="app_name" value="__APP_NAME__"/>
        <property name="sismh.api.keycloak.public.key" value="MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzcYY/UbvrEldbQRd4TgLeP9bS8YnaL67MZUsfozWRyocBF3S0L7UEbkPaPoCoBnhoRv8VJHp0grqe3mqEmkMuDlt20Vx6q04ADDyS0c8xaU+Ot+g1Pgwjze944ATUjZogEMko6jvqqUGTt/Nt64yCCIaMaTB119vOBExQim7vPHNe/o7hLxh6VBYINxFA/esxjz8j28/uJWIiK0Gvt07Yx7ycn2DJlQHjnH2GzCSUL87AAYmjyYxW2JZaPLLvRlpcHIWrlr9GNtLiq0++xfJ0jFYxQWs1jxhlfXdqr8NE5vfA/RRRjRFnWzFOhIsOnIHPO9eEwwYzCZSoW2zXkFDYwIDAQAB"/>
        <property name="sismh.api.clients.servico.id" value="cli-ser-smh"/>
     </system-properties>
