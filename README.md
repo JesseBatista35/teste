@@ -1,7 +1,8 @@
-check-case-sensitivity.js
+Corrigindo Codificação Arquivos dos2unix
 
 View raw log
-Starting: check-case-sensitivity.js
+
+Starting: Corrigindo Codificação Arquivos dos2unix
 ==============================================================================
 Task         : Bash
 Description  : Run a Bash script on macOS, Linux, or Windows
@@ -11,24 +12,19 @@ Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/b
 ==============================================================================
 Generating script.
 ========================== Starting Command Output ===========================
-/usr/bin/bash /opt/ads-agent/_work/_temp/ddc492ae-b21d-4e50-b12a-75c6433d7def.sh
-=== Arquivos na pasta model/endomarketing ===
-total 44
-drwxr-xr-x. 2 root root 4096 ago 19 14:42 .
-drwxr-xr-x. 9 root root  132 ago 19 14:42 ..
--rw-r--r--. 1 root root  117 ago 19 14:42 botao-acao.model.ts
--rw-r--r--. 1 root root 1615 ago 19 14:42 canal.model.ts
--rw-r--r--. 1 root root  109 ago 19 14:42 categoria.model.ts
--rw-r--r--. 1 root root  109 ago 19 14:42 Categoria.model.ts
--rw-r--r--. 1 root root  314 ago 19 14:42 conversao.model.ts
--rw-r--r--. 1 root root 2658 ago 19 14:42 endomarketing.model.ts
--rw-r--r--. 1 root root  114 ago 19 14:42 lista-envio-model.ts
--rw-r--r--. 1 root root  391 ago 19 14:42 midia-endomarketing.model.ts
--rw-r--r--. 1 root root  734 ago 19 14:42 ocorrencia.model.ts
--rw-r--r--. 1 root root  349 ago 19 14:42 solicitacao-acao.model.ts
-
-=== Imports relativos partindo de dentro da propria pasta endomarketing ===
-
-=== Qualquer arquivo index/barrel na pasta ===
+/usr/bin/bash /opt/ads-agent/_work/_temp/5dff9d16-f770-4b79-8086-e003c2f25e05.sh
+##[error] Nenhum arquivo em .s2i/bin/ para converter (dos2unix não executado).
+##[error] Se tratam de arquivos obrigatórios para configuração do ambiente nginx
+##[error] Em caso de dúvidas acesse o link abaixo para exemplo com projetos angular (seção 'Pré-requisito: Criar a pasta .s2i/bin no repositório da aplicação') ou entre em contato com a CESTI36
+##[error] https://devops.caixa/projetos/Caixa/_wiki/wikis/Caixa.wiki/6/Pipeline-Angular-Conteiner?anchor=1.-crie-a-pasta-.s2i/bin-e-crie-os-arquivos-%22run%22%2C-%22assemble%22.-voc%C3%AA-pode-encontrar-os-modelos-dos-arquivos-no-reposit%C3%B3rio-%22sample-angular%22.
 ##[error]Bash exited with code '1'.
-Finishing: check-case-sensitivity.js
+Finishing: Corrigindo Codificação Arquivos dos2unix
+
+
+
+novo problema .
+
+nao tem a pasta do .s2i  - eu copieie to sisma forntend-patrocinio e coloquei  ela la e to rodando uma nova build. 
+
+mandei auqie mesmo so pra regitro quando formos fechar a nosso texto final do diagnostico
+
