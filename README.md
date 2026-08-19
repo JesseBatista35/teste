@@ -1,20 +1,12 @@
-check-case-sensitivity.js
+<img width="986" height="900" alt="image" src="https://github.com/user-attachments/assets/9c68e398-7a30-46ad-aa9f-34d64c06687b" />
 
-View raw log
-Starting: check-case-sensitivity.js
-==============================================================================
-Task         : Bash
-Description  : Run a Bash script on macOS, Linux, or Windows
-Version      : 3.227.0
-Author       : Microsoft Corporation
-Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/bash
-==============================================================================
-Generating script.
-========================== Starting Command Output ===========================
-/usr/bin/bash /opt/ads-agent/_work/_temp/70304e29-2c14-4aa4-81c2-df5496408989.sh
-=== Versao do typescript instalado no projeto ===
-cat: node_modules/typescript/package.json: Arquivo ou diretório inexistente
-=== Rodando tsc LOCAL (sem npx) ===
-/opt/ads-agent/_work/_temp/70304e29-2c14-4aa4-81c2-df5496408989.sh: line 5: node_modules/.bin/tsc: Arquivo ou diretório inexistente
-##[error]Bash exited with code '127'.
-Finishing: check-case-sensitivity.js
+
+ele roda nessa ordem
+
+
+
+<img width="1636" height="851" alt="image" src="https://github.com/user-attachments/assets/a8e6812f-7811-4928-95b3-e6c947727c31" />
+
+são task groups. 
+
+<img width="1861" height="905" alt="image" src="https://github.com/user-attachments/assets/fdf31b76-eaa7-4757-a7ae-3d13f5ae64c1" />
