@@ -1,164 +1,216 @@
-2026-08-20T14:17:01.6742898Z ##[section]Starting: Check Deployments [JBOSS]
-2026-08-20T14:17:01.6746118Z ==============================================================================
-2026-08-20T14:17:01.6746208Z Task         : Bash
-2026-08-20T14:17:01.6746264Z Description  : Run a Bash script on macOS, Linux, or Windows
-2026-08-20T14:17:01.6746336Z Version      : 3.227.0
-2026-08-20T14:17:01.6746385Z Author       : Microsoft Corporation
-2026-08-20T14:17:01.6746494Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/bash
-2026-08-20T14:17:01.6746578Z ==============================================================================
-2026-08-20T14:17:02.7145948Z Generating script.
-2026-08-20T14:17:02.7153768Z Script contents:
-2026-08-20T14:17:02.7154255Z ansible-playbook /opt/ads-agent/_work/r5336/a/esteira-jboss-vm-v2/site.yml --tags check_deployments -e sistema_ambiente=des -e sistema_nome=siatd-intranet-vm -e site=ctc_nprd
-2026-08-20T14:17:02.7158158Z ========================== Starting Command Output ===========================
-2026-08-20T14:17:02.7164839Z [command]/bin/bash /opt/ads-agent/_work/_temp/e55d729b-7709-41c3-a77a-5f82cd1172e3.sh
-2026-08-20T14:17:04.7651998Z 
-2026-08-20T14:17:04.7652615Z PLAY [local] *******************************************************************
-2026-08-20T14:17:04.7918442Z 
-2026-08-20T14:17:04.7919149Z PLAY [Configurando o DNS] ******************************************************
-2026-08-20T14:17:04.9787584Z 
-2026-08-20T14:17:04.9788425Z PLAY [local] *******************************************************************
-2026-08-20T14:17:04.9831022Z 
-2026-08-20T14:17:04.9832072Z PLAY [Verificando serviços] ****************************************************
-2026-08-20T14:17:04.9908739Z 
-2026-08-20T14:17:04.9909635Z PLAY [Configuração LDAP] *******************************************************
-2026-08-20T14:17:04.9942266Z [WARNING]: Found variable using reserved name: when
-2026-08-20T14:17:04.9948837Z 
-2026-08-20T14:17:04.9949435Z PLAY [jboss] *******************************************************************
-2026-08-20T14:17:05.0027000Z 
-2026-08-20T14:17:05.0027541Z PLAY [Stack Jboss] *************************************************************
-2026-08-20T14:17:05.0270241Z Thursday 20 August 2026  11:17:05 -0300 (0:00:00.321)       0:00:00.321 ******* 
-2026-08-20T14:17:05.5399208Z 
-2026-08-20T14:17:05.5400211Z TASK [Verifica ser o Jboss já foi instalado] ***********************************
-2026-08-20T14:17:05.5400580Z [DEPRECATION WARNING]: Distribution rhel 9.3 on host 
-2026-08-20T14:17:05.5401185Z caddeapllx1992.agil.nprd.caixa.gov.br should use /usr/libexec/platform-python, 
-2026-08-20T14:17:05.5402039Z but is using /usr/bin/python for backward compatibility with prior Ansible 
-2026-08-20T14:17:05.5402314Z releases. A future Ansible release will default to using the discovered 
-2026-08-20T14:17:05.5402531Z platform python for this host. See https://docs.ansible.com/ansible/2.9/referen
-2026-08-20T14:17:05.5402739Z ce_appendices/interpreter_discovery.html for more information. This feature 
-2026-08-20T14:17:05.5403393Z will be removed in version 2.12. Deprecation warnings can be disabled by 
-2026-08-20T14:17:05.5403593Z setting deprecation_warnings=False in ansible.cfg.
-2026-08-20T14:17:05.5403881Z ok: [caddeapllx1992.agil.nprd.caixa.gov.br]
-2026-08-20T14:17:05.5426171Z 
-2026-08-20T14:17:05.5426570Z PLAY [jboss] *******************************************************************
-2026-08-20T14:17:05.5473702Z 
-2026-08-20T14:17:05.5474120Z PLAY [jboss] *******************************************************************
-2026-08-20T14:17:05.5515819Z 
-2026-08-20T14:17:05.5516160Z PLAY [jboss] *******************************************************************
-2026-08-20T14:17:05.5540259Z 
-2026-08-20T14:17:05.5540769Z PLAY [Copiando deployments adicionais] *****************************************
-2026-08-20T14:17:05.5568714Z 
-2026-08-20T14:17:05.5569153Z PLAY [Copiando modules adicionais] *********************************************
-2026-08-20T14:17:05.5602150Z 
-2026-08-20T14:17:05.5602544Z PLAY [jboss] *******************************************************************
-2026-08-20T14:17:05.5631149Z 
-2026-08-20T14:17:05.5631704Z PLAY [jboss] *******************************************************************
-2026-08-20T14:17:05.5659071Z 
-2026-08-20T14:17:05.5659311Z PLAY [jboss] *******************************************************************
-2026-08-20T14:17:05.5694675Z Thursday 20 August 2026  11:17:05 -0300 (0:00:00.542)       0:00:00.864 ******* 
-2026-08-20T14:20:26.1657674Z 
-2026-08-20T14:20:26.1658391Z TASK [Wait for Jboss Management port] ******************************************
-2026-08-20T14:20:26.1658698Z fatal: [caddeapllx1992.agil.nprd.caixa.gov.br]: FAILED! => {"changed": false, "elapsed": 200, "msg": "Timeout when waiting for 10.116.198.244:9990"}
-2026-08-20T14:20:26.1677500Z Thursday 20 August 2026  11:20:26 -0300 (0:03:20.598)       0:03:21.462 ******* 
-2026-08-20T14:20:32.8817670Z 
-2026-08-20T14:20:32.8818268Z TASK [systemd] *****************************************************************
-2026-08-20T14:20:32.8818580Z changed: [caddeapllx1992.agil.nprd.caixa.gov.br]
-2026-08-20T14:20:32.8854162Z Thursday 20 August 2026  11:20:32 -0300 (0:00:06.717)       0:03:28.180 ******* 
-2026-08-20T14:23:53.3543016Z 
-2026-08-20T14:23:53.3543727Z TASK [Wait for Jboss Management port] ******************************************
-2026-08-20T14:23:53.3544738Z fatal: [caddeapllx1992.agil.nprd.caixa.gov.br]: FAILED! => {"changed": false, "elapsed": 200, "msg": "Timeout when waiting for 10.116.198.244:9990"}
-2026-08-20T14:23:53.3553259Z 
-2026-08-20T14:23:53.3553621Z PLAY RECAP *********************************************************************
-2026-08-20T14:23:53.3555153Z caddeapllx1992.agil.nprd.caixa.gov.br : ok=2    changed=1    unreachable=0    failed=1    skipped=0    rescued=1    ignored=0   
-2026-08-20T14:23:53.3555312Z 
-2026-08-20T14:23:53.3555808Z Thursday 20 August 2026  11:23:53 -0300 (0:03:20.470)       0:06:48.650 ******* 
-2026-08-20T14:23:53.3556083Z =============================================================================== 
-2026-08-20T14:23:53.3556390Z Wait for Jboss Management port ---------------------------------------- 200.60s
-2026-08-20T14:23:53.3556984Z Wait for Jboss Management port ---------------------------------------- 200.47s
-2026-08-20T14:23:53.3557237Z systemd ----------------------------------------------------------------- 6.72s
-2026-08-20T14:23:53.3557494Z Verifica ser o Jboss já foi instalado ----------------------------------- 0.54s
-2026-08-20T14:23:53.3557670Z Playbook run took 0 days, 0 hours, 6 minutes, 48 seconds
-2026-08-20T14:23:53.4159628Z ##[error]Bash exited with code '2'.
-2026-08-20T14:23:53.4188491Z ##[section]Finishing: Check Deployments [JBOSS]
-
-
-
-
-585600@cadsvitrlx100 ~]$ ssh 10.116.198.244
-The authenticity of host '10.116.198.244 (10.116.198.244)' can't be established.
-ED25519 key fingerprint is SHA256:aWV7gZp5OYIi52RwPts56Hp1AHSx7Q+cMSL5kBrb94E.
-This host key is known by the following other names/addresses:
-    ~/.ssh/known_hosts:22: 10.116.199.109
-Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
-Warning: Permanently added '10.116.198.244' (ED25519) to the list of known hosts.
-p585600@10.116.198.244's password:
-[p585600@caddeapllx1992 ~]$
-[p585600@caddeapllx1992 ~]$
-[p585600@caddeapllx1992 ~]$
-[p585600@caddeapllx1992 ~]$ ps -ef | grep jboss
-p585600   134653  134578  0 11:23 pts/1    00:00:00 grep --color=auto jboss
-[p585600@caddeapllx1992 ~]$ ps -ef | grep java
-p585600   134673  134578  0 11:23 pts/1    00:00:00 grep --color=auto java
-[p585600@caddeapllx1992 ~]$ cd /opt/jboss-eap/standalone/configuration/
-[p585600@caddeapllx1992 configuration]$ ls -la
-total 240
-drwxrwxr-x 3 jboss jboss  4096 ago 20 11:16 .
-drwxrwxr-x 8 jboss jboss    91 set 30  2024 ..
--rwxr-xr-x 1 jboss jboss   715 ago 20 11:16 applicationinsights.json
--rwxrwxr-x 1 jboss jboss   711 jun 23  2021 application-roles.properties
--rwxrwxr-x 1 jboss jboss   935 jun 23  2021 application-users.properties
--rw------- 1 jboss jboss 39055 ago 19 16:36 caixa-truststore-acteste-nprd.jks
--rwxr-xr-x 1 jboss jboss   242 ago 20 09:45 custom.sh
--rwxr-xr-x 1 jboss jboss  6018 ago 19 16:37 jcics-config.xml
--rwxrwxr-x 1 jboss jboss  2093 ago 19 17:10 logging.properties
--rwxrwxr-x 1 jboss jboss   669 jun 23  2021 mgmt-groups.properties
--rwxrwxr-x 1 jboss jboss  1111 jun 12  2023 mgmt-users.properties
--rwxrwxr-x 1 jboss jboss 48365 ago 20 09:45 standalone-full-ha.xml
--rwxrwxr-x 1 jboss jboss 33377 jun 12  2023 standalone-full.xml
--rwxrwxr-x 1 jboss jboss 34165 jun 12  2023 standalone-ha.xml
--rwxrwxr-x 1 jboss jboss  7014 jun 23  2021 standalone-load-balancer.xml
--rwxrwxr-x 1 jboss jboss 29987 jun 12  2023 standalone.xml
-drwxrwxr-x 4 jboss jboss   229 ago 19 17:10 standalone_xml_history
-[p585600@caddeapllx1992 configuration]$ cd /logs
-[p585600@caddeapllx1992 logs]$ ls -la
-total 4
-drwxr-xr-x.  5 root   root     51 ago 19 16:36 .
-dr-xr-xr-x. 20 root   root   4096 ago 20 11:16 ..
-drwxrwxr-x   2 apache apache   89 ago 19 16:36 httpd
-drwxrwxr-x   3 jboss  jboss    23 ago 19 16:37 jboss
-drwxr-xr-x   2 apache apache   91 ago 19 16:36 monitoracao
-[p585600@caddeapllx1992 logs]$ vim jboss
 [p585600@caddeapllx1992 logs]$
 [p585600@caddeapllx1992 logs]$
+[p585600@caddeapllx1992 logs]$ systemctl status jboss-eap --no-pager
+Unit jboss-eap.service could not be found.
+[p585600@caddeapllx1992 logs]$ jounalctl jboss-eap -n 200 --no-pager
+-sh: jounalctl: comando não encontrado
 [p585600@caddeapllx1992 logs]$
 [p585600@caddeapllx1992 logs]$
+[p585600@caddeapllx1992 logs]$ find /logs/jboss -type f -name "*.log"
+/logs/jboss/jboss-eap/standalone/siatd-intranet-vm/console-stdout.log
+/logs/jboss/jboss-eap/standalone/siatd-intranet-vm/backupgc.log
+/logs/jboss/jboss-eap/standalone/siatd-intranet-vm/audit.log
+/logs/jboss/jboss-eap/standalone/siatd-intranet-vm/server.log
+/logs/jboss/jboss-eap/standalone/siatd-intranet-vm/gc.log
+[p585600@caddeapllx1992 logs]$ tail -n 200 /logs/jboss/jboss-eap/standalone/siatd-intranet-vm/server.log
+2026-08-20 09:39:54,288 INFO  [stdout] (default task-1)             CASE
+2026-08-20 09:39:54,288 INFO  [stdout] (default task-1)                 WHEN A043A.NU_TIPO_ANEXO = 24 THEN D.NU_SEQUENCIAL_DESTAQUE
+2026-08-20 09:39:54,288 INFO  [stdout] (default task-1)                 WHEN A043A.NU_TIPO_ANEXO = 23
+2026-08-20 09:39:54,288 INFO  [stdout] (default task-1)                 AND P.IC_DELIBERACAO = 0 THEN P.NU_PARECER
+2026-08-20 09:39:54,288 INFO  [stdout] (default task-1)                 WHEN A043A.NU_TIPO_ANEXO = 23
+2026-08-20 09:39:54,288 INFO  [stdout] (default task-1)                 AND P.IC_DELIBERACAO = 1 THEN P.NU_RESOLUCAO
+2026-08-20 09:39:54,288 INFO  [stdout] (default task-1)                 ELSE A043A.NU_ANEXO_PROPOSICAO
+2026-08-20 09:39:54,288 INFO  [stdout] (default task-1)             END AS NU_DOCUMENTO,
+2026-08-20 09:39:54,288 INFO  [stdout] (default task-1)             TIPO.DE_TIPO_ANEXO,
+2026-08-20 09:39:54,288 INFO  [stdout] (default task-1)             A033R.DH_PREVISAO_REUNIAO,
+2026-08-20 09:39:54,288 INFO  [stdout] (default task-1)             COL.SG_COLEGIADO,
+2026-08-20 09:39:54,288 INFO  [stdout] (default task-1)             A096TMC.NO_TURMA_MEMBRO_COLEGIADO,
+2026-08-20 09:39:54,288 INFO  [stdout] (default task-1)             A104AA.DH_ENVIO_SLCTO_ASSINATURA,
+2026-08-20 09:39:54,288 INFO  [stdout] (default task-1)             A104AA.DH_ASSINATURA,
+2026-08-20 09:39:54,288 INFO  [stdout] (default task-1)             A043A.NU_TIPO_SITUACAO_ASSINATURA,
+2026-08-20 09:39:54,288 INFO  [stdout] (default task-1)             A104AA.NU_ASSINATURA_ATA,
+2026-08-20 09:39:54,288 INFO  [stdout] (default task-1)             A043A.NU_ANEXO_PROPOSICAO,
+2026-08-20 09:39:54,288 INFO  [stdout] (default task-1)             TIPO.NU_TIPO_ANEXO
+2026-08-20 09:39:54,288 INFO  [stdout] (default task-1)         FROM
+2026-08-20 09:39:54,288 INFO  [stdout] (default task-1)             ATD.ATDTB104_ASSINATURA_ATA A104AA
+2026-08-20 09:39:54,288 INFO  [stdout] (default task-1)         JOIN
+2026-08-20 09:39:54,288 INFO  [stdout] (default task-1)             ATD.ATDTB017_ANEXO_PROPOSICAO A043A
+2026-08-20 09:39:54,288 INFO  [stdout] (default task-1)                 ON A043A.NU_ANEXO_PROPOSICAO = A104AA.NU_ANEXO_PROPOSICAO
+2026-08-20 09:39:54,288 INFO  [stdout] (default task-1)         JOIN
+2026-08-20 09:39:54,288 INFO  [stdout] (default task-1)             ATD.ATDTB018_TIPO_ANEXO TIPO
+2026-08-20 09:39:54,288 INFO  [stdout] (default task-1)                 ON TIPO.NU_TIPO_ANEXO = A043A.NU_TIPO_ANEXO
+2026-08-20 09:39:54,288 INFO  [stdout] (default task-1)         JOIN
+2026-08-20 09:39:54,288 INFO  [stdout] (default task-1)             ATD.ATDTB035_REUNIAO_PROPOSICAO RP
+2026-08-20 09:39:54,288 INFO  [stdout] (default task-1)                 ON RP.NU_PROPOSICAO = A043A.NU_PROPOSICAO
+2026-08-20 09:39:54,288 INFO  [stdout] (default task-1)         JOIN
+2026-08-20 09:39:54,288 INFO  [stdout] (default task-1)             ATD.ATDTB033_REUNIAO A033R
+2026-08-20 09:39:54,288 INFO  [stdout] (default task-1)                 ON A033R.NU_REUNIAO = RP.NU_REUNIAO
+2026-08-20 09:39:54,288 INFO  [stdout] (default task-1)                 AND A033R.NU_COLEGIADO = A043A.NU_COLEGIADO
+2026-08-20 09:39:54,288 INFO  [stdout] (default task-1)         JOIN
+2026-08-20 09:39:54,288 INFO  [stdout] (default task-1)             ATD.ATDTB002_COLEGIADO COL
+2026-08-20 09:39:54,288 INFO  [stdout] (default task-1)                 ON COL.NU_COLEGIADO = A033R.NU_COLEGIADO
+2026-08-20 09:39:54,288 INFO  [stdout] (default task-1)         JOIN
+2026-08-20 09:39:54,288 INFO  [stdout] (default task-1)             ATD.ATDTB039_MEMBRO_LISTA_PRESENCA A039MLP
+2026-08-20 09:39:54,288 INFO  [stdout] (default task-1)                 ON A104AA.NU_MEMBRO_LISTA_PRESENCA = A039MLP.NU_MEMBRO_LISTA_PRESENCA
+2026-08-20 09:39:54,288 INFO  [stdout] (default task-1)         LEFT JOIN
+2026-08-20 09:39:54,288 INFO  [stdout] (default task-1)             ATD.ATDTB008_PROPOSICAO P
+2026-08-20 09:39:54,288 INFO  [stdout] (default task-1)                 ON P.NU_PROPOSICAO = RP.NU_PROPOSICAO
+2026-08-20 09:39:54,288 INFO  [stdout] (default task-1)                 AND P.NU_COLEGIADO = COL.NU_COLEGIADO
+2026-08-20 09:39:54,288 INFO  [stdout] (default task-1)         LEFT JOIN
+2026-08-20 09:39:54,288 INFO  [stdout] (default task-1)             ATD.ATDTB042_DESTAQUE D
+2026-08-20 09:39:54,288 INFO  [stdout] (default task-1)                 ON D.NU_ANEXO_MODELO = A043A.NU_ANEXO_PROPOSICAO
+2026-08-20 09:39:54,288 INFO  [stdout] (default task-1)         LEFT JOIN
+2026-08-20 09:39:54,288 INFO  [stdout] (default task-1)             ATD.ATDTB096_TURMA_MMBRO_COLEGIADO A096TMC
+2026-08-20 09:39:54,288 INFO  [stdout] (default task-1)                 ON A096TMC.NU_TURMA_MEMBRO_COLEGIADO = A033R.NU_TURMA_MEMBRO_COLEGIADO
+2026-08-20 09:39:54,288 INFO  [stdout] (default task-1)         WHERE
+2026-08-20 09:39:54,288 INFO  [stdout] (default task-1)             A043A.IC_ASSINATURA_PREVIA = 'N'
+2026-08-20 09:39:54,288 INFO  [stdout] (default task-1)             AND TIPO.NU_TIPO_ANEXO IN (
+2026-08-20 09:39:54,288 INFO  [stdout] (default task-1)                 23,24
+2026-08-20 09:39:54,288 INFO  [stdout] (default task-1)             )
+2026-08-20 09:39:54,288 INFO  [stdout] (default task-1)             AND A039MLP.NU_MATRICULA_MEMBRO = ?
+2026-08-20 09:39:54,288 INFO  [stdout] (default task-1)             AND A104AA.DH_ASSINATURA  IS NULL
+2026-08-20 09:39:54,288 INFO  [stdout] (default task-1)             AND A104AA.DH_ENVIO_SLCTO_ASSINATURA IS NOT NULL
+2026-08-20 09:39:54,288 INFO  [stdout] (default task-1)     ) TOTAL_COUNT
+2026-08-20 09:39:54,288 DEBUG [jboss.jdbc.spy] (default task-1) java:jboss/datasources/OracleSiatdDS [DataSource] getConnection()
+2026-08-20 09:39:54,291 DEBUG [jboss.jdbc.spy] (default task-1) java:jboss/datasources/OracleSiatdDS [Connection] prepareStatement(SELECT COUNT(*) FROM (
+ SELECT DISTINCT A033R.NU_REUNIAO,
+                COALESCE(A043A.NU_ATA, AR_ASS.NU_ANEXO_REUNIAO) AS NU_DOCUMENTO,
+                TIPO.DE_TIPO_ANEXO,
+                A033R.DH_PREVISAO_REUNIAO,
+                A002C.SG_COLEGIADO,
+                A096TMC.NO_TURMA_MEMBRO_COLEGIADO,
+                A104AA.DH_ENVIO_SLCTO_ASSINATURA,
+                A104AA.DH_ASSINATURA,
+                COALESCE(A043A.IC_ASSINATURA_ATA,
+                AR_ASS.NU_TIPO_SITUACAO_ASSINATURA) AS SITUACAO_ASSINATURA,
+                A104AA.NU_ASSINATURA_ATA,
+                AR_ASS.NU_ANEXO_REUNIAO,
+                TIPO.NU_TIPO_ANEXO
+ FROM ATD.ATDTB104_ASSINATURA_ATA A104AA
+         JOIN ATD.ATDTB039_MEMBRO_LISTA_PRESENCA A039MLP
+              ON A104AA.NU_MEMBRO_LISTA_PRESENCA = A039MLP.NU_MEMBRO_LISTA_PRESENCA
+         JOIN ATD.ATDTB044_ANEXO_REUNIAO AR_ASS
+              ON A104AA.NU_ANEXO_REUNIAO  = AR_ASS.NU_ANEXO_REUNIAO
+         JOIN ATD.ATDTB033_REUNIAO A033R
+              ON AR_ASS.NU_REUNIAO = A033R.NU_REUNIAO
+         JOIN ATD.ATDTB002_COLEGIADO A002C
+              ON A033R.NU_COLEGIADO = A002C.NU_COLEGIADO
+         JOIN ATD.ATDTB018_TIPO_ANEXO TIPO
+               ON TIPO.NU_TIPO_ANEXO = AR_ASS.NU_TIPO_ANEXO
+          LEFT JOIN ATD.ATDTB043_ATA A043A
+              ON A033R.NU_REUNIAO = A043A.NU_REUNIAO AND A043A.NU_COLEGIADO = A033R.NU_COLEGIADO
+               AND A104AA.NU_ANEXO_REUNIAO = A043A.NU_ANEXO_MODELO
+ LEFT JOIN ATD.ATDTB096_TURMA_MMBRO_COLEGIADO A096TMC
+              ON A096TMC.NU_TURMA_MEMBRO_COLEGIADO = A033R.NU_TURMA_MEMBRO_COLEGIADO
+ WHERE AR_ASS.IC_ASSINATURA_PREVIA = 'N'
+ AND TIPO.NU_TIPO_ANEXO IN (28,43,44,45)
+ AND A039MLP.NU_MATRICULA_MEMBRO = ?  AND A104AA.DH_ASSINATURA  IS NULL AND A104AA.DH_ENVIO_SLCTO_ASSINATURA IS NOT NULL UNION ALL SELECT
+ A033R.NU_REUNIAO,
+ CASE
+ WHEN A043A.NU_TIPO_ANEXO = 24 THEN D.NU_SEQUENCIAL_DESTAQUE
+ WHEN A043A.NU_TIPO_ANEXO = 23
+ AND P.IC_DELIBERACAO = 0 THEN P.NU_PARECER
+ WHEN A043A.NU_TIPO_ANEXO = 23
+ AND P.IC_DELIBERACAO = 1 THEN P.NU_RESOLUCAO
+ ELSE A043A.NU_ANEXO_PROPOSICAO
+ END AS NU_DOCUMENTO,
+ TIPO.DE_TIPO_ANEXO,
+ A033R.DH_PREVISAO_REUNIAO,
+ COL.SG_COLEGIADO,
+ A096TMC.NO_TURMA_MEMBRO_COLEGIADO,
+ A104AA.DH_ENVIO_SLCTO_ASSINATURA,
+ A104AA.DH_ASSINATURA,
+ A043A.NU_TIPO_SITUACAO_ASSINATURA,
+ A104AA.NU_ASSINATURA_ATA,
+ A043A.NU_ANEXO_PROPOSICAO,
+ TIPO.NU_TIPO_ANEXO
+ FROM ATD.ATDTB104_ASSINATURA_ATA A104AA
+ JOIN ATD.ATDTB017_ANEXO_PROPOSICAO A043A
+ ON A043A.NU_ANEXO_PROPOSICAO = A104AA.NU_ANEXO_PROPOSICAO
+ JOIN ATD.ATDTB018_TIPO_ANEXO TIPO
+ ON TIPO.NU_TIPO_ANEXO = A043A.NU_TIPO_ANEXO
+ JOIN ATD.ATDTB035_REUNIAO_PROPOSICAO RP
+ ON RP.NU_PROPOSICAO = A043A.NU_PROPOSICAO
+ JOIN ATD.ATDTB033_REUNIAO A033R
+ ON A033R.NU_REUNIAO = RP.NU_REUNIAO AND A033R.NU_COLEGIADO = A043A.NU_COLEGIADO
+ JOIN ATD.ATDTB002_COLEGIADO COL
+ ON COL.NU_COLEGIADO = A033R.NU_COLEGIADO
+ JOIN ATD.ATDTB039_MEMBRO_LISTA_PRESENCA A039MLP
+ ON A104AA.NU_MEMBRO_LISTA_PRESENCA = A039MLP.NU_MEMBRO_LISTA_PRESENCA
+ LEFT JOIN ATD.ATDTB008_PROPOSICAO P
+ ON P.NU_PROPOSICAO = RP.NU_PROPOSICAO AND P.NU_COLEGIADO = COL.NU_COLEGIADO
+ LEFT JOIN ATD.ATDTB042_DESTAQUE D
+ ON D.NU_ANEXO_MODELO = A043A.NU_ANEXO_PROPOSICAO
+LEFT JOIN ATD.ATDTB096_TURMA_MMBRO_COLEGIADO A096TMC
+              ON A096TMC.NU_TURMA_MEMBRO_COLEGIADO = A033R.NU_TURMA_MEMBRO_COLEGIADO
+ WHERE A043A.IC_ASSINATURA_PREVIA = 'N'
+ AND TIPO.NU_TIPO_ANEXO IN (23,24)
+ AND A039MLP.NU_MATRICULA_MEMBRO = ?  AND A104AA.DH_ASSINATURA  IS NULL AND A104AA.DH_ENVIO_SLCTO_ASSINATURA IS NOT NULL ) TOTAL_COUNT
+)
+2026-08-20 09:39:54,291 DEBUG [jboss.jdbc.spy] (default task-1) java:jboss/datasources/OracleSiatdDS [PreparedStatement] setInt(1, 891451)
+2026-08-20 09:39:54,291 DEBUG [jboss.jdbc.spy] (default task-1) java:jboss/datasources/OracleSiatdDS [PreparedStatement] setInt(2, 891451)
+2026-08-20 09:39:54,291 DEBUG [jboss.jdbc.spy] (default task-1) java:jboss/datasources/OracleSiatdDS [PreparedStatement] executeQuery()
+2026-08-20 09:39:54,437 DEBUG [jboss.jdbc.spy] (default task-1) java:jboss/datasources/OracleSiatdDS [ResultSet] getMetaData()
+2026-08-20 09:39:54,437 DEBUG [jboss.jdbc.spy] (default task-1) java:jboss/datasources/OracleSiatdDS [ResultSet] next()
+2026-08-20 09:39:54,437 DEBUG [jboss.jdbc.spy] (default task-1) java:jboss/datasources/OracleSiatdDS [ResultSet] getBigDecimal(COUNT(*))
+2026-08-20 09:39:54,437 DEBUG [jboss.jdbc.spy] (default task-1) java:jboss/datasources/OracleSiatdDS [ResultSet] wasNull()
+2026-08-20 09:39:54,437 DEBUG [jboss.jdbc.spy] (default task-1) java:jboss/datasources/OracleSiatdDS [ResultSet] next()
+2026-08-20 09:39:54,437 DEBUG [jboss.jdbc.spy] (default task-1) java:jboss/datasources/OracleSiatdDS [ResultSet] close()
+2026-08-20 09:39:54,437 DEBUG [jboss.jdbc.spy] (default task-1) java:jboss/datasources/OracleSiatdDS [PreparedStatement] isClosed()
+2026-08-20 09:39:54,437 DEBUG [jboss.jdbc.spy] (default task-1) java:jboss/datasources/OracleSiatdDS [PreparedStatement] getMaxRows()
+2026-08-20 09:39:54,437 DEBUG [jboss.jdbc.spy] (default task-1) java:jboss/datasources/OracleSiatdDS [PreparedStatement] getQueryTimeout()
+2026-08-20 09:39:54,437 DEBUG [jboss.jdbc.spy] (default task-1) java:jboss/datasources/OracleSiatdDS [PreparedStatement] close()
+2026-08-20 09:39:54,437 DEBUG [jboss.jdbc.spy] (default task-1) java:jboss/datasources/OracleSiatdDS [Connection] isClosed()
+2026-08-20 09:39:54,437 DEBUG [jboss.jdbc.spy] (default task-1) java:jboss/datasources/OracleSiatdDS [Connection] isClosed()
+2026-08-20 09:39:54,437 DEBUG [jboss.jdbc.spy] (default task-1) java:jboss/datasources/OracleSiatdDS [Connection] getWarnings()
+2026-08-20 09:39:54,437 DEBUG [jboss.jdbc.spy] (default task-1) java:jboss/datasources/OracleSiatdDS [Connection] clearWarnings()
+2026-08-20 09:39:54,438 DEBUG [jboss.jdbc.spy] (default task-1) java:jboss/datasources/OracleSiatdDS [Connection] close()
+2026-08-20 09:46:02,160 INFO  [org.jboss.as.server] (Thread-1) WFLYSRV0272: Servidor suspenso
+2026-08-20 09:46:02,167 INFO  [org.jboss.as.ejb3] (Thread-1) WFLYEJB0493: Suspensão completa do subsistema de Jakarta Enterprise Beans
+2026-08-20 09:46:02,176 INFO  [org.jboss.as.server] (Thread-1) WFLYSRV0220: Foi solicitado o desligamento do servidor através de um sinal de OS
+2026-08-20 09:46:02,204 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-2) WFLYJCA0019: Serviço de driver interrompido com nome-do-driver = siatd-web.war_org.h2.Driver_1_3
+2026-08-20 09:46:02,206 INFO  [org.jboss.as.connector.deployment] (MSC service thread 1-1) WFLYJCA0011: Sem limite de conectores de Jakarta AdminObject [java:/jms/LQ.REQ.SERVICO.SIATD]
+2026-08-20 09:46:02,214 INFO  [org.jboss.as.connector.deployment] (MSC service thread 1-3) WFLYJCA0011: Sem limite de conectores de Jakarta AdminObject [java:jboss/jms/SIBAR.RSP.CONSULTA_AVALIACAO_RISCO]
+2026-08-20 09:46:02,215 INFO  [org.jboss.as.connector.deployment] (MSC service thread 1-3) WFLYJCA0011: Sem limite de conectores de Jakarta AdminObject [java:jboss/jms/SIRIC.RSP.CONSULTA_AVALIACAO_RISCO]
+2026-08-20 09:46:02,216 INFO  [org.jboss.as.connector.deployment] (MSC service thread 1-1) WFLYJCA0011: Sem limite de conectores de Jakarta AdminObject [java:/jms/SIBAR.RSP.CONSULTA_CLIENTE]
+2026-08-20 09:46:02,216 INFO  [org.jboss.as.connector.deployment] (MSC service thread 1-1) WFLYJCA0011: Sem limite de conectores de Jakarta AdminObject [java:/jms/LQ.REQ.SERVICO.SICDU]
+2026-08-20 09:46:02,219 INFO  [org.jboss.as.connector.deployment] (MSC service thread 1-1) WFLYJCA0011: Sem limite de conectores de Jakarta AdminObject [java:jboss/jms/SIBAR.REQ.CONSULTA_AVALIACAO_RISCO]
+2026-08-20 09:46:02,219 INFO  [org.jboss.as.connector.deployment] (MSC service thread 1-1) WFLYJCA0011: Sem limite de conectores de Jakarta AdminObject [java:jboss/jms/SIBAR.RSP.CONSULTA_CLIENTE]
+2026-08-20 09:46:02,220 INFO  [org.jboss.as.connector.deployment] (MSC service thread 1-1) WFLYJCA0119: Desfazendo o vínculo da criação de conexão chamada java:/JmsXA para o alias java:jboss/DefaultJMSConnectionFactory
+2026-08-20 09:46:02,220 INFO  [org.wildfly.extension.messaging-activemq] (MSC service thread 1-1) WFLYMSGAMQ0006: Objeto de mensagem não vinculado ao nome jndi java:jboss/exported/jms/RemoteConnectionFactory
+2026-08-20 09:46:02,218 INFO  [org.jboss.as.connector.deployment] (MSC service thread 1-4) WFLYJCA0011: Sem limite de conectores de Jakarta AdminObject [java:jboss/jms/SIRIC.REQ.CONSULTA_AVALIACAO_RISCO]
+2026-08-20 09:46:02,216 INFO  [org.jboss.as.connector.deployment] (MSC service thread 1-2) WFLYJCA0011: Sem limite de conectores de Jakarta ConnectionFactory [java:/jms/wsmq/BARConnectionFactory]
+2026-08-20 09:46:02,216 INFO  [org.jboss.as.connector.deployment] (MSC service thread 1-3) WFLYJCA0011: Sem limite de conectores de Jakarta AdminObject [java:/jms/LQ.RSP.SERVICO.SIATD]
+2026-08-20 09:46:02,224 INFO  [org.jboss.as.connector.deployment] (MSC service thread 1-1) WFLYJCA0011: Sem limite de conectores de Jakarta ConnectionFactory [java:/JmsXA]
+2026-08-20 09:46:02,246 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-3) WFLYSRV0028: Implantação interrompida wmq.jmsra.rar (runtime-name: wmq.jmsra.rar) em 55ms
+2026-08-20 09:46:02,246 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-1) WFLYSRV0028: Implantação interrompida applicationinsights-agent.jar (runtime-name: applicationinsights-agent.jar) em 65ms
+2026-08-20 09:46:02,246 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 86) WFLYUT0022: Contexto web não registrado:'/siatd-web' do servidor 'default-server'
+2026-08-20 09:46:02,290 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-3) WFLYUT0019: Interrompendo host default-host
+2026-08-20 09:46:02,308 INFO  [org.apache.activemq.artemis.ra] (ServerService Thread Pool -- 85) AMQ151003: resource adaptor stopped
+2026-08-20 09:46:02,310 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 97) WFLYJPA0011: Interrompendo unidade de persistência (fase 2 de 2) Serviço 'siatdEAR.ear/siatd-web.war#puBatch'
+2026-08-20 09:46:02,310 INFO  [org.jboss.as.mail.extension] (MSC service thread 1-3) WFLYMAIL0002: Sessão de e-mail não associada [java:jboss/mail/caixamail]
+2026-08-20 09:46:02,312 INFO  [org.hibernate.orm.beans] (ServerService Thread Pool -- 97) HHH10005004: Stopping BeanContainer : org.hibernate.resource.beans.container.internal.CdiBeanContainerExtendedAccessImpl@5e17cf9b
+2026-08-20 09:46:02,313 INFO  [org.jboss.as.mail.extension] (MSC service thread 1-2) WFLYMAIL0002: Sessão de e-mail não associada [java:jboss/mail/sisou]
+2026-08-20 09:46:02,315 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 96) WFLYJPA0011: Interrompendo unidade de persistência (fase 2 de 2) Serviço 'siatdEAR.ear/siatd-web.war#pu'
+2026-08-20 09:46:02,316 INFO  [org.hibernate.orm.beans] (ServerService Thread Pool -- 96) HHH10005004: Stopping BeanContainer : org.hibernate.resource.beans.container.internal.CdiBeanContainerExtendedAccessImpl@2bec1d2d
+2026-08-20 09:46:02,321 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 96) WFLYJPA0011: Interrompendo unidade de persistência (fase 1 de 2) Serviço 'siatdEAR.ear/siatd-web.war#pu'
+2026-08-20 09:46:02,321 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 98) WFLYJPA0011: Interrompendo unidade de persistência (fase 1 de 2) Serviço 'siatdEAR.ear/siatd-web.war#puBatch'
+2026-08-20 09:46:02,322 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-2) WFLYJCA0099: Fonte de dados não transacional desvinculada: java:jboss/datasources/OracleSiatdDS
+2026-08-20 09:46:02,322 INFO  [org.infinispan.manager.DefaultCacheManager] (ServerService Thread Pool -- 96) Stopping cache manager null on null
+2026-08-20 09:46:02,325 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-4) WFLYSRV0028: Implantação interrompida framework.jar (runtime-name: framework.jar) em 134ms
+2026-08-20 09:46:02,328 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-4) WFLYJCA0019: Serviço de driver interrompido com nome-do-driver = ojdbc17.jar
+2026-08-20 09:46:02,372 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-2) WFLYSRV0208: Interrompendo a subimplantação (runtime-name: siatd-web.war) em 182ms
+2026-08-20 09:46:02,374 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-2) WFLYSRV0028: Implantação interrompida siatdEAR.ear (runtime-name: siatdEAR.ear) em 186ms
+2026-08-20 09:46:02,416 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 85) WFLYCLINF0003: Cache http-remoting-connector encerrado a partir do recipiente ejb
+2026-08-20 09:46:02,419 INFO  [org.infinispan.manager.DefaultCacheManager] (ServerService Thread Pool -- 96) Stopping cache manager null on null
+2026-08-20 09:46:02,448 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-1) WFLYSRV0028: Implantação interrompida ojdbc17.jar (runtime-name: ojdbc17.jar) em 263ms
+2026-08-20 09:46:02,449 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-4) WFLYUT0008: Undertow AJP ouvinte ajp está suspendendo
+2026-08-20 09:46:02,449 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-2) WFLYUT0008: Undertow HTTPS ouvinte https está suspendendo
+2026-08-20 09:46:02,452 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-4) WFLYUT0007: Undertow AJP ouvinte ajp interrompido, estava vinculado a 0.0.0.0:8009
+2026-08-20 09:46:02,452 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-2) WFLYUT0007: Undertow HTTPS ouvinte https interrompido, estava vinculado a 0.0.0.0:8443
+2026-08-20 09:46:02,505 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 97) AMQ221002: Apache ActiveMQ Artemis Message Broker version 2.16.0.redhat-00052 [8c98d7d4-094e-11ee-abda-00505682f3d2] stopped, uptime 16 hours 35 minutes
+2026-08-20 09:46:02,505 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-3) WFLYUT0008: Undertow HTTP ouvinte default está suspendendo
+2026-08-20 09:46:02,507 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-3) WFLYUT0007: Undertow HTTP ouvinte default interrompido, estava vinculado a 0.0.0.0:8080
+2026-08-20 09:46:02,508 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-4) WFLYUT0004: Interrompendo Undertow 2.2.33.SP1-redhat-00001
+2026-08-20 09:46:02,516 INFO  [org.jboss.as] (MSC service thread 1-4) WFLYSRV0050: JBoss EAP 7.4.18.GA (WildFly Core 15.0.37.Final-redhat-00001) interrompido em 328ms
 [p585600@caddeapllx1992 logs]$
-[p585600@caddeapllx1992 logs]$
-[p585600@caddeapllx1992 logs]$
-[p585600@caddeapllx1992 logs]$
-[p585600@caddeapllx1992 logs]$
-[p585600@caddeapllx1992 logs]$
-[p585600@caddeapllx1992 logs]$
-[p585600@caddeapllx1992 logs]$
-[p585600@caddeapllx1992 logs]$
-[p585600@caddeapllx1992 logs]$
-[p585600@caddeapllx1992 logs]$
-[p585600@caddeapllx1992 logs]$
-[p585600@caddeapllx1992 logs]$
-[p585600@caddeapllx1992 logs]$
-[p585600@caddeapllx1992 logs]$
-[p585600@caddeapllx1992 logs]$
-[p585600@caddeapllx1992 logs]$
-[p585600@caddeapllx1992 logs]$
-[p585600@caddeapllx1992 logs]$
-[p585600@caddeapllx1992 logs]$
-[p585600@caddeapllx1992 logs]$
-[p585600@caddeapllx1992 logs]$
-[p585600@caddeapllx1992 logs]$
-[p585600@caddeapllx1992 logs]$
-[p585600@caddeapllx1992 logs]$
-[p585600@caddeapllx1992 logs]$
-[p585600@caddeapllx1992 logs]$
-
-
-
-
