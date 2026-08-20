@@ -1,42 +1,9 @@
-$
-[p585600@caddeapllx1992 logs]$ grep -n -B5 "WFLYSRV0022" /logs/jboss/jboss-eap/standalone/siatd-intranet-vm/server.log | head -100
-45986-2026-08-20 11:53:37,049 INFO  [org.jboss.as.naming] (MSC service thread 1-4) WFLYNAM0003: Iniciando o Serviço de Nomeação
-45987-2026-08-20 11:53:37,050 WARN  [org.wildfly.extension.elytron] (MSC service thread 1-4) WFLYELY01084: KeyStore /opt/jboss-eap/standalone/configuration/application.keystore não encontrado; ele será gerado automaticamente na primeira utilização com um certificado autoassinado para o host localhost
-45988-2026-08-20 11:53:37,065 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 71) WFLYUT0014: Criando identificador de arquivo para caminho de acesso '/opt/jboss-eap/welcome-content' com as opções [directory-listing: 'false', follow-symlink: 'false', case-sensitive: 'true', safe-symlink-paths: '[]']
-45989-2026-08-20 11:53:37,087 INFO  [org.jboss.as.mail.extension] (MSC service thread 1-4) WFLYMAIL0001: Sessão de e-mail associada [java:jboss/mail/caixamail]
-45990-2026-08-20 11:53:37,087 INFO  [org.jboss.as.mail.extension] (MSC service thread 1-4) WFLYMAIL0001: Sessão de e-mail associada [java:jboss/mail/sisou]
-45991:2026-08-20 11:53:55,045 ERROR [org.jboss.as.server] (ServerService Thread Pool -- 43) WFLYSRV0022: O procedimento da implantação "siatdEAR.ear" foi revertido sem mensagem de falha
-45992:2026-08-20 11:53:55,047 ERROR [org.jboss.as.server] (ServerService Thread Pool -- 43) WFLYSRV0022: O procedimento da implantação "applicationinsights-agent.jar" foi revertido sem mensagem de falha
-45993:2026-08-20 11:53:55,047 ERROR [org.jboss.as.server] (ServerService Thread Pool -- 43) WFLYSRV0022: O procedimento da implantação "ojdbc17.jar" foi revertido sem mensagem de falha
-45994:2026-08-20 11:53:55,047 ERROR [org.jboss.as.server] (ServerService Thread Pool -- 43) WFLYSRV0022: O procedimento da implantação "wmq.jmsra.rar" foi revertido sem mensagem de falha
-45995:2026-08-20 11:53:55,047 ERROR [org.jboss.as.server] (ServerService Thread Pool -- 43) WFLYSRV0022: O procedimento da implantação "framework.jar" foi revertido sem mensagem de falha
-[p585600@caddeapllx1992 logs]$
-[p585600@caddeapllx1992 logs]$
-[p585600@caddeapllx1992 logs]$
-[p585600@caddeapllx1992 logs]$ grep -n -E "Caused by|Exception|OutOfMemory|ERROR" /logs/jboss/jboss-eap/standalone/siatd-intranet-vm/server.log | head -50
-49:2026-08-20 09:30:55,196 INFO  [br.gov.caixa.bsb.siatd] (default task-2) Requisição ao serviço: public javax.ws.rs.core.Response br.gov.caixa.bsb.siatd.web.rs.ParametroSistemaRS.getLogs() throws java.io.IOException,com.lowagie.text.DocumentException,net.sf.jasperreports.engine.JRException,javax.naming.NamingException,java.sql.SQLException,javax.mail.MessagingException,java.lang.CloneNotSupportedException
-94:2026-08-20 09:30:59,810 INFO  [br.gov.caixa.bsb.siatd] (default task-2) Requisição ao serviço: public javax.ws.rs.core.Response br.gov.caixa.bsb.siatd.web.rs.ParametroSistemaRS.getLogs() throws java.io.IOException,com.lowagie.text.DocumentException,net.sf.jasperreports.engine.JRException,javax.naming.NamingException,java.sql.SQLException,javax.mail.MessagingException,java.lang.CloneNotSupportedException
-603:2026-08-20 09:31:00,654 INFO  [br.gov.caixa.bsb.siatd] (default task-1) Requisição ao serviço: public javax.ws.rs.core.Response br.gov.caixa.bsb.siatd.web.rs.ManualRS.search(javax.ws.rs.core.SecurityContext) throws javax.naming.NamingException
-11725:2026-08-20 09:38:06,728 INFO  [br.gov.caixa.bsb.siatd] (default task-2) Requisição ao serviço: public javax.ws.rs.core.Response br.gov.caixa.bsb.siatd.web.rs.ParametroSistemaRS.getLogs() throws java.io.IOException,com.lowagie.text.DocumentException,net.sf.jasperreports.engine.JRException,javax.naming.NamingException,java.sql.SQLException,javax.mail.MessagingException,java.lang.CloneNotSupportedException
-11767:2026-08-20 09:38:07,094 INFO  [br.gov.caixa.bsb.siatd] (default task-2) Requisição ao serviço: public javax.ws.rs.core.Response br.gov.caixa.bsb.siatd.web.rs.ParametroSistemaRS.getLogs() throws java.io.IOException,com.lowagie.text.DocumentException,net.sf.jasperreports.engine.JRException,javax.naming.NamingException,java.sql.SQLException,javax.mail.MessagingException,java.lang.CloneNotSupportedException
-11834:2026-08-20 09:38:07,458 FINE  [br.gov.caixa.bsb.siatd.ejb.seguranca.AppJwtTokenProvider] (default task-2) App token inválido: br.gov.caixa.arquitetura.ejb.comum.excecoes.SiatdSecurityException: Token inválido
-11910:Caused by: io.jsonwebtoken.ExpiredJwtException: JWT expired at 2026-08-20T09:36:00Z. Current time: 2026-08-20T09:38:07Z, a difference of 67457 milliseconds.  Allowed clock skew: 60000 milliseconds.
-11948:2026-08-20 09:38:07,462 INFO  [br.gov.caixa.bsb.siatd] (default task-1) Requisição ao serviço: public javax.ws.rs.core.Response br.gov.caixa.bsb.siatd.web.rs.ManualRS.search(javax.ws.rs.core.SecurityContext) throws javax.naming.NamingException
-11992:2026-08-20 09:38:07,464 FINE  [br.gov.caixa.bsb.siatd.ejb.seguranca.AppJwtTokenProvider] (default task-1) App token inválido: br.gov.caixa.arquitetura.ejb.comum.excecoes.SiatdSecurityException: Token inválido
-12068:Caused by: io.jsonwebtoken.ExpiredJwtException: JWT expired at 2026-08-20T09:36:00Z. Current time: 2026-08-20T09:38:07Z, a difference of 67464 milliseconds.  Allowed clock skew: 60000 milliseconds.
-12201:2026-08-20 09:38:07,551 FINE  [br.gov.caixa.bsb.siatd.ejb.seguranca.AppJwtTokenProvider] (default task-6) App token inválido: br.gov.caixa.arquitetura.ejb.comum.excecoes.SiatdSecurityException: Token inválido
-12277:Caused by: io.jsonwebtoken.ExpiredJwtException: JWT expired at 2026-08-20T09:36:00Z. Current time: 2026-08-20T09:38:07Z, a difference of 67551 milliseconds.  Allowed clock skew: 60000 milliseconds.
-12291:2026-08-20 09:38:07,553 FINE  [br.gov.caixa.bsb.siatd.ejb.seguranca.AppJwtTokenProvider] (default task-5) App token inválido: br.gov.caixa.arquitetura.ejb.comum.excecoes.SiatdSecurityException: Token inválido
-12367:Caused by: io.jsonwebtoken.ExpiredJwtException: JWT expired at 2026-08-20T09:36:00Z. Current time: 2026-08-20T09:38:07Z, a difference of 67553 milliseconds.  Allowed clock skew: 60000 milliseconds.
-23030:2026-08-20 09:38:15,378 INFO  [br.gov.caixa.bsb.siatd] (default task-5) Requisição ao serviço: public javax.ws.rs.core.Response br.gov.caixa.bsb.siatd.web.rs.ParametroSistemaRS.getLogs() throws java.io.IOException,com.lowagie.text.DocumentException,net.sf.jasperreports.engine.JRException,javax.naming.NamingException,java.sql.SQLException,javax.mail.MessagingException,java.lang.CloneNotSupportedException
-23072:2026-08-20 09:38:45,946 INFO  [br.gov.caixa.bsb.siatd] (default task-5) Requisição ao serviço: public javax.ws.rs.core.Response br.gov.caixa.bsb.siatd.web.rs.ParametroSistemaRS.getLogs() throws java.io.IOException,com.lowagie.text.DocumentException,net.sf.jasperreports.engine.JRException,javax.naming.NamingException,java.sql.SQLException,javax.mail.MessagingException,java.lang.CloneNotSupportedException
-23588:2026-08-20 09:39:01,615 INFO  [br.gov.caixa.bsb.siatd] (default task-6) Requisição ao serviço: public javax.ws.rs.core.Response br.gov.caixa.bsb.siatd.web.rs.ManualRS.search(javax.ws.rs.core.SecurityContext) throws javax.naming.NamingException
-34435:2026-08-20 09:39:19,480 INFO  [br.gov.caixa.bsb.siatd] (default task-1) Requisição ao serviço: public javax.ws.rs.core.Response br.gov.caixa.bsb.siatd.web.rs.ParametroSistemaRS.getLogs() throws java.io.IOException,com.lowagie.text.DocumentException,net.sf.jasperreports.engine.JRException,javax.naming.NamingException,java.sql.SQLException,javax.mail.MessagingException,java.lang.CloneNotSupportedException
-34477:2026-08-20 09:39:46,166 INFO  [br.gov.caixa.bsb.siatd] (default task-6) Requisição ao serviço: public javax.ws.rs.core.Response br.gov.caixa.bsb.siatd.web.rs.ParametroSistemaRS.getLogs() throws java.io.IOException,com.lowagie.text.DocumentException,net.sf.jasperreports.engine.JRException,javax.naming.NamingException,java.sql.SQLException,javax.mail.MessagingException,java.lang.CloneNotSupportedException
-35006:2026-08-20 09:39:53,501 INFO  [br.gov.caixa.bsb.siatd] (default task-1) Requisição ao serviço: public javax.ws.rs.core.Response br.gov.caixa.bsb.siatd.web.rs.ManualRS.search(javax.ws.rs.core.SecurityContext) throws javax.naming.NamingException
-45991:2026-08-20 11:53:55,045 ERROR [org.jboss.as.server] (ServerService Thread Pool -- 43) WFLYSRV0022: O procedimento da implantação "siatdEAR.ear" foi revertido sem mensagem de falha
-45992:2026-08-20 11:53:55,047 ERROR [org.jboss.as.server] (ServerService Thread Pool -- 43) WFLYSRV0022: O procedimento da implantação "applicationinsights-agent.jar" foi revertido sem mensagem de falha
-45993:2026-08-20 11:53:55,047 ERROR [org.jboss.as.server] (ServerService Thread Pool -- 43) WFLYSRV0022: O procedimento da implantação "ojdbc17.jar" foi revertido sem mensagem de falha
-45994:2026-08-20 11:53:55,047 ERROR [org.jboss.as.server] (ServerService Thread Pool -- 43) WFLYSRV0022: O procedimento da implantação "wmq.jmsra.rar" foi revertido sem mensagem de falha
-45995:2026-08-20 11:53:55,047 ERROR [org.jboss.as.server] (ServerService Thread Pool -- 43) WFLYSRV0022: O procedimento da implantação "framework.jar" foi revertido sem mensagem de falha
-[p585600@caddeapllx1992 logs]$
+grep -n -A20 -B5 "11:53:" /logs/jboss/jboss-eap/standalone/siatd-intranet-vm/console-stdout.log
+
+ls -la /opt/jboss-eap/standalone/deployments/ | grep -E "failed|isdeploying|deployed"
+
+cat /opt/jboss-eap/standalone/deployments/siatdEAR.ear.failed 2>/dev/null
+
+grep -n -B5 -A5 "11:53:5" /logs/jboss/jboss-eap/standalone/siatd-intranet-vm/audit.log
+
+grep -n -i "metaspace\|OutOfMemory" /logs/jboss/jboss-eap/standalone/siatd-intranet-vm/*.log
