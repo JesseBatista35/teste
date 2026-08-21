@@ -450,3 +450,82 @@ acabei de tenar rodar uma build e passou do cjekut
 2026-08-21T17:59:28.2900514Z Previous HEAD position was bc7b655b0 fix-lista-hist-simulacao-do-cedente
 2026-08-21T17:59:28.2907214Z HEAD is now at 0a64eadab feat-develop-appl-props-arquetura
 2026-08-21T17:59:28.3029959Z ##[section]Finishing: Checkout SIGCB-backend@develop to s
+
+
+Skip to main content
+Azure DevOps
+projetos
+/
+Caixa
+/
+Pipelines
+/
+SIGCB-backend
+/
+20260821.1501-1.0.0-SNAPSHOT
+Search
+
+
+Caixa
+
+Overview
+
+Boards
+
+Repos
+
+Pipelines
+Pipelines
+Environments
+Releases
+Library
+Task groups
+Deployment groups
+Portal Infra
+
+Test Plans
+
+Artifacts
+Project settings
+
+Jobs in run #20260821.1501-1.0.0-SNAPSHOT
+SIGCB-backend
+Agent job 1
+
+View raw log
+
+Pool: Build-Linux
+Agent: cadsvaprlx376.intra.caixa.gov.br
+Started: Today at 14:59
+Duration: 6m 36s
+
+Job preparation parameters
+100% tests passed
+Showing 25 filtered items.
+
+Get started and run this pipeline for the first time!
+
+Showing 50 filtered items.
+
+Showing 25 filtered items.
+
+Row 2. Clickable
+
+Row 2. Clickable
+
+Showing 25 filtered items.
+
+Get started and run this pipeline for the first time!
+
+Showing 50 filtered items.
+
+Showing 25 filtered items.
+
+Row 2. Clickable
+
+Row 2. Clickable
+
+
+
+Execultado com sucesso me ajdua co manota para fechar a w.o
+
