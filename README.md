@@ -1,14 +1,5 @@
+ps -ef | grep "Server:srjdeapllx158_sifpp_intra_8081" | grep -v grep
 
-[domain@srjdeapllx158:9990 /] ps -ef | grep sifpp_intra_8081 | grep -o "DENDPOINT_MICRO=[^ ]*"
-Unexpected command 'ps -ef | grep sifpp_intra_8081 | grep -o "DENDPOINT_MICRO=[^ ]*"'. Type 'help --commands' for the list of supported commands.
-[domain@srjdeapllx158:9990 /]
-[domain@srjdeapllx158:9990 /]
-[domain@srjdeapllx158:9990 /] exit
-[root@srjdeapllx158 configuration]# ps -ef | grep sifpp_intra_8081 | grep -o "DENDPOINT_MICRO=[^ ]*"
-[root@srjdeapllx158 configuration]#
-[root@srjdeapllx158 configuration]#
-[root@srjdeapllx158 configuration]# ps -ef | grep sifpp_intra_8081 | grep -i "ENDPOINT_MICRO"
-[root@srjdeapllx158 configuration]#
-[root@srjdeapllx158 configuration]#
-[root@srjdeapllx158 configuration]#
+/opt/open/jboss/7.0.0/bin/jboss-cli.sh --connect controller=srjdeapllx158:9990
 
+tail -100 /opt/open/jboss/7.0.0/domain/servers/srjdeapllx158_sifpp_intra_8081/log/server.log
