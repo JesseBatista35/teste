@@ -1,18 +1,10 @@
+# 1. Achar o serviço
+systemctl list-units --type=service | grep -iE "jboss|wildfly|siccp|sig"
 
-[p585600@caddeapllx2560 opt]$
-[p585600@caddeapllx2560 opt]$
-[p585600@caddeapllx2560 opt]$ ps -ef | grep -iE "java|jboss|wildfly"
-p585600   738615  738498  0 11:20 pts/0    00:00:00 grep --color=auto -iE java|jboss|wildfly
-[p585600@caddeapllx2560 opt]$
-[p585600@caddeapllx2560 opt]$
-[p585600@caddeapllx2560 opt]$
-[p585600@caddeapllx2560 opt]$ systemctl lists-units --type=service | grep -iE "jboss|wildfly|siccp|sig"
-Unknown command verb lists-units.
-[p585600@caddeapllx2560 opt]$ systemctl show <nome-do-servico> -p User,Group
-cat /etc/systemd/system/<nome-do-servico>.service 2>/dev/null
--sh: nome-do-servico: Arquivo ou diretório inexistente
--sh: nome-do-servico: Arquivo ou diretório inexistente
-[p585600@caddeapllx2560 opt]$
-[p585600@caddeapllx2560 opt]$
-[p585600@caddeapllx2560 opt]$
-[p585600@caddeapllx2560 opt]$
+# 2. Se não achar nada rodando, procurar unit files instalados (mesmo parados)
+systemctl list-unit-files | grep -iE "jboss|wildfly|siccp|sig"
+
+# 3. Também vale procurar processo batch/cron, já que não tem java rodando agora
+crontab -l -u root 2>/dev/null
+crontab -l 2>/dev/null
+ls -la /etc/cron.d/ | grep -iE "sig|siccp"
