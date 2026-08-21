@@ -1,54 +1,6 @@
-[root@crjtqapllx003 p585600]# tail -50 /infra_app/logs/sifpp/server-crjtqapllx003_sifpp_intra_8080.log
-        at org.jboss.weld.ejb.AbstractEJBRequestScopeActivationInterceptor.aroundInvoke(AbstractEJBRequestScopeActivationInterceptor.java:73)
-        at org.jboss.as.weld.ejb.EjbRequestScopeActivationInterceptor.processInvocation(EjbRequestScopeActivationInterceptor.java:83)
-        at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:340)
-        at org.jboss.as.weld.injection.WeldInjectionInterceptor.processInvocation(WeldInjectionInterceptor.java:53)
-        at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:340)
-        at org.jboss.as.ee.component.ManagedReferenceFieldInjectionInterceptorFactory$ManagedReferenceFieldInjectionInterceptor.processInvocation(ManagedReferenceFieldInjectionInterceptorFactory.java:107)
-        at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:340)
-        at org.jboss.as.ee.component.ManagedReferenceFieldInjectionInterceptorFactory$ManagedReferenceFieldInjectionInterceptor.processInvocation(ManagedReferenceFieldInjectionInterceptorFactory.java:107)
-        at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:340)
-        at org.jboss.as.ee.component.AroundConstructInterceptorFactory$1.processInvocation(AroundConstructInterceptorFactory.java:28)
-        at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:340)
-        at org.jboss.as.weld.injection.WeldInterceptorInjectionInterceptor.processInvocation(WeldInterceptorInjectionInterceptor.java:56)
-        at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:340)
-        at org.jboss.as.weld.ejb.Jsr299BindingsCreateInterceptor.processInvocation(Jsr299BindingsCreateInterceptor.java:100)
-        at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:340)
-        at org.jboss.as.ee.component.NamespaceContextInterceptor.processInvocation(NamespaceContextInterceptor.java:50)
-        at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:340)
-        at org.jboss.as.ejb3.tx.CMTTxInterceptor.invokeInOurTx(CMTTxInterceptor.java:275)
-        at org.jboss.as.ejb3.tx.CMTTxInterceptor.requiresNew(CMTTxInterceptor.java:349)
-        at org.jboss.as.ejb3.tx.LifecycleCMTTxInterceptor.processInvocation(LifecycleCMTTxInterceptor.java:68)
-        at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:340)
-        at org.jboss.as.weld.injection.WeldInjectionContextInterceptor.processInvocation(WeldInjectionContextInterceptor.java:43)
-        at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:340)
-        at org.jboss.as.ejb3.component.interceptors.CurrentInvocationContextInterceptor.processInvocation(CurrentInvocationContextInterceptor.java:41)
-        at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:340)
-        at org.jboss.as.ee.concurrent.ConcurrentContextInterceptor.processInvocation(ConcurrentContextInterceptor.java:45)
-        at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:340)
-        at org.jboss.invocation.ContextClassLoaderInterceptor.processInvocation(ContextClassLoaderInterceptor.java:64)
-        at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:340)
-        at org.jboss.invocation.InterceptorContext.run(InterceptorContext.java:356)
-        at org.jboss.invocation.PrivilegedWithCombinerInterceptor.processInvocation(PrivilegedWithCombinerInterceptor.java:80)
-        at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:340)
-        at org.jboss.invocation.ChainedInterceptor.processInvocation(ChainedInterceptor.java:61)
-        at org.jboss.as.ee.component.BasicComponent.constructComponentInstance(BasicComponent.java:161)
-        at org.jboss.as.ee.component.BasicComponent.constructComponentInstance(BasicComponent.java:134)
-        at org.jboss.as.ee.component.BasicComponent.createInstance(BasicComponent.java:88)
-        at org.jboss.as.ejb3.component.singleton.SingletonComponent.getComponentInstance(SingletonComponent.java:124)
-        at org.jboss.as.ejb3.component.singleton.SingletonComponent.start(SingletonComponent.java:138)
-        at org.jboss.as.ee.component.ComponentStartService$1.run(ComponentStartService.java:54)
-        at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
-        at java.util.concurrent.FutureTask.run(FutureTask.java:266)
-        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
-        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
-        at java.lang.Thread.run(Thread.java:745)
-        at org.jboss.threads.JBossThread.run(JBossThread.java:320)
+grep -n "ERROR\|Caused by\|Exception" /infra_app/logs/sifpp/server-crjtqapllx003_sifpp_intra_8080.log | tail -30
 
-2026-08-21 10:57:43,646 INFO  [org.jboss.resteasy.resteasy_jaxrs.i18n] (ServerService Thread Pool -- 79), RESTEASY002225: Deploying javax.ws.rs.core.Application: class br.gov.caixa.sifpp.rs.resource.JaxRsActivator
-2026-08-21 10:57:43,739 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 79), WFLYUT0021: Registered web context: /sifpp
-2026-08-21 10:57:43,758 INFO  [org.jboss.as.server] (Controller Boot Thread), WFLYSRV0010: Deployed "sifpp-ear.ear" (runtime-name : "sifpp-ear.ear")
-2026-08-21 10:57:43,812 INFO  [org.jboss.as] (Controller Boot Thread), WFLYSRV0025: JBoss EAP 7.0.0.GA (WildFly Core 2.1.2.Final-redhat-1) started in 7493ms - Started 1098 of 1420 services (444 services are lazy, passive or on-demand)
-[root@crjtqapllx003 p585600]#
-[root@crjtqapllx003 p585600]#
-[root@crjtqapllx003 p585600]#
+
+grep -n "Exception" /infra_app/logs/sifpp/server-crjtqapllx003_sifpp_intra_8080.log | wc -l
+
+
