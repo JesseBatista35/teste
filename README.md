@@ -1,29 +1,10 @@
+# Ver os jobs/scripts do agente Control-M nesse host
+ls -la /opt/ctmage/
+find /opt/ctmage -iname "*siccp*" -o -iname "*sigdb*" 2>/dev/null
 
-[p585600@caddeapllx2560 opt]$ systemctl list-units --type=service | grep -iE "jboss|wildfly|siccp|sig"
-[p585600@caddeapllx2560 opt]$
-[p585600@caddeapllx2560 opt]$
-[p585600@caddeapllx2560 opt]$
-[p585600@caddeapllx2560 opt]$ systemctl list-unit-files | grep -iE "jboss|wildfly|siccp|sig"
-insights-client-results.path               enabled         disabled
-insights-client-boot.service               enabled         enabled
-insights-client-results.service            static          -
-insights-client.service                    static          -
-sigpwr.target                              static          -
-insights-client.timer                      enabled         disabled
-[p585600@caddeapllx2560 opt]$
-[p585600@caddeapllx2560 opt]$
-[p585600@caddeapllx2560 opt]$
-[p585600@caddeapllx2560 opt]$
-[p585600@caddeapllx2560 opt]$
-[p585600@caddeapllx2560 opt]$ crontab -l -u root 2>/dev/null
-[p585600@caddeapllx2560 opt]$
-[p585600@caddeapllx2560 opt]$
-[p585600@caddeapllx2560 opt]$
-[p585600@caddeapllx2560 opt]$ crontab -l 2>/dev/null
-[p585600@caddeapllx2560 opt]$
-[p585600@caddeapllx2560 opt]$
-[p585600@caddeapllx2560 opt]$
-[p585600@caddeapllx2560 opt]$ ls -la /etc/cron.d/ | grep -iE "sig|siccp"
-[p585600@caddeapllx2560 opt]$
-[p585600@caddeapllx2560 opt]$
-[p585600@caddeapllx2560 opt]$
+# Ver o usuário sob o qual o agente Control-M roda
+ps -ef | grep -i ctm
+id ctmagelx
+
+# Procurar scripts em /opt/batch que referenciem sigdb
+grep -rl "sigdb" /opt/batch/ 2>/dev/null
