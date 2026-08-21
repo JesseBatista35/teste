@@ -1,75 +1,25 @@
----
-- name: Parse JSON data
-  set_fact:
-    nfs_path: "{{ item.NFS_MOUNT_POINT }}"
-    nfs_src: "{{ item.NFS_ENDPOINT }}"
+Prezados,
 
-- debug:
-    msg: "{{ item }}"
-- debug:
-    msg: "{{ nfs_path }}"    
-- debug:
-    msg: "{{ nfs_src }}"    
+Segue fechamento do chamado referente à falha java.io.FileNotFoundException (permissão negada) no diretório /sigdb/sigdb/TRANSMITE, servidor caddeapllx2560.
 
+Diagnóstico
 
-- name: Verificando as variaveis
-  assert:
-    that:
-      - nfs_path is defined
-      - nfs_src  is defined
-    fail_msg: Favor verificar se as variaveis 'nfs_path' e 'nfs_src' estão definidas
+O diretório /sigdb/sigdb/TRANSMITE estava configurado com proprietário root:root e permissão 755. O processo responsável pela gravação dos arquivos nesse diretório é o agente AgtSigdb, iniciado via script de init em /opt/batch/config/sigdb/des/run, executado sob o usuário ctmagelx (grupo controlm). Por não ser proprietário nem pertencer ao grupo do diretório, o processo não possuía permissão de escrita, resultando na falha reportada pela aplicação a cada nova geração de arquivo.
 
-- name: Instalando o NFS Client
-  yum:
-    name: nfs-utils
-    state: present
+Correção aplicada
 
-- name: Install networker lgtoclnt_url
-  command: "rpm -ivh --relocate /usr=/opt/networker {{ lgtoclnt_url }}"
-  ignore_errors: yes
+Ajustado o proprietário e a permissão do diretório para ctmagelx:controlm, modo 775, restaurando a capacidade de escrita do agente. A correção foi validada com teste de escrita utilizando o usuário ctmagelx, com resultado positivo.
 
-- name: Install networker lgtonmda_url
-  command: "rpm -ivh --relocate /usr=/opt/networker {{ lgtonmda_url }}"  
-  ignore_errors: yes
+Investigação da causa raiz
 
-- name: Remove pacote jbcs-httpd
-  ansible.builtin.file:
-    path: /nsr
-    state: absent
+Foi investigada a hipótese de o reset periódico de permissão estar relacionado à esteira de release SICCV-batch (Azure DevOps), por essa ser a esteira que atende o servidor. Análise detalhada dos logs de execução e do código-fonte das roles Ansible (repositório esteira-jboss-vm-v2) não identificou nenhuma task que manipule o diretório /sigdb ou TRANSMITE. A execução analisada não acionou sequer a tag jboss, tratando-se de deploy batch/Control-M apenas.
 
-- name: Create a symbolic link
-  ansible.builtin.file:
-    src: /opt/nsr
-    dest: /nsr
-    state: link
-    force: yes    
+Identificado que o host possui o serviço EMC Networker (backup) ativo, reiniciado a cada execução da esteira, o que constitui um candidato a investigar caso a falha reincida, por poder alterar propriedade/permissão de arquivos em rotinas de restore.
 
-- name: Networker | Start networker
-  service: name=networker.service state=started enabled=yes
+Como a causa raiz do reset periódico não foi confirmada, foi configurada regra de auditoria (auditd) persistente no diretório TRANSMITE (chave: transmite_watch), monitorando alterações de escrita e atributos (owner/permissão). Caso a falha reincida, o comando ausearch -k transmite_watch permitirá identificar processo, usuário e horário exatos responsáveis pelo evento.
 
-- name: Executar o comando abaixo para limitar as portas
-  command: /opt/networker/bin/nsrports -S 7937-8057
+Status: Resolvido / Em monitoramento (auditoria ativa para captura de causa raiz em caso de reincidência).
 
-- name: Networker | Restart networker
-  command: systemctl restart networker
+Observação adicional
 
-
-- name: Montando volume remoto
-  mount:
-    path: "{{ nfs_path }}"
-    src: "{{ nfs_src }}"
-    backup: yes
-    fstype: "{{ nfs_fstype }}"
-    opts: rw,sync,hard
-    state: mounted
-  register: mountnfs
-  ignore_errors: yes
-
-- name:  Validando Montagem
-  assert:
-    that:
-      - "'Connection refused' in mountnfs.msg"
-    fail_msg: "Erro desconhecido: {{ mountnfs.msg }}"
-    success_msg: "Por Favor verificar o compartilhamento informado: {{ nfs_src }}"
-  when: not mountnfs.changed and mountnfs.msg is defined
-  register: assertnfs
+Identificado, de forma independente, que o agente Control-M nesse servidor apresenta alerta de variável AG_JAVA_HOME apontando para caminho inexistente (/opt/ctmage/bmcjava/bmcjava-V2). Registrado como achado, sem impacto confirmado sobre o SIGDB até o momento.
