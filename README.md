@@ -1,72 +1,229 @@
-stack_deployments_custom.yml
+Skip to main content
+Azure DevOps
+projetos
+/
+Infraestrutura
+/
+Repos
+/
+Files
+/
+
+esteira-jboss-vm
+Search
 
 
----
-- name: Copiando deployments adicionais
-  hosts: jboss
-  gather_facts: no
-  tasks:
-    - name: Buscando diretorio de config
-      set_fact:
-        config_path: "{{ default_working_directory_tfs }}/_{{ build_repository_name_tfs }}-config"
-        filetype: deployments
-      
-    - name: Buscando diretorio de config
-      set_fact:
-        dir_src: "{{ config_path | dirname }}/{{ filetype }}"
-        dir_dest: "{{ jboss_home }}/standalone/{{ filetype }}"
+Infraestrutura
 
-    - name: Create a symbolic link
-      file:
-        path: "{{ dir_src }}"
-        state: directory
-        mode: 0777
-      delegate_to: localhost
+Overview
 
-    - name: Verifica se o arquivo  existe
-      stat:
-        path: "{{ config_path }}/jboss-deployments"
-      register: jbda
-      changed_when: false
-      delegate_to: localhost
-    
-    - block:
-      - name: Lendo artefatos do arquivo CSV
-        read_csv:
-          path: "{{ config_path }}/jboss-deployments"
-          delimiter: ":"
-        register: deployments
-        delegate_to: localhost
-      
-      - name: Teste
-        debug:
-          msg: "Artefato: {{ item.artifact_id }} - versao {{ item.version }}"
-        loop: "{{ deployments.list }}"
-        delegate_to: localhost
+Boards
 
-      - maven_artifact:
-          group_id: "{{ item.group_id }}"
-          artifact_id: "{{ item.artifact_id }}"
-          extension: "{{ item.extension|default('jar',true) }}"
-          repository_url: "http://binario.caixa:8081/repository/caixa-group-br"
-          version: "{{ item.version }}"
-          dest: "{{ dir_src }}/{{ item.artifact_id }}.{{ item.extension|default('jar',true) }}"
-          timeout: 60
-          mode: 0777
-        loop: "{{ deployments.list }}"
-        delegate_to: localhost
+Repos
+Files
+Commits
+Pushes
+Branches
+Tags
+Pull requests
 
-      - name: Copiando artefatos para o(s) servidor(es) Jboss
-        copy:
-          src: "{{ dir_src }}/"
-          dest: "{{ dir_dest }}"
-          owner: jboss
-          group: jboss
-          mode: 0644
+Pipelines
 
-      - name: Sem artefatos de deployments
-        debug:
-          msg: "Sem deployments adicional"
-        when: deployments.list | length == 0
-      when:
-        - jbda.stat.exists
+Test Plans
+
+Artifacts
+Project settings
+esteira-jboss-vm
+
+group_vars
+inventory
+library
+roles
+apache_exporter
+apm_agent
+cmdb
+control_m
+dns
+filebeat
+graylog-streams
+java
+jboss
+jmx_exporter
+ldap
+node_exporter
+tsm
+vhost
+vmware
+validadores
+.gitignore
+.vault.sh
+a.yml
+alocaip_desalocar.json.j2
+alocaip_gerar.json.j2
+ansible.cfg
+BotBMCDetailedDescription.j2
+BotCreateChange.jar
+ChangeHSI.j2
+changehsi.yml
+
+master
+
+/
+roles
+/
+java
+java
+
+New
+
+Contents
+History
+
+defaults
+17 de mar. de 2020
+5b22f8ed
+Apagados arquivos que não estão sendo utilizados root
+examples
+21 de fev. de 2020
+bd61528f
+carga inicial root
+files
+21 de fev. de 2020
+bd61528f
+carga inicial root
+
+meta
+21 de fev. de 2020
+bd61528f
+carga inicial root
+tasks
+17 de mar. de 2020
+5b22f8ed
+Apagados arquivos que não estão sendo utilizados root
+tests
+21 de fev. de 2020
+bd61528f
+carga inicial root
+vars
+21 de fev. de 2020
+bd61528f
+carga inicial root
+LICENSE
+21 de fev. de 2020
+bd61528f
+carga inicial root
+README.md
+21 de fev. de 2020
+bd61528f
+carga inicial root
+Role Name
+I needed a role that didn't rely on yum to install Oracle JDK. It's not pretty but sometimes I need multiple JAVA_HOMES. This role allows that. Additionally it can install the JCE, as well as set the alternatives, latest, and default symlinks.
+
+Finally, it can set the entropy fix for running on virtualized hardware.
+
+CRYPTO CHANGE! The java_install_jce flag continues to set policy, however to use the new crypt.policy flag set the 'java_crypto_policy' variable also.
+
+Leaving the java_crypto_policy variable undefined (and setting java_install_jce to true) will install the JCE files as normal. Setting the java_crypto_policy variable will not install the files and will set the java.security crypto.policy setting so the policy folders will be used instead.
+
+Use of this role implies acceptance of Oracle's terms of service and licenses; Use of JCE and Cryptography imply acceptance and complete understanding of your cryptography rules and law governing use.
+
+NOTE: This is just for RHEL, CentOS, EL.
+
+To install,
+
+sudo ansible-galaxy install staylorx.oracle-jdk
+Role Variables
+Variables and defaults follow.
+
+Install the Oracle JCE:
+
+java_install_jce: false
+Set the Oracle Crypto Policy (also requires the 'java_install_jce' flag be true):
+
+java_crypto_policy: unlimited
+Sets the entropy source, securerandom.source=file:/dev/./urandom
+
+java_entropy_fix: false
+Sets the default install location for RHEL
+
+java_install_dir: /usr/java
+Clean up after yourself?
+
+java_remove_download: yes
+Pull the files from Oracle? Saying yes implies you have accepted the license agreement!
+
+java_download_from_oracle: yes
+Where to locate the files on the local machines. Also where the files need to be if not downloaded. Set the 'java_download_from_oracle' flag if you have the correct files already placed.
+
+java_download_path: /usr/local/src
+Which version of course. Look to the defaults for the dictionary of latest versions.
+
+java_version: 8u91
+Set the default symlink? Also fires off the alternatives routine.
+
+java_set_as_default: true
+Set the latest symlink?
+
+java_set_as_latest: true
+Want to install 32 bit Java? Defaults to linux-x64
+
+java_architecture: linux-x586
+Dependencies
+No dependencies on other roles.
+
+IMPORTANT: Using this role implies that you have accepted the Oracle license agreement to download the Oracle JDK and JCE. If you don't agree, don't use this role please.
+
+Example Playbook
+Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
+
+- hosts: servers
+  become: yes
+  become_user: root
+  vars:
+    java_install_jce: yes
+    java_entropy_fix: yes
+    java_remove_download: yes
+    java_download_from_oracle: yes
+    java_version: 8u74
+    java_architecture: linux-x64
+    java_set_as_default: yes
+    java_set_as_latest: yes
+  roles:
+    - role: staylorx.oracle-jdk
+Another example Playbook
+This example show setting JCE by using the java.security file... and no files.
+
+- hosts: servers
+  become: yes
+  become_user: root
+  vars:
+    java_install_jce: yes
+    java_crypto_policy: unlimited
+    java_entropy_fix: yes
+    java_remove_download: yes
+    java_download_from_oracle: yes
+  roles:
+    - role: staylorx.oracle-jdk
+License
+MIT
+
+Expanded
+
+Collapsed
+
+Collapsed
+
+Showing filters 1 through 3
+
+No code files found for 'create a symbolic link' with applied filters
+
+No code files found for 'symbolic link' with applied filters
+
+No code files found for 'symbolic' with applied filters
+
+Showing filters 1 through 3
+
+Showing filters 1 through 3
+
+Showing filters 1 through 3
+
