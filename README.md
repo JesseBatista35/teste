@@ -12,3 +12,8 @@ git log -3 --format="%h %an %ad %s"
 
 # Confirmar se TRANSMITE é o mesmo caminho de /sigdb/sigdb/TRANSMITE ou coisa parecida
 find /opt/batch/config/sigdb -iname "TRANSMITE*"
+
+
+
+grep -rn "TRANSMITE" /opt/batch/config/sigdb/sigdb/ --include="*.sh" --include="*.yml" --include="*.yaml" --include="*.xml" 2>/dev/null
+find /opt/batch/config/sigdb/sigdb -iname "*.sh" -exec grep -l "chmod\|mkdir" {} \;
