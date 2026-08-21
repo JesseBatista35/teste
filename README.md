@@ -1,11 +1,6 @@
 
-[root@caddeapllx2560 opt]#
-[root@caddeapllx2560 opt]#
-[root@caddeapllx2560 opt]#
-[root@caddeapllx2560 opt]# id f593268
-uid=10593268(f593268) gid=30000004(supadmin) grupos=30000004(supadmin),20001048(desbr),20001050(dessp)
-[root@caddeapllx2560 opt]# groups f593268
-f593268 : supadmin desbr dessp
-[root@caddeapllx2560 opt]#
-[root@caddeapllx2560 opt]#
-[root@caddeapllx2560 opt]#
+chown f593268:supadmin /sigdb/sigdb/TRANSMITE
+chmod 775 /sigdb/sigdb/TRANSMITE
+
+# validar como o usuário real da aplicação
+su - f593268 -c "touch /sigdb/sigdb/TRANSMITE/teste_permissao && echo OK && rm /sigdb/sigdb/TRANSMITE/teste_permissao"
