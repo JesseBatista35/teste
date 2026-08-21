@@ -1,49 +1,142 @@
-apiVersion: spv.no/v2beta1
-kind: AzureKeyVaultSecret
-metadata:
-  name: akvs-sirmc-sqlserver-transacao
-  labels:
-    {{- include "caixa-base-chart.labels" . | nindent 4 }}
-spec:
-  vault:
-    name: kv-crm-nprd
-    object:
-      name: shared-sqlserver-transacao-usuario
-      type: secret
+caixa-base-chart:
+
+#-------#
+# IMAGE #
+#-------#
+
+  image:
+    # variavel de imagem do tipo de aplicação
+    repository: acrcentralcaixanprd.azurecr.io/sirmc/api-registro-interacoes-clientes/sirmc-api-registro-interacoes-clientes
+    tag: "32487917318"
+    pullPolicy: Always
+
+#-----#
+# HPA #
+#-----#
+  replicaCount: 1
+
+  autoscaling:
+    enabled: false
+    minReplicas: 1
+    maxReplicas: 3
+    targetCPUUtilizationPercentage: 85
+    targetMemoryUtilizationPercentage: 85
+
+#-----------------#
+# ROLLING UPDATE STRATEGY #
+#-----------------#
+
+  strategy:
+    maxSurge: 25%
+    maxUnavailable: 50%
 
 
-      GitHub Enterprise
-Users managed by Caixa Economica Federal
-caixagithub
-sirmc-api-registro-interacoes-clientes-infranprd
-Repository navigation
-Code
-Issues
-Pull requests
-Actions
-Projects
-Wiki
-Security and quality
-Insights
-Settings
-Files
-Go to file
-t
-T
-templates content loaded
-des
-templates
-akvs-shared-applicationinsights-connectionstring.yaml.yaml
-akvs-sirmc-api-registro-interacoes-clientes-certificate.yaml
-akvs-sirmc-sqlserver-transacao-password.yaml
-akvs-sirmc-sqlserver-transacao.yml
-cm-sirmc-api-registro-interacoes-clientes.yaml
-.helmignore
-Chart.yaml
-README.md
-ci_cd_variables.yaml
-values.yaml
-tqs
-README.md
-sirmc-api-registro-interacoes-clientes-infranprd/des/templates
-/akvs-sirmc-sqlserver-transacao.yml
+#-----------#
+#  SERVICE  #
+#-----------#
+  
+  service:
+    type: "ClusterIP"
+    ports:
+      - name: "port"
+        protocol: TCP
+        port: 80
+        targetPort: 8080
+
+#---------#
+# INGRESS #
+#---------#
+  istio:  
+    - name: internal
+      enabled: true
+      servers:
+        - port:
+            number: 80
+            name: http-default
+            protocol: HTTP
+          hosts:
+            - sirmc-api-registro-interacoes-clientes.apl.des-nprd.private.azure
+        - port:
+            number: 443
+            name: https-custom
+            protocol: HTTPS
+          tls:
+            mode: SIMPLE
+            credentialName: akvs-sirmc-api-registro-interacoes-clientes-certificate # Nome do secret do certificado
+          hosts:
+            - api.registro-interacoes-clientes.des.caixa
+      prefix:
+        - /
+      targetPort: 80 
+  
+#-------------#
+#  RESOURCES  #
+#-------------#
+
+  resources:
+    requests:
+      cpu: 250m
+      memory: 256Mi
+    limits:
+      cpu: 500m
+      memory: 512Mi
+
+
+#----------#
+#  PROBES  #
+#----------#
+
+  probes:  
+    enabled: true
+    useDefaults: false  
+    livenessProbe: 
+      initialDelaySeconds: 30
+      periodSeconds: 15
+      failureThreshold: 10
+      successThreshold: 1
+      httpGet:
+        path: /healthz     
+        port: 8080
+    readinessProbe: 
+      initialDelaySeconds: 15
+      periodSeconds: 15
+      failureThreshold: 3
+      successThreshold: 1
+      httpGet:
+        path: /healthz     
+        port: 8080
+
+
+#-------------#
+#  CONFIGMAP  #
+#-------------#
+
+  configMapRefs:
+    - name: cm-sirmc-api-registro-interacoes-clientes-des
+#---------------#
+#  TOLERATIONS  #
+#---------------#
+
+  tolerations:
+    - key: "kubernetes.azure.com/scalesetpriority"
+      effect: "NoSchedule"
+      operator: "Equal"
+      value: "spot"
+    - key: "nuvem.caixa/nodepoolname"
+      effect: "NoSchedule"
+      operator: "Equal"
+      value: "sitesirmc"
+
+#-------------# 
+#   SECRETS   # 
+#-------------# 
+
+  secretRefs:
+    - name: akvs-sirmc-sqlserver-connectionstring
+  env:
+    - name: ApplicationInsights__ConnectionString
+      value: akvs-applicationinsightsconnectionstring@azurekeyvault
+    - name: Database__Password
+      value: akvs-sirmc-sqlserver-transacao-password@azurekeyvault
+    - name: Database__UserId
+      value: akvs-sirmc-sqlserver-transacao@azurekeyvault
