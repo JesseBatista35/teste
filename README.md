@@ -1,24 +1,9 @@
+ps -ef | grep "Server:srjdeapllx158_sifpp_intra_8081" | grep -v grep
 
-[root@srjdeapllx158 configuration]#
-[root@srjdeapllx158 configuration]# ls -la /opt/open/j
-java/     java.tar  jboss/
-[root@srjdeapllx158 configuration]# ls -la /opt/open/jboss/7.0.0/do
-docs/   domain/
-[root@srjdeapllx158 configuration]# ls -la /opt/open/jboss/7.0.0/domain/servers/srjdeapllx158_sifpp_intra_8081/log/
-total 20
-drwxr-xr-x 2 spjbodr2 jboss 4096 Mar 21  2023 .
-drwxr-xr-x 5 spjbodr2 jboss 4096 Mar 21  2023 ..
--rw-r--r-- 1 spjbodr2 jboss 8434 Mar 21  2023 server.log
-[root@srjdeapllx158 configuration]#
-[root@srjdeapllx158 configuration]#
-[root@srjdeapllx158 configuration]#
-[root@srjdeapllx158 configuration]#
-[root@srjdeapllx158 configuration]#
-[root@srjdeapllx158 configuration]#
-[root@srjdeapllx158 configuration]#
-[root@srjdeapllx158 configuration]#
-[root@srjdeapllx158 configuration]#
-[root@srjdeapllx158 configuration]# grep "$(date +%Y-%m-%d)" /opt/open/jboss/7.0.0/domain/servers/srjdeapllx158_sifpp_intra_8081/log/server.log | grep -iE "ERROR|WFLYSRV0025|deployed"
-[root@srjdeapllx158 configuration]#
-[root@srjdeapllx158 configuration]#
-[root@srjdeapllx158 configuration]#
+
+/opt/open/jboss/7.0.0/bin/jboss-cli.sh --connect controller=srjdeapllx158:9990
+
+/host=srjdeapllx158/server=srjdeapllx158_sifpp_intra_8081/subsystem=logging/periodic-rotating-file-handler=FILE:read-resource
+
+/host=srjdeapllx158/server=srjdeapllx158_sifpp_intra_8081/deployment=sifpp-ear.ear:read-attribute(name=status)
+
