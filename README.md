@@ -1,25 +1,29 @@
-Prezados, bom dia.
 
-Realizada a implementação da variável ENDPOINT_MICRO no servidor JBoss EAP do sistema SIFPP (ambiente TQS, VM crjtqapllx003), conforme solicitado.
+[p585600@caddeapllx2560 ~]$
+[p585600@caddeapllx2560 ~]$
+[p585600@caddeapllx2560 ~]$
+[p585600@caddeapllx2560 ~]$ ps -ef | grep jboss
+p585600   738525  738498  0 11:16 pts/0    00:00:00 grep --color=auto jboss
+[p585600@caddeapllx2560 ~]$
+[p585600@caddeapllx2560 ~]$
+[p585600@caddeapllx2560 ~]$ ps -ef | grep java
+p585600   738527  738498  0 11:16 pts/0    00:00:00 grep --color=auto java
+[p585600@caddeapllx2560 ~]$
+[p585600@caddeapllx2560 ~]$
+[p585600@caddeapllx2560 ~]$ cd /opt/
+[p585600@caddeapllx2560 opt]$ ls -la
+total 4
+drwxr-xr-x.  6 root     root       61 jun 10 13:49 .
+dr-xr-xr-x. 22 root     root     4096 ago 20 16:54 ..
+drwxr-xr-x   5 root     root       53 jun 10 13:49 batch
+drwxr-xr-x   9 ctmagelx ctmagelx  324 jun 10 13:49 ctmage
+drwxr-xr-x   6 root     root       53 jun 10 13:48 networker
+drwxr-xr-x  14 root     root      162 jun 10 13:48 nsr
+[p585600@caddeapllx2560 opt]$
+[p585600@caddeapllx2560 opt]$
+[p585600@caddeapllx2560 opt]$
 
-Resumo da execução:
+Apresentando esse erro na aplicação java.io.FileNotFoundException: /sigdb/sigdb/TRANSMITE/XSICCPMDD60413260727 (Permissão negada)
+foi feito a correção mas problema está retornando quando é feita a release no Devops
+favor verificar.
 
-Servidor operando em Domain Mode, com configuração centralizada via domain.xml/host.xml através do domain controller.
-Variável criada a nível de server-group "sifpp" (dedicado ao deployment sifpp-ear.ear), via jboss-cli, com o seguinte conteúdo:
-
-ENDPOINT_MICRO = https://sifpp-micro-tqs.apps.nprd.caixa
-
-Por se tratar de propriedade do tipo boot-time, foi efetuado stop/start completo do server-config crjtqapllx003_sifpp_intra_8080 para carregamento da variável na JVM.
-Validação pós-implementação:
-Confirmada a presença da variável na linha de comando do processo Java (ps -ef)
-Confirmado status OK do deployment sifpp-ear.ear via jboss-cli
-Log de aplicação (server-crjtqapllx003_sifpp_intra_8080.log) sem ocorrências de erro, com mensagem WFLYSRV0025 indicando start completo do servidor (1098 de 1420 serviços iniciados)
-
-Observação: houve indisponibilidade momentânea do servidor crjtqapllx003_sifpp_intra_8080 durante a janela de restart, necessária para efetivação da variável.
-
-Servidor operacional e validado. Solicito encerramento da demanda.
-
-Atenciosamente,
-Jessé Batista
-
-Ajusto algo se precisar (horário, número da WO etc.).
