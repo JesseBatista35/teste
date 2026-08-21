@@ -1,142 +1,22 @@
-caixa-base-chart:
-
-#-------#
-# IMAGE #
-#-------#
-
-  image:
-    # variavel de imagem do tipo de aplicação
-    repository: acrcentralcaixanprd.azurecr.io/sirmc/api-registro-interacoes-clientes/sirmc-api-registro-interacoes-clientes
-    tag: "32487917318"
-    pullPolicy: Always
-
-#-----#
-# HPA #
-#-----#
-  replicaCount: 1
-
-  autoscaling:
-    enabled: false
-    minReplicas: 1
-    maxReplicas: 3
-    targetCPUUtilizationPercentage: 85
-    targetMemoryUtilizationPercentage: 85
-
-#-----------------#
-# ROLLING UPDATE STRATEGY #
-#-----------------#
-
-  strategy:
-    maxSurge: 25%
-    maxUnavailable: 50%
+REASON
+MESSAGE
+COUNT
+FIRST OCCURRED
+LAST OCCURRED
+BackOff
+Back-off restarting failed container sirmc-api-registro-interacoes-clientes-des in pod sirmc-api-registro-interacoes-clientes-des-55d4dfcbc9-75mhf_sirmc-api-registro-interacoes-clientes(2ee0b048-8076-46f0-b136-1db4ae2a4acb)
 
 
-#-----------#
-#  SERVICE  #
-#-----------#
-  
-  service:
-    type: "ClusterIP"
-    ports:
-      - name: "port"
-        protocol: TCP
-        port: 80
-        targetPort: 8080
+logs
 
-#---------#
-# INGRESS #
-#---------#
-  istio:  
-    - name: internal
-      enabled: true
-      servers:
-        - port:
-            number: 80
-            name: http-default
-            protocol: HTTP
-          hosts:
-            - sirmc-api-registro-interacoes-clientes.apl.des-nprd.private.azure
-        - port:
-            number: 443
-            name: https-custom
-            protocol: HTTPS
-          tls:
-            mode: SIMPLE
-            credentialName: akvs-sirmc-api-registro-interacoes-clientes-certificate # Nome do secret do certificado
-          hosts:
-            - api.registro-interacoes-clientes.des.caixa
-      prefix:
-        - /
-      targetPort: 80 
-  
-#-------------#
-#  RESOURCES  #
-#-------------#
-
-  resources:
-    requests:
-      cpu: 250m
-      memory: 256Mi
-    limits:
-      cpu: 500m
-      memory: 512Mi
-
-
-#----------#
-#  PROBES  #
-#----------#
-
-  probes:  
-    enabled: true
-    useDefaults: false  
-    livenessProbe: 
-      initialDelaySeconds: 30
-      periodSeconds: 15
-      failureThreshold: 10
-      successThreshold: 1
-      httpGet:
-        path: /healthz     
-        port: 8080
-    readinessProbe: 
-      initialDelaySeconds: 15
-      periodSeconds: 15
-      failureThreshold: 3
-      successThreshold: 1
-      httpGet:
-        path: /healthz     
-        port: 8080
-
-
-#-------------#
-#  CONFIGMAP  #
-#-------------#
-
-  configMapRefs:
-    - name: cm-sirmc-api-registro-interacoes-clientes-des
-#---------------#
-#  TOLERATIONS  #
-#---------------#
-
-  tolerations:
-    - key: "kubernetes.azure.com/scalesetpriority"
-      effect: "NoSchedule"
-      operator: "Equal"
-      value: "spot"
-    - key: "nuvem.caixa/nodepoolname"
-      effect: "NoSchedule"
-      operator: "Equal"
-      value: "sitesirmc"
-
-#-------------# 
-#   SECRETS   # 
-#-------------# 
-
-  secretRefs:
-    - name: akvs-sirmc-sqlserver-connectionstring
-  env:
-    - name: ApplicationInsights__ConnectionString
-      value: akvs-applicationinsightsconnectionstring@azurekeyvault
-    - name: Database__Password
-      value: akvs-sirmc-sqlserver-transacao-password@azurekeyvault
-    - name: Database__UserId
-      value: akvs-sirmc-sqlserver-transacao@azurekeyvault
+I0821 19:05:20.990720       1 version.go:31] "version info" version="" commit="0eef8df" buildDate="2025-05-19T06:17:15Z" component="vaultenv"
+I0821 19:05:20.990978       1 main.go:184] "azure key vault env injector initializing"
+I0821 19:05:20.991236       1 main.go:253] "found original container command" cmd="/usr/bin/dotnet" args=["dotnet","ApiInteracoes.API.dll"]
+I0821 19:05:20.991322       1 authentication.go:110] "checking if current auth service credentials are stale" url="http://akv2k8s-envinjector.akv2k8s.svc:80/auth/sirmc-api-registro-interacoes-clientes/sirmc-api-registro-interacoes-clientes-des-55d4dfcbc9-75mhf?secret=akv2k8s-sirmc-api-registro-interacoes-clientes-des"
+I0821 19:05:21.066031       1 authentication.go:123] "auth service credentials ok" url="http://akv2k8s-envinjector.akv2k8s.svc:80/auth/sirmc-api-registro-interacoes-clientes/sirmc-api-registro-interacoes-clientes-des-55d4dfcbc9-75mhf?secret=akv2k8s-sirmc-api-registro-interacoes-clientes-des"
+I0821 19:05:21.066310       1 authentication.go:159] "requesting azure key vault oauth token" url="https://akv2k8s-envinjector.akv2k8s.svc:9443/auth/sirmc-api-registro-interacoes-clientes/sirmc-api-registro-interacoes-clientes-des-55d4dfcbc9-75mhf"
+I0821 19:05:21.100991       1 authentication.go:179] "successfully received oauth token"
+I0821 19:05:21.239225       1 main.go:338] "secret injected into env var" azurekeyvaultsecret="sirmc-api-registro-interacoes-clientes/akvs-sirmc-sqlserver-transacao-password" env="Database__Password"
+E0821 19:05:21.247588       1 main.go:309] "failed to get azurekeyvaultsecret" err="azurekeyvaultsecrets.spv.no \"akvs-applicationinsightsconnectionstring\" not found" azurekeyvaultsecret="sirmc-api-registro-interacoes-clientes/akvs-applicationinsightsconnectionstring"
+I0821 19:05:21.247609       1 main.go:310] "will retry getting azurekeyvaultsecret" azurekeyvaultsecret="sirmc-api-registro-interacoes-clientes/akvs-applicationinsightsconnectionstring" retryTimes=3 delay=3
+E0821 19:05:30.280347       1 main.go:322] "error getting azurekeyvaultsecret" err="azurekeyvaultsecrets.spv.no \"akvs-applicationinsightsconnectionstring\" not found" azurekeyvaultsecret="sirmc-api-registro-interacoes-clientes/akvs-applicationinsightsconnectionstring"
