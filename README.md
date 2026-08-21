@@ -1,22 +1,12 @@
+openssl pkcs12 -info -in /opt/keystore/s-4570-5_CERT.p12 -noout -passin pass:'G8KwaJ'
 
-[p585600@cspdeapllx011 ~]$
-[p585600@cspdeapllx011 ~]$ keytool -list -v -storetype PKCS12 -keystore /opt/keystore/s-4570-5_CERT.p12 -storepass 'G8KwaJ'
-erro de keytool: java.io.IOException: parseAlgParameters failed: DER input not an octet string
-java.io.IOException: parseAlgParameters failed: DER input not an octet string
-        at sun.security.pkcs12.PKCS12KeyStore.parseAlgParameters(PKCS12KeyStore.java:788)
-        at sun.security.pkcs12.PKCS12KeyStore.engineLoad(PKCS12KeyStore.java:1933)
-        at java.security.KeyStore.load(KeyStore.java:1381)
-        at sun.security.tools.keytool.Main.doCommands(Main.java:826)
-        at sun.security.tools.keytool.Main.run(Main.java:360)
-        at sun.security.tools.keytool.Main.main(Main.java:353)
-Caused by: java.io.IOException: DER input not an octet string
-        at sun.security.util.DerInputStream.getOctetString(DerInputStream.java:283)
-        at com.sun.crypto.provider.PBEParameters.engineInit(PBEParameters.java:90)
-        at java.security.AlgorithmParameters.init(AlgorithmParameters.java:293)
-        at sun.security.pkcs12.PKCS12KeyStore.parseAlgParameters(PKCS12KeyStore.java:785)
-        ... 5 more
-[p585600@cspdeapllx011 ~]$
-[p585600@cspdeapllx011 ~]$
-[p585600@cspdeapllx011 ~]$
-[p585600@cspdeapllx011 ~]$
-[p585600@cspdeapllx011 ~]$
+
+openssl pkcs12 -in /opt/keystore/s-4570-5_CERT.p12 -out /tmp/cert_full.pem -nodes -passin pass:'G8KwaJ'
+
+openssl pkcs12 -export -in /tmp/cert_full.pem -inkey /tmp/cert_full.pem \
+  -out /tmp/s-4570-5_CERT_legacy.p12 \
+  -name sincad-b3 \
+  -passout pass:'G8KwaJ' \
+  -certpbe PBE-SHA1-3DES -keypbe PBE-SHA1-3DES -macalg sha1
+
+  keytool -list -v -storetype PKCS12 -keystore /tmp/s-4570-5_CERT_legacy.p12 -storepass 'G8KwaJ' 2>&1 | grep -E "Alias|Valid from|Owner"
