@@ -1,37 +1,33 @@
-Assunto: Encerramento de WO — sirmc-api-registro-interacoes-clientes-des — Falha de sincronização ArgoCD
+Favor  re-instalar os certificados da b3 no servidor cspdeapllx011(10.116.95.77) para acesso as APIs do SINCAD tanto no Linux quanto no JBOSS
 
-Aplicação: sirmc-api-registro-interacoes-clientes-des
-Ambiente: DES
-Cluster: aks-crm-nprd
+<img width="1557" height="690" alt="image" src="https://github.com/user-attachments/assets/010087f8-1b6d-4be2-945c-eee481efc884" />
 
-Causa raiz identificada:
-Divergência entre os nomes dos secrets referenciados no values.yaml (chart caixa-base-chart) e os nomes reais dos objetos AzureKeyVaultSecret provisionados no Key Vault kv-crm-nprd, causando falha de injeção de variáveis de ambiente (CreateContainerConfigError / CrashLoopBackOff).
 
-Correções aplicadas:
-
-Removido secretRefs obsoleto apontando para secret inexistente akvs-sirmc-sqlserver-connectionstring (sem manifesto correspondente).
-Corrigido nome do secret de Application Insights na variável ApplicationInsights__ConnectionString: de akvs-applicationinsightsconnectionstring (incorreto/sem hífen) para akvs-shared-applicationinsights-connectionstring (nome real do objeto no Key Vault).
-
-Validação:
-Após commit e resincronização automática via ArgoCD (revisão fe6c02e), os três secrets passaram a ser injetados corretamente (Database__UserId, Database__Password, ApplicationInsights__ConnectionString). Aplicação .NET iniciou normalmente, pod em estado Running 1/1, App Health: Healthy, Sync Status: Synced.
-
-Status desta WO: Encerrada — escopo da esteira DevOps concluído.
-
-Pendência identificada — fora do escopo da esteira:
-Healthcheck /healthz reporta falha no componente "database" com TaskCanceledException (timeout), indicando problema de conectividade de rede entre o AKS e o SQL Server — não é falha de credencial (já validada).
-
-Health check "database" with status Unhealthy completed after 898ms
-System.Threading.Tasks.TaskCanceledException: A task was canceled.
-   at Microsoft.Extensions.Diagnostics.HealthChecks.DefaultHealthCheckService.CheckHealthAsync
-
-Ação necessária pelo demandante:
-Abrir chamado com a equipe CETEL (rede), informando:
-
-Origem: Cluster AKS aks-crm-nprd — VNet Brazil South, resource group rg-crm-nprd
-Destino: SQL Server utilizado pela aplicação SIRMC (hostname/instância e porta — a confirmar pelo demandante/time de aplicação)
-Sintoma: Timeout de conexão no healthcheck de banco de dados; credenciais já validadas e descartadas como causa
-Verificações solicitadas à CETEL:
-Regra de firewall/NSG liberando a porta do SQL Server entre a subnet do AKS e a rede de destino
-Peering de VNet ativo entre as duas redes
-Resolução DNS do hostname do SQL Server a partir da subnet do AKS
-Disponibilidade da instância SQL Server no ambiente DES
+p585600@10.116.95.77's password:
+Permission denied, please try again.
+p585600@10.116.95.77's password:
+Creating home directory for p585600.
+[p585600@cspdeapllx011 ~]$
+[p585600@cspdeapllx011 ~]$
+[p585600@cspdeapllx011 ~]$
+[p585600@cspdeapllx011 ~]$ ps -ef | grep jboss
+sirot      3410   3334  0  2025 ?        02:31:13 /opt/jboss/jdk/bin/java -server -classpath /connector/lib/ceflib2.0.5.jar:/connector/lib/connector-2.2.2.jar:/connector/lib/parser.jar:/connector/lib/xercesImpl.jar:/connector/lib/xml-apis.jar:/connector/lib/crimson.jar:/connector/lib/jaxp-api.jar:/connector/lib/ceflog2.0.1.jar:/connector/lib/mail.jar:/connector/lib/activation.jar:/connector/lib/sirotconEjb-lib_v2.2.7.jar:/connector/lib/log4j-1.2.8.jar:/connector/config:/connector/lib/jcert.jar:/connector/lib/jnet.jar:/connector/lib/jsse.jar:/connector/lib/ceflib2.0.5.jar:/connector/lib/connector-2.2.2.jar:/connector/lib/parser.jar:/connector/lib/xercesImpl.jar:/connector/lib/xml-apis.jar:/connector/lib/crimson.jar:/connector/lib/jaxp-api.jar:/connector/lib/ceflog2.0.1.jar:/connector/lib/mail.jar:/connector/lib/activation.jar:/connector/lib/sirotconEjb-lib_v2.2.7.jar:/connector/lib/log4j-1.2.8.jar:/connector/config:/connector/lib/jcert.jar:/connector/lib/jnet.jar:/connector/lib/jsse.jar: br.gov.caixa.sirot.connector.Connector /connector/config/connector.properties /connector/config/map.properties
+jboss4     3632      1  0 15:23 ?        00:00:00 /bin/sh /opt/jboss/jboss-4.2.3.GA-jdk6/jboss.sh sinac01 start
+jboss4     3634   3632  0 15:23 ?        00:00:00 /bin/sh /opt/jboss/jboss-4.2.3.GA-jdk6/bin/run.sh -c sinac01 -b cspdeapllx011
+jboss4     3643   3634  1 15:23 ?        00:01:00 /opt/jboss/jdk/bin/java -Dprogram.name=run.sh -server -Xms3072m -Xmx3072m -XX:PermSize=1024m -Xdebug -Xrunjdwp:transport=dt_socket,address=8787,server=y,suspend=n -Djboss.cef.instance=sinac01 -Djboss.cef.ajp=9001 -Djboss.cef.jnp=1099 -Dsun.rmi.dgc.client.gcInterval=3600000 -Dsun.rmi.dgc.server.gcInterval=3600000 -Djboss.partition.name=sinac-dsv-rhel -DappName=sinac01-lx011 -Djava.security.egd=file:/dev/./urandom -Djava.net.preferIPv4Stack=true -Djava.endorsed.dirs=/opt/jboss/jboss-4.2.3.GA-jdk6/lib/endorsed -classpath /opt/jboss/jboss-4.2.3.GA-jdk6/bin/run.jar:/opt/jboss/jdk/lib/tools.jar org.jboss.Main -c sinac01 -b cspdeapllx011
+jboss4     3662      1  0 15:23 ?        00:00:00 /bin/sh /opt/jboss/jboss-4.2.3.GA-jdk6/jboss.sh cma01 start
+jboss4     3665   3662  0 15:23 ?        00:00:00 /bin/sh /opt/jboss/jboss-4.2.3.GA-jdk6/bin/run.sh -c cma01 -b cspdeapllx011
+jboss4     3676   3665  0 15:23 ?        00:00:39 /opt/jboss/jdk/bin/java -Dprogram.name=run.sh -server -Xms512m -Xmx512m -XX:PermSize=512m -Xdebug -Djboss.cef.instance=cma01 -Djboss.cef.ajp=9002 -Djboss.cef.jnp=1199 -Dsun.rmi.dgc.client.gcInterval=3600000 -Dsun.rmi.dgc.server.gcInterval=3600000 -Djboss.partition.name=cma-dsv-rhel -DappName=cma01-lx011 -Djava.net.preferIPv4Stack=true -Djava.endorsed.dirs=/opt/jboss/jboss-4.2.3.GA-jdk6/lib/endorsed -classpath /opt/jboss/jboss-4.2.3.GA-jdk6/bin/run.jar:/opt/jboss/jdk/lib/tools.jar org.jboss.Main -c cma01 -b cspdeapllx011
+p585600   15955  15693  0 16:50 pts/1    00:00:00 grep jboss
+[p585600@cspdeapllx011 ~]$
+[p585600@cspdeapllx011 ~]$
+[p585600@cspdeapllx011 ~]$ ps -ef | grep java
+sirot      3410   3334  0  2025 ?        02:31:13 /opt/jboss/jdk/bin/java -server -classpath /connector/lib/ceflib2.0.5.jar:/connector/lib/connector-2.2.2.jar:/connector/lib/parser.jar:/connector/lib/xercesImpl.jar:/connector/lib/xml-apis.jar:/connector/lib/crimson.jar:/connector/lib/jaxp-api.jar:/connector/lib/ceflog2.0.1.jar:/connector/lib/mail.jar:/connector/lib/activation.jar:/connector/lib/sirotconEjb-lib_v2.2.7.jar:/connector/lib/log4j-1.2.8.jar:/connector/config:/connector/lib/jcert.jar:/connector/lib/jnet.jar:/connector/lib/jsse.jar:/connector/lib/ceflib2.0.5.jar:/connector/lib/connector-2.2.2.jar:/connector/lib/parser.jar:/connector/lib/xercesImpl.jar:/connector/lib/xml-apis.jar:/connector/lib/crimson.jar:/connector/lib/jaxp-api.jar:/connector/lib/ceflog2.0.1.jar:/connector/lib/mail.jar:/connector/lib/activation.jar:/connector/lib/sirotconEjb-lib_v2.2.7.jar:/connector/lib/log4j-1.2.8.jar:/connector/config:/connector/lib/jcert.jar:/connector/lib/jnet.jar:/connector/lib/jsse.jar: br.gov.caixa.sirot.connector.Connector /connector/config/connector.properties /connector/config/map.properties
+jboss4     3643   3634  1 15:23 ?        00:01:00 /opt/jboss/jdk/bin/java -Dprogram.name=run.sh -server -Xms3072m -Xmx3072m -XX:PermSize=1024m -Xdebug -Xrunjdwp:transport=dt_socket,address=8787,server=y,suspend=n -Djboss.cef.instance=sinac01 -Djboss.cef.ajp=9001 -Djboss.cef.jnp=1099 -Dsun.rmi.dgc.client.gcInterval=3600000 -Dsun.rmi.dgc.server.gcInterval=3600000 -Djboss.partition.name=sinac-dsv-rhel -DappName=sinac01-lx011 -Djava.security.egd=file:/dev/./urandom -Djava.net.preferIPv4Stack=true -Djava.endorsed.dirs=/opt/jboss/jboss-4.2.3.GA-jdk6/lib/endorsed -classpath /opt/jboss/jboss-4.2.3.GA-jdk6/bin/run.jar:/opt/jboss/jdk/lib/tools.jar org.jboss.Main -c sinac01 -b cspdeapllx011
+jboss4     3676   3665  0 15:23 ?        00:00:39 /opt/jboss/jdk/bin/java -Dprogram.name=run.sh -server -Xms512m -Xmx512m -XX:PermSize=512m -Xdebug -Djboss.cef.instance=cma01 -Djboss.cef.ajp=9002 -Djboss.cef.jnp=1199 -Dsun.rmi.dgc.client.gcInterval=3600000 -Dsun.rmi.dgc.server.gcInterval=3600000 -Djboss.partition.name=cma-dsv-rhel -DappName=cma01-lx011 -Djava.net.preferIPv4Stack=true -Djava.endorsed.dirs=/opt/jboss/jboss-4.2.3.GA-jdk6/lib/endorsed -classpath /opt/jboss/jboss-4.2.3.GA-jdk6/bin/run.jar:/opt/jboss/jdk/lib/tools.jar org.jboss.Main -c cma01 -b cspdeapllx011
+root       6206      1  0  2025 ?        07:12:00 /opt/ctmagent/bmcjava/bmcjava-V2/bin/java -Xmx256m -XX:+CrashOnOutOfMemoryError -Djava.io.tmpdir=/tmp -Djava.net.preferIPv4Stack=true -Doverride.default.services= -Dspring.profiles.active=tcp -DCTMAG.CONFIG.DBGLVL=0 -Dctm.logs.dir=/opt/ctmagent/ctm/proclog -Dlogging.config=/opt/ctmagent/ctm/data/logback.xml -Dctm.data.dir=/opt/ctmagent/ctm/data -Dstdout=/opt/ctmagent/ctm/proclog/agjstd_2579-2025-11-17.0.tmp -jar /opt/ctmagent/ctm/exe/ag-app.jar
+logstash   6847      1  0  2025 ?        09:38:42 /usr/bin/java -XX:+UseParNewGC -XX:+UseConcMarkSweepGC -Djava.awt.headless=true -XX:CMSInitiatingOccupancyFraction=75 -XX:+UseCMSInitiatingOccupancyOnly -XX:+HeapDumpOnOutOfMemoryError -Djava.io.tmpdir=/var/lib/logstash -Xmx1g -Xss2048k -Djffi.boot.library.path=/opt/logstash/vendor/jruby/lib/jni -XX:+UseParNewGC -XX:+UseConcMarkSweepGC -Djava.awt.headless=true -XX:CMSInitiatingOccupancyFraction=75 -XX:+UseCMSInitiatingOccupancyOnly -XX:+HeapDumpOnOutOfMemoryError -Djava.io.tmpdir=/var/lib/logstash -XX:HeapDumpPath=/opt/logstash/heapdump.hprof -Xbootclasspath/a:/opt/logstash/vendor/jruby/lib/jruby.jar -classpath : -Djruby.home=/opt/logstash/vendor/jruby -Djruby.lib=/opt/logstash/vendor/jruby/lib -Djruby.script=jruby -Djruby.shell=/bin/sh org.jruby.Main --1.9 /opt/logstash/lib/bootstrap/environment.rb logstash/runner.rb agent -f /etc/logstash/conf.d -l /var/log/logstash/logstash.log
+p585600   15975  15693  0 16:50 pts/1    00:00:00 grep java
+[p585600@cspdeapllx011 ~]$
+[p585600@cspdeapllx011 ~]$
+[p585600@cspdeapllx011 ~]$
