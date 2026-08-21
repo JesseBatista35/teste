@@ -1,1 +1,2 @@
-O problema não foii resolvido endereço do servidor com problema 10.116.201.27
+stat -c "%U:%G %a %y" /sigdb/sigdb/TRANSMITE
+ausearch -k transmite_watch --start recent | tail -20
