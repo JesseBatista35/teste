@@ -1,19 +1,6 @@
+cat /tmp/s-4570-5_senha_certificado_CERT
 
-[p585600@cspdeapllx011 ~]$
-[p585600@cspdeapllx011 ~]$
-[p585600@cspdeapllx011 ~]$
-[p585600@cspdeapllx011 ~]$ md5sum /tmp/s-4570-5_CERT.p12
-968a3502b5a85e5e3d207f6f9303e73a  /tmp/s-4570-5_CERT.p12
-[p585600@cspdeapllx011 ~]$
-[p585600@cspdeapllx011 ~]$
-[p585600@cspdeapllx011 ~]$ md5sum ~/s-4570-5_CERT.p12
-md5sum: /caixa/usr/p585600/s-4570-5_CERT.p12: Arquivo ou diret▒rio n▒o encontrado
-[p585600@cspdeapllx011 ~]$
-[p585600@cspdeapllx011 ~]$
-[p585600@cspdeapllx011 ~]$
-[p585600@cspdeapllx011 ~]$
-[p585600@cspdeapllx011 ~]$
-[p585600@cspdeapllx011 ~]$ md5sum /tmp/s-4570-5_CERT.p12 /opt/keystore/s-4570-5_CERT.p12
-968a3502b5a85e5e3d207f6f9303e73a  /tmp/s-4570-5_CERT.p12
-968a3502b5a85e5e3d207f6f9303e73a  /opt/keystore/s-4570-5_CERT.p12
-[p585600@cspdeapllx011 ~]$
+keytool -list -storetype PKCS12 -keystore /opt/keystore/s-4570-5_CERT.p12 -storepass "SENHA_AQUI" 2>&1
+
+keytool -list -v -storetype PKCS12 -keystore /opt/keystore/s-4570-5_CERT.p12 -storepass "SENHA_AQUI" 2>&1 | grep -A2 "Valid from"
+keytool -list -v -storetype PKCS12 -keystore /opt/jboss/jboss-4.2.3.GA-jdk6/server/sinac01/conf/certs/00360305000104.p12 -storepass "SENHA_ANTIGA_SE_SOUBER" 2>&1 | grep -A2 "Valid from"
