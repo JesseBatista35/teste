@@ -1,36 +1,6 @@
+grep -i "GMS\|new view\|joined\|left\|suspected\|JGRP0" /logs/jboss/jboss-eap/standalone/sicmu-intranet-update/server.log | tail -30
 
--sh-4.2$ grep -i "ISPN000094\|ISPN000310\|view\|New cluster view\|Received new cluster view" /logs/jboss/jboss-eap/standalone/sicmu-intranet-update/server.log | tail -30
-        at org.jboss.as.ee.component.ViewDescription$1.processInvocation(ViewDescription.java:191)
-        at br.gov.caixa.sicmu.seguranca.service.ValidadorAcessoServiceBean$$$view17.validaAcesso(Unknown Source)
-        at com.sun.faces.application.view.FaceletViewHandlingStrategy.renderView(FaceletViewHandlingStrategy.java:468)
-        at com.sun.faces.application.view.MultiViewHandler.renderView(MultiViewHandler.java:170)
-        at javax.faces.application.ViewHandlerWrapper.renderView(ViewHandlerWrapper.java:132)
-        at javax.faces.application.ViewHandlerWrapper.renderView(ViewHandlerWrapper.java:132)
-        at javax.faces.application.ViewHandler.calculateCharacterEncoding(ViewHandler.java:425)
-        at javax.faces.application.ViewHandler.initView(ViewHandler.java:269)
-        at com.sun.faces.application.view.MultiViewHandler.initView(MultiViewHandler.java:115)
-        at javax.faces.application.ViewHandlerWrapper.initView(ViewHandlerWrapper.java:86)
-        at javax.faces.application.ViewHandlerWrapper.initView(ViewHandlerWrapper.java:86)
-        at com.sun.faces.lifecycle.RestoreViewPhase.doPhase(RestoreViewPhase.java:109)
-                at javax.faces.application.ViewHandler.calculateCharacterEncoding(ViewHandler.java:425)
-                at javax.faces.application.ViewHandler.initView(ViewHandler.java:269)
-                at com.sun.faces.application.view.MultiViewHandler.initView(MultiViewHandler.java:115)
-                at javax.faces.application.ViewHandlerWrapper.initView(ViewHandlerWrapper.java:86)
-                at javax.faces.application.ViewHandlerWrapper.initView(ViewHandlerWrapper.java:86)
-                at com.sun.faces.lifecycle.RestoreViewPhase.doPhase(RestoreViewPhase.java:109)
-        at javax.faces.application.ViewHandler.calculateCharacterEncoding(ViewHandler.java:425)
-        at javax.faces.application.ViewHandler.initView(ViewHandler.java:269)
-        at com.sun.faces.application.view.MultiViewHandler.initView(MultiViewHandler.java:115)
-        at javax.faces.application.ViewHandlerWrapper.initView(ViewHandlerWrapper.java:86)
-        at javax.faces.application.ViewHandlerWrapper.initView(ViewHandlerWrapper.java:86)
-        at com.sun.faces.lifecycle.RestoreViewPhase.doPhase(RestoreViewPhase.java:109)
-                at javax.faces.application.ViewHandler.calculateCharacterEncoding(ViewHandler.java:425)
-                at javax.faces.application.ViewHandler.initView(ViewHandler.java:269)
-                at com.sun.faces.application.view.MultiViewHandler.initView(MultiViewHandler.java:115)
-                at javax.faces.application.ViewHandlerWrapper.initView(ViewHandlerWrapper.java:86)
-                at javax.faces.application.ViewHandlerWrapper.initView(ViewHandlerWrapper.java:86)
-                at com.sun.faces.lifecycle.RestoreViewPhase.doPhase(RestoreViewPhase.java:109)
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$
+grep -i "ISPN0000\|topology\|rebalance\|cluster" /logs/jboss/jboss-eap/standalone/sicmu-intranet-update/server.log | tail -30
+
+grep "ISPN000299" /logs/jboss/jboss-eap/standalone/sicmu-intranet-update/server.log | awk '{print $1, $2}' | sort | uniq -c | tail -30
+
