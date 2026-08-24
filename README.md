@@ -1,15 +1,103 @@
-Pessoal, bom dia.
+Suporte ao GitHub
+Sigla do Sistema*:	SIGOS
+Qual o ambiente*:	NPRD
+Informe a URL do repositório no GitHub*:	https://github.com/caixagithub/sigos-backend-processamento-arquivos
+Selecione a sua Comunidade*:	Fundos de Governo
+Formas de contato*:	teams - c101476
+Descrição da necessidade*:	1 solicitamos autorizar visualização/atualização do novo repositório no github
+estou recebendo 404 ao acessar https://github.com/caixagithub/sigos-backend-processamento-arquivos
 
-Aproveitando para separar dois pontos que estão sendo discutidos aqui na sala, para não misturarmos os atendimentos:
 
-1. Erro do JConnector no SISGR (module.xml)
+Skip to content
+GitHub Enterprise
+Users managed by Caixa Economica Federal
+caixagithub
+sigos-backend-processamento-arquivos
+Repository navigation
+Code
+Issues
+Pull requests
+Actions
+Projects
+Wiki
+Security and quality
+2
+ (2)
+Insights
+Settings
+Settings: caixagithub/sigos-backend-processamento-arquivos
+Access
+Code, planning, and automation
+Security and quality
+Integrations
+Collaborators and teams
+Private repository
+Only those with access to this repository can view it
+Base role
+None
+No base role set. Only Owners and those with direct access can access this repository.
 
-Esse ponto já foi identificado e o ajuste (inclusão da dependência do módulo jconnector) já foi aplicado manualmente, direto no servidor. A correção funciona, mas é temporária: como foi feita direto na VM e não está persistida em nenhum lugar da pipeline, se a VM passar por um destroy/recriação, a alteração se perde e o erro volta a acontecer. Esse ponto já está encaminhado para que a correção seja aplicada na origem do módulo SISGR, de forma definitiva - assunto já de conhecimento de vocês.
+Direct access
+7 entities have access to this repository. 7 teams.
 
-2. REQ que estou atendendo agora
+Organization access
+2 users and 10 teams can access this repository through the organization.
 
-É um problema diferente, que já vínhamos investigando separadamente: ao acionar funcionalidades do menu do SICMU, a tela fica em branco ou cai por timeout. A causa identificada é uma contenção de lock no cache de sessões (Infinispan), erro ISPN000299 - uma transação trava o lock de uma sessão específica e bloqueia todas as tentativas de acesso seguintes, até o lock ser liberado.
+Manage access
 
-O padrão é intermitente (ocorre em rajadas ao longo do dia), então já deixamos um monitoramento automático rodando no servidor, que vai capturar o thread dump exatamente no momento da próxima ocorrência - isso vai nos permitir identificar qual transação está retendo o lock e travando o acesso.
+Direct access
 
-Seguimos atualizando conforme avançarmos nas duas frentes.
+Organization access
+
+Enterprise access
+
+Select all
+Find people or a team…
+Loading
+7 results loaded
+
+@caixagithub/comunidadefundosdegoverno
+ComunidadeFundosdeGoverno
+@caixagithub/comunidadefundosdegoverno • 1 member
+
+@caixagithub/comunidadefundosdegoverno_agente_operacoes
+ComunidadeFundosdeGoverno_Agente_Operacoes
+@caixagithub/comunidadefundosdegoverno_agente_operacoes • 26 members
+
+@caixagithub/comunidadefundosdegoverno_arquiteto
+ComunidadeFundosdeGoverno_Arquiteto
+@caixagithub/comunidadefundosdegoverno_arquiteto • 36 members
+
+@caixagithub/comunidadefundosdegoverno_desenvolvedorcaixa
+ComunidadeFundosdeGoverno_DesenvolvedorCaixa
+@caixagithub/comunidadefundosdegoverno_desenvolvedorcaixa • 42 members
+
+@caixagithub/comunidadefundosdegoverno_desenvolvedorfabrica
+ComunidadeFundosdeGoverno_DesenvolvedorFabrica
+@caixagithub/comunidadefundosdegoverno_desenvolvedorfabrica • 27 members
+
+@caixagithub/comunidadefundosdegoverno_gestor
+ComunidadeFundosdeGoverno_Gestor
+@caixagithub/comunidadefundosdegoverno_gestor • 2 members
+
+@caixagithub/producao
+Producao
+@caixagithub/producao • 264 members
+ 
+Footer
+© 2026 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Community
+Docs
+Contact
+Manage cookies
+Do not share my personal information
+
+
+
+
+ 
