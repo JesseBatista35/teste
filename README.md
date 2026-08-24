@@ -1,43 +1,17 @@
+# 1. Histórico de comandos do usuário/root (pode ter os starts anteriores)
+cat ~/.bash_history 2>/dev/null | grep -i "port-offset\|CSD2\|CSD6"
+cat /root/.bash_history 2>/dev/null | grep -i "port-offset\|CSD2\|CSD6"
 
--sh-4.2$ cat /etc/jboss-as/jboss-as.conf
-# General configuration for the init.d scripts,
-# not necessarily for JBoss AS itself.
+# 2. Log de boot do CSD6 (já que ele já rodou antes) - o cabeçalho de start do JBoss geralmente imprime os args de boot
+grep -i "port-offset\|Command Line" /home/siaoi/jboss-eap-6.4/CSD6/log/server.log | head -5
 
-# The username who should own the process.
-#
-JBOSS_HOME=/home/siaoi/jboss-eap-6.4
-JBOSS_USER=root
+# 3. Verificar se existe algum wrapper/systemd específico por instância
+ls -la /etc/systemd/system/ | grep -i siaoi
+ls -la /etc/init.d/ | grep -i siaoi
 
-# The amount of time to wait for startup
-#
-STARTUP_WAIT=30
+# 4. Conferir se existe um arquivo de config por node (algo como jboss-as.conf.CSD2)
+ls -la /etc/jboss-as/
 
-# The amount of time to wait for shutdown
-#
-SHUTDOWN_WAIT=30
 
-# Location to keep the console log
-#
-# JBOSS_CONSOLE_LOG=/var/log/jboss-as/console.log
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$ grep -r "port-offset\|socket-binding" /home/siaoi/jboss-eap-6.4/CSD2/configuration/standalone.xml | head -5
-                <socket-binding native="management-native"/>
-                <socket-binding http="management-http"/>
-                <smtp-server outbound-socket-binding-ref="mail-smtp"/>
-            <connector name="remoting-connector" socket-binding="remoting" security-realm="ApplicationRealm"/>
-            <recovery-environment socket-binding="txn-recovery-environment" status-socket-binding="txn-status-manager"/>
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$ grep -r "port-offset\|socket-binding" /home/siaoi/jboss-eap-6.4/CSD6/configuration/standalone.xml | head -5
-                <socket-binding native="management-native"/>
-                <socket-binding http="management-http"/>
-                <smtp-server outbound-socket-binding-ref="mail-smtp"/>
-            <connector name="remoting-connector" socket-binding="remoting" security-realm="ApplicationRealm"/>
-            <recovery-environment socket-binding="txn-recovery-environment" status-socket-binding="txn-status-manager"/>
--sh-4.2$
+
+netstat -tlnp 2>/dev/null | grep java
