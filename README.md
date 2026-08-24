@@ -1,8 +1,3 @@
+nohup bash -c 'tail -F /logs/jboss/jboss-eap/standalone/sicmu-intranet-update/server.log | while read line; do if echo "$line" | grep -q "ISPN000299"; then echo "Erro detectado em $(date), gerando thread dump..." >> /tmp/dump_monitor.log; kill -3 9952; fi; done' > /tmp/dump_monitor_output.log 2>&1 &
 
-[root@caddeapllx2484 p585600]# which screnn
-/usr/bin/which: no screnn in (/sbin:/bin:/usr/sbin:/usr/bin)
-[root@caddeapllx2484 p585600]# which tmux
-/usr/bin/which: no tmux in (/sbin:/bin:/usr/sbin:/usr/bin)
-[root@caddeapllx2484 p585600]# which nohup
-/bin/nohup
-[root@caddeapllx2484 p585600]#
+ps -ef | grep "tail -F"
