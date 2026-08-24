@@ -1,5 +1,15 @@
-/opt/jboss/jboss-eap/bin/jboss-cli.sh --connect --controller=10.116.89.0:9999
 
-
-:read-children-names(child-type=host)
-/host=sbrdeapllx104_credito:read-attribute(name=host-state)
+-sh-4.2$
+-sh-4.2$  /opt/jboss/jboss-eap/bin/jboos-cli.sh --connect -controller=10.116.89.0:9999
+-sh: /opt/jboss/jboss-eap/bin/jboos-cli.sh: Arquivo ou diretório não encontrado
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$ :read-children-names(child-type=host)
+-sh: erro de sintaxe próximo do `token' não esperado `child-type=host'
+-sh-4.2$ /host=sbrdeapllx104_credito:read-attribute(name=host-state)
+-sh: erro de sintaxe próximo do `token' não esperado `name=host-state'
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
