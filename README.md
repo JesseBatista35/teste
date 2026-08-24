@@ -1,1 +1,15 @@
-Sim, o jboss-deployment-structure.xml do SICMU já declara corretamente as duas dependências (jconnector e sisgr) - isso está correto desde o início, não é o problema. O erro está um nível abaixo: dependência de módulo no JBoss não é transitiva. Mesmo o SICMU enxergando os dois módulos, isso não faz o módulo sisgr enxergar o jconnector internamente - isso só acontece se o sisgr declarar essa dependência no seu próprio module.xml, que é justamente o que estava faltando.
+<sub-deployment name="SICMU-ejb.jar">
+    <dependencies>
+        <module name="br.gov.caixa.psc.jconnector" />
+        <module name="br.gov.caixa.sisgr" />
+        <module name="javax.jms.api" />
+    </dependencies>
+</sub-deployment>
+<sub-deployment name="SICMU-web.war">
+    <dependencies>
+        ...
+        <module name="br.gov.caixa.sisgr" />
+        <module name="br.gov.caixa.psc.jconnector" />
+        ...
+    </dependencies>
+</sub-deployment>
