@@ -1,4 +1,6 @@
-pode ser encontrado abaixo:
+Prezados,
+
+Por gentileza, solicitamos apoio para solucionar o problema de compilação da aplicação legado via GID. O log do erro pode ser encontrado abaixo:
 
 Aguardando Jenkins terminar de coletar dados
 [SINAD] $ /bin/sh -xe /tmp/jenkins4065851206074160558.sh
@@ -28,4 +30,3 @@ Finished: FAILURE
 
 Atenciosamente,
 SUDEA07
-
