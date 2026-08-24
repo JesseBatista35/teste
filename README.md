@@ -1,21 +1,21 @@
+# Ver o padrão de permissão correto no CSD1 (que funciona)
+ls -la /home/jboss-eap-6.4/bin/standaloneCSD1.sh 2>/dev/null
+ls -la /home/jboss-eap-6.4/bin/standaloneCSD6.sh
 
-[root@caddeapllx698 p585600]#
-[root@caddeapllx698 p585600]# ls -la /home/jboss-eap-6.4/bin/standaloneCSD2.sh
--rw-r--r-- 1 root root 3878 Jan 31  2024 /home/jboss-eap-6.4/bin/standaloneCSD2.sh
-[root@caddeapllx698 p585600]#
-[root@caddeapllx698 p585600]#
-[root@caddeapllx698 p585600]#
-[root@caddeapllx698 p585600]# mount | grep "$(df /home/jboss-eap-6.4/bin/standaloneCSD2.sh | tail -1 | awk '{print $1}')"
-/dev/mapper/VG_PRINCIPAL-LV_HOME on /home type xfs (rw,relatime,attr2,inode64,noquota)
-[root@caddeapllx698 p585600]#
-[root@caddeapllx698 p585600]#
-[root@caddeapllx698 p585600]# df -h /home/jboss-eap-6.4/bin/standaloneCSD2.sh
-Filesystem                        Size  Used Avail Use% Mounted on
-/dev/mapper/VG_PRINCIPAL-LV_HOME  104G   54G   51G  52% /home
-[root@caddeapllx698 p585600]#
-[root@caddeapllx698 p585600]#
-[root@caddeapllx698 p585600]# getenforce
-Disabled
-[root@caddeapllx698 p585600]# ls -Z /home/jboss-eap-6.4/bin/standaloneCSD2.sh
--rw-r--r-- root root ?                                /home/jboss-eap-6.4/bin/standaloneCSD2.sh
-[root@caddeapllx698 p585600]#
+# Corrigir permissão de CSD2
+chmod 755 /home/jboss-eap-6.4/bin/standaloneCSD2.sh
+ls -la /home/jboss-eap-6.4/bin/standaloneCSD2.sh
+
+
+chmod 755 /home/jboss-eap-6.4/bin/standaloneCSD6.sh
+
+mkdir -p /var/run/jboss-as /var/log/jboss-as
+cat /dev/null > /var/log/jboss-as/consoleCSD2.log
+LAUNCH_JBOSS_IN_BACKGROUND=1 JBOSS_PIDFILE=/var/run/jboss-as/standaloneCSD2.pid \
+  /home/jboss-eap-6.4/bin/standaloneCSD2.sh -c standaloneCSD2.xml \
+  > /var/log/jboss-as/consoleCSD2.log 2>&1 &
+
+sleep 15
+tail -50 /var/log/jboss-as/consoleCSD2.log
+ps -ef | grep -i CSD2
+
