@@ -1,10 +1,8 @@
-screen -S dump_monitor
 
-
-
-tail -F /logs/jboss/jboss-eap/standalone/sicmu-intranet-update/server.log | while read line; do
-  if echo "$line" | grep -q "ISPN000299"; then
-    echo "Erro detectado em $(date), gerando thread dump..."
-    kill -3 9952
-  fi
-done
+[root@caddeapllx2484 p585600]# which screnn
+/usr/bin/which: no screnn in (/sbin:/bin:/usr/sbin:/usr/bin)
+[root@caddeapllx2484 p585600]# which tmux
+/usr/bin/which: no tmux in (/sbin:/bin:/usr/sbin:/usr/bin)
+[root@caddeapllx2484 p585600]# which nohup
+/bin/nohup
+[root@caddeapllx2484 p585600]#
