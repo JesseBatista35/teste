@@ -1,4 +1,1 @@
-<img width="978" height="343" alt="image" src="https://github.com/user-attachments/assets/19565f9f-123f-4297-b890-8cfe387ca51d" />
-
-
-ele mandou isso aqui
+Esse module.xml (sisgr-1.3, com a correção) já está publicado/versionado em algum repositório ou artefato que a pipeline usa para provisionar a VM? Ou foi aplicado manualmente no servidor, como fizemos aqui? Perguntando porque, se for manual, ainda corremos o risco de perder no próximo destroy - e também: o SICMU aponta para o módulo sisgr sem slot definido (usa o slot "main" por padrão). Esse novo módulo 1.3 será o novo main, ou fica em slot separado? Se for slot separado, pode ser necessário atualizar o jboss-deployment-structure.xml do SICMU também.
