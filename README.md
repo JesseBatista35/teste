@@ -1,49 +1,18 @@
+Diagnóstico:
+Verificado que apenas a instância CSD1 do JBoss estava ativa no ambiente DES do SIAOI. As instâncias CSD2 e CSD6 estavam paradas.
 
-[root@caddeapllx698 p585600]# curl -Ik https://siaoi.des.caixa/csd1/#/login
-HTTP/1.1 200 OK
-Date: Mon, 24 Aug 2026 19:59:12 GMT
-Server: Apache-Coyote/1.1
-Access-Control-Allow-Origin: *
-Access-Control-Allow-Methods: GET, POST, DELETE, PUT, OPTIONS
-Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept, api_key, Authorization
-Access-Control-Allow-Credentials: true
-Access-Control-Expose-Headers: Content-Disposition
-Accept-Ranges: bytes
-ETag: W/"2549-1758655758000"
-Last-Modified: Tue, 23 Sep 2025 19:29:18 GMT
-Content-Type: text/html; charset=UTF-8
-Content-Length: 2549
-Set-Cookie: JSESSIONID=7U2q4DlsWtyMH4SeMLJTUzZM; Path=/siaoi-web
+Causa raiz:
+Os scripts de inicialização de CSD2 e CSD6 (/etc/rc.d/init.d/jboss-eap6-CSD2.sh e jboss-eap6-CSD6.sh) estavam quebrados por múltiplos motivos:
 
-[root@caddeapllx698 p585600]# curl -Ik https://siaoi.des.caixa/csd2/#/login
-HTTP/1.1 200 OK
-Date: Mon, 24 Aug 2026 19:59:12 GMT
-Server: Apache-Coyote/1.1
-Access-Control-Allow-Origin: *
-Access-Control-Allow-Methods: GET, POST, DELETE, PUT, OPTIONS
-Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept, api_key, Authorization
-Access-Control-Allow-Credentials: true
-Access-Control-Expose-Headers: Content-Disposition
-Accept-Ranges: bytes
-ETag: W/"2549-1684349244000"
-Last-Modified: Wed, 17 May 2023 18:47:24 GMT
-Content-Type: text/html; charset=UTF-8
-Content-Length: 2549
-Set-Cookie: JSESSIONID=o79m-Aa7PkPKnFOAgXPs2jUY; Path=/siaoi-web
+O arquivo /etc/jboss-as/jboss-as.conf define JBOSS_HOME=/home/siaoi/jboss-eap-6.4, caminho de uma instalação JBoss diferente da usada por CSD2/CSD6, que na verdade residem em /home/jboss-eap-6.4
+O arquivo standaloneCSD2.sh dentro de bin/ (referenciado pelo script de init) é, na verdade, uma cópia do próprio script de controle, não o launcher real do JBoss, e estava sem permissão de execução
+O unit systemd gerado automaticamente (SysV shim) está com Loaded: bad e falha ao tentar redirecionar a chamada, retornando "Unit not found"
 
-[root@caddeapllx698 p585600]# curl -Ik https://siaoi.des.caixa/csd6/#/login
-HTTP/1.1 200 OK
-Date: Mon, 24 Aug 2026 19:59:13 GMT
-Server: Apache-Coyote/1.1
-Access-Control-Allow-Origin: *
-Access-Control-Allow-Methods: GET, POST, DELETE, PUT, OPTIONS
-Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept, api_key, Authorization
-Access-Control-Allow-Credentials: true
-Accept-Ranges: bytes
-ETag: W/"2549-1674051066000"
-Last-Modified: Wed, 18 Jan 2023 14:11:06 GMT
-Content-Type: text/html; charset=UTF-8
-Content-Length: 2549
-Set-Cookie: JSESSIONID=zM17nUGKDhkXu0jJvAO4T9vc; Path=/siaoi-web
+Ação realizada:
+Os processos JBoss de CSD2 e CSD6 foram iniciados manualmente via standalone.sh, replicando os parâmetros usados pelo CSD1 (node name, base-dir e binding 0.0.0.0), com os port-offsets corretos identificados em cada standaloneCSDx.xml (CSD2=250, CSD6=550). Ambas as instâncias subiram corretamente, com o siaoi.ear deployado com sucesso.
 
-[root@caddeapllx698 p585600]#
+Validação:
+Os três links de login (CSD1, CSD2, CSD6) retornaram HTTP 200 OK.
+
+Pendência para equipe de infraestrutura:
+Os scripts de init de CSD2 e CSD6 precisam de correção definitiva (ajuste do JBOSS_HOME, permissão de execução do launcher, e regeneração/correção da unit systemd), para que voltem a subir automaticamente em caso de reboot do servidor ou de nova parada. Enquanto isso não for corrigido, os processos atuais dependem do start manual realizado nesta sessão.
