@@ -1,19 +1,31 @@
-Prezados,
+pode ser encontrado abaixo:
 
-Concluída a reinstalação do certificado B3 (s-4570-5) no servidor cspdeapllx011 (10.116.95.77) para acesso às APIs do SINCAD.
-
-Ações realizadas:
-
-Validação de integridade do pacote de certificado recebido (hash MD5 conferido).
-Certificado disponibilizado no diretório /opt/keystore/ do servidor (ambiente Linux).
-Conversão do certificado para formato compatível com o keystore utilizado pela aplicação JBoss (instância sinac01).
-Backup do certificado anterior realizado antes da substituição.
-Certificado atualizado no path utilizado pela aplicação (conf/certs/00360305000104.p12), válido de 21/05/2026 a 20/05/2028.
-Instância sinac01 reiniciada com sucesso (boot completo em 34s, sem erros relacionados a certificado/SSL).
-
-Observação: durante o boot foram identificadas falhas de ativação de MDBs (SinacProcessMDB, SinacBatchMDB) por indisponibilidade do gerenciador de filas MQ (SPP5/ACP3.CORESP.CAIXA). Trata-se de questão de infraestrutura de mensageria, sem relação com a atividade de certificado executada, e será tratada separadamente se necessário.
-
-Encerro esta demanda como concluída.
+Aguardando Jenkins terminar de coletar dados
+[SINAD] $ /bin/sh -xe /tmp/jenkins4065851206074160558.sh
+channel stopped
++ /opt/integracao_continua/work/jenkins_script_steps/step_deploy_git.sh
+Local atual: /opt/integracao_continua/jenkins_home/workspace/SINAD
+********
+********
+Extensão do Projeto: ear
+./ear/target/sinad.ear
+file name.....xxx 
+DIR ./ear/target
+yyyyyy ./ear/target/maven-archiver/pom.properties
+basename: falta operando
+Try 'basename --help' for more information.
+Verificando arquivo  ./ear/target/maven-archiver/pom.properties
+versão do arquivo  1.39.1.1
+Implantando sistema: ./ear/target/sinad.ear no servidor: 10.116.89.0:9999 com o nome: SINAD e runtime-name:  sinad-1.39.1.1-b293.ear
+Warning! There were errors trying to load extensions. For more details, please, execute 'extension-commands --errors'
+Undeploy failed: {"host-failure-descriptions" => {"sbrdeapllx104_credito" => "WFLYDC0080: Timed out after 305000 ms awaiting host prepared response(s) -- remote host sbrdeapllx104_credito has been notified to cancel operation"}}
+Publicando arquivo ./ear/target/sinad.ear
+/opt/jboss/jboss-eap/bin/jboss-cli.sh --user=******** --password=******** --connect --controller=10.116.89.0:9999 --command=deploy --server-groups=sinad --name=SINAD --runtime-name=sinad-1.39.1.1-b293.ear ./ear/target/sinad.ear
+Warning! There were errors trying to load extensions. For more details, please, execute 'extension-commands --errors'
+'SINAD' already exists in the deployment repository (use --force to replace the existing content in the repository).
+Build step 'Executar shell' marked build as failure
+Finished: FAILURE
 
 Atenciosamente,
-Jessé Batista - P585600
+SUDEA07
+
