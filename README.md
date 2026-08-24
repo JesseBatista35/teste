@@ -1,40 +1,103 @@
+Skip to main content
+Azure DevOps
+projetos
+/
+Caixa
+/
+Repos
+/
+Files
+/
 
-[root@caddeapllx2484 p585600]# grep -n "non-blocking-thread\|GlobalTransaction\|InfinispanLock\|DefaultLockManager" /logs/jboss/jboss-eap/standalone/sicmu-intranet-update/console-stdout.log | sed -n '132909,133997p'
-[root@caddeapllx2484 p585600]#
-[root@caddeapllx2484 p585600]#
-[root@caddeapllx2484 p585600]#
-[root@caddeapllx2484 p585600]#
-[root@caddeapllx2484 p585600]#
-[root@caddeapllx2484 p585600]#
-[root@caddeapllx2484 p585600]# grep -n "non-blocking-thread" /tmp/dump_recente.txt
-165:"non-blocking-thread--p11-t4" #174 daemon prio=5 os_prio=0 tid=0x00005613c9df9000 nid=0x27a7 waiting on condition [0x00002afa020e8000]
-207:"non-blocking-thread--p11-t3" #170 daemon prio=5 os_prio=0 tid=0x00005613c9501800 nid=0x27a3 waiting on condition [0x00002afa018e4000]
-221:"non-blocking-thread--p11-t2" #169 daemon prio=5 os_prio=0 tid=0x00005613c84f7800 nid=0x27a1 waiting on condition [0x00002afa011e3000]
-362:"non-blocking-thread--p11-t1" #153 daemon prio=5 os_prio=0 tid=0x00005613c457f800 nid=0x2790 waiting on condition [0x00002af9ff8d4000]
-[root@caddeapllx2484 p585600]#
-[root@caddeapllx2484 p585600]#
-[root@caddeapllx2484 p585600]# sed -n '128439,133997p' /logs/jboss/jboss-eap/standalone/sicmu-intranet-update/console-stdout.log > /tmp/todos_ultimos_dumps.txt
-[root@caddeapllx2484 p585600]# grep -n "non-blocking-thread" /tmp/todos_ultimos_dumps.txt | head -20
-220:"non-blocking-thread--p11-t4" #174 daemon prio=5 os_prio=0 tid=0x00005613c9df9000 nid=0x27a7 waiting on condition [0x00002afa020e8000]
-262:"non-blocking-thread--p11-t3" #170 daemon prio=5 os_prio=0 tid=0x00005613c9501800 nid=0x27a3 waiting on condition [0x00002afa018e4000]
-276:"non-blocking-thread--p11-t2" #169 daemon prio=5 os_prio=0 tid=0x00005613c84f7800 nid=0x27a1 waiting on condition [0x00002afa011e3000]
-417:"non-blocking-thread--p11-t1" #153 daemon prio=5 os_prio=0 tid=0x00005613c457f800 nid=0x2790 waiting on condition [0x00002af9ff8d4000]
-1365:"non-blocking-thread--p11-t4" #174 daemon prio=5 os_prio=0 tid=0x00005613c9df9000 nid=0x27a7 waiting on condition [0x00002afa020e8000]
-1407:"non-blocking-thread--p11-t3" #170 daemon prio=5 os_prio=0 tid=0x00005613c9501800 nid=0x27a3 waiting on condition [0x00002afa018e4000]
-1421:"non-blocking-thread--p11-t2" #169 daemon prio=5 os_prio=0 tid=0x00005613c84f7800 nid=0x27a1 waiting on condition [0x00002afa011e3000]
-1562:"non-blocking-thread--p11-t1" #153 daemon prio=5 os_prio=0 tid=0x00005613c457f800 nid=0x2790 waiting on condition [0x00002af9ff8d4000]
-2455:"non-blocking-thread--p11-t4" #174 daemon prio=5 os_prio=0 tid=0x00005613c9df9000 nid=0x27a7 waiting on condition [0x00002afa020e8000]
-2497:"non-blocking-thread--p11-t3" #170 daemon prio=5 os_prio=0 tid=0x00005613c9501800 nid=0x27a3 waiting on condition [0x00002afa018e4000]
-2511:"non-blocking-thread--p11-t2" #169 daemon prio=5 os_prio=0 tid=0x00005613c84f7800 nid=0x27a1 waiting on condition [0x00002afa011e3000]
-2652:"non-blocking-thread--p11-t1" #153 daemon prio=5 os_prio=0 tid=0x00005613c457f800 nid=0x2790 waiting on condition [0x00002af9ff8d4000]
-3545:"non-blocking-thread--p11-t4" #174 daemon prio=5 os_prio=0 tid=0x00005613c9df9000 nid=0x27a7 waiting on condition [0x00002afa020e8000]
-3587:"non-blocking-thread--p11-t3" #170 daemon prio=5 os_prio=0 tid=0x00005613c9501800 nid=0x27a3 waiting on condition [0x00002afa018e4000]
-3601:"non-blocking-thread--p11-t2" #169 daemon prio=5 os_prio=0 tid=0x00005613c84f7800 nid=0x27a1 waiting on condition [0x00002afa011e3000]
-3742:"non-blocking-thread--p11-t1" #153 daemon prio=5 os_prio=0 tid=0x00005613c457f800 nid=0x2790 waiting on condition [0x00002af9ff8d4000]
-4635:"non-blocking-thread--p11-t4" #174 daemon prio=5 os_prio=0 tid=0x00005613c9df9000 nid=0x27a7 waiting on condition [0x00002afa020e8000]
-4677:"non-blocking-thread--p11-t3" #170 daemon prio=5 os_prio=0 tid=0x00005613c9501800 nid=0x27a3 waiting on condition [0x00002afa018e4000]
-4691:"non-blocking-thread--p11-t2" #169 daemon prio=5 os_prio=0 tid=0x00005613c84f7800 nid=0x27a1 waiting on condition [0x00002afa011e3000]
-4832:"non-blocking-thread--p11-t1" #153 daemon prio=5 os_prio=0 tid=0x00005613c457f800 nid=0x2790 waiting on condition [0x00002af9ff8d4000]
-[root@caddeapllx2484 p585600]#
-[root@caddeapllx2484 p585600]#
-[root@caddeapllx2484 p585600]#
+SICMU
+Search
+
+
+Caixa
+
+Overview
+
+Boards
+
+Repos
+Files
+Commits
+Pushes
+Branches
+Tags
+Pull requests
+
+Pipelines
+
+Test Plans
+
+Artifacts
+Project settings
+SICMU
+
+target
+SICMU-web
+WEB-INF
+relatorios
+
+ArquivoConsolidado.jasper
+ArquivoConsolidado.jrxml
+ConsolidadoGeral.jasper
+SubDuplicidadeOperacaoHabit.jasper
+SubDuplicidadeOperacaoHabit.jrxml
+SubExcluirOperacaoHabit.jasper
+SubExcluirOperacaoHabit.jrxml
+SubListarTrilhaResultadoCpfMutuario.jasper
+SubListarTrilhaResultadoCpfMutuario.jrxml
+SubManterPermissãoUsuario.jasper
+SubManterPermissãoUsuario.jrxml
+SubMPAgente.jasper
+SubMPAgente.jrxml
+SubMPArqSaida.jasper
+SubMPArqSaida.jrxml
+SubPosIncluirOperacaoHabit.jasper
+SubPosIncluirOperacaoHabit.jrxml
+SubRelTrilhaAuditoriaTodosAtt.jasper
+SubRelTrilhaAuditoriaTodosAtt.jrxml
+SubSubDetalharOperacaoHabit.jasper
+SubSubDetalharOperacaoHabit.jrxml
+SubSubExcluirOperacaoHabit2.jasper
+SubSubExcluirOperacaoHabit2.jrxml
+TrilhaAuditoria.jasper
+TrilhaAuditoria.jrxml
+TrilhaAuditoriaIdContrato.jasper
+TrilhaAuditoriaIdContrato.jrxml
+TrilhaAuditoriaTodosAtt.jasper
+TrilhaAuditoriaTodosAtt.jrxml
+.classpath
+.gitignore
+.project
+pom.xml
+.project
+pom.xml
+.project
+SUPORTE.md
+
+desenv-java8
+
+/
+SICMU
+/
+SICMU-web
+/
+target
+/
+SICMU-web
+/
+WEB-INF
+WEB-INF
+
+New
+
+Contents
+History
+
+relatorios
+3 de abr. de 2024
+0b78a78e
+acerto consulta configuracao por tipo somente f664854
