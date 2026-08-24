@@ -1,9 +1,2 @@
-Prezados,
+<img width="1862" height="973" alt="image" src="https://github.com/user-attachments/assets/1bf5caf7-ec18-457a-acca-a0627dbd5edd" />
 
-O travamento no deploy do SINAD (timeout no host sbrdeapllx104_credito) foi resolvido através de reinicialização do Domain Controller.
-
-Solicitamos que a equipe da aplicação realize nova tentativa de deploy via Jenkins.
-
-Ficamos no aguardo de retorno em caso de nova falha.
-
-Jessé Batista, CTIS/CESTI — Esteira DevOps DES TQS NPRD
