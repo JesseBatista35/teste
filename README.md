@@ -1,6 +1,15 @@
-Analisar o ambiente DevOps (esteira pipeline) associada ao sistema sicmu-intranet-update em DES, pois, ao se tentar acionar qualquer funcionalidade do menu do SICMU, aparece a seguinte msg (ou a tela fica em branco e cai por time-out):
+Pessoal, bom dia.
 
-"
-Parece que há um problema neste site
+Aproveitando para separar dois pontos que estão sendo discutidos aqui na sala, para não misturarmos os atendimentos:
 
-https://sicmu-intranet-update.esteiras.des.caixa/sicmu/paginas/operacaoHabitacional/identificarOperacaoHabit.jsf?SGR_CERTIFICACAO=040241211140&SGR_UNIDADE=5088&SGR_TIPO_CREDENCIAL=9998&SGR_CODIGO_CREDENCIAL=C048546&SGR_SIGLA_USUARIO=C048546&SGR_NOME_USUARIO=MARCELO LUCINDO DE SOUZA&SGR_TIPO_AMBIENTE=W&SGR_SIGLA_AMBIENTE=W0000001&SGR_TIPO_EMPRESA=&SGR_TIPO_ENTIDADE=&SGR_TIPO_IDENTIFICADOR_ENTIDADE=&SGR_IDENTIFICADOR_EMPRESA=&SGR_IDENTIFICADOR_ENTIDADE=&SGR_EXECUTAVEL=identificarOperacaoHabit.jsf&SGR_NIVEL_ACESSO=99&SGR_NIVEL_AUTENTICACAO=99&SGR_SISTEMA=CMU&SGR_PROCESSO=010001&SGR_PARAMPRIVADO=&SGR_EMAIL_SISUR=&SGR_DATA_CERTIFICADO=&SGR_ESTAGIO_AMBIENTE=DESENVOLVIMENTO&SGR_IP=10.211.24.177&SGR_ESTACAO=&sgrcert=040241211140&sgrunid=5088&sgrnome=MARCELO LUCINDO DE
+1. Erro do JConnector no SISGR (module.xml)
+
+Esse ponto já foi identificado e o ajuste (inclusão da dependência do módulo jconnector) já foi aplicado manualmente, direto no servidor. A correção funciona, mas é temporária: como foi feita direto na VM e não está persistida em nenhum lugar da pipeline, se a VM passar por um destroy/recriação, a alteração se perde e o erro volta a acontecer. Esse ponto já está encaminhado para que a correção seja aplicada na origem do módulo SISGR, de forma definitiva - assunto já de conhecimento de vocês.
+
+2. REQ que estou atendendo agora
+
+É um problema diferente, que já vínhamos investigando separadamente: ao acionar funcionalidades do menu do SICMU, a tela fica em branco ou cai por timeout. A causa identificada é uma contenção de lock no cache de sessões (Infinispan), erro ISPN000299 - uma transação trava o lock de uma sessão específica e bloqueia todas as tentativas de acesso seguintes, até o lock ser liberado.
+
+O padrão é intermitente (ocorre em rajadas ao longo do dia), então já deixamos um monitoramento automático rodando no servidor, que vai capturar o thread dump exatamente no momento da próxima ocorrência - isso vai nos permitir identificar qual transação está retendo o lock e travando o acesso.
+
+Seguimos atualizando conforme avançarmos nas duas frentes.
