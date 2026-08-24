@@ -1,14 +1,94 @@
-# Tentar ss em vez de netstat (não depende tanto de privilégio)
-ss -tln | grep -E ":86|:87|:99|:47"
-
-# Verificar se há arquivo de env específico por instância (padrão comum: /etc/jboss-as/jboss-as-CSD2.conf ou similar)
-find / -iname "*CSD2*" -not -path "/home/siaoi/jboss-eap-6.4/CSD2/*" 2>/dev/null
-find / -iname "*CSD6*" -not -path "/home/siaoi/jboss-eap-6.4/CSD6/*" 2>/dev/null
-
-# Verificar histórico do usuário siaoi, se acessível
-cat /home/siaoi/.bash_history 2>/dev/null | grep -i "port-offset\|CSD"
-
-# Verificar se há um crontab ou script de boot que referencia todos os nodes com seus offsets
-crontab -l -u root 2>/dev/null | grep -i jboss
-ls -la /etc/cron.d/ 2>/dev/null | grep -i jboss
-cat /etc/rc.local 2>/dev/null | grep -i jboss
+-sh-4.2$ ss -tln | grep -E ":86|:87|:99|:47"
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$ find / -iname "*CSD2*" -not -path "/home/siaoi/jboss-eap-6.4/CSD2/*" 2>/dev/null
+/home/Programas/jboss-eap-6.4/bin/standaloneCSD2.sh
+/home/Programas/jboss-eap-6.4/standaloneCSD2
+/home/Programas/jboss-eap-6.4/standaloneCSD2/configuration/standalone_xml_history/standaloneCSD2.boot.xml
+/home/Programas/jboss-eap-6.4/standaloneCSD2/configuration/standalone_xml_history/standaloneCSD2.initial.xml
+/home/Programas/jboss-eap-6.4/standaloneCSD2/configuration/standalone_xml_history/standaloneCSD2.last.xml
+/home/Programas/jboss-eap-6.4/standaloneCSD2/configuration/standaloneCSD2.xml.tmp
+/home/Programas/jboss-eap-6.4/standaloneCSD2/configuration/standaloneCSD2.xml
+/home/Programas/jboss-eap-6.4/standaloneCSDB/configuration/standaloneCSDB.CSD2.xml
+/home/Programas/jboss-eap-6.4/standaloneTQS3/configuration/standalone_xml_history/standaloneCSD2.boot.xml
+/home/Programas/jboss-eap-6.4/standaloneTQS3/configuration/standalone_xml_history/standaloneCSD2.initial.xml
+/home/Programas/jboss-eap-6.4/standaloneTQS3/configuration/standalone_xml_history/standaloneCSD2.last.xml
+/home/jboss-eap-6.4/bin/standaloneCSD2.sh
+/home/jboss-eap-6.4/standaloneCSD2
+/home/jboss-eap-6.4/standaloneCSD2/configuration/standalone_xml_history/standaloneCSD2.boot.xml
+/home/jboss-eap-6.4/standaloneCSD2/configuration/standalone_xml_history/standaloneCSD2.initial.xml
+/home/jboss-eap-6.4/standaloneCSD2/configuration/standalone_xml_history/standaloneCSD2.last.xml
+/home/jboss-eap-6.4/standaloneCSD2/configuration/standaloneCSD2.xml
+/home/jboss-eap-6.4/standaloneCSDB/configuration/standaloneCSDB.CSD2.xml
+/home/jboss-eap-6.4/standaloneTQS3/configuration/standalone_xml_history/standaloneCSD2.boot.xml
+/home/jboss-eap-6.4/standaloneTQS3/configuration/standalone_xml_history/standaloneCSD2.initial.xml
+/home/jboss-eap-6.4/standaloneTQS3/configuration/standalone_xml_history/standaloneCSD2.last.xml
+/home/siaoi/jboss-eap-6.4/CSD2
+/logs/apache/siaoi-csd2.caixa-error.log
+/logs/apache/siaoi-csd2.caixa-access.log
+/opt/httpd/conf.d/.vhost-csd2.conf.20251103211155.a736514
+/opt/httpd/conf.d/.vhost-csd2.conf.20251103221147.a736514
+/opt/httpd/conf.d/.vhost-csd2.conf.20251103211134.a736514
+/opt/httpd/conf.d/.vhost-csd2.conf.20251103221138.a736514
+/opt/httpd/conf.d/.vhost-csd2.conf.20251103221137.a736514
+/run/systemd/generator.late/jboss-eap6-teste-CSD2.service
+/run/systemd/generator.late/jboss-eap6-CSD2.service
+/run/systemd/generator.late/runlevel5.target.wants/jboss-eap6-CSD2.service
+/run/systemd/generator.late/runlevel4.target.wants/jboss-eap6-CSD2.service
+/run/systemd/generator.late/runlevel3.target.wants/jboss-eap6-CSD2.service
+/run/systemd/generator.late/runlevel2.target.wants/jboss-eap6-CSD2.service
+/var/log/jboss-as/consoleCSD2.log
+/etc/rc.d/init.d/jboss-eap6-CSD2.sh
+/etc/rc.d/init.d/.jboss-eap6-CSD2.sh.swn
+/etc/rc.d/init.d/.jboss-eap6-CSD2.sh.swo
+/etc/rc.d/init.d/jboss-eap6-teste-CSD2.sh
+/etc/rc.d/rc2.d/S80jboss-eap6-CSD2.sh
+/etc/rc.d/rc3.d/S80jboss-eap6-CSD2.sh
+/etc/rc.d/rc4.d/S80jboss-eap6-CSD2.sh
+/etc/rc.d/rc5.d/S80jboss-eap6-CSD2.sh
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$ find / -iname "*CSD6*" -not -path "/home/siaoi/jboss-eap-6.4/CSD6/*" 2>/dev/null
+/home/Programas/jboss-eap-6.4/bin/init.d/jboss-as-standalone_CSD6.sh
+/home/Programas/jboss-eap-6.4/bin/standaloneCSD6.sh
+/home/Programas/jboss-eap-6.4/standaloneCSD6
+/home/Programas/jboss-eap-6.4/standaloneCSD6/configuration/standalone_xml_history/standaloneCSD6.boot.xml
+/home/Programas/jboss-eap-6.4/standaloneCSD6/configuration/standalone_xml_history/standaloneCSD6.initial.xml
+/home/Programas/jboss-eap-6.4/standaloneCSD6/configuration/standalone_xml_history/standaloneCSD6.last.xml
+/home/Programas/jboss-eap-6.4/standaloneCSD6/configuration/standalone_xml_history/20200707-131124984/standaloneCSD6.v1.xml
+/home/Programas/jboss-eap-6.4/standaloneCSD6/configuration/standaloneCSD6.xml
+/home/Programas/jboss-eap-6.4/standaloneCSD6/log.old/csd6
+/home/jboss-eap-6.4/bin/init.d/jboss-as-standalone_CSD6.sh
+/home/jboss-eap-6.4/standaloneCSD6
+/home/jboss-eap-6.4/standaloneCSD6/configuration/standalone_xml_history/standaloneCSD6.boot.xml
+/home/jboss-eap-6.4/standaloneCSD6/configuration/standalone_xml_history/standaloneCSD6.initial.xml
+/home/jboss-eap-6.4/standaloneCSD6/configuration/standalone_xml_history/standaloneCSD6.last.xml
+/home/jboss-eap-6.4/standaloneCSD6/configuration/standaloneCSD6.xml
+/home/siaoi/jboss-eap-6.4/CSD6
+/logs/apache/siaoi-csd6.caixa-error.log
+/logs/apache/siaoi-csd6.caixa-access.log
+/opt/httpd/conf.d/.vhost-csd6.conf.20251103221102.a736514
+/opt/httpd/conf.d/.vhost-csd6.conf.20251103221101.a736514
+/opt/httpd/conf.d/.vhost-csd6.conf.20251103221128.a736514
+/opt/httpd/conf.d/.vhost-csd6.conf.20251103211146.a736514
+/run/systemd/generator.late/jboss-eap6-CSD6.service
+/run/systemd/generator.late/runlevel5.target.wants/jboss-eap6-CSD6.service
+/run/systemd/generator.late/runlevel4.target.wants/jboss-eap6-CSD6.service
+/run/systemd/generator.late/runlevel3.target.wants/jboss-eap6-CSD6.service
+/run/systemd/generator.late/runlevel2.target.wants/jboss-eap6-CSD6.service
+/var/log/jboss-as/consoleCSD6.log
+/etc/rc.d/init.d/jboss-eap6-CSD6.sh
+/etc/rc.d/rc2.d/S80jboss-eap6-CSD6.sh
+/etc/rc.d/rc3.d/S80jboss-eap6-CSD6.sh
+/etc/rc.d/rc4.d/S80jboss-eap6-CSD6.sh
+/etc/rc.d/rc5.d/S80jboss-eap6-CSD6.sh
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$ cat /home/siaoi/.bash_history 2>/dev/null | grep -i "port-offset\|CSD"
+-sh-4.2$ crontab -l -u root 2>/dev/null | grep -i jboss
+-sh-4.2$ ls -la /etc/cron.d/ 2>/dev/null | grep -i jboss
+-sh-4.2$ cat /etc/rc.local 2>/dev/null | grep -i jboss
+-sh-4.2$
