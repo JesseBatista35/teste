@@ -1,31 +1,12 @@
-acabei de receber outra deamnda :
+Direcionamento de demanda
 
+Equipe responsável: CETEL / Redes
 
-Estou com problema no github, ele não carrega algumas informações e recursos, isso está me impossibilitando de ajudar o pessoal em code review e também aplicar os PR.
+Motivo: Falha de carregamento no GitHub Enterprise para empregados usuários de Mac. Já há 2 ocorrências reportadas com a mesma causa raiz:
 
-Investigando no Copilot cheguei nesse resultado:
+Caso 1: página do PR não carrega.
+Caso 2: página principal carrega, mas componentes dinâmicos de Pull Request (code review, aplicação de PR) ficam em loading infinito. Investigação já realizada pelo usuário (via Copilot) descartou DNS, SSL e apontou HTTP 200 nos requests, com erro no DevTools: Loading chunk failed after 3 retries, originado de github.githubassets.com.mcas.ms, com stacktrace envolvendo inline.cdn.mcas.ms/proxyweb/js-wrapper.js. Testado em Safari e Edge, mesmo comportamento.
 
-COPILOT
+Causa identificada: proxy corporativo Microsoft Defender for Cloud Apps (MCAS) está reescrevendo as URLs dos assets/módulos JS carregados dinamicamente pela aplicação do GitHub, o que impede o carregamento dos chunks. Não é falha da aplicação nem do repositório.
 
-GitHub Enterprise acessado via MAC apresenta carregamento infinito em componentes de Pull Request apenas neste Mac.
-
-Investigação realizada:
-
--Safari e Edge apresentam o mesmo comportamento.
--DNS e SSL validados.
--Requests retornam HTTP 200.
-
-DevTools registra erro:
-TypeError: Loading chunk 38963 failed after 3 retries
-
-Originado de:
-github.githubassets.com.mcas.ms/assets/...
-
-Stacktrace envolve:
-inline.cdn.mcas.ms/proxyweb/js-wrapper.js
-
-A página principal do PR é renderizada, porém componentes dinâmicos permanecem em loading infinito.
-
-
-
-é o mesmo caso?
+Ação solicitada: Verificar política de reescrita/exclusão de domínio no MCAS para github.com e domínios associados (githubassets.com, cdn.mcas.ms), já que o impacto está afetando produtividade em code review e aplicação de PRs.
