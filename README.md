@@ -17,7 +17,7 @@ name: CI/CD Workflow Generic
 # Nome dinâmico da execução, útil para rastreamento e auditoria                 #
 # ============================================================================= #
 
-run-name: ${{ github.repository }}_${{ github.ref_name }}_${{ github.run_id }}.${{ github.run_number }}
+run-name: __.
 
 # ========================================================================================================================== #
 # Eventos que disparam o workflow                                                                                            #
@@ -84,8 +84,7 @@ permissions:
 # ====================================================================================================================================================== #
 
 jobs:
-  CI_DES:
-    if: github.ref_name == 'develop'
+  Generic-Solution:
     name: CI_DES
     uses: caixagithub/DevSecOps-Solutions/.github/workflows/generic-pipelines.yaml@main
     secrets: inherit
@@ -93,11 +92,162 @@ jobs:
       DEPLOY_ENVIRONMENTS: '["DES"]'
       IMPORT_APIM: false
 
-  CI_PRD:
-    if: github.ref_name == 'main'
-    name: CI_PRD
-    uses: caixagithub/DevSecOps-Solutions/.github/workflows/generic-pipelines.yaml@main
-    secrets: inherit
-    with:
-      DEPLOY_ENVIRONMENTS: '["DES","PRD"]'
-      IMPORT_APIM: false      
+
+
+
+      caixa-base-chart:
+
+#-------#
+# IMAGE #
+#-------#
+
+  image:
+    # variavel de imagem do tipo de aplicação
+    repository: acrcentralcaixanprd.azurecr.io/sigos/backend-processamento-arquivos/sigos-backend-processamento-arquivos
+    tag: "32857504712"
+    pullPolicy: Always
+
+#-----#
+# HPA #
+#-----#
+  replicaCount: 1
+
+  autoscaling:
+    enabled: false
+    minReplicas: 1
+    maxReplicas: 3
+    targetCPUUtilizationPercentage: 85
+    targetMemoryUtilizationPercentage: 85
+
+#-----------------#
+# ROLLING UPDATE STRATEGY #
+#-----------------#
+
+  strategy:
+    maxSurge: 25%
+    maxUnavailable: 50%
+
+
+#-----------#
+#  SERVICE  #
+#-----------#
+  
+  service:
+    type: "ClusterIP"
+    ports:
+      - name: "port"
+        protocol: TCP
+        port: 80
+        targetPort: 8080
+
+#---------#
+# INGRESS #
+#---------#
+  istio:  
+    - name: internal
+      enabled: true
+      servers:
+      - port:
+          number: 80
+          name: http-default
+          protocol: HTTP
+        hosts:
+        - "sigos-backend-processamento-arquivos.apl.tqs.private.azure"
+      - port:
+          number: 443
+          name: https-custom
+          protocol: HTTPS
+        tls:
+          mode: SIMPLE
+          credentialName: akvs-sigos-backend-processamento-arquivos-tqs-caixa-certificate # Nome do secret do certificado
+        hosts:
+          - sigos-backend-processamento-arquivos.tqs.caixa
+      prefix:
+        - /
+      targetPort: 80 
+  
+#-------------#
+#  RESOURCES  #
+#-------------#
+
+  resources:
+    requests:
+      cpu: 250m
+      memory: 256Mi
+    limits:
+      cpu: 500m
+      memory: 512Mi
+
+
+#----------#
+#  PROBES  #
+#----------#
+
+  probes:  
+    enabled: true
+    useDefaults: false  
+    livenessProbe: 
+      initialDelaySeconds: 120
+      periodSeconds: 15
+      failureThreshold: 10
+      successThreshold: 1
+      httpGet:
+        path: /q/health/live     
+        port: 8080
+    readinessProbe: 
+      initialDelaySeconds: 120
+      periodSeconds: 15
+      failureThreshold: 3
+      successThreshold: 1
+      httpGet:
+        path: /q/health/ready     
+        port: 8080
+
+
+#-------------#
+#  CONFIGMAP  #
+#-------------#
+
+  configMapRefs:
+    - name: cm-sigos-backend-processamento-arquivos-tqs
+#---------------#
+#  TOLERATIONS  #
+#---------------#
+
+  tolerations:
+    - key: "kubernetes.azure.com/scalesetpriority"
+      effect: "NoSchedule"
+      operator: "Equal"
+      value: "spot"
+    - key: "nuvem.caixa/nodepoolname"
+      effect: "NoSchedule"
+      operator: "Equal"
+      value: "appmcmv"
+
+#-------------# 
+#   SECRETS   # 
+#-------------# 
+
+#  secretRefs:
+#  env:
+#    - name: <NOME_DA_VARIAVEL_NA_APLICACAO>
+#      value: akvs-sigos-backend-processamento-arquivos@azurekeyvault
+  env:
+    - name: KEYCLOAKSECRET
+      value: akvs-keycloak-secret-tqs@azurekeyvault
+    - name: APIKEYCLIENTID
+      value: akvs-api-key-client-id-tqs@azurekeyvault 
+    - name: APIKEYCLIENTSECRET
+      value: akvs-api-key-client-secret-tqs@azurekeyvault 
+    - name: DBHOST 
+      value: mssqlsrv-mcmv-nprd.database.windows.net 
+    - name: DBPORT
+      value: "1433" 
+    - name: DBNAME 
+      value: mssqldb-tqs-01-mcmv-nprd
+    - name: DBUSER 
+      value: azurelocaladmin
+    - name: DBPASSWORD 
+      value: akvs-mssqlsrv-sigos-tqs-key@azurekeyvault
+    - name: STORAGECONNECTIONSTRING
+      value: akvs-azure-storage-connection-string-tqs@azurekeyvault
