@@ -1,63 +1,47 @@
+Os pools de nós fornecem espaço para aplicações a serem executadas. Os pools de nós de diferentes tipos podem ser adicionados ao cluster para lidar com uma variedade de cargas de trabalho, os pools de nós existentes podem ser dimensionados e atualizados, ou pools de nós que não são mais necessários podem ser excluídos. Cada pool de nós conterá nós apoiados por máquinas virtuais. Saiba mais sobre os pools de nós
+Solucionar problemas evento de aviso NotTriggerScaleUp
+evento de aviso de NotTriggerScaleUp com a mensagem 'pod didn't trigger scale-up: 4 node(s) had untoler...'
 
-aks-mcmv-nprd | Pools de nós
-Serviço do Kubernetes
-Pesquisar
-
-Visão geral
-Log de atividade
-IAM (Controle de acesso)
-Marcações
-Monitor (Insights)
-Diagnosticar e resolver problemas
-Microsoft Defender para Nuvem
-Análise de custo
-Visualizador de recursos
-
-Recursos do Kubernetes
-Namespaces
-Cargas de trabalho
-Serviços e entradas
-Políticas de rede
-Armazenamento
-Configuração
-Recursos personalizados
-Eventos
-Executar comando
-Helm (versão prévia)
-
-Configurações
-Pools de nós
-Atualizações
-Configuração de segurança
-Colocação em escala de aplicativos
-Rede
-Extensões + aplicativos
-Backup
-Malha de serviço – Istio
-IA/ML (versão prévia)
-Malha de Serviço Aberto
-GitOps
-Implantações automatizadas
-Políticas
-Conector de serviço
-Propriedades
-Bloqueios
-
-Monitoramento
-Alertas
-Métrica
-Configurações de diagnóstico
-Recomendações do supervisor
-Logs
-Pastas de trabalho
-Painéis com Grafana
-
-Automação
-CLI / PS
-Tarefas
-Exportar modelo
-
-Ajuda
-Adicione ou remova favoritos pressionando Ctrl+Shift+F
-
-
+Solucionar problemas
+Eventos de dimensionamento automático
+7
+Avisos de dimensionamento automático
+0
+Escala vertical não disparada
+7
+appmcmv
+Bem-sucedido
+Em execução
+Escala automática
+1
+1
+Nenhuma atividade de escala
+Usuário
+Ubuntu Linux
+websitemcmv
+Bem-sucedido
+Em execução
+Escala automática
+2
+2
+Nenhuma atividade de escala
+Usuário
+Ubuntu Linux
+infra
+Bem-sucedido
+Em execução
+Escala automática
+1
+1
+Nenhuma atividade de escala
+Usuário
+Ubuntu Linux
+system
+Bem-sucedido
+Em execução
+Escala automática
+1
+1
+Nenhuma atividade de escala
+Sistema
+Ubuntu Linux
