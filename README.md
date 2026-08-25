@@ -1,190 +1,174 @@
-	https://github.com/caixagithub/sigos-backend-processamento-arquivos
-Selecione a sua Comunidade*:	Fundos de Governo
-Formas de contato*:	teams - c101476
-Descrição da necessidade*:	  ENVIRONMENT_LOWER=des
-  APP_NAME_LOWER=sigos-backend-processamento-arquivos
-  Falha ao obter Application ou erro retornado:
-  {"error":"permission denied","code":7,"message":"permission denied"}
-  Error: Process completed with exit code 1.
 
 
-o erro inicial foi resolvido com o cluster aks correto:
+sigos-backend-processamento-arquivos-infranprd/des
+/Chart.yaml
 
-aks-mcmv-nprd
 
-porem agora ta dando esse erro,
+apiVersion: v2
+name: caixa-base-chart
+description: A Helm chart for Kubernetes
 
-Argo
-v2.14.21+206a6ee
-Argo
-Applications
-Settings
-User Info
-Documentation
-Resource filters
-NAME
-NAME
-KINDS
-KINDS
-SYNC STATUS
-Synced
-11
-OutOfSync
-0
-HEALTH STATUS
-Progressing
-2
-Suspended
-0
-Healthy
-1
-Degraded
-1
-Missing
-0
-Unknown
-0
-NAMESPACES
-NAMESPACES
-Show Orphaned
-Applications
- sigos-backend-processamento-arquivos-des
-Application Details List
-Log out
-APP HEALTH 
- Degraded
-SYNC STATUS 
+type: application
 
- Synced
-to HEAD (7b45a46)
-Auto sync is enabled.
-Author:
-ansible-connect-emu[bot] <230244411+ansible-connect-emu[bot]@users.noreply.github.com> -
-Comment:
-Merge pull request #3 from caixagithub/update-image-sigos-backen
-LAST SYNC 
+version: 1.0.0
 
- Sync OK
-to 7b45a46
-Succeeded 10 minutes ago (Tue Aug 25 2026 12:41:57 GMT-0300)
-Author:
-ansible-connect-emu[bot] <230244411+ansible-connect-emu[bot]@users.noreply.github.com> -
-Comment:
-Merge pull request #3 from caixagithub/update-image-sigos-backen
-APP CONDITIONS
- 1 Warning
-Previous12Next
-Items per page: 10 
-NAME
-GROUP/KIND
-SYNC ORDER
-NAMESPACE
-CREATED AT
-STATUS
-Pod
-pod
-sigos-backend-processamento-arquivos-des-5969d6f7c8-d2svv
-Pod
--
-sigos-backend-processamento-arquivos
-18 minutes ago   08/25/26
- Progressing  
-G
-gateway
-sigos-backend-processamento-arquivos-des-internal
-networking.istio.io/Gateway
--
-sigos-backend-processamento-arquivos
-18 minutes ago   08/25/26
- Synced
-ConfigMap
-cm
-cm-sigos-backend-processamento-arquivos-des
-ConfigMap
--
-sigos-backend-processamento-arquivos
-18 minutes ago   08/25/26
- Synced
-Endpoints
-ep
-sigos-backend-processamento-arquivos-des
-Endpoints
--
-sigos-backend-processamento-arquivos
-18 minutes ago   08/25/26
-Secret
-secret
-akv2k8s-sigos-backend-processamento-arquivos-des
-Secret
--
-sigos-backend-processamento-arquivos
-18 minutes ago   08/25/26
-Service
-svc
-sigos-backend-processamento-arquivos-des
-Service
--
-sigos-backend-processamento-arquivos
-18 minutes ago   08/25/26
- Healthy   Synced
-Deployment
-deploy
-sigos-backend-processamento-arquivos-des
-apps/Deployment
--
-sigos-backend-processamento-arquivos
-18 minutes ago   08/25/26
- Degraded   Synced
-ReplicaSet
-rs
-sigos-backend-processamento-arquivos-des-5969d6f7c8
-apps/ReplicaSet
--
-sigos-backend-processamento-arquivos
-18 minutes ago   08/25/26
- Progressing  
-EndpointSlice
-endpointslice
-sigos-backend-processamento-arquivos-des-rfhqj
-discovery.k8s.io/EndpointSlice
--
-sigos-backend-processamento-arquivos
-18 minutes ago   08/25/26
-VS
-virtualservice
-sigos-backend-processamento-arquivos-des-internal
-networking.istio.io/VirtualService
--
-sigos-backend-processamento-arquivos
-18 minutes ago   08/25/26
- Synced
-Previous12Next
-Items per page: 10 
+appVersion: "1.16.0"
 
-Podpod
-sigos-backend-processamento-arquivos-des-5969d6f7c8-d2svv
- SUMMARY EVENTS LOGS
-REASON
-MESSAGE
-COUNT
-FIRST OCCURRED
-LAST OCCURRED
-NotTriggerScaleUp
-pod didn't trigger scale-up: 4 node(s) had untolerated taint(s)
-91
-17m ago
-Today at 12:33 PM
-2m ago
-Today at 12:49 PM
-FailedScheduling
-0/5 nodes are available: 5 node(s) had untolerated taint(s). no new claims to deallocate, preemption: 0/5 nodes are available: 5 Preemption is not helpful for scheduling.
-12m ago
-Today at 12:39 PM
-12m ago
-Today at 12:39 PM
-FailedScheduling
-0/5 nodes are available: 5 node(s) had untolerated taint(s). no new claims to deallocate, preemption: 0/5 nodes are available: 5 Preemption is not helpful for scheduling.
-17m ago
-Today at 12:33 PM
-17m ago
-Today at 12:33 PM
+dependencies:
+   - name: caixa-base-chart
+     version: 1.1.9
+     repository: oci://acrportalidpprd.azurecr.io/helm
+
+
+sigos-backend-processamento-arquivos-infranprd/des
+/values.yaml
+
+
+	 caixa-base-chart:
+
+#-------#
+# IMAGE #
+#-------#
+
+  image:
+    # variavel de imagem do tipo de aplicação
+    repository: acrcentralcaixanprd.azurecr.io/sigos/backend-processamento-arquivos/sigos-backend-processamento-arquivos
+    tag: "32857504712"
+    pullPolicy: Always
+
+#-----#
+# HPA #
+#-----#
+  replicaCount: 1
+
+  autoscaling:
+    enabled: false
+    minReplicas: 1
+    maxReplicas: 3
+    targetCPUUtilizationPercentage: 85
+    targetMemoryUtilizationPercentage: 85
+
+#-----------------#
+# ROLLING UPDATE STRATEGY #
+#-----------------#
+
+  strategy:
+    maxSurge: 25%
+    maxUnavailable: 50%
+
+
+#-----------#
+#  SERVICE  #
+#-----------#
+  
+  service:
+    type: "ClusterIP"
+    ports:
+      - name: "port"
+        protocol: TCP
+        port: 80
+        targetPort: 8080
+
+#---------#
+# INGRESS #
+#---------#
+  istio:  
+    - name: internal
+      enabled: true
+      servers:
+      - port:
+          number: 80
+          name: http-default
+          protocol: HTTP
+        hosts:
+        - "sigos-backend-processamento-arquivos.apl.des.private.azure"
+      - port:
+          number: 443
+          name: https-custom
+          protocol: HTTPS
+        tls:
+          mode: SIMPLE
+          credentialName: akvs-sigos-backend-processamento-arquivos-des-certificate # Nome do secret do certificado
+        hosts:
+          - sigos-backend-processamento-arquivos.des.caixa
+      prefix:
+        - /
+      targetPort: 80 
+  
+#-------------#
+#  RESOURCES  #
+#-------------#
+
+  resources:
+    requests:
+      cpu: 250m
+      memory: 256Mi
+    limits:
+      cpu: 500m
+      memory: 512Mi
+
+
+#----------#
+#  PROBES  #
+#----------#
+
+  probes:  
+    enabled: true
+    useDefaults: false  
+    livenessProbe: 
+      initialDelaySeconds: 120
+      periodSeconds: 15
+      failureThreshold: 10
+      successThreshold: 1
+      httpGet:
+        path: /q/health/live     
+        port: 8080
+    readinessProbe: 
+      initialDelaySeconds: 120
+      periodSeconds: 15
+      failureThreshold: 3
+      successThreshold: 1
+      httpGet:
+        path: /q/health/ready     
+        port: 8080
+
+
+#-------------#
+#  CONFIGMAP  #
+#-------------#
+
+  configMapRefs:
+    - name: cm-sigos-backend-processamento-arquivos-des
+#---------------#
+#  TOLERATIONS  #
+#---------------#
+
+  tolerations:
+    - key: "kubernetes.azure.com/scalesetpriority"
+      effect: "NoSchedule"
+      operator: "Equal"
+      value: "spot"
+    - key: "nuvem.caixa/nodepoolname"
+      effect: "NoSchedule"
+      operator: "Equal"
+      value: "node"
+
+#-------------# 
+#   SECRETS   # 
+#-------------# 
+
+#  secretRefs:
+#  env:
+#    - name: <NOME_DA_VARIAVEL_NA_APLICACAO>
+#      value: akvs-sigos-backend-processamento-arquivos@azurekeyvault
+  env:
+    - name: KEYCLOAKSECRET
+      value: akvs-keycloak-secret-des@azurekeyvault
+    - name: APIKEYCLIENTID
+      value: akvs-api-key-client-id-des@azurekeyvault 
+    - name: APIKEYCLIENTSECRET
+      value: akvs-api-key-client-secret-des@azurekeyvault
+    - name: DBPASSWORD 
+      value: akvs-mssqlsrv-sigos-des-key@azurekeyvault
+    - name: STORAGECONNECTIONSTRING
+      value: akvs-azure-storage-connection-string-des@azurekeyvault
