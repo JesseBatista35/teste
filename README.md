@@ -1,10 +1,31 @@
-Peguei a REQ000145446658 (continuação) — criação de nova instância JBoss EAP 7.4 nos servidores 10.192.222.70 e 10.192.222.72 (SIPCS, ambiente DES), pros domínios des, tqs, pre e rel, seguindo o padrão DC+HC na .70 e HC na .72.
-
-Levantei os processos via ps -ef nos dois servidores e confirmei que todos os IPs de management já estão ocupados pelas versões 6.4 e 7.0 (ex: 7.0 usa .237/.238 pra des, .246/.247 pra tqs, etc). Pra criar a 7.4 vou precisar de IPs novos — 8 na .70 (DC+HC × 4 domínios) e 4 na .72 (HC × 4 domínios), total 12 IPs novos na subnet 10.192.222.x.
-
-O Diego (quem abriu a demanda) não informou os IPs e acho que ele não tem essa info. Antes de eu formalizar uma solicitação pra equipe de Rede, queria confirmar contigo:
-
-Isso realmente precisa ir pra Rede, ou a gente (esteira) tem algum range/pool já reservado pra esses servidores que eu possa usar diretamente?
-Se for pra Rede mesmo, tem algum fluxo/formulário específico que vocês costumam usar pra esse tipo de pedido, ou minha nota "solta" no WO resolve?
-
-Valeu!
+opa
+ 
+bom dia
+ 
+deixa eu ler aqui
+ 
+Jesse Mouta Pereira Batista, tem que ser nesses 10.192.222.70 e 10.192.222.72 ? É da equipe ja?
+ 
+seguinte... a gente solicita isso pra equipe de INFRA disponibilizar, e nós somos aplicação. Geralmente quem atende esse tipo de serviço ai é O Jonathan da Silva Conceição. 
+ 
+"Solicitamos a instalação do EAP 7.4 modo Domain no servidor X"
+ 
+E ai eles lá tem esse mapeamento Jesse.
+ 
+não sei, mas acho que o Rafael Alves Lima tb providencia instalação.
+ 
+quando tem que aplicar os patches por exemplo, é uma tarefa que fica com eles.
+ 
+nós não respondemos pela INFRA não, somos NPRD e se a gente começar a pegar esse tipo de trabalho pra realizar aqui vamos estar abrindo um portão enorme pra começar a cuidar de INFRA aqui tb, sendo que nossa equipe é responsável por fazer o SIPCS funfar no EAP 7.4 que vão disponibilizar.
+ 
+Cledson Moreira Parente
+Jesse Mouta Pereira Batista, tem que ser nesses 10.192.222.70 e 10.192.222.72 ? É da equipe ja?
+aqui estou te perguntando se tem que ser essa, pq o Claudio e o Murilo estão com um servidor lá pra clonar já com o EAP 7.4. Parece que vem mais coisa por ai com pedidos assim né?
+ 
+ah sim, mano entendi. vou ver com Murilo, aqui então 
+Cledson Moreira Parente
+Jesse Mouta Pereira Batista, tem que ser nesses 10.192.222.70 e 10.192.222.72 ? É da equipe ja?
+sim tem que ser nesses.  
+ 
+vou falar com eles aqui, muito obrigado
+ 
