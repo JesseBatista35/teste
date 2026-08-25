@@ -1,7 +1,12 @@
-<img width="1394" height="832" alt="image" src="https://github.com/user-attachments/assets/acb510ba-c142-44dc-b8c0-ad41a822e9a8" />
+Nota de fechamento:
 
+Ambiente TQS habilitado com sucesso no CI/CD do repositório sigos-processamento-arquivos / sigos-backend-processamento-arquivos.
 
-<img width="1701" height="767" alt="image" src="https://github.com/user-attachments/assets/49fc3bc9-64d4-4914-a8d5-5cf79d7e13e3" />
+Resumo:
 
+Ajustado o workflow (call-generic-pipelines.yaml) para incluir o deploy em TQS junto com DES.
+Corrigido travamento de checks obrigatórios (QA/CodeQL) nos PRs, adicionando trigger pull_request ao workflow.
+Repositório recriado e acessos de time reconfigurados.
+Corrigido erro de deploy no ArgoCD: cluster de destino incorreto e toleration de node incompatível com o taint real do node pool (appmcmv).
 
-deu certo
+Status final: aplicações DES e TQS em estado Healthy/Synced no ArgoCD, pipeline executando com sucesso nos dois ambientes. Demanda concluída.
