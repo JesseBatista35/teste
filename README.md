@@ -1,16 +1,31 @@
-Direcionamento de demanda
-
-Equipe responsável: CETEL / Redes
-
-Motivo: Falha de carregamento de página (GitHub Enterprise) para empregado usuário de Mac. Causa identificada: reescrita de URL pelo proxy corporativo Microsoft Defender for Cloud Apps (MCAS - github.com.mcas.ms), que injeta parâmetros na URL dos módulos JavaScript da aplicação e invalida o import map, impedindo o carregamento dos chunks. Não é falha da aplicação.
-
-Ação solicitada: Verificar política de reescrita/exclusão de domínio no MCAS para github.com.
+acabei de receber outra deamnda :
 
 
-Prezada,
+Estou com problema no github, ele não carrega algumas informações e recursos, isso está me impossibilitando de ajudar o pessoal em code review e também aplicar os PR.
 
-Analisamos o caso relatado. O erro não está relacionado à aplicação (Painel de Gestão / sigcn-digital-painel-gestao-frontend) em si, e sim ao proxy corporativo Microsoft Defender for Cloud Apps (MCAS), identificado pela URL github.com.mcas.ms utilizada pelo empregado.
+Investigando no Copilot cheguei nesse resultado:
 
-O MCAS está reescrevendo as URLs dos módulos JavaScript carregados dinamicamente pela aplicação (import maps do React), injetando parâmetros de contexto (McasCtx, McasTsid) que invalidam o JSON esperado. Isso causa falha no carregamento dos chunks e impede a renderização da página no Mac desse empregado. Em outros ambientes sem essa reescrita a página carrega normalmente, o que confirma que o problema está na camada de proxy, não no código da aplicação.
+COPILOT
 
-Esse item é de responsabilidade da equipe de rede/proxy (CETEL/Redes). Encaminhamos para verificação de política de reescrita/exclusão de domínio no MCAS para este repositório.
+GitHub Enterprise acessado via MAC apresenta carregamento infinito em componentes de Pull Request apenas neste Mac.
+
+Investigação realizada:
+
+-Safari e Edge apresentam o mesmo comportamento.
+-DNS e SSL validados.
+-Requests retornam HTTP 200.
+
+DevTools registra erro:
+TypeError: Loading chunk 38963 failed after 3 retries
+
+Originado de:
+github.githubassets.com.mcas.ms/assets/...
+
+Stacktrace envolve:
+inline.cdn.mcas.ms/proxyweb/js-wrapper.js
+
+A página principal do PR é renderizada, porém componentes dinâmicos permanecem em loading infinito.
+
+
+
+é o mesmo caso?
