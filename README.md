@@ -1,13 +1,2 @@
-
-<img width="680" height="615" alt="image" src="https://github.com/user-attachments/assets/7c0df98f-342d-4a4d-8c7e-a6592695cecf" />
-
-
-
-
-Rótulos:
-kubernetes.azure.com/scalesetpriority
-
-Taints
-
-nuvem.caixa/nodepoolname    appmcmv                 NoSchedule
-kubernetes.azure.com/scalesetpriority     spot     NoSchedule
+Sobre esse erro "Failed to authenticate due to one or more authentication rules", a configuração de TQS do SIPGC em TQS está permitindo comunicação partindo do IP 10.121.101.248, seria esse mesmo?
+ 
