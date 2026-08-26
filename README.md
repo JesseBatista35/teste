@@ -1,27 +1,27 @@
-Aqui está uma nota objetiva para repassar:
 
-Assunto: Falha na esteira CodeQL — Erro de sintaxe Java (não é problema de infraestrutura/pipeline)
+O que você deseja?*:	Suporte ao GitHub
+Sigla do Sistema*:	SIGOS
+Qual o ambiente*:	NPRD
+Informe a URL do repositório no GitHub*:	https://github.com/caixagithub/sigos-batch-worker-elegiveis
+Selecione a sua Comunidade*:	Fundos de Governo
+Formas de contato*:	teams - c101476
+Descrição da necessidade*:	Está gerando uma qtd grande de pods
 
-Diagnóstico:
-A falha não está relacionada à esteira, ao Maven ou ao acesso a dependências. É um erro de sintaxe no código-fonte da aplicação.
+e não ta funcionando Mesmo com o  aumento o intervalo do worker pra 60min
 
-Causa raiz:
-O nome do pacote Java contém hífen, o que é inválido na linguagem:
 
-src/main/java/br/gov/caixa/siaci/api-administracao-contratual/
 
-O compilador (javac) rejeita a declaração package nesse formato, gerando erro ';' expected nos seguintes arquivos:
+<img width="1501" height="380" alt="image" src="https://github.com/user-attachments/assets/4e06c8c1-137e-46a1-b558-6454b7603433" />
 
-api-administracao-contratualApplication.java
-config/OpfConfig.java
-config/secutrity/SecurityConfig.java
-config/swagger/SwaggerConfig.java
 
-Ação necessária pelo time de desenvolvimento:
+<img width="1675" height="902" alt="image" src="https://github.com/user-attachments/assets/040496b9-7b9d-4449-b488-d1c19c79aa67" />
 
-Renomear o diretório api-administracao-contratual para um nome válido em Java (sem hífen) — ex: apiadministracaocontratual ou api_administracao_contratual.
-Atualizar a declaração package no topo dos 4 arquivos citados para refletir o novo caminho.
-Corrigir quaisquer import em outros arquivos do projeto que referenciem esse pacote.
-Validar build local (mvn clean package) antes de novo push, para confirmar que compila.
 
-Referência: PR #4, branch chore/STRY00000000-atualiza..., run #11 do workflow "Call CodeQL workflow Segurança".
+
+<img width="1656" height="918" alt="image" src="https://github.com/user-attachments/assets/90aecd6c-c82e-4a74-a143-39618c08f6bf" />
+
+
+<img width="1750" height="896" alt="image" src="https://github.com/user-attachments/assets/c7efb578-e5a7-4778-a3fa-d99599d8aeff" />
+
+
+nao achei nehnhuma falha acho que a demandante ta ficando louca
