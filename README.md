@@ -1,19 +1,159 @@
-Pedimos a gentileza de EXCLUSÃO do repositório no GITHUB siaci-api-int-catalogos
+Skip to content
+GitHub Enterprise
+Users managed by Caixa Economica Federal
+caixagithub
+siaci-api-int-catalogos
+Repository navigation
+Code
+Issues
+Pull requests
+10
+ (10)
+Actions
+Projects
+Wiki
+Security and quality
+2
+ (2)
+Insights
+Settings
+Settings: caixagithub/siaci-api-int-catalogos
+Access
+Code, planning, and automation
+Security and quality
+Integrations
+General
+Repository name
+siaci-api-int-catalogos
+Template repository Loading
+Template repositories let users generate new repositories with the same directory structure and files. Learn more about template repositories.
 
-Se possível, apagar também
-siaci-api-int-catalogos-infranprd
-siaci-api-int-catalogos-infraprd
+Default branch
+The default branch is considered the “base” branch in your repository, against which all pull requests and code commits are automatically made, unless you specify a different branch.
 
+main
+Releases
+Enable release immutability Loading
+Disallow assets and tags from being modified once a release is published.
 
-002026-08-26T18:50:46.929Z info: ok: [localhost] => (item=siaci-api-int-catalogos) => {2012026-08-26T18:50:46.929Z info: TASK [Detalhar repos inválidos] ************************************************2022026-08-26T18:50:46.930Z info:     "msg": [2032026-08-26T18:50:46.930Z info:         "┌────────────────────────────────────────────────────────────┐",2042026-08-26T18:50:46.931Z info:         "│ ❌ siaci-api-int-catalogos                                 │",2052026-08-26T18:50:46.931Z info:         "└────────────────────────────────────────────────────────────┘"2062026-08-26T18:50:46.933Z info:     ]2072026-08-26T18:50:46.933Z info: }2082026-08-26T18:50:46.934Z info:     "msg": [2092026-08-26T18:50:46.934Z info: ok: [localhost] => (item=siaci-api-int-catalogos-infraprd) => {2102026-08-26T18:50:46.934Z info:         "┌────────────────────────────────────────────────────────────┐",2112026-08-26T18:50:46.934Z info:         "│ ❌ siaci-api-int-catalogos-infraprd                        │",2122026-08-26T18:50:46.935Z info:         "└────────────────────────────────────────────────────────────┘"2132026-08-26T18:50:46.935Z info:     ]
+Features
+Wikis Loading
+Wikis host documentation for your repository.
 
+Restrict editing to users in teams with push access only Loading
+Issues Loading
+Issues integrate lightweight task tracking into your repository. Keep projects on track with issue labels and milestones, and reference them in commit messages.
 
-002026-08-26T18:50:46.929Z info: ok: [localhost] => (item=siaci-api-int-catalogos) => {2012026-08-26T18:50:46.929Z info: TASK [Detalhar repos inválidos] ************************************************2022026-08-26T18:50:46.930Z info:     "msg": [2032026-08-26T18:50:46.930Z info:         "┌────────────────────────────────────────────────────────────┐",2042026-08-26T18:50:46.931Z info:         "│ ❌ siaci-api-int-catalogos                                 │",2052026-08-26T18:50:46.931Z info:         "└────────────────────────────────────────────────────────────┘"2062026-08-26T18:50:46.933Z info:     ]2072026-08-26T18:50:46.933Z info: }2082026-08-26T18:50:46.934Z info:     "msg": [2092026-08-26T18:50:46.934Z info: ok: [localhost] => (item=siaci-api-int-catalogos-infraprd) => {2102026-08-26T18:50:46.934Z info:         "┌────────────────────────────────────────────────────────────┐",2112026-08-26T18:50:46.934Z info:         "│ ❌ siaci-api-int-catalogos-infraprd                        │",2122026-08-26T18:50:46.935Z info:         "└────────────────────────────────────────────────────────────┘"2132026-08-26T18:50:46.935Z info:     ]2292026-08-26T18:50:46.945Z info: TASK [Interromper execucao por repos sem TEMP] *********************************2302026-08-26T18:50:46.946Z info: fatal: [localhost]: FAILED! => {"changed": false, "msg": "❌ Sanitização cancelada. Existem repositórios sem topic TEMP. Consulte os logs da execução para detalhes."}2312026-08-26T18:50:46.947Z info: 2322026-08-26T18:50:46.947Z info: PLAY RECAP *********************************************************************2332026-08-26T18:50:46.948Z info: localhost                  : ok=25   changed=2    unreachable=0    failed=1    skipped=10   rescued=0    ignored=0   2342026-08-26T18:50:46.948Z info: 2352026-08-26T18:50:47.580Z info: 2362026-08-26T18:50:47.580Z Error: playbook execution fail.237    at main (/opt/app-root/src/dynamic-plugins-root/mycloudlab-scaffolder-backend-module-ansible-controller-0.5.3/dist/index.cjs.js:126:19)238    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)239    at async Object.handler (/opt/app-root/src/dynamic-plugins-root/mycloudlab-scaffolder-backend-module-ansible-controller-0.5.3/dist/index.cjs.js:134:7)240    at async NunjucksWorkflowRunner.executeStep (/opt/app-root/src/node_modules/@backstage/plugin-scaffolder-backend/dist/scaffolder/tasks/NunjucksWorkflowRunner.cjs.js:240:9)241    at async NunjucksWorkflowRunner.execute (/opt/app-root/src/node_modules/@backstage/plugin-scaffolder-backend/dist/scaffolder/tasks/NunjucksWorkflowRunner.cjs.js:356:9)242    at async TaskWorker.runOneTask (/opt/app-root/src/node_modules/@backstage/plugin-scaffolder-backend/dist/scaffolder/tasks/TaskWorker.cjs.js:119:26)243    at async run (/opt/app-root/src/node_modules/p-queue/dist/index.js:163:29)
+Issue permissions
+Loading
+If restricted, issues will still be readable by everyone who can see this repository.
 
+Get organized with issue templates
+Give contributors issue templates that help you cut through the noise and help them push your project forward.
 
-<img width="1570" height="865" alt="image" src="https://github.com/user-attachments/assets/75a61827-807c-4942-a284-7c685bb637ba" />
+Allow forking Loading
+If disabled, existing forks will be unaffected.
 
+Sponsorships   Loading
+Sponsorships help your community know how to financially support this repository.
 
+Display a "Sponsor" button
+Add links to GitHub Sponsors or third-party methods your repository accepts for financial contributions to your project.
 
-nao ta conseguidno encontra o repositrio 
+Discussions Loading
+Discussions is the space for your community to have conversations, ask questions and post answers without opening issues.
 
+Get started with Discussions
+Engage your community by having discussions right in your repository, where your community already lives
+
+Projects Loading
+Projects on GitHub are created at the repository owner's level (organization or user) and can be linked to a repository's Projects tab. Projects are suitable for cross-repository development efforts such as feature work, complex product roadmaps or even Issue triage.
+
+Pull requests Loading
+Pull requests allow others to suggest changes to your repository.
+
+Pull request permissions
+Loading
+If restricted, pull requests will still be readable by everyone who can see this repository.
+
+Pull Requests
+When merging pull requests, you can allow any combination of merge commits, squashing, or rebasing. At least one option must be enabled. If you have linear history requirement enabled on any protected branch, you must enable squashing or rebasing.
+
+Allow merge commits Loading
+Add all commits from the head branch to the base branch with a merge commit.
+
+Allow squash merging Loading
+Combine all commits from the head branch into a single commit in the base branch.
+
+Default commit message
+Presented when merging a pull request with squash.
+
+Allow rebase merging Loading
+Add all commits from the head branch onto the base branch individually.
+
+Control how and when users are prompted to update their branches if there are new changes available in the base branch.
+
+Always suggest updating pull request branches Loading
+Whenever there are new changes available in the base branch, present an “update branch” option in the pull request.
+
+You can allow setting pull requests to merge automatically once all required reviews and status checks have passed.
+
+Allow auto-merge Loading
+Waits for merge requirements to be met and then merges automatically. Learn more
+
+After pull requests are merged, you can have head branches deleted automatically.
+
+Automatically delete head branches Loading
+Deleted branches will still be able to be restored.
+
+Commits
+Require contributors to sign off on web-based commits Loading
+Enabling this setting will require contributors to sign off on commits made through GitHub’s web interface. Signing off is a way for contributors to affirm that their commit complies with the repository's terms, commonly the Developer Certificate of Origin (DCO). Learn more about signing off on commits.
+
+Allow comments on individual commits Loading
+Enabling this setting will allow anyone who can view this repository to add commit comments. Existing commit comments are not affected by this setting and will remain viewable, editable, and deletable.
+
+Archives
+When creating source code archives, you can choose to include files stored using Git LFS in the archive.
+
+Include Git LFS objects in archives 
+Git LFS usage in archives is billed at the same rate as usage with the client.
+
+Pushes
+Limit how many branches and tags can be updated in a single push Preview Loading
+Pushes will be rejected if they attempt to update more than this. Learn more about this setting, and send us your feedback.
+
+Issues
+After merging a pull request, linked issues can be closed automatically.
+
+Auto-close issues with merged linked pull requests Loading
+Whenever linked pull requests have merged, auto-close the issue.
+
+Danger Zone
+Change repository visibility
+This repository is currently private.
+Disable branch protection rules
+Disable branch protection rules enforcement and APIs
+
+Transfer ownership
+Transfer this repository to another user or to an organization where you have the ability to create repositories.
+
+Archive this repository
+Mark this repository as archived and read-only.
+
+Delete this repository
+Once you delete a repository, there is no going back. Please be certain.
+
+Footer
+© 2026 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Community
+Docs
+Contact
+Manage cookies
+Do not share my personal information
+ 
