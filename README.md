@@ -1,15 +1,4 @@
-<img width="1365" height="838" alt="image" src="https://github.com/user-attachments/assets/14418cf5-474a-46f7-90fc-a8e4acd7796b" />
+<img width="1867" height="1040" alt="image" src="https://github.com/user-attachments/assets/cfef1857-20a4-482a-9b3f-4d671cd37005" />
 
 
-cara mesmo deltando a pasta tqs ele recira novamente
-
-
-<img width="1853" height="809" alt="image" src="https://github.com/user-attachments/assets/5e3d4dc3-812f-4c44-b124-7d17b0a1e05b" />
-
-
-deletei do gitops tambem
-
-<img width="1544" height="857" alt="image" src="https://github.com/user-attachments/assets/214953a6-21bd-4214-b01b-4a7019e73c0d" />
-
-
-mesmo assim elel continua criando
+nem carrega, cara acho que a bordagem agora e sanitixar esse projeto e recrar novamente sem o tqs né não?
