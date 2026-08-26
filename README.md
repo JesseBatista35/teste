@@ -1,14 +1,11 @@
+mkdir -p /tmp/verificacao_sicmu2
+cd /tmp/verificacao_sicmu2
+cp /opt/jboss-eap/standalone/deployments/SICMU-ear.ear .
+unzip -p SICMU-ear.ear SICMU-web.war > SICMU-web.war
 
--sh-4.2$ cd ~/verificacao_sicmu
--sh: cd: /home/p585600/verificacao_sicmu: Arquivo ou diretório não encontrado
--sh-4.2$
--sh-4.2$
--sh-4.2$ sudo su
-[sudo] senha para p585600:
-[root@caddeapllx2484 p585600]# cd ~/verificacao_sicmu
-bash: cd: /root/verificacao_sicmu: Arquivo ou diretório não encontrado
-[root@caddeapllx2484 p585600]# unzip -p SICMU-web.war WEB-INF/web.xml | grep -i "distributable"
-[root@caddeapllx2484 p585600]#
 
+ls -la SICMU-web.war
+
+unzip -p SICMU-web.war WEB-INF/web.xml | grep -i "distributable"
 
 
