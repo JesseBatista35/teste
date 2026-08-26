@@ -1,80 +1,79 @@
-Skip to main content
-Azure DevOps
-projetos
-/
-Caixa
-/
-Pipelines
-Search
+2026-08-26T17:18:05.7762684Z ##[section]Starting: Prepare analysis on SonarQube
+2026-08-26T17:18:05.7767590Z ==============================================================================
+2026-08-26T17:18:05.7767697Z Task         : Prepare Analysis Configuration
+2026-08-26T17:18:05.7767784Z Description  : Prepare SonarQube analysis configuration
+2026-08-26T17:18:05.7767870Z Version      : 4.31.0
+2026-08-26T17:18:05.7767931Z Author       : sonarsource
+2026-08-26T17:18:05.7768022Z Help         : Version: 4.31.0. [More Information](http://redirect.sonarsource.com/doc/install-configure-scanner-tfs-ts.html)
+2026-08-26T17:18:05.7768123Z ==============================================================================
+2026-08-26T17:18:06.3408881Z SYSTEMVSSCONNECTION exists true
+2026-08-26T17:18:06.3754921Z ##[warning]Unable to get default branch, defaulting to 'master': Error: tunneling socket could not be established, statusCode=502
+2026-08-26T17:18:06.3887740Z [command]/opt/ads-agent/cache-tools/.dotnet//dotnet /opt/ads-agent/_work/_tasks/SonarQubePrepare_15b84ca1-b62f-4a2a-a403-89b77a063157/4.31.0/dotnet-sonar-scanner-msbuild/SonarScanner.MSBuild.dll begin /k:SIMOV-imoveiscaixa-batch
+2026-08-26T17:18:06.5359002Z SonarScanner for MSBuild 5.8
+2026-08-26T17:18:06.5359568Z Using the .NET Core version of the Scanner for MSBuild
+2026-08-26T17:18:06.6040279Z Pre-processing started.
+2026-08-26T17:18:06.6051107Z Preparing working directories...
+2026-08-26T17:18:06.6860998Z 14:18:06.685  14:18:06.633  Loading analysis properties from /opt/ads-agent/_work/_tasks/SonarQubePrepare_15b84ca1-b62f-4a2a-a403-89b77a063157/4.31.0/dotnet-sonar-scanner-msbuild/SonarQube.Analysis.xml
+2026-08-26T17:18:06.6861553Z 14:18:06.685  14:18:06.685  sonar.verbose=true was specified - setting the log verbosity to 'Debug'
+2026-08-26T17:18:06.6878324Z 14:18:06.687  Updating build integration targets...
+2026-08-26T17:18:06.6912450Z 14:18:06.69  Installed SonarQube.Integration.ImportBefore.targets to /opt/ads-agent/.local/share/Microsoft/MSBuild/4.0/Microsoft.Common.targets/ImportBefore
+2026-08-26T17:18:06.6913393Z 14:18:06.691  Installed SonarQube.Integration.ImportBefore.targets to /opt/ads-agent/.local/share/Microsoft/MSBuild/10.0/Microsoft.Common.targets/ImportBefore
+2026-08-26T17:18:06.6916013Z 14:18:06.691  Installed SonarQube.Integration.ImportBefore.targets to /opt/ads-agent/.local/share/Microsoft/MSBuild/11.0/Microsoft.Common.targets/ImportBefore
+2026-08-26T17:18:06.6916653Z 14:18:06.691  Installed SonarQube.Integration.ImportBefore.targets to /opt/ads-agent/.local/share/Microsoft/MSBuild/12.0/Microsoft.Common.targets/ImportBefore
+2026-08-26T17:18:06.6917806Z 14:18:06.691  Installed SonarQube.Integration.ImportBefore.targets to /opt/ads-agent/.local/share/Microsoft/MSBuild/14.0/Microsoft.Common.targets/ImportBefore
+2026-08-26T17:18:06.6919164Z 14:18:06.691  Installed SonarQube.Integration.ImportBefore.targets to /opt/ads-agent/.local/share/Microsoft/MSBuild/15.0/Microsoft.Common.targets/ImportBefore
+2026-08-26T17:18:06.6920283Z 14:18:06.691  Installed SonarQube.Integration.ImportBefore.targets to /opt/ads-agent/.local/share/Microsoft/MSBuild/Current/Microsoft.Common.targets/ImportBefore
+2026-08-26T17:18:06.7066339Z 14:18:06.706  Installed SonarQube.Integration.ImportBefore.targets to /opt/ads-agent/Microsoft/MSBuild/15.0/Microsoft.Common.targets/ImportBefore
+2026-08-26T17:18:06.7066812Z 14:18:06.706  Installed SonarQube.Integration.ImportBefore.targets to /opt/ads-agent/Microsoft/MSBuild/Current/Microsoft.Common.targets/ImportBefore
+2026-08-26T17:18:06.7071548Z 14:18:06.707  Installed SonarQube.Integration.targets to /opt/ads-agent/_work/22/.sonarqube/bin/targets
+2026-08-26T17:18:06.7078138Z 14:18:06.707  Creating config and output folders...
+2026-08-26T17:18:06.7084034Z 14:18:06.708  Creating directory: /opt/ads-agent/_work/22/.sonarqube/conf
+2026-08-26T17:18:06.7084533Z 14:18:06.708  Creating directory: /opt/ads-agent/_work/22/.sonarqube/out
+2026-08-26T17:18:06.7623027Z 14:18:06.761  Downloading from http://sonar.apps.produtos4.caixa/api/server/version...
+2026-08-26T17:18:06.8067339Z 14:18:06.806  Checking validity of server license
+2026-08-26T17:18:06.8071024Z 14:18:06.806  Downloading from http://sonar.apps.produtos4.caixa/api/editions/is_valid_license...
+2026-08-26T17:18:06.8156484Z 14:18:06.815  SonarQube Community Edition detected, license is valid.
+2026-08-26T17:18:06.8171666Z 14:18:06.817  Fetching analysis configuration settings...
+2026-08-26T17:18:06.8186220Z 14:18:06.818  Fetching properties for project 'SIMOV-imoveiscaixa-batch' from http://sonar.apps.produtos4.caixa/api/settings/values?component=SIMOV-imoveiscaixa-batch...
+2026-08-26T17:18:06.8194338Z 14:18:06.819  Downloading from http://sonar.apps.produtos4.caixa/api/settings/values?component=SIMOV-imoveiscaixa-batch...
+2026-08-26T17:18:06.8498204Z 14:18:06.849  Downloading from http://sonar.apps.produtos4.caixa/api/languages/list...
+2026-08-26T17:18:06.8550748Z 14:18:06.854  Fetching quality profile for project 'SIMOV-imoveiscaixa-batch' from http://sonar.apps.produtos4.caixa/api/qualityprofiles/search?project=SIMOV-imoveiscaixa-batch...
+2026-08-26T17:18:06.8554394Z 14:18:06.855  Downloading from http://sonar.apps.produtos4.caixa/api/qualityprofiles/search?project=SIMOV-imoveiscaixa-batch...
+2026-08-26T17:18:06.8812897Z 14:18:06.88  Fetching rules for quality profile 'AWtsH59sK4o2sRjgkZgp' from http://sonar.apps.produtos4.caixa/api/rules/search?f=repo,name,severity,lang,internalKey,templateKey,params,actives&ps=500&qprofile=AWtsH59sK4o2sRjgkZgp&p=1...
+2026-08-26T17:18:06.8814939Z 14:18:06.881  Downloading from http://sonar.apps.produtos4.caixa/api/rules/search?f=repo,name,severity,lang,internalKey,templateKey,params,actives&ps=500&qprofile=AWtsH59sK4o2sRjgkZgp&p=1...
+2026-08-26T17:18:06.9586505Z 14:18:06.958  Local analyzer cache: /tmp/.sonarqube/resources
+2026-08-26T17:18:06.9639278Z 14:18:06.963  Writing Roslyn generated ruleset to /opt/ads-agent/_work/22/.sonarqube/conf/Sonar-cs.ruleset...
+2026-08-26T17:18:06.9738312Z 14:18:06.973  Writing Roslyn generated ruleset to /opt/ads-agent/_work/22/.sonarqube/conf/Sonar-cs-none.ruleset...
+2026-08-26T17:18:06.9756672Z 14:18:06.975  Provisioning analyzer assemblies for cs...
+2026-08-26T17:18:06.9759078Z 14:18:06.975  Installing required Roslyn analyzers...
+2026-08-26T17:18:06.9761094Z 14:18:06.976  Processing plugin: csharp version 8.51.0.59060
+2026-08-26T17:18:07.0108311Z 14:18:07.01  Cache miss: plugin files were not found in the local cache
+2026-08-26T17:18:07.0201716Z 14:18:07.019  Fetching resource for plugin: csharp, version 8.51.0.59060. Resource: SonarAnalyzer-8.51.0.59060.zip
+2026-08-26T17:18:07.0212831Z 14:18:07.021  Downloading SonarAnalyzer-8.51.0.59060.zip from http://sonar.apps.produtos4.caixa/static/csharp/SonarAnalyzer-8.51.0.59060.zip to /tmp/.sonarqube/resources/0
+2026-08-26T17:18:07.0219405Z 14:18:07.021  Downloading file from http://sonar.apps.produtos4.caixa/static/csharp/SonarAnalyzer-8.51.0.59060.zip to /tmp/.sonarqube/resources/0/SonarAnalyzer-8.51.0.59060.zip...
+2026-08-26T17:18:07.0357120Z 14:18:07.035  Extracting files to /tmp/.sonarqube/resources/0...
+2026-08-26T17:18:07.0698057Z 14:18:07.069  Processing plugin: vbnet version 8.51.0.59060
+2026-08-26T17:18:07.0809251Z 14:18:07.08  Cache miss: plugin files were not found in the local cache
+2026-08-26T17:18:07.0809945Z 14:18:07.08  Fetching resource for plugin: vbnet, version 8.51.0.59060. Resource: SonarAnalyzer-8.51.0.59060.zip
+2026-08-26T17:18:07.0810351Z 14:18:07.08  Downloading SonarAnalyzer-8.51.0.59060.zip from http://sonar.apps.produtos4.caixa/static/vbnet/SonarAnalyzer-8.51.0.59060.zip to /tmp/.sonarqube/resources/1
+2026-08-26T17:18:07.0810751Z 14:18:07.08  Downloading file from http://sonar.apps.produtos4.caixa/static/vbnet/SonarAnalyzer-8.51.0.59060.zip to /tmp/.sonarqube/resources/1/SonarAnalyzer-8.51.0.59060.zip...
+2026-08-26T17:18:07.0887321Z 14:18:07.088  Extracting files to /tmp/.sonarqube/resources/1...
+2026-08-26T17:18:07.1020414Z 14:18:07.101  Writing Roslyn analyzer additional file to /opt/ads-agent/_work/22/.sonarqube/conf/cs/SonarLint.xml...
+2026-08-26T17:18:07.1022262Z 14:18:07.102  Fetching quality profile for project 'SIMOV-imoveiscaixa-batch' from http://sonar.apps.produtos4.caixa/api/qualityprofiles/search?project=SIMOV-imoveiscaixa-batch...
+2026-08-26T17:18:07.1022946Z 14:18:07.102  Downloading from http://sonar.apps.produtos4.caixa/api/qualityprofiles/search?project=SIMOV-imoveiscaixa-batch...
+2026-08-26T17:18:07.1219156Z 14:18:07.121  Fetching rules for quality profile 'AWtsH7f4K4o2sRjgkZ44' from http://sonar.apps.produtos4.caixa/api/rules/search?f=repo,name,severity,lang,internalKey,templateKey,params,actives&ps=500&qprofile=AWtsH7f4K4o2sRjgkZ44&p=1...
+2026-08-26T17:18:07.1219757Z 14:18:07.121  Downloading from http://sonar.apps.produtos4.caixa/api/rules/search?f=repo,name,severity,lang,internalKey,templateKey,params,actives&ps=500&qprofile=AWtsH7f4K4o2sRjgkZ44&p=1...
+2026-08-26T17:18:07.1559747Z 14:18:07.155  Local analyzer cache: /tmp/.sonarqube/resources
+2026-08-26T17:18:07.1560378Z 14:18:07.155  Writing Roslyn generated ruleset to /opt/ads-agent/_work/22/.sonarqube/conf/Sonar-vbnet.ruleset...
+2026-08-26T17:18:07.1565989Z 14:18:07.156  Writing Roslyn generated ruleset to /opt/ads-agent/_work/22/.sonarqube/conf/Sonar-vbnet-none.ruleset...
+2026-08-26T17:18:07.1568444Z 14:18:07.156  Provisioning analyzer assemblies for vbnet...
+2026-08-26T17:18:07.1568791Z 14:18:07.156  Installing required Roslyn analyzers...
+2026-08-26T17:18:07.1569342Z 14:18:07.156  Processing plugin: csharp version 8.51.0.59060
+2026-08-26T17:18:07.1574912Z 14:18:07.157  Cache hit: using plugin files from /tmp/.sonarqube/resources/0
+2026-08-26T17:18:07.1575400Z 14:18:07.157  Processing plugin: vbnet version 8.51.0.59060
+2026-08-26T17:18:07.1577931Z 14:18:07.157  Cache hit: using plugin files from /tmp/.sonarqube/resources/1
+2026-08-26T17:18:07.1583769Z 14:18:07.158  Writing Roslyn analyzer additional file to /opt/ads-agent/_work/22/.sonarqube/conf/vbnet/SonarLint.xml...
+2026-08-26T17:18:07.1764493Z 14:18:07.175  Pre-processing succeeded.
+2026-08-26T17:18:07.1893067Z ##[section]Finishing: Prepare analysis on SonarQube
 
 
-Caixa
-
-Overview
-
-Boards
-
-Repos
-
-Pipelines
-Pipelines
-Environments
-Releases
-Library
-Task groups
-Deployment groups
-Portal Infra
-
-Test Plans
-
-Artifacts
-Project settings
-
-SIMOV
-
-SIMOV-imoveiscaixa-batch
-
-Tasks
-
-Variables
-
-Triggers
-
-Options
-
-History
-Predefined variables
-DOTNET_BUILDARGS
---configuration Release
-DOTNET_STARTUP_ASSEMBLY
-Simov.Api.dll
-DOTNET_TESTARGS
---configuration Release --collect:"XPlat Code Coverage" -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format="cobertura%2copencover"
-DOTNET_VERSION
-8.0.303
-
-SITE
-okd4_nprd
-SONAR_PROPERTIES
--Dsonar.branch.name=$(sonar_branch) -Dsonar.testExecutionReportPaths=reports/sonar-report.xml -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info -Dsonar.sources=. -Dsonar.test=src -Dsonar.language=ts -Dsonar.test.inclusions=**/*.spec.ts,**/*.spec.js,**/*.js,**/*.spec.jsx,**/*.jsx
-system.collectionId
-7b4c9d5c-b041-4798-8dcb-fb11786a173b
-system.debug
-false
-system.definitionId
-6658
-system.teamProject
-Caixa
-version.app
-
-Showing 25 filtered items.
-
-Get started and run this pipeline for the first time!
-
-Showing 42 filtered items.
-
-Showing 25 filtered items.
-
-nao tinha essa varaivel do snoar colquei ela nao se se via dar certo porque pegeui de uma aplicação angular e eassa daui e .net
-
--Dsonar.branch.name=$(sonar_branch) -Dsonar.testExecutionReportPaths=reports/sonar-report.xml -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info -Dsonar.sources=. -Dsonar.test=src -Dsonar.language=ts -Dsonar.test.inclusions=**/*.spec.ts,**/*.spec.js,**/*.js,**/*.spec.jsx,**/*.jsx
