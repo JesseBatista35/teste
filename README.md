@@ -1,27 +1,15 @@
+Aqui está uma descrição pronta pra colar no chamado:
 
-O que você deseja?*:	Suporte ao GitHub
-Sigla do Sistema*:	SIGOS
-Qual o ambiente*:	NPRD
-Informe a URL do repositório no GitHub*:	https://github.com/caixagithub/sigos-batch-worker-elegiveis
-Selecione a sua Comunidade*:	Fundos de Governo
-Formas de contato*:	teams - c101476
-Descrição da necessidade*:	Está gerando uma qtd grande de pods
+Descrição da necessidade:
 
-e não ta funcionando Mesmo com o  aumento o intervalo do worker pra 60min
+Chamado aberto relatando geração de grande quantidade de pods no worker sigos-batch-worker-elegiveis (ambiente NPRD) e suposto mau funcionamento, mesmo após aumento do intervalo de execução do worker para 60 minutos.
 
+Após análise técnica:
 
+ArgoCD — as aplicações sigos-batch-worker-elegiveis-des e sigos-batch-worker-elegiveis-tqs estão com status Healthy e Synced, sem erros de sincronização.
+O único warning presente refere-se a uma falha de resolução DNS do plugin de Kubernetes do Backstage ao consultar limitranges no endpoint privado do AKS (getaddrinfo ENOTFOUND dns-aks-edo-nprd-xvisbwnf.hcp.brazilsouth.azmk8s.io) — trata-se de um problema de conectividade/DNS do próprio Backstage com o cluster, sem relação com o funcionamento da aplicação.
+GitHub Actions — o histórico do workflow CI/CD Workflow Generic mostra múltiplas execuções manuais recentes do pipeline, o que explica a criação de novos ReplicaSets/pods a cada deploy — comportamento esperado de rollout, não uma falha da aplicação.
 
-<img width="1501" height="380" alt="image" src="https://github.com/user-attachments/assets/4e06c8c1-137e-46a1-b558-6454b7603433" />
+Não foi identificada nenhuma falha real na aplicação, infraestrutura ou pipeline. A percepção de "grande quantidade de pods" está associada ao histórico de ReplicaSets retidos por deploys frequentes, e não a pods ativos com problema.
 
-
-<img width="1675" height="902" alt="image" src="https://github.com/user-attachments/assets/040496b9-7b9d-4449-b488-d1c19c79aa67" />
-
-
-
-<img width="1656" height="918" alt="image" src="https://github.com/user-attachments/assets/90aecd6c-c82e-4a74-a143-39618c08f6bf" />
-
-
-<img width="1750" height="896" alt="image" src="https://github.com/user-attachments/assets/c7efb578-e5a7-4778-a3fa-d99599d8aeff" />
-
-
-nao achei nehnhuma falha acho que a demandante ta ficando louca
+Encaminhamento: solicito o encerramento do chamado como sem falha identificada (comportamento esperado). Caso a demandante identifique um sintoma específico e reproduzível (ex.: erro em log, pod em CrashLoopBackOff), favor reabrir com esse detalhe para nova análise.
