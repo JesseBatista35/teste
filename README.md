@@ -1,36 +1,80 @@
-Bom dia,
-Gostaria de solicitar a analise e correção na pipeline referente aos projetos SIMOV-imoveiscaixa-backend e SIMOV-imoveiscaixa-batch, recentemente identificamos que não está havendo a publicação do relatório no SonarQube dos projetos citado, por isso desconfio que os passos Prepare analysis on SonarQube e Publish Quality Gate Result da pipeline não estão sendo efetivas.
-
-Segue os links para verificação das pipelines:
-https://devops.caixa/projetos/Caixa/_build/results?buildId=805285&view=results
-https://devops.caixa/projetos/Caixa/_build/results?buildId=807813&view=results
-
-Fico no aguardo.
-
-Atenciosamente,
-Matheus da Silva Rodrigues
+Skip to main content
+Azure DevOps
+projetos
+/
+Caixa
+/
+Pipelines
+Search
 
 
-Publish Quality Gate Result
+Caixa
 
-View raw log
+Overview
 
-Starting: Publish Quality Gate Result
-==============================================================================
-Task         : Bash
-Description  : Run a Bash script on macOS, Linux, or Windows
-Version      : 3.227.0
-Author       : Microsoft Corporation
-Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/bash
-==============================================================================
-Generating script.
-========================== Starting Command Output ===========================
-/usr/bin/bash /opt/ads-agent/_work/_temp/54dba572-940f-4e1c-9cdd-a53cca2dd625.sh
-Finishing: Publish Quality Gate Result
+Boards
 
-<img width="1817" height="972" alt="image" src="https://github.com/user-attachments/assets/476ab04a-16d5-4e77-8195-e00e0fce3c6d" />
+Repos
 
+Pipelines
+Pipelines
+Environments
+Releases
+Library
+Task groups
+Deployment groups
+Portal Infra
 
+Test Plans
 
+Artifacts
+Project settings
+
+SIMOV
+
+SIMOV-imoveiscaixa-batch
 
+Tasks
 
+Variables
+
+Triggers
+
+Options
+
+History
+Predefined variables
+DOTNET_BUILDARGS
+--configuration Release
+DOTNET_STARTUP_ASSEMBLY
+Simov.Api.dll
+DOTNET_TESTARGS
+--configuration Release --collect:"XPlat Code Coverage" -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format="cobertura%2copencover"
+DOTNET_VERSION
+8.0.303
+
+SITE
+okd4_nprd
+SONAR_PROPERTIES
+-Dsonar.branch.name=$(sonar_branch) -Dsonar.testExecutionReportPaths=reports/sonar-report.xml -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info -Dsonar.sources=. -Dsonar.test=src -Dsonar.language=ts -Dsonar.test.inclusions=**/*.spec.ts,**/*.spec.js,**/*.js,**/*.spec.jsx,**/*.jsx
+system.collectionId
+7b4c9d5c-b041-4798-8dcb-fb11786a173b
+system.debug
+false
+system.definitionId
+6658
+system.teamProject
+Caixa
+version.app
+
+Showing 25 filtered items.
+
+Get started and run this pipeline for the first time!
+
+Showing 42 filtered items.
+
+Showing 25 filtered items.
+
+nao tinha essa varaivel do snoar colquei ela nao se se via dar certo porque pegeui de uma aplicação angular e eassa daui e .net
+
+-Dsonar.branch.name=$(sonar_branch) -Dsonar.testExecutionReportPaths=reports/sonar-report.xml -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info -Dsonar.sources=. -Dsonar.test=src -Dsonar.language=ts -Dsonar.test.inclusions=**/*.spec.ts,**/*.spec.js,**/*.js,**/*.spec.jsx,**/*.jsx
