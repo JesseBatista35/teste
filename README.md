@@ -1,8 +1,19 @@
-te perguntar
- 
-Boa tarde Thiago Rafael Cavalcante Pereira, tudo bem? Vc sabe de alguém q pode me ajudar com servidor SMTP do ambiente TQS? Estamos configurando o envio de e-mails no SIPQV e precisamos das informações de conexão para concluir a demanda e configurar o ambiente?
- 
-A única informação q consegui ate agora foi que como vai usar Mail Session do WildFly via JNDI basta que a maquina esteja cadastrado e autorizado no ralay, mas não sei o caminho para isso
- 
- 
-essa e nossa?
+Pedimos a gentileza de EXCLUSÃO do repositório no GITHUB siaci-api-int-catalogos
+
+Se possível, apagar também
+siaci-api-int-catalogos-infranprd
+siaci-api-int-catalogos-infraprd
+
+
+002026-08-26T18:50:46.929Z info: ok: [localhost] => (item=siaci-api-int-catalogos) => {2012026-08-26T18:50:46.929Z info: TASK [Detalhar repos inválidos] ************************************************2022026-08-26T18:50:46.930Z info:     "msg": [2032026-08-26T18:50:46.930Z info:         "┌────────────────────────────────────────────────────────────┐",2042026-08-26T18:50:46.931Z info:         "│ ❌ siaci-api-int-catalogos                                 │",2052026-08-26T18:50:46.931Z info:         "└────────────────────────────────────────────────────────────┘"2062026-08-26T18:50:46.933Z info:     ]2072026-08-26T18:50:46.933Z info: }2082026-08-26T18:50:46.934Z info:     "msg": [2092026-08-26T18:50:46.934Z info: ok: [localhost] => (item=siaci-api-int-catalogos-infraprd) => {2102026-08-26T18:50:46.934Z info:         "┌────────────────────────────────────────────────────────────┐",2112026-08-26T18:50:46.934Z info:         "│ ❌ siaci-api-int-catalogos-infraprd                        │",2122026-08-26T18:50:46.935Z info:         "└────────────────────────────────────────────────────────────┘"2132026-08-26T18:50:46.935Z info:     ]
+
+
+002026-08-26T18:50:46.929Z info: ok: [localhost] => (item=siaci-api-int-catalogos) => {2012026-08-26T18:50:46.929Z info: TASK [Detalhar repos inválidos] ************************************************2022026-08-26T18:50:46.930Z info:     "msg": [2032026-08-26T18:50:46.930Z info:         "┌────────────────────────────────────────────────────────────┐",2042026-08-26T18:50:46.931Z info:         "│ ❌ siaci-api-int-catalogos                                 │",2052026-08-26T18:50:46.931Z info:         "└────────────────────────────────────────────────────────────┘"2062026-08-26T18:50:46.933Z info:     ]2072026-08-26T18:50:46.933Z info: }2082026-08-26T18:50:46.934Z info:     "msg": [2092026-08-26T18:50:46.934Z info: ok: [localhost] => (item=siaci-api-int-catalogos-infraprd) => {2102026-08-26T18:50:46.934Z info:         "┌────────────────────────────────────────────────────────────┐",2112026-08-26T18:50:46.934Z info:         "│ ❌ siaci-api-int-catalogos-infraprd                        │",2122026-08-26T18:50:46.935Z info:         "└────────────────────────────────────────────────────────────┘"2132026-08-26T18:50:46.935Z info:     ]2292026-08-26T18:50:46.945Z info: TASK [Interromper execucao por repos sem TEMP] *********************************2302026-08-26T18:50:46.946Z info: fatal: [localhost]: FAILED! => {"changed": false, "msg": "❌ Sanitização cancelada. Existem repositórios sem topic TEMP. Consulte os logs da execução para detalhes."}2312026-08-26T18:50:46.947Z info: 2322026-08-26T18:50:46.947Z info: PLAY RECAP *********************************************************************2332026-08-26T18:50:46.948Z info: localhost                  : ok=25   changed=2    unreachable=0    failed=1    skipped=10   rescued=0    ignored=0   2342026-08-26T18:50:46.948Z info: 2352026-08-26T18:50:47.580Z info: 2362026-08-26T18:50:47.580Z Error: playbook execution fail.237    at main (/opt/app-root/src/dynamic-plugins-root/mycloudlab-scaffolder-backend-module-ansible-controller-0.5.3/dist/index.cjs.js:126:19)238    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)239    at async Object.handler (/opt/app-root/src/dynamic-plugins-root/mycloudlab-scaffolder-backend-module-ansible-controller-0.5.3/dist/index.cjs.js:134:7)240    at async NunjucksWorkflowRunner.executeStep (/opt/app-root/src/node_modules/@backstage/plugin-scaffolder-backend/dist/scaffolder/tasks/NunjucksWorkflowRunner.cjs.js:240:9)241    at async NunjucksWorkflowRunner.execute (/opt/app-root/src/node_modules/@backstage/plugin-scaffolder-backend/dist/scaffolder/tasks/NunjucksWorkflowRunner.cjs.js:356:9)242    at async TaskWorker.runOneTask (/opt/app-root/src/node_modules/@backstage/plugin-scaffolder-backend/dist/scaffolder/tasks/TaskWorker.cjs.js:119:26)243    at async run (/opt/app-root/src/node_modules/p-queue/dist/index.js:163:29)
+
+
+<img width="1570" height="865" alt="image" src="https://github.com/user-attachments/assets/75a61827-807c-4942-a284-7c685bb637ba" />
+
+
+
+nao ta conseguidno encontra o repositrio 
+
