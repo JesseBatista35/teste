@@ -4,6 +4,7 @@ Pod utilizado: siopi-backend-construcao-civil-pj-des-69b6865b55-4cn9m
 Falha na sincronização"
 run: https://github.com/caixagithub/siopi-backend-construcao-civil-pj/actions/runs/33010824411/job/98317596119
 
+<img width="1887" height="909" alt="image" src="https://github.com/user-attachments/assets/8d21b1d3-c622-4d0c-9c8e-5214b1f5b489" />
 
 
 
