@@ -1,10 +1,2 @@
-Jesse Mouta Pereira Batista
-Jorge Milis de Almeida Junior
- 
-Amigos,
- 
-Precisamos do log do servidor de aplicação do sicmu-intranet-update de hoje 27/08 entre 16h00 e 16h20
- 
-Podem nos ajudar e postar aqui?
- 
+sudo awk '/2026-08-27 16:00/,/2026-08-27 16:20/' /logs/jboss/jboss-eap/standalone/sicmu-intranet-update/server.log
  
