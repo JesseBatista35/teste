@@ -1,18 +1,11 @@
-<img width="1883" height="997" alt="image" src="https://github.com/user-attachments/assets/00cbde99-55b0-40dd-ab40-3613af4ccfac" />Solicitamos verificar indisponibilidade do ambiente.
+Prezados,
 
-https://conciliacao.des.caixa/simcn-web/#/
+A indisponibilidade reportada é consequência da ação de remoção do pacote SIMCN realizada anteriormente (WO0000081507423), necessária para destravar o deploy que não estava efetivando a troca de versão.
 
-Not Found
+Com a remoção, não há mais nenhuma versão da aplicação ativa no ambiente — por isso o erro 404. O ambiente está limpo e pronto para receber o novo deploy.
 
-The requested URL /simcn-web/ was not found on this server.
+Solicitamos que a equipe da aplicação realize o deploy da versão atualizada do SIMCN o quanto antes, restabelecendo a disponibilidade do sistema.
 
-Additionally, a 404 Not Found error was encountered while trying to use an ErrorDocument to handle the request.
-Apache/2.4.23 (Red Hat) Server at conciliacao.des.caixa Port 80
+Ficamos à disposição para apoiar no deploy, se necessário.
 
-
-<img width="1883" height="997" alt="image" src="https://github.com/user-attachments/assets/2d7035ff-395c-4c0c-a40d-6117c72bb032" />
-
-
-tem haver com o que agente fez na req:
-
-WO0000081507423
+Jessé Batista, CTIS/CESTI — Esteira DevOps DES TQS NPRD
