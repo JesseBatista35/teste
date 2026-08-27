@@ -1,60 +1,11 @@
-}
-[domain@10.116.89.0:9999 /]
-[domain@10.116.89.0:9999 /]
-[domain@10.116.89.0:9999 /] /deployment=SIMCN:remove
-{
-    "outcome" => "success",
-    "result" => undefined,
-    "server-groups" => undefined
-}
-[domain@10.116.89.0:9999 /] :read-children-names(child-type=deployment)
-{
-    "outcome" => "success",
-    "result" => [
-        "AUTORH",
-        "ClienteSIECM_EAR.ear",
-        "RoteadorSISGD.ear",
-        "Roteador_SISGD.ear",
-        "SIAEF",
-        "SIAOI",
-        "SIAOI-API",
-        "SICRS",
-        "SIECM",
-        "SIEMP",
-        "SIFEC-RURAL",
-        "SIGEC-PORTABILIDADE-BATCH",
-        "SIGEC-PORTABILIDADE2",
-        "SIGIP",
-        "SINAD",
-        "SINAFWEB",
-        "SIOSP",
-        "SIPLD",
-        "SIRIC",
-        "SIRIC-ADM",
-        "SIRIC-API",
-        "SIRIC2",
-        "SIRIC2-ADM",
-        "SIRIC2-API",
-        "SISGD",
-        "SISOU",
-        "SISOU-INTERNET",
-        "SISRH",
-        "SQLSERVER-sqljdbc4.jar",
-        "activemq-ra",
-        "db2jcc4.jar",
-        "framework-2.0.1.jar",
-        "framework_sisgd-1.0.0.jar",
-        "jconn4-16.jar",
-        "jconn4.jar",
-        "mssql-jdbc-9.4.1.jre8.jar",
-        "ojdbc14.jar",
-        "ojdbc6.jar",
-        "ojdbc8.jar",
-        "postgresql-42.0.0.jar",
-        "postgresql-9.1-901.jdbc4.jar",
-        "wmq.jmsra-7.0.1.12-transaction.rar",
-        "wmq.jmsra-7.5.0.8.rar",
-        "wmq.jmsra.rar"
-    ]
-}
-[domain@10.116.89.0:9999 /]
+Nota de Fechamento
+
+Identificado que o pacote EAR do SIMCN, mesmo com deploy indicando sucesso, não estava sendo efetivamente substituído no ambiente (permanecia a versão anterior).
+
+Realizada remoção completa do deployment SIMCN do Domain Controller (server-group e repositório), eliminando o conteúdo que estava causando o conflito.
+
+Efetuado reinício controlado dos processos JBoss do servidor, com validação de que todas as aplicações do host voltaram a operar normalmente.
+
+Ambiente disponibilizado para nova tentativa de deploy da versão atualizada.
+
+Jessé Batista, CTIS/CESTI — Esteira DevOps DES TQS NPRD
