@@ -1,3 +1,7 @@
+
+}
+[domain@10.116.89.0:9999 /] undeploy SIMCN --remove-content
+Unrecognized arguments: [--remove-content]
 [domain@10.116.89.0:9999 /] :read-children-names(child-type=deployment)
 {
     "outcome" => "success",
