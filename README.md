@@ -1,16 +1,6 @@
-cd /opt/jboss/jboss-eap/hc/ && rm -rf data tmp && cd servers && rm -rf s* && cd /opt/jboss/jboss-eap/hc/log/servers/ && rm -rf s*
+/opt/jboss/jboss-eap/bin/jboss-cli.sh --connect --user='admin' --password='jboss!123' --controller=10.116.89.0:9999
 
-exit
+:read-children-names(child-type=deployment)
 
-sudo systemctl start jboss-eap7_hc.service
-ps -ef | grep jboss
+/host=sbrdeapllx105_corporativo:read-attribute(name=host-state)
 
-
-
-
-[root@sbrdeapllx069 p585600]#
-[root@sbrdeapllx069 p585600]# cd /opt/jboss/jboss-eap/hc/ && rm -rf data tmp && cd servers && rm -rf s* && cd /opt/jboss/jboss-eap/hc/log/servers/ && rm -rf s*
-bash: cd: /opt/jboss/jboss-eap/hc/: No such file or directory
-[root@sbrdeapllx069 p585600]#
-[root@sbrdeapllx069 p585600]#
-[root@sbrdeapllx069 p585600]#
