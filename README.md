@@ -1,1 +1,3 @@
-sim, é que a gente ta tentando usar o template que tem a automação no fusionx mas ele repete esse erro em vários projetos do config.yaml que gera aks-sigla-nprd no config.yaml e esse erro do toleration do values.yaml
+Davi, entendi — são campos que o template deixa como padrão mesmo pra cada projeto preencher, então não tem o que reportar, só ajustar no nosso caso mesmo.
+
+No siopi-backend-construcao-civil-pj já corrigi a toleration (value: "node" → "appsisph", que era o pool certo). Falta só fechar a parte da ApiKey: como você confirmou secret apikey-siopi no vault kv-hab-des, preciso criar/ajustar o AzureKeyVaultSecret no namespace do app apontando pra esse objeto (o akvs-siopi-backend-construcao-civil-pj.yaml atual é só do certificado TLS do istio, não serve pra isso) e referenciar no values.yaml. Assim que isso estiver no ar, o CrashLoopBackOff da ApiKey deve sumir.
