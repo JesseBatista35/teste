@@ -1,10 +1,9 @@
 
-O que você deseja?*:	Suporte ao ambiente de aplicação Multiplataformas
-***Atenção***:	Essa opção deve ser utilizada para obter suporte para ambientes e produtos que não são relacionados às Esteiras DevOps.
-.:	Ex: Aplicações Jboss legado, Aplicações Windows legado, Jenkins departamental, Git Lab Departamental, Nexus Departamental, Sonar Departamental.
-Qual o ambiente*:	DES
-Qual é o site?*:	Negocial-Brasília
-Qual o nome do sistema?*:	SIMCN
-Selecione a sua Comunidade*:	Controladoria, Contábeis, Trib. e Orçamento
-Formas de contato*:	via teams c159949
-Descrição da necessidade*:	Solicito a remoção do pacote EAR do servidor JBOSS para fazer
+Olá! Recebi sua solicitação de remoção do pacote EAR no servidor JBoss (ambiente DES, sistema SIMCN).
+
+Para dar andamento, preciso que você complete algumas informações:
+
+Módulo/nome do EAR que deve ser removido
+IP ou hostname do servidor JBoss onde o pacote está instalado
+
+Assim que enviar esses dados eu sigo com a remoção.
