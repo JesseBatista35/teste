@@ -1,4 +1,3 @@
--sh-4.2$ ps -ef | grep simcm
 p585600   18353  18299  0 17:21 pts/1    00:00:00 grep --color=auto simcm
 -sh-4.2$
 -sh-4.2$
@@ -79,3 +78,7 @@ p585600   18365  18299  0 17:21 pts/1    00:00:00 grep --color=auto java
     ]
 }
 [domain@10.116.89.0:9999 /]
+
+
+<img width="1873" height="852" alt="image" src="https://github.com/user-attachments/assets/b767f8a9-074f-4309-b02d-8b406c342601" />
+
