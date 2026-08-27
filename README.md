@@ -1,4 +1,1 @@
-<img width="1891" height="993" alt="image" src="https://github.com/user-attachments/assets/b4808f59-949e-4782-b9cb-bbdea50b9c26" />
-
-
-por aqui da pra fazer?
+<img width="1038" height="731" alt="image" src="https://github.com/user-attachments/assets/7570f6e0-64b5-410b-9179-55befae4e29a" />
