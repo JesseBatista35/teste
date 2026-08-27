@@ -1,62 +1,69 @@
-﻿using Polly;
-using Polly.Extensions.Http;
-using SiopiBackendConstrucaoCivilPJ.API.Handlers;
-using System.Security.Authentication;
 
-namespace SiopiBackendConstrucaoCivilPJ.API.Configuration
-{
-    /// <summary>
-    /// Configuração de HttpClients utilizados pela aplicação.
-    /// </summary>
-    public static class HttpClientConfiguration
-    {
-        /// <summary>
-        /// Registra os HttpClients e handlers necessários para integrações externas.
-        /// </summary>
-        /// <param name="services">Coleção de serviços da aplicação.</param>
-        /// <param name="configuration">Configuração da aplicação.</param>
-        /// <returns>A coleção de serviços atualizada.</returns>
-        /// <exception cref="InvalidOperationException">Quando as configurações obrigatórias não são encontradas.</exception>
-        public static IServiceCollection AddHttpClientConfig(
-            this IServiceCollection services,
-            IConfiguration configuration)
-        {
-            var urlBaseApim = configuration["ApimIntranet"]
-                ?? throw new InvalidOperationException("A configuração 'ApimIntranet' é obrigatória.");
-            var apiKey = configuration["ApiKey"]
-                ?? throw new InvalidOperationException("A configuração 'ApiKey' é obrigatória.");
-            var ssoUrl = configuration["IntranetIssuer"]
-                ?? throw new InvalidOperationException("A configuração 'IntranetIssuer' é obrigatória.");
+aks-hab-des | Configuração de segurança
+Serviço do Kubernetes
+Pesquisar
+
+Visão geral
+Log de atividade
+IAM (Controle de acesso)
+Marcações
+Monitor (Insights)
+Diagnosticar e resolver problemas
+Microsoft Defender para Nuvem
+Análise de custo
+Visualizador de recursos
+
+Recursos do Kubernetes
+Namespaces
+Cargas de trabalho
+Serviços e entradas
+Políticas de rede
+Armazenamento
+Configuração
+Recursos personalizados
+Eventos
+Executar comando
+Helm (versão prévia)
+
+Configurações
+Pools de nós
+Atualizações
+Configuração de segurança
+Colocação em escala de aplicativos
+Rede
+Extensões + aplicativos
+Backup
+Malha de serviço – Istio
+IA/ML (versão prévia)
+Malha de Serviço Aberto
+GitOps
+Implantações automatizadas
+Políticas
+Conector de serviço
+Propriedades
+Bloqueios
+
+Monitoramento
+Alertas
+Métrica
+Configurações de diagnóstico
+Recomendações do supervisor
+Logs
+Pastas de trabalho
+Painéis com Grafana
+
+Automação
+CLI / PS
+Tarefas
+Exportar modelo
+
+Ajuda
+Integridade do recurso
+Suporte + Solução de Problemas
+Adicione ou remova favoritos pressionando Ctrl+Shift+F
 
 
-            // Método local para configurar o HttpClientHandler
-            HttpClientHandler CreateHttpClientHandler() => new()
-            {
-                ClientCertificateOptions = ClientCertificateOption.Manual,
-                SslProtocols =
-                    SslProtocols.Tls12 | SslProtocols.Tls13,
-            };
 
-            services.AddHttpClient("ApimIntranet", httpClient =>
-            {
-                httpClient.BaseAddress = new Uri(urlBaseApim);
-                httpClient.AddHeadersApiKey(apiKey);
-            }).ConfigurePrimaryHttpMessageHandler(CreateHttpClientHandler)
-            .AddPolicyHandler(HttpPolicyExtensions
-            .HandleTransientHttpError()
-            .WaitAndRetryAsync(3, attempt => TimeSpan.FromSeconds(Math.Pow(2, attempt))))
-            .AddHttpMessageHandler<TokenHandler>()
-            .AddHttpMessageHandler(sp =>
-              {
-                  var logger = sp.GetRequiredService<ILogger<GlobalHttpErrorHandler>>();
-                  return new GlobalHttpErrorHandler(logger);
-              });
 
-            services.AddHttpClient("Siset", httpClient =>
-            {
-                httpClient.BaseAddress = new Uri(ssoUrl);
-            }).ConfigurePrimaryHttpMessageHandler(CreateHttpClientHandler);
-            return services;
-        }
-    }
-}
+
+tem algum lugar aqui que agnete consegue olhar so nao lembro onde
