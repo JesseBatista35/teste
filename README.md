@@ -1,13 +1,29 @@
-Prezados,
+Ajustar ambiente ou parametrização de software
 
-Identificamos que a falha na validação da VEC ocorria porque a compilação estava sendo feita a partir da tag 0.0.0.2b, que não segue o padrão de versionamento estabelecido pelo PPDS (CE GEQTI 011/2024). Conforme a norma, apenas tags no formato numérico puro VM.Vm.Patch.Build (ex: 0.0.0.2) são aceitas para aprovação na VEC e liberação em TQS/HMP/PRD. Por não estar no padrão, o build era publicado como SNAPSHOT no Nexus, o que também impedia a tag de aparecer na seleção de Artifact no momento da release.
 
-Ação realizada: foi criada a tag 0.0.0.3, seguindo o padrão numérico correto, e uma nova compilação foi executada a partir dela. A tag ficou disponível corretamente na seleção do Artifact e a release em TQS foi executada com sucesso.
+Qual o tipo de serviço?*:	Ajustar ambiente ou parametrização de software
+Informar o Ambiente:*:	DES
+Nome do serviço ou sistema:*:	SIFAP-backend
+Janela de atendimento:*:	28/8/2026 00:00:00
+Prazo final da janela de atendimento:*:	31/8/2026 00:00:00
+Haverá previsão de indisponibilidade durante a execução do serviço:*:	Não
+Contato do responsável pela validação do ambiente após alteração:*:	Emanuel de Souza Alves
+Telefone: 61-992997893
+Descrição da solicitação:*:	Bom dia,
 
-Segue referência da documentação oficial sobre o processo:
-https://devops.caixa/projetos/Caixa/_wiki/wikis/Caixa.wiki/1689/Valida%C3%A7%C3%A3o-da-VEC
+Para o projeto https://devops.caixa/projetos/Caixa/_git/SIFAP-backend
 
-Deploy em TQS concluído com sucesso. Encerrando a W.O.
+Por gentileza,
 
-Atenciosamente,
-Jessé Batista
+Recriar a branch DEVELOP com base na tag em HMP cujo é https://devops.caixa/projetos/Caixa/_git/SIFAP-backend?version=GT2.25.1.2 (https://devops.caixa/projetos/Caixa/_releaseProgress?_a=release-pipeline-progress&releaseId=507961)
+
+Por gentileza, nesta nova branch precisamos manter a pastar DML como está devido a manter o histórico de scripts.
+A pasta DOC se encontra em:
+https://devops.caixa/projetos/Caixa/_git/SIFAP-backend?version=GBdevelop&path=/doc
+
+Muito Obrigado
+
+Qualquer informação procurar:
+Emanuel de Souza Alves
+Telefone: 61-992997893
+Informar formas de contato:*:	Telefone, Teams
