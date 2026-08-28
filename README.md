@@ -1,4629 +1,746 @@
-2026-08-27 16:00:09,030 ERROR [org.infinispan.interceptors.impl.InvocationContextInterceptor] (non-blocking-thread--p11-t2) ISPN000136: Error executing command GetKeyValueCommand on Cache 'SICMU-ear.ear.SICMU-web.war', writing keys []: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=840, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:292)
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:222)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.checkState(InfinispanLock.java:440)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.lambda$toInvocationStage$3(InfinispanLock.java:416)
-        at java.util.concurrent.CompletableFuture.uniApply(CompletableFuture.java:616)
-        at java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:591)
-        at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:456)
-        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-        at org.jboss.as.clustering.context.ContextReferenceExecutor.execute(ContextReferenceExecutor.java:49)
-        at org.jboss.as.clustering.context.ContextualExecutor$1.run(ContextualExecutor.java:70)
-        at java.lang.Thread.run(Thread.java:748)
+<?xml version="1.0"?>
+<web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+	<display-name>sicmu</display-name>
+
+	<welcome-file-list>
+		<welcome-file>/principal/index.html</welcome-file>
+	</welcome-file-list>
+
+	<distributable />
+
+	<servlet>
+		<servlet-name>Faces Servlet</servlet-name>
+		<servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Faces Servlet</servlet-name>
+		<url-pattern>*.jsf</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>SimpleCaptcha</servlet-name>
+		<servlet-class>nl.captcha.servlet.StickyCaptchaServlet</servlet-class>
+		
+		<init-param>
+			<!-- Time To Live, in ms. Optional; Defaults to 600000ms. -->
+			<param-name>ttl</param-name>
+			<param-value>100000</param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SimpleCaptcha</servlet-name>
+		<url-pattern>/captcha</url-pattern>
+	</servlet-mapping>
 
-2026-08-27 16:00:09,030 ERROR [io.undertow.servlet.request] (default task-55) UT015005: Error invoking method requestDestroyed on listener class com.sun.faces.config.ConfigureListener: java.lang.UnsupportedOperationException
-        at javax.faces.context.FacesContext.getExceptionHandler(FacesContext.java:280)
-        at javax.faces.event.ExceptionQueuedEventContext.getListenersForEventClass(ExceptionQueuedEventContext.java:248)
-        at com.sun.faces.application.applicationimpl.Events.invokeComponentListenersFor(Events.java:181)
-        at com.sun.faces.application.applicationimpl.Events.publishEvent(Events.java:106)
-        at com.sun.faces.application.ApplicationImpl.publishEvent(ApplicationImpl.java:127)
-        at com.sun.faces.application.ApplicationImpl.publishEvent(ApplicationImpl.java:119)
-        at javax.faces.application.ApplicationWrapper.publishEvent(ApplicationWrapper.java:776)
-        at com.sun.faces.application.WebappLifecycleListener.requestDestroyed(WebappLifecycleListener.java:149)
-        at com.sun.faces.config.ConfigureListener.requestDestroyed(ConfigureListener.java:382)
-        at io.undertow.servlet.core.ApplicationListeners.requestDestroyed(ApplicationListeners.java:289)
-        at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:330)
-        at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:79)
-        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:134)
-        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:131)
-        at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
-        at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
-        at org.wildfly.extension.undertow.security.SecurityContextThreadSetupAction.lambda$create$0(SecurityContextThreadSetupAction.java:105)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:255)
-        at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:79)
-        at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:100)
-        at io.undertow.server.Connectors.executeRootHandler(Connectors.java:387)
-        at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:852)
-        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
-        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
-        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
-        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1348)
-        at org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
-        at java.lang.Thread.run(Thread.java:748)
+	<filter>
+		<filter-name>PrimeFaces FileUpload Filter</filter-name>
+		<filter-class>org.primefaces.webapp.filter.FileUploadFilter</filter-class>
+	</filter>
 
-2026-08-27 16:00:09,030 WARN  [org.jboss.weld.Servlet] (default task-55) WELD-000715: HttpContextLifecycle guard not set. The Servlet container is not fully compliant.
-2026-08-27 16:00:09,030 ERROR [org.infinispan.interceptors.impl.InvocationContextInterceptor] (non-blocking-thread--p11-t3) ISPN000136: Error executing command GetKeyValueCommand on Cache 'SICMU-ear.ear.SICMU-web.war', writing keys []: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=841, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:292)
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:222)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.checkState(InfinispanLock.java:440)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.lambda$toInvocationStage$3(InfinispanLock.java:416)
-        at java.util.concurrent.CompletableFuture.uniApply(CompletableFuture.java:616)
-        at java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:591)
-        at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:456)
-        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-        at org.jboss.as.clustering.context.ContextReferenceExecutor.execute(ContextReferenceExecutor.java:49)
-        at org.jboss.as.clustering.context.ContextualExecutor$1.run(ContextualExecutor.java:70)
-        at java.lang.Thread.run(Thread.java:748)
-
-2026-08-27 16:00:09,030 ERROR [org.infinispan.interceptors.impl.InvocationContextInterceptor] (non-blocking-thread--p11-t4) ISPN000136: Error executing command GetKeyValueCommand on Cache 'SICMU-ear.ear.SICMU-web.war', writing keys []: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=842, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:292)
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:222)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.checkState(InfinispanLock.java:440)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.lambda$toInvocationStage$3(InfinispanLock.java:416)
-        at java.util.concurrent.CompletableFuture.uniApply(CompletableFuture.java:616)
-        at java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:591)
-        at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:456)
-        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-        at org.jboss.as.clustering.context.ContextReferenceExecutor.execute(ContextReferenceExecutor.java:49)
-        at org.jboss.as.clustering.context.ContextualExecutor$1.run(ContextualExecutor.java:70)
-        at java.lang.Thread.run(Thread.java:748)
-
-2026-08-27 16:00:09,031 ERROR [io.undertow.servlet.request] (default task-56) UT015005: Error invoking method requestDestroyed on listener class com.sun.faces.config.ConfigureListener: java.lang.UnsupportedOperationException
-        at javax.faces.context.FacesContext.getExceptionHandler(FacesContext.java:280)
-        at javax.faces.event.ExceptionQueuedEventContext.getListenersForEventClass(ExceptionQueuedEventContext.java:248)
-        at com.sun.faces.application.applicationimpl.Events.invokeComponentListenersFor(Events.java:181)
-        at com.sun.faces.application.applicationimpl.Events.publishEvent(Events.java:106)
-        at com.sun.faces.application.ApplicationImpl.publishEvent(ApplicationImpl.java:127)
-        at com.sun.faces.application.ApplicationImpl.publishEvent(ApplicationImpl.java:119)
-        at javax.faces.application.ApplicationWrapper.publishEvent(ApplicationWrapper.java:776)
-        at com.sun.faces.application.WebappLifecycleListener.requestDestroyed(WebappLifecycleListener.java:149)
-        at com.sun.faces.config.ConfigureListener.requestDestroyed(ConfigureListener.java:382)
-        at io.undertow.servlet.core.ApplicationListeners.requestDestroyed(ApplicationListeners.java:289)
-        at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:330)
-        at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:79)
-        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:134)
-        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:131)
-        at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
-        at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
-        at org.wildfly.extension.undertow.security.SecurityContextThreadSetupAction.lambda$create$0(SecurityContextThreadSetupAction.java:105)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:255)
-        at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:79)
-        at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:100)
-        at io.undertow.server.Connectors.executeRootHandler(Connectors.java:387)
-        at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:852)
-        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
-        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
-        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
-        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1348)
-        at org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
-        at java.lang.Thread.run(Thread.java:748)
-
-2026-08-27 16:00:09,031 WARN  [org.jboss.weld.Servlet] (default task-56) WELD-000715: HttpContextLifecycle guard not set. The Servlet container is not fully compliant.
-2026-08-27 16:00:09,031 ERROR [io.undertow.servlet.request] (default task-54) UT015005: Error invoking method requestDestroyed on listener class com.sun.faces.config.ConfigureListener: java.lang.UnsupportedOperationException
-        at javax.faces.context.FacesContext.getExceptionHandler(FacesContext.java:280)
-        at javax.faces.event.ExceptionQueuedEventContext.getListenersForEventClass(ExceptionQueuedEventContext.java:248)
-        at com.sun.faces.application.applicationimpl.Events.invokeComponentListenersFor(Events.java:181)
-        at com.sun.faces.application.applicationimpl.Events.publishEvent(Events.java:106)
-        at com.sun.faces.application.ApplicationImpl.publishEvent(ApplicationImpl.java:127)
-        at com.sun.faces.application.ApplicationImpl.publishEvent(ApplicationImpl.java:119)
-        at javax.faces.application.ApplicationWrapper.publishEvent(ApplicationWrapper.java:776)
-        at com.sun.faces.application.WebappLifecycleListener.requestDestroyed(WebappLifecycleListener.java:149)
-        at com.sun.faces.config.ConfigureListener.requestDestroyed(ConfigureListener.java:382)
-        at io.undertow.servlet.core.ApplicationListeners.requestDestroyed(ApplicationListeners.java:289)
-        at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:330)
-        at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:79)
-        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:134)
-        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:131)
-        at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
-        at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
-        at org.wildfly.extension.undertow.security.SecurityContextThreadSetupAction.lambda$create$0(SecurityContextThreadSetupAction.java:105)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:255)
-        at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:79)
-        at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:100)
-        at io.undertow.server.Connectors.executeRootHandler(Connectors.java:387)
-        at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:852)
-        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
-        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
-        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
-        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1348)
-        at org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
-        at java.lang.Thread.run(Thread.java:748)
-
-2026-08-27 16:00:09,031 WARN  [org.jboss.weld.Servlet] (default task-54) WELD-000715: HttpContextLifecycle guard not set. The Servlet container is not fully compliant.
-2026-08-27 16:00:09,031 ERROR [org.infinispan.interceptors.impl.InvocationContextInterceptor] (non-blocking-thread--p11-t1) ISPN000136: Error executing command GetKeyValueCommand on Cache 'SICMU-ear.ear.SICMU-web.war', writing keys []: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=843, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:292)
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:222)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.checkState(InfinispanLock.java:440)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.lambda$toInvocationStage$3(InfinispanLock.java:416)
-        at java.util.concurrent.CompletableFuture.uniApply(CompletableFuture.java:616)
-        at java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:591)
-        at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:456)
-        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-        at org.jboss.as.clustering.context.ContextReferenceExecutor.execute(ContextReferenceExecutor.java:49)
-        at org.jboss.as.clustering.context.ContextualExecutor$1.run(ContextualExecutor.java:70)
-        at java.lang.Thread.run(Thread.java:748)
-
-2026-08-27 16:00:09,031 ERROR [io.undertow.servlet.request] (default task-53) UT015005: Error invoking method requestDestroyed on listener class com.sun.faces.config.ConfigureListener: java.lang.UnsupportedOperationException
-        at javax.faces.context.FacesContext.getExceptionHandler(FacesContext.java:280)
-        at javax.faces.event.ExceptionQueuedEventContext.getListenersForEventClass(ExceptionQueuedEventContext.java:248)
-        at com.sun.faces.application.applicationimpl.Events.invokeComponentListenersFor(Events.java:181)
-        at com.sun.faces.application.applicationimpl.Events.publishEvent(Events.java:106)
-        at com.sun.faces.application.ApplicationImpl.publishEvent(ApplicationImpl.java:127)
-        at com.sun.faces.application.ApplicationImpl.publishEvent(ApplicationImpl.java:119)
-        at javax.faces.application.ApplicationWrapper.publishEvent(ApplicationWrapper.java:776)
-        at com.sun.faces.application.WebappLifecycleListener.requestDestroyed(WebappLifecycleListener.java:149)
-        at com.sun.faces.config.ConfigureListener.requestDestroyed(ConfigureListener.java:382)
-        at io.undertow.servlet.core.ApplicationListeners.requestDestroyed(ApplicationListeners.java:289)
-        at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:330)
-        at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:79)
-        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:134)
-        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:131)
-        at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
-        at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
-        at org.wildfly.extension.undertow.security.SecurityContextThreadSetupAction.lambda$create$0(SecurityContextThreadSetupAction.java:105)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:255)
-        at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:79)
-        at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:100)
-        at io.undertow.server.Connectors.executeRootHandler(Connectors.java:387)
-        at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:852)
-        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
-        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
-        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
-        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1348)
-        at org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
-        at java.lang.Thread.run(Thread.java:748)
-
-2026-08-27 16:00:09,031 WARN  [org.jboss.weld.Servlet] (default task-53) WELD-000715: HttpContextLifecycle guard not set. The Servlet container is not fully compliant.
-2026-08-27 16:00:09,055 ERROR [org.infinispan.interceptors.impl.InvocationContextInterceptor] (non-blocking-thread--p11-t2) ISPN000136: Error executing command GetKeyValueCommand on Cache 'SICMU-ear.ear.SICMU-web.war', writing keys []: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=844, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:292)
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:222)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.checkState(InfinispanLock.java:440)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.lambda$toInvocationStage$3(InfinispanLock.java:416)
-        at java.util.concurrent.CompletableFuture.uniApply(CompletableFuture.java:616)
-        at java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:591)
-        at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:456)
-        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-        at org.jboss.as.clustering.context.ContextReferenceExecutor.execute(ContextReferenceExecutor.java:49)
-        at org.jboss.as.clustering.context.ContextualExecutor$1.run(ContextualExecutor.java:70)
-        at java.lang.Thread.run(Thread.java:748)
-
-2026-08-27 16:00:09,055 ERROR [io.undertow.servlet.request] (default task-57) UT015005: Error invoking method requestDestroyed on listener class com.sun.faces.config.ConfigureListener: java.lang.UnsupportedOperationException
-        at javax.faces.context.FacesContext.getExceptionHandler(FacesContext.java:280)
-        at javax.faces.event.ExceptionQueuedEventContext.getListenersForEventClass(ExceptionQueuedEventContext.java:248)
-        at com.sun.faces.application.applicationimpl.Events.invokeComponentListenersFor(Events.java:181)
-        at com.sun.faces.application.applicationimpl.Events.publishEvent(Events.java:106)
-        at com.sun.faces.application.ApplicationImpl.publishEvent(ApplicationImpl.java:127)
-        at com.sun.faces.application.ApplicationImpl.publishEvent(ApplicationImpl.java:119)
-        at javax.faces.application.ApplicationWrapper.publishEvent(ApplicationWrapper.java:776)
-        at com.sun.faces.application.WebappLifecycleListener.requestDestroyed(WebappLifecycleListener.java:149)
-        at com.sun.faces.config.ConfigureListener.requestDestroyed(ConfigureListener.java:382)
-        at io.undertow.servlet.core.ApplicationListeners.requestDestroyed(ApplicationListeners.java:289)
-        at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:330)
-        at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:79)
-        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:134)
-        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:131)
-        at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
-        at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
-        at org.wildfly.extension.undertow.security.SecurityContextThreadSetupAction.lambda$create$0(SecurityContextThreadSetupAction.java:105)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:255)
-        at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:79)
-        at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:100)
-        at io.undertow.server.Connectors.executeRootHandler(Connectors.java:387)
-        at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:852)
-        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
-        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
-        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
-        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1348)
-        at org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
-        at java.lang.Thread.run(Thread.java:748)
-
-2026-08-27 16:00:09,055 WARN  [org.jboss.weld.Servlet] (default task-57) WELD-000715: HttpContextLifecycle guard not set. The Servlet container is not fully compliant.
-2026-08-27 16:00:09,080 ERROR [org.infinispan.interceptors.impl.InvocationContextInterceptor] (non-blocking-thread--p11-t3) ISPN000136: Error executing command GetKeyValueCommand on Cache 'SICMU-ear.ear.SICMU-web.war', writing keys []: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=845, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:292)
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:222)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.checkState(InfinispanLock.java:440)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.lambda$toInvocationStage$3(InfinispanLock.java:416)
-        at java.util.concurrent.CompletableFuture.uniApply(CompletableFuture.java:616)
-        at java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:591)
-        at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:456)
-        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-        at org.jboss.as.clustering.context.ContextReferenceExecutor.execute(ContextReferenceExecutor.java:49)
-        at org.jboss.as.clustering.context.ContextualExecutor$1.run(ContextualExecutor.java:70)
-        at java.lang.Thread.run(Thread.java:748)
-
-2026-08-27 16:00:09,080 ERROR [io.undertow.servlet.request] (default task-58) UT015005: Error invoking method requestDestroyed on listener class com.sun.faces.config.ConfigureListener: java.lang.UnsupportedOperationException
-        at javax.faces.context.FacesContext.getExceptionHandler(FacesContext.java:280)
-        at javax.faces.event.ExceptionQueuedEventContext.getListenersForEventClass(ExceptionQueuedEventContext.java:248)
-        at com.sun.faces.application.applicationimpl.Events.invokeComponentListenersFor(Events.java:181)
-        at com.sun.faces.application.applicationimpl.Events.publishEvent(Events.java:106)
-        at com.sun.faces.application.ApplicationImpl.publishEvent(ApplicationImpl.java:127)
-        at com.sun.faces.application.ApplicationImpl.publishEvent(ApplicationImpl.java:119)
-        at javax.faces.application.ApplicationWrapper.publishEvent(ApplicationWrapper.java:776)
-        at com.sun.faces.application.WebappLifecycleListener.requestDestroyed(WebappLifecycleListener.java:149)
-        at com.sun.faces.config.ConfigureListener.requestDestroyed(ConfigureListener.java:382)
-        at io.undertow.servlet.core.ApplicationListeners.requestDestroyed(ApplicationListeners.java:289)
-        at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:330)
-        at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:79)
-        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:134)
-        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:131)
-        at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
-        at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
-        at org.wildfly.extension.undertow.security.SecurityContextThreadSetupAction.lambda$create$0(SecurityContextThreadSetupAction.java:105)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:255)
-        at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:79)
-        at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:100)
-        at io.undertow.server.Connectors.executeRootHandler(Connectors.java:387)
-        at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:852)
-        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
-        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
-        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
-        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1348)
-        at org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
-        at java.lang.Thread.run(Thread.java:748)
-
-2026-08-27 16:00:09,080 WARN  [org.jboss.weld.Servlet] (default task-58) WELD-000715: HttpContextLifecycle guard not set. The Servlet container is not fully compliant.
-2026-08-27 16:00:09,744 ERROR [org.infinispan.interceptors.impl.InvocationContextInterceptor] (non-blocking-thread--p11-t1) ISPN000136: Error executing command GetKeyValueCommand on Cache 'SICMU-ear.ear.SICMU-web.war', writing keys []: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=846, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:292)
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:222)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.checkState(InfinispanLock.java:440)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.lambda$toInvocationStage$3(InfinispanLock.java:416)
-        at java.util.concurrent.CompletableFuture.uniApply(CompletableFuture.java:616)
-        at java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:591)
-        at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:456)
-        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-        at org.jboss.as.clustering.context.ContextReferenceExecutor.execute(ContextReferenceExecutor.java:49)
-        at org.jboss.as.clustering.context.ContextualExecutor$1.run(ContextualExecutor.java:70)
-        at java.lang.Thread.run(Thread.java:748)
-
-2026-08-27 16:00:09,744 ERROR [io.undertow.servlet.request] (default task-52) UT015005: Error invoking method requestInitialized on listener class org.jboss.weld.module.web.servlet.WeldInitialListener: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=846, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.interceptors.impl.AsyncInterceptorChainImpl.invoke(AsyncInterceptorChainImpl.java:255)
-        at org.infinispan.cache.impl.InvocationHelper.doInvoke(InvocationHelper.java:298)
-        at org.infinispan.cache.impl.InvocationHelper.invoke(InvocationHelper.java:102)
-        at org.infinispan.cache.impl.CacheImpl.get(CacheImpl.java:541)
-        at org.infinispan.cache.impl.DecoratedCache.get(DecoratedCache.java:522)
-        at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-        at org.infinispan.cache.impl.EncoderCache.get(EncoderCache.java:696)
-        at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.getValue(InfinispanSessionMetaDataFactory.java:103)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:93)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:54)
-        at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:63)
-        at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:40)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionManager.findSession(InfinispanSessionManager.java:160)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:66)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:63)
-        at org.wildfly.clustering.ee.cache.SimpleManager.apply(SimpleManager.java:52)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager.findSession(ConcurrentSessionManager.java:71)
-        at org.wildfly.clustering.web.undertow.session.DistributableSessionManager.getSession(DistributableSessionManager.java:229)
-        at io.undertow.servlet.spec.ServletContextImpl.getSession(ServletContextImpl.java:903)
-        at io.undertow.servlet.spec.HttpServletRequestImpl.getSession(HttpServletRequestImpl.java:425)
-        at org.jboss.weld.module.web.servlet.SessionHolder.requestInitialized(SessionHolder.java:47)
-        at org.jboss.weld.module.web.servlet.HttpContextLifecycle.requestInitialized(HttpContextLifecycle.java:247)
-        at org.jboss.weld.module.web.servlet.WeldInitialListener.requestInitialized(WeldInitialListener.java:146)
-        at io.undertow.servlet.core.ApplicationListeners.requestInitialized(ApplicationListeners.java:263)
-        at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:274)
-        at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:79)
-        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:134)
-        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:131)
-        at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
-        at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
-        at org.wildfly.extension.undertow.security.SecurityContextThreadSetupAction.lambda$create$0(SecurityContextThreadSetupAction.java:105)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:255)
-        at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:79)
-        at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:100)
-        at io.undertow.server.Connectors.executeRootHandler(Connectors.java:387)
-        at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:852)
-        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
-        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
-        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
-        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1377)
-        at org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
-        at java.lang.Thread.run(Thread.java:748)
-Caused by: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=846, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:292)
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:222)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.checkState(InfinispanLock.java:440)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.lambda$toInvocationStage$3(InfinispanLock.java:416)
-        at java.util.concurrent.CompletableFuture.uniApply(CompletableFuture.java:616)
-        at java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:591)
-        at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:456)
-        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-        at org.jboss.as.clustering.context.ContextReferenceExecutor.execute(ContextReferenceExecutor.java:49)
-        at org.jboss.as.clustering.context.ContextualExecutor$1.run(ContextualExecutor.java:70)
-        ... 1 more
-        Suppressed: org.infinispan.commons.util.logging.TraceException
-                at org.infinispan.interceptors.impl.SimpleAsyncInvocationStage.get(SimpleAsyncInvocationStage.java:39)
-                at org.infinispan.interceptors.impl.AsyncInterceptorChainImpl.invoke(AsyncInterceptorChainImpl.java:246)
-                at org.infinispan.cache.impl.InvocationHelper.doInvoke(InvocationHelper.java:298)
-                at org.infinispan.cache.impl.InvocationHelper.invoke(InvocationHelper.java:102)
-                at org.infinispan.cache.impl.CacheImpl.get(CacheImpl.java:541)
-                at org.infinispan.cache.impl.DecoratedCache.get(DecoratedCache.java:522)
-                at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-                at org.infinispan.cache.impl.EncoderCache.get(EncoderCache.java:696)
-                at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.getValue(InfinispanSessionMetaDataFactory.java:103)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:93)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:54)
-                at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:63)
-                at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:40)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionManager.findSession(InfinispanSessionManager.java:160)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:66)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:63)
-                at org.wildfly.clustering.ee.cache.SimpleManager.apply(SimpleManager.java:52)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager.findSession(ConcurrentSessionManager.java:71)
-                at org.wildfly.clustering.web.undertow.session.DistributableSessionManager.getSession(DistributableSessionManager.java:229)
-                at io.undertow.servlet.spec.ServletContextImpl.getSession(ServletContextImpl.java:903)
-                at io.undertow.servlet.spec.HttpServletRequestImpl.getSession(HttpServletRequestImpl.java:425)
-                at org.jboss.weld.module.web.servlet.SessionHolder.requestInitialized(SessionHolder.java:47)
-                at org.jboss.weld.module.web.servlet.HttpContextLifecycle.requestInitialized(HttpContextLifecycle.java:247)
-                at org.jboss.weld.module.web.servlet.WeldInitialListener.requestInitialized(WeldInitialListener.java:146)
-                at io.undertow.servlet.core.ApplicationListeners.requestInitialized(ApplicationListeners.java:263)
-                at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:274)
-                at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:79)
-                at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:134)
-                at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:131)
-                at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
-                at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
-                at org.wildfly.extension.undertow.security.SecurityContextThreadSetupAction.lambda$create$0(SecurityContextThreadSetupAction.java:105)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:255)
-                at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:79)
-                at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:100)
-                at io.undertow.server.Connectors.executeRootHandler(Connectors.java:387)
-                at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:852)
-                at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
-                at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
-                at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
-                at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1377)
-                at org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
-                ... 1 more
-
-2026-08-27 16:00:09,744 WARN  [org.jboss.weld.Servlet] (default task-52) WELD-000717: Unable to deactivate context org.jboss.weld.module.web.context.http.HttpRequestContextImpl@3086c0f7 when destroying request HttpServletRequestImpl [ GET /sicmu/paginas/operacaoHabitacional/consultarOperacaoHabit.jsf ]
-2026-08-27 16:00:09,744 WARN  [org.jboss.weld.Servlet] (default task-52) WELD-000717: Unable to deactivate context org.jboss.weld.module.web.context.http.HttpSessionContextImpl@7f380f2a when destroying request HttpServletRequestImpl [ GET /sicmu/paginas/operacaoHabitacional/consultarOperacaoHabit.jsf ]
-2026-08-27 16:00:09,744 ERROR [io.undertow.request] (default task-52) UT005023: Exception handling request to /sicmu/paginas/operacaoHabitacional/consultarOperacaoHabit.jsf: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=846, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.interceptors.impl.AsyncInterceptorChainImpl.invoke(AsyncInterceptorChainImpl.java:255)
-        at org.infinispan.cache.impl.InvocationHelper.doInvoke(InvocationHelper.java:298)
-        at org.infinispan.cache.impl.InvocationHelper.invoke(InvocationHelper.java:102)
-        at org.infinispan.cache.impl.CacheImpl.get(CacheImpl.java:541)
-        at org.infinispan.cache.impl.DecoratedCache.get(DecoratedCache.java:522)
-        at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-        at org.infinispan.cache.impl.EncoderCache.get(EncoderCache.java:696)
-        at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.getValue(InfinispanSessionMetaDataFactory.java:103)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:93)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:54)
-        at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:63)
-        at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:40)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionManager.findSession(InfinispanSessionManager.java:160)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:66)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:63)
-        at org.wildfly.clustering.ee.cache.SimpleManager.apply(SimpleManager.java:52)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager.findSession(ConcurrentSessionManager.java:71)
-        at org.wildfly.clustering.web.undertow.session.DistributableSessionManager.getSession(DistributableSessionManager.java:229)
-        at io.undertow.servlet.spec.ServletContextImpl.getSession(ServletContextImpl.java:903)
-        at io.undertow.servlet.spec.HttpServletRequestImpl.getSession(HttpServletRequestImpl.java:425)
-        at org.jboss.weld.module.web.servlet.SessionHolder.requestInitialized(SessionHolder.java:47)
-        at org.jboss.weld.module.web.servlet.HttpContextLifecycle.requestInitialized(HttpContextLifecycle.java:247)
-        at org.jboss.weld.module.web.servlet.WeldInitialListener.requestInitialized(WeldInitialListener.java:146)
-        at io.undertow.servlet.core.ApplicationListeners.requestInitialized(ApplicationListeners.java:263)
-        at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:274)
-        at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:79)
-        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:134)
-        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:131)
-        at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
-        at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
-        at org.wildfly.extension.undertow.security.SecurityContextThreadSetupAction.lambda$create$0(SecurityContextThreadSetupAction.java:105)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:255)
-        at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:79)
-        at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:100)
-        at io.undertow.server.Connectors.executeRootHandler(Connectors.java:387)
-        at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:852)
-        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
-        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
-        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
-        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1377)
-        at org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
-        at java.lang.Thread.run(Thread.java:748)
-Caused by: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=846, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:292)
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:222)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.checkState(InfinispanLock.java:440)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.lambda$toInvocationStage$3(InfinispanLock.java:416)
-        at java.util.concurrent.CompletableFuture.uniApply(CompletableFuture.java:616)
-        at java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:591)
-        at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:456)
-        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-        at org.jboss.as.clustering.context.ContextReferenceExecutor.execute(ContextReferenceExecutor.java:49)
-        at org.jboss.as.clustering.context.ContextualExecutor$1.run(ContextualExecutor.java:70)
-        ... 1 more
-        Suppressed: org.infinispan.commons.util.logging.TraceException
-                at org.infinispan.interceptors.impl.SimpleAsyncInvocationStage.get(SimpleAsyncInvocationStage.java:39)
-                at org.infinispan.interceptors.impl.AsyncInterceptorChainImpl.invoke(AsyncInterceptorChainImpl.java:246)
-                at org.infinispan.cache.impl.InvocationHelper.doInvoke(InvocationHelper.java:298)
-                at org.infinispan.cache.impl.InvocationHelper.invoke(InvocationHelper.java:102)
-                at org.infinispan.cache.impl.CacheImpl.get(CacheImpl.java:541)
-                at org.infinispan.cache.impl.DecoratedCache.get(DecoratedCache.java:522)
-                at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-                at org.infinispan.cache.impl.EncoderCache.get(EncoderCache.java:696)
-                at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.getValue(InfinispanSessionMetaDataFactory.java:103)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:93)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:54)
-                at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:63)
-                at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:40)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionManager.findSession(InfinispanSessionManager.java:160)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:66)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:63)
-                at org.wildfly.clustering.ee.cache.SimpleManager.apply(SimpleManager.java:52)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager.findSession(ConcurrentSessionManager.java:71)
-                at org.wildfly.clustering.web.undertow.session.DistributableSessionManager.getSession(DistributableSessionManager.java:229)
-                at io.undertow.servlet.spec.ServletContextImpl.getSession(ServletContextImpl.java:903)
-                at io.undertow.servlet.spec.HttpServletRequestImpl.getSession(HttpServletRequestImpl.java:425)
-                at org.jboss.weld.module.web.servlet.SessionHolder.requestInitialized(SessionHolder.java:47)
-                at org.jboss.weld.module.web.servlet.HttpContextLifecycle.requestInitialized(HttpContextLifecycle.java:247)
-                at org.jboss.weld.module.web.servlet.WeldInitialListener.requestInitialized(WeldInitialListener.java:146)
-                at io.undertow.servlet.core.ApplicationListeners.requestInitialized(ApplicationListeners.java:263)
-                at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:274)
-                at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:79)
-                at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:134)
-                at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:131)
-                at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
-                at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
-                at org.wildfly.extension.undertow.security.SecurityContextThreadSetupAction.lambda$create$0(SecurityContextThreadSetupAction.java:105)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:255)
-                at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:79)
-                at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:100)
-                at io.undertow.server.Connectors.executeRootHandler(Connectors.java:387)
-                at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:852)
-                at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
-                at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
-                at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
-                at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1377)
-                at org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
-                ... 1 more
-
-2026-08-27 16:00:12,317 ERROR [org.infinispan.interceptors.impl.InvocationContextInterceptor] (non-blocking-thread--p11-t4) ISPN000136: Error executing command GetKeyValueCommand on Cache 'SICMU-ear.ear.SICMU-web.war', writing keys []: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=847, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:292)
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:222)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.checkState(InfinispanLock.java:440)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.lambda$toInvocationStage$3(InfinispanLock.java:416)
-        at java.util.concurrent.CompletableFuture.uniApply(CompletableFuture.java:616)
-        at java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:591)
-        at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:456)
-        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-        at org.jboss.as.clustering.context.ContextReferenceExecutor.execute(ContextReferenceExecutor.java:49)
-        at org.jboss.as.clustering.context.ContextualExecutor$1.run(ContextualExecutor.java:70)
-        at java.lang.Thread.run(Thread.java:748)
-
-2026-08-27 16:00:12,318 ERROR [io.undertow.servlet.request] (default task-51) UT015005: Error invoking method requestInitialized on listener class org.jboss.weld.module.web.servlet.WeldInitialListener: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=847, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.interceptors.impl.AsyncInterceptorChainImpl.invoke(AsyncInterceptorChainImpl.java:255)
-        at org.infinispan.cache.impl.InvocationHelper.doInvoke(InvocationHelper.java:298)
-        at org.infinispan.cache.impl.InvocationHelper.invoke(InvocationHelper.java:102)
-        at org.infinispan.cache.impl.CacheImpl.get(CacheImpl.java:541)
-        at org.infinispan.cache.impl.DecoratedCache.get(DecoratedCache.java:522)
-        at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-        at org.infinispan.cache.impl.EncoderCache.get(EncoderCache.java:696)
-        at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.getValue(InfinispanSessionMetaDataFactory.java:103)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:93)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:54)
-        at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:63)
-        at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:40)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionManager.findSession(InfinispanSessionManager.java:160)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:66)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:63)
-        at org.wildfly.clustering.ee.cache.SimpleManager.apply(SimpleManager.java:52)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager.findSession(ConcurrentSessionManager.java:71)
-        at org.wildfly.clustering.web.undertow.session.DistributableSessionManager.getSession(DistributableSessionManager.java:229)
-        at io.undertow.servlet.spec.ServletContextImpl.getSession(ServletContextImpl.java:903)
-        at io.undertow.servlet.spec.HttpServletRequestImpl.getSession(HttpServletRequestImpl.java:425)
-        at org.jboss.weld.module.web.servlet.SessionHolder.requestInitialized(SessionHolder.java:47)
-        at org.jboss.weld.module.web.servlet.HttpContextLifecycle.requestInitialized(HttpContextLifecycle.java:247)
-        at org.jboss.weld.module.web.servlet.WeldInitialListener.requestInitialized(WeldInitialListener.java:146)
-        at io.undertow.servlet.core.ApplicationListeners.requestInitialized(ApplicationListeners.java:263)
-        at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:274)
-        at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:79)
-        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:134)
-        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:131)
-        at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
-        at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
-        at org.wildfly.extension.undertow.security.SecurityContextThreadSetupAction.lambda$create$0(SecurityContextThreadSetupAction.java:105)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:255)
-        at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:79)
-        at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:100)
-        at io.undertow.server.Connectors.executeRootHandler(Connectors.java:387)
-        at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:852)
-        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
-        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
-        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
-        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1377)
-        at org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
-        at java.lang.Thread.run(Thread.java:748)
-Caused by: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=847, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:292)
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:222)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.checkState(InfinispanLock.java:440)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.lambda$toInvocationStage$3(InfinispanLock.java:416)
-        at java.util.concurrent.CompletableFuture.uniApply(CompletableFuture.java:616)
-        at java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:591)
-        at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:456)
-        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-        at org.jboss.as.clustering.context.ContextReferenceExecutor.execute(ContextReferenceExecutor.java:49)
-        at org.jboss.as.clustering.context.ContextualExecutor$1.run(ContextualExecutor.java:70)
-        ... 1 more
-        Suppressed: org.infinispan.commons.util.logging.TraceException
-                at org.infinispan.interceptors.impl.SimpleAsyncInvocationStage.get(SimpleAsyncInvocationStage.java:39)
-                at org.infinispan.interceptors.impl.AsyncInterceptorChainImpl.invoke(AsyncInterceptorChainImpl.java:246)
-                at org.infinispan.cache.impl.InvocationHelper.doInvoke(InvocationHelper.java:298)
-                at org.infinispan.cache.impl.InvocationHelper.invoke(InvocationHelper.java:102)
-                at org.infinispan.cache.impl.CacheImpl.get(CacheImpl.java:541)
-                at org.infinispan.cache.impl.DecoratedCache.get(DecoratedCache.java:522)
-                at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-                at org.infinispan.cache.impl.EncoderCache.get(EncoderCache.java:696)
-                at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.getValue(InfinispanSessionMetaDataFactory.java:103)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:93)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:54)
-                at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:63)
-                at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:40)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionManager.findSession(InfinispanSessionManager.java:160)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:66)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:63)
-                at org.wildfly.clustering.ee.cache.SimpleManager.apply(SimpleManager.java:52)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager.findSession(ConcurrentSessionManager.java:71)
-                at org.wildfly.clustering.web.undertow.session.DistributableSessionManager.getSession(DistributableSessionManager.java:229)
-                at io.undertow.servlet.spec.ServletContextImpl.getSession(ServletContextImpl.java:903)
-                at io.undertow.servlet.spec.HttpServletRequestImpl.getSession(HttpServletRequestImpl.java:425)
-                at org.jboss.weld.module.web.servlet.SessionHolder.requestInitialized(SessionHolder.java:47)
-                at org.jboss.weld.module.web.servlet.HttpContextLifecycle.requestInitialized(HttpContextLifecycle.java:247)
-                at org.jboss.weld.module.web.servlet.WeldInitialListener.requestInitialized(WeldInitialListener.java:146)
-                at io.undertow.servlet.core.ApplicationListeners.requestInitialized(ApplicationListeners.java:263)
-                at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:274)
-                at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:79)
-                at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:134)
-                at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:131)
-                at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
-                at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
-                at org.wildfly.extension.undertow.security.SecurityContextThreadSetupAction.lambda$create$0(SecurityContextThreadSetupAction.java:105)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:255)
-                at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:79)
-                at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:100)
-                at io.undertow.server.Connectors.executeRootHandler(Connectors.java:387)
-                at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:852)
-                at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
-                at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
-                at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
-                at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1377)
-                at org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
-                ... 1 more
-
-2026-08-27 16:00:12,319 WARN  [org.jboss.weld.Servlet] (default task-51) WELD-000717: Unable to deactivate context org.jboss.weld.module.web.context.http.HttpRequestContextImpl@3086c0f7 when destroying request HttpServletRequestImpl [ GET /sicmu/paginas/operacaoHabitacional/identificarOperacaoHabit.jsf ]
-2026-08-27 16:00:12,319 WARN  [org.jboss.weld.Servlet] (default task-51) WELD-000717: Unable to deactivate context org.jboss.weld.module.web.context.http.HttpSessionContextImpl@7f380f2a when destroying request HttpServletRequestImpl [ GET /sicmu/paginas/operacaoHabitacional/identificarOperacaoHabit.jsf ]
-2026-08-27 16:00:12,319 ERROR [io.undertow.request] (default task-51) UT005023: Exception handling request to /sicmu/paginas/operacaoHabitacional/identificarOperacaoHabit.jsf: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=847, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.interceptors.impl.AsyncInterceptorChainImpl.invoke(AsyncInterceptorChainImpl.java:255)
-        at org.infinispan.cache.impl.InvocationHelper.doInvoke(InvocationHelper.java:298)
-        at org.infinispan.cache.impl.InvocationHelper.invoke(InvocationHelper.java:102)
-        at org.infinispan.cache.impl.CacheImpl.get(CacheImpl.java:541)
-        at org.infinispan.cache.impl.DecoratedCache.get(DecoratedCache.java:522)
-        at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-        at org.infinispan.cache.impl.EncoderCache.get(EncoderCache.java:696)
-        at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.getValue(InfinispanSessionMetaDataFactory.java:103)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:93)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:54)
-        at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:63)
-        at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:40)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionManager.findSession(InfinispanSessionManager.java:160)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:66)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:63)
-        at org.wildfly.clustering.ee.cache.SimpleManager.apply(SimpleManager.java:52)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager.findSession(ConcurrentSessionManager.java:71)
-        at org.wildfly.clustering.web.undertow.session.DistributableSessionManager.getSession(DistributableSessionManager.java:229)
-        at io.undertow.servlet.spec.ServletContextImpl.getSession(ServletContextImpl.java:903)
-        at io.undertow.servlet.spec.HttpServletRequestImpl.getSession(HttpServletRequestImpl.java:425)
-        at org.jboss.weld.module.web.servlet.SessionHolder.requestInitialized(SessionHolder.java:47)
-        at org.jboss.weld.module.web.servlet.HttpContextLifecycle.requestInitialized(HttpContextLifecycle.java:247)
-        at org.jboss.weld.module.web.servlet.WeldInitialListener.requestInitialized(WeldInitialListener.java:146)
-        at io.undertow.servlet.core.ApplicationListeners.requestInitialized(ApplicationListeners.java:263)
-        at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:274)
-        at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:79)
-        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:134)
-        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:131)
-        at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
-        at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
-        at org.wildfly.extension.undertow.security.SecurityContextThreadSetupAction.lambda$create$0(SecurityContextThreadSetupAction.java:105)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:255)
-        at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:79)
-        at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:100)
-        at io.undertow.server.Connectors.executeRootHandler(Connectors.java:387)
-        at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:852)
-        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
-        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
-        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
-        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1377)
-        at org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
-        at java.lang.Thread.run(Thread.java:748)
-Caused by: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=847, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:292)
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:222)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.checkState(InfinispanLock.java:440)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.lambda$toInvocationStage$3(InfinispanLock.java:416)
-        at java.util.concurrent.CompletableFuture.uniApply(CompletableFuture.java:616)
-        at java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:591)
-        at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:456)
-        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-        at org.jboss.as.clustering.context.ContextReferenceExecutor.execute(ContextReferenceExecutor.java:49)
-        at org.jboss.as.clustering.context.ContextualExecutor$1.run(ContextualExecutor.java:70)
-        ... 1 more
-        Suppressed: org.infinispan.commons.util.logging.TraceException
-                at org.infinispan.interceptors.impl.SimpleAsyncInvocationStage.get(SimpleAsyncInvocationStage.java:39)
-                at org.infinispan.interceptors.impl.AsyncInterceptorChainImpl.invoke(AsyncInterceptorChainImpl.java:246)
-                at org.infinispan.cache.impl.InvocationHelper.doInvoke(InvocationHelper.java:298)
-                at org.infinispan.cache.impl.InvocationHelper.invoke(InvocationHelper.java:102)
-                at org.infinispan.cache.impl.CacheImpl.get(CacheImpl.java:541)
-                at org.infinispan.cache.impl.DecoratedCache.get(DecoratedCache.java:522)
-                at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-                at org.infinispan.cache.impl.EncoderCache.get(EncoderCache.java:696)
-                at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.getValue(InfinispanSessionMetaDataFactory.java:103)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:93)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:54)
-                at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:63)
-                at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:40)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionManager.findSession(InfinispanSessionManager.java:160)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:66)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:63)
-                at org.wildfly.clustering.ee.cache.SimpleManager.apply(SimpleManager.java:52)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager.findSession(ConcurrentSessionManager.java:71)
-                at org.wildfly.clustering.web.undertow.session.DistributableSessionManager.getSession(DistributableSessionManager.java:229)
-                at io.undertow.servlet.spec.ServletContextImpl.getSession(ServletContextImpl.java:903)
-                at io.undertow.servlet.spec.HttpServletRequestImpl.getSession(HttpServletRequestImpl.java:425)
-                at org.jboss.weld.module.web.servlet.SessionHolder.requestInitialized(SessionHolder.java:47)
-                at org.jboss.weld.module.web.servlet.HttpContextLifecycle.requestInitialized(HttpContextLifecycle.java:247)
-                at org.jboss.weld.module.web.servlet.WeldInitialListener.requestInitialized(WeldInitialListener.java:146)
-                at io.undertow.servlet.core.ApplicationListeners.requestInitialized(ApplicationListeners.java:263)
-                at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:274)
-                at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:79)
-                at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:134)
-                at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:131)
-                at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
-                at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
-                at org.wildfly.extension.undertow.security.SecurityContextThreadSetupAction.lambda$create$0(SecurityContextThreadSetupAction.java:105)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:255)
-                at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:79)
-                at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:100)
-                at io.undertow.server.Connectors.executeRootHandler(Connectors.java:387)
-                at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:852)
-                at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
-                at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
-                at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
-                at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1377)
-                at org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
-                ... 1 more
-
-2026-08-27 16:00:16,831 ERROR [org.infinispan.interceptors.impl.InvocationContextInterceptor] (non-blocking-thread--p11-t2) ISPN000136: Error executing command GetKeyValueCommand on Cache 'SICMU-ear.ear.SICMU-web.war', writing keys []: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=848, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:292)
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:222)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.checkState(InfinispanLock.java:440)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.lambda$toInvocationStage$3(InfinispanLock.java:416)
-        at java.util.concurrent.CompletableFuture.uniApply(CompletableFuture.java:616)
-        at java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:591)
-        at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:456)
-        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-        at org.jboss.as.clustering.context.ContextReferenceExecutor.execute(ContextReferenceExecutor.java:49)
-        at org.jboss.as.clustering.context.ContextualExecutor$1.run(ContextualExecutor.java:70)
-        at java.lang.Thread.run(Thread.java:748)
-
-2026-08-27 16:00:16,832 ERROR [io.undertow.servlet.request] (default task-50) UT015005: Error invoking method requestInitialized on listener class org.jboss.weld.module.web.servlet.WeldInitialListener: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=848, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.interceptors.impl.AsyncInterceptorChainImpl.invoke(AsyncInterceptorChainImpl.java:255)
-        at org.infinispan.cache.impl.InvocationHelper.doInvoke(InvocationHelper.java:298)
-        at org.infinispan.cache.impl.InvocationHelper.invoke(InvocationHelper.java:102)
-        at org.infinispan.cache.impl.CacheImpl.get(CacheImpl.java:541)
-        at org.infinispan.cache.impl.DecoratedCache.get(DecoratedCache.java:522)
-        at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-        at org.infinispan.cache.impl.EncoderCache.get(EncoderCache.java:696)
-        at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.getValue(InfinispanSessionMetaDataFactory.java:103)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:93)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:54)
-        at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:63)
-        at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:40)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionManager.findSession(InfinispanSessionManager.java:160)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:66)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:63)
-        at org.wildfly.clustering.ee.cache.SimpleManager.apply(SimpleManager.java:52)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager.findSession(ConcurrentSessionManager.java:71)
-        at org.wildfly.clustering.web.undertow.session.DistributableSessionManager.getSession(DistributableSessionManager.java:229)
-        at io.undertow.servlet.spec.ServletContextImpl.getSession(ServletContextImpl.java:903)
-        at io.undertow.servlet.spec.HttpServletRequestImpl.getSession(HttpServletRequestImpl.java:425)
-        at org.jboss.weld.module.web.servlet.SessionHolder.requestInitialized(SessionHolder.java:47)
-        at org.jboss.weld.module.web.servlet.HttpContextLifecycle.requestInitialized(HttpContextLifecycle.java:247)
-        at org.jboss.weld.module.web.servlet.WeldInitialListener.requestInitialized(WeldInitialListener.java:146)
-        at io.undertow.servlet.core.ApplicationListeners.requestInitialized(ApplicationListeners.java:263)
-        at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:274)
-        at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:79)
-        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:134)
-        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:131)
-        at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
-        at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
-        at org.wildfly.extension.undertow.security.SecurityContextThreadSetupAction.lambda$create$0(SecurityContextThreadSetupAction.java:105)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:255)
-        at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:79)
-        at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:100)
-        at io.undertow.server.Connectors.executeRootHandler(Connectors.java:387)
-        at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:852)
-        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
-        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
-        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
-        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1377)
-        at org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
-        at java.lang.Thread.run(Thread.java:748)
-Caused by: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=848, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:292)
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:222)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.checkState(InfinispanLock.java:440)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.lambda$toInvocationStage$3(InfinispanLock.java:416)
-        at java.util.concurrent.CompletableFuture.uniApply(CompletableFuture.java:616)
-        at java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:591)
-        at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:456)
-        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-        at org.jboss.as.clustering.context.ContextReferenceExecutor.execute(ContextReferenceExecutor.java:49)
-        at org.jboss.as.clustering.context.ContextualExecutor$1.run(ContextualExecutor.java:70)
-        ... 1 more
-        Suppressed: org.infinispan.commons.util.logging.TraceException
-                at org.infinispan.interceptors.impl.SimpleAsyncInvocationStage.get(SimpleAsyncInvocationStage.java:39)
-                at org.infinispan.interceptors.impl.AsyncInterceptorChainImpl.invoke(AsyncInterceptorChainImpl.java:246)
-                at org.infinispan.cache.impl.InvocationHelper.doInvoke(InvocationHelper.java:298)
-                at org.infinispan.cache.impl.InvocationHelper.invoke(InvocationHelper.java:102)
-                at org.infinispan.cache.impl.CacheImpl.get(CacheImpl.java:541)
-                at org.infinispan.cache.impl.DecoratedCache.get(DecoratedCache.java:522)
-                at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-                at org.infinispan.cache.impl.EncoderCache.get(EncoderCache.java:696)
-                at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.getValue(InfinispanSessionMetaDataFactory.java:103)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:93)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:54)
-                at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:63)
-                at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:40)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionManager.findSession(InfinispanSessionManager.java:160)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:66)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:63)
-                at org.wildfly.clustering.ee.cache.SimpleManager.apply(SimpleManager.java:52)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager.findSession(ConcurrentSessionManager.java:71)
-                at org.wildfly.clustering.web.undertow.session.DistributableSessionManager.getSession(DistributableSessionManager.java:229)
-                at io.undertow.servlet.spec.ServletContextImpl.getSession(ServletContextImpl.java:903)
-                at io.undertow.servlet.spec.HttpServletRequestImpl.getSession(HttpServletRequestImpl.java:425)
-                at org.jboss.weld.module.web.servlet.SessionHolder.requestInitialized(SessionHolder.java:47)
-                at org.jboss.weld.module.web.servlet.HttpContextLifecycle.requestInitialized(HttpContextLifecycle.java:247)
-                at org.jboss.weld.module.web.servlet.WeldInitialListener.requestInitialized(WeldInitialListener.java:146)
-                at io.undertow.servlet.core.ApplicationListeners.requestInitialized(ApplicationListeners.java:263)
-                at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:274)
-                at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:79)
-                at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:134)
-                at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:131)
-                at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
-                at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
-                at org.wildfly.extension.undertow.security.SecurityContextThreadSetupAction.lambda$create$0(SecurityContextThreadSetupAction.java:105)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:255)
-                at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:79)
-                at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:100)
-                at io.undertow.server.Connectors.executeRootHandler(Connectors.java:387)
-                at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:852)
-                at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
-                at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
-                at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
-                at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1377)
-                at org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
-                ... 1 more
-
-2026-08-27 16:00:16,832 WARN  [org.jboss.weld.Servlet] (default task-50) WELD-000717: Unable to deactivate context org.jboss.weld.module.web.context.http.HttpRequestContextImpl@3086c0f7 when destroying request HttpServletRequestImpl [ GET /sicmu/paginas/introducao/introducao.jsf ]
-2026-08-27 16:00:16,832 WARN  [org.jboss.weld.Servlet] (default task-50) WELD-000717: Unable to deactivate context org.jboss.weld.module.web.context.http.HttpSessionContextImpl@7f380f2a when destroying request HttpServletRequestImpl [ GET /sicmu/paginas/introducao/introducao.jsf ]
-2026-08-27 16:00:16,832 ERROR [io.undertow.request] (default task-50) UT005023: Exception handling request to /sicmu/paginas/introducao/introducao.jsf: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=848, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.interceptors.impl.AsyncInterceptorChainImpl.invoke(AsyncInterceptorChainImpl.java:255)
-        at org.infinispan.cache.impl.InvocationHelper.doInvoke(InvocationHelper.java:298)
-        at org.infinispan.cache.impl.InvocationHelper.invoke(InvocationHelper.java:102)
-        at org.infinispan.cache.impl.CacheImpl.get(CacheImpl.java:541)
-        at org.infinispan.cache.impl.DecoratedCache.get(DecoratedCache.java:522)
-        at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-        at org.infinispan.cache.impl.EncoderCache.get(EncoderCache.java:696)
-        at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.getValue(InfinispanSessionMetaDataFactory.java:103)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:93)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:54)
-        at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:63)
-        at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:40)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionManager.findSession(InfinispanSessionManager.java:160)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:66)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:63)
-        at org.wildfly.clustering.ee.cache.SimpleManager.apply(SimpleManager.java:52)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager.findSession(ConcurrentSessionManager.java:71)
-        at org.wildfly.clustering.web.undertow.session.DistributableSessionManager.getSession(DistributableSessionManager.java:229)
-        at io.undertow.servlet.spec.ServletContextImpl.getSession(ServletContextImpl.java:903)
-        at io.undertow.servlet.spec.HttpServletRequestImpl.getSession(HttpServletRequestImpl.java:425)
-        at org.jboss.weld.module.web.servlet.SessionHolder.requestInitialized(SessionHolder.java:47)
-        at org.jboss.weld.module.web.servlet.HttpContextLifecycle.requestInitialized(HttpContextLifecycle.java:247)
-        at org.jboss.weld.module.web.servlet.WeldInitialListener.requestInitialized(WeldInitialListener.java:146)
-        at io.undertow.servlet.core.ApplicationListeners.requestInitialized(ApplicationListeners.java:263)
-        at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:274)
-        at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:79)
-        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:134)
-        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:131)
-        at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
-        at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
-        at org.wildfly.extension.undertow.security.SecurityContextThreadSetupAction.lambda$create$0(SecurityContextThreadSetupAction.java:105)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:255)
-        at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:79)
-        at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:100)
-        at io.undertow.server.Connectors.executeRootHandler(Connectors.java:387)
-        at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:852)
-        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
-        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
-        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
-        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1377)
-        at org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
-        at java.lang.Thread.run(Thread.java:748)
-Caused by: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=848, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:292)
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:222)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.checkState(InfinispanLock.java:440)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.lambda$toInvocationStage$3(InfinispanLock.java:416)
-        at java.util.concurrent.CompletableFuture.uniApply(CompletableFuture.java:616)
-        at java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:591)
-        at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:456)
-        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-        at org.jboss.as.clustering.context.ContextReferenceExecutor.execute(ContextReferenceExecutor.java:49)
-        at org.jboss.as.clustering.context.ContextualExecutor$1.run(ContextualExecutor.java:70)
-        ... 1 more
-        Suppressed: org.infinispan.commons.util.logging.TraceException
-                at org.infinispan.interceptors.impl.SimpleAsyncInvocationStage.get(SimpleAsyncInvocationStage.java:39)
-                at org.infinispan.interceptors.impl.AsyncInterceptorChainImpl.invoke(AsyncInterceptorChainImpl.java:246)
-                at org.infinispan.cache.impl.InvocationHelper.doInvoke(InvocationHelper.java:298)
-                at org.infinispan.cache.impl.InvocationHelper.invoke(InvocationHelper.java:102)
-                at org.infinispan.cache.impl.CacheImpl.get(CacheImpl.java:541)
-                at org.infinispan.cache.impl.DecoratedCache.get(DecoratedCache.java:522)
-                at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-                at org.infinispan.cache.impl.EncoderCache.get(EncoderCache.java:696)
-                at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.getValue(InfinispanSessionMetaDataFactory.java:103)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:93)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:54)
-                at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:63)
-                at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:40)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionManager.findSession(InfinispanSessionManager.java:160)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:66)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:63)
-                at org.wildfly.clustering.ee.cache.SimpleManager.apply(SimpleManager.java:52)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager.findSession(ConcurrentSessionManager.java:71)
-                at org.wildfly.clustering.web.undertow.session.DistributableSessionManager.getSession(DistributableSessionManager.java:229)
-                at io.undertow.servlet.spec.ServletContextImpl.getSession(ServletContextImpl.java:903)
-                at io.undertow.servlet.spec.HttpServletRequestImpl.getSession(HttpServletRequestImpl.java:425)
-                at org.jboss.weld.module.web.servlet.SessionHolder.requestInitialized(SessionHolder.java:47)
-                at org.jboss.weld.module.web.servlet.HttpContextLifecycle.requestInitialized(HttpContextLifecycle.java:247)
-                at org.jboss.weld.module.web.servlet.WeldInitialListener.requestInitialized(WeldInitialListener.java:146)
-                at io.undertow.servlet.core.ApplicationListeners.requestInitialized(ApplicationListeners.java:263)
-                at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:274)
-                at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:79)
-                at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:134)
-                at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:131)
-                at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
-                at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
-                at org.wildfly.extension.undertow.security.SecurityContextThreadSetupAction.lambda$create$0(SecurityContextThreadSetupAction.java:105)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:255)
-                at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:79)
-                at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:100)
-                at io.undertow.server.Connectors.executeRootHandler(Connectors.java:387)
-                at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:852)
-                at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
-                at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
-                at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
-                at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1377)
-                at org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
-                ... 1 more
-
-2026-08-27 16:00:24,031 ERROR [org.infinispan.interceptors.impl.InvocationContextInterceptor] (non-blocking-thread--p11-t2) ISPN000136: Error executing command GetKeyValueCommand on Cache 'SICMU-ear.ear.SICMU-web.war', writing keys []: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=849, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:292)
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:222)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.checkState(InfinispanLock.java:440)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.lambda$toInvocationStage$3(InfinispanLock.java:416)
-        at java.util.concurrent.CompletableFuture.uniApply(CompletableFuture.java:616)
-        at java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:591)
-        at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:456)
-        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-        at org.jboss.as.clustering.context.ContextReferenceExecutor.execute(ContextReferenceExecutor.java:49)
-        at org.jboss.as.clustering.context.ContextualExecutor$1.run(ContextualExecutor.java:70)
-        at java.lang.Thread.run(Thread.java:748)
-
-2026-08-27 16:00:24,031 ERROR [io.undertow.request] (default task-55) UT005071: Undertow request failed HttpServerExchange{ GET /sicmu/principal/erro.jsf}: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=849, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.interceptors.impl.AsyncInterceptorChainImpl.invoke(AsyncInterceptorChainImpl.java:255)
-        at org.infinispan.cache.impl.InvocationHelper.doInvoke(InvocationHelper.java:298)
-        at org.infinispan.cache.impl.InvocationHelper.invoke(InvocationHelper.java:102)
-        at org.infinispan.cache.impl.CacheImpl.get(CacheImpl.java:541)
-        at org.infinispan.cache.impl.DecoratedCache.get(DecoratedCache.java:522)
-        at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-        at org.infinispan.cache.impl.EncoderCache.get(EncoderCache.java:696)
-        at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.getValue(InfinispanSessionMetaDataFactory.java:103)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:93)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:54)
-        at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:63)
-        at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:40)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionManager.findSession(InfinispanSessionManager.java:160)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:66)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:63)
-        at org.wildfly.clustering.ee.cache.SimpleManager.apply(SimpleManager.java:52)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager.findSession(ConcurrentSessionManager.java:71)
-        at org.wildfly.clustering.web.undertow.session.DistributableSessionManager.getSession(DistributableSessionManager.java:229)
-        at io.undertow.servlet.spec.ServletContextImpl.getSession(ServletContextImpl.java:903)
-        at io.undertow.servlet.spec.ServletContextImpl.getSession(ServletContextImpl.java:993)
-        at io.undertow.servlet.spec.ServletContextImpl.updateSessionAccessTime(ServletContextImpl.java:997)
-        at io.undertow.servlet.spec.HttpServletResponseImpl.responseDone(HttpServletResponseImpl.java:595)
-        at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:334)
-        at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:79)
-        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:134)
-        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:131)
-        at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
-        at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
-        at org.wildfly.extension.undertow.security.SecurityContextThreadSetupAction.lambda$create$0(SecurityContextThreadSetupAction.java:105)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:255)
-        at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:79)
-        at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:100)
-        at io.undertow.server.Connectors.executeRootHandler(Connectors.java:387)
-        at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:852)
-        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
-        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
-        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
-        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1348)
-        at org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
-        at java.lang.Thread.run(Thread.java:748)
-Caused by: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=849, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:292)
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:222)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.checkState(InfinispanLock.java:440)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.lambda$toInvocationStage$3(InfinispanLock.java:416)
-        at java.util.concurrent.CompletableFuture.uniApply(CompletableFuture.java:616)
-        at java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:591)
-        at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:456)
-        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-        at org.jboss.as.clustering.context.ContextReferenceExecutor.execute(ContextReferenceExecutor.java:49)
-        at org.jboss.as.clustering.context.ContextualExecutor$1.run(ContextualExecutor.java:70)
-        ... 1 more
-        Suppressed: org.infinispan.commons.util.logging.TraceException
-                at org.infinispan.interceptors.impl.SimpleAsyncInvocationStage.get(SimpleAsyncInvocationStage.java:39)
-                at org.infinispan.interceptors.impl.AsyncInterceptorChainImpl.invoke(AsyncInterceptorChainImpl.java:246)
-                at org.infinispan.cache.impl.InvocationHelper.doInvoke(InvocationHelper.java:298)
-                at org.infinispan.cache.impl.InvocationHelper.invoke(InvocationHelper.java:102)
-                at org.infinispan.cache.impl.CacheImpl.get(CacheImpl.java:541)
-                at org.infinispan.cache.impl.DecoratedCache.get(DecoratedCache.java:522)
-                at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-                at org.infinispan.cache.impl.EncoderCache.get(EncoderCache.java:696)
-                at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.getValue(InfinispanSessionMetaDataFactory.java:103)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:93)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:54)
-                at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:63)
-                at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:40)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionManager.findSession(InfinispanSessionManager.java:160)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:66)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:63)
-                at org.wildfly.clustering.ee.cache.SimpleManager.apply(SimpleManager.java:52)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager.findSession(ConcurrentSessionManager.java:71)
-                at org.wildfly.clustering.web.undertow.session.DistributableSessionManager.getSession(DistributableSessionManager.java:229)
-                at io.undertow.servlet.spec.ServletContextImpl.getSession(ServletContextImpl.java:903)
-                at io.undertow.servlet.spec.ServletContextImpl.getSession(ServletContextImpl.java:993)
-                at io.undertow.servlet.spec.ServletContextImpl.updateSessionAccessTime(ServletContextImpl.java:997)
-                at io.undertow.servlet.spec.HttpServletResponseImpl.responseDone(HttpServletResponseImpl.java:595)
-                at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:334)
-                at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:79)
-                at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:134)
-                at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:131)
-                at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
-                at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
-                at org.wildfly.extension.undertow.security.SecurityContextThreadSetupAction.lambda$create$0(SecurityContextThreadSetupAction.java:105)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:255)
-                at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:79)
-                at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:100)
-                at io.undertow.server.Connectors.executeRootHandler(Connectors.java:387)
-                at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:852)
-                at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
-                at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
-                at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
-                at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1348)
-                at org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
-                ... 1 more
-
-2026-08-27 16:00:24,031 ERROR [org.infinispan.interceptors.impl.InvocationContextInterceptor] (non-blocking-thread--p11-t3) ISPN000136: Error executing command GetKeyValueCommand on Cache 'SICMU-ear.ear.SICMU-web.war', writing keys []: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=850, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:292)
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:222)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.checkState(InfinispanLock.java:440)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.lambda$toInvocationStage$3(InfinispanLock.java:416)
-        at java.util.concurrent.CompletableFuture.uniApply(CompletableFuture.java:616)
-        at java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:591)
-        at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:456)
-        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-        at org.jboss.as.clustering.context.ContextReferenceExecutor.execute(ContextReferenceExecutor.java:49)
-        at org.jboss.as.clustering.context.ContextualExecutor$1.run(ContextualExecutor.java:70)
-        at java.lang.Thread.run(Thread.java:748)
-
-2026-08-27 16:00:24,031 ERROR [org.infinispan.interceptors.impl.InvocationContextInterceptor] (non-blocking-thread--p11-t3) ISPN000136: Error executing command GetKeyValueCommand on Cache 'SICMU-ear.ear.SICMU-web.war', writing keys []: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=851, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:292)
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:222)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.checkState(InfinispanLock.java:440)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.lambda$toInvocationStage$3(InfinispanLock.java:416)
-        at java.util.concurrent.CompletableFuture.uniApply(CompletableFuture.java:616)
-        at java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:591)
-        at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:456)
-        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-        at org.jboss.as.clustering.context.ContextReferenceExecutor.execute(ContextReferenceExecutor.java:49)
-        at org.jboss.as.clustering.context.ContextualExecutor$1.run(ContextualExecutor.java:70)
-        at java.lang.Thread.run(Thread.java:748)
-
-2026-08-27 16:00:24,032 ERROR [io.undertow.request] (default task-56) UT005071: Undertow request failed HttpServerExchange{ GET /sicmu/principal/erro.jsf}: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=850, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.interceptors.impl.AsyncInterceptorChainImpl.invoke(AsyncInterceptorChainImpl.java:255)
-        at org.infinispan.cache.impl.InvocationHelper.doInvoke(InvocationHelper.java:298)
-        at org.infinispan.cache.impl.InvocationHelper.invoke(InvocationHelper.java:102)
-        at org.infinispan.cache.impl.CacheImpl.get(CacheImpl.java:541)
-        at org.infinispan.cache.impl.DecoratedCache.get(DecoratedCache.java:522)
-        at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-        at org.infinispan.cache.impl.EncoderCache.get(EncoderCache.java:696)
-        at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.getValue(InfinispanSessionMetaDataFactory.java:103)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:93)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:54)
-        at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:63)
-        at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:40)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionManager.findSession(InfinispanSessionManager.java:160)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:66)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:63)
-        at org.wildfly.clustering.ee.cache.SimpleManager.apply(SimpleManager.java:52)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager.findSession(ConcurrentSessionManager.java:71)
-        at org.wildfly.clustering.web.undertow.session.DistributableSessionManager.getSession(DistributableSessionManager.java:229)
-        at io.undertow.servlet.spec.ServletContextImpl.getSession(ServletContextImpl.java:903)
-        at io.undertow.servlet.spec.ServletContextImpl.getSession(ServletContextImpl.java:993)
-        at io.undertow.servlet.spec.ServletContextImpl.updateSessionAccessTime(ServletContextImpl.java:997)
-        at io.undertow.servlet.spec.HttpServletResponseImpl.responseDone(HttpServletResponseImpl.java:595)
-        at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:334)
-        at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:79)
-        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:134)
-        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:131)
-        at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
-        at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
-        at org.wildfly.extension.undertow.security.SecurityContextThreadSetupAction.lambda$create$0(SecurityContextThreadSetupAction.java:105)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:255)
-        at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:79)
-        at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:100)
-        at io.undertow.server.Connectors.executeRootHandler(Connectors.java:387)
-        at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:852)
-        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
-        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
-        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
-        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1348)
-        at org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
-        at java.lang.Thread.run(Thread.java:748)
-Caused by: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=850, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:292)
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:222)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.checkState(InfinispanLock.java:440)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.lambda$toInvocationStage$3(InfinispanLock.java:416)
-        at java.util.concurrent.CompletableFuture.uniApply(CompletableFuture.java:616)
-        at java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:591)
-        at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:456)
-        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-        at org.jboss.as.clustering.context.ContextReferenceExecutor.execute(ContextReferenceExecutor.java:49)
-        at org.jboss.as.clustering.context.ContextualExecutor$1.run(ContextualExecutor.java:70)
-        ... 1 more
-        Suppressed: org.infinispan.commons.util.logging.TraceException
-                at org.infinispan.interceptors.impl.SimpleAsyncInvocationStage.get(SimpleAsyncInvocationStage.java:39)
-                at org.infinispan.interceptors.impl.AsyncInterceptorChainImpl.invoke(AsyncInterceptorChainImpl.java:246)
-                at org.infinispan.cache.impl.InvocationHelper.doInvoke(InvocationHelper.java:298)
-                at org.infinispan.cache.impl.InvocationHelper.invoke(InvocationHelper.java:102)
-                at org.infinispan.cache.impl.CacheImpl.get(CacheImpl.java:541)
-                at org.infinispan.cache.impl.DecoratedCache.get(DecoratedCache.java:522)
-                at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-                at org.infinispan.cache.impl.EncoderCache.get(EncoderCache.java:696)
-                at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.getValue(InfinispanSessionMetaDataFactory.java:103)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:93)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:54)
-                at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:63)
-                at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:40)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionManager.findSession(InfinispanSessionManager.java:160)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:66)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:63)
-                at org.wildfly.clustering.ee.cache.SimpleManager.apply(SimpleManager.java:52)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager.findSession(ConcurrentSessionManager.java:71)
-                at org.wildfly.clustering.web.undertow.session.DistributableSessionManager.getSession(DistributableSessionManager.java:229)
-                at io.undertow.servlet.spec.ServletContextImpl.getSession(ServletContextImpl.java:903)
-                at io.undertow.servlet.spec.ServletContextImpl.getSession(ServletContextImpl.java:993)
-                at io.undertow.servlet.spec.ServletContextImpl.updateSessionAccessTime(ServletContextImpl.java:997)
-                at io.undertow.servlet.spec.HttpServletResponseImpl.responseDone(HttpServletResponseImpl.java:595)
-                at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:334)
-                at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:79)
-                at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:134)
-                at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:131)
-                at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
-                at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
-                at org.wildfly.extension.undertow.security.SecurityContextThreadSetupAction.lambda$create$0(SecurityContextThreadSetupAction.java:105)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:255)
-                at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:79)
-                at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:100)
-                at io.undertow.server.Connectors.executeRootHandler(Connectors.java:387)
-                at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:852)
-                at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
-                at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
-                at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
-                at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1348)
-                at org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
-                ... 1 more
-
-2026-08-27 16:00:24,032 ERROR [io.undertow.request] (default task-54) UT005071: Undertow request failed HttpServerExchange{ GET /sicmu/principal/erro.jsf}: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=851, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.interceptors.impl.AsyncInterceptorChainImpl.invoke(AsyncInterceptorChainImpl.java:255)
-        at org.infinispan.cache.impl.InvocationHelper.doInvoke(InvocationHelper.java:298)
-        at org.infinispan.cache.impl.InvocationHelper.invoke(InvocationHelper.java:102)
-        at org.infinispan.cache.impl.CacheImpl.get(CacheImpl.java:541)
-        at org.infinispan.cache.impl.DecoratedCache.get(DecoratedCache.java:522)
-        at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-        at org.infinispan.cache.impl.EncoderCache.get(EncoderCache.java:696)
-        at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.getValue(InfinispanSessionMetaDataFactory.java:103)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:93)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:54)
-        at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:63)
-        at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:40)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionManager.findSession(InfinispanSessionManager.java:160)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:66)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:63)
-        at org.wildfly.clustering.ee.cache.SimpleManager.apply(SimpleManager.java:52)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager.findSession(ConcurrentSessionManager.java:71)
-        at org.wildfly.clustering.web.undertow.session.DistributableSessionManager.getSession(DistributableSessionManager.java:229)
-        at io.undertow.servlet.spec.ServletContextImpl.getSession(ServletContextImpl.java:903)
-        at io.undertow.servlet.spec.ServletContextImpl.getSession(ServletContextImpl.java:993)
-        at io.undertow.servlet.spec.ServletContextImpl.updateSessionAccessTime(ServletContextImpl.java:997)
-        at io.undertow.servlet.spec.HttpServletResponseImpl.responseDone(HttpServletResponseImpl.java:595)
-        at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:334)
-        at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:79)
-        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:134)
-        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:131)
-        at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
-        at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
-        at org.wildfly.extension.undertow.security.SecurityContextThreadSetupAction.lambda$create$0(SecurityContextThreadSetupAction.java:105)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:255)
-        at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:79)
-        at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:100)
-        at io.undertow.server.Connectors.executeRootHandler(Connectors.java:387)
-        at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:852)
-        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
-        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
-        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
-        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1348)
-        at org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
-        at java.lang.Thread.run(Thread.java:748)
-Caused by: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=851, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:292)
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:222)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.checkState(InfinispanLock.java:440)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.lambda$toInvocationStage$3(InfinispanLock.java:416)
-        at java.util.concurrent.CompletableFuture.uniApply(CompletableFuture.java:616)
-        at java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:591)
-        at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:456)
-        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-        at org.jboss.as.clustering.context.ContextReferenceExecutor.execute(ContextReferenceExecutor.java:49)
-        at org.jboss.as.clustering.context.ContextualExecutor$1.run(ContextualExecutor.java:70)
-        ... 1 more
-        Suppressed: org.infinispan.commons.util.logging.TraceException
-                at org.infinispan.interceptors.impl.SimpleAsyncInvocationStage.get(SimpleAsyncInvocationStage.java:39)
-                at org.infinispan.interceptors.impl.AsyncInterceptorChainImpl.invoke(AsyncInterceptorChainImpl.java:246)
-                at org.infinispan.cache.impl.InvocationHelper.doInvoke(InvocationHelper.java:298)
-                at org.infinispan.cache.impl.InvocationHelper.invoke(InvocationHelper.java:102)
-                at org.infinispan.cache.impl.CacheImpl.get(CacheImpl.java:541)
-                at org.infinispan.cache.impl.DecoratedCache.get(DecoratedCache.java:522)
-                at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-                at org.infinispan.cache.impl.EncoderCache.get(EncoderCache.java:696)
-                at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.getValue(InfinispanSessionMetaDataFactory.java:103)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:93)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:54)
-                at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:63)
-                at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:40)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionManager.findSession(InfinispanSessionManager.java:160)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:66)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:63)
-                at org.wildfly.clustering.ee.cache.SimpleManager.apply(SimpleManager.java:52)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager.findSession(ConcurrentSessionManager.java:71)
-                at org.wildfly.clustering.web.undertow.session.DistributableSessionManager.getSession(DistributableSessionManager.java:229)
-                at io.undertow.servlet.spec.ServletContextImpl.getSession(ServletContextImpl.java:903)
-                at io.undertow.servlet.spec.ServletContextImpl.getSession(ServletContextImpl.java:993)
-                at io.undertow.servlet.spec.ServletContextImpl.updateSessionAccessTime(ServletContextImpl.java:997)
-                at io.undertow.servlet.spec.HttpServletResponseImpl.responseDone(HttpServletResponseImpl.java:595)
-                at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:334)
-                at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:79)
-                at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:134)
-                at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:131)
-                at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
-                at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
-                at org.wildfly.extension.undertow.security.SecurityContextThreadSetupAction.lambda$create$0(SecurityContextThreadSetupAction.java:105)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:255)
-                at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:79)
-                at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:100)
-                at io.undertow.server.Connectors.executeRootHandler(Connectors.java:387)
-                at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:852)
-                at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
-                at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
-                at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
-                at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1348)
-                at org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
-                ... 1 more
-
-2026-08-27 16:00:24,032 ERROR [org.infinispan.interceptors.impl.InvocationContextInterceptor] (non-blocking-thread--p11-t1) ISPN000136: Error executing command GetKeyValueCommand on Cache 'SICMU-ear.ear.SICMU-web.war', writing keys []: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=852, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:292)
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:222)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.checkState(InfinispanLock.java:440)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.lambda$toInvocationStage$3(InfinispanLock.java:416)
-        at java.util.concurrent.CompletableFuture.uniApply(CompletableFuture.java:616)
-        at java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:591)
-        at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:456)
-        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-        at org.jboss.as.clustering.context.ContextReferenceExecutor.execute(ContextReferenceExecutor.java:49)
-        at org.jboss.as.clustering.context.ContextualExecutor$1.run(ContextualExecutor.java:70)
-        at java.lang.Thread.run(Thread.java:748)
-
-2026-08-27 16:00:24,032 ERROR [io.undertow.request] (default task-53) UT005071: Undertow request failed HttpServerExchange{ GET /sicmu/principal/erro.jsf}: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=852, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.interceptors.impl.AsyncInterceptorChainImpl.invoke(AsyncInterceptorChainImpl.java:255)
-        at org.infinispan.cache.impl.InvocationHelper.doInvoke(InvocationHelper.java:298)
-        at org.infinispan.cache.impl.InvocationHelper.invoke(InvocationHelper.java:102)
-        at org.infinispan.cache.impl.CacheImpl.get(CacheImpl.java:541)
-        at org.infinispan.cache.impl.DecoratedCache.get(DecoratedCache.java:522)
-        at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-        at org.infinispan.cache.impl.EncoderCache.get(EncoderCache.java:696)
-        at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.getValue(InfinispanSessionMetaDataFactory.java:103)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:93)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:54)
-        at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:63)
-        at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:40)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionManager.findSession(InfinispanSessionManager.java:160)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:66)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:63)
-        at org.wildfly.clustering.ee.cache.SimpleManager.apply(SimpleManager.java:52)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager.findSession(ConcurrentSessionManager.java:71)
-        at org.wildfly.clustering.web.undertow.session.DistributableSessionManager.getSession(DistributableSessionManager.java:229)
-        at io.undertow.servlet.spec.ServletContextImpl.getSession(ServletContextImpl.java:903)
-        at io.undertow.servlet.spec.ServletContextImpl.getSession(ServletContextImpl.java:993)
-        at io.undertow.servlet.spec.ServletContextImpl.updateSessionAccessTime(ServletContextImpl.java:997)
-        at io.undertow.servlet.spec.HttpServletResponseImpl.responseDone(HttpServletResponseImpl.java:595)
-        at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:334)
-        at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:79)
-        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:134)
-        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:131)
-        at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
-        at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
-        at org.wildfly.extension.undertow.security.SecurityContextThreadSetupAction.lambda$create$0(SecurityContextThreadSetupAction.java:105)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:255)
-        at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:79)
-        at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:100)
-        at io.undertow.server.Connectors.executeRootHandler(Connectors.java:387)
-        at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:852)
-        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
-        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
-        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
-        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1348)
-        at org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
-        at java.lang.Thread.run(Thread.java:748)
-Caused by: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=852, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:292)
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:222)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.checkState(InfinispanLock.java:440)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.lambda$toInvocationStage$3(InfinispanLock.java:416)
-        at java.util.concurrent.CompletableFuture.uniApply(CompletableFuture.java:616)
-        at java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:591)
-        at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:456)
-        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-        at org.jboss.as.clustering.context.ContextReferenceExecutor.execute(ContextReferenceExecutor.java:49)
-        at org.jboss.as.clustering.context.ContextualExecutor$1.run(ContextualExecutor.java:70)
-        ... 1 more
-        Suppressed: org.infinispan.commons.util.logging.TraceException
-                at org.infinispan.interceptors.impl.SimpleAsyncInvocationStage.get(SimpleAsyncInvocationStage.java:39)
-                at org.infinispan.interceptors.impl.AsyncInterceptorChainImpl.invoke(AsyncInterceptorChainImpl.java:246)
-                at org.infinispan.cache.impl.InvocationHelper.doInvoke(InvocationHelper.java:298)
-                at org.infinispan.cache.impl.InvocationHelper.invoke(InvocationHelper.java:102)
-                at org.infinispan.cache.impl.CacheImpl.get(CacheImpl.java:541)
-                at org.infinispan.cache.impl.DecoratedCache.get(DecoratedCache.java:522)
-                at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-                at org.infinispan.cache.impl.EncoderCache.get(EncoderCache.java:696)
-                at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.getValue(InfinispanSessionMetaDataFactory.java:103)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:93)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:54)
-                at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:63)
-                at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:40)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionManager.findSession(InfinispanSessionManager.java:160)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:66)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:63)
-                at org.wildfly.clustering.ee.cache.SimpleManager.apply(SimpleManager.java:52)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager.findSession(ConcurrentSessionManager.java:71)
-                at org.wildfly.clustering.web.undertow.session.DistributableSessionManager.getSession(DistributableSessionManager.java:229)
-                at io.undertow.servlet.spec.ServletContextImpl.getSession(ServletContextImpl.java:903)
-                at io.undertow.servlet.spec.ServletContextImpl.getSession(ServletContextImpl.java:993)
-                at io.undertow.servlet.spec.ServletContextImpl.updateSessionAccessTime(ServletContextImpl.java:997)
-                at io.undertow.servlet.spec.HttpServletResponseImpl.responseDone(HttpServletResponseImpl.java:595)
-                at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:334)
-                at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:79)
-                at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:134)
-                at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:131)
-                at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
-                at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
-                at org.wildfly.extension.undertow.security.SecurityContextThreadSetupAction.lambda$create$0(SecurityContextThreadSetupAction.java:105)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:255)
-                at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:79)
-                at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:100)
-                at io.undertow.server.Connectors.executeRootHandler(Connectors.java:387)
-                at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:852)
-                at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
-                at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
-                at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
-                at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1348)
-                at org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
-                ... 1 more
-
-2026-08-27 16:00:24,056 ERROR [org.infinispan.interceptors.impl.InvocationContextInterceptor] (non-blocking-thread--p11-t2) ISPN000136: Error executing command GetKeyValueCommand on Cache 'SICMU-ear.ear.SICMU-web.war', writing keys []: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=853, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:292)
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:222)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.checkState(InfinispanLock.java:440)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.lambda$toInvocationStage$3(InfinispanLock.java:416)
-        at java.util.concurrent.CompletableFuture.uniApply(CompletableFuture.java:616)
-        at java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:591)
-        at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:456)
-        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-        at org.jboss.as.clustering.context.ContextReferenceExecutor.execute(ContextReferenceExecutor.java:49)
-        at org.jboss.as.clustering.context.ContextualExecutor$1.run(ContextualExecutor.java:70)
-        at java.lang.Thread.run(Thread.java:748)
-
-2026-08-27 16:00:24,056 ERROR [io.undertow.request] (default task-57) UT005071: Undertow request failed HttpServerExchange{ GET /sicmu/principal/erro.jsf}: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=853, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.interceptors.impl.AsyncInterceptorChainImpl.invoke(AsyncInterceptorChainImpl.java:255)
-        at org.infinispan.cache.impl.InvocationHelper.doInvoke(InvocationHelper.java:298)
-        at org.infinispan.cache.impl.InvocationHelper.invoke(InvocationHelper.java:102)
-        at org.infinispan.cache.impl.CacheImpl.get(CacheImpl.java:541)
-        at org.infinispan.cache.impl.DecoratedCache.get(DecoratedCache.java:522)
-        at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-        at org.infinispan.cache.impl.EncoderCache.get(EncoderCache.java:696)
-        at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.getValue(InfinispanSessionMetaDataFactory.java:103)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:93)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:54)
-        at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:63)
-        at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:40)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionManager.findSession(InfinispanSessionManager.java:160)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:66)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:63)
-        at org.wildfly.clustering.ee.cache.SimpleManager.apply(SimpleManager.java:52)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager.findSession(ConcurrentSessionManager.java:71)
-        at org.wildfly.clustering.web.undertow.session.DistributableSessionManager.getSession(DistributableSessionManager.java:229)
-        at io.undertow.servlet.spec.ServletContextImpl.getSession(ServletContextImpl.java:903)
-        at io.undertow.servlet.spec.ServletContextImpl.getSession(ServletContextImpl.java:993)
-        at io.undertow.servlet.spec.ServletContextImpl.updateSessionAccessTime(ServletContextImpl.java:997)
-        at io.undertow.servlet.spec.HttpServletResponseImpl.responseDone(HttpServletResponseImpl.java:595)
-        at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:334)
-        at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:79)
-        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:134)
-        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:131)
-        at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
-        at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
-        at org.wildfly.extension.undertow.security.SecurityContextThreadSetupAction.lambda$create$0(SecurityContextThreadSetupAction.java:105)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:255)
-        at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:79)
-        at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:100)
-        at io.undertow.server.Connectors.executeRootHandler(Connectors.java:387)
-        at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:852)
-        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
-        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
-        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
-        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1348)
-        at org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
-        at java.lang.Thread.run(Thread.java:748)
-Caused by: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=853, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:292)
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:222)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.checkState(InfinispanLock.java:440)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.lambda$toInvocationStage$3(InfinispanLock.java:416)
-        at java.util.concurrent.CompletableFuture.uniApply(CompletableFuture.java:616)
-        at java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:591)
-        at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:456)
-        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-        at org.jboss.as.clustering.context.ContextReferenceExecutor.execute(ContextReferenceExecutor.java:49)
-        at org.jboss.as.clustering.context.ContextualExecutor$1.run(ContextualExecutor.java:70)
-        ... 1 more
-        Suppressed: org.infinispan.commons.util.logging.TraceException
-                at org.infinispan.interceptors.impl.SimpleAsyncInvocationStage.get(SimpleAsyncInvocationStage.java:39)
-                at org.infinispan.interceptors.impl.AsyncInterceptorChainImpl.invoke(AsyncInterceptorChainImpl.java:246)
-                at org.infinispan.cache.impl.InvocationHelper.doInvoke(InvocationHelper.java:298)
-                at org.infinispan.cache.impl.InvocationHelper.invoke(InvocationHelper.java:102)
-                at org.infinispan.cache.impl.CacheImpl.get(CacheImpl.java:541)
-                at org.infinispan.cache.impl.DecoratedCache.get(DecoratedCache.java:522)
-                at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-                at org.infinispan.cache.impl.EncoderCache.get(EncoderCache.java:696)
-                at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.getValue(InfinispanSessionMetaDataFactory.java:103)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:93)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:54)
-                at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:63)
-                at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:40)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionManager.findSession(InfinispanSessionManager.java:160)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:66)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:63)
-                at org.wildfly.clustering.ee.cache.SimpleManager.apply(SimpleManager.java:52)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager.findSession(ConcurrentSessionManager.java:71)
-                at org.wildfly.clustering.web.undertow.session.DistributableSessionManager.getSession(DistributableSessionManager.java:229)
-                at io.undertow.servlet.spec.ServletContextImpl.getSession(ServletContextImpl.java:903)
-                at io.undertow.servlet.spec.ServletContextImpl.getSession(ServletContextImpl.java:993)
-                at io.undertow.servlet.spec.ServletContextImpl.updateSessionAccessTime(ServletContextImpl.java:997)
-                at io.undertow.servlet.spec.HttpServletResponseImpl.responseDone(HttpServletResponseImpl.java:595)
-                at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:334)
-                at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:79)
-                at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:134)
-                at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:131)
-                at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
-                at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
-                at org.wildfly.extension.undertow.security.SecurityContextThreadSetupAction.lambda$create$0(SecurityContextThreadSetupAction.java:105)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:255)
-                at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:79)
-                at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:100)
-                at io.undertow.server.Connectors.executeRootHandler(Connectors.java:387)
-                at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:852)
-                at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
-                at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
-                at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
-                at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1348)
-                at org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
-                ... 1 more
-
-2026-08-27 16:00:24,081 ERROR [org.infinispan.interceptors.impl.InvocationContextInterceptor] (non-blocking-thread--p11-t3) ISPN000136: Error executing command GetKeyValueCommand on Cache 'SICMU-ear.ear.SICMU-web.war', writing keys []: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=854, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:292)
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:222)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.checkState(InfinispanLock.java:440)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.lambda$toInvocationStage$3(InfinispanLock.java:416)
-        at java.util.concurrent.CompletableFuture.uniApply(CompletableFuture.java:616)
-        at java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:591)
-        at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:456)
-        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-        at org.jboss.as.clustering.context.ContextReferenceExecutor.execute(ContextReferenceExecutor.java:49)
-        at org.jboss.as.clustering.context.ContextualExecutor$1.run(ContextualExecutor.java:70)
-        at java.lang.Thread.run(Thread.java:748)
-
-2026-08-27 16:00:24,081 ERROR [io.undertow.request] (default task-58) UT005071: Undertow request failed HttpServerExchange{ GET /sicmu/principal/erro.jsf}: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=854, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.interceptors.impl.AsyncInterceptorChainImpl.invoke(AsyncInterceptorChainImpl.java:255)
-        at org.infinispan.cache.impl.InvocationHelper.doInvoke(InvocationHelper.java:298)
-        at org.infinispan.cache.impl.InvocationHelper.invoke(InvocationHelper.java:102)
-        at org.infinispan.cache.impl.CacheImpl.get(CacheImpl.java:541)
-        at org.infinispan.cache.impl.DecoratedCache.get(DecoratedCache.java:522)
-        at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-        at org.infinispan.cache.impl.EncoderCache.get(EncoderCache.java:696)
-        at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.getValue(InfinispanSessionMetaDataFactory.java:103)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:93)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:54)
-        at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:63)
-        at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:40)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionManager.findSession(InfinispanSessionManager.java:160)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:66)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:63)
-        at org.wildfly.clustering.ee.cache.SimpleManager.apply(SimpleManager.java:52)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager.findSession(ConcurrentSessionManager.java:71)
-        at org.wildfly.clustering.web.undertow.session.DistributableSessionManager.getSession(DistributableSessionManager.java:229)
-        at io.undertow.servlet.spec.ServletContextImpl.getSession(ServletContextImpl.java:903)
-        at io.undertow.servlet.spec.ServletContextImpl.getSession(ServletContextImpl.java:993)
-        at io.undertow.servlet.spec.ServletContextImpl.updateSessionAccessTime(ServletContextImpl.java:997)
-        at io.undertow.servlet.spec.HttpServletResponseImpl.responseDone(HttpServletResponseImpl.java:595)
-        at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:334)
-        at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:79)
-        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:134)
-        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:131)
-        at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
-        at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
-        at org.wildfly.extension.undertow.security.SecurityContextThreadSetupAction.lambda$create$0(SecurityContextThreadSetupAction.java:105)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:255)
-        at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:79)
-        at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:100)
-        at io.undertow.server.Connectors.executeRootHandler(Connectors.java:387)
-        at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:852)
-        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
-        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
-        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
-        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1348)
-        at org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
-        at java.lang.Thread.run(Thread.java:748)
-Caused by: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=854, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:292)
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:222)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.checkState(InfinispanLock.java:440)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.lambda$toInvocationStage$3(InfinispanLock.java:416)
-        at java.util.concurrent.CompletableFuture.uniApply(CompletableFuture.java:616)
-        at java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:591)
-        at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:456)
-        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-        at org.jboss.as.clustering.context.ContextReferenceExecutor.execute(ContextReferenceExecutor.java:49)
-        at org.jboss.as.clustering.context.ContextualExecutor$1.run(ContextualExecutor.java:70)
-        ... 1 more
-        Suppressed: org.infinispan.commons.util.logging.TraceException
-                at org.infinispan.interceptors.impl.SimpleAsyncInvocationStage.get(SimpleAsyncInvocationStage.java:39)
-                at org.infinispan.interceptors.impl.AsyncInterceptorChainImpl.invoke(AsyncInterceptorChainImpl.java:246)
-                at org.infinispan.cache.impl.InvocationHelper.doInvoke(InvocationHelper.java:298)
-                at org.infinispan.cache.impl.InvocationHelper.invoke(InvocationHelper.java:102)
-                at org.infinispan.cache.impl.CacheImpl.get(CacheImpl.java:541)
-                at org.infinispan.cache.impl.DecoratedCache.get(DecoratedCache.java:522)
-                at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-                at org.infinispan.cache.impl.EncoderCache.get(EncoderCache.java:696)
-                at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.getValue(InfinispanSessionMetaDataFactory.java:103)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:93)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:54)
-                at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:63)
-                at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:40)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionManager.findSession(InfinispanSessionManager.java:160)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:66)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:63)
-                at org.wildfly.clustering.ee.cache.SimpleManager.apply(SimpleManager.java:52)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager.findSession(ConcurrentSessionManager.java:71)
-                at org.wildfly.clustering.web.undertow.session.DistributableSessionManager.getSession(DistributableSessionManager.java:229)
-                at io.undertow.servlet.spec.ServletContextImpl.getSession(ServletContextImpl.java:903)
-                at io.undertow.servlet.spec.ServletContextImpl.getSession(ServletContextImpl.java:993)
-                at io.undertow.servlet.spec.ServletContextImpl.updateSessionAccessTime(ServletContextImpl.java:997)
-                at io.undertow.servlet.spec.HttpServletResponseImpl.responseDone(HttpServletResponseImpl.java:595)
-                at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:334)
-                at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:79)
-                at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:134)
-                at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:131)
-                at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
-                at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
-                at org.wildfly.extension.undertow.security.SecurityContextThreadSetupAction.lambda$create$0(SecurityContextThreadSetupAction.java:105)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:255)
-                at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:79)
-                at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:100)
-                at io.undertow.server.Connectors.executeRootHandler(Connectors.java:387)
-                at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:852)
-                at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
-                at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
-                at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
-                at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1348)
-                at org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
-                ... 1 more
-
-2026-08-27 16:00:24,745 ERROR [org.infinispan.interceptors.impl.InvocationContextInterceptor] (non-blocking-thread--p11-t1) ISPN000136: Error executing command GetKeyValueCommand on Cache 'SICMU-ear.ear.SICMU-web.war', writing keys []: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=855, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:292)
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:222)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.checkState(InfinispanLock.java:440)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.lambda$toInvocationStage$3(InfinispanLock.java:416)
-        at java.util.concurrent.CompletableFuture.uniApply(CompletableFuture.java:616)
-        at java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:591)
-        at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:456)
-        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-        at org.jboss.as.clustering.context.ContextReferenceExecutor.execute(ContextReferenceExecutor.java:49)
-        at org.jboss.as.clustering.context.ContextualExecutor$1.run(ContextualExecutor.java:70)
-        at java.lang.Thread.run(Thread.java:748)
-
-2026-08-27 16:00:24,746 ERROR [io.undertow.request] (default task-52) UT005022: Exception generating error page /principal/erro.jsf: java.lang.RuntimeException: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=855, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at io.undertow.servlet.spec.RequestDispatcherImpl.error(RequestDispatcherImpl.java:510)
-        at io.undertow.servlet.spec.RequestDispatcherImpl.error(RequestDispatcherImpl.java:425)
-        at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:314)
-        at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:79)
-        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:134)
-        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:131)
-        at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
-        at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
-        at org.wildfly.extension.undertow.security.SecurityContextThreadSetupAction.lambda$create$0(SecurityContextThreadSetupAction.java:105)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:255)
-        at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:79)
-        at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:100)
-        at io.undertow.server.Connectors.executeRootHandler(Connectors.java:387)
-        at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:852)
-        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
-        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
-        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
-        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1377)
-        at org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
-        at java.lang.Thread.run(Thread.java:748)
-Caused by: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=855, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.interceptors.impl.AsyncInterceptorChainImpl.invoke(AsyncInterceptorChainImpl.java:255)
-        at org.infinispan.cache.impl.InvocationHelper.doInvoke(InvocationHelper.java:298)
-        at org.infinispan.cache.impl.InvocationHelper.invoke(InvocationHelper.java:102)
-        at org.infinispan.cache.impl.CacheImpl.get(CacheImpl.java:541)
-        at org.infinispan.cache.impl.DecoratedCache.get(DecoratedCache.java:522)
-        at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-        at org.infinispan.cache.impl.EncoderCache.get(EncoderCache.java:696)
-        at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.getValue(InfinispanSessionMetaDataFactory.java:103)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:93)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:54)
-        at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:63)
-        at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:40)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionManager.findSession(InfinispanSessionManager.java:160)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:66)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:63)
-        at org.wildfly.clustering.ee.cache.SimpleManager.apply(SimpleManager.java:52)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager.findSession(ConcurrentSessionManager.java:71)
-        at org.wildfly.clustering.web.undertow.session.DistributableSessionManager.getSession(DistributableSessionManager.java:229)
-        at io.undertow.servlet.spec.ServletContextImpl.getSession(ServletContextImpl.java:903)
-        at io.undertow.servlet.spec.HttpServletRequestImpl.getSession(HttpServletRequestImpl.java:425)
-        at com.sun.faces.context.ExternalContextImpl.getSession(ExternalContextImpl.java:157)
-        at javax.faces.application.ViewHandler.calculateCharacterEncoding(ViewHandler.java:425)
-        at javax.faces.application.ViewHandler.initView(ViewHandler.java:269)
-        at com.sun.faces.application.view.MultiViewHandler.initView(MultiViewHandler.java:115)
-        at javax.faces.application.ViewHandlerWrapper.initView(ViewHandlerWrapper.java:86)
-        at javax.faces.application.ViewHandlerWrapper.initView(ViewHandlerWrapper.java:86)
-        at com.sun.faces.lifecycle.RestoreViewPhase.doPhase(RestoreViewPhase.java:109)
-        at com.sun.faces.lifecycle.LifecycleImpl.execute(LifecycleImpl.java:177)
-        at javax.faces.webapp.FacesServlet.executeLifecyle(FacesServlet.java:707)
-        at javax.faces.webapp.FacesServlet.service(FacesServlet.java:451)
-        at io.undertow.servlet.handlers.ServletHandler.handleRequest(ServletHandler.java:74)
-        at io.undertow.servlet.handlers.FilterHandler.handleRequest(FilterHandler.java:81)
-        at io.undertow.servlet.handlers.security.ServletSecurityRoleHandler.handleRequest(ServletSecurityRoleHandler.java:62)
-        at io.undertow.servlet.handlers.ServletChain$1.handleRequest(ServletChain.java:68)
-        at io.undertow.servlet.handlers.ServletDispatchingHandler.handleRequest(ServletDispatchingHandler.java:36)
-        at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
-        at io.undertow.servlet.handlers.RedirectDirHandler.handleRequest(RedirectDirHandler.java:68)
-        at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
-        at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
-        at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:257)
-        at io.undertow.servlet.handlers.ServletInitialHandler.dispatchToPath(ServletInitialHandler.java:182)
-        at io.undertow.servlet.spec.RequestDispatcherImpl.error(RequestDispatcherImpl.java:504)
-        ... 24 more
-Caused by: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=855, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:292)
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:222)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.checkState(InfinispanLock.java:440)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.lambda$toInvocationStage$3(InfinispanLock.java:416)
-        at java.util.concurrent.CompletableFuture.uniApply(CompletableFuture.java:616)
-        at java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:591)
-        at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:456)
-        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-        at org.jboss.as.clustering.context.ContextReferenceExecutor.execute(ContextReferenceExecutor.java:49)
-        at org.jboss.as.clustering.context.ContextualExecutor$1.run(ContextualExecutor.java:70)
-        ... 1 more
-        Suppressed: org.infinispan.commons.util.logging.TraceException
-                at org.infinispan.interceptors.impl.SimpleAsyncInvocationStage.get(SimpleAsyncInvocationStage.java:39)
-                at org.infinispan.interceptors.impl.AsyncInterceptorChainImpl.invoke(AsyncInterceptorChainImpl.java:246)
-                at org.infinispan.cache.impl.InvocationHelper.doInvoke(InvocationHelper.java:298)
-                at org.infinispan.cache.impl.InvocationHelper.invoke(InvocationHelper.java:102)
-                at org.infinispan.cache.impl.CacheImpl.get(CacheImpl.java:541)
-                at org.infinispan.cache.impl.DecoratedCache.get(DecoratedCache.java:522)
-                at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-                at org.infinispan.cache.impl.EncoderCache.get(EncoderCache.java:696)
-                at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.getValue(InfinispanSessionMetaDataFactory.java:103)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:93)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:54)
-                at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:63)
-                at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:40)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionManager.findSession(InfinispanSessionManager.java:160)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:66)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:63)
-                at org.wildfly.clustering.ee.cache.SimpleManager.apply(SimpleManager.java:52)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager.findSession(ConcurrentSessionManager.java:71)
-                at org.wildfly.clustering.web.undertow.session.DistributableSessionManager.getSession(DistributableSessionManager.java:229)
-                at io.undertow.servlet.spec.ServletContextImpl.getSession(ServletContextImpl.java:903)
-                at io.undertow.servlet.spec.HttpServletRequestImpl.getSession(HttpServletRequestImpl.java:425)
-                at com.sun.faces.context.ExternalContextImpl.getSession(ExternalContextImpl.java:157)
-                at javax.faces.application.ViewHandler.calculateCharacterEncoding(ViewHandler.java:425)
-                at javax.faces.application.ViewHandler.initView(ViewHandler.java:269)
-                at com.sun.faces.application.view.MultiViewHandler.initView(MultiViewHandler.java:115)
-                at javax.faces.application.ViewHandlerWrapper.initView(ViewHandlerWrapper.java:86)
-                at javax.faces.application.ViewHandlerWrapper.initView(ViewHandlerWrapper.java:86)
-                at com.sun.faces.lifecycle.RestoreViewPhase.doPhase(RestoreViewPhase.java:109)
-                at com.sun.faces.lifecycle.LifecycleImpl.execute(LifecycleImpl.java:177)
-                at javax.faces.webapp.FacesServlet.executeLifecyle(FacesServlet.java:707)
-                at javax.faces.webapp.FacesServlet.service(FacesServlet.java:451)
-                at io.undertow.servlet.handlers.ServletHandler.handleRequest(ServletHandler.java:74)
-                at io.undertow.servlet.handlers.FilterHandler.handleRequest(FilterHandler.java:81)
-                at io.undertow.servlet.handlers.security.ServletSecurityRoleHandler.handleRequest(ServletSecurityRoleHandler.java:62)
-                at io.undertow.servlet.handlers.ServletChain$1.handleRequest(ServletChain.java:68)
-                at io.undertow.servlet.handlers.ServletDispatchingHandler.handleRequest(ServletDispatchingHandler.java:36)
-                at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
-                at io.undertow.servlet.handlers.RedirectDirHandler.handleRequest(RedirectDirHandler.java:68)
-                at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
-                at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
-                at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:257)
-                at io.undertow.servlet.handlers.ServletInitialHandler.dispatchToPath(ServletInitialHandler.java:182)
-                at io.undertow.servlet.spec.RequestDispatcherImpl.error(RequestDispatcherImpl.java:504)
-                at io.undertow.servlet.spec.RequestDispatcherImpl.error(RequestDispatcherImpl.java:425)
-                at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:314)
-                at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:79)
-                at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:134)
-                at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:131)
-                at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
-                at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
-                at org.wildfly.extension.undertow.security.SecurityContextThreadSetupAction.lambda$create$0(SecurityContextThreadSetupAction.java:105)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:255)
-                at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:79)
-                at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:100)
-                at io.undertow.server.Connectors.executeRootHandler(Connectors.java:387)
-                at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:852)
-                at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
-                at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
-                at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
-                at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1377)
-                at org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
-                ... 1 more
-
-2026-08-27 16:00:26,612 ERROR [org.infinispan.interceptors.impl.InvocationContextInterceptor] (non-blocking-thread--p11-t4) ISPN000136: Error executing command GetKeyValueCommand on Cache 'SICMU-ear.ear.SICMU-web.war', writing keys []: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=856, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:292)
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:222)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.checkState(InfinispanLock.java:440)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.lambda$toInvocationStage$3(InfinispanLock.java:416)
-        at java.util.concurrent.CompletableFuture.uniApply(CompletableFuture.java:616)
-        at java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:591)
-        at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:456)
-        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-        at org.jboss.as.clustering.context.ContextReferenceExecutor.execute(ContextReferenceExecutor.java:49)
-        at org.jboss.as.clustering.context.ContextualExecutor$1.run(ContextualExecutor.java:70)
-        at java.lang.Thread.run(Thread.java:748)
-
-2026-08-27 16:00:26,612 ERROR [io.undertow.servlet.request] (default task-49) UT015005: Error invoking method requestInitialized on listener class org.jboss.weld.module.web.servlet.WeldInitialListener: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=856, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.interceptors.impl.AsyncInterceptorChainImpl.invoke(AsyncInterceptorChainImpl.java:255)
-        at org.infinispan.cache.impl.InvocationHelper.doInvoke(InvocationHelper.java:298)
-        at org.infinispan.cache.impl.InvocationHelper.invoke(InvocationHelper.java:102)
-        at org.infinispan.cache.impl.CacheImpl.get(CacheImpl.java:541)
-        at org.infinispan.cache.impl.DecoratedCache.get(DecoratedCache.java:522)
-        at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-        at org.infinispan.cache.impl.EncoderCache.get(EncoderCache.java:696)
-        at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.getValue(InfinispanSessionMetaDataFactory.java:103)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:93)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:54)
-        at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:63)
-        at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:40)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionManager.findSession(InfinispanSessionManager.java:160)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:66)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:63)
-        at org.wildfly.clustering.ee.cache.SimpleManager.apply(SimpleManager.java:52)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager.findSession(ConcurrentSessionManager.java:71)
-        at org.wildfly.clustering.web.undertow.session.DistributableSessionManager.getSession(DistributableSessionManager.java:229)
-        at io.undertow.servlet.spec.ServletContextImpl.getSession(ServletContextImpl.java:903)
-        at io.undertow.servlet.spec.HttpServletRequestImpl.getSession(HttpServletRequestImpl.java:425)
-        at org.jboss.weld.module.web.servlet.SessionHolder.requestInitialized(SessionHolder.java:47)
-        at org.jboss.weld.module.web.servlet.HttpContextLifecycle.requestInitialized(HttpContextLifecycle.java:247)
-        at org.jboss.weld.module.web.servlet.WeldInitialListener.requestInitialized(WeldInitialListener.java:146)
-        at io.undertow.servlet.core.ApplicationListeners.requestInitialized(ApplicationListeners.java:263)
-        at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:274)
-        at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:79)
-        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:134)
-        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:131)
-        at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
-        at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
-        at org.wildfly.extension.undertow.security.SecurityContextThreadSetupAction.lambda$create$0(SecurityContextThreadSetupAction.java:105)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:255)
-        at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:79)
-        at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:100)
-        at io.undertow.server.Connectors.executeRootHandler(Connectors.java:387)
-        at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:852)
-        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
-        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
-        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
-        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1377)
-        at org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
-        at java.lang.Thread.run(Thread.java:748)
-Caused by: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=856, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:292)
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:222)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.checkState(InfinispanLock.java:440)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.lambda$toInvocationStage$3(InfinispanLock.java:416)
-        at java.util.concurrent.CompletableFuture.uniApply(CompletableFuture.java:616)
-        at java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:591)
-        at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:456)
-        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-        at org.jboss.as.clustering.context.ContextReferenceExecutor.execute(ContextReferenceExecutor.java:49)
-        at org.jboss.as.clustering.context.ContextualExecutor$1.run(ContextualExecutor.java:70)
-        ... 1 more
-        Suppressed: org.infinispan.commons.util.logging.TraceException
-                at org.infinispan.interceptors.impl.SimpleAsyncInvocationStage.get(SimpleAsyncInvocationStage.java:39)
-                at org.infinispan.interceptors.impl.AsyncInterceptorChainImpl.invoke(AsyncInterceptorChainImpl.java:246)
-                at org.infinispan.cache.impl.InvocationHelper.doInvoke(InvocationHelper.java:298)
-                at org.infinispan.cache.impl.InvocationHelper.invoke(InvocationHelper.java:102)
-                at org.infinispan.cache.impl.CacheImpl.get(CacheImpl.java:541)
-                at org.infinispan.cache.impl.DecoratedCache.get(DecoratedCache.java:522)
-                at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-                at org.infinispan.cache.impl.EncoderCache.get(EncoderCache.java:696)
-                at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.getValue(InfinispanSessionMetaDataFactory.java:103)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:93)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:54)
-                at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:63)
-                at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:40)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionManager.findSession(InfinispanSessionManager.java:160)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:66)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:63)
-                at org.wildfly.clustering.ee.cache.SimpleManager.apply(SimpleManager.java:52)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager.findSession(ConcurrentSessionManager.java:71)
-                at org.wildfly.clustering.web.undertow.session.DistributableSessionManager.getSession(DistributableSessionManager.java:229)
-                at io.undertow.servlet.spec.ServletContextImpl.getSession(ServletContextImpl.java:903)
-                at io.undertow.servlet.spec.HttpServletRequestImpl.getSession(HttpServletRequestImpl.java:425)
-                at org.jboss.weld.module.web.servlet.SessionHolder.requestInitialized(SessionHolder.java:47)
-                at org.jboss.weld.module.web.servlet.HttpContextLifecycle.requestInitialized(HttpContextLifecycle.java:247)
-                at org.jboss.weld.module.web.servlet.WeldInitialListener.requestInitialized(WeldInitialListener.java:146)
-                at io.undertow.servlet.core.ApplicationListeners.requestInitialized(ApplicationListeners.java:263)
-                at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:274)
-                at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:79)
-                at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:134)
-                at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:131)
-                at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
-                at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
-                at org.wildfly.extension.undertow.security.SecurityContextThreadSetupAction.lambda$create$0(SecurityContextThreadSetupAction.java:105)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:255)
-                at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:79)
-                at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:100)
-                at io.undertow.server.Connectors.executeRootHandler(Connectors.java:387)
-                at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:852)
-                at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
-                at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
-                at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
-                at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1377)
-                at org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
-                ... 1 more
-
-2026-08-27 16:00:26,612 WARN  [org.jboss.weld.Servlet] (default task-49) WELD-000717: Unable to deactivate context org.jboss.weld.module.web.context.http.HttpRequestContextImpl@3086c0f7 when destroying request HttpServletRequestImpl [ GET /sicmu/paginas/introducao/introducao.jsf ]
-2026-08-27 16:00:26,612 WARN  [org.jboss.weld.Servlet] (default task-49) WELD-000717: Unable to deactivate context org.jboss.weld.module.web.context.http.HttpSessionContextImpl@7f380f2a when destroying request HttpServletRequestImpl [ GET /sicmu/paginas/introducao/introducao.jsf ]
-2026-08-27 16:00:26,612 ERROR [io.undertow.request] (default task-49) UT005023: Exception handling request to /sicmu/paginas/introducao/introducao.jsf: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=856, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.interceptors.impl.AsyncInterceptorChainImpl.invoke(AsyncInterceptorChainImpl.java:255)
-        at org.infinispan.cache.impl.InvocationHelper.doInvoke(InvocationHelper.java:298)
-        at org.infinispan.cache.impl.InvocationHelper.invoke(InvocationHelper.java:102)
-        at org.infinispan.cache.impl.CacheImpl.get(CacheImpl.java:541)
-        at org.infinispan.cache.impl.DecoratedCache.get(DecoratedCache.java:522)
-        at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-        at org.infinispan.cache.impl.EncoderCache.get(EncoderCache.java:696)
-        at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.getValue(InfinispanSessionMetaDataFactory.java:103)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:93)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:54)
-        at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:63)
-        at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:40)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionManager.findSession(InfinispanSessionManager.java:160)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:66)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:63)
-        at org.wildfly.clustering.ee.cache.SimpleManager.apply(SimpleManager.java:52)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager.findSession(ConcurrentSessionManager.java:71)
-        at org.wildfly.clustering.web.undertow.session.DistributableSessionManager.getSession(DistributableSessionManager.java:229)
-        at io.undertow.servlet.spec.ServletContextImpl.getSession(ServletContextImpl.java:903)
-        at io.undertow.servlet.spec.HttpServletRequestImpl.getSession(HttpServletRequestImpl.java:425)
-        at org.jboss.weld.module.web.servlet.SessionHolder.requestInitialized(SessionHolder.java:47)
-        at org.jboss.weld.module.web.servlet.HttpContextLifecycle.requestInitialized(HttpContextLifecycle.java:247)
-        at org.jboss.weld.module.web.servlet.WeldInitialListener.requestInitialized(WeldInitialListener.java:146)
-        at io.undertow.servlet.core.ApplicationListeners.requestInitialized(ApplicationListeners.java:263)
-        at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:274)
-        at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:79)
-        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:134)
-        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:131)
-        at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
-        at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
-        at org.wildfly.extension.undertow.security.SecurityContextThreadSetupAction.lambda$create$0(SecurityContextThreadSetupAction.java:105)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:255)
-        at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:79)
-        at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:100)
-        at io.undertow.server.Connectors.executeRootHandler(Connectors.java:387)
-        at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:852)
-        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
-        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
-        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
-        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1377)
-        at org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
-        at java.lang.Thread.run(Thread.java:748)
-Caused by: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=856, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:292)
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:222)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.checkState(InfinispanLock.java:440)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.lambda$toInvocationStage$3(InfinispanLock.java:416)
-        at java.util.concurrent.CompletableFuture.uniApply(CompletableFuture.java:616)
-        at java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:591)
-        at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:456)
-        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-        at org.jboss.as.clustering.context.ContextReferenceExecutor.execute(ContextReferenceExecutor.java:49)
-        at org.jboss.as.clustering.context.ContextualExecutor$1.run(ContextualExecutor.java:70)
-        ... 1 more
-        Suppressed: org.infinispan.commons.util.logging.TraceException
-                at org.infinispan.interceptors.impl.SimpleAsyncInvocationStage.get(SimpleAsyncInvocationStage.java:39)
-                at org.infinispan.interceptors.impl.AsyncInterceptorChainImpl.invoke(AsyncInterceptorChainImpl.java:246)
-                at org.infinispan.cache.impl.InvocationHelper.doInvoke(InvocationHelper.java:298)
-                at org.infinispan.cache.impl.InvocationHelper.invoke(InvocationHelper.java:102)
-                at org.infinispan.cache.impl.CacheImpl.get(CacheImpl.java:541)
-                at org.infinispan.cache.impl.DecoratedCache.get(DecoratedCache.java:522)
-                at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-                at org.infinispan.cache.impl.EncoderCache.get(EncoderCache.java:696)
-                at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.getValue(InfinispanSessionMetaDataFactory.java:103)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:93)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:54)
-                at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:63)
-                at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:40)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionManager.findSession(InfinispanSessionManager.java:160)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:66)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:63)
-                at org.wildfly.clustering.ee.cache.SimpleManager.apply(SimpleManager.java:52)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager.findSession(ConcurrentSessionManager.java:71)
-                at org.wildfly.clustering.web.undertow.session.DistributableSessionManager.getSession(DistributableSessionManager.java:229)
-                at io.undertow.servlet.spec.ServletContextImpl.getSession(ServletContextImpl.java:903)
-                at io.undertow.servlet.spec.HttpServletRequestImpl.getSession(HttpServletRequestImpl.java:425)
-                at org.jboss.weld.module.web.servlet.SessionHolder.requestInitialized(SessionHolder.java:47)
-                at org.jboss.weld.module.web.servlet.HttpContextLifecycle.requestInitialized(HttpContextLifecycle.java:247)
-                at org.jboss.weld.module.web.servlet.WeldInitialListener.requestInitialized(WeldInitialListener.java:146)
-                at io.undertow.servlet.core.ApplicationListeners.requestInitialized(ApplicationListeners.java:263)
-                at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:274)
-                at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:79)
-                at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:134)
-                at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:131)
-                at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
-                at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
-                at org.wildfly.extension.undertow.security.SecurityContextThreadSetupAction.lambda$create$0(SecurityContextThreadSetupAction.java:105)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:255)
-                at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:79)
-                at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:100)
-                at io.undertow.server.Connectors.executeRootHandler(Connectors.java:387)
-                at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:852)
-                at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
-                at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
-                at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
-                at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1377)
-                at org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
-                ... 1 more
-
-2026-08-27 16:00:27,320 ERROR [org.infinispan.interceptors.impl.InvocationContextInterceptor] (non-blocking-thread--p11-t1) ISPN000136: Error executing command GetKeyValueCommand on Cache 'SICMU-ear.ear.SICMU-web.war', writing keys []: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=857, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:292)
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:222)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.checkState(InfinispanLock.java:440)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.lambda$toInvocationStage$3(InfinispanLock.java:416)
-        at java.util.concurrent.CompletableFuture.uniApply(CompletableFuture.java:616)
-        at java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:591)
-        at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:456)
-        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-        at org.jboss.as.clustering.context.ContextReferenceExecutor.execute(ContextReferenceExecutor.java:49)
-        at org.jboss.as.clustering.context.ContextualExecutor$1.run(ContextualExecutor.java:70)
-        at java.lang.Thread.run(Thread.java:748)
-
-2026-08-27 16:00:27,320 ERROR [io.undertow.request] (default task-51) UT005022: Exception generating error page /principal/erro.jsf: java.lang.RuntimeException: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=857, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at io.undertow.servlet.spec.RequestDispatcherImpl.error(RequestDispatcherImpl.java:510)
-        at io.undertow.servlet.spec.RequestDispatcherImpl.error(RequestDispatcherImpl.java:425)
-        at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:314)
-        at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:79)
-        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:134)
-        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:131)
-        at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
-        at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
-        at org.wildfly.extension.undertow.security.SecurityContextThreadSetupAction.lambda$create$0(SecurityContextThreadSetupAction.java:105)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:255)
-        at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:79)
-        at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:100)
-        at io.undertow.server.Connectors.executeRootHandler(Connectors.java:387)
-        at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:852)
-        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
-        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
-        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
-        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1377)
-        at org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
-        at java.lang.Thread.run(Thread.java:748)
-Caused by: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=857, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.interceptors.impl.AsyncInterceptorChainImpl.invoke(AsyncInterceptorChainImpl.java:255)
-        at org.infinispan.cache.impl.InvocationHelper.doInvoke(InvocationHelper.java:298)
-        at org.infinispan.cache.impl.InvocationHelper.invoke(InvocationHelper.java:102)
-        at org.infinispan.cache.impl.CacheImpl.get(CacheImpl.java:541)
-        at org.infinispan.cache.impl.DecoratedCache.get(DecoratedCache.java:522)
-        at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-        at org.infinispan.cache.impl.EncoderCache.get(EncoderCache.java:696)
-        at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.getValue(InfinispanSessionMetaDataFactory.java:103)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:93)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:54)
-        at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:63)
-        at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:40)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionManager.findSession(InfinispanSessionManager.java:160)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:66)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:63)
-        at org.wildfly.clustering.ee.cache.SimpleManager.apply(SimpleManager.java:52)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager.findSession(ConcurrentSessionManager.java:71)
-        at org.wildfly.clustering.web.undertow.session.DistributableSessionManager.getSession(DistributableSessionManager.java:229)
-        at io.undertow.servlet.spec.ServletContextImpl.getSession(ServletContextImpl.java:903)
-        at io.undertow.servlet.spec.HttpServletRequestImpl.getSession(HttpServletRequestImpl.java:425)
-        at com.sun.faces.context.ExternalContextImpl.getSession(ExternalContextImpl.java:157)
-        at javax.faces.application.ViewHandler.calculateCharacterEncoding(ViewHandler.java:425)
-        at javax.faces.application.ViewHandler.initView(ViewHandler.java:269)
-        at com.sun.faces.application.view.MultiViewHandler.initView(MultiViewHandler.java:115)
-        at javax.faces.application.ViewHandlerWrapper.initView(ViewHandlerWrapper.java:86)
-        at javax.faces.application.ViewHandlerWrapper.initView(ViewHandlerWrapper.java:86)
-        at com.sun.faces.lifecycle.RestoreViewPhase.doPhase(RestoreViewPhase.java:109)
-        at com.sun.faces.lifecycle.LifecycleImpl.execute(LifecycleImpl.java:177)
-        at javax.faces.webapp.FacesServlet.executeLifecyle(FacesServlet.java:707)
-        at javax.faces.webapp.FacesServlet.service(FacesServlet.java:451)
-        at io.undertow.servlet.handlers.ServletHandler.handleRequest(ServletHandler.java:74)
-        at io.undertow.servlet.handlers.FilterHandler.handleRequest(FilterHandler.java:81)
-        at io.undertow.servlet.handlers.security.ServletSecurityRoleHandler.handleRequest(ServletSecurityRoleHandler.java:62)
-        at io.undertow.servlet.handlers.ServletChain$1.handleRequest(ServletChain.java:68)
-        at io.undertow.servlet.handlers.ServletDispatchingHandler.handleRequest(ServletDispatchingHandler.java:36)
-        at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
-        at io.undertow.servlet.handlers.RedirectDirHandler.handleRequest(RedirectDirHandler.java:68)
-        at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
-        at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
-        at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:257)
-        at io.undertow.servlet.handlers.ServletInitialHandler.dispatchToPath(ServletInitialHandler.java:182)
-        at io.undertow.servlet.spec.RequestDispatcherImpl.error(RequestDispatcherImpl.java:504)
-        ... 24 more
-Caused by: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=857, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:292)
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:222)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.checkState(InfinispanLock.java:440)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.lambda$toInvocationStage$3(InfinispanLock.java:416)
-        at java.util.concurrent.CompletableFuture.uniApply(CompletableFuture.java:616)
-        at java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:591)
-        at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:456)
-        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-        at org.jboss.as.clustering.context.ContextReferenceExecutor.execute(ContextReferenceExecutor.java:49)
-        at org.jboss.as.clustering.context.ContextualExecutor$1.run(ContextualExecutor.java:70)
-        ... 1 more
-        Suppressed: org.infinispan.commons.util.logging.TraceException
-                at org.infinispan.interceptors.impl.SimpleAsyncInvocationStage.get(SimpleAsyncInvocationStage.java:39)
-                at org.infinispan.interceptors.impl.AsyncInterceptorChainImpl.invoke(AsyncInterceptorChainImpl.java:246)
-                at org.infinispan.cache.impl.InvocationHelper.doInvoke(InvocationHelper.java:298)
-                at org.infinispan.cache.impl.InvocationHelper.invoke(InvocationHelper.java:102)
-                at org.infinispan.cache.impl.CacheImpl.get(CacheImpl.java:541)
-                at org.infinispan.cache.impl.DecoratedCache.get(DecoratedCache.java:522)
-                at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-                at org.infinispan.cache.impl.EncoderCache.get(EncoderCache.java:696)
-                at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.getValue(InfinispanSessionMetaDataFactory.java:103)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:93)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:54)
-                at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:63)
-                at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:40)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionManager.findSession(InfinispanSessionManager.java:160)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:66)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:63)
-                at org.wildfly.clustering.ee.cache.SimpleManager.apply(SimpleManager.java:52)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager.findSession(ConcurrentSessionManager.java:71)
-                at org.wildfly.clustering.web.undertow.session.DistributableSessionManager.getSession(DistributableSessionManager.java:229)
-                at io.undertow.servlet.spec.ServletContextImpl.getSession(ServletContextImpl.java:903)
-                at io.undertow.servlet.spec.HttpServletRequestImpl.getSession(HttpServletRequestImpl.java:425)
-                at com.sun.faces.context.ExternalContextImpl.getSession(ExternalContextImpl.java:157)
-                at javax.faces.application.ViewHandler.calculateCharacterEncoding(ViewHandler.java:425)
-                at javax.faces.application.ViewHandler.initView(ViewHandler.java:269)
-                at com.sun.faces.application.view.MultiViewHandler.initView(MultiViewHandler.java:115)
-                at javax.faces.application.ViewHandlerWrapper.initView(ViewHandlerWrapper.java:86)
-                at javax.faces.application.ViewHandlerWrapper.initView(ViewHandlerWrapper.java:86)
-                at com.sun.faces.lifecycle.RestoreViewPhase.doPhase(RestoreViewPhase.java:109)
-                at com.sun.faces.lifecycle.LifecycleImpl.execute(LifecycleImpl.java:177)
-                at javax.faces.webapp.FacesServlet.executeLifecyle(FacesServlet.java:707)
-                at javax.faces.webapp.FacesServlet.service(FacesServlet.java:451)
-                at io.undertow.servlet.handlers.ServletHandler.handleRequest(ServletHandler.java:74)
-                at io.undertow.servlet.handlers.FilterHandler.handleRequest(FilterHandler.java:81)
-                at io.undertow.servlet.handlers.security.ServletSecurityRoleHandler.handleRequest(ServletSecurityRoleHandler.java:62)
-                at io.undertow.servlet.handlers.ServletChain$1.handleRequest(ServletChain.java:68)
-                at io.undertow.servlet.handlers.ServletDispatchingHandler.handleRequest(ServletDispatchingHandler.java:36)
-                at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
-                at io.undertow.servlet.handlers.RedirectDirHandler.handleRequest(RedirectDirHandler.java:68)
-                at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
-                at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
-                at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:257)
-                at io.undertow.servlet.handlers.ServletInitialHandler.dispatchToPath(ServletInitialHandler.java:182)
-                at io.undertow.servlet.spec.RequestDispatcherImpl.error(RequestDispatcherImpl.java:504)
-                at io.undertow.servlet.spec.RequestDispatcherImpl.error(RequestDispatcherImpl.java:425)
-                at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:314)
-                at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:79)
-                at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:134)
-                at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:131)
-                at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
-                at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
-                at org.wildfly.extension.undertow.security.SecurityContextThreadSetupAction.lambda$create$0(SecurityContextThreadSetupAction.java:105)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:255)
-                at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:79)
-                at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:100)
-                at io.undertow.server.Connectors.executeRootHandler(Connectors.java:387)
-                at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:852)
-                at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
-                at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
-                at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
-                at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1377)
-                at org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
-                ... 1 more
-
-2026-08-27 16:00:31,144 ERROR [org.infinispan.interceptors.impl.InvocationContextInterceptor] (non-blocking-thread--p11-t2) ISPN000136: Error executing command GetKeyValueCommand on Cache 'SICMU-ear.ear.SICMU-web.war', writing keys []: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=858, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:292)
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:222)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.checkState(InfinispanLock.java:440)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.lambda$toInvocationStage$3(InfinispanLock.java:416)
-        at java.util.concurrent.CompletableFuture.uniApply(CompletableFuture.java:616)
-        at java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:591)
-        at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:456)
-        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-        at org.jboss.as.clustering.context.ContextReferenceExecutor.execute(ContextReferenceExecutor.java:49)
-        at org.jboss.as.clustering.context.ContextualExecutor$1.run(ContextualExecutor.java:70)
-        at java.lang.Thread.run(Thread.java:748)
-
-2026-08-27 16:00:31,145 ERROR [io.undertow.servlet.request] (default task-45) UT015005: Error invoking method requestInitialized on listener class org.jboss.weld.module.web.servlet.WeldInitialListener: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=858, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.interceptors.impl.AsyncInterceptorChainImpl.invoke(AsyncInterceptorChainImpl.java:255)
-        at org.infinispan.cache.impl.InvocationHelper.doInvoke(InvocationHelper.java:298)
-        at org.infinispan.cache.impl.InvocationHelper.invoke(InvocationHelper.java:102)
-        at org.infinispan.cache.impl.CacheImpl.get(CacheImpl.java:541)
-        at org.infinispan.cache.impl.DecoratedCache.get(DecoratedCache.java:522)
-        at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-        at org.infinispan.cache.impl.EncoderCache.get(EncoderCache.java:696)
-        at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.getValue(InfinispanSessionMetaDataFactory.java:103)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:93)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:54)
-        at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:63)
-        at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:40)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionManager.findSession(InfinispanSessionManager.java:160)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:66)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:63)
-        at org.wildfly.clustering.ee.cache.SimpleManager.apply(SimpleManager.java:52)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager.findSession(ConcurrentSessionManager.java:71)
-        at org.wildfly.clustering.web.undertow.session.DistributableSessionManager.getSession(DistributableSessionManager.java:229)
-        at io.undertow.servlet.spec.ServletContextImpl.getSession(ServletContextImpl.java:903)
-        at io.undertow.servlet.spec.HttpServletRequestImpl.getSession(HttpServletRequestImpl.java:425)
-        at org.jboss.weld.module.web.servlet.SessionHolder.requestInitialized(SessionHolder.java:47)
-        at org.jboss.weld.module.web.servlet.HttpContextLifecycle.requestInitialized(HttpContextLifecycle.java:247)
-        at org.jboss.weld.module.web.servlet.WeldInitialListener.requestInitialized(WeldInitialListener.java:146)
-        at io.undertow.servlet.core.ApplicationListeners.requestInitialized(ApplicationListeners.java:263)
-        at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:274)
-        at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:79)
-        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:134)
-        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:131)
-        at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
-        at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
-        at org.wildfly.extension.undertow.security.SecurityContextThreadSetupAction.lambda$create$0(SecurityContextThreadSetupAction.java:105)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:255)
-        at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:79)
-        at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:100)
-        at io.undertow.server.Connectors.executeRootHandler(Connectors.java:387)
-        at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:852)
-        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
-        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
-        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
-        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1377)
-        at org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
-        at java.lang.Thread.run(Thread.java:748)
-Caused by: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=858, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:292)
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:222)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.checkState(InfinispanLock.java:440)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.lambda$toInvocationStage$3(InfinispanLock.java:416)
-        at java.util.concurrent.CompletableFuture.uniApply(CompletableFuture.java:616)
-        at java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:591)
-        at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:456)
-        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-        at org.jboss.as.clustering.context.ContextReferenceExecutor.execute(ContextReferenceExecutor.java:49)
-        at org.jboss.as.clustering.context.ContextualExecutor$1.run(ContextualExecutor.java:70)
-        ... 1 more
-        Suppressed: org.infinispan.commons.util.logging.TraceException
-                at org.infinispan.interceptors.impl.SimpleAsyncInvocationStage.get(SimpleAsyncInvocationStage.java:39)
-                at org.infinispan.interceptors.impl.AsyncInterceptorChainImpl.invoke(AsyncInterceptorChainImpl.java:246)
-                at org.infinispan.cache.impl.InvocationHelper.doInvoke(InvocationHelper.java:298)
-                at org.infinispan.cache.impl.InvocationHelper.invoke(InvocationHelper.java:102)
-                at org.infinispan.cache.impl.CacheImpl.get(CacheImpl.java:541)
-                at org.infinispan.cache.impl.DecoratedCache.get(DecoratedCache.java:522)
-                at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-                at org.infinispan.cache.impl.EncoderCache.get(EncoderCache.java:696)
-                at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.getValue(InfinispanSessionMetaDataFactory.java:103)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:93)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:54)
-                at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:63)
-                at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:40)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionManager.findSession(InfinispanSessionManager.java:160)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:66)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:63)
-                at org.wildfly.clustering.ee.cache.SimpleManager.apply(SimpleManager.java:52)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager.findSession(ConcurrentSessionManager.java:71)
-                at org.wildfly.clustering.web.undertow.session.DistributableSessionManager.getSession(DistributableSessionManager.java:229)
-                at io.undertow.servlet.spec.ServletContextImpl.getSession(ServletContextImpl.java:903)
-                at io.undertow.servlet.spec.HttpServletRequestImpl.getSession(HttpServletRequestImpl.java:425)
-                at org.jboss.weld.module.web.servlet.SessionHolder.requestInitialized(SessionHolder.java:47)
-                at org.jboss.weld.module.web.servlet.HttpContextLifecycle.requestInitialized(HttpContextLifecycle.java:247)
-                at org.jboss.weld.module.web.servlet.WeldInitialListener.requestInitialized(WeldInitialListener.java:146)
-                at io.undertow.servlet.core.ApplicationListeners.requestInitialized(ApplicationListeners.java:263)
-                at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:274)
-                at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:79)
-                at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:134)
-                at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:131)
-                at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
-                at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
-                at org.wildfly.extension.undertow.security.SecurityContextThreadSetupAction.lambda$create$0(SecurityContextThreadSetupAction.java:105)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:255)
-                at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:79)
-                at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:100)
-                at io.undertow.server.Connectors.executeRootHandler(Connectors.java:387)
-                at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:852)
-                at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
-                at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
-                at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
-                at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1377)
-                at org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
-                ... 1 more
-
-2026-08-27 16:00:31,145 WARN  [org.jboss.weld.Servlet] (default task-45) WELD-000717: Unable to deactivate context org.jboss.weld.module.web.context.http.HttpRequestContextImpl@3086c0f7 when destroying request HttpServletRequestImpl [ GET /sicmu/paginas/operacaoHabitacional/consultarOperacaoHabit.jsf ]
-2026-08-27 16:00:31,145 WARN  [org.jboss.weld.Servlet] (default task-45) WELD-000717: Unable to deactivate context org.jboss.weld.module.web.context.http.HttpSessionContextImpl@7f380f2a when destroying request HttpServletRequestImpl [ GET /sicmu/paginas/operacaoHabitacional/consultarOperacaoHabit.jsf ]
-2026-08-27 16:00:31,145 ERROR [io.undertow.request] (default task-45) UT005023: Exception handling request to /sicmu/paginas/operacaoHabitacional/consultarOperacaoHabit.jsf: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=858, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.interceptors.impl.AsyncInterceptorChainImpl.invoke(AsyncInterceptorChainImpl.java:255)
-        at org.infinispan.cache.impl.InvocationHelper.doInvoke(InvocationHelper.java:298)
-        at org.infinispan.cache.impl.InvocationHelper.invoke(InvocationHelper.java:102)
-        at org.infinispan.cache.impl.CacheImpl.get(CacheImpl.java:541)
-        at org.infinispan.cache.impl.DecoratedCache.get(DecoratedCache.java:522)
-        at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-        at org.infinispan.cache.impl.EncoderCache.get(EncoderCache.java:696)
-        at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.getValue(InfinispanSessionMetaDataFactory.java:103)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:93)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:54)
-        at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:63)
-        at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:40)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionManager.findSession(InfinispanSessionManager.java:160)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:66)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:63)
-        at org.wildfly.clustering.ee.cache.SimpleManager.apply(SimpleManager.java:52)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager.findSession(ConcurrentSessionManager.java:71)
-        at org.wildfly.clustering.web.undertow.session.DistributableSessionManager.getSession(DistributableSessionManager.java:229)
-        at io.undertow.servlet.spec.ServletContextImpl.getSession(ServletContextImpl.java:903)
-        at io.undertow.servlet.spec.HttpServletRequestImpl.getSession(HttpServletRequestImpl.java:425)
-        at org.jboss.weld.module.web.servlet.SessionHolder.requestInitialized(SessionHolder.java:47)
-        at org.jboss.weld.module.web.servlet.HttpContextLifecycle.requestInitialized(HttpContextLifecycle.java:247)
-        at org.jboss.weld.module.web.servlet.WeldInitialListener.requestInitialized(WeldInitialListener.java:146)
-        at io.undertow.servlet.core.ApplicationListeners.requestInitialized(ApplicationListeners.java:263)
-        at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:274)
-        at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:79)
-        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:134)
-        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:131)
-        at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
-        at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
-        at org.wildfly.extension.undertow.security.SecurityContextThreadSetupAction.lambda$create$0(SecurityContextThreadSetupAction.java:105)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:255)
-        at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:79)
-        at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:100)
-        at io.undertow.server.Connectors.executeRootHandler(Connectors.java:387)
-        at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:852)
-        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
-        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
-        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
-        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1377)
-        at org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
-        at java.lang.Thread.run(Thread.java:748)
-Caused by: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=858, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:292)
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:222)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.checkState(InfinispanLock.java:440)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.lambda$toInvocationStage$3(InfinispanLock.java:416)
-        at java.util.concurrent.CompletableFuture.uniApply(CompletableFuture.java:616)
-        at java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:591)
-        at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:456)
-        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-        at org.jboss.as.clustering.context.ContextReferenceExecutor.execute(ContextReferenceExecutor.java:49)
-        at org.jboss.as.clustering.context.ContextualExecutor$1.run(ContextualExecutor.java:70)
-        ... 1 more
-        Suppressed: org.infinispan.commons.util.logging.TraceException
-                at org.infinispan.interceptors.impl.SimpleAsyncInvocationStage.get(SimpleAsyncInvocationStage.java:39)
-                at org.infinispan.interceptors.impl.AsyncInterceptorChainImpl.invoke(AsyncInterceptorChainImpl.java:246)
-                at org.infinispan.cache.impl.InvocationHelper.doInvoke(InvocationHelper.java:298)
-                at org.infinispan.cache.impl.InvocationHelper.invoke(InvocationHelper.java:102)
-                at org.infinispan.cache.impl.CacheImpl.get(CacheImpl.java:541)
-                at org.infinispan.cache.impl.DecoratedCache.get(DecoratedCache.java:522)
-                at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-                at org.infinispan.cache.impl.EncoderCache.get(EncoderCache.java:696)
-                at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.getValue(InfinispanSessionMetaDataFactory.java:103)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:93)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:54)
-                at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:63)
-                at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:40)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionManager.findSession(InfinispanSessionManager.java:160)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:66)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:63)
-                at org.wildfly.clustering.ee.cache.SimpleManager.apply(SimpleManager.java:52)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager.findSession(ConcurrentSessionManager.java:71)
-                at org.wildfly.clustering.web.undertow.session.DistributableSessionManager.getSession(DistributableSessionManager.java:229)
-                at io.undertow.servlet.spec.ServletContextImpl.getSession(ServletContextImpl.java:903)
-                at io.undertow.servlet.spec.HttpServletRequestImpl.getSession(HttpServletRequestImpl.java:425)
-                at org.jboss.weld.module.web.servlet.SessionHolder.requestInitialized(SessionHolder.java:47)
-                at org.jboss.weld.module.web.servlet.HttpContextLifecycle.requestInitialized(HttpContextLifecycle.java:247)
-                at org.jboss.weld.module.web.servlet.WeldInitialListener.requestInitialized(WeldInitialListener.java:146)
-                at io.undertow.servlet.core.ApplicationListeners.requestInitialized(ApplicationListeners.java:263)
-                at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:274)
-                at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:79)
-                at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:134)
-                at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:131)
-                at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
-                at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
-                at org.wildfly.extension.undertow.security.SecurityContextThreadSetupAction.lambda$create$0(SecurityContextThreadSetupAction.java:105)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:255)
-                at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:79)
-                at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:100)
-                at io.undertow.server.Connectors.executeRootHandler(Connectors.java:387)
-                at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:852)
-                at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
-                at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
-                at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
-                at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1377)
-                at org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
-                ... 1 more
-
-2026-08-27 16:00:31,833 ERROR [org.infinispan.interceptors.impl.InvocationContextInterceptor] (non-blocking-thread--p11-t4) ISPN000136: Error executing command GetKeyValueCommand on Cache 'SICMU-ear.ear.SICMU-web.war', writing keys []: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=859, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:292)
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:222)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.checkState(InfinispanLock.java:440)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.lambda$toInvocationStage$3(InfinispanLock.java:416)
-        at java.util.concurrent.CompletableFuture.uniApply(CompletableFuture.java:616)
-        at java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:591)
-        at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:456)
-        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-        at org.jboss.as.clustering.context.ContextReferenceExecutor.execute(ContextReferenceExecutor.java:49)
-        at org.jboss.as.clustering.context.ContextualExecutor$1.run(ContextualExecutor.java:70)
-        at java.lang.Thread.run(Thread.java:748)
-
-2026-08-27 16:00:31,833 ERROR [io.undertow.request] (default task-50) UT005022: Exception generating error page /principal/erro.jsf: java.lang.RuntimeException: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=859, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at io.undertow.servlet.spec.RequestDispatcherImpl.error(RequestDispatcherImpl.java:510)
-        at io.undertow.servlet.spec.RequestDispatcherImpl.error(RequestDispatcherImpl.java:425)
-        at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:314)
-        at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:79)
-        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:134)
-        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:131)
-        at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
-        at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
-        at org.wildfly.extension.undertow.security.SecurityContextThreadSetupAction.lambda$create$0(SecurityContextThreadSetupAction.java:105)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:255)
-        at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:79)
-        at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:100)
-        at io.undertow.server.Connectors.executeRootHandler(Connectors.java:387)
-        at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:852)
-        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
-        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
-        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
-        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1377)
-        at org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
-        at java.lang.Thread.run(Thread.java:748)
-Caused by: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=859, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.interceptors.impl.AsyncInterceptorChainImpl.invoke(AsyncInterceptorChainImpl.java:255)
-        at org.infinispan.cache.impl.InvocationHelper.doInvoke(InvocationHelper.java:298)
-        at org.infinispan.cache.impl.InvocationHelper.invoke(InvocationHelper.java:102)
-        at org.infinispan.cache.impl.CacheImpl.get(CacheImpl.java:541)
-        at org.infinispan.cache.impl.DecoratedCache.get(DecoratedCache.java:522)
-        at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-        at org.infinispan.cache.impl.EncoderCache.get(EncoderCache.java:696)
-        at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.getValue(InfinispanSessionMetaDataFactory.java:103)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:93)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:54)
-        at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:63)
-        at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:40)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionManager.findSession(InfinispanSessionManager.java:160)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:66)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:63)
-        at org.wildfly.clustering.ee.cache.SimpleManager.apply(SimpleManager.java:52)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager.findSession(ConcurrentSessionManager.java:71)
-        at org.wildfly.clustering.web.undertow.session.DistributableSessionManager.getSession(DistributableSessionManager.java:229)
-        at io.undertow.servlet.spec.ServletContextImpl.getSession(ServletContextImpl.java:903)
-        at io.undertow.servlet.spec.HttpServletRequestImpl.getSession(HttpServletRequestImpl.java:425)
-        at com.sun.faces.context.ExternalContextImpl.getSession(ExternalContextImpl.java:157)
-        at javax.faces.application.ViewHandler.calculateCharacterEncoding(ViewHandler.java:425)
-        at javax.faces.application.ViewHandler.initView(ViewHandler.java:269)
-        at com.sun.faces.application.view.MultiViewHandler.initView(MultiViewHandler.java:115)
-        at javax.faces.application.ViewHandlerWrapper.initView(ViewHandlerWrapper.java:86)
-        at javax.faces.application.ViewHandlerWrapper.initView(ViewHandlerWrapper.java:86)
-        at com.sun.faces.lifecycle.RestoreViewPhase.doPhase(RestoreViewPhase.java:109)
-        at com.sun.faces.lifecycle.LifecycleImpl.execute(LifecycleImpl.java:177)
-        at javax.faces.webapp.FacesServlet.executeLifecyle(FacesServlet.java:707)
-        at javax.faces.webapp.FacesServlet.service(FacesServlet.java:451)
-        at io.undertow.servlet.handlers.ServletHandler.handleRequest(ServletHandler.java:74)
-        at io.undertow.servlet.handlers.FilterHandler.handleRequest(FilterHandler.java:81)
-        at io.undertow.servlet.handlers.security.ServletSecurityRoleHandler.handleRequest(ServletSecurityRoleHandler.java:62)
-        at io.undertow.servlet.handlers.ServletChain$1.handleRequest(ServletChain.java:68)
-        at io.undertow.servlet.handlers.ServletDispatchingHandler.handleRequest(ServletDispatchingHandler.java:36)
-        at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
-        at io.undertow.servlet.handlers.RedirectDirHandler.handleRequest(RedirectDirHandler.java:68)
-        at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
-        at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
-        at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:257)
-        at io.undertow.servlet.handlers.ServletInitialHandler.dispatchToPath(ServletInitialHandler.java:182)
-        at io.undertow.servlet.spec.RequestDispatcherImpl.error(RequestDispatcherImpl.java:504)
-        ... 24 more
-Caused by: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=859, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:292)
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:222)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.checkState(InfinispanLock.java:440)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.lambda$toInvocationStage$3(InfinispanLock.java:416)
-        at java.util.concurrent.CompletableFuture.uniApply(CompletableFuture.java:616)
-        at java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:591)
-        at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:456)
-        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-        at org.jboss.as.clustering.context.ContextReferenceExecutor.execute(ContextReferenceExecutor.java:49)
-        at org.jboss.as.clustering.context.ContextualExecutor$1.run(ContextualExecutor.java:70)
-        ... 1 more
-        Suppressed: org.infinispan.commons.util.logging.TraceException
-                at org.infinispan.interceptors.impl.SimpleAsyncInvocationStage.get(SimpleAsyncInvocationStage.java:39)
-                at org.infinispan.interceptors.impl.AsyncInterceptorChainImpl.invoke(AsyncInterceptorChainImpl.java:246)
-                at org.infinispan.cache.impl.InvocationHelper.doInvoke(InvocationHelper.java:298)
-                at org.infinispan.cache.impl.InvocationHelper.invoke(InvocationHelper.java:102)
-                at org.infinispan.cache.impl.CacheImpl.get(CacheImpl.java:541)
-                at org.infinispan.cache.impl.DecoratedCache.get(DecoratedCache.java:522)
-                at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-                at org.infinispan.cache.impl.EncoderCache.get(EncoderCache.java:696)
-                at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.getValue(InfinispanSessionMetaDataFactory.java:103)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:93)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:54)
-                at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:63)
-                at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:40)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionManager.findSession(InfinispanSessionManager.java:160)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:66)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:63)
-                at org.wildfly.clustering.ee.cache.SimpleManager.apply(SimpleManager.java:52)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager.findSession(ConcurrentSessionManager.java:71)
-                at org.wildfly.clustering.web.undertow.session.DistributableSessionManager.getSession(DistributableSessionManager.java:229)
-                at io.undertow.servlet.spec.ServletContextImpl.getSession(ServletContextImpl.java:903)
-                at io.undertow.servlet.spec.HttpServletRequestImpl.getSession(HttpServletRequestImpl.java:425)
-                at com.sun.faces.context.ExternalContextImpl.getSession(ExternalContextImpl.java:157)
-                at javax.faces.application.ViewHandler.calculateCharacterEncoding(ViewHandler.java:425)
-                at javax.faces.application.ViewHandler.initView(ViewHandler.java:269)
-                at com.sun.faces.application.view.MultiViewHandler.initView(MultiViewHandler.java:115)
-                at javax.faces.application.ViewHandlerWrapper.initView(ViewHandlerWrapper.java:86)
-                at javax.faces.application.ViewHandlerWrapper.initView(ViewHandlerWrapper.java:86)
-                at com.sun.faces.lifecycle.RestoreViewPhase.doPhase(RestoreViewPhase.java:109)
-                at com.sun.faces.lifecycle.LifecycleImpl.execute(LifecycleImpl.java:177)
-                at javax.faces.webapp.FacesServlet.executeLifecyle(FacesServlet.java:707)
-                at javax.faces.webapp.FacesServlet.service(FacesServlet.java:451)
-                at io.undertow.servlet.handlers.ServletHandler.handleRequest(ServletHandler.java:74)
-                at io.undertow.servlet.handlers.FilterHandler.handleRequest(FilterHandler.java:81)
-                at io.undertow.servlet.handlers.security.ServletSecurityRoleHandler.handleRequest(ServletSecurityRoleHandler.java:62)
-                at io.undertow.servlet.handlers.ServletChain$1.handleRequest(ServletChain.java:68)
-                at io.undertow.servlet.handlers.ServletDispatchingHandler.handleRequest(ServletDispatchingHandler.java:36)
-                at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
-                at io.undertow.servlet.handlers.RedirectDirHandler.handleRequest(RedirectDirHandler.java:68)
-                at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
-                at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
-                at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:257)
-                at io.undertow.servlet.handlers.ServletInitialHandler.dispatchToPath(ServletInitialHandler.java:182)
-                at io.undertow.servlet.spec.RequestDispatcherImpl.error(RequestDispatcherImpl.java:504)
-                at io.undertow.servlet.spec.RequestDispatcherImpl.error(RequestDispatcherImpl.java:425)
-                at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:314)
-                at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:79)
-                at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:134)
-                at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:131)
-                at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
-                at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
-                at org.wildfly.extension.undertow.security.SecurityContextThreadSetupAction.lambda$create$0(SecurityContextThreadSetupAction.java:105)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:255)
-                at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:79)
-                at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:100)
-                at io.undertow.server.Connectors.executeRootHandler(Connectors.java:387)
-                at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:852)
-                at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
-                at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
-                at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
-                at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1377)
-                at org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
-                ... 1 more
-
-2026-08-27 16:00:39,746 ERROR [org.infinispan.interceptors.impl.InvocationContextInterceptor] (non-blocking-thread--p11-t1) ISPN000136: Error executing command GetKeyValueCommand on Cache 'SICMU-ear.ear.SICMU-web.war', writing keys []: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=860, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:292)
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:222)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.checkState(InfinispanLock.java:440)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.lambda$toInvocationStage$3(InfinispanLock.java:416)
-        at java.util.concurrent.CompletableFuture.uniApply(CompletableFuture.java:616)
-        at java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:591)
-        at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:456)
-        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-        at org.jboss.as.clustering.context.ContextReferenceExecutor.execute(ContextReferenceExecutor.java:49)
-        at org.jboss.as.clustering.context.ContextualExecutor$1.run(ContextualExecutor.java:70)
-        at java.lang.Thread.run(Thread.java:748)
-
-2026-08-27 16:00:39,747 ERROR [io.undertow.servlet.request] (default task-52) UT015005: Error invoking method requestDestroyed on listener class com.sun.faces.config.ConfigureListener: java.lang.UnsupportedOperationException
-        at javax.faces.context.FacesContext.getExceptionHandler(FacesContext.java:280)
-        at javax.faces.event.ExceptionQueuedEventContext.getListenersForEventClass(ExceptionQueuedEventContext.java:248)
-        at com.sun.faces.application.applicationimpl.Events.invokeComponentListenersFor(Events.java:181)
-        at com.sun.faces.application.applicationimpl.Events.publishEvent(Events.java:106)
-        at com.sun.faces.application.ApplicationImpl.publishEvent(ApplicationImpl.java:127)
-        at com.sun.faces.application.ApplicationImpl.publishEvent(ApplicationImpl.java:119)
-        at javax.faces.application.ApplicationWrapper.publishEvent(ApplicationWrapper.java:776)
-        at com.sun.faces.application.WebappLifecycleListener.requestDestroyed(WebappLifecycleListener.java:149)
-        at com.sun.faces.config.ConfigureListener.requestDestroyed(ConfigureListener.java:382)
-        at io.undertow.servlet.core.ApplicationListeners.requestDestroyed(ApplicationListeners.java:289)
-        at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:330)
-        at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:79)
-        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:134)
-        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:131)
-        at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
-        at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
-        at org.wildfly.extension.undertow.security.SecurityContextThreadSetupAction.lambda$create$0(SecurityContextThreadSetupAction.java:105)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:255)
-        at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:79)
-        at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:100)
-        at io.undertow.server.Connectors.executeRootHandler(Connectors.java:387)
-        at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:852)
-        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
-        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
-        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
-        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1377)
-        at org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
-        at java.lang.Thread.run(Thread.java:748)
-
-2026-08-27 16:00:39,747 WARN  [org.jboss.weld.Servlet] (default task-52) WELD-000715: HttpContextLifecycle guard not set. The Servlet container is not fully compliant.
-2026-08-27 16:00:41,613 ERROR [org.infinispan.interceptors.impl.InvocationContextInterceptor] (non-blocking-thread--p11-t4) ISPN000136: Error executing command GetKeyValueCommand on Cache 'SICMU-ear.ear.SICMU-web.war', writing keys []: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=861, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:292)
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:222)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.checkState(InfinispanLock.java:440)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.lambda$toInvocationStage$3(InfinispanLock.java:416)
-        at java.util.concurrent.CompletableFuture.uniApply(CompletableFuture.java:616)
-        at java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:591)
-        at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:456)
-        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-        at org.jboss.as.clustering.context.ContextReferenceExecutor.execute(ContextReferenceExecutor.java:49)
-        at org.jboss.as.clustering.context.ContextualExecutor$1.run(ContextualExecutor.java:70)
-        at java.lang.Thread.run(Thread.java:748)
-
-2026-08-27 16:00:41,613 ERROR [io.undertow.request] (default task-49) UT005022: Exception generating error page /principal/erro.jsf: java.lang.RuntimeException: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=861, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at io.undertow.servlet.spec.RequestDispatcherImpl.error(RequestDispatcherImpl.java:510)
-        at io.undertow.servlet.spec.RequestDispatcherImpl.error(RequestDispatcherImpl.java:425)
-        at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:314)
-        at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:79)
-        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:134)
-        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:131)
-        at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
-        at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
-        at org.wildfly.extension.undertow.security.SecurityContextThreadSetupAction.lambda$create$0(SecurityContextThreadSetupAction.java:105)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:255)
-        at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:79)
-        at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:100)
-        at io.undertow.server.Connectors.executeRootHandler(Connectors.java:387)
-        at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:852)
-        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
-        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
-        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
-        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1377)
-        at org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
-        at java.lang.Thread.run(Thread.java:748)
-Caused by: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=861, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.interceptors.impl.AsyncInterceptorChainImpl.invoke(AsyncInterceptorChainImpl.java:255)
-        at org.infinispan.cache.impl.InvocationHelper.doInvoke(InvocationHelper.java:298)
-        at org.infinispan.cache.impl.InvocationHelper.invoke(InvocationHelper.java:102)
-        at org.infinispan.cache.impl.CacheImpl.get(CacheImpl.java:541)
-        at org.infinispan.cache.impl.DecoratedCache.get(DecoratedCache.java:522)
-        at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-        at org.infinispan.cache.impl.EncoderCache.get(EncoderCache.java:696)
-        at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.getValue(InfinispanSessionMetaDataFactory.java:103)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:93)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:54)
-        at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:63)
-        at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:40)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionManager.findSession(InfinispanSessionManager.java:160)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:66)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:63)
-        at org.wildfly.clustering.ee.cache.SimpleManager.apply(SimpleManager.java:52)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager.findSession(ConcurrentSessionManager.java:71)
-        at org.wildfly.clustering.web.undertow.session.DistributableSessionManager.getSession(DistributableSessionManager.java:229)
-        at io.undertow.servlet.spec.ServletContextImpl.getSession(ServletContextImpl.java:903)
-        at io.undertow.servlet.spec.HttpServletRequestImpl.getSession(HttpServletRequestImpl.java:425)
-        at com.sun.faces.context.ExternalContextImpl.getSession(ExternalContextImpl.java:157)
-        at javax.faces.application.ViewHandler.calculateCharacterEncoding(ViewHandler.java:425)
-        at javax.faces.application.ViewHandler.initView(ViewHandler.java:269)
-        at com.sun.faces.application.view.MultiViewHandler.initView(MultiViewHandler.java:115)
-        at javax.faces.application.ViewHandlerWrapper.initView(ViewHandlerWrapper.java:86)
-        at javax.faces.application.ViewHandlerWrapper.initView(ViewHandlerWrapper.java:86)
-        at com.sun.faces.lifecycle.RestoreViewPhase.doPhase(RestoreViewPhase.java:109)
-        at com.sun.faces.lifecycle.LifecycleImpl.execute(LifecycleImpl.java:177)
-        at javax.faces.webapp.FacesServlet.executeLifecyle(FacesServlet.java:707)
-        at javax.faces.webapp.FacesServlet.service(FacesServlet.java:451)
-        at io.undertow.servlet.handlers.ServletHandler.handleRequest(ServletHandler.java:74)
-        at io.undertow.servlet.handlers.FilterHandler.handleRequest(FilterHandler.java:81)
-        at io.undertow.servlet.handlers.security.ServletSecurityRoleHandler.handleRequest(ServletSecurityRoleHandler.java:62)
-        at io.undertow.servlet.handlers.ServletChain$1.handleRequest(ServletChain.java:68)
-        at io.undertow.servlet.handlers.ServletDispatchingHandler.handleRequest(ServletDispatchingHandler.java:36)
-        at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
-        at io.undertow.servlet.handlers.RedirectDirHandler.handleRequest(RedirectDirHandler.java:68)
-        at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
-        at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
-        at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:257)
-        at io.undertow.servlet.handlers.ServletInitialHandler.dispatchToPath(ServletInitialHandler.java:182)
-        at io.undertow.servlet.spec.RequestDispatcherImpl.error(RequestDispatcherImpl.java:504)
-        ... 24 more
-Caused by: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=861, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:292)
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:222)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.checkState(InfinispanLock.java:440)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.lambda$toInvocationStage$3(InfinispanLock.java:416)
-        at java.util.concurrent.CompletableFuture.uniApply(CompletableFuture.java:616)
-        at java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:591)
-        at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:456)
-        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-        at org.jboss.as.clustering.context.ContextReferenceExecutor.execute(ContextReferenceExecutor.java:49)
-        at org.jboss.as.clustering.context.ContextualExecutor$1.run(ContextualExecutor.java:70)
-        ... 1 more
-        Suppressed: org.infinispan.commons.util.logging.TraceException
-                at org.infinispan.interceptors.impl.SimpleAsyncInvocationStage.get(SimpleAsyncInvocationStage.java:39)
-                at org.infinispan.interceptors.impl.AsyncInterceptorChainImpl.invoke(AsyncInterceptorChainImpl.java:246)
-                at org.infinispan.cache.impl.InvocationHelper.doInvoke(InvocationHelper.java:298)
-                at org.infinispan.cache.impl.InvocationHelper.invoke(InvocationHelper.java:102)
-                at org.infinispan.cache.impl.CacheImpl.get(CacheImpl.java:541)
-                at org.infinispan.cache.impl.DecoratedCache.get(DecoratedCache.java:522)
-                at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-                at org.infinispan.cache.impl.EncoderCache.get(EncoderCache.java:696)
-                at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.getValue(InfinispanSessionMetaDataFactory.java:103)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:93)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:54)
-                at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:63)
-                at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:40)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionManager.findSession(InfinispanSessionManager.java:160)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:66)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:63)
-                at org.wildfly.clustering.ee.cache.SimpleManager.apply(SimpleManager.java:52)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager.findSession(ConcurrentSessionManager.java:71)
-                at org.wildfly.clustering.web.undertow.session.DistributableSessionManager.getSession(DistributableSessionManager.java:229)
-                at io.undertow.servlet.spec.ServletContextImpl.getSession(ServletContextImpl.java:903)
-                at io.undertow.servlet.spec.HttpServletRequestImpl.getSession(HttpServletRequestImpl.java:425)
-                at com.sun.faces.context.ExternalContextImpl.getSession(ExternalContextImpl.java:157)
-                at javax.faces.application.ViewHandler.calculateCharacterEncoding(ViewHandler.java:425)
-                at javax.faces.application.ViewHandler.initView(ViewHandler.java:269)
-                at com.sun.faces.application.view.MultiViewHandler.initView(MultiViewHandler.java:115)
-                at javax.faces.application.ViewHandlerWrapper.initView(ViewHandlerWrapper.java:86)
-                at javax.faces.application.ViewHandlerWrapper.initView(ViewHandlerWrapper.java:86)
-                at com.sun.faces.lifecycle.RestoreViewPhase.doPhase(RestoreViewPhase.java:109)
-                at com.sun.faces.lifecycle.LifecycleImpl.execute(LifecycleImpl.java:177)
-                at javax.faces.webapp.FacesServlet.executeLifecyle(FacesServlet.java:707)
-                at javax.faces.webapp.FacesServlet.service(FacesServlet.java:451)
-                at io.undertow.servlet.handlers.ServletHandler.handleRequest(ServletHandler.java:74)
-                at io.undertow.servlet.handlers.FilterHandler.handleRequest(FilterHandler.java:81)
-                at io.undertow.servlet.handlers.security.ServletSecurityRoleHandler.handleRequest(ServletSecurityRoleHandler.java:62)
-                at io.undertow.servlet.handlers.ServletChain$1.handleRequest(ServletChain.java:68)
-                at io.undertow.servlet.handlers.ServletDispatchingHandler.handleRequest(ServletDispatchingHandler.java:36)
-                at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
-                at io.undertow.servlet.handlers.RedirectDirHandler.handleRequest(RedirectDirHandler.java:68)
-                at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
-                at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
-                at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:257)
-                at io.undertow.servlet.handlers.ServletInitialHandler.dispatchToPath(ServletInitialHandler.java:182)
-                at io.undertow.servlet.spec.RequestDispatcherImpl.error(RequestDispatcherImpl.java:504)
-                at io.undertow.servlet.spec.RequestDispatcherImpl.error(RequestDispatcherImpl.java:425)
-                at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:314)
-                at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:79)
-                at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:134)
-                at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:131)
-                at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
-                at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
-                at org.wildfly.extension.undertow.security.SecurityContextThreadSetupAction.lambda$create$0(SecurityContextThreadSetupAction.java:105)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:255)
-                at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:79)
-                at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:100)
-                at io.undertow.server.Connectors.executeRootHandler(Connectors.java:387)
-                at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:852)
-                at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
-                at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
-                at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
-                at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1377)
-                at org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
-                ... 1 more
-
-2026-08-27 16:00:42,321 ERROR [org.infinispan.interceptors.impl.InvocationContextInterceptor] (non-blocking-thread--p11-t1) ISPN000136: Error executing command GetKeyValueCommand on Cache 'SICMU-ear.ear.SICMU-web.war', writing keys []: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=862, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:292)
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:222)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.checkState(InfinispanLock.java:440)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.lambda$toInvocationStage$3(InfinispanLock.java:416)
-        at java.util.concurrent.CompletableFuture.uniApply(CompletableFuture.java:616)
-        at java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:591)
-        at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:456)
-        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-        at org.jboss.as.clustering.context.ContextReferenceExecutor.execute(ContextReferenceExecutor.java:49)
-        at org.jboss.as.clustering.context.ContextualExecutor$1.run(ContextualExecutor.java:70)
-        at java.lang.Thread.run(Thread.java:748)
-
-2026-08-27 16:00:42,321 ERROR [io.undertow.servlet.request] (default task-51) UT015005: Error invoking method requestDestroyed on listener class com.sun.faces.config.ConfigureListener: java.lang.UnsupportedOperationException
-        at javax.faces.context.FacesContext.getExceptionHandler(FacesContext.java:280)
-        at javax.faces.event.ExceptionQueuedEventContext.getListenersForEventClass(ExceptionQueuedEventContext.java:248)
-        at com.sun.faces.application.applicationimpl.Events.invokeComponentListenersFor(Events.java:181)
-        at com.sun.faces.application.applicationimpl.Events.publishEvent(Events.java:106)
-        at com.sun.faces.application.ApplicationImpl.publishEvent(ApplicationImpl.java:127)
-        at com.sun.faces.application.ApplicationImpl.publishEvent(ApplicationImpl.java:119)
-        at javax.faces.application.ApplicationWrapper.publishEvent(ApplicationWrapper.java:776)
-        at com.sun.faces.application.WebappLifecycleListener.requestDestroyed(WebappLifecycleListener.java:149)
-        at com.sun.faces.config.ConfigureListener.requestDestroyed(ConfigureListener.java:382)
-        at io.undertow.servlet.core.ApplicationListeners.requestDestroyed(ApplicationListeners.java:289)
-        at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:330)
-        at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:79)
-        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:134)
-        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:131)
-        at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
-        at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
-        at org.wildfly.extension.undertow.security.SecurityContextThreadSetupAction.lambda$create$0(SecurityContextThreadSetupAction.java:105)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:255)
-        at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:79)
-        at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:100)
-        at io.undertow.server.Connectors.executeRootHandler(Connectors.java:387)
-        at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:852)
-        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
-        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
-        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
-        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1377)
-        at org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
-        at java.lang.Thread.run(Thread.java:748)
-
-2026-08-27 16:00:42,321 WARN  [org.jboss.weld.Servlet] (default task-51) WELD-000715: HttpContextLifecycle guard not set. The Servlet container is not fully compliant.
-2026-08-27 16:00:46,146 ERROR [org.infinispan.interceptors.impl.InvocationContextInterceptor] (non-blocking-thread--p11-t2) ISPN000136: Error executing command GetKeyValueCommand on Cache 'SICMU-ear.ear.SICMU-web.war', writing keys []: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=863, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:292)
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:222)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.checkState(InfinispanLock.java:440)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.lambda$toInvocationStage$3(InfinispanLock.java:416)
-        at java.util.concurrent.CompletableFuture.uniApply(CompletableFuture.java:616)
-        at java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:591)
-        at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:456)
-        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-        at org.jboss.as.clustering.context.ContextReferenceExecutor.execute(ContextReferenceExecutor.java:49)
-        at org.jboss.as.clustering.context.ContextualExecutor$1.run(ContextualExecutor.java:70)
-        at java.lang.Thread.run(Thread.java:748)
-
-2026-08-27 16:00:46,146 ERROR [io.undertow.request] (default task-45) UT005022: Exception generating error page /principal/erro.jsf: java.lang.RuntimeException: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=863, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at io.undertow.servlet.spec.RequestDispatcherImpl.error(RequestDispatcherImpl.java:510)
-        at io.undertow.servlet.spec.RequestDispatcherImpl.error(RequestDispatcherImpl.java:425)
-        at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:314)
-        at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:79)
-        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:134)
-        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:131)
-        at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
-        at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
-        at org.wildfly.extension.undertow.security.SecurityContextThreadSetupAction.lambda$create$0(SecurityContextThreadSetupAction.java:105)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:255)
-        at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:79)
-        at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:100)
-        at io.undertow.server.Connectors.executeRootHandler(Connectors.java:387)
-        at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:852)
-        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
-        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
-        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
-        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1377)
-        at org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
-        at java.lang.Thread.run(Thread.java:748)
-Caused by: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=863, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.interceptors.impl.AsyncInterceptorChainImpl.invoke(AsyncInterceptorChainImpl.java:255)
-        at org.infinispan.cache.impl.InvocationHelper.doInvoke(InvocationHelper.java:298)
-        at org.infinispan.cache.impl.InvocationHelper.invoke(InvocationHelper.java:102)
-        at org.infinispan.cache.impl.CacheImpl.get(CacheImpl.java:541)
-        at org.infinispan.cache.impl.DecoratedCache.get(DecoratedCache.java:522)
-        at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-        at org.infinispan.cache.impl.EncoderCache.get(EncoderCache.java:696)
-        at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.getValue(InfinispanSessionMetaDataFactory.java:103)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:93)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:54)
-        at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:63)
-        at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:40)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionManager.findSession(InfinispanSessionManager.java:160)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:66)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:63)
-        at org.wildfly.clustering.ee.cache.SimpleManager.apply(SimpleManager.java:52)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager.findSession(ConcurrentSessionManager.java:71)
-        at org.wildfly.clustering.web.undertow.session.DistributableSessionManager.getSession(DistributableSessionManager.java:229)
-        at io.undertow.servlet.spec.ServletContextImpl.getSession(ServletContextImpl.java:903)
-        at io.undertow.servlet.spec.HttpServletRequestImpl.getSession(HttpServletRequestImpl.java:425)
-        at com.sun.faces.context.ExternalContextImpl.getSession(ExternalContextImpl.java:157)
-        at javax.faces.application.ViewHandler.calculateCharacterEncoding(ViewHandler.java:425)
-        at javax.faces.application.ViewHandler.initView(ViewHandler.java:269)
-        at com.sun.faces.application.view.MultiViewHandler.initView(MultiViewHandler.java:115)
-        at javax.faces.application.ViewHandlerWrapper.initView(ViewHandlerWrapper.java:86)
-        at javax.faces.application.ViewHandlerWrapper.initView(ViewHandlerWrapper.java:86)
-        at com.sun.faces.lifecycle.RestoreViewPhase.doPhase(RestoreViewPhase.java:109)
-        at com.sun.faces.lifecycle.LifecycleImpl.execute(LifecycleImpl.java:177)
-        at javax.faces.webapp.FacesServlet.executeLifecyle(FacesServlet.java:707)
-        at javax.faces.webapp.FacesServlet.service(FacesServlet.java:451)
-        at io.undertow.servlet.handlers.ServletHandler.handleRequest(ServletHandler.java:74)
-        at io.undertow.servlet.handlers.FilterHandler.handleRequest(FilterHandler.java:81)
-        at io.undertow.servlet.handlers.security.ServletSecurityRoleHandler.handleRequest(ServletSecurityRoleHandler.java:62)
-        at io.undertow.servlet.handlers.ServletChain$1.handleRequest(ServletChain.java:68)
-        at io.undertow.servlet.handlers.ServletDispatchingHandler.handleRequest(ServletDispatchingHandler.java:36)
-        at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
-        at io.undertow.servlet.handlers.RedirectDirHandler.handleRequest(RedirectDirHandler.java:68)
-        at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
-        at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
-        at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:257)
-        at io.undertow.servlet.handlers.ServletInitialHandler.dispatchToPath(ServletInitialHandler.java:182)
-        at io.undertow.servlet.spec.RequestDispatcherImpl.error(RequestDispatcherImpl.java:504)
-        ... 24 more
-Caused by: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=863, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:292)
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:222)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.checkState(InfinispanLock.java:440)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.lambda$toInvocationStage$3(InfinispanLock.java:416)
-        at java.util.concurrent.CompletableFuture.uniApply(CompletableFuture.java:616)
-        at java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:591)
-        at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:456)
-        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-        at org.jboss.as.clustering.context.ContextReferenceExecutor.execute(ContextReferenceExecutor.java:49)
-        at org.jboss.as.clustering.context.ContextualExecutor$1.run(ContextualExecutor.java:70)
-        ... 1 more
-        Suppressed: org.infinispan.commons.util.logging.TraceException
-                at org.infinispan.interceptors.impl.SimpleAsyncInvocationStage.get(SimpleAsyncInvocationStage.java:39)
-                at org.infinispan.interceptors.impl.AsyncInterceptorChainImpl.invoke(AsyncInterceptorChainImpl.java:246)
-                at org.infinispan.cache.impl.InvocationHelper.doInvoke(InvocationHelper.java:298)
-                at org.infinispan.cache.impl.InvocationHelper.invoke(InvocationHelper.java:102)
-                at org.infinispan.cache.impl.CacheImpl.get(CacheImpl.java:541)
-                at org.infinispan.cache.impl.DecoratedCache.get(DecoratedCache.java:522)
-                at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-                at org.infinispan.cache.impl.EncoderCache.get(EncoderCache.java:696)
-                at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.getValue(InfinispanSessionMetaDataFactory.java:103)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:93)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:54)
-                at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:63)
-                at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:40)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionManager.findSession(InfinispanSessionManager.java:160)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:66)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:63)
-                at org.wildfly.clustering.ee.cache.SimpleManager.apply(SimpleManager.java:52)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager.findSession(ConcurrentSessionManager.java:71)
-                at org.wildfly.clustering.web.undertow.session.DistributableSessionManager.getSession(DistributableSessionManager.java:229)
-                at io.undertow.servlet.spec.ServletContextImpl.getSession(ServletContextImpl.java:903)
-                at io.undertow.servlet.spec.HttpServletRequestImpl.getSession(HttpServletRequestImpl.java:425)
-                at com.sun.faces.context.ExternalContextImpl.getSession(ExternalContextImpl.java:157)
-                at javax.faces.application.ViewHandler.calculateCharacterEncoding(ViewHandler.java:425)
-                at javax.faces.application.ViewHandler.initView(ViewHandler.java:269)
-                at com.sun.faces.application.view.MultiViewHandler.initView(MultiViewHandler.java:115)
-                at javax.faces.application.ViewHandlerWrapper.initView(ViewHandlerWrapper.java:86)
-                at javax.faces.application.ViewHandlerWrapper.initView(ViewHandlerWrapper.java:86)
-                at com.sun.faces.lifecycle.RestoreViewPhase.doPhase(RestoreViewPhase.java:109)
-                at com.sun.faces.lifecycle.LifecycleImpl.execute(LifecycleImpl.java:177)
-                at javax.faces.webapp.FacesServlet.executeLifecyle(FacesServlet.java:707)
-                at javax.faces.webapp.FacesServlet.service(FacesServlet.java:451)
-                at io.undertow.servlet.handlers.ServletHandler.handleRequest(ServletHandler.java:74)
-                at io.undertow.servlet.handlers.FilterHandler.handleRequest(FilterHandler.java:81)
-                at io.undertow.servlet.handlers.security.ServletSecurityRoleHandler.handleRequest(ServletSecurityRoleHandler.java:62)
-                at io.undertow.servlet.handlers.ServletChain$1.handleRequest(ServletChain.java:68)
-                at io.undertow.servlet.handlers.ServletDispatchingHandler.handleRequest(ServletDispatchingHandler.java:36)
-                at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
-                at io.undertow.servlet.handlers.RedirectDirHandler.handleRequest(RedirectDirHandler.java:68)
-                at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
-                at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
-                at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:257)
-                at io.undertow.servlet.handlers.ServletInitialHandler.dispatchToPath(ServletInitialHandler.java:182)
-                at io.undertow.servlet.spec.RequestDispatcherImpl.error(RequestDispatcherImpl.java:504)
-                at io.undertow.servlet.spec.RequestDispatcherImpl.error(RequestDispatcherImpl.java:425)
-                at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:314)
-                at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:79)
-                at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:134)
-                at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:131)
-                at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
-                at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
-                at org.wildfly.extension.undertow.security.SecurityContextThreadSetupAction.lambda$create$0(SecurityContextThreadSetupAction.java:105)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:255)
-                at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:79)
-                at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:100)
-                at io.undertow.server.Connectors.executeRootHandler(Connectors.java:387)
-                at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:852)
-                at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
-                at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
-                at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
-                at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1377)
-                at org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
-                ... 1 more
-
-2026-08-27 16:00:46,834 ERROR [org.infinispan.interceptors.impl.InvocationContextInterceptor] (non-blocking-thread--p11-t4) ISPN000136: Error executing command GetKeyValueCommand on Cache 'SICMU-ear.ear.SICMU-web.war', writing keys []: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=864, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:292)
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:222)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.checkState(InfinispanLock.java:440)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.lambda$toInvocationStage$3(InfinispanLock.java:416)
-        at java.util.concurrent.CompletableFuture.uniApply(CompletableFuture.java:616)
-        at java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:591)
-        at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:456)
-        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-        at org.jboss.as.clustering.context.ContextReferenceExecutor.execute(ContextReferenceExecutor.java:49)
-        at org.jboss.as.clustering.context.ContextualExecutor$1.run(ContextualExecutor.java:70)
-        at java.lang.Thread.run(Thread.java:748)
-
-2026-08-27 16:00:46,835 ERROR [io.undertow.servlet.request] (default task-50) UT015005: Error invoking method requestDestroyed on listener class com.sun.faces.config.ConfigureListener: java.lang.UnsupportedOperationException
-        at javax.faces.context.FacesContext.getExceptionHandler(FacesContext.java:280)
-        at javax.faces.event.ExceptionQueuedEventContext.getListenersForEventClass(ExceptionQueuedEventContext.java:248)
-        at com.sun.faces.application.applicationimpl.Events.invokeComponentListenersFor(Events.java:181)
-        at com.sun.faces.application.applicationimpl.Events.publishEvent(Events.java:106)
-        at com.sun.faces.application.ApplicationImpl.publishEvent(ApplicationImpl.java:127)
-        at com.sun.faces.application.ApplicationImpl.publishEvent(ApplicationImpl.java:119)
-        at javax.faces.application.ApplicationWrapper.publishEvent(ApplicationWrapper.java:776)
-        at com.sun.faces.application.WebappLifecycleListener.requestDestroyed(WebappLifecycleListener.java:149)
-        at com.sun.faces.config.ConfigureListener.requestDestroyed(ConfigureListener.java:382)
-        at io.undertow.servlet.core.ApplicationListeners.requestDestroyed(ApplicationListeners.java:289)
-        at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:330)
-        at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:79)
-        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:134)
-        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:131)
-        at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
-        at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
-        at org.wildfly.extension.undertow.security.SecurityContextThreadSetupAction.lambda$create$0(SecurityContextThreadSetupAction.java:105)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:255)
-        at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:79)
-        at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:100)
-        at io.undertow.server.Connectors.executeRootHandler(Connectors.java:387)
-        at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:852)
-        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
-        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
-        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
-        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1377)
-        at org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
-        at java.lang.Thread.run(Thread.java:748)
-
-2026-08-27 16:00:46,835 WARN  [org.jboss.weld.Servlet] (default task-50) WELD-000715: HttpContextLifecycle guard not set. The Servlet container is not fully compliant.
-2026-08-27 16:00:54,747 ERROR [org.infinispan.interceptors.impl.InvocationContextInterceptor] (non-blocking-thread--p11-t2) ISPN000136: Error executing command GetKeyValueCommand on Cache 'SICMU-ear.ear.SICMU-web.war', writing keys []: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=865, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:292)
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:222)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.checkState(InfinispanLock.java:440)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.lambda$toInvocationStage$3(InfinispanLock.java:416)
-        at java.util.concurrent.CompletableFuture.uniApply(CompletableFuture.java:616)
-        at java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:591)
-        at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:456)
-        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-        at org.jboss.as.clustering.context.ContextReferenceExecutor.execute(ContextReferenceExecutor.java:49)
-        at org.jboss.as.clustering.context.ContextualExecutor$1.run(ContextualExecutor.java:70)
-        at java.lang.Thread.run(Thread.java:748)
-
-2026-08-27 16:00:54,748 ERROR [io.undertow.request] (default task-52) UT005071: Undertow request failed HttpServerExchange{ GET /sicmu/principal/erro.jsf}: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=865, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.interceptors.impl.AsyncInterceptorChainImpl.invoke(AsyncInterceptorChainImpl.java:255)
-        at org.infinispan.cache.impl.InvocationHelper.doInvoke(InvocationHelper.java:298)
-        at org.infinispan.cache.impl.InvocationHelper.invoke(InvocationHelper.java:102)
-        at org.infinispan.cache.impl.CacheImpl.get(CacheImpl.java:541)
-        at org.infinispan.cache.impl.DecoratedCache.get(DecoratedCache.java:522)
-        at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-        at org.infinispan.cache.impl.EncoderCache.get(EncoderCache.java:696)
-        at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.getValue(InfinispanSessionMetaDataFactory.java:103)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:93)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:54)
-        at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:63)
-        at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:40)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionManager.findSession(InfinispanSessionManager.java:160)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:66)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:63)
-        at org.wildfly.clustering.ee.cache.SimpleManager.apply(SimpleManager.java:52)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager.findSession(ConcurrentSessionManager.java:71)
-        at org.wildfly.clustering.web.undertow.session.DistributableSessionManager.getSession(DistributableSessionManager.java:229)
-        at io.undertow.servlet.spec.ServletContextImpl.getSession(ServletContextImpl.java:903)
-        at io.undertow.servlet.spec.ServletContextImpl.getSession(ServletContextImpl.java:993)
-        at io.undertow.servlet.spec.ServletContextImpl.updateSessionAccessTime(ServletContextImpl.java:997)
-        at io.undertow.servlet.spec.HttpServletResponseImpl.responseDone(HttpServletResponseImpl.java:595)
-        at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:334)
-        at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:79)
-        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:134)
-        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:131)
-        at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
-        at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
-        at org.wildfly.extension.undertow.security.SecurityContextThreadSetupAction.lambda$create$0(SecurityContextThreadSetupAction.java:105)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:255)
-        at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:79)
-        at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:100)
-        at io.undertow.server.Connectors.executeRootHandler(Connectors.java:387)
-        at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:852)
-        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
-        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
-        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
-        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1377)
-        at org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
-        at java.lang.Thread.run(Thread.java:748)
-Caused by: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=865, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:292)
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:222)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.checkState(InfinispanLock.java:440)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.lambda$toInvocationStage$3(InfinispanLock.java:416)
-        at java.util.concurrent.CompletableFuture.uniApply(CompletableFuture.java:616)
-        at java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:591)
-        at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:456)
-        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-        at org.jboss.as.clustering.context.ContextReferenceExecutor.execute(ContextReferenceExecutor.java:49)
-        at org.jboss.as.clustering.context.ContextualExecutor$1.run(ContextualExecutor.java:70)
-        ... 1 more
-        Suppressed: org.infinispan.commons.util.logging.TraceException
-                at org.infinispan.interceptors.impl.SimpleAsyncInvocationStage.get(SimpleAsyncInvocationStage.java:39)
-                at org.infinispan.interceptors.impl.AsyncInterceptorChainImpl.invoke(AsyncInterceptorChainImpl.java:246)
-                at org.infinispan.cache.impl.InvocationHelper.doInvoke(InvocationHelper.java:298)
-                at org.infinispan.cache.impl.InvocationHelper.invoke(InvocationHelper.java:102)
-                at org.infinispan.cache.impl.CacheImpl.get(CacheImpl.java:541)
-                at org.infinispan.cache.impl.DecoratedCache.get(DecoratedCache.java:522)
-                at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-                at org.infinispan.cache.impl.EncoderCache.get(EncoderCache.java:696)
-                at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.getValue(InfinispanSessionMetaDataFactory.java:103)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:93)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:54)
-                at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:63)
-                at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:40)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionManager.findSession(InfinispanSessionManager.java:160)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:66)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:63)
-                at org.wildfly.clustering.ee.cache.SimpleManager.apply(SimpleManager.java:52)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager.findSession(ConcurrentSessionManager.java:71)
-                at org.wildfly.clustering.web.undertow.session.DistributableSessionManager.getSession(DistributableSessionManager.java:229)
-                at io.undertow.servlet.spec.ServletContextImpl.getSession(ServletContextImpl.java:903)
-                at io.undertow.servlet.spec.ServletContextImpl.getSession(ServletContextImpl.java:993)
-                at io.undertow.servlet.spec.ServletContextImpl.updateSessionAccessTime(ServletContextImpl.java:997)
-                at io.undertow.servlet.spec.HttpServletResponseImpl.responseDone(HttpServletResponseImpl.java:595)
-                at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:334)
-                at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:79)
-                at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:134)
-                at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:131)
-                at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
-                at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
-                at org.wildfly.extension.undertow.security.SecurityContextThreadSetupAction.lambda$create$0(SecurityContextThreadSetupAction.java:105)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:255)
-                at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:79)
-                at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:100)
-                at io.undertow.server.Connectors.executeRootHandler(Connectors.java:387)
-                at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:852)
-                at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
-                at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
-                at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
-                at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1377)
-                at org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
-                ... 1 more
-
-2026-08-27 16:00:56,614 ERROR [org.infinispan.interceptors.impl.InvocationContextInterceptor] (non-blocking-thread--p11-t1) ISPN000136: Error executing command GetKeyValueCommand on Cache 'SICMU-ear.ear.SICMU-web.war', writing keys []: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=866, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:292)
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:222)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.checkState(InfinispanLock.java:440)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.lambda$toInvocationStage$3(InfinispanLock.java:416)
-        at java.util.concurrent.CompletableFuture.uniApply(CompletableFuture.java:616)
-        at java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:591)
-        at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:456)
-        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-        at org.jboss.as.clustering.context.ContextReferenceExecutor.execute(ContextReferenceExecutor.java:49)
-        at org.jboss.as.clustering.context.ContextualExecutor$1.run(ContextualExecutor.java:70)
-        at java.lang.Thread.run(Thread.java:748)
-
-2026-08-27 16:00:56,614 ERROR [io.undertow.servlet.request] (default task-49) UT015005: Error invoking method requestDestroyed on listener class com.sun.faces.config.ConfigureListener: java.lang.UnsupportedOperationException
-        at javax.faces.context.FacesContext.getExceptionHandler(FacesContext.java:280)
-        at javax.faces.event.ExceptionQueuedEventContext.getListenersForEventClass(ExceptionQueuedEventContext.java:248)
-        at com.sun.faces.application.applicationimpl.Events.invokeComponentListenersFor(Events.java:181)
-        at com.sun.faces.application.applicationimpl.Events.publishEvent(Events.java:106)
-        at com.sun.faces.application.ApplicationImpl.publishEvent(ApplicationImpl.java:127)
-        at com.sun.faces.application.ApplicationImpl.publishEvent(ApplicationImpl.java:119)
-        at javax.faces.application.ApplicationWrapper.publishEvent(ApplicationWrapper.java:776)
-        at com.sun.faces.application.WebappLifecycleListener.requestDestroyed(WebappLifecycleListener.java:149)
-        at com.sun.faces.config.ConfigureListener.requestDestroyed(ConfigureListener.java:382)
-        at io.undertow.servlet.core.ApplicationListeners.requestDestroyed(ApplicationListeners.java:289)
-        at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:330)
-        at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:79)
-        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:134)
-        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:131)
-        at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
-        at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
-        at org.wildfly.extension.undertow.security.SecurityContextThreadSetupAction.lambda$create$0(SecurityContextThreadSetupAction.java:105)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:255)
-        at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:79)
-        at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:100)
-        at io.undertow.server.Connectors.executeRootHandler(Connectors.java:387)
-        at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:852)
-        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
-        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
-        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
-        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1377)
-        at org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
-        at java.lang.Thread.run(Thread.java:748)
-
-2026-08-27 16:00:56,615 WARN  [org.jboss.weld.Servlet] (default task-49) WELD-000715: HttpContextLifecycle guard not set. The Servlet container is not fully compliant.
-2026-08-27 16:00:57,322 ERROR [org.infinispan.interceptors.impl.InvocationContextInterceptor] (non-blocking-thread--p11-t2) ISPN000136: Error executing command GetKeyValueCommand on Cache 'SICMU-ear.ear.SICMU-web.war', writing keys []: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=867, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:292)
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:222)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.checkState(InfinispanLock.java:440)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.lambda$toInvocationStage$3(InfinispanLock.java:416)
-        at java.util.concurrent.CompletableFuture.uniApply(CompletableFuture.java:616)
-        at java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:591)
-        at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:456)
-        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-        at org.jboss.as.clustering.context.ContextReferenceExecutor.execute(ContextReferenceExecutor.java:49)
-        at org.jboss.as.clustering.context.ContextualExecutor$1.run(ContextualExecutor.java:70)
-        at java.lang.Thread.run(Thread.java:748)
-
-2026-08-27 16:00:57,322 ERROR [io.undertow.request] (default task-51) UT005071: Undertow request failed HttpServerExchange{ GET /sicmu/principal/erro.jsf}: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=867, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.interceptors.impl.AsyncInterceptorChainImpl.invoke(AsyncInterceptorChainImpl.java:255)
-        at org.infinispan.cache.impl.InvocationHelper.doInvoke(InvocationHelper.java:298)
-        at org.infinispan.cache.impl.InvocationHelper.invoke(InvocationHelper.java:102)
-        at org.infinispan.cache.impl.CacheImpl.get(CacheImpl.java:541)
-        at org.infinispan.cache.impl.DecoratedCache.get(DecoratedCache.java:522)
-        at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-        at org.infinispan.cache.impl.EncoderCache.get(EncoderCache.java:696)
-        at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.getValue(InfinispanSessionMetaDataFactory.java:103)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:93)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:54)
-        at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:63)
-        at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:40)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionManager.findSession(InfinispanSessionManager.java:160)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:66)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:63)
-        at org.wildfly.clustering.ee.cache.SimpleManager.apply(SimpleManager.java:52)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager.findSession(ConcurrentSessionManager.java:71)
-        at org.wildfly.clustering.web.undertow.session.DistributableSessionManager.getSession(DistributableSessionManager.java:229)
-        at io.undertow.servlet.spec.ServletContextImpl.getSession(ServletContextImpl.java:903)
-        at io.undertow.servlet.spec.ServletContextImpl.getSession(ServletContextImpl.java:993)
-        at io.undertow.servlet.spec.ServletContextImpl.updateSessionAccessTime(ServletContextImpl.java:997)
-        at io.undertow.servlet.spec.HttpServletResponseImpl.responseDone(HttpServletResponseImpl.java:595)
-        at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:334)
-        at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:79)
-        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:134)
-        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:131)
-        at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
-        at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
-        at org.wildfly.extension.undertow.security.SecurityContextThreadSetupAction.lambda$create$0(SecurityContextThreadSetupAction.java:105)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:255)
-        at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:79)
-        at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:100)
-        at io.undertow.server.Connectors.executeRootHandler(Connectors.java:387)
-        at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:852)
-        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
-        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
-        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
-        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1377)
-        at org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
-        at java.lang.Thread.run(Thread.java:748)
-Caused by: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=867, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:292)
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:222)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.checkState(InfinispanLock.java:440)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.lambda$toInvocationStage$3(InfinispanLock.java:416)
-        at java.util.concurrent.CompletableFuture.uniApply(CompletableFuture.java:616)
-        at java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:591)
-        at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:456)
-        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-        at org.jboss.as.clustering.context.ContextReferenceExecutor.execute(ContextReferenceExecutor.java:49)
-        at org.jboss.as.clustering.context.ContextualExecutor$1.run(ContextualExecutor.java:70)
-        ... 1 more
-        Suppressed: org.infinispan.commons.util.logging.TraceException
-                at org.infinispan.interceptors.impl.SimpleAsyncInvocationStage.get(SimpleAsyncInvocationStage.java:39)
-                at org.infinispan.interceptors.impl.AsyncInterceptorChainImpl.invoke(AsyncInterceptorChainImpl.java:246)
-                at org.infinispan.cache.impl.InvocationHelper.doInvoke(InvocationHelper.java:298)
-                at org.infinispan.cache.impl.InvocationHelper.invoke(InvocationHelper.java:102)
-                at org.infinispan.cache.impl.CacheImpl.get(CacheImpl.java:541)
-                at org.infinispan.cache.impl.DecoratedCache.get(DecoratedCache.java:522)
-                at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-                at org.infinispan.cache.impl.EncoderCache.get(EncoderCache.java:696)
-                at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.getValue(InfinispanSessionMetaDataFactory.java:103)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:93)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:54)
-                at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:63)
-                at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:40)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionManager.findSession(InfinispanSessionManager.java:160)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:66)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:63)
-                at org.wildfly.clustering.ee.cache.SimpleManager.apply(SimpleManager.java:52)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager.findSession(ConcurrentSessionManager.java:71)
-                at org.wildfly.clustering.web.undertow.session.DistributableSessionManager.getSession(DistributableSessionManager.java:229)
-                at io.undertow.servlet.spec.ServletContextImpl.getSession(ServletContextImpl.java:903)
-                at io.undertow.servlet.spec.ServletContextImpl.getSession(ServletContextImpl.java:993)
-                at io.undertow.servlet.spec.ServletContextImpl.updateSessionAccessTime(ServletContextImpl.java:997)
-                at io.undertow.servlet.spec.HttpServletResponseImpl.responseDone(HttpServletResponseImpl.java:595)
-                at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:334)
-                at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:79)
-                at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:134)
-                at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:131)
-                at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
-                at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
-                at org.wildfly.extension.undertow.security.SecurityContextThreadSetupAction.lambda$create$0(SecurityContextThreadSetupAction.java:105)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:255)
-                at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:79)
-                at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:100)
-                at io.undertow.server.Connectors.executeRootHandler(Connectors.java:387)
-                at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:852)
-                at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
-                at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
-                at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
-                at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1377)
-                at org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
-                ... 1 more
-
-2026-08-27 16:01:01,147 ERROR [org.infinispan.interceptors.impl.InvocationContextInterceptor] (non-blocking-thread--p11-t3) ISPN000136: Error executing command GetKeyValueCommand on Cache 'SICMU-ear.ear.SICMU-web.war', writing keys []: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=868, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:292)
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:222)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.checkState(InfinispanLock.java:440)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.lambda$toInvocationStage$3(InfinispanLock.java:416)
-        at java.util.concurrent.CompletableFuture.uniApply(CompletableFuture.java:616)
-        at java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:591)
-        at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:456)
-        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-        at org.jboss.as.clustering.context.ContextReferenceExecutor.execute(ContextReferenceExecutor.java:49)
-        at org.jboss.as.clustering.context.ContextualExecutor$1.run(ContextualExecutor.java:70)
-        at java.lang.Thread.run(Thread.java:748)
-
-2026-08-27 16:01:01,148 ERROR [io.undertow.servlet.request] (default task-45) UT015005: Error invoking method requestDestroyed on listener class com.sun.faces.config.ConfigureListener: java.lang.UnsupportedOperationException
-        at javax.faces.context.FacesContext.getExceptionHandler(FacesContext.java:280)
-        at javax.faces.event.ExceptionQueuedEventContext.getListenersForEventClass(ExceptionQueuedEventContext.java:248)
-        at com.sun.faces.application.applicationimpl.Events.invokeComponentListenersFor(Events.java:181)
-        at com.sun.faces.application.applicationimpl.Events.publishEvent(Events.java:106)
-        at com.sun.faces.application.ApplicationImpl.publishEvent(ApplicationImpl.java:127)
-        at com.sun.faces.application.ApplicationImpl.publishEvent(ApplicationImpl.java:119)
-        at javax.faces.application.ApplicationWrapper.publishEvent(ApplicationWrapper.java:776)
-        at com.sun.faces.application.WebappLifecycleListener.requestDestroyed(WebappLifecycleListener.java:149)
-        at com.sun.faces.config.ConfigureListener.requestDestroyed(ConfigureListener.java:382)
-        at io.undertow.servlet.core.ApplicationListeners.requestDestroyed(ApplicationListeners.java:289)
-        at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:330)
-        at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:79)
-        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:134)
-        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:131)
-        at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
-        at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
-        at org.wildfly.extension.undertow.security.SecurityContextThreadSetupAction.lambda$create$0(SecurityContextThreadSetupAction.java:105)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:255)
-        at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:79)
-        at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:100)
-        at io.undertow.server.Connectors.executeRootHandler(Connectors.java:387)
-        at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:852)
-        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
-        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
-        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
-        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1377)
-        at org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
-        at java.lang.Thread.run(Thread.java:748)
-
-2026-08-27 16:01:01,148 WARN  [org.jboss.weld.Servlet] (default task-45) WELD-000715: HttpContextLifecycle guard not set. The Servlet container is not fully compliant.
-2026-08-27 16:01:01,835 ERROR [org.infinispan.interceptors.impl.InvocationContextInterceptor] (non-blocking-thread--p11-t1) ISPN000136: Error executing command GetKeyValueCommand on Cache 'SICMU-ear.ear.SICMU-web.war', writing keys []: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=869, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:292)
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:222)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.checkState(InfinispanLock.java:440)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.lambda$toInvocationStage$3(InfinispanLock.java:416)
-        at java.util.concurrent.CompletableFuture.uniApply(CompletableFuture.java:616)
-        at java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:591)
-        at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:456)
-        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-        at org.jboss.as.clustering.context.ContextReferenceExecutor.execute(ContextReferenceExecutor.java:49)
-        at org.jboss.as.clustering.context.ContextualExecutor$1.run(ContextualExecutor.java:70)
-        at java.lang.Thread.run(Thread.java:748)
-
-2026-08-27 16:01:01,836 ERROR [io.undertow.request] (default task-50) UT005071: Undertow request failed HttpServerExchange{ GET /sicmu/principal/erro.jsf}: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=869, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.interceptors.impl.AsyncInterceptorChainImpl.invoke(AsyncInterceptorChainImpl.java:255)
-        at org.infinispan.cache.impl.InvocationHelper.doInvoke(InvocationHelper.java:298)
-        at org.infinispan.cache.impl.InvocationHelper.invoke(InvocationHelper.java:102)
-        at org.infinispan.cache.impl.CacheImpl.get(CacheImpl.java:541)
-        at org.infinispan.cache.impl.DecoratedCache.get(DecoratedCache.java:522)
-        at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-        at org.infinispan.cache.impl.EncoderCache.get(EncoderCache.java:696)
-        at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.getValue(InfinispanSessionMetaDataFactory.java:103)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:93)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:54)
-        at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:63)
-        at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:40)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionManager.findSession(InfinispanSessionManager.java:160)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:66)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:63)
-        at org.wildfly.clustering.ee.cache.SimpleManager.apply(SimpleManager.java:52)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager.findSession(ConcurrentSessionManager.java:71)
-        at org.wildfly.clustering.web.undertow.session.DistributableSessionManager.getSession(DistributableSessionManager.java:229)
-        at io.undertow.servlet.spec.ServletContextImpl.getSession(ServletContextImpl.java:903)
-        at io.undertow.servlet.spec.ServletContextImpl.getSession(ServletContextImpl.java:993)
-        at io.undertow.servlet.spec.ServletContextImpl.updateSessionAccessTime(ServletContextImpl.java:997)
-        at io.undertow.servlet.spec.HttpServletResponseImpl.responseDone(HttpServletResponseImpl.java:595)
-        at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:334)
-        at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:79)
-        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:134)
-        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:131)
-        at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
-        at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
-        at org.wildfly.extension.undertow.security.SecurityContextThreadSetupAction.lambda$create$0(SecurityContextThreadSetupAction.java:105)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:255)
-        at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:79)
-        at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:100)
-        at io.undertow.server.Connectors.executeRootHandler(Connectors.java:387)
-        at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:852)
-        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
-        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
-        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
-        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1377)
-        at org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
-        at java.lang.Thread.run(Thread.java:748)
-Caused by: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=869, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:292)
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:222)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.checkState(InfinispanLock.java:440)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.lambda$toInvocationStage$3(InfinispanLock.java:416)
-        at java.util.concurrent.CompletableFuture.uniApply(CompletableFuture.java:616)
-        at java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:591)
-        at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:456)
-        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-        at org.jboss.as.clustering.context.ContextReferenceExecutor.execute(ContextReferenceExecutor.java:49)
-        at org.jboss.as.clustering.context.ContextualExecutor$1.run(ContextualExecutor.java:70)
-        ... 1 more
-        Suppressed: org.infinispan.commons.util.logging.TraceException
-                at org.infinispan.interceptors.impl.SimpleAsyncInvocationStage.get(SimpleAsyncInvocationStage.java:39)
-                at org.infinispan.interceptors.impl.AsyncInterceptorChainImpl.invoke(AsyncInterceptorChainImpl.java:246)
-                at org.infinispan.cache.impl.InvocationHelper.doInvoke(InvocationHelper.java:298)
-                at org.infinispan.cache.impl.InvocationHelper.invoke(InvocationHelper.java:102)
-                at org.infinispan.cache.impl.CacheImpl.get(CacheImpl.java:541)
-                at org.infinispan.cache.impl.DecoratedCache.get(DecoratedCache.java:522)
-                at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-                at org.infinispan.cache.impl.EncoderCache.get(EncoderCache.java:696)
-                at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.getValue(InfinispanSessionMetaDataFactory.java:103)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:93)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:54)
-                at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:63)
-                at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:40)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionManager.findSession(InfinispanSessionManager.java:160)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:66)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:63)
-                at org.wildfly.clustering.ee.cache.SimpleManager.apply(SimpleManager.java:52)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager.findSession(ConcurrentSessionManager.java:71)
-                at org.wildfly.clustering.web.undertow.session.DistributableSessionManager.getSession(DistributableSessionManager.java:229)
-                at io.undertow.servlet.spec.ServletContextImpl.getSession(ServletContextImpl.java:903)
-                at io.undertow.servlet.spec.ServletContextImpl.getSession(ServletContextImpl.java:993)
-                at io.undertow.servlet.spec.ServletContextImpl.updateSessionAccessTime(ServletContextImpl.java:997)
-                at io.undertow.servlet.spec.HttpServletResponseImpl.responseDone(HttpServletResponseImpl.java:595)
-                at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:334)
-                at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:79)
-                at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:134)
-                at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:131)
-                at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
-                at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
-                at org.wildfly.extension.undertow.security.SecurityContextThreadSetupAction.lambda$create$0(SecurityContextThreadSetupAction.java:105)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:255)
-                at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:79)
-                at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:100)
-                at io.undertow.server.Connectors.executeRootHandler(Connectors.java:387)
-                at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:852)
-                at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
-                at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
-                at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
-                at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1377)
-                at org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
-                ... 1 more
-
-2026-08-27 16:01:11,615 ERROR [org.infinispan.interceptors.impl.InvocationContextInterceptor] (non-blocking-thread--p11-t4) ISPN000136: Error executing command GetKeyValueCommand on Cache 'SICMU-ear.ear.SICMU-web.war', writing keys []: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=870, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:292)
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:222)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.checkState(InfinispanLock.java:440)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.lambda$toInvocationStage$3(InfinispanLock.java:416)
-        at java.util.concurrent.CompletableFuture.uniApply(CompletableFuture.java:616)
-        at java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:591)
-        at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:456)
-        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-        at org.jboss.as.clustering.context.ContextReferenceExecutor.execute(ContextReferenceExecutor.java:49)
-        at org.jboss.as.clustering.context.ContextualExecutor$1.run(ContextualExecutor.java:70)
-        at java.lang.Thread.run(Thread.java:748)
-
-2026-08-27 16:01:11,616 ERROR [io.undertow.request] (default task-49) UT005071: Undertow request failed HttpServerExchange{ GET /sicmu/principal/erro.jsf}: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=870, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.interceptors.impl.AsyncInterceptorChainImpl.invoke(AsyncInterceptorChainImpl.java:255)
-        at org.infinispan.cache.impl.InvocationHelper.doInvoke(InvocationHelper.java:298)
-        at org.infinispan.cache.impl.InvocationHelper.invoke(InvocationHelper.java:102)
-        at org.infinispan.cache.impl.CacheImpl.get(CacheImpl.java:541)
-        at org.infinispan.cache.impl.DecoratedCache.get(DecoratedCache.java:522)
-        at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-        at org.infinispan.cache.impl.EncoderCache.get(EncoderCache.java:696)
-        at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.getValue(InfinispanSessionMetaDataFactory.java:103)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:93)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:54)
-        at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:63)
-        at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:40)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionManager.findSession(InfinispanSessionManager.java:160)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:66)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:63)
-        at org.wildfly.clustering.ee.cache.SimpleManager.apply(SimpleManager.java:52)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager.findSession(ConcurrentSessionManager.java:71)
-        at org.wildfly.clustering.web.undertow.session.DistributableSessionManager.getSession(DistributableSessionManager.java:229)
-        at io.undertow.servlet.spec.ServletContextImpl.getSession(ServletContextImpl.java:903)
-        at io.undertow.servlet.spec.ServletContextImpl.getSession(ServletContextImpl.java:993)
-        at io.undertow.servlet.spec.ServletContextImpl.updateSessionAccessTime(ServletContextImpl.java:997)
-        at io.undertow.servlet.spec.HttpServletResponseImpl.responseDone(HttpServletResponseImpl.java:595)
-        at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:334)
-        at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:79)
-        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:134)
-        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:131)
-        at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
-        at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
-        at org.wildfly.extension.undertow.security.SecurityContextThreadSetupAction.lambda$create$0(SecurityContextThreadSetupAction.java:105)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:255)
-        at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:79)
-        at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:100)
-        at io.undertow.server.Connectors.executeRootHandler(Connectors.java:387)
-        at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:852)
-        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
-        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
-        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
-        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1377)
-        at org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
-        at java.lang.Thread.run(Thread.java:748)
-Caused by: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=870, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:292)
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:222)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.checkState(InfinispanLock.java:440)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.lambda$toInvocationStage$3(InfinispanLock.java:416)
-        at java.util.concurrent.CompletableFuture.uniApply(CompletableFuture.java:616)
-        at java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:591)
-        at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:456)
-        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-        at org.jboss.as.clustering.context.ContextReferenceExecutor.execute(ContextReferenceExecutor.java:49)
-        at org.jboss.as.clustering.context.ContextualExecutor$1.run(ContextualExecutor.java:70)
-        ... 1 more
-        Suppressed: org.infinispan.commons.util.logging.TraceException
-                at org.infinispan.interceptors.impl.SimpleAsyncInvocationStage.get(SimpleAsyncInvocationStage.java:39)
-                at org.infinispan.interceptors.impl.AsyncInterceptorChainImpl.invoke(AsyncInterceptorChainImpl.java:246)
-                at org.infinispan.cache.impl.InvocationHelper.doInvoke(InvocationHelper.java:298)
-                at org.infinispan.cache.impl.InvocationHelper.invoke(InvocationHelper.java:102)
-                at org.infinispan.cache.impl.CacheImpl.get(CacheImpl.java:541)
-                at org.infinispan.cache.impl.DecoratedCache.get(DecoratedCache.java:522)
-                at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-                at org.infinispan.cache.impl.EncoderCache.get(EncoderCache.java:696)
-                at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.getValue(InfinispanSessionMetaDataFactory.java:103)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:93)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:54)
-                at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:63)
-                at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:40)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionManager.findSession(InfinispanSessionManager.java:160)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:66)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:63)
-                at org.wildfly.clustering.ee.cache.SimpleManager.apply(SimpleManager.java:52)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager.findSession(ConcurrentSessionManager.java:71)
-                at org.wildfly.clustering.web.undertow.session.DistributableSessionManager.getSession(DistributableSessionManager.java:229)
-                at io.undertow.servlet.spec.ServletContextImpl.getSession(ServletContextImpl.java:903)
-                at io.undertow.servlet.spec.ServletContextImpl.getSession(ServletContextImpl.java:993)
-                at io.undertow.servlet.spec.ServletContextImpl.updateSessionAccessTime(ServletContextImpl.java:997)
-                at io.undertow.servlet.spec.HttpServletResponseImpl.responseDone(HttpServletResponseImpl.java:595)
-                at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:334)
-                at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:79)
-                at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:134)
-                at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:131)
-                at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
-                at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
-                at org.wildfly.extension.undertow.security.SecurityContextThreadSetupAction.lambda$create$0(SecurityContextThreadSetupAction.java:105)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:255)
-                at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:79)
-                at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:100)
-                at io.undertow.server.Connectors.executeRootHandler(Connectors.java:387)
-                at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:852)
-                at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
-                at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
-                at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
-                at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1377)
-                at org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
-                ... 1 more
-
-2026-08-27 16:01:16,149 ERROR [org.infinispan.interceptors.impl.InvocationContextInterceptor] (non-blocking-thread--p11-t1) ISPN000136: Error executing command GetKeyValueCommand on Cache 'SICMU-ear.ear.SICMU-web.war', writing keys []: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=871, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:292)
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:222)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.checkState(InfinispanLock.java:440)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.lambda$toInvocationStage$3(InfinispanLock.java:416)
-        at java.util.concurrent.CompletableFuture.uniApply(CompletableFuture.java:616)
-        at java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:591)
-        at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:456)
-        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-        at org.jboss.as.clustering.context.ContextReferenceExecutor.execute(ContextReferenceExecutor.java:49)
-        at org.jboss.as.clustering.context.ContextualExecutor$1.run(ContextualExecutor.java:70)
-        at java.lang.Thread.run(Thread.java:748)
-
-2026-08-27 16:01:16,149 ERROR [io.undertow.request] (default task-45) UT005071: Undertow request failed HttpServerExchange{ GET /sicmu/principal/erro.jsf}: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=871, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.interceptors.impl.AsyncInterceptorChainImpl.invoke(AsyncInterceptorChainImpl.java:255)
-        at org.infinispan.cache.impl.InvocationHelper.doInvoke(InvocationHelper.java:298)
-        at org.infinispan.cache.impl.InvocationHelper.invoke(InvocationHelper.java:102)
-        at org.infinispan.cache.impl.CacheImpl.get(CacheImpl.java:541)
-        at org.infinispan.cache.impl.DecoratedCache.get(DecoratedCache.java:522)
-        at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-        at org.infinispan.cache.impl.EncoderCache.get(EncoderCache.java:696)
-        at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.getValue(InfinispanSessionMetaDataFactory.java:103)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:93)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:54)
-        at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:63)
-        at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:40)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionManager.findSession(InfinispanSessionManager.java:160)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:66)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:63)
-        at org.wildfly.clustering.ee.cache.SimpleManager.apply(SimpleManager.java:52)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager.findSession(ConcurrentSessionManager.java:71)
-        at org.wildfly.clustering.web.undertow.session.DistributableSessionManager.getSession(DistributableSessionManager.java:229)
-        at io.undertow.servlet.spec.ServletContextImpl.getSession(ServletContextImpl.java:903)
-        at io.undertow.servlet.spec.ServletContextImpl.getSession(ServletContextImpl.java:993)
-        at io.undertow.servlet.spec.ServletContextImpl.updateSessionAccessTime(ServletContextImpl.java:997)
-        at io.undertow.servlet.spec.HttpServletResponseImpl.responseDone(HttpServletResponseImpl.java:595)
-        at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:334)
-        at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:79)
-        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:134)
-        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:131)
-        at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
-        at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
-        at org.wildfly.extension.undertow.security.SecurityContextThreadSetupAction.lambda$create$0(SecurityContextThreadSetupAction.java:105)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:255)
-        at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:79)
-        at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:100)
-        at io.undertow.server.Connectors.executeRootHandler(Connectors.java:387)
-        at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:852)
-        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
-        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
-        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
-        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1377)
-        at org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
-        at java.lang.Thread.run(Thread.java:748)
-Caused by: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=871, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:292)
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:222)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.checkState(InfinispanLock.java:440)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.lambda$toInvocationStage$3(InfinispanLock.java:416)
-        at java.util.concurrent.CompletableFuture.uniApply(CompletableFuture.java:616)
-        at java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:591)
-        at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:456)
-        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-        at org.jboss.as.clustering.context.ContextReferenceExecutor.execute(ContextReferenceExecutor.java:49)
-        at org.jboss.as.clustering.context.ContextualExecutor$1.run(ContextualExecutor.java:70)
-        ... 1 more
-        Suppressed: org.infinispan.commons.util.logging.TraceException
-                at org.infinispan.interceptors.impl.SimpleAsyncInvocationStage.get(SimpleAsyncInvocationStage.java:39)
-                at org.infinispan.interceptors.impl.AsyncInterceptorChainImpl.invoke(AsyncInterceptorChainImpl.java:246)
-                at org.infinispan.cache.impl.InvocationHelper.doInvoke(InvocationHelper.java:298)
-                at org.infinispan.cache.impl.InvocationHelper.invoke(InvocationHelper.java:102)
-                at org.infinispan.cache.impl.CacheImpl.get(CacheImpl.java:541)
-                at org.infinispan.cache.impl.DecoratedCache.get(DecoratedCache.java:522)
-                at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-                at org.infinispan.cache.impl.EncoderCache.get(EncoderCache.java:696)
-                at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.getValue(InfinispanSessionMetaDataFactory.java:103)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:93)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:54)
-                at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:63)
-                at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:40)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionManager.findSession(InfinispanSessionManager.java:160)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:66)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:63)
-                at org.wildfly.clustering.ee.cache.SimpleManager.apply(SimpleManager.java:52)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager.findSession(ConcurrentSessionManager.java:71)
-                at org.wildfly.clustering.web.undertow.session.DistributableSessionManager.getSession(DistributableSessionManager.java:229)
-                at io.undertow.servlet.spec.ServletContextImpl.getSession(ServletContextImpl.java:903)
-                at io.undertow.servlet.spec.ServletContextImpl.getSession(ServletContextImpl.java:993)
-                at io.undertow.servlet.spec.ServletContextImpl.updateSessionAccessTime(ServletContextImpl.java:997)
-                at io.undertow.servlet.spec.HttpServletResponseImpl.responseDone(HttpServletResponseImpl.java:595)
-                at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:334)
-                at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:79)
-                at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:134)
-                at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:131)
-                at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
-                at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
-                at org.wildfly.extension.undertow.security.SecurityContextThreadSetupAction.lambda$create$0(SecurityContextThreadSetupAction.java:105)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:255)
-                at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:79)
-                at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:100)
-                at io.undertow.server.Connectors.executeRootHandler(Connectors.java:387)
-                at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:852)
-                at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
-                at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
-                at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
-                at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1377)
-                at org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
-                ... 1 more
-
-2026-08-27 16:09:16,998 INFO  [org.jboss.modules] (CLI command executor) JBoss Modules version 1.12.0.Final-redhat-00001
-2026-08-27 16:09:17,031 INFO  [org.jboss.msc] (CLI command executor) JBoss MSC version 1.4.12.Final-redhat-00001
-2026-08-27 16:09:17,037 INFO  [org.jboss.threads] (CLI command executor) JBoss Threads version 2.4.0.Final-redhat-00001
-2026-08-27 16:09:17,152 INFO  [org.jboss.as] (MSC service thread 1-1) WFLYSRV0049: Inicializando JBoss EAP 7.4.8.GA (WildFly Core 15.0.19.Final-redhat-00001)
-2026-08-27 16:09:17,153 DEBUG [org.jboss.as.config] (MSC service thread 1-1) Propriedades de sistema configurado:
-        awt.toolkit = sun.awt.X11.XToolkit
-        com.ibm.jsse2.overrideDefaultTLS = true
-        file.encoding = UTF-8
-        file.encoding.pkg = sun.io
-        file.separator = /
-        java.awt.graphicsenv = sun.awt.X11GraphicsEnvironment
-        java.awt.headless = true
-        java.awt.printerjob = sun.print.PSPrinterJob
-        java.class.path = /opt/jboss-eap/jboss-modules.jar
-        java.class.version = 52.0
-        java.endorsed.dirs = /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.262.b10-1.el7.x86_64/jre/lib/endorsed
-        java.ext.dirs = /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.262.b10-1.el7.x86_64/jre/lib/ext:/usr/java/packages/lib/ext
-        java.home = /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.262.b10-1.el7.x86_64/jre
-        java.io.tmpdir = /tmp
-        java.library.path = /usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib
-        java.runtime.name = OpenJDK Runtime Environment
-        java.runtime.version = 1.8.0_262-b10
-        java.specification.name = Java Platform API Specification
-        java.specification.vendor = Oracle Corporation
-        java.specification.version = 1.8
-        java.util.logging.manager = org.jboss.logmanager.LogManager
-        java.vendor = Oracle Corporation
-        java.vendor.url = http://java.oracle.com/
-        java.vendor.url.bug = http://bugreport.sun.com/bugreport/
-        java.version = 1.8.0_262
-        java.vm.info = mixed mode
-        java.vm.name = OpenJDK 64-Bit Server VM
-        java.vm.specification.name = Java Virtual Machine Specification
-        java.vm.specification.vendor = Oracle Corporation
-        java.vm.specification.version = 1.8
-        java.vm.vendor = Oracle Corporation
-        java.vm.version = 25.262-b10
-        jboss.home.dir = /opt/jboss-eap
-        jboss.host.name = caddeapllx2484
-        jboss.modules.dir = /opt/jboss-eap/modules
-        jboss.modules.system.pkgs = com.sun.java.swing
-        jboss.node.name = caddeapllx2484
-        jboss.qualified.host.name = caddeapllx2484.agil.nprd.caixa.gov.br
-        jboss.server.base.dir = /opt/jboss-eap/standalone
-        jboss.server.config.dir = /opt/jboss-eap/standalone/configuration
-        jboss.server.content.dir = /opt/jboss-eap/standalone/data/content
-        jboss.server.data.dir = /opt/jboss-eap/standalone/data
-        jboss.server.deploy.dir = /opt/jboss-eap/standalone/data/content
-        jboss.server.log.dir = /opt/jboss-eap/standalone/log
-        jboss.server.name = caddeapllx2484
-        jboss.server.persist.config = true
-        jboss.server.temp.dir = /opt/jboss-eap/standalone/tmp
-        line.separator =
-
-        logging.configuration = file:/opt/jboss-eap/bin/jboss-cli-logging.properties
-        module.path = /opt/jboss-eap/modules
-        org.jboss.boot.log.file = /opt/jboss-eap/standalone/log/server.log
-        org.jboss.resolver.warning = true
-        org.wildfly.logging.embedded = false
-        os.arch = amd64
-        os.name = Linux
-        os.version = 3.10.0-1160.el7.x86_64
-        path.separator = :
-        sun.arch.data.model = 64
-        sun.boot.class.path = /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.262.b10-1.el7.x86_64/jre/lib/resources.jar:/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.262.b10-1.el7.x86_64/jre/lib/rt.jar:/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.262.b10-1.el7.x86_64/jre/lib/sunrsasign.jar:/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.262.b10-1.el7.x86_64/jre/lib/jsse.jar:/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.262.b10-1.el7.x86_64/jre/lib/jce.jar:/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.262.b10-1.el7.x86_64/jre/lib/charsets.jar:/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.262.b10-1.el7.x86_64/jre/lib/jfr.jar:/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.262.b10-1.el7.x86_64/jre/classes
-        sun.boot.library.path = /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.262.b10-1.el7.x86_64/jre/lib/amd64
-        sun.cpu.endian = little
-        sun.cpu.isalist =
-        sun.io.unicode.encoding = UnicodeLittle
-        sun.java.command = /opt/jboss-eap/jboss-modules.jar -mp /opt/jboss-eap/modules org.jboss.as.cli --file=/tmp/src/jboss-custom.cli
-        sun.java.launcher = SUN_STANDARD
-        sun.jnu.encoding = UTF-8
-        sun.management.compiler = HotSpot 64-Bit Tiered Compilers
-        sun.os.patch.level = unknown
-        user.country = BR
-        user.dir = /opt/jboss-eap/bin
-        user.home = /root
-        user.language = pt
-        user.name = root
-        user.timezone = America/Sao_Paulo
-2026-08-27 16:09:17,154 DEBUG [org.jboss.as.config] (MSC service thread 1-1) Argumentos da VM: -Djboss.modules.system.pkgs=com.sun.java.swing -Dcom.ibm.jsse2.overrideDefaultTLS=true -Dlogging.configuration=file:/opt/jboss-eap/bin/jboss-cli-logging.properties
-2026-08-27 16:09:17,932 INFO  [org.wildfly.security] (ServerService Thread Pool -- 27) ELY00001: WildFly Elytron version 1.15.14.Final-redhat-00001
-2026-08-27 16:09:18,202 INFO  [org.jboss.as.controller.management-deprecated] (ServerService Thread Pool -- 10) WFLYCTL0033: A extensão 'security' é obsoleta e talvez não seja suportada em versões futuras
-2026-08-27 16:09:18,499 INFO  [org.jboss.as.controller.management-deprecated] (Controller Boot Thread) WFLYCTL0028: O atributo 'security-realm' no recurso, no endereço '/core-service=management/management-interface=http-interface', é obsoleto e pode ser removido em uma versão futura. Veja a descrição do atributo no resultado da operação read-resource-description para saber mais sobre a substituição.
-2026-08-27 16:09:18,597 INFO  [org.jboss.as.controller.management-deprecated] (Controller Boot Thread) WFLYCTL0028: O atributo 'security-realm' no recurso, no endereço '/subsystem=undertow/server=default-server/https-listener=https', é obsoleto e pode ser removido em uma versão futura. Veja a descrição do atributo no resultado da operação read-resource-description para saber mais sobre a substituição.
-2026-08-27 16:09:18,714 INFO  [org.jboss.as.patching] (MSC service thread 1-4) WFLYPAT0050: A ID de patch cumulativo de JBoss EAP é jboss-eap-7.4.8.CP, os patches únicos incluem: none
-2026-08-27 16:09:18,736 WARN  [org.wildfly.extension.elytron] (MSC service thread 1-4) WFLYELY00023: O arquivo '/opt/jboss-eap/standalone/configuration/application.keystore' da KeyStore não existe. Usado em branco.
-2026-08-27 16:09:18,738 WARN  [org.jboss.as.domain.management.security] (MSC service thread 1-2) WFLYDM0111: Keystore /opt/jboss-eap/standalone/configuration/application.keystore não encontrado. Ele será gerado automaticamente na primeira utilização com um certificado autoassinado para o host localhost
-2026-08-27 16:09:18,750 WARN  [org.wildfly.extension.elytron] (MSC service thread 1-3) WFLYELY01084: KeyStore /opt/jboss-eap/standalone/configuration/application.keystore não encontrado; ele será gerado automaticamente na primeira utilização com um certificado autoassinado para o host localhost
-2026-08-27 16:09:18,877 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0212: Retomando servidor
-2026-08-27 16:09:18,878 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0025: JBoss EAP 7.4.8.GA (WildFly Core 15.0.19.Final-redhat-00001) iniciado em 1877ms - Iniciado(s) 60 de serviços 83 (os serviços 32 estão lentos, passivos ou sob demanda)
-2026-08-27 16:09:18,943 INFO  [org.jboss.as] (MSC service thread 1-1) WFLYSRV0050: JBoss EAP 7.4.8.GA (WildFly Core 15.0.19.Final-redhat-00001) interrompido em 13ms
-2026-08-27 16:15:35,880 ERROR [org.infinispan.interceptors.impl.InvocationContextInterceptor] (non-blocking-thread--p11-t4) ISPN000136: Error executing command GetKeyValueCommand on Cache 'SICMU-ear.ear.SICMU-web.war', writing keys []: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=872, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:292)
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:222)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.checkState(InfinispanLock.java:440)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.lambda$toInvocationStage$3(InfinispanLock.java:416)
-        at java.util.concurrent.CompletableFuture.uniApply(CompletableFuture.java:616)
-        at java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:591)
-        at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:456)
-        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-        at org.jboss.as.clustering.context.ContextReferenceExecutor.execute(ContextReferenceExecutor.java:49)
-        at org.jboss.as.clustering.context.ContextualExecutor$1.run(ContextualExecutor.java:70)
-        at java.lang.Thread.run(Thread.java:748)
-
-2026-08-27 16:15:35,880 ERROR [io.undertow.servlet.request] (default task-45) UT015005: Error invoking method requestInitialized on listener class org.jboss.weld.module.web.servlet.WeldInitialListener: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=872, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.interceptors.impl.AsyncInterceptorChainImpl.invoke(AsyncInterceptorChainImpl.java:255)
-        at org.infinispan.cache.impl.InvocationHelper.doInvoke(InvocationHelper.java:298)
-        at org.infinispan.cache.impl.InvocationHelper.invoke(InvocationHelper.java:102)
-        at org.infinispan.cache.impl.CacheImpl.get(CacheImpl.java:541)
-        at org.infinispan.cache.impl.DecoratedCache.get(DecoratedCache.java:522)
-        at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-        at org.infinispan.cache.impl.EncoderCache.get(EncoderCache.java:696)
-        at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.getValue(InfinispanSessionMetaDataFactory.java:103)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:93)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:54)
-        at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:63)
-        at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:40)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionManager.findSession(InfinispanSessionManager.java:160)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:66)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:63)
-        at org.wildfly.clustering.ee.cache.SimpleManager.apply(SimpleManager.java:52)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager.findSession(ConcurrentSessionManager.java:71)
-        at org.wildfly.clustering.web.undertow.session.DistributableSessionManager.getSession(DistributableSessionManager.java:229)
-        at io.undertow.servlet.spec.ServletContextImpl.getSession(ServletContextImpl.java:903)
-        at io.undertow.servlet.spec.HttpServletRequestImpl.getSession(HttpServletRequestImpl.java:425)
-        at org.jboss.weld.module.web.servlet.SessionHolder.requestInitialized(SessionHolder.java:47)
-        at org.jboss.weld.module.web.servlet.HttpContextLifecycle.requestInitialized(HttpContextLifecycle.java:247)
-        at org.jboss.weld.module.web.servlet.WeldInitialListener.requestInitialized(WeldInitialListener.java:146)
-        at io.undertow.servlet.core.ApplicationListeners.requestInitialized(ApplicationListeners.java:263)
-        at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:274)
-        at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:79)
-        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:134)
-        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:131)
-        at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
-        at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
-        at org.wildfly.extension.undertow.security.SecurityContextThreadSetupAction.lambda$create$0(SecurityContextThreadSetupAction.java:105)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:255)
-        at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:79)
-        at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:100)
-        at io.undertow.server.Connectors.executeRootHandler(Connectors.java:387)
-        at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:852)
-        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
-        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
-        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
-        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1377)
-        at org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
-        at java.lang.Thread.run(Thread.java:748)
-Caused by: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=872, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:292)
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:222)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.checkState(InfinispanLock.java:440)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.lambda$toInvocationStage$3(InfinispanLock.java:416)
-        at java.util.concurrent.CompletableFuture.uniApply(CompletableFuture.java:616)
-        at java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:591)
-        at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:456)
-        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-        at org.jboss.as.clustering.context.ContextReferenceExecutor.execute(ContextReferenceExecutor.java:49)
-        at org.jboss.as.clustering.context.ContextualExecutor$1.run(ContextualExecutor.java:70)
-        ... 1 more
-        Suppressed: org.infinispan.commons.util.logging.TraceException
-                at org.infinispan.interceptors.impl.SimpleAsyncInvocationStage.get(SimpleAsyncInvocationStage.java:39)
-                at org.infinispan.interceptors.impl.AsyncInterceptorChainImpl.invoke(AsyncInterceptorChainImpl.java:246)
-                at org.infinispan.cache.impl.InvocationHelper.doInvoke(InvocationHelper.java:298)
-                at org.infinispan.cache.impl.InvocationHelper.invoke(InvocationHelper.java:102)
-                at org.infinispan.cache.impl.CacheImpl.get(CacheImpl.java:541)
-                at org.infinispan.cache.impl.DecoratedCache.get(DecoratedCache.java:522)
-                at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-                at org.infinispan.cache.impl.EncoderCache.get(EncoderCache.java:696)
-                at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.getValue(InfinispanSessionMetaDataFactory.java:103)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:93)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:54)
-                at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:63)
-                at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:40)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionManager.findSession(InfinispanSessionManager.java:160)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:66)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:63)
-                at org.wildfly.clustering.ee.cache.SimpleManager.apply(SimpleManager.java:52)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager.findSession(ConcurrentSessionManager.java:71)
-                at org.wildfly.clustering.web.undertow.session.DistributableSessionManager.getSession(DistributableSessionManager.java:229)
-                at io.undertow.servlet.spec.ServletContextImpl.getSession(ServletContextImpl.java:903)
-                at io.undertow.servlet.spec.HttpServletRequestImpl.getSession(HttpServletRequestImpl.java:425)
-                at org.jboss.weld.module.web.servlet.SessionHolder.requestInitialized(SessionHolder.java:47)
-                at org.jboss.weld.module.web.servlet.HttpContextLifecycle.requestInitialized(HttpContextLifecycle.java:247)
-                at org.jboss.weld.module.web.servlet.WeldInitialListener.requestInitialized(WeldInitialListener.java:146)
-                at io.undertow.servlet.core.ApplicationListeners.requestInitialized(ApplicationListeners.java:263)
-                at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:274)
-                at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:79)
-                at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:134)
-                at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:131)
-                at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
-                at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
-                at org.wildfly.extension.undertow.security.SecurityContextThreadSetupAction.lambda$create$0(SecurityContextThreadSetupAction.java:105)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:255)
-                at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:79)
-                at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:100)
-                at io.undertow.server.Connectors.executeRootHandler(Connectors.java:387)
-                at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:852)
-                at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
-                at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
-                at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
-                at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1377)
-                at org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
-                ... 1 more
-
-2026-08-27 16:15:35,881 WARN  [org.jboss.weld.Servlet] (default task-45) WELD-000717: Unable to deactivate context org.jboss.weld.module.web.context.http.HttpRequestContextImpl@3086c0f7 when destroying request HttpServletRequestImpl [ GET /sicmu/paginas/operacaoHabitacional/consultarOperacaoHabit.jsf ]
-2026-08-27 16:15:35,881 WARN  [org.jboss.weld.Servlet] (default task-45) WELD-000717: Unable to deactivate context org.jboss.weld.module.web.context.http.HttpSessionContextImpl@7f380f2a when destroying request HttpServletRequestImpl [ GET /sicmu/paginas/operacaoHabitacional/consultarOperacaoHabit.jsf ]
-2026-08-27 16:15:35,881 ERROR [io.undertow.request] (default task-45) UT005023: Exception handling request to /sicmu/paginas/operacaoHabitacional/consultarOperacaoHabit.jsf: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=872, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.interceptors.impl.AsyncInterceptorChainImpl.invoke(AsyncInterceptorChainImpl.java:255)
-        at org.infinispan.cache.impl.InvocationHelper.doInvoke(InvocationHelper.java:298)
-        at org.infinispan.cache.impl.InvocationHelper.invoke(InvocationHelper.java:102)
-        at org.infinispan.cache.impl.CacheImpl.get(CacheImpl.java:541)
-        at org.infinispan.cache.impl.DecoratedCache.get(DecoratedCache.java:522)
-        at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-        at org.infinispan.cache.impl.EncoderCache.get(EncoderCache.java:696)
-        at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.getValue(InfinispanSessionMetaDataFactory.java:103)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:93)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:54)
-        at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:63)
-        at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:40)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionManager.findSession(InfinispanSessionManager.java:160)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:66)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:63)
-        at org.wildfly.clustering.ee.cache.SimpleManager.apply(SimpleManager.java:52)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager.findSession(ConcurrentSessionManager.java:71)
-        at org.wildfly.clustering.web.undertow.session.DistributableSessionManager.getSession(DistributableSessionManager.java:229)
-        at io.undertow.servlet.spec.ServletContextImpl.getSession(ServletContextImpl.java:903)
-        at io.undertow.servlet.spec.HttpServletRequestImpl.getSession(HttpServletRequestImpl.java:425)
-        at org.jboss.weld.module.web.servlet.SessionHolder.requestInitialized(SessionHolder.java:47)
-        at org.jboss.weld.module.web.servlet.HttpContextLifecycle.requestInitialized(HttpContextLifecycle.java:247)
-        at org.jboss.weld.module.web.servlet.WeldInitialListener.requestInitialized(WeldInitialListener.java:146)
-        at io.undertow.servlet.core.ApplicationListeners.requestInitialized(ApplicationListeners.java:263)
-        at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:274)
-        at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:79)
-        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:134)
-        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:131)
-        at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
-        at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
-        at org.wildfly.extension.undertow.security.SecurityContextThreadSetupAction.lambda$create$0(SecurityContextThreadSetupAction.java:105)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:255)
-        at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:79)
-        at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:100)
-        at io.undertow.server.Connectors.executeRootHandler(Connectors.java:387)
-        at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:852)
-        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
-        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
-        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
-        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1377)
-        at org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
-        at java.lang.Thread.run(Thread.java:748)
-Caused by: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=872, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:292)
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:222)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.checkState(InfinispanLock.java:440)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.lambda$toInvocationStage$3(InfinispanLock.java:416)
-        at java.util.concurrent.CompletableFuture.uniApply(CompletableFuture.java:616)
-        at java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:591)
-        at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:456)
-        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-        at org.jboss.as.clustering.context.ContextReferenceExecutor.execute(ContextReferenceExecutor.java:49)
-        at org.jboss.as.clustering.context.ContextualExecutor$1.run(ContextualExecutor.java:70)
-        ... 1 more
-        Suppressed: org.infinispan.commons.util.logging.TraceException
-                at org.infinispan.interceptors.impl.SimpleAsyncInvocationStage.get(SimpleAsyncInvocationStage.java:39)
-                at org.infinispan.interceptors.impl.AsyncInterceptorChainImpl.invoke(AsyncInterceptorChainImpl.java:246)
-                at org.infinispan.cache.impl.InvocationHelper.doInvoke(InvocationHelper.java:298)
-                at org.infinispan.cache.impl.InvocationHelper.invoke(InvocationHelper.java:102)
-                at org.infinispan.cache.impl.CacheImpl.get(CacheImpl.java:541)
-                at org.infinispan.cache.impl.DecoratedCache.get(DecoratedCache.java:522)
-                at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-                at org.infinispan.cache.impl.EncoderCache.get(EncoderCache.java:696)
-                at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.getValue(InfinispanSessionMetaDataFactory.java:103)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:93)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:54)
-                at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:63)
-                at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:40)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionManager.findSession(InfinispanSessionManager.java:160)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:66)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:63)
-                at org.wildfly.clustering.ee.cache.SimpleManager.apply(SimpleManager.java:52)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager.findSession(ConcurrentSessionManager.java:71)
-                at org.wildfly.clustering.web.undertow.session.DistributableSessionManager.getSession(DistributableSessionManager.java:229)
-                at io.undertow.servlet.spec.ServletContextImpl.getSession(ServletContextImpl.java:903)
-                at io.undertow.servlet.spec.HttpServletRequestImpl.getSession(HttpServletRequestImpl.java:425)
-                at org.jboss.weld.module.web.servlet.SessionHolder.requestInitialized(SessionHolder.java:47)
-                at org.jboss.weld.module.web.servlet.HttpContextLifecycle.requestInitialized(HttpContextLifecycle.java:247)
-                at org.jboss.weld.module.web.servlet.WeldInitialListener.requestInitialized(WeldInitialListener.java:146)
-                at io.undertow.servlet.core.ApplicationListeners.requestInitialized(ApplicationListeners.java:263)
-                at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:274)
-                at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:79)
-                at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:134)
-                at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:131)
-                at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
-                at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
-                at org.wildfly.extension.undertow.security.SecurityContextThreadSetupAction.lambda$create$0(SecurityContextThreadSetupAction.java:105)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:255)
-                at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:79)
-                at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:100)
-                at io.undertow.server.Connectors.executeRootHandler(Connectors.java:387)
-                at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:852)
-                at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
-                at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
-                at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
-                at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1377)
-                at org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
-                ... 1 more
-
-2026-08-27 16:15:50,882 ERROR [org.infinispan.interceptors.impl.InvocationContextInterceptor] (non-blocking-thread--p11-t1) ISPN000136: Error executing command GetKeyValueCommand on Cache 'SICMU-ear.ear.SICMU-web.war', writing keys []: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=873, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:292)
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:222)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.checkState(InfinispanLock.java:440)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.lambda$toInvocationStage$3(InfinispanLock.java:416)
-        at java.util.concurrent.CompletableFuture.uniApply(CompletableFuture.java:616)
-        at java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:591)
-        at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:456)
-        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-        at org.jboss.as.clustering.context.ContextReferenceExecutor.execute(ContextReferenceExecutor.java:49)
-        at org.jboss.as.clustering.context.ContextualExecutor$1.run(ContextualExecutor.java:70)
-        at java.lang.Thread.run(Thread.java:748)
-
-2026-08-27 16:15:50,882 ERROR [io.undertow.request] (default task-45) UT005022: Exception generating error page /principal/erro.jsf: java.lang.RuntimeException: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=873, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at io.undertow.servlet.spec.RequestDispatcherImpl.error(RequestDispatcherImpl.java:510)
-        at io.undertow.servlet.spec.RequestDispatcherImpl.error(RequestDispatcherImpl.java:425)
-        at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:314)
-        at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:79)
-        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:134)
-        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:131)
-        at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
-        at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
-        at org.wildfly.extension.undertow.security.SecurityContextThreadSetupAction.lambda$create$0(SecurityContextThreadSetupAction.java:105)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:255)
-        at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:79)
-        at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:100)
-        at io.undertow.server.Connectors.executeRootHandler(Connectors.java:387)
-        at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:852)
-        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
-        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
-        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
-        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1377)
-        at org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
-        at java.lang.Thread.run(Thread.java:748)
-Caused by: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=873, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.interceptors.impl.AsyncInterceptorChainImpl.invoke(AsyncInterceptorChainImpl.java:255)
-        at org.infinispan.cache.impl.InvocationHelper.doInvoke(InvocationHelper.java:298)
-        at org.infinispan.cache.impl.InvocationHelper.invoke(InvocationHelper.java:102)
-        at org.infinispan.cache.impl.CacheImpl.get(CacheImpl.java:541)
-        at org.infinispan.cache.impl.DecoratedCache.get(DecoratedCache.java:522)
-        at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-        at org.infinispan.cache.impl.EncoderCache.get(EncoderCache.java:696)
-        at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.getValue(InfinispanSessionMetaDataFactory.java:103)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:93)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:54)
-        at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:63)
-        at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:40)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionManager.findSession(InfinispanSessionManager.java:160)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:66)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:63)
-        at org.wildfly.clustering.ee.cache.SimpleManager.apply(SimpleManager.java:52)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager.findSession(ConcurrentSessionManager.java:71)
-        at org.wildfly.clustering.web.undertow.session.DistributableSessionManager.getSession(DistributableSessionManager.java:229)
-        at io.undertow.servlet.spec.ServletContextImpl.getSession(ServletContextImpl.java:903)
-        at io.undertow.servlet.spec.HttpServletRequestImpl.getSession(HttpServletRequestImpl.java:425)
-        at com.sun.faces.context.ExternalContextImpl.getSession(ExternalContextImpl.java:157)
-        at javax.faces.application.ViewHandler.calculateCharacterEncoding(ViewHandler.java:425)
-        at javax.faces.application.ViewHandler.initView(ViewHandler.java:269)
-        at com.sun.faces.application.view.MultiViewHandler.initView(MultiViewHandler.java:115)
-        at javax.faces.application.ViewHandlerWrapper.initView(ViewHandlerWrapper.java:86)
-        at javax.faces.application.ViewHandlerWrapper.initView(ViewHandlerWrapper.java:86)
-        at com.sun.faces.lifecycle.RestoreViewPhase.doPhase(RestoreViewPhase.java:109)
-        at com.sun.faces.lifecycle.LifecycleImpl.execute(LifecycleImpl.java:177)
-        at javax.faces.webapp.FacesServlet.executeLifecyle(FacesServlet.java:707)
-        at javax.faces.webapp.FacesServlet.service(FacesServlet.java:451)
-        at io.undertow.servlet.handlers.ServletHandler.handleRequest(ServletHandler.java:74)
-        at io.undertow.servlet.handlers.FilterHandler.handleRequest(FilterHandler.java:81)
-        at io.undertow.servlet.handlers.security.ServletSecurityRoleHandler.handleRequest(ServletSecurityRoleHandler.java:62)
-        at io.undertow.servlet.handlers.ServletChain$1.handleRequest(ServletChain.java:68)
-        at io.undertow.servlet.handlers.ServletDispatchingHandler.handleRequest(ServletDispatchingHandler.java:36)
-        at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
-        at io.undertow.servlet.handlers.RedirectDirHandler.handleRequest(RedirectDirHandler.java:68)
-        at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
-        at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
-        at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:257)
-        at io.undertow.servlet.handlers.ServletInitialHandler.dispatchToPath(ServletInitialHandler.java:182)
-        at io.undertow.servlet.spec.RequestDispatcherImpl.error(RequestDispatcherImpl.java:504)
-        ... 24 more
-Caused by: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=873, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:292)
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:222)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.checkState(InfinispanLock.java:440)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.lambda$toInvocationStage$3(InfinispanLock.java:416)
-        at java.util.concurrent.CompletableFuture.uniApply(CompletableFuture.java:616)
-        at java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:591)
-        at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:456)
-        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-        at org.jboss.as.clustering.context.ContextReferenceExecutor.execute(ContextReferenceExecutor.java:49)
-        at org.jboss.as.clustering.context.ContextualExecutor$1.run(ContextualExecutor.java:70)
-        ... 1 more
-        Suppressed: org.infinispan.commons.util.logging.TraceException
-                at org.infinispan.interceptors.impl.SimpleAsyncInvocationStage.get(SimpleAsyncInvocationStage.java:39)
-                at org.infinispan.interceptors.impl.AsyncInterceptorChainImpl.invoke(AsyncInterceptorChainImpl.java:246)
-                at org.infinispan.cache.impl.InvocationHelper.doInvoke(InvocationHelper.java:298)
-                at org.infinispan.cache.impl.InvocationHelper.invoke(InvocationHelper.java:102)
-                at org.infinispan.cache.impl.CacheImpl.get(CacheImpl.java:541)
-                at org.infinispan.cache.impl.DecoratedCache.get(DecoratedCache.java:522)
-                at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-                at org.infinispan.cache.impl.EncoderCache.get(EncoderCache.java:696)
-                at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.getValue(InfinispanSessionMetaDataFactory.java:103)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:93)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:54)
-                at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:63)
-                at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:40)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionManager.findSession(InfinispanSessionManager.java:160)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:66)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:63)
-                at org.wildfly.clustering.ee.cache.SimpleManager.apply(SimpleManager.java:52)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager.findSession(ConcurrentSessionManager.java:71)
-                at org.wildfly.clustering.web.undertow.session.DistributableSessionManager.getSession(DistributableSessionManager.java:229)
-                at io.undertow.servlet.spec.ServletContextImpl.getSession(ServletContextImpl.java:903)
-                at io.undertow.servlet.spec.HttpServletRequestImpl.getSession(HttpServletRequestImpl.java:425)
-                at com.sun.faces.context.ExternalContextImpl.getSession(ExternalContextImpl.java:157)
-                at javax.faces.application.ViewHandler.calculateCharacterEncoding(ViewHandler.java:425)
-                at javax.faces.application.ViewHandler.initView(ViewHandler.java:269)
-                at com.sun.faces.application.view.MultiViewHandler.initView(MultiViewHandler.java:115)
-                at javax.faces.application.ViewHandlerWrapper.initView(ViewHandlerWrapper.java:86)
-                at javax.faces.application.ViewHandlerWrapper.initView(ViewHandlerWrapper.java:86)
-                at com.sun.faces.lifecycle.RestoreViewPhase.doPhase(RestoreViewPhase.java:109)
-                at com.sun.faces.lifecycle.LifecycleImpl.execute(LifecycleImpl.java:177)
-                at javax.faces.webapp.FacesServlet.executeLifecyle(FacesServlet.java:707)
-                at javax.faces.webapp.FacesServlet.service(FacesServlet.java:451)
-                at io.undertow.servlet.handlers.ServletHandler.handleRequest(ServletHandler.java:74)
-                at io.undertow.servlet.handlers.FilterHandler.handleRequest(FilterHandler.java:81)
-                at io.undertow.servlet.handlers.security.ServletSecurityRoleHandler.handleRequest(ServletSecurityRoleHandler.java:62)
-                at io.undertow.servlet.handlers.ServletChain$1.handleRequest(ServletChain.java:68)
-                at io.undertow.servlet.handlers.ServletDispatchingHandler.handleRequest(ServletDispatchingHandler.java:36)
-                at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
-                at io.undertow.servlet.handlers.RedirectDirHandler.handleRequest(RedirectDirHandler.java:68)
-                at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
-                at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
-                at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:257)
-                at io.undertow.servlet.handlers.ServletInitialHandler.dispatchToPath(ServletInitialHandler.java:182)
-                at io.undertow.servlet.spec.RequestDispatcherImpl.error(RequestDispatcherImpl.java:504)
-                at io.undertow.servlet.spec.RequestDispatcherImpl.error(RequestDispatcherImpl.java:425)
-                at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:314)
-                at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:79)
-                at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:134)
-                at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:131)
-                at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
-                at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
-                at org.wildfly.extension.undertow.security.SecurityContextThreadSetupAction.lambda$create$0(SecurityContextThreadSetupAction.java:105)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:255)
-                at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:79)
-                at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:100)
-                at io.undertow.server.Connectors.executeRootHandler(Connectors.java:387)
-                at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:852)
-                at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
-                at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
-                at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
-                at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1377)
-                at org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
-                ... 1 more
-
-2026-08-27 16:16:05,883 ERROR [org.infinispan.interceptors.impl.InvocationContextInterceptor] (non-blocking-thread--p11-t1) ISPN000136: Error executing command GetKeyValueCommand on Cache 'SICMU-ear.ear.SICMU-web.war', writing keys []: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=874, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:292)
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:222)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.checkState(InfinispanLock.java:440)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.lambda$toInvocationStage$3(InfinispanLock.java:416)
-        at java.util.concurrent.CompletableFuture.uniApply(CompletableFuture.java:616)
-        at java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:591)
-        at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:456)
-        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-        at org.jboss.as.clustering.context.ContextReferenceExecutor.execute(ContextReferenceExecutor.java:49)
-        at org.jboss.as.clustering.context.ContextualExecutor$1.run(ContextualExecutor.java:70)
-        at java.lang.Thread.run(Thread.java:748)
-
-2026-08-27 16:16:05,883 ERROR [io.undertow.servlet.request] (default task-45) UT015005: Error invoking method requestDestroyed on listener class com.sun.faces.config.ConfigureListener: java.lang.UnsupportedOperationException
-        at javax.faces.context.FacesContext.getExceptionHandler(FacesContext.java:280)
-        at javax.faces.event.ExceptionQueuedEventContext.getListenersForEventClass(ExceptionQueuedEventContext.java:248)
-        at com.sun.faces.application.applicationimpl.Events.invokeComponentListenersFor(Events.java:181)
-        at com.sun.faces.application.applicationimpl.Events.publishEvent(Events.java:106)
-        at com.sun.faces.application.ApplicationImpl.publishEvent(ApplicationImpl.java:127)
-        at com.sun.faces.application.ApplicationImpl.publishEvent(ApplicationImpl.java:119)
-        at javax.faces.application.ApplicationWrapper.publishEvent(ApplicationWrapper.java:776)
-        at com.sun.faces.application.WebappLifecycleListener.requestDestroyed(WebappLifecycleListener.java:149)
-        at com.sun.faces.config.ConfigureListener.requestDestroyed(ConfigureListener.java:382)
-        at io.undertow.servlet.core.ApplicationListeners.requestDestroyed(ApplicationListeners.java:289)
-        at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:330)
-        at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:79)
-        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:134)
-        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:131)
-        at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
-        at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
-        at org.wildfly.extension.undertow.security.SecurityContextThreadSetupAction.lambda$create$0(SecurityContextThreadSetupAction.java:105)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:255)
-        at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:79)
-        at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:100)
-        at io.undertow.server.Connectors.executeRootHandler(Connectors.java:387)
-        at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:852)
-        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
-        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
-        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
-        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1377)
-        at org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
-        at java.lang.Thread.run(Thread.java:748)
-
-2026-08-27 16:16:05,884 WARN  [org.jboss.weld.Servlet] (default task-45) WELD-000715: HttpContextLifecycle guard not set. The Servlet container is not fully compliant.
-2026-08-27 16:16:20,884 ERROR [org.infinispan.interceptors.impl.InvocationContextInterceptor] (non-blocking-thread--p11-t1) ISPN000136: Error executing command GetKeyValueCommand on Cache 'SICMU-ear.ear.SICMU-web.war', writing keys []: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=875, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:292)
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:222)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.checkState(InfinispanLock.java:440)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.lambda$toInvocationStage$3(InfinispanLock.java:416)
-        at java.util.concurrent.CompletableFuture.uniApply(CompletableFuture.java:616)
-        at java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:591)
-        at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:456)
-        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-        at org.jboss.as.clustering.context.ContextReferenceExecutor.execute(ContextReferenceExecutor.java:49)
-        at org.jboss.as.clustering.context.ContextualExecutor$1.run(ContextualExecutor.java:70)
-        at java.lang.Thread.run(Thread.java:748)
-
-2026-08-27 16:16:20,884 ERROR [io.undertow.request] (default task-45) UT005071: Undertow request failed HttpServerExchange{ GET /sicmu/principal/erro.jsf}: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=875, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.interceptors.impl.AsyncInterceptorChainImpl.invoke(AsyncInterceptorChainImpl.java:255)
-        at org.infinispan.cache.impl.InvocationHelper.doInvoke(InvocationHelper.java:298)
-        at org.infinispan.cache.impl.InvocationHelper.invoke(InvocationHelper.java:102)
-        at org.infinispan.cache.impl.CacheImpl.get(CacheImpl.java:541)
-        at org.infinispan.cache.impl.DecoratedCache.get(DecoratedCache.java:522)
-        at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-        at org.infinispan.cache.impl.EncoderCache.get(EncoderCache.java:696)
-        at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.getValue(InfinispanSessionMetaDataFactory.java:103)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:93)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:54)
-        at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:63)
-        at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:40)
-        at org.wildfly.clustering.web.infinispan.session.InfinispanSessionManager.findSession(InfinispanSessionManager.java:160)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:66)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:63)
-        at org.wildfly.clustering.ee.cache.SimpleManager.apply(SimpleManager.java:52)
-        at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager.findSession(ConcurrentSessionManager.java:71)
-        at org.wildfly.clustering.web.undertow.session.DistributableSessionManager.getSession(DistributableSessionManager.java:229)
-        at io.undertow.servlet.spec.ServletContextImpl.getSession(ServletContextImpl.java:903)
-        at io.undertow.servlet.spec.ServletContextImpl.getSession(ServletContextImpl.java:993)
-        at io.undertow.servlet.spec.ServletContextImpl.updateSessionAccessTime(ServletContextImpl.java:997)
-        at io.undertow.servlet.spec.HttpServletResponseImpl.responseDone(HttpServletResponseImpl.java:595)
-        at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:334)
-        at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:79)
-        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:134)
-        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:131)
-        at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
-        at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
-        at org.wildfly.extension.undertow.security.SecurityContextThreadSetupAction.lambda$create$0(SecurityContextThreadSetupAction.java:105)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-        at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:255)
-        at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:79)
-        at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:100)
-        at io.undertow.server.Connectors.executeRootHandler(Connectors.java:387)
-        at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:852)
-        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
-        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
-        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
-        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1377)
-        at org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
-        at java.lang.Thread.run(Thread.java:748)
-Caused by: org.infinispan.util.concurrent.TimeoutException: ISPN000299: Unable to acquire lock after 15 seconds for key SessionCreationMetaDataKey(QWAkLfkOwyQIf6QECK1uvackxwBN0z_cMD4Cm8YQ) and requestor GlobalTransaction{id=875, addr=local, remote=false, xid=null, internalId=-1}. Lock is held by GlobalTransaction{id=802, addr=local, remote=false, xid=null, internalId=-1}
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:292)
-        at org.infinispan.util.concurrent.locks.impl.DefaultLockManager$KeyAwareExtendedLockPromise.get(DefaultLockManager.java:222)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.checkState(InfinispanLock.java:440)
-        at org.infinispan.util.concurrent.locks.impl.InfinispanLock$LockPlaceHolder.lambda$toInvocationStage$3(InfinispanLock.java:416)
-        at java.util.concurrent.CompletableFuture.uniApply(CompletableFuture.java:616)
-        at java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:591)
-        at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:456)
-        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-        at org.jboss.as.clustering.context.ContextReferenceExecutor.execute(ContextReferenceExecutor.java:49)
-        at org.jboss.as.clustering.context.ContextualExecutor$1.run(ContextualExecutor.java:70)
-        ... 1 more
-        Suppressed: org.infinispan.commons.util.logging.TraceException
-                at org.infinispan.interceptors.impl.SimpleAsyncInvocationStage.get(SimpleAsyncInvocationStage.java:39)
-                at org.infinispan.interceptors.impl.AsyncInterceptorChainImpl.invoke(AsyncInterceptorChainImpl.java:246)
-                at org.infinispan.cache.impl.InvocationHelper.doInvoke(InvocationHelper.java:298)
-                at org.infinispan.cache.impl.InvocationHelper.invoke(InvocationHelper.java:102)
-                at org.infinispan.cache.impl.CacheImpl.get(CacheImpl.java:541)
-                at org.infinispan.cache.impl.DecoratedCache.get(DecoratedCache.java:522)
-                at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-                at org.infinispan.cache.impl.EncoderCache.get(EncoderCache.java:696)
-                at org.infinispan.cache.impl.AbstractDelegatingCache.get(AbstractDelegatingCache.java:439)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.getValue(InfinispanSessionMetaDataFactory.java:103)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:93)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionMetaDataFactory.findValue(InfinispanSessionMetaDataFactory.java:54)
-                at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:63)
-                at org.wildfly.clustering.web.cache.session.CompositeSessionFactory.findValue(CompositeSessionFactory.java:40)
-                at org.wildfly.clustering.web.infinispan.session.InfinispanSessionManager.findSession(InfinispanSessionManager.java:160)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:66)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager$2.apply(ConcurrentSessionManager.java:63)
-                at org.wildfly.clustering.ee.cache.SimpleManager.apply(SimpleManager.java:52)
-                at org.wildfly.clustering.web.cache.session.ConcurrentSessionManager.findSession(ConcurrentSessionManager.java:71)
-                at org.wildfly.clustering.web.undertow.session.DistributableSessionManager.getSession(DistributableSessionManager.java:229)
-                at io.undertow.servlet.spec.ServletContextImpl.getSession(ServletContextImpl.java:903)
-                at io.undertow.servlet.spec.ServletContextImpl.getSession(ServletContextImpl.java:993)
-                at io.undertow.servlet.spec.ServletContextImpl.updateSessionAccessTime(ServletContextImpl.java:997)
-                at io.undertow.servlet.spec.HttpServletResponseImpl.responseDone(HttpServletResponseImpl.java:595)
-                at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:334)
-                at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:79)
-                at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:134)
-                at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:131)
-                at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
-                at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
-                at org.wildfly.extension.undertow.security.SecurityContextThreadSetupAction.lambda$create$0(SecurityContextThreadSetupAction.java:105)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
-                at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:255)
-                at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:79)
-                at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:100)
-                at io.undertow.server.Connectors.executeRootHandler(Connectors.java:387)
-                at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:852)
-                at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
-                at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
-                at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
-                at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1377)
-                at org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
-                ... 1 more
-
--sh-4.2$
+	<filter-mapping>
+		<filter-name>PrimeFaces FileUpload Filter</filter-name>
+		<servlet-name>Faces Servlet</servlet-name>
+	</filter-mapping>
+
+	<context-param>
+		<param-name>javax.faces.FACELETS_SKIP_COMMENTS</param-name>
+		<param-value>true</param-value>
+	</context-param>
+
+	<context-param>
+		<param-name>PARAMETER_ENCODING</param-name>
+		<param-value>UTF-8</param-value>
+	</context-param>
+
+	<error-page>
+		<error-code>403</error-code>
+		<location>/principal/acesso-negado.jsf</location>
+	</error-page>
+
+	<error-page>
+		<error-code>500</error-code>
+		<location>/principal/erro.jsf</location>
+	</error-page>
+
+	<context-param>
+		<param-name>javax.faces.DATETIMECONVERTER_DEFAULT_TIMEZONE_IS_SYSTEM_TIMEZONE</param-name>
+		<param-value>true</param-value>
+	</context-param>
+
+
+
+</web-app>
+
+
+<img width="1841" height="893" alt="image" src="https://github.com/user-attachments/assets/4ac98a53-ca72-474b-abc1-f56c18474179" />
+
+
+
+o erro é o memso porque simplimsnete eles nao ajustaram o que foi soslicitado
+
+
+
+
+
+
+Consolidando as atualizações de hoje:
+ 
+Sobre a dependência do jconnector no servidor
+ 
+Não recadastramos nada agora - a correção que fizemos direto na VM (adicionar a dependência do jconnector no module.xml do sisgr) já estava aplicada desde os testes anteriores e continua lá.
+ 
+O que mudou hoje foi o pacote da aplicação: identificamos uma linha extra no jboss-deployment-structure.xml do SICMU (br.gov.caixa.psc.connector, sem "j") que havia sido adicionada pelo
+Erik Ferreira Nunes, referenciando um módulo que não existe no servidor. Isso estava quebrando o deploy inteiro. Removemos essa linha, e com o deploy subindo limpo, a correção do module.xml (já presente no servidor desde antes) finalmente pôde funcionar sem ser bloqueada pela falha de deploy.
+ 
+Sobre a REQ original (timeout/tela em branco no menu - erro ISPN000299)
+ 
+Identificamos que a causa não estava na esteira nem na configuração do Terraform, como chegamos a suspeitar inicialmente. A causa raiz era a tag <distributable/> presente no web.xml da aplicação, que ativava replicação de sessão (Infinispan) mesmo rodando em uma única VM, sem necessidade de cluster - isso gerava a contenção de lock que travava o acesso a qualquer funcionalidade do menu.
+ 
+Já removemos essa tag também, no mesmo pacote publicado hoje. Esse problema deve estar resolvido em conjunto com o do jconnector/sisgr.
+ 
+ 
+Sobre o novo travamento reportado agora pelo
+Marcelo Lucindo de Souza
+ 
+Analisamos o log enviado. O erro agora é outro, e confirma que o SISGR/JConnector já está funcionando corretamente:
+ 
+SEVERE [br.gov.caixa.util.jcicsconnect.JCicsConnect] Erro no login (JDIRSGRD em S1): [Erro CICS: 0][Resp: 0070][Resp2: 0002] Login não autorizado: Senha fornecida inválida.
+ 
+O JConnector está conectando e tentando autenticar no CICS normalmente. O problema agora é que a senha configurada para o usuário JDIRSGRD no ambiente S1 está sendo recusada pelo CICS como inválida.
+ 
+Isso não é mais escopo de infraestrutura/deploy - é uma credencial (usuário/senha) configurada no sicmu_jconnector.properties que precisa ser validada com o time responsável (segurança/mainframe). Vocês têm como confirmar se essa credencial está correta e ativa para o ambiente DES?
+ 
+Erik Ferreira Nunes, ressaltando que as correções foram feitas na Branch Cesti-test001, e precisam ser avaliadas e aplicadas na Branch principal. 
+
+
+
+
+ai fica dificl de trabalhar assim nao fizeram o ajuste po isso que aidna esta com erro,, ou é um novo erro?
+
+
+
+
+
+
+<?xml version="1.0" ?>
+
+<server xmlns="urn:jboss:domain:4.1">
+    <extensions>
+        <extension module="org.jboss.as.clustering.infinispan"/>
+        <extension module="org.jboss.as.clustering.jgroups"/>
+        <extension module="org.jboss.as.connector"/>
+        <extension module="org.jboss.as.deployment-scanner"/>
+        <extension module="org.jboss.as.ee"/>
+        <extension module="org.jboss.as.ejb3"/>
+        <extension module="org.jboss.as.jaxrs"/>
+        <extension module="org.jboss.as.jdr"/>
+        <extension module="org.jboss.as.jmx"/>
+        <extension module="org.jboss.as.jpa"/>
+        <extension module="org.jboss.as.jsf"/>
+        <extension module="org.jboss.as.jsr77"/>
+        <extension module="org.jboss.as.logging"/>
+        <extension module="org.jboss.as.mail"/>
+        <extension module="org.jboss.as.modcluster"/>
+        <extension module="org.jboss.as.naming"/>
+        <extension module="org.jboss.as.pojo"/>
+        <extension module="org.jboss.as.remoting"/>
+        <extension module="org.jboss.as.sar"/>
+        <extension module="org.jboss.as.security"/>
+        <extension module="org.jboss.as.transactions"/>
+        <extension module="org.jboss.as.webservices"/>
+        <extension module="org.jboss.as.weld"/>
+        <extension module="org.wildfly.extension.batch.jberet"/>
+        <extension module="org.wildfly.extension.bean-validation"/>
+        <extension module="org.wildfly.extension.clustering.singleton"/>
+        <extension module="org.wildfly.extension.io"/>
+        <extension module="org.wildfly.extension.messaging-activemq"/>
+        <extension module="org.wildfly.extension.request-controller"/>
+        <extension module="org.wildfly.extension.security.manager"/>
+        <extension module="org.wildfly.extension.undertow"/>
+        <extension module="org.wildfly.iiop-openjdk"/>
+        <extension module="org.keycloak.keycloak-adapter-subsystem"/>
+    </extensions>
+    <system-properties>
+        <property name="java.net.preferIPv4Stack" value="true"/>
+        <property name="org.apache.catalina.connector.URI_ENCODING" value="UTF-8" />
+        <property name="org.apache.catalina.connector.USE_BODY_ENCODING_FOR_QUERY_STRING" value="true" />
+        <property name="jboss.as.management.blocking.timeout" value="1800"/>
+        <property name="br.gov.caixa.psc.connector.util.Config" value="__CONNECTOR__" />
+        <property name="url.sisgr" value="__SGR_INTRA_URL__" />
+        <property name="file.encoding" value="UTF-8" />
+        <property name="pageEncoding" value="UTF-8" />
+        <property name="user.country" value="BR" />
+        <property name="user.language" value="pt" />
+    </system-properties>
+    <management>
+        <security-realms>
+            <security-realm name="ManagementRealm">
+                <authentication>
+                    <local default-user="$local" skip-group-loading="true"/>
+                    <properties path="mgmt-users.properties" relative-to="jboss.server.config.dir"/>
+                </authentication>
+                <authorization map-groups-to-roles="false">
+                    <properties path="mgmt-groups.properties" relative-to="jboss.server.config.dir"/>
+                </authorization>
+            </security-realm>
+            <security-realm name="ApplicationRealm">
+                <authentication>
+                    <local default-user="$local" allowed-users="*" skip-group-loading="true"/>
+                    <properties path="application-users.properties" relative-to="jboss.server.config.dir"/>
+                </authentication>
+                <authorization>
+                    <properties path="application-roles.properties" relative-to="jboss.server.config.dir"/>
+                </authorization>
+            </security-realm>
+        </security-realms>
+        <audit-log>
+            <formatters>
+                <json-formatter name="json-formatter"/>
+            </formatters>
+            <handlers>
+                <file-handler name="file" formatter="json-formatter" path="audit-log.log" relative-to="jboss.server.data.dir"/>
+            </handlers>
+            <logger log-boot="true" log-read-only="false" enabled="false">
+                <handlers>
+                    <handler name="file"/>
+                </handlers>
+            </logger>
+        </audit-log>
+        <management-interfaces>
+            <http-interface security-realm="ManagementRealm" http-upgrade-enabled="true">
+                <socket-binding http="management-http"/>
+            </http-interface>
+        </management-interfaces>
+        <access-control provider="simple">
+            <role-mapping>
+                <role name="SuperUser">
+                    <include>
+                        <user name="$local"/>
+                    </include>
+                </role>
+            </role-mapping>
+        </access-control>
+    </management>
+    <profile>
+        <subsystem xmlns="urn:jboss:domain:logging:3.0">
+            <periodic-rotating-file-handler name="FILE" autoflush="true">
+                <formatter>
+                    <named-formatter name="PATTERN"/>
+                </formatter>
+                <file relative-to="jboss.server.log.dir" path="server.log"/>
+                <suffix value=".yyyy-MM-dd"/>
+                <append value="true"/>
+            </periodic-rotating-file-handler>
+            <logger category="com.arjuna">
+                <level name="WARN"/>
+            </logger>
+            <logger category="org.jboss.as.config">
+                <level name="DEBUG"/>
+            </logger>
+            <logger category="sun.rmi">
+                <level name="WARN"/>
+            </logger>
+            <root-logger>
+                <level name="INFO"/>
+                <handlers>
+                    <handler name="FILE"/>
+                </handlers>
+            </root-logger>
+            <formatter name="PATTERN">
+                <pattern-formatter pattern="%d{yyyy-MM-dd HH:mm:ss,SSS} %-5p [%c] (%t) %s%e%n"/>
+            </formatter>
+            <formatter name="COLOR-PATTERN">
+                <pattern-formatter pattern="%K{level}%d{HH:mm:ss,SSS} %-5p [%c] (%t) %s%e%n"/>
+            </formatter>
+        </subsystem>
+        <subsystem xmlns="urn:jboss:domain:batch-jberet:1.0">
+            <default-job-repository name="in-memory"/>
+            <default-thread-pool name="batch"/>
+            <job-repository name="in-memory">
+                <in-memory/>
+            </job-repository>
+            <thread-pool name="batch">
+                <max-threads count="10"/>
+                <keepalive-time time="30" unit="seconds"/>
+            </thread-pool>
+        </subsystem>
+        <subsystem xmlns="urn:jboss:domain:bean-validation:1.0"/>
+        <subsystem xmlns="urn:jboss:domain:datasources:4.0">
+            <datasources>
+                <datasource jta="false" jndi-name="java:/db2cmu" pool-name="db2cmu" enabled="true">
+                    <connection-url>__DB2_CMU_URL__</connection-url>
+                    <driver-class>com.ibm.db2.jcc.DB2Driver</driver-class>
+                    <connection-property name="currentSchema">
+                        __CURRENT_SCHEMA__
+                    </connection-property>
+                    <driver>db2</driver>
+                    <pool>
+                        <min-pool-size>5</min-pool-size>
+                        <max-pool-size>20</max-pool-size>
+                        <prefill>true</prefill>
+                        <use-strict-min>true</use-strict-min>
+                        <flush-strategy>FailingConnectionOnly</flush-strategy>
+                    </pool>
+                    <security>
+                        <user-name>__DB2_CMU_USR__</user-name>
+                        <password>__DB2_CMU_PWD__</password>
+                    </security>
+                    <validation>
+                        <valid-connection-checker class-name="org.jboss.jca.adapters.jdbc.extensions.db2.DB2ValidConnectionChecker"/>
+                        <validate-on-match>true</validate-on-match>
+                        <background-validation>false</background-validation>
+                        <stale-connection-checker class-name="org.jboss.jca.adapters.jdbc.extensions.db2.DB2StaleConnectionChecker"/>
+                        <exception-sorter class-name="org.jboss.jca.adapters.jdbc.extensions.db2.DB2ExceptionSorter"/>
+                    </validation>
+                    <timeout>
+                        <idle-timeout-minutes>5</idle-timeout-minutes>
+                    </timeout>
+                    <statement>
+                        <track-statements>true</track-statements>
+                    </statement>
+                </datasource>
+                <datasource jta="false" jndi-name="java:/db2cdm" pool-name="db2cdm" enabled="true">
+                    <connection-url>__DB2_RJP4_URL__</connection-url>
+                    <driver-class>com.ibm.db2.jcc.DB2Driver</driver-class>
+                    <connection-property name="currentSchema">
+                        __CURRENT_SCHEMA__
+                    </connection-property>
+                    <driver>db2</driver>
+                    <pool>
+                        <min-pool-size>5</min-pool-size>
+                        <max-pool-size>20</max-pool-size>
+                        <prefill>true</prefill>
+                        <use-strict-min>true</use-strict-min>
+                        <flush-strategy>FailingConnectionOnly</flush-strategy>
+                    </pool>
+                    <security>
+                        <user-name>__DB2_CMU_USR__</user-name>
+                        <password>__DB2_CMU_PWD__</password>
+                    </security>
+                    <validation>
+                        <valid-connection-checker class-name="org.jboss.jca.adapters.jdbc.extensions.db2.DB2ValidConnectionChecker"/>
+                        <validate-on-match>true</validate-on-match>
+                        <background-validation>false</background-validation>
+                        <stale-connection-checker class-name="org.jboss.jca.adapters.jdbc.extensions.db2.DB2StaleConnectionChecker"/>
+                        <exception-sorter class-name="org.jboss.jca.adapters.jdbc.extensions.db2.DB2ExceptionSorter"/>
+                    </validation>
+                    <timeout>
+                        <idle-timeout-minutes>5</idle-timeout-minutes>
+                    </timeout>
+                    <statement>
+                        <track-statements>true</track-statements>
+                    </statement>
+                </datasource>
+                <drivers>
+                    <driver name="db2" module="com.ibm.db2">
+                        <xa-datasource-class>com.ibm.db2.jcc.DB2XADataSource</xa-datasource-class>
+                    </driver>
+                </drivers>
+            </datasources>
+        </subsystem>
+        <subsystem xmlns="urn:jboss:domain:deployment-scanner:2.0">
+            <deployment-scanner path="deployments" relative-to="jboss.server.base.dir" scan-interval="5000" runtime-failure-causes-rollback="${jboss.deployment.scanner.rollback.on.failure:false}"/>
+        </subsystem>
+        <subsystem xmlns="urn:jboss:domain:ee:4.0">
+            <spec-descriptor-property-replacement>false</spec-descriptor-property-replacement>
+            <concurrent>
+                <context-services>
+                    <context-service name="default" jndi-name="java:jboss/ee/concurrency/context/default" use-transaction-setup-provider="true"/>
+                </context-services>
+                <managed-thread-factories>
+                    <managed-thread-factory name="default" jndi-name="java:jboss/ee/concurrency/factory/default" context-service="default"/>
+                </managed-thread-factories>
+                <managed-executor-services>
+                    <managed-executor-service name="default" jndi-name="java:jboss/ee/concurrency/executor/default" context-service="default" hung-task-threshold="60000" keepalive-time="5000"/>
+                </managed-executor-services>
+                <managed-scheduled-executor-services>
+                    <managed-scheduled-executor-service name="default" jndi-name="java:jboss/ee/concurrency/scheduler/default" context-service="default" hung-task-threshold="60000" keepalive-time="3000"/>
+                </managed-scheduled-executor-services>
+            </concurrent>
+        </subsystem>
+        <subsystem xmlns="urn:jboss:domain:ejb3:4.0">
+            <session-bean>
+                <stateless>
+                    <bean-instance-pool-ref pool-name="slsb-strict-max-pool"/>
+                </stateless>
+                <!-- CORRIGIDO: cache-ref alterado de "distributable" para "simple" (sem cluster) -->
+                <stateful default-access-timeout="5000" cache-ref="simple" passivation-disabled-cache-ref="simple"/>
+                <singleton default-access-timeout="5000"/>
+            </session-bean>
+            <mdb>
+                <resource-adapter-ref resource-adapter-name="${ejb.resource-adapter-name:activemq-ra.rar}"/>
+                <bean-instance-pool-ref pool-name="mdb-strict-max-pool"/>
+            </mdb>
+            <pools>
+                <bean-instance-pools>
+                    <strict-max-pool name="slsb-strict-max-pool" derive-size="from-worker-pools" instance-acquisition-timeout="5" instance-acquisition-timeout-unit="MINUTES"/>
+                    <strict-max-pool name="mdb-strict-max-pool" derive-size="from-cpu-count" instance-acquisition-timeout="5" instance-acquisition-timeout-unit="MINUTES"/>
+                </bean-instance-pools>
+            </pools>
+            <caches>
+                <cache name="simple"/>
+                <cache name="distributable" passivation-store-ref="infinispan" aliases="passivating clustered"/>
+            </caches>
+            <passivation-stores>
+                <passivation-store name="infinispan" cache-container="ejb" max-size="10000"/>
+            </passivation-stores>
+            <async thread-pool-name="default"/>
+            <timer-service thread-pool-name="default" default-data-store="default-file-store">
+                <data-stores>
+                    <file-data-store name="default-file-store" path="timer-service-data" relative-to="jboss.server.data.dir"/>
+                </data-stores>
+            </timer-service>
+            <remote connector-ref="http-remoting-connector" thread-pool-name="default"/>
+            <thread-pools>
+                <thread-pool name="default">
+                    <max-threads count="10"/>
+                    <keepalive-time time="100" unit="milliseconds"/>
+                </thread-pool>
+            </thread-pools>
+            <iiop enable-by-default="false" use-qualified-name="false"/>
+            <default-security-domain value="other"/>
+            <default-missing-method-permissions-deny-access value="true"/>
+            <log-system-exceptions value="true"/>
+        </subsystem>
+        <subsystem xmlns="urn:jboss:domain:io:1.1">
+            <worker name="default"/>
+            <buffer-pool name="default"/>
+        </subsystem>
+        <!-- CORRIGIDO: infinispan alterado para local-cache (sem cluster/transporte) -->
+        <subsystem xmlns="urn:jboss:domain:infinispan:4.0">
+            <cache-container name="server" aliases="singleton cluster" default-cache="default" module="org.wildfly.clustering.server">
+                <local-cache name="default">
+                    <transaction mode="BATCH"/>
+                </local-cache>
+            </cache-container>
+            <cache-container name="web" default-cache="passivation" module="org.wildfly.clustering.web.infinispan">
+                <local-cache name="passivation">
+                    <locking isolation="REPEATABLE_READ"/>
+                    <transaction mode="BATCH"/>
+                    <file-store passivation="true" purge="false"/>
+                </local-cache>
+            </cache-container>
+            <cache-container name="ejb" aliases="sfsb" default-cache="passivation" module="org.wildfly.clustering.ejb.infinispan">
+                <local-cache name="passivation">
+                    <locking isolation="REPEATABLE_READ"/>
+                    <transaction mode="BATCH"/>
+                    <file-store passivation="true" purge="false"/>
+                </local-cache>
+            </cache-container>
+            <cache-container name="hibernate" default-cache="local-query" module="org.hibernate.infinispan">
+                <local-cache name="local-query">
+                    <eviction strategy="LRU" max-entries="10000"/>
+                    <expiration max-idle="100000"/>
+                </local-cache>
+                <local-cache name="entity">
+                     <transaction mode="NON_XA"/>
+                     <eviction strategy="LRU" max-entries="10000"/>
+                     <expiration max-idle="100000"/>
+                </local-cache>
+                <local-cache name="timestamps"/>
+            </cache-container>
+        </subsystem>
+        <subsystem xmlns="urn:jboss:domain:iiop-openjdk:1.0">
+            <orb socket-binding="iiop" ssl-socket-binding="iiop-ssl"/>
+            <initializers transactions="spec" security="identity"/>
+        </subsystem>
+        <subsystem xmlns="urn:jboss:domain:jaxrs:1.0"/>
+        <subsystem xmlns="urn:jboss:domain:jca:4.0">
+            <archive-validation enabled="true" fail-on-error="true" fail-on-warn="false"/>
+            <bean-validation enabled="true"/>
+            <default-workmanager>
+                <short-running-threads>
+                    <core-threads count="50"/>
+                    <queue-length count="50"/>
+                    <max-threads count="50"/>
+                    <keepalive-time time="10" unit="seconds"/>
+                </short-running-threads>
+                <long-running-threads>
+                    <core-threads count="50"/>
+                    <queue-length count="50"/>
+                    <max-threads count="50"/>
+                    <keepalive-time time="10" unit="seconds"/>
+                </long-running-threads>
+            </default-workmanager>
+            <cached-connection-manager/>
+        </subsystem>
+        <subsystem xmlns="urn:jboss:domain:jdr:1.0"/>
+        <!-- CORRIGIDO: jgroups TCPPING com host fixo local (sem variavel nao resolvida) -->
+        <subsystem xmlns="urn:jboss:domain:jgroups:4.0">
+            <channels default="ee">
+                <channel name="ee" stack="tcp" cluster="ejb"/>
+            </channels>
+            <stacks>
+                <stack name="udp">
+                    <transport type="UDP" socket-binding="jgroups-udp"/>
+                    <protocol type="PING"/>
+                    <protocol type="MERGE3"/>
+                    <protocol type="FD_SOCK" socket-binding="jgroups-udp-fd"/>
+                    <protocol type="FD_ALL"/>
+                    <protocol type="VERIFY_SUSPECT"/>
+                    <protocol type="pbcast.NAKACK2"/>
+                    <protocol type="UNICAST3"/>
+                    <protocol type="pbcast.STABLE"/>
+                    <protocol type="pbcast.GMS"/>
+                    <protocol type="UFC"/>
+                    <protocol type="MFC"/>
+                    <protocol type="FRAG2"/>
+                </stack>
+                <stack name="tcp">
+                    <transport type="TCP" socket-binding="jgroups-tcp"/>
+                    <protocol type="TCPPING">
+                        <property name="initial_hosts">127.0.0.1[7600]</property>
+                        <property name="port_range">0</property>
+                    </protocol>
+                    <protocol type="MERGE3"/>
+                    <protocol type="FD_SOCK"/>
+                    <protocol type="FD_ALL"/>
+                    <protocol type="VERIFY_SUSPECT"/>
+                    <protocol type="pbcast.NAKACK2"/>
+                    <protocol type="UNICAST3"/>
+                    <protocol type="pbcast.STABLE"/>
+                    <protocol type="pbcast.GMS"/>
+                    <protocol type="MFC"/>
+                    <protocol type="FRAG2"/>
+                </stack>
+            </stacks>
+        </subsystem>
+        <subsystem xmlns="urn:jboss:domain:jmx:1.3">
+            <expose-resolved-model/>
+            <expose-expression-model/>
+            <remoting-connector/>
+        </subsystem>
+        <subsystem xmlns="urn:jboss:domain:jpa:1.1">
+            <jpa default-datasource="" default-extended-persistence-inheritance="DEEP"/>
+        </subsystem>
+        <subsystem xmlns="urn:jboss:domain:jsf:1.0"/>
+        <subsystem xmlns="urn:jboss:domain:jsr77:1.0"/>
+        <subsystem xmlns="urn:jboss:domain:mail:2.0">
+            <mail-session name="default" jndi-name="java:jboss/mail/Default">
+                <smtp-server outbound-socket-binding-ref="mail-smtp"/>
+            </mail-session>
+        </subsystem>
+        <subsystem xmlns="urn:jboss:domain:messaging-activemq:1.0">
+            <server name="default">
+                <cluster password="${jboss.messaging.cluster.password:jboss}"/>
+                <security-setting name="#">
+                    <role name="guest" send="true" consume="true" create-non-durable-queue="true" delete-non-durable-queue="true"/>
+                </security-setting>
+                <address-setting name="#" dead-letter-address="jms.queue.DLQ" expiry-address="jms.queue.ExpiryQueue" max-size-bytes="10485760" page-size-bytes="2097152" message-counter-history-day-limit="10" redistribution-delay="1000"/>
+                <http-connector name="http-connector" socket-binding="http" endpoint="http-acceptor"/>
+                <http-connector name="http-connector-throughput" socket-binding="http" endpoint="http-acceptor-throughput">
+                    <param name="batch-delay" value="50"/>
+                </http-connector>
+                <in-vm-connector name="in-vm" server-id="0"/>
+                <http-acceptor name="http-acceptor" http-listener="default"/>
+                <http-acceptor name="http-acceptor-throughput" http-listener="default">
+                    <param name="batch-delay" value="50"/>
+                    <param name="direct-deliver" value="false"/>
+                </http-acceptor>
+                <in-vm-acceptor name="in-vm" server-id="0"/>
+                <broadcast-group name="bg-group1" connectors="http-connector" jgroups-channel="activemq-cluster"/>
+                <discovery-group name="dg-group1" jgroups-channel="activemq-cluster"/>
+                <cluster-connection name="my-cluster" address="jms" connector-name="http-connector" discovery-group="dg-group1"/>
+                <jms-queue name="ExpiryQueue" entries="java:/jms/queue/ExpiryQueue"/>
+                <jms-queue name="DLQ" entries="java:/jms/queue/DLQ"/>
+                <connection-factory name="InVmConnectionFactory" connectors="in-vm" entries="java:/ConnectionFactory"/>
+                <connection-factory name="RemoteConnectionFactory" ha="true" block-on-acknowledge="true" reconnect-attempts="-1" connectors="http-connector" entries="java:jboss/exported/jms/RemoteConnectionFactory"/>
+                <pooled-connection-factory name="activemq-ra" transaction="xa" connectors="in-vm" entries="java:/JmsXA java:jboss/DefaultJMSConnectionFactory"/>
+            </server>
+        </subsystem>
+        <subsystem xmlns="urn:jboss:domain:modcluster:2.0">
+            <mod-cluster-config advertise-socket="modcluster" advertise="false" load-balancing-group="sicmu" connector="ajp" balancer="${jboss_modcluster_balancer:mybalancer}" proxies="proxy1 proxy2">
+                <dynamic-load-provider>
+                    <load-metric type="cpu"/>
+                </dynamic-load-provider>
+            </mod-cluster-config>
+        </subsystem>
+        <subsystem xmlns="urn:jboss:domain:naming:2.0">
+            <remote-naming/>
+        </subsystem>
+        <subsystem xmlns="urn:jboss:domain:pojo:1.0"/>
+        <subsystem xmlns="urn:jboss:domain:remoting:3.0">
+            <endpoint/>
+            <http-connector name="http-remoting-connector" connector-ref="default" security-realm="ApplicationRealm"/>
+        </subsystem>
+        <subsystem xmlns="urn:jboss:domain:resource-adapters:4.0">
+            <resource-adapters>
+                <resource-adapter id="wmq.jmsra.rar">
+                    <archive>
+                        wmq.jmsra.rar
+                    </archive>
+                    <transaction-support>NoTransaction</transaction-support>
+                    <connection-definitions>
+                        <connection-definition class-name="com.ibm.mq.connector.outbound.ManagedConnectionFactoryImpl" jndi-name="java:/jms/SicmuConnectionFactory" pool-name="SicmuConnectionFactory">
+                            <config-property name="channel">
+                                SICMU.SVRCONN
+                            </config-property>
+                            <config-property name="hostName">
+                                __MQ_HOSTNAME__
+                            </config-property>
+                            <config-property name="transportType">
+                                CLIENT
+                            </config-property>
+                            <config-property name="queueManager">
+                                __QUEUE_MANAGER__
+                            </config-property>
+                            <config-property name="port">
+                                __QUEUE_PORT__
+                            </config-property>
+                            <security>
+                                <application/>
+                            </security>
+                            <validation>
+                                <background-validation>true</background-validation>
+                                <background-validation-millis>300000</background-validation-millis>
+                            </validation>
+                        </connection-definition>
+                    </connection-definitions>
+                    <admin-objects>
+                        <admin-object class-name="com.ibm.mq.connector.outbound.MQQueueProxy" jndi-name="java:/jms/LQ_REQ_SICMU_ENV" pool-name="LQ_REQ_SICMU_ENV">
+                            <config-property name="baseQueueName">
+                                LQ.REQ.SICMU.ENV
+                            </config-property>
+                            <config-property name="targetClient">
+                                MQ
+                            </config-property>
+                        </admin-object>
+                    </admin-objects>
+                </resource-adapter>
+            </resource-adapters>
+        </subsystem>
+        <subsystem xmlns="urn:jboss:domain:request-controller:1.0"/>
+        <subsystem xmlns="urn:jboss:domain:sar:1.0"/>
+        <subsystem xmlns="urn:jboss:domain:security-manager:1.0">
+            <deployment-permissions>
+                <maximum-set>
+                    <permission class="java.security.AllPermission"/>
+                </maximum-set>
+            </deployment-permissions>
+        </subsystem>
+        <subsystem xmlns="urn:jboss:domain:security:1.2">
+            <security-domains>
+                <security-domain name="other" cache-type="default">
+                    <authentication>
+                        <login-module code="Remoting" flag="optional">
+                            <module-option name="password-stacking" value="useFirstPass"/>
+                        </login-module>
+                        <login-module code="RealmDirect" flag="required">
+                            <module-option name="password-stacking" value="useFirstPass"/>
+                        </login-module>
+                    </authentication>
+                </security-domain>
+                <security-domain name="jboss-web-policy" cache-type="default">
+                    <authorization>
+                        <policy-module code="Delegating" flag="required"/>
+                    </authorization>
+                </security-domain>
+                <security-domain name="jboss-ejb-policy" cache-type="default">
+                    <authorization>
+                        <policy-module code="Delegating" flag="required"/>
+                    </authorization>
+                </security-domain>
+                <security-domain name="jaspitest" cache-type="default">
+                    <authentication-jaspi>
+                        <login-module-stack name="dummy">
+                            <login-module code="Dummy" flag="optional"/>
+                        </login-module-stack>
+                        <auth-module code="Dummy"/>
+                    </authentication-jaspi>
+                </security-domain>
+            </security-domains>
+        </subsystem>
+        <subsystem xmlns="urn:jboss:domain:singleton:1.0">
+            <singleton-policies default="default">
+                <singleton-policy name="default" cache-container="server">
+                    <simple-election-policy/>
+                </singleton-policy>
+            </singleton-policies>
+        </subsystem>
+        <subsystem xmlns="urn:jboss:domain:transactions:3.0">
+            <core-environment>
+                <process-id>
+                    <uuid/>
+                </process-id>
+            </core-environment>
+            <recovery-environment socket-binding="txn-recovery-environment" status-socket-binding="txn-status-manager"/>
+        </subsystem>
+        <subsystem xmlns="urn:jboss:domain:undertow:3.1">
+            <buffer-cache name="default"/>
+            <server name="default-server">
+                <ajp-listener name="ajp" socket-binding="ajp"/>
+                <http-listener name="default" socket-binding="http" redirect-socket="https"/>
+                <host name="default-host" alias="localhost">
+                    <location name="/" handler="welcome-content"/>
+                    <filter-ref name="server-header"/>
+                    <filter-ref name="x-powered-by-header"/>
+                </host>
+            </server>
+            <servlet-container name="default">
+                <jsp-config/>
+                <websockets/>
+            </servlet-container>
+            <handlers>
+                <file name="welcome-content" path="${jboss.home.dir}/welcome-content"/>
+            </handlers>
+            <filters>
+                <response-header name="server-header" header-name="Server" header-value="JBoss-EAP/7"/>
+                <response-header name="x-powered-by-header" header-name="X-Powered-By" header-value="Undertow/1"/>
+            </filters>
+        </subsystem>
+        <subsystem xmlns="urn:jboss:domain:webservices:2.0">
+            <wsdl-host>${jboss.bind.address:127.0.0.1}</wsdl-host>
+            <endpoint-config name="Standard-Endpoint-Config"/>
+            <endpoint-config name="Recording-Endpoint-Config">
+                <pre-handler-chain name="recording-handlers" protocol-bindings="##SOAP11_HTTP ##SOAP11_HTTP_MTOM ##SOAP12_HTTP ##SOAP12_HTTP_MTOM">
+                    <handler name="RecordingHandler" class="org.jboss.ws.common.invocation.RecordingServerHandler"/>
+                </pre-handler-chain>
+            </endpoint-config>
+            <client-config name="Standard-Client-Config"/>
+        </subsystem>
+        <subsystem xmlns="urn:jboss:domain:weld:3.0"/>
+    </profile>
+    <interfaces>
+        <interface name="management">
+            <inet-address value="${jboss.bind.address.management:127.0.0.1}"/>
+        </interface>
+        <interface name="public">
+            <inet-address value="${jboss.bind.address:127.0.0.1}"/>
+        </interface>
+        <interface name="private">
+            <inet-address value="${jboss.bind.address.private:127.0.0.1}"/>
+        </interface>
+        <interface name="unsecure">
+            <inet-address value="${jboss.bind.address.unsecure:127.0.0.1}"/>
+        </interface>
+    </interfaces>
+    <socket-binding-group name="standard-sockets" default-interface="public" port-offset="${jboss.socket.binding.port-offset:0}">
+        <socket-binding name="management-http" interface="management" port="${jboss.management.http.port:9990}"/>
+        <socket-binding name="management-https" interface="management" port="${jboss.management.https.port:9993}"/>
+        <socket-binding name="ajp" port="${jboss.ajp.port:8009}"/>
+        <socket-binding name="http" port="${jboss.http.port:8080}"/>
+        <socket-binding name="https" port="${jboss.https.port:8443}"/>
+        <socket-binding name="iiop" interface="unsecure" port="3528"/>
+        <socket-binding name="iiop-ssl" interface="unsecure" port="3529"/>
+        <socket-binding name="jgroups-mping" interface="private" port="0" multicast-address="${jboss.default.multicast.address:230.0.0.4}" multicast-port="45700"/>
+        <socket-binding name="jgroups-tcp" interface="private" port="7600"/>
+        <socket-binding name="jgroups-tcp-fd" interface="private" port="57600"/>
+        <socket-binding name="jgroups-udp" interface="private" port="55200" multicast-address="${jboss.default.multicast.address:230.0.0.4}" multicast-port="45688"/>
+        <socket-binding name="jgroups-udp-fd" interface="private" port="54200"/>
+        <socket-binding name="modcluster" port="0" multicast-address="224.0.1.105" multicast-port="23364"/>
+        <socket-binding name="txn-recovery-environment" port="4712"/>
+        <socket-binding name="txn-status-manager" port="4713"/>
+        <outbound-socket-binding name="mail-smtp">
+            <remote-destination host="localhost" port="25"/>
+        </outbound-socket-binding>
+        <outbound-socket-binding name="proxy1" fixed-source-port="false">
+            <remote-destination host="${http.modcluster.proxy1:127.0.0.1}" port="6666"/>
+        </outbound-socket-binding>
+        <outbound-socket-binding name="proxy2" fixed-source-port="false">
+            <remote-destination host="${http.modcluster.proxy2:127.0.0.2}" port="6666"/>
+        </outbound-socket-binding>
+    </socket-binding-group>
+</server>
