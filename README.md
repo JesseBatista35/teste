@@ -1,37 +1,10 @@
-Jesse Mouta Pereira Batista
-Marcia Aparecida Rodrigues de Sousa, Boa tarde tudo bem?   Analisamos o caso relatado. na WO0000081486583. O erro não está relacionado à aplicação (Painel de Gestão / sigcn-digital-painel-gestao-fron…
-Oi Jesse
- 
-boa tarde!
- 
-Tudo bem?
- 
- 
-Prezado(a) MARCIA A RODRIGUES DE SOUSA,
-Sua solicitação foi atendida/concluída.
-Equipe responsável pelo atendimento: EXTERNO, WYNTECH SERVICOS EM INFORMATICA - EIRELI EPP
-Resposta: Informado ao cliente sobre a necessidade de inclusão de regra do firewall no site
-https://regras.cetad.caixa
- para acesso ao github, o mesmo devera solicitar a inclusão de regra
-Atenciosamente,
-EXTERNO
- 
- 
-O IP da máquina é dinâmico
- 
-Marcia Aparecida Rodrigues de Sousa, bom dia, desculpa está uma correria aqui não consegui te responder onte. 
- 
-Marcia Aparecida Rodrigues de Sousa
-Prezado(a) MARCIA A RODRIGUES DE SOUSA, Sua solicitação foi atendida/concluída. Equipe responsável pelo atendimento: EXTERNO, WYNTECH SERVICOS EM INFORMATICA - EIRELI EPP Resposta: Informado ao…
-entendi, então tem que solicitar regra. 
- 
-eles nao passaram as orientações para solictar
- 
-você mesmo pode solictar
- 
-Jesse Mouta Pereira Batista
-eles nao passaram as orientações para solictar
-não passaram,
- 
-Mas tem como abrir regra se o IP é dinâmico?
- 
+Boa tarde,
+
+Sobre a orientação de abertura de regra em https://regras.cetad.caixa para acesso ao GitHub: identificamos um ponto que precisa ser esclarecido antes da solicitação.
+
+O IP da máquina do empregado é dinâmico (atribuído via DHCP). Se a regra de firewall for baseada no IP de origem da máquina, ela deixará de funcionar assim que o IP for renovado, o que não resolve o problema de forma definitiva.
+
+Solicitamos confirmar:
+
+A regra pode ser criada por domínio/FQDN de destino (github.com, githubassets.com, cdn.mcas.ms), em vez de IP de origem? Essa seria a solução mais adequada para o caso.
+Caso a regra só possa ser baseada em IP de origem, é possível a infra local providenciar uma reserva de IP fixo para essa máquina via MAC address no DHCP, para viabilizar a abertura da regra?
