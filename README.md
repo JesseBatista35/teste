@@ -20,3 +20,14 @@ Troque o seletor de branch para develop (a nova). Use New, depois Upload file(s)
 
 PASSO 7 - Restaurar configurações e avisar o Emanuel
 Reative as branch policies desabilitadas, restaure develop como branch padrão do repositório, e confirme com Emanuel de Souza Alves, por Teams ou telefone, que a develop está pronta para validação.
+
+
+
+<img width="1865" height="680" alt="image" src="https://github.com/user-attachments/assets/54218a2d-c86d-455a-9048-f3c75de5dc82" />
+
+
+foi realizado conforme solicitado me ajdua com o texto
+
+
+
+
