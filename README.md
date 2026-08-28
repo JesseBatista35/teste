@@ -1,29 +1,118 @@
-Ajustar ambiente ou parametrização de software
+Skip to main content
+Azure DevOps
+projetos
+/
+Caixa
+/
+Repos
+/
+Branches
+/
+
+SIFAP-backend
+Search
 
 
-Qual o tipo de serviço?*:	Ajustar ambiente ou parametrização de software
-Informar o Ambiente:*:	DES
-Nome do serviço ou sistema:*:	SIFAP-backend
-Janela de atendimento:*:	28/8/2026 00:00:00
-Prazo final da janela de atendimento:*:	31/8/2026 00:00:00
-Haverá previsão de indisponibilidade durante a execução do serviço:*:	Não
-Contato do responsável pela validação do ambiente após alteração:*:	Emanuel de Souza Alves
-Telefone: 61-992997893
-Descrição da solicitação:*:	Bom dia,
+Caixa
 
-Para o projeto https://devops.caixa/projetos/Caixa/_git/SIFAP-backend
+Overview
 
-Por gentileza,
+Boards
 
-Recriar a branch DEVELOP com base na tag em HMP cujo é https://devops.caixa/projetos/Caixa/_git/SIFAP-backend?version=GT2.25.1.2 (https://devops.caixa/projetos/Caixa/_releaseProgress?_a=release-pipeline-progress&releaseId=507961)
+Repos
+Files
+Commits
+Pushes
+Branches
+Tags
+Pull requests
 
-Por gentileza, nesta nova branch precisamos manter a pastar DML como está devido a manter o histórico de scripts.
-A pasta DOC se encontra em:
-https://devops.caixa/projetos/Caixa/_git/SIFAP-backend?version=GBdevelop&path=/doc
+Pipelines
 
-Muito Obrigado
+Test Plans
 
-Qualquer informação procurar:
-Emanuel de Souza Alves
-Telefone: 61-992997893
-Informar formas de contato:*:	Telefone, Teams
+Artifacts
+Project settings
+Branches
+
+New branch
+Mine
+All
+Stale
+Search branch name
+22915566
+23121391
+
+
+23121617
+23759534
+23854758
+24223586
+24714868
+24828949
+dev
+dml
+emergencial
+feat
+feature
+fix
+hotfix
+release
+sonar
+sql
+2_23_0_8_branch
+504913d6
+f537954
+15 de jun.
+125
+0
+failed
+2.11.0
+35e55071
+Leandro Lima
+19 de dez. de 2024
+758
+0
+succeeded
+2.12.0
+488c731d
+Marcio Flores Martinez
+31 de jan. de 2025
+751
+1
+succeeded
+2.12.1
+52fe1f0c
+Marcio Flores Martinez
+6 de fev. de 2025
+751
+2
+failed
+2.12.2
+215805a5
+Marcio Flores Martinez
+25 de fev. de 2025
+737
+0
+failed
+2.12.3
+215805a5
+Marcio Flores Martinez
+25 de fev. de 2025
+737
+0
+failed
+2.15.2
+a535ec14
+Marcio Flores Martinez
+23 de mai. de 2025
+652
+2
+failed
+2.25.1.2_branch
+3667dfeb
+f996225
+30 de jul.
+119
+0
+failed
