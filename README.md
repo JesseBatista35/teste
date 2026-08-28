@@ -1,186 +1,113 @@
-Skip to main content
-Azure DevOps
-projetos
-/
-Caixa
-/
-Pipelines
-/
-Releases
-/
-SIFPP-micro
-Search
+
+sifpp-micro-tqs-8-bcp59
+Running
 
 
-Caixa
+OKD
 
-Overview
 
-Boards
+Jesse Mouta Pereira Batista
 
-Repos
+Administrator
+Home
+Operators
+Workloads
+Pods
+Deployments
+DeploymentConfigs
+StatefulSets
+Secrets
+ConfigMaps
+CronJobs
+Jobs
+DaemonSets
+ReplicaSets
+ReplicationControllers
+HorizontalPodAutoscalers
+PodDisruptionBudgets
+Networking
+Storage
+Builds
+Observe
+Compute
+User Management
+Administration
 
-Pipelines
-Pipelines
-Environments
-Releases
-Library
-Task groups
-Deployment groups
-Portal Infra
+Project: sifpp-tqs
+Pods
+Pod details
+Pod
+P
+sifpp-micro-tqs-8-bcp59
+Running
 
-Test Plans
+Actions
+Details
+Metrics
+YAML
+Environment
+Logs
+Events
+Terminal
+Info alert:Environment variables set from parent
+View environment for resource ReplicationController
+RC
+sifpp-micro-tqs-8
+Container:
 
-Artifacts
-Project settings
-All pipelines
-
-SIFPP
-
-SIFPP-micro
-Predefined variables
-SonarQube Variables (1)
-Variáveis com dados do SonarQube
-Scopes: Release
-Usuario-Azure-DevOps (12)
-Scopes: Release
-MONITORACAO_LOGS (4)
-REQ000143540550 - Conforme autorizado na req por FLAVIO ALMEIDA GAGLIARDI, removido as variáveis JAVA_OPTS_MONITORING e URL_APM_SERVER, por entrar em conflitos com releases que utilizam o Application Insights
-Scopes: Release
-EGRESS_IP_OKD (81)
-WO0000072264656 - Config Portal Infrafácil NO_PROXY
-Scopes: Release
-OKD-REGISTRY-CENTRALIZADO (7)
-Credenciais para o Registry Centralizado - Produtos 4 (OKD)
-Scopes: Release
-OKD-4-NPRD (12)
-Credenciais para o Cluster OKD4 de NPRD (DES/TQS/HMP)
-Scopes: EC DES,EC TQS,EC HMP
-SIFPP-MICRO-DES (20)
-Grupo de variáveis de SIFPP-MICRO-DES
-Scopes: EC DES
-APPLICATIONINSIGHTS_SAMPLING_PERCENTAGE
-100
-APPLICATIONINSIGHTS_SELF_DIAGNOSTICS_LEVEL
+Container
+C
+sifpp-micro-tqs
+Single values (env)
+NameValue
+TZ
+America/Sao_Paulo
+APPLICATIONINSIGHTS_CONNECTION_STRING
+InstrumentationKey=f6b9b060-c8fc-4702-a924-a3632ca25bb1;IngestionEndpoint=https://brazilsouth-1.in.applicationinsights.azure.com/;LiveEndpoint=https://brazilsouth.livediagnostics.monitor.azure.com/
+APPLICATIONINSIGHTS_INSTRUMENTATION_LOGGING_LEVEL
 INFO
-HTTP_SERVICE_API
-https://sifpp-micro-des.apps.nprd.caixa
-INIT
-Criado via api
-SSO_PASS_SER_OBR
-#{Abrir REQ}#
-_ENV.APPLICATIONINSIGHTS_CONNECTION_STRING
-"InstrumentationKey=f6b9b060-c8fc-4702-a924-a3632ca25bb1;IngestionEndpoint=https://brazilsouth-1.in.applicationinsights.azure.com/;LiveEndpoint=https://brazilsouth.livediagnostics.monitor.azure.com/"
-_ENV.APPLICATIONINSIGHTS_INSTRUMENTATION_LOGGING_LEVEL
-INFO
-_ENV.APPLICATIONINSIGHTS_ROLE_NAME
-SIFPP-DES
-_ENV.HEALTH_URL
-https://sifpp-micro-des.apps.nprd.caixa
-_ENV.HTTPS_PROXY
-http://proxydes.caixa:80
-_ENV.HTTP_PROXY
-http://proxydes.caixa:80
-_ENV.JAVA_OPTIONS_APPEND
-"-Djavax.net.ssl.trustStore=/deployments/caixa-truststore-acteste-nprd.jks"
-_ENV.NO_PROXY
-".caixa,.caixa.gov.br,10.116.82.66"
-_ENV.QUARKUS_LOG_LEVEL
-INFO
-_ENV.QUARKUS_OIDC_AUTH_SERVER_UR
-https://login.des.caixa
-_ENV.SSO_CLI_SER_FPP
-cli-ser-fpp
-_ENV.URL_BOLETO
-https://api.des.caixa:8443
-_ENV.URL_BOLETO_ENDPOINT
-/cobranca/boletos/v1/incluiBoleto
-_SECRET.SMALLRYE.CONFIG.SOURCE.FILE.LOCATIONS
-/usr/src/app/secrets_files/SIOBR-DES
-_SECRET.SSO_PASS_CLI_SER_FPP
-e435c692-b526-434b-b0fc-3d486f51d632
-SIFPP-MICRO-TQS (17)
-Grupo de variáveis de SIFPP-MICRO-TQS
-
-Scopes: EC TQS
-APPLICATIONINSIGHTS_SAMPLING_PERCENTAGE
-100
-APPLICATIONINSIGHTS_SELF_DIAGNOSTICS_LEVEL
-INFO
-HTTP_SERVICE_API
-https://sifpp-micro-tqs.apps.nprd.caixa
-INIT
-Criado via api
-_ENV.APPLICATIONINSIGHTS_CONNECTION_STRING
-"InstrumentationKey=f6b9b060-c8fc-4702-a924-a3632ca25bb1;IngestionEndpoint=https://brazilsouth-1.in.applicationinsights.azure.com/;LiveEndpoint=https://brazilsouth.livediagnostics.monitor.azure.com/"
-_ENV.APPLICATIONINSIGHTS_INSTRUMENTATION_LOGGING_LEVEL
-INFO
-_ENV.APPLICATIONINSIGHTS_ROLE_NAME
+APPLICATIONINSIGHTS_ROLE_NAME
 SIFPP-TQS
-_ENV.HEALTH_URL
+HEALTH_URL
 https://sifpp-micro-tqs.apps.nprd.caixa
-_ENV.HTTPS_PROXY
+HTTPS_PROXY
 http://proxydes.caixa:80
-_ENV.HTTP_PROXY
+HTTP_PROXY
 http://proxydes.caixa:80
-_ENV.JAVA_OPTIONS_APPEND
-"-Djavax.net.ssl.trustStore=/deployments/caixa-truststore-acteste-nprd.jks"
-_ENV.NO_PROXY
-".caixa,.caixa.gov.br,10.116.82.66"
-_ENV.QUARKUS_LOG_LEVEL
+JAVA_OPTIONS_APPEND
+-Djavax.net.ssl.trustStore=/deployments/caixa-truststore-acteste-nprd.jks
+NO_PROXY
+.caixa,.caixa.gov.br,10.116.82.66
+QUARKUS_LOG_LEVEL
 INFO
-_ENV.SSO_CLI_SER_FPP
+SSO_CLI_SER_FPP
 cli-ser-fpp
-_ENV.URL_BOLETO
+URL_BOLETO
 https://api.des.caixa:8443
-_ENV.URL_BOLETO_ENDPOINT
+URL_BOLETO_ENDPOINT
 /cobranca/boletos/v1/incluiBoleto
-_SECRET.SSO_PASS_CLI_SER_FPP
-e435c692-b526-434b-b0fc-3d486f51d632
-SIFPP-MICRO-HMP (1)
-Grupo de variáveis de SIFPP-MICRO-HMP
-Scopes: EC HMP
-OKD-4-APL (12)
-Scopes: EC PRD
-SIFPP-MICRO-PRD (1)
-Grupo de variáveis de SIFPP-MICRO-PRD
-Scopes: EC PRD
-|Manage variable groups
-Expanded
+SSO_PASS_CLI_SER_FPP
+sifpp-micro-tqs - Secret
+SSO_PASS_CLI_SER_FPP
+All values from existing ConfigMaps or Secrets (envFrom)
+ConfigMap/SecretPrefix (optional)
+ConfigMap/Secret
 
-Showing 1 items.
 
-Collapsed
 
-Collapsed
+exec java -Dquarkus.http.host=0.0.0.0 -Dquarkus.http.port=8080 -Djava.util.logging.manager=org.jboss.logmanager.LogManager -Djavax.net.ssl.trustStore=/deployments/caixa-truststore-acteste-nprd.jks -Dhttps.proxyHost=proxydes.caixa -Dhttps.proxyPort=80 -Dhttp.proxyHost=proxydes.caixa -Dhttp.proxyPort=80 -Dhttp.nonProxyHosts=*.caixa|*.caixa.gov.br|10.116.82.66 -XX:+ExitOnOutOfMemoryError -cp . -jar /deployments/quarkus-run.jar
+__  ____  __  _____   ___  __ ____  ______ 
+ --/ __ \/ / / / _ | / _ \/ //_/ / / / __/ 
+ -/ /_/ / /_/ / __ |/ , _/ ,< / /_/ /\ \   
+--\___\_\____/_/ |_/_/|_/_/|_|\____/___/   
+[38;5;145m2026-08-28 16:17:39,232[39m[38;5;188m [39m[38;5;137mWARN [39m[38;5;188m [[39m[38;5;69mio.qua.config[39m[38;5;188m] ([39m[38;5;71mmain[39m[38;5;188m) [39m[38;5;151m[39mUnrecognized configuration key "[38;5;188mquarkus.rest-client.logging.level[39m" was provided; it will be ignored; verify that the dependency extension for this configuration is set or that you did not make a typo[39m[38;5;203m[39m[38;5;227m
+[39m[38;5;145m2026-08-28 16:17:39,232[39m[38;5;188m [39m[38;5;137mWARN [39m[38;5;188m [[39m[38;5;69mio.qua.config[39m[38;5;188m] ([39m[38;5;71mmain[39m[38;5;188m) [39m[38;5;151m[39mUnrecognized configuration key "[38;5;188mquarkus.rest-client."sso.keycloak".insecure[39m" was provided; it will be ignored; verify that the dependency extension for this configuration is set or that you did not make a typo[39m[38;5;203m[39m[38;5;227m
+[39m[38;5;145m2026-08-28 16:17:40,806[39m[38;5;188m [39m[38;5;107mINFO [39m[38;5;188m [[39m[38;5;69mio.quarkus[39m[38;5;188m] ([39m[38;5;71mmain[39m[38;5;188m) [39m[38;5;151m[39m[38;5;188msifpp-ms 0.0.0.1[39m [38;5;188mon JVM[39m (powered by Quarkus [38;5;188m3.15.3.redhat-00002[39m) started in [38;5;188m2.175[39ms. [38;5;188mListening on: http://0.0.0.0:8080[39m[39m[38;5;203m[39m[38;5;227m
+[39m[38;5;145m2026-08-28 16:17:40,806[39m[38;5;188m [39m[38;5;107mINFO [39m[38;5;188m [[39m[38;5;69mio.quarkus[39m[38;5;188m] ([39m[38;5;71mmain[39m[38;5;188m) [39m[38;5;151m[39mProfile[38;5;188m[39m [38;5;188mprod[39m activated. [38;5;188m[39m[39m[38;5;203m[39m[38;5;227m
+[39m[38;5;145m2026-08-28 16:17:40,806[39m[38;5;188m [39m[38;5;107mINFO [39m[38;5;188m [[39m[38;5;69mio.quarkus[39m[38;5;188m] ([39m[38;5;71mmain[39m[38;5;188m) [39m[38;5;151m[39mInstalled features: [[38;5;188magroal, cache, cdi, hibernate-orm, hibernate-validator, jdbc-mssql, narayana-jta, oidc, oidc-client, rest, rest-client, rest-client-jackson, rest-client-oidc-filter, rest-jackson, security, smallrye-context-propagation, smallrye-fault-tolerance, smallrye-health, smallrye-metrics, smallrye-openapi, swagger-ui, vertx[39m][39m[38;5;203m[39m[38;5;227m
+[39m
 
-Expanded
 
-332 pipelines found
+vou pedir pra ele fazer um teste la
 
-Select a release pipeline to view its releases
-
-3 pipelines found
-
-Select a release pipeline to view its releases
-
-1 pipelines found
-
-Row 2
-
-Row 3
-
-4 pipelines found
-
-Select a release pipeline to view its releases
-
-4 pipelines found
-
-Row 4
-
-Row 3
-
-Row 3
-
-Showing filters 1 through 2
 
