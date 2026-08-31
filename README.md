@@ -1,11 +1,9 @@
 
+/host=lx0004/server-config=sictd-intranet_node1_lx0004:stop
 
-Senha:
-[root@sbrdeapllx0004 p585600]#
-[root@sbrdeapllx0004 p585600]#
-[root@sbrdeapllx0004 p585600]# /opt/jboss/jboss-eap/bin/jboss-cli.sh --connect --controller=10.116.88.23:9999
-[domain@10.116.88.23:9999 /]
-[domain@10.116.88.23:9999 /]
-[domain@10.116.88.23:9999 /]
-[domain@10.116.88.23:9999 /]
-[domain@10.116.88.23:9999 /]
+
+/host=lx0004/server-config=sictd-digitalizar-intranet_node1_lx0004:stop
+
+
+/host=lx0004/server-config=sictd-intranet_node1_lx0004:read-attribute(name=status)
+/host=lx0004/server-config=sictd-digitalizar-intranet_node1_lx0004:read-attribute(name=status)
