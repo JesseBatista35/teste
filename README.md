@@ -1,16 +1,212 @@
-Ajustar ambiente ou parametrização de software
-Informar o Ambiente:*:	DES
-Nome do serviço ou sistema:*:	SIPGC NPRD
-Janela de atendimento:*:	31/8/2026 00:00:00
-Prazo final da janela de atendimento:*:	31/8/2026 00:00:00
-Haverá previsão de indisponibilidade durante a execução do serviço:*:	Não
-Contato do responsável pela validação do ambiente após alteração:*:	F540797 - Teams
-F556565 - Teams
-Descrição da solicitação:*:	Temos um ambiente no Premise da nuvem caixa na url:
-https://sipgc-front-des.apps.nprd.caixa/gestao/tipo-agrupamento
-que chama um microserviço no OKD na url:
-https://sipgc-api-agrupamento-des.apps.nprd.caixa/api/v1/TipoAgrupamentos?pagina=1&TamanhoPagina=1000
-
-Porem ao tentar fazer esta chamada do front para o back-end esta dando 504, mas direto pelo browser funciona. Acredito que o problema seja porque o pod chama https://login.microsoftonline.com para validar o token
-Informar formas de contato:*:	F540797 - Teams
-F556565 - TeamsCriação solicitada por:REQ000095661629 Qual o tipo de serviço?: Ajustar ambiente ou parametrização de software
+sh-4.4$ curl -v https://login.microsoftonline.com
+* Rebuilt URL to: https://login.microsoftonline.com/
+*   Trying 20.190.173.2...
+* TCP_NODELAY set
+*   Trying 2603:1056:2000:28::4...
+* TCP_NODELAY set
+* Immediate connect fail for 2603:1056:2000:28::4: Network is unreachable
+*   Trying 2603:1056:2000:30::5...
+* TCP_NODELAY set
+* Immediate connect fail for 2603:1056:2000:30::5: Network is unreachable
+*   Trying 2603:1056:2000:30::2...
+* TCP_NODELAY set
+* Immediate connect fail for 2603:1056:2000:30::2: Network is unreachable
+*   Trying 2603:1056:2000:38::3...
+* TCP_NODELAY set
+* Immediate connect fail for 2603:1056:2000:38::3: Network is unreachable
+*   Trying 2603:1057:2:28::1...
+* TCP_NODELAY set
+* Immediate connect fail for 2603:1057:2:28::1: Network is unreachable
+*   Trying 2603:1056:2000:30::11...
+* TCP_NODELAY set
+* Immediate connect fail for 2603:1056:2000:30::11: Network is unreachable
+*   Trying 2603:1056:2000:38::4...
+* TCP_NODELAY set
+* Immediate connect fail for 2603:1056:2000:38::4: Network is unreachable
+*   Trying 2603:1056:2000:28::2...
+* TCP_NODELAY set
+* Immediate connect fail for 2603:1056:2000:28::2: Network is unreachable
+*   Trying 2603:1056:2000:28::4...
+* TCP_NODELAY set
+* Immediate connect fail for 2603:1056:2000:28::4: Network is unreachable
+*   Trying 2603:1056:2000:30::5...
+* TCP_NODELAY set
+* Immediate connect fail for 2603:1056:2000:30::5: Network is unreachable
+*   Trying 2603:1056:2000:30::2...
+* TCP_NODELAY set
+* Immediate connect fail for 2603:1056:2000:30::2: Network is unreachable
+*   Trying 2603:1056:2000:38::3...
+* TCP_NODELAY set
+* Immediate connect fail for 2603:1056:2000:38::3: Network is unreachable
+*   Trying 2603:1057:2:28::1...
+* TCP_NODELAY set
+* Immediate connect fail for 2603:1057:2:28::1: Network is unreachable
+*   Trying 2603:1056:2000:30::11...
+* TCP_NODELAY set
+* Immediate connect fail for 2603:1056:2000:30::11: Network is unreachable
+*   Trying 2603:1056:2000:38::4...
+* TCP_NODELAY set
+* Immediate connect fail for 2603:1056:2000:38::4: Network is unreachable
+*   Trying 2603:1056:2000:28::2...
+* TCP_NODELAY set
+* Immediate connect fail for 2603:1056:2000:28::2: Network is unreachable
+*   Trying 2603:1056:2000:28::4...
+* TCP_NODELAY set
+* Immediate connect fail for 2603:1056:2000:28::4: Network is unreachable
+*   Trying 2603:1056:2000:30::5...
+* TCP_NODELAY set
+* Immediate connect fail for 2603:1056:2000:30::5: Network is unreachable
+*   Trying 2603:1056:2000:30::2...
+* TCP_NODELAY set
+* Immediate connect fail for 2603:1056:2000:30::2: Network is unreachable
+*   Trying 2603:1056:2000:38::3...
+* TCP_NODELAY set
+* Immediate connect fail for 2603:1056:2000:38::3: Network is unreachable
+*   Trying 2603:1057:2:28::1...
+* TCP_NODELAY set
+* Immediate connect fail for 2603:1057:2:28::1: Network is unreachable
+*   Trying 2603:1056:2000:30::11...
+* TCP_NODELAY set
+* Immediate connect fail for 2603:1056:2000:30::11: Network is unreachable
+*   Trying 2603:1056:2000:38::4...
+* TCP_NODELAY set
+* Immediate connect fail for 2603:1056:2000:38::4: Network is unreachable
+*   Trying 2603:1056:2000:28::2...
+* TCP_NODELAY set
+* Immediate connect fail for 2603:1056:2000:28::2: Network is unreachable
+*   Trying 2603:1056:2000:28::4...
+* TCP_NODELAY set
+* Immediate connect fail for 2603:1056:2000:28::4: Network is unreachable
+*   Trying 2603:1056:2000:30::5...
+* TCP_NODELAY set
+* Immediate connect fail for 2603:1056:2000:30::5: Network is unreachable
+*   Trying 2603:1056:2000:30::2...
+* TCP_NODELAY set
+* Immediate connect fail for 2603:1056:2000:30::2: Network is unreachable
+*   Trying 2603:1056:2000:38::3...
+* TCP_NODELAY set
+* Immediate connect fail for 2603:1056:2000:38::3: Network is unreachable
+*   Trying 2603:1057:2:28::1...
+* TCP_NODELAY set
+* Immediate connect fail for 2603:1057:2:28::1: Network is unreachable
+*   Trying 2603:1056:2000:30::11...
+* TCP_NODELAY set
+* Immediate connect fail for 2603:1056:2000:30::11: Network is unreachable
+*   Trying 2603:1056:2000:38::4...
+* TCP_NODELAY set
+* Immediate connect fail for 2603:1056:2000:38::4: Network is unreachable
+*   Trying 2603:1056:2000:28::2...
+* TCP_NODELAY set
+* Immediate connect fail for 2603:1056:2000:28::2: Network is unreachable
+*   Trying 2603:1056:2000:28::4...
+* TCP_NODELAY set
+* Immediate connect fail for 2603:1056:2000:28::4: Network is unreachable
+*   Trying 2603:1056:2000:30::5...
+* TCP_NODELAY set
+* Immediate connect fail for 2603:1056:2000:30::5: Network is unreachable
+*   Trying 2603:1056:2000:30::2...
+* TCP_NODELAY set
+* Immediate connect fail for 2603:1056:2000:30::2: Network is unreachable
+*   Trying 2603:1056:2000:38::3...
+* TCP_NODELAY set
+* Immediate connect fail for 2603:1056:2000:38::3: Network is unreachable
+*   Trying 2603:1057:2:28::1...
+* TCP_NODELAY set
+* Immediate connect fail for 2603:1057:2:28::1: Network is unreachable
+*   Trying 2603:1056:2000:30::11...
+* TCP_NODELAY set
+* Immediate connect fail for 2603:1056:2000:30::11: Network is unreachable
+*   Trying 2603:1056:2000:38::4...
+* TCP_NODELAY set
+* Immediate connect fail for 2603:1056:2000:38::4: Network is unreachable
+*   Trying 2603:1056:2000:28::2...
+* TCP_NODELAY set
+* Immediate connect fail for 2603:1056:2000:28::2: Network is unreachable
+*   Trying 2603:1056:2000:28::4...
+* TCP_NODELAY set
+* Immediate connect fail for 2603:1056:2000:28::4: Network is unreachable
+*   Trying 2603:1056:2000:30::5...
+* TCP_NODELAY set
+* Immediate connect fail for 2603:1056:2000:30::5: Network is unreachable
+*   Trying 2603:1056:2000:30::2...
+* TCP_NODELAY set
+* Immediate connect fail for 2603:1056:2000:30::2: Network is unreachable
+*   Trying 2603:1056:2000:38::3...
+* TCP_NODELAY set
+* Immediate connect fail for 2603:1056:2000:38::3: Network is unreachable
+*   Trying 2603:1057:2:28::1...
+* TCP_NODELAY set
+* Immediate connect fail for 2603:1057:2:28::1: Network is unreachable
+*   Trying 2603:1056:2000:30::11...
+* TCP_NODELAY set
+* Immediate connect fail for 2603:1056:2000:30::11: Network is unreachable
+*   Trying 2603:1056:2000:38::4...
+* TCP_NODELAY set
+* Immediate connect fail for 2603:1056:2000:38::4: Network is unreachable
+*   Trying 2603:1056:2000:28::2...
+* TCP_NODELAY set
+* Immediate connect fail for 2603:1056:2000:28::2: Network is unreachable
+*   Trying 2603:1056:2000:28::4...
+* TCP_NODELAY set
+* Immediate connect fail for 2603:1056:2000:28::4: Network is unreachable
+*   Trying 2603:1056:2000:30::5...
+* TCP_NODELAY set
+* Immediate connect fail for 2603:1056:2000:30::5: Network is unreachable
+*   Trying 2603:1056:2000:30::2...
+* TCP_NODELAY set
+* Immediate connect fail for 2603:1056:2000:30::2: Network is unreachable
+*   Trying 2603:1056:2000:38::3...
+* TCP_NODELAY set
+* Immediate connect fail for 2603:1056:2000:38::3: Network is unreachable
+*   Trying 2603:1057:2:28::1...
+* TCP_NODELAY set
+* Immediate connect fail for 2603:1057:2:28::1: Network is unreachable
+*   Trying 2603:1056:2000:30::11...
+* TCP_NODELAY set
+* Immediate connect fail for 2603:1056:2000:30::11: Network is unreachable
+*   Trying 2603:1056:2000:38::4...
+* TCP_NODELAY set
+* Immediate connect fail for 2603:1056:2000:38::4: Network is unreachable
+*   Trying 2603:1056:2000:28::2...
+* TCP_NODELAY set
+* Immediate connect fail for 2603:1056:2000:28::2: Network is unreachable
+*   Trying 2603:1056:2000:28::4...
+* TCP_NODELAY set
+* Immediate connect fail for 2603:1056:2000:28::4: Network is unreachable
+*   Trying 2603:1056:2000:30::5...
+* TCP_NODELAY set
+* Immediate connect fail for 2603:1056:2000:30::5: Network is unreachable
+*   Trying 2603:1056:2000:30::2...
+* TCP_NODELAY set
+* Immediate connect fail for 2603:1056:2000:30::2: Network is unreachable
+*   Trying 2603:1056:2000:38::3...
+* TCP_NODELAY set
+* Immediate connect fail for 2603:1056:2000:38::3: Network is unreachable
+*   Trying 2603:1057:2:28::1...
+* TCP_NODELAY set
+* Immediate connect fail for 2603:1057:2:28::1: Network is unreachable
+*   Trying 2603:1056:2000:30::11...
+* TCP_NODELAY set
+* Immediate connect fail for 2603:1056:2000:30::11: Network is unreachable
+*   Trying 2603:1056:2000:38::4...
+* TCP_NODELAY set
+* Immediate connect fail for 2603:1056:2000:38::4: Network is unreachable
+*   Trying 2603:1056:2000:28::2...
+* TCP_NODELAY set
+* Immediate connect fail for 2603:1056:2000:28::2: Network is unreachable
+^C
+sh-4.4$ nslookup Immediate connect fail for 2603:1056:2000:38::3: Network is unreachable
+sh: nslookup: command not found
+sh-4.4$ *   Trying 2603:1057:2:28::1...
+sh: Api.SIPGC-3: command not found
+sh-4.4$ * TCP_NODELAY set
+sh: Api.SIPGC-3: command not found
+sh-4.4$
+sh-4.4$
+sh-4.4$
+sh-4.4$ nslookup https://login.microsoftonline.com
+sh: nslookup: command not found
+sh-4.4$
+sh-4.4$
+sh-4.4$ env | grep -i proxy
+sh-4.4$
