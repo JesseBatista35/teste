@@ -1,5 +1,8 @@
 Prezados, 
 
+<img width="1568" height="703" alt="image" src="https://github.com/user-attachments/assets/643e3920-1e40-4006-8e0c-35d326ad67f2" />
+
+
 Estamos com problemas no retorno da API do SIICO. Impossibilitando o consumo de informações sobre usuários.
 
 
