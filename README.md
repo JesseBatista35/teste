@@ -1,6 +1,12 @@
+awk '
+skipblank && /^$/ { skipblank=0; next }
+/<Location \/siavl-web>/ { collecting=1 }
+collecting { loc = loc $0 "\n"; if (/<\/Location>/) { collecting=0; skipblank=1 }; next }
+/RewriteCond %\{REQUEST_METHOD\} =OPTIONS/ && !inserted {
+  printf "%s", loc
+  inserted=1
+}
+{ print }
+' siavl.conf > siavl.conf.NOVO
 
-[root@sspdeaprlx0027 siavl]# cp backup/siavl.conf.$(date +%Y%m%d).WO0000081522583 siavl.conf
-cp: overwrite `siavl.conf'? yes
-[root@sspdeaprlx0027 siavl]# grep -n "Location /siavl-web" siavl.conf
-70:    <Location /siavl-web>
-[root@sspdeaprlx0027 siavl]#
+diff siavl.conf siavl.conf.NOVO
