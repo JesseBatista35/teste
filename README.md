@@ -1,33 +1,8 @@
+cp siavl.conf backup/siavl.conf.$(date +%Y%m%d).WO-CORS-fixo-v1
+mv siavl.conf.NOVO siavl.conf
+/opt/apache/jbcs-httpd24-2.4/httpd/sbin/apachectl configtest
 
-[root@sspdeaprlx0027 siavl]# cd /opt/apache/jbcs-httpd24-2.4/httpd/conf.d/siavl
-[root@sspdeaprlx0027 siavl]#
-[root@sspdeaprlx0027 siavl]#
-[root@sspdeaprlx0027 siavl]#
-[root@sspdeaprlx0027 siavl]#
-[root@sspdeaprlx0027 siavl]# awk 'NR==56 {
->   print "    <Location /siavl-web>"
->   print "        Header always set Access-Control-Allow-Origin \"*\""
->   print "        Header always set Access-Control-Allow-Methods \"GET, POST, PUT, DELETE, OPTIONS\""
->   print "        Header always set Access-Control-Allow-Headers \"Accept, Content-Type, Authorization, Origin, X-Requested-With\""
->   print "    </Location>"
->   next
-> }
-> NR>=57 && NR<=63 { next }
-> { print }
-> ' siavl.conf > siavl.conf.NOVO
-[root@sspdeaprlx0027 siavl]#
-[root@sspdeaprlx0027 siavl]# diff siavl.conf siavl.conf.NOVO
-57,60c57
-<         SetEnvIf Origin "^(https?://.*)$" CORS_ORIGIN=$1
-<         Header always set Access-Control-Allow-Origin "%{CORS_ORIGIN}e" env=CORS_ORIGIN
-<         Header always set Access-Control-Allow-Credentials "true"
-<         Header always set Vary "Origin"
----
->         Header always set Access-Control-Allow-Origin "*"
-[root@sspdeaprlx0027 siavl]#
-[root@sspdeaprlx0027 siavl]#
-[root@sspdeaprlx0027 siavl]#
-[root@sspdeaprlx0027 siavl]#
-[root@sspdeaprlx0027 siavl]#
-[root@sspdeaprlx0027 siavl]#
-[root@sspdeaprlx0027 siavl]#
+
+/opt/apache/jbcs-httpd24-2.4/httpd/sbin/httpd -f /opt/apache/jbcs-httpd24-2.4/httpd/conf/siavl-httpd.conf -k graceful
+
+curl -ik -X OPTIONS https://agenciadigital.des.caixa:8002/siavl-web/index.html -H "Origin: https://exemplo.com" | grep -i "access-control"
