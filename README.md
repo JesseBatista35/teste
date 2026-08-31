@@ -1,15 +1,16 @@
-Aqui está a nota, direta para colar na sala/Temas:
+Ajustar ambiente ou parametrização de software
+Informar o Ambiente:*:	DES
+Nome do serviço ou sistema:*:	SIPGC NPRD
+Janela de atendimento:*:	31/8/2026 00:00:00
+Prazo final da janela de atendimento:*:	31/8/2026 00:00:00
+Haverá previsão de indisponibilidade durante a execução do serviço:*:	Não
+Contato do responsável pela validação do ambiente após alteração:*:	F540797 - Teams
+F556565 - Teams
+Descrição da solicitação:*:	Temos um ambiente no Premise da nuvem caixa na url:
+https://sipgc-front-des.apps.nprd.caixa/gestao/tipo-agrupamento
+que chama um microserviço no OKD na url:
+https://sipgc-api-agrupamento-des.apps.nprd.caixa/api/v1/TipoAgrupamentos?pagina=1&TamanhoPagina=1000
 
-Atualização técnica — REQ000145554756 (demanda já encerrada, acompanhamento em sala)
-
-Testes de conectividade realizados diretamente do pod da aplicação (siecm-middleware-des-215-5ndll, namespace siecm-des) confirmam:
-
-DNS resolve corretamente: sigaq.des.caixa → 10.245.153.7
-Porta 443 está aberta e acessível
-Handshake TLS completo, retorno HTTP/2 200 OK
-
-Conclusão: não há mais problema de rede, firewall ou DNS entre o OKD4 e o SIGAQ.
-
-Porém, identificamos que a URL chamada (https://sigaq.des.caixa/conteudo/v1/dossies?cpfCnpj=...) está retornando o HTML do front-end Angular do SIGAQ (index.html/SPA fallback), e não o JSON esperado da API de dossiês. Ou seja, o path /conteudo/v1/dossies não corresponde a um endpoint de API real — está caindo no roteamento padrão da aplicação web.
-
-Necessário: que o time responsável pelo SIGAQ confirme o path/host correto do endpoint de consulta de dossiês (API), pois o atual está apontando para a rota do front-end, não da API.
+Porem ao tentar fazer esta chamada do front para o back-end esta dando 504, mas direto pelo browser funciona. Acredito que o problema seja porque o pod chama https://login.microsoftonline.com para validar o token
+Informar formas de contato:*:	F540797 - Teams
+F556565 - TeamsCriação solicitada por:REQ000095661629 Qual o tipo de serviço?: Ajustar ambiente ou parametrização de software
