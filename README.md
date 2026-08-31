@@ -1,40 +1,60 @@
-
-[root@sspdeaprlx0027 siavl05]# chown apache:apache /opt/apache/jbcs-httpd24-2.4/httpd/conf.d/siavl02/siavl02.conf
-[root@sspdeaprlx0027 siavl05]#
-[root@sspdeaprlx0027 siavl05]#
-[root@sspdeaprlx0027 siavl05]#
-[root@sspdeaprlx0027 siavl05]#
-[root@sspdeaprlx0027 siavl05]# /opt/apache/jbcs-httpd24-2.4/httpd/sbin/apachectl configtest
-[root@sspdeaprlx0027 siavl05]#
-[root@sspdeaprlx0027 siavl05]# for n in 02 03 04 05; do
->   echo "=== siavl${n}.conf ==="
->   grep -n -B 2 -A 2 "REQUEST_METHOD} =OPTIONS" /opt/apache/jbcs-httpd24-2.4/httpd/conf.d/siavl${n}/siavl${n}.conf
-> done
-=== siavl02.conf ===
-51-        Header always set Access-Control-Allow-Headers "Accept, Content-Type, Authorization, Origin, X-Requested-With"
-52-    </Location>
-53:    RewriteCond %{REQUEST_METHOD} =OPTIONS
-54-    RewriteRule ^/(siavl-web)(/.*)?$ - [R=204,L]
-55-
-=== siavl03.conf ===
-51-        Header always set Access-Control-Allow-Headers "Accept, Content-Type, Authorization, Origin, X-Requested-With"
-52-    </Location>
-53:    RewriteCond %{REQUEST_METHOD} =OPTIONS
-54-    RewriteRule ^/(siavl-web)(/.*)?$ - [R=204,L]
-55-
-=== siavl04.conf ===
-51-        Header always set Access-Control-Allow-Headers "Accept, Content-Type, Authorization, Origin, X-Requested-With"
-52-    </Location>
-53:   RewriteCond %{REQUEST_METHOD} =OPTIONS
-54-   RewriteRule ^/(siavl-web)(/.*)?$ - [R=204,L]
-55-
-=== siavl05.conf ===
-51-        Header always set Access-Control-Allow-Headers "Accept, Content-Type, Authorization, Origin, X-Requested-With"
-52-    </Location>
-53:    RewriteCond %{REQUEST_METHOD} =OPTIONS
-54-    RewriteRule ^/(siavl-web)(/.*)?$ - [R=204,L]
-55-
-[root@sspdeaprlx0027 siavl05]#
-[root@sspdeaprlx0027 siavl05]#
-[root@sspdeaprlx0027 siavl05]#
+[root@sspdeaprlx0027 siavl05]# ps aux | grep httpd
+apache    7538  0.0  0.0 271116  1900 ?        Ss   Aug28   0:08 /opt/apache/jbcs-httpd24-2.4/httpd/sbin/httpd -f /opt/apache/jbcs-httpd24-2.4/httpd/conf/siavl-httpd.conf -E /opt/apache/jbcs-httpd24-2.4/httpd/logs/siavl-httpd.log -k start
+apache    7543  0.0  0.0 270344   472 ?        S    Aug28   0:00 /opt/apache/jbcs-httpd24-2.4/httpd/sbin/httpd -f /opt/apache/jbcs-httpd24-2.4/httpd/conf/siavl-httpd.conf -E /opt/apache/jbcs-httpd24-2.4/httpd/logs/siavl-httpd.log -k start
+apache    7544  0.0  0.0 1707168 2336 ?        Sl   Aug28   0:37 /opt/apache/jbcs-httpd24-2.4/httpd/sbin/httpd -f /opt/apache/jbcs-httpd24-2.4/httpd/conf/siavl-httpd.conf -E /opt/apache/jbcs-httpd24-2.4/httpd/logs/siavl-httpd.log -k start
+apache    7547  0.0  0.1 1543124 6720 ?        Sl   Aug28   0:37 /opt/apache/jbcs-httpd24-2.4/httpd/sbin/httpd -f /opt/apache/jbcs-httpd24-2.4/httpd/conf/siavl-httpd.conf -E /opt/apache/jbcs-httpd24-2.4/httpd/logs/siavl-httpd.log -k start
+apache    8542  0.0  0.0 271112  1912 ?        Ss   Aug28   0:08 /opt/apache/jbcs-httpd24-2.4/httpd/sbin/httpd -f /opt/apache/jbcs-httpd24-2.4/httpd/conf/siavl02-httpd.conf -E /opt/apache/jbcs-httpd24-2.4/httpd/logs/siavl02-httpd.log -k start
+apache    8555  0.0  0.0 270340   472 ?        S    Aug28   0:00 /opt/apache/jbcs-httpd24-2.4/httpd/sbin/httpd -f /opt/apache/jbcs-httpd24-2.4/httpd/conf/siavl02-httpd.conf -E /opt/apache/jbcs-httpd24-2.4/httpd/logs/siavl02-httpd.log -k start
+apache    8556  0.0  0.1 1707276 6044 ?        Sl   Aug28   0:36 /opt/apache/jbcs-httpd24-2.4/httpd/sbin/httpd -f /opt/apache/jbcs-httpd24-2.4/httpd/conf/siavl02-httpd.conf -E /opt/apache/jbcs-httpd24-2.4/httpd/logs/siavl02-httpd.log -k start
+apache    8558  0.0  0.1 1543500 5884 ?        Sl   Aug28   0:40 /opt/apache/jbcs-httpd24-2.4/httpd/sbin/httpd -f /opt/apache/jbcs-httpd24-2.4/httpd/conf/siavl02-httpd.conf -E /opt/apache/jbcs-httpd24-2.4/httpd/logs/siavl02-httpd.log -k start
+apache    9496  0.0  0.0 271112  2556 ?        Ss   Aug28   0:08 /opt/apache/jbcs-httpd24-2.4/httpd/sbin/httpd -f /opt/apache/jbcs-httpd24-2.4/httpd/conf/siavl03-httpd.conf -E /opt/apache/jbcs-httpd24-2.4/httpd/logs/siavl03-httpd.log -k start
+apache    9514  0.0  0.0 270340  1152 ?        S    Aug28   0:00 /opt/apache/jbcs-httpd24-2.4/httpd/sbin/httpd -f /opt/apache/jbcs-httpd24-2.4/httpd/conf/siavl03-httpd.conf -E /opt/apache/jbcs-httpd24-2.4/httpd/logs/siavl03-httpd.log -k start
+apache    9515  0.0  0.1 1707168 4388 ?        Sl   Aug28   0:32 /opt/apache/jbcs-httpd24-2.4/httpd/sbin/httpd -f /opt/apache/jbcs-httpd24-2.4/httpd/conf/siavl03-httpd.conf -E /opt/apache/jbcs-httpd24-2.4/httpd/logs/siavl03-httpd.log -k start
+apache    9518  0.0  0.1 1543120 4128 ?        Sl   Aug28   0:35 /opt/apache/jbcs-httpd24-2.4/httpd/sbin/httpd -f /opt/apache/jbcs-httpd24-2.4/httpd/conf/siavl03-httpd.conf -E /opt/apache/jbcs-httpd24-2.4/httpd/logs/siavl03-httpd.log -k start
+apache   10476  0.0  0.0 271112  2088 ?        Ss   Aug28   0:07 /opt/apache/jbcs-httpd24-2.4/httpd/sbin/httpd -f /opt/apache/jbcs-httpd24-2.4/httpd/conf/siavl04-httpd.conf -E /opt/apache/jbcs-httpd24-2.4/httpd/logs/siavl04-httpd.log -k start
+apache   10481  0.0  0.0 270340   652 ?        S    Aug28   0:00 /opt/apache/jbcs-httpd24-2.4/httpd/sbin/httpd -f /opt/apache/jbcs-httpd24-2.4/httpd/conf/siavl04-httpd.conf -E /opt/apache/jbcs-httpd24-2.4/httpd/logs/siavl04-httpd.log -k start
+apache   10482  0.0  0.1 1707168 5996 ?        Sl   Aug28   0:32 /opt/apache/jbcs-httpd24-2.4/httpd/sbin/httpd -f /opt/apache/jbcs-httpd24-2.4/httpd/conf/siavl04-httpd.conf -E /opt/apache/jbcs-httpd24-2.4/httpd/logs/siavl04-httpd.log -k start
+apache   10484  0.0  0.0 1543252 3756 ?        Sl   Aug28   0:35 /opt/apache/jbcs-httpd24-2.4/httpd/sbin/httpd -f /opt/apache/jbcs-httpd24-2.4/httpd/conf/siavl04-httpd.conf -E /opt/apache/jbcs-httpd24-2.4/httpd/logs/siavl04-httpd.log -k start
+apache   10833  0.0  0.0 271112  1664 ?        Ss   May11   5:02 /opt/apache/jbcs-httpd24-2.4/httpd/sbin/httpd -f /opt/apache/jbcs-httpd24-2.4/httpd/conf/siavl02-inter-httpd.conf -E /opt/apache/jbcs-httpd24-2.4/httpd/logs/siavl02-inter-httpd.log -k start
+apache   11098  0.0  0.0 270340   480 ?        S    May11   0:00 /opt/apache/jbcs-httpd24-2.4/httpd/sbin/httpd -f /opt/apache/jbcs-httpd24-2.4/httpd/conf/siavl02-inter-httpd.conf -E /opt/apache/jbcs-httpd24-2.4/httpd/logs/siavl02-inter-httpd.log -k start
+apache   11099  0.0  0.0 1707136 2044 ?        Sl   May11  20:43 /opt/apache/jbcs-httpd24-2.4/httpd/sbin/httpd -f /opt/apache/jbcs-httpd24-2.4/httpd/conf/siavl02-inter-httpd.conf -E /opt/apache/jbcs-httpd24-2.4/httpd/logs/siavl02-inter-httpd.log -k start
+apache   11103  0.0  0.1 1543120 4080 ?        Sl   May11  22:26 /opt/apache/jbcs-httpd24-2.4/httpd/sbin/httpd -f /opt/apache/jbcs-httpd24-2.4/httpd/conf/siavl02-inter-httpd.conf -E /opt/apache/jbcs-httpd24-2.4/httpd/logs/siavl02-inter-httpd.log -k start
+apache   11463  0.0  0.0 271112  2064 ?        Ss   Aug28   0:07 /opt/apache/jbcs-httpd24-2.4/httpd/sbin/httpd -f /opt/apache/jbcs-httpd24-2.4/httpd/conf/siavl05-httpd.conf -E /opt/apache/jbcs-httpd24-2.4/httpd/logs/siavl05-httpd.log -k start
+apache   11480  0.0  0.0 270340   616 ?        S    Aug28   0:00 /opt/apache/jbcs-httpd24-2.4/httpd/sbin/httpd -f /opt/apache/jbcs-httpd24-2.4/httpd/conf/siavl05-httpd.conf -E /opt/apache/jbcs-httpd24-2.4/httpd/logs/siavl05-httpd.log -k start
+apache   11481  0.0  0.1 1707156 7760 ?        Sl   Aug28   0:32 /opt/apache/jbcs-httpd24-2.4/httpd/sbin/httpd -f /opt/apache/jbcs-httpd24-2.4/httpd/conf/siavl05-httpd.conf -E /opt/apache/jbcs-httpd24-2.4/httpd/logs/siavl05-httpd.log -k start
+apache   11482  0.0  0.1 1543264 5748 ?        Sl   Aug28   0:37 /opt/apache/jbcs-httpd24-2.4/httpd/sbin/httpd -f /opt/apache/jbcs-httpd24-2.4/httpd/conf/siavl05-httpd.conf -E /opt/apache/jbcs-httpd24-2.4/httpd/logs/siavl05-httpd.log -k start
+apache   11515  0.0  0.0 271112  1664 ?        Ss   May11   4:58 /opt/apache/jbcs-httpd24-2.4/httpd/sbin/httpd -f /opt/apache/jbcs-httpd24-2.4/httpd/conf/siavl03-inter-httpd.conf -E /opt/apache/jbcs-httpd24-2.4/httpd/logs/siavl03-inter-httpd.log -k start
+apache   11780  0.0  0.0 270340   480 ?        S    May11   0:00 /opt/apache/jbcs-httpd24-2.4/httpd/sbin/httpd -f /opt/apache/jbcs-httpd24-2.4/httpd/conf/siavl03-inter-httpd.conf -E /opt/apache/jbcs-httpd24-2.4/httpd/logs/siavl03-inter-httpd.log -k start
+apache   11782  0.0  0.1 1707136 4088 ?        Sl   May11  20:20 /opt/apache/jbcs-httpd24-2.4/httpd/sbin/httpd -f /opt/apache/jbcs-httpd24-2.4/httpd/conf/siavl03-inter-httpd.conf -E /opt/apache/jbcs-httpd24-2.4/httpd/logs/siavl03-inter-httpd.log -k start
+apache   11783  0.0  0.1 1543120 4080 ?        Sl   May11  22:25 /opt/apache/jbcs-httpd24-2.4/httpd/sbin/httpd -f /opt/apache/jbcs-httpd24-2.4/httpd/conf/siavl03-inter-httpd.conf -E /opt/apache/jbcs-httpd24-2.4/httpd/logs/siavl03-inter-httpd.log -k start
+apache   12197  0.0  0.0 271112  1664 ?        Ss   May11   4:52 /opt/apache/jbcs-httpd24-2.4/httpd/sbin/httpd -f /opt/apache/jbcs-httpd24-2.4/httpd/conf/siavl04-inter-httpd.conf -E /opt/apache/jbcs-httpd24-2.4/httpd/logs/siavl04-inter-httpd.log -k start
+apache   12463  0.0  0.0 270340   480 ?        S    May11   0:00 /opt/apache/jbcs-httpd24-2.4/httpd/sbin/httpd -f /opt/apache/jbcs-httpd24-2.4/httpd/conf/siavl04-inter-httpd.conf -E /opt/apache/jbcs-httpd24-2.4/httpd/logs/siavl04-inter-httpd.log -k start
+apache   12465  0.0  0.1 1707136 4384 ?        Sl   May11  23:20 /opt/apache/jbcs-httpd24-2.4/httpd/sbin/httpd -f /opt/apache/jbcs-httpd24-2.4/httpd/conf/siavl04-inter-httpd.conf -E /opt/apache/jbcs-httpd24-2.4/httpd/logs/siavl04-inter-httpd.log -k start
+apache   12466  0.0  0.1 1543120 4392 ?        Sl   May11  25:04 /opt/apache/jbcs-httpd24-2.4/httpd/sbin/httpd -f /opt/apache/jbcs-httpd24-2.4/httpd/conf/siavl04-inter-httpd.conf -E /opt/apache/jbcs-httpd24-2.4/httpd/logs/siavl04-inter-httpd.log -k start
+apache   12880  0.0  0.0 271112  1664 ?        Ss   May11   5:05 /opt/apache/jbcs-httpd24-2.4/httpd/sbin/httpd -f /opt/apache/jbcs-httpd24-2.4/httpd/conf/siavl05-inter-httpd.conf -E /opt/apache/jbcs-httpd24-2.4/httpd/logs/siavl05-inter-httpd.log -k start
+apache   13145  0.0  0.0 270340   480 ?        S    May11   0:00 /opt/apache/jbcs-httpd24-2.4/httpd/sbin/httpd -f /opt/apache/jbcs-httpd24-2.4/httpd/conf/siavl05-inter-httpd.conf -E /opt/apache/jbcs-httpd24-2.4/httpd/logs/siavl05-inter-httpd.log -k start
+apache   13146  0.0  0.1 1707136 6124 ?        Sl   May11  20:41 /opt/apache/jbcs-httpd24-2.4/httpd/sbin/httpd -f /opt/apache/jbcs-httpd24-2.4/httpd/conf/siavl05-inter-httpd.conf -E /opt/apache/jbcs-httpd24-2.4/httpd/logs/siavl05-inter-httpd.log -k start
+apache   13148  0.0  0.1 1543120 4080 ?        Sl   May11  22:20 /opt/apache/jbcs-httpd24-2.4/httpd/sbin/httpd -f /opt/apache/jbcs-httpd24-2.4/httpd/conf/siavl05-inter-httpd.conf -E /opt/apache/jbcs-httpd24-2.4/httpd/logs/siavl05-inter-httpd.log -k start
+apache   13221  0.0  0.0 271112  1488 ?        Ss   May11   5:04 /opt/apache/jbcs-httpd24-2.4/httpd/sbin/httpd -f /opt/apache/jbcs-httpd24-2.4/httpd/conf/siavl-inter-httpd.conf -E /opt/apache/jbcs-httpd24-2.4/httpd/logs/siavl-inter-httpd.log -k start
+apache   13486  0.0  0.0 270340   316 ?        S    May11   0:00 /opt/apache/jbcs-httpd24-2.4/httpd/sbin/httpd -f /opt/apache/jbcs-httpd24-2.4/httpd/conf/siavl-inter-httpd.conf -E /opt/apache/jbcs-httpd24-2.4/httpd/logs/siavl-inter-httpd.log -k start
+apache   13487  0.0  0.0 855056   688 ?        Sl   May11  18:08 /opt/apache/jbcs-httpd24-2.4/httpd/sbin/httpd -f /opt/apache/jbcs-httpd24-2.4/httpd/conf/siavl-inter-httpd.conf -E /opt/apache/jbcs-httpd24-2.4/httpd/logs/siavl-inter-httpd.log -k start
+apache   13489  0.0  0.0 625616   672 ?        Sl   May11  19:55 /opt/apache/jbcs-httpd24-2.4/httpd/sbin/httpd -f /opt/apache/jbcs-httpd24-2.4/httpd/conf/siavl-inter-httpd.conf -E /opt/apache/jbcs-httpd24-2.4/httpd/logs/siavl-inter-httpd.log -k start
+apache   13906  0.0  0.0 285796  2060 ?        Ssl  May11  20:33 /opt/apache/jbcs-httpd24-2.4/httpd/sbin/httpd -f /opt/apache/jbcs-httpd24-2.4/httpd/conf/sidcn-httpd.conf -E /opt/apache/jbcs-httpd24-2.4/httpd/logs/sidcn-httpd.log -k start
+apache   14963  0.0  0.0 274684   792 ?        S    May11   0:00 /opt/apache/jbcs-httpd24-2.4/httpd/sbin/httpd -f /opt/apache/jbcs-httpd24-2.4/httpd/conf/sidcn-httpd.conf -E /opt/apache/jbcs-httpd24-2.4/httpd/logs/sidcn-httpd.log -k start
+apache   14966  0.0  0.1 1721800 7604 ?        Sl   May11  41:13 /opt/apache/jbcs-httpd24-2.4/httpd/sbin/httpd -f /opt/apache/jbcs-httpd24-2.4/httpd/conf/sidcn-httpd.conf -E /opt/apache/jbcs-httpd24-2.4/httpd/logs/sidcn-httpd.log -k start
+apache   14967  0.0  0.2 1557896 7852 ?        Sl   May11  42:21 /opt/apache/jbcs-httpd24-2.4/httpd/sbin/httpd -f /opt/apache/jbcs-httpd24-2.4/httpd/conf/sidcn-httpd.conf -E /opt/apache/jbcs-httpd24-2.4/httpd/logs/sidcn-httpd.log -k start
+apache   15648  0.0  0.0 288456  2144 ?        Ssl  May11  20:36 /opt/apache/jbcs-httpd24-2.4/httpd/sbin/httpd -f /opt/apache/jbcs-httpd24-2.4/httpd/conf/sipje-httpd.conf -E /opt/apache/jbcs-httpd24-2.4/httpd/logs/sipje-httpd.log -k start
+apache   16247  0.0  0.0 277400   796 ?        S    May11   0:00 /opt/apache/jbcs-httpd24-2.4/httpd/sbin/httpd -f /opt/apache/jbcs-httpd24-2.4/httpd/conf/sipje-httpd.conf -E /opt/apache/jbcs-httpd24-2.4/httpd/logs/sipje-httpd.log -k start
+apache   16249  0.0  0.1 970776  5068 ?        Sl   May11  30:27 /opt/apache/jbcs-httpd24-2.4/httpd/sbin/httpd -f /opt/apache/jbcs-httpd24-2.4/httpd/conf/sipje-httpd.conf -E /opt/apache/jbcs-httpd24-2.4/httpd/logs/sipje-httpd.log -k start
+apache   16250  0.0  0.1 1331288 5080 ?        Sl   May11  29:28 /opt/apache/jbcs-httpd24-2.4/httpd/sbin/httpd -f /opt/apache/jbcs-httpd24-2.4/httpd/conf/sipje-httpd.conf -E /opt/apache/jbcs-httpd24-2.4/httpd/logs/sipje-httpd.log -k start
+apache   17749  0.0  0.0 288312  2148 ?        Ssl  Jul01  12:14 /opt/apache/jbcs-httpd24-2.4/httpd/sbin/httpd -f /opt/apache/jbcs-httpd24-2.4/httpd/conf/sicdc-httpd.conf -E /opt/apache/jbcs-httpd24-2.4/httpd/logs/sicdc-httpd.log -k start
+apache   17754  0.0  0.0 277200   832 ?        S    Jul01   0:00 /opt/apache/jbcs-httpd24-2.4/httpd/sbin/httpd -f /opt/apache/jbcs-httpd24-2.4/httpd/conf/sicdc-httpd.conf -E /opt/apache/jbcs-httpd24-2.4/httpd/logs/sicdc-httpd.log -k start
+root     18406  0.0  0.0 103328   876 pts/3    S+   12:27   0:00 grep httpd
+apache   29196  0.0  0.2 1724624 9476 ?        Sl   Jul23  13:20 /opt/apache/jbcs-httpd24-2.4/httpd/sbin/httpd -f /opt/apache/jbcs-httpd24-2.4/httpd/conf/sicdc-httpd.conf -E /opt/apache/jbcs-httpd24-2.4/httpd/logs/sicdc-httpd.log -k start
+apache   39849  0.0  0.2 1558572 7896 ?        Sl   May29  29:59 /opt/apache/jbcs-httpd24-2.4/httpd/sbin/httpd -f /opt/apache/jbcs-httpd24-2.4/httpd/conf/sipdi-httpd.conf -E /opt/apache/jbcs-httpd24-2.4/httpd/logs/sipdi-httpd.log -k start
+apache   46877  0.0  0.0 286300  2080 ?        Ssl  May13  21:39 /opt/apache/jbcs-httpd24-2.4/httpd/sbin/httpd -f /opt/apache/jbcs-httpd24-2.4/httpd/conf/sipdi-httpd.conf -E /opt/apache/jbcs-httpd24-2.4/httpd/logs/sipdi-httpd.log -k start
+apache   46890  0.0  0.0 275188   776 ?        S    May13   0:00 /opt/apache/jbcs-httpd24-2.4/httpd/sbin/httpd -f /opt/apache/jbcs-httpd24-2.4/httpd/conf/sipdi-httpd.conf -E /opt/apache/jbcs-httpd24-2.4/httpd/logs/sipdi-httpd.log -k start
+apache   46892  0.0  0.1 1722212 7776 ?        Sl   May13  32:30 /opt/apache/jbcs-httpd24-2.4/httpd/sbin/httpd -f /opt/apache/jbcs-httpd24-2.4/httpd/conf/sipdi-httpd.conf -E /opt/apache/jbcs-httpd24-2.4/httpd/logs/sipdi-httpd.log -k start
+apache   46894  0.0  0.2 1558400 7976 ?        Sl   May13  34:47 /opt/apache/jbcs-httpd24-2.4/httpd/sbin/httpd -f /opt/apache/jbcs-httpd24-2.4/httpd/conf/sipdi-httpd.conf -E /opt/apache/jbcs-httpd24-2.4/httpd/logs/sipdi-httpd.log -k start
+apache   50934  0.0  0.2 1560588 8396 ?        Sl   Jul23  13:41 /opt/apache/jbcs-httpd24-2.4/httpd/sbin/httpd -f /opt/apache/jbcs-httpd24-2.4/httpd/conf/sicdc-httpd.conf -E /opt/apache/jbcs-httpd24-2.4/httpd/logs/sicdc-httpd.log -k start
 [root@sspdeaprlx0027 siavl05]#
