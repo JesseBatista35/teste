@@ -1,9 +1,9 @@
-Olá, Yuri, tudo certo.
+Pessoal, bom dia/tarde.
 
-A configuração CORS do SIAVL em DES foi ajustada nos 5 sites de intranet (siavl, siavl02, siavl03, siavl04, siavl05), conforme o novo checklist: o bloco de headers foi simplificado para usar Access-Control-Allow-Origin fixo ("*"), no lugar do modelo condicional anterior (que dependia de SetEnvIf/Origin e não estava retornando o header corretamente em algumas situações).
+Confirmado: o SIICO voltou a funcionar normalmente após o deploy de hoje. Testamos novamente o endpoint https://api.des.caixa:8443/informacoes-corporativas-publicas/v3/unidades?sigla-unidade=GE e o retorno já está OK (sem mais 500). O circuit breaker do SILIC (InfoCorpPrivadasClient) também parou de abrir.
 
-Já testei com requisição OPTIONS em todos os 5 sites e o header Access-Control-Allow-Origin: * está retornando normalmente, junto com Allow-Methods e Allow-Headers. Podem testar a chamada do serviço de vocês agora.
+Com isso, considero essa demanda do SIICO encerrada. Obrigado a todos pelo apoio no diagnóstico e pela agilidade no deploy.
 
-Sobre o tempo que levou: durante a aplicação, tivemos dois imprevistos técnicos que exigiram investigação antes de prosseguir com segurança — uma falha silenciosa em um dos comandos de edição (que fazia parecer que a alteração tinha sido aplicada quando na verdade não tinha) e uma queda breve do processo Apache do site siavl04 durante o reload, que foi identificada e corrigida em seguida (o site ficou indisponível por poucos minutos e já está normalizado). Preferi confirmar cada etapa com testes antes de seguir para não aplicar uma mudança incompleta ou gerar inconsistência entre os ambientes.
+Importante reforçar: o erro ORA-12514 no banco do SILIC (orad02ng, host cnpexdadvm01-scan4.extra.caixa.gov.br:1521) é uma questão à parte, não relacionada ao SIICO nem resolvida por esse deploy — já confirmamos que ele persiste mesmo em subidas novas da aplicação. Esse ponto segue em chamado separado com o time de banco e continua em aberto.
 
-Backup de todos os arquivos originais foi feito antes de cada alteração. Qualquer teste adicional que precisarem, só avisar.
+Qualquer coisa tô por aqui. Obrigado!
