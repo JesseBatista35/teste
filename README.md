@@ -1,21 +1,9 @@
+Olá, Yuri, tudo certo.
 
-[root@sspdeaprlx0027 p585600]# ps aux | grep "siavl04-httpd" | grep -v inter
-root     57234  0.0  0.1 271112  6232 ?        Ss   17:04   0:00 /opt/apache/jbcs-httpd24-2.4/httpd/sbin/httpd -f /opt/apache/jbcs-httpd24-2.4/httpd/conf/siavl04-httpd.conf -k start
-apache   57247  0.0  0.1 282584  4464 ?        S    17:04   0:00 /opt/apache/jbcs-httpd24-2.4/httpd/sbin/httpd -f /opt/apache/jbcs-httpd24-2.4/httpd/conf/siavl04-httpd.conf -k start
-apache   57248  0.0  0.1 1719268 6100 ?        Sl   17:04   0:00 /opt/apache/jbcs-httpd24-2.4/httpd/sbin/httpd -f /opt/apache/jbcs-httpd24-2.4/httpd/conf/siavl04-httpd.conf -k start
-apache   57249  0.0  0.1 1555364 5900 ?        Sl   17:04   0:00 /opt/apache/jbcs-httpd24-2.4/httpd/sbin/httpd -f /opt/apache/jbcs-httpd24-2.4/httpd/conf/siavl04-httpd.conf -k start
-root     57898  0.0  0.0 103328   884 pts/2    S+   17:07   0:00 grep siavl04-httpd
-[root@sspdeaprlx0027 p585600]#
-[root@sspdeaprlx0027 p585600]#
-[root@sspdeaprlx0027 p585600]#
-[root@sspdeaprlx0027 p585600]# curl -ik -X OPTIONS https://agenciadigital4.des.caixa:8025/siavl-web/index.html -H "Origin: https://exemplo.com" | grep -i "access-control"
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-Access-Control-Allow-Origin: *
-Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS
-Access-Control-Allow-Headers: Accept, Content-Type, Authorization, Origin, X-Requested-With
-[root@sspdeaprlx0027 p585600]#
-[root@sspdeaprlx0027 p585600]#
-[root@sspdeaprlx0027 p585600]#
-[root@sspdeaprlx0027 p585600]#
+A configuração CORS do SIAVL em DES foi ajustada nos 5 sites de intranet (siavl, siavl02, siavl03, siavl04, siavl05), conforme o novo checklist: o bloco de headers foi simplificado para usar Access-Control-Allow-Origin fixo ("*"), no lugar do modelo condicional anterior (que dependia de SetEnvIf/Origin e não estava retornando o header corretamente em algumas situações).
+
+Já testei com requisição OPTIONS em todos os 5 sites e o header Access-Control-Allow-Origin: * está retornando normalmente, junto com Allow-Methods e Allow-Headers. Podem testar a chamada do serviço de vocês agora.
+
+Sobre o tempo que levou: durante a aplicação, tivemos dois imprevistos técnicos que exigiram investigação antes de prosseguir com segurança — uma falha silenciosa em um dos comandos de edição (que fazia parecer que a alteração tinha sido aplicada quando na verdade não tinha) e uma queda breve do processo Apache do site siavl04 durante o reload, que foi identificada e corrigida em seguida (o site ficou indisponível por poucos minutos e já está normalizado). Preferi confirmar cada etapa com testes antes de seguir para não aplicar uma mudança incompleta ou gerar inconsistência entre os ambientes.
+
+Backup de todos os arquivos originais foi feito antes de cada alteração. Qualquer teste adicional que precisarem, só avisar.
