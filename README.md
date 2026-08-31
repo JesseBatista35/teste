@@ -1,26 +1,24 @@
-[root@sspdeaprlx0027 siavl]#
-[root@sspdeaprlx0027 siavl]# cp siavl.conf backup/siavl.conf.$(date +%Y%m%d).WO0000081522583-v2
-[root@sspdeaprlx0027 siavl]#
-[root@sspdeaprlx0027 siavl]#
-[root@sspdeaprlx0027 siavl]#
-[root@sspdeaprlx0027 siavl]# mv siavl.conf.NOVO siavl.conf
-mv: overwrite `siavl.conf'? yes
-[root@sspdeaprlx0027 siavl]# /opt/apache/jbcs-httpd24-2.4/httpd/sbin/apachectl configtest
-[root@sspdeaprlx0027 siavl]#
-[root@sspdeaprlx0027 siavl]#
-[root@sspdeaprlx0027 siavl]# grep -n -B 2 -A 10 "REQUEST_METHOD} =OPTIONS" siavl.conf
-62-        Header always set Access-Control-Allow-Headers "Accept, Content-Type, Authorization, Origin, X-Requested-With"
-63-    </Location>
-64:    RewriteCond %{REQUEST_METHOD} =OPTIONS
-65-    RewriteRule ^/(siavl-web)(/.*)?$ - [R=204,L]
-66-
-67-    RewriteCond %{HTTP:Connection} upgrade [NC]
-68-    RewriteCond %{HTTP:Upgrade} websocket [NC]
-69-    RewriteRule /siavl-web(.*) balancer://wscluster/siavl-web$1 [P,L]
-70-
-71-    ProxyRequests Off
-72-    ProxyPass /siavl-web balancer://httpcluster/siavl-web
-73-    ProxyPassReverse /siavl-web balancer://httpcluster/siavl-web
-74-
-[root@sspdeaprlx0027 siavl]#
-[root@sspdeaprlx0027 siavl]#
+for n in 02 03 04 05; do
+  dir=/opt/apache/jbcs-httpd24-2.4/httpd/conf.d/siavl${n}
+  f=$dir/siavl${n}.conf
+  cd "$dir"
+  awk '
+  { lines[NR] = $0 }
+  /<Location \/siavl-web>/ && !locstart { locstart = NR }
+  /<\/Location>/ && locstart && !locend { locend = NR }
+  /RewriteCond %\{REQUEST_METHOD\} =OPTIONS/ && !optline { optline = NR }
+  END {
+    loc = ""
+    for (i = locstart; i <= locend; i++) loc = loc lines[i] "\n"
+    blankafter = (lines[locend+1] == "")
+    for (i = 1; i <= NR; i++) {
+      if (i >= locstart && i <= locend) continue
+      if (blankafter && i == locend+1) continue
+      if (i == optline) printf "%s", loc
+      print lines[i]
+    }
+  }
+  ' "$f" > "${f}.NOVO"
+  echo "=== diff $f ==="
+  diff "$f" "${f}.NOVO"
+done
