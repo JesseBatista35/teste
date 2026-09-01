@@ -1,8 +1,8 @@
+/opt/apache/jbcs-httpd24-2.4/httpd/sbin/httpd -f /opt/apache/jbcs-httpd24-2.4/httpd/conf/siavl-httpd.conf -k start
+ps aux | grep "siavl-httpd" | grep -v inter | grep -v siavl0
 
-[root@sspdeaprlx0027 siavl05]#
-[root@sspdeaprlx0027 siavl05]#
-[root@sspdeaprlx0027 siavl05]# ps aux | grep "siavl-httpd" | grep -v inter | grep -v siavl0
-root     16412  0.0  0.0 103324   868 pts/2    S+   11:45   0:00 grep siavl-httpd
-[root@sspdeaprlx0027 siavl05]#
-[root@sspdeaprlx0027 siavl05]#
-[root@sspdeaprlx0027 siavl05]#
+
+curl -ik -X GET "https://agenciadigital.des.caixa:8002/siavl-web/rs/sec/galeriaImagem/buscaArquivoPorIdMsg/9756" -H "Origin: https://plataforma-des.caixa" | grep -i "access-control-allow-origin"
+
+
+ps aux | grep httpd | grep "\-k start" | awk '{print $NF, $(NF-6)}' | sort -u
