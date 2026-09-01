@@ -1,41 +1,16 @@
+Ajustar ambiente ou parametrização de software
+Informar o Ambiente:*:	DES
+Nome do serviço ou sistema:*:	SIPGC NPRD
+Janela de atendimento:*:	31/8/2026 00:00:00
+Prazo final da janela de atendimento:*:	31/8/2026 00:00:00
+Haverá previsão de indisponibilidade durante a execução do serviço:*:	Não
+Contato do responsável pela validação do ambiente após alteração:*:	F540797 - Teams
+F556565 - Teams
+Descrição da solicitação:*:	Temos um ambiente no Premise da nuvem caixa na url:
+https://sipgc-front-des.apps.nprd.caixa/gestao/tipo-agrupamento
+que chama um microserviço no OKD na url:
+https://sipgc-api-agrupamento-des.apps.nprd.caixa/api/v1/TipoAgrupamentos?pagina=1&TamanhoPagina=1000
 
--sh-4.2$
--sh-4.2$
--sh-4.2$ oc get egressip
-error: the server doesn't have a resource type "egressip"
--sh-4.2$ oc get netnamespace sipgc-des -o yaml
-apiVersion: network.openshift.io/v1
-egressIPs:
-- 10.116.222.85
-kind: NetNamespace
-metadata:
-  creationTimestamp: 2024-12-09T15:48:25Z
-  generation: 2
-  labels:
-    projeto: sipgc-des
-  managedFields:
-  - apiVersion: network.openshift.io/v1
-    fieldsType: FieldsV1
-    fieldsV1:
-      f:netid: {}
-      f:netname: {}
-    manager: Go-http-client
-    operation: Update
-    time: 2024-12-09T15:48:25Z
-  - apiVersion: network.openshift.io/v1
-    fieldsType: FieldsV1
-    fieldsV1:
-      f:egressIPs: {}
-      f:metadata:
-        f:labels:
-          .: {}
-          f:projeto: {}
-    manager: oc
-    operation: Update
-    time: 2024-12-09T15:49:22Z
-  name: sipgc-des
-  resourceVersion: "796472204"
-  uid: 62508c1e-11da-4220-b9be-54882f80dba5
-netid: 3987458
-netname: sipgc-des
--sh-4.2$
+Porem ao tentar fazer esta chamada do front para o back-end esta dando 504, mas direto pelo browser funciona. Acredito que o problema seja porque o pod chama https://login.microsoftonline.com para validar o token
+Informar formas de contato:*:	F540797 - Teams
+F556565 - TeamsCriação solicitada por:REQ000095661629 Qual o tipo de serviço?: Ajustar ambiente ou parametrização de software
