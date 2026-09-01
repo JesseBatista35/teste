@@ -2,3 +2,13 @@
 
 
 não aceitram
+
+
+é por aqui então?
+
+
+
+
+
+<img width="1393" height="922" alt="image" src="https://github.com/user-attachments/assets/9128f973-24e5-4f6d-9bcd-67083ccc7f99" />
+
