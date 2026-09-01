@@ -1,17 +1,49 @@
-Pessoal, atualização sobre o 504 do SIPGC:
-
-A solicitação de regra de firewall que tínhamos aberto foi cancelada, pois o sistema não permite regra direta de firewall partindo de ambiente Não Produção (DES) para Internet (regra de negócio ID 43365) — esse tipo de acesso precisa obrigatoriamente passar pelo PROXYDES.
-
-Então abri uma nova solicitação, agora do tipo Proxy, liberando o domínio login.microsoftonline.com (necessário para a validação de token Azure AD do sipgc-api-agrupamento-des).
-
-Protocolo: REQ000145689716
-Aguardando aprovação do gestor. Assim que for liberada, revalidamos a chamada do front → API.
 
 
-Atualização do diagnóstico: o erro 504 é causado pela ausência de acesso do ambiente OKD DES a login.microsoftonline.com, necessário para a validação de token Azure AD da aplicação SIPGC (sipgc-api-agrupamento-des).
+Qual o tipo de serviço?*:	Ajustar ambiente ou parametrização de software
+Informar o Ambiente:*:	DES
+Nome do serviço ou sistema:*:	SIPGC NPRD
+Janela de atendimento:*:	01/09/2026 00:00:00
+Prazo final da janela de atendimento:*:	01/09/2026 00:00:00
+Haverá previsão de indisponibilidade durante a execução do serviço:*:	Não
+Contato do responsável pela validação do ambiente após alteração:*:	F540797 - Teams
+F556565 - Teams
+Descrição da solicitação:*:	Temos um ambiente no Premise da nuvem caixa na url:
+https://sipgc-front-des.apps.nprd.caixa/gestao/papel
+que chama um microserviço no OKD na url:
+https://sipgc-api-papel-des.apps.nprd.caixa/api/v1/papeis?pagina=1&tamanhoPagina=100
 
-A solicitação de regra de firewall aberta inicialmente foi cancelada, pois o sistema não autoriza regra direta de firewall de ambiente Não Produção (DES) para Internet (bloqueio pela regra de negócio ID 43365) — esse tipo de fluxo precisa ser feito via PROXYDES.
+Porem ao tentar fazer esta chamada do front para o back-end esta dando 504, mas direto pelo browser funciona. Acredito que o problema seja porque o pod chama https://login.microsoftonline.com para validar o token
+Informar formas de contato:*:	F540797 - Teams
+F556565 - Teams
 
-Em substituição, foi aberta solicitação de liberação de proxy: REQ000145689716 (ARNOTE 150370).
 
-Favor acompanhar essa nova REQ para aprovação e aplicação da liberação. Este chamado pode ser encerrado/vinculado à REQ000145689716 como acompanhamento.
+
+
+Qual o tipo de serviço?*:	Ajustar ambiente ou parametrização de software
+Informar o Ambiente:*:	DES
+Nome do serviço ou sistema:*:	SIPGC NPRD
+Janela de atendimento:*:	01/09/2026 00:00:00
+Prazo final da janela de atendimento:*:	01/09/2026 00:00:00
+Haverá previsão de indisponibilidade durante a execução do serviço:*:	Não
+Contato do responsável pela validação do ambiente após alteração:*:	F540797 - Teams
+F556565 - Teams
+Descrição da solicitação:*:	Temos um ambiente no Premise da nuvem caixa na url:
+https://sipgc-front-des.apps.nprd.caixa/gestao/membro
+que chama um microserviço no OKD na url:
+https://sipgc-api-membros-des.apps.nprd.caixa/api/v1/membros/Filtrar?pagina=1&tamanhoPagina=10
+
+Porem ao tentar fazer esta chamada do front para o back-end esta dando 504, mas direto pelo browser funciona. Acredito que o problema seja porque o pod chama https://login.microsoftonline.com para validar o token
+Informar formas de contato:*:	F540797 - Teams
+F556565 - Teams
+
+
+eu falei isso na sala teasm
+WO0000081544393
+WO0000081544560
+Wladimir Vieira de Souza essas duas REQs, abertas pelo Pablo Messias Rodrigues dos Santos tem a mesma solicitação, da  WO0000081532778. 
+
+
+
+ele disse isso agora:
+Eu tentei indicar pelas rotas que se tratavam de serviços diferentes.  No caso, só essa solicitação do tipo proxy vai ser o suficiente para os outros serviços também ou apenas para sipgc-api-agrupamento-des.?
