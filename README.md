@@ -1,14 +1,6 @@
-<img width="1791" height="895" alt="image" src="https://github.com/user-attachments/assets/3d53eea0-a5ed-4940-9f87-c5b7cfc35fe2" />
+
+<img width="897" height="725" alt="image" src="https://github.com/user-attachments/assets/cffa33da-f28c-4b94-a155-20093c8d07c4" />
 
 
-não aceitram
-
-
-é por aqui então?
-
-
-
-
-
-<img width="1393" height="922" alt="image" src="https://github.com/user-attachments/assets/9128f973-24e5-4f6d-9bcd-67083ccc7f99" />
+PRONTO ME AJUDA A EXPLIVAR ISSO EM SALA TEAAMS E TAMBEM PO TEXTO PARA FECHAR AS W.O SOLICITANDO QUE ACOMPANHE AGORA A REQ: REQ000145689716
 
