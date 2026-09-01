@@ -1,6 +1,1 @@
-Temos um ambiente no Premise da nuvem caixa na url:
-https://sipgc-front-des.apps.nprd.caixa/gestao/tipo-agrupamento
-que chama um microserviço no OKD na url:
-https://sipgc-api-agrupamento-des.apps.nprd.caixa/api/v1/TipoAgrupamentos?pagina=1&TamanhoPagina=1000
-
-Porem ao tentar fazer esta chamada do front para o back-end esta dando 504, mas direto pelo browser funciona. Acredito que o problema seja porque o pod chama https://login.microsoftonline.com para validar o token
+Solicito liberação de egress do IP 10.116.222.85 (EgressIP do namespace sipgc-des, OKD DES) para login.microsoftonline.com, porta 443/TCP. A aplicação SIPGC (sipgc-api-agrupamento-des) precisa desse acesso para validar tokens de autenticação Azure AD, e a falta de liberação está causando erro 504 na chamada do front para a API. Referência: REQ000095661629.
