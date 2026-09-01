@@ -1,24 +1,41 @@
-no pod
-curl: (7) Failed to connect to 2603:1056:2000:30::1: A rede está fora de alcance
--sh-4.2$ curls -m 5 https://ifconfig.me
--sh: curls: comando não encontrado
--sh-4.2$ curl -m 5 https://ifconfig.me
-curl: (7) Failed to connect to 2600:1901:0:b2bd::: A rede está fora de alcance
--sh-4.2$ curl -m 5 https://api.ipify.org
-curl: (7) Failed connect to api.ipify.org:443; Operação agora em progresso
+
 -sh-4.2$
-
-
-
-
-no cmd
-
-Microsoft Windows [versão 10.0.26200.9106]
-(c) Microsoft Corporation. Todos os direitos reservados.
-
-C:\Users\p585600>curl -m 5 https://inconfig.me
-curl: (6) Could not resolve host: inconfig.me
-
-C:\Users\p585600>curl -m 5 https://api.ipify.org
-45.176.161.71
-C:\Users\p585600>
+-sh-4.2$
+-sh-4.2$ oc get egressip
+error: the server doesn't have a resource type "egressip"
+-sh-4.2$ oc get netnamespace sipgc-des -o yaml
+apiVersion: network.openshift.io/v1
+egressIPs:
+- 10.116.222.85
+kind: NetNamespace
+metadata:
+  creationTimestamp: 2024-12-09T15:48:25Z
+  generation: 2
+  labels:
+    projeto: sipgc-des
+  managedFields:
+  - apiVersion: network.openshift.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:netid: {}
+      f:netname: {}
+    manager: Go-http-client
+    operation: Update
+    time: 2024-12-09T15:48:25Z
+  - apiVersion: network.openshift.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:egressIPs: {}
+      f:metadata:
+        f:labels:
+          .: {}
+          f:projeto: {}
+    manager: oc
+    operation: Update
+    time: 2024-12-09T15:49:22Z
+  name: sipgc-des
+  resourceVersion: "796472204"
+  uid: 62508c1e-11da-4220-b9be-54882f80dba5
+netid: 3987458
+netname: sipgc-des
+-sh-4.2$
