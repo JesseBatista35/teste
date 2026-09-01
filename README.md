@@ -1,7 +1,7 @@
-Olá [nome do gestor],
+<img width="890" height="504" alt="image" src="https://github.com/user-attachments/assets/28fc5709-adf1-497d-b46b-39a9ebc569e7" />
 
-Abri uma solicitação de regra de firewall (ID [preencher o ID]) para liberar o egress do namespace sipgc-des (OKD DES) para login.microsoftonline.com:443, necessária para a autenticação Azure AD da aplicação SIPGC (sipgc-api-agrupamento-des). Sem essa liberação, a chamada do front para a API está retornando erro 504.
 
-Referência: REQ000095661629.
+<img width="1842" height="73" alt="image" src="https://github.com/user-attachments/assets/0fe78db0-5217-4949-b40a-551d707999f6" />
 
-Pode aprovar a solicitação para seguirmos com a abertura da CRQ? Assim que a CRQ for gerada, atualizo o chamado e encaminho para execução.****
+
+Agora na chamada do GET pelo frontend está vindo múltiplos valores
