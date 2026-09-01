@@ -1,1 +1,7 @@
-Necessário para autenticação Azure AD/Entra ID da aplicação SIPGC (sipgc-api-agrupamento-des). O fluxo de validação de token exige acesso direto a login.microsoftonline.com:443, não havendo alternativa interna. Sem essa liberação, ocorre timeout e erro 504. Ref: REQ000095661629.
+Olá [nome do gestor],
+
+Abri uma solicitação de regra de firewall (ID [preencher o ID]) para liberar o egress do namespace sipgc-des (OKD DES) para login.microsoftonline.com:443, necessária para a autenticação Azure AD da aplicação SIPGC (sipgc-api-agrupamento-des). Sem essa liberação, a chamada do front para a API está retornando erro 504.
+
+Referência: REQ000095661629.
+
+Pode aprovar a solicitação para seguirmos com a abertura da CRQ? Assim que a CRQ for gerada, atualizo o chamado e encaminho para execução.****
