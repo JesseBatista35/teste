@@ -1,25 +1,108 @@
-#!/bin/bash
-set -o errexit
-set -o pipefail
+entao nao da pra sair editando o srip. tratse de uma task group que nao temos permissão para mecher pois vairas aplicaçoes usam ela
 
-shopt -s extglob
-echo "Nova APP: $(is_new_app)"
 
-CONTAINER_PRINCIPAL=$(resource_app)  # nome do container principal da aplicação
+Skip to main content
+Azure DevOps
+projetos
+/
+Caixa
+/
+Pipelines
+/
+Releases
+/
+SISPI-med-orquestrador
+Search
 
-for UNSET_VAR in $(oc set env $(KIND_DEPLOY) "$(resource_app)" -n $(PROJETO)-$(AMBIENTE) --list -c "$CONTAINER_PRINCIPAL" | egrep -wv '^#|TZ|INSTANCE_IP' | cut -f1 -d"=")
-do 
-oc set env $(KIND_DEPLOY) "$(resource_app)" -n $(PROJETO)-$(AMBIENTE) -c "$CONTAINER_PRINCIPAL" $UNSET_VAR- 
-done
 
-for UNSET_SECRET in $(oc set env $(KIND_DEPLOY) "$(resource_app)" -n $(PROJETO)-$(AMBIENTE) --list -c "$CONTAINER_PRINCIPAL" | grep 'from secret' | awk '{print $2}')
-do
-  if [ -n $UNSET_SECRET ]
-  then
-    oc set env $(KIND_DEPLOY) "$(resource_app)" -n $(PROJETO)-$(AMBIENTE) -c "$CONTAINER_PRINCIPAL" $UNSET_SECRET- 
-  fi
-done
+Caixa
 
-if [[ -n '$(Enviroment)' ]]; then 
-   oc set env $(Enviroment) $(KIND_DEPLOY) "$(resource_app)" -c "$CONTAINER_PRINCIPAL" --overwrite=true -n $(PROJETO)-$(AMBIENTE)
-fi
+Overview
+
+Boards
+
+Repos
+
+Pipelines
+Pipelines
+Environments
+Releases
+Library
+Task groups
+Deployment groups
+Portal Infra
+
+Test Plans
+
+Artifacts
+Project settings
+All pipelines
+
+SISPI
+
+SISPI-med-orquestrador
+Cria_APP_OKD_ATUALIZA_VARIAVEIS
+Task version
+13.*
+Display name
+Cria_APP_OKD
+AMBIENTE
+$(AMBIENTE)
+CGC_UNIDADE_DES
+$(CGC_UNIDADE_DES)
+CGC_UNIDADE_OPS
+$(CGC_UNIDADE_OPS)
+Enviroment
+$(Enviroment)
+is_new_app
+$(is_new_app)
+ISTIO_INJECTION
+$(ISTIO_INJECTION)
+KIND_DEPLOY
+$(KIND_DEPLOY)
+OCP_LOTERIAS_URL_SUFFIX_PRD
+$(OCP_LOTERIAS_URL_SUFFIX_PRD)
+OCP_URL_SUFFIX
+$(OCP_URL_SUFFIX)
+OCP_URL_SUFFIX_PRD
+$(OCP_URL_SUFFIX_PRD)
+OKD_REGISTRY
+$(OKD_REGISTRY)
+OKD_TOKEN_REGISTRY
+$(OKD_TOKEN_REGISTRY)
+OKD_URL_SUFFIX
+$(OKD_URL_SUFFIX)
+OKD_URL_SUFFIX_APL
+$(OKD_URL_SUFFIX_APL)
+OKD_USER_SERVICE_REGISTRY
+$(OKD_USER_SERVICE_REGISTRY)
+OPENSHIFT_LOTERIAS_URL_SUFFIX_NPRD
+$(OPENSHIFT_LOTERIAS_URL_SUFFIX_NPRD)
+OPENSHIFT_LOTERIAS_URL_SUFFIX_PRD
+$(OPENSHIFT_LOTERIAS_URL_SUFFIX_PRD)
+PASSWORD_CGC
+$(PASSWORD_CGC)
+PORTALIF
+$(PORTALIF)
+PROJETO
+$(PROJETO)
+REPOSITORIO
+$(REPOSITORIO)
+resource_app
+$(resource_app)
+SITE
+$(SITE)
+TemplateRelease_OKD
+$(TemplateRelease_OKD)
+URL_CUSTOMIZADA
+$(URL_CUSTOMIZADA)
+USER_CGC
+$(USER_CGC)
+Control Options
+Output Variables
+Row 2
+
+Row 2
+
+
+
