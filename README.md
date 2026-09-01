@@ -1,1 +1,9 @@
-Solicito liberação de egress do IP 10.116.222.85 (EgressIP do namespace sipgc-des, OKD DES) para login.microsoftonline.com, porta 443/TCP. A aplicação SIPGC (sipgc-api-agrupamento-des) precisa desse acesso para validar tokens de autenticação Azure AD, e a falta de liberação está causando erro 504 na chamada do front para a API. Referência: REQ000095661629.
+Tipo	Hostname	IP	Máscara	Protocolo	Porta
+IP	login.microsoftonline.com	20.190.173.65	32	TCP	443
+IP	login.microsoftonline.com	20.190.173.66	32	TCP	443
+IP	login.microsoftonline.com	20.190.173.72	32	TCP	443
+IP	login.microsoftonline.com	20.190.173.2	32	TCP	443
+IP	login.microsoftonline.com	20.190.173.129	32	TCP	443
+IP	login.microsoftonline.com	20.190.173.130	32	TCP	443
+IP	login.microsoftonline.com	20.190.173.70	32	TCP	443
+IP	login.microsoftonline.com	40.126.45.17	32	TCP	443
