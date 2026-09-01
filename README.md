@@ -1,32 +1,11 @@
+Solicitação atendida.
 
-[root@sspdeaprlx0027 siavl05]#
-[root@sspdeaprlx0027 siavl05]# ps aux | grep "siavl-httpd" | grep -v inter | grep -v siavl0
-root     16412  0.0  0.0 103324   868 pts/2    S+   11:45   0:00 grep siavl-httpd
-[root@sspdeaprlx0027 siavl05]#
-[root@sspdeaprlx0027 siavl05]#
-[root@sspdeaprlx0027 siavl05]# /opt/apache/jbcs-httpd24-2.4/httpd/sbin/httpd -f /opt/apache/jbcs-httpd24-2.4/httpd/conf/siavl-httpd.conf -k start
-[Tue Sep 01 11:46:03.055600 2026] [so:warn] [pid 16457:tid 139923052947200] AH01574: module remoteip_module is already loaded, skipping
-[root@sspdeaprlx0027 siavl05]#
-[root@sspdeaprlx0027 siavl05]#
-[root@sspdeaprlx0027 siavl05]#
-[root@sspdeaprlx0027 siavl05]# ps aux | grep "siavl-httpd" | grep -v inter | grep -v siavl0
-root     16459  0.0  0.1 271116  6228 ?        Ss   11:46   0:00 /opt/apache/jbcs-httpd24-2.4/httpd/sbin/httpd -f /opt/apache/jbcs-httpd24-2.4/httpd/conf/siavl-httpd.conf -k start
-apache   16464  0.0  0.1 282588  4476 ?        S    11:46   0:00 /opt/apache/jbcs-httpd24-2.4/httpd/sbin/httpd -f /opt/apache/jbcs-httpd24-2.4/httpd/conf/siavl-httpd.conf -k start
-apache   16465  0.0  0.1 867304  5308 ?        Sl   11:46   0:00 /opt/apache/jbcs-httpd24-2.4/httpd/sbin/httpd -f /opt/apache/jbcs-httpd24-2.4/httpd/conf/siavl-httpd.conf -k start
-apache   16466  0.0  0.1 637864  5080 ?        Sl   11:46   0:00 /opt/apache/jbcs-httpd24-2.4/httpd/sbin/httpd -f /opt/apache/jbcs-httpd24-2.4/httpd/conf/siavl-httpd.conf -k start
-root     16576  0.0  0.0 103324   876 pts/2    S+   11:46   0:00 grep siavl-httpd
-[root@sspdeaprlx0027 siavl05]#
-[root@sspdeaprlx0027 siavl05]#
-[root@sspdeaprlx0027 siavl05]# curl -ik -X GET "https://agenciadigital.des.caixa:8002/siavl-web/rs/sec/galeriaImagem/buscaArquivoPorIdMsg/9756" -H "Origin: https://plataforma-des.caixa" | grep -i "access-control-allow-origin"
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-  0    80    0    80    0     0   1514      0 --:--:-- --:--:-- --:--:-- 20000
-Access-Control-Allow-Origin: *
-[root@sspdeaprlx0027 siavl05]#
-[root@sspdeaprlx0027 siavl05]#
-[root@sspdeaprlx0027 siavl05]#
-[root@sspdeaprlx0027 siavl05]# ps aux | grep httpd | grep "\-k start" | awk '{print $NF, $(NF-6)}' | sort -u
-start 11:43
-start 11:46
-start /opt/apache/jbcs-httpd24-2.4/httpd/sbin/httpd
-[root@sspdeaprlx0027 siavl05]#
+Identificado que o header Access-Control-Allow-Origin estava retornando com múltiplos valores na resposta (originados tanto do Apache quanto do backend), o que violava a especificação CORS e causava bloqueio da chamada pelo navegador (erro "contains multiple values... but only one is allowed").
+
+Correção aplicada nos 5 arquivos de configuração Apache de intranet DES (siavl.conf, siavl02.conf, siavl03.conf, siavl04.conf, siavl05.conf): incluídas diretivas Header unset e Header always unset para Access-Control-Allow-Origin, Access-Control-Allow-Methods e Access-Control-Allow-Headers, antes das diretivas Header always set, garantindo que apenas um valor de cada header seja retornado na resposta, conforme checklist.
+
+Testado com a chamada real da aplicação (GET .../galeriaImagem/buscaArquivoPorIdMsg) nos 5 sites (agenciadigital, agenciadigital2, agenciadigital3, agenciadigital4, agenciadigital5), confirmando retorno de um único valor de Access-Control-Allow-Origin em todos.
+
+Durante a aplicação, os processos Apache dos sites principal e agenciadigital4 ficaram brevemente indisponíveis (poucos minutos) devido a um processo residual de uma operação anterior; ambos foram identificados e restabelecidos, com configuração validada em seguida.
+
+Backup dos arquivos originais realizado antes de cada alteração.
