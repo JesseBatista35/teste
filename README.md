@@ -1,5 +1,23 @@
-<img width="1805" height="974" alt="image" src="https://github.com/user-attachments/assets/dfcfe945-6691-45a2-967e-686b8e39b5ac" />
+2026-08-28T12:40:36.9542758Z ##[section]Starting: Resumo da Release
+2026-08-28T12:40:36.9546446Z ==============================================================================
+2026-08-28T12:40:36.9546535Z Task         : Bash
+2026-08-28T12:40:36.9546579Z Description  : Run a Bash script on macOS, Linux, or Windows
+2026-08-28T12:40:36.9546638Z Version      : 3.227.0
+2026-08-28T12:40:36.9546689Z Author       : Microsoft Corporation
+2026-08-28T12:40:36.9546736Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/bash
+2026-08-28T12:40:36.9546804Z ==============================================================================
+2026-08-28T12:40:37.7772287Z Generating script.
+2026-08-28T12:40:37.7783231Z ========================== Starting Command Output ===========================
+2026-08-28T12:40:37.7790488Z [command]/bin/bash /opt/ads-agent/_work/_temp/3bd9089c-17d0-4f5b-b95c-b27c60a4ec1b.sh
+2026-08-28T12:40:37.7840971Z URL do Projeto no OKD: api.nprd.caixa:6443/console/project/simil-des/overview
+2026-08-28T12:40:37.7845163Z /opt/ads-agent/_work/_temp/3bd9089c-17d0-4f5b-b95c-b27c60a4ec1b.sh: line 82: ISTIO_INJECTION: comando não encontrado
+2026-08-28T12:40:37.7850320Z /opt/ads-agent/_work/_temp/3bd9089c-17d0-4f5b-b95c-b27c60a4ec1b.sh: line 92: CONTEXTO_JBOSS: comando não encontrado
+2026-08-28T12:40:38.0264129Z APP Publicada na URL: https://simil-precificacao-intranet-api-des.apps.nprd.caixa
+2026-08-28T12:40:38.0363457Z ##[section]Finishing: Resumo da Release
 
+
+
+mais tem que corrgir porque o resumo da relaise tem que apontar para o link correto
 
 Skip to main content
 Azure DevOps
@@ -178,8 +196,6 @@ Collapsed
 
 Row 16. Clickable
 
-Select a release pipeline to view its releases
-
 2 pipelines found
 
 Row 3
@@ -201,6 +217,10 @@ Select a release pipeline to view its releases
 8 pipelines found
 
 Row 7
+
+Showing filters 1 through 2
+
+Row 2
 
 Showing filters 1 through 2
 
