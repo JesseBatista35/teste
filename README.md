@@ -1,268 +1,142 @@
-kind: DeploymentConfig
-apiVersion: apps.openshift.io/v1
-metadata:
-  annotations:
-    description: Defines how to deploy the application server
-    openshift.io/generated-by: OpenShiftNewApp
-  resourceVersion: '2105590287'
-  name: sipgc-api-agrupamento-tqs
-  uid: 2d4b9e34-e586-4813-a489-9aa6357653df
-  creationTimestamp: '2025-02-13T13:27:08Z'
-  generation: 222
-  managedFields:
-    - manager: Mozilla
-      operation: Update
-      apiVersion: apps.openshift.io/v1
-      time: '2026-06-02T17:52:44Z'
-      fieldsType: FieldsV1
-      fieldsV1:
-        'f:spec':
-          'f:template':
-            'f:spec':
-              'f:containers':
-                'k:{"name":"sipgc-api-agrupamento-tqs"}':
-                  'f:resources':
-                    'f:limits':
-                      'f:cpu': {}
-                    'f:requests':
-                      'f:memory': {}
-    - manager: oc
-      operation: Update
-      apiVersion: apps.openshift.io/v1
-      time: '2026-07-28T03:44:54Z'
-      fieldsType: FieldsV1
-      fieldsV1:
-        'f:metadata':
-          'f:annotations':
-            .: {}
-            'f:description': {}
-            'f:openshift.io/generated-by': {}
-          'f:labels':
-            .: {}
-            'f:CGC_DES': {}
-            'f:CGC_OPS': {}
-            'f:UNIDADE': {}
-            'f:app': {}
-            'f:application': {}
-            'f:template': {}
-        'f:spec':
-          'f:replicas': {}
-          'f:revisionHistoryLimit': {}
-          'f:selector':
-            .: {}
-            'f:name': {}
-          'f:strategy':
-            'f:activeDeadlineSeconds': {}
-            'f:rollingParams':
-              .: {}
-              'f:intervalSeconds': {}
-              'f:maxSurge': {}
-              'f:maxUnavailable': {}
-              'f:timeoutSeconds': {}
-              'f:updatePeriodSeconds': {}
-            'f:type': {}
-          'f:template':
-            .: {}
-            'f:metadata':
-              .: {}
-              'f:annotations':
-                .: {}
-                'f:openshift.io/generated-by': {}
-              'f:creationTimestamp': {}
-              'f:labels':
-                .: {}
-                'f:CGC_DES': {}
-                'f:CGC_OPS': {}
-                'f:app': {}
-                'f:name': {}
-              'f:name': {}
-            'f:spec':
-              .: {}
-              'f:containers':
-                .: {}
-                'k:{"name":"sipgc-api-agrupamento-tqs"}':
-                  'f:image': {}
-                  'f:terminationMessagePolicy': {}
-                  .: {}
-                  'f:resources':
-                    .: {}
-                    'f:limits':
-                      .: {}
-                      'f:memory': {}
-                    'f:requests':
-                      .: {}
-                      'f:cpu': {}
-                  'f:env':
-                    .: {}
-                    'k:{"name":"BD_SERVER"}':
-                      .: {}
-                      'f:name': {}
-                      'f:value': {}
-                    'k:{"name":"DB_DATABASE"}':
-                      .: {}
-                      'f:name': {}
-                      'f:value': {}
-                    'k:{"name":"DB_PASSWORD_001"}':
-                      .: {}
-                      'f:name': {}
-                      'f:valueFrom':
-                        .: {}
-                        'f:secretKeyRef': {}
-                    'k:{"name":"DB_USER_001"}':
-                      .: {}
-                      'f:name': {}
-                      'f:value': {}
-                    'k:{"name":"TZ"}':
-                      .: {}
-                      'f:name': {}
-                      'f:value': {}
-                  'f:terminationMessagePath': {}
-                  'f:imagePullPolicy': {}
-                  'f:ports':
-                    .: {}
-                    'k:{"containerPort":8080,"protocol":"TCP"}':
-                      .: {}
-                      'f:containerPort': {}
-                      'f:protocol': {}
-                  'f:name': {}
-              'f:dnsPolicy': {}
-              'f:imagePullSecrets':
-                .: {}
-                'k:{"name":"registry-secret"}': {}
-              'f:restartPolicy': {}
-              'f:schedulerName': {}
-              'f:securityContext': {}
-              'f:terminationGracePeriodSeconds': {}
-          'f:triggers': {}
-    - manager: openshift-controller-manager
-      operation: Update
-      apiVersion: apps.openshift.io/v1
-      time: '2026-07-28T03:45:30Z'
-      fieldsType: FieldsV1
-      fieldsV1:
-        'f:status':
-          'f:availableReplicas': {}
-          'f:conditions':
-            .: {}
-            'k:{"type":"Available"}':
-              .: {}
-              'f:lastTransitionTime': {}
-              'f:lastUpdateTime': {}
-              'f:message': {}
-              'f:status': {}
-              'f:type': {}
-            'k:{"type":"Progressing"}':
-              .: {}
-              'f:lastTransitionTime': {}
-              'f:lastUpdateTime': {}
-              'f:message': {}
-              'f:reason': {}
-              'f:status': {}
-              'f:type': {}
-          'f:observedGeneration': {}
-          'f:readyReplicas': {}
-          'f:replicas': {}
-          'f:unavailableReplicas': {}
-          'f:updatedReplicas': {}
-      subresource: status
-  namespace: sipgc-tqs
-  labels:
-    CGC_DES: '7390'
-    CGC_OPS: '7259'
-    UNIDADE: BR
-    app: sipgc-api-agrupamento-tqs
-    application: sipgc-api-agrupamento-tqs
-    template: dotnetcore-caixa-release
-spec:
-  strategy:
-    type: Rolling
-    rollingParams:
-      updatePeriodSeconds: 1
-      intervalSeconds: 1
-      timeoutSeconds: 600
-      maxUnavailable: 25%
-      maxSurge: 25%
-    resources: {}
-    activeDeadlineSeconds: 21600
-  triggers: []
-  replicas: 1
-  revisionHistoryLimit: 1
-  test: false
-  selector:
-    name: sipgc-api-agrupamento-tqs
-  template:
-    metadata:
-      name: sipgc-api-agrupamento-tqs
-      creationTimestamp: null
-      labels:
-        CGC_DES: '7390'
-        CGC_OPS: '7259'
-        app: sipgc-api-agrupamento-tqs
-        name: sipgc-api-agrupamento-tqs
-      annotations:
-        openshift.io/generated-by: OpenShiftNewApp
-    spec:
-      containers:
-        - name: sipgc-api-agrupamento-tqs
-          image: >-
-            default-route-openshift-image-registry.apps.produtos4.caixa/build-images-ads/sipgc-api-agrupamento:1.3.0.9
-          ports:
-            - containerPort: 8080
-              protocol: TCP
-          env:
-            - name: TZ
-              value: America/Sao_Paulo
-            - name: BD_SERVER
-              value: '10.116.29.228,1433'
-            - name: DB_DATABASE
-              value: PGCDB001
-            - name: DB_USER_001
-              value: SPGCTR01
-            - name: DB_PASSWORD_001
-              valueFrom:
-                secretKeyRef:
-                  name: sipgc-api-agrupamento-tqs
-                  key: DB_PASSWORD_001
-          resources:
-            limits:
-              cpu: '2'
-              memory: 2Gi
-            requests:
-              cpu: '1'
-              memory: 2Gi
-          terminationMessagePath: /dev/termination-log
-          terminationMessagePolicy: File
-          imagePullPolicy: Always
-      restartPolicy: Always
-      terminationGracePeriodSeconds: 30
-      dnsPolicy: ClusterFirst
-      securityContext: {}
-      imagePullSecrets:
-        - name: registry-secret
-      schedulerName: default-scheduler
-status:
-  observedGeneration: 222
-  details:
-    message: manual change
-    causes:
-      - type: Manual
-  availableReplicas: 1
-  unavailableReplicas: 0
-  latestVersion: 39
-  updatedReplicas: 1
-  conditions:
-    - type: Available
-      status: 'True'
-      lastUpdateTime: '2026-03-21T03:30:33Z'
-      lastTransitionTime: '2026-03-21T03:30:33Z'
-      message: Deployment config has minimum availability.
-    - type: Progressing
-      status: 'True'
-      lastUpdateTime: '2026-07-28T03:45:30Z'
-      lastTransitionTime: '2026-07-28T03:45:26Z'
-      reason: NewReplicationControllerAvailable
-      message: >-
-        replication controller "sipgc-api-agrupamento-tqs-39" successfully
-        rolled out
-  replicas: 1
-  readyReplicas: 1
+Skip to main content
+Azure DevOps
+projetos
+/
+Caixa
+/
+Pipelines
+/
+Releases
+/
+SIPGC-api-agrupamento
+Search
+
+
+Caixa
+
+Overview
+
+Boards
+
+Repos
+
+Pipelines
+Pipelines
+Environments
+Releases
+Library
+Task groups
+Deployment groups
+Portal Infra
+
+Test Plans
+
+Artifacts
+Project settings
+All pipelines
+
+sipgc
+
+SIPGC-api-agrupamento
+Predefined variables
+SonarQube Variables (1)
+Variáveis com dados do SonarQube
+Scopes: Release
+Usuario-Azure-DevOps (12)
+Scopes: Release
+EGRESS_IP_OKD (81)
+WO0000072264656 - Config Portal Infrafácil NO_PROXY
+Scopes: Release
+MONITORACAO_LOGS (4)
+REQ000143540550 - Conforme autorizado na req por FLAVIO ALMEIDA GAGLIARDI, removido as variáveis JAVA_OPTS_MONITORING e URL_APM_SERVER, por entrar em conflitos com releases que utilizam o Application Insights
+Scopes: Release
+OKD-REGISTRY-CENTRALIZADO (7)
+Credenciais para o Registry Centralizado - Produtos 4 (OKD)
+Scopes: Release
+OKD-4-NPRD (12)
+Credenciais para o Cluster OKD4 de NPRD (DES/TQS/HMP)
+Scopes: Release
+OKD-4-APL (12)
+Scopes: Release
+SIPGC-API-AGRUPAMENTO-DES (16)
+Grupo de variáveis de SIPGC-API-AGRUPAMENTO-DES
+
+Scopes: EC DES
+AzureAd__Audience
+api://ef9bda30-3695-462e-911b-5252dcf3b2de
+AzureAd__ClientId
+ef9bda30-3695-462e-911b-5252dcf3b2de
+AzureAd__Instance
+https://login.microsoftonline.com/
+AzureAd__TenantId
+23bc12fb-512d-4bc8-9d29-a2da7eb6d281
+COMPlus_EnableDiagnostics
+0
+DB_SCHEMA
+PGC
+KEY_SQLSERVER
+********
+_ENV.ASPNETCORE_ENVIRONMENT
+des
+_ENV.BD_SERVER
+10.116.92.247,1433
+_ENV.BEYONDTRUST_LOGGING_ENABLED
+true
+_ENV.DB_DATABASE
+PGCDB001
+_ENV.DB_PASSWORD_001
+'${spgcdr01_sqlserver}'
+_ENV.DB_USER_001
+SPGCDR01
+_ENV.URL_FRONT
+https://sipgc-front-des.apps.nprd.caixa
+_ENV.VAULT_LOCATION
+/usr/src/app/secrets_files/SIPGC_DES/
+_SECRET.DB_PASSWORD_0010
+#{KEY_SQLSERVER}#
+SIPGC-API-DES (16)
+Grupo de variáveis de SIPGC-API-SEGURANCA-DES WO0000081444985 - Alteração do nome da library
+Scopes: EC DES
+SIPGC-API-BT-VAULT-DES (1)
+WO0000081000538 - Criação da library WO0000081208166 - Alteração do nome da Library
+Scopes: EC DES
+SIPGC-BT-VAULT-SECRET-DES (2)
+WO0000081000538 - Criação de library
+Scopes: EC DES
+SIPGC-API-AGRUPAMENTO-TQS (7)
+Grupo de variáveis de SIPGC-API-AGRUPAMENTO-TQS
+Scopes: EC TQS
+DB_SCHEMA
+PGC
+INIT
+Criado via api
+KEY_SQLSERVER
+********
+_ENV.BD_SERVER
+10.116.29.228,1433
+_ENV.DB_DATABASE
+PGCDB001
+_ENV.DB_USER_001
+SPGCTR01
+_SECRET.DB_PASSWORD_001
+#{KEY_SQLSERVER}#
+SIPGC-API-AGRUPAMENTO-HMP (1)
+Grupo de variáveis de SIPGC-API-AGRUPAMENTO-HMP
+Scopes: EC HMP
+SIPGC-API-AGRUPAMENTO-PRD (6)
+Grupo de variáveis de SIPGC-API-AGRUPAMENTO-PRD
+Scopes: EC PRD
+|Manage variable groups
+6 pipelines found
+
+Select a release pipeline to view its releases
+
+6 pipelines found
+
+Select a release pipeline to view its releases
+
+1 pipelines found
+
+Row 2
+
+Showing filters 1 through 2
