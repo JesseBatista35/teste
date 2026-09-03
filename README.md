@@ -4,4 +4,4 @@ env:
   - name: HTTPS_PROXY
     value: "http://proxydes.caixa:80"
   - name: NO_PROXY
-    value: "<hosts internos que não devem passar pelo proxy>"
+    value: "<domínios internos que não devem passar pelo proxy>"
