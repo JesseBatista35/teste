@@ -1,8 +1,5 @@
-_ENV.HTTP_PROXY
-http://proxydes.caixa:80
+a livia me perguntou isso
+Jesse Mouta Pereira Batista, essas variáveis serão inseridas direto na library?
+Se sim, todos os backs estão apontando agora para sipgc-api-des
 
-_ENV.HTTPS_PROXY
-http://proxydes.caixa:80
 
-_ENV.NO_PROXY
-.caixa,localhost,127.0.0.1,10.116.92.247,.svc,.svc.cluster.local,10.0.0.0/8
