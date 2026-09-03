@@ -1,42 +1,5 @@
-cp /opt/open/sso/7.3.0/standalone/configuration/standalone.xml /opt/open/sso/7.3.0/standalone/configuration/standalone.xml.bak_$(date +%Y%m%d_%H%M%S)
-
-grep -n "siset.properties.vault.keypass.rsa" /opt/open/sso/7.3.0/standalone/configuration/standalone.xml
-
-sed -i '/siset\.properties\.vault\.keypass\.rsa/d' /opt/open/sso/7.3.0/standalone/configuration/standalone.xml
-
-grep -n "siset.properties.vault.keypass.rsa" /opt/open/sso/7.3.0/standalone/configuration/standalone.xml
+su - spssodr1 -c "nohup /opt/open/sso/7.3.0/bin/standalone.sh -c standalone.xml -Djboss.server.name=siset_srjdeapllx075_inter_8080 -Djboss.as.management.blocking.timeout=1000 > /dev/null 2>&1 &"
 
 
-
-===================
-
-
-
--bash-4.2$ cp /opt/open/sso/7.3.0/standalone/configuration/standalone.xml /opt/open/sso/7.3.0/standalone/configuration/standalone.xml.bak_$(date +%Y%m%d_%H%M%S)
-cp: cannot create regular file ‘/opt/open/sso/7.3.0/standalone/configuration/standalone.xml.bak_20260903_163607’: Permission denied
--bash-4.2$
--bash-4.2$
--bash-4.2$ sudo su
-[root@srjdeapllx075 /]# cp /opt/open/sso/7.3.0/standalone/configuration/standalone.xml /opt/open/sso/7.3.0/standalone/configuration/standalone.xml.bak_$(date +%Y%m%d_%H%M%S)
-[root@srjdeapllx075 /]#
-[root@srjdeapllx075 /]#
-[root@srjdeapllx075 /]#
-[root@srjdeapllx075 /]# grep -n "siset.properties.vault.keypass.rsa" /opt/open/sso/7.3.0/standalone/configuration/standalone.xml
-56:        <property name="siset.properties.vault.keypass.rsa" value="ODjU5UBzpElfkv5vukkDeDJrNNMbA5"/>
-[root@srjdeapllx075 /]#
-[root@srjdeapllx075 /]#
-[root@srjdeapllx075 /]# sed -i '/siset\.properties\.vault\.keypass\.rsa/d' /opt/open/sso/7.3.0/standalone/configuration/standalone.xml
-[root@srjdeapllx075 /]#
-[root@srjdeapllx075 /]#
-[root@srjdeapllx075 /]# grep -n "siset.properties.vault.keypass.rsa" /opt/open/sso/7.3.0/standalone/configuration/standalone.xml
-[root@srjdeapllx075 /]#
-[root@srjdeapllx075 /]#
-[root@srjdeapllx075 /]#
-
-
-=========================
-
-sudo -u spssodr1 /opt/open/sso/7.3.0/bin/jboss-cli.sh --connect command=:shutdown
-
-sudo -u spssodr1 kill 118044
-sudo -u spssodr1 nohup /opt/open/sso/7.3.0/bin/standalone.sh -c standalone.xml -Djboss.server.name=siset_srjdeapllx075_inter_8080 -Djboss.as.management.blocking.timeout=1000 > /dev/null 2>&1 &
+ps -ef | grep jboss
+tail -f /opt/open/sso/7.3.0/standalone/log/server.log
