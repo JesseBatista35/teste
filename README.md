@@ -1,11 +1,5 @@
-Realizada a remoção da System Property siset.properties.vault.keypass.rsa do arquivo standalone.xml no servidor srjdeapllx075 (10.116.89.237), instância JBoss siset_srjdeapllx075_inter_8080, conforme solicitado.
+<img width="1901" height="954" alt="image" src="https://github.com/user-attachments/assets/daf27f9e-a996-4a2b-9717-7d6cd85b8acc" />
 
-Ações executadas:
 
-Backup do arquivo original gerado antes da alteração (standalone.xml.bak_20260903_163607).
-Property removida (linha 56) via edição direta do arquivo de configuração.
-Validado, via grep, que a property não consta mais no arquivo.
-Realizado restart do serviço JBoss (kill do processo anterior + novo start via standalone.sh).
-Confirmado que o processo subiu normalmente (novo PID ativo) e sem erros no server.log.
-
-Serviço restabelecido e operante. Solicitação concluída.
+Solicitamos acesso ao GIT (nos projetos sigsj-intra, sigsj-inter e boleto-service (no https:\\fontes.des.caixa) para o empregado abaixo:
+Gean de Magalhaes de Souza - c158890
