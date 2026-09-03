@@ -1,177 +1,70 @@
-sigex-frontend-painel-presi-infranprd/des
-/values.yaml
 
+<img width="1886" height="870" alt="image" src="https://github.com/user-attachments/assets/abb3932f-5149-4d91-ba7b-b0a21653bb22" />
 
-caixa-base-chart:
+aks-gestao-nprd
+Serviço do Kubernetes
+Pesquisar
 
-#-------#
-# IMAGE #
-#-------#
+Visão geral
+Log de atividade
+IAM (Controle de acesso)
+Marcações
+Monitor (Insights)
+Diagnosticar e resolver problemas
+Microsoft Defender para Nuvem
+Análise de custo
+Visualizador de recursos
 
-  image:
-    # variavel de imagem do tipo de aplicação
-    repository: acrcentralcaixanprd.azurecr.io/sigex/frontend-painel-presi/sigex-frontend-painel-presi
-    tag: "33635248318"
-    pullPolicy: Always
+Recursos do Kubernetes
+Namespaces
+Cargas de trabalho
+Serviços e entradas
+Políticas de rede
+Armazenamento
+Configuração
+Recursos personalizados
+Eventos
+Executar comando
+Helm (versão prévia)
 
-#-----#
-# HPA #
-#-----#
-  replicaCount: 1
+Configurações
+Pools de nós
+Atualizações
+Configuração de segurança
+Colocação em escala de aplicativos
+Rede
+Extensões + aplicativos
+Backup
+Malha de serviço – Istio
+IA/ML (versão prévia)
+Malha de Serviço Aberto
+GitOps
+Implantações automatizadas
+Políticas
+Conector de serviço
+Propriedades
+Bloqueios
 
-  autoscaling:
-    enabled: false
-    minReplicas: 1
-    maxReplicas: 3
-    targetCPUUtilizationPercentage: 85
-    targetMemoryUtilizationPercentage: 85
+Monitoramento
+Alertas
+Métrica
+Configurações de diagnóstico
+Recomendações do supervisor
+Logs
+Pastas de trabalho
+Painéis com Grafana
 
-#-----------------#
-# ROLLING UPDATE STRATEGY #
-#-----------------#
+Automação
+CLI / PS
+Tarefas
+Exportar modelo
 
-  strategy:
-    maxSurge: 25%
-    maxUnavailable: 50%
-
-
-#-----------#
-#  SERVICE  #
-#-----------#
-  
-  service:
-    type: "ClusterIP"
-    ports:
-      - name: "port"
-        protocol: TCP
-        port: 80
-        targetPort: 8080
-
-#---------#
-# INGRESS #
-#---------#
-
-  istio:
-  - name: internal
-    enabled: true
-    servers:
-      - port:
-          number: 80
-          name: http-default
-          protocol: HTTP
-        hosts:
-          - sigex-frontend-painel-presi.apl.des.private.azure
-      - port:
-          number: 443
-          name: https-custom
-          protocol: HTTPS
-        tls:
-          mode: SIMPLE
-          credentialName: akvs-gestao-controladoria-des-caixa-ssl-certificate
-        hosts:
-          - gestao.controladoria.des.caixa
-    prefix:
-      - /
-    targetPort: 80
-
-  
-#-------------#
-#  RESOURCES  #
-#-------------#
-
-  resources:
-    requests:
-      cpu: 250m
-      memory: 256Mi
-    limits:
-      cpu: 500m
-      memory: 512Mi
-
-
-#----------#
-#  PROBES  #
-#----------#
-
-  probes:
-    enabled: true  
-    useDefaults: false  
-    livenessProbe: 
-      initialDelaySeconds: 30
-      periodSeconds: 15
-      failureThreshold: 10
-      successThreshold: 1
-      httpGet:
-        path: /healthz.html     
-        port: 8080
-    readinessProbe: 
-      initialDelaySeconds: 15
-      periodSeconds: 15
-      failureThreshold: 3
-      successThreshold: 1
-      httpGet:
-        path: /healthz.html    
-        port: 8080
-
-
-#-------------#
-#  CONFIGMAP  #
-#-------------#
-
-  configMapRefs:
-    - name: cm-sigex-frontend-painel-presi
-    
-  volumes:
-    - name: volume-env-js
-      configMap:
-        name: cm-sigex-frontend-painel-presi
-
-  volumeMounts:
-    - name: volume-env-js
-      mountPath: /usr/share/nginx/html/assets/environment
-    
-#---------------#
-#  TOLERATIONS  #
-#---------------#
-
-  tolerations:
-    - key: "kubernetes.azure.com/scalesetpriority"
-      effect: "NoSchedule"
-      operator: "Equal"
-      value: "spot"
-    - key: "nuvem.caixa/nodepoolname"
-      effect: "NoSchedule"
-      operator: "Equal"
-      value: "sitegestao"
-
-
-#-------------# 
-#   SECRETS   # 
-#-------------# 
-
-  env:
-    - name: EXCEL_TOKEN
-      value: akvs-excel-budget-token-gestao-nprd-secret
-
-
-sigex-frontend-painel-presi-infranprd/des/templates
-/akvs-excel-budget-token-gestao-nprd.yaml
+Ajuda
+Integridade do recurso
+Suporte + Solução de Problemas
+Adicione ou remova favoritos pressionando Ctrl+Shift+F
 
 
 
-des/templates/akvs-excel-budget-token-gestao-nprd.yaml
 
-apiVersion: spv.no/v2beta1
-kind: AzureKeyVaultSecret
-metadata:
-  name: akvs-excel-budget-token-gestao-nprd-secret
-  labels:
-    {{- include "caixa-base-chart.labels" . | nindent 4 }}
-spec:
-  vault:
-    name: kv-gestao-nprd
-    object:
-      name: excel-budget-token-gestao-nprd
-      type: secret 
-
-
-
+alguma vez por aqui eu consegui entrar e achar o kv depois os vaults e secrets mais nao lembro mais onde que é
