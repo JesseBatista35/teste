@@ -1,4 +1,24 @@
-Lívia, confirmado — as variáveis (_ENV.HTTP_PROXY, _ENV.HTTPS_PROXY, _ENV.NO_PROXY) foram inseridas no Variable Group SIPGC-API-AGRUPAMENTO-DES, que é específico do sipgc-api-agrupamento-des, não é uma library compartilhada. Nenhum outro back foi afetado — os demais serviços continuam apontando pros seus próprios grupos, sem alteração.
+SIPGC-API-PAPEL-DES (10)
+Grupo de variáveis de SIPGC-API-PAPEL-DES
 
-Rodamos um novo Release e o Pablo já validou que a chamada externa funcionou normalmente. Configuração persistida, não depende mais de ajuste manual no OKD.
-
+Scopes: EC DES
+INIT
+Criado via api
+KEY_SQLSERVER
+********
+_ENV.ASPNETCORE_ENVIRONMENT
+des
+_ENV.BD_SERVER
+10.116.92.247,1433
+_ENV.BEYONDTRUST_LOGGING_ENABLED
+true
+_ENV.DB_DATABASE
+PGCDB001
+_ENV.DB_PASSWORD_001
+'${spgcdr01_sqlserver}'
+_ENV.DB_USER_001
+SPGCDR01
+_ENV.VAULT_LOCATION
+/usr/src/app/secrets_files/SIPGC_DES/
+_SECRET.DB_PASSWORD_0010
+#{KEY_SQLSERVER}#
