@@ -1,17 +1,7 @@
-REQ000145742862 — Ajuste de DeploymentConfig (HTTP_PROXY/HTTPS_PROXY/NO_PROXY)
+Conforme a solicitação anterior(REQ000145725459), venho mais uma vez solicitar um suporte
 
-Atendendo à solicitação do CETEL (conforme orientação da REQ000145689716), foram adicionadas as variáveis de ambiente HTTP_PROXY, HTTPS_PROXY e NO_PROXY (apontando para proxydes.caixa:80) nos DeploymentConfigs dos seguintes serviços, via inclusão nos respectivos Variable Groups do Azure DevOps e novo Release:
 
-sipgc-api-agrupamento-des — concluído
-sipgc-api-papel-des — concluído
-sipgc-api-membros-des — concluído
-sipgc-api-seguranca-des — concluído
-SIPGC-api-informacoes-des — concluído
-sipgc-api-seguranca-tqs — concluído
-sipgc-api-portfolio-des — pendente, aguardando merge da branch pelo Pablo antes de aplicar
 
-Validação: chamada externa testada via Swagger (retorno HTTP 200) após aplicação no agrupamento-des, confirmada pelo Pablo. Demais serviços seguiram o mesmo padrão sem intercorrências.
+A criação do novo pod foi bloqueada pelo OpenShift em razão do namespace ter atingido o limite máximo de memória configurado na ResourceQuota. Como não há capacidade disponível dentro da quota atualmente alocada ao projeto, peço que seja revisado a possibilidade de ampliar os limites de recursos do namespace ou redistribuir o consumo existente para permitir o provisionamento do novo pod. 
 
-Ambiente TQS: os demais serviços do TQS (além do seguranca-tqs) ficaram sob responsabilidade da própria equipe/CETEL para ajuste.
-
-Pendência remanescente: sipgc-api-portfolio-des, a ser aplicado assim que o merge for concluído.
+https://devops.caixa/projetos/Caixa/_releaseProgress?_a=release-environment-logs&releaseId=524234&environmentId=2434592
