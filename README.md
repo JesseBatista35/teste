@@ -1,16 +1,7 @@
+oc set resources dc/sisgf-batch-des -c sisgf-batch-des --requests=memory=400Mi -n sisgf-des
 
--sh-4.2$
--sh-4.2$ oc describe resourcequota -n sisgf-des
-Name:            quota-resources
-Namespace:       sisgf-des
-Resource         Used    Hard
---------         ----    ----
-limits.cpu       5650m   10
-limits.memory    7936Mi  12Gi
-pods             6       10
-requests.cpu     4050m   5
-requests.memory  5264Mi  6Gi
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$
+oc rollout status dc/sisgf-batch-des -n sisgf-des
+
+oc get pods -n sisgf-des
+oc describe resourcequota -n sisgf-des
+
