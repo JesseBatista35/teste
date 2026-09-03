@@ -1,24 +1,8 @@
-SIPGC-API-PAPEL-DES (10)
-Grupo de variáveis de SIPGC-API-PAPEL-DES
+_ENV.HTTP_PROXY
+http://proxydes.caixa:80
 
-Scopes: EC DES
-INIT
-Criado via api
-KEY_SQLSERVER
-********
-_ENV.ASPNETCORE_ENVIRONMENT
-des
-_ENV.BD_SERVER
-10.116.92.247,1433
-_ENV.BEYONDTRUST_LOGGING_ENABLED
-true
-_ENV.DB_DATABASE
-PGCDB001
-_ENV.DB_PASSWORD_001
-'${spgcdr01_sqlserver}'
-_ENV.DB_USER_001
-SPGCDR01
-_ENV.VAULT_LOCATION
-/usr/src/app/secrets_files/SIPGC_DES/
-_SECRET.DB_PASSWORD_0010
-#{KEY_SQLSERVER}#
+_ENV.HTTPS_PROXY
+http://proxydes.caixa:80
+
+_ENV.NO_PROXY
+.caixa,localhost,127.0.0.1,10.116.92.247,.svc,.svc.cluster.local,10.0.0.0/8
