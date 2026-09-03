@@ -1,8 +1,13 @@
-_ENV.HTTP_PROXY
-http://proxydes.caixa:80
+  
+sipgc-api-agrupamento-des; - ok  
+sipgc-api-papel-des;       - ok    
+sipgc-api-membros-des;     - ok
+sipgc-api-portfolio-des;   - aguardando pablo - fazer o merge para branch develop
+sipgc-api-segurança-des    - ok
+SIPGC-api-informacoes-des  - ok
 
-_ENV.HTTPS_PROXY
-http://proxydes.caixa:80
 
-_ENV.NO_PROXY
-.caixa,localhost,127.0.0.1,10.116.92.247,.svc,.svc.cluster.local,10.0.0.0/8
+
+sipgc-api-segurança-tqs   - ok
+
+os demias de tqs eles vao ajustar para poder rodar..
