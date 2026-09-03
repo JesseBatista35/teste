@@ -1,4 +1,3 @@
-
 name: Default ArgoCD Deploy Workflow
 run-name: ${{ github.repository }}_${{ github.ref_name }}_${{ github.run_id }}.${{ github.run_number }}
 on:
