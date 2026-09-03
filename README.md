@@ -1,281 +1,297 @@
-Favor verificar erro no Deploy conforme evidência que segue anexo.
-SIGEC-CSC - SIGEC-CSC-935 - Pipelines
-
-https://devops.caixa/projetos/Caixa/_releaseProgress?_a=release-environment-logs&releaseId=521566&environmentId=2421953
- 
-Back-End:
-https://devops.caixa/projetos/Caixa/_git/SIGEC-CSC
-Front-End:
-https://devops.caixa/projetos/Caixa/_git/SIGEC-CSC-FRONTEND
-
-
-
-2026-09-02T17:45:11.7845676Z ##[section]Starting: Deploy Config no JBOSS
-2026-09-02T17:45:11.7848805Z ==============================================================================
-2026-09-02T17:45:11.7848881Z Task         : Bash
-2026-09-02T17:45:11.7848933Z Description  : Run a Bash script on macOS, Linux, or Windows
-2026-09-02T17:45:11.7848992Z Version      : 3.227.0
-2026-09-02T17:45:11.7849035Z Author       : Microsoft Corporation
-2026-09-02T17:45:11.7849090Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/bash
-2026-09-02T17:45:11.7849266Z ==============================================================================
-2026-09-02T17:45:12.5231983Z Generating script.
-2026-09-02T17:45:12.5244931Z ========================== Starting Command Output ===========================
-2026-09-02T17:45:12.5257477Z [command]/bin/bash /opt/ads-agent/_work/_temp/0b354c96-4dc0-4fee-9723-1a18fc694cf8.sh
-2026-09-02T17:45:12.5350772Z /opt/ads-agent/_work/_temp/0b354c96-4dc0-4fee-9723-1a18fc694cf8.sh: line 2: site: comando não encontrado
-2026-09-02T17:45:14.5140268Z 
-2026-09-02T17:45:14.5141023Z PLAY [local] *******************************************************************
-2026-09-02T17:45:14.5691224Z 
-2026-09-02T17:45:14.5691741Z PLAY [Configurando o DNS] ******************************************************
-2026-09-02T17:45:14.7342170Z 
-2026-09-02T17:45:14.7342934Z PLAY [local] *******************************************************************
-2026-09-02T17:45:14.7371101Z 
-2026-09-02T17:45:14.7371685Z PLAY [Verificando serviços] ****************************************************
-2026-09-02T17:45:14.7464002Z 
-2026-09-02T17:45:14.7464604Z PLAY [Configuração LDAP] *******************************************************
-2026-09-02T17:45:14.7530615Z 
-2026-09-02T17:45:14.7531156Z PLAY [apache_des] **************************************************************
-2026-09-02T17:45:14.7563074Z 
-2026-09-02T17:45:14.7563472Z PLAY [jboss] *******************************************************************
-2026-09-02T17:45:14.7632995Z Wednesday 02 September 2026  14:45:14 -0300 (0:00:00.309)       0:00:00.309 *** 
-2026-09-02T17:45:14.8136319Z Wednesday 02 September 2026  14:45:14 -0300 (0:00:00.050)       0:00:00.359 *** 
-2026-09-02T17:45:14.8631131Z Wednesday 02 September 2026  14:45:14 -0300 (0:00:00.049)       0:00:00.409 *** 
-2026-09-02T17:45:14.9135320Z Wednesday 02 September 2026  14:45:14 -0300 (0:00:00.050)       0:00:00.459 *** 
-2026-09-02T17:45:14.9624406Z 
-2026-09-02T17:45:14.9624863Z PLAY [Instalando stack Jboss] **************************************************
-2026-09-02T17:45:14.9745226Z Wednesday 02 September 2026  14:45:14 -0300 (0:00:00.061)       0:00:00.520 *** 
-2026-09-02T17:45:15.4745466Z 
-2026-09-02T17:45:15.4746552Z TASK [Verificando o java versão esta instalado: 1.8.0_221] *********************
-2026-09-02T17:45:15.4747251Z ok: [caddeapllx756.agil.nprd.caixa.gov.br]
-2026-09-02T17:45:15.4993125Z ok: [caddeapllx763.agil.nprd.caixa.gov.br]
-2026-09-02T17:45:15.5032861Z Wednesday 02 September 2026  14:45:15 -0300 (0:00:00.528)       0:00:01.049 *** 
-2026-09-02T17:45:15.9674350Z 
-2026-09-02T17:45:15.9675854Z TASK [Verificando a versão do Java] ********************************************
-2026-09-02T17:45:15.9676051Z changed: [caddeapllx756.agil.nprd.caixa.gov.br]
-2026-09-02T17:45:16.0095391Z changed: [caddeapllx763.agil.nprd.caixa.gov.br]
-2026-09-02T17:45:16.0142893Z Wednesday 02 September 2026  14:45:16 -0300 (0:00:00.511)       0:00:01.560 *** 
-2026-09-02T17:45:16.0750792Z Wednesday 02 September 2026  14:45:16 -0300 (0:00:00.060)       0:00:01.621 *** 
-2026-09-02T17:45:16.3512040Z 
-2026-09-02T17:45:16.3512944Z TASK [Verifica ser o Jboss já foi instalado] ***********************************
-2026-09-02T17:45:16.3513324Z ok: [caddeapllx756.agil.nprd.caixa.gov.br]
-2026-09-02T17:45:16.3751556Z ok: [caddeapllx763.agil.nprd.caixa.gov.br]
-2026-09-02T17:45:16.3799308Z Wednesday 02 September 2026  14:45:16 -0300 (0:00:00.304)       0:00:01.926 *** 
-2026-09-02T17:45:16.4399024Z 
-2026-09-02T17:45:16.4399732Z TASK [Setando a versão do Jboss] ***********************************************
-2026-09-02T17:45:16.4400186Z ok: [caddeapllx763.agil.nprd.caixa.gov.br]
-2026-09-02T17:45:16.4470517Z ok: [caddeapllx756.agil.nprd.caixa.gov.br]
-2026-09-02T17:45:16.4508089Z Wednesday 02 September 2026  14:45:16 -0300 (0:00:00.070)       0:00:01.997 *** 
-2026-09-02T17:45:16.5048746Z Wednesday 02 September 2026  14:45:16 -0300 (0:00:00.053)       0:00:02.051 *** 
-2026-09-02T17:45:16.5558796Z Wednesday 02 September 2026  14:45:16 -0300 (0:00:00.050)       0:00:02.102 *** 
-2026-09-02T17:45:16.6059287Z Wednesday 02 September 2026  14:45:16 -0300 (0:00:00.050)       0:00:02.152 *** 
-2026-09-02T17:45:16.6571929Z Wednesday 02 September 2026  14:45:16 -0300 (0:00:00.051)       0:00:02.203 *** 
-2026-09-02T17:45:16.7095229Z Wednesday 02 September 2026  14:45:16 -0300 (0:00:00.052)       0:00:02.255 *** 
-2026-09-02T17:45:16.7615333Z Wednesday 02 September 2026  14:45:16 -0300 (0:00:00.051)       0:00:02.307 *** 
-2026-09-02T17:45:16.8126000Z Wednesday 02 September 2026  14:45:16 -0300 (0:00:00.051)       0:00:02.358 *** 
-2026-09-02T17:45:16.8619177Z 
-2026-09-02T17:45:16.8619660Z PLAY [jboss] *******************************************************************
-2026-09-02T17:45:16.8665164Z Wednesday 02 September 2026  14:45:16 -0300 (0:00:00.054)       0:00:02.413 *** 
-2026-09-02T17:45:18.4229357Z 
-2026-09-02T17:45:18.4230357Z TASK [Gathering Facts] *********************************************************
-2026-09-02T17:45:18.4231220Z ok: [caddeapllx756.agil.nprd.caixa.gov.br]
-2026-09-02T17:45:18.4488387Z ok: [caddeapllx763.agil.nprd.caixa.gov.br]
-2026-09-02T17:45:18.4655791Z Wednesday 02 September 2026  14:45:18 -0300 (0:00:01.598)       0:00:04.011 *** 
-2026-09-02T17:45:19.3669786Z 
-2026-09-02T17:45:19.3670731Z TASK [Gerando fatos de servicos] ***********************************************
-2026-09-02T17:45:19.3671075Z ok: [caddeapllx756.agil.nprd.caixa.gov.br]
-2026-09-02T17:45:19.4714060Z ok: [caddeapllx763.agil.nprd.caixa.gov.br]
-2026-09-02T17:45:19.4963279Z Wednesday 02 September 2026  14:45:19 -0300 (0:00:01.030)       0:00:05.042 *** 
-2026-09-02T17:45:19.5582788Z 
-2026-09-02T17:45:19.5583285Z TASK [Gerando lista de units jboss] ********************************************
-2026-09-02T17:45:19.5584670Z ok: [caddeapllx763.agil.nprd.caixa.gov.br]
-2026-09-02T17:45:19.5849083Z ok: [caddeapllx756.agil.nprd.caixa.gov.br]
-2026-09-02T17:45:19.6074109Z Wednesday 02 September 2026  14:45:19 -0300 (0:00:00.111)       0:00:05.153 *** 
-2026-09-02T17:45:19.6662246Z 
-2026-09-02T17:45:19.6663934Z TASK [Lista os units jboss que tenham versao no nome] **************************
-2026-09-02T17:45:19.6664089Z ok: [caddeapllx763.agil.nprd.caixa.gov.br] => {
-2026-09-02T17:45:19.6664472Z     "msg": "Servidor caddeapllx763.agil.nprd.caixa.gov.br tem os seguintes systemd: jboss-eap-standalone-71.service"
-2026-09-02T17:45:19.6664611Z }
-2026-09-02T17:45:19.6981255Z Wednesday 02 September 2026  14:45:19 -0300 (0:00:00.090)       0:00:05.244 *** 
-2026-09-02T17:45:20.3723197Z 
-2026-09-02T17:45:20.3723590Z TASK [Stop e Disable service jboss] ********************************************
-2026-09-02T17:45:20.3724008Z changed: [caddeapllx763.agil.nprd.caixa.gov.br] => (item=jboss-eap-standalone-71.service)
-2026-09-02T17:45:20.3771719Z 
-2026-09-02T17:45:20.3772366Z PLAY [jboss] *******************************************************************
-2026-09-02T17:45:20.4049465Z Wednesday 02 September 2026  14:45:20 -0300 (0:00:00.706)       0:00:05.951 *** 
-2026-09-02T17:45:20.4658799Z 
-2026-09-02T17:45:20.4659528Z TASK [Setando a versão do Jboss] ***********************************************
-2026-09-02T17:45:20.4659724Z ok: [caddeapllx763.agil.nprd.caixa.gov.br]
-2026-09-02T17:45:20.4930899Z ok: [caddeapllx756.agil.nprd.caixa.gov.br]
-2026-09-02T17:45:20.5179985Z Wednesday 02 September 2026  14:45:20 -0300 (0:00:00.112)       0:00:06.064 *** 
-2026-09-02T17:45:21.3505578Z 
-2026-09-02T17:45:21.3506306Z TASK [Copy template script] ****************************************************
-2026-09-02T17:45:21.3506497Z ok: [caddeapllx756.agil.nprd.caixa.gov.br]
-2026-09-02T17:45:21.3649776Z ok: [caddeapllx763.agil.nprd.caixa.gov.br]
-2026-09-02T17:45:21.3875432Z Wednesday 02 September 2026  14:45:21 -0300 (0:00:00.869)       0:00:06.933 *** 
-2026-09-02T17:45:21.9923043Z 
-2026-09-02T17:45:21.9923539Z TASK [JBoss systemd wrapper for sysvinit script mode domain] *******************
-2026-09-02T17:45:21.9923689Z ok: [caddeapllx763.agil.nprd.caixa.gov.br]
-2026-09-02T17:45:22.0082497Z ok: [caddeapllx756.agil.nprd.caixa.gov.br]
-2026-09-02T17:45:22.0309122Z Wednesday 02 September 2026  14:45:22 -0300 (0:00:00.643)       0:00:07.577 *** 
-2026-09-02T17:45:22.8691920Z 
-2026-09-02T17:45:22.8692792Z TASK [Realiza copia do arquivo de Trust Store] *********************************
-2026-09-02T17:45:22.8693019Z ok: [caddeapllx756.agil.nprd.caixa.gov.br]
-2026-09-02T17:45:22.8906275Z ok: [caddeapllx763.agil.nprd.caixa.gov.br]
-2026-09-02T17:45:22.9129972Z Wednesday 02 September 2026  14:45:22 -0300 (0:00:00.882)       0:00:08.459 *** 
-2026-09-02T17:45:23.0073495Z Wednesday 02 September 2026  14:45:23 -0300 (0:00:00.094)       0:00:08.553 *** 
-2026-09-02T17:45:23.1104311Z Wednesday 02 September 2026  14:45:23 -0300 (0:00:00.103)       0:00:08.656 *** 
-2026-09-02T17:45:23.5183435Z 
-2026-09-02T17:45:23.5184199Z TASK [Check directory configuration exists] ************************************
-2026-09-02T17:45:23.5184754Z ok: [caddeapllx763.agil.nprd.caixa.gov.br]
-2026-09-02T17:45:23.5311078Z ok: [caddeapllx756.agil.nprd.caixa.gov.br]
-2026-09-02T17:45:23.5549119Z Wednesday 02 September 2026  14:45:23 -0300 (0:00:00.444)       0:00:09.101 *** 
-2026-09-02T17:45:24.1517624Z 
-2026-09-02T17:45:24.1518171Z TASK [Copiando arquivos para jboss.server.config.dir] **************************
-2026-09-02T17:45:24.1518325Z ok: [caddeapllx763.agil.nprd.caixa.gov.br]
-2026-09-02T17:45:24.1592538Z ok: [caddeapllx756.agil.nprd.caixa.gov.br]
-2026-09-02T17:45:24.1831161Z Wednesday 02 September 2026  14:45:24 -0300 (0:00:00.628)       0:00:09.729 *** 
-2026-09-02T17:45:24.8029990Z 
-2026-09-02T17:45:24.8030696Z TASK [Copiando arquivo standalone-full-ha.xml] *********************************
-2026-09-02T17:45:24.8030852Z ok: [caddeapllx763.agil.nprd.caixa.gov.br]
-2026-09-02T17:45:25.0574930Z changed: [caddeapllx756.agil.nprd.caixa.gov.br]
-2026-09-02T17:45:25.0903005Z Wednesday 02 September 2026  14:45:25 -0300 (0:00:00.907)       0:00:10.636 *** 
-2026-09-02T17:45:25.6948670Z 
-2026-09-02T17:45:25.6949573Z TASK [Copiando arquivo standalone.conf] ****************************************
-2026-09-02T17:45:25.6949822Z ok: [caddeapllx763.agil.nprd.caixa.gov.br]
-2026-09-02T17:45:25.7022487Z ok: [caddeapllx756.agil.nprd.caixa.gov.br]
-2026-09-02T17:45:25.7255721Z Wednesday 02 September 2026  14:45:25 -0300 (0:00:00.635)       0:00:11.271 *** 
-2026-09-02T17:45:25.8199098Z Wednesday 02 September 2026  14:45:25 -0300 (0:00:00.094)       0:00:11.366 *** 
-2026-09-02T17:45:25.8554543Z [WARNING]: conditional statements should not include jinja2 templating
-2026-09-02T17:45:25.8554954Z delimiters such as {{ }} or {% %}. Found: {{ lookup('env','HSM') |
-2026-09-02T17:45:25.8555154Z default('false', true) | bool }}
-2026-09-02T17:45:25.8845888Z [WARNING]: conditional statements should not include jinja2 templating
-2026-09-02T17:45:25.8846286Z delimiters such as {{ }} or {% %}. Found: {{ lookup('env','HSM') |
-2026-09-02T17:45:25.8846444Z default('false', true) | bool }}
-2026-09-02T17:45:25.8931278Z Wednesday 02 September 2026  14:45:25 -0300 (0:00:00.073)       0:00:11.439 *** 
-2026-09-02T17:45:40.5281052Z 
-2026-09-02T17:45:40.5282862Z RUNNING HANDLER [Restart Jboss] ************************************************
-2026-09-02T17:45:40.5283019Z changed: [caddeapllx756.agil.nprd.caixa.gov.br]
-2026-09-02T17:45:40.5292565Z 
-2026-09-02T17:45:40.5293079Z PLAY [jboss] *******************************************************************
-2026-09-02T17:45:40.5328353Z 
-2026-09-02T17:45:40.5328728Z PLAY [local] *******************************************************************
-2026-09-02T17:45:40.5352675Z 
-2026-09-02T17:45:40.5352870Z PLAY [jboss] *******************************************************************
-2026-09-02T17:45:40.5380003Z 
-2026-09-02T17:45:40.5380215Z PLAY [jboss] *******************************************************************
-2026-09-02T17:45:40.5412188Z 
-2026-09-02T17:45:40.5412436Z PLAY [Copiando deployments adicionais] *****************************************
-2026-09-02T17:45:40.5655597Z Wednesday 02 September 2026  14:45:40 -0300 (0:00:14.672)       0:00:26.111 *** 
-2026-09-02T17:45:40.6223937Z 
-2026-09-02T17:45:40.6224421Z TASK [Buscando diretorio de config] ********************************************
-2026-09-02T17:45:40.6224561Z ok: [caddeapllx763.agil.nprd.caixa.gov.br]
-2026-09-02T17:45:40.6527635Z ok: [caddeapllx756.agil.nprd.caixa.gov.br]
-2026-09-02T17:45:40.6796440Z Wednesday 02 September 2026  14:45:40 -0300 (0:00:00.114)       0:00:26.226 *** 
-2026-09-02T17:45:40.7359127Z 
-2026-09-02T17:45:40.7359678Z TASK [Buscando diretorio de config] ********************************************
-2026-09-02T17:45:40.7359851Z ok: [caddeapllx763.agil.nprd.caixa.gov.br]
-2026-09-02T17:45:40.7649757Z ok: [caddeapllx756.agil.nprd.caixa.gov.br]
-2026-09-02T17:45:40.7930859Z Wednesday 02 September 2026  14:45:40 -0300 (0:00:00.113)       0:00:26.339 *** 
-2026-09-02T17:45:41.1788647Z 
-2026-09-02T17:45:41.1789224Z TASK [Create a symbolic link] **************************************************
-2026-09-02T17:45:41.1789391Z changed: [caddeapllx763.agil.nprd.caixa.gov.br]
-2026-09-02T17:45:41.1949148Z ok: [caddeapllx756.agil.nprd.caixa.gov.br]
-2026-09-02T17:45:41.2189326Z Wednesday 02 September 2026  14:45:41 -0300 (0:00:00.425)       0:00:26.765 *** 
-2026-09-02T17:45:41.5866777Z 
-2026-09-02T17:45:41.5867264Z TASK [Verifica se o arquivo  existe] *******************************************
-2026-09-02T17:45:41.5867414Z ok: [caddeapllx763.agil.nprd.caixa.gov.br]
-2026-09-02T17:45:41.6115781Z ok: [caddeapllx756.agil.nprd.caixa.gov.br]
-2026-09-02T17:45:41.6352327Z Wednesday 02 September 2026  14:45:41 -0300 (0:00:00.416)       0:00:27.181 *** 
-2026-09-02T17:45:42.1618778Z 
-2026-09-02T17:45:42.1619381Z TASK [Lendo artefatos do arquivo CSV] ******************************************
-2026-09-02T17:45:42.1619576Z ok: [caddeapllx756.agil.nprd.caixa.gov.br]
-2026-09-02T17:45:42.1656290Z ok: [caddeapllx763.agil.nprd.caixa.gov.br]
-2026-09-02T17:45:42.1949364Z Wednesday 02 September 2026  14:45:42 -0300 (0:00:00.559)       0:00:27.740 *** 
-2026-09-02T17:45:42.2458898Z 
-2026-09-02T17:45:42.2459857Z TASK [Teste] *******************************************************************
-2026-09-02T17:45:42.2460383Z ok: [caddeapllx763.agil.nprd.caixa.gov.br] => (item={u'version': u'3.0.0', u'group_id': u'br.gov.caixa.jcics', u'extension': u'jar', u'artifact_id': u'framework'}) => {
-2026-09-02T17:45:42.2460609Z     "msg": "Artefato: framework - versao 3.0.0"
-2026-09-02T17:45:42.2460714Z }
-2026-09-02T17:45:42.2755152Z ok: [caddeapllx763.agil.nprd.caixa.gov.br] => (item={u'version': u'1.0.0', u'group_id': u'br.gov.caixa.bsb.sisgd', u'extension': u'jar', u'artifact_id': u'framework_sisgd'}) => {
-2026-09-02T17:45:42.2755695Z     "msg": "Artefato: framework_sisgd - versao 1.0.0"
-2026-09-02T17:45:42.2756251Z }
-2026-09-02T17:45:42.2771026Z ok: [caddeapllx756.agil.nprd.caixa.gov.br] => (item={u'version': u'3.0.0', u'group_id': u'br.gov.caixa.jcics', u'extension': u'jar', u'artifact_id': u'framework'}) => {
-2026-09-02T17:45:42.2771281Z     "msg": "Artefato: framework - versao 3.0.0"
-2026-09-02T17:45:42.2771405Z }
-2026-09-02T17:45:42.3069166Z ok: [caddeapllx763.agil.nprd.caixa.gov.br] => (item={u'version': u'7.0.1.12', u'group_id': u'com.ibm.wmq', u'extension': u'rar', u'artifact_id': u'wmq.jmsra'}) => {
-2026-09-02T17:45:42.3069785Z     "msg": "Artefato: wmq.jmsra - versao 7.0.1.12"
-2026-09-02T17:45:42.3070418Z }
-2026-09-02T17:45:42.3089894Z ok: [caddeapllx756.agil.nprd.caixa.gov.br] => (item={u'version': u'1.0.0', u'group_id': u'br.gov.caixa.bsb.sisgd', u'extension': u'jar', u'artifact_id': u'framework_sisgd'}) => {
-2026-09-02T17:45:42.3090671Z     "msg": "Artefato: framework_sisgd - versao 1.0.0"
-2026-09-02T17:45:42.3091126Z }
-2026-09-02T17:45:42.3428353Z ok: [caddeapllx756.agil.nprd.caixa.gov.br] => (item={u'version': u'7.0.1.12', u'group_id': u'com.ibm.wmq', u'extension': u'rar', u'artifact_id': u'wmq.jmsra'}) => {
-2026-09-02T17:45:42.3428886Z     "msg": "Artefato: wmq.jmsra - versao 7.0.1.12"
-2026-09-02T17:45:42.3429319Z }
-2026-09-02T17:45:42.3719646Z Wednesday 02 September 2026  14:45:42 -0300 (0:00:00.177)       0:00:27.918 *** 
-2026-09-02T17:45:42.9999820Z 
-2026-09-02T17:45:43.0000585Z TASK [maven_artifact] **********************************************************
-2026-09-02T17:45:43.0001284Z changed: [caddeapllx756.agil.nprd.caixa.gov.br] => (item={u'version': u'3.0.0', u'group_id': u'br.gov.caixa.jcics', u'extension': u'jar', u'artifact_id': u'framework'})
-2026-09-02T17:45:43.0044637Z changed: [caddeapllx763.agil.nprd.caixa.gov.br] => (item={u'version': u'3.0.0', u'group_id': u'br.gov.caixa.jcics', u'extension': u'jar', u'artifact_id': u'framework'})
-2026-09-02T17:45:43.4047054Z changed: [caddeapllx763.agil.nprd.caixa.gov.br] => (item={u'version': u'1.0.0', u'group_id': u'br.gov.caixa.bsb.sisgd', u'extension': u'jar', u'artifact_id': u'framework_sisgd'})
-2026-09-02T17:45:43.4108311Z changed: [caddeapllx756.agil.nprd.caixa.gov.br] => (item={u'version': u'1.0.0', u'group_id': u'br.gov.caixa.bsb.sisgd', u'extension': u'jar', u'artifact_id': u'framework_sisgd'})
-2026-09-02T17:45:43.8487970Z changed: [caddeapllx756.agil.nprd.caixa.gov.br] => (item={u'version': u'7.0.1.12', u'group_id': u'com.ibm.wmq', u'extension': u'rar', u'artifact_id': u'wmq.jmsra'})
-2026-09-02T17:45:43.8519608Z changed: [caddeapllx763.agil.nprd.caixa.gov.br] => (item={u'version': u'7.0.1.12', u'group_id': u'com.ibm.wmq', u'extension': u'rar', u'artifact_id': u'wmq.jmsra'})
-2026-09-02T17:45:43.8784162Z Wednesday 02 September 2026  14:45:43 -0300 (0:00:01.506)       0:00:29.424 *** 
-2026-09-02T17:45:49.1442162Z 
-2026-09-02T17:45:49.1443233Z TASK [Copiando artefatos para o(s) servidor(es) Jboss] *************************
-2026-09-02T17:45:49.1444129Z fatal: [caddeapllx763.agil.nprd.caixa.gov.br]: FAILED! => {"msg": "Failed to get information on remote file (/opt/jboss/jboss-eap/standalone/deployments/framework.jar): sudo: ldap_sasl_bind_s(): Can't contact LDAP server\n\nPresumimos que você recebeu as instruções de sempre do administrador\nde sistema local. Basicamente, resume-se a estas três coisas:\n\n    #1) Respeite a privacidade dos outros.\n    #2) Pense antes de digitar.\n    #3) Com grandes poderes vêm grandes responsabilidades.\n\nsudo: nenhum tty presente e nenhum programa de askpass especificado\n"}
-2026-09-02T17:45:49.3528782Z fatal: [caddeapllx756.agil.nprd.caixa.gov.br]: FAILED! => {"msg": "Failed to get information on remote file (/opt/jboss/jboss-eap/standalone/deployments/framework.jar): sudo: ldap_sasl_bind_s(): Can't contact LDAP server\n\nPresumimos que você recebeu as instruções de sempre do administrador\nde sistema local. Basicamente, resume-se a estas três coisas:\n\n    #1) Respeite a privacidade dos outros.\n    #2) Pense antes de digitar.\n    #3) Com grandes poderes vêm grandes responsabilidades.\n\nsudo: nenhum tty presente e nenhum programa de askpass especificado\n"}
-2026-09-02T17:45:49.3531891Z 
-2026-09-02T17:45:49.3532688Z PLAY RECAP *********************************************************************
-2026-09-02T17:45:49.3532937Z caddeapllx756.agil.nprd.caixa.gov.br : ok=23   changed=4    unreachable=0    failed=1    skipped=19   rescued=0    ignored=0   
-2026-09-02T17:45:49.3533142Z caddeapllx763.agil.nprd.caixa.gov.br : ok=24   changed=4    unreachable=0    failed=1    skipped=17   rescued=0    ignored=0   
-2026-09-02T17:45:49.3533232Z 
-2026-09-02T17:45:49.3533831Z Wednesday 02 September 2026  14:45:49 -0300 (0:00:05.475)       0:00:34.899 *** 
-2026-09-02T17:45:49.3533987Z =============================================================================== 
-2026-09-02T17:45:49.3537540Z Restart Jboss ---------------------------------------------------------- 14.67s
-2026-09-02T17:45:49.3539075Z Copiando artefatos para o(s) servidor(es) Jboss ------------------------- 5.48s
-2026-09-02T17:45:49.3539580Z Gathering Facts --------------------------------------------------------- 1.60s
-2026-09-02T17:45:49.3539799Z maven_artifact ---------------------------------------------------------- 1.51s
-2026-09-02T17:45:49.3541607Z Gerando fatos de servicos ----------------------------------------------- 1.03s
-2026-09-02T17:45:49.3542789Z Copiando arquivo standalone-full-ha.xml --------------------------------- 0.91s
-2026-09-02T17:45:49.3543473Z Realiza copia do arquivo de Trust Store --------------------------------- 0.88s
-2026-09-02T17:45:49.3543879Z Copy template script ---------------------------------------------------- 0.87s
-2026-09-02T17:45:49.3544277Z Stop e Disable service jboss -------------------------------------------- 0.71s
-2026-09-02T17:45:49.3544514Z JBoss systemd wrapper for sysvinit script mode domain ------------------- 0.64s
-2026-09-02T17:45:49.3547228Z Copiando arquivo standalone.conf ---------------------------------------- 0.64s
-2026-09-02T17:45:49.3547983Z Copiando arquivos para jboss.server.config.dir -------------------------- 0.63s
-2026-09-02T17:45:49.3548262Z Lendo artefatos do arquivo CSV ------------------------------------------ 0.56s
-2026-09-02T17:45:49.3548492Z Verificando o java versão esta instalado: 1.8.0_221 --------------------- 0.53s
-2026-09-02T17:45:49.3548707Z Verificando a versão do Java -------------------------------------------- 0.51s
-2026-09-02T17:45:49.3548938Z Check directory configuration exists ------------------------------------ 0.44s
-2026-09-02T17:45:49.3552320Z Create a symbolic link -------------------------------------------------- 0.43s
-2026-09-02T17:45:49.3552583Z Verifica se o arquivo  existe ------------------------------------------- 0.42s
-2026-09-02T17:45:49.3552841Z Verifica ser o Jboss já foi instalado ----------------------------------- 0.30s
-2026-09-02T17:45:49.3553115Z Teste ------------------------------------------------------------------- 0.18s
-2026-09-02T17:45:49.3589467Z Playbook run took 0 days, 0 hours, 0 minutes, 34 seconds
-2026-09-02T17:45:49.4285390Z ##[error]Bash exited with code '2'.
-2026-09-02T17:45:49.4289309Z ##[section]Finishing: Deploy Config no JBOSS
-
-
-
-
-Warning: Permanently added '10.116.193.244' (ED25519) to the list of known hosts.
-p585600@10.116.193.244's password:
-,Creating home directory for p585600.
-,-sh-4.2$ ,
--sh: ,: comando não encontrado
--sh-4.2$
--sh-4.2$
--sh-4.2$ ps -ef | grep jboss
-p585600   18343  18304  0 16:26 pts/0    00:00:00 grep --color=auto jboss
-root     113692      1  0 09:14 ?        00:00:00 runuser jboss -c LAUNCH_JBOSS_IN_BACKGROUND=1 JBOSS_PIDFILE=/opt/jboss/jboss-eap/standalone/tmp/jboss-eap-standalone.pid /opt/jboss/jboss-eap/bin/standalone.sh                -b 10.116.193.244                -bmanagement 10.116.193.244                -bprivate 10.116.193.244                                                -Dhttp.modcluster.proxy1=10.116.223.231                                 -Dhttp.modcluster.proxy2=10.116.223.232                                 -Djboss_modcluster_proxy_list="caddeapllx135.extra.caixa.gov.br:6666,caddeapllx136.extra.caixa.gov.br:6666"                -Djboss_modcluster_balancer=sigec-csc                -Djboss.cluster.tcp.initial_hosts=10.116.193.251[7600],10.116.193.244[7600]                -Djboss.node.name=caddeapllx756                -Djboss.tx.node.id=caddeapllx756                -u 230.0.0.4                                -Djboss.server.base.dir=/opt/jboss/jboss-eap/standalone                -Djboss.server.log.dir=/logs/jboss/jboss-eap/standalone/sigec-csc -c standalone-full-ha.xml
-jboss    113695 113692  0 09:14 ?        00:00:00 /bin/sh /opt/jboss/jboss-eap/bin/standalone.sh -b 10.116.193.244 -bmanagement 10.116.193.244 -bprivate 10.116.193.244 -Dhttp.modcluster.proxy1=10.116.223.231 -Dhttp.modcluster.proxy2=10.116.223.232 -Djboss_modcluster_proxy_list=caddeapllx135.extra.caixa.gov.br:6666,caddeapllx136.extra.caixa.gov.br:6666 -Djboss_modcluster_balancer=sigec-csc -Djboss.cluster.tcp.initial_hosts=10.116.193.251[7600],10.116.193.244[7600] -Djboss.node.name=caddeapllx756 -Djboss.tx.node.id=caddeapllx756 -u 230.0.0.4 -Djboss.server.base.dir=/opt/jboss/jboss-eap/standalone -Djboss.server.log.dir=/logs/jboss/jboss-eap/standalone/sigec-csc -c standalone-full-ha.xml
-jboss    113872 113695  0 09:14 ?        00:03:24 java -D[Standalone] -verbose:gc -Xloggc:/logs/jboss/jboss-eap/standalone/sigec-csc/gc.log -XX:+PrintGCDetails -XX:+PrintGCDateStamps -XX:+UseGCLogFileRotation -XX:NumberOfGCLogFiles=5 -XX:GCLogFileSize=3M -XX:-TraceClassUnloading -Xms1024m -Xmx2048m -XX:MetaspaceSize=96m -XX:MaxMetaspaceSize=512m -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs=org.jboss.byteman -Djava.awt.headless=true -Djavax.net.ssl.trustStore=/opt/jboss/jboss-eap/standalone/configuration/caixa-truststore-acteste-nprd.jks -Djavax.net.ssl.trustStorePassword=changeit -Djboss.modules.policy-permissions=true -server -XX:+ExplicitGCInvokesConcurrent -XX:+UseG1GC -XX:MaxGCPauseMillis=500 -Xbootclasspath/p:/opt/jboss/jboss-eap/modules/system/layers/base/org/jboss/logmanager/main/jboss-logmanager-2.0.7.Final-redhat-1.jar -Djboss.modules.system.pkgs=org.jboss.byteman,org.jboss.logmanager -Djava.util.logging.manager=org.jboss.logmanager.LogManager -javaagent:/opt/jmx_exporter/jmx_prometheus.jar=8778:/opt/jmx_exporter/jmx_prometheus.yaml -javaagent:/opt/apm_agent/elastic-apm-agent-1.15.0.jar -Delastic.apm.config_file=/opt/apm_agent/elasticapm-1.15.0.properties -Delastic.apm.service_name=sigec-csc -Delastic.apm.environment=DES -Delastic.apm.application_packages=br.gov.caixa -Delastic.apm.server_urls=http://apm-server-devops.produtos.caixa -Delastic.apm.global_labels=deployment=sigec-csc-des-esteiras -Dorg.jboss.boot.log.file=/logs/jboss/jboss-eap/standalone/sigec-csc/server.log -Dlogging.configuration=file:/opt/jboss/jboss-eap/standalone/configuration/logging.properties -jar /opt/jboss/jboss-eap/jboss-modules.jar -mp /opt/jboss/jboss-eap/modules org.jboss.as.standalone -Djboss.home.dir=/opt/jboss/jboss-eap -Djboss.server.base.dir=/opt/jboss/jboss-eap/standalone -b 10.116.193.244 -bmanagement 10.116.193.244 -bprivate 10.116.193.244 -Dhttp.modcluster.proxy1=10.116.223.231 -Dhttp.modcluster.proxy2=10.116.223.232 -Djboss_modcluster_proxy_list=caddeapllx135.extra.caixa.gov.br:6666,caddeapllx136.extra.caixa.gov.br:6666 -Djboss_modcluster_balancer=sigec-csc -Djboss.cluster.tcp.initial_hosts=10.116.193.251[7600],10.116.193.244[7600] -Djboss.node.name=caddeapllx756 -Djboss.tx.node.id=caddeapllx756 -u 230.0.0.4 -Djboss.server.base.dir=/opt/jboss/jboss-eap/standalone -Djboss.server.log.dir=/logs/jboss/jboss-eap/standalone/sigec-csc -c standalone-full-ha.xml
--sh-4.2$ ps -ef | grep java
-p585600   18349  18304  0 16:26 pts/0    00:00:00 grep --color=auto java
-jboss    113872 113695  0 09:14 ?        00:03:24 java -D[Standalone] -verbose:gc -Xloggc:/logs/jboss/jboss-eap/standalone/sigec-csc/gc.log -XX:+PrintGCDetails -XX:+PrintGCDateStamps -XX:+UseGCLogFileRotation -XX:NumberOfGCLogFiles=5 -XX:GCLogFileSize=3M -XX:-TraceClassUnloading -Xms1024m -Xmx2048m -XX:MetaspaceSize=96m -XX:MaxMetaspaceSize=512m -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs=org.jboss.byteman -Djava.awt.headless=true -Djavax.net.ssl.trustStore=/opt/jboss/jboss-eap/standalone/configuration/caixa-truststore-acteste-nprd.jks -Djavax.net.ssl.trustStorePassword=changeit -Djboss.modules.policy-permissions=true -server -XX:+ExplicitGCInvokesConcurrent -XX:+UseG1GC -XX:MaxGCPauseMillis=500 -Xbootclasspath/p:/opt/jboss/jboss-eap/modules/system/layers/base/org/jboss/logmanager/main/jboss-logmanager-2.0.7.Final-redhat-1.jar -Djboss.modules.system.pkgs=org.jboss.byteman,org.jboss.logmanager -Djava.util.logging.manager=org.jboss.logmanager.LogManager -javaagent:/opt/jmx_exporter/jmx_prometheus.jar=8778:/opt/jmx_exporter/jmx_prometheus.yaml -javaagent:/opt/apm_agent/elastic-apm-agent-1.15.0.jar -Delastic.apm.config_file=/opt/apm_agent/elasticapm-1.15.0.properties -Delastic.apm.service_name=sigec-csc -Delastic.apm.environment=DES -Delastic.apm.application_packages=br.gov.caixa -Delastic.apm.server_urls=http://apm-server-devops.produtos.caixa -Delastic.apm.global_labels=deployment=sigec-csc-des-esteiras -Dorg.jboss.boot.log.file=/logs/jboss/jboss-eap/standalone/sigec-csc/server.log -Dlogging.configuration=file:/opt/jboss/jboss-eap/standalone/configuration/logging.properties -jar /opt/jboss/jboss-eap/jboss-modules.jar -mp /opt/jboss/jboss-eap/modules org.jboss.as.standalone -Djboss.home.dir=/opt/jboss/jboss-eap -Djboss.server.base.dir=/opt/jboss/jboss-eap/standalone -b 10.116.193.244 -bmanagement 10.116.193.244 -bprivate 10.116.193.244 -Dhttp.modcluster.proxy1=10.116.223.231 -Dhttp.modcluster.proxy2=10.116.223.232 -Djboss_modcluster_proxy_list=caddeapllx135.extra.caixa.gov.br:6666,caddeapllx136.extra.caixa.gov.br:6666 -Djboss_modcluster_balancer=sigec-csc -Djboss.cluster.tcp.initial_hosts=10.116.193.251[7600],10.116.193.244[7600] -Djboss.node.name=caddeapllx756 -Djboss.tx.node.id=caddeapllx756 -u 230.0.0.4 -Djboss.server.base.dir=/opt/jboss/jboss-eap/standalone -Djboss.server.log.dir=/logs/jboss/jboss-eap/standalone/sigec-csc -c standalone-full-ha.xml
--sh-4.2$ ps -ef | grep sigec
-p585600   18357  18304  0 16:26 pts/0    00:00:00 grep --color=auto sigec
-root     113692      1  0 09:14 ?        00:00:00 runuser jboss -c LAUNCH_JBOSS_IN_BACKGROUND=1 JBOSS_PIDFILE=/opt/jboss/jboss-eap/standalone/tmp/jboss-eap-standalone.pid /opt/jboss/jboss-eap/bin/standalone.sh                -b 10.116.193.244                -bmanagement 10.116.193.244                -bprivate 10.116.193.244                                                -Dhttp.modcluster.proxy1=10.116.223.231                                 -Dhttp.modcluster.proxy2=10.116.223.232                                 -Djboss_modcluster_proxy_list="caddeapllx135.extra.caixa.gov.br:6666,caddeapllx136.extra.caixa.gov.br:6666"                -Djboss_modcluster_balancer=sigec-csc                -Djboss.cluster.tcp.initial_hosts=10.116.193.251[7600],10.116.193.244[7600]                -Djboss.node.name=caddeapllx756                -Djboss.tx.node.id=caddeapllx756                -u 230.0.0.4                                -Djboss.server.base.dir=/opt/jboss/jboss-eap/standalone                -Djboss.server.log.dir=/logs/jboss/jboss-eap/standalone/sigec-csc -c standalone-full-ha.xml
-jboss    113695 113692  0 09:14 ?        00:00:00 /bin/sh /opt/jboss/jboss-eap/bin/standalone.sh -b 10.116.193.244 -bmanagement 10.116.193.244 -bprivate 10.116.193.244 -Dhttp.modcluster.proxy1=10.116.223.231 -Dhttp.modcluster.proxy2=10.116.223.232 -Djboss_modcluster_proxy_list=caddeapllx135.extra.caixa.gov.br:6666,caddeapllx136.extra.caixa.gov.br:6666 -Djboss_modcluster_balancer=sigec-csc -Djboss.cluster.tcp.initial_hosts=10.116.193.251[7600],10.116.193.244[7600] -Djboss.node.name=caddeapllx756 -Djboss.tx.node.id=caddeapllx756 -u 230.0.0.4 -Djboss.server.base.dir=/opt/jboss/jboss-eap/standalone -Djboss.server.log.dir=/logs/jboss/jboss-eap/standalone/sigec-csc -c standalone-full-ha.xml
-jboss    113872 113695  0 09:14 ?        00:03:24 java -D[Standalone] -verbose:gc -Xloggc:/logs/jboss/jboss-eap/standalone/sigec-csc/gc.log -XX:+PrintGCDetails -XX:+PrintGCDateStamps -XX:+UseGCLogFileRotation -XX:NumberOfGCLogFiles=5 -XX:GCLogFileSize=3M -XX:-TraceClassUnloading -Xms1024m -Xmx2048m -XX:MetaspaceSize=96m -XX:MaxMetaspaceSize=512m -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs=org.jboss.byteman -Djava.awt.headless=true -Djavax.net.ssl.trustStore=/opt/jboss/jboss-eap/standalone/configuration/caixa-truststore-acteste-nprd.jks -Djavax.net.ssl.trustStorePassword=changeit -Djboss.modules.policy-permissions=true -server -XX:+ExplicitGCInvokesConcurrent -XX:+UseG1GC -XX:MaxGCPauseMillis=500 -Xbootclasspath/p:/opt/jboss/jboss-eap/modules/system/layers/base/org/jboss/logmanager/main/jboss-logmanager-2.0.7.Final-redhat-1.jar -Djboss.modules.system.pkgs=org.jboss.byteman,org.jboss.logmanager -Djava.util.logging.manager=org.jboss.logmanager.LogManager -javaagent:/opt/jmx_exporter/jmx_prometheus.jar=8778:/opt/jmx_exporter/jmx_prometheus.yaml -javaagent:/opt/apm_agent/elastic-apm-agent-1.15.0.jar -Delastic.apm.config_file=/opt/apm_agent/elasticapm-1.15.0.properties -Delastic.apm.service_name=sigec-csc -Delastic.apm.environment=DES -Delastic.apm.application_packages=br.gov.caixa -Delastic.apm.server_urls=http://apm-server-devops.produtos.caixa -Delastic.apm.global_labels=deployment=sigec-csc-des-esteiras -Dorg.jboss.boot.log.file=/logs/jboss/jboss-eap/standalone/sigec-csc/server.log -Dlogging.configuration=file:/opt/jboss/jboss-eap/standalone/configuration/logging.properties -jar /opt/jboss/jboss-eap/jboss-modules.jar -mp /opt/jboss/jboss-eap/modules org.jboss.as.standalone -Djboss.home.dir=/opt/jboss/jboss-eap -Djboss.server.base.dir=/opt/jboss/jboss-eap/standalone -b 10.116.193.244 -bmanagement 10.116.193.244 -bprivate 10.116.193.244 -Dhttp.modcluster.proxy1=10.116.223.231 -Dhttp.modcluster.proxy2=10.116.223.232 -Djboss_modcluster_proxy_list=caddeapllx135.extra.caixa.gov.br:6666,caddeapllx136.extra.caixa.gov.br:6666 -Djboss_modcluster_balancer=sigec-csc -Djboss.cluster.tcp.initial_hosts=10.116.193.251[7600],10.116.193.244[7600] -Djboss.node.name=caddeapllx756 -Djboss.tx.node.id=caddeapllx756 -u 230.0.0.4 -Djboss.server.base.dir=/opt/jboss/jboss-eap/standalone -Djboss.server.log.dir=/logs/jboss/jboss-eap/standalone/sigec-csc -c standalone-full-ha.xml
--sh-4.2$
+2026-09-03T12:13:13.8819004Z ##[section]Starting: Deploy Config no JBOSS
+2026-09-03T12:13:13.8822026Z ==============================================================================
+2026-09-03T12:13:13.8822200Z Task         : Bash
+2026-09-03T12:13:13.8822241Z Description  : Run a Bash script on macOS, Linux, or Windows
+2026-09-03T12:13:13.8822300Z Version      : 3.227.0
+2026-09-03T12:13:13.8822349Z Author       : Microsoft Corporation
+2026-09-03T12:13:13.8822396Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/bash
+2026-09-03T12:13:13.8822462Z ==============================================================================
+2026-09-03T12:13:14.7571614Z Generating script.
+2026-09-03T12:13:14.7582754Z ========================== Starting Command Output ===========================
+2026-09-03T12:13:14.7593263Z [command]/bin/bash /opt/ads-agent/_work/_temp/087a7836-e356-4cc4-877e-84f5cfdc4ef1.sh
+2026-09-03T12:13:14.7683584Z /opt/ads-agent/_work/_temp/087a7836-e356-4cc4-877e-84f5cfdc4ef1.sh: line 2: site: comando não encontrado
+2026-09-03T12:13:16.7259772Z 
+2026-09-03T12:13:16.7260615Z PLAY [local] *******************************************************************
+2026-09-03T12:13:16.7789381Z 
+2026-09-03T12:13:16.7789854Z PLAY [Configurando o DNS] ******************************************************
+2026-09-03T12:13:16.9329481Z 
+2026-09-03T12:13:16.9331477Z PLAY [local] *******************************************************************
+2026-09-03T12:13:16.9360671Z 
+2026-09-03T12:13:16.9361156Z PLAY [Verificando serviços] ****************************************************
+2026-09-03T12:13:16.9453613Z 
+2026-09-03T12:13:16.9454144Z PLAY [Configuração LDAP] *******************************************************
+2026-09-03T12:13:16.9522234Z 
+2026-09-03T12:13:16.9522842Z PLAY [apache_des] **************************************************************
+2026-09-03T12:13:16.9557746Z 
+2026-09-03T12:13:16.9558450Z PLAY [jboss] *******************************************************************
+2026-09-03T12:13:16.9628236Z Thursday 03 September 2026  09:13:16 -0300 (0:00:00.295)       0:00:00.295 **** 
+2026-09-03T12:13:17.0125086Z Thursday 03 September 2026  09:13:17 -0300 (0:00:00.049)       0:00:00.344 **** 
+2026-09-03T12:13:17.0601604Z Thursday 03 September 2026  09:13:17 -0300 (0:00:00.047)       0:00:00.392 **** 
+2026-09-03T12:13:17.1088946Z Thursday 03 September 2026  09:13:17 -0300 (0:00:00.048)       0:00:00.441 **** 
+2026-09-03T12:13:17.1564330Z 
+2026-09-03T12:13:17.1565062Z PLAY [Instalando stack Jboss] **************************************************
+2026-09-03T12:13:17.1679314Z Thursday 03 September 2026  09:13:17 -0300 (0:00:00.059)       0:00:00.500 **** 
+2026-09-03T12:13:17.7088916Z 
+2026-09-03T12:13:17.7093911Z TASK [Verificando o java versão esta instalado: 1.8.0_221] *********************
+2026-09-03T12:13:17.7094088Z ok: [caddeapllx763.agil.nprd.caixa.gov.br]
+2026-09-03T12:13:17.7164713Z ok: [caddeapllx756.agil.nprd.caixa.gov.br]
+2026-09-03T12:13:17.7203915Z Thursday 03 September 2026  09:13:17 -0300 (0:00:00.552)       0:00:01.052 **** 
+2026-09-03T12:13:18.1821152Z 
+2026-09-03T12:13:18.1821853Z TASK [Verificando a versão do Java] ********************************************
+2026-09-03T12:13:18.1822041Z changed: [caddeapllx763.agil.nprd.caixa.gov.br]
+2026-09-03T12:13:18.2006938Z changed: [caddeapllx756.agil.nprd.caixa.gov.br]
+2026-09-03T12:13:18.2042706Z Thursday 03 September 2026  09:13:18 -0300 (0:00:00.483)       0:00:01.536 **** 
+2026-09-03T12:13:18.2640316Z Thursday 03 September 2026  09:13:18 -0300 (0:00:00.058)       0:00:01.595 **** 
+2026-09-03T12:13:18.5314226Z 
+2026-09-03T12:13:18.5314932Z TASK [Verifica ser o Jboss já foi instalado] ***********************************
+2026-09-03T12:13:18.5315102Z ok: [caddeapllx763.agil.nprd.caixa.gov.br]
+2026-09-03T12:13:18.5430458Z ok: [caddeapllx756.agil.nprd.caixa.gov.br]
+2026-09-03T12:13:18.5471067Z Thursday 03 September 2026  09:13:18 -0300 (0:00:00.283)       0:00:01.879 **** 
+2026-09-03T12:13:18.6070040Z 
+2026-09-03T12:13:18.6077742Z TASK [Setando a versão do Jboss] ***********************************************
+2026-09-03T12:13:18.6078332Z ok: [caddeapllx763.agil.nprd.caixa.gov.br]
+2026-09-03T12:13:18.6149137Z ok: [caddeapllx756.agil.nprd.caixa.gov.br]
+2026-09-03T12:13:18.6180176Z Thursday 03 September 2026  09:13:18 -0300 (0:00:00.070)       0:00:01.950 **** 
+2026-09-03T12:13:18.6689083Z Thursday 03 September 2026  09:13:18 -0300 (0:00:00.050)       0:00:02.001 **** 
+2026-09-03T12:13:18.7196903Z Thursday 03 September 2026  09:13:18 -0300 (0:00:00.050)       0:00:02.051 **** 
+2026-09-03T12:13:18.7699578Z Thursday 03 September 2026  09:13:18 -0300 (0:00:00.050)       0:00:02.102 **** 
+2026-09-03T12:13:18.8194691Z Thursday 03 September 2026  09:13:18 -0300 (0:00:00.049)       0:00:02.151 **** 
+2026-09-03T12:13:18.8716519Z Thursday 03 September 2026  09:13:18 -0300 (0:00:00.052)       0:00:02.203 **** 
+2026-09-03T12:13:18.9229848Z Thursday 03 September 2026  09:13:18 -0300 (0:00:00.051)       0:00:02.255 **** 
+2026-09-03T12:13:18.9758205Z Thursday 03 September 2026  09:13:18 -0300 (0:00:00.052)       0:00:02.308 **** 
+2026-09-03T12:13:19.0244596Z 
+2026-09-03T12:13:19.0245095Z PLAY [jboss] *******************************************************************
+2026-09-03T12:13:19.0289605Z Thursday 03 September 2026  09:13:19 -0300 (0:00:00.053)       0:00:02.361 **** 
+2026-09-03T12:13:20.5743517Z 
+2026-09-03T12:13:20.5743944Z TASK [Gathering Facts] *********************************************************
+2026-09-03T12:13:20.5744139Z ok: [caddeapllx763.agil.nprd.caixa.gov.br]
+2026-09-03T12:13:20.6579867Z ok: [caddeapllx756.agil.nprd.caixa.gov.br]
+2026-09-03T12:13:20.6735331Z Thursday 03 September 2026  09:13:20 -0300 (0:00:01.644)       0:00:04.005 **** 
+2026-09-03T12:13:21.7999507Z 
+2026-09-03T12:13:21.8014206Z TASK [Gerando fatos de servicos] ***********************************************
+2026-09-03T12:13:21.8014367Z ok: [caddeapllx763.agil.nprd.caixa.gov.br]
+2026-09-03T12:13:22.0419145Z ok: [caddeapllx756.agil.nprd.caixa.gov.br]
+2026-09-03T12:13:22.0689750Z Thursday 03 September 2026  09:13:22 -0300 (0:00:01.394)       0:00:05.400 **** 
+2026-09-03T12:13:22.1292519Z 
+2026-09-03T12:13:22.1293376Z TASK [Gerando lista de units jboss] ********************************************
+2026-09-03T12:13:22.1293594Z ok: [caddeapllx763.agil.nprd.caixa.gov.br]
+2026-09-03T12:13:22.1559995Z ok: [caddeapllx756.agil.nprd.caixa.gov.br]
+2026-09-03T12:13:22.1787392Z Thursday 03 September 2026  09:13:22 -0300 (0:00:00.110)       0:00:05.511 **** 
+2026-09-03T12:13:22.2362481Z 
+2026-09-03T12:13:22.2362894Z TASK [Lista os units jboss que tenham versao no nome] **************************
+2026-09-03T12:13:22.2364193Z ok: [caddeapllx763.agil.nprd.caixa.gov.br] => {
+2026-09-03T12:13:22.2364567Z     "msg": "Servidor caddeapllx763.agil.nprd.caixa.gov.br tem os seguintes systemd: jboss-eap-standalone-71.service"
+2026-09-03T12:13:22.2366438Z }
+2026-09-03T12:13:22.2737096Z Thursday 03 September 2026  09:13:22 -0300 (0:00:00.094)       0:00:05.605 **** 
+2026-09-03T12:13:29.0890763Z 
+2026-09-03T12:13:29.0891525Z TASK [Stop e Disable service jboss] ********************************************
+2026-09-03T12:13:29.0892593Z changed: [caddeapllx763.agil.nprd.caixa.gov.br] => (item=jboss-eap-standalone-71.service)
+2026-09-03T12:13:29.0926939Z 
+2026-09-03T12:13:29.0927254Z PLAY [jboss] *******************************************************************
+2026-09-03T12:13:29.1168267Z Thursday 03 September 2026  09:13:29 -0300 (0:00:06.843)       0:00:12.449 **** 
+2026-09-03T12:13:29.1782104Z 
+2026-09-03T12:13:29.1783029Z TASK [Setando a versão do Jboss] ***********************************************
+2026-09-03T12:13:29.1783445Z ok: [caddeapllx763.agil.nprd.caixa.gov.br]
+2026-09-03T12:13:29.2055405Z ok: [caddeapllx756.agil.nprd.caixa.gov.br]
+2026-09-03T12:13:29.2309095Z Thursday 03 September 2026  09:13:29 -0300 (0:00:00.111)       0:00:12.560 **** 
+2026-09-03T12:13:30.0320924Z 
+2026-09-03T12:13:30.0321837Z TASK [Copy template script] ****************************************************
+2026-09-03T12:13:30.0322037Z ok: [caddeapllx763.agil.nprd.caixa.gov.br]
+2026-09-03T12:13:30.0781348Z ok: [caddeapllx756.agil.nprd.caixa.gov.br]
+2026-09-03T12:13:30.1011893Z Thursday 03 September 2026  09:13:30 -0300 (0:00:00.872)       0:00:13.433 **** 
+2026-09-03T12:13:30.6949313Z 
+2026-09-03T12:13:30.6961798Z TASK [JBoss systemd wrapper for sysvinit script mode domain] *******************
+2026-09-03T12:13:30.6961951Z ok: [caddeapllx763.agil.nprd.caixa.gov.br]
+2026-09-03T12:13:30.7559082Z ok: [caddeapllx756.agil.nprd.caixa.gov.br]
+2026-09-03T12:13:30.7799073Z Thursday 03 September 2026  09:13:30 -0300 (0:00:00.678)       0:00:14.112 **** 
+2026-09-03T12:13:31.5718303Z 
+2026-09-03T12:13:31.5718790Z TASK [Realiza copia do arquivo de Trust Store] *********************************
+2026-09-03T12:13:31.5718985Z ok: [caddeapllx763.agil.nprd.caixa.gov.br]
+2026-09-03T12:13:31.6424717Z ok: [caddeapllx756.agil.nprd.caixa.gov.br]
+2026-09-03T12:13:31.6659449Z Thursday 03 September 2026  09:13:31 -0300 (0:00:00.886)       0:00:14.998 **** 
+2026-09-03T12:13:31.7617899Z Thursday 03 September 2026  09:13:31 -0300 (0:00:00.095)       0:00:15.094 **** 
+2026-09-03T12:13:31.8642654Z Thursday 03 September 2026  09:13:31 -0300 (0:00:00.102)       0:00:15.196 **** 
+2026-09-03T12:13:32.2561660Z 
+2026-09-03T12:13:32.2562714Z TASK [Check directory configuration exists] ************************************
+2026-09-03T12:13:32.2562952Z ok: [caddeapllx763.agil.nprd.caixa.gov.br]
+2026-09-03T12:13:32.2773544Z ok: [caddeapllx756.agil.nprd.caixa.gov.br]
+2026-09-03T12:13:32.3012587Z Thursday 03 September 2026  09:13:32 -0300 (0:00:00.436)       0:00:15.633 **** 
+2026-09-03T12:13:32.8872221Z 
+2026-09-03T12:13:32.8872716Z TASK [Copiando arquivos para jboss.server.config.dir] **************************
+2026-09-03T12:13:32.8872868Z ok: [caddeapllx763.agil.nprd.caixa.gov.br]
+2026-09-03T12:13:32.9940159Z ok: [caddeapllx756.agil.nprd.caixa.gov.br]
+2026-09-03T12:13:33.0177924Z Thursday 03 September 2026  09:13:33 -0300 (0:00:00.716)       0:00:16.350 **** 
+2026-09-03T12:13:33.8068497Z 
+2026-09-03T12:13:33.8069446Z TASK [Copiando arquivo standalone-full-ha.xml] *********************************
+2026-09-03T12:13:33.8070112Z changed: [caddeapllx763.agil.nprd.caixa.gov.br]
+2026-09-03T12:13:33.8338363Z changed: [caddeapllx756.agil.nprd.caixa.gov.br]
+2026-09-03T12:13:33.8569137Z Thursday 03 September 2026  09:13:33 -0300 (0:00:00.838)       0:00:17.188 **** 
+2026-09-03T12:13:34.4324742Z 
+2026-09-03T12:13:34.4325568Z TASK [Copiando arquivo standalone.conf] ****************************************
+2026-09-03T12:13:34.4325793Z ok: [caddeapllx763.agil.nprd.caixa.gov.br]
+2026-09-03T12:13:34.4845725Z ok: [caddeapllx756.agil.nprd.caixa.gov.br]
+2026-09-03T12:13:34.5086939Z Thursday 03 September 2026  09:13:34 -0300 (0:00:00.652)       0:00:17.841 **** 
+2026-09-03T12:13:34.5987884Z Thursday 03 September 2026  09:13:34 -0300 (0:00:00.089)       0:00:17.931 **** 
+2026-09-03T12:13:34.6333063Z [WARNING]: conditional statements should not include jinja2 templating
+2026-09-03T12:13:34.6333947Z delimiters such as {{ }} or {% %}. Found: {{ lookup('env','HSM') |
+2026-09-03T12:13:34.6334181Z default('false', true) | bool }}
+2026-09-03T12:13:34.6616034Z [WARNING]: conditional statements should not include jinja2 templating
+2026-09-03T12:13:34.6616467Z delimiters such as {{ }} or {% %}. Found: {{ lookup('env','HSM') |
+2026-09-03T12:13:34.6616662Z default('false', true) | bool }}
+2026-09-03T12:13:34.6698810Z Thursday 03 September 2026  09:13:34 -0300 (0:00:00.070)       0:00:18.001 **** 
+2026-09-03T12:13:41.1625360Z 
+2026-09-03T12:13:41.1626314Z RUNNING HANDLER [Restart Jboss] ************************************************
+2026-09-03T12:13:41.1626538Z changed: [caddeapllx763.agil.nprd.caixa.gov.br]
+2026-09-03T12:13:47.3438785Z changed: [caddeapllx756.agil.nprd.caixa.gov.br]
+2026-09-03T12:13:47.3467661Z 
+2026-09-03T12:13:47.3468281Z PLAY [jboss] *******************************************************************
+2026-09-03T12:13:47.3496148Z 
+2026-09-03T12:13:47.3496362Z PLAY [local] *******************************************************************
+2026-09-03T12:13:47.3525836Z 
+2026-09-03T12:13:47.3526439Z PLAY [jboss] *******************************************************************
+2026-09-03T12:13:47.3552964Z 
+2026-09-03T12:13:47.3553510Z PLAY [jboss] *******************************************************************
+2026-09-03T12:13:47.3585857Z 
+2026-09-03T12:13:47.3586327Z PLAY [Copiando deployments adicionais] *****************************************
+2026-09-03T12:13:47.3819275Z Thursday 03 September 2026  09:13:47 -0300 (0:00:12.712)       0:00:30.714 **** 
+2026-09-03T12:13:47.4382397Z 
+2026-09-03T12:13:47.4383198Z TASK [Buscando diretorio de config] ********************************************
+2026-09-03T12:13:47.4383753Z ok: [caddeapllx763.agil.nprd.caixa.gov.br]
+2026-09-03T12:13:47.4664268Z ok: [caddeapllx756.agil.nprd.caixa.gov.br]
+2026-09-03T12:13:47.4907773Z Thursday 03 September 2026  09:13:47 -0300 (0:00:00.108)       0:00:30.823 **** 
+2026-09-03T12:13:47.5474693Z 
+2026-09-03T12:13:47.5475829Z TASK [Buscando diretorio de config] ********************************************
+2026-09-03T12:13:47.5476382Z ok: [caddeapllx763.agil.nprd.caixa.gov.br]
+2026-09-03T12:13:47.5761431Z ok: [caddeapllx756.agil.nprd.caixa.gov.br]
+2026-09-03T12:13:47.6019568Z Thursday 03 September 2026  09:13:47 -0300 (0:00:00.111)       0:00:30.934 **** 
+2026-09-03T12:13:47.9807992Z 
+2026-09-03T12:13:47.9808388Z TASK [Create a symbolic link] **************************************************
+2026-09-03T12:13:47.9808584Z changed: [caddeapllx763.agil.nprd.caixa.gov.br]
+2026-09-03T12:13:47.9888434Z ok: [caddeapllx756.agil.nprd.caixa.gov.br]
+2026-09-03T12:13:48.0131358Z Thursday 03 September 2026  09:13:48 -0300 (0:00:00.411)       0:00:31.345 **** 
+2026-09-03T12:13:48.3862308Z 
+2026-09-03T12:13:48.3862796Z TASK [Verifica se o arquivo  existe] *******************************************
+2026-09-03T12:13:48.3862951Z ok: [caddeapllx763.agil.nprd.caixa.gov.br]
+2026-09-03T12:13:48.4008122Z ok: [caddeapllx756.agil.nprd.caixa.gov.br]
+2026-09-03T12:13:48.4265974Z Thursday 03 September 2026  09:13:48 -0300 (0:00:00.413)       0:00:31.758 **** 
+2026-09-03T12:13:48.9429851Z 
+2026-09-03T12:13:48.9453778Z TASK [Lendo artefatos do arquivo CSV] ******************************************
+2026-09-03T12:13:48.9455192Z ok: [caddeapllx763.agil.nprd.caixa.gov.br]
+2026-09-03T12:13:48.9455569Z ok: [caddeapllx756.agil.nprd.caixa.gov.br]
+2026-09-03T12:13:48.9728544Z Thursday 03 September 2026  09:13:48 -0300 (0:00:00.546)       0:00:32.305 **** 
+2026-09-03T12:13:49.0212076Z 
+2026-09-03T12:13:49.0212610Z TASK [Teste] *******************************************************************
+2026-09-03T12:13:49.0213377Z ok: [caddeapllx763.agil.nprd.caixa.gov.br] => (item={u'version': u'3.0.0', u'group_id': u'br.gov.caixa.jcics', u'extension': u'jar', u'artifact_id': u'framework'}) => {
+2026-09-03T12:13:49.0213615Z     "msg": "Artefato: framework - versao 3.0.0"
+2026-09-03T12:13:49.0217971Z }
+2026-09-03T12:13:49.0526427Z ok: [caddeapllx763.agil.nprd.caixa.gov.br] => (item={u'version': u'1.0.0', u'group_id': u'br.gov.caixa.bsb.sisgd', u'extension': u'jar', u'artifact_id': u'framework_sisgd'}) => {
+2026-09-03T12:13:49.0526913Z     "msg": "Artefato: framework_sisgd - versao 1.0.0"
+2026-09-03T12:13:49.0527035Z }
+2026-09-03T12:13:49.0555611Z ok: [caddeapllx756.agil.nprd.caixa.gov.br] => (item={u'version': u'3.0.0', u'group_id': u'br.gov.caixa.jcics', u'extension': u'jar', u'artifact_id': u'framework'}) => {
+2026-09-03T12:13:49.0555900Z     "msg": "Artefato: framework - versao 3.0.0"
+2026-09-03T12:13:49.0555996Z }
+2026-09-03T12:13:49.0856351Z ok: [caddeapllx763.agil.nprd.caixa.gov.br] => (item={u'version': u'7.0.1.12', u'group_id': u'com.ibm.wmq', u'extension': u'rar', u'artifact_id': u'wmq.jmsra'}) => {
+2026-09-03T12:13:49.0857033Z     "msg": "Artefato: wmq.jmsra - versao 7.0.1.12"
+2026-09-03T12:13:49.0857439Z }
+2026-09-03T12:13:49.0879183Z ok: [caddeapllx756.agil.nprd.caixa.gov.br] => (item={u'version': u'1.0.0', u'group_id': u'br.gov.caixa.bsb.sisgd', u'extension': u'jar', u'artifact_id': u'framework_sisgd'}) => {
+2026-09-03T12:13:49.0880323Z     "msg": "Artefato: framework_sisgd - versao 1.0.0"
+2026-09-03T12:13:49.0880725Z }
+2026-09-03T12:13:49.1182726Z ok: [caddeapllx756.agil.nprd.caixa.gov.br] => (item={u'version': u'7.0.1.12', u'group_id': u'com.ibm.wmq', u'extension': u'rar', u'artifact_id': u'wmq.jmsra'}) => {
+2026-09-03T12:13:49.1183336Z     "msg": "Artefato: wmq.jmsra - versao 7.0.1.12"
+2026-09-03T12:13:49.1183864Z }
+2026-09-03T12:13:49.1477920Z Thursday 03 September 2026  09:13:49 -0300 (0:00:00.174)       0:00:32.480 **** 
+2026-09-03T12:13:49.7797670Z 
+2026-09-03T12:13:49.7800482Z TASK [maven_artifact] **********************************************************
+2026-09-03T12:13:49.7801751Z changed: [caddeapllx756.agil.nprd.caixa.gov.br] => (item={u'version': u'3.0.0', u'group_id': u'br.gov.caixa.jcics', u'extension': u'jar', u'artifact_id': u'framework'})
+2026-09-03T12:13:49.7924247Z ok: [caddeapllx763.agil.nprd.caixa.gov.br] => (item={u'version': u'3.0.0', u'group_id': u'br.gov.caixa.jcics', u'extension': u'jar', u'artifact_id': u'framework'})
+2026-09-03T12:13:50.2026026Z changed: [caddeapllx763.agil.nprd.caixa.gov.br] => (item={u'version': u'1.0.0', u'group_id': u'br.gov.caixa.bsb.sisgd', u'extension': u'jar', u'artifact_id': u'framework_sisgd'})
+2026-09-03T12:13:50.2108584Z changed: [caddeapllx756.agil.nprd.caixa.gov.br] => (item={u'version': u'1.0.0', u'group_id': u'br.gov.caixa.bsb.sisgd', u'extension': u'jar', u'artifact_id': u'framework_sisgd'})
+2026-09-03T12:13:50.6647821Z changed: [caddeapllx763.agil.nprd.caixa.gov.br] => (item={u'version': u'7.0.1.12', u'group_id': u'com.ibm.wmq', u'extension': u'rar', u'artifact_id': u'wmq.jmsra'})
+2026-09-03T12:13:50.6708086Z changed: [caddeapllx756.agil.nprd.caixa.gov.br] => (item={u'version': u'7.0.1.12', u'group_id': u'com.ibm.wmq', u'extension': u'rar', u'artifact_id': u'wmq.jmsra'})
+2026-09-03T12:13:50.6971248Z Thursday 03 September 2026  09:13:50 -0300 (0:00:01.549)       0:00:34.029 **** 
+2026-09-03T12:13:53.1382388Z 
+2026-09-03T12:13:53.1383286Z TASK [Copiando artefatos para o(s) servidor(es) Jboss] *************************
+2026-09-03T12:13:53.1383504Z ok: [caddeapllx763.agil.nprd.caixa.gov.br]
+2026-09-03T12:13:53.6555869Z ok: [caddeapllx756.agil.nprd.caixa.gov.br]
+2026-09-03T12:13:53.6792802Z Thursday 03 September 2026  09:13:53 -0300 (0:00:02.982)       0:00:37.011 **** 
+2026-09-03T12:13:53.7524296Z 
+2026-09-03T12:13:53.7525051Z PLAY [Copiando modules adicionais] *********************************************
+2026-09-03T12:13:53.7770407Z Thursday 03 September 2026  09:13:53 -0300 (0:00:00.097)       0:00:37.109 **** 
+2026-09-03T12:13:53.8316375Z 
+2026-09-03T12:13:53.8317209Z TASK [Buscando diretorio de config] ********************************************
+2026-09-03T12:13:53.8317657Z ok: [caddeapllx763.agil.nprd.caixa.gov.br]
+2026-09-03T12:13:53.8599362Z ok: [caddeapllx756.agil.nprd.caixa.gov.br]
+2026-09-03T12:13:53.8832400Z Thursday 03 September 2026  09:13:53 -0300 (0:00:00.106)       0:00:37.215 **** 
+2026-09-03T12:13:53.9376531Z 
+2026-09-03T12:13:53.9377471Z TASK [Buscando diretorio de config] ********************************************
+2026-09-03T12:13:53.9377889Z ok: [caddeapllx763.agil.nprd.caixa.gov.br]
+2026-09-03T12:13:53.9660574Z ok: [caddeapllx756.agil.nprd.caixa.gov.br]
+2026-09-03T12:13:53.9912820Z Thursday 03 September 2026  09:13:53 -0300 (0:00:00.107)       0:00:37.323 **** 
+2026-09-03T12:13:54.3638018Z 
+2026-09-03T12:13:54.3638858Z TASK [Create a directory] ******************************************************
+2026-09-03T12:13:54.3639153Z changed: [caddeapllx763.agil.nprd.caixa.gov.br]
+2026-09-03T12:13:54.3864462Z ok: [caddeapllx756.agil.nprd.caixa.gov.br]
+2026-09-03T12:13:54.4120777Z Thursday 03 September 2026  09:13:54 -0300 (0:00:00.420)       0:00:37.744 **** 
+2026-09-03T12:13:54.8111396Z 
+2026-09-03T12:13:54.8112721Z TASK [Verifica se o arquivo  existe] *******************************************
+2026-09-03T12:13:54.8113627Z ok: [caddeapllx763.agil.nprd.caixa.gov.br]
+2026-09-03T12:13:54.8317619Z ok: [caddeapllx756.agil.nprd.caixa.gov.br]
+2026-09-03T12:13:54.8542974Z Thursday 03 September 2026  09:13:54 -0300 (0:00:00.442)       0:00:38.186 **** 
+2026-09-03T12:13:54.9511212Z Thursday 03 September 2026  09:13:54 -0300 (0:00:00.096)       0:00:38.283 **** 
+2026-09-03T12:13:55.0502479Z Thursday 03 September 2026  09:13:55 -0300 (0:00:00.099)       0:00:38.382 **** 
+2026-09-03T12:13:55.1484336Z Thursday 03 September 2026  09:13:55 -0300 (0:00:00.098)       0:00:38.480 **** 
+2026-09-03T12:13:55.2529853Z Thursday 03 September 2026  09:13:55 -0300 (0:00:00.103)       0:00:38.584 **** 
+2026-09-03T12:13:55.3458213Z Thursday 03 September 2026  09:13:55 -0300 (0:00:00.091)       0:00:38.676 **** 
+2026-09-03T12:13:55.4380633Z Thursday 03 September 2026  09:13:55 -0300 (0:00:00.093)       0:00:38.770 **** 
+2026-09-03T12:13:55.5114621Z 
+2026-09-03T12:13:55.5115559Z PLAY [local] *******************************************************************
+2026-09-03T12:13:55.5147215Z [WARNING]: Could not match supplied host pattern, ignoring: instance_restart
+2026-09-03T12:13:55.5150248Z 
+2026-09-03T12:13:55.5150630Z PLAY [instance_restart] ********************************************************
+2026-09-03T12:13:55.5151013Z skipping: no hosts matched
+2026-09-03T12:13:55.5153427Z [WARNING]: Could not match supplied host pattern, ignoring: machine_reboot
+2026-09-03T12:13:55.5156139Z 
+2026-09-03T12:13:55.5156455Z PLAY [machine_reboot] **********************************************************
+2026-09-03T12:13:55.5156999Z skipping: no hosts matched
+2026-09-03T12:13:55.5163029Z 
+2026-09-03T12:13:55.5163392Z PLAY [local] *******************************************************************
+2026-09-03T12:13:55.5189089Z [WARNING]: Could not match supplied host pattern, ignoring: instance_stop
+2026-09-03T12:13:55.5192813Z 
+2026-09-03T12:13:55.5193057Z PLAY [instance_stop] ***********************************************************
+2026-09-03T12:13:55.5193351Z skipping: no hosts matched
+2026-09-03T12:13:55.5196298Z 
+2026-09-03T12:13:55.5196548Z PLAY [machine_reboot] **********************************************************
+2026-09-03T12:13:55.5196817Z skipping: no hosts matched
+2026-09-03T12:13:55.5204025Z 
+2026-09-03T12:13:55.5204411Z PLAY [Configura TSM] ***********************************************************
+2026-09-03T12:13:55.5236090Z 
+2026-09-03T12:13:55.5236533Z PLAY [Configura Control-M] *****************************************************
+2026-09-03T12:13:55.5258451Z 
+2026-09-03T12:13:55.5258681Z PLAY RECAP *********************************************************************
+2026-09-03T12:13:55.5258876Z caddeapllx756.agil.nprd.caixa.gov.br : ok=28   changed=4    unreachable=0    failed=0    skipped=27   rescued=0    ignored=0   
+2026-09-03T12:13:55.5260898Z caddeapllx763.agil.nprd.caixa.gov.br : ok=30   changed=7    unreachable=0    failed=0    skipped=25   rescued=0    ignored=0   
+2026-09-03T12:13:55.5262850Z 
+2026-09-03T12:13:55.5265024Z Thursday 03 September 2026  09:13:55 -0300 (0:00:00.088)       0:00:38.858 **** 
+2026-09-03T12:13:55.5266815Z =============================================================================== 
+2026-09-03T12:13:55.5267409Z Restart Jboss ---------------------------------------------------------- 12.71s
+2026-09-03T12:13:55.5267823Z Stop e Disable service jboss -------------------------------------------- 6.84s
+2026-09-03T12:13:55.5269304Z Copiando artefatos para o(s) servidor(es) Jboss ------------------------- 2.98s
+2026-09-03T12:13:55.5269770Z Gathering Facts --------------------------------------------------------- 1.64s
+2026-09-03T12:13:55.5270312Z maven_artifact ---------------------------------------------------------- 1.55s
+2026-09-03T12:13:55.5270578Z Gerando fatos de servicos ----------------------------------------------- 1.39s
+2026-09-03T12:13:55.5270872Z Realiza copia do arquivo de Trust Store --------------------------------- 0.89s
+2026-09-03T12:13:55.5271089Z Copy template script ---------------------------------------------------- 0.87s
+2026-09-03T12:13:55.5282328Z Copiando arquivo standalone-full-ha.xml --------------------------------- 0.84s
+2026-09-03T12:13:55.5283037Z Copiando arquivos para jboss.server.config.dir -------------------------- 0.72s
+2026-09-03T12:13:55.5283658Z JBoss systemd wrapper for sysvinit script mode domain ------------------- 0.68s
+2026-09-03T12:13:55.5283897Z Copiando arquivo standalone.conf ---------------------------------------- 0.65s
+2026-09-03T12:13:55.5284131Z Verificando o java versão esta instalado: 1.8.0_221 --------------------- 0.55s
+2026-09-03T12:13:55.5284357Z Lendo artefatos do arquivo CSV ------------------------------------------ 0.55s
+2026-09-03T12:13:55.5284569Z Verificando a versão do Java -------------------------------------------- 0.48s
+2026-09-03T12:13:55.5302612Z Verifica se o arquivo  existe ------------------------------------------- 0.44s
+2026-09-03T12:13:55.5302920Z Check directory configuration exists ------------------------------------ 0.44s
+2026-09-03T12:13:55.5303144Z Create a directory ------------------------------------------------------ 0.42s
+2026-09-03T12:13:55.5303362Z Verifica se o arquivo  existe ------------------------------------------- 0.41s
+2026-09-03T12:13:55.5303582Z Create a symbolic link -------------------------------------------------- 0.41s
+2026-09-03T12:13:55.5303725Z Playbook run took 0 days, 0 hours, 0 minutes, 38 seconds
+2026-09-03T12:13:55.5972936Z ##[section]Finishing: Deploy Config no JBOSS
