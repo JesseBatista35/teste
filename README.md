@@ -1,378 +1,199 @@
-sigex-frontend-painel-presi-gestao/.github/workflows
-/call-gsc-integration-generic-pipeline.yaml
-
-
-# ============================================================================= #
-#             CAIXA DEVSECOPS - TEMPLATE DE WORKFLOW CI/CD v1.0                 #
-# ============================================================================= #
-# Este workflow é um modelo padrão para todos os desenvolvedores da Caixa.      #
-# Ele automatiza processos de integração contínua (CI) e entrega contínua (CD), #
-# promovendo segurança, padronização e eficiência no ciclo de desenvolvimento.  #
-# Todas as alterações devem ser realizadas por meio do Fusionx                  #
-# ============================================================================= #
-# ============================================================================= #
-# Nome do workflow para facilitar a identificação nas execuções                 #
-# ============================================================================= #
-name: CI/CD Workflow Generic
-# ============================================================================= #
-# Nome dinâmico da execução, útil para rastreamento e auditoria                 #
-# ============================================================================= #
-run-name: ${{ github.repository }}_${{ github.ref_name }}_${{ github.run_id }}.${{ github.run_number }}
-# ========================================================================================================================== #
-# Eventos que disparam o workflow                                                                                            #
-# ========================================================================================================================== #
-# workflow_dispatch -> Permite execução manual via interface do GitHub                                                       #
-# push              -> Executa automaticamente em push, de acordo com os filtros                                             #
-# branches          -> Filtro de execução. O workflow, no evento push, será executado apenas nas branches main e develop     #
-# paths-ignore      -> Filtro de execução. O workflow, no evento push, não será executado quando existir alteração           #
-#                   -> nos caminhos .github/** e no arquivo catalog-info.yaml                                                #
-#                                                                                                                            #
-# Documentação de referência                                                                                                 #
-# https://docs.github.com/en/actions/how-tos/write-workflows/choose-when-workflows-run/trigger-a-workflow                    #
-# ========================================================================================================================== #
+name: Generic Projects Workflow
+run-name: ${{ github.repository }}_${{ github.ref_name }}_${{ github.run_id }}.${{ github.run_number }}-${{ inputs.ambiente }}
 on:
-  workflow_dispatch:
-  push:
-    branches:
-      - develop
-    paths-ignore:
-      - '.github/**'
-      - 'catalog-info.yaml'
-# ============================================================================================================================ #
-# Permissões necessárias para o workflow interagir com o repositório de automação de CI/CD e serviços                          #
-# ============================================================================================================================ #
-# contents: write        -> Permite escrever nos arquivos do repositório                                                       #
-# security-events: write -> Permite registrar eventos de segurança                                                             #
-# packages: read         -> Permite ler pacotes (ex: npm, docker)                                                              #
-# actions: read          -> Permite ler ações do GitHub                                                                        #
-# issues: write          -> Permite criar/editar issues                                                                        #
-# pull-requests: write   -> Permite criar/editar pull requests                                                                 #
-#                                                                                                                              #
-# Documentação de referência                                                                                                   #
-# https://docs.github.com/en/actions/tutorials/authenticate-with-github_token#modifying-the-permissions-for-the-github_token   #
-# ============================================================================================================================ #
-permissions:
-  contents: write
-  security-events: write
-  packages: read
-  actions: read
-  issues: write
-  pull-requests: write
-# ====================================================================================================================================================== #
-# Definição dos jobs que serão executados                                                                                                                #
-# ====================================================================================================================================================== #
-# name: CI_DES                                                                        -> Nome do job, aparece na interface do GitHub Actions             #
-# uses: caixagithub/DevSecOps-Solutions/.github/workflows/generic-pipelines.yaml@main -> Template reutilizado                                            #
-# secrets: inherit                                                                    -> Herda os segredos definidos no repositório principal            #
-# DEPLOY_ENVIRONMENTS: '["DES"]'                                                      -> Define o ambiente de implantação como Desenvolvimento (DES).    #
-#                                                                                     -> PossÍveis ambientes: DES, TST, TQS, SANDBOX, HMP, PTL E PRD     #
-# IMPORT_APIM: false                                                                  -> Desativa importação automática de APIs no Azure API Management. #
-#                                                                                     -> Possíveis valores: true ou false                                #
-#                                                                                                                                                        #
-# Documentação de referência                                                                                                                             #
-# https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/use-jobs                                                           #
-# https://docs.github.com/en/actions/how-tos/reuse-automations/reuse-workflows                                                                           #
-# ====================================================================================================================================================== #
+  workflow_call:
+    inputs:
+      DEPLOY_ENVIRONMENTS:
+        required: false
+        type: string
+        default: '["DES"]'
+      IMPORT_APIM:
+        required: false
+        type: boolean
+        default: false
+      USES_PACKAGES:
+        required: false
+        type: boolean
+        default: false
+
 jobs:
-  Generic-Solution:
-    name: CI_DES
-    uses: caixagithub/DevSecOps-Solutions/.github/workflows/gsc-integration-generic-pipeline.yaml@main
-    secrets: inherit
+# ========================================================================================================================== #
+# Environment Validation Result                                                                                              #
+# ========================================================================================================================== #
+# valid_deploy_environments -> Usage: ${{ jobs.VALIDATION.outputs.valid_deploy_environments }}                               #
+#                           -> Description: Array of validated deploy environments                                           #
+# ========================================================================================================================== #
+  VALIDATION:
+    runs-on: ubuntu-latest
+    environment: ${{ matrix.environment }}
+    outputs:
+        type: ${{ steps.topics_validation.outputs.type }}
+        valid_deploy_environments: ${{ steps.validate_deploy_environments.outputs.VALID_DEPLOY_ENVIRONMENTS }}
+        hotfix: ${{ fromJSON(steps.validate_deploy_environments.outputs.IS_HOTFIX).hotfix  }}
+        nprd_envs: ${{ steps.set_nprd.outputs.nprd_envs }}
+        QA_TEST_JSON: ${{ steps.validate_qa.outputs.qa_test_json }}
+    steps:
+      - name: Create GitHub App token
+        id: app_token
+        uses: actions/create-github-app-token@v2
+        with:
+          app-id: ${{ secrets.GH_APP_ID }}
+          private-key: ${{ secrets.GH_APP_PRIVATE_KEY }}
+          owner: caixagithub
+
+      - name: Checkout do repositório com o script
+        uses: actions/checkout@v5
+        with:
+          repository: caixagithub/DevSecOps-Actions
+          path: devsecops-actions
+          token: ${{ steps.app_token.outputs.token }}
+
+      - name: Configurar Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Cache pip dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: Validar ambientes
+        id: validate_deploy_environments
+        env:
+          DEPLOY_ENVIRONMENTS: ${{ inputs.DEPLOY_ENVIRONMENTS }}
+          BRANCH: ${{ github.ref_name }}
+          SOLUTION: 'gsc-integration-generic-pipeline'
+          TOKEN_GITHUB_ORG: ${{ steps.app_token.outputs.token }}
+        run: python devsecops-actions/src/validations/validate-deploy-env.py
+        shell: bash
+
+      - name: Validar ambientes de testes automatizados
+        id: validate_qa
+        uses: caixagithub/DevSecOps-Actions/.github/util/validate_qa_test@main
+        with:
+          github_token_org: ${{ steps.app_token.outputs.token }}
+
+      - name: Verificação de Segurança GHAS dependabot
+        id: dependabot_check
+        if: ${{ !fromJSON(steps.validate_deploy_environments.outputs.IS_HOTFIX).hotfix && github.actor != 'devhub-connect-emu-des[bot]' && github.actor != 'devhub-connect-emu[bot]' }}
+        uses: caixagithub/DevSecOps-Actions/.github/util/ghas-security-check/dependabot@main
+        with:
+          github_token: ${{ steps.app_token.outputs.token }}
+          repository: ${{ github.repository }}
+          dependabot_severity: ${{ vars.GHAS_SEVERIDADE_SEG_ALL_ORG_PIPES_AGIL }}
+
+      - name: Verificação de Segurança GHAS code scanning
+        id: code_scanning_check
+        if: ${{ !fromJSON(steps.validate_deploy_environments.outputs.IS_HOTFIX).hotfix && github.actor != 'devhub-connect-emu-des[bot]' && github.actor != 'devhub-connect-emu[bot]' }}
+        uses: caixagithub/DevSecOps-Actions/.github/util/ghas-security-check/code-scanning@main
+        with:
+          github_token: ${{ steps.app_token.outputs.token }}
+          repository: ${{ github.repository }}
+          codeql_severity: ${{ vars.GHAS_SEVERIDADE_SEG_ALL_ORG_PIPES_AGIL }}
+          github_branch: ${{ github.ref }}
+
+      - name: Verificação de Segurança GHAS secret scanning
+        id: secret_scanning_check
+        if: ${{ !fromJSON(steps.validate_deploy_environments.outputs.IS_HOTFIX).hotfix }}
+        uses: caixagithub/DevSecOps-Actions/.github/util/ghas-security-check/secret-scanning@main
+        with:
+          github_token: ${{ steps.app_token.outputs.token }}
+          repository: ${{ github.repository }}
+          codeql_severity: ${{ vars.GHAS_SEVERIDADE_SEG_ALL_ORG_PIPES_AGIL }}
+
+      - name: Extraindo Tipos de Repositorios
+        id: topics_validation
+        if: ${{ !fromJSON(steps.validate_deploy_environments.outputs.IS_HOTFIX).hotfix && github.actor != 'devhub-connect-emu-des[bot]' && github.actor != 'devhub-connect-emu[bot]' }}
+        env:
+          REPOSITORY_TO_VALIDATE: ${{ github.repository }}
+          TOKEN_GITHUB_ORG: ${{ steps.app_token.outputs.token }}
+        shell: bash
+        run: |
+          python devsecops-actions/src/validations/validate-topics.py
+
+      - name: Validar Resultados
+        id: validate_results
+        env:
+          DEPENDABOT_CHECK: ${{ steps.dependabot_check.outputs.validation_response }}
+          CODE_SCANNING_CHECK: ${{ steps.code_scanning_check.outputs.validation_response }}
+          TOPICS_VALIDATION: ${{ steps.topics_validation.outputs.validation_response }}
+          SECRET_SCANNING_CHECK: ${{ steps.secret_scanning_check.outputs.validation_response }}
+          DEPLOY_ENVS_VALIDATION: ${{ steps.validate_deploy_environments.outputs.validation_response }}
+        run: python devsecops-actions/src/validations/validate-steps-logs.py
+        shell: bash
+
+      - name: Definir NPRD (lista fixa) como JSON
+        id: set_nprd
+        run: |
+          # Lista fixa em JSON de array
+          echo 'nprd_envs=["DES","TST","TQS","SANDBOX","HMP"]' >> "$GITHUB_OUTPUT"
+
+  DOCKERFILE_VALIDATION:
+    needs: VALIDATION
+    uses: caixagithub/DevSecOps-Solutions/.github/workflows/dockerfile-validation-pipelines.yaml@main
+# ========================================================================================================================== #
+# Build Job Outputs                                                                                                          #
+# ========================================================================================================================== #
+# image_tag              -> Usage: ${{ jobs.BUILD.outputs.image_tag }}                                                       #
+#                        -> Description: Tag of the built image                                                              #
+#                                                                                                                            #
+# image_dir              -> Usage: ${{ jobs.BUILD.outputs.image_dir }}                                                       #
+#                        -> Description: Directory path where the image is stored                                            #
+#                                                                                                                            #
+# valid_envs             -> Usage: ${{ jobs.BUILD.outputs.valid_envs }}                                                      #
+#                        -> Description: Array of validated environments                                                     #
+#                                                                                                                            #
+# system                 -> Usage: ${{ jobs.BUILD.outputs.system }}                                                          #
+#                        -> Description: Acronym of the system                                                               #
+#                                                                                                                            #
+# module                 -> Usage: ${{ jobs.BUILD.outputs.module }}                                                          #
+#                        -> Description: Module name of the system                                                           #
+# ========================================================================================================================== #
+
+  BUILD:
+    needs: [VALIDATION, DOCKERFILE_VALIDATION]
+    uses: caixagithub/DevSecOps-Workflow-Jobs/.github/workflows/default-container-build-job.yaml@main
     with:
-      DEPLOY_ENVIRONMENTS: '["DES"]'
-      IMPORT_APIM: false
+      DEPLOY_ENVIRONMENTS: ${{ needs.VALIDATION.outputs.valid_deploy_environments }}
+      USES_PACKAGES: ${{ fromJSON(inputs.USES_PACKAGES) }}
+      USES_NEXUS: false
+    secrets:
+      GH_APP_ID: ${{ secrets.GH_APP_ID }}
+      GH_APP_PRIVATE_KEY: ${{ secrets.GH_APP_PRIVATE_KEY }}
+      TOKEN_GITHUB_ORG: ${{ secrets.TOKEN_GITHUB_ORG }}
+      client_id_idp_org: ${{ secrets.CLIENT_ID_IDP_ORG }}
 
-
-sigex-frontend-painel-presi-gestao-infranprd/des/templates
-/cm-sigex-frontend-painel-presi-gestao.yaml
-
-
-
-      apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: cm-sigex-frontend-painel-presi-gestao
-  labels:
-    {{- include "caixa-base-chart.labels" . | nindent 4 }}
-data:
-  KEY: "VALUE"
-
-
-sigex-frontend-painel-presi-gestao-infranprd/des/templates
-/akvs-sigex-frontend-painel-presi-gestao.yaml
-
-
-apiVersion: spv.no/v2beta1
-kind: AzureKeyVaultSecret
-metadata:
-  name: akvs-sigex-frontend-painel-presi-gestao
-  namespace: aks-istio-ingress
-  labels:
-    {{- include "caixa-base-chart.labels" . | nindent 4 }}
-spec:
-  vault:
-    name: <NOME_DO_KEYVAULT>
-    object:
-      name: sigex-frontend-painel-presi-gestao
-      type: secret
-  output: 
-    secret:
-      name: akvs-sigex-frontend-painel-presi-gestao
-      type: kubernetes.io/tls
-
-
-
-
-      Filtrar por namespace
-kubernetes
-default
-OK
-ClusterIP
-10.245.0.1
-443/TCP
-377 dias
-kube-dns
-kube-system
-OK
-ClusterIP
-10.245.0.10
-53/UDP,53/TCP
-377 dias
-metrics-server
-kube-system
-OK
-ClusterIP
-10.245.2.232
-443/TCP
-377 dias
-gatekeeper-webhook-service
-gatekeeper-system
-OK
-ClusterIP
-10.245.1.248
-443/TCP
-377 dias
-azure-policy-webhook-service
-kube-system
-OK
-ClusterIP
-10.245.1.233
-443/TCP
-377 dias
-ama-metrics-ksm
-kube-system
-OK
-ClusterIP
-10.245.0.169
-8080/TCP
-377 dias
-ama-metrics-operator-targets
-kube-system
-OK
-ClusterIP
-10.245.0.136
-80/TCP,443/TCP
-377 dias
-network-observability
-kube-system
-OK
-ClusterIP
-10.245.1.29
-10093/TCP
-377 dias
-aks-istio-ingressgateway-external
-aks-istio-ingress
-OK
-LoadBalancer
-10.245.3.148
-4.228.121.77
-15021:31171/TCP,80:30649/TCP,443:32192/TCP
-377 dias
-aks-istio-ingressgateway-internal
-aks-istio-ingress
-OK
-LoadBalancer
-10.245.0.205
-10.245.188.6
-15021:31999/TCP,80:31227/TCP,443:31973/TCP
-377 dias
-externaldns-external-dns
-external-dns
-OK
-ClusterIP
-10.245.3.17
-7979/TCP
-331 dias
-akv2k8s-controller
-akv2k8s
-OK
-ClusterIP
-10.245.0.210
-9000/TCP
-331 dias
-akv2k8s-envinjector
-akv2k8s
-OK
-ClusterIP
-10.245.1.94
-443/TCP,80/TCP,9443/TCP
-331 dias
-sigex-frontend-painel-presi-des
-sigex-frontend-painel-presi
-OK
-ClusterIP
-10.245.3.204
-80/TCP
-310 dias
-sigex-api-painel-presi-des
-sigex-api-painel-presi
-OK
-ClusterIP
-10.245.3.53
-80/TCP
-259 dias
-sigex-frontend-painel-presi-v2-des
-sigex-frontend-painel-presi-v2
-OK
-ClusterIP
-10.245.3.229
-80/TCP
-205 dias
-istiod-asm-1-29
-aks-istio-system
-OK
-ClusterIP
-10.245.3.152
-15010/TCP,15012/TCP,443/TCP,15014/TCP
-92 dias
-sigex-frontend-painel-presi-gestao-des
-sigex-frontend-painel-presi-gestao
-OK
-ClusterIP
-10.245.2.144
-80/TCP
-17 horas
-
-
-sigex-frontend-painel-presi-gestao-infranprd/des
-/values.yaml
-
-
-
-caixa-base-chart:
-#-------#
-# IMAGE #
-#-------#
-  image:
-    # variavel de imagem do tipo de aplicação
-    repository: acrcentralcaixanprd.azurecr.io/sigex/frontend-painel-presi-gestao/sigex-frontend-painel-presi-gestao
-    tag: "33550508812"
-    pullPolicy: Always
-#-----#
-# HPA #
-#-----#
-  replicaCount: 1
-  autoscaling:
-    enabled: false
-    minReplicas: 1
-    maxReplicas: 3
-    targetCPUUtilizationPercentage: 85
-    targetMemoryUtilizationPercentage: 85
-#-----------------#
-# ROLLING UPDATE STRATEGY #
-#-----------------#
-  strategy:
-    maxSurge: 25%
-    maxUnavailable: 50%
-#-----------#
-#  SERVICE  #
-#-----------#
-  service:
-    type: "ClusterIP"
-    ports:
-      - name: "port"
-        protocol: TCP
-        port: 80
-        targetPort: 8080
-#---------#
-# INGRESS #
-#---------#
-  istio:  
-    - name: internal
-      enabled: true
-      servers:
-      - port:
-          number: 80
-          name: http-default
-          protocol: HTTP
-        hosts:
-        - "sigex-frontend-painel-presi-gestao.apl.des-nprd.private.azure"
-      #- port:
-      #    number: 443
-      #    name: https-custom
-      #    protocol: HTTPS
-      #  tls:
-      #    mode: SIMPLE
-      #    credentialName: akvs-sigex-frontend-painel-presi-gestao-certificate # Nome do secret do certificado
-      #  hosts:
-      #    - sigex-frontend-painel-presi-gestao.des-nprd.caixa
-      prefix:
-        - /
-      targetPort: 80 
-#-------------#
-#  RESOURCES  #
-#-------------#
-  resources:
-    requests:
-      cpu: 250m
-      memory: 256Mi
-    limits:
-      cpu: 500m
-      memory: 512Mi
-#----------#
-#  PROBES  #
-#----------#
-  probes:
-    enabled: false
-    useDefaults: false  
-    livenessProbe: 
-      initialDelaySeconds: 30
-      periodSeconds: 15
-      failureThreshold: 10
-      successThreshold: 1
-      httpGet:
-        path: /     
-        port: 8080
-    readinessProbe: 
-      initialDelaySeconds: 15
-      periodSeconds: 15
-      failureThreshold: 3
-      successThreshold: 1
-      httpGet:
-        path: /     
-        port: 8080
-#-------------#
-#  CONFIGMAP  #
-#-------------#
-  configMapRefs:
-    - name: cm-sigex-frontend-painel-presi-gestao
-#---------------#
-#  TOLERATIONS  #
-#---------------#
-  tolerations:
-    - key: "kubernetes.azure.com/scalesetpriority"
-      effect: "NoSchedule"
-      operator: "Equal"
-      value: "spot"
-    - key: "nuvem.caixa/nodepoolname"
-      effect: "NoSchedule"
-      operator: "Equal"
-      value: "sitegestao"
-#-------------# 
-#   SECRETS   # 
-#-------------# 
-#  secretRefs:
-#  env:
-#    - name: <NOME_DA_VARIAVEL_NA_APLICACAO>
-#      value: akvs-sigex-frontend-painel-presi-gestao@azurekeyvault
-  
+  ArgoCD_Deploy:
+    needs: [BUILD, VALIDATION]
+    uses: caixagithub/DevSecOps-Workflow-Jobs/.github/workflows/default-argo-cd-deploy-job.yaml@main
+    with:
+      environments: ${{ toJSON(fromJSON(needs.VALIDATION.outputs.valid_deploy_environments || '["__empty__"]')) }}
+      image_tag: ${{ needs.BUILD.outputs.image_tag }}
+      image_dir:  ${{ needs.BUILD.outputs.image_dir }}
+      registry_url: ${{ needs.BUILD.outputs.registry_url }}
+      registry_url_prd: ${{ needs.BUILD.outputs.registry_url_prd }}
+      ANSIBLE_USER_ORG: ${{ vars.ANSIBLE_USER_ORG }}
+      ARGOCD_SERVER_ORG: ${{ vars.ARGOCD_SERVER_ORG }}
+      ARGOCD_USERNAME_ORG: ${{ vars.ARGOCD_USERNAME_ORG }}
+      system: ${{ needs.BUILD.outputs.system }}
+      module: ${{ needs.BUILD.outputs.module }}
+      valid_deploy_environments: ${{ needs.VALIDATION.outputs.valid_deploy_environments }}
+      IMPORT_APIM: ${{ inputs.IMPORT_APIM }}
+      workflows: gsc
+      nprd_envs: ${{ needs.VALIDATION.outputs.nprd_envs }}
+      QA_TEST_JSON:  ${{ needs.VALIDATION.outputs.qa_test_json }}
+      NEXUS_USER: ${{ vars.NEXUS_USER_ORG }}
+    secrets:
+      GH_APP_ID: ${{ secrets.GH_APP_ID }}
+      GH_APP_PRIVATE_KEY: ${{ secrets.GH_APP_PRIVATE_KEY }}
+      CLIENT_ID_IDP_ORG: ${{ secrets.CLIENT_ID_IDP_ORG }}
+      ANSIBLE_PASSWORD_ORG: ${{ secrets.ANSIBLE_PASSWORD_ORG }}
+      ARGOCD_PASSWORD_ORG: ${{ secrets.ARGOCD_PASSWORD_ORG }}
+      PASS_RTC: ${{ secrets.PASS_RTC }}
+      PASS_ITSM: ${{ secrets.PASS_ITSM }}
+      LOAD_TEST_SUBSCRIPTION_ORG: ${{ secrets.LOAD_TEST_SUBSCRIPTION_ORG }}
+      NEXUS_PASSWORD: ${{ secrets.NEXUS_PASSWORD_ORG }}
