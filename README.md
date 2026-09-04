@@ -1,211 +1,81 @@
-Skip to main content
-Azure DevOps
-projetos
-/
-Caixa
-/
-Pipelines
-Search
+
+<img width="1618" height="886" alt="image" src="https://github.com/user-attachments/assets/8a2a5fc1-a8bc-4c2a-bdf6-1eb544a247cc" />
+
+é um taskgrop
+
+Recupera versão projeto (groupId:artifactId:type:version)
 
 
-Caixa
+cd $(Build.SourcesDirectory)
 
-Overview
+find . -name maven-wrapper.jar -delete
 
-Boards
+echo "Entrando no diretório: $(Build.SourcesDirectory)"
+echo "Arquivos encontrados: `ls -la`"
 
-Repos
+if [ -z "$TARGET_PATH" ]; then 
+	TARGET_PATH="target" 
+fi
 
-Pipelines
-Pipelines
-Environments
-Releases
-Library
-Task groups
-Deployment groups
-Portal Infra
+for extension in ear war jar
+do
+   file=`find $TARGET_PATH -name "*.${extension}"`
+   if [ -n "${file}" ]
+   then
+			PROJECT_FILE="${file}"
+			p_extension="${extension}"
+			break
+   fi
+done
 
-Test Plans
+echo "Encontrado o arquivo: $file\n"
 
-Artifacts
-Project settings
-
-SIACM
-
-SIACM-api-audit
+export PROJECT_DIR=`dirname ${PROJECT_FILE}`
+export PROJECT_POM_PROPERTIES_FILE=`find ${PROJECT_DIR} -name pom.properties`
 
-Tasks
+echo "Diretório do projeto: $PROJECT_DIR"
+echo "Conteúdo do diretório: `ls -la $PROJECT_DIR`"
+echo "Arquivo POM: $PROJECT_POM_PROPERTIES_FILE"
 
-Variables
-
-Triggers
-
-Options
-
-History
-Java-Build - jar
-Task version
-1.*
-Display name
-Task group: Java-Build - target/* clean compile install -Dversion.app=$(version.app)
-AZPAT
-$(AZPAT)
-FORTIFY_API
-$(FORTIFY_API)
-FORTIFY_APITOKEN
-$(FORTIFY_APITOKEN)
-FORTIFY_BUILD
-$(FORTIFY_BUILD)
-fortify_disable
-$(fortify_disable)
-FORTIFY_PASS
-$(FORTIFY_PASS)
-FORTIFY_POOL_GOLD_NOVO
-$(FORTIFY_POOL_GOLD_NOVO)
-FORTIFY_POOL_SILVER_NOVO
-$(FORTIFY_POOL_SILVER_NOVO)
-FORTIFY_UPTOKEN
-$(FORTIFY_UPTOKEN)
-FORTIFY_USER
-$(FORTIFY_USER)
-FORTIFY_VERSION_BUILD
-$(FORTIFY_VERSION_BUILD)
-GradleVersion
-$(GradleVersion)
-JAVA_VERSION
-jdk1.8.0_221
-lista_versao
-$(lista_versao)
-MAVEN_VERSION
-3.8.5
-MVN_GOAL
-clean compile install -Dversion.app=$(version.app)
-nexus_interno_pass
-$(nexus_interno_pass)
-nexus_interno_user
-$(nexus_interno_user)
-NEXUS_REPOSITORY_ID
-$(NEXUS_REPOSITORY_ID)
-NEXUS_URL_RELEASE
-$(NEXUS_URL_MAVEN_RELEASE)
-NEXUS_URL_SNAPSHOT
-$(NEXUS_URL_MAVEN_SNAPSHOT)
-NEXUS_URL_SNAPSHOT_ALIAS
-SNAPSHOT
-p_language
-$(p_language)
-POM_PATH
-pom.xml
-project.extension
-$(project.extension)
-project.file
-$(project.file)
-project.group
-$(project.group)
-project.name
-$(project.name)
-project.version
-$(project.version)
-REPOSITORIO
-$(REPOSITORIO)
-SCANCENTRAL_URL
-$(SCANCENTRAL_URL)
-SONAR_LOGIN
-$(SONAR_LOGIN)
-SONAR_PASSWORD
-$(SONAR_PASSWORD)
-SONAR_PROPERTIES
-$(SONAR_PROPERTIES)
-SONAR_URL
-$(SONAR_URL)
-token
-$(token)
-token_id
-$(token_id)
-valida.vec
-$(valida.vec)
-version.app
-$(version.app)
-versionApp
-$(versionApp)
-Control Options
-Output Variables
-Showing 25 filtered items.
-
-Get started and run this pipeline for the first time!
-
-Showing 38 filtered items.
-
-Showing 25 filtered items.
+#if [ -z $PROJECT_POM_PROPERTIES_FILE ]
+#then
+#      echo "Arquivo pom.properties não encontrado, favor verificar a versão da TAG <maven-ear-plugin-version> no pom.properties, algumas versões #possuem BUG e não gera o arquivo."
+#      exit 1
+#fi
 
 
-Skip to main content
-Azure DevOps
-projetos
-/
-Caixa
-/
-Pipelines
-Search
+p_version=`egrep version ${PROJECT_POM_PROPERTIES_FILE} | awk -F = {'print $2'}`		 
+p_group=`egrep groupId ${PROJECT_POM_PROPERTIES_FILE} | awk -F = {'print $2'}`
+p_artifact=`egrep artifactId ${PROJECT_POM_PROPERTIES_FILE} | awk -F = {'print $2'}`
+p_projectKey=`echo $p_artifact | tr -cd '[:alnum:]'` 
 
+echo "${p_group}:${p_artifact}:${p_extension}:${p_version}"
 
-Caixa
+echo "##vso[task.setvariable variable=project.group;]$p_group"
 
-Overview
+echo "##vso[task.setvariable variable=project.name;]$p_artifact"
 
-Boards
+echo "##vso[task.setvariable variable=project.version;]$p_version"
 
-Repos
+echo "##vso[task.setvariable variable=project.extension;]$p_extension"
 
-Pipelines
-Pipelines
-Environments
-Releases
-Library
-Task groups
-Deployment groups
-Portal Infra
+echo "##vso[task.setvariable variable=project.key;]$p_projectKey"
 
-Test Plans
+echo "##vso[task.setvariable variable=project.file;]${PROJECT_FILE}"
 
-Artifacts
-Project settings
-
-SIACM
-
-SIACM-api-audit
+if [[ ! -z ${PROJECT_RELEASE} ]] && ([ ${PROJECT_RELEASE} == false ] || [ ${PROJECT_RELEASE} == true ]) ; then
 
-Tasks
+echo "##vso[task.setvariable variable=project.release;]${PROJECT_RELEASE}"
 
-Variables
+else
 
-Triggers
+echo "##vso[task.setvariable variable=project.release;]true"
 
-Options
+if [[ ${p_version} == *"$(NEXUS_URL_SNAPSHOT_ALIAS)"* ]]; then
+  echo "##vso[task.setvariable variable=project.release;]false"
+fi
 
-History
-Predefined variables
-project.key
-SIACM-Api-audit-Key
-system.collectionId
-7b4c9d5c-b041-4798-8dcb-fb11786a173b
-system.debug
-false
-system.definitionId
-17
-system.teamProject
-Caixa
-version.app
+fi
 
-Showing 25 filtered items.
-
-Get started and run this pipeline for the first time!
-
-Showing 38 filtered items.
-
-Showing 25 filtered items.
-
-
-
-
+echo "##vso[task.setvariable variable=POM_PATH;]$(POM_PATH)"
 
