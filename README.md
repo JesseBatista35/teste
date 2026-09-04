@@ -1,133 +1,38 @@
-o marinho marinho me disse isso
+Boa tarde, a taask Login OpenShift está apresentando erro:
 
-tem um parametro que é configurado pra puxar o pom do projeto nesses casos
+2026-09-04T15:35:31.5892146Z Não encontrei o cluster para logar
+2026-09-04T15:35:31.5905444Z ##[error]Bash exited with code '1'.
+
+link: https://devops.caixa/projetos/Caixa/_releaseProgress?_a=release-environment-logs&releaseId=525506&environmentId=2440849
+
+podem verificar por favor?
+
+Obrigado
 
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>br.gov.caixa.api</groupId>
-	<artifactId>caixa-api-siacm_audit</artifactId>
-	<version>2.3.0.56</version>
-	<packaging>jar</packaging>
-	<name>Caixa API SIACM Auditoria</name>
-	<url>http://mobilidade.caixa.gov.br</url>
-	
-	<properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
-        <hibernate.version>4.2.8.Final</hibernate.version>
-        <spring.version>4.1.6.RELEASE</spring.version>
-        <groovy.version>2.3.10</groovy.version>
-        <slf4j.version>1.7.2</slf4j.version>
-        <spring.security.version>3.2.5.RELEASE</spring.security.version>
-        <jackson.version>2.3.3</jackson.version>
-    </properties>
-			
-	<dependencies>
-		<dependency>
-			<groupId>javax.inject</groupId>
-			<artifactId>javax.inject</artifactId>
-			<version>1</version>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>javax.servlet-api</artifactId>
-			<version>3.0.1</version>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-web</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-orm</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-context</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-context-support</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-tx</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-aspects</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-oxm</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
-		<!-- DEPENDENCIAS HIBERNATE -->
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-core</artifactId>
-			<version>${hibernate.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-entitymanager</artifactId>
-			<version>${hibernate.version}</version>
-			<exclusions>
-				<exclusion>
-					<groupId>org.jboss.logging</groupId>
-					<artifactId>jboss-logging</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		<dependency>
-			<groupId>org.jboss.logging</groupId>
-			<artifactId>jboss-logging</artifactId>
-			<version>3.2.0.Final</version>
-		</dependency>
 
-		<!-- DEPENDENCIAS LOG4J E SLF4J 1.2.17/1.7.2 -->
-		<dependency>
-			<groupId>org.apache.logging.log4j</groupId>
-			<artifactId>log4j-core</artifactId>
-			<version>2.17.0</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.logging.log4j</groupId>
-			<artifactId>log4j-api</artifactId>
-			<version>2.17.0</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.logging.log4j</groupId>
-			<artifactId>log4j-slf4j-impl</artifactId>
-			<version>2.17.0</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.logging.log4j</groupId>
-			<artifactId>log4j-jcl</artifactId>
-			<version>2.17.0</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.logging.log4j</groupId>
-			<artifactId>log4j-web</artifactId>
-			<version>2.17.0</version>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.google.code.gson</groupId>
-			<artifactId>gson</artifactId>
-			<version>2.8.0</version>
-		</dependency>
-	</dependencies>
+<img width="1665" height="874" alt="image" src="https://github.com/user-attachments/assets/f060572e-3f51-40d8-aaf8-eaee77f53314" />
 
-</project>
+
+<img width="1675" height="926" alt="image" src="https://github.com/user-attachments/assets/18f7d4d3-870f-411c-b24a-ef506c1210b0" />
+
+<img width="1371" height="939" alt="image" src="https://github.com/user-attachments/assets/0880c356-965f-42ef-bd6b-9fd3216b7362" />
+
+
+<img width="1803" height="888" alt="image" src="https://github.com/user-attachments/assets/c02be426-629e-4e6e-9ae9-abe91c84a45b" />
+
+
+foi realziado os ajustes, porem queroui com novo erro.
+
+
+
+---> Running application ...
+Unhandled exception. System.ArgumentException: Startup hook assembly '/opt/app-root/apm_agent/ElasticApmAgentStartupHook.dll' failed to load. See inner exception for details.
+---> System.IO.FileNotFoundException: Could not load file or assembly '/opt/app-root/apm_agent/ElasticApmAgentStartupHook.dll'. The system cannot find the file specified.
+File name: '/opt/app-root/apm_agent/ElasticApmAgentStartupHook.dll'
+at System.Runtime.Loader.AssemblyLoadContext.LoadFromPath(IntPtr ptrNativeAssemblyBinder, String ilPath, String niPath, ObjectHandleOnStack retAssembly)
+at System.Runtime.Loader.AssemblyLoadContext.LoadFromAssemblyPath(String assemblyPath)
+at System.StartupHookProvider.CallStartupHook(StartupHookNameOrPath startupHook)
+--- End of inner exception stack trace ---
+at System.StartupHookProvider.CallStartupHook(StartupHookNameOrPath startupHook)
+at System.StartupHookProvider.ProcessStartupHooks(String diagnosticStartupHooks)
