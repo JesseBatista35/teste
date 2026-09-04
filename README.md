@@ -1,12 +1,44 @@
-Diagnóstico:
-A tarefa de publicação no Nexus ("Publica no Nexus") estava localizada dentro do Task Group "Build Default - jar", compartilhado com outro pipeline (SINAC-sicli-api). Como não havia autorização para alterar um recurso compartilhado, os Task Groups "Java-Build - jar" e "Build Default - jar" foram clonados como cópias exclusivas do SIACM-api-audit, permitindo a validação da solução sem impactar outros pipelines.
+cd $(Build.SourcesDirectory)
 
-Ação realizada:
-No script da tarefa "Publica no Nexus" (dentro da cópia exclusiva do Task Group), o parâmetro -DgeneratePom=true foi substituído por -DpomFile=$(POM_PATH), permitindo que o deploy no Nexus utilize o pom.xml completo do projeto (com todas as dependências) em vez de gerar um POM mínimo.
+p_group=$(project.group) || true
+p_name=$(project.name)
+p_version=$(project.version)
+p_extension=$(project.extension)
 
-Caráter da ação: Esta implementação foi realizada em ambiente de testes (cópia exclusiva do Task Group), para validação da solução proposta. Assim que a validação for confirmada, será encaminhada nova solicitação para obtenção de autorização formal de alteração no Task Group compartilhado original, de forma que a correção seja aplicada de maneira definitiva e oficial, com ciência do time responsável pelo pipeline SINAC-sicli-api.
+p_group=`[ -z "$p_group" ] && echo ""br.gov.caixa.$p_name"" || echo "$p_group"`
 
-Validação:
-Build de teste executado com sucesso; deploy no Nexus concluído gerando o POM completo com as dependências do projeto.
+echo VEC $(valida.vec)
+if [ $(valida.vec) = true ];then
+p_version=$BUILD_SOURCEBRANCHNAME
+NEXUS_URL=$(NEXUS_URL_RELEASE)
+else
+p_version=${p_version^^}
+p_version=${p_version/-SNAPSHOT/}-SNAPSHOT
+#definido por GECPA em Nov/2025 que todo artefato não release candidate deve conter sufixo -SNAPSHOT
+echo "##vso[build.updatebuildnumber]"$p_version""
+NEXUS_URL=$(NEXUS_URL_SNAPSHOT)
+fi
 
-Impacto: Nenhum — alteração aplicada apenas em cópia exclusiva do Task Group, sem afetar o pipeline SINAC-sicli-api ou qualquer outro consumidor do Task Group original.
+echo "##[section]=== Info do pacote ==="
+echo "##[section]groupid= $p_group"
+echo "##[section]artifact= $p_name"
+echo "##[section]version= $p_version"
+echo "========================================================="
+
+LIB="$(library)"
+# quando for uma pipeline do tipo lib o pom original do projeto precisa subir junto
+if [ "${LIB:-}" = "true" ] || [ "${LIB:-}" = "TRUE" ]; then
+
+echo -Dversion.app=$(Build.BuildNumber) -Dnexus_interno_user=$(nexus_interno_user) -Dnexus_interno_pass=$(nexus_interno_pass) -DgroupId="${p_group}" -DartifactId="${p_name}" -Dversion="${p_version}" -Dpackaging="${p_extension}" -Dfile="$(project.file)" -DpomFile="$(Build.SourcesDirectory)/$(POM_PATH)" -DrepositoryId=$(NEXUS_REPOSITORY_ID) -DgeneratePom=false -Durl=${NEXUS_URL} -Drevision="${p_version}"
+
+/opt/apache-maven/apache-maven-3.8.5/bin/mvn deploy:deploy-file -Dversion.app=$(Build.BuildNumber) -Dnexus_interno_user=$(nexus_interno_user) -Dnexus_interno_pass=$(nexus_interno_pass) -DgroupId="${p_group}" -DartifactId="${p_name}" -Dversion="${p_version}" -Dpackaging="${p_extension}" -Dfile="$(project.file)" -DpomFile="$(Build.SourcesDirectory)/$(POM_PATH)" -DrepositoryId=$(NEXUS_REPOSITORY_ID) -DgeneratePom=false -Durl=${NEXUS_URL} -Drevision="${p_version}"
+
+else
+
+echo -Dversion.app=$(Build.BuildNumber) -DgroupId="${p_group}" -DartifactId="${p_name}" -Dversion="${p_version}" -Dpackaging="${p_extension}" -Dfile="$(project.file)" -DrepositoryId=$(NEXUS_REPOSITORY_ID) -DgeneratePom=true -Durl=${NEXUS_URL}
+
+/opt/apache-maven/apache-maven-3.8.5/bin/mvn deploy:deploy-file -Dversion.app=$(Build.BuildNumber) -Dnexus_interno_user=$(nexus_interno_user) -Dnexus_interno_pass=$(nexus_interno_pass) -DgroupId="${p_group}" -DartifactId="${p_name}" -Dversion="${p_version}" -Dpackaging="${p_extension}" -Dfile="$(project.file)" -DrepositoryId=$(NEXUS_REPOSITORY_ID) -DgeneratePom=true -Durl=${NEXUS_URL} -Drevision="${p_version}"
+
+fi
+
+echo "##vso[task.setvariable variable=project.uploaded;]true"
