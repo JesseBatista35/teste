@@ -1,27 +1,133 @@
-Causa raiz e resolução — Restart JBoss SISMH (TQS)
+o marinho marinho me disse isso
 
-Servidor: scttqapllx0032.df.caixa (10.116.18.146)
-Ambiente: TQS / Site Negocial-Brasília
-Sistema: SISMH (JBoss EAP 6.0.1.GA / AS 7.1.3.Final-redhat-4)
+tem um parametro que é configurado pra puxar o pom do projeto nesses casos
 
-Sintoma relatado: Impossibilidade de publicar nova versão do SISMH.
 
-Diagnóstico:
-Análise do server.log mostrou múltiplas falhas de deploy entre 14:03 e 14:18, todas com a mesma causa raiz:
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>br.gov.caixa.api</groupId>
+	<artifactId>caixa-api-siacm_audit</artifactId>
+	<version>2.3.0.56</version>
+	<packaging>jar</packaging>
+	<name>Caixa API SIACM Auditoria</name>
+	<url>http://mobilidade.caixa.gov.br</url>
+	
+	<properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <hibernate.version>4.2.8.Final</hibernate.version>
+        <spring.version>4.1.6.RELEASE</spring.version>
+        <groovy.version>2.3.10</groovy.version>
+        <slf4j.version>1.7.2</slf4j.version>
+        <spring.security.version>3.2.5.RELEASE</spring.security.version>
+        <jackson.version>2.3.3</jackson.version>
+    </properties>
+			
+	<dependencies>
+		<dependency>
+			<groupId>javax.inject</groupId>
+			<artifactId>javax.inject</artifactId>
+			<version>1</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.0.1</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aspects</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-oxm</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<!-- DEPENDENCIAS HIBERNATE -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>${hibernate.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.jboss.logging</groupId>
+					<artifactId>jboss-logging</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.jboss.logging</groupId>
+			<artifactId>jboss-logging</artifactId>
+			<version>3.2.0.Final</version>
+		</dependency>
 
-java.lang.OutOfMemoryError: PermGen space
+		<!-- DEPENDENCIAS LOG4J E SLF4J 1.2.17/1.7.2 -->
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>2.17.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-api</artifactId>
+			<version>2.17.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-slf4j-impl</artifactId>
+			<version>2.17.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-jcl</artifactId>
+			<version>2.17.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-web</artifactId>
+			<version>2.17.0</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.8.0</version>
+		</dependency>
+	</dependencies>
 
-As falhas ocorreram em sucessivas tentativas de publicação de diferentes versões do EAR (sismh.ear, sismh_2.59.36.11.ear, sismh_2.59.35.11a.ear). Isso é um padrão conhecido em JBoss EAP 6/AS7 rodando sob Java 7: quando um deploy falha, o classloader da tentativa anterior nem sempre é descarregado corretamente, e os metadados de classe permanecem retidos no PermGen. Redeploys sucessivos após uma falha inicial agravam o problema em vez de resolvê-lo, até esgotar o espaço configurado (-XX:MaxPermSize=256m) e travar qualquer nova publicação, mesmo sem relação com o conteúdo do EAR em si.
-
-Ação executada:
-Restart completo do JBoss standalone via /etc/init.d/jboss-standalone restart, liberando o PermGen. Subida confirmada no log:
-
-15:32:55,772 INFO [org.jboss.as] JBAS015874: JBoss EAP 6.0.1.GA (AS 7.1.3.Final-redhat-4) iniciado em 2125ms - Iniciado 147 de serviços 230
-
-Datasources SiicoDS e SismhDS bindados normalmente, sem erros subsequentes.
-
-Recomendações:
-
-Publicação liberada — ambiente TQS operacional para nova tentativa.
-Avaliar aumento do -XX:MaxPermSize (atualmente 256m) no script de start, dado o histórico de saturação com múltiplas tentativas de redeploy.
-Em caso de nova falha de publicação, priorizar restart completo antes de repetir o deploy — redeploy sobre PermGen já saturado tende a repetir o erro.
+</project>
