@@ -1,61 +1,67 @@
-Ao realizar nova pipeline está dando erro no job:
+Com o objetivo de identificar falha na aplicação, gentileza disponibilizar os logs do ambiente de desenvolvimento do siacc-tela branca
 
-Executando Build S2I Binary
+server.log
+siacc-caddeapllx2725.log
+sirot-log-caddeapllx2725.log
+ceflib-log-caddeapllx2725.log
 
-I0904 11:50:17.014850  335839 helpers.go:237] Connection error: Post https://api.produtos4.caixa:6443/apis/build.openshift.io/v1/namespaces/build-images-ads/buildconfigs/sibec-estatico/instantiatebinary?name=sibec-estatico&namespace=build-images-ads: unexpected EOF
-Unable to connect to the server: unexpected EOF
-##[error]Bash exited with code '1'.
+Data: 04/09/2026
+
+Máquina:
+"ip": "10.116.201.197"
+"nome": "caddeapllx2725.agil.nprd.caixa.gov.br"
 
 
-2026-09-04T15:03:08.8400130Z ##[section]Starting: Executando Build S2I Binary
-2026-09-04T15:03:08.8404333Z ==============================================================================
-2026-09-04T15:03:08.8404426Z Task         : Bash
-2026-09-04T15:03:08.8404473Z Description  : Run a Bash script on macOS, Linux, or Windows
-2026-09-04T15:03:08.8404546Z Version      : 3.227.0
-2026-09-04T15:03:08.8404599Z Author       : Microsoft Corporation
-2026-09-04T15:03:08.8404653Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/bash
-2026-09-04T15:03:08.8404731Z ==============================================================================
-2026-09-04T15:03:08.9690821Z Generating script.
-2026-09-04T15:03:08.9703177Z ========================== Starting Command Output ===========================
-2026-09-04T15:03:08.9711123Z [command]/usr/bin/bash /opt/ads-agent/_work/_temp/22b8d6b3-1f0e-418d-9808-40d80749a422.sh
-2026-09-04T15:03:08.9765662Z + echo okd4_nprd
-2026-09-04T15:03:08.9767148Z + egrep -q '^(okd4|ocp)'
-2026-09-04T15:03:08.9805715Z + buildconfig=sibec-estatico
-2026-09-04T15:03:08.9806967Z + oc start-build sibec-estatico --from-dir=/opt/ads-agent/_work/1/a --follow --wait=true -n build-images-ads -v=5
-2026-09-04T15:03:09.0547090Z I0904 12:03:09.054314    1662 repository.go:450] Executing git show -s HEAD --format=%H%n%an%n%ae%n%cn%n%ce%n%B
-2026-09-04T15:03:09.0565739Z I0904 12:03:09.056441    1662 repository.go:533] Error executing command: exit status 128
-2026-09-04T15:03:09.0567292Z Uploading directory "/opt/ads-agent/_work/1/a" as binary input for the build ...
-2026-09-04T15:03:09.0567676Z I0904 12:03:09.056553    1662 tar.go:238] Adding "/opt/ads-agent/_work/1/a" to tar ...
-2026-09-04T15:03:09.0569796Z I0904 12:03:09.056890    1662 tar.go:336] Adding to tar: /opt/ads-agent/_work/1/a/.s2i as .s2i
-2026-09-04T15:03:09.0574009Z I0904 12:03:09.057295    1662 tar.go:336] Adding to tar: /opt/ads-agent/_work/1/a/.s2i/bin as .s2i/bin
-2026-09-04T15:03:09.0575037Z I0904 12:03:09.057424    1662 tar.go:336] Adding to tar: /opt/ads-agent/_work/1/a/.s2i/bin/assemble as .s2i/bin/assemble
-2026-09-04T15:03:09.0576272Z I0904 12:03:09.057543    1662 tar.go:336] Adding to tar: /opt/ads-agent/_work/1/a/.s2i/bin/run as .s2i/bin/run
-2026-09-04T15:03:09.0577106Z I0904 12:03:09.057640    1662 tar.go:336] Adding to tar: /opt/ads-agent/_work/1/a/sibec-estatico.zip as sibec-estatico.zip
-2026-09-04T15:04:09.0746224Z ............
-2026-09-04T15:04:09.0755167Z Uploading finished
-2026-09-04T15:04:09.0757942Z I0904 12:04:09.074390    1662 helpers.go:237] Connection error: Post https://api.produtos4.caixa:6443/apis/build.openshift.io/v1/namespaces/build-images-ads/buildconfigs/sibec-estatico/instantiatebinary?name=sibec-estatico&namespace=build-images-ads: unexpected EOF
-2026-09-04T15:04:09.0758305Z Unable to connect to the server: unexpected EOF
-2026-09-04T15:04:09.0847626Z ##[error]Bash exited with code '1'.
-2026-09-04T15:04:09.5204092Z ##[warning]RetryHelper encountered task failure, will retry (attempt #: 1 out of 1) after 1000 ms
-2026-09-04T15:04:12.0716950Z Generating script.
-2026-09-04T15:04:12.0766498Z ========================== Starting Command Output ===========================
-2026-09-04T15:04:12.0767962Z [command]/usr/bin/bash /opt/ads-agent/_work/_temp/70e12dd7-8fa5-4ef6-987e-0c9e37a4af88.sh
-2026-09-04T15:04:12.0794508Z + echo okd4_nprd
-2026-09-04T15:04:12.0796323Z + egrep -q '^(okd4|ocp)'
-2026-09-04T15:04:12.0828501Z + buildconfig=sibec-estatico
-2026-09-04T15:04:12.0833692Z + oc start-build sibec-estatico --from-dir=/opt/ads-agent/_work/1/a --follow --wait=true -n build-images-ads -v=5
-2026-09-04T15:04:12.1528825Z I0904 12:04:12.152435    1712 repository.go:450] Executing git show -s HEAD --format=%H%n%an%n%ae%n%cn%n%ce%n%B
-2026-09-04T15:04:12.1546281Z I0904 12:04:12.154503    1712 repository.go:533] Error executing command: exit status 128
-2026-09-04T15:04:12.1547174Z Uploading directory "/opt/ads-agent/_work/1/a" as binary input for the build ...
-2026-09-04T15:04:12.1547590Z I0904 12:04:12.154629    1712 tar.go:238] Adding "/opt/ads-agent/_work/1/a" to tar ...
-2026-09-04T15:04:12.1550196Z I0904 12:04:12.154904    1712 tar.go:336] Adding to tar: /opt/ads-agent/_work/1/a/.s2i as .s2i
-2026-09-04T15:04:12.1554337Z I0904 12:04:12.155320    1712 tar.go:336] Adding to tar: /opt/ads-agent/_work/1/a/.s2i/bin as .s2i/bin
-2026-09-04T15:04:12.1555379Z I0904 12:04:12.155450    1712 tar.go:336] Adding to tar: /opt/ads-agent/_work/1/a/.s2i/bin/assemble as .s2i/bin/assemble
-2026-09-04T15:04:12.1556471Z I0904 12:04:12.155551    1712 tar.go:336] Adding to tar: /opt/ads-agent/_work/1/a/.s2i/bin/run as .s2i/bin/run
-2026-09-04T15:04:12.1557403Z I0904 12:04:12.155663    1712 tar.go:336] Adding to tar: /opt/ads-agent/_work/1/a/sibec-estatico.zip as sibec-estatico.zip
-2026-09-04T15:05:12.1730537Z ............
-2026-09-04T15:05:12.1733992Z Uploading finished
-2026-09-04T15:05:12.1764421Z I0904 12:05:12.169092    1712 helpers.go:237] Connection error: Post https://api.produtos4.caixa:6443/apis/build.openshift.io/v1/namespaces/build-images-ads/buildconfigs/sibec-estatico/instantiatebinary?name=sibec-estatico&namespace=build-images-ads: unexpected EOF
-2026-09-04T15:05:12.1764837Z Unable to connect to the server: unexpected EOF
-2026-09-04T15:05:12.1792334Z ##[error]Bash exited with code '1'.
-2026-09-04T15:05:12.1821480Z ##[section]Finishing: Executando Build S2I Binary
+
+[p585600@cadsvitrlx100 ~]$ ssh 10.116.201.197
+p585600@10.116.201.197's password:
+[p585600@caddeapllx2725 ~]$
+[p585600@caddeapllx2725 ~]$
+[p585600@caddeapllx2725 ~]$
+[p585600@caddeapllx2725 ~]$ ps -ef | grep jboss
+root      126798       1  0 set03 ?        00:00:00 runuser jboss -c LAUNCH_JBOSS_IN_BACKGROUND=1 JBOSS_PIDFILE=/opt/jboss-eap/standalone/tmp/jboss-eap-standalone.pid /opt/jboss-eap/bin/standalone.sh                -b 0.0.0.0                -bmanagement 0.0.0.0                -Djboss.server.base.dir=/opt/jboss-eap/standalone                -Djboss.server.log.dir=/logs/jboss/jboss-eap/standalone/siacc-tela-branca -c standalone-full-ha.xml
+jboss     126801  126798  0 set03 ?        00:00:00 /bin/sh /opt/jboss-eap/bin/standalone.sh -b 0.0.0.0 -bmanagement 0.0.0.0 -Djboss.server.base.dir=/opt/jboss-eap/standalone -Djboss.server.log.dir=/logs/jboss/jboss-eap/standalone/siacc-tela-branca -c standalone-full-ha.xml
+jboss     126975  126801  0 set03 ?        00:01:41 java -D[Standalone] -verbose:gc -Xloggc:/logs/jboss/jboss-eap/standalone/siacc-tela-branca/gc.log -XX:+PrintGCDetails -XX:+PrintGCDateStamps -XX:+UseGCLogFileRotation -XX:NumberOfGCLogFiles=5 -XX:GCLogFileSize=3M -XX:-TraceClassUnloading -Djdk.serialFilter=maxbytes=10485760;maxdepth=128;maxarray=100000;maxrefs=300000 -Xms1024m -Xmx2048m -XX:MetaspaceSize=96M -XX:MaxMetaspaceSize=256m -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs=org.jboss.byteman,org.jboss.logmanager -Djava.awt.headless=true -Djavax.net.ssl.trustStore=/opt/jboss-eap/standalone/configuration/caixa-truststore-acteste-nprd.jks -Djavax.net.ssl.trustStorePassword=changeit -Djboss.modules.policy-permissions=true -server -XX:+ExplicitGCInvokesConcurrent -XX:+UseG1GC -XX:MaxGCPauseMillis=500 -Xbootclasspath/a:/opt/jboss-eap/modules/system/layers/base/org/wildfly/common/main/wildfly-common-1.5.4.Final-redhat-00001.jar -Xbootclasspath/a:/opt/jboss-eap/modules/system/layers/base/org/jboss/logmanager/main/jboss-logmanager-2.1.18.Final-redhat-00001.jar -Dsun.util.logging.disableCallerCheck=true -Djava.util.logging.manager=org.jboss.logmanager.LogManager -Dfile.encoding=ISO-8859-1 -Dsun.jnu.encoding=ISO-8859-1 -Dhttp.nonProxyHosts=localhost|127.0.0.1|*.caixa|*.caixa.gov.br -Dorg.jboss.boot.log.file=/logs/jboss/jboss-eap/standalone/siacc-tela-branca/server.log -Dlogging.configuration=file:/opt/jboss-eap/standalone/configuration/logging.properties -jar /opt/jboss-eap/jboss-modules.jar -mp /opt/jboss-eap/modules org.jboss.as.standalone -Djboss.home.dir=/opt/jboss-eap -Djboss.server.base.dir=/opt/jboss-eap/standalone -b 0.0.0.0 -bmanagement 0.0.0.0 -Djboss.server.base.dir=/opt/jboss-eap/standalone -Djboss.server.log.dir=/logs/jboss/jboss-eap/standalone/siacc-tela-branca -c standalone-full-ha.xml
+p585600   131922  131895  0 12:28 pts/0    00:00:00 grep --color=auto jboss
+[p585600@caddeapllx2725 ~]$
+[p585600@caddeapllx2725 ~]$
+[p585600@caddeapllx2725 ~]$ ps -ef | grep java
+jboss     126975  126801  0 set03 ?        00:01:41 java -D[Standalone] -verbose:gc -Xloggc:/logs/jboss/jboss-eap/standalone/siacc-tela-branca/gc.log -XX:+PrintGCDetails -XX:+PrintGCDateStamps -XX:+UseGCLogFileRotation -XX:NumberOfGCLogFiles=5 -XX:GCLogFileSize=3M -XX:-TraceClassUnloading -Djdk.serialFilter=maxbytes=10485760;maxdepth=128;maxarray=100000;maxrefs=300000 -Xms1024m -Xmx2048m -XX:MetaspaceSize=96M -XX:MaxMetaspaceSize=256m -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs=org.jboss.byteman,org.jboss.logmanager -Djava.awt.headless=true -Djavax.net.ssl.trustStore=/opt/jboss-eap/standalone/configuration/caixa-truststore-acteste-nprd.jks -Djavax.net.ssl.trustStorePassword=changeit -Djboss.modules.policy-permissions=true -server -XX:+ExplicitGCInvokesConcurrent -XX:+UseG1GC -XX:MaxGCPauseMillis=500 -Xbootclasspath/a:/opt/jboss-eap/modules/system/layers/base/org/wildfly/common/main/wildfly-common-1.5.4.Final-redhat-00001.jar -Xbootclasspath/a:/opt/jboss-eap/modules/system/layers/base/org/jboss/logmanager/main/jboss-logmanager-2.1.18.Final-redhat-00001.jar -Dsun.util.logging.disableCallerCheck=true -Djava.util.logging.manager=org.jboss.logmanager.LogManager -Dfile.encoding=ISO-8859-1 -Dsun.jnu.encoding=ISO-8859-1 -Dhttp.nonProxyHosts=localhost|127.0.0.1|*.caixa|*.caixa.gov.br -Dorg.jboss.boot.log.file=/logs/jboss/jboss-eap/standalone/siacc-tela-branca/server.log -Dlogging.configuration=file:/opt/jboss-eap/standalone/configuration/logging.properties -jar /opt/jboss-eap/jboss-modules.jar -mp /opt/jboss-eap/modules org.jboss.as.standalone -Djboss.home.dir=/opt/jboss-eap -Djboss.server.base.dir=/opt/jboss-eap/standalone -b 0.0.0.0 -bmanagement 0.0.0.0 -Djboss.server.base.dir=/opt/jboss-eap/standalone -Djboss.server.log.dir=/logs/jboss/jboss-eap/standalone/siacc-tela-branca -c standalone-full-ha.xml
+p585600   131924  131895  0 12:28 pts/0    00:00:00 grep --color=auto java
+[p585600@caddeapllx2725 ~]$
+[p585600@caddeapllx2725 ~]$
+[p585600@caddeapllx2725 ~]$ ps -ef | grep siacc
+root      126798       1  0 set03 ?        00:00:00 runuser jboss -c LAUNCH_JBOSS_IN_BACKGROUND=1 JBOSS_PIDFILE=/opt/jboss-eap/standalone/tmp/jboss-eap-standalone.pid /opt/jboss-eap/bin/standalone.sh                -b 0.0.0.0                -bmanagement 0.0.0.0                -Djboss.server.base.dir=/opt/jboss-eap/standalone                -Djboss.server.log.dir=/logs/jboss/jboss-eap/standalone/siacc-tela-branca -c standalone-full-ha.xml
+jboss     126801  126798  0 set03 ?        00:00:00 /bin/sh /opt/jboss-eap/bin/standalone.sh -b 0.0.0.0 -bmanagement 0.0.0.0 -Djboss.server.base.dir=/opt/jboss-eap/standalone -Djboss.server.log.dir=/logs/jboss/jboss-eap/standalone/siacc-tela-branca -c standalone-full-ha.xml
+jboss     126975  126801  0 set03 ?        00:01:41 java -D[Standalone] -verbose:gc -Xloggc:/logs/jboss/jboss-eap/standalone/siacc-tela-branca/gc.log -XX:+PrintGCDetails -XX:+PrintGCDateStamps -XX:+UseGCLogFileRotation -XX:NumberOfGCLogFiles=5 -XX:GCLogFileSize=3M -XX:-TraceClassUnloading -Djdk.serialFilter=maxbytes=10485760;maxdepth=128;maxarray=100000;maxrefs=300000 -Xms1024m -Xmx2048m -XX:MetaspaceSize=96M -XX:MaxMetaspaceSize=256m -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs=org.jboss.byteman,org.jboss.logmanager -Djava.awt.headless=true -Djavax.net.ssl.trustStore=/opt/jboss-eap/standalone/configuration/caixa-truststore-acteste-nprd.jks -Djavax.net.ssl.trustStorePassword=changeit -Djboss.modules.policy-permissions=true -server -XX:+ExplicitGCInvokesConcurrent -XX:+UseG1GC -XX:MaxGCPauseMillis=500 -Xbootclasspath/a:/opt/jboss-eap/modules/system/layers/base/org/wildfly/common/main/wildfly-common-1.5.4.Final-redhat-00001.jar -Xbootclasspath/a:/opt/jboss-eap/modules/system/layers/base/org/jboss/logmanager/main/jboss-logmanager-2.1.18.Final-redhat-00001.jar -Dsun.util.logging.disableCallerCheck=true -Djava.util.logging.manager=org.jboss.logmanager.LogManager -Dfile.encoding=ISO-8859-1 -Dsun.jnu.encoding=ISO-8859-1 -Dhttp.nonProxyHosts=localhost|127.0.0.1|*.caixa|*.caixa.gov.br -Dorg.jboss.boot.log.file=/logs/jboss/jboss-eap/standalone/siacc-tela-branca/server.log -Dlogging.configuration=file:/opt/jboss-eap/standalone/configuration/logging.properties -jar /opt/jboss-eap/jboss-modules.jar -mp /opt/jboss-eap/modules org.jboss.as.standalone -Djboss.home.dir=/opt/jboss-eap -Djboss.server.base.dir=/opt/jboss-eap/standalone -b 0.0.0.0 -bmanagement 0.0.0.0 -Djboss.server.base.dir=/opt/jboss-eap/standalone -Djboss.server.log.dir=/logs/jboss/jboss-eap/standalone/siacc-tela-branca -c standalone-full-ha.xml
+p585600   131926  131895  0 12:28 pts/0    00:00:00 grep --color=auto siacc
+[p585600@caddeapllx2725 ~]$ ps -ef | grep sirot
+p585600   131930  131895  0 12:29 pts/0    00:00:00 grep --color=auto sirot
+[p585600@caddeapllx2725 ~]$ ps -ef | grep ceflib
+p585600   131932  131895  0 12:29 pts/0    00:00:00 grep --color=auto ceflib
+[p585600@caddeapllx2725 ~]$ pwd
+/home/p585600
+[p585600@caddeapllx2725 ~]$ cd /opt/jboss-eap
+[p585600@caddeapllx2725 jboss-eap]$ ls -la
+total 544
+drwxrwxr-x  15 jboss jboss    334 set  1 17:44 .
+drwxr-xr-x.  4 root  root      36 dez 16  2025 ..
+drwxrwxr-x   3 jboss jboss     27 jun 12  2023 appclient
+drwxrwxr-x   4 jboss jboss   4096 set  3 19:38 bin
+-rwxr-xr-x   1 jboss jboss    408 set  3 19:38 cefldap.ini
+drwxr-xr-x   2 root  root      25 set  1 17:44 componentes
+drwxrwxr-x   5 jboss jboss     52 jun 12  2023 docs
+drwxrwxr-x   4 jboss jboss     38 jun 12  2023 domain
+drwxrwxr-x   4 jboss jboss     57 jun 12  2023 .installation
+drwxrwxr-x   2 jboss jboss     60 jun 12  2023 installation
+-rwxrwxr-x   1 jboss jboss    419 jun 23  2021 JBossEULA.txt
+-rwxrwxr-x   1 jboss jboss 508951 set 30  2024 jboss-modules.jar
+-rwxrwxr-x   1 jboss jboss  26530 jun 23  2021 LICENSE.txt
+drwxrwxr-x   3 jboss jboss     44 jun 12  2023 migration
+drwxrwxr-x   3 jboss jboss     20 jun 12  2023 modules
+drwxrwxr-x   8 jboss jboss     91 set 30  2024 standalone
+drwxrwxr-x   2 jboss jboss     29 jun 12  2023 uninstaller
+-rwxrwxr-x   1 jboss jboss     66 set 30  2024 version.txt
+drwxrwxr-x   4 jboss jboss    158 jun 12  2023 welcome-content
+drwxrwxr-x   3 jboss jboss     28 jun 12  2023 .well-known
+[p585600@caddeapllx2725 jboss-eap]$
