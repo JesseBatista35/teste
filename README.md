@@ -1,39 +1,22 @@
-Prezados!
+Prezados,
 
-A esteira suporta múltiplos NFS simultaneamente para a mesma aplicação ou existe alguma restrição que impeça o compartilhamento de dois destinos usarem o mesmo export NFS?  
+Em resposta ao questionamento: sim, a esteira suporta múltiplos NFS simultâneos para a mesma aplicação/pod, desde que cada volume tenha um ponto de montagem (mountPath) distinto na configuração do deployment. Não há restrição técnica que impeça dois exports NFS (ainda que originados de servidores diferentes, como no caso hypernprd12 e hypernprd56) de serem montados no mesmo pod, contanto que os destinos de montagem sejam únicos.
 
+O problema relatado ocorreu porque as duas solicitações (REQ000145657410 e REQ000145740789) especificaram o mesmo PATH_DESTINO (/sihdg/), mesmo se referindo a integrações e exports distintos (SINAF x MAINFRAME e SIHDG x POWERCENTER). Isso resultou em sobreposição do ponto de montagem no pod, gerando a confusão identificada.
 
-1. No servidor SIHDG-JBOSS8-DES tínhamos um NFS montado para integração SIHDG x MAINFRAME:
-   SERVER_NFS = hypernprd12.ad.caixa
-   PATH_NFS = /fs_sihdg
-   PATH_DESTINO = /sihdg/        
-       -->> Pode alterar para PATH_DESTINO = /sihdg_sinaf/?
-   SIZE_VOLUME_SINAF=20Gi
+Confirmamos como tecnicamente adequada a proposta de separação:
 
+No servidor NFS (fs_sihdg), manter dois diretórios/exports distintos:
+sihdg_sinaf (referente ao item 1 - integração SIHDG x MAINFRAME)
+sihdg_powercenter (referente ao item 2 - integração SIHDG x POWERCENTER)
+No pod, realizar duas montagens separadas, uma para cada destino:
+PATH_DESTINO = /sihdg_sinaf
+PATH_DESTINO_PWC = /sihdg_powercenter
+Atualizar a library do SIHDG-JBOSS8-DES para refletir as duas variáveis distintas, garantindo que a aplicação referencie corretamente cada ponto de montagem conforme a integração.
 
-2. Foi solicitado a criação de um outro NFS para a integração SIHDG x POWERCENTER. Nesse pedido eu não especifiquei um ponto de montagem diferente do que já existia. E nesse pedido foi criado e montado o mesmo path destino e isso está causando confusão:
-   SERVER_NFS = hypernprd56.ad.caixa
-   PATH_NFS = /fs_sihdg
-   PATH_DESTINO = /sihdg/         
-      -->> Pode alterar para PATH_DESTINO = /sihdg_powercenter/?
-   SIZE_VOLUME_SINAF=20Gi
+Com essa estrutura, o servidor SIHDG-JBOSS8-DES passará a ter dois pontos de montagem NFS independentes, eliminando o conflito atual e mantendo a rastreabilidade de qual export atende cada integração.
 
-2.1 Atendido na REQ000145657410 / REQ000145740789.
+Ficamos à disposição para prosseguir com a alteração dos PATH_DESTINO conforme proposto, mediante confirmação/agendamento da criação dos novos exports no servidor NFS.
 
-3. Solicito que seja separado os dois pontos de montagens para atenderem os dois itens de forma separada, vide exemplo: 
-
-3.1 No servidor NFS permitir:
-    /fs_sihdg
-       sihdg_sinaf   (vide item 1.)
-       sihdg_powercenter   (vide item 2.)
-
-3.2 E no pod montar apenas:
-   /sihdg
-
-4. Atualizar a library do SIHDG-JBOSS8-DES para ter duas variáveis na library:
-   - PATH_DESTINO = /sihdg_sinaf
-   - PATH_DESTINO_PWC = /sihdg_powercenter
-
-Sendo assim terei em um único servidor com dois pontos de montagem para atenderem os dois destinos separadamente.
-
-Quaisquer dúvidas, estou à disposição.
+Atenciosamente,
+Jessé Batista
