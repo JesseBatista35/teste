@@ -1,29 +1,6 @@
+<img width="1873" height="912" alt="image" src="https://github.com/user-attachments/assets/4166b532-d26f-46bd-917a-2eac387cca7a" />
 
--sh-4.2$
--sh-4.2$ hostname -f
-caddeapllx2540.agil.nprd.caixa.gov.br
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$ find / -path "*jboss-modules-custom*" -o -iname "*.jar" -path "*binario*" 2>/dev/null | grep -i sicmu
--sh-4.2$
--sh-4.2$
--sh-4.2$ ls -la /opt/ads-agent/_work/r791/a/ 2>/dev/null
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$ sudo su
-[sudo] senha para p585600:
-[root@caddeapllx2540 p585600]# find / -path "*jboss-modules-custom*" -o -iname "*.jar" -path "*binario*" 2>/dev/null | grep -i sicmu
-][root@caddeapllx2540 p585600]# ls -la /opt/ads-agent/_work/r791/a/ 2>/dev/nul
-[root@caddeapllx2540 p585600]#
-[root@caddeapllx2540 p585600]#
-[root@caddeapllx2540 p585600]#
-[root@caddeapllx2540 p585600]#
+
+ele tava com agente de okd so troquei o agent para o de relase-linux
+
+pronto passou me ajdua com a nota para fecar a demanda
