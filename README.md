@@ -1,33 +1,34 @@
-W.O. 0000081575607 — Nota de Encerramento
+NOTA TÉCNICA — W.O. 0000081575607
+Sistema: SIMPF-frontend | Ambiente: DES
 
-Sistema: SIMPF-frontend
-Ambiente: DES (OpenShift/OKD4)
-Sintoma relatado: Pod simpf-frontend-des indisponível — erro sed: can't read /opt/app-root/src/main*.js: No such file or directory no runtime, causando falha na inicialização do Nginx e indisponibilidade da aplicação.
+Problema 1 — Pod indisponível (causa raiz confirmada)
 
-Causa raiz identificada:
-Regressão introduzida pelo commit "Removido a pasta web" (a98bdb8), que alterou o script .s2i/bin/assemble:
+Commit "Removido a pasta web" (a98bdb8) alterou .s2i/bin/assemble:
 
 diff
--    mv $DEPLOY_DIR/dist/*/*  $DEPLOY_DIR/.
-+    mv $DEPLOY_DIR/dist/*  $DEPLOY_DIR/.
+- mv $DEPLOY_DIR/dist/*/*  $DEPLOY_DIR/.
++ mv $DEPLOY_DIR/dist/*    $DEPLOY_DIR/.
 
-Antes, o comando movia o conteúdo da subpasta gerada pelo build (dist/SIMPF-frontend/*) diretamente para /opt/app-root/src, deixando main*.js na raiz esperada pelo runtime. Após a alteração, é movida a subpasta inteira, deixando o artefato em /opt/app-root/src/SIMPF-frontend/main*.js — um nível de diretório a mais do que o .s2i/bin/run espera:
+Resultado: artefato passou a ficar em /opt/app-root/src/SIMPF-frontend/main*.js, mas o .s2i/bin/run continua com caminho fixo /opt/app-root/src/main*.js. O sed falha, set -e aborta o container, Nginx não sobe → pod indisponível.
 
-bash
-sed -i "s#__SIMPF_API_URI__#$SIMPF_API_URI#g" /opt/app-root/src/main*.js
+Ajuste necessário (repo SIMPF-frontend):
 
-Como o run usa set -e, a falha do sed aborta o container antes do exec nginx, resultando no pod indisponível.
+Reverter o mv no assemble para dist/*/*, ou
+Tornar o run dinâmico: find /opt/app-root/src -maxdepth 3 -name "main*.js"
+Problema 2 — Gate de QA bloqueando validação da correção
 
-Precedente: mesmo padrão de problema já identificado e corrigido no repositório SIGRM-frontend (mudança de estrutura de output do Angular builder), onde a correção envolveu ajuste equivalente em assemble e angular.json.
+Workflow reutilizável DevSecOps-Qualidade/.../sonar_unico/angular@main ainda espera o projeto Angular em subpasta web/, removida há 3 semanas. Erro:
 
-Correção proposta (aplicada/solicitada ao time responsável pelo repositório SIMPF-frontend):
+The build command requires to be run in an Angular project, but a project definition could not be found.
 
-Reverter o mv no .s2i/bin/assemble para dist/*/*, restaurando o alinhamento com o .s2i/bin/run;
-Tornar o .s2i/bin/run resiliente a futuras mudanças de estrutura de output, substituindo o caminho fixo por busca dinâmica:
-bash
-   MAIN_JS=$(find /opt/app-root/src -maxdepth 3 -name "main*.js" | head -n1)
-Validar o outputPath do angular.json quanto à compatibilidade com a versão do Angular builder em uso, evitando recorrência em futuras atualizações do Angular CLI.
+Isso impede o merge/validação de qualquer PR no repositório, incluindo a correção do Problema 1.
 
-Ação realizada nesta W.O.: diagnóstico da causa raiz via análise de logs de build/runtime e comparação de configuração de pipeline (Azure DevOps) e histórico de commits (GitHub). Ajuste solicitado ao time mantenedor do repositório SIMPF-frontend (fora do escopo de acesso da esteira DevOps/DES — ajuste de código-fonte da aplicação).
+Ajuste necessário (repo DevSecOps-Qualidade): atualizar o workflow para localizar o projeto Angular na raiz do repositório (estrutura atual), não mais em web/.
 
-Status: Encerrada — causa raiz identificada e correção repassada ao time de desenvolvimento responsável pelo repositório.
+Risco preventivo a verificar
+
+Precedente no SIGRM-frontend: atualização do builder Angular (@angular/build:application) passou a gerar saída em dist/<projeto>/browser/*, exigindo ajuste em assemble e angular.json. Não identificado no SIMPF-frontend até o momento, mas recomenda-se validação preventiva do time de dev caso o Angular CLI seja atualizado futuramente.
+
+Status
+
+Causa raiz identificada; correções pendentes de aplicação pelo time de desenvolvimento (repos SIMPF-frontend e DevSecOps-Qualidade). Validação em DES depende da conclusão de ambos ajustes.
