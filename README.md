@@ -1,15 +1,20 @@
-<img width="1498" height="778" alt="image" src="https://github.com/user-attachments/assets/06db4385-31c4-4385-83a9-81274151c2e5" />
+Resumo do atendimento (fechamento)
 
+Serviço: Ajustar ambiente ou parametrização de software
+Ambiente: DES
+Sistema: Pipeline SIACM-api-audit
 
-<img width="1480" height="789" alt="image" src="https://github.com/user-attachments/assets/9b7c75fa-5376-4f77-8cff-fb74f3d60323" />
+Diagnóstico:
+A tarefa de publicação no Nexus utilizava o parâmetro -DgeneratePom=true, que gera um POM mínimo (apenas groupId/artifactId/version), sem as dependências reais do projeto.
 
+Ação realizada:
+Identificado que o Task Group já possuía suporte nativo a uma variável de controle (library), que alterna entre -DgeneratePom=true (padrão) e -DpomFile + -DgeneratePom=false (POM completo) sem necessidade de alteração no script compartilhado.
 
+Foi adicionada a variável de pipeline library = true nas Variables do SIACM-api-audit, ativando o uso do pom.xml completo do projeto apenas para esta esteira, sem qualquer alteração no Task Group compartilhado e sem impacto em outros pipelines (ex: SINAC-sicli-api).
 
+Validação:
+Build executado com sucesso. Artefato publicado no Nexus (caixa-api-siacm_audit-2.3.0.56.pom) confirmado com todas as dependências do projeto (Spring, Hibernate, Log4j, javax, etc.), consistente com o pom.xml original do repositório.
 
+Impacto: Nenhum — alteração restrita à variável de pipeline do próprio SIACM-api-audit; nenhuma modificação foi feita em recursos compartilhados.
 
-<img width="800" height="425" alt="image" src="https://github.com/user-attachments/assets/cce460c5-f5a6-4a2e-ac39-6fd2b97e5eaa" />
-
-
-deu certo trouze todas a dependeicas do nexus..
-
-me ajuda a fechar a w.o
+Observação: Solução mais simples que a inicialmente prevista — dispensou a necessidade de clonagem do Task Group, já que a variável library já existia parametrizada para esse fim.
