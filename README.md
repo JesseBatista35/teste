@@ -206,4 +206,116 @@ parece que nao deu mais o mesmo erro de antes
 
 
 
+OKD
 
+
+Jesse Mouta Pereira Batista
+
+Administrator
+Home
+Operators
+OperatorHub
+Installed Operators
+Workloads
+Pods
+Deployments
+DeploymentConfigs
+StatefulSets
+Secrets
+ConfigMaps
+CronJobs
+Jobs
+DaemonSets
+ReplicaSets
+ReplicationControllers
+HorizontalPodAutoscalers
+PodDisruptionBudgets
+Networking
+Storage
+Builds
+Observe
+Compute
+User Management
+Administration
+
+Project: simpf-des
+Add health checks
+Health checks for DeploymentConfig
+DC
+simpf-frontend-des
+
+Container  
+
+Container
+C
+simpf-frontend-des
+
+
+Readiness probe
+A readiness probe checks if the Container is ready to handle requests. A failed readiness probe means that a Container should not receive any traffic from a proxy, even if it's running.
+Type
+
+HTTP GET
+
+Use HTTPS
+HTTP Headers
+Header nameValue
+Header name
+Value
+Path
+/
+Port *
+8080
+Failure threshold
+3
+How many times the probe will try starting or restarting before giving up.
+Success threshold
+1
+How many consecutive successes for the probe to be considered successful after having failed.
+Initial delay
+25
+seconds
+How long to wait after the Container starts before checking it's health.
+Period
+10
+seconds
+How often to perform the probe.
+Timeout
+5
+seconds
+How long to wait for the probe to finish, if the time is exceeded, the probe is considered failed.
+Liveness probe
+A liveness probe checks if the Container is still running. If the liveness probe fails the Container is killed.
+Type
+
+HTTP GET
+
+Use HTTPS
+HTTP Headers
+Header nameValue
+Header name
+Value
+Path
+/
+Port *
+8080
+Failure threshold
+3
+How many times the probe will try starting or restarting before giving up.
+Success threshold
+1
+How many consecutive successes for the probe to be considered successful after having failed.
+Initial delay
+15
+seconds
+How long to wait after the Container starts before checking it's health.
+Period
+10
+seconds
+How often to perform the probe.
+Timeout
+3
+seconds
+How long to wait for the probe to finish, if the time is exceeded, the probe is considered failed.
+Startup probe
+A startup probe checks if the application within the Container is started. If the startup probe fails the Container is killed.
