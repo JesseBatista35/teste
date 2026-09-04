@@ -1,2 +1,18 @@
-find / -path "*jboss-modules-custom*" -o -iname "*.jar" -path "*binario*" 2>/dev/null | grep -i sicmu
-ls -la /opt/ads-agent/_work/r791/a/ 2>/dev/null
+
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$ find / -path "*jboss-modules-custom*" -o -iname "*.jar" -path "*binario*" 2>/dev/null | grep -i sicmu
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$ ls -la /opt/ads-agent/_work/r791/a/ 2>/dev/null
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
