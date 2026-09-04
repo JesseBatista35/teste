@@ -1,15 +1,7 @@
+Nota de encerramento — WO0000081575607
 
- 
-Vamos realizar o ajuste
- 
-Alexandre Nobrega Araujo quando for necessário me aciona para gerar a release
- 
-Jesse Mouta Pereira Batista alterou o nome do grupo para WO0000081575607 - SIMPF-Frontend.
+Identificada causa raiz do erro de indisponibilidade do pod simpf-frontend-des: desalinhamento entre .s2i/bin/assemble e .s2i/bin/run após remoção da pasta web/ do repositório, causando primeiro falha no sed (arquivo main*.js fora do caminho esperado) e, após correção parcial via PR #162, novo sintoma (403 - directory index forbidden) por ausência do index.html na raiz servida pelo Nginx.
 
- 
-Jesse Mouta Pereira Batista
-Pessoal, surgiu um novo sintoma.   O .s2i/bin/run já foi corrigido o PR #162  resolveu o erro de sed.    Mas surgiu uma nova falha: 403 - directory index forbidden, fazendo as probes de readiness/liv…
-Seguimos as orientações e o problema foi resolvido 
- 
-Muito obrigado pelo suporte
- 
+Aplicado ajuste no .s2i/bin/assemble (mv dist/*/* em vez de mv dist/*), corrigindo a estrutura de arquivos entregue ao Nginx. Realizado novo deploy e validado funcionamento normal do pod em DES.
+
+Status: Resolvido. Demanda encerrada.
