@@ -1,26 +1,32 @@
 
-(Nem todos os processos puderam ser identificados, informações sobre processos
- de outrem não serão mostrados, você deve ser root para vê-los todos.)
-[p585600@caddeapllx2577 ~]$ sudo su
-
-Presumimos que você recebeu as instruções de sempre do administrador
-de sistema local. Basicamente, resume-se a estas três coisas:
-
-    #1) Respeite a privacidade dos outros.
-    #2) Pense antes de digitar.
-    #3) Com grandes poderes vêm grandes responsabilidades.
-
-[sudo] senha para p585600:
-[root@caddeapllx2577 p585600]# netstat -tlnp | grep httpd
-tcp6       0      0 :::443                  :::*                    OUÇA       750315/httpd
-tcp6       0      0 :::80                   :::*                    OUÇA       750315/httpd
+[root@caddeapllx2577 p585600]# curl -v http://10.1116.201.44:443/siarg/login
+* Could not resolve host: 10.1116.201.44
+* Closing connection 0
+curl: (6) Could not resolve host: 10.1116.201.44
+[root@caddeapllx2577 p585600]# curl -v http://10.116.201.44:443/siarg/login
+*   Trying 10.116.201.44:443...
+* Connected to 10.116.201.44 (10.116.201.44) port 443 (#0)
+> GET /siarg/login HTTP/1.1
+> Host: 10.116.201.44:443
+> User-Agent: curl/7.76.1
+> Accept: */*
+>
+* Mark bundle as not supporting multiuse
+< HTTP/1.1 500 Internal Server Error
+< Date: Tue, 08 Sep 2026 12:59:09 GMT
+< Server: Apache/2.4.57 (Red Hat)
+< Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+< X-Frame-Options: DENY
+< X-Content-Type-Options: nosniff
+< Content-Length: 86
+< Content-Type: text/html; charset=UTF-8
+< Connection: close
+<
+* Closing connection 0
+<html><head><title>Error</title></head><body>500 - Internal Server Error</body></html>[root@caddeapllx2577 p585600]#
 [root@caddeapllx2577 p585600]#
 [root@caddeapllx2577 p585600]#
-[root@caddeapllx2577 p585600]#
-[root@caddeapllx2577 p585600]# ss -tlnp | grep httpd
-LISTEN 0      511                *:443              *:*    users:(("httpd",pid=750318,fd=6),("httpd",pid=750315,fd=6))
-LISTEN 0      511                *:80               *:*    users:(("httpd",pid=750318,fd=4),("httpd",pid=750315,fd=4))
-[root@caddeapllx2577 p585600]#
-[root@caddeapllx2577 p585600]#
+[root@caddeapllx2577 p585600]# httpd -S
+bash: httpd: comando não encontrado
 [root@caddeapllx2577 p585600]#
 
