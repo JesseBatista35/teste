@@ -1,15 +1,13 @@
 
-[p585600@srjtqapllx0018 ~]$ sudo systemctl disable sirpl.service
-Removed symlink /etc/systemd/system/multi-user.target.wants/sirpl.service.
-[p585600@srjtqapllx0018 ~]$
-[p585600@srjtqapllx0018 ~]$
-[p585600@srjtqapllx0018 ~]$
-[p585600@srjtqapllx0018 ~]$ systemctl status sirpl.service
-● sirpl.service
-   Loaded: loaded (/etc/systemd/system/sirpl.service; disabled; vendor preset: disabled)
-   Active: failed (Result: exit-code) since Tue 2026-09-08 16:07:41 -03; 2min 32s ago
- Main PID: 805 (code=exited, status=143)
-[p585600@srjtqapllx0018 ~]$
-[p585600@srjtqapllx0018 ~]$
-[p585600@srjtqapllx0018 ~]$ sudo mv /opt/open/nodejs/sirpl /opt/open/nodejs/sirpl.desmobilizado_20260616
-[p585600@srjtqapllx0018 ~]$
+,Last login: Mon Jul 27 13:41:44 2026 from 10.122.150.31
+,[p585600@srjdeaprlx049 ~]$ ,
+-bash: ,: command not found
+[p585600@srjdeaprlx049 ~]$
+[p585600@srjdeaprlx049 ~]$
+[p585600@srjdeaprlx049 ~]$
+[p585600@srjdeaprlx049 ~]$ ls -la /etc/init.d/ | grep -i sirpl
+lrwxrwxrwx   1 root root    82 Aug  4  2018 sirpl.des.https -> /opt/open/apache/2.4.6/https-sirpl.des.intra.corerj.caixa8601/scripts/apache-admin
+[p585600@srjdeaprlx049 ~]$
+[p585600@srjdeaprlx049 ~]$
+[p585600@srjdeaprlx049 ~]$
+[p585600@srjdeaprlx049 ~]$
