@@ -1,15 +1,3 @@
-Origem: aks-sipdd-des (api.sigaq.des.caixa)
+onathan, antes de rodar: no texto você colocou o destino como 10.116.180.64, mas o filtro da captura no CNPRDFW001-1 está com host 10.118.180.64 — pode confirmar qual é o IP correto? Só pra não rodar o teste pro IP errado.
 
-Destino: sigda-api-quarkus-des.apps.nprd.caixa
-
-IP: 10.116.180.64
- 
-quero testar esse fluxo aqui
- 
-CNPRDFW001-1# show capture
-
-capture JOW type raw-data interface tn_EXTR [Capturing - 0 bytes]
-
-  match ip 10.245.153.0 255.255.255.0 host 10.118.180.64
-
- 
+Sobre a simulação: como a origem é api.sigaq.des.caixa, o teste precisa sair de dentro de um pod no cluster AKS (mesma rede 10.245.153.0/24), não da minha estação via VPN — senão o fluxo capturado não vai representar o cenário real. Vou abrir um shell num pod do SIGAQ no AKS e testar conectividade (curl/telnet) direto pro destino confirmado, na porta que a aplicação usa. Me confirma a porta também, e me avisa quando a captura estiver ativa que eu disparo
