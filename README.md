@@ -1,11 +1,13 @@
-esse [ ~ ]$ 
-jesse [ ~ ]$ az accont list --output table
-'accont' is misspelled or not recognized by the system.
-
-https://aka.ms/cli_ref
 Read more about the command in reference docs
-jesse [ ~ ]$ az account set --subscription ac793a00-3e83-4465-b8b0-0fb44a91b916
+^[[Ajesse [ ~ ]$ ax account show --output table
+bash: ax: command not found
+jesse [ ~ ]$ az account show --output table
+EnvironmentName    HomeTenantId                          IsDefault    Name    State    TenantId
+-----------------  ------------------------------------  -----------  ------  -------  ------------------------------------
+AzureCloud         ab9bba98-684a-43fb-add8-9c2bebede229  True         VICOR   Enabled  ab9bba98-684a-43fb-add8-9c2bebede229
 jesse [ ~ ]$ 
-jesse [ ~ ]$ 
-jesse [ ~ ]$ 
+jesse [ ~ ]$ az group show --name rg-sipdd-des
+(ResourceGroupNotFound) Resource group 'rg-sipdd-des' could not be found.
+Code: ResourceGroupNotFound
+Message: Resource group 'rg-sipdd-des' could not be found.
 jesse [ ~ ]$ 
