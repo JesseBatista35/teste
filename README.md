@@ -1,35 +1,26 @@
 
-[p585600@caddeapllx2577 ~]$ nslookup caddeapllx2577.agil.nprd.caixa.gov.br
-Server:         10.116.193.77
-Address:        10.116.193.77#53
+(Nem todos os processos puderam ser identificados, informações sobre processos
+ de outrem não serão mostrados, você deve ser root para vê-los todos.)
+[p585600@caddeapllx2577 ~]$ sudo su
 
-Name:   caddeapllx2577.agil.nprd.caixa.gov.br
-Address: 10.116.201.44
+Presumimos que você recebeu as instruções de sempre do administrador
+de sistema local. Basicamente, resume-se a estas três coisas:
 
-[p585600@caddeapllx2577 ~]$ ip addr show
-1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
-    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
-    inet 127.0.0.1/8 scope host lo
-       valid_lft forever preferred_lft forever
-    inet6 ::1/128 scope host
-       valid_lft forever preferred_lft forever
-2: ens192: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
-    link/ether 00:50:56:82:c5:4a brd ff:ff:ff:ff:ff:ff
-    altname enp11s0
-    inet 10.116.201.44/19 brd 10.116.223.255 scope global noprefixroute ens192
-       valid_lft forever preferred_lft forever
-    inet6 fe80::250:56ff:fe82:c54a/64 scope link
-       valid_lft forever preferred_lft forever
-3: ens224: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
-    link/ether 00:50:56:82:2e:44 brd ff:ff:ff:ff:ff:ff
-    altname enp19s0
-    inet 192.168.242.114/19 brd 192.168.255.255 scope global noprefixroute ens224
-       valid_lft forever preferred_lft forever
-    inet6 fe80::250:56ff:fe82:2e44/64 scope link noprefixroute
-       valid_lft forever preferred_lft forever
-[p585600@caddeapllx2577 ~]$
-[p585600@caddeapllx2577 ~]$
-[p585600@caddeapllx2577 ~]$
-[p585600@caddeapllx2577 ~]$ hostname -I
-10.116.201.44 192.168.242.114
-[p585600@caddeapllx2577 ~]$
+    #1) Respeite a privacidade dos outros.
+    #2) Pense antes de digitar.
+    #3) Com grandes poderes vêm grandes responsabilidades.
+
+[sudo] senha para p585600:
+[root@caddeapllx2577 p585600]# netstat -tlnp | grep httpd
+tcp6       0      0 :::443                  :::*                    OUÇA       750315/httpd
+tcp6       0      0 :::80                   :::*                    OUÇA       750315/httpd
+[root@caddeapllx2577 p585600]#
+[root@caddeapllx2577 p585600]#
+[root@caddeapllx2577 p585600]#
+[root@caddeapllx2577 p585600]# ss -tlnp | grep httpd
+LISTEN 0      511                *:443              *:*    users:(("httpd",pid=750318,fd=6),("httpd",pid=750315,fd=6))
+LISTEN 0      511                *:80               *:*    users:(("httpd",pid=750318,fd=4),("httpd",pid=750315,fd=4))
+[root@caddeapllx2577 p585600]#
+[root@caddeapllx2577 p585600]#
+[root@caddeapllx2577 p585600]#
+
