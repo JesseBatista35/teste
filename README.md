@@ -1,20 +1,38 @@
-Resumo do atendimento (fechamento)
+Foi definida pela Infraestrutura e Segurança a utilização de certificados exclusivamente nos VIPs dos ambientes DES, TQS, HMP e PRD do SIARG.
 
-Serviço: Ajustar ambiente ou parametrização de software
-Ambiente: DES
-Sistema: Pipeline SIACM-api-audit
+Anteriormente, os certificados eram disponibilizados pela esteira e copiados para a VM, sendo consumidos pelo Apache através do vhost.conf.
 
-Diagnóstico:
-A tarefa de publicação no Nexus utilizava o parâmetro -DgeneratePom=true, que gera um POM mínimo (apenas groupId/artifactId/version), sem as dependências reais do projeto.
+Com a nova diretriz, os certificados não ficam mais:
+- no Azure DevOps;
+- na VM;
+- nem no repositório de configuração.
 
-Ação realizada:
-Identificado que o Task Group já possuía suporte nativo a uma variável de controle (library), que alterna entre -DgeneratePom=true (padrão) e -DpomFile + -DgeneratePom=false (POM completo) sem necessidade de alteração no script compartilhado.
+Foi realizada a alteração do vhost.conf removendo as diretivas SSL locais:
 
-Foi adicionada a variável de pipeline library = true nas Variables do SIACM-api-audit, ativando o uso do pom.xml completo do projeto apenas para esta esteira, sem qualquer alteração no Task Group compartilhado e sem impacto em outros pipelines (ex: SINAC-sicli-api).
+SSLEngine on
+SSLCACertificatePath
+SSLCertificateFile
+SSLCertificateKeyFile
 
-Validação:
-Build executado com sucesso. Artefato publicado no Nexus (caixa-api-siacm_audit-2.3.0.56.pom) confirmado com todas as dependências do projeto (Spring, Hibernate, Log4j, javax, etc.), consistente com o pom.xml original do repositório.
+Entretanto, a URL oficial do ambiente DES continua indisponível após a mudança do DNS para o VIP 10.116.180.5.
 
-Impacto: Nenhum — alteração restrita à variável de pipeline do próprio SIACM-api-audit; nenhuma modificação foi feita em recursos compartilhados.
+Solicitamos apoio da CESTI para validar e adequar a configuração da esteira e da publicação da aplicação para funcionamento através do VIP, considerando o novo modelo arquitetural com SSL exclusivamente no balanceador.
 
-Observação: Solução mais simples que a inicialmente prevista — dispensou a necessidade de clonagem do Task Group, já que a variável library já existia parametrizada para esse fim.
+
+Release: https://devops.caixa/projetos/Caixa/_releaseProgress?_a=release-pipeline-progress&releaseId=525490 
+
+
+URL: "https://siarg-interno.esteiras.des.caixa/siarg/login" 
+
+URL direto pelo servidor: "https://caddeapllx2577.agil.nprd.caixa.gov.br:8443/siarg/login"
+
+
+Validar a configuração necessária para que a URL:
+siarg-interno.esteiras.des.caixa seja atendida corretamente após a alteração do DNS para o VIP.
+
+
+REQ's para referencia da criação do certificado e DNS. 
+
+REQ000145741048- CRIAÇÃO DO VIP
+REQ000145749435 - DNS APONTAR PRO VIP
+REQ000145748985 - Certificado SSL instalado no VIP
