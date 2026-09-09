@@ -1,6 +1,4 @@
-o jonathan disse
-
-aqui eu capturei duas conexões fechando comunicação
+aqui eu vi a janela TCP sendo fechada, informação sendo trocada, o handshake e tudo
  
-Origem: 10.245.153.18   Destino:10.116.180.64   Porta 443
+em determinado momento da conexão, o servidor de destino sinaliza que quer encerrar a conexão e manda uma pacote com flag F de fyn ack
  
