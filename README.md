@@ -1,65 +1,17 @@
-REGISTRO DE ATENDIMENTO — AMBIENTE LEGADO
-Data/Hora do acionamento: 09/09/2026, ~17:10 (falha de deploy reportada no Jenkins)
-Aberto por: Jessé Batista (CTIS/CESTI)
+REGISTRO DE ATENDIMENTO — SIGEC PORTABILIDADE (DES)
 
-SISTEMA AFETADO: SIGEC Portabilidade (server-groups sigec-portabilidade-batch, sigec-portabilidade2, sipon)
-AMBIENTE: DES
-DOMAIN CONTROLLER: A - 10.116.89.0
-SERVIDOR(ES)/HOST-SLAVE ENVOLVIDO(S): sbrdeapllx104_credito (IP 10.116.94.211)
-INSTÂNCIA: Host Controller (jboss-eap7_hc)
+Sistema afetado: SIGEC Portabilidade (server-groups sigec-portabilidade-batch, sigec-portabilidade2, sipon)
+Servidor: sbrdeapllx104_credito (10.116.94.211), Domain Controller A (10.116.89.0), ambiente DES
 
-SINTOMA RELATADO:
-Deploy do SIGEC Portabilidade falhando no Jenkins com java.lang.OutOfMemoryError:
-unable to create new native thread em múltiplos EJBs do gec-ejb.jar. Host Controller
-do sbrdeapllx104_credito estava parado desde 08/09 12:48.
+Sintoma: deploy falhando no Jenkins com OutOfMemoryError (unable to create new native thread) em múltiplos EJBs. Host Controller do sbrdeapllx104 estava parado desde 08/09 às 12h48.
 
-DIAGNÓSTICO:
-[x] Instância parada/travada
-[ ] Metaspace/memória
-[ ] Garbage Collector
-[ ] Certificado
-[ ] Falha de deploy — conteúdo travado no repositório
-[ ] InterruptedException / estado inconsistente
-[ ] Falha de autenticação no DC
-[ ] Ownership/permissão de diretório
-[ ] Falha de banco de dados
-[x] Outro: ulimit -u baixo (4096) do usuário jboss no host + leituras de módulos JBoss
-via NFS (/opt/jboss/jboss-eap/modules, export 10.116.95.13:/export/jboss_modules64)
-retornando dados aparentemente corrompidos (jars com assinatura ZIP inválida, módulo
-sun.jdk ausente) durante o boot do Host Controller — causa raiz final: cache/estado
-NFS do lado do cliente nesse host. Resolvido definitivamente com reboot completo da
-máquina pelo Jorge Milis.
+Diagnóstico: causa inicial identificada foi ulimit -u baixo (4096) do usuário jboss no host, sem override específico. Ao tentar religar o Host Controller, surgiram falhas sucessivas de boot (jars com assinatura ZIP inválida, módulo sun.jdk ausente) na leitura dos módulos do JBoss, que ficam em NFS (10.116.95.13:/export/jboss_modules64). Causa raiz real: cache/estado NFS stale no lado do cliente desse host, não corrupção real no storage.
 
-AÇÕES REALIZADAS:
-1. Corrigido ulimit -u do usuário jboss (era 4096, sem override específico; criado
-   /etc/security/limits.d/30-jboss-nproc.conf com nproc 16384)
-2. Aplicado reset padrão do Host Controller (limpeza de data/tmp/servers)
-3. Durante investigação de falhas de boot subsequentes, copiados de forma aditiva
-   (sem remoção de nada) o overlay layer-base-jboss-eap-7.1.6.CP e o módulo sun/jdk
-   a partir de /opt/jboss/jboss-eap/modules_bkp para a instalação ativa, como
-   tentativa de contornar jars aparentemente corrompidos lidos via NFS
-4. Jorge Milis (chamado como apoio) executou reboot completo do host sbrdeapllx104
-5. Após o reboot, Host Controller subiu normalmente e aplicação confirmada no ar
+Ações realizadas:
+Corrigido o ulimit do usuário jboss (novo arquivo /etc/security/limits.d/30-jboss-nproc.conf, nproc 16384). Aplicado reset padrão do Host Controller (limpeza de data/tmp/servers). Durante a investigação das falhas de boot, foram copiados de forma aditiva (nada foi removido) o overlay layer-base-jboss-eap-7.1.6.CP e o módulo sun/jdk do backup local modules_bkp para a instalação ativa, como tentativa de contornar os jars aparentemente corrompidos. O Jorge Milis, acionado como apoio, resolveu de fato com um reboot completo da máquina — depois disso o Host Controller subiu normal e a aplicação foi confirmada no ar.
 
-CONTATOS ACIONADOS:
-[ ] Cledson avisado — indisponível (férias)
-[ ] Cláudio avisado — não acionado
-[x] Jorge Milis acionado como apoio — Hora: ~19:50, resolveu com reboot da máquina
+Contatos: Cledson e Cláudio indisponíveis (férias/ausência). Jorge Milis acionado como apoio por volta das 19h50, resolveu com o reboot.
 
-RESULTADO:
-[x] Resolvido
+Resultado: resolvido.
 
-OBSERVAÇÕES / RECOMENDAÇÃO PARA PRÓXIMO ATENDIMENTO:
-A causa raiz mais provável foi cache/handle NFS stale no cliente (sbrdeapllx104) para
-o mount /opt/jboss/jboss-eap/modules, causando leitura de jars com assinatura inválida
-e módulo sun.jdk "ausente" mesmo estando íntegros no export. O reboot completo da
-máquina resolveu sem necessidade de nenhuma das correções manuais aplicadas durante
-a investigação (overlay 7.1.6.CP e módulo sun/jdk copiados para dentro do export
-NFS jboss_modules64 — cópias aditivas, não removem nada, mas ficam registradas no
-compartilhamento e podem valer revisão futura já que não eram estritamente necessárias).
-Recomenda-se, em falhas futuras de boot de Host Controller com erros de leitura de
-módulo/ZipException, tentar reboot completo do host antes de investigar
-corrupção de arquivo, dado que pode ser sintoma de cache NFS e não dado real
-corrompido no storage.
-
-Responsável: Jessé Batista, CTIS/CESTI — Esteira DevOps DES TQS NPRD
+Observação para próximo atendimento: em falhas de boot do Host Controller com erro de leitura de módulo/ZipException, vale tentar reboot completo do host antes de investigar corrupção de arquivo — nesse caso foi cache NFS, não dado corrompido no export. As cópias feitas durante a investigação (overlay 7.1.6.CP e sun/jdk) ficaram gravadas no export NFS compartilhado; não causam problema mas não eram necessárias, vale revisão futura se alguém notar algo estranho em outro host que monta o mesmo jboss_modules64.
