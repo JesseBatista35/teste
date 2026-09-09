@@ -1,1 +1,11 @@
-Entendido, obrigado. Confirma a porta que devo usar no teste? Vou rodar de dentro de um pod do SIGAQ no AKS: primeiro nslookup/getent na URL sigda-api-quarkus-des.apps.nprd.caixa pra confirmar se resolve pra 10.116.180.64, depois um curl/nc pro IP:porta. Me avisa quando a captura estiver ativa que eu disparo os dois na sequência.
+kubectl get pods -n sigaq-api-gestao-documental
+
+
+kubectl exec -n sigaq-api-gestao-documental <nome-do-pod> -- getent hosts sigda-api-quarkus-des.apps.nprd.caixa
+
+
+kubectl exec -n sigaq-api-gestao-documental <nome-do-pod> -- curl -v --max-time 10 https://sigda-api-quarkus-des.apps.nprd.caixa:443/
+
+
+kubectl exec -n sigaq-api-gestao-documental <nome-do-pod> -- nc -zv -w 5 10.116.180.64 443
+
