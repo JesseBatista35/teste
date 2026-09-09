@@ -1,15 +1,7 @@
-​
-Search...
-
-Home logo
-Home
+<img width="1705" height="928" alt="image" src="https://github.com/user-attachments/assets/49747d3f-8052-4c3e-aee8-bd523ecb4715" />
 
 
-sigaq-api-gestao-documental-des-645499956f-4q69t - sigaq-api-gestao-documental-des logs on cluster aks-sipdd-des
-Search
-18314info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]18315      Executing endpoint 'Health checks'18316info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]18317      Executed endpoint 'Health checks'18318info: Microsoft.AspNetCore.Hosting.Diagnostics[2]18319      Request finished HTTP/1.1 GET http://192.168.42.17:8080/healthz - 200 - text/plain 0.1779ms18320info: Microsoft.AspNetCore.Hosting.Diagnostics[1]18321      Request starting HTTP/1.1 GET http://192.168.42.17:8080/healthz - - -18322info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]18323      Executing endpoint 'Health checks'18324info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]18325      Executed endpoint 'Health checks'18326info: Microsoft.AspNetCore.Hosting.Diagnostics[2]18327      Request finished HTTP/1.1 GET http://192.168.42.17:8080/healthz - 200 - text/plain 0.1638ms18328info: Microsoft.AspNetCore.Hosting.Diagnostics[1]18329      Request starting HTTP/1.1 GET http://192.168.42.17:8080/healthz - - -18330info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]18331      Executing endpoint 'Health checks'18332info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]18333      Executed endpoint 'Health checks'18334info: Microsoft.AspNetCore.Hosting.Diagnostics[2]18335      Request finished HTTP/1.1 GET http://192.168.42.17:8080/healthz - 200 - text/plain 0.3213ms18336info: Microsoft.AspNetCore.Hosting.Diagnostics[1]18337      Request starting HTTP/1.1 GET http://192.168.42.17:8080/healthz - - -18338info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]18339      Executing endpoint 'Health checks'18340info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]18341      Executed endpoint 'Health checks'18342info: Microsoft.AspNetCore.Hosting.Diagnostics[2]18343      Request finished HTTP/1.1 GET http://192.168.42.17:8080/healthz - 200 - text/plain 0.2172ms18344info: Microsoft.AspNetCore.Hosting.Diagnostics[1]18345      Request starting HTTP/1.1 GET http://192.168.42.17:8080/healthz - - -18346info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]18347      Executing endpoint 'Health checks'18348info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]18349      Executed endpoint 'Health checks'18350info: Microsoft.AspNetCore.Hosting.Diagnostics[2]18351      Request finished HTTP/1.1 GET http://192.168.42.17:8080/healthz - 200 - text/plain 0.1910ms18352info: Microsoft.AspNetCore.Hosting.Diagnostics[1]18353      Request starting HTTP/1.1 GET http://192.168.42.17:8080/healthz - - -18354info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]18355      Executing endpoint 'Health checks'18356info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]18357      Executed endpoint 'Health checks'18358info: Microsoft.AspNetCore.Hosting.Diagnostics[2]18359      Request finished HTTP/1.1 GET http://192.168.42.17:8080/healthz - 200 - text/plain 0.1773ms
+<img width="1708" height="861" alt="image" src="https://github.com/user-attachments/assets/db17bd3d-72b0-441e-80fb-b570e2db6757" />
 
 
-
-
-sera se por aqui nao da pra entrar no mod cli e rodar comandos?
+apareceu o ip do cluster
