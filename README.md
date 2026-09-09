@@ -1,25 +1,9 @@
+systemctl show jboss-eap7_hc -p LimitNPROC -p LimitNOFILE -p User -p PAMName
 
-[root@sbrdeapllx104 p585600]#
-[root@sbrdeapllx104 p585600]#
-[root@sbrdeapllx104 p585600]# cat /etc/systemd/system/jboss-eap7_hc.service | grep -i limit
-[root@sbrdeapllx104 p585600]#
-[root@sbrdeapllx104 p585600]#
-[root@sbrdeapllx104 p585600]# cat /etc/systemd/system/jboss-eap7_hc.service | grep -i limit
-[root@sbrdeapllx104 p585600]# cat /etc/systemd/system.conf | grep -i DefaultLimit
-#DefaultLimitCPU=
-#DefaultLimitFSIZE=
-#DefaultLimitDATA=
-#DefaultLimitSTACK=
-#DefaultLimitCORE=
-#DefaultLimitRSS=
-#DefaultLimitNOFILE=
-#DefaultLimitAS=
-#DefaultLimitNPROC=
-#DefaultLimitMEMLOCK=
-#DefaultLimitLOCKS=
-#DefaultLimitSIGPENDING=
-#DefaultLimitMSGQUEUE=
-#DefaultLimitNICE=
-#DefaultLimitRTPRIO=
-#DefaultLimitRTTIME=
-[root@sbrdeapllx104 p585600]#
+ls -la /etc/systemd/system/jboss-eap7_hc.service.d/ 2>/dev/null
+cat /etc/systemd/system/jboss-eap7_hc.service.d/*.conf 2>/dev/null
+
+cat /etc/systemd/system/jboss-eap7_hc.service | grep -i user
+
+# limite real do processo que está rodando (ou do último PID se já caiu, pegue via journalctl)
+systemctl status jboss-eap7_hc
