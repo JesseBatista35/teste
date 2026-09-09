@@ -1,12 +1,14 @@
-jesse [ ~ ]$ 
-jesse [ ~ ]$ az aks get-credentials --resource-group rg-sipdd-des --name aks-sipdd-des --overwrite-existing
-Merged "aks-sipdd-des" as current context in /home/jesse/.kube/config
-Converted kubeconfig to use Azure CLI authentication.
-jesse [ ~ ]$ kubectl get pods -n sigaq-api-gestao-documental
-E0909 18:04:27.649246     856 memcache.go:265] "Unhandled Error" err="couldn't get current server API group list: Get \"https://dns-aks-sipdd-des-ebg0b8an.aks-sipdd-des.privatelink.brazilsouth.azmk8s.io:443/api?timeout=32s\": dial tcp: lookup dns-aks-sipdd-des-ebg0b8an.aks-sipdd-des.privatelink.brazilsouth.azmk8s.io on 168.63.129.16:53: no such host"
-E0909 18:04:27.667931     856 memcache.go:265] "Unhandled Error" err="couldn't get current server API group list: Get \"https://dns-aks-sipdd-des-ebg0b8an.aks-sipdd-des.privatelink.brazilsouth.azmk8s.io:443/api?timeout=32s\": dial tcp: lookup dns-aks-sipdd-des-ebg0b8an.aks-sipdd-des.privatelink.brazilsouth.azmk8s.io on 168.63.129.16:53: no such host"
-E0909 18:04:27.678063     856 memcache.go:265] "Unhandled Error" err="couldn't get current server API group list: Get \"https://dns-aks-sipdd-des-ebg0b8an.aks-sipdd-des.privatelink.brazilsouth.azmk8s.io:443/api?timeout=32s\": dial tcp: lookup dns-aks-sipdd-des-ebg0b8an.aks-sipdd-des.privatelink.brazilsouth.azmk8s.io on 168.63.129.16:53: no such host"
-E0909 18:04:27.698490     856 memcache.go:265] "Unhandled Error" err="couldn't get current server API group list: Get \"https://dns-aks-sipdd-des-ebg0b8an.aks-sipdd-des.privatelink.brazilsouth.azmk8s.io:443/api?timeout=32s\": dial tcp: lookup dns-aks-sipdd-des-ebg0b8an.aks-sipdd-des.privatelink.brazilsouth.azmk8s.io on 168.63.129.16:53: no such host"
-E0909 18:04:27.712955     856 memcache.go:265] "Unhandled Error" err="couldn't get current server API group list: Get \"https://dns-aks-sipdd-des-ebg0b8an.aks-sipdd-des.privatelink.brazilsouth.azmk8s.io:443/api?timeout=32s\": dial tcp: lookup dns-aks-sipdd-des-ebg0b8an.aks-sipdd-des.privatelink.brazilsouth.azmk8s.io on 168.63.129.16:53: no such host"
-Unable to connect to the server: dial tcp: lookup dns-aks-sipdd-des-ebg0b8an.aks-sipdd-des.privatelink.brazilsouth.azmk8s.io on 168.63.129.16:53: no such host
-jesse [ ~ ]$ 
+putz, acesso os logs dos pods pelo fusionx somente
+ 
+n tenho outra forma
+ 
+entendi. manda o print ai pra mim ver, por onde você acessa
+
+
+
+ <img width="800" height="616" alt="image" src="https://github.com/user-attachments/assets/130b575f-3420-4446-aae1-1b4b634d13a5" />
+
+
+<img width="1801" height="989" alt="image" src="https://github.com/user-attachments/assets/b3034a79-c99a-4c96-ada9-221043c8ff76" />
+
+
