@@ -1,10 +1,3 @@
-Jesse, tudo bem? Preciso rodar um teste de conectividade de dentro de um pod do SIGAQ (namespace sigaq-api-gestao-documental, cluster aks-sipdd-des) — é pra apoiar uma investigação de rede com o time de Redes Extranet/Nuvem (Jonathan) sobre comunicação Azure DES → on-premises DES.
+Ainda estou sem conseguir rodar o teste que combinamos — acabei encontrando um bloqueio de acesso ao cluster AKS mesmo (não consigo rodar o kubectl nem via VPN nem via Cloud Shell, problema de resolução de DNS da zona privada, questão separada do que investigamos com você).
 
-Não tenho como rodar o kubectl nesse cluster: pela VPN corporativa e pelo Cloud Shell, ambos falham na resolução da zona DNS privada aks-sipdd-des.privatelink.brazilsouth.azmk8s.io, porque nenhum dos dois está dentro da VNet correta (VNET-GESTAOARQ-DES / VNET-INFRA-SERVICES). Meu bastion (cadsvitrlx100) só me dá acesso ao lado OKD, não ao AKS.
-
-Você teria acesso a esse cluster de algum ponto já integrado à VNet, ou consegue rodar comigo os comandos abaixo dentro de um pod do SIGAQ?
-
-getent hosts sigda-api-quarkus-des.apps.nprd.caixa
-curl -v --max-time 10 https://sigda-api-quarkus-des.apps.nprd.caixa:443/
-
-O Jonathan já tem uma captura armada no firewall (CNPRDFW001-1) esperando esse teste.
+Já acionei o time de Nuvem/COE pra conseguir esse acesso (o responsável direto está indisponível hoje, então mandei pro preposto dele). Assim que eu conseguir rodar o teste, te aviso na hora pra você acompanhar com a captura já armada. Não precisa ficar esperando parado — só me avise se a captura tiver algum tempo de expiração que eu deva saber.
