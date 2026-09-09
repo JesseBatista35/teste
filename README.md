@@ -1,3 +1,2 @@
-Perfeito, isso confirma o que já suspeitávamos: esse fechamento com FIN/ACK partindo do destino é exatamente o esperado nesse teste, porque usamos openssl s_client sem enviar uma requisição HTTP real — o servidor esperou, não recebeu nada, e encerrou de forma limpa (daí o 408 Request Time-out que vimos do lado do pod). Não é um corte de rede nem RST — é o servidor de destino fechando normalmente por timeout de aplicação.
+<img width="1422" height="309" alt="image" src="https://github.com/user-attachments/assets/a6c9571c-bab1-41ed-82c8-9443f4b88d30" />
 
-Isso indica que a rede está passando sem bloqueio entre AKS DES e on-premises DES nesse destino/porta. Podemos considerar essa frente de rede como concluída/sem problema? Se sim, o próximo passo é investigar do lado da aplicação (SIGAQ) por que a requisição real não está sendo completada a tempo — isso já sai do escopo de rede.
