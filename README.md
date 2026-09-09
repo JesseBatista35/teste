@@ -1,94 +1,21 @@
+# 1. Confirmar que a cópia realmente está lá
+ls -la /opt/jboss/jboss-eap/modules/system/layers/base/sun/jdk/main/
 
-[root@sbrdeapllx104 servers]# systemctl reset-failed jboss-eap7_hc
-[root@sbrdeapllx104 servers]# systemctl start jboss-eap7_hc
-[root@sbrdeapllx104 servers]# sleep 60
-[root@sbrdeapllx104 servers]# ps -ef | grep jboss
-root      40660      1  0 19:22 ?        00:00:00 su - jboss -c ulimit -n 65535; LAUNCH_JBOSS_IN_BACKGROUND=1 JBOSS_PIDFILE=/opt/jboss/jboss-eap/hc/tmp/jboss-hc-des.pid /opt/jboss/jboss-eap/bin/domain.sh --host-config=host-slave.xml -b 10.116.94.211 -bmanagement 10.116.94.211 -Djboss.domain.base.dir=/opt/jboss/jboss-eap/hc -Djboss.domain.master.address=10.116.89.0 -Djboss.server.log.dir=/logs/jboss-eap/servers -c domain.xml
-jboss     40663  40660  0 19:22 ?        00:00:00 -bash -c ulimit -n 65535; LAUNCH_JBOSS_IN_BACKGROUND=1 JBOSS_PIDFILE=/opt/jboss/jboss-eap/hc/tmp/jboss-hc-des.pid /opt/jboss/jboss-eap/bin/domain.sh --host-config=host-slave.xml -b 10.116.94.211 -bmanagement 10.116.94.211 -Djboss.domain.base.dir=/opt/jboss/jboss-eap/hc -Djboss.domain.master.address=10.116.89.0 -Djboss.server.log.dir=/logs/jboss-eap/servers -c domain.xml
-jboss     40878  40663  0 19:22 ?        00:00:00 /bin/sh /opt/jboss/jboss-eap/bin/domain.sh --host-config=host-slave.xml -b 10.116.94.211 -bmanagement 10.116.94.211 -Djboss.domain.base.dir=/opt/jboss/jboss-eap/hc -Djboss.domain.master.address=10.116.89.0 -Djboss.server.log.dir=/logs/jboss-eap/servers -c domain.xml
-jboss     40998  40878  0 19:22 ?        00:00:01 java -D[Process Controller] -server -Xms64m -Xmx512m -XX:MaxMetaspaceSize=256m -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs=org.jboss.byteman -Djava.awt.headless=true -Dorg.jboss.boot.log.file=/opt/jboss/jboss-eap/hc/log/process-controller.log -Dlogging.configuration=file:/opt/jboss/jboss-eap/hc/configuration/logging.properties -jar /opt/jboss/jboss-eap/jboss-modules.jar -mp /opt/jboss/jboss-eap/modules org.jboss.as.process-controller -jboss-home /opt/jboss/jboss-eap -jvm java -mp /opt/jboss/jboss-eap/modules -- -Dorg.jboss.boot.log.file=/opt/jboss/jboss-eap/hc/log/host-controller.log -Dlogging.configuration=file:/opt/jboss/jboss-eap/hc/configuration/logging.properties -server -Xms64m -Xmx512m -XX:MaxMetaspaceSize=256m -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs=org.jboss.byteman -Djava.awt.headless=true -- -default-jvm java --host-config=host-slave.xml -b 10.116.94.211 -bmanagement 10.116.94.211 -Djboss.domain.base.dir=/opt/jboss/jboss-eap/hc -Djboss.domain.master.address=10.116.89.0 -Djboss.server.log.dir=/logs/jboss-eap/servers -c domain.xml
-root      58134  32741  0 19:41 pts/0    00:00:00 grep --color=auto jboss
-[root@sbrdeapllx104 servers]# ^C
-[root@sbrdeapllx104 servers]# tail -80 /logs/jboss-eap/console-stdout.log
-19:22:46,386 INFO  [org.jboss.as.process.Host Controller.status] (reaper for Host Controller) JBAS012017: Processo de inicialização 'Host Controller'
-[Host Controller] org.jboss.modules.ModuleNotFoundException: sun.jdk
-[Host Controller]       at org.jboss.modules.Module.addExportedPaths(Module.java:1377)
-[Host Controller]       at org.jboss.modules.Module.addPaths(Module.java:1255)
-[Host Controller]       at org.jboss.modules.Module.link(Module.java:1582)
-[Host Controller]       at org.jboss.modules.Module.relinkIfNecessary(Module.java:1610)
-[Host Controller]       at org.jboss.modules.ModuleLoader.loadModule(ModuleLoader.java:287)
-[Host Controller]       at org.jboss.modules.Main.main(Main.java:399)
-19:22:46,566 INFO  [org.jboss.as.process.Host Controller.status] (reaper for Host Controller) JBAS012010: Processo 'Host Controller' encerrado com o status de saída do 1
-19:22:46,567 INFO  [org.jboss.as.process-controller.server] (reaper for Host Controller) JBAS012020: Espera 15 segundos até tentar reiniciar o processo Host Controller.
-19:23:01,567 INFO  [org.jboss.as.process.Host Controller.status] (reaper for Host Controller) JBAS012017: Processo de inicialização 'Host Controller'
-[Host Controller] org.jboss.modules.ModuleNotFoundException: sun.jdk
-[Host Controller]       at org.jboss.modules.Module.addExportedPaths(Module.java:1377)
-[Host Controller]       at org.jboss.modules.Module.addPaths(Module.java:1255)
-[Host Controller]       at org.jboss.modules.Module.link(Module.java:1582)
-[Host Controller]       at org.jboss.modules.Module.relinkIfNecessary(Module.java:1610)
-[Host Controller]       at org.jboss.modules.ModuleLoader.loadModule(ModuleLoader.java:287)
-[Host Controller]       at org.jboss.modules.Main.main(Main.java:399)
-19:23:01,747 INFO  [org.jboss.as.process.Host Controller.status] (reaper for Host Controller) JBAS012010: Processo 'Host Controller' encerrado com o status de saída do 1
-19:23:01,747 INFO  [org.jboss.as.process-controller.server] (reaper for Host Controller) JBAS012020: Espera 30 segundos até tentar reiniciar o processo Host Controller.
-19:23:31,748 INFO  [org.jboss.as.process.Host Controller.status] (reaper for Host Controller) JBAS012017: Processo de inicialização 'Host Controller'
-[Host Controller] org.jboss.modules.ModuleNotFoundException: sun.jdk
-[Host Controller]       at org.jboss.modules.Module.addExportedPaths(Module.java:1377)
-[Host Controller]       at org.jboss.modules.Module.addPaths(Module.java:1255)
-[Host Controller]       at org.jboss.modules.Module.link(Module.java:1582)
-[Host Controller]       at org.jboss.modules.Module.relinkIfNecessary(Module.java:1610)
-[Host Controller]       at org.jboss.modules.ModuleLoader.loadModule(ModuleLoader.java:287)
-[Host Controller]       at org.jboss.modules.Main.main(Main.java:399)
-19:23:31,939 INFO  [org.jboss.as.process.Host Controller.status] (reaper for Host Controller) JBAS012010: Processo 'Host Controller' encerrado com o status de saída do 1
-19:23:31,940 INFO  [org.jboss.as.process-controller.server] (reaper for Host Controller) JBAS012020: Espera 30 segundos até tentar reiniciar o processo Host Controller.
-19:24:01,940 INFO  [org.jboss.as.process.Host Controller.status] (reaper for Host Controller) JBAS012017: Processo de inicialização 'Host Controller'
-[Host Controller] org.jboss.modules.ModuleNotFoundException: sun.jdk
-[Host Controller]       at org.jboss.modules.Module.addExportedPaths(Module.java:1377)
-[Host Controller]       at org.jboss.modules.Module.addPaths(Module.java:1255)
-[Host Controller]       at org.jboss.modules.Module.link(Module.java:1582)
-[Host Controller]       at org.jboss.modules.Module.relinkIfNecessary(Module.java:1610)
-[Host Controller]       at org.jboss.modules.ModuleLoader.loadModule(ModuleLoader.java:287)
-[Host Controller]       at org.jboss.modules.Main.main(Main.java:399)
-19:24:02,130 INFO  [org.jboss.as.process.Host Controller.status] (reaper for Host Controller) JBAS012010: Processo 'Host Controller' encerrado com o status de saída do 1
-19:24:02,130 INFO  [org.jboss.as.process-controller.server] (reaper for Host Controller) JBAS012020: Espera 30 segundos até tentar reiniciar o processo Host Controller.
-19:24:32,131 INFO  [org.jboss.as.process.Host Controller.status] (reaper for Host Controller) JBAS012017: Processo de inicialização 'Host Controller'
-[Host Controller] org.jboss.modules.ModuleNotFoundException: sun.jdk
-[Host Controller]       at org.jboss.modules.Module.addExportedPaths(Module.java:1377)
-[Host Controller]       at org.jboss.modules.Module.addPaths(Module.java:1255)
-[Host Controller]       at org.jboss.modules.Module.link(Module.java:1582)
-[Host Controller]       at org.jboss.modules.Module.relinkIfNecessary(Module.java:1610)
-[Host Controller]       at org.jboss.modules.ModuleLoader.loadModule(ModuleLoader.java:287)
-[Host Controller]       at org.jboss.modules.Main.main(Main.java:399)
-19:24:32,318 INFO  [org.jboss.as.process.Host Controller.status] (reaper for Host Controller) JBAS012010: Processo 'Host Controller' encerrado com o status de saída do 1
-19:24:32,319 INFO  [org.jboss.as.process-controller.server] (reaper for Host Controller) JBAS012020: Espera 30 segundos até tentar reiniciar o processo Host Controller.
-19:25:02,319 INFO  [org.jboss.as.process.Host Controller.status] (reaper for Host Controller) JBAS012017: Processo de inicialização 'Host Controller'
-[Host Controller] org.jboss.modules.ModuleNotFoundException: sun.jdk
-[Host Controller]       at org.jboss.modules.Module.addExportedPaths(Module.java:1377)
-[Host Controller]       at org.jboss.modules.Module.addPaths(Module.java:1255)
-[Host Controller]       at org.jboss.modules.Module.link(Module.java:1582)
-[Host Controller]       at org.jboss.modules.Module.relinkIfNecessary(Module.java:1610)
-[Host Controller]       at org.jboss.modules.ModuleLoader.loadModule(ModuleLoader.java:287)
-[Host Controller]       at org.jboss.modules.Main.main(Main.java:399)
-19:25:02,510 INFO  [org.jboss.as.process.Host Controller.status] (reaper for Host Controller) JBAS012010: Processo 'Host Controller' encerrado com o status de saída do 1
-19:25:02,511 INFO  [org.jboss.as.process-controller.server] (reaper for Host Controller) JBAS012020: Espera 30 segundos até tentar reiniciar o processo Host Controller.
-19:25:32,512 INFO  [org.jboss.as.process.Host Controller.status] (reaper for Host Controller) JBAS012017: Processo de inicialização 'Host Controller'
-[Host Controller] org.jboss.modules.ModuleNotFoundException: sun.jdk
-[Host Controller]       at org.jboss.modules.Module.addExportedPaths(Module.java:1377)
-[Host Controller]       at org.jboss.modules.Module.addPaths(Module.java:1255)
-[Host Controller]       at org.jboss.modules.Module.link(Module.java:1582)
-[Host Controller]       at org.jboss.modules.Module.relinkIfNecessary(Module.java:1610)
-[Host Controller]       at org.jboss.modules.ModuleLoader.loadModule(ModuleLoader.java:287)
-[Host Controller]       at org.jboss.modules.Main.main(Main.java:399)
-19:25:32,703 INFO  [org.jboss.as.process.Host Controller.status] (reaper for Host Controller) JBAS012010: Processo 'Host Controller' encerrado com o status de saída do 1
-19:25:32,703 INFO  [org.jboss.as.process-controller.server] (reaper for Host Controller) JBAS012020: Espera 30 segundos até tentar reiniciar o processo Host Controller.
-19:26:02,703 INFO  [org.jboss.as.process.Host Controller.status] (reaper for Host Controller) JBAS012017: Processo de inicialização 'Host Controller'
-[Host Controller] org.jboss.modules.ModuleNotFoundException: sun.jdk
-[Host Controller]       at org.jboss.modules.Module.addExportedPaths(Module.java:1377)
-[Host Controller]       at org.jboss.modules.Module.addPaths(Module.java:1255)
-[Host Controller]       at org.jboss.modules.Module.link(Module.java:1582)
-[Host Controller]       at org.jboss.modules.Module.relinkIfNecessary(Module.java:1610)
-[Host Controller]       at org.jboss.modules.ModuleLoader.loadModule(ModuleLoader.java:287)
-[Host Controller]       at org.jboss.modules.Main.main(Main.java:399)
-19:26:02,892 INFO  [org.jboss.as.process.Host Controller.status] (reaper for Host Controller) JBAS012010: Processo 'Host Controller' encerrado com o status de saída do 1
-[root@sbrdeapllx104 servers]#
-[root@sbrdeapllx104 servers]#
-[root@sbrdeapllx104 servers]#
+# 2. Matar TUDO (incluindo o process-controller pai, que está preso desde 19:22)
+systemctl stop jboss-eap7_hc
+sleep 5
+ps -ef | grep jboss
+# se ainda sobrar algo, mata na força:
+ps -ef | grep -i "jboss-modules\|process-controller\|domain.sh" | grep -v grep | awk '{print $2}' | xargs -r kill -9
+
+# 3. Confirmar que limpou tudo
+ps -ef | grep jboss
+
+# 4. Subir de novo, do zero
+systemctl reset-failed jboss-eap7_hc
+systemctl start jboss-eap7_hc
+sleep 60
+ps -ef | grep jboss
+
+# 5. Ver log FRESCO (últimas linhas, não a cauda antiga)
+tail -30 /logs/jboss-eap/console-stdout.log
