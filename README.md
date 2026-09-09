@@ -1,6 +1,1 @@
-opa, bom dia! desculpa a demora, hoje fiquei enrolado a parte da manhã
- 
-a chamada vai ser para a url sigda-api-quarkus-des.apps.nprd.caixa
- 
-a expectativa é que a url retorne o IP 10.116.180.64 
- 
+Entendido, obrigado. Confirma a porta que devo usar no teste? Vou rodar de dentro de um pod do SIGAQ no AKS: primeiro nslookup/getent na URL sigda-api-quarkus-des.apps.nprd.caixa pra confirmar se resolve pra 10.116.180.64, depois um curl/nc pro IP:porta. Me avisa quando a captura estiver ativa que eu disparo os dois na sequência.
