@@ -10,3 +10,22 @@ oc debug node/ceadecldlx010.nprd.caixa -- chroot /host tcpdump -i any -w /tmp/si
 for node in 007 008 009 010; do
   oc debug node/ceadecldlx0${node}.nprd.caixa -- cat /host/tmp/sigda-test-${node}.pcap > ./sigda-test-${node}.pcap
 done
+
+
+
+
+Using project "sigda-des".
+-sh-4.2$ oc debug node/ceadecldlx009.nprd.caixa -- chroot /host tcpdump -i any -w /tmp/sigda-test-009.pcap 'port 443 and host 10.116.180.64'
+error: cannot debug ceadecldlx009.nprd.caixa: unable to extract pod template from type *v1.Node
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+
+
+
+
+Using project "sigda-des".
+-sh-4.2$ oc debug node/ceadecldlx008.nprd.caixa -- chroot /host tcpdump -i any -w /tmp/sigda-test-008.pcap 'port 443 and host 10.116.180.64'
+error: cannot debug ceadecldlx008.nprd.caixa: unable to extract pod template from type *v1.Node
+-sh-4.2$
+
