@@ -1,6 +1,29 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: debug-tcpdump-009
+  namespace: openshift-ingress
+spec:
+  hostNetwork: true
+  nodeName: ceadecldlx009.nprd.caixa
+  tolerations:
+  - key: node-role.kubernetes.io/infra
+    operator: Equal
+    value: reserved
+    effect: NoSchedule
+  - key: node-role.kubernetes.io/infra
+    operator: Equal
+    value: reserved
+    effect: NoExecute
+  containers:
+  - name: tcpdump
+    image: nicolaka/netshoot
+    command: ["sleep", "3600"]
+    securityContext:
+      privileged: true
+  restartPolicy: Never
 
--sh-4.2$ oc get pod -n sigda-des sigda-api-quarkus-des-11-8f6kd -o jsonpath='{.spec.containers[0].image}'
-default-route-openshift-image-registry.apps.produtos4.caixa/build-images-ads/sigda-api-quarkus:1.0.1.0-sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$
+
+oc delete pod debug-tcpdump-009 -n openshift-ingress --ignore-not-found
+oc create -f debug-tcpdump-009.yaml
+oc get pod debug-tcpdump-009 -n openshift-ingress
