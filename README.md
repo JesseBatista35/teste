@@ -6,3 +6,22 @@ oc cp openshift-ingress/debug-tcpdump-010:/tmp/sigda-test-010.pcap ./sigda-test-
 
 
 oc delete pod debug-tcpdump-009 debug-tcpdump-007 debug-tcpdump-008 debug-tcpdump-010 -n openshift-ingress
+
+
+
+
+~ # oc cp openshift-ingress/debug-tcpdump-009:/tmp/sigda-test-009.pcap ./sigda-test-009.pcap
+/bin/sh: oc: not found
+~ #
+~ # ^C
+
+~ #
+~ # ^C
+
+~ #
+~ #
+~ # ^C
+
+~ # oc cp openshift-ingress/debug-tcpdump-009:/tmp/sigda-test-009.pcap ./sigda-test-009.pcap
+/bin/sh: oc: not found
+~ #
