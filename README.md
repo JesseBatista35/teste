@@ -1,10 +1,10 @@
-Oi Jesse Mouta Pereira Batista!
- 
-Tudo bem?
- 
-Atendimento da REQ000145864664
- 
-Agradeço a conclusão do atendimento
- 
-Seria possível vc enviar a imagem do terminal do OKD com os NFS montados
- 
+
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$ df -h /sihdg_sinaf /sihdg_des
+df: “/sihdg_sinaf”: Arquivo ou diretório não encontrado
+df: “/sihdg_des”: Arquivo ou diretório não encontrado
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
