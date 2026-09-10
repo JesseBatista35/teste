@@ -1,14 +1,3 @@
-scp standalone.xml set_config.properties p585600@10.116.26.227:/tmp/
-
-
-
-
-cp /tmp/standalone.xml /opt/open/sso/7.3.0/standalone/configuration/standalone.xml
-cp /tmp/set_config.properties /opt/open/sso/7.3.0/standalone/configuration/set_config.properties
-chown spssodr1:singlesignon /opt/open/sso/7.3.0/standalone/configuration/standalone.xml /opt/open/sso/7.3.0/standalone/configuration/set_config.properties
-
-
-
 
 [root@crjtqapllx036 opt]# cd /tmp/
 [root@crjtqapllx036 tmp]# ls -la
@@ -69,4 +58,15 @@ drwx------   2 root      root          4096 Jul 21 15:06 vmware-root_950-2697008
 drwx------   2 root      root          4096 Jul 21 15:08 vmware-root_958-2730693406
 drwxrwxrwt.  2 root      root          4096 May  9  2019 .X11-unix
 drwxrwxrwt.  2 root      root          4096 May  9  2019 .XIM-unix
+[root@crjtqapllx036 tmp]# cp /tmp/standalone.xml /opt/open/sso/7.3.0/standalone/configuration/standalone.xml
+cp: overwrite ‘/opt/open/sso/7.3.0/standalone/configuration/standalone.xml’? yes
+[root@crjtqapllx036 tmp]#
+[root@crjtqapllx036 tmp]#
+[root@crjtqapllx036 tmp]# cp /tmp/set_config.properties /opt/open/sso/7.3.0/standalone/configuration/set_config.properties
+cp: overwrite ‘/opt/open/sso/7.3.0/standalone/configuration/set_config.properties’? yes
+[root@crjtqapllx036 tmp]#
+[root@crjtqapllx036 tmp]#
+[root@crjtqapllx036 tmp]# chown spssodr1:singlesignon /opt/open/sso/7.3.0/standalone/configuration/standalone.xml /opt/open/sso/7.3.0/standalone/configuration/set_config.properties
+[root@crjtqapllx036 tmp]#
+[root@crjtqapllx036 tmp]#
 [root@crjtqapllx036 tmp]#
