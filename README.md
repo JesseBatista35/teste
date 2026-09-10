@@ -1,3 +1,39 @@
+
+-sh-4.2$
+-sh-4.2$ #!/bin/bash
+-sh-4.2$ NODES=(ceadecldlx007.nprd.caixa ceadecldlx008.nprd.caixa ceadecldlx009.nprd.caixa ceadecldlx010.nprd.caixa)
+-sh-4.2$ FILTER='port 443 and host 10.116.180.64'
+-sh-4.2$
+-sh-4.2$ for node in "${NODES[@]}"; do
+>   echo "Iniciando captura em $node..."
+>   oc debug node/"$node" -- chroot /host bash -c "tcpdump -i any -w /tmp/sigda-test-${node}.pcap '${FILTER}'" &
+> done
+Iniciando captura em ceadecldlx007.nprd.caixa...
+[1] 11608
+Iniciando captura em ceadecldlx008.nprd.caixa...
+[2] 11609
+Iniciando captura em ceadecldlx009.nprd.caixa...
+[3] 11610
+Iniciando captura em ceadecldlx010.nprd.caixa...
+[4] 11611
+-sh-4.2$
+-sh-4.2$ echo ""
+
+-sh-4.2$ echo "Capturas rodando em background nos 4 nós."
+Capturas rodando em background nos 4 nós.
+-sh-4.2$ echo "Avise o Mateus para disparar o teste agora."
+Avise o Mateus para disparar o teste agora.
+-sh-4.2$ echo "Depois que ele confirmar, pressione ENTER aqui para parar tudo."
+Depois que ele confirmar, pressione ENTER aqui para parar tudo.
+-sh-4.2$ read -r
+error: cannot debug ceadecldlx010.nprd.caixa: unable to extract pod template from type *v1.Node
+error: cannot debug ceadecldlx009.nprd.caixa: unable to extract pod template from type *v1.Node
+error: cannot debug ceadecldlx007.nprd.caixa: unable to extract pod template from type *v1.Node
+error: cannot debug ceadecldlx008.nprd.caixa: unable to extract pod template from type *v1.Node
+
+
+
+
 #!/bin/bash
 NODES=(ceadecldlx007.nprd.caixa ceadecldlx008.nprd.caixa ceadecldlx009.nprd.caixa ceadecldlx010.nprd.caixa)
 FILTER='port 443 and host 10.116.180.64'
