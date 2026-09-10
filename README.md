@@ -14,18 +14,10 @@ done
 
 
 
-Using project "sigda-des".
--sh-4.2$ oc debug node/ceadecldlx009.nprd.caixa -- chroot /host tcpdump -i any -w /tmp/sigda-test-009.pcap 'port 443 and host 10.116.180.64'
-error: cannot debug ceadecldlx009.nprd.caixa: unable to extract pod template from type *v1.Node
--sh-4.2$
--sh-4.2$
--sh-4.2$
+oc auth can-i create pods --subresource=exec -n default
+oc auth can-i create pods -n openshift-ingress
 
 
+oc debug node/ceadecldlx009.nprd.caixa
 
-
-Using project "sigda-des".
--sh-4.2$ oc debug node/ceadecldlx008.nprd.caixa -- chroot /host tcpdump -i any -w /tmp/sigda-test-008.pcap 'port 443 and host 10.116.180.64'
-error: cannot debug ceadecldlx008.nprd.caixa: unable to extract pod template from type *v1.Node
--sh-4.2$
-
+oc debug node/ceadecldlx009.nprd.caixa --image=registry.redhat.io/rhel8/support-tools
