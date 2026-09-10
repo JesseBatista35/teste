@@ -9,4 +9,9 @@ oc delete pod debug-tcpdump-009 debug-tcpdump-007 debug-tcpdump-008 debug-tcpdum
 
 
 
-ls -la sigda-test-009.pcap
+
+-sh-4.2$ ls -la si
+sigda-test-009.pcap       sihdg-jboss8-des-dc.yaml
+-sh-4.2$ ls -la sigda-test-009.pcap
+-rw-r--r-- 1 p585600 usucef 24 Set 10 11:45 sigda-test-009.pcap
+-sh-4.2$
