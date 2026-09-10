@@ -1,1 +1,3 @@
-aai está pegando tudo da main e jogando na develop, sem limar os registros do histórico da develop
+git checkout develop
+git reset --hard main
+git push --force origin develop
