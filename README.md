@@ -22,3 +22,10 @@ __ ____ __ _____ ___ __ ____ ______
 
 
 temos que perguntar prar eles qual é o modulo do sigda que essa cominicação vai
+
+
+
+<img width="1690" height="812" alt="image" src="https://github.com/user-attachments/assets/44217756-fbee-4756-8a6a-237e577d7f02" />
+
+
+só tem esse pod, se ele roudou locamente e funcionou o teste na era pra ter chegado aqui?
