@@ -1,10 +1,5 @@
+oc create -f debug-tcpdump-009.yaml
+oc get events -n openshift-ingress --sort-by='.lastTimestamp' | tail -20
 
--sh-4.2$
--sh-4.2$ oc get pod debug-tcpdump-009 -n sigda-des
-No resources found.
-Error from server (NotFound): pods "debug-tcpdump-009" not found
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$ oc get pod --all-namespaces | grep debug-tcpdump
--sh-4.2$
+
+oc get events -n sigda-des --sort-by='.lastTimestamp' | tail -20
