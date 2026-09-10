@@ -1,3 +1,7 @@
+
+-sh-4.2$
+-sh-4.2$ vi debug-tcpdump-009.yaml
+-sh-4.2$ cat debug-tcpdump-009.yaml
 apiVersion: v1
 kind: Pod
 metadata:
@@ -13,3 +17,4 @@ spec:
     securityContext:
       privileged: true
   restartPolicy: Never
+-sh-4.2$
