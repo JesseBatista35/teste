@@ -1,5 +1,19 @@
 oc get pods -n openshift-ingress -o wide
 
+
+-sh-4.2$
+-sh-4.2$ oc get pods -n openshift-ingress -o wide
+NAME                              READY     STATUS    RESTARTS   AGE       IP              NODE                       NOMINATED NODE   READINESS GATES
+router-default-556cdc9cb7-4lgb7   1/1       Running   0          408d      10.116.208.27   ceadecldlx008.nprd.caixa   <none>           <none>
+router-default-556cdc9cb7-bjj7f   1/1       Running   0          408d      10.116.208.26   ceadecldlx007.nprd.caixa   <none>           <none>
+router-default-556cdc9cb7-kr77m   1/1       Running   0          408d      10.116.208.28   ceadecldlx009.nprd.caixa   <none>           <none>
+router-default-556cdc9cb7-rrqln   1/1       Running   0          408d      10.116.208.29   ceadecldlx010.nprd.caixa   <none>           <none>
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+
+
 oc debug node/<nome-do-node>
 
 chroot /host
