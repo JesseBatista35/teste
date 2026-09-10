@@ -1,4 +1,7 @@
-<img width="1302" height="996" alt="image" src="https://github.com/user-attachments/assets/67d5f761-6a98-428d-ad31-0cd4e09d9073" />
+Prezado(a),
+Precisamos reiniciar a nossa branch develop, pois a mesma está muito desatualizada em relação a main. 
+Solicito que a recriação da branch develop nos seguintes projetos: 
 
-
-<img width="1379" height="1007" alt="image" src="https://github.com/user-attachments/assets/a9f34af8-7892-47ec-9888-61b4effbbe25" />
+https://github.com/caixagithub/siopi-frontend-melhorias
+https://github.com/caixagithub/siopi-batch-hab-melhorias
+https://github.com/caixagithub/siopi-backend-hab-melhorias
