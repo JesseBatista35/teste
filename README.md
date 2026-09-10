@@ -1,15 +1,56 @@
+cat <<EOF | oc apply -f -
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  labels:
+    app: sihdg-des
+  name: sihdg-sinaf-data-des
+spec:
+  accessModes:
+    - ReadWriteMany
+  capacity:
+    storage: 50Gi
+  claimRef:
+    apiVersion: v1
+    kind: PersistentVolumeClaim
+    name: sihdg-sinaf-data-des
+    namespace: sihdg-des
+  nfs:
+    path: /ifs/cpwsprd01/nprd/fs_sihdg_sinaf
+    server: nprdnfs01.ad.caixa
+  persistentVolumeReclaimPolicy: Retain
+  volumeMode: Filesystem
+EOF
+
+
+
+
+cat <<EOF | oc apply -f -
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: sihdg-sinaf-data-des
+  namespace: sihdg-des
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 50Gi
+  storageClassName: ""
+  volumeMode: Filesystem
+  volumeName: sihdg-sinaf-data-des
+EOF
+
+
+
+oc get pv,pvc | grep sinaf
+
+
 oc rollout latest dc/sihdg-jboss8-des
-
-
 oc rollout status dc/sihdg-jboss8-des
 
-oc get pods | grep sihdg-jboss8-des
-oc rsh $(oc get pod -l deploymentconfig=sihdg-jboss8-des,deployment=sihdg-jboss8-des-90 -o jsonpath='{.items[0].metadata.name}')
+
+oc rsh $(oc get pod -l deploymentconfig=sihdg-jboss8-des --field-selector=status.phase=Running -o jsonpath='{.items[0].metadata.name}')
 ls -la /sihdg_sinaf
-
-
-
-<img width="1570" height="580" alt="image" src="https://github.com/user-attachments/assets/f3b30b20-ecd5-4d3a-9786-98050a2bc762" />
-
-
-<img width="1611" height="643" alt="image" src="https://github.com/user-attachments/assets/afd7ebe3-2b4b-4c08-9135-fd48436b1d98" />
+df -h /sihdg_sinaf
