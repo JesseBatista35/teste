@@ -1,37 +1,12 @@
-Prezados,
+tem que reiniciar a VM. Com SWAP cheio como estava não tem jeito. Antes de reiniciar, executa a limpeza do data e tmp no HC. O undeploy no Jenkins não estava sendo feito pq ele ao realizar o deploy, tenta retirar do server-group um sigfi-fgc.ear, mas o que estava publicado era um sigfi_fgc.ear, como está agora por exemplo.
+ 
+Tivemos que deixar pq o workspace deles no RTC está apontando para uma job no Jenkins de nome SIGFI_FGC. Então, configuramos a job para além do nome, fizesse um deploy no EAP com SIGFI_FGC. Mas isso só foi possível com o undeploy manual do que tinha antes.
+ 
+E tem que atentar pra quando subir a VM, depois de recuperar o SWAP da maquina, tem que setar novamente o mount do NFS para o /upload/des do jeito que está la hj, pq senão o EAP não vai localizar o chaveiro da equipe que está nesse NFS abaixo.
+ 
+ 
+mount -t nfs 10.116.95.13:/export/jboss_modules64 /opt/jboss/jboss-eap/modules
 
-Informamos que a configuração do novo NFS para integração SIHDG x SINAF foi concluída com sucesso no ambiente DES.
 
-Resumo das ações realizadas:
 
-Criados o PersistentVolume e o PersistentVolumeClaim sihdg-sinaf-data-des no namespace sihdg-des, apontando para o compartilhamento liberado pelo time de armazenamento:
-Servidor: nprdnfs01.ad.caixa
-Path: /ifs/cpwsprd01/nprd/fs_sihdg_sinaf
-Capacidade: 50GB
-Volume associado ao DeploymentConfig sihdg-jboss8-des, montado no path /sihdg_sinaf, sem impacto no ponto de montagem já existente (/sihdg_des, utilizado na integração SIHDG x PowerCenter).
-Variáveis correspondentes atualizadas no variable group SIHDG-JBOSS8-DES (Azure DevOps).
-Novo release executado com sucesso via esteira, e validado que o mount /sihdg_sinaf persiste corretamente após o deploy:
-sihdg-sinaf-data-des    /sihdg_sinaf
-sihdg-jboss8-data-des   /sihdg_des
-
-Confirmado via df -h que o volume está montado e disponível com 50GB para uso.
-
-Observação — problema identificado durante a validação (não relacionado a esta demanda):
-
-Durante os testes de deploy, identificamos que a aplicação está apresentando falha ao conectar no banco de dados SQL Server (10.116.93.91:1433, datasource sihdgDS), impedindo a inicialização completa dos componentes CacheConfig e SecurityConfig:
-
-com.microsoft.sqlserver.jdbc.SQLServerException: "encrypt" property is set to "true" and 
-"trustServerCertificate" property is set to "true" but the driver could not establish a 
-secure connection to SQL Server by using Secure Sockets Layer (SSL) encryption: 
-Error: (unsupported_certificate) Certificates do not conform to algorithm constraints.
-...
-Caused by: java.security.cert.CertPathValidatorException: Algorithm constraints check 
-failed on signature algorithm: SHA1withRSA
-
-O certificado do SQL Server está assinado com o algoritmo SHA1withRSA, que o Java 21 (utilizado na imagem jboss-eap8/eap8-openjdk21) bloqueia por padrão devido a restrições de segurança. Isso já ocorria antes desta demanda e não impede o funcionamento do NFS configurado, mas recomendamos encaminhamento ao time de banco de dados/DBA para renovação do certificado do SQL Server com um algoritmo de assinatura mais forte (SHA-256 ou superior).
-
-Considerando concluída a demanda de configuração da esteira. Encaminhamos para validação/encerramento.
-
-Atenciosamente,
-Jessé Batista (P585600)
-CTIS/CESTI/ESTEIRA - APLICAÇÃO/DEVOPS
+ 
