@@ -9,11 +9,4 @@ oc delete pod debug-tcpdump-009 debug-tcpdump-007 debug-tcpdump-008 debug-tcpdum
 
 
 
-
--sh-4.2$
--sh-4.2$
--sh-4.2$ oc cp openshift-ingress/debug-tcpdump-009:/tmp/sigda-test-009.pcap ./sigda-test-009.pcap
-tar: removing leading '/' from member names
--sh-4.2$
--sh-4.2$
--sh-4.2$
+ls -la sigda-test-009.pcap
