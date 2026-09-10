@@ -1,9 +1,34 @@
+vi debug-tcpdump-007.yaml
 
--sh-4.2$ oc rsh -n openshift-ingress debug-tcpdump-009
-~ #
-~ #
-~ # tcpdump -i any -w /tmp/sigda-test-009.pcap 'port 443 and host 10.116.180.64'
-tcpdump: WARNING: any: That device doesn't support promiscuous mode
-(Promiscuous mode not supported on the "any" device)
-tcpdump: listening on any, link-type LINUX_SLL2 (Linux cooked v2), snapshot length 262144 bytes
 
+apiVersion: v1
+kind: Pod
+metadata:
+  name: debug-tcpdump-007
+  namespace: openshift-ingress
+spec:
+  hostNetwork: true
+  nodeName: ceadecldlx007.nprd.caixa
+  tolerations:
+  - key: node-role.kubernetes.io/infra
+    operator: Equal
+    value: reserved
+    effect: NoSchedule
+  - key: node-role.kubernetes.io/infra
+    operator: Equal
+    value: reserved
+    effect: NoExecute
+  containers:
+  - name: tcpdump
+    image: nicolaka/netshoot
+    command: ["sleep", "3600"]
+    securityContext:
+      privileged: true
+  restartPolicy: Never
+
+
+oc create -f debug-tcpdump-007.yaml
+oc get pod debug-tcpdump-007 -n openshift-ingress
+
+oc rsh -n openshift-ingress debug-tcpdump-007
+tcpdump -i any -w /tmp/sigda-test-007.pcap 'port 443 and host 10.116.180.64'
