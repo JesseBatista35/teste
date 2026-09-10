@@ -1,8 +1,28 @@
--sh-4.2$
--sh-4.2$ oc get events -n sigda-des --sort-by='.lastTimestamp' | tail -20
-No resources found.
--sh-4.2$ oc get node ceadecldlx009.nprd.caixa -o jsonpath='{.spec.taints}'
-[map[key:node-role.kubernetes.io/infra value:reserved effect:NoSchedule] map[key:node-role.kubernetes.io/infra value:reserved effect:NoExecute]]-sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$
+apiVersion: v1
+kind: Pod
+metadata:
+  name: debug-tcpdump-009
+  namespace: openshift-ingress
+spec:
+  hostNetwork: true
+  nodeName: ceadecldlx009.nprd.caixa
+  tolerations:
+  - key: node-role.kubernetes.io/infra
+    operator: Equal
+    value: reserved
+    effect: NoSchedule
+  - key: node-role.kubernetes.io/infra
+    operator: Equal
+    value: reserved
+    effect: NoExecute
+  containers:
+  - name: tcpdump
+    image: registry.redhat.io/rhel8/support-tools
+    command: ["sleep", "3600"]
+    securityContext:
+      privileged: true
+  restartPolicy: Never
+
+
+
+cat debug-tcpdump-009.yaml
