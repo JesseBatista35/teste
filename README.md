@@ -1,24 +1,9 @@
-Boa tarde! o fluxo de conexão entre o ambiente Azure DES e o ambiente on-premises ocorre através de um circuito express route onde temos a configuração de BGP como protocolo de comunicação dessas redes, atualmente esse BGP promove o roteamento dos blocos de endereços 10.245.x.x específicos do desenvolvimento AZURE e publica para a AZURE o bloco de endereçamento 10.0.0.0/8, ou seja, toda a comunicação com o ambiente on-premises usufrui do roteamento abrangente que a rota 10.0.0.0/8 provê.
- 
-Não existe nenhum roteamento específico que se faça necessário para essa comunicação ocorrer, tanto que nas capturas de firewall, nós conseguimos coletar dados desse fluxo, o que garante a conectividade entre as pontas fim a fim.
+Jonathan, obrigado pela captura — ela na verdade fecha o quadro em vez de contradizer o que achamos.
 
+Sua captura mostra o TLS completando normalmente com o VIP 10.116.180.64, e só ~10s depois o lado SIGAQ fecha a conexão (FIN) — isso bate exatamente com o timeout de 15s que vemos na aplicação.
 
-<img width="1113" height="211" alt="image" src="https://github.com/user-attachments/assets/864e1208-71e7-4602-8103-aa98b02158a6" />
+Só que reparamos uma coisa: 10.116.180.64 não é nenhum dos 4 nós reais do Router OpenShift (que estão em 10.116.208.26-29, outra sub-rede) — é um VIP/balanceador na frente deles. E nas nossas capturas feitas direto nos 4 nós, sem filtro de IP de destino, não chegou nenhum pacote dessa sub-rede da AKS, na mesma janela dos testes.
 
-A regra que atende a essa conexão no ambiente on-premises é uma regra que contempla todo o /24 da VNET de origem, ou seja, qualquer endereço que vier de lá com destino a esse IP 10.116.180.64 porta 443, o FW vai deixar passar!
+Isso indica que a conexão completa o TLS no nível do VIP, mas não está sendo encaminhada para nenhum backend real — sugere problema no próprio balanceador (health check de backend, persistência de sessão, ou pool sem membro saudável), não mais firewall/rota.
 
-
-para evidenciar isso com vocês, eu sugiro repetir os testes realizados comigo em sala acompanhando em real-time no FW
-
-
-eu deixei uma captura montada no FW para esse fluxo desde ontem e tem algumas conexões que já passaram nela, vou disponibilizar aqui para vocês, conseguem confirmar se foram dos testes que vocês realizaram?
-
-<img width="1427" height="306" alt="image" src="https://github.com/user-attachments/assets/4b55be81-8878-4492-9453-8d16676aa5bd" />
-
-podem considerar o horário a esquerda em UTC
- 
-aproveito para disponibilizar a captura em formato .pcap para wireshark
-CNPRDFW001-1-capture_SIGAQ.pcap
-
-
- 
+Você sabe quem administra esse VIP/LB especificamente (F5 ou equivalente)? Precisamos verificar se o pool de backends dele está apontando corretamente para os 4 nós do Router e se algum deles está marcado como unhealthy
