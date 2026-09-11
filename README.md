@@ -88,3 +88,49 @@ Bibliotecas de tracing distribuído podem interferir no comportamento do agente 
 Esses conflitos são particularmente relevantes em aplicações mais complexas, e não se manifestam da mesma forma em Quarkus.
 
 67 visits in last 30 days
+
+
+
+
+rodei novamente com espaço aora quebrou 
+
+
+2026-09-11T15:43:44.8846183Z ##[section]Starting: Logs da Aplicação
+2026-09-11T15:43:44.8849867Z ==============================================================================
+2026-09-11T15:43:44.8849978Z Task         : Bash
+2026-09-11T15:43:44.8850023Z Description  : Run a Bash script on macOS, Linux, or Windows
+2026-09-11T15:43:44.8850103Z Version      : 3.227.0
+2026-09-11T15:43:44.8850149Z Author       : Microsoft Corporation
+2026-09-11T15:43:44.8850202Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/bash
+2026-09-11T15:43:44.8850275Z ==============================================================================
+2026-09-11T15:43:45.8492286Z Generating script.
+2026-09-11T15:43:45.8503004Z ========================== Starting Command Output ===========================
+2026-09-11T15:43:45.8518723Z [command]/bin/bash /opt/ads-agent/_work/_temp/21c40e50-d14b-4b04-acda-054e4be6201f.sh
+2026-09-11T15:43:45.8561635Z + shopt -s expand_aliases
+2026-09-11T15:43:45.8561866Z + [[ -n okd4_nprd ]]
+2026-09-11T15:43:45.8562257Z + [[ okd4_nprd =~ ocp ]]
+2026-09-11T15:43:45.8562490Z + [[ -n okd4_nprd ]]
+2026-09-11T15:43:45.8562605Z + [[ okd4_nprd =~ (okd4|openshift) ]]
+2026-09-11T15:43:45.8562780Z + app=siabm-autenticacao-24horas-des
+2026-09-11T15:43:45.8562891Z + oc version
+2026-09-11T15:43:45.9348817Z Client Version: v4.2.0-alpha.0-1650-g31aa3e8
+2026-09-11T15:43:45.9349384Z Kustomize Version: v4.5.7
+2026-09-11T15:43:45.9349932Z Server Version: 4.12.0-0.okd-2023-04-16-041331
+2026-09-11T15:43:45.9350916Z Kubernetes Version: v1.25.0-2824+27e744f55d2e99-dirty
+2026-09-11T15:43:45.9375924Z ++ oc get pod -l name=siabm-autenticacao-24horas-des -n siabm-des -o 'jsonpath={range .items[*]}{.metadata.name}{"\n"}' --sort-by=.metadata.creationTimestamp
+2026-09-11T15:43:45.9388784Z ++ tac
+2026-09-11T15:43:45.9389669Z ++ grep -v '^$'
+2026-09-11T15:43:45.9389894Z ++ head -n1
+2026-09-11T15:43:46.0418501Z + last_pod=siabm-autenticacao-24horas-des-164-4fhmg
+2026-09-11T15:43:46.0421294Z + echo 'Logs do POD: siabm-autenticacao-24horas-des-164-4fhmg'
+2026-09-11T15:43:46.0421716Z + oc logs siabm-autenticacao-24horas-des-164-4fhmg -c siabm-autenticacao-24horas-des -n siabm-des
+2026-09-11T15:43:46.0422447Z Logs do POD: siabm-autenticacao-24horas-des-164-4fhmg
+2026-09-11T15:43:46.1333921Z exec java -Dserver.address=0.0.0.0 -Dserver.port=8080 -Djavax.net.ssl.trustStore=/deployments/caixa-truststore-acteste-nprd.jks -javaagent:/deployments/lib/main/com.microsoft.azure.applicationinsights-agent-3.7.1.jar -Dhttps.proxyHost=proxydes.caixa -Dhttps.proxyPort=80 -Dhttp.nonProxyHosts=*.caixa|*.caixa.gov.br -XX:+ExitOnOutOfMemoryError -cp . -jar /deployments/SIABM-autenticacao-24horas.jar
+2026-09-11T15:43:46.1334417Z Error occurred during initialization of VM
+2026-09-11T15:43:46.1334550Z agent library failed to init: instrument
+2026-09-11T15:43:46.1334829Z Error opening zip file or JAR manifest missing : /deployments/lib/main/com.microsoft.azure.applicationinsights-agent-3.7.1.jar
+2026-09-11T15:43:46.1411579Z ##[section]Finishing: Logs da Aplicação
+
+
+le nao achou o agente
+
