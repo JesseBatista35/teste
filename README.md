@@ -1,268 +1,1407 @@
+[root@crjtqapllx036 p585600]# su - spssodr1
+Last login: Fri Sep 11 15:10:06 -03 2026 on pts/1
+Last failed login: Fri Sep 11 15:42:52 -03 2026 on pts/1
+There was 1 failed login attempt since the last successful login.
+[spssodr1@crjtqapllx036 ~]$
+[spssodr1@crjtqapllx036 ~]$
+[spssodr1@crjtqapllx036 ~]$ cd /opt/open/sso/7.3.0/bin/
+[spssodr1@crjtqapllx036 bin]$ nohup ./standalone.sh -c standalone.xml > /tmp/jboss_start3.log 2>&1 &
+[1] 61766
+[spssodr1@crjtqapllx036 bin]$ tail -f /tmp/jboss_start3.log
+  JBoss Bootstrap Environment
 
-~ # exit
--sh-4.2$ oc cp openshift-ingress/debug-tcpdump-007:/tmp/sigda-test3-007.pcap ./sigda-test3-007.pcap
-tar: removing leading '/' from member names
-error: write sigda-test3-007.pcap: no space left on device
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$ ^C
--sh-4.2$ ls -la sigda-test3-*.pcap
--rw-r--r-- 1 p585600 usucef 163840000 Set 11 15:34 sigda-test3-007.pcap
--rw-r--r-- 1 p585600 usucef 163587262 Set 11 15:33 sigda-test3-008.pcap
--rw-r--r-- 1 p585600 usucef 171540868 Set 11 15:33 sigda-test3-009.pcap
--rw-r--r-- 1 p585600 usucef 167034759 Set 11 15:33 sigda-test3-010.pcap
--sh-4.2$
--sh-4.2$
--sh-4.2$ oc rsh -n openshift-ingress debug-tcpdump-007
-~ # tcpdump -r /tmp/sigda-test3-007.pcap -n | head -50
-reading from file /tmp/sigda-test3-007.pcap, link-type LINUX_SLL2 (Linux cooked v2), snapshot length 262144
-Warning: interface names might be incorrect
-18:28:03.644750 ens34 In  IP 10.116.4.149.14214 > 10.116.208.26.443: Flags [P.], seq 3259815887:3259816530, ack 2189714648, win 511, length 643
-18:28:03.647115 ens34 Out IP 10.116.208.26.443 > 10.116.4.149.14214: Flags [P.], seq 1:507, ack 643, win 501, length 506
-18:28:03.676234 ens34 In  IP 10.116.4.149.14214 > 10.116.208.26.443: Flags [P.], seq 643:3570, ack 507, win 509, length 2927
-18:28:03.676234 ens34 In  IP 10.116.4.149.14214 > 10.116.208.26.443: Flags [P.], seq 3570:3594, ack 507, win 509, length 24
-18:28:03.676259 ens34 Out IP 10.116.208.26.443 > 10.116.4.149.14214: Flags [.], ack 3594, win 501, length 0
-18:28:03.682815 ens34 Out IP 10.116.208.26.443 > 10.116.4.150.11171: Flags [F.], seq 2490865404:2490865428, ack 1086523450, win 501, length 24
-18:28:03.724726 ens34 In  IP 10.116.4.150.11171 > 10.116.208.26.443: Flags [.], ack 25, win 251, length 0
-18:28:03.853309 ens34 In  IP 10.116.4.153.45546 > 10.116.208.26.443: Flags [P.], seq 1185841191:1185843869, ack 710040045, win 512, length 2678
-18:28:03.853328 ens34 Out IP 10.116.208.26.443 > 10.116.4.153.45546: Flags [.], ack 2678, win 496, length 0
-18:28:03.862703 ens34 Out IP 10.116.208.26.443 > 10.116.4.153.45546: Flags [P.], seq 1:356, ack 2678, win 501, length 355
-18:28:03.863238 ens34 In  IP 10.116.4.153.45546 > 10.116.208.26.443: Flags [FP.], seq 2678:2709, ack 356, win 511, length 31
-18:28:03.863238 ens34 In  IP 10.116.4.146.3280 > 10.116.208.26.443: Flags [S], seq 298447265, win 8190, options [mss 1460,nop,wscale 8,nop,nop,sackOK], length 0
-18:28:03.863343 ens34 Out IP 10.116.208.26.443 > 10.116.4.146.3280: Flags [S.], seq 2745252353, ack 298447266, win 64240, options [mss 1460,nop,nop,sackOK,nop,wscale 7], length 0
-18:28:03.863498 ens34 Out IP 10.116.208.26.443 > 10.116.4.153.45546: Flags [F.], seq 356:387, ack 2710, win 501, length 31
-18:28:03.863733 ens34 In  IP 10.116.4.153.45546 > 10.116.208.26.443: Flags [.], ack 388, win 511, length 0
-18:28:03.863733 ens34 In  IP 10.116.4.146.3280 > 10.116.208.26.443: Flags [P.], seq 1:217, ack 1, win 512, length 216
-18:28:03.863750 ens34 Out IP 10.116.208.26.443 > 10.116.4.146.3280: Flags [.], ack 217, win 501, length 0
-18:28:03.864008 ens34 Out IP 10.116.208.26.443 > 10.116.4.146.3280: Flags [P.], seq 1:131, ack 217, win 501, length 130
-18:28:03.864243 ens34 In  IP 10.116.4.146.3280 > 10.116.208.26.443: Flags [P.], seq 217:268, ack 131, win 512, length 51
-18:28:03.905039 ens34 Out IP 10.116.208.26.443 > 10.116.4.146.3280: Flags [.], ack 268, win 501, length 0
-18:28:04.130269 ens34 In  IP 10.116.4.157.24911 > 10.116.208.26.443: Flags [P.], seq 3383832936:3383837296, ack 1686055665, win 328, length 4360
-18:28:04.130269 ens34 In  IP 10.116.4.157.24911 > 10.116.208.26.443: Flags [P.], seq 4360:5649, ack 1, win 328, length 1289
-18:28:04.130301 ens34 Out IP 10.116.208.26.443 > 10.116.4.157.24911: Flags [.], ack 5649, win 501, length 0
-18:28:04.133723 ens34 In  IP 10.116.4.158.32237 > 10.116.208.26.443: Flags [P.], seq 1549678054:1549678110, ack 448401753, win 1028, length 56
-18:28:04.134502 ens34 Out IP 10.116.208.26.443 > 10.116.4.158.32237: Flags [P.], seq 1:58, ack 56, win 10032, length 57
-18:28:04.143029 ens34 Out IP 10.116.208.26.443 > 10.116.4.157.24911: Flags [P.], seq 1:1391, ack 5649, win 501, length 1390
-18:28:04.143061 ens34 Out IP 10.116.208.26.443 > 10.116.4.157.24911: Flags [P.], seq 1391:1418, ack 5649, win 501, length 27
-18:28:04.144306 ens34 In  IP 10.116.4.157.24911 > 10.116.208.26.443: Flags [.], ack 1331, win 336, length 0
-18:28:04.144306 ens34 In  IP 10.116.4.157.24911 > 10.116.208.26.443: Flags [.], ack 1391, win 336, length 0
-18:28:04.144306 ens34 In  IP 10.116.4.157.24911 > 10.116.208.26.443: Flags [.], ack 1418, win 336, length 0
-18:28:04.149010 ens34 Out IP 10.116.208.26.443 > 10.116.4.146.2383: Flags [P.], seq 1634410358:1634411219, ack 690747211, win 501, length 861
-18:28:04.223264 ens34 Out IP 10.116.208.26.443 > 10.116.4.158.28323: Flags [P.], seq 3270645557:3270645581, ack 2447419561, win 501, length 24
-18:28:04.229729 ens34 In  IP 10.116.4.158.32237 > 10.116.208.26.443: Flags [.], ack 58, win 1028, length 0
-18:28:04.232231 ens34 In  IP 10.116.4.158.28323 > 10.116.208.26.443: Flags [P.], seq 1:29, ack 24, win 513, length 28
-18:28:04.232240 ens34 Out IP 10.116.208.26.443 > 10.116.4.158.28323: Flags [.], ack 29, win 501, length 0
-18:28:04.246937 ens34 Out IP 10.116.208.26.443 > 10.116.4.149.14214: Flags [P.], seq 507:7157, ack 3594, win 501, length 6650
-18:28:04.246946 ens34 Out IP 10.116.208.26.443 > 10.116.4.149.14214: Flags [P.], seq 7157:13807, ack 3594, win 501, length 6650
-18:28:04.256218 ens34 In  IP 10.116.4.146.2383 > 10.116.208.26.443: Flags [.], ack 861, win 514, length 0
-18:28:04.280885 ens34 Out IP 10.116.208.26.443 > 10.116.4.151.52264: Flags [P.], seq 2894828912:2894828936, ack 1592667613, win 501, length 24
-18:28:04.284715 ens34 In  IP 10.116.4.151.52264 > 10.116.208.26.443: Flags [P.], seq 1:29, ack 24, win 512, length 28
-18:28:04.284724 ens34 Out IP 10.116.208.26.443 > 10.116.4.151.52264: Flags [.], ack 29, win 501, length 0
-18:28:04.287732 ens34 In  IP 10.116.4.150.6544 > 10.116.208.26.443: Flags [P.], seq 1748194720:1748194760, ack 828298293, win 308, length 40
-18:28:04.287732 ens34 In  IP 10.116.4.150.6544 > 10.116.208.26.443: Flags [F.], seq 40, ack 1, win 308, length 0
-18:28:04.287827 ens34 Out IP 10.116.208.26.443 > 10.116.4.150.6544: Flags [P.], seq 1:25, ack 41, win 501, length 24
-18:28:04.287913 ens34 Out IP 10.116.208.26.443 > 10.116.4.150.6544: Flags [F.], seq 25, ack 41, win 501, length 0
-18:28:04.288734 ens34 In  IP 10.116.4.150.6544 > 10.116.208.26.443: Flags [R], seq 1748194761, win 9700, length 0
-18:28:04.298233 ens34 In  IP 10.116.4.149.14214 > 10.116.208.26.443: Flags [.], ack 13807, win 514, length 0
-18:28:04.298259 ens34 Out IP 10.116.208.26.443 > 10.116.4.149.14214: Flags [P.], seq 13807:27107, ack 3594, win 501, length 13300
-18:28:04.298272 ens34 Out IP 10.116.208.26.443 > 10.116.4.149.14214: Flags [P.], seq 27107:40407, ack 3594, win 501, length 13300
-18:28:04.302725 ens34 In  IP 10.116.4.151.63158 > 10.116.208.26.443: Flags [.], ack 2319190768, win 510, length 0
-tcpdump: Unable to write output: Broken pipe
-~ # exit
--sh-4.2$
+  JBOSS_HOME: /opt/open/sso/7.3.0
 
+  JAVA: /opt/open/java/jdk1.8.0_121/bin/java
 
+  JAVA_OPTS:  -server -verbose:gc -Xloggc:/opt/open/sso/7.3.0/standalone/log/gc.log -XX:+PrintGCDetails -XX:+PrintGCDateStamps -XX:+UseGCLogFileRotation -XX:NumberOfGCLogFiles=5 -XX:GCLogFileSize=3M -XX:-TraceClassUnloading -Xms32768m -Xmx32768m -XX:MetaspaceSize=1024m -XX:MaxMetaspaceSize=1024m -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs=org.jboss.byteman -Djava.awt.headless=true -DhttpRecaptchaProxyHost="proxydes.caixa" -DhttpRecaptchaProxyPort="80" -DhttpRecaptchaProxyScheme=http -Dhttps.proxyHost="proxydes.caixa" -Dhttps.proxyPort="80" -Dhttp.nonProxyHosts="*.caixa|*.caixa.gov.br|localhost" -Dhttp.proxyHost="proxydes.caixa" -Dhttp.proxyPort="80" -Dftp.proxyHost="proxydes.caixa" -Dftp.proxyPort="80" -javaagent:/infra_app/config/appinsights/applicationinsights-agent-3.3.1.jar
 
-$
--sh-4.2$
--sh-4.2$ oc rsh -n openshift-ingress debug-tcpdump-008
-~ # tcpdump -r /tmp/sigda-test3-008.pcap -n | head -50
-reading from file /tmp/sigda-test3-008.pcap, link-type LINUX_SLL2 (Linux cooked v2), snapshot length 262144
-Warning: interface names might be incorrect
-18:28:18.657277 ens32 In  IP 10.116.4.146.59843 > 10.116.208.27.443: Flags [.], ack 744679383, win 259, length 0
-18:28:18.693568 ens32 In  IP 10.116.4.148.48664 > 10.116.208.27.443: Flags [.], ack 3724080303, win 514, length 0
-18:28:18.693568 ens32 In  IP 10.116.4.148.48664 > 10.116.208.27.443: Flags [.], ack 1331, win 514, length 0
-18:28:18.693568 ens32 In  IP 10.116.4.148.48664 > 10.116.208.27.443: Flags [.], ack 4574, win 514, length 0
-18:28:18.700273 ens32 In  IP 10.116.4.148.48664 > 10.116.208.27.443: Flags [F.], seq 0, ack 4574, win 514, length 0
-18:28:18.700284 ens32 Out IP 10.116.208.27.443 > 10.116.4.148.48664: Flags [.], ack 1, win 501, length 0
-18:28:18.722557 ens32 Out IP 10.116.208.27.443 > 10.116.4.157.18258: Flags [P.], seq 772536523:772536547, ack 882761666, win 501, length 24
-18:28:18.757274 ens32 In  IP 10.116.4.145.22652 > 10.116.208.27.443: Flags [S], seq 1310100605, win 8190, options [mss 1330,nop,wscale 8,nop,nop,sackOK], length 0
-18:28:18.757380 ens32 Out IP 10.116.208.27.443 > 10.116.4.145.22652: Flags [S.], seq 1821704195, ack 1310100606, win 64240, options [mss 1460,nop,nop,sackOK,nop,wscale 7], length 0
-18:28:18.758172 ens32 In  IP 10.116.4.145.22652 > 10.116.208.27.443: Flags [.], seq 1:1331, ack 1, win 514, length 1330
-18:28:18.758201 ens32 Out IP 10.116.208.27.443 > 10.116.4.145.22652: Flags [.], ack 1331, win 501, length 0
-18:28:18.759280 ens32 In  IP 10.116.4.157.18258 > 10.116.208.27.443: Flags [P.], seq 1:29, ack 24, win 511, length 28
-18:28:18.759295 ens32 Out IP 10.116.208.27.443 > 10.116.4.157.18258: Flags [.], ack 29, win 501, length 0
-18:28:18.762271 ens32 In  IP 10.116.4.145.22652 > 10.116.208.27.443: Flags [P.], seq 1331:2146, ack 1, win 514, length 815
-18:28:18.762285 ens32 Out IP 10.116.208.27.443 > 10.116.4.145.22652: Flags [.], ack 2146, win 501, length 0
-18:28:18.763908 ens32 Out IP 10.116.208.27.443 > 10.116.4.145.22652: Flags [P.], seq 1:3669, ack 2146, win 501, length 3668
-18:28:18.768271 ens32 Out IP 10.116.208.27.443 > 10.116.4.145.22652: Flags [P.], seq 2661:3669, ack 2146, win 501, length 1008
-18:28:18.785566 ens32 In  IP 10.116.4.145.22652 > 10.116.208.27.443: Flags [.], ack 3669, win 514, length 0
-18:28:18.785566 ens32 In  IP 10.116.4.145.22652 > 10.116.208.27.443: Flags [P.], seq 2146:2210, ack 3669, win 514, length 64
-18:28:18.785567 ens32 In  IP 10.116.4.145.22652 > 10.116.208.27.443: Flags [P.], seq 2210:2832, ack 3669, win 514, length 622
-18:28:18.785616 ens32 Out IP 10.116.208.27.443 > 10.116.4.145.22652: Flags [.], ack 2832, win 501, length 0
-18:28:18.787022 ens32 Out IP 10.116.208.27.443 > 10.116.4.145.22652: Flags [P.], seq 3669:4243, ack 2832, win 501, length 574
-18:28:18.789133 ens32 Out IP 10.116.208.27.443 > 10.116.4.145.22652: Flags [P.], seq 4243:4683, ack 2832, win 501, length 440
-18:28:18.792276 ens32 In  IP 10.116.4.145.22652 > 10.116.208.27.443: Flags [.], ack 3669, win 514, options [nop,nop,sack 1 {2661:3669}], length 0
-18:28:18.794268 ens32 Out IP 10.116.208.27.443 > 10.116.4.145.22652: Flags [P.], seq 4243:4683, ack 2832, win 501, length 440
-18:28:18.804556 ens32 In  IP 10.116.4.145.22652 > 10.116.208.27.443: Flags [.], ack 4683, win 510, length 0
-18:28:18.812678 ens32 In  IP 10.116.4.145.22652 > 10.116.208.27.443: Flags [.], seq 2832:4162, ack 4683, win 510, length 1330
-18:28:18.813284 ens32 In  IP 10.116.4.145.22652 > 10.116.208.27.443: Flags [.], seq 4162:5492, ack 4683, win 510, length 1330
-18:28:18.813302 ens32 Out IP 10.116.208.27.443 > 10.116.4.145.22652: Flags [.], ack 5492, win 501, length 0
-18:28:18.813566 ens32 In  IP 10.116.4.145.22652 > 10.116.208.27.443: Flags [P.], seq 5492:6940, ack 4683, win 510, length 1448
-18:28:18.813566 ens32 In  IP 10.116.4.145.22652 > 10.116.208.27.443: Flags [.], ack 4683, win 510, options [nop,nop,sack 1 {4243:4683}], length 0
-18:28:18.813586 ens32 Out IP 10.116.208.27.443 > 10.116.4.145.22652: Flags [.], ack 6940, win 501, length 0
-18:28:18.821734 ens32 Out IP 10.116.208.27.443 > 10.116.4.145.22652: Flags [P.], seq 4683:6185, ack 6940, win 501, length 1502
-18:28:18.826267 ens32 Out IP 10.116.208.27.443 > 10.116.4.145.22652: Flags [P.], seq 6013:6185, ack 6940, win 501, length 172
-18:28:18.837991 ens32 In  IP 10.116.4.145.22652 > 10.116.208.27.443: Flags [.], ack 6185, win 514, length 0
-18:28:18.844059 ens32 In  IP 10.116.4.145.22652 > 10.116.208.27.443: Flags [.], ack 6185, win 514, options [nop,nop,sack 1 {6013:6185}], length 0
-18:28:18.845725 ens32 In  IP 10.116.4.151.61427 > 10.116.208.27.443: Flags [S], seq 3750018377, win 8190, options [mss 1330,nop,wscale 8,nop,nop,sackOK], length 0
-18:28:18.845826 ens32 Out IP 10.116.208.27.443 > 10.116.4.151.61427: Flags [S.], seq 2964210848, ack 3750018378, win 64240, options [mss 1460,nop,nop,sackOK,nop,wscale 7], length 0
-18:28:18.846202 ens32 In  IP 10.116.4.151.61427 > 10.116.208.27.443: Flags [P.], seq 1:2115, ack 1, win 1028, length 2114
-18:28:18.846216 ens32 Out IP 10.116.208.27.443 > 10.116.4.151.61427: Flags [.], ack 2115, win 496, length 0
-18:28:18.847518 ens32 Out IP 10.116.208.27.443 > 10.116.4.151.61427: Flags [P.], seq 1:3669, ack 2115, win 501, length 3668
-18:28:18.852267 ens32 Out IP 10.116.208.27.443 > 10.116.4.151.61427: Flags [P.], seq 2661:3669, ack 2115, win 501, length 1008
-18:28:18.869018 ens32 Out IP 10.116.208.27.443 > 10.116.4.151.1817: Flags [P.], seq 47233690:47233714, ack 4024130676, win 501, length 24
-18:28:18.869034 ens32 Out IP 10.116.208.27.443 > 10.116.4.151.1817: Flags [F.], seq 24, ack 1, win 501, length 0
-18:28:18.893986 ens32 In  IP 10.116.4.153.3953 > 10.116.208.27.443: Flags [P.], seq 3818467058:3818468012, ack 4002756740, win 514, length 954
-18:28:18.897355 ens32 Out IP 10.116.208.27.443 > 10.116.4.153.3953: Flags [P.], seq 1:415, ack 954, win 501, length 414
-18:28:18.897368 ens32 Out IP 10.116.208.27.443 > 10.116.4.153.3953: Flags [F.], seq 415, ack 954, win 501, length 0
-18:28:18.900270 ens32 In  IP 10.116.4.151.1817 > 10.116.208.27.443: Flags [.], ack 25, win 519, length 0
-18:28:18.924284 ens32 Out IP 10.116.208.27.443 > 10.116.4.153.3953: Flags [F.], seq 415, ack 954, win 501, length 0
-18:28:18.935748 ens32 In  IP 10.116.4.153.3953 > 10.116.208.27.443: Flags [.], ack 416, win 512, length 0
-tcpdump: Unable to write output: Broken pipe
-~ # exit
--sh-4.2$
+=========================================================================
 
+15:45:09,415 INFO  [org.jboss.modules] (main) JBoss Modules version 1.8.8.Final-redhat-00001
+15:45:09,645 INFO  [org.jboss.msc] (main) JBoss MSC version 1.4.5.Final-redhat-00001
+15:45:09,669 INFO  [org.jboss.threads] (main) JBoss Threads version 2.3.2.Final-redhat-1
+15:45:09,835 INFO  [org.jboss.as] (MSC service thread 1-2) WFLYSRV0049: Red Hat Single Sign-On 7.3.3.GA (WildFly Core 6.0.15.Final-redhat-00001) starting
+15:45:10,248 WARN  [org.jboss.as.controller] (Controller Boot Thread) WFLYCTL0456: System property http.nonProxyHosts=*.caixa|*.caixa.gov.br|localhost already set. It's being overridden by new value *.caixa|*.caixa.gov.br|localhost|fnlogeventos-des.azurewebsites.net
+15:45:10,584 INFO  [org.wildfly.security] (ServerService Thread Pool -- 21) ELY00001: WildFly Elytron version 1.6.3.Final-redhat-00001
+15:45:11,011 INFO  [org.jboss.as.controller.management-deprecated] (Controller Boot Thread) WFLYCTL0028: Attribute 'security-realm' in the resource at address '/core-service=management/management-interface=native-interface' is deprecated, and may be removed in a future version. See the attribute description in the output of the read-resource-description operation to learn more about the deprecation.
+15:45:11,013 INFO  [org.jboss.as.controller.management-deprecated] (Controller Boot Thread) WFLYCTL0028: Attribute 'security-realm' in the resource at address '/core-service=management/management-interface=http-interface' is deprecated, and may be removed in a future version. See the attribute description in the output of the read-resource-description operation to learn more about the deprecation.
+15:45:11,033 INFO  [org.jboss.as.controller.management-deprecated] (ServerService Thread Pool -- 26) WFLYCTL0028: Attribute 'security-realm' in the resource at address '/subsystem=undertow/server=default-server/https-listener=https' is deprecated, and may be removed in a future version. See the attribute description in the output of the read-resource-description operation to learn more about the deprecation.
+15:45:11,057 INFO  [org.jboss.as.server.deployment.scanner] (DeploymentScanner-threads - 1) WFLYDS0015: Re-attempting failed deployment OTPCaixaCond.jar
+15:45:11,059 INFO  [org.jboss.as.server.deployment.scanner] (DeploymentScanner-threads - 1) WFLYDS0015: Re-attempting failed deployment directgrantpassword-jar-with-dependencies.jar
+15:45:11,060 INFO  [org.jboss.as.server.deployment.scanner] (DeploymentScanner-threads - 1) WFLYDS0015: Re-attempting failed deployment eventExternal-jar-with-dependencies.jar
+15:45:11,064 INFO  [org.jboss.as.server.deployment.scanner] (DeploymentScanner-threads - 1) WFLYDS0015: Re-attempting failed deployment BrowserPassword-jar-with-dependencies.jar
+15:45:11,066 INFO  [org.jboss.as.server.deployment.scanner] (DeploymentScanner-threads - 1) WFLYDS0015: Re-attempting failed deployment loginCaixa-jar-with-dependencies.jar
+15:45:11,066 INFO  [org.jboss.as.server.deployment.scanner] (DeploymentScanner-threads - 1) WFLYDS0015: Re-attempting failed deployment servico.war
+15:45:11,066 INFO  [org.jboss.as.server.deployment.scanner] (DeploymentScanner-threads - 1) WFLYDS0015: Re-attempting failed deployment user-storage-jpa-siper-jar-with-dependencies.jar
+15:45:11,067 INFO  [org.jboss.as.server.deployment.scanner] (DeploymentScanner-threads - 1) WFLYDS0015: Re-attempting failed deployment validaLogin-jar-with-dependencies.jar
+15:45:11,067 INFO  [org.jboss.as.server.deployment.scanner] (DeploymentScanner-threads - 1) WFLYDS0015: Re-attempting failed deployment siset-user-session-provider.jar
+15:45:11,067 INFO  [org.jboss.as.server.deployment.scanner] (DeploymentScanner-threads - 1) WFLYDS0015: Re-attempting failed deployment resource-provider-jar-with-dependencies.jar
+15:45:11,945 INFO  [org.jboss.security] (Controller Boot Thread) PBOX00361: Default Security Vault Implementation Initialized and Ready
+15:45:11,965 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0039: Creating http management service using socket-binding (management-http)
+15:45:11,967 INFO  [org.xnio] (MSC service thread 1-1) XNIO version 3.6.6.Final-redhat-00001
+15:45:11,972 INFO  [org.xnio.nio] (MSC service thread 1-1) XNIO NIO Implementation Version 3.6.6.Final-redhat-00001
+15:45:12,010 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 36) WFLYCLINF0001: Activating Infinispan subsystem.
+15:45:12,012 WARN  [org.jboss.as.txn] (ServerService Thread Pool -- 51) WFLYTX0013: The node-identifier attribute on the /subsystem=transactions is set to the default value. This is a danger for environments running multiple servers. Please make sure the attribute value is unique.
+15:45:12,019 INFO  [org.jboss.as.security] (ServerService Thread Pool -- 49) WFLYSEC0002: Activating Security Subsystem
+15:45:12,035 INFO  [org.jboss.as.naming] (ServerService Thread Pool -- 45) WFLYNAM0001: Activating Naming Subsystem
+15:45:12,035 INFO  [org.wildfly.extension.io] (ServerService Thread Pool -- 37) WFLYIO001: Worker 'default' has auto-configured to 32 core threads with 256 task threads based on your 16 available processors
+15:45:12,044 INFO  [org.jboss.as.security] (MSC service thread 1-4) WFLYSEC0001: Current PicketBox version=5.0.3.Final-redhat-3
+15:45:12,047 INFO  [org.jboss.as.mail.extension] (MSC service thread 1-6) WFLYMAIL0002: Unbound mail session [java:jboss/mail/Default]
+15:45:12,050 INFO  [org.jboss.as.jaxrs] (ServerService Thread Pool -- 38) WFLYRS0016: RESTEasy version 3.6.1.SP6-redhat-00001
+15:45:12,093 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-7) WFLYUT0003: Undertow 2.0.22.Final-redhat-00001 starting
+15:45:12,105 INFO  [org.jboss.as.connector] (MSC service thread 1-1) WFLYJCA0009: Starting JCA Subsystem (WildFly/IronJacamar 1.4.16.Final-redhat-00001)
+15:45:12,106 INFO  [org.jboss.remoting] (MSC service thread 1-6) JBoss Remoting version 5.0.12.Final-redhat-00001
+15:45:12,179 INFO  [org.jboss.as.naming] (MSC service thread 1-1) WFLYNAM0003: Starting Naming Service
+15:45:12,184 INFO  [org.jboss.as.mail.extension] (MSC service thread 1-1) WFLYMAIL0001: Bound mail session [java:jboss/mail/Default]
+15:45:12,313 INFO  [org.jboss.as.connector.subsystems.datasources] (ServerService Thread Pool -- 31) WFLYJCA0004: Deploying JDBC-compliant driver class oracle.jdbc.driver.OracleDriver (version 11.2)
+15:45:12,316 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-7) WFLYJCA0018: Started Driver service with driver-name = oracle
+15:45:12,317 INFO  [org.jboss.as.ejb3] (MSC service thread 1-4) WFLYEJB0481: Strict pool slsb-strict-max-pool is using a max instance size of 256 (per class), which is derived from thread worker pool sizing.
+15:45:12,317 INFO  [org.jboss.as.ejb3] (MSC service thread 1-3) WFLYEJB0482: Strict pool mdb-strict-max-pool is using a max instance size of 64 (per class), which is derived from the number of CPUs on this host.
+15:45:12,331 INFO  [org.jboss.as.connector.subsystems.datasources] (ServerService Thread Pool -- 31) WFLYJCA0004: Deploying JDBC-compliant driver class org.h2.Driver (version 1.4)
+15:45:12,332 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-2) WFLYJCA0018: Started Driver service with driver-name = h2
+15:45:12,361 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 52) WFLYUT0014: Creating file handler for path '/opt/open/sso/7.3.0/welcome-content' with options [directory-listing: 'false', follow-symlink: 'false', case-sensitive: 'true', safe-symlink-paths: '[]']
+15:45:12,362 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-4) WFLYJCA0010: Unbound data source [java:jboss/datasources/ExampleDS]
+15:45:12,363 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-1) WFLYJCA0010: Unbound data source [java:jboss/datasources/oraset]
+15:45:12,371 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-7) WFLYJCA0010: Unbound data source [java:jboss/datasources/KeycloakDS]
+15:45:12,373 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 52) WFLYUT0014: Creating file handler for path '/opt/open/sso/7.3.0/suporte' with options [directory-listing: 'false', follow-symlink: 'false', case-sensitive: 'true', safe-symlink-paths: '[]']
+15:45:12,379 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-3) WFLYUT0012: Started server default-server.
+15:45:12,381 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-3) WFLYUT0018: Host default-host starting
+15:45:12,423 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-7) WFLYUT0006: Undertow HTTP listener default listening on 10.116.26.227:8080
+15:45:12,433 INFO  [org.jboss.as.ejb3] (MSC service thread 1-3) WFLYEJB0493: EJB subsystem suspension complete
+15:45:12,487 INFO  [org.jboss.as.patching] (MSC service thread 1-4) WFLYPAT0050: Red Hat Single Sign-On cumulative patch ID is: rh-sso-7.3.3.CP, one-off patches include: none
+15:45:12,493 WARN  [org.jboss.as.domain.management.security] (MSC service thread 1-6) WFLYDM0111: Keystore /opt/open/sso/7.3.0/standalone/configuration/application.keystore not found, it will be auto generated on first use with a self signed certificate for host localhost
+15:45:12,511 INFO  [org.jboss.as.remoting] (MSC service thread 1-6) WFLYRMT0001: Listening on 10.116.26.227:9999
+15:45:12,525 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-6) WFLYSRV0027: Starting deployment of "validaLogin-jar-with-dependencies.jar" (runtime-name: "validaLogin-jar-with-dependencies.jar")
+15:45:12,525 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-3) WFLYSRV0027: Starting deployment of "loginCaixa-jar-with-dependencies.jar" (runtime-name: "loginCaixa-jar-with-dependencies.jar")
+15:45:12,525 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-1) WFLYSRV0027: Starting deployment of "resource-provider-jar-with-dependencies.jar" (runtime-name: "resource-provider-jar-with-dependencies.jar")
+15:45:12,526 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-7) WFLYSRV0027: Starting deployment of "keycloak-server.war" (runtime-name: "keycloak-server.war")
+15:45:12,525 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-8) WFLYSRV0027: Starting deployment of "BrowserPassword-jar-with-dependencies.jar" (runtime-name: "BrowserPassword-jar-with-dependencies.jar")
+15:45:12,525 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-2) WFLYSRV0027: Starting deployment of "siset-user-session-provider.jar" (runtime-name: "siset-user-session-provider.jar")
+15:45:12,527 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-7) WFLYSRV0027: Starting deployment of "servico.war" (runtime-name: "servico.war")
+15:45:12,527 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-1) WFLYSRV0027: Starting deployment of "directgrantpassword-jar-with-dependencies.jar" (runtime-name: "directgrantpassword-jar-with-dependencies.jar")
+15:45:12,528 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-8) WFLYSRV0027: Starting deployment of "OTPCaixaCond.jar" (runtime-name: "OTPCaixaCond.jar")
+15:45:12,528 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-3) WFLYSRV0027: Starting deployment of "eventExternal-jar-with-dependencies.jar" (runtime-name: "eventExternal-jar-with-dependencies.jar")
+15:45:12,528 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-7) WFLYSRV0027: Starting deployment of "user-storage-jpa-siper-jar-with-dependencies.jar" (runtime-name: "user-storage-jpa-siper-jar-with-dependencies.jar")
+15:45:12,528 INFO  [org.jboss.as.server.deployment.scanner] (MSC service thread 1-6) WFLYDS0013: Started FileSystemDeploymentService for directory /opt/open/sso/7.3.0/standalone/deployments
+15:45:12,554 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-1) WFLYUT0006: Undertow HTTPS listener https listening on 10.116.26.227:8443
+15:45:13,211 WARN  [org.jboss.jca.core.connectionmanager.pool.strategy.OnePool] (JCA PoolFiller) IJ000610: Unable to fill pool: java:jboss/datasources/KeycloakDS: javax.resource.ResourceException: IJ031084: Unable to create connection
+        at org.jboss.jca.adapters.jdbc.local.LocalManagedConnectionFactory.createLocalManagedConnection(LocalManagedConnectionFactory.java:345)
+        at org.jboss.jca.adapters.jdbc.local.LocalManagedConnectionFactory.getLocalManagedConnection(LocalManagedConnectionFactory.java:352)
+        at org.jboss.jca.adapters.jdbc.local.LocalManagedConnectionFactory.createManagedConnection(LocalManagedConnectionFactory.java:287)
+        at org.jboss.jca.core.connectionmanager.pool.mcp.SemaphoreConcurrentLinkedDequeManagedConnectionPool.createConnectionEventListener(SemaphoreConcurrentLinkedDequeManagedConnectionPool.java:1325)
+        at org.jboss.jca.core.connectionmanager.pool.mcp.SemaphoreConcurrentLinkedDequeManagedConnectionPool.fillTo(SemaphoreConcurrentLinkedDequeManagedConnectionPool.java:1138)
+        at org.jboss.jca.core.connectionmanager.pool.mcp.PoolFiller.run(PoolFiller.java:97)
+        at java.lang.Thread.run(Thread.java:745)
+Caused by: java.sql.SQLException: ORA-01017: invalid username/password; logon denied
 
+        at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:440)
+        at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:389)
+        at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:382)
+        at oracle.jdbc.driver.T4CTTIfun.processError(T4CTTIfun.java:573)
+        at oracle.jdbc.driver.T4CTTIoauthenticate.processError(T4CTTIoauthenticate.java:431)
+        at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:445)
+        at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:191)
+        at oracle.jdbc.driver.T4CTTIoauthenticate.doOAUTH(T4CTTIoauthenticate.java:366)
+        at oracle.jdbc.driver.T4CTTIoauthenticate.doOAUTH(T4CTTIoauthenticate.java:752)
+        at oracle.jdbc.driver.T4CConnection.logon(T4CConnection.java:366)
+        at oracle.jdbc.driver.PhysicalConnection.<init>(PhysicalConnection.java:536)
+        at oracle.jdbc.driver.T4CConnection.<init>(T4CConnection.java:228)
+        at oracle.jdbc.driver.T4CDriverExtension.getConnection(T4CDriverExtension.java:32)
+        at oracle.jdbc.driver.OracleDriver.connect(OracleDriver.java:521)
+        at org.jboss.jca.adapters.jdbc.local.LocalManagedConnectionFactory.createLocalManagedConnection(LocalManagedConnectionFactory.java:321)
+        ... 6 more
 
-~ # exit
--sh-4.2$ oc cp openshift-ingress/debug-tcpdump-009:/tmp/sigda-test3-009.pcap ./sigda-test3-009.pcap
-tar: removing leading '/' from member names
--sh-4.2$ oc rsh -n openshift-ingress debug-tcpdump-009
-~ # tcpdump -r /tmp/sigda-test3-009.pcap -n | head -50
-reading from file /tmp/sigda-test3-009.pcap, link-type LINUX_SLL2 (Linux cooked v2), snapshot length 262144
-Warning: interface names might be incorrect
-18:28:31.330247 ens32 In  IP 10.116.4.152.31491 > 10.116.208.28.443: Flags [P.], seq 2349340996:2349341660, ack 2212854926, win 514, length 664
-18:28:31.331655 ens32 Out IP 10.116.208.28.443 > 10.116.4.152.31491: Flags [P.], seq 1:720, ack 664, win 501, length 719
-18:28:31.373342 ens32 In  IP 10.116.4.155.46937 > 10.116.208.28.443: Flags [P.], seq 1511499635:1511502010, ack 2975542503, win 512, length 2375
-18:28:31.373368 ens32 Out IP 10.116.208.28.443 > 10.116.4.155.46937: Flags [.], ack 2375, win 496, length 0
-18:28:31.390530 ens32 Out IP 10.116.208.28.443 > 10.116.4.155.46937: Flags [P.], seq 1:178, ack 2375, win 501, length 177
-18:28:31.390746 ens32 In  IP 10.116.4.155.46937 > 10.116.208.28.443: Flags [FP.], seq 2375:2406, ack 178, win 512, length 31
-18:28:31.390763 ens32 In  IP 10.116.4.155.4719 > 10.116.208.28.443: Flags [S], seq 2503710483, win 8190, options [mss 1460,nop,wscale 8,nop,nop,sackOK], length 0
-18:28:31.390862 ens32 Out IP 10.116.208.28.443 > 10.116.4.155.4719: Flags [S.], seq 4266132353, ack 2503710484, win 64240, options [mss 1460,nop,nop,sackOK,nop,wscale 7], length 0
-18:28:31.390897 ens32 Out IP 10.116.208.28.443 > 10.116.4.155.46937: Flags [F.], seq 178:209, ack 2407, win 501, length 31
-18:28:31.391240 ens32 In  IP 10.116.4.155.46937 > 10.116.208.28.443: Flags [.], ack 210, win 512, length 0
-18:28:31.391256 ens32 In  IP 10.116.4.155.4719 > 10.116.208.28.443: Flags [P.], seq 1:217, ack 1, win 512, length 216
-18:28:31.391267 ens32 Out IP 10.116.208.28.443 > 10.116.4.155.4719: Flags [.], ack 217, win 501, length 0
-18:28:31.391641 ens32 Out IP 10.116.208.28.443 > 10.116.4.155.4719: Flags [P.], seq 1:131, ack 217, win 501, length 130
-18:28:31.391754 ens32 In  IP 10.116.4.155.4719 > 10.116.208.28.443: Flags [P.], seq 217:268, ack 131, win 512, length 51
-18:28:31.394733 ens32 In  IP 10.116.4.152.31491 > 10.116.208.28.443: Flags [.], ack 720, win 511, length 0
-18:28:31.402142 ens32 Out IP 10.116.208.28.443 > 10.116.4.148.6291: Flags [F.], seq 3762434653, ack 2551285845, win 501, length 0
-18:28:31.403746 ens32 In  IP 10.116.4.146.45701 > 10.116.208.28.443: Flags [P.], seq 1517769605:1517770582, ack 2178736222, win 512, length 977
-18:28:31.412354 ens32 Out IP 10.116.208.28.443 > 10.116.4.146.45701: Flags [P.], seq 1:3143, ack 977, win 501, length 3142
-18:28:31.423744 ens32 In  IP 10.116.4.148.6291 > 10.116.208.28.443: Flags [.], ack 1, win 0, length 0
-18:28:31.432139 ens32 Out IP 10.116.208.28.443 > 10.116.4.155.4719: Flags [.], ack 268, win 501, length 0
-18:28:31.476244 ens32 In  IP 10.116.4.146.45701 > 10.116.208.28.443: Flags [.], ack 2661, win 514, length 0
-18:28:31.519745 ens32 In  IP 10.116.4.146.45701 > 10.116.208.28.443: Flags [.], ack 3143, win 512, length 0
-18:28:31.593755 ens32 In  IP 10.116.4.158.27849 > 10.116.208.28.443: Flags [P.], seq 1084071328:1084072103, ack 2496912826, win 514, length 775
-18:28:31.595780 ens32 Out IP 10.116.208.28.443 > 10.116.4.158.27849: Flags [P.], seq 1:517, ack 775, win 501, length 516
-18:28:31.599245 ens32 In  IP 10.116.4.157.54588 > 10.116.208.28.443: Flags [P.], seq 966983904:966984482, ack 2036290007, win 256, length 578
-18:28:31.600817 ens32 In  IP 10.116.4.155.4719 > 10.116.208.28.443: Flags [P.], seq 268:2643, ack 131, win 512, length 2375
-18:28:31.600847 ens32 Out IP 10.116.208.28.443 > 10.116.4.155.4719: Flags [.], ack 2643, win 496, length 0
-18:28:31.602373 ens32 Out IP 10.116.208.28.443 > 10.116.4.157.54588: Flags [P.], seq 1:1094, ack 578, win 501, length 1093
-18:28:31.617747 ens32 In  IP 10.116.4.158.27849 > 10.116.208.28.443: Flags [.], seq 775:2105, ack 517, win 512, length 1330
-18:28:31.618242 ens32 In  IP 10.116.4.158.27849 > 10.116.208.28.443: Flags [.], seq 2105:3435, ack 517, win 512, length 1330
-18:28:31.618256 ens32 Out IP 10.116.208.28.443 > 10.116.4.158.27849: Flags [.], ack 3435, win 501, length 0
-18:28:31.618658 ens32 Out IP 10.116.208.28.443 > 10.116.4.155.4719: Flags [P.], seq 131:308, ack 2643, win 501, length 177
-18:28:31.618750 ens32 In  IP 10.116.4.155.4719 > 10.116.208.28.443: Flags [FP.], seq 2643:2674, ack 308, win 512, length 31
-18:28:31.618792 ens32 In  IP 10.116.4.145.13076 > 10.116.208.28.443: Flags [S], seq 2894663963, win 8190, options [mss 1460,nop,wscale 8,nop,nop,sackOK], length 0
-18:28:31.618792 ens32 In  IP 10.116.4.158.27849 > 10.116.208.28.443: Flags [P.], seq 3435:6682, ack 517, win 512, length 3247
-18:28:31.618910 ens32 Out IP 10.116.208.28.443 > 10.116.4.155.4719: Flags [F.], seq 308:339, ack 2675, win 501, length 31
-18:28:31.618960 ens32 Out IP 10.116.208.28.443 > 10.116.4.145.13076: Flags [S.], seq 1657350396, ack 2894663964, win 64240, options [mss 1460,nop,nop,sackOK,nop,wscale 7], length 0
-18:28:31.618989 ens32 Out IP 10.116.208.28.443 > 10.116.4.158.27849: Flags [.], ack 6682, win 501, length 0
-18:28:31.619253 ens32 In  IP 10.116.4.155.4719 > 10.116.208.28.443: Flags [.], ack 340, win 512, length 0
-18:28:31.619253 ens32 In  IP 10.116.4.145.13076 > 10.116.208.28.443: Flags [P.], seq 1:217, ack 1, win 512, length 216
-18:28:31.619285 ens32 Out IP 10.116.208.28.443 > 10.116.4.145.13076: Flags [.], ack 217, win 501, length 0
-18:28:31.619626 ens32 Out IP 10.116.208.28.443 > 10.116.4.145.13076: Flags [P.], seq 1:131, ack 217, win 501, length 130
-18:28:31.619762 ens32 In  IP 10.116.4.145.13076 > 10.116.208.28.443: Flags [P.], seq 217:268, ack 131, win 512, length 51
-18:28:31.660138 ens32 Out IP 10.116.208.28.443 > 10.116.4.145.13076: Flags [.], ack 268, win 501, length 0
-18:28:31.678810 ens32 In  IP 10.116.4.157.54588 > 10.116.208.28.443: Flags [.], ack 1094, win 259, length 0
-18:28:31.710107 ens32 Out IP 10.116.208.28.443 > 10.116.4.158.27849: Flags [P.], seq 517:1251, ack 6682, win 501, length 734
-18:28:31.720406 ens32 Out IP 10.116.208.28.443 > 10.116.4.157.58214: Flags [P.], seq 3294734101:3294734125, ack 2246714344, win 501, length 24
-18:28:31.731745 ens32 In  IP 10.116.4.157.58214 > 10.116.208.28.443: Flags [P.], seq 1:29, ack 24, win 510, length 28
-18:28:31.731745 ens32 In  IP 10.116.4.158.27849 > 10.116.208.28.443: Flags [.], seq 6682:8012, ack 1251, win 509, length 1330
-18:28:31.731771 ens32 Out IP 10.116.208.28.443 > 10.116.4.157.58214: Flags [.], ack 29, win 501, length 0
-tcpdump: Unable to write output: Broken pipe
-~ # exit
--sh-4.2$
+15:45:13,944 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-6) WFLYSRV0003: Could not index class org/apache/log4j/spi/TriggeringEventEvaluator.class at /content/BrowserPassword-jar-with-dependencies.jar: java.io.EOFException
+        at java.io.DataInputStream.readFully(DataInputStream.java:197)
+        at java.io.DataInputStream.readFully(DataInputStream.java:169)
+        at org.jboss.jandex.Indexer.verifyMagic(Indexer.java:1156)
+        at org.jboss.jandex.Indexer.index(Indexer.java:1447)
+        at org.jboss.as.server.deployment.annotation.ResourceRootIndexer.indexResourceRoot(ResourceRootIndexer.java:99)
+        at org.jboss.as.server.deployment.annotation.AnnotationIndexProcessor.deploy(AnnotationIndexProcessor.java:51)
+        at org.jboss.as.server.deployment.DeploymentUnitPhaseService.start(DeploymentUnitPhaseService.java:144)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.startService(ServiceControllerImpl.java:1738)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.execute(ServiceControllerImpl.java:1700)
+        at org.jboss.msc.service.ServiceControllerImpl$ControllerTask.run(ServiceControllerImpl.java:1558)
+        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1985)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1487)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1364)
+        at java.lang.Thread.run(Thread.java:745)
 
+15:45:13,945 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-6) WFLYSRV0003: Could not index class org/apache/log4j/spi/LoggingEvent.class at /content/BrowserPassword-jar-with-dependencies.jar: java.io.EOFException
+        at java.io.DataInputStream.readFully(DataInputStream.java:197)
+        at java.io.DataInputStream.readFully(DataInputStream.java:169)
+        at org.jboss.jandex.Indexer.verifyMagic(Indexer.java:1156)
+        at org.jboss.jandex.Indexer.index(Indexer.java:1447)
+        at org.jboss.as.server.deployment.annotation.ResourceRootIndexer.indexResourceRoot(ResourceRootIndexer.java:99)
+        at org.jboss.as.server.deployment.annotation.AnnotationIndexProcessor.deploy(AnnotationIndexProcessor.java:51)
+        at org.jboss.as.server.deployment.DeploymentUnitPhaseService.start(DeploymentUnitPhaseService.java:144)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.startService(ServiceControllerImpl.java:1738)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.execute(ServiceControllerImpl.java:1700)
+        at org.jboss.msc.service.ServiceControllerImpl$ControllerTask.run(ServiceControllerImpl.java:1558)
+        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1985)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1487)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1364)
+        at java.lang.Thread.run(Thread.java:745)
 
-~ # exit
--sh-4.2$ oc cp openshift-ingress/debug-tcpdump-010:/tmp/sigda-test3-010.pcap ./sigda-test3-010.pcap
-tar: removing leading '/' from member names
--sh-4.2$ oc rsh -n openshift-ingress debug-tcpdump-010
-~ # tcpdump -r /tmp/sigda-test3-010.pcap -n | head -50
-reading from file /tmp/sigda-test3-010.pcap, link-type LINUX_SLL2 (Linux cooked v2), snapshot length 262144
-Warning: interface names might be incorrect
-18:28:42.391535 ens192 In  IP 10.116.4.157.51009 > 10.116.208.29.443: Flags [P.], seq 2057804184:2057804855, ack 1069663997, win 510, length 671
-18:28:42.391599 ens192 Out IP 10.116.208.29.443 > 10.116.4.158.27498: Flags [F.], seq 214719052, ack 1433758780, win 501, length 0
-18:28:42.391676 ens192 Out IP 10.116.208.29.443 > 10.116.4.153.31608: Flags [P.], seq 2198386463:2198393113, ack 3729788117, win 501, length 6650
-18:28:42.391686 ens192 Out IP 10.116.208.29.443 > 10.116.4.153.31608: Flags [P.], seq 6650:6988, ack 1, win 501, length 338
-18:28:42.391707 ens192 Out IP 10.116.208.29.443 > 10.116.4.153.31608: Flags [P.], seq 6988:10531, ack 1, win 501, length 3543
-18:28:42.392498 ens192 In  IP 10.116.4.158.27498 > 10.116.208.29.443: Flags [.], ack 1, win 510, length 0
-18:28:42.393793 ens192 Out IP 10.116.208.29.443 > 10.116.4.157.51009: Flags [P.], seq 543:1277, ack 671, win 501, length 734
-18:28:42.396543 ens192 Out IP 10.116.208.29.443 > 10.116.4.153.31608: Flags [P.], seq 9648:10531, ack 1, win 501, length 883
-18:28:42.396554 ens192 Out IP 10.116.208.29.443 > 10.116.4.152.2584: Flags [P.], seq 3713604390:3713607076, ack 1412616186, win 501, length 2686
-18:28:42.396995 ens192 In  IP 10.116.4.153.31608 > 10.116.208.29.443: Flags [.], ack 2660, win 1028, length 0
-18:28:42.397490 ens192 In  IP 10.116.4.153.31608 > 10.116.208.29.443: Flags [.], ack 10531, win 1028, length 0
-18:28:42.400549 ens192 In  IP 10.116.4.157.64520 > 10.116.208.29.80: Flags [S], seq 3113401129, win 8190, options [mss 1460,nop,wscale 8,nop,nop,sackOK], length 0
-18:28:42.400665 ens192 Out IP 10.116.208.29.80 > 10.116.4.157.64520: Flags [S.], seq 2686881053, ack 3113401130, win 64240, options [mss 1460,nop,nop,sackOK,nop,wscale 7], length 0
-18:28:42.401013 ens192 In  IP 10.116.4.157.64520 > 10.116.208.29.80: Flags [P.], seq 1:971, ack 1, win 512, length 970: HTTP: GET /comercial/fa-solid-900.woff2 HTTP/1.1
-18:28:42.404878 ens192 Out IP 10.116.208.29.80 > 10.116.4.157.64520: Flags [P.], seq 1:1977, ack 971, win 501, length 1976: HTTP: HTTP/1.1 404 Not Found
-18:28:42.405276 ens192 In  IP 10.116.4.157.64520 > 10.116.208.29.80: Flags [F.], seq 971, ack 1977, win 505, length 0
-18:28:42.405367 ens192 Out IP 10.116.208.29.80 > 10.116.4.157.64520: Flags [F.], seq 1977, ack 972, win 501, length 0
-18:28:42.405494 ens192 In  IP 10.116.4.157.64520 > 10.116.208.29.80: Flags [.], ack 1978, win 505, length 0
-18:28:42.408501 ens192 In  IP 10.116.4.153.31608 > 10.116.208.29.443: Flags [.], ack 10531, win 1028, options [nop,nop,sack 1 {9648:10531}], length 0
-18:28:42.415998 ens192 In  IP 10.116.4.158.27498 > 10.116.208.29.443: Flags [.], ack 1, win 510, length 0
-18:28:42.416515 ens192 In  IP 10.116.4.152.2584 > 10.116.208.29.443: Flags [.], ack 4294960306, win 514, length 0
-18:28:42.416515 ens192 In  IP 10.116.4.152.2584 > 10.116.208.29.443: Flags [.], ack 0, win 514, length 0
-18:28:42.417544 ens192 In  IP 10.116.4.158.26610 > 10.116.208.29.443: Flags [S], seq 2441088239, win 8190, options [mss 1330,nop,wscale 8,nop,nop,sackOK], length 0
-18:28:42.417671 ens192 Out IP 10.116.208.29.443 > 10.116.4.158.26610: Flags [S.], seq 3026546923, ack 2441088240, win 64240, options [mss 1460,nop,nop,sackOK,nop,wscale 7], length 0
-18:28:42.418020 ens192 In  IP 10.116.4.158.26610 > 10.116.208.29.443: Flags [P.], seq 1:2084, ack 1, win 1028, length 2083
-18:28:42.418033 ens192 Out IP 10.116.208.29.443 > 10.116.4.158.26610: Flags [.], ack 2084, win 496, length 0
-18:28:42.419787 ens192 Out IP 10.116.208.29.443 > 10.116.4.158.26610: Flags [P.], seq 1:3669, ack 2084, win 501, length 3668
-18:28:42.423536 ens192 Out IP 10.116.208.29.443 > 10.116.4.158.26610: Flags [P.], seq 2661:3669, ack 2084, win 501, length 1008
-18:28:42.424019 ens192 In  IP 10.116.4.152.2584 > 10.116.208.29.443: Flags [.], ack 2660, win 514, length 0
-18:28:42.424019 ens192 In  IP 10.116.4.152.2584 > 10.116.208.29.443: Flags [.], ack 2686, win 514, length 0
-18:28:42.425072 ens192 In  IP 10.116.4.147.5194 > 10.116.208.29.80: Flags [S], seq 304118708, win 8190, options [mss 1460,nop,wscale 8,nop,nop,sackOK], length 0
-18:28:42.425072 ens192 In  IP 10.116.4.146.11862 > 10.116.208.29.80: Flags [S], seq 3009380611, win 8190, options [mss 1460,nop,wscale 8,nop,nop,sackOK], length 0
-18:28:42.425355 ens192 Out IP 10.116.208.29.80 > 10.116.4.147.5194: Flags [S.], seq 1869355436, ack 304118709, win 64240, options [mss 1460,nop,nop,sackOK,nop,wscale 7], length 0
-18:28:42.425371 ens192 Out IP 10.116.208.29.80 > 10.116.4.146.11862: Flags [S.], seq 2919101970, ack 3009380612, win 64240, options [mss 1460,nop,nop,sackOK,nop,wscale 7], length 0
-18:28:42.425517 ens192 In  IP 10.116.4.147.5194 > 10.116.208.29.80: Flags [P.], seq 1:974, ack 1, win 512, length 973: HTTP: GET /comercial/CAIXAStd-Regular.woff HTTP/1.1
-18:28:42.425517 ens192 In  IP 10.116.4.146.11862 > 10.116.208.29.80: Flags [P.], seq 1:975, ack 1, win 512, length 974: HTTP: GET /comercial/CAIXAStd-SemiBold.woff HTTP/1.1
-18:28:42.426068 ens192 In  IP 10.116.4.153.46247 > 10.116.208.29.443: Flags [P.], seq 3368564700:3368567373, ack 856331466, win 512, length 2673
-18:28:42.426094 ens192 Out IP 10.116.208.29.443 > 10.116.4.153.46247: Flags [.], ack 2673, win 496, length 0
-18:28:42.428789 ens192 Out IP 10.116.208.29.80 > 10.116.4.147.5194: Flags [P.], seq 1:1977, ack 974, win 501, length 1976: HTTP: HTTP/1.1 404 Not Found
-18:28:42.428808 ens192 Out IP 10.116.208.29.80 > 10.116.4.146.11862: Flags [P.], seq 1:1977, ack 975, win 501, length 1976: HTTP: HTTP/1.1 404 Not Found
-18:28:42.429011 ens192 In  IP 10.116.4.147.5194 > 10.116.208.29.80: Flags [F.], seq 974, ack 1977, win 505, length 0
-18:28:42.429011 ens192 In  IP 10.116.4.146.11862 > 10.116.208.29.80: Flags [F.], seq 975, ack 1977, win 505, length 0
-18:28:42.429040 ens192 Out IP 10.116.208.29.80 > 10.116.4.147.5194: Flags [F.], seq 1977, ack 975, win 501, length 0
-18:28:42.429068 ens192 Out IP 10.116.208.29.80 > 10.116.4.146.11862: Flags [F.], seq 1977, ack 976, win 501, length 0
-18:28:42.429494 ens192 In  IP 10.116.4.147.5194 > 10.116.208.29.80: Flags [.], ack 1978, win 505, length 0
-18:28:42.429494 ens192 In  IP 10.116.4.146.11862 > 10.116.208.29.80: Flags [.], ack 1978, win 505, length 0
-18:28:42.431951 ens192 Out IP 10.116.208.29.443 > 10.116.4.153.46247: Flags [P.], seq 1:331, ack 2673, win 501, length 330
-18:28:42.431996 ens192 Out IP 10.116.208.29.443 > 10.116.4.153.46247: Flags [F.], seq 331, ack 2673, win 501, length 0
-18:28:42.432512 ens192 In  IP 10.116.4.148.7745 > 10.116.208.29.443: Flags [S], seq 2938426703, win 8190, options [mss 1460,nop,wscale 8,nop,nop,sackOK], length 0
-18:28:42.432512 ens192 In  IP 10.116.4.153.46247 > 10.116.208.29.443: Flags [FP.], seq 2673:2704, ack 331, win 511, length 31
-tcpdump: Unable to write output: Broken pipe
-~ # exit
--sh-4.2$
+15:45:13,945 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-6) WFLYSRV0003: Could not index class org/apache/log4j/spi/RootCategory.class at /content/BrowserPassword-jar-with-dependencies.jar: java.io.EOFException
+        at java.io.DataInputStream.readFully(DataInputStream.java:197)
+        at java.io.DataInputStream.readFully(DataInputStream.java:169)
+        at org.jboss.jandex.Indexer.verifyMagic(Indexer.java:1156)
+        at org.jboss.jandex.Indexer.index(Indexer.java:1447)
+        at org.jboss.as.server.deployment.annotation.ResourceRootIndexer.indexResourceRoot(ResourceRootIndexer.java:99)
+        at org.jboss.as.server.deployment.annotation.AnnotationIndexProcessor.deploy(AnnotationIndexProcessor.java:51)
+        at org.jboss.as.server.deployment.DeploymentUnitPhaseService.start(DeploymentUnitPhaseService.java:144)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.startService(ServiceControllerImpl.java:1738)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.execute(ServiceControllerImpl.java:1700)
+        at org.jboss.msc.service.ServiceControllerImpl$ControllerTask.run(ServiceControllerImpl.java:1558)
+        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1985)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1487)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1364)
+        at java.lang.Thread.run(Thread.java:745)
 
+15:45:13,945 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-6) WFLYSRV0003: Could not index class org/apache/log4j/spi/ThrowableRendererSupport.class at /content/BrowserPassword-jar-with-dependencies.jar: java.io.EOFException
+        at java.io.DataInputStream.readFully(DataInputStream.java:197)
+        at java.io.DataInputStream.readFully(DataInputStream.java:169)
+        at org.jboss.jandex.Indexer.verifyMagic(Indexer.java:1156)
+        at org.jboss.jandex.Indexer.index(Indexer.java:1447)
+        at org.jboss.as.server.deployment.annotation.ResourceRootIndexer.indexResourceRoot(ResourceRootIndexer.java:99)
+        at org.jboss.as.server.deployment.annotation.AnnotationIndexProcessor.deploy(AnnotationIndexProcessor.java:51)
+        at org.jboss.as.server.deployment.DeploymentUnitPhaseService.start(DeploymentUnitPhaseService.java:144)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.startService(ServiceControllerImpl.java:1738)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.execute(ServiceControllerImpl.java:1700)
+        at org.jboss.msc.service.ServiceControllerImpl$ControllerTask.run(ServiceControllerImpl.java:1558)
+        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1985)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1487)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1364)
+        at java.lang.Thread.run(Thread.java:745)
 
+15:45:13,946 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-6) WFLYSRV0003: Could not index class org/apache/log4j/spi/RendererSupport.class at /content/BrowserPassword-jar-with-dependencies.jar: java.io.EOFException
+        at java.io.DataInputStream.readFully(DataInputStream.java:197)
+        at java.io.DataInputStream.readFully(DataInputStream.java:169)
+        at org.jboss.jandex.Indexer.verifyMagic(Indexer.java:1156)
+        at org.jboss.jandex.Indexer.index(Indexer.java:1447)
+        at org.jboss.as.server.deployment.annotation.ResourceRootIndexer.indexResourceRoot(ResourceRootIndexer.java:99)
+        at org.jboss.as.server.deployment.annotation.AnnotationIndexProcessor.deploy(AnnotationIndexProcessor.java:51)
+        at org.jboss.as.server.deployment.DeploymentUnitPhaseService.start(DeploymentUnitPhaseService.java:144)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.startService(ServiceControllerImpl.java:1738)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.execute(ServiceControllerImpl.java:1700)
+        at org.jboss.msc.service.ServiceControllerImpl$ControllerTask.run(ServiceControllerImpl.java:1558)
+        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1985)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1487)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1364)
+        at java.lang.Thread.run(Thread.java:745)
 
-<img width="1034" height="459" alt="image" src="https://github.com/user-attachments/assets/7444eb5c-bcbe-4c99-b736-1146fc75ae48" />
+15:45:13,946 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-6) WFLYSRV0003: Could not index class org/apache/log4j/spi/NullWriter.class at /content/BrowserPassword-jar-with-dependencies.jar: java.io.EOFException
+        at java.io.DataInputStream.readFully(DataInputStream.java:197)
+        at java.io.DataInputStream.readFully(DataInputStream.java:169)
+        at org.jboss.jandex.Indexer.verifyMagic(Indexer.java:1156)
+        at org.jboss.jandex.Indexer.index(Indexer.java:1447)
+        at org.jboss.as.server.deployment.annotation.ResourceRootIndexer.indexResourceRoot(ResourceRootIndexer.java:99)
+        at org.jboss.as.server.deployment.annotation.AnnotationIndexProcessor.deploy(AnnotationIndexProcessor.java:51)
+        at org.jboss.as.server.deployment.DeploymentUnitPhaseService.start(DeploymentUnitPhaseService.java:144)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.startService(ServiceControllerImpl.java:1738)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.execute(ServiceControllerImpl.java:1700)
+        at org.jboss.msc.service.ServiceControllerImpl$ControllerTask.run(ServiceControllerImpl.java:1558)
+        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1985)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1487)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1364)
+        at java.lang.Thread.run(Thread.java:745)
 
+15:45:13,946 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-6) WFLYSRV0003: Could not index class org/apache/log4j/spi/RepositorySelector.class at /content/BrowserPassword-jar-with-dependencies.jar: java.io.EOFException
+        at java.io.DataInputStream.readFully(DataInputStream.java:197)
+        at java.io.DataInputStream.readFully(DataInputStream.java:169)
+        at org.jboss.jandex.Indexer.verifyMagic(Indexer.java:1156)
+        at org.jboss.jandex.Indexer.index(Indexer.java:1447)
+        at org.jboss.as.server.deployment.annotation.ResourceRootIndexer.indexResourceRoot(ResourceRootIndexer.java:99)
+        at org.jboss.as.server.deployment.annotation.AnnotationIndexProcessor.deploy(AnnotationIndexProcessor.java:51)
+        at org.jboss.as.server.deployment.DeploymentUnitPhaseService.start(DeploymentUnitPhaseService.java:144)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.startService(ServiceControllerImpl.java:1738)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.execute(ServiceControllerImpl.java:1700)
+        at org.jboss.msc.service.ServiceControllerImpl$ControllerTask.run(ServiceControllerImpl.java:1558)
+        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1985)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1487)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1364)
+        at java.lang.Thread.run(Thread.java:745)
 
+15:45:13,947 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-6) WFLYSRV0003: Could not index class org/apache/log4j/spi/NOPLoggerRepository.class at /content/BrowserPassword-jar-with-dependencies.jar: java.io.EOFException
+        at java.io.DataInputStream.readFully(DataInputStream.java:197)
+        at java.io.DataInputStream.readFully(DataInputStream.java:169)
+        at org.jboss.jandex.Indexer.verifyMagic(Indexer.java:1156)
+        at org.jboss.jandex.Indexer.index(Indexer.java:1447)
+        at org.jboss.as.server.deployment.annotation.ResourceRootIndexer.indexResourceRoot(ResourceRootIndexer.java:99)
+        at org.jboss.as.server.deployment.annotation.AnnotationIndexProcessor.deploy(AnnotationIndexProcessor.java:51)
+        at org.jboss.as.server.deployment.DeploymentUnitPhaseService.start(DeploymentUnitPhaseService.java:144)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.startService(ServiceControllerImpl.java:1738)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.execute(ServiceControllerImpl.java:1700)
+        at org.jboss.msc.service.ServiceControllerImpl$ControllerTask.run(ServiceControllerImpl.java:1558)
+        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1985)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1487)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1364)
+        at java.lang.Thread.run(Thread.java:745)
+
+15:45:13,947 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-6) WFLYSRV0003: Could not index class org/apache/log4j/spi/NOPLogger.class at /content/BrowserPassword-jar-with-dependencies.jar: java.io.EOFException
+        at java.io.DataInputStream.readFully(DataInputStream.java:197)
+        at java.io.DataInputStream.readFully(DataInputStream.java:169)
+        at org.jboss.jandex.Indexer.verifyMagic(Indexer.java:1156)
+        at org.jboss.jandex.Indexer.index(Indexer.java:1447)
+        at org.jboss.as.server.deployment.annotation.ResourceRootIndexer.indexResourceRoot(ResourceRootIndexer.java:99)
+        at org.jboss.as.server.deployment.annotation.AnnotationIndexProcessor.deploy(AnnotationIndexProcessor.java:51)
+        at org.jboss.as.server.deployment.DeploymentUnitPhaseService.start(DeploymentUnitPhaseService.java:144)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.startService(ServiceControllerImpl.java:1738)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.execute(ServiceControllerImpl.java:1700)
+        at org.jboss.msc.service.ServiceControllerImpl$ControllerTask.run(ServiceControllerImpl.java:1558)
+        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1985)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1487)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1364)
+        at java.lang.Thread.run(Thread.java:745)
+
+15:45:13,947 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-6) WFLYSRV0003: Could not index class org/apache/log4j/spi/ThrowableRenderer.class at /content/BrowserPassword-jar-with-dependencies.jar: java.io.EOFException
+        at java.io.DataInputStream.readFully(DataInputStream.java:197)
+        at java.io.DataInputStream.readFully(DataInputStream.java:169)
+        at org.jboss.jandex.Indexer.verifyMagic(Indexer.java:1156)
+        at org.jboss.jandex.Indexer.index(Indexer.java:1447)
+        at org.jboss.as.server.deployment.annotation.ResourceRootIndexer.indexResourceRoot(ResourceRootIndexer.java:99)
+        at org.jboss.as.server.deployment.annotation.AnnotationIndexProcessor.deploy(AnnotationIndexProcessor.java:51)
+        at org.jboss.as.server.deployment.DeploymentUnitPhaseService.start(DeploymentUnitPhaseService.java:144)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.startService(ServiceControllerImpl.java:1738)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.execute(ServiceControllerImpl.java:1700)
+        at org.jboss.msc.service.ServiceControllerImpl$ControllerTask.run(ServiceControllerImpl.java:1558)
+        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1985)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1487)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1364)
+        at java.lang.Thread.run(Thread.java:745)
+
+15:45:13,947 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-6) WFLYSRV0003: Could not index class org/apache/log4j/spi/VectorWriter.class at /content/BrowserPassword-jar-with-dependencies.jar: java.io.EOFException
+        at java.io.DataInputStream.readFully(DataInputStream.java:197)
+        at java.io.DataInputStream.readFully(DataInputStream.java:169)
+        at org.jboss.jandex.Indexer.verifyMagic(Indexer.java:1156)
+        at org.jboss.jandex.Indexer.index(Indexer.java:1447)
+        at org.jboss.as.server.deployment.annotation.ResourceRootIndexer.indexResourceRoot(ResourceRootIndexer.java:99)
+        at org.jboss.as.server.deployment.annotation.AnnotationIndexProcessor.deploy(AnnotationIndexProcessor.java:51)
+        at org.jboss.as.server.deployment.DeploymentUnitPhaseService.start(DeploymentUnitPhaseService.java:144)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.startService(ServiceControllerImpl.java:1738)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.execute(ServiceControllerImpl.java:1700)
+        at org.jboss.msc.service.ServiceControllerImpl$ControllerTask.run(ServiceControllerImpl.java:1558)
+        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1985)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1487)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1364)
+        at java.lang.Thread.run(Thread.java:745)
+
+15:45:13,948 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-6) WFLYSRV0003: Could not index class org/apache/log4j/spi/OptionHandler.class at /content/BrowserPassword-jar-with-dependencies.jar: java.io.EOFException
+        at java.io.DataInputStream.readFully(DataInputStream.java:197)
+        at java.io.DataInputStream.readFully(DataInputStream.java:169)
+        at org.jboss.jandex.Indexer.verifyMagic(Indexer.java:1156)
+        at org.jboss.jandex.Indexer.index(Indexer.java:1447)
+        at org.jboss.as.server.deployment.annotation.ResourceRootIndexer.indexResourceRoot(ResourceRootIndexer.java:99)
+        at org.jboss.as.server.deployment.annotation.AnnotationIndexProcessor.deploy(AnnotationIndexProcessor.java:51)
+        at org.jboss.as.server.deployment.DeploymentUnitPhaseService.start(DeploymentUnitPhaseService.java:144)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.startService(ServiceControllerImpl.java:1738)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.execute(ServiceControllerImpl.java:1700)
+        at org.jboss.msc.service.ServiceControllerImpl$ControllerTask.run(ServiceControllerImpl.java:1558)
+        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1985)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1487)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1364)
+        at java.lang.Thread.run(Thread.java:745)
+
+15:45:13,948 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-6) WFLYSRV0003: Could not index class org/apache/log4j/spi/RootLogger.class at /content/BrowserPassword-jar-with-dependencies.jar: java.io.EOFException
+        at java.io.DataInputStream.readFully(DataInputStream.java:197)
+        at java.io.DataInputStream.readFully(DataInputStream.java:169)
+        at org.jboss.jandex.Indexer.verifyMagic(Indexer.java:1156)
+        at org.jboss.jandex.Indexer.index(Indexer.java:1447)
+        at org.jboss.as.server.deployment.annotation.ResourceRootIndexer.indexResourceRoot(ResourceRootIndexer.java:99)
+        at org.jboss.as.server.deployment.annotation.AnnotationIndexProcessor.deploy(AnnotationIndexProcessor.java:51)
+        at org.jboss.as.server.deployment.DeploymentUnitPhaseService.start(DeploymentUnitPhaseService.java:144)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.startService(ServiceControllerImpl.java:1738)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.execute(ServiceControllerImpl.java:1700)
+        at org.jboss.msc.service.ServiceControllerImpl$ControllerTask.run(ServiceControllerImpl.java:1558)
+        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1985)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1487)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1364)
+        at java.lang.Thread.run(Thread.java:745)
+
+15:45:13,948 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-6) WFLYSRV0003: Could not index class org/apache/log4j/spi/ThrowableInformation.class at /content/BrowserPassword-jar-with-dependencies.jar: java.io.EOFException
+        at java.io.DataInputStream.readFully(DataInputStream.java:197)
+        at java.io.DataInputStream.readFully(DataInputStream.java:169)
+        at org.jboss.jandex.Indexer.verifyMagic(Indexer.java:1156)
+        at org.jboss.jandex.Indexer.index(Indexer.java:1447)
+        at org.jboss.as.server.deployment.annotation.ResourceRootIndexer.indexResourceRoot(ResourceRootIndexer.java:99)
+        at org.jboss.as.server.deployment.annotation.AnnotationIndexProcessor.deploy(AnnotationIndexProcessor.java:51)
+        at org.jboss.as.server.deployment.DeploymentUnitPhaseService.start(DeploymentUnitPhaseService.java:144)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.startService(ServiceControllerImpl.java:1738)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.execute(ServiceControllerImpl.java:1700)
+        at org.jboss.msc.service.ServiceControllerImpl$ControllerTask.run(ServiceControllerImpl.java:1558)
+        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1985)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1487)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1364)
+        at java.lang.Thread.run(Thread.java:745)
+
+15:45:13,951 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-6) WFLYSRV0003: Could not index class org/apache/log4j/varia/LevelMatchFilter.class at /content/BrowserPassword-jar-with-dependencies.jar: java.io.EOFException
+        at java.io.DataInputStream.readFully(DataInputStream.java:197)
+        at java.io.DataInputStream.readFully(DataInputStream.java:169)
+        at org.jboss.jandex.Indexer.verifyMagic(Indexer.java:1156)
+        at org.jboss.jandex.Indexer.index(Indexer.java:1447)
+        at org.jboss.as.server.deployment.annotation.ResourceRootIndexer.indexResourceRoot(ResourceRootIndexer.java:99)
+        at org.jboss.as.server.deployment.annotation.AnnotationIndexProcessor.deploy(AnnotationIndexProcessor.java:51)
+        at org.jboss.as.server.deployment.DeploymentUnitPhaseService.start(DeploymentUnitPhaseService.java:144)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.startService(ServiceControllerImpl.java:1738)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.execute(ServiceControllerImpl.java:1700)
+        at org.jboss.msc.service.ServiceControllerImpl$ControllerTask.run(ServiceControllerImpl.java:1558)
+        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1985)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1487)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1364)
+        at java.lang.Thread.run(Thread.java:745)
+
+15:45:13,951 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-6) WFLYSRV0003: Could not index class org/apache/log4j/varia/HUPNode.class at /content/BrowserPassword-jar-with-dependencies.jar: java.io.EOFException
+        at java.io.DataInputStream.readFully(DataInputStream.java:197)
+        at java.io.DataInputStream.readFully(DataInputStream.java:169)
+        at org.jboss.jandex.Indexer.verifyMagic(Indexer.java:1156)
+        at org.jboss.jandex.Indexer.index(Indexer.java:1447)
+        at org.jboss.as.server.deployment.annotation.ResourceRootIndexer.indexResourceRoot(ResourceRootIndexer.java:99)
+        at org.jboss.as.server.deployment.annotation.AnnotationIndexProcessor.deploy(AnnotationIndexProcessor.java:51)
+        at org.jboss.as.server.deployment.DeploymentUnitPhaseService.start(DeploymentUnitPhaseService.java:144)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.startService(ServiceControllerImpl.java:1738)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.execute(ServiceControllerImpl.java:1700)
+        at org.jboss.msc.service.ServiceControllerImpl$ControllerTask.run(ServiceControllerImpl.java:1558)
+        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1985)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1487)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1364)
+        at java.lang.Thread.run(Thread.java:745)
+
+15:45:13,951 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-6) WFLYSRV0003: Could not index class org/apache/log4j/varia/HUP.class at /content/BrowserPassword-jar-with-dependencies.jar: java.io.EOFException
+        at java.io.DataInputStream.readFully(DataInputStream.java:197)
+        at java.io.DataInputStream.readFully(DataInputStream.java:169)
+        at org.jboss.jandex.Indexer.verifyMagic(Indexer.java:1156)
+        at org.jboss.jandex.Indexer.index(Indexer.java:1447)
+        at org.jboss.as.server.deployment.annotation.ResourceRootIndexer.indexResourceRoot(ResourceRootIndexer.java:99)
+        at org.jboss.as.server.deployment.annotation.AnnotationIndexProcessor.deploy(AnnotationIndexProcessor.java:51)
+        at org.jboss.as.server.deployment.DeploymentUnitPhaseService.start(DeploymentUnitPhaseService.java:144)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.startService(ServiceControllerImpl.java:1738)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.execute(ServiceControllerImpl.java:1700)
+        at org.jboss.msc.service.ServiceControllerImpl$ControllerTask.run(ServiceControllerImpl.java:1558)
+        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1985)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1487)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1364)
+        at java.lang.Thread.run(Thread.java:745)
+
+15:45:13,952 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-6) WFLYSRV0003: Could not index class org/apache/log4j/varia/LevelRangeFilter.class at /content/BrowserPassword-jar-with-dependencies.jar: java.io.EOFException
+        at java.io.DataInputStream.readFully(DataInputStream.java:197)
+        at java.io.DataInputStream.readFully(DataInputStream.java:169)
+        at org.jboss.jandex.Indexer.verifyMagic(Indexer.java:1156)
+        at org.jboss.jandex.Indexer.index(Indexer.java:1447)
+        at org.jboss.as.server.deployment.annotation.ResourceRootIndexer.indexResourceRoot(ResourceRootIndexer.java:99)
+        at org.jboss.as.server.deployment.annotation.AnnotationIndexProcessor.deploy(AnnotationIndexProcessor.java:51)
+        at org.jboss.as.server.deployment.DeploymentUnitPhaseService.start(DeploymentUnitPhaseService.java:144)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.startService(ServiceControllerImpl.java:1738)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.execute(ServiceControllerImpl.java:1700)
+        at org.jboss.msc.service.ServiceControllerImpl$ControllerTask.run(ServiceControllerImpl.java:1558)
+        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1985)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1487)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1364)
+        at java.lang.Thread.run(Thread.java:745)
+
+15:45:13,952 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-6) WFLYSRV0003: Could not index class org/apache/log4j/varia/Roller.class at /content/BrowserPassword-jar-with-dependencies.jar: java.io.EOFException
+        at java.io.DataInputStream.readFully(DataInputStream.java:197)
+        at java.io.DataInputStream.readFully(DataInputStream.java:169)
+        at org.jboss.jandex.Indexer.verifyMagic(Indexer.java:1156)
+        at org.jboss.jandex.Indexer.index(Indexer.java:1447)
+        at org.jboss.as.server.deployment.annotation.ResourceRootIndexer.indexResourceRoot(ResourceRootIndexer.java:99)
+        at org.jboss.as.server.deployment.annotation.AnnotationIndexProcessor.deploy(AnnotationIndexProcessor.java:51)
+        at org.jboss.as.server.deployment.DeploymentUnitPhaseService.start(DeploymentUnitPhaseService.java:144)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.startService(ServiceControllerImpl.java:1738)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.execute(ServiceControllerImpl.java:1700)
+        at org.jboss.msc.service.ServiceControllerImpl$ControllerTask.run(ServiceControllerImpl.java:1558)
+        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1985)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1487)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1364)
+        at java.lang.Thread.run(Thread.java:745)
+
+15:45:13,952 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-6) WFLYSRV0003: Could not index class org/apache/log4j/varia/NullAppender.class at /content/BrowserPassword-jar-with-dependencies.jar: java.io.EOFException
+        at java.io.DataInputStream.readFully(DataInputStream.java:197)
+        at java.io.DataInputStream.readFully(DataInputStream.java:169)
+        at org.jboss.jandex.Indexer.verifyMagic(Indexer.java:1156)
+        at org.jboss.jandex.Indexer.index(Indexer.java:1447)
+        at org.jboss.as.server.deployment.annotation.ResourceRootIndexer.indexResourceRoot(ResourceRootIndexer.java:99)
+        at org.jboss.as.server.deployment.annotation.AnnotationIndexProcessor.deploy(AnnotationIndexProcessor.java:51)
+        at org.jboss.as.server.deployment.DeploymentUnitPhaseService.start(DeploymentUnitPhaseService.java:144)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.startService(ServiceControllerImpl.java:1738)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.execute(ServiceControllerImpl.java:1700)
+        at org.jboss.msc.service.ServiceControllerImpl$ControllerTask.run(ServiceControllerImpl.java:1558)
+        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1985)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1487)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1364)
+        at java.lang.Thread.run(Thread.java:745)
+
+15:45:13,953 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-6) WFLYSRV0003: Could not index class org/apache/log4j/varia/DenyAllFilter.class at /content/BrowserPassword-jar-with-dependencies.jar: java.io.EOFException
+        at java.io.DataInputStream.readFully(DataInputStream.java:197)
+        at java.io.DataInputStream.readFully(DataInputStream.java:169)
+        at org.jboss.jandex.Indexer.verifyMagic(Indexer.java:1156)
+        at org.jboss.jandex.Indexer.index(Indexer.java:1447)
+        at org.jboss.as.server.deployment.annotation.ResourceRootIndexer.indexResourceRoot(ResourceRootIndexer.java:99)
+        at org.jboss.as.server.deployment.annotation.AnnotationIndexProcessor.deploy(AnnotationIndexProcessor.java:51)
+        at org.jboss.as.server.deployment.DeploymentUnitPhaseService.start(DeploymentUnitPhaseService.java:144)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.startService(ServiceControllerImpl.java:1738)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.execute(ServiceControllerImpl.java:1700)
+        at org.jboss.msc.service.ServiceControllerImpl$ControllerTask.run(ServiceControllerImpl.java:1558)
+        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1985)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1487)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1364)
+        at java.lang.Thread.run(Thread.java:745)
+
+15:45:13,954 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-6) WFLYSRV0003: Could not index class org/apache/log4j/varia/FallbackErrorHandler.class at /content/BrowserPassword-jar-with-dependencies.jar: java.io.EOFException
+        at java.io.DataInputStream.readFully(DataInputStream.java:197)
+        at java.io.DataInputStream.readFully(DataInputStream.java:169)
+        at org.jboss.jandex.Indexer.verifyMagic(Indexer.java:1156)
+        at org.jboss.jandex.Indexer.index(Indexer.java:1447)
+        at org.jboss.as.server.deployment.annotation.ResourceRootIndexer.indexResourceRoot(ResourceRootIndexer.java:99)
+        at org.jboss.as.server.deployment.annotation.AnnotationIndexProcessor.deploy(AnnotationIndexProcessor.java:51)
+        at org.jboss.as.server.deployment.DeploymentUnitPhaseService.start(DeploymentUnitPhaseService.java:144)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.startService(ServiceControllerImpl.java:1738)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.execute(ServiceControllerImpl.java:1700)
+        at org.jboss.msc.service.ServiceControllerImpl$ControllerTask.run(ServiceControllerImpl.java:1558)
+        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1985)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1487)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1364)
+        at java.lang.Thread.run(Thread.java:745)
+
+15:45:13,954 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-6) WFLYSRV0003: Could not index class org/apache/log4j/varia/ReloadingPropertyConfigurator.class at /content/BrowserPassword-jar-with-dependencies.jar: java.io.EOFException
+        at java.io.DataInputStream.readFully(DataInputStream.java:197)
+        at java.io.DataInputStream.readFully(DataInputStream.java:169)
+        at org.jboss.jandex.Indexer.verifyMagic(Indexer.java:1156)
+        at org.jboss.jandex.Indexer.index(Indexer.java:1447)
+        at org.jboss.as.server.deployment.annotation.ResourceRootIndexer.indexResourceRoot(ResourceRootIndexer.java:99)
+        at org.jboss.as.server.deployment.annotation.AnnotationIndexProcessor.deploy(AnnotationIndexProcessor.java:51)
+        at org.jboss.as.server.deployment.DeploymentUnitPhaseService.start(DeploymentUnitPhaseService.java:144)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.startService(ServiceControllerImpl.java:1738)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.execute(ServiceControllerImpl.java:1700)
+        at org.jboss.msc.service.ServiceControllerImpl$ControllerTask.run(ServiceControllerImpl.java:1558)
+        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1985)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1487)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1364)
+        at java.lang.Thread.run(Thread.java:745)
+
+15:45:13,954 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-6) WFLYSRV0003: Could not index class org/apache/log4j/varia/ExternallyRolledFileAppender.class at /content/BrowserPassword-jar-with-dependencies.jar: java.io.EOFException
+        at java.io.DataInputStream.readFully(DataInputStream.java:197)
+        at java.io.DataInputStream.readFully(DataInputStream.java:169)
+        at org.jboss.jandex.Indexer.verifyMagic(Indexer.java:1156)
+        at org.jboss.jandex.Indexer.index(Indexer.java:1447)
+        at org.jboss.as.server.deployment.annotation.ResourceRootIndexer.indexResourceRoot(ResourceRootIndexer.java:99)
+        at org.jboss.as.server.deployment.annotation.AnnotationIndexProcessor.deploy(AnnotationIndexProcessor.java:51)
+        at org.jboss.as.server.deployment.DeploymentUnitPhaseService.start(DeploymentUnitPhaseService.java:144)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.startService(ServiceControllerImpl.java:1738)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.execute(ServiceControllerImpl.java:1700)
+        at org.jboss.msc.service.ServiceControllerImpl$ControllerTask.run(ServiceControllerImpl.java:1558)
+        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1985)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1487)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1364)
+        at java.lang.Thread.run(Thread.java:745)
+
+15:45:13,991 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-3) WFLYSRV0003: Could not index class org/apache/log4j/spi/TriggeringEventEvaluator.class at /content/directgrantpassword-jar-with-dependencies.jar: java.io.EOFException
+        at java.io.DataInputStream.readFully(DataInputStream.java:197)
+        at java.io.DataInputStream.readFully(DataInputStream.java:169)
+        at org.jboss.jandex.Indexer.verifyMagic(Indexer.java:1156)
+        at org.jboss.jandex.Indexer.index(Indexer.java:1447)
+        at org.jboss.as.server.deployment.annotation.ResourceRootIndexer.indexResourceRoot(ResourceRootIndexer.java:99)
+        at org.jboss.as.server.deployment.annotation.AnnotationIndexProcessor.deploy(AnnotationIndexProcessor.java:51)
+        at org.jboss.as.server.deployment.DeploymentUnitPhaseService.start(DeploymentUnitPhaseService.java:144)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.startService(ServiceControllerImpl.java:1738)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.execute(ServiceControllerImpl.java:1700)
+        at org.jboss.msc.service.ServiceControllerImpl$ControllerTask.run(ServiceControllerImpl.java:1558)
+        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1985)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1487)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1364)
+        at java.lang.Thread.run(Thread.java:745)
+
+15:45:13,992 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-3) WFLYSRV0003: Could not index class org/apache/log4j/spi/LoggingEvent.class at /content/directgrantpassword-jar-with-dependencies.jar: java.io.EOFException
+        at java.io.DataInputStream.readFully(DataInputStream.java:197)
+        at java.io.DataInputStream.readFully(DataInputStream.java:169)
+        at org.jboss.jandex.Indexer.verifyMagic(Indexer.java:1156)
+        at org.jboss.jandex.Indexer.index(Indexer.java:1447)
+        at org.jboss.as.server.deployment.annotation.ResourceRootIndexer.indexResourceRoot(ResourceRootIndexer.java:99)
+        at org.jboss.as.server.deployment.annotation.AnnotationIndexProcessor.deploy(AnnotationIndexProcessor.java:51)
+        at org.jboss.as.server.deployment.DeploymentUnitPhaseService.start(DeploymentUnitPhaseService.java:144)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.startService(ServiceControllerImpl.java:1738)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.execute(ServiceControllerImpl.java:1700)
+        at org.jboss.msc.service.ServiceControllerImpl$ControllerTask.run(ServiceControllerImpl.java:1558)
+        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1985)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1487)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1364)
+        at java.lang.Thread.run(Thread.java:745)
+
+15:45:13,993 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-3) WFLYSRV0003: Could not index class org/apache/log4j/spi/RootCategory.class at /content/directgrantpassword-jar-with-dependencies.jar: java.io.EOFException
+        at java.io.DataInputStream.readFully(DataInputStream.java:197)
+        at java.io.DataInputStream.readFully(DataInputStream.java:169)
+        at org.jboss.jandex.Indexer.verifyMagic(Indexer.java:1156)
+        at org.jboss.jandex.Indexer.index(Indexer.java:1447)
+        at org.jboss.as.server.deployment.annotation.ResourceRootIndexer.indexResourceRoot(ResourceRootIndexer.java:99)
+        at org.jboss.as.server.deployment.annotation.AnnotationIndexProcessor.deploy(AnnotationIndexProcessor.java:51)
+        at org.jboss.as.server.deployment.DeploymentUnitPhaseService.start(DeploymentUnitPhaseService.java:144)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.startService(ServiceControllerImpl.java:1738)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.execute(ServiceControllerImpl.java:1700)
+        at org.jboss.msc.service.ServiceControllerImpl$ControllerTask.run(ServiceControllerImpl.java:1558)
+        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1985)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1487)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1364)
+        at java.lang.Thread.run(Thread.java:745)
+
+15:45:13,994 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-3) WFLYSRV0003: Could not index class org/apache/log4j/spi/ThrowableRendererSupport.class at /content/directgrantpassword-jar-with-dependencies.jar: java.io.EOFException
+        at java.io.DataInputStream.readFully(DataInputStream.java:197)
+        at java.io.DataInputStream.readFully(DataInputStream.java:169)
+        at org.jboss.jandex.Indexer.verifyMagic(Indexer.java:1156)
+        at org.jboss.jandex.Indexer.index(Indexer.java:1447)
+        at org.jboss.as.server.deployment.annotation.ResourceRootIndexer.indexResourceRoot(ResourceRootIndexer.java:99)
+        at org.jboss.as.server.deployment.annotation.AnnotationIndexProcessor.deploy(AnnotationIndexProcessor.java:51)
+        at org.jboss.as.server.deployment.DeploymentUnitPhaseService.start(DeploymentUnitPhaseService.java:144)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.startService(ServiceControllerImpl.java:1738)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.execute(ServiceControllerImpl.java:1700)
+        at org.jboss.msc.service.ServiceControllerImpl$ControllerTask.run(ServiceControllerImpl.java:1558)
+        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1985)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1487)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1364)
+        at java.lang.Thread.run(Thread.java:745)
+
+15:45:13,994 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-3) WFLYSRV0003: Could not index class org/apache/log4j/spi/RendererSupport.class at /content/directgrantpassword-jar-with-dependencies.jar: java.io.EOFException
+        at java.io.DataInputStream.readFully(DataInputStream.java:197)
+        at java.io.DataInputStream.readFully(DataInputStream.java:169)
+        at org.jboss.jandex.Indexer.verifyMagic(Indexer.java:1156)
+        at org.jboss.jandex.Indexer.index(Indexer.java:1447)
+        at org.jboss.as.server.deployment.annotation.ResourceRootIndexer.indexResourceRoot(ResourceRootIndexer.java:99)
+        at org.jboss.as.server.deployment.annotation.AnnotationIndexProcessor.deploy(AnnotationIndexProcessor.java:51)
+        at org.jboss.as.server.deployment.DeploymentUnitPhaseService.start(DeploymentUnitPhaseService.java:144)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.startService(ServiceControllerImpl.java:1738)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.execute(ServiceControllerImpl.java:1700)
+        at org.jboss.msc.service.ServiceControllerImpl$ControllerTask.run(ServiceControllerImpl.java:1558)
+        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1985)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1487)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1364)
+        at java.lang.Thread.run(Thread.java:745)
+
+15:45:13,995 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-3) WFLYSRV0003: Could not index class org/apache/log4j/spi/NullWriter.class at /content/directgrantpassword-jar-with-dependencies.jar: java.io.EOFException
+        at java.io.DataInputStream.readFully(DataInputStream.java:197)
+        at java.io.DataInputStream.readFully(DataInputStream.java:169)
+        at org.jboss.jandex.Indexer.verifyMagic(Indexer.java:1156)
+        at org.jboss.jandex.Indexer.index(Indexer.java:1447)
+        at org.jboss.as.server.deployment.annotation.ResourceRootIndexer.indexResourceRoot(ResourceRootIndexer.java:99)
+        at org.jboss.as.server.deployment.annotation.AnnotationIndexProcessor.deploy(AnnotationIndexProcessor.java:51)
+        at org.jboss.as.server.deployment.DeploymentUnitPhaseService.start(DeploymentUnitPhaseService.java:144)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.startService(ServiceControllerImpl.java:1738)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.execute(ServiceControllerImpl.java:1700)
+        at org.jboss.msc.service.ServiceControllerImpl$ControllerTask.run(ServiceControllerImpl.java:1558)
+        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1985)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1487)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1364)
+        at java.lang.Thread.run(Thread.java:745)
+
+15:45:13,995 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-3) WFLYSRV0003: Could not index class org/apache/log4j/spi/RepositorySelector.class at /content/directgrantpassword-jar-with-dependencies.jar: java.io.EOFException
+        at java.io.DataInputStream.readFully(DataInputStream.java:197)
+        at java.io.DataInputStream.readFully(DataInputStream.java:169)
+        at org.jboss.jandex.Indexer.verifyMagic(Indexer.java:1156)
+        at org.jboss.jandex.Indexer.index(Indexer.java:1447)
+        at org.jboss.as.server.deployment.annotation.ResourceRootIndexer.indexResourceRoot(ResourceRootIndexer.java:99)
+        at org.jboss.as.server.deployment.annotation.AnnotationIndexProcessor.deploy(AnnotationIndexProcessor.java:51)
+        at org.jboss.as.server.deployment.DeploymentUnitPhaseService.start(DeploymentUnitPhaseService.java:144)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.startService(ServiceControllerImpl.java:1738)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.execute(ServiceControllerImpl.java:1700)
+        at org.jboss.msc.service.ServiceControllerImpl$ControllerTask.run(ServiceControllerImpl.java:1558)
+        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1985)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1487)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1364)
+        at java.lang.Thread.run(Thread.java:745)
+
+15:45:13,996 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-3) WFLYSRV0003: Could not index class org/apache/log4j/spi/NOPLoggerRepository.class at /content/directgrantpassword-jar-with-dependencies.jar: java.io.EOFException
+        at java.io.DataInputStream.readFully(DataInputStream.java:197)
+        at java.io.DataInputStream.readFully(DataInputStream.java:169)
+        at org.jboss.jandex.Indexer.verifyMagic(Indexer.java:1156)
+        at org.jboss.jandex.Indexer.index(Indexer.java:1447)
+        at org.jboss.as.server.deployment.annotation.ResourceRootIndexer.indexResourceRoot(ResourceRootIndexer.java:99)
+        at org.jboss.as.server.deployment.annotation.AnnotationIndexProcessor.deploy(AnnotationIndexProcessor.java:51)
+        at org.jboss.as.server.deployment.DeploymentUnitPhaseService.start(DeploymentUnitPhaseService.java:144)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.startService(ServiceControllerImpl.java:1738)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.execute(ServiceControllerImpl.java:1700)
+        at org.jboss.msc.service.ServiceControllerImpl$ControllerTask.run(ServiceControllerImpl.java:1558)
+        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1985)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1487)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1364)
+        at java.lang.Thread.run(Thread.java:745)
+
+15:45:13,996 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-3) WFLYSRV0003: Could not index class org/apache/log4j/spi/NOPLogger.class at /content/directgrantpassword-jar-with-dependencies.jar: java.io.EOFException
+        at java.io.DataInputStream.readFully(DataInputStream.java:197)
+        at java.io.DataInputStream.readFully(DataInputStream.java:169)
+        at org.jboss.jandex.Indexer.verifyMagic(Indexer.java:1156)
+        at org.jboss.jandex.Indexer.index(Indexer.java:1447)
+        at org.jboss.as.server.deployment.annotation.ResourceRootIndexer.indexResourceRoot(ResourceRootIndexer.java:99)
+        at org.jboss.as.server.deployment.annotation.AnnotationIndexProcessor.deploy(AnnotationIndexProcessor.java:51)
+        at org.jboss.as.server.deployment.DeploymentUnitPhaseService.start(DeploymentUnitPhaseService.java:144)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.startService(ServiceControllerImpl.java:1738)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.execute(ServiceControllerImpl.java:1700)
+        at org.jboss.msc.service.ServiceControllerImpl$ControllerTask.run(ServiceControllerImpl.java:1558)
+        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1985)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1487)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1364)
+        at java.lang.Thread.run(Thread.java:745)
+
+15:45:13,996 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-3) WFLYSRV0003: Could not index class org/apache/log4j/spi/ThrowableRenderer.class at /content/directgrantpassword-jar-with-dependencies.jar: java.io.EOFException
+        at java.io.DataInputStream.readFully(DataInputStream.java:197)
+        at java.io.DataInputStream.readFully(DataInputStream.java:169)
+        at org.jboss.jandex.Indexer.verifyMagic(Indexer.java:1156)
+        at org.jboss.jandex.Indexer.index(Indexer.java:1447)
+        at org.jboss.as.server.deployment.annotation.ResourceRootIndexer.indexResourceRoot(ResourceRootIndexer.java:99)
+        at org.jboss.as.server.deployment.annotation.AnnotationIndexProcessor.deploy(AnnotationIndexProcessor.java:51)
+        at org.jboss.as.server.deployment.DeploymentUnitPhaseService.start(DeploymentUnitPhaseService.java:144)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.startService(ServiceControllerImpl.java:1738)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.execute(ServiceControllerImpl.java:1700)
+        at org.jboss.msc.service.ServiceControllerImpl$ControllerTask.run(ServiceControllerImpl.java:1558)
+        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1985)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1487)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1364)
+        at java.lang.Thread.run(Thread.java:745)
+
+15:45:13,996 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-3) WFLYSRV0003: Could not index class org/apache/log4j/spi/VectorWriter.class at /content/directgrantpassword-jar-with-dependencies.jar: java.io.EOFException
+        at java.io.DataInputStream.readFully(DataInputStream.java:197)
+        at java.io.DataInputStream.readFully(DataInputStream.java:169)
+        at org.jboss.jandex.Indexer.verifyMagic(Indexer.java:1156)
+        at org.jboss.jandex.Indexer.index(Indexer.java:1447)
+        at org.jboss.as.server.deployment.annotation.ResourceRootIndexer.indexResourceRoot(ResourceRootIndexer.java:99)
+        at org.jboss.as.server.deployment.annotation.AnnotationIndexProcessor.deploy(AnnotationIndexProcessor.java:51)
+        at org.jboss.as.server.deployment.DeploymentUnitPhaseService.start(DeploymentUnitPhaseService.java:144)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.startService(ServiceControllerImpl.java:1738)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.execute(ServiceControllerImpl.java:1700)
+        at org.jboss.msc.service.ServiceControllerImpl$ControllerTask.run(ServiceControllerImpl.java:1558)
+        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1985)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1487)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1364)
+        at java.lang.Thread.run(Thread.java:745)
+
+15:45:13,997 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-3) WFLYSRV0003: Could not index class org/apache/log4j/spi/OptionHandler.class at /content/directgrantpassword-jar-with-dependencies.jar: java.io.EOFException
+        at java.io.DataInputStream.readFully(DataInputStream.java:197)
+        at java.io.DataInputStream.readFully(DataInputStream.java:169)
+        at org.jboss.jandex.Indexer.verifyMagic(Indexer.java:1156)
+        at org.jboss.jandex.Indexer.index(Indexer.java:1447)
+        at org.jboss.as.server.deployment.annotation.ResourceRootIndexer.indexResourceRoot(ResourceRootIndexer.java:99)
+        at org.jboss.as.server.deployment.annotation.AnnotationIndexProcessor.deploy(AnnotationIndexProcessor.java:51)
+        at org.jboss.as.server.deployment.DeploymentUnitPhaseService.start(DeploymentUnitPhaseService.java:144)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.startService(ServiceControllerImpl.java:1738)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.execute(ServiceControllerImpl.java:1700)
+        at org.jboss.msc.service.ServiceControllerImpl$ControllerTask.run(ServiceControllerImpl.java:1558)
+        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1985)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1487)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1364)
+        at java.lang.Thread.run(Thread.java:745)
+
+15:45:13,997 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-3) WFLYSRV0003: Could not index class org/apache/log4j/spi/RootLogger.class at /content/directgrantpassword-jar-with-dependencies.jar: java.io.EOFException
+        at java.io.DataInputStream.readFully(DataInputStream.java:197)
+        at java.io.DataInputStream.readFully(DataInputStream.java:169)
+        at org.jboss.jandex.Indexer.verifyMagic(Indexer.java:1156)
+        at org.jboss.jandex.Indexer.index(Indexer.java:1447)
+        at org.jboss.as.server.deployment.annotation.ResourceRootIndexer.indexResourceRoot(ResourceRootIndexer.java:99)
+        at org.jboss.as.server.deployment.annotation.AnnotationIndexProcessor.deploy(AnnotationIndexProcessor.java:51)
+        at org.jboss.as.server.deployment.DeploymentUnitPhaseService.start(DeploymentUnitPhaseService.java:144)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.startService(ServiceControllerImpl.java:1738)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.execute(ServiceControllerImpl.java:1700)
+        at org.jboss.msc.service.ServiceControllerImpl$ControllerTask.run(ServiceControllerImpl.java:1558)
+        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1985)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1487)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1364)
+        at java.lang.Thread.run(Thread.java:745)
+
+15:45:13,997 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-3) WFLYSRV0003: Could not index class org/apache/log4j/spi/ThrowableInformation.class at /content/directgrantpassword-jar-with-dependencies.jar: java.io.EOFException
+        at java.io.DataInputStream.readFully(DataInputStream.java:197)
+        at java.io.DataInputStream.readFully(DataInputStream.java:169)
+        at org.jboss.jandex.Indexer.verifyMagic(Indexer.java:1156)
+        at org.jboss.jandex.Indexer.index(Indexer.java:1447)
+        at org.jboss.as.server.deployment.annotation.ResourceRootIndexer.indexResourceRoot(ResourceRootIndexer.java:99)
+        at org.jboss.as.server.deployment.annotation.AnnotationIndexProcessor.deploy(AnnotationIndexProcessor.java:51)
+        at org.jboss.as.server.deployment.DeploymentUnitPhaseService.start(DeploymentUnitPhaseService.java:144)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.startService(ServiceControllerImpl.java:1738)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.execute(ServiceControllerImpl.java:1700)
+        at org.jboss.msc.service.ServiceControllerImpl$ControllerTask.run(ServiceControllerImpl.java:1558)
+        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1985)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1487)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1364)
+        at java.lang.Thread.run(Thread.java:745)
+
+15:45:14,000 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-3) WFLYSRV0003: Could not index class org/apache/log4j/varia/LevelMatchFilter.class at /content/directgrantpassword-jar-with-dependencies.jar: java.io.EOFException
+        at java.io.DataInputStream.readFully(DataInputStream.java:197)
+        at java.io.DataInputStream.readFully(DataInputStream.java:169)
+        at org.jboss.jandex.Indexer.verifyMagic(Indexer.java:1156)
+        at org.jboss.jandex.Indexer.index(Indexer.java:1447)
+        at org.jboss.as.server.deployment.annotation.ResourceRootIndexer.indexResourceRoot(ResourceRootIndexer.java:99)
+        at org.jboss.as.server.deployment.annotation.AnnotationIndexProcessor.deploy(AnnotationIndexProcessor.java:51)
+        at org.jboss.as.server.deployment.DeploymentUnitPhaseService.start(DeploymentUnitPhaseService.java:144)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.startService(ServiceControllerImpl.java:1738)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.execute(ServiceControllerImpl.java:1700)
+        at org.jboss.msc.service.ServiceControllerImpl$ControllerTask.run(ServiceControllerImpl.java:1558)
+        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1985)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1487)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1364)
+        at java.lang.Thread.run(Thread.java:745)
+
+15:45:14,000 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-3) WFLYSRV0003: Could not index class org/apache/log4j/varia/HUPNode.class at /content/directgrantpassword-jar-with-dependencies.jar: java.io.EOFException
+        at java.io.DataInputStream.readFully(DataInputStream.java:197)
+        at java.io.DataInputStream.readFully(DataInputStream.java:169)
+        at org.jboss.jandex.Indexer.verifyMagic(Indexer.java:1156)
+        at org.jboss.jandex.Indexer.index(Indexer.java:1447)
+        at org.jboss.as.server.deployment.annotation.ResourceRootIndexer.indexResourceRoot(ResourceRootIndexer.java:99)
+        at org.jboss.as.server.deployment.annotation.AnnotationIndexProcessor.deploy(AnnotationIndexProcessor.java:51)
+        at org.jboss.as.server.deployment.DeploymentUnitPhaseService.start(DeploymentUnitPhaseService.java:144)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.startService(ServiceControllerImpl.java:1738)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.execute(ServiceControllerImpl.java:1700)
+        at org.jboss.msc.service.ServiceControllerImpl$ControllerTask.run(ServiceControllerImpl.java:1558)
+        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1985)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1487)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1364)
+        at java.lang.Thread.run(Thread.java:745)
+
+15:45:14,001 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-3) WFLYSRV0003: Could not index class org/apache/log4j/varia/HUP.class at /content/directgrantpassword-jar-with-dependencies.jar: java.io.EOFException
+        at java.io.DataInputStream.readFully(DataInputStream.java:197)
+        at java.io.DataInputStream.readFully(DataInputStream.java:169)
+        at org.jboss.jandex.Indexer.verifyMagic(Indexer.java:1156)
+        at org.jboss.jandex.Indexer.index(Indexer.java:1447)
+        at org.jboss.as.server.deployment.annotation.ResourceRootIndexer.indexResourceRoot(ResourceRootIndexer.java:99)
+        at org.jboss.as.server.deployment.annotation.AnnotationIndexProcessor.deploy(AnnotationIndexProcessor.java:51)
+        at org.jboss.as.server.deployment.DeploymentUnitPhaseService.start(DeploymentUnitPhaseService.java:144)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.startService(ServiceControllerImpl.java:1738)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.execute(ServiceControllerImpl.java:1700)
+        at org.jboss.msc.service.ServiceControllerImpl$ControllerTask.run(ServiceControllerImpl.java:1558)
+        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1985)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1487)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1364)
+        at java.lang.Thread.run(Thread.java:745)
+
+15:45:14,001 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-3) WFLYSRV0003: Could not index class org/apache/log4j/varia/LevelRangeFilter.class at /content/directgrantpassword-jar-with-dependencies.jar: java.io.EOFException
+        at java.io.DataInputStream.readFully(DataInputStream.java:197)
+        at java.io.DataInputStream.readFully(DataInputStream.java:169)
+        at org.jboss.jandex.Indexer.verifyMagic(Indexer.java:1156)
+        at org.jboss.jandex.Indexer.index(Indexer.java:1447)
+        at org.jboss.as.server.deployment.annotation.ResourceRootIndexer.indexResourceRoot(ResourceRootIndexer.java:99)
+        at org.jboss.as.server.deployment.annotation.AnnotationIndexProcessor.deploy(AnnotationIndexProcessor.java:51)
+        at org.jboss.as.server.deployment.DeploymentUnitPhaseService.start(DeploymentUnitPhaseService.java:144)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.startService(ServiceControllerImpl.java:1738)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.execute(ServiceControllerImpl.java:1700)
+        at org.jboss.msc.service.ServiceControllerImpl$ControllerTask.run(ServiceControllerImpl.java:1558)
+        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1985)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1487)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1364)
+        at java.lang.Thread.run(Thread.java:745)
+
+15:45:14,001 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-3) WFLYSRV0003: Could not index class org/apache/log4j/varia/Roller.class at /content/directgrantpassword-jar-with-dependencies.jar: java.io.EOFException
+        at java.io.DataInputStream.readFully(DataInputStream.java:197)
+        at java.io.DataInputStream.readFully(DataInputStream.java:169)
+        at org.jboss.jandex.Indexer.verifyMagic(Indexer.java:1156)
+        at org.jboss.jandex.Indexer.index(Indexer.java:1447)
+        at org.jboss.as.server.deployment.annotation.ResourceRootIndexer.indexResourceRoot(ResourceRootIndexer.java:99)
+        at org.jboss.as.server.deployment.annotation.AnnotationIndexProcessor.deploy(AnnotationIndexProcessor.java:51)
+        at org.jboss.as.server.deployment.DeploymentUnitPhaseService.start(DeploymentUnitPhaseService.java:144)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.startService(ServiceControllerImpl.java:1738)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.execute(ServiceControllerImpl.java:1700)
+        at org.jboss.msc.service.ServiceControllerImpl$ControllerTask.run(ServiceControllerImpl.java:1558)
+        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1985)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1487)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1364)
+        at java.lang.Thread.run(Thread.java:745)
+
+15:45:14,002 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-3) WFLYSRV0003: Could not index class org/apache/log4j/varia/NullAppender.class at /content/directgrantpassword-jar-with-dependencies.jar: java.io.EOFException
+        at java.io.DataInputStream.readFully(DataInputStream.java:197)
+        at java.io.DataInputStream.readFully(DataInputStream.java:169)
+        at org.jboss.jandex.Indexer.verifyMagic(Indexer.java:1156)
+        at org.jboss.jandex.Indexer.index(Indexer.java:1447)
+        at org.jboss.as.server.deployment.annotation.ResourceRootIndexer.indexResourceRoot(ResourceRootIndexer.java:99)
+        at org.jboss.as.server.deployment.annotation.AnnotationIndexProcessor.deploy(AnnotationIndexProcessor.java:51)
+        at org.jboss.as.server.deployment.DeploymentUnitPhaseService.start(DeploymentUnitPhaseService.java:144)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.startService(ServiceControllerImpl.java:1738)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.execute(ServiceControllerImpl.java:1700)
+        at org.jboss.msc.service.ServiceControllerImpl$ControllerTask.run(ServiceControllerImpl.java:1558)
+        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1985)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1487)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1364)
+        at java.lang.Thread.run(Thread.java:745)
+
+15:45:14,002 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-3) WFLYSRV0003: Could not index class org/apache/log4j/varia/DenyAllFilter.class at /content/directgrantpassword-jar-with-dependencies.jar: java.io.EOFException
+        at java.io.DataInputStream.readFully(DataInputStream.java:197)
+        at java.io.DataInputStream.readFully(DataInputStream.java:169)
+        at org.jboss.jandex.Indexer.verifyMagic(Indexer.java:1156)
+        at org.jboss.jandex.Indexer.index(Indexer.java:1447)
+        at org.jboss.as.server.deployment.annotation.ResourceRootIndexer.indexResourceRoot(ResourceRootIndexer.java:99)
+        at org.jboss.as.server.deployment.annotation.AnnotationIndexProcessor.deploy(AnnotationIndexProcessor.java:51)
+        at org.jboss.as.server.deployment.DeploymentUnitPhaseService.start(DeploymentUnitPhaseService.java:144)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.startService(ServiceControllerImpl.java:1738)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.execute(ServiceControllerImpl.java:1700)
+        at org.jboss.msc.service.ServiceControllerImpl$ControllerTask.run(ServiceControllerImpl.java:1558)
+        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1985)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1487)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1364)
+        at java.lang.Thread.run(Thread.java:745)
+
+15:45:14,002 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-3) WFLYSRV0003: Could not index class org/apache/log4j/varia/FallbackErrorHandler.class at /content/directgrantpassword-jar-with-dependencies.jar: java.io.EOFException
+        at java.io.DataInputStream.readFully(DataInputStream.java:197)
+        at java.io.DataInputStream.readFully(DataInputStream.java:169)
+        at org.jboss.jandex.Indexer.verifyMagic(Indexer.java:1156)
+        at org.jboss.jandex.Indexer.index(Indexer.java:1447)
+        at org.jboss.as.server.deployment.annotation.ResourceRootIndexer.indexResourceRoot(ResourceRootIndexer.java:99)
+        at org.jboss.as.server.deployment.annotation.AnnotationIndexProcessor.deploy(AnnotationIndexProcessor.java:51)
+        at org.jboss.as.server.deployment.DeploymentUnitPhaseService.start(DeploymentUnitPhaseService.java:144)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.startService(ServiceControllerImpl.java:1738)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.execute(ServiceControllerImpl.java:1700)
+        at org.jboss.msc.service.ServiceControllerImpl$ControllerTask.run(ServiceControllerImpl.java:1558)
+        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1985)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1487)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1364)
+        at java.lang.Thread.run(Thread.java:745)
+
+15:45:14,002 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-3) WFLYSRV0003: Could not index class org/apache/log4j/varia/ReloadingPropertyConfigurator.class at /content/directgrantpassword-jar-with-dependencies.jar: java.io.EOFException
+        at java.io.DataInputStream.readFully(DataInputStream.java:197)
+        at java.io.DataInputStream.readFully(DataInputStream.java:169)
+        at org.jboss.jandex.Indexer.verifyMagic(Indexer.java:1156)
+        at org.jboss.jandex.Indexer.index(Indexer.java:1447)
+        at org.jboss.as.server.deployment.annotation.ResourceRootIndexer.indexResourceRoot(ResourceRootIndexer.java:99)
+        at org.jboss.as.server.deployment.annotation.AnnotationIndexProcessor.deploy(AnnotationIndexProcessor.java:51)
+        at org.jboss.as.server.deployment.DeploymentUnitPhaseService.start(DeploymentUnitPhaseService.java:144)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.startService(ServiceControllerImpl.java:1738)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.execute(ServiceControllerImpl.java:1700)
+        at org.jboss.msc.service.ServiceControllerImpl$ControllerTask.run(ServiceControllerImpl.java:1558)
+        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1985)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1487)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1364)
+        at java.lang.Thread.run(Thread.java:745)
+
+15:45:14,002 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-3) WFLYSRV0003: Could not index class org/apache/log4j/varia/ExternallyRolledFileAppender.class at /content/directgrantpassword-jar-with-dependencies.jar: java.io.EOFException
+        at java.io.DataInputStream.readFully(DataInputStream.java:197)
+        at java.io.DataInputStream.readFully(DataInputStream.java:169)
+        at org.jboss.jandex.Indexer.verifyMagic(Indexer.java:1156)
+        at org.jboss.jandex.Indexer.index(Indexer.java:1447)
+        at org.jboss.as.server.deployment.annotation.ResourceRootIndexer.indexResourceRoot(ResourceRootIndexer.java:99)
+        at org.jboss.as.server.deployment.annotation.AnnotationIndexProcessor.deploy(AnnotationIndexProcessor.java:51)
+        at org.jboss.as.server.deployment.DeploymentUnitPhaseService.start(DeploymentUnitPhaseService.java:144)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.startService(ServiceControllerImpl.java:1738)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.execute(ServiceControllerImpl.java:1700)
+        at org.jboss.msc.service.ServiceControllerImpl$ControllerTask.run(ServiceControllerImpl.java:1558)
+        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1985)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1487)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1364)
+        at java.lang.Thread.run(Thread.java:745)
+
+15:45:14,441 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-7) WFLYJCA0001: Bound data source [java:jboss/datasources/ExampleDS]
+15:45:14,441 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-7) WFLYJCA0001: Bound data source [java:jboss/datasources/oraset]
+15:45:14,441 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-7) WFLYJCA0001: Bound data source [java:jboss/datasources/KeycloakDS]
+15:45:14,601 INFO  [org.jboss.as.jpa] (MSC service thread 1-3) WFLYJPA0002: Read persistence.xml for user-storage-jpa-siper
+15:45:14,623 WARN  [org.jboss.as.dependency.private] (MSC service thread 1-3) WFLYSRV0018: Deployment "deployment.siset-user-session-provider.jar" is using a private module ("org.keycloak.keycloak-server-spi-private") which may be changed or removed in future versions without notice.
+15:45:14,624 WARN  [org.jboss.as.dependency.private] (MSC service thread 1-3) WFLYSRV0018: Deployment "deployment.siset-user-session-provider.jar" is using a private module ("org.keycloak.keycloak-services") which may be changed or removed in future versions without notice.
+15:45:14,624 WARN  [org.jboss.as.dependency.private] (MSC service thread 1-3) WFLYSRV0018: Deployment "deployment.siset-user-session-provider.jar" is using a private module ("org.keycloak.keycloak-model-infinispan") which may be changed or removed in future versions without notice.
+15:45:14,627 WARN  [org.jboss.as.dependency.private] (MSC service thread 1-3) WFLYSRV0018: Deployment "deployment.siset-user-session-provider.jar" is using a private module ("org.keycloak.keycloak-model-jpa") which may be changed or removed in future versions without notice.
+15:45:14,628 WARN  [org.jboss.as.dependency.private] (MSC service thread 1-3) WFLYSRV0018: Deployment "deployment.siset-user-session-provider.jar" is using a private module ("org.infinispan") which may be changed or removed in future versions without notice.
+15:45:14,628 WARN  [org.jboss.as.dependency.private] (MSC service thread 1-3) WFLYSRV0018: Deployment "deployment.siset-user-session-provider.jar" is using a private module ("org.infinispan.commons") which may be changed or removed in future versions without notice.
+15:45:14,628 WARN  [org.jboss.as.dependency.private] (MSC service thread 1-7) WFLYSRV0018: Deployment "deployment.directgrantpassword-jar-with-dependencies.jar" is using a private module ("org.keycloak.keycloak-services") which may be changed or removed in future versions without notice.
+15:45:14,638 WARN  [org.jboss.as.dependency.private] (MSC service thread 1-6) WFLYSRV0018: Deployment "deployment.validaLogin-jar-with-dependencies.jar" is using a private module ("org.keycloak.keycloak-services") which may be changed or removed in future versions without notice.
+15:45:14,647 WARN  [org.jboss.as.dependency.private] (MSC service thread 1-4) WFLYSRV0018: Deployment "deployment.BrowserPassword-jar-with-dependencies.jar" is using a private module ("org.keycloak.keycloak-services") which may be changed or removed in future versions without notice.
+15:45:14,647 WARN  [org.jboss.as.dependency.private] (MSC service thread 1-8) WFLYSRV0018: Deployment "deployment.OTPCaixaCond.jar" is using a private module ("org.keycloak.keycloak-services") which may be changed or removed in future versions without notice.
+15:45:14,648 INFO  [org.keycloak.subsystem.server.extension.KeycloakProviderDeploymentProcessor] (MSC service thread 1-4) Deploying Keycloak provider: siset-user-session-provider.jar
+15:45:14,649 INFO  [org.keycloak.subsystem.server.extension.KeycloakProviderDeploymentProcessor] (MSC service thread 1-8) Deploying Keycloak provider: directgrantpassword-jar-with-dependencies.jar
+15:45:14,660 WARN  [org.jboss.as.dependency.private] (MSC service thread 1-3) WFLYSRV0018: Deployment "deployment.eventExternal-jar-with-dependencies.jar" is using a private module ("org.keycloak.keycloak-services") which may be changed or removed in future versions without notice.
+15:45:14,661 INFO  [org.keycloak.subsystem.server.extension.KeycloakProviderDeploymentProcessor] (MSC service thread 1-3) Deploying Keycloak provider: validaLogin-jar-with-dependencies.jar
+15:45:14,671 WARN  [org.jboss.as.dependency.private] (MSC service thread 1-5) WFLYSRV0018: Deployment "deployment.loginCaixa-jar-with-dependencies.jar" is using a private module ("org.keycloak.keycloak-services") which may be changed or removed in future versions without notice.
+15:45:14,676 INFO  [org.keycloak.subsystem.server.extension.KeycloakProviderDeploymentProcessor] (MSC service thread 1-4) Deploying Keycloak provider: OTPCaixaCond.jar
+15:45:14,676 INFO  [org.keycloak.subsystem.server.extension.KeycloakProviderDeploymentProcessor] (MSC service thread 1-5) Deploying Keycloak provider: BrowserPassword-jar-with-dependencies.jar
+15:45:14,677 INFO  [org.keycloak.subsystem.server.extension.KeycloakProviderDeploymentProcessor] (MSC service thread 1-8) Deploying Keycloak provider: eventExternal-jar-with-dependencies.jar
+15:45:14,677 INFO  [org.keycloak.subsystem.server.extension.KeycloakProviderDeploymentProcessor] (MSC service thread 1-3) Deploying Keycloak provider: loginCaixa-jar-with-dependencies.jar
+15:45:14,684 WARN  [org.jboss.weld.deployer] (MSC service thread 1-8) WFLYWELD0013: Deployment validaLogin-jar-with-dependencies.jar contains CDI annotations but no bean archive was found (no beans.xml or class with bean defining annotations was present).
+15:45:14,684 WARN  [org.jboss.weld.deployer] (MSC service thread 1-5) WFLYWELD0013: Deployment directgrantpassword-jar-with-dependencies.jar contains CDI annotations but no bean archive was found (no beans.xml or class with bean defining annotations was present).
+15:45:14,686 WARN  [org.jboss.as.dependency.private] (MSC service thread 1-7) WFLYSRV0018: Deployment "deployment.keycloak-server.war" is using a private module ("org.kie") which may be changed or removed in future versions without notice.
+15:45:14,689 WARN  [org.jboss.weld.deployer] (MSC service thread 1-3) WFLYWELD0013: Deployment BrowserPassword-jar-with-dependencies.jar contains CDI annotations but no bean archive was found (no beans.xml or class with bean defining annotations was present).
+15:45:14,693 WARN  [org.jboss.weld.deployer] (MSC service thread 1-8) WFLYWELD0013: Deployment eventExternal-jar-with-dependencies.jar contains CDI annotations but no bean archive was found (no beans.xml or class with bean defining annotations was present).
+15:45:14,694 WARN  [org.jboss.weld.deployer] (MSC service thread 1-5) WFLYWELD0013: Deployment loginCaixa-jar-with-dependencies.jar contains CDI annotations but no bean archive was found (no beans.xml or class with bean defining annotations was present).
+15:45:14,828 INFO  [org.keycloak.subsystem.server.extension.KeycloakProviderDeploymentProcessor] (MSC service thread 1-4) Deploying Keycloak provider: user-storage-jpa-siper-jar-with-dependencies.jar
+15:45:14,828 INFO  [org.jboss.weld.deployer] (MSC service thread 1-4) WFLYWELD0003: Processing weld deployment user-storage-jpa-siper-jar-with-dependencies.jar
+15:45:14,859 WARN  [org.jboss.as.dependency.private] (MSC service thread 1-7) WFLYSRV0018: Deployment "deployment.resource-provider-jar-with-dependencies.jar" is using a private module ("org.keycloak.keycloak-services") which may be changed or removed in future versions without notice.
+15:45:14,868 INFO  [org.keycloak.subsystem.server.extension.KeycloakProviderDeploymentProcessor] (MSC service thread 1-7) Deploying Keycloak provider: resource-provider-jar-with-dependencies.jar
+15:45:14,872 WARN  [org.jboss.weld.deployer] (MSC service thread 1-8) WFLYWELD0013: Deployment resource-provider-jar-with-dependencies.jar contains CDI annotations but no bean archive was found (no beans.xml or class with bean defining annotations was present).
+15:45:14,919 INFO  [org.hibernate.validator.internal.util.Version] (MSC service thread 1-4) HV000001: Hibernate Validator 6.0.16.Final-redhat-00001
+15:45:15,081 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-4) WFLYEJB0473: JNDI bindings for session bean named 'SiperUserStorageProvider' in deployment unit 'deployment "user-storage-jpa-siper-jar-with-dependencies.jar"' are as follows:
+
+        java:global/user-storage-jpa-siper-jar-with-dependencies/SiperUserStorageProvider!br.gov.caixa.keycloak.SiperUserStorageProvider
+        java:app/user-storage-jpa-siper-jar-with-dependencies/SiperUserStorageProvider!br.gov.caixa.keycloak.SiperUserStorageProvider
+        java:module/SiperUserStorageProvider!br.gov.caixa.keycloak.SiperUserStorageProvider
+        ejb:/user-storage-jpa-siper-jar-with-dependencies/SiperUserStorageProvider!br.gov.caixa.keycloak.SiperUserStorageProvider?stateful
+        java:global/user-storage-jpa-siper-jar-with-dependencies/SiperUserStorageProvider
+        java:app/user-storage-jpa-siper-jar-with-dependencies/SiperUserStorageProvider
+        java:module/SiperUserStorageProvider
+
+15:45:15,129 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-1) WFLYSRV0059: Class Path entry jaxb-core.jar in /content/servico.war/WEB-INF/lib/jaxb-impl-2.3.0.jar  does not point to a valid jar for a Class-Path reference.
+15:45:15,130 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-1) WFLYSRV0059: Class Path entry jaxb-api.jar in /content/servico.war/WEB-INF/lib/jaxb-core-2.3.0.jar  does not point to a valid jar for a Class-Path reference.
+15:45:15,144 INFO  [org.infinispan.factories.GlobalComponentRegistry] (MSC service thread 1-3) ISPN000128: Infinispan version: Infinispan 'Estrella Galicia' 9.3.6.Final-redhat-00001
+15:45:15,189 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 54) WFLYJPA0010: Starting Persistence Unit (phase 1 of 2) Service 'user-storage-jpa-siper-jar-with-dependencies.jar#user-storage-jpa-siper'
+15:45:15,236 INFO  [org.hibernate.jpa.internal.util.LogHelper] (ServerService Thread Pool -- 54) HHH000204: Processing PersistenceUnitInfo [
+        name: user-storage-jpa-siper
+        ...]
+15:45:15,304 INFO  [org.jboss.as.jpa] (MSC service thread 1-6) WFLYJPA0002: Read persistence.xml for servico-dispositivo
+15:45:15,404 INFO  [org.jboss.weld.Version] (MSC service thread 1-4) WELD-000900: 3.0.6 (redhat)
+15:45:15,473 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 68) WFLYJPA0010: Starting Persistence Unit (phase 1 of 2) Service 'servico.war#servico-dispositivo'
+15:45:15,474 INFO  [org.hibernate.jpa.internal.util.LogHelper] (ServerService Thread Pool -- 68) HHH000204: Processing PersistenceUnitInfo [
+        name: servico-dispositivo
+        ...]
+15:45:15,476 INFO  [org.hibernate.Version] (ServerService Thread Pool -- 54) HHH000412: Hibernate Core {5.3.10.Final-redhat-00001}
+15:45:15,478 INFO  [org.hibernate.cfg.Environment] (ServerService Thread Pool -- 54) HHH000206: hibernate.properties not found
+15:45:15,522 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 59) WFLYCLINF0002: Started users cache from keycloak container
+15:45:15,523 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 65) WFLYCLINF0002: Started offlineSessions cache from keycloak container
+15:45:15,523 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 55) WFLYCLINF0002: Started work cache from keycloak container
+15:45:15,526 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 66) WFLYCLINF0002: Started sessions cache from keycloak container
+15:45:15,528 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 56) WFLYCLINF0002: Started authenticationSessions cache from keycloak container
+15:45:15,528 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 61) WFLYCLINF0002: Started loginFailures cache from keycloak container
+15:45:15,528 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 63) WFLYCLINF0002: Started offlineClientSessions cache from keycloak container
+15:45:15,528 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 58) WFLYCLINF0002: Started realms cache from keycloak container
+15:45:15,528 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 67) WFLYCLINF0002: Started client-mappings cache from ejb container
+15:45:15,528 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 62) WFLYCLINF0002: Started actionTokens cache from keycloak container
+15:45:15,528 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 64) WFLYCLINF0002: Started clientSessions cache from keycloak container
+15:45:15,527 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 57) WFLYCLINF0002: Started authorization cache from keycloak container
+15:45:15,534 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 60) WFLYCLINF0002: Started keys cache from keycloak container
+15:45:15,607 INFO  [org.jboss.keycloak] (MSC service thread 1-5) Keycloak subsystem override for deployment servico.war
+15:45:15,607 INFO  [org.jboss.weld.deployer] (MSC service thread 1-5) WFLYWELD0003: Processing weld deployment servico.war
+15:45:15,662 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-5) WFLYEJB0473: JNDI bindings for session bean named 'Provider' in deployment unit 'deployment "servico.war"' are as follows:
+
+        java:global/servico/Provider!br.gov.caixa.servico.negocio.Provider
+        java:app/servico/Provider!br.gov.caixa.servico.negocio.Provider
+        java:module/Provider!br.gov.caixa.servico.negocio.Provider
+        ejb:/servico/Provider!br.gov.caixa.servico.negocio.Provider
+        java:global/servico/Provider
+        java:app/servico/Provider
+        java:module/Provider
+
+15:45:15,662 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-5) WFLYEJB0473: JNDI bindings for session bean named 'CodigoValidadorRepository' in deployment unit 'deployment "servico.war"' are as follows:
+
+        java:global/servico/CodigoValidadorRepository!br.gov.caixa.validacao.codigo.repositorio.CodigoValidadorRepository
+        java:app/servico/CodigoValidadorRepository!br.gov.caixa.validacao.codigo.repositorio.CodigoValidadorRepository
+        java:module/CodigoValidadorRepository!br.gov.caixa.validacao.codigo.repositorio.CodigoValidadorRepository
+        ejb:/servico/CodigoValidadorRepository!br.gov.caixa.validacao.codigo.repositorio.CodigoValidadorRepository
+        java:global/servico/CodigoValidadorRepository
+        java:app/servico/CodigoValidadorRepository
+        java:module/CodigoValidadorRepository
+
+15:45:15,662 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-5) WFLYEJB0473: JNDI bindings for session bean named 'FingerPrintRepository' in deployment unit 'deployment "servico.war"' are as follows:
+
+        java:global/servico/FingerPrintRepository!br.gov.caixa.fingerprint.repositorio.FingerPrintRepository
+        java:app/servico/FingerPrintRepository!br.gov.caixa.fingerprint.repositorio.FingerPrintRepository
+        java:module/FingerPrintRepository!br.gov.caixa.fingerprint.repositorio.FingerPrintRepository
+        ejb:/servico/FingerPrintRepository!br.gov.caixa.fingerprint.repositorio.FingerPrintRepository
+        java:global/servico/FingerPrintRepository
+        java:app/servico/FingerPrintRepository
+        java:module/FingerPrintRepository
+
+15:45:15,662 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-5) WFLYEJB0473: JNDI bindings for session bean named 'CodigoValidadorLogRepository' in deployment unit 'deployment "servico.war"' are as follows:
+
+        java:global/servico/CodigoValidadorLogRepository!br.gov.caixa.validacao.codigo.repositorio.CodigoValidadorLogRepository
+        java:app/servico/CodigoValidadorLogRepository!br.gov.caixa.validacao.codigo.repositorio.CodigoValidadorLogRepository
+        java:module/CodigoValidadorLogRepository!br.gov.caixa.validacao.codigo.repositorio.CodigoValidadorLogRepository
+        ejb:/servico/CodigoValidadorLogRepository!br.gov.caixa.validacao.codigo.repositorio.CodigoValidadorLogRepository
+        java:global/servico/CodigoValidadorLogRepository
+        java:app/servico/CodigoValidadorLogRepository
+        java:module/CodigoValidadorLogRepository
+
+15:45:15,662 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-5) WFLYEJB0473: JNDI bindings for session bean named 'CodigoUniProxRepository' in deployment unit 'deployment "servico.war"' are as follows:
+
+        java:global/servico/CodigoUniProxRepository!br.gov.caixa.validacao.codigo.repositorio.CodigoUniProxRepository
+        java:app/servico/CodigoUniProxRepository!br.gov.caixa.validacao.codigo.repositorio.CodigoUniProxRepository
+        java:module/CodigoUniProxRepository!br.gov.caixa.validacao.codigo.repositorio.CodigoUniProxRepository
+        ejb:/servico/CodigoUniProxRepository!br.gov.caixa.validacao.codigo.repositorio.CodigoUniProxRepository
+        java:global/servico/CodigoUniProxRepository
+        java:app/servico/CodigoUniProxRepository
+        java:module/CodigoUniProxRepository
+
+15:45:15,719 INFO  [org.hibernate.annotations.common.Version] (ServerService Thread Pool -- 68) HCANN000001: Hibernate Commons Annotations {5.0.4.Final-redhat-00001}
+15:45:15,756 WARN  [org.jboss.as.jaxrs] (MSC service thread 1-4) WFLYRS0018: Explicit usage of Jackson annotation in a JAX-RS deployment; the system will disable JSON-B processing for the current deployment. Consider setting the 'resteasy.preferJacksonOverJsonB' property to 'false' to restore JSON-B.
+15:45:15,938 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 68) WFLYJPA0010: Starting Persistence Unit (phase 2 of 2) Service 'servico.war#servico-dispositivo'
+15:45:16,066 INFO  [org.hibernate.dialect.Dialect] (ServerService Thread Pool -- 68) HHH000400: Using dialect: org.hibernate.dialect.OracleDialect
+15:45:16,070 WARN  [org.hibernate.dialect.Oracle9Dialect] (ServerService Thread Pool -- 68) HHH000063: The Oracle9Dialect dialect has been deprecated; use either Oracle9iDialect or Oracle10gDialect instead
+15:45:16,072 WARN  [org.hibernate.dialect.OracleDialect] (ServerService Thread Pool -- 68) HHH000064: The OracleDialect dialect has been deprecated; use Oracle8iDialect instead
+15:45:16,155 INFO  [org.keycloak.services] (ServerService Thread Pool -- 60) KC-SERVICES0001: Loading config from standalone.xml or domain.xml
+15:45:16,232 INFO  [org.hibernate.envers.boot.internal.EnversServiceImpl] (ServerService Thread Pool -- 68) Envers integration enabled? : true
+15:45:16,512 WARN  [org.keycloak.services] (ServerService Thread Pool -- 60) KC-SERVICES0047: direct-grant-validate-password-caixa (br.gov.caixa.authenticator.DirectGrantPasswordSiper) is implementing the internal SPI authenticator. This SPI is internal and may change without notice
+15:45:16,523 WARN  [org.keycloak.services] (ServerService Thread Pool -- 60) KC-SERVICES0047: siset-user-session (br.gov.caixa.siset.internet.spi.session.SisetUserSessionPersisterProviderFactory) is implementing the internal SPI userSessionPersister. This SPI is internal and may change without notice
+15:45:16,528 WARN  [org.keycloak.services] (ServerService Thread Pool -- 60) KC-SERVICES0047: siset-user-session (br.gov.caixa.siset.internet.spi.session.SisetUserSessionProviderFactory) is implementing the internal SPI userSessions. This SPI is internal and may change without notice
+15:45:16,535 INFO  [br.gov.caixa.keycloak.authenticator.CaixaValidaLoginAuthenticatorFactory] (ServerService Thread Pool -- 60) Registrando Factory do Vincula Login
+15:45:16,535 WARN  [org.keycloak.services] (ServerService Thread Pool -- 60) KC-SERVICES0047: valida-login-authenticator (br.gov.caixa.keycloak.authenticator.CaixaValidaLoginAuthenticatorFactory) is implementing the internal SPI authenticator. This SPI is internal and may change without notice
+15:45:16,547 INFO  [br.gov.caixa.keycloak.OTPFormAuthenticatorCaixaFactory] (ServerService Thread Pool -- 60) INIT OTPFormAuthenticatorCaixa - v2.0
+15:45:16,547 WARN  [org.keycloak.services] (ServerService Thread Pool -- 60) KC-SERVICES0047: auth-conditional-otp-form-caixa (br.gov.caixa.keycloak.OTPFormAuthenticatorCaixaFactory) is implementing the internal SPI authenticator. This SPI is internal and may change without notice
+15:45:16,555 INFO  [br.gov.caixa.authenticator.BrowserPasswordSiperFactory] (ServerService Thread Pool -- 60) Registrando Factory do SiperBrowser Password SIPER
+15:45:16,555 WARN  [org.keycloak.services] (ServerService Thread Pool -- 60) KC-SERVICES0047: browser-validate-password-caixa (br.gov.caixa.authenticator.BrowserPasswordSiperFactory) is implementing the internal SPI authenticator. This SPI is internal and may change without notice
+15:45:16,572 WARN  [org.keycloak.services] (ServerService Thread Pool -- 60) KC-SERVICES0047: evento-todos (br.gov.caixa.keycloak.events.todos.EventExternalFactory) is implementing the internal SPI eventsListener. This SPI is internal and may change without notice
+15:45:16,572 WARN  [org.keycloak.services] (ServerService Thread Pool -- 60) KC-SERVICES0047: evento-execute-action (br.gov.caixa.keycloak.events.executeactions.EventExternalExecuteActionsFactory) is implementing the internal SPI eventsListener. This SPI is internal and may change without notice
+15:45:16,572 WARN  [org.keycloak.services] (ServerService Thread Pool -- 60) KC-SERVICES0047: evento-execute-action-error (br.gov.caixa.keycloak.events.executeactionserror.EventExternalExecuteActionsErrorFactory) is implementing the internal SPI eventsListener. This SPI is internal and may change without notice
+15:45:16,572 WARN  [org.keycloak.services] (ServerService Thread Pool -- 60) KC-SERVICES0047: evento-login (br.gov.caixa.keycloak.events.login.EventExternalLoginFactory) is implementing the internal SPI eventsListener. This SPI is internal and may change without notice
+15:45:16,572 WARN  [org.keycloak.services] (ServerService Thread Pool -- 60) KC-SERVICES0047: evento-login-error (br.gov.caixa.keycloak.events.loginerror.EventExternalLoginErrorFactory) is implementing the internal SPI eventsListener. This SPI is internal and may change without notice
+15:45:16,572 WARN  [org.keycloak.services] (ServerService Thread Pool -- 60) KC-SERVICES0047: evento-register (br.gov.caixa.keycloak.events.register.EventExternalRegisterFactory) is implementing the internal SPI eventsListener. This SPI is internal and may change without notice
+15:45:16,572 WARN  [org.keycloak.services] (ServerService Thread Pool -- 60) KC-SERVICES0047: evento-register-error (br.gov.caixa.keycloak.events.registerError.EventExternalRegisterErrorFactory) is implementing the internal SPI eventsListener. This SPI is internal and may change without notice
+15:45:16,572 WARN  [org.keycloak.services] (ServerService Thread Pool -- 60) KC-SERVICES0047: evento-send-reset-password (br.gov.caixa.keycloak.events.sendresetpassword.EventExternalSendResetPasswordFactory) is implementing the internal SPI eventsListener. This SPI is internal and may change without notice
+15:45:16,573 WARN  [org.keycloak.services] (ServerService Thread Pool -- 60) KC-SERVICES0047: evento-send-reset-password-error (br.gov.caixa.keycloak.events.sendresetpassworderror.EventExternalSendResetPasswordErrorFactory) is implementing the internal SPI eventsListener. This SPI is internal and may change without notice
+15:45:16,573 WARN  [org.keycloak.services] (ServerService Thread Pool -- 60) KC-SERVICES0047: evento-update-password (br.gov.caixa.keycloak.events.updatepassword.EventExternalUpdatePasswordFactory) is implementing the internal SPI eventsListener. This SPI is internal and may change without notice
+15:45:16,573 WARN  [org.keycloak.services] (ServerService Thread Pool -- 60) KC-SERVICES0047: evento-update-password-error (br.gov.caixa.keycloak.events.updatepassworderror.EventExternalUpdatePasswordErrorFactory) is implementing the internal SPI eventsListener. This SPI is internal and may change without notice
+15:45:16,585 INFO  [br.gov.caixa.keycloak.authenticators.browser.LoginCaixaFormAuthenticatorFactory] (ServerService Thread Pool -- 60) INIT LoginCaixaFormAuthenticator - v1.0
+15:45:16,586 WARN  [org.keycloak.services] (ServerService Thread Pool -- 60) KC-SERVICES0047: auth-conditional-login-caixa (br.gov.caixa.keycloak.authenticators.browser.LoginCaixaFormAuthenticatorFactory) is implementing the internal SPI authenticator. This SPI is internal and may change without notice
+15:45:16,586 WARN  [org.keycloak.services] (ServerService Thread Pool -- 60) KC-SERVICES0047: auth-x509-client-username-form-caixa (br.gov.caixa.keycloak.authenticators.x509.X509ClientCertificateCaixaAuthenticatorFactory) is implementing the internal SPI authenticator. This SPI is internal and may change without notice
+15:45:16,607 WARN  [org.keycloak.services] (ServerService Thread Pool -- 60) KC-SERVICES0047: resource_provider (br.gov.caixa.keycloak.rest.ResourceProviderFactory) is implementing the internal SPI realm-restapi-extension. This SPI is internal and may change without notice
+15:45:16,638 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 60) WFLYCLINF0002: Started realmRevisions cache from keycloak container
+15:45:16,641 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 60) WFLYCLINF0002: Started userRevisions cache from keycloak container
+15:45:16,649 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 60) WFLYCLINF0002: Started authorizationRevisions cache from keycloak container
+15:45:16,651 INFO  [org.keycloak.connections.infinispan.DefaultInfinispanConnectionProviderFactory] (ServerService Thread Pool -- 60) Node name: crjtqapllx036, Site name: null
+15:45:17,043 WARN  [org.jboss.jca.core.connectionmanager.pool.strategy.OnePool] (ServerService Thread Pool -- 60) IJ000604: Throwable while attempting to get a new connection: null: javax.resource.ResourceException: IJ031084: Unable to create connection
+        at org.jboss.jca.adapters.jdbc.local.LocalManagedConnectionFactory.createLocalManagedConnection(LocalManagedConnectionFactory.java:345)
+        at org.jboss.jca.adapters.jdbc.local.LocalManagedConnectionFactory.getLocalManagedConnection(LocalManagedConnectionFactory.java:352)
+        at org.jboss.jca.adapters.jdbc.local.LocalManagedConnectionFactory.createManagedConnection(LocalManagedConnectionFactory.java:287)
+        at org.jboss.jca.core.connectionmanager.pool.mcp.SemaphoreConcurrentLinkedDequeManagedConnectionPool.createConnectionEventListener(SemaphoreConcurrentLinkedDequeManagedConnectionPool.java:1325)
+        at org.jboss.jca.core.connectionmanager.pool.mcp.SemaphoreConcurrentLinkedDequeManagedConnectionPool.getConnection(SemaphoreConcurrentLinkedDequeManagedConnectionPool.java:499)
+        at org.jboss.jca.core.connectionmanager.pool.AbstractPool.getSimpleConnection(AbstractPool.java:632)
+        at org.jboss.jca.core.connectionmanager.pool.AbstractPool.getConnection(AbstractPool.java:604)
+        at org.jboss.jca.core.connectionmanager.AbstractConnectionManager.getManagedConnection(AbstractConnectionManager.java:624)
+        at org.jboss.jca.core.connectionmanager.tx.TxConnectionManagerImpl.getManagedConnection(TxConnectionManagerImpl.java:440)
+        at org.jboss.jca.core.connectionmanager.AbstractConnectionManager.allocateConnection(AbstractConnectionManager.java:789)
+        at org.jboss.jca.adapters.jdbc.WrapperDataSource.getConnection(WrapperDataSource.java:151)
+        at org.jboss.as.connector.subsystems.datasources.WildFlyDataSource.getConnection(WildFlyDataSource.java:64)
+        at org.keycloak.connections.jpa.DefaultJpaConnectionProviderFactory.getConnection(DefaultJpaConnectionProviderFactory.java:366)
+        at org.keycloak.connections.jpa.updater.liquibase.lock.LiquibaseDBLockProvider.lazyInit(LiquibaseDBLockProvider.java:65)
+        at org.keycloak.connections.jpa.updater.liquibase.lock.LiquibaseDBLockProvider.lambda$waitForLock$2(LiquibaseDBLockProvider.java:96)
+        at org.keycloak.models.utils.KeycloakModelUtils.suspendJtaTransaction(KeycloakModelUtils.java:682)
+        at org.keycloak.connections.jpa.updater.liquibase.lock.LiquibaseDBLockProvider.waitForLock(LiquibaseDBLockProvider.java:94)
+        at org.keycloak.services.resources.KeycloakApplication$1.run(KeycloakApplication.java:148)
+        at org.keycloak.models.utils.KeycloakModelUtils.runJobInTransaction(KeycloakModelUtils.java:227)
+        at org.keycloak.services.resources.KeycloakApplication.<init>(KeycloakApplication.java:141)
+        at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+        at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+        at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+        at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+        at org.jboss.resteasy.core.ConstructorInjectorImpl.construct(ConstructorInjectorImpl.java:154)
+        at org.jboss.resteasy.spi.ResteasyProviderFactory.createProviderInstance(ResteasyProviderFactory.java:2757)
+        at org.jboss.resteasy.spi.ResteasyDeployment.createApplication(ResteasyDeployment.java:363)
+        at org.jboss.resteasy.spi.ResteasyDeployment.startInternal(ResteasyDeployment.java:276)
+        at org.jboss.resteasy.spi.ResteasyDeployment.start(ResteasyDeployment.java:88)
+        at org.jboss.resteasy.plugins.server.servlet.ServletContainerDispatcher.init(ServletContainerDispatcher.java:119)
+        at org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher.init(HttpServletDispatcher.java:36)
+        at io.undertow.servlet.core.LifecyleInterceptorInvocation.proceed(LifecyleInterceptorInvocation.java:117)
+        at org.wildfly.extension.undertow.security.RunAsLifecycleInterceptor.init(RunAsLifecycleInterceptor.java:78)
+        at io.undertow.servlet.core.LifecyleInterceptorInvocation.proceed(LifecyleInterceptorInvocation.java:103)
+        at io.undertow.servlet.core.ManagedServlet$DefaultInstanceStrategy.start(ManagedServlet.java:303)
+        at io.undertow.servlet.core.ManagedServlet.createServlet(ManagedServlet.java:143)
+        at io.undertow.servlet.core.DeploymentManagerImpl$2.call(DeploymentManagerImpl.java:583)
+        at io.undertow.servlet.core.DeploymentManagerImpl$2.call(DeploymentManagerImpl.java:554)
+        at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:42)
+        at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
+        at org.wildfly.extension.undertow.security.SecurityContextThreadSetupAction.lambda$create$0(SecurityContextThreadSetupAction.java:105)
+        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1504)
+        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1504)
+        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1504)
+        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1504)
+        at io.undertow.servlet.core.DeploymentManagerImpl.start(DeploymentManagerImpl.java:596)
+        at org.wildfly.extension.undertow.deployment.UndertowDeploymentService.startContext(UndertowDeploymentService.java:97)
+        at org.wildfly.extension.undertow.deployment.UndertowDeploymentService$1.run(UndertowDeploymentService.java:78)
+        at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+        at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1985)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1487)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1378)
+        at java.lang.Thread.run(Thread.java:745)
+        at org.jboss.threads.JBossThread.run(JBossThread.java:485)
+Caused by: java.sql.SQLException: ORA-01017: invalid username/password; logon denied
+
+        at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:440)
+        at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:389)
+        at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:382)
+        at oracle.jdbc.driver.T4CTTIfun.processError(T4CTTIfun.java:573)
+        at oracle.jdbc.driver.T4CTTIoauthenticate.processError(T4CTTIoauthenticate.java:431)
+        at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:445)
+        at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:191)
+        at oracle.jdbc.driver.T4CTTIoauthenticate.doOAUTH(T4CTTIoauthenticate.java:366)
+        at oracle.jdbc.driver.T4CTTIoauthenticate.doOAUTH(T4CTTIoauthenticate.java:752)
+        at oracle.jdbc.driver.T4CConnection.logon(T4CConnection.java:366)
+        at oracle.jdbc.driver.PhysicalConnection.<init>(PhysicalConnection.java:536)
+        at oracle.jdbc.driver.T4CConnection.<init>(T4CConnection.java:228)
+        at oracle.jdbc.driver.T4CDriverExtension.getConnection(T4CDriverExtension.java:32)
+        at oracle.jdbc.driver.OracleDriver.connect(OracleDriver.java:521)
+        at org.jboss.jca.adapters.jdbc.local.LocalManagedConnectionFactory.createLocalManagedConnection(LocalManagedConnectionFactory.java:321)
+        ... 55 more
+
+15:45:17,053 INFO  [org.jboss.as.server] (Thread-16) WFLYSRV0220: Server shutdown has been requested via an OS signal
+15:45:17,060 ERROR [org.jboss.msc.service.fail] (ServerService Thread Pool -- 60) MSC000001: Failed to start service jboss.deployment.unit."keycloak-server.war".undertow-deployment: org.jboss.msc.service.StartException in service jboss.deployment.unit."keycloak-server.war".undertow-deployment: java.lang.RuntimeException: RESTEASY003325: Failed to construct public org.keycloak.services.resources.KeycloakApplication(javax.servlet.ServletContext,org.jboss.resteasy.core.Dispatcher)
+        at org.wildfly.extension.undertow.deployment.UndertowDeploymentService$1.run(UndertowDeploymentService.java:81)
+        at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+        at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1985)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1487)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1378)
+        at java.lang.Thread.run(Thread.java:745)
+        at org.jboss.threads.JBossThread.run(JBossThread.java:485)
+Caused by: java.lang.RuntimeException: RESTEASY003325: Failed to construct public org.keycloak.services.resources.KeycloakApplication(javax.servlet.ServletContext,org.jboss.resteasy.core.Dispatcher)
+        at org.jboss.resteasy.core.ConstructorInjectorImpl.construct(ConstructorInjectorImpl.java:166)
+        at org.jboss.resteasy.spi.ResteasyProviderFactory.createProviderInstance(ResteasyProviderFactory.java:2757)
+        at org.jboss.resteasy.spi.ResteasyDeployment.createApplication(ResteasyDeployment.java:363)
+        at org.jboss.resteasy.spi.ResteasyDeployment.startInternal(ResteasyDeployment.java:276)
+        at org.jboss.resteasy.spi.ResteasyDeployment.start(ResteasyDeployment.java:88)
+        at org.jboss.resteasy.plugins.server.servlet.ServletContainerDispatcher.init(ServletContainerDispatcher.java:119)
+        at org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher.init(HttpServletDispatcher.java:36)
+        at io.undertow.servlet.core.LifecyleInterceptorInvocation.proceed(LifecyleInterceptorInvocation.java:117)
+        at org.wildfly.extension.undertow.security.RunAsLifecycleInterceptor.init(RunAsLifecycleInterceptor.java:78)
+        at io.undertow.servlet.core.LifecyleInterceptorInvocation.proceed(LifecyleInterceptorInvocation.java:103)
+        at io.undertow.servlet.core.ManagedServlet$DefaultInstanceStrategy.start(ManagedServlet.java:303)
+        at io.undertow.servlet.core.ManagedServlet.createServlet(ManagedServlet.java:143)
+        at io.undertow.servlet.core.DeploymentManagerImpl$2.call(DeploymentManagerImpl.java:583)
+        at io.undertow.servlet.core.DeploymentManagerImpl$2.call(DeploymentManagerImpl.java:554)
+        at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:42)
+        at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
+        at org.wildfly.extension.undertow.security.SecurityContextThreadSetupAction.lambda$create$0(SecurityContextThreadSetupAction.java:105)
+        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1504)
+        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1504)
+        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1504)
+        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1504)
+        at io.undertow.servlet.core.DeploymentManagerImpl.start(DeploymentManagerImpl.java:596)
+        at org.wildfly.extension.undertow.deployment.UndertowDeploymentService.startContext(UndertowDeploymentService.java:97)
+        at org.wildfly.extension.undertow.deployment.UndertowDeploymentService$1.run(UndertowDeploymentService.java:78)
+        ... 8 more
+Caused by: java.lang.RuntimeException: Failed to connect to database
+        at org.keycloak.connections.jpa.DefaultJpaConnectionProviderFactory.getConnection(DefaultJpaConnectionProviderFactory.java:372)
+        at org.keycloak.connections.jpa.updater.liquibase.lock.LiquibaseDBLockProvider.lazyInit(LiquibaseDBLockProvider.java:65)
+        at org.keycloak.connections.jpa.updater.liquibase.lock.LiquibaseDBLockProvider.lambda$waitForLock$2(LiquibaseDBLockProvider.java:96)
+        at org.keycloak.models.utils.KeycloakModelUtils.suspendJtaTransaction(KeycloakModelUtils.java:682)
+        at org.keycloak.connections.jpa.updater.liquibase.lock.LiquibaseDBLockProvider.waitForLock(LiquibaseDBLockProvider.java:94)
+        at org.keycloak.services.resources.KeycloakApplication$1.run(KeycloakApplication.java:148)
+        at org.keycloak.models.utils.KeycloakModelUtils.runJobInTransaction(KeycloakModelUtils.java:227)
+        at org.keycloak.services.resources.KeycloakApplication.<init>(KeycloakApplication.java:141)
+        at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+        at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+        at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+        at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+        at org.jboss.resteasy.core.ConstructorInjectorImpl.construct(ConstructorInjectorImpl.java:154)
+        ... 31 more
+Caused by: java.sql.SQLException: javax.resource.ResourceException: IJ000453: Unable to get managed connection for java:jboss/datasources/KeycloakDS
+        at org.jboss.jca.adapters.jdbc.WrapperDataSource.getConnection(WrapperDataSource.java:159)
+        at org.jboss.as.connector.subsystems.datasources.WildFlyDataSource.getConnection(WildFlyDataSource.java:64)
+        at org.keycloak.connections.jpa.DefaultJpaConnectionProviderFactory.getConnection(DefaultJpaConnectionProviderFactory.java:366)
+        ... 43 more
+Caused by: javax.resource.ResourceException: IJ000453: Unable to get managed connection for java:jboss/datasources/KeycloakDS
+        at org.jboss.jca.core.connectionmanager.AbstractConnectionManager.getManagedConnection(AbstractConnectionManager.java:690)
+        at org.jboss.jca.core.connectionmanager.tx.TxConnectionManagerImpl.getManagedConnection(TxConnectionManagerImpl.java:440)
+        at org.jboss.jca.core.connectionmanager.AbstractConnectionManager.allocateConnection(AbstractConnectionManager.java:789)
+        at org.jboss.jca.adapters.jdbc.WrapperDataSource.getConnection(WrapperDataSource.java:151)
+        ... 45 more
+Caused by: javax.resource.ResourceException: IJ031084: Unable to create connection
+        at org.jboss.jca.adapters.jdbc.local.LocalManagedConnectionFactory.createLocalManagedConnection(LocalManagedConnectionFactory.java:345)
+        at org.jboss.jca.adapters.jdbc.local.LocalManagedConnectionFactory.getLocalManagedConnection(LocalManagedConnectionFactory.java:352)
+        at org.jboss.jca.adapters.jdbc.local.LocalManagedConnectionFactory.createManagedConnection(LocalManagedConnectionFactory.java:287)
+        at org.jboss.jca.core.connectionmanager.pool.mcp.SemaphoreConcurrentLinkedDequeManagedConnectionPool.createConnectionEventListener(SemaphoreConcurrentLinkedDequeManagedConnectionPool.java:1325)
+        at org.jboss.jca.core.connectionmanager.pool.mcp.SemaphoreConcurrentLinkedDequeManagedConnectionPool.getConnection(SemaphoreConcurrentLinkedDequeManagedConnectionPool.java:499)
+        at org.jboss.jca.core.connectionmanager.pool.AbstractPool.getSimpleConnection(AbstractPool.java:632)
+        at org.jboss.jca.core.connectionmanager.pool.AbstractPool.getConnection(AbstractPool.java:604)
+        at org.jboss.jca.core.connectionmanager.AbstractConnectionManager.getManagedConnection(AbstractConnectionManager.java:624)
+        ... 48 more
+Caused by: java.sql.SQLException: ORA-01017: invalid username/password; logon denied
+
+        at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:440)
+        at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:389)
+        at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:382)
+        at oracle.jdbc.driver.T4CTTIfun.processError(T4CTTIfun.java:573)
+        at oracle.jdbc.driver.T4CTTIoauthenticate.processError(T4CTTIoauthenticate.java:431)
+        at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:445)
+        at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:191)
+        at oracle.jdbc.driver.T4CTTIoauthenticate.doOAUTH(T4CTTIoauthenticate.java:366)
+        at oracle.jdbc.driver.T4CTTIoauthenticate.doOAUTH(T4CTTIoauthenticate.java:752)
+        at oracle.jdbc.driver.T4CConnection.logon(T4CConnection.java:366)
+        at oracle.jdbc.driver.PhysicalConnection.<init>(PhysicalConnection.java:536)
+        at oracle.jdbc.driver.T4CConnection.<init>(T4CConnection.java:228)
+        at oracle.jdbc.driver.T4CDriverExtension.getConnection(T4CDriverExtension.java:32)
+        at oracle.jdbc.driver.OracleDriver.connect(OracleDriver.java:521)
+        at org.jboss.jca.adapters.jdbc.local.LocalManagedConnectionFactory.createLocalManagedConnection(LocalManagedConnectionFactory.java:321)
+        ... 55 more
+
+15:45:17,098 INFO  [org.jboss.as.mail.extension] (MSC service thread 1-7) WFLYMAIL0002: Unbound mail session [java:jboss/mail/Default]
+15:45:17,100 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-6) WFLYUT0008: Undertow HTTPS listener https suspending
+15:45:17,101 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-6) WFLYUT0007: Undertow HTTPS listener https stopped, was bound to 10.116.26.227:8443
+15:45:17,112 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-2) WFLYUT0019: Host default-host stopping
+15:45:17,125 INFO  [org.keycloak.subsystem.server.extension.KeycloakProviderDeploymentProcessor] (MSC service thread 1-2) Undeploying Keycloak provider: validaLogin-jar-with-dependencies.jar
+15:45:17,126 INFO  [org.keycloak.subsystem.server.extension.KeycloakProviderDeploymentProcessor] (MSC service thread 1-8) Undeploying Keycloak provider: loginCaixa-jar-with-dependencies.jar
+15:45:17,126 INFO  [org.keycloak.subsystem.server.extension.KeycloakProviderDeploymentProcessor] (MSC service thread 1-4) Undeploying Keycloak provider: siset-user-session-provider.jar
+15:45:17,127 INFO  [org.keycloak.subsystem.server.extension.KeycloakProviderDeploymentProcessor] (MSC service thread 1-5) Undeploying Keycloak provider: eventExternal-jar-with-dependencies.jar
+15:45:17,128 INFO  [org.keycloak.subsystem.server.extension.KeycloakProviderDeploymentProcessor] (MSC service thread 1-7) Undeploying Keycloak provider: directgrantpassword-jar-with-dependencies.jar
+15:45:17,130 ERROR [org.jboss.as.server.deployment] (MSC service thread 1-2) WFLYSRV0043: Deployment unit processor org.keycloak.subsystem.server.extension.KeycloakProviderDeploymentProcessor@4e71047c unexpectedly threw an exception during undeploy phase POST_MODULE of deployment "validaLogin-jar-with-dependencies.jar": java.lang.NullPointerException
+        at org.keycloak.services.managers.DefaultBruteForceProtectorFactory.close(DefaultBruteForceProtectorFactory.java:50)
+        at org.keycloak.services.DefaultKeycloakSessionFactory.undeploy(DefaultKeycloakSessionFactory.java:161)
+        at org.keycloak.provider.ProviderManagerRegistry.undeploy(ProviderManagerRegistry.java:51)
+        at org.keycloak.subsystem.server.extension.KeycloakProviderDeploymentProcessor.undeploy(KeycloakProviderDeploymentProcessor.java:69)
+        at org.jboss.as.server.deployment.DeploymentUnitPhaseService.safeUndeploy(DeploymentUnitPhaseService.java:211)
+        at org.jboss.as.server.deployment.DeploymentUnitPhaseService.stop(DeploymentUnitPhaseService.java:204)
+        at org.jboss.msc.service.ServiceControllerImpl$StopTask.stopService(ServiceControllerImpl.java:1794)
+        at org.jboss.msc.service.ServiceControllerImpl$StopTask.execute(ServiceControllerImpl.java:1763)
+        at org.jboss.msc.service.ServiceControllerImpl$ControllerTask.run(ServiceControllerImpl.java:1558)
+        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1985)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1487)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1364)
+        at java.lang.Thread.run(Thread.java:745)
+
+15:45:17,130 ERROR [org.jboss.as.server.deployment] (MSC service thread 1-8) WFLYSRV0043: Deployment unit processor org.keycloak.subsystem.server.extension.KeycloakProviderDeploymentProcessor@4e71047c unexpectedly threw an exception during undeploy phase POST_MODULE of deployment "loginCaixa-jar-with-dependencies.jar": java.lang.NullPointerException
+        at org.keycloak.services.managers.DefaultBruteForceProtectorFactory.close(DefaultBruteForceProtectorFactory.java:50)
+        at org.keycloak.services.DefaultKeycloakSessionFactory.undeploy(DefaultKeycloakSessionFactory.java:161)
+        at org.keycloak.provider.ProviderManagerRegistry.undeploy(ProviderManagerRegistry.java:51)
+        at org.keycloak.subsystem.server.extension.KeycloakProviderDeploymentProcessor.undeploy(KeycloakProviderDeploymentProcessor.java:69)
+        at org.jboss.as.server.deployment.DeploymentUnitPhaseService.safeUndeploy(DeploymentUnitPhaseService.java:211)
+        at org.jboss.as.server.deployment.DeploymentUnitPhaseService.stop(DeploymentUnitPhaseService.java:204)
+        at org.jboss.msc.service.ServiceControllerImpl$StopTask.stopService(ServiceControllerImpl.java:1794)
+        at org.jboss.msc.service.ServiceControllerImpl$StopTask.execute(ServiceControllerImpl.java:1763)
+        at org.jboss.msc.service.ServiceControllerImpl$ControllerTask.run(ServiceControllerImpl.java:1558)
+        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1985)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1487)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1364)
+        at java.lang.Thread.run(Thread.java:745)
+
+15:45:17,131 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-8) WFLYJCA0010: Unbound data source [java:jboss/datasources/ExampleDS]
+15:45:17,130 INFO  [org.keycloak.subsystem.server.extension.KeycloakProviderDeploymentProcessor] (MSC service thread 1-3) Undeploying Keycloak provider: resource-provider-jar-with-dependencies.jar
+15:45:17,131 ERROR [org.jboss.as.server.deployment] (MSC service thread 1-5) WFLYSRV0043: Deployment unit processor org.keycloak.subsystem.server.extension.KeycloakProviderDeploymentProcessor@4e71047c unexpectedly threw an exception during undeploy phase POST_MODULE of deployment "eventExternal-jar-with-dependencies.jar": java.lang.NullPointerException
+        at org.keycloak.services.managers.DefaultBruteForceProtectorFactory.close(DefaultBruteForceProtectorFactory.java:50)
+        at org.keycloak.services.DefaultKeycloakSessionFactory.undeploy(DefaultKeycloakSessionFactory.java:161)
+        at org.keycloak.provider.ProviderManagerRegistry.undeploy(ProviderManagerRegistry.java:51)
+        at org.keycloak.subsystem.server.extension.KeycloakProviderDeploymentProcessor.undeploy(KeycloakProviderDeploymentProcessor.java:69)
+        at org.jboss.as.server.deployment.DeploymentUnitPhaseService.safeUndeploy(DeploymentUnitPhaseService.java:211)
+        at org.jboss.as.server.deployment.DeploymentUnitPhaseService.stop(DeploymentUnitPhaseService.java:204)
+        at org.jboss.msc.service.ServiceControllerImpl$StopTask.stopService(ServiceControllerImpl.java:1794)
+        at org.jboss.msc.service.ServiceControllerImpl$StopTask.execute(ServiceControllerImpl.java:1763)
+        at org.jboss.msc.service.ServiceControllerImpl$ControllerTask.run(ServiceControllerImpl.java:1558)
+        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1985)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1487)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1364)
+        at java.lang.Thread.run(Thread.java:745)
+
+15:45:17,132 INFO  [org.keycloak.subsystem.server.extension.KeycloakProviderDeploymentProcessor] (MSC service thread 1-1) Undeploying Keycloak provider: OTPCaixaCond.jar
+15:45:17,132 INFO  [org.keycloak.subsystem.server.extension.KeycloakProviderDeploymentProcessor] (MSC service thread 1-6) Undeploying Keycloak provider: BrowserPassword-jar-with-dependencies.jar
+15:45:17,132 ERROR [org.jboss.as.server.deployment] (MSC service thread 1-7) WFLYSRV0043: Deployment unit processor org.keycloak.subsystem.server.extension.KeycloakProviderDeploymentProcessor@4e71047c unexpectedly threw an exception during undeploy phase POST_MODULE of deployment "directgrantpassword-jar-with-dependencies.jar": java.lang.NullPointerException
+        at org.keycloak.services.managers.DefaultBruteForceProtectorFactory.close(DefaultBruteForceProtectorFactory.java:50)
+        at org.keycloak.services.DefaultKeycloakSessionFactory.undeploy(DefaultKeycloakSessionFactory.java:161)
+        at org.keycloak.provider.ProviderManagerRegistry.undeploy(ProviderManagerRegistry.java:51)
+        at org.keycloak.subsystem.server.extension.KeycloakProviderDeploymentProcessor.undeploy(KeycloakProviderDeploymentProcessor.java:69)
+        at org.jboss.as.server.deployment.DeploymentUnitPhaseService.safeUndeploy(DeploymentUnitPhaseService.java:211)
+        at org.jboss.as.server.deployment.DeploymentUnitPhaseService.stop(DeploymentUnitPhaseService.java:204)
+        at org.jboss.msc.service.ServiceControllerImpl$StopTask.stopService(ServiceControllerImpl.java:1794)
+        at org.jboss.msc.service.ServiceControllerImpl$StopTask.execute(ServiceControllerImpl.java:1763)
+        at org.jboss.msc.service.ServiceControllerImpl$ControllerTask.run(ServiceControllerImpl.java:1558)
+        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1985)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1487)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1364)
+        at java.lang.Thread.run(Thread.java:745)
+
+15:45:17,134 ERROR [org.jboss.as.server.deployment] (MSC service thread 1-6) WFLYSRV0043: Deployment unit processor org.keycloak.subsystem.server.extension.KeycloakProviderDeploymentProcessor@4e71047c unexpectedly threw an exception during undeploy phase POST_MODULE of deployment "BrowserPassword-jar-with-dependencies.jar": java.lang.NullPointerException
+        at org.keycloak.services.managers.DefaultBruteForceProtectorFactory.close(DefaultBruteForceProtectorFactory.java:50)
+        at org.keycloak.services.DefaultKeycloakSessionFactory.undeploy(DefaultKeycloakSessionFactory.java:161)
+        at org.keycloak.provider.ProviderManagerRegistry.undeploy(ProviderManagerRegistry.java:51)
+        at org.keycloak.subsystem.server.extension.KeycloakProviderDeploymentProcessor.undeploy(KeycloakProviderDeploymentProcessor.java:69)
+        at org.jboss.as.server.deployment.DeploymentUnitPhaseService.safeUndeploy(DeploymentUnitPhaseService.java:211)
+        at org.jboss.as.server.deployment.DeploymentUnitPhaseService.stop(DeploymentUnitPhaseService.java:204)
+        at org.jboss.msc.service.ServiceControllerImpl$StopTask.stopService(ServiceControllerImpl.java:1794)
+        at org.jboss.msc.service.ServiceControllerImpl$StopTask.execute(ServiceControllerImpl.java:1763)
+        at org.jboss.msc.service.ServiceControllerImpl$ControllerTask.run(ServiceControllerImpl.java:1558)
+        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1985)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1487)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1364)
+        at java.lang.Thread.run(Thread.java:745)
+
+15:45:17,151 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-2) WFLYJCA0019: Stopped Driver service with driver-name = h2
+15:45:17,151 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-6) WFLYSRV0028: Stopped deployment keycloak-server.war (runtime-name: keycloak-server.war) in 85ms
+15:45:17,152 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-2) WFLYSRV0028: Stopped deployment siset-user-session-provider.jar (runtime-name: siset-user-session-provider.jar) in 86ms
+15:45:17,155 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-7) WFLYSRV0028: Stopped deployment eventExternal-jar-with-dependencies.jar (runtime-name: eventExternal-jar-with-dependencies.jar) in 93ms
+15:45:17,155 INFO  [org.keycloak.subsystem.server.extension.KeycloakProviderDeploymentProcessor] (MSC service thread 1-4) Undeploying Keycloak provider: user-storage-jpa-siper-jar-with-dependencies.jar
+15:45:17,156 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-3) WFLYSRV0028: Stopped deployment directgrantpassword-jar-with-dependencies.jar (runtime-name: directgrantpassword-jar-with-dependencies.jar) in 90ms
+15:45:17,156 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-7) WFLYSRV0028: Stopped deployment validaLogin-jar-with-dependencies.jar (runtime-name: validaLogin-jar-with-dependencies.jar) in 90ms
+15:45:17,156 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-6) WFLYSRV0028: Stopped deployment loginCaixa-jar-with-dependencies.jar (runtime-name: loginCaixa-jar-with-dependencies.jar) in 90ms
+15:45:17,156 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-8) WFLYSRV0028: Stopped deployment OTPCaixaCond.jar (runtime-name: OTPCaixaCond.jar) in 85ms
+15:45:17,156 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-1) WFLYSRV0028: Stopped deployment BrowserPassword-jar-with-dependencies.jar (runtime-name: BrowserPassword-jar-with-dependencies.jar) in 90ms
+15:45:17,160 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-7) WFLYUT0008: Undertow HTTP listener default suspending
+15:45:17,157 INFO  [br.gov.caixa.keycloak.SiperUserStorageProviderFactory] (MSC service thread 1-4) <<<<<< Fechando SIPER factory
+15:45:17,164 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-7) WFLYUT0007: Undertow HTTP listener default stopped, was bound to 10.116.26.227:8080
+15:45:17,168 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 62) WFLYCLINF0003: Stopped offlineSessions cache from keycloak container
+15:45:17,167 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-2) WFLYUT0004: Undertow 2.0.22.Final-redhat-00001 stopping
+15:45:17,171 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-5) WFLYSRV0028: Stopped deployment resource-provider-jar-with-dependencies.jar (runtime-name: resource-provider-jar-with-dependencies.jar) in 105ms
+15:45:17,175 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 58) WFLYCLINF0003: Stopped actionTokens cache from keycloak container
+15:45:17,175 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 59) WFLYCLINF0003: Stopped keys cache from keycloak container
+15:45:17,175 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 61) WFLYCLINF0003: Stopped clientSessions cache from keycloak container
+15:45:17,176 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 66) WFLYCLINF0003: Stopped realms cache from keycloak container
+15:45:17,176 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 56) WFLYCLINF0003: Stopped sessions cache from keycloak container
+15:45:17,176 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 65) WFLYCLINF0003: Stopped loginFailures cache from keycloak container
+15:45:17,176 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 57) WFLYCLINF0003: Stopped authorization cache from keycloak container
+15:45:17,176 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 63) WFLYCLINF0003: Stopped offlineClientSessions cache from keycloak container
+15:45:17,176 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 64) WFLYCLINF0003: Stopped users cache from keycloak container
+15:45:17,177 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 55) WFLYCLINF0003: Stopped work cache from keycloak container
+15:45:17,177 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 69) WFLYCLINF0003: Stopped authenticationSessions cache from keycloak container
+15:45:17,185 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 60) WFLYCLINF0003: Stopped client-mappings cache from ejb container
+15:45:17,187 INFO  [org.jboss.as.clustering.infinispan] (MSC service thread 1-6) WFLYCLINF0003: Stopped authorizationRevisions cache from keycloak container
+15:45:17,189 INFO  [org.jboss.as.clustering.infinispan] (MSC service thread 1-6) WFLYCLINF0003: Stopped realmRevisions cache from keycloak container
+15:45:17,192 INFO  [org.jboss.as.clustering.infinispan] (MSC service thread 1-6) WFLYCLINF0003: Stopped userRevisions cache from keycloak container
+15:45:17,234 INFO  [org.hibernate.hql.internal.QueryTranslatorFactoryInitiator] (ServerService Thread Pool -- 68) HHH000397: Using ASTQueryTranslatorFactory
+15:45:17,381 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 68) WFLYJPA0011: Stopping Persistence Unit (phase 2 of 2) Service 'servico.war#servico-dispositivo'
+15:45:17,383 INFO  [org.hibernate.orm.beans] (ServerService Thread Pool -- 68) HHH10005004: Stopping BeanContainer : org.hibernate.resource.beans.container.internal.CdiBeanContainerExtendedAccessImpl@658b40d7
+15:45:17,384 INFO  [org.hibernate.service.internal.AbstractServiceRegistryImpl] (ServerService Thread Pool -- 68) HHH000369: Error stopping service [class org.hibernate.resource.beans.internal.ManagedBeanRegistryImpl] : java.lang.NullPointerException
+15:45:17,388 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 68) WFLYJPA0011: Stopping Persistence Unit (phase 1 of 2) Service 'servico.war#servico-dispositivo'
+15:45:17,391 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-2) WFLYJCA0010: Unbound data source [java:jboss/datasources/oraset]
+15:45:17,447 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-6) WFLYSRV0028: Stopped deployment servico.war (runtime-name: servico.war) in 381ms
+15:45:17,798 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 54) WFLYJPA0011: Stopping Persistence Unit (phase 1 of 2) Service 'user-storage-jpa-siper-jar-with-dependencies.jar#user-storage-jpa-siper'
+15:45:17,799 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-2) WFLYJCA0010: Unbound data source [java:jboss/datasources/KeycloakDS]
+15:45:17,799 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-5) WFLYJCA0019: Stopped Driver service with driver-name = oracle
+15:45:17,804 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-6) WFLYSRV0028: Stopped deployment user-storage-jpa-siper-jar-with-dependencies.jar (runtime-name: user-storage-jpa-siper-jar-with-dependencies.jar) in 738ms
+15:45:17,808 ERROR [org.jboss.as.server] (ServerService Thread Pool -- 32) WFLYSRV0022: Deploy of deployment "resource-provider-jar-with-dependencies.jar" was rolled back with no failure message
+15:45:17,809 ERROR [org.jboss.as.server] (ServerService Thread Pool -- 32) WFLYSRV0022: Deploy of deployment "siset-user-session-provider.jar" was rolled back with no failure message
+15:45:17,809 ERROR [org.jboss.as.server] (ServerService Thread Pool -- 32) WFLYSRV0022: Deploy of deployment "validaLogin-jar-with-dependencies.jar" was rolled back with no failure message
+15:45:17,808 ERROR [org.jboss.as.server] (ServerService Thread Pool -- 43) WFLYSRV0022: Deploy of deployment "keycloak-server.war" was rolled back with no failure message
+15:45:17,810 ERROR [org.jboss.as.server] (ServerService Thread Pool -- 32) WFLYSRV0022: Deploy of deployment "user-storage-jpa-siper-jar-with-dependencies.jar" was rolled back with no failure message
+15:45:17,810 ERROR [org.jboss.as.server] (ServerService Thread Pool -- 32) WFLYSRV0022: Deploy of deployment "servico.war" was rolled back with no failure message
+15:45:17,810 ERROR [org.jboss.as.server] (ServerService Thread Pool -- 32) WFLYSRV0022: Deploy of deployment "loginCaixa-jar-with-dependencies.jar" was rolled back with no failure message
+15:45:17,810 ERROR [org.jboss.as.server] (ServerService Thread Pool -- 32) WFLYSRV0022: Deploy of deployment "BrowserPassword-jar-with-dependencies.jar" was rolled back with no failure message
+15:45:17,810 ERROR [org.jboss.as.server] (ServerService Thread Pool -- 32) WFLYSRV0022: Deploy of deployment "eventExternal-jar-with-dependencies.jar" was rolled back with no failure message
+15:45:17,811 ERROR [org.jboss.as.server] (ServerService Thread Pool -- 32) WFLYSRV0022: Deploy of deployment "directgrantpassword-jar-with-dependencies.jar" was rolled back with no failure message
+15:45:17,811 ERROR [org.jboss.as.server] (ServerService Thread Pool -- 32) WFLYSRV0022: Deploy of deployment "OTPCaixaCond.jar" was rolled back with no failure message
+15:45:17,817 INFO  [org.jboss.as] (MSC service thread 1-2) WFLYSRV0050: Red Hat Single Sign-On 7.3.3.GA (WildFly Core 6.0.15.Final-redhat-00001) stopped in 750ms
 
