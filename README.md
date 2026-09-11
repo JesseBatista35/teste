@@ -1,24 +1,16 @@
+Refizemos a captura simultânea nos 4 nós do Router do OKD4, agora filtrando corretamente pelo pool SNAT do Citrix ADC (10.116.4.144/28), conforme identificado pelo Jonathan. Localizamos a conexão exata do teste (10.116.4.151:54735 → 10.116.208.26:443, 18:30:13 UTC) usando o SNI em claro do ClientHello (a Route é edge, então o TLS é decriptado no Router).
 
--sh-4.2$
--sh-4.2$
--sh-4.2$ oc rsh -n openshift-ingress debug-tcpdump-007
-~ # tshark -r /tmp/sigda-test3-007.pcap -Y "ip.addr==10.116.4.151 && tcp.port==54735" -T fields -e frame.time -e ip.src -e ip.dst -e tcp.flags -e tcp.len -e tcp.seq -e tcp.ack
-2026-09-11T18:30:13.517833000+0000      10.116.4.151    10.116.208.26   0x0002  0       0       0
-2026-09-11T18:30:13.517939000+0000      10.116.208.26   10.116.4.151    0x0012  0       0       1
-2026-09-11T18:30:13.518279000+0000      10.116.4.151    10.116.208.26   0x0018  314     1       1
-2026-09-11T18:30:13.518291000+0000      10.116.208.26   10.116.4.151    0x0010  0       1       315
-2026-09-11T18:30:13.519717000+0000      10.116.208.26   10.116.4.151    0x0018  3668    1       315
-2026-09-11T18:30:13.523036000+0000      10.116.208.26   10.116.4.151    0x0018  1008    2661    315
-2026-09-11T18:30:13.541282000+0000      10.116.4.151    10.116.208.26   0x0010  0       315     1331
-2026-09-11T18:30:13.541282000+0000      10.116.4.151    10.116.208.26   0x0010  0       315     3669
-2026-09-11T18:30:13.543273000+0000      10.116.4.151    10.116.208.26   0x0018  64      315     3669
-2026-09-11T18:30:13.543799000+0000      10.116.208.26   10.116.4.151    0x0018  542     3669    379
-2026-09-11T18:30:13.544772000+0000      10.116.4.151    10.116.208.26   0x0010  0       379     3669
-2026-09-11T18:30:13.565777000+0000      10.116.4.151    10.116.208.26   0x0010  0       379     4211
-2026-09-11T18:30:23.545121000+0000      10.116.208.26   10.116.4.151    0x0011  279     4211    379
-2026-09-11T18:30:23.606792000+0000      10.116.4.151    10.116.208.26   0x0010  0       379     4491
-2026-09-11T18:30:28.554306000+0000      10.116.4.151    10.116.208.26   0x0018  1700    379     4491
-2026-09-11T18:30:28.554323000+0000      10.116.208.26   10.116.4.151    0x0004  0       4491    0
-2026-09-11T18:30:28.554792000+0000      10.116.4.151    10.116.208.26   0x0011  0       2079    4491
-2026-09-11T18:30:28.554798000+0000      10.116.208.26   10.116.4.151    0x0004  0       4491    0
-~ #
+Sequência completa da conexão, extraída do pcap:
+
+18:30:13.517 → SYN / SYN-ACK / ClientHello / ServerHello+cert / Finished — TLS completo em ~27ms
+--- 10s de silêncio total ---
+18:30:23.545 → o SERVIDOR (backend real do SIGDA) fecha a conexão com FIN, por timeout de inatividade
+18:30:23.606 → cliente confirma o FIN
+--- mais 5s de silêncio ---
+18:30:28.554 → o CLIENTE finalmente tenta enviar ~1700 bytes (a requisição HTTP) — tarde demais, servidor já fechou → RST
+
+Conclusão: não é rede, DNS, firewall, VIP, SNAT nem Router. O TLS handshake completa perfeitamente em milissegundos. O problema é que o client HTTP (.NET) do SIGAQ demora ~15 segundos entre concluir o TLS e efetivamente escrever a requisição HTTP na conexão — nesse intervalo, o backend do SIGDA (com timeout de inatividade menor) já fechou o socket, e quando o client finalmente envia os dados, recebe RST.
+
+Hipótese mais provável para esse atraso: o certificado do SIGDA tem um campo AIA (Authority Information Access) apontando para http://icptestes.caixa/certs/acicptestessub.cer. Se o SslStream/HttpClient do .NET estiver com verificação de revogação de certificado habilitada (CheckCertificateRevocationList = true), ele tenta validar a CRL/AIA nesse endpoint — que pode não ser alcançável a partir da AKS (rede/DNS interno Caixa) — e fica tentando até estourar timeout, atrasando o envio da requisição real.
+
+Ação recomendada para o time de desenvolvimento do SIGAQ: verificar a configuração do HttpClientHandler/SocketsHttpHandler usado na chamada ao SIGDA — especificamente a flag de checagem de revogação de certificado — e desabilitá-la (ou garantir rota de rede da AKS até o endpoint de CRL/AIA interno da Caixa).
