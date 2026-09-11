@@ -1,7 +1,3 @@
-velhinho, um repo qlq de uma aplicação que não foram adicionadas as Environments Variables....  a gente solicita pra preencher aqui na munheca? Eu não conheço o detalhe do processo de criação no fusion, se é antes ou depois que a equipe solicita o AKS.
+Sobre as Environment Variables/Secrets não preenchidas: o cadastro é feito manualmente na tela do GitHub (Settings > Environments), salvo se o provisionamento via Fusion já automatize esse passo para este ambiente.
 
-
-
-<img width="1553" height="769" alt="image" src="https://github.com/user-attachments/assets/16689dbb-f8f4-4a0f-9da5-a681684b7116" />
-
-
+Não tenho confirmação da ordem exata do fluxo no Fusion — se o scaffold já popula essas variáveis na criação do ambiente ou se isso fica pendente para preenchimento manual após a solicitação do AKS pela equipe. Vou validar esse ponto antes de fechar a resposta.
