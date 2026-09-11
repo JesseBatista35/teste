@@ -1,9 +1,4 @@
-Pessoal, bom dia!
+oc rsh -n openshift-ingress debug-tcpdump-007
+tshark -r /tmp/sigda-test3-007.pcap -Y 'tls.handshake.extensions_server_name contains "sigda"' -T fields -e frame.time -e ip.src -e ip.dst -e tcp.srcport -e tcp.dstport
 
-O desbloqueio funcionou (não aparece mais ORA-28000), mas agora ao subir o JBoss aparece um novo erro na conexão do KeycloakDS:
-
-ORA-01017: invalid username/password; logon denied
-
-A senha desse usuário (SSO_TQS_LOGX) está guardada de forma criptografada no Vault do JBoss desse servidor. Se durante o desbloqueio a senha também foi alterada/resetada, preciso que me passem a senha nova em texto para regerar a entrada no Vault - a senha antiga não funciona mais.
-
-A senha do SSO_TQS_LOGX foi alterada nesse processo?
+tshark -r /tmp/sigda-test3-007.pcap -Y "ip.addr==<IP_ORIGEM> && tcp.port==<PORTA_ORIGEM>" -T fields -e frame.time -e ip.src -e ip.dst -e tcp.flags -e tcp.len
