@@ -1,5 +1,190 @@
-Realizado (conforme solicitado na REQ): removidas as variáveis JAVA_OPTS_MONITORING e URL_APM_SERVER (configuração do agente Elastic APM antigo) do pipeline — era a remoção da configuração de "apm" mencionada na abertura da REQ, conforme item de remoção do APM agent do manual do Application Insights.
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0">
+    <modelVersion>4.0.0</modelVersion>
 
-Observação (fora do escopo original, identificado durante o atendimento): a task "Atualizando Variáveis de Ambiente" da release DES estava falhando com erro de sintaxe bash, corrigido ajustando o valor de uma variável (sem alteração no Task Group compartilhado). Também foi identificado que _ENV.JAVA_OPTIONS_APPEND continha um -javaagent apontando pra um caminho de agente que não existe em aplicações Spring Boot (mecanismo exclusivo do Quarkus) — chegou a causar falha de inicialização da JVM, e foi revertido para o valor original (apenas o trustStore).
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.5.15</version>
+        <relativePath />
+    </parent>
 
-Pendência: aplicações Spring Boot usam o mecanismo Runtime Attach do Application Insights. Para concluir a instrumentação, solicito que o time responsável (Comunidades) inclua no código-fonte: (1) a dependência com.microsoft.azure:applicationinsights-runtime-attach:3.7.5 no pom.xml; (2) a chamada ApplicationInsights.attach() no método main(), antes do SpringApplication.run(). As variáveis de ambiente já configuradas no grupo (CONFIGURATION_CONTENT, CONNECTION_STRING, ROLE_NAME, PROXY etc.) já estão corretas para esse padrão. Após o ajuste, gerar novo build para seguirmos com novo release em DES.
+    <groupId>br.gov.caixa</groupId>
+    <artifactId>SIABM-autenticacao-24horas</artifactId>
+    <version>1.0.0.24</version>
+    <name>SIABM-autenticacao-24horas</name>
+    <description>SIABM-autenticacao-24horas</description>
+
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <commons-lang3.version>3.19.0</commons-lang3.version>
+        <guava.version>33.5.0-jre</guava.version>
+        <uuid-creator.version>6.1.1</uuid-creator.version>
+        <encoder.version>1.4.0</encoder.version>
+
+        <dinamo-hsm.version>4.27.0</dinamo-hsm.version>
+
+        <springdoc-openapi-starter-webmvc-ui.version>2.8.14</springdoc-openapi-starter-webmvc-ui.version>
+
+        <jacoco.version>0.8.12</jacoco.version>
+        <sonar-maven-plugin.version>3.9.0.2155</sonar-maven-plugin.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-oauth2-resource-server</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-oauth2-jose</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.oracle.database.jdbc</groupId>
+            <artifactId>ojdbc11</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>${commons-lang3.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>${guava.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.f4b6a3</groupId>
+            <artifactId>uuid-creator</artifactId>
+            <version>${uuid-creator.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.owasp.encoder</groupId>
+            <artifactId>encoder</artifactId>
+            <version>1.4.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.dinamonetworks.sdk</groupId>
+            <artifactId>dinamo-hsm</artifactId>
+            <version>${dinamo-hsm.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+            <version>2.8.14</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-cache</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.github.ben-manes.caffeine</groupId>
+            <artifactId>caffeine</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>${project.artifactId}</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <excludes>
+                        <exclude>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                        </exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.sonarsource.scanner.maven</groupId>
+                <artifactId>sonar-maven-plugin</artifactId>
+                <version>${sonar-maven-plugin.version}</version>
+            </plugin>
+
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>${jacoco.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>post-unit-test</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <repositories>
+        <repository>
+            <id>central</id>
+            <name>Internal Proxy Central</name>
+            <url>http://binario.caixa:8081/repository/caixa-group/</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>central</id>
+            <name>Internal Proxy Central Plugins</name>
+            <url>http://binario.caixa:8081/repository/caixa-group/</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+
+</project>
