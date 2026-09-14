@@ -1,204 +1,49 @@
-2026-09-14T16:48:38.3733175Z ##[debug]Evaluating condition for step: 'Exportando Variáveis de Ambiente "_ENV."'
-2026-09-14T16:48:38.3734488Z ##[debug]Evaluating: succeeded()
-2026-09-14T16:48:38.3734805Z ##[debug]Evaluating succeeded:
-2026-09-14T16:48:38.3735745Z ##[debug]=> True
-2026-09-14T16:48:38.3736103Z ##[debug]Result: True
-2026-09-14T16:48:38.3736377Z ##[section]Starting: Exportando Variáveis de Ambiente "_ENV."
-2026-09-14T16:48:38.3740261Z ==============================================================================
-2026-09-14T16:48:38.3740359Z Task         : Bash
-2026-09-14T16:48:38.3740422Z Description  : Run a Bash script on macOS, Linux, or Windows
-2026-09-14T16:48:38.3740496Z Version      : 3.227.0
-2026-09-14T16:48:38.3740549Z Author       : Microsoft Corporation
-2026-09-14T16:48:38.3740623Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/bash
-2026-09-14T16:48:38.3740695Z ==============================================================================
-2026-09-14T16:48:39.0936924Z ##[debug]Using node path: /opt/ads-agent/externals/node16/bin/node
-2026-09-14T16:48:39.1645074Z ##[debug]agent.TempDirectory=/opt/ads-agent/_work/_temp
-2026-09-14T16:48:39.1645729Z ##[debug]loading inputs and endpoints
-2026-09-14T16:48:39.1646593Z ##[debug]loading INPUT_TARGETTYPE
-2026-09-14T16:48:39.1652314Z ##[debug]loading INPUT_FILEPATH
-2026-09-14T16:48:39.1656263Z ##[debug]loading INPUT_SCRIPT
-2026-09-14T16:48:39.1656689Z ##[debug]loading INPUT_WORKINGDIRECTORY
-2026-09-14T16:48:39.1656943Z ##[debug]loading INPUT_FAILONSTDERR
-2026-09-14T16:48:39.1657191Z ##[debug]loading ENDPOINT_AUTH_SYSTEMVSSCONNECTION
-2026-09-14T16:48:39.1659078Z ##[debug]loading ENDPOINT_AUTH_SCHEME_SYSTEMVSSCONNECTION
-2026-09-14T16:48:39.1659482Z ##[debug]loading ENDPOINT_AUTH_PARAMETER_SYSTEMVSSCONNECTION_ACCESSTOKEN
-2026-09-14T16:48:39.1665204Z ##[debug]loading SECRET_AZPAT
-2026-09-14T16:48:39.1667378Z ##[debug]loading SECRET_BT_CLIENT_SECRET
-2026-09-14T16:48:39.1669587Z ##[debug]loading SECRET_PW_ISILON
-2026-09-14T16:48:39.1671741Z ##[debug]loading SECRET_OKD_TOKEN_REGISTRY
-2026-09-14T16:48:39.1673875Z ##[debug]loading SECRET_ALOCAIP_SENHA
-2026-09-14T16:48:39.1676005Z ##[debug]loading SECRET_PW_ALOCAIP
-2026-09-14T16:48:39.1678121Z ##[debug]loading SECRET_OKD_TOKEN_KAFKA
-2026-09-14T16:48:39.1680333Z ##[debug]loading SECRET_FORTIFY_APITOKEN
-2026-09-14T16:48:39.1682456Z ##[debug]loading SECRET_FORTIFY_PASS
-2026-09-14T16:48:39.1684559Z ##[debug]loading SECRET_BT_SECRETS_PATH
-2026-09-14T16:48:39.1688356Z ##[debug]loading SECRET_GRAYLOG_PASSWORD
-2026-09-14T16:48:39.1690584Z ##[debug]loading SECRET_PASSWORD_CGC
-2026-09-14T16:48:39.1692702Z ##[debug]loading SECRET_OKD_4_TOKEN
-2026-09-14T16:48:39.1694829Z ##[debug]loading SECRET_TOKEN_CRQ
-2026-09-14T16:48:39.1696939Z ##[debug]loaded 22
-2026-09-14T16:48:39.1699046Z ##[debug]Agent.ProxyUrl=undefined
-2026-09-14T16:48:39.1701251Z ##[debug]Agent.CAInfo=undefined
-2026-09-14T16:48:39.1703361Z ##[debug]Agent.ClientCert=undefined
-2026-09-14T16:48:39.1705481Z ##[debug]Agent.SkipCertValidation=True
-2026-09-14T16:48:39.1707675Z ##[debug]check path : /opt/ads-agent/_work/_tasks/Bash_6c731c3c-3c68-459a-a5c9-bde6e6595b5b/3.227.0/task.json
-2026-09-14T16:48:39.1709975Z ##[debug]adding resource file: /opt/ads-agent/_work/_tasks/Bash_6c731c3c-3c68-459a-a5c9-bde6e6595b5b/3.227.0/task.json
-2026-09-14T16:48:39.1712128Z ##[debug]system.culture=en-US
-2026-09-14T16:48:39.1714261Z ##[debug]failOnStderr=false
-2026-09-14T16:48:39.1716388Z ##[debug]workingDirectory=/opt/ads-agent/_work/r15318/a
-2026-09-14T16:48:39.1718514Z ##[debug]check path : /opt/ads-agent/_work/r15318/a
-2026-09-14T16:48:39.1720729Z ##[debug]targetType=inline
-2026-09-14T16:48:39.1722841Z ##[debug]bashEnvValue=undefined
-2026-09-14T16:48:39.1725277Z ##[debug]script=#!/bin/bash
+exec java -Dquarkus.http.host=0.0.0.0 -Dquarkus.http.port=8080 -Djava.util.logging.manager=org.jboss.logmanager.LogManager -Djavax.net.ssl.trustStore=/deployments/siinp-truststore.jks -Xms500m -Xmx800m -Dhttps.proxyHost=proxydes.caixa -Dhttps.proxyPort=80 -Dhttp.proxyHost=proxydes.caixa -Dhttp.proxyPort=80 -Dhttp.nonProxyHosts=https://data.sandbox.directory.openbankingbrasil.org.br/participants -XX:+ExitOnOutOfMemoryError -cp . -jar /deployments/quarkus-run.jar
+__  ____  __  _____   ___  __ ____  ______ 
+ --/ __ \/ / / / _ | / _ \/ //_/ / / / __/ 
+ -/ /_/ / /_/ / __ |/ , _/ ,< / /_/ /\ \   
+--\___\_\____/_/ |_/_/|_/_/|_|\____/___/   
+2026-09-14 14:44:42,848 WARN  [io.qua.config] (main) Unrecognized configuration key "quarkus.http.encoding.charset" was provided; it will be ignored; verify that the dependency extension for this configuration is set or that you did not make a typo
+2026-09-14 14:44:42,850 WARN  [io.qua.config] (main) Unrecognized configuration key "quarkus.index-page.enabled" was provided; it will be ignored; verify that the dependency extension for this configuration is set or that you did not make a typo
+2026-09-14 14:44:42,851 WARN  [io.qua.config] (main) Unrecognized configuration key "quarkus.http.encoding.enabled" was provided; it will be ignored; verify that the dependency extension for this configuration is set or that you did not make a typo
+2026-09-14 14:44:42,851 WARN  [io.qua.config] (main) Unrecognized configuration key "quarkus.http.encoding.force" was provided; it will be ignored; verify that the dependency extension for this configuration is set or that you did not make a typo
+2026-09-14 14:44:44,627 WARN  [io.qua.agr.run.AgroalConnectionConfigurer] (main) Agroal does not support detecting if a connection is still usable after an exception for database kind: oracle
+2026-09-14 14:44:44,894 WARN  [io.agr.pool] (agroal-11) Datasource '<default>': ORA-01005: null password given; logon denied
 
-IFS=$'\n'
-var_split="-e"
+2026-09-14 14:44:44,976 WARN  [io.agr.pool] (agroal-11) Datasource '<default>': ORA-01005: null password given; logon denied
 
-for OUTPUT in `printenv | sort`
-do
-if [[ "$OUTPUT" =~ ^_ENV_.*  ]]; then
+2026-09-14 14:44:45,069 WARN  [io.agr.pool] (agroal-11) Datasource '<default>': ORA-01005: null password given; logon denied
 
-    Enviroment="${Enviroment} $var_split ${OUTPUT#"_ENV_"}"
-    echo ${OUTPUT#"_ENV_"}
-fi
-done
+2026-09-14 14:44:45,144 WARN  [io.agr.pool] (agroal-11) Datasource '<default>': ORA-01005: null password given; logon denied
 
-echo "##vso[task.setvariable variable=Enviroment;]$Enviroment"
-2026-09-14T16:48:39.1727431Z Generating script.
-2026-09-14T16:48:39.1729638Z ##[debug]which 'bash'
-2026-09-14T16:48:39.1731757Z ##[debug]found: '/bin/bash'
-2026-09-14T16:48:39.1735037Z ##[debug]Agent.Version=3.225.2
-2026-09-14T16:48:39.1737191Z ##[debug]agent.tempDirectory=/opt/ads-agent/_work/_temp
-2026-09-14T16:48:39.1739392Z ##[debug]check path : /opt/ads-agent/_work/_temp
-2026-09-14T16:48:39.1741522Z ========================== Starting Command Output ===========================
-2026-09-14T16:48:39.1743649Z ##[debug]which '/bin/bash'
-2026-09-14T16:48:39.1745795Z ##[debug]found: '/bin/bash'
-2026-09-14T16:48:39.1747937Z ##[debug]/bin/bash arg: /opt/ads-agent/_work/_temp/5d2b151c-3ed3-46e3-a105-c2a779059893.sh
-2026-09-14T16:48:39.1750188Z ##[debug]exec tool: /bin/bash
-2026-09-14T16:48:39.1752299Z ##[debug]arguments:
-2026-09-14T16:48:39.1754430Z ##[debug]   /opt/ads-agent/_work/_temp/5d2b151c-3ed3-46e3-a105-c2a779059893.sh
-2026-09-14T16:48:39.1756702Z [command]/bin/bash /opt/ads-agent/_work/_temp/5d2b151c-3ed3-46e3-a105-c2a779059893.sh
-2026-09-14T16:48:39.1851028Z AMBIENTE=DES
-2026-09-14T16:48:39.1852641Z AUDITORIA_EVENTHUB_ENABLED=true
-2026-09-14T16:48:39.1856367Z AZURE_EVENT_HUB_CONNECTION_STRING=Endpoint=sb://ehnamespace-siinp-des.servicebus.windows.net/;SharedAccessKeyName=siinp_sender;SharedAccessKey=/doz9fctDrHUXxxQH2o3/4jy7RSm+pbIL+AEhKLaU8Q=;EntityPath=eh-trilha-auditoria
-2026-09-14T16:48:39.1856851Z AZURE_EVENT_HUB_NAME=eh-trilha-auditoria
-2026-09-14T16:48:39.1859700Z CAIXA_LDAP_SUBJECT_DN=UID:692793df-2c97-4102-9845-0ec180e50d46,jurisdictionCountryName:BR,businessCategory:Private_Organization,CN:CAIXA_ECONOMICA_FEDERAL,serialNumber:00360305000104,OU:c160a6f5-e5df-5067-9e97-ec6fba62fd87,O:CAIXA_ECONOMICA_FEDERAL,L:BRASILIA,ST:DF,C:BR
-2026-09-14T16:48:39.1860223Z CAIXA_MP_JWT_VERIFY_SSOINTER_ISSUER=https://logindes.caixa.gov.br/auth/realms/internet
-2026-09-14T16:48:39.1862659Z CAIXA_MP_JWT_VERIFY_SSOINTER_PUBLICKEY=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxz8PNmiUW5J1669pWY0APB4flqqDnghAv/QV5DIHyXE39fj9u1DPXbgfDUhUfK0i/B0CHJukbI44Rgo/vuhCMImTnLjS49XuTH6GI4lU/CtdzE/qACMO/GUky73m0Uszo2Bh1wNV+fvw/mMQVAGKj6/qXjSB9npRZKydoXnwGPIepcrqF6KkMJIFtZ+0w35J9SYwgLNezUbAJgs9dq3yMj4ussSfxMFcUC9UKziJJSg0UQfl0fOQGMsrsnUbS2GgXeDqdskbZq9/wfL0ikU2pWf0hKjX+PXtqZI0SVWurVyydc0efbTE7qIlrwF8lWZ8NZ8zcV2oVk7TjoIktZ4zBwIDAQAB
-2026-09-14T16:48:39.1864883Z CAIXA_MP_JWT_VERIFY_SSOINTRA_ISSUER=https://login.des.caixa/auth/realms/intranet
-2026-09-14T16:48:39.1867104Z CAIXA_MP_JWT_VERIFY_SSOINTRA_PUBLICKEY=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzcYY/UbvrEldbQRd4TgLeP9bS8YnaL67MZUsfozWRyocBF3S0L7UEbkPaPoCoBnhoRv8VJHp0grqe3mqEmkMuDlt20Vx6q04ADDyS0c8xaU+Ot+g1Pgwjze944ATUjZogEMko6jvqqUGTt/Nt64yCCIaMaTB119vOBExQim7vPHNe/o7hLxh6VBYINxFA/esxjz8j28/uJWIiK0Gvt07Yx7ycn2DJlQHjnH2GzCSUL87AAYmjyYxW2JZaPLLvRlpcHIWrlr9GNtLiq0++xfJ0jFYxQWs1jxhlfXdqr8NE5vfA/RRRjRFnWzFOhIsOnIHPO9eEwwYzCZSoW2zXkFDYwIDAQAB
-2026-09-14T16:48:39.1867571Z CAIXA_OPEN_FINANCE_CNPJ=00360305000104
-2026-09-14T16:48:39.1867891Z CAIXA_OPEN_FINANCE_ISPB=00360305
-2026-09-14T16:48:39.1868534Z CAIXA_OPEN_FINANCE_ORGANISATION_ID=c160a6f5-e5df-5067-9e97-ec6fba62fd87
-2026-09-14T16:48:39.1868808Z CAIXA_OPEN_FINANCE_SOFTWARE_STATEMENT_ID=692793df-2c97-4102-9845-0ec180e50d46
-2026-09-14T16:48:39.1869059Z CAIXA_PIXAPI_DICT_PATH=/transacoes-financeiras/pagamentos-instantaneos/dict/v1/chaves/
-2026-09-14T16:48:39.1869308Z CAIXA_SIINP_APIM_APIKEY=l7d1b52b1a66d6451db7a9a2a1784fe5a9
-2026-09-14T16:48:39.1869490Z CAIXA_SIINP_APIM_URL=https://api.des.caixa:8443
-2026-09-14T16:48:39.1870664Z CAIXA_SSO_INTRANET_CLIENT_ID=cli-ser-inp
-2026-09-14T16:48:39.1871298Z CAIXA_SSO_INTRANET_CLIENT_SECRET=4b746850-e224-4db3-b656-4acc71d6d74f
-2026-09-14T16:48:39.1871618Z CAIXA_SSO_INTRANET_TOKEN_ENDPOINT=https://login.des.caixa/auth/realms/intranet/protocol/openid-connect/token
-2026-09-14T16:48:39.1872046Z CAIXA_TRUSTSTORE_PATH=/deployments/caixa-truststore-acteste-nprd.jks
-2026-09-14T16:48:39.1872244Z DATA_CADASTRO_CLIENTE_INICIADORA=2026-08-17
-2026-09-14T16:48:39.1872377Z DINAMO_HSM_HOSTNAME=hsmdes.extra.caixa.gov.br
-2026-09-14T16:48:39.1872564Z DINAMO_HSM_PASSWORD='${sinpsd01_hsm}'
-2026-09-14T16:48:39.1872789Z DINAMO_HSM_PREFIXO_ENCRYPTION_PRIVATE_KEY=inp_obsandbox_enc_
-2026-09-14T16:48:39.1875115Z DINAMO_HSM_PREFIXO_SIGNATURE_PRIVATE_KEY=assinatura_caixa_
-2026-09-14T16:48:39.1875279Z DINAMO_HSM_USER_ID=SINPSD01
-2026-09-14T16:48:39.1875453Z DIN_JCA_CONF_FILE=classes\Configuration.ND
-2026-09-14T16:48:39.1875578Z HISTFILE=/tmp/.bash_history
-2026-09-14T16:48:39.1875679Z HSM_DISABLE_SESSION_CACHE=0
-2026-09-14T16:48:39.1875796Z HSM_IP=hsmdes.extra.caixa.gov.br
-2026-09-14T16:48:39.1875910Z HSM_LOG_DIR=stdout
-2026-09-14T16:48:39.1876011Z HSM_LOG_LEVEL=0
-2026-09-14T16:48:39.1880085Z HTTP_PROXY=http://proxydes.caixa:80
-2026-09-14T16:48:39.1880266Z HTTPS_PROXY=http://proxydes.caixa:80
-2026-09-14T16:48:39.1880517Z IBC_REDIRECT_URI=https://siinp-nucleo-web-des.apps.nprd.caixa
-2026-09-14T16:48:39.1880775Z JAVA_OPTIONS_APPEND="-Djavax.net.ssl.trustStore=/deployments/siinp-truststore.jks -Xms500m -Xmx800m"
-2026-09-14T16:48:39.1880932Z JORNADA_CACHE_TTL_SECONDS=3600
-2026-09-14T16:48:39.1881130Z JORNADA_URI_REDIRECT=https://siinp-nucleo-web-des.apps.nprd.caixa/authorize
-2026-09-14T16:48:39.1882009Z LISTA_LOGO_SERVIDORES_BLOQUEADO=ffb7aac7-b6a8-4091-a0f4-6cf17865ff46,6976323f-fe2a-4ac5-a5d6-db3016b70278,18ce9615-81de-4aaa-8671-e8a95d570fb8,25b646d8-e8b5-439c-8901-c4aacccd6ed4,6e3b6f08-23c5-4284-ae5e-e6428e317a86,eca0b435-cb2d-45d9-b35a-7e22968b3a68,d3490ea1-f043-4942-ba79-29906e2bfa1b,b7a7ecd2-a93a-4715-b281-e79b0a388143,9d9ff069-de05-4749-bb54-f0b6d4592337,a56e9c89-012a-4197-b0e3-ff37a1b07031,22edf759-2e70-4ed3-a720-6baf7e5dafd4,4095c8fe-55d9-4596-a62a-c3bcc04a85db,10b4f3da-e04e-4904-9988-e93c8f141ab1,e7d013d6-c15f-49ba-acc9-aa8935abcaef,ffba6a4b-b8c0-43fe-a802-4cc65f47c7fa,3c4a5cda-712b-42df-8389-e9912cc6a6d5,10c49138-4774-41b2-9d1d-26b1026a4974
-2026-09-14T16:48:39.1882483Z LISTA_SERVIDORES_BLOQUEADO=teste
-2026-09-14T16:48:39.1883056Z LISTA_SERVIDORES_PRIORITARIOS=221601a9-6e70-4698-9ea3-1bb28ceb4269,439a9b5c-2cfb-4e57-b60b-20eea83899ca,9326f9b2-ae57-42c4-a0d9-acc4ba434696,06c19499-3412-4125-84b7-d0fbc98b5019,756b9782-d9d4-4f9b-9756-997eba0e2cbd,6a0ec228-70b7-4292-9e64-8fa731b2a730,d7e27a98-ef6c-4b79-b2d8-c2527eba8d84,68308291-ec0d-4398-83ce-68b6b1087e49,aaacb9cf-e8c3-402b-93b8-cf4d3e2ec497,8dd11bd5-165e-4662-9eaa-112ef0d499c0
-2026-09-14T16:48:39.1883791Z LISTA_SERVIDORES_PRIORITARIOS_PJ=c6b15844-e748-4408-abb6-e71fd59d71c5,75db457a-612d-4d62-b557-ba9d32b05216,7c6748a1-2be0-4593-a769-77feb406b3a0,770f6211-dbd4-4c84-b6b1-9104b4a99359,c2d48e71-07af-4442-8c7d-c82d0eb45e5f,6c8b9aed-8e24-4ad6-985f-213623a23be3,2d641a88-4441-44d9-b39a-a864d1ce8890,fde63db6-f775-44d3-ad88-406a1fb0a48d,edb215da-d1f1-47f0-b794-62a7d798ba6a,649ffe9a-503d-4635-a0fd-41f4b5135b6c
-2026-09-14T16:48:39.1884101Z MICROPROFILE_REST_CLIENT_DISABLE_DEFAULT_MAPPER=false
-2026-09-14T16:48:39.1884275Z MINIAPP_CONVENIO_ID=10
-2026-09-14T16:48:39.1885634Z MINIAPP_REDIRECT_URI=https://stgsuperappdes.z15.web.core.windows.net/open-finance/iniciadora-autorizar
-2026-09-14T16:48:39.1886500Z NO_PROXY=https://data.sandbox.directory.openbankingbrasil.org.br/participants
-2026-09-14T16:48:39.1887684Z OPEN_BANKING_BRASIL_CLIENT_ASSERTION_TYPE=urn:ietf:params:oauth:client-assertion-type:jwt-bearer
-2026-09-14T16:48:39.1888622Z OPEN_BANKING_BRASIL_GRANT_TYPE_TOKEN=client_credentials
-2026-09-14T16:48:39.1889817Z OPEN_BANKING_BRASIL_PARENT_ORGANISATION_REFERENCE=ParentOrganisationReference
-2026-09-14T16:48:39.1890809Z OPEN_BANKING_BRASIL_SCOPE_TOKEN=directory:software
-2026-09-14T16:48:39.1892048Z OPEN_BANKING_BRASIL_URI_BANK_KEYSTORE=https://keystore.sandbox.directory.openbankingbrasil.org.br/%s/application.jwks
-2026-09-14T16:48:39.1893100Z OPEN_BANKING_BRASIL_URI_PARTICIPANTS=https://data.sandbox.directory.openbankingbrasil.org.br/participants
-2026-09-14T16:48:39.1894464Z OPEN_BANKING_BRASIL_URI_SOFTWARE_STATEMENT_ASSERTION=https://matls-api.sandbox.directory.openbankingbrasil.org.br/organisations/%s/softwarestatements/%s/assertion
-2026-09-14T16:48:39.1895546Z OPEN_BANKING_BRASIL_URI_TOKEN=https://matls-auth.sandbox.directory.openbankingbrasil.org.br/token
-2026-09-14T16:48:39.1896612Z OPEN_FINANCE_MTLS_CERT=/deployments/siinp_mtls_sandbox_of_072026.p12
-2026-09-14T16:48:39.1897886Z OPEN_FINANCE_MTLS_PASSWORD='${siinp_keystore_sandbox}'
-2026-09-14T16:48:39.1899028Z OPEN_FINANCE_TOKEN_ID_PEPER=Qk1wQkJpQk1wQkJpQk1wQkJpQk1wQkJpQk1wQkJpQk1wQkJpQk1wQkJpQk1wQkJp
-2026-09-14T16:48:39.1900177Z PCM_BASEPATH_REQUEST=/siinp/request
-2026-09-14T16:48:39.1901333Z PCM_BASEPATH_RESPONSE=/siinp/response
-2026-09-14T16:48:39.1902918Z PCM_EVENT_HUB_CONNECTION_STRING=Endpoint=sb://ehnamespace-siinp-des.servicebus.windows.net/;SharedAccessKeyName=siinp_sender;SharedAccessKey=NsGsOUmoYMnf3eCC9p0+jeZ3oQHSpa4eQ+AEhHZCm+4=;EntityPath=eh-audit-pcm
-2026-09-14T16:48:39.1903771Z PCM_EVENTHUB_ENABLED=true
-2026-09-14T16:48:39.1905005Z PCM_EVENT_HUB_NAME=eh-audit-pcm
-2026-09-14T16:48:39.1906085Z PCM_JOURNEY_CONTEXT_TTL=1800
-2026-09-14T16:48:39.1907287Z POOLING_PAGAMENTO_DELAY=0
-2026-09-14T16:48:39.1908493Z PROXY_USER_PASSWORD='${sinpbd01_proxy}'
-2026-09-14T16:48:39.1909658Z PROXY_USER=SINPBD01
-2026-09-14T16:48:39.1910955Z QUARKUS_CACHE_CAFFEINE__CREATE_AND_SAVE_DCR_IF_NOT_EXISTS__EXPIRE_AFTER_WRITE=60S
-2026-09-14T16:48:39.1912012Z QUARKUS_CACHE_CAFFEINE__DCR_BY_ID__EXPIRE_AFTER_WRITE=60S
-2026-09-14T16:48:39.1913225Z QUARKUS_CACHE_CAFFEINE__FIND_BY_COSERVIDOR_AUTORIZACAO__EXPIRE_AFTER_WRITE=60S
-2026-09-14T16:48:39.1915070Z QUARKUS_CACHE_CAFFEINE__HTTP_CLIENT_CACHE__EXPIRE_AFTER_WRITE=60S
-2026-09-14T16:48:39.1916601Z QUARKUS_CACHE_CAFFEINE__KID_OF_JWKS__EXPIRE_AFTER_WRITE=86400S
-2026-09-14T16:48:39.1917075Z QUARKUS_CACHE_CAFFEINE__LABEL_RECENTE_HSM_DINAMO__EXPIRE_AFTER_WRITE=86400S
-2026-09-14T16:48:39.1918560Z QUARKUS_CACHE_CAFFEINE__OPENID_CONFIGURATION__EXPIRE_AFTER_WRITE=60S
-2026-09-14T16:48:39.1919878Z QUARKUS_CACHE_CAFFEINE__PARTICIPANT_CACHE_BY_ID__EXPIRE_AFTER_WRITE=60S
-2026-09-14T16:48:39.1921638Z QUARKUS_CACHE_CAFFEINE__PARTICIPANT_CACHE_FILTERED_BY_ID__EXPIRE_AFTER_WRITE=60S
-2026-09-14T16:48:39.1922145Z QUARKUS_CACHE_CAFFEINE__PARTICIPANTS_CACHE__EXPIRE_AFTER_WRITE=60S
-2026-09-14T16:48:39.1923786Z QUARKUS_CACHE_CAFFEINE__PARTICIPANTS_CACHE_FILTERED_ORDERED__EXPIRE_AFTER_WRITE=60S
-2026-09-14T16:48:39.1925020Z QUARKUS_CACHE_CAFFEINE__PARTICIPANTS_CACHE_ORDERED__EXPIRE_AFTER_WRITE=60S
-2026-09-14T16:48:39.1926325Z QUARKUS_CACHE_CAFFEINE__PRIVATE_KEY_HSM_DINAMO__EXPIRE_AFTER_WRITE=60S
-2026-09-14T16:48:39.1927643Z QUARKUS_CACHE_CAFFEINE__VALID_BANK_AUTHORIZATION_SERVER__EXPIRE_AFTER_WRITE=60S
-2026-09-14T16:48:39.1928914Z QUARKUS_DATASOURCE_JDBC_ENABLE_METRICS=true
-2026-09-14T16:48:39.1930278Z QUARKUS_DATASOURCE_JDBC_INITIAL_SIZE=5
-2026-09-14T16:48:39.1931586Z QUARKUS_DATASOURCE_JDBC_MAX_SIZE=50
-2026-09-14T16:48:39.1932863Z QUARKUS_DATASOURCE_JDBC_MIN_SIZE=5
-2026-09-14T16:48:39.1934420Z QUARKUS_DATASOURCE_JDBC_URL=jdbc:oracle:thin:@cnpexdadvm01-scan4.extra.caixa.gov.br:1521/PDBD001NG
-2026-09-14T16:48:39.1935623Z QUARKUS_DATASOURCE_METRICS_ENABLED=true
-2026-09-14T16:48:39.1936962Z QUARKUS_DATASOURCE_PASSWORD='${sinpbd01_oracle}'
-2026-09-14T16:48:39.1938203Z QUARKUS_DATASOURCE_USERNAME=SINPBD01
-2026-09-14T16:48:39.1939614Z QUARKUS_HIBERNATE_ORM_LOG_SQL=false
-2026-09-14T16:48:39.1940973Z QUARKUS_HTTP_CORS_ACCESS_CONTROL_ALLOW_CREDENTIALS=true
-2026-09-14T16:48:39.1942404Z QUARKUS_HTTP_CORS_METHODS=GET,PUT,POST,DELETE,PATCH
-2026-09-14T16:48:39.1944049Z QUARKUS_HTTP_CORS_ORIGINS=https://siinp-nucleo-web-des.apps.nprd.caixa,https://siinp-gestao-web-des.apps.nprd.caixa,http://localhost:4200
-2026-09-14T16:48:39.1945227Z QUARKUS_HTTP_CORS=true
-2026-09-14T16:48:39.1946591Z QUARKUS_HTTP_TEST_PORT=8888
-2026-09-14T16:48:39.1948033Z QUARKUS_LOG_CATEGORY__BR_GOV_CAIXA__LEVEL=DEBUG
-2026-09-14T16:48:39.1949442Z QUARKUS_LOG_CATEGORY__ORG_APACHE_HTTP__LEVEL=INFO
-2026-09-14T16:48:39.1950858Z QUARKUS_LOG_LEVEL=INFO
-2026-09-14T16:48:39.1952395Z QUARKUS_REDIS_HOSTS=redis://redis-master.redis-siinp-des.svc.cluster.local:6379
-2026-09-14T16:48:39.1953710Z QUARKUS_REDIS_MAX_POOL_SIZE=32
-2026-09-14T16:48:39.1955098Z QUARKUS_REDIS_MAX_WAITING_HANDLERS=256
-2026-09-14T16:48:39.1956553Z QUARKUS_REDIS_PASSWORD='${redis_password}'
-2026-09-14T16:48:39.1957883Z QUARKUS_REDIS_TIMEOUT=20S
-2026-09-14T16:48:39.1959544Z SANDBOX_URI_REDIRECT=siinp-nucleo-web-des.apps.nprd.caixa
-2026-09-14T16:48:39.1960837Z SCOPES_DCR=openid_payments
-2026-09-14T16:48:39.1962356Z SECURITY_CRYPTO_KEY=OI8OTCQC8nJPq9vi9psPgSScWu/6RbezD1o2KzlHETg=
-2026-09-14T16:48:39.1963707Z THREAD_POOL=20
-2026-09-14T16:48:39.1986328Z ##[debug]Processed: ##vso[task.setvariable variable=Enviroment;] -e AMBIENTE=DES -e AUDITORIA_EVENTHUB_ENABLED=true -e AZURE_EVENT_HUB_CONNECTION_STRING=Endpoint=sb://ehnamespace-siinp-des.servicebus.windows.net/;SharedAccessKeyName=siinp_sender;SharedAccessKey=/doz9fctDrHUXxxQH2o3/4jy7RSm+pbIL+AEhKLaU8Q=;EntityPath=eh-trilha-auditoria -e AZURE_EVENT_HUB_NAME=eh-trilha-auditoria -e CAIXA_LDAP_SUBJECT_DN=UID:692793df-2c97-4102-9845-0ec180e50d46,jurisdictionCountryName:BR,businessCategory:Private_Organization,CN:CAIXA_ECONOMICA_FEDERAL,serialNumber:00360305000104,OU:c160a6f5-e5df-5067-9e97-ec6fba62fd87,O:CAIXA_ECONOMICA_FEDERAL,L:BRASILIA,ST:DF,C:BR -e CAIXA_MP_JWT_VERIFY_SSOINTER_ISSUER=https://logindes.caixa.gov.br/auth/realms/internet -e CAIXA_MP_JWT_VERIFY_SSOINTER_PUBLICKEY=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxz8PNmiUW5J1669pWY0APB4flqqDnghAv/QV5DIHyXE39fj9u1DPXbgfDUhUfK0i/B0CHJukbI44Rgo/vuhCMImTnLjS49XuTH6GI4lU/CtdzE/qACMO/GUky73m0Uszo2Bh1wNV+fvw/mMQVAGKj6/qXjSB9npRZKydoXnwGPIepcrqF6KkMJIFtZ+0w35J9SYwgLNezUbAJgs9dq3yMj4ussSfxMFcUC9UKziJJSg0UQfl0fOQGMsrsnUbS2GgXeDqdskbZq9/wfL0ikU2pWf0hKjX+PXtqZI0SVWurVyydc0efbTE7qIlrwF8lWZ8NZ8zcV2oVk7TjoIktZ4zBwIDAQAB -e CAIXA_MP_JWT_VERIFY_SSOINTRA_ISSUER=https://login.des.caixa/auth/realms/intranet -e CAIXA_MP_JWT_VERIFY_SSOINTRA_PUBLICKEY=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzcYY/UbvrEldbQRd4TgLeP9bS8YnaL67MZUsfozWRyocBF3S0L7UEbkPaPoCoBnhoRv8VJHp0grqe3mqEmkMuDlt20Vx6q04ADDyS0c8xaU+Ot+g1Pgwjze944ATUjZogEMko6jvqqUGTt/Nt64yCCIaMaTB119vOBExQim7vPHNe/o7hLxh6VBYINxFA/esxjz8j28/uJWIiK0Gvt07Yx7ycn2DJlQHjnH2GzCSUL87AAYmjyYxW2JZaPLLvRlpcHIWrlr9GNtLiq0++xfJ0jFYxQWs1jxhlfXdqr8NE5vfA/RRRjRFnWzFOhIsOnIHPO9eEwwYzCZSoW2zXkFDYwIDAQAB -e CAIXA_OPEN_FINANCE_CNPJ=00360305000104 -e CAIXA_OPEN_FINANCE_ISPB=00360305 -e CAIXA_OPEN_FINANCE_ORGANISATION_ID=c160a6f5-e5df-5067-9e97-ec6fba62fd87 -e CAIXA_OPEN_FINANCE_SOFTWARE_STATEMENT_ID=692793df-2c97-4102-9845-0ec180e50d46 -e CAIXA_PIXAPI_DICT_PATH=/transacoes-financeiras/pagamentos-instantaneos/dict/v1/chaves/ -e CAIXA_SIINP_APIM_APIKEY=l7d1b52b1a66d6451db7a9a2a1784fe5a9 -e CAIXA_SIINP_APIM_URL=https://api.des.caixa:8443 -e CAIXA_SSO_INTRANET_CLIENT_ID=cli-ser-inp -e CAIXA_SSO_INTRANET_CLIENT_SECRET=4b746850-e224-4db3-b656-4acc71d6d74f -e CAIXA_SSO_INTRANET_TOKEN_ENDPOINT=https://login.des.caixa/auth/realms/intranet/protocol/openid-connect/token -e CAIXA_TRUSTSTORE_PATH=/deployments/caixa-truststore-acteste-nprd.jks -e DATA_CADASTRO_CLIENTE_INICIADORA=2026-08-17 -e DINAMO_HSM_HOSTNAME=hsmdes.extra.caixa.gov.br -e DINAMO_HSM_PASSWORD='${sinpsd01_hsm}' -e DINAMO_HSM_PREFIXO_ENCRYPTION_PRIVATE_KEY=inp_obsandbox_enc_ -e DINAMO_HSM_PREFIXO_SIGNATURE_PRIVATE_KEY=assinatura_caixa_ -e DINAMO_HSM_USER_ID=SINPSD01 -e DIN_JCA_CONF_FILE=classes\Configuration.ND -e HISTFILE=/tmp/.bash_history -e HSM_DISABLE_SESSION_CACHE=0 -e HSM_IP=hsmdes.extra.caixa.gov.br -e HSM_LOG_DIR=stdout -e HSM_LOG_LEVEL=0 -e HTTP_PROXY=http://proxydes.caixa:80 -e HTTPS_PROXY=http://proxydes.caixa:80 -e IBC_REDIRECT_URI=https://siinp-nucleo-web-des.apps.nprd.caixa -e JAVA_OPTIONS_APPEND="-Djavax.net.ssl.trustStore=/deployments/siinp-truststore.jks -Xms500m -Xmx800m" -e JORNADA_CACHE_TTL_SECONDS=3600 -e JORNADA_URI_REDIRECT=https://siinp-nucleo-web-des.apps.nprd.caixa/authorize -e LISTA_LOGO_SERVIDORES_BLOQUEADO=ffb7aac7-b6a8-4091-a0f4-6cf17865ff46,6976323f-fe2a-4ac5-a5d6-db3016b70278,18ce9615-81de-4aaa-8671-e8a95d570fb8,25b646d8-e8b5-439c-8901-c4aacccd6ed4,6e3b6f08-23c5-4284-ae5e-e6428e317a86,eca0b435-cb2d-45d9-b35a-7e22968b3a68,d3490ea1-f043-4942-ba79-29906e2bfa1b,b7a7ecd2-a93a-4715-b281-e79b0a388143,9d9ff069-de05-4749-bb54-f0b6d4592337,a56e9c89-012a-4197-b0e3-ff37a1b07031,22edf759-2e70-4ed3-a720-6baf7e5dafd4,4095c8fe-55d9-4596-a62a-c3bcc04a85db,10b4f3da-e04e-4904-9988-e93c8f141ab1,e7d013d6-c15f-49ba-acc9-aa8935abcaef,ffba6a4b-b8c0-43fe-a802-4cc65f47c7fa,3c4a5cda-712b-42df-8389-e9912cc6a6d5,10c49138-4774-41b2-9d1d-26b1026a4974 -e LISTA_SERVIDORES_BLOQUEADO=teste -e LISTA_SERVIDORES_PRIORITARIOS=221601a9-6e70-4698-9ea3-1bb28ceb4269,439a9b5c-2cfb-4e57-b60b-20eea83899ca,9326f9b2-ae57-42c4-a0d9-acc4ba434696,06c19499-3412-4125-84b7-d0fbc98b5019,756b9782-d9d4-4f9b-9756-997eba0e2cbd,6a0ec228-70b7-4292-9e64-8fa731b2a730,d7e27a98-ef6c-4b79-b2d8-c2527eba8d84,68308291-ec0d-4398-83ce-68b6b1087e49,aaacb9cf-e8c3-402b-93b8-cf4d3e2ec497,8dd11bd5-165e-4662-9eaa-112ef0d499c0 -e LISTA_SERVIDORES_PRIORITARIOS_PJ=c6b15844-e748-4408-abb6-e71fd59d71c5,75db457a-612d-4d62-b557-ba9d32b05216,7c6748a1-2be0-4593-a769-77feb406b3a0,770f6211-dbd4-4c84-b6b1-9104b4a99359,c2d48e71-07af-4442-8c7d-c82d0eb45e5f,6c8b9aed-8e24-4ad6-985f-213623a23be3,2d641a88-4441-44d9-b39a-a864d1ce8890,fde63db6-f775-44d3-ad88-406a1fb0a48d,edb215da-d1f1-47f0-b794-62a7d798ba6a,649ffe9a-503d-4635-a0fd-41f4b5135b6c -e MICROPROFILE_REST_CLIENT_DISABLE_DEFAULT_MAPPER=false -e MINIAPP_CONVENIO_ID=10 -e MINIAPP_REDIRECT_URI=https://stgsuperappdes.z15.web.core.windows.net/open-finance/iniciadora-autorizar -e NO_PROXY=https://data.sandbox.directory.openbankingbrasil.org.br/participants -e OPEN_BANKING_BRASIL_CLIENT_ASSERTION_TYPE=urn:ietf:params:oauth:client-assertion-type:jwt-bearer -e OPEN_BANKING_BRASIL_GRANT_TYPE_TOKEN=client_credentials -e OPEN_BANKING_BRASIL_PARENT_ORGANISATION_REFERENCE=ParentOrganisationReference -e OPEN_BANKING_BRASIL_SCOPE_TOKEN=directory:software -e OPEN_BANKING_BRASIL_URI_BANK_KEYSTORE=https://keystore.sandbox.directory.openbankingbrasil.org.br/%s/application.jwks -e OPEN_BANKING_BRASIL_URI_PARTICIPANTS=https://data.sandbox.directory.openbankingbrasil.org.br/participants -e OPEN_BANKING_BRASIL_URI_SOFTWARE_STATEMENT_ASSERTION=https://matls-api.sandbox.directory.openbankingbrasil.org.br/organisations/%s/softwarestatements/%s/assertion -e OPEN_BANKING_BRASIL_URI_TOKEN=https://matls-auth.sandbox.directory.openbankingbrasil.org.br/token -e OPEN_FINANCE_MTLS_CERT=/deployments/siinp_mtls_sandbox_of_072026.p12 -e OPEN_FINANCE_MTLS_PASSWORD='${siinp_keystore_sandbox}' -e OPEN_FINANCE_TOKEN_ID_PEPER=Qk1wQkJpQk1wQkJpQk1wQkJpQk1wQkJpQk1wQkJpQk1wQkJpQk1wQkJpQk1wQkJp -e PCM_BASEPATH_REQUEST=/siinp/request -e PCM_BASEPATH_RESPONSE=/siinp/response -e PCM_EVENT_HUB_CONNECTION_STRING=Endpoint=sb://ehnamespace-siinp-des.servicebus.windows.net/;SharedAccessKeyName=siinp_sender;SharedAccessKey=NsGsOUmoYMnf3eCC9p0+jeZ3oQHSpa4eQ+AEhHZCm+4=;EntityPath=eh-audit-pcm -e PCM_EVENTHUB_ENABLED=true -e PCM_EVENT_HUB_NAME=eh-audit-pcm -e PCM_JOURNEY_CONTEXT_TTL=1800 -e POOLING_PAGAMENTO_DELAY=0 -e PROXY_USER_PASSWORD='${sinpbd01_proxy}' -e PROXY_USER=SINPBD01 -e QUARKUS_CACHE_CAFFEINE__CREATE_AND_SAVE_DCR_IF_NOT_EXISTS__EXPIRE_AFTER_WRITE=60S -e QUARKUS_CACHE_CAFFEINE__DCR_BY_ID__EXPIRE_AFTER_WRITE=60S -e QUARKUS_CACHE_CAFFEINE__FIND_BY_COSERVIDOR_AUTORIZACAO__EXPIRE_AFTER_WRITE=60S -e QUARKUS_CACHE_CAFFEINE__HTTP_CLIENT_CACHE__EXPIRE_AFTER_WRITE=60S -e QUARKUS_CACHE_CAFFEINE__KID_OF_JWKS__EXPIRE_AFTER_WRITE=86400S -e QUARKUS_CACHE_CAFFEINE__LABEL_RECENTE_HSM_DINAMO__EXPIRE_AFTER_WRITE=86400S -e QUARKUS_CACHE_CAFFEINE__OPENID_CONFIGURATION__EXPIRE_AFTER_WRITE=60S -e QUARKUS_CACHE_CAFFEINE__PARTICIPANT_CACHE_BY_ID__EXPIRE_AFTER_WRITE=60S -e QUARKUS_CACHE_CAFFEINE__PARTICIPANT_CACHE_FILTERED_BY_ID__EXPIRE_AFTER_WRITE=60S -e QUARKUS_CACHE_CAFFEINE__PARTICIPANTS_CACHE__EXPIRE_AFTER_WRITE=60S -e QUARKUS_CACHE_CAFFEINE__PARTICIPANTS_CACHE_FILTERED_ORDERED__EXPIRE_AFTER_WRITE=60S -e QUARKUS_CACHE_CAFFEINE__PARTICIPANTS_CACHE_ORDERED__EXPIRE_AFTER_WRITE=60S -e QUARKUS_CACHE_CAFFEINE__PRIVATE_KEY_HSM_DINAMO__EXPIRE_AFTER_WRITE=60S -e QUARKUS_CACHE_CAFFEINE__VALID_BANK_AUTHORIZATION_SERVER__EXPIRE_AFTER_WRITE=60S -e QUARKUS_DATASOURCE_JDBC_ENABLE_METRICS=true -e QUARKUS_DATASOURCE_JDBC_INITIAL_SIZE=5 -e QUARKUS_DATASOURCE_JDBC_MAX_SIZE=50 -e QUARKUS_DATASOURCE_JDBC_MIN_SIZE=5 -e QUARKUS_DATASOURCE_JDBC_URL=jdbc:oracle:thin:@cnpexdadvm01-scan4.extra.caixa.gov.br:1521/PDBD001NG -e QUARKUS_DATASOURCE_METRICS_ENABLED=true -e QUARKUS_DATASOURCE_PASSWORD='${sinpbd01_oracle}' -e QUARKUS_DATASOURCE_USERNAME=SINPBD01 -e QUARKUS_HIBERNATE_ORM_LOG_SQL=false -e QUARKUS_HTTP_CORS_ACCESS_CONTROL_ALLOW_CREDENTIALS=true -e QUARKUS_HTTP_CORS_METHODS=GET,PUT,POST,DELETE,PATCH -e QUARKUS_HTTP_CORS_ORIGINS=https://siinp-nucleo-web-des.apps.nprd.caixa,https://siinp-gestao-web-des.apps.nprd.caixa,http://localhost:4200 -e QUARKUS_HTTP_CORS=true -e QUARKUS_HTTP_TEST_PORT=8888 -e QUARKUS_LOG_CATEGORY__BR_GOV_CAIXA__LEVEL=DEBUG -e QUARKUS_LOG_CATEGORY__ORG_APACHE_HTTP__LEVEL=INFO -e QUARKUS_LOG_LEVEL=INFO -e QUARKUS_REDIS_HOSTS=redis://redis-master.redis-siinp-des.svc.cluster.local:6379 -e QUARKUS_REDIS_MAX_POOL_SIZE=32 -e QUARKUS_REDIS_MAX_WAITING_HANDLERS=256 -e QUARKUS_REDIS_PASSWORD='${redis_password}' -e QUARKUS_REDIS_TIMEOUT=20S -e SANDBOX_URI_REDIRECT=siinp-nucleo-web-des.apps.nprd.caixa -e SCOPES_DCR=openid_payments -e SECURITY_CRYPTO_KEY=OI8OTCQC8nJPq9vi9psPgSScWu/6RbezD1o2KzlHETg= -e THREAD_POOL=20
-2026-09-14T16:48:39.1997749Z ##[debug]Exit code 0 received from tool '/bin/bash'
-2026-09-14T16:48:39.2001337Z ##[debug]STDIO streams have closed for tool '/bin/bash'
-2026-09-14T16:48:39.2006662Z ##[debug]task result: Succeeded
-2026-09-14T16:48:39.2007761Z ##[debug]Processed: ##vso[task.complete result=Succeeded;done=true;]
-2026-09-14T16:48:39.2035273Z ##[section]Finishing: Exportando Variáveis de Ambiente "_ENV."
+2026-09-14 14:44:45,232 WARN  [io.agr.pool] (agroal-11) Datasource '<default>': ORA-01005: null password given; logon denied
 
+2026-09-14 14:44:45,313 WARN  [io.agr.pool] (agroal-11) Datasource '<default>': ORA-01005: null password given; logon denied
 
+2026-09-14 14:44:45,313 WARN  [org.hib.eng.jdb.env.int.JdbcEnvironmentInitiator] (JPA Startup Thread: <default>) HHH000342: Could not obtain connection to query metadata: java.sql.SQLException: ORA-01005: null password given; logon denied
 
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:509)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:456)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:451)
+	at oracle.jdbc.driver.T4CTTIfun.processError(T4CTTIfun.java:1123)
+	at oracle.jdbc.driver.T4CTTIoauthenticate.processError(T4CTTIoauthenticate.java:552)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:553)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:269)
+	at oracle.jdbc.driver.T4CTTIoauthenticate.doOAUTH(T4CTTIoauthenticate.java:501)
+	at oracle.jdbc.driver.T4CTTIoauthenticate.doOAUTH(T4CTTIoauthenticate.java:1292)
+	at oracle.jdbc.driver.T4CTTIoauthenticate.doOAUTH(T4CTTIoauthenticate.java:1025)
+	at oracle.jdbc.driver.T4CConnection.logon(T4CConnection.java:767)
+	at oracle.jdbc.driver.PhysicalConnection.connect(PhysicalConnection.java:807)
+	at oracle.jdbc.driver.T4CDriverExtension.getConnection(T4CDriverExtension.java:77)
+	at oracle.jdbc.driver.OracleDriver.connect(OracleDriver.java:767)
+	at oracle.jdbc.driver.OracleDriver.connect(OracleDriver.java:572)
+	at io.agroal.pool.ConnectionFactory.createConnection(ConnectionFactory.java:226)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:535)
+	at io.agroal.pool.ConnectionPool$CreateConnectionTask.call(ConnectionPool.java:516)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at io.agroal.pool.util.PriorityScheduledExecutor.beforeExecute(PriorityScheduledExecutor.java:75)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1126)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
 
-
-
-
-passou mais deu um erro no pod
-
-
-siinp-nucleo-des-292-nflpk
-CrashLoopBackOff
+Failed to load config value of type class java.lang.String for: dinamo.hsm.passwordFailed to load config value of type class java.lang.String for: PROXY_USER_PASSWORDFailed to load config value of type class java.lang.String for: open-finance.mtls.password
