@@ -1,14 +1,31 @@
-oc whoami
-oc project siinp-des
 
-# O DC existe mesmo, com esse nome exato?
-oc get dc siinp-nucleo-des -n siinp-des
 
-# Se não existir como DC, será que virou Deployment (k8s nativo)?
-oc get deployment -n siinp-des | grep -i siinp-nucleo
-
-# Confirma o nome do container dentro do DC
-oc get dc siinp-nucleo-des -n siinp-des -o jsonpath='{.spec.template.spec.containers[*].name}{"\n"}'
-
-# Roda o comando exato do script, isolado, pra ver o erro real sem o pipeline no meio
-oc set env deploymentconfig "siinp-nucleo-des" -n siinp-des --list -c "siinp-nucleo-des"
+Run 'oc --help' for usage.
+-sh-4.2$ oc project siinp-des
+Now using project "siinp-des" on server "https://api.nprd.caixa:6443".
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$ oc whoami
+p585600@corp.caixa.gov.br
+-sh-4.2$ oc get dc siinp-nucleo-des -n siinp-des
+NAME               REVISION   DESIRED   CURRENT   TRIGGERED BY
+siinp-nucleo-des   291        3         3
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$ oc get deployment -n siinp-des | grep -i siinp-nucleo
+No resources found.
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$ oc get deployment -n siinp-des | grep -i siinp-nucleo
+No resources found.
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$ oc get dc siinp-nucleo-des -n siinp-des -o jsonpath='{.spec.template.spec.containers[*].name}{"\n"}'
+siinp-nucleo-des
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$ oc set env deploymentconfig "siinp-nucleo-des" -n siinp-des --list -c "siinp-nucleo-des"
+# deploymentconfigs/siinp-nucleo-des, container siinp-nucleo-des
+TZ=America/Sao_Paulo
+-sh-4.2$
