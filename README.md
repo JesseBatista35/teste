@@ -1,105 +1,149 @@
-2026-09-14T19:53:07.5088140Z ##[section]Starting: Alocando o IP (AlocaIP e Infradevops)
-2026-09-14T19:53:07.5091015Z ==============================================================================
-2026-09-14T19:53:07.5091095Z Task         : Bash
-2026-09-14T19:53:07.5091144Z Description  : Run a Bash script on macOS, Linux, or Windows
-2026-09-14T19:53:07.5091300Z Version      : 3.227.0
-2026-09-14T19:53:07.5091348Z Author       : Microsoft Corporation
-2026-09-14T19:53:07.5091409Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/bash
-2026-09-14T19:53:07.5091485Z ==============================================================================
-2026-09-14T19:53:08.3515678Z Generating script.
-2026-09-14T19:53:08.3530303Z ========================== Starting Command Output ===========================
-2026-09-14T19:53:08.3533417Z [command]/bin/bash /opt/ads-agent/_work/_temp/f98d980c-bab7-498f-a20a-c5fb6933bb7a.sh
-2026-09-14T19:53:09.0338485Z [WARNING]:  * Failed to parse /opt/ads-agent/_work/r5660/a/esteira-jboss-
-2026-09-14T19:53:09.0339030Z vm-v2/inventory/inventory_portal.py with script plugin: Invalid empty host name
-2026-09-14T19:53:09.0339202Z provided:
-2026-09-14T19:53:09.0339596Z [WARNING]:  * Failed to parse /opt/ads-agent/_work/r5660/a/esteira-jboss-
-2026-09-14T19:53:09.0339848Z vm-v2/inventory/inventory_portal.py with ini plugin: /opt/ads-
-2026-09-14T19:53:09.0340139Z agent/_work/r5660/a/esteira-jboss-vm-v2/inventory/inventory_portal.py:2:
-2026-09-14T19:53:09.0340373Z Expected key=value host variable assignment, got: os
-2026-09-14T19:53:09.0340684Z ERROR! Completely failed to parse inventory source /opt/ads-agent/_work/r5660/a/esteira-jboss-vm-v2/inventory/inventory_portal.py
-2026-09-14T19:53:09.2211929Z 
-2026-09-14T19:53:09.2212698Z {
-2026-09-14T19:53:09.2213485Z     "_meta": {
-2026-09-14T19:53:09.2213646Z         "hostvars": {
-2026-09-14T19:53:09.2213757Z             "": {
-2026-09-14T19:53:09.2213870Z                 "ambiente": "des",
-2026-09-14T19:53:09.2213992Z                 "ansible_host": "",
-2026-09-14T19:53:09.2214138Z                 "cluster": "CTC_NPRDXF2488HV7_NPRD",
-2026-09-14T19:53:09.2214277Z                 "cluster_principal": "",
-2026-09-14T19:53:09.2215355Z                 "cluster_terraform": "CTC_NPRDXF2488HV7_NPRD",
-2026-09-14T19:53:09.2217022Z                 "cpu": 4,
-2026-09-14T19:53:09.2218880Z                 "datacenter": "NPRD",
-2026-09-14T19:53:09.2220550Z                 "datastore": "CTCHWNPRDPC03_0047",
-2026-09-14T19:53:09.2222215Z                 "detalhe_imagem": null,
-2026-09-14T19:53:09.2224382Z                 "disco_log": 2,
-2026-09-14T19:53:09.2226063Z                 "disco_opt": 10,
-2026-09-14T19:53:09.2228202Z                 "domain": "agil.nprd.caixa.gov.br",
-2026-09-14T19:53:09.2229735Z                 "esx_network": "tn-NPRD+NPRD_AUTO_DES_BSB-ap+VL3676-ep+10.116.192.0",
-2026-09-14T19:53:09.2230228Z                 "esx_network_bck": "tn-NPRD|NPRD_BKP-ap|VL3697-ep",
-2026-09-14T19:53:09.2230693Z                 "esx_network_bck_01": "tn-BACKUP|BACKUP-NPRD-ap|BACKUP-NPRD-ep",
-2026-09-14T19:53:09.2231624Z                 "esx_vcenter_server": "10.122.144.195",
-2026-09-14T19:53:09.2231940Z                 "farm": null,
-2026-09-14T19:53:09.2232182Z                 "id": 2128,
-2026-09-14T19:53:09.2232570Z                 "inclusao": "2021-12-10 15:47:02",
-2026-09-14T19:53:09.2232814Z                 "info_framework": null,
-2026-09-14T19:53:09.2233067Z                 "info_linguagem": null,
-2026-09-14T19:53:09.2233292Z                 "info_tecnologia": null,
-2026-09-14T19:53:09.2233519Z                 "info_versao": null,
-2026-09-14T19:53:09.2233746Z                 "ipbackup": "",
-2026-09-14T19:53:09.2233994Z                 "jboss_apache_status": "ativado",
-2026-09-14T19:53:09.2234228Z                 "memoria": 8,
-2026-09-14T19:53:09.2234457Z                 "net_adapter_type": "vmxnet3",
-2026-09-14T19:53:09.2234711Z                 "nome_imagem": null,
-2026-09-14T19:53:09.2235021Z                 "objeto_origem": "SIIFX-CONTROLM_DES__SERVIDOR",
-2026-09-14T19:53:09.2235601Z                 "plataforma": "vm",
-2026-09-14T19:53:09.2235828Z                 "produto": "jboss",
-2026-09-14T19:53:09.2236074Z                 "recursos_max_id": null,
-2026-09-14T19:53:09.2236354Z                 "sistema": "siifx-batch-vm",
-2026-09-14T19:53:09.2236586Z                 "site": "ctc_nprd",
-2026-09-14T19:53:09.2236891Z                 "solicitacoes_id": 4924,
-2026-09-14T19:53:09.2237119Z                 "status": "ativado",
-2026-09-14T19:53:09.2237340Z                 "terraform": true,
-2026-09-14T19:53:09.2237563Z                 "versao_imagem": null,
-2026-09-14T19:53:09.2237808Z                 "versao_plataforma": "1.0",
-2026-09-14T19:53:09.2238154Z                 "vm_dns": [
-2026-09-14T19:53:09.2238378Z                     "10.116.193.77",
-2026-09-14T19:53:09.2238598Z                     "10.116.193.78"
-2026-09-14T19:53:09.2238827Z                 ],
-2026-09-14T19:53:09.2239044Z                 "vm_ipnetmask": 19,
-2026-09-14T19:53:09.2239272Z                 "vm_ipnetmask_bck": 19,
-2026-09-14T19:53:09.2239506Z                 "vm_ipnetmask_bck_01": 16,
-2026-09-14T19:53:09.2239748Z                 "vsphere_folder": "/vm",
-2026-09-14T19:53:09.2239982Z                 "vsphere_pool": "/Resources/RP_TERRAFORM_NPRD"
-2026-09-14T19:53:09.2240209Z             }
-2026-09-14T19:53:09.2240412Z         }
-2026-09-14T19:53:09.2240624Z     },
-2026-09-14T19:53:09.2240852Z     "ctc_nprd": {
-2026-09-14T19:53:09.2241066Z         "children": [
-2026-09-14T19:53:09.2241282Z             "jboss"
-2026-09-14T19:53:09.2241490Z         ],
-2026-09-14T19:53:09.2241715Z         "vars": {}
-2026-09-14T19:53:09.2241921Z     },
-2026-09-14T19:53:09.2242126Z     "des": {
-2026-09-14T19:53:09.2242338Z         "children": [
-2026-09-14T19:53:09.2242563Z             "local",
-2026-09-14T19:53:09.2242777Z             "ctc_nprd"
-2026-09-14T19:53:09.2242975Z         ],
-2026-09-14T19:53:09.2243198Z         "vars": {}
-2026-09-14T19:53:09.2243404Z     },
-2026-09-14T19:53:09.2243611Z     "jboss": {
-2026-09-14T19:53:09.2243820Z         "hosts": [
-2026-09-14T19:53:09.2244042Z             ""
-2026-09-14T19:53:09.2244244Z         ],
-2026-09-14T19:53:09.2244449Z         "vars": {}
-2026-09-14T19:53:09.2244664Z     },
-2026-09-14T19:53:09.2244871Z     "local": {
-2026-09-14T19:53:09.2245075Z         "hosts": [
-2026-09-14T19:53:09.2245286Z             "127.0.0.1"
-2026-09-14T19:53:09.2245509Z         ],
-2026-09-14T19:53:09.2246174Z         "vars": {
-2026-09-14T19:53:09.2246420Z             "ansible_connection": "local"
-2026-09-14T19:53:09.2246652Z         }
-2026-09-14T19:53:09.2246850Z     }
-2026-09-14T19:53:09.2247051Z }
-2026-09-14T19:53:09.2360060Z ##[error]Bash exited with code '1'.
-2026-09-14T19:53:09.2371650Z ##[section]Finishing: Alocando o IP (AlocaIP e Infradevops)
+Prezados, desde a semana passada estamos tentando fazer deploy via pipeline e a esteira da error.
+
+Exemplo:
+  #13 22.40 [ERROR]     Unresolveable build extension: Plugin io.quarkus.platform:quarkus-maven-plugin:3.27.2 or one of its dependencies could not be resolved:
+  #13 22.40 [ERROR]     Failed to read artifact descriptor for io.quarkus.platform:quarkus-maven-plugin:jar:3.27.2
+  #13 22.40 [ERROR]     -> [Help 2]
+  #13 22.40 [ERROR]     Non-resolvable import POM: The following artifacts could not be resolved: io.quarkus.platform:quarkus-bom:pom:3.27.2 (absent): Could not transfer artifact io.quarkus.platform:quarkus-bom:pom:3.27.2 from/to Nexus Caixa (https://binario.caixa/repository/caixa-group-br): Connect to binario.caixa:443 [binario.caixa/10.122.155.40] failed: Connect timed out @ line 31, column 25 -> [Help 3]
+
+https://github.com/caixagithub/sisfm-backend-painelconta/actions/runs/34846602950/job/104011298622
+
+
+Esse problema ocorre ha quase 2 semanas, não há correção, e está afetando o desenvolvimento e entrega de sistemas.
+
+
+
+
+Skip to content
+GitHub Enterprise
+Users managed by Caixa Economica Federal
+caixagithub
+sisfm-backend-painelconta
+Repository navigation
+Code
+Issues
+Pull requests
+1
+ (1)
+Actions
+Projects
+Wiki
+Security and quality
+1
+ (1)
+Insights
+Settings
+CI/CD Workflow Generic
+caixagithub/sisfm-backend-painelconta_develop_34846602950.14 #14
+All jobs
+Run details
+Annotations
+1 error and 1 warning
+CI_DES / BUILD / BUILD
+failed 5 hours ago in 1m 50s
+Search logs
+8s
+1s
+0s
+1s
+25s
+0s
+0s
+0s
+0s
+59s
+Configure AWS Credentials
+1s
+Assume role in PAAS account
+0s
+Login to ECR
+0s
+Connecting on Registry
+0s
+Docker meta
+2s
+Checkout DevSecOps config repo
+1s
+Localiza arquivos nexus
+0s
+Show nexus
+0s
+Inject nexus repo
+0s
+Build and push
+39s
+  Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+Run docker/build-push-action@v6
+  (node:1448) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+  (Use `node --trace-deprecation ...` to show where the warning was created)
+GitHub Actions runtime token ACs
+Docker info
+Proxy configuration
+Buildx version
+Builder info
+  /usr/bin/docker buildx build --cache-from type=registry,ref=027574771582.dkr.ecr.sa-east-1.amazonaws.com/sisfm/backend-painelconta/sisfm-backend-painelconta:buildcache --cache-to type=registry,ref=027574771582.dkr.ecr.sa-east-1.amazonaws.com/sisfm/backend-painelconta/sisfm-backend-painelconta:cache,mode=max --file ./Dockerfile --iidfile /home/runner/_work/_temp/docker-actions-toolkit-hmOiuG/build-iidfile-4510dea6b9.txt --label org.opencontainers.image.created=2026-09-14T14:19:29.346Z --label org.opencontainers.image.description=Adicionando aplicação: sisfm-backend-painelconta --label org.opencontainers.image.licenses= --label org.opencontainers.image.revision=63bf636545d6950588c89619662cad3143449380 --label org.opencontainers.image.source=https://github.com/caixagithub/sisfm-backend-painelconta --label org.opencontainers.image.title=sisfm-backend-painelconta --label org.opencontainers.image.url=https://github.com/caixagithub/sisfm-backend-painelconta --label org.opencontainers.image.version=34846602950 --platform linux/amd64 --attest type=provenance,mode=min,inline-only=true,builder-id=https://github.com/caixagithub/sisfm-backend-painelconta/actions/runs/34846602950/attempts/2 --tag 027574771582.dkr.ecr.sa-east-1.amazonaws.com/sisfm/backend-painelconta/sisfm-backend-painelconta:34846602950 --metadata-file /home/runner/_work/_temp/docker-actions-toolkit-hmOiuG/build-metadata-40cb438fea.json --push .
+  #0 building with "builder-88338838-e846-4ba3-93f4-f50fcabff001" instance using docker-container driver
+  
+  #1 [internal] load build definition from Dockerfile
+  #1 transferring dockerfile: 1.20kB done
+  #1 DONE 0.0s
+  
+  #2 [internal] load metadata for docker.io/library/maven:3-eclipse-temurin-21
+  #2 ...
+  
+  #3 [internal] load metadata for registry.access.redhat.com/ubi8/openjdk-21:1.21
+  #3 DONE 1.0s
+  
+  #2 [internal] load metadata for docker.io/library/maven:3-eclipse-temurin-21
+  #2 DONE 1.3s
+  
+  #4 [internal] load .dockerignore
+  #4 transferring context: 162B done
+  #4 DONE 0.0s
+  
+  #5 [internal] load build context
+  #5 DONE 0.0s
+  
+  #6 [deploy 1/6] FROM registry.access.redhat.com/ubi8/openjdk-21:1.21@sha256:3b7cce76a6a4ece683ea698e9bc5bf929cce4f46d680959b62f88adf66a84531
+  #6 resolve registry.access.redhat.com/ubi8/openjdk-21:1.21@sha256:3b7cce76a6a4ece683ea698e9bc5bf929cce4f46d680959b62f88adf66a84531 done
+  #6 DONE 0.0s
+  
+  #7 [auth] sharing credentials for 027574771582.dkr.ecr.sa-east-1.amazonaws.com
+  #7 DONE 0.0s
+  
+  #8 importing cache manifest from 027574771582.dkr.ecr.sa-east-1.amazonaws.com/sisfm/backend-painelconta/sisfm-backend-painelconta:buildcache
+  #8 ERROR: failed to configure registry cache importer: 027574771582.dkr.ecr.sa-east-1.amazonaws.com/sisfm/backend-painelconta/sisfm-backend-painelconta:buildcache: not found
+  
+  #9 [build 1/5] FROM docker.io/library/maven:3-eclipse-temurin-21@sha256:a972570be789ee5c9fa23446a8914ac7327560b5c022f662cfa9452aef829f18
+  #9 resolve docker.io/library/maven:3-eclipse-temurin-21@sha256:a972570be789ee5c9fa23446a8914ac7327560b5c022f662cfa9452aef829f18 0.0s done
+  #9 DONE 0.1s
+  
+  #6 [deploy 1/6] FROM registry.access.redhat.com/ubi8/openjdk-21:1.21@sha256:3b7cce76a6a4ece683ea698e9bc5bf929cce4f46d680959b62f88adf66a84531
+  #6 ...
+  
+  #5 [internal] load build context
+  #5 transferring context: 1.24MB 0.1s done
+  #5 DONE 0.2s
+  
+  #6 [deploy 1/6] FROM registry.access.redhat.com/ubi8/openjdk-21:1.21@sha256:3b7cce76a6a4ece683ea698e9bc5bf929cce4f46d680959b62f88adf66a84531
+  #6 sha256:2f1f0f48d0c4d92bc7b8fec1bc7a93d3e634341058fbc3fe43f0c8c5496a8255 0B / 123.88MB 0.2s
+  #6 sha256:d477d8e686b60be3fdf5408547054e112042c9b4f8dc45c5f30fa2db4fdc5956 0B / 39.51MB 0.2s
+  #6 sha256:2f1f0f48d0c4d92bc7b8fec1bc7a93d3e634341058fbc3fe43f0c8c5496a8255 8.39MB / 123.88MB 0.3s
+  #6 sha256:2f1f0f48d0c4d92bc7b8fec1bc7a93d3e634341058fbc3fe43f0c8c5496a8255 23.07MB / 123.88MB 0.5s
+  #6 sha256:2f1f0f48d0c4d92bc7b8fec1bc7a93d3e634341058fbc3fe43f0c8c5496a8255 35.65MB / 123.88MB 0.6s
+  #6 sha256:d477d8e686b60be3fdf5408547054e112042c9b4f8dc45c5f30fa2db4fdc5956 12.58MB / 39.51MB 0.6s
+  #6 sha256:2f1f0f48d0c4d92bc7b8fec1bc7a93d3e634341058fbc3fe43f0c8c5496a8255 44.04MB / 123.88MB 0.8s
+  #6 sha256:d477d8e686b60be3fdf5408547054e112042c9b4f8dc45c5f30fa2db4fdc5956 22.02MB / 39.51MB 0.8s
+  #6 sha256:2f1f0f48d0c4d92bc7b8fec1bc7a93d3e634341058fbc3fe43f0c8c5496a8255 56.62MB / 123.88MB 0.9s
+0s
+7s
+0s
+0s
+1s
+1s
+0s
+
+
+
+
+
