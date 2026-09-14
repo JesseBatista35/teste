@@ -1,11 +1,1 @@
-
-**********************************
-****  JBoss Vault  ***************
-**********************************
-Please enter a Digit::   0: Start Interactive Session   1: Remove Interactive Session  2: Exit
-0
-Starting an interactive session
-Enter directory to store encrypted files: /opt/open/sso/7.3.0/standalone/configuration/jboss.keystore
-Enter Keystore URL: /opt/open/sso/7.3.0/standalone/configuration/jboss.keystore
-Enter Keystore password:
-Enter Keystore password again:
+A lógica é: só faz sentido trocar a senha no Vault do JBoss (aqui no CRJTQAPLLX036) se confirmarmos que a senha configurada nele está realmente diferente da senha correta no banco. Sem essa confirmação, você estaria trocando "no escuro" — e se a suspeita da Jaqueline estiver errada (por exemplo, se o problema for outra coisa, como bloqueio novamente ou expiração), você gastaria tempo mexendo no lugar errado.
