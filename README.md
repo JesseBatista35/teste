@@ -1,1 +1,9 @@
-<img width="1609" height="761" alt="image" src="https://github.com/user-attachments/assets/4b235318-c61d-47ec-bd3a-ec8f95399ff0" />
+Resumo da atuação — SIINP-nucleo (EC DES)
+
+O deploy da aplicação SIINP-nucleo no ambiente DES estava falhando no step "Atualizando Variáveis de Ambiente" da pipeline. A causa foi a inclusão de novas variáveis no grupo de variáveis da Library (AZURE_EVENT_HUB_CONNECTION_STRING e PCM_EVENT_HUB_CONNECTION_STRING) com valores longos e expostos em texto plano, que corrompiam a substituição de variáveis no script do step. Corrigimos marcando essas duas variáveis como secret na Library.
+
+Após essa correção, o step passou a rodar normalmente, mas o pod da aplicação entrou em CrashLoopBackOff com erro de senha nula na conexão com o Oracle (ORA-01005). Identificamos que a variável SMALLRYE_CONFIG_SOURCE_FILE_LOCATIONS (usada pela aplicação pra resolver as senhas via Vault) fica temporariamente ausente durante a execução da pipeline e é restaurada em um step posterior — isso é comportamento normal. O problema foi que a revisão do deploy que subiu (292) travou antes dessa restauração completar, e o rollout falhou sem gerar nova revisão automaticamente. Forçamos manualmente um novo rollout (revisão 294) já com a variável corrigida.
+
+Ao validar essa nova revisão, nos deparamos com um problema não relacionado ao pipeline: o pod não conseguia iniciar por falha de mount do volume NFS siinp-nucleo-data-des, apontando para o servidor nfsctcnprd.ctc.caixa (export /ifs/CADSVISISD4/SERVIDORES/CETAD/SIINP), com erro mount.nfs: Connection timed out. Isso ocorreu nos nodes ceadecldlx081 e ceadecldlx062 do cluster OKD4 NPRD. Outros nodes do mesmo cluster (ceadecldlx079, ceadecldlx068, ceadecldlx076) montam esse mesmo NFS normalmente, sem qualquer problema.
+
+Diante disso, solicitamos que seja verificado se as configurações de rede/firewall desses nodes estão corretas, ou que seja aberta demanda para o time de armazenamento validar a disponibilidade do NFS para esses hosts específicos.
