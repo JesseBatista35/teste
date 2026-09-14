@@ -1,1 +1,6 @@
-A lógica é: só faz sentido trocar a senha no Vault do JBoss (aqui no CRJTQAPLLX036) se confirmarmos que a senha configurada nele está realmente diferente da senha correta no banco. Sem essa confirmação, você estaria trocando "no escuro" — e se a suspeita da Jaqueline estiver errada (por exemplo, se o problema for outra coisa, como bloqueio novamente ou expiração), você gastaria tempo mexendo no lugar errado.
+
+
+<img width="1608" height="384" alt="image" src="https://github.com/user-attachments/assets/53c25f50-9665-4008-8761-52fcefbc0842" />
+
+
+Não existe esse usuário no cofre 
