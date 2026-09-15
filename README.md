@@ -1,43 +1,27 @@
+Entendido — sem acesso ao console nem SSH nesse host, o caminho agora é abrir chamado pro time responsável pelo Apache/balanceador do ambiente SITEC em DES. Segue o texto pronto:
 
-<
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="refresh" content="0;url=main/home"/>
-</head>
-* Connection #0 to host localhost left intact
-* Closing connection #0
-</html>-sh-4.1$ netsat -an | grep :8380 | grep ESTABLISHED
--sh: netsat: comando não encontrado
--sh-4.1$ netstat -an | grep :8380 | grep ESTABLISHED
--sh-4.1$ ss -tnp | grep :8380
--sh-4.1$
--sh-4.1$
--sh-4.1$
--sh-4.1$ nslookup sitec.desenvolvimento.extracaixa
-Server:         10.192.224.137
-Address:        10.192.224.137#53
+Assunto: Node do cluster SITEC (DES) fora de roteamento no balanceador — contexto tec_tel retornando 503 só nesse nó
 
-Name:   sitec.desenvolvimento.extracaixa
-Address: 10.192.220.98
+Ambiente: DES — sitec.desenvolvimento.extracaixa
 
--sh-4.1$ dig sitec.desenvolvimento.extracaixa
+Descrição do problema:
+A aplicação tec_tel (instância sitec-tellus-tqs, JBoss, servidor 10.192.228.217:8380) está retornando "Service Unavailable" (503 padrão do Apache) ao ser acessada via https://sitec.desenvolvimento.extracaixa/tec_tel. A tela apresentada é o erro genérico do Apache httpd, diferente da tela de erro da aplicação (tela "CAIXA") que normalmente aparece quando o JBoss está fora ou com erro de subida.
 
-; <<>> DiG 9.8.2rc1-RedHat-9.8.2-0.68.rc1.el6 <<>> sitec.desenvolvimento.extracaixa
-;; global options: +cmd
-;; Got answer:
-;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 63921
-;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 0
+Evidências já coletadas:
 
-;; QUESTION SECTION:
-;sitec.desenvolvimento.extracaixa. IN   A
+Processo JBoss da instância sitec-tellus-tqs está ativo no servidor 10.192.228.217, sem erros relevantes no log de subida.
+Teste local na própria VM confirma a aplicação saudável:
+  curl -v http://localhost:8380/tec_tel/
 
-;; ANSWER SECTION:
-sitec.desenvolvimento.extracaixa. 20 IN A       10.192.220.98
+Retorno: HTTP/1.1 200 OK, conteúdo normal (redirect para main/home).
 
-;; Query time: 4 msec
-;; SERVER: 10.192.224.137#53(10.192.224.137)
-;; WHEN: Tue Sep 15 10:57:44 2026
-;; MSG SIZE  rcvd: 66
+No mesmo servidor, outra aplicação do sistema (tellus-tqs) responde normalmente via balanceador.
+No outro nó do cluster (10.192.228.85), as aplicações do mesmo sistema respondem normalmente, incluindo o equivalente ao tec_tel.
+Acesso direto ao IP:porta (10.192.228.217:8380) é bloqueado para a rede do usuário (esperado, por política).
+Front-end/balanceador identificado via DNS: sitec.desenvolvimento.extracaixa → 10.192.220.98. Não há acesso disponível a esse host (console de status via navegador não abre; SSH retorna connection refused) para validar diretamente o estado do worker/contexto.
 
--sh-4.1$
+Hipótese:
+O contexto tec_tel para o nó 10.192.228.217 está desabilitado/em erro no balanceador (mod_cluster ou mod_jk), enquanto o restante da aplicação e o outro nó do cluster seguem normais. A aplicação em si está saudável (confirmado via teste local).
+
+Solicitação:
+Verificar no Apache/balanceador (10.192.220.98) o estado do worker/contexto associado a 10.192.228.217:8380 (tec_tel) e reabilitar/reativar, ou informar se é necessário algum ajuste de configuração adicional.
