@@ -1,92 +1,50 @@
-ot@cadtqapllx046:/# cat -n /etc/init.d/jboss-700
-     1  #!/bin/bash
-     2  # Script de inicialização para JBOSS
-     3  #  by c101054
-     4  #=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-     5  JBOSS_HOME=/opt/jboss/jboss
-     6  #JAVA_HOME=`update-alternatives --query java | grep Value | cut -f 2 -d " " | sed 's|/bin/java|/|g'`
-     7  export JBOSS_HOME
-     8  JBOSS_STATUS=0
-     9
-    10  function startJBoss {
-    11          echo "Starting JBoss"
-    12          su jboss -c "nohup $JBOSS_HOME/bin/standalone.sh -b 0.0.0.0 -Djboss.bind.address.management=0.0.0.0 > /dev/null 2> /dev/null &"
-    13          #su - jboss -c "nohup $JBOSS_HOME/bin/standalone.sh -Djboss.bind.address.management=0.0.0.0 > /dev/null 2> /dev/null &"
-    14  }
-    15
-    16  function stopJBoss {
-    17          echo "Stopping JBoss..."
-    18          su - jboss -c "$JBOSS_HOME/bin/jboss-cli.sh --connect command=:shutdown"
-    19          #killall -u jboss
-    20          if [ $? -eq 0 ]; then
-    21                  echo "...JBoss stopped!"
-    22          else
-    23                  echo "... error stopping JBoss"
-    24                  JBOSS_STATUS=1
-    25          fi
-    26  }
-    27
-    28  case $1 in
-    29          start)
-    30                  startJBoss
-    31                  ;;
-    32          stop)
-    33                  stopJBoss
-    34                  ;;
-    35          restart)
-    36                  echo "Restarting Jboss..."
-    37                  stopJBoss
-    38                  if [ $JBOSS_STATUS -eq 0 ]; then
-    39                          startJBoss
-    40                  fi
-    41                  ;;
-    42          esac
-    43  exit $JBOSS_STATUS
-    44
-root@cadtqapllx046:/# cat -n /etc/init.d/jboss-640
-     1  #!/bin/bash
-     2  # Script de inicialização para JBOSS
-     3  #  by c101054
-     4  #=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-     5  JBOSS_HOME=/opt/jboss/jboss/
-     6  JAVA_HOME=`update-alternatives --query java | grep Value | cut -f 2 -d " " | sed 's|/bin/java|/|g'`
-     7  #export JBOSS_HOME JAVA_HOME
-     8  JBOSS_STATUS=0
-     9
-    10  function startJBoss {
-    11          echo "Starting JBoss"
-    12          #su jboss -c "nohup $JBOSS_HOME/bin/standalone.sh -b 0.0.0.0 -Djboss.bind.address.management=0.0.0.0 > /dev/null 2> /dev/null &"
-    13          su - jboss -c "nohup $JBOSS_HOME/bin/standalone.sh -Djboss.bind.address.management=0.0.0.0 > /dev/null 2> /dev/null &"
-    14  }
-    15
-    16  function stopJBoss {
-    17          echo "Stopping JBoss..."
-    18          su - jboss -c "$JBOSS_HOME/bin/jboss-cli.sh --connect command=:shutdown"
-    19          #killall -u jboss
-    20          if [ $? -eq 0 ]; then
-    21                  echo "...JBoss stopped!"
-    22          else
-    23                  echo "... error stopping JBoss"
-    24                  JBOSS_STATUS=1
-    25          fi
-    26  }
-    27
-    28  case $1 in
-    29          start)
-    30                  startJBoss
-    31                  ;;
-    32          stop)
-    33                  stopJBoss
-    34                  ;;
-    35          restart)
-    36                  echo "Restarting Jboss..."
-    37                  stopJBoss
-    38                  if [ $JBOSS_STATUS -eq 0 ]; then
-    39                          startJBoss
-    40                  fi
-    41                  ;;
-    42          esac
-    43  exit $JBOSS_STATUS
-    44
-    45
-root@cadtqapllx046:/#
+
+-sh-4.2$ oc rsh firefox-3-rwpfb -n selenium-grid
+ERRO[0000] exec failed: unable to start container process: exec: "-n": executable file not found in $PATH
+command terminated with exit code 255
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$ oc rsh firefox-3-rwpfb
+$ oc rsh -n selenium-grid firefox-3-rwpfb
+/bin/sh: 1: oc: not found
+$ cul^Htl^H^H^H^H^[[2~^H^H^H^H^H^H^H^H
+/bin: not foundl
+$ curl -v --max-time 15 https://cdn.perfdrive.com/
+*   Trying 130.211.29.114:443...
+* Connection timed out after 15001 milliseconds
+* Closing connection 0
+curl: (28) Connection timed out after 15001 milliseconds
+$ -sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$ oc get netnamespace selenium-grid -o yaml
+apiVersion: network.openshift.io/v1
+egressIPs:
+- 10.121.104.113
+kind: NetNamespace
+metadata:
+  creationTimestamp: 2024-03-13T00:05:42Z
+  generation: 2
+  managedFields:
+  - apiVersion: network.openshift.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:netid: {}
+      f:netname: {}
+    manager: Go-http-client
+    operation: Update
+    time: 2024-03-13T00:05:42Z
+  - apiVersion: network.openshift.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:egressIPs: {}
+    manager: kubectl-patch
+    operation: Update
+    time: 2024-03-25T20:11:07Z
+  name: selenium-grid
+  resourceVersion: "251974098"
+  uid: 510f2287-40e8-45e4-91a7-86296dda83d6
+netid: 15032641
+netname: selenium-grid
+-sh-4.2$
