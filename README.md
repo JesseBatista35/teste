@@ -1,39 +1,8 @@
-À Sonda,
+<img width="1902" height="915" alt="image" src="https://github.com/user-attachments/assets/ee383a56-07de-4ffb-b40f-aa0e3f278c71" />
 
-Solicitamos a avaliação e, se necessário, o ajuste dos repositórios abaixo, conforme o ambiente criado na REQ: "REQ000145922883":
 
-siidp-backend-arquitetura-referencia
+<img width="1916" height="952" alt="image" src="https://github.com/user-attachments/assets/342e7f15-c815-42ee-81b3-e8cc18eaa294" />
 
-GitOps: Revisar e configurar, para os ambientes DES,HMP,PRD,TQS, os seguintes itens: 
-  - APP 
-  - Project 
-  - Labels 
-  - Source e SourceVar
-  - Cluster (apontando para a infraestrutura criada)
 
-Repositórios siidp-backend-arquitetura-referencia-infranprd e siidp-backend-arquitetura-referencia-infraprd
 
-values.yaml (por ambiente):            
-
-Avaliar e ajustar, se necessário: 
-  - HPA 
-  - Service 
-  - Ingress 
-  - Tolerations
-
-Garantir aderência aos requisitos de cada ambiente.
-
-Templates (por ambiente): 
-  - Validar e ajustar os arquivos akvs* para correto apontamento ao Key Vault; 
-  - Revisar ConfigMaps conforme padrão da esteira e garantir configuração no values.yaml;   
-
-Istio: 
-  - Validar a configuração do Istio no ambiente; 
-  - Verificar se o certificado está corretamente configurado e válido;   
-
-Chart.yaml (raiz do ambiente): 
-  - Validar e atualizar para a versão mais recente suportada pelo time de nuvem;  
-
-Evidências: Apresentar os ajustes realizados em cada repositório.   
-
-At.te, CXNDE04
+ele ta pedindo senha eu nao sei qual
