@@ -1,8 +1,9 @@
+grep -n "JBOSS_HOME\|JBOSS_CONFIG\|jboss.home" /etc/init.d/jboss-700
+grep -n "JBOSS_HOME\|JBOSS_CONFIG\|jboss.home" /etc/init.d/jboss-640
 
-root@cadtqapllx046:/#
-root@cadtqapllx046:/# ls -ltr /etc/init.d/ | grep -i jboss
--rwxr-xr-x 1 root root   1176 Jul 29  2019 jboss-700
--rwxr-xr-x 1 root root   1300 Jul 30  2019 jboss-640
-root@cadtqapllx046:/#
-root@cadtqapllx046:/#
-root@cadtqapllx046:/#
+
+/etc/init.d/jboss-700 status
+/etc/init.d/jboss-700 stop
+ps -ef | grep jboss
+/etc/init.d/jboss-700 start
+tail -f /opt/jboss/jboss/standalone/log/server.log
