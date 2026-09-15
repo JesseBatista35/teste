@@ -374,3 +374,111 @@ oauth_response = self.oauth()
 File "/usr/local/lib/python3.13/site-packages/secrets_safe_library/authentication.py", line 125, in oauth
 response = self._req.post(
 endpoint_url,
+
+
+
+
+Skip to main content
+Azure DevOps
+projetos
+/
+Caixa
+/
+Pipelines
+/
+Releases
+/
+SIPGE-webhook
+Search
+
+
+Caixa
+
+Overview
+
+Boards
+
+Repos
+
+Pipelines
+Pipelines
+Environments
+Releases
+Library
+Task groups
+Deployment groups
+Portal Infra
+
+Test Plans
+
+Artifacts
+Project settings
+All pipelines
+
+sipge
+
+SIPGE-webhook
+Predefined variables
+SonarQube Variables (1)
+Variáveis com dados do SonarQube
+Scopes: Release
+Usuario-Azure-DevOps (12)
+Scopes: Release
+MONITORACAO_LOGS (4)
+REQ000143540550 - Conforme autorizado na req por FLAVIO ALMEIDA GAGLIARDI, removido as variáveis JAVA_OPTS_MONITORING e URL_APM_SERVER, por entrar em conflitos com releases que utilizam o Application Insights
+Scopes: Release
+EGRESS_IP_OKD (81)
+WO0000072264656 - Config Portal Infrafácil NO_PROXY
+Scopes: Release
+OKD-REGISTRY-CENTRALIZADO (7)
+Credenciais para o Registry Centralizado - Produtos 4 (OKD)
+Scopes: Release
+OKD-4-NPRD (12)
+Credenciais para o Cluster OKD4 de NPRD (DES/TQS/HMP)
+Scopes: EC DES,EC TQS,EC HMP
+SIPGE-WEBHOOK-DES (7)
+Grupo de variáveis de SIPGE-WEBHOOK-DES
+
+Scopes: EC DES
+VAULT_LOCATION
+/usr/src/app/secrets_files/SIPGE_DES/
+_ENV.CLISER_ID_INTRA
+cli-ser-pge
+_ENV.LOGIN_API_BASE_URL
+https://login.des.caixa
+_ENV.QUARKUS_OIDC_CLIENT_CREDENTIALS_SECRET
+'${CLISERPGE_SSO_INTRA}'
+_ENV.SAP_ECC_API_BASE_URL
+https://integramaisepq.caixaintegrada.caixa/sap/bc/rest
+_ENV.SSO_INTRA_SECRET
+'${CLISERPGE_SSO_INTRA}'
+_SECRET.SMALLRYE.CONFIG.SOURCE.FILE.LOCATIONS
+#{VAULT_LOCATION}#
+SIPGE-webhook-BT-VAULT-DES (1)
+Scopes: EC DES
+BT_SECRETS_LIST
+SIPGE_DES/CLISERPGE_SSO_INTRA,SIPGE_DES/SIPGE_BT_APIKEY
+SIPGE-BT-VAULT-SECRET-DES (2)
+WO0000081607693 - Criação de library
+Scopes: EC DES
+BT_CLIENT_ID
+0f501d71-12ca-4389-bde3-96ce9262c3ec
+BT_CLIENT_SECRET
+********
+SIPGE-WEBHOOK-TQS (1)
+Grupo de variáveis de SIPGE-WEBHOOK-TQS
+Scopes: EC TQS
+SIPGE-WEBHOOK-HMP (1)
+Grupo de variáveis de SIPGE-WEBHOOK-HMP
+Scopes: EC HMP
+OKD-4-APL (12)
+Scopes: EC PRD
+SIPGE-WEBHOOK-PRD (1)
+Grupo de variáveis de SIPGE-WEBHOOK-PRD
+Scopes: EC PRD
+|Manage variable groups
+Showing filters 1 through 2
+
+Showing filters 1 through 2
+
+
