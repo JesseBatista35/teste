@@ -15,3 +15,13 @@ $ curl -v --max-time 15 https://cdn.perfdrive.com/
 * Closing connection 0
 curl: (28) Connection timed out after 15001 milliseconds
 $
+
+
+no terminla direto na console
+
+$ curl -v --max-time ^[[F https://cdn.perfdrive.com/
+curl: option --max-time: expected a proper numerical parameter
+curl: try 'curl --help' or 'curl --manual' for more information
+$ ^C
+$ ^C
+$ 
