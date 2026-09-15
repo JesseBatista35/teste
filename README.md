@@ -1,1 +1,1 @@
-Selenium Grid (QAAPI-apitests/AxeAutomator) - REQ000145919145 - liberação de saída para carregamento do script anti-bot da tela de login SSO
+Namespace selenium-grid (OKD apps.produtos4.caixa) - EgressIP 10.121.104.113
