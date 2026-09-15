@@ -1,8 +1,6 @@
-Origem (HOSTNAME E IP):
-Namespace selenium-grid (OKD apps.produtos4.caixa) - EgressIP 10.121.104.113
+<img width="878" height="710" alt="image" src="https://github.com/user-attachments/assets/def7335d-b6d4-4844-8af4-22d7f1349179" />
 
-Destino (DOMÍNIO/URL/IP):
-cdn.perfdrive.com
 
-Protocolo/Porta:
-TCP 443 (HTTPS)
+ME JAUDA A FECHAR A DEMANDA E SOLICITAR QUE ACOMPENHA A SOLICTIAÇAO DE PROXY NESSA REQ ABERTA AGORA,
+
+TMABEM QUERO UM TESTO PARA SOLICITAR O MEU GESTOU QUE AUTROIZA A ABERTURA DA REQ. EXPLICANDO O MOTIVO DA SOLICITAÇÃO DO PROXY
