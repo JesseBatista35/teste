@@ -232,4 +232,63 @@ Docs
 Contact
 Manage cookies
 Do not share my personal information
+
+
+
+Skip to content
+GitHub Enterprise
+Users managed by Caixa Economica Federal
+android-actions
+setup-android
+Repository navigation
+Code
+Issues
+17
+ (17)
+Pull requests
+11
+ (11)
+Actions
+Projects
+Security and quality
+Insights
+Tags: android-actions/setup-android
+ReleasesTags
+ Tags
+v4.0.1
+ on Apr 4  40fd30f  zip  tar.gz  Notes
+v4
+ on Apr 4  40fd30f  zip  tar.gz
+v4.0.0
+ on Mar 24  651bceb  zip  tar.gz  Notes
+v3.2.2
+ on Nov 9, 2024  9fc6c4e  zip  tar.gz  Notes
+v3
+ on Nov 9, 2024  9fc6c4e  zip  tar.gz
+v3.2.1
+ on Apr 5, 2024  00854ea  zip  tar.gz  Notes
+v3.2.0
+ on Nov 25, 2023  07976c6  zip  tar.gz  Notes
+v3.1.0
+ on Nov 21, 2023  d24156d  zip  tar.gz  Notes
+v3.0.0
+ on Sep 24, 2023  13f8136  zip  tar.gz  Notes
+v2.0.10
+ on Oct 18, 2022  7c56723  zip  tar.gz  Notes
+Footer
+© 2026 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Community
+Docs
+Contact
+Manage cookies
+Do not share my personal information
+
+
+
+ achei isso aqui acho que so tem que atualziar a versao né
  
