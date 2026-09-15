@@ -248,3 +248,129 @@ Origem de Comunicação	 E-mail
 Exibir Acesso	 Interno
 Notas	 Este ticket foi criado a partir do sistema de solicitação de serviço.
 Impresso por P585600 em Terça-feira, 15/09/2026 15:33:25
+
+
+P
+sipge-webhook-des-28-96tbk
+Init:CrashLoopBackOff
+
+secrets-check
+
+ERRO: Nao foram encontrados arquivos com segredos no diretorio '/usr/src/app/secrets_files'.
+
+
+
+
+
+
+OKD
+
+
+Jesse Mouta Pereira Batista
+
+Administrator
+Home
+Overview
+Projects
+Search
+API Explorer
+Events
+Operators
+Workloads
+Pods
+Deployments
+DeploymentConfigs
+StatefulSets
+Secrets
+ConfigMaps
+CronJobs
+Jobs
+DaemonSets
+ReplicaSets
+ReplicationControllers
+HorizontalPodAutoscalers
+PodDisruptionBudgets
+Networking
+Storage
+Builds
+Observe
+Compute
+User Management
+Administration
+
+Project: sipge-des
+Pods
+Pod details
+Pod
+P
+sipge-webhook-des-28-96tbk
+Init:CrashLoopBackOff
+
+Actions
+Details
+Metrics
+YAML
+Environment
+Logs
+Events
+Terminal
+Log stream ended.
+
+Container
+C
+secrets-agent-sidecar
+
+Current log
+Search
+
+Wrap lines
+|
+Raw
+|
+Download
+|
+80 lines
+return self.urlopen(
+~~~~~~~~~~~~^
+method,
+^^^^^^^
+...<13 lines>...
+**response_kw,
+^^^^^^^^^^^^^^
+)
+^
+File "/usr/local/lib/python3.13/site-packages/urllib3/connectionpool.py", line 942, in urlopen
+return self.urlopen(
+~~~~~~~~~~~~^
+method,
+^^^^^^^
+...<13 lines>...
+**response_kw,
+^^^^^^^^^^^^^^
+)
+^
+File "/usr/local/lib/python3.13/site-packages/urllib3/connectionpool.py", line 942, in urlopen
+return self.urlopen(
+~~~~~~~~~~~~^
+method,
+^^^^^^^
+...<13 lines>...
+**response_kw,
+^^^^^^^^^^^^^^
+)
+^
+File "/usr/local/lib/python3.13/site-packages/urllib3/connectionpool.py", line 932, in urlopen
+retries = retries.increment(method, url, response=response, _pool=self)
+File "/usr/local/lib/python3.13/site-packages/urllib3/util/retry.py", line 519, in increment
+raise MaxRetryError(_pool, url, reason) from reason # type: ignore[arg-type]
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='sicsn.caixa', port=443): Max retries exceeded with url: /BeyondTrust/api/public/v3/Auth/connect/token (Caused by ResponseError('too many 400 error responses'))
+During handling of the above exception, another exception occurred:
+Traceback (most recent call last):
+File "/usr/src/app/get_secrets_from_secret_safe.py", line 78, in main
+get_api_access_response = authentication_obj.get_api_access()
+File "/usr/local/lib/python3.13/site-packages/secrets_safe_library/authentication.py", line 159, in get_api_access
+oauth_response = self.oauth()
+File "/usr/local/lib/python3.13/site-packages/secrets_safe_library/authentication.py", line 125, in oauth
+response = self._req.post(
+endpoint_url,
