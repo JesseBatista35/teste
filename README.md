@@ -1,5 +1,39 @@
-Prezados,
-Em atendimento à REQ000146006906, informamos que a configuração dos itens solicitados (GitOps, values.yaml, templates, Istio e Chart.yaml) para o ambiente DES está condicionada à conclusão da solicitação de infraestrutura em aberto junto ao time de Nuvem Pública (recursos EKS, RDS, DynamoDB, MSK, EventBridge, S3, Static Web Site e plugins ArgoCD/Developer Hub/external-dns/akv2k8s referentes à app SIAAF - CostCenter 7762).
-Como a infraestrutura ainda não foi disponibilizada, não é possível concluir os ajustes solicitados nesta REQ dentro do prazo de SLA vigente.
-Diante disso, solicitamos o encerramento desta REQ. Assim que a infraestrutura estiver disponibilizada pelo time de Nuvem Pública, abriremos uma nova requisição específica para realizar os ajustes de GitOps pendentes (APP, Project, Labels, Source/SourceVar, Cluster, values.yaml, templates, Istio e Chart.yaml), conforme detalhado originalmente.
-Permanecemos à disposição para eventuais esclarecimentos.
+À Sonda,
+
+Solicitamos a avaliação e, se necessário, o ajuste dos repositórios abaixo, conforme o ambiente criado na REQ: "REQ000145922883":
+
+siidp-backend-arquitetura-referencia
+
+GitOps: Revisar e configurar, para os ambientes DES,HMP,PRD,TQS, os seguintes itens: 
+  - APP 
+  - Project 
+  - Labels 
+  - Source e SourceVar
+  - Cluster (apontando para a infraestrutura criada)
+
+Repositórios siidp-backend-arquitetura-referencia-infranprd e siidp-backend-arquitetura-referencia-infraprd
+
+values.yaml (por ambiente):            
+
+Avaliar e ajustar, se necessário: 
+  - HPA 
+  - Service 
+  - Ingress 
+  - Tolerations
+
+Garantir aderência aos requisitos de cada ambiente.
+
+Templates (por ambiente): 
+  - Validar e ajustar os arquivos akvs* para correto apontamento ao Key Vault; 
+  - Revisar ConfigMaps conforme padrão da esteira e garantir configuração no values.yaml;   
+
+Istio: 
+  - Validar a configuração do Istio no ambiente; 
+  - Verificar se o certificado está corretamente configurado e válido;   
+
+Chart.yaml (raiz do ambiente): 
+  - Validar e atualizar para a versão mais recente suportada pelo time de nuvem;  
+
+Evidências: Apresentar os ajustes realizados em cada repositório.   
+
+At.te, CXNDE04
