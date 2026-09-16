@@ -1,12 +1,3 @@
--sh: sqlplus: comando não encontrado
--sh-4.2$ oc get dc sicfd-monitoramento-des -n sicfd-des -o jsonpath='{.spec.template.spec.containers[0].command}{"\n"}'
-
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$ oc get dc sicfd-monitoramento-des -n sicfd-des -o jsonpath='{.spec.template.spec.containers[0].args}{"\n"}'
-
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$
+find / -maxdepth 4 -iname "*entrypoint*" -o -iname "*start*.sh" 2>/dev/null
+cat /usr/src/app/entrypoint.sh 2>/dev/null
+ls -la /usr/src/app/
