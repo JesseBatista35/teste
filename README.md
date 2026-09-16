@@ -1,10 +1,3 @@
+oc get dc sicfd-monitoramento-des -n sicfd-des -o jsonpath='{.spec.template.spec.containers[*].name}{"\n"}'
 
--sh-4.2$
--sh-4.2$
--sh-4.2$ cat /usr/src/app/entrypoint.sh 2>/dev/null
--sh-4.2$ ls -la /usr/src/app/
-ls: não é possível acessar /usr/src/app/: Arquivo ou diretório não encontrado
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$
+oc debug dc/sicfd-monitoramento-des -n sicfd-des -c sicfd-monitoramento-des
