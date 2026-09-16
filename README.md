@@ -1,119 +1,66 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.7.13</version>
-		<relativePath /> <!-- lookup parent from repository -->
-	</parent>
+Configuração Beyondtrust Quarkus
 
-	<groupId>br.gov.caixa</groupId>
-	<artifactId>monitora</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>monitoramento</name>
-	<description>Processo de ajustes SICFD </description>
+Follow
+6
 
-	<properties>
-		<java.version>1.8</java.version>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-	</properties>
+Edit
 
-	<dependencies>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-batch</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-rest</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.oracle.database.jdbc</groupId>
-			<artifactId>ojdbc8</artifactId>
-			<scope>runtime</scope>
-		</dependency>
+Rafael Augusto Soares
+30 de jul. de 2025
+Instruções para Integração do BeyondTrust no Projeto Quarkus
+1. A equipe de projeto deve abrir chamado para a equipe de esteiras.
+Solicitar as seguintes ações:
 
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
+Adicionar a task do BeyondTrust na release do projeto após a task Cria_APP_OKD.
+⚠️ Certifique-se de que a task Cria_APP_OKD_ATUALIZA_VARIAVEIS esteja na última versão.
 
-		<dependency>
-			<groupId>io.smallrye.config</groupId>
-			<artifactId>smallrye-config-source-file-system</artifactId>
-			<version>3.13.2</version>
-		</dependency>
+Criar uma library para o escopo desejado, que pode ser DES, TQS e/ou HMP, com o sufixo -BT-VAULT-<AMBIENTE>.
+Exemplos:
 
+meu-projeto-BT-VAULT-DES
+meu-projeto-BT-VAULT-TQS
+meu-projeto-BT-VAULT-HMP
+A equipe da esteira deve informar à equipe de segurança o endereço IP do servidor de origem do sistema, que deverá ser configurado no BeyondTrust.
 
-	</dependencies>
+Caminho para abertura da requisição no servicos.caixa:
 
-	<build>
+Tecnologia da Informação e Comunicação > Centralizadoras de Tecnologia da Informação > Suporte a Infraestrutura de TI NPRD > Suporte à Aplicação Multiplataforma > Suporte ao ambiente de aplicação nas esteiras DevOps
 
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
+2. Abrir chamado para a Segurança: Cadastro de Senhas
+Solicitar o cadastro das senhas na folder do projeto, conforme o(s) ambiente(s) desejado(s): SIGLA_DES, SIGLA_TQS, SIGLA_HMP.
 
-			<plugin>
-				<groupId>org.jacoco</groupId>
-				<artifactId>jacoco-maven-plugin</artifactId>
-				<version>0.8.4</version>
-				<configuration>
-					<append>true</append>
-				</configuration>
-				<executions>
-					<execution>
-						<goals>
-							<goal>prepare-agent</goal>
-						</goals>
-					</execution>
-					<execution>
-						<id>post-unit-test</id>
-						<phase>test</phase>
-						<goals>
-							<goal>report</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
+Informar:
 
+Nome do usuário: usuario
+Produto: oracle
+3. Abrir chamado para a Segurança: Preenchimento da Library
+Solicitar o preenchimento da library criada (meu-projeto-BT-VAULT-<AMBIENTE>).
 
-		</plugins>
-	</build>
+Informar os dados do cofre:
 
+Preencher a variável BT_SECRETS_LIST com a lista de credenciais que serão utilizadas no módulo.
+4. Adicionar dependência no pom.xml do projeto
+Para projetos com Quarkus 3, adicionar:
 
-</project>
+<dependency>
+  <groupId>io.smallrye.config</groupId>
+  <artifactId>smallrye-config-source-file-system</artifactId>
+  <version>3.13.2</version>
+</dependency>
+5. Configurar variável de ambiente na Library
+Cadastrar a variável _ENV.SMALLRYE.CONFIG.SOURCE.FILE.LOCATIONS com o caminho das secrets no pod.
 
+Composição do caminho
+O caminho será composto por:
 
+/usr/src/app/secrets_files/<nome_da_secret_em_minusculo>
+Exemplo de configuração
+BT_SECRETS_LIST=SIXXX_DES/SXXXBD01_Oracle,SIXXX_DES/SXXXSD01_MQ,SIXXX_DES/SIYYY/SYYYBD01
+_ENV.SMALLRYE.CONFIG.SOURCE.FILE.LOCATIONS=/usr/src/app/secrets_files/sixxx_des/,/usr/src/app/secrets_files/sixxx_des/siyyy
+6. Cadastrar senha no formato esperado
+Na library do projeto, cadastrar a senha no seguinte formato:
 
-spring.datasource.driverClassName=oracle.jdbc.OracleDriver
-spring.datasource.jdbcUrl=jdbc:oracle:thin:@10.116.101.7:1521/orad01sc
-spring.datasource.username="SCFDRD01"
-spring.datasource.password="c5f8d4des"
-
-spring.datasource.url=jdbc:oracle:thin:@10.116.101.7:1521/orad01sc
-spring.datasource.username=SCFDRD01
-spring.datasource.password=c5f8d4des
-spring.datasource.driver-class-name=oracle.jdbc.OracleDriver
-
-spring.batch.job.enabled=false
-logging.level.root=INFO
-
-#Spring Boot crie as tabelas automaticamente utilizada pelo spring batch ex.BATCH_JOB_INSTANCE
-#com o prefixo CFD.CFD
-spring.batch.initialize-schema=always
-spring.batch.jdbc.table-prefix=CFD.CFD_BCH_
-
-logging.level.root=INFO
-logging.file.name=/logs/batch-delete.log
-
-CRON_EXPR=0 */1 * * * ?
-
-# Quantidade máxima de registros por execução
-batch.qtde-registros=5
+_ENV.QUARKUS_DATASOURCE_PASSWORD='${sxxxbd01_oracle}'
+_ENV.QUARKUS_MQ_PASSWORD='${sxxxsd01_mq}'
+_ENV.QUARKUS_DATASOURCE_SIYYY_PASSWORD='${syyybd01}'
+69 visits in last 30 days
