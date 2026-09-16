@@ -1,1 +1,3 @@
-O deploy falha porque a senha atual gravada no cofre (BeyondTrust) pro segredo SCFDRD01_ORACLE não é a senha válida da conta Oracle SCFDRD01. O segredo foi alterado no BeyondTrust em 09/09 às 16h08 pelo usuário Lucas Santos, e a partir daí toda tentativa de deploy quebra com ORA-01017 invalid username/password. O pod que está no ar (deploy 88) só continua rodando porque subiu antes dessa alteração. Precisa: (1) confirmar com o Lucas Santos o que foi alterado nesse segredo, e (2) verificar se o segredo SCFDRD01_ORACLE está de fato vinculado à conta certa no BeyondTrust, já que o campo Owner aparece como SCFDRD04.
+<img width="1593" height="748" alt="image" src="https://github.com/user-attachments/assets/ddc53668-9b38-4610-a802-707f7eec617d" />
+
+
