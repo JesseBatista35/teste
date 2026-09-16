@@ -1,43 +1,119 @@
--sh-4.2$ sh /deployments/run-java.sh
-sh: /deployments/run-java.sh: Arquivo ou diretório não encontrado
--sh-4.2$ oc debug dc/sicfd-monitoramento-des -n sicfd-des -c sicfd-monitoramento-des
-Debugging with pod/sicfd-monitoramento-des-debug, original command: <image entrypoint>
-Waiting for pod to start ...
-If you don't see a command prompt, try pressing enter.
-sh-4.4$ ls -la /usr/src/app/secrets_files/SICFD_DES/
-total 24
-drwxr-xr-x. 2 1337 root 160 Sep 16 17:05 .
-drwxrwxrwt. 3 root root  60 Sep 16 17:05 ..
--rw-r--r--. 1 1337 root  36 Sep 16 17:05 CLISERCFD_SSO_INTRA
--rw-r--r--. 1 1337 root 661 Sep 16 17:05 CLISERCFD_SSO_INTRA_Metadata
--rw-r--r--. 1 1337 root   8 Sep 16 17:05 SCFDDR02_DB2
--rw-r--r--. 1 1337 root 649 Sep 16 17:05 SCFDDR02_DB2_Metadata
--rw-r--r--. 1 1337 root   9 Sep 16 17:05 SCFDRD01_ORACLE
--rw-r--r--. 1 1337 root 668 Sep 16 17:05 SCFDRD01_ORACLE_Metadata
-sh-4.4$ cat /usr/src/app/secrets_files/SICFD_DES/SCFDRD01_ORACLE
-c5f8d4dessh-4.4$ export SPRING_DATASOURCE_PASSWORD="$(cat /usr/src/app/secrets_files/SICFD_DES/SCFDRD01_ORACLE)"
-sh-4.4$ sh /deployments/run-java.sh
-exec java -Dserver.address=0.0.0.0 -Dserver.port=8080 -XX:+ExitOnOutOfMemoryError -cp . -jar /deployments/monitora-0.0.1-SNAPSHOT.jar
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.7.13</version>
+		<relativePath /> <!-- lookup parent from repository -->
+	</parent>
 
-  .   ____          _            __ _ _
- /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
-( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
- \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
-  '  |____| .__|_| |_|_| |_\__, | / / / /
- =========|_|==============|___/=/_/_/_/
- :: Spring Boot ::               (v2.7.13)
+	<groupId>br.gov.caixa</groupId>
+	<artifactId>monitora</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>monitoramento</name>
+	<description>Processo de ajustes SICFD </description>
 
-2026-09-16 17:05:54.721  INFO 10 --- [           main] b.g.caixa.monitora.MonitoraApplication   : Starting MonitoraApplication v0.0.1-SNAPSHOT using Java 11.0.14 on sicfd-monitoramento-des-debug with PID 10 (/deployments/monitora-0.0.1-SNAPSHOT.jar started by 1001 in /deployments)
-2026-09-16 17:05:54.724  INFO 10 --- [           main] b.g.caixa.monitora.MonitoraApplication   : No active profile set, falling back to 1 default profile: "default"
-2026-09-16 17:05:58.936  INFO 10 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2026-09-16 17:05:59.013  INFO 10 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2026-09-16 17:05:59.014  INFO 10 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.76]
-2026-09-16 17:05:59.118  INFO 10 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2026-09-16 17:05:59.118  INFO 10 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4196 ms
-2026-09-16 17:06:00.518  INFO 10 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2026-09-16 17:06:01.439  INFO 10 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2026-09-16 17:06:06.213  INFO 10 --- [           main] o.s.b.c.r.s.JobRepositoryFactoryBean     : No database type set, using meta data indicating: ORACLE
-2026-09-16 17:06:06.312  INFO 10 --- [           main] o.s.b.c.l.support.SimpleJobLauncher      : No TaskExecutor has been set, defaulting to synchronous executor.
-2026-09-16 17:06:07.808  INFO 10 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2026-09-16 17:06:07.821  INFO 10 --- [           main] b.g.caixa.monitora.MonitoraApplication   : Started MonitoraApplication in 15.51 seconds (JVM running for 16.762)
+	<properties>
+		<java.version>1.8</java.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+	</properties>
 
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-batch</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-rest</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.oracle.database.jdbc</groupId>
+			<artifactId>ojdbc8</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>io.smallrye.config</groupId>
+			<artifactId>smallrye-config-source-file-system</artifactId>
+			<version>3.13.2</version>
+		</dependency>
+
+
+	</dependencies>
+
+	<build>
+
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>0.8.4</version>
+				<configuration>
+					<append>true</append>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>post-unit-test</id>
+						<phase>test</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+
+		</plugins>
+	</build>
+
+
+</project>
+
+
+
+spring.datasource.driverClassName=oracle.jdbc.OracleDriver
+spring.datasource.jdbcUrl=jdbc:oracle:thin:@10.116.101.7:1521/orad01sc
+spring.datasource.username="SCFDRD01"
+spring.datasource.password="c5f8d4des"
+
+spring.datasource.url=jdbc:oracle:thin:@10.116.101.7:1521/orad01sc
+spring.datasource.username=SCFDRD01
+spring.datasource.password=c5f8d4des
+spring.datasource.driver-class-name=oracle.jdbc.OracleDriver
+
+spring.batch.job.enabled=false
+logging.level.root=INFO
+
+#Spring Boot crie as tabelas automaticamente utilizada pelo spring batch ex.BATCH_JOB_INSTANCE
+#com o prefixo CFD.CFD
+spring.batch.initialize-schema=always
+spring.batch.jdbc.table-prefix=CFD.CFD_BCH_
+
+logging.level.root=INFO
+logging.file.name=/logs/batch-delete.log
+
+CRON_EXPR=0 */1 * * * ?
+
+# Quantidade máxima de registros por execução
+batch.qtde-registros=5
