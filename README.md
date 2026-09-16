@@ -1,15 +1,48 @@
-Prezado(a),
+Ao time de núvem pública, solicitamos a disponibilização dos recursos abaixo no dev.azure:  
+ 
+  CostCenter = 7762
+  BusinessProject = TESTE-PODE-DESCONSIDERAR
+  BusinessUnit = BPEDO
+  IncidentResolutionTeam = CESTI35
+  Environment = DES
+  Owner = C137050
+  OwnerEmail = danilo.s.oliveira@caixa.gov.br
+  SupportTeam = cesti35@caixa.gov.br
+  IacWorkspace = Terraform
+  Sigla = SIAAF
 
-Informamos que a pipeline foi executada com sucesso para os dois hosts do módulo SIIFX-BATCH-VM, conforme solicitado:
+Recursos solicitados:
 
-Host-1: caddeapllx1214.agil.nprd.caixa.gov.br (10.116.195.38) — novo host, incluído no InfraFácil
-Host-2: caddeapllx2798.agil.nprd.caixa.gov.br (10.116.202.9) — host já existente, mantido
+  Gerenciamento de APIs:
+    Serviço: Amazon API Gateway
+    Tipo: Não solicitado
 
-A esteira concluiu o provisionamento e a configuração (NFS, Control-M) em ambos os hosts sem falhas (PLAY RECAP: failed=0 nos dois), confirmando a manutenção dos 2 hosts no módulo conforme solicitado.
+  Cluster Kubernetes: Amazon EKS (Elastic Kubernetes Service)
 
-Considerando o atendimento concluído com sucesso, encerramos esta WO. Qualquer nova necessidade, favor abrir uma nova demanda.
+  Banco de Dados SQL: AWS RDS
 
-Atenciosamente,
+  Banco de Dados NoSQL: Amazon DynamoDB
 
-Jessé Batista (matrícula P585600)
-CTIS/CESTI - Esteira DEVOPS DES TQS NPRD
+  Cache for Redis: Não solicitado
+
+  Static Web Site: Habilitar
+
+  Armazenamento:
+    Tipo: S3
+    Quantidade: Não solicitado
+
+  Streaming de Eventos: MSK
+
+  Mensageria: Event Bridge
+
+Solicitamos a instalação, na infra a ser criada, os plugins abaixo:
+
+  - Argo-CD (Azure e AWS)
+  - Developer Hub Plugin (Azure e AWS)
+  - external-dns (Azure)
+  - akv2k8s (Azure)
+
+
+
+
+  a req ainda noa foi atendida, nao dpa para conluir a configuração
