@@ -1,30 +1,8 @@
+oc get dc sicfd-monitoramento-des -n sicfd-des -o jsonpath='{range .spec.template.spec.containers[*].env[*]}{.name}={.value}{"\n"}{end}'
 
--sh-4.2$
--sh-4.2$ oc get dc sicfd-monitoramento-des -n sicfd-des -o yaml | grep -A 3 -i "secretKeyRef\|valueFrom"
-                    f:valueFrom:
-                      .: {}
-                      f:secretKeyRef: {}
-                  k:{"name":"CLIENT_SECRET"}:
-                    .: {}
-                    f:name: {}
-                    f:valueFrom:
-                      .: {}
-                      f:secretKeyRef: {}
-                  k:{"name":"SECRETS_LIST"}:
-                    .: {}
-                    f:name: {}
---
-          valueFrom:
-            secretKeyRef:
-              key: BT_CLIENT_ID
-              name: bt-client-secret-sicfd-monitoramento-des
-        - name: CLIENT_SECRET
-          valueFrom:
-            secretKeyRef:
-              key: BT_CLIENT_SECRET
-              name: bt-client-secret-sicfd-monitoramento-des
-        - name: BT_API_VERSION
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$
+oc get dc sicfd-monitoramento-des -n sicfd-des -o jsonpath='{range .spec.template.spec.containers[*].env[*]}{.name}{"\t"}{.valueFrom.secretKeyRef.name}{"\t"}{.valueFrom.secretKeyRef.key}{"\t"}{.valueFrom.configMapKeyRef.name}{"\n"}{end}'
+
+oc get secret bt-client-secret-sicfd-monitoramento-des -n sicfd-des -o jsonpath='{.data}' | python3 -m json.tool
+
+oc get configmap -n sicfd-des | grep -i "bt\|beyond\|monitora"
+
