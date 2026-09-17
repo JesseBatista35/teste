@@ -1,31 +1,5 @@
+/opt/jboss/jboss-eap/bin/jboss-cli.sh --connect controller=10.116.89.252:9999
 
-[root@sbrdeapllx093 p585600]# netstat -tlnp | grep java
-tcp        0      0 10.116.89.252:5978          0.0.0.0:*                   LISTEN      53654/java
-tcp        0      0 10.116.89.252:12730         0.0.0.0:*                   LISTEN      40680/java
-tcp        0      0 10.116.89.252:10459         0.0.0.0:*                   LISTEN      53654/java
-tcp        0      0 10.116.89.252:7547          0.0.0.0:*                   LISTEN      40416/java
-tcp        0      0 10.116.89.252:6847          0.0.0.0:*                   LISTEN      52038/java
-tcp        0      0 10.116.89.252:10530         0.0.0.0:*                   LISTEN      53654/java
-tcp        0      0 10.116.89.252:6628          0.0.0.0:*                   LISTEN      40416/java
-tcp        0      0 10.116.89.252:11109         0.0.0.0:*                   LISTEN      40416/java
-tcp        0      0 10.116.89.252:8997          0.0.0.0:*                   LISTEN      40286/java
-tcp        0      0 10.116.89.252:12997         0.0.0.0:*                   LISTEN      40244/java
-tcp        0      0 10.116.89.252:5928          0.0.0.0:*                   LISTEN      52038/java
-tcp        0      0 10.116.89.252:10409         0.0.0.0:*                   LISTEN      52038/java
-tcp        0      0 10.116.89.252:9097          0.0.0.0:*                   LISTEN      40680/java
-tcp        0      0 127.0.0.1:44842             0.0.0.0:*                   LISTEN      40184/java
-tcp        0      0 10.116.89.252:11180         0.0.0.0:*                   LISTEN      40416/java
-tcp        0      0 10.116.89.252:8078          0.0.0.0:*                   LISTEN      40286/java
-tcp        0      0 10.116.89.252:12078         0.0.0.0:*                   LISTEN      40244/java
-tcp        0      0 10.116.89.252:12559         0.0.0.0:*                   LISTEN      40286/java
-tcp        0      0 10.116.89.252:16559         0.0.0.0:*                   LISTEN      40244/java
-tcp        0      0 10.116.89.252:9999          0.0.0.0:*                   LISTEN      40199/java
-tcp        0      0 10.116.89.252:10480         0.0.0.0:*                   LISTEN      52038/java
-tcp        0      0 10.116.89.252:6897          0.0.0.0:*                   LISTEN      53654/java
-tcp        0      0 10.116.89.252:8178          0.0.0.0:*                   LISTEN      40680/java
-tcp        0      0 10.116.89.252:12659         0.0.0.0:*                   LISTEN      40680/java
-tcp        0      0 10.116.89.252:57300         0.0.0.0:*                   LISTEN      40416/java
-tcp        0      0 10.116.89.252:12630         0.0.0.0:*                   LISTEN      40286/java
-tcp        0      0 10.116.89.252:16630         0.0.0.0:*                   LISTEN      40244/java
-tcp        0      0 10.116.89.252:11543         0.0.0.0:*                   LISTEN      40416/java
-[root@sbrdeapllx093 p585600]#
+/host=*:read-children-names(child-type=host)
+
+/host=<nome-do-host>/server=sigfi-ecr_node1_lx0093/subsystem=modcluster/mod-cluster-config=configuration:list-proxies-info
