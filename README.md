@@ -1,33 +1,5 @@
+Carlos Augusto, vimos o print que você mandou do certificado aberto - a cadeia está correta e válida mesmo, CN=ECO.DATAPREV.DES.CAIXA.GOV.BR, emitido pela Autoridade Certificadora do SERPRO Final SSL, válido até 22/12/2026. Sobre o ponto do HSM, faz sentido, deve ser só a convenção de nome interno do alias mesmo.
 
-[root@srjtqapllx0021 sifug]# grep -ri "pkcs11\|dinamo" /opt/open/java/jdk1.8.0_121/jre/lib/security/java.security
-[root@srjtqapllx0021 sifug]# find / -iname "*dinamo*" 2>/dev/null
-[root@srjtqapllx0021 sifug]#
-[root@srjtqapllx0021 sifug]#
-[root@srjtqapllx0021 sifug]# keytool -list -v -keystore /infra_app/config/sifug/IF104.p12 -storetype PKCS12
-Enter keystore password:
+Aqui do nosso lado, no servidor, o problema é outro: testamos o arquivo eco.dataprev.des.caixa.gov.br.p12 com senha em branco (não recebemos a senha junto com o arquivo) e o openssl retornou "Mac verify error: invalid password" - ou seja, a senha vazia está incorreta, e é isso que está impedindo a leitura completa do certificado por aqui, não o HSM.
 
-*****************  WARNING WARNING WARNING  *****************
-* The integrity of the information stored in your keystore  *
-* has NOT been verified!  In order to verify its integrity, *
-* you must provide your keystore password.                  *
-*****************  WARNING WARNING WARNING  *****************
-
-Keystore type: PKCS12
-Keystore provider: SunJSSE
-
-Your keystore contains 1 entry
-
-Alias name: dinamo hsm
-Creation date: Sep 17, 2026
-Entry type: PrivateKeyEntry
-
-
-*******************************************
-*******************************************
-
-
-[root@srjtqapllx0021 sifug]# openssl pkcs12 -in /infra_app/config/sifug/IF104.p12 -clcerts -nokeys -passin pass: | openssl x509 -noout -subject -issuer -serial -dates
-Mac verify error: invalid password?
-unable to load certificate
-139827096045384:error:0906D06C:PEM routines:PEM_read_bio:no start line:pem_lib.c:703:Expecting: TRUSTED CERTIFICATE
-[root@srjtqapllx0021 sifug]#
+Poderia nos passar a senha correta do arquivo .p12? Assim que confirmarmos que abre certo no servidor, seguimos com o reinício do server SIFUG.
