@@ -1,26 +1,21 @@
+Jesse Mouta Pereira Batista
+Boa tarde
  
-
+Tudo bem?
  
-
+estou investigando uma demanda de servidores que pararam de se reportar no Puppet Master
  
+Vi que nesse servidor abaixo vc desabilitou o serviço:
+[root@sspdeaprlx0027 ~]# puppet agent -t
 
-Interface gráfica do usuário
+Notice: Skipping run of Puppet configuration client; administratively disabled (Reason: 'Ajuste manual siavl CORS - Jesse - 20260831');
 
-O conteúdo gerado por IA pode estar incorreto. 
+Use 'puppet agent --enable' to re-enable.
 
+[root@sspdeaprlx0027 ~]#
  
-
-Procedimentos para obtenção de PKCS#12 e Inserção de Senhas 
-
+lembra o motivo, pra eu documentar aqui ?
  
-
-​​Sumário 
-
-​ 
-
-​ 
-
-​ 
 
 ​ 
 
