@@ -1,13 +1,4 @@
-Preencha o campo Origem (HOSTNAME E IP) assim:
+<img width="857" height="718" alt="image" src="https://github.com/user-attachments/assets/a2bfb496-bf1c-404c-8031-ec175401dc3f" />
 
-Hostname: sicbp-trilha-api-des (namespace sicbp-des)
-IP: 10.116.222.84
 
-Resumo pronto do formulário:
-
-Ambiente: Não produção (TQS/DES/HMP)
-Nome do Projeto/Descrição: SICBP-TRILHA-API - Liberação de proxy para Application Insights (Azure Monitor) - Ambiente DES
-Origem (HOSTNAME E IP): sicbp-trilha-api-des (namespace sicbp-des) / 10.116.222.84
-Destino (DOMÍNIO/URL/IP): brazilsoutheast-0.in.applicationinsights.azure.com; brazilsoutheast.livediagnostics.monitor.azure.com
-Protocolo/Porta: HTTPS / 443
-Matrícula do aprovador: (seu gestor chefe ou eventual — só você preenche)
+PRONTO ME AJUDA A FECHAR A W.O INFORMAS QUE A FOI RELAIZADA A SOLCIITAÇÃ ODE PROXUY E QUE ELES DEVEM AGUARDAR, O ATENDEIMENTO DA REQ MENCINANDA REQ000146046751
