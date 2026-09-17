@@ -1,9 +1,1 @@
-
-[domain@10.116.89.252:9999 /] :read-children-names(child-type=host)
-{
-    "outcome" => "success",
-    "result" => ["risco_sbrdeapllx093"]
-}
-[domain@10.116.89.252:9999 /] ls /host
-risco_sbrdeapllx093
-[domain@10.116.89.252:9999 /]
+/host=risco_sbrdeapllx093/server=sigfi-ecr_node1_lx0093/subsystem=modcluster/mod-cluster-config=configuration:list-proxies-info
