@@ -1,21 +1,9 @@
-Prezados,
-
-Referente à falha de comunicação do módulo SICBP-TRILHA-API com o Application Insights em ambiente DES (erro "Forefront TMG denied the specified URL" ao tentar acessar os endpoints de telemetria do Azure Monitor).
-
-Ação realizada: identificado que o bloqueio ocorre no proxy corporativo (Forefront TMG), que nega o acesso às URLs de telemetria do Application Insights. Foi aberta solicitação de liberação de proxy (Serviço Proxy - Não Produção) com os seguintes dados:
-Origem: sicbp-trilha-api-des (namespace sicbp-des) / 10.116.222.84
-Destino: brazilsoutheast-0.in.applicationinsights.azure.com, brazilsouth.livediagnostics.monitor.azure.com, brazilsoutheast.livediagnostics.monitor.azure.com
-Protocolo/Porta: HTTPS / 443
-Protocolo da requisição: REQ000146046751
-
-Pendência: aguardar atendimento e liberação da REQ pela equipe responsável (CETEL/Proxy). Após a liberação, será necessário validar novamente a integração com o Application Insights.
-
-Mensagem no Teams para o supervisor aprovar a REQ:
-
-Bom dia,
-
-Foi aberta a solicitação REQ000146046751 (liberação de proxy para o SICBP-TRILHA-API acessar o Application Insights em ambiente DES) e ela está pendente da sua aprovação como gestor. Poderia aprovar quando possível para não travar o andamento? Qualquer dúvida sobre o conteúdo da requisição fico à disposição.
-
-Obrigado.
-
-Quer que eu ajuste o nome do destinatário na mensagem do Teams, ou fica genérico assim mesmo?
+Todos os p12 gerados pelo HSM Dínamo possuem esse nome de chave interno, isso não deveria interferir no uso da chave, já que os demais funcionam normalmente nos diversos aplicativos nas diversas arquiteturas da Caixa.
+Por ser um P12, a chave privada está no arquivo.
+ 
+Quando você afirma "o keytool não consegue ler as informações normais de certificado", qual erro está ocorrendo?
+ 
+Ele é um certificado A1, pois temos o PKCS#12. Certificados do tipo A3 são armazenados em hardwares criptográficos e a chave privada não pode ser exportada, impedindo de gerarmos um PKCS#12.
+ 
+É um ICP Brasil porque foi emitido pelo SERPRO, cadeia Autoridade Certificadora do SERPRO Final SSL, vinculada à Autoridade Certificadora Raiz Brasileira v5:
+ 
