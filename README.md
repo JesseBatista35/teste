@@ -1,10 +1,36 @@
-Assunto: 403 Forbidden intermitente em recursos estáticos de https://sigfi2.desenvolvimento.extracaixa/ecr-web/
 
-Descrição: A aplicação SIGFI-ECR (/ecr-web/) carrega normalmente (200 OK), mas aproximadamente metade das requisições de recursos estáticos (CSS/JS) retornam 403 Forbidden de forma intermitente, todas com corpo idêntico de 218 bytes (página Forbidden padrão do Apache). O padrão é consistente com round-robin entre os dois nodes Apache do VIP 10.116.80.21 (10.116.84.136 e 10.116.84.137), sugerindo que um dos dois está com config/ACL/cache divergente para esses paths estáticos.
+Verificação do NFS do servidor 10.116.208.100 para ver se tem algum diretório montando. Esse é da Esteira devOps, foi criado recentemente
 
-Já validado (descartando causa aplicativa):
 
-Contexto /ecr-web está ENABLED em ambos os proxies mod_cluster (10.116.84.136:6666 e 10.116.84.137:6666), verificado via jboss-cli no node sigfi-ecr_node1_lx0093 (10.116.89.252).
-GET /ecr-web/ direto no VIP retorna 200 com HTML completo.
-Os dois Apaches físicos recusam conexão direta (só aceitam via VIP), não sendo possível isolar qual dos dois está com o problema a partir do meu acesso.
-Solicito: verificação de configuração/cache nos dois Apaches (10.116.84.136 e 10.116.84.137) atrás do VIP sigfi2.desenvolvimento.extracaixa (10.116.80.21), especialmente regras de ACL/Deny/cache aplicadas de forma divergente entre os dois nodes para os paths estáticos de /ecr-web/resources/*.
+[p585600@cadsvitrlx100 ~]$
+[p585600@cadsvitrlx100 ~]$
+[p585600@cadsvitrlx100 ~]$ ssh 10.116.208.100
+p585600@10.116.208.100: Permission denied (publickey,gssapi-keyex,gssapi-with-mic).
+[p585600@cadsvitrlx100 ~]$
+[p585600@cadsvitrlx100 ~]$
+[p585600@cadsvitrlx100 ~]$
+
+
+
+
+You have access to 985 projects, the list has been suppressed. You can list all projects with 'oc projects'
+
+Using project "sicfd-des".
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$ oc project simcn-des
+Now using project "simcn-des" on server "https://api.nprd.caixa:6443".
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$ oc get pods
+NAME                           READY     STATUS      RESTARTS   AGE
+simcn-backend-des-250-deploy   0/1       Completed   0          24h
+simcn-backend-des-250-wfg6x    1/1       Running     0          24h
+simcn-frontend-des-57-t7jb2    2/2       Running     0          46h
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
