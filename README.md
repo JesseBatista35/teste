@@ -1,28 +1,10 @@
-curl -k -v -H "Host: sigfi2.desenvolvimento.extracaixa" https://10.116.84.136/ecr-web/resources/app-content/css/bootstrap.css -o /dev/null
+Assunto: 403 Forbidden intermitente em recursos estáticos de https://sigfi2.desenvolvimento.extracaixa/ecr-web/
 
+Descrição: A aplicação SIGFI-ECR (/ecr-web/) carrega normalmente (200 OK), mas aproximadamente metade das requisições de recursos estáticos (CSS/JS) retornam 403 Forbidden de forma intermitente, todas com corpo idêntico de 218 bytes (página Forbidden padrão do Apache). O padrão é consistente com round-robin entre os dois nodes Apache do VIP 10.116.80.21 (10.116.84.136 e 10.116.84.137), sugerindo que um dos dois está com config/ACL/cache divergente para esses paths estáticos.
 
-Microsoft Windows [versão 10.0.26200.9106]
-(c) Microsoft Corporation. Todos os direitos reservados.
+Já validado (descartando causa aplicativa):
 
-C:\Users\p585600>curl -k -v -H "Host: sigfi2.desenvolvimento.extracaixa" https://10.116.84.136/ecr-web/resources/app-content/css/bootstrap.css -o /dev/null
-*   Trying 10.116.84.136:443...
-* connect to 10.116.84.136 port 443 from 0.0.0.0 port 54145 failed: Connection refused
-* Failed to connect to 10.116.84.136:443 after 2078 ms: Could not connect to server
-* closing connection #0
-curl: (7) Failed to connect to 10.116.84.136:443 after 2078 ms: Could not connect to server
-
-C:\Users\p585600>
-
-
-[root@sbrdeapllx093 p585600]#
-[root@sbrdeapllx093 p585600]#
-[root@sbrdeapllx093 p585600]# curl -k -v -H "Host: sigfi2.desenvolvimento.extracaixa" https://10.116.84.136/ecr-web/resources/app-content/css/bootstrap.css -o /dev/null
-* About to connect() to 10.116.84.136 port 443 (#0)
-*   Trying 10.116.84.136... Connection refused
-* couldn't connect to host
-* Closing connection #0
-
-curl: (7) couldn't connect to host
-[root@sbrdeapllx093 p585600]#
-[root@sbrdeapllx093 p585600]#
-[root@sbrdeapllx093 p585600]#
+Contexto /ecr-web está ENABLED em ambos os proxies mod_cluster (10.116.84.136:6666 e 10.116.84.137:6666), verificado via jboss-cli no node sigfi-ecr_node1_lx0093 (10.116.89.252).
+GET /ecr-web/ direto no VIP retorna 200 com HTML completo.
+Os dois Apaches físicos recusam conexão direta (só aceitam via VIP), não sendo possível isolar qual dos dois está com o problema a partir do meu acesso.
+Solicito: verificação de configuração/cache nos dois Apaches (10.116.84.136 e 10.116.84.137) atrás do VIP sigfi2.desenvolvimento.extracaixa (10.116.80.21), especialmente regras de ACL/Deny/cache aplicadas de forma divergente entre os dois nodes para os paths estáticos de /ecr-web/resources/*.
