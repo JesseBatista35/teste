@@ -1,9 +1,11 @@
 
-tmpfs                                                                 1,6G  8,0K  1,6G   1% /run/user/10616353
-tmpfs                                                                 1,6G  8,0K  1,6G   1% /run/user/10981778
-tmpfs                                                                 1,6G     0  1,6G   0% /run/user/10585600
--sh-4.2$ nfsccp.dtc.caixa:/ifs/DCPARMAZNA1/ZONEINTRA/CEPTIBR/Backup_TSM_Linux  5,0T  2,6T  2,4T  52%  /suporte
--sh: nfsccp.dtc.caixa:/ifs/DCPARMAZNA1/ZONEINTRA/CEPTIBR/Backup_TSM_Linux: Arquivo ou diretório não encontrado
+-sh-4.2$
+-sh-4.2$ mount | grep nfs
+sunrpc on /var/lib/nfs/rpc_pipefs type rpc_pipefs (rw,relatime)
+nfsccp.dtc.caixa:/ifs/DCPARMAZNA1/ZONEINTRA/CEPTIBR/Backup_TSM_Linux on /suporte type nfs (rw,noatime,vers=3,rsize=131072,wsize=524288,namlen=255,acregmin=0,acregmax=0,acdirmin=0,acdirmax=0,hard,proto=tcp,timeo=600,retrans=2,sec=sys,mountaddr=10.122.17.9,mountvers=3,mountport=300,mountproto=tcp,local_lock=none,addr=10.122.17.9)
 -sh-4.2$
 -sh-4.2$
+-sh-4.2$
+-sh-4.2$ cat /etc/fstab | grep nfs
+nfsccp.dtc.caixa:/ifs/DCPARMAZNA1/ZONEINTRA/CEPTIBR/Backup_TSM_Linux    /suporte        nfs     nfsvers=3,tcp,hard,noatime,actimeo=0    0       0
 -sh-4.2$
