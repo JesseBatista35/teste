@@ -1,4 +1,3 @@
-<img width="402" height="510" alt="image" src="https://github.com/user-attachments/assets/9fd1cc21-c25f-4246-a1ba-44911a154172" />
+keytool -list -v -keystore /infra_app/config/sifug/IF104.p12 -storetype PKCS12
 
-
-<img width="401" height="514" alt="image" src="https://github.com/user-attachments/assets/e48bff36-1b46-4f76-a9b1-9cc83be0960e" />
+openssl pkcs12 -in /infra_app/config/sifug/IF104.p12 -clcerts -nokeys -passin pass: | openssl x509 -noout -subject -issuer -serial -dates
