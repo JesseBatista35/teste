@@ -1,10 +1,207 @@
-Solicito verificar o ambiente de TQS quando ao erro 502 apresentado no log.
+Histórico de Informações de Trabalho da Ordem de Trabalho
+ID da Ordem de Trabalho	 WO0000081666793
+Criado em	 17/09/2026 10:12:59
+Criado por	 P655225
+Origem de Comunicação	 
+Exibir Acesso	 Público
+Notas	 À
 
-Configuração de proxy: REQ000145427528
+CTIS / ESTEIRA DEVOPS DES E TQS
 
-Release: https://devops.caixa/projetos/Caixa/_releaseProgress?releaseId=528342&_a=release-pipeline-progress
+01 - 1. Para solicitações referente ao proxy favor abrir demanda no catálogo abaixo:
 
-log: https://console-openshift-console.apps.nprd.caixa/k8s/ns/sisou-tqs/pods/sisou-sac-okd-tqs-31-b5xns/logs
+https://servicos.caixa/
+Tecnologia da Informação e Comunicação
+Redes e Telecomunicações
+Serviços de Rede
+Proxy
+
+Atenciosamente.
+
+Anderson Campelo Serpa Gama
+Preposto
+CTIS / CETEL / DHCP, DNS e Proxy de Serviços
+ID da Ordem de Trabalho	 WO0000081666793
+Criado em	 17/09/2026 09:30:21
+Criado por	 P739639
+Origem de Comunicação	 
+Exibir Acesso	 Público
+Notas	 Prezados,
+
+Conforme análises das notas apresentadas, o retorno abaixo informa que a origem não possui regra de proxy para acessar o destino especifico. Nesse caso sendo necessario abertura de solicitação de proxy para liberação.
+
+HTTP/1.1 502 Proxy Error
+Forefront TMG denied the specified Uniform Resource Locator (URL)
+
+Caso já tenha sido aberto favor informar a requisição informando qual origem esta tendo problema de acesso. Caso não tenha sido aberto, favor solicitar no catálogo abaixo.
+
+Atenciosamente.
+
+CETEL08 - Integração e Serviços de Rede
+ID da Ordem de Trabalho	 WO0000081666793
+Criado em	 17/09/2026 01:43:54
+Criado por	 P584553
+Origem de Comunicação	 
+Exibir Acesso	 Público
+Notas	 Prezados,
+
+1. Para análise é necessário que informem o endereço de IP do servidor que está apresentando falha.
+
+2. Próximo turno, favor realizar contato para análise.
+
+3. À disposição para esclarecimentos.
+
+Atenciosamente,
+
+CETEL08/CETEL960
+----------------------------------
+ID da Ordem de Trabalho	 WO0000081666793
+Criado em	 16/09/2026 16:13:14
+Criado por	 P981778
+Origem de Comunicação	 
+Exibir Acesso	 Público
+Notas	 À CETEL
+ 
+Solicitamos apoio na análise do acesso à URL da integração Reclame Aqui/HugMe utilizada pela aplicação SISOU SAC no ambiente TQS.
+ 
+URL acessada:
+https://app.hugme.com.br:443
+ 
+Proxy utilizado pela aplicação:
+proxydes.caixa:80
+ 
+Evidências levantadas:
+ 
+1. A aplicação SISOU está apresentando erro na geração de token da integração Reclame Aqui:
+ 
+HTTP 502 Bad Gateway
+ReclameAquiIntegracaoAS.gerarToken()
+ 
+2. Teste realizado diretamente no pod do ambiente TQS utilizando o mesmo proxy configurado na JVM:
+ 
+curl -x http://proxydes.caixa:80 -vk https://app.hugme.com.br
+ 
+Retorno:
+ 
+HTTP/1.1 502 Proxy Error
+Forefront TMG denied the specified Uniform Resource Locator (URL)
+ 
+3. Foi realizada comparação com o ambiente DES, que possui a mesma configuração de URL, credenciais e proxy.
+ 
+No ambiente DES, o mesmo teste retornou:
+ 
+HTTP/1.1 200 Connection established
+ 
+seguido de handshake TLS válido com o destino.
+ 
+4. As configurações da aplicação entre TQS e DES são equivalentes:
+ 
+JVM_PROXY_HOST=proxydes.caixa
+JVM_PROXY_PORT=80
+SISOU-URL_API_RECLAME_AQUI=https://app.hugme.com.br:443
+ 
+Solicitamos verificar:
+ 
+- Existência de bloqueio, restrição ou política diferenciada para o tráfego originado do ambiente TQS;
+- Liberação efetiva do domínio app.hugme.com.br;
+- Regras do Forefront TMG/proxy aplicadas ao ambiente TQS;
+- Diferenças de tratamento entre os acessos provenientes dos ambientes DES e TQS;
+
+ 
+Att
+ CTIS / CESTI Esteira DEVOPS DES TQS NPRD
+ID da Ordem de Trabalho	 WO0000081666793
+Criado em	 16/09/2026 13:23:28
+Criado por	 P558217
+Origem de Comunicação	 
+Exibir Acesso	 Público
+Notas	 Prezado(a),
+
+
+Informamos que por ter reaberto sua solicitação hoje o atendimento será retomado nesta data.  
+
+Iremos realizar uma nova análise conforme as informações adicionais registradas na sua última nota.
+
+Ressaltamos que um novo SLA de 24h úteis passa a vigorar a partir de agora.
+
+Todas as atualizações e evoluções do atendimento serão registradas diretamente nesta WO.
+
+
+Atte.  
+
+CTIS / CESTI Esteira DEVOPS DES TQS NPRD
+ID da Ordem de Trabalho	 WO0000081666793
+Criado em	 16/09/2026 13:19:20
+Criado por	 C110509
+Origem de Comunicação	 
+Exibir Acesso	 Público
+Notas	 Informamos que o erro persiste. Para gerar evidência do erro é necessário executar a ação de captura da informação do site externo. Apenas rodar a aplicação não é necessário para executar a funcionalidade.
+ID da Ordem de Trabalho	 WO0000081666793
+Criado em	 16/09/2026 12:38:11
+Criado por	 P981778
+Origem de Comunicação	 
+Exibir Acesso	 Público
+Notas	 À CAIXA,
+
+Após a reciclagem do pod, foi validado o novo log do ambiente e não foram identificados erros relacionados à integração externa do Reclame Aqui ou à geração de token.
+A aplicação iniciou normalmente, realizou autenticações e integrações sem falhas aparentes.
+Até o momento da análise não há evidências de recorrência do erro HTTP 502 anteriormente observado
+
+
+Thiago Silva
+Analista
+CTIS / CESTI Esteira DEVOPS DES TQS NPRD    
+ID da Ordem de Trabalho	 WO0000081666793
+Criado em	 16/09/2026 11:20:59
+Criado por	 P730708
+Origem de Comunicação	 
+Exibir Acesso	 Público
+Notas	 Demanda inicial sem viés de falha, erro, degradação ou
+
+esgotamento de infraestrutura, serviço, máquina, armazenamento,
+
+rotina ou situação que não esteja na iminência de tornar-se
+
+incidente. Previsto atendimento em até 24 horas úteis.
+
+[CENTRAL-SID]
+ID da Ordem de Trabalho	 WO0000081666793
+Criado em	 16/09/2026 10:38:11
+Criado por	 P558217
+Origem de Comunicação	 
+Exibir Acesso	 Público
+Notas	 Prezado(a),
+
+
+
+Informamos que sua solicitação foi recebida.  
+
+
+
+Nosso SLA para atendimento é de até 24h úteis, analisaremos a solicitação para nos certificarmos que o atendimento está dentro do escopo de atuação da nossa equipe.
+
+
+
+Caso seja identificado que o atendimento não corresponde ao nosso escopo, a solicitação será redirecionada à equipe responsável.
+
+
+
+Novas informações e atualizações serão registradas diretamente nesta WO.
+
+
+
+Atte.
+
+
+
+Esteira Devops DES TQS NPRD
+ID da Ordem de Trabalho	 WO0000081666793
+Criado em	 16/09/2026 10:34:09
+Criado por	 Remedy Application Service
+Origem de Comunicação	 E-mail
+Exibir Acesso	 Interno
+Notas	 Este ticket foi criado a partir do sistema de solicitação de serviço.
+Impresso por P585600 em Quinta-feira, 17/09/2026 11:09:00
 
 
 /opt/jboss/bin/standalone.conf: line 37: =org.jboss.byteman: command not found
