@@ -1,6 +1,24 @@
-/opt/open/jboss/7.0.0/bin/jboss-cli.sh --connect --controller=srjtqapllx0021:9990 --command="/host=srjtqapllx0021/server-config=srjtqapllx0021_sifug_inter_8080:read-attribute(name=status)"
 
-
-grep -i "exception\|error\|ssl\|keystore\|certificate" /opt/open/jboss/7.0.0/domain/servers/srjtqapllx0021_sifug_inter_8080/log/server.log | tail -50
-
-openssl s_client -connect hisdf.dataprev.gov.br:443 -cert /tmp/if104_cert.pem -key /tmp/if104_key.pem
+[root@srjtqapllx0021 sifug]#
+[root@srjtqapllx0021 sifug]#
+[root@srjtqapllx0021 sifug]# /opt/open/jboss/7.0.0/bin/jboss-cli.sh --connect --controller=srjtqapllx0021:9990 --command="/host=srjtqapllx0021/server-config=srjtqapllx0021_sifug_inter_8080:read-attribute(name=status)"
+{
+    "outcome" => "success",
+    "result" => "STARTED"
+}
+[root@srjtqapllx0021 sifug]#
+[root@srjtqapllx0021 sifug]#
+[root@srjtqapllx0021 sifug]# grep -i "exception\|error\|ssl\|keystore\|certificate" /opt/open/jboss/7.0.0/domain/servers/srjtqapllx0021_sifug_inter_8080/log/server.log | tail -50
+        javax.net.ssl.trustStore = /infra_app/config/sifug/cacerts
+        javax.net.ssl.trustStorePassword = <redacted>
+        javax.net.ssl.trustStoreType = jks
+2026-09-17 03:04:01,220 DEBUG [org.jboss.as.config] (MSC service thread 1-7) VM Arguments: -D[Server:srjtqapllx0021_sifug_inter_8080] -Xms6144m -Xmx6144m -XX:+UseG1GC -Dcom.sun.security.enableCRLDP=true -javaagent:/infra_app/config/appinsights/applicationinsights-agent-3.3.1.jar -Dapplicationinsights.configuration.directory=/infra_app/config/appinsights/ -Dapi.manager.host=https://api.des.caixa:8443 -Dbr.gov.caixa.psc.connector.util.Config=/infra_app/config/sifug/sifug_jconnector.properties -Dbr.gov.caixa.sifug.fmp.properties=/infra_app/config/sifug/sifug_fmp.properties -Dbr.gov.caixa.sifug.prgmgov.properties=/infra_app/config/sifug/sifug_prgmgov.properties -Dbr.gov.caixa.sifug.properties=/infra_app/config/sifug/sifug.properties -Dbr.gov.caixa.sifug.security.sisgr.LoginPage=https://acessoseguro.tqs.corerj.caixa/internet.do?segmento=CONVENIADO01 -Dbr.gov.caixa.sifug.sifgd.properties=/infra_app/config/sifug/sifug_sifgd.properties -Dbr.gov.caixa.sifug.sipal.properties=/infra_app/config/sifug/sifug_sipal.properties -Dcxf.tls-client.disableCNCheck=true -Dftp.proxyPort=80 -Dftp_proxyHost=proxydes.caixa -Dhttp.nonProxyHosts=127.0.0.1|*localhost|*.caixa|*.caixa.gov.br|*broker|10.216.80.111|*broker -Dhttp.proxyHost=proxydes.caixa -Dhttp.proxyPort=80 -Dhttps.nonProxyHosts=*.caixa|*.caixa.gov.br|*broker -Dhttps.proxyHost=proxydes.caixa -Dhttps.proxyPort=80 -Djava.awt.headless=true -Djava.net.preferIPv4Stack=true -Djavax.net.ssl.trustStore=/infra_app/config/sifug/cacerts -Djavax.net.ssl.trustStorePassword=changeit -Djavax.net.ssl.trustStoreType=jks -Djboss.bind.address=srjtqapllx0021 -Djboss.bind.address.management=srjtqapllx0021 -Djboss.home.dir=/opt/open/jboss/7.0.0 -Djboss.management.http.port=9990 -Djboss.management.native.port=9999 -Djboss.modules.system.pkgs=org.jboss.byteman -Dmdb.cancelar.reserva=LQ.REQ.SIFUG.072 -Dmdb.consulta.dados.fgts.moradia=LQ.REQ.SIFUG.066 -Dmdb.consultar.guia.rescisoria.coletiva=LQ.REQ.SIFUG.062 -Dmdb.consultar.guia.rescisoria.disponivel.coletiva=LQ.REQ.SIFUG.060 -Dmdb.consultar.protocolo=LQ.REQ.SIFUG.038 -Dmdb.consultar.remuneracao.trabalhador=LQ.REQ.SIFUG.022 -Dmdb.consultar.saldo=LQ.REQ.SIFUG.071 -Dmdb.emissao.guia.regular=LQ.REQ.SIFUG.031 -Dmdb.emissao.guia.rescisoria=LQ.REQ.SIFUG.040 -Dmdb.finalizar.pedido=LQ.REQ.SIFUG.081 -Dmdb.gerar.guia.rescisoria.coletiva=LQ.REQ.SIFUG.061 -Dmdb.manter.garantia.reserva=LQ.REQ.SIFUG.083 -Dmdb.pgfn.notificacao.calculo=LQ.REQ.SIFUG.111 -Dmdb.pgfn.parcelamento.calculo=LQ.REQ.SIFUG.110 -Dmdb.processar.guia.regular=LQ.REQ.SIFUG.030 -Dmdb.processar.protocolo=LQ.RSP.SIFUG.039 -Dmdb.protocolo.guia.regular=LQ.REQ.SIFUG.030 -Dmdb.resolve.pendencia=LQ.REQ.SIFUG.023 -Dmdb.sifug.fila.hostName=mqseries -Dmdb.sifug.fila.port=1414 -Dmdb.siies.emissao.guia.regular=LQ.REQ.SIFUG.031 -Dmdb.solicitacao.centralizacao.folha=LQ.REQ.SIFUG.020 -Dmdb.solicitacao.guia.regular=LQ.REQ.SIFUG.026 -Dmdb.solicitar.reserva=LQ.REQ.SIFUG.070 -Dmdb.solicitar.saldo.competencia.recolhedor=LQ.REQ.SIFUG.037 -Dmdb.transferir.reserva=LQ.REQ.SIFUG.082 -Dorg.apache.cxf.logging.enabled=false -Dpath_roles_map_file=/infra_app/config/sifug/sifug_roles_map.properties -Dsifug.ambiente.restrito=false -Dsifug_autenticacao.properties=/infra_app/config/sifug/sifug_sisgr.properties -Dsifug_sifag.properties=/infra_app/config/sifug/sifug_sifag.properties -Dsifug_sinco.properties=/infra_app/config/sifug/sifug_sinco.properties -Dsifug_siofg.properties=/infra_app/config/sifug/sifug_siofg.properties -Dsifug_sirfgpar.properties=/infra_app/config/sifug/sifug_sirfgpar.properties -Djboss.server.log.dir=/opt/open/jboss/7.0.0/domain/servers/srjtqapllx0021_sifug_inter_8080/log -Djboss.server.temp.dir=/opt/open/jboss/7.0.0/domain/servers/srjtqapllx0021_sifug_inter_8080/tmp -Djboss.server.data.dir=/opt/open/jboss/7.0.0/domain/servers/srjtqapllx0021_sifug_inter_8080/data -Dorg.jboss.boot.log.file=/opt/open/jboss/7.0.0/domain/servers/srjtqapllx0021_sifug_inter_8080/log/server.log -Dlogging.configuration=file:/opt/open/jboss/7.0.0/domain/configuration/default-server-logging.properties
+[root@srjtqapllx0021 sifug]#
+[root@srjtqapllx0021 sifug]#
+[root@srjtqapllx0021 sifug]#
+[root@srjtqapllx0021 sifug]# openssl s_client -connect hisdf.dataprev.gov.br:443 -cert /tmp/if104_cert.pem -key /tmp/if104_key.pem
+Error opening client certificate private key file /tmp/if104_key.pem
+140625805526856:error:02001002:system library:fopen:No such file or directory:bss_file.c:398:fopen('/tmp/if104_key.pem','r')
+140625805526856:error:20074002:BIO routines:FILE_CTRL:system lib:bss_file.c:400:
+unable to load client certificate private key file
+[root@srjtqapllx0021 sifug]#
