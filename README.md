@@ -1,6 +1,9 @@
-notAfter=Dec 22 18:11:30 2026 GMT
-[root@srjtqapllx0021 sifug]# subject= /C=BR/O=ICP-Brasil/OU=videoconferencia/OU=33683111000107/OU=CBC T006/OU=00360305/OU=CAIXA ECONOMICA FEDERAL/CN=ECO.DATAPREV.DES.CAIXA.GOV.BR
-bash: /C=BR/O=ICP-Brasil/OU=videoconferencia/OU=33683111000107/OU=CBC: No such file or directory
-[root@srjtqapllx0021 sifug]# OU=CBC H104, O=IF 104, CN=Eco Caixa
-bash: H104,: command not found
-[root@srjtqapllx0021 sifug]#
+/opt/open/jboss/7.0.0/bin/jboss-cli.sh --connect --controller=srjtqapllx0021:9990
+
+/host=srjtqapllx0021/server-config=srjtqapllx0021_sifug_inter_8080:restart
+
+/host=*:read-children-names(child-type=server-config)
+
+:read-children-names(child-type=host)
+
+tail -f /opt/open/jboss/7.0.0/domain/servers/srjtqapllx0021_sifug_inter_8080/log/server.log
