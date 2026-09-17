@@ -1,47 +1,11 @@
+Carlos Augusto, o certificado eco.dataprev.des.caixa.gov.br.p12 que você disponibilizou já está instalado no servidor, mas identificamos um problema antes de reiniciar o server: ele aparece no keystore com alias "dinamo hsm" e o keytool não consegue ler as informações normais de certificado (owner, issuer, serial, validade) — indício de que a chave privada não está embutida no arquivo .p12, e sim referenciada externamente via HSM da Dinamo.
 
-Use "keytool -help" for all available commands
-[root@srjtqapllx0021 sifug]#
-[root@srjtqapllx0021 sifug]#
-[root@srjtqapllx0021 sifug]# keytool -list -keystore /infra_app/config/sifug/IF104.p12 -storetype PKCS12
-Enter keystore password:
+Conferimos no servidor srjtqapllx0021 e não existe nenhum provider PKCS#11/Dinamo configurado nessa JVM, nem nenhum driver ou arquivo relacionado ao HSM instalado no host. Como é um HSM, sabemos que não é possível simplesmente converter esse .p12 para um formato com a chave embutida — a chave não sai de dentro do HSM por design.
 
-*****************  WARNING WARNING WARNING  *****************
-* The integrity of the information stored in your keystore  *
-* has NOT been verified!  In order to verify its integrity, *
-* you must provide your keystore password.                  *
-*****************  WARNING WARNING WARNING  *****************
+Diante disso, temos duas dúvidas antes de prosseguir com o reinício do server SIFUG:
 
-Keystore type: PKCS12
-Keystore provider: SunJSSE
+1) Existe algum passo a passo de configuração do provider PKCS#11 do Dinamo pra esse tipo de ambiente (JBoss EAP 7.0.0 legado, Java 8)? Se sim, poderia nos encaminhar, ou nos colocar em contato com quem já configurou isso em outro ambiente?
 
-Your keystore contains 1 entry
+2) Como alternativa, seria possível gerar/disponibilizar um certificado nesse mesmo domínio (ECO.DATAPREV.DES.CAIXA.GOV.BR) em um formato .p12 tradicional, com a chave privada embutida, sem depender do HSM? O app legado SIFUG não foi desenhado pra esse modelo de integração.
 
-dinamo hsm, Sep 17, 2026, PrivateKeyEntry,
-[root@srjtqapllx0021 sifug]# keytool -list -v -keystore /infra_app/config/sifug/IF104.p12 -storetype PKCS12
-Enter keystore password:
-
-*****************  WARNING WARNING WARNING  *****************
-* The integrity of the information stored in your keystore  *
-* has NOT been verified!  In order to verify its integrity, *
-* you must provide your keystore password.                  *
-*****************  WARNING WARNING WARNING  *****************
-
-Keystore type: PKCS12
-Keystore provider: SunJSSE
-
-Your keystore contains 1 entry
-
-Alias name: dinamo hsm
-Creation date: Sep 17, 2026
-Entry type: PrivateKeyEntry
-
-
-*******************************************
-*******************************************
-
-
-[root@srjtqapllx0021 sifug]# grep -ri "pkcs11\|dinamo" /opt/open/java/jdk1.8.0_121/jre/lib/security/java.security
-[root@srjtqapllx0021 sifug]# find / -iname "*dinamo*" 2>/dev/null
-[root@srjtqapllx0021 sifug]#
-[root@srjtqapllx0021 sifug]#
-[root@srjtqapllx0021 sifug]#
+Ficamos no aguardo pra definir o caminho antes de reiniciar o server, já que sem essa configuração o mais provável é trocarmos o erro atual por uma falha ao carregar a chave privada.
