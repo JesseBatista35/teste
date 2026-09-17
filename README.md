@@ -1,11 +1,12 @@
+ 
+Em atendimento à REQ000145922885, informamos que a configuração dos itens solicitados (GitOps, values.yaml, templates, Istio e Chart.yaml) para o ambiente DES está condicionada à conclusão da solicitação de infraestrutura em aberto junto ao time de Nuvem Pública na REQ000145922883  (recursos EKS, RDS, DynamoDB, MSK, EventBridge, S3, Static Web Site e plugins ArgoCD/Developer Hub/external-dns/akv2k8s referentes à app siidp-backend-arquitetura-referencia. 
+ 
+Como a infraestrutura ainda não foi disponibilizada, não é possível concluir os ajustes solicitados nesta REQ dentro do prazo de SLA vigente.
+ 
+Diante disso, solicitamos o encerramento desta REQ. Assim que a infraestrutura estiver disponibilizada pelo time de Nuvem Pública, solicitamos que seja aberto uma nova requisição específica para realizar os ajustes de GitOps pendentes (APP, Project, Labels, Source/SourceVar, Cluster, values.yaml, templates, Istio e Chart.yaml), conforme detalhado originalmente.
+ 
+ 
 
--sh-4.2$
--sh-4.2$ mount | grep nfs
-sunrpc on /var/lib/nfs/rpc_pipefs type rpc_pipefs (rw,relatime)
-nfsccp.dtc.caixa:/ifs/DCPARMAZNA1/ZONEINTRA/CEPTIBR/Backup_TSM_Linux on /suporte type nfs (rw,noatime,vers=3,rsize=131072,wsize=524288,namlen=255,acregmin=0,acregmax=0,acdirmin=0,acdirmax=0,hard,proto=tcp,timeo=600,retrans=2,sec=sys,mountaddr=10.122.17.9,mountvers=3,mountport=300,mountproto=tcp,local_lock=none,addr=10.122.17.9)
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$ cat /etc/fstab | grep nfs
-nfsccp.dtc.caixa:/ifs/DCPARMAZNA1/ZONEINTRA/CEPTIBR/Backup_TSM_Linux    /suporte        nfs     nfsvers=3,tcp,hard,noatime,actimeo=0    0       0
--sh-4.2$
+
+entao. me ajdua a colcoar uma ntoa e deixar como pendende aguardao a conclusad da REQ000145922883, pelo time de nuvem
+
