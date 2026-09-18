@@ -1,4 +1,2 @@
-<img width="1852" height="980" alt="image" src="https://github.com/user-attachments/assets/3a95e59d-0c80-462d-9f13-2d48f2ed87fa" />
-
-
-tirmaos o 136 que o cledon pediu e ta assim agora
+<img width="1850" height="969" alt="image" src="https://github.com/user-attachments/assets/5961c97c-3991-4717-89f9-1a3e88fc1698" />
+<img width="1807" height="843" alt="image" src="https://github.com/user-attachments/assets/04f231f6-97ee-4403-acdc-62883161ee41" />
