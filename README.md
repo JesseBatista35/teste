@@ -1,36 +1,18 @@
-o cra do mainframe me mandou isso
+Pessoal, bom dia!
 
+Conseguimos avançar na investigação com a informação das portas que o Everton levantou com o time de Redes. Analisando os dados:
 
-Jesse, bom dia!
-Levantei com o pessoal de redes as portas que estão nos TORs WEB,
- 
-**********************************************************
-NP   JOBNAME  Status   IPAddr                    Port
+A porta que a aplicação usa (2587) pertence à região CICQTWB3, e está ativa/ouvindo lá.
+Porém, o URIMAP para /sid01/lancamentoV4 foi criado na região CICQAWB1, que é uma região diferente.
 
-     CICQTWB1 LISTEN   0.0.0.0                   1080
+Ou seja, a requisição está chegando corretamente na porta 2587 (região CICQTWB3), mas essa região não tem o URIMAP cadastrado — por isso o retorno "Resource not found". A porta 3024 que testamos antes pertence a outra região (CICQAWB1/CICQTWB1), por isso deu problema de conexão/crash — não é a porta usada pela aplicação.
 
-     CICQTWB1 LISTEN   0.0.0.0                   3026
+Já revertemos a variável CICSWEB_ROOT_ENDPOINT_HTTPS de volta para 2587 e subimos novo deploy em TQS.
 
-     CICQTWB1 LISTEN   0.0.0.0                  35002
+Poderiam, por gentileza, criar (ou replicar) o URIMAP para /sid01/lancamentoV4 na região CICQTWB3, que é a região correta associada à porta 2587?
 
-     CICQTWB1 LISTEN   0.0.0.0                  35003
+Ficamos no aguardo para novo teste assim que confirmado.
 
-********************************************************
-NP   JOBNAME  Status   IPAddr                    Port
+Quer que eu ajuste algo antes de enviar?
 
-      CICQTWB3 LISTEN   0.0.0.0                   1080
-
-      CICQTWB3 LISTEN   0.0.0.0                   2584
-
-      CICQTWB3 LISTEN   0.0.0.0                   2585
-
-      CICQTWB3 LISTEN   0.0.0.0                   2587
-
-      CICQTWB3 LISTEN   0.0.0.0                  32507
-
-      CICQTWB3 LISTEN   0.0.0.0                  32587
-
-      CICQTWB3 LISTEN   0.0.0.0                  35002
-
-      CICQTWB3 LISTEN   0.0.0.0                  35003
- 
+Escreva uma mensagem…
