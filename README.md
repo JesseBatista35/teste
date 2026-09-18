@@ -1,43 +1,6 @@
-Criação de Ambientes para os Sistemas Centralizados: 
-
-MATRÍCULA DO SOLICITANTE : c159025 
-
-*******************************************************************************************************
-TIPO DE QUESTÃO  : NOVO CRIADO SISTEMA 
-NOME DO SISTEMA  : siart
-*******************************************************************************************************
-LISTA DE MÓDULOS :
-Módulo: 1
-NOME DO MÓDULO : SIART-frontend
-TIPO : ON_LINE
-TECNOLOGIA : BACK-END
-NOME DA TECNOLOGIA: JBOSS_VM
+<img width="1625" height="740" alt="image" src="https://github.com/user-attachments/assets/5d0aa82f-1271-416d-b71d-825d4b5204a5" />
 
 
+<img width="1499" height="824" alt="image" src="https://github.com/user-attachments/assets/45533a9d-b4ab-4928-b72b-2de90407e94c" />
 
 
-Status
-Concluído
-Data de Solicitação
-18/09/2026 - 11:00
-Designação
-
-Criação de Ambientes para os Sistemas Centralizados:
-
-MATRÍCULA DO SOLICITANTE : c159025
-
-*******************************************************************************************************
-TIPO DE QUESTÃO : NOVO CRIADO SISTEMA
-NOME DO SISTEMA : siart
-*******************************************************************************************************
-LISTA DE MÓDULOS :
-Módulo: 1
-NOME DO MÓDULO : SIART-frontend
-TIPO : ON_LINE
-TECNOLOGIA : BACK-END
-NOME DA TECNOLOGIA: JBOSS_VM
-*******************************************************************************************************
-
-
-Descrever as tecnologias e necessidade para o Sistema na camada de aplicação e
-CAMBIO-squad-rje
