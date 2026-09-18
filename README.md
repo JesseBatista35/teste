@@ -1,1 +1,1 @@
-<img width="1650" height="750" alt="image" src="https://github.com/user-attachments/assets/47f54d20-0bf2-4818-bd50-8b22aeddfd20" />
+curl -k -I https://10.116.78.13/sicem/Principal.jsp -H "Host: sicem-legado.des.caixa"
