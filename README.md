@@ -1,3 +1,37 @@
+Importante!
+bom dia a Todos
+Roberta, abrimos a REQ000146058453 solicitando a criação do ambiente na esteira para tombarmos o SIART. No entanto, gostaria de ressaltar que não havia opção de escolher o Jboss 6.4. 
+Peço acompanhar essa requisição e interagir junto a área responsável pela criação para que seja criado conforme previamente acertado pelo Bira.
+ 
+Roberta Cersosimo Santos Menezes adicionou Thiago Rafael Cavalcante Pereira ao chat e compartilhou todo o histórico de chats.
+
+ 
+Bom dia Thiago Rafael Cavalcante Pereira Td bem ? Vi que vc concluiu a REQ000146058453 de criação de ambiente na esteira DES/TQS para o SIART.
+ 
+No entanto, precisamos  que a versão do Jboss seja a 6.4
+ 
+Roberta Cersosimo Santos Menezes
+Bom dia Thiago Rafael Cavalcante Pereira Td bem ? Vi que vc concluiu a REQ000146058453 de criação de ambiente na esteira DES/TQS para o SIART.   No entanto, precisamos  que a versão do Jboss seja a 6…
+Bom dia Roberta Cersosimo Santos Menezes ambiente criado,  para essa versão  Jboss seja a 6.4, é necessário abertura de REQ via infráfacil com as informações.
+ 
+Thiago Rafael Cavalcante Pereira
+Bom dia Roberta Cersosimo Santos Menezes ambiente criado,  para essa versão  Jboss seja a 6.4, é necessário abertura de REQ via infráfacil com as informações. 📷
+Bom dia Thiago! Tudo bem?
+ 
+A REQ via infrafácil não permite a opção 6.4... Por isso escolhemos a 7
+ 
+Mas o que tinha sido combinado era usar a 6.4
+ 
+Além disso, se já souber como ajudar:
+Onde edito o yml? Parece que não tenho acesso a editar, só a visualizar
+ 
+Thiago Rafael Cavalcante Pereira adicionou Jesse Mouta Pereira Batista ao chat e compartilhou todo o histórico de chats.
+
+
+
+
+ aqui e classic nao edita o yamis nesse caso eles tem que subir as coisa e isso seria so ajsute de tag de imagem???
+
 # Variable 'version.app' was defined in the Variables tab
 # Variable Group 'BUILD_VARIABLES' was defined in the Variables tab
 # Variable Group 'SONAR_VARIABLES - ESTEIRA' was defined in the Variables tab
