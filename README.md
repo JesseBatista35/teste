@@ -1,1 +1,2 @@
-Você conseguiu identificar o código do abend (ASRA, AEIP, S0Cx, etc.)? Isso ajudaria a entender se tem relação com o erro de RACF da transação N1Q5 que você mencionou, ou se é outra causa (erro de dados, área de working storage, etc.).
+A transaction dump was taken for dumpcode: ASRA, Dumpid: 1/0003, Tranid: N1W1, Tranum: 00002088, Program: D01POSOL
+16:41:03 CICQTWB3
