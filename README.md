@@ -1,3 +1,6 @@
-<img width="1896" height="1002" alt="image" src="https://github.com/user-attachments/assets/7abe44a1-78e4-4a95-b04c-121c89fa07c5" />
+grep "11:25:1[0-9]" /logs/jboss-eap/hc/servers/sicem_node1_lx0005/server.log
+
+
+grep -i "acesso\|permitido\|negado\|forbidden" /logs/jboss-eap/hc/servers/sicem_node1_lx0005/server.log | tail -50
 
 
