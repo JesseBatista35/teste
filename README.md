@@ -1,5 +1,1 @@
-Analisei o log do CICS e identifiquei que o programa D01POSOL está abendando no CICS de TQS.
-Tranum: 00002088, Program: D01POSOL
-16:41:03 CICQTWB3
-
- 
+Você conseguiu identificar o código do abend (ASRA, AEIP, S0Cx, etc.)? Isso ajudaria a entender se tem relação com o erro de RACF da transação N1Q5 que você mencionou, ou se é outra causa (erro de dados, área de working storage, etc.).
