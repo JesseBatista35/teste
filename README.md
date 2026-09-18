@@ -1,20 +1,7 @@
-Jesse Mouta Pereira Batista
-Todos Resolvi o problema de memória aumentamos o limite do pod, e agora a aplicação não está mais reiniciando.   A requisição está chegando corretamente até o CICS agora, passamos da etapa de rede/…
-Vou verificar no log aqui ver se apareceu algum erro de segurança para o usuário.
- 
-Jesse Mouta Pereira Batista adicionou Thiago Jeferson de Sousa Silva ao chat e compartilhou todo o histórico de chats.
+não temos visibilidade de quais transações internas o programa D01POSOL aciona durante o processamento — isso é interno ao COBOL/CICS do lado de vocês.
 
- 
-Saberiam informar se a transação N1Q1 é chamada neste processo?
-Pois para o usuário SNSGSQ01 somente essa transação tem erros de racf, se puder gostaria de fazer um CEDX para ver se está chegando no CICS. 
-08.55.04 S0150625  ICH408I USER(SNSGSQ01) GROUP(USUSERVQ) NAME(NSGD CICS WEB  
+O que sabemos é que a aplicação chama diretamente a transação N1W1 (confirmado no WSDL/log: D01POSOL_N1W1.wsdl), usando o usuário de serviço SNSGSQ01.
 
-   179               CICTQSSP.N1Q5 CL(TCICSTRN)                               
+Se N1Q5 for uma transação interna disparada pelo N1W1 durante o processamento do débito, isso pode muito bem explicar o erro 500 que estamos recebendo. Fica a critério de vocês confirmarem isso com quem conhece o programa.
 
-   179               INSUFFICIENT ACCESS AUTHORITY                            
-
-   179               FROM CICTQSSP.N1%% (G)                                   
-
-   179               ACCESS INTENT(READ   )  ACCESS ALLOWED(NONE   )          
-
- 
+Pode sim fazer o CEDX para verificar — nós disparamos uma nova chamada assim que vocês avisarem que estão prontos para acompanhar.
