@@ -1,18 +1,24 @@
-Pessoal, bom dia!
+Opa, Jesse Mouta Pereira Batista
+Continuamos c o erro do certificado
+ 
+ 
+o erro mudou no online, parece que não tem mais o arquivo lá no path
+ 
+ 
+agora no disparo da API não fez a leitura do certificado 
+ 
+tá dando Null Pointer Exception
+ 
+bom dia pessoal
+ 
+tô abrindo aqui o projeto online pra dar uma olhada na linha do erro
+ 
+mas é sobre isso mesmo, algum parâmetro que não tá sendo passado pro Java aí ocorre esse NULL POINTER
 
-Conseguimos avançar na investigação com a informação das portas que o Everton levantou com o time de Redes. Analisando os dados:
 
-A porta que a aplicação usa (2587) pertence à região CICQTWB3, e está ativa/ouvindo lá.
-Porém, o URIMAP para /sid01/lancamentoV4 foi criado na região CICQAWB1, que é uma região diferente.
+ <img width="1359" height="755" alt="image" src="https://github.com/user-attachments/assets/f13c55b0-d662-4da1-a346-711fb5bc0883" />
 
-Ou seja, a requisição está chegando corretamente na porta 2587 (região CICQTWB3), mas essa região não tem o URIMAP cadastrado — por isso o retorno "Resource not found". A porta 3024 que testamos antes pertence a outra região (CICQAWB1/CICQTWB1), por isso deu problema de conexão/crash — não é a porta usada pela aplicação.
 
-Já revertemos a variável CICSWEB_ROOT_ENDPOINT_HTTPS de volta para 2587 e subimos novo deploy em TQS.
+<img width="1910" height="589" alt="image" src="https://github.com/user-attachments/assets/5c7e439a-9ddf-451f-97a6-7641d5f2d98d" />
 
-Poderiam, por gentileza, criar (ou replicar) o URIMAP para /sid01/lancamentoV4 na região CICQTWB3, que é a região correta associada à porta 2587?
 
-Ficamos no aguardo para novo teste assim que confirmado.
-
-Quer que eu ajuste algo antes de enviar?
-
-Escreva uma mensagem…
