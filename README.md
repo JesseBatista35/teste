@@ -1,2 +1,6 @@
--Dproject.settings=NONE -Dsonar.branch.name=$(sonar_branch) -Dsonar.java.binaries=$(SONAR_JAVA_BINARIES) -Dsonar.java.coveragePlugin=$(SONAR_JAVA_COVERAGEPLUGIN) -Dsonar.java.libraries=$(SONAR_JAVA_LIBRARIES) -Dsonar.coverage.jacoco.xmlReportPaths=`find . -path '*jacoco.xml' | sed 's/.*/&/' | tr '\n' ','` -Dsonar.junit.reportPaths=`find . -type d -name 'surefire-reports' | sed 's/.*/&/' | tr '\n' ','` -Dsonar.exclusions=**/node_modules/**,**/dist/**,**/coverage/**,**/src/main/webapp/app/assets/**,**/target/**
+siavo-web/angular/assets/hotsite/js/parallax-slider/jquery.cslider.js
+
+
+ agaora quebrou nesse
+ 
 
