@@ -1,55 +1,287 @@
-Prezados,
+À Sonda,
 
-Em continuidade à REQ000145919145 / REQ000145977947 e após o atendimento da REQ000145999028 (WO0000081660693 – liberação de acesso ao domínio cdn.perfdrive.com para o EgressIP 10.121.104.113), registramos as ações realizadas e a conclusão da análise.
+Solicitamos a avaliação e, se necessário, o ajuste dos repositórios abaixo, conforme o ambiente criado na REQ: "REQ000145922883":
 
-1. Validação do proxy indicado pelo CETEL
+siidp-backend-arquitetura-referencia
 
-Testado, a partir do nó do Selenium Grid (pod firefox, namespace selenium-grid, cluster produtos4, SO Linux), o acesso via proxydes.caixa:80, conforme orientado na WO0000081660693.
-O nome resolve (10.252.32.63 e 10.252.32.65), porém a conexão TCP na porta 80 expira nos dois endereços. Não há rota da origem para o proxydes.
-Verificado que o proxy de saída configurado no cluster produtos4 é o proxyprd.caixa:80 (10.252.32.136 e 10.252.32.220), acessível a partir dos pods.
-Via proxyprd.caixa:80, o acesso a https://cdn.perfdrive.com/ foi estabelecido com sucesso: CONNECT 200, certificado *.perfdrive.com válido e resposta HTTP 200.
+GitOps: Revisar e configurar, para os ambientes DES,HMP,PRD,TQS, os seguintes itens: 
+  - APP 
+  - Project 
+  - Labels 
+  - Source e SourceVar
+  - Cluster (apontando para a infraestrutura criada)
 
-2. Configuração aplicada
+Repositórios siidp-backend-arquitetura-referencia-infranprd e siidp-backend-arquitetura-referencia-infraprd
 
-Incluídas as variáveis de ambiente abaixo nos DeploymentConfigs dos nós chrome, firefox e edge do namespace selenium-grid. Os componentes router, distributor, event-bus, sessions e session-queue não foram alterados.
+values.yaml (por ambiente):            
 
-HTTP_PROXY / HTTPS_PROXY (e minúsculas) = http://proxyprd.caixa:80
-NO_PROXY (e minúscula) = .caixa, .caixa.gov.br, .corecaixa, .local, .svc, localhost, 127.0.0.1, 10.0.0.0/8, 25.0.0.0/8
+Avaliar e ajustar, se necessário: 
+  - HPA 
+  - Service 
+  - Ingress 
+  - Tolerations
 
-Os domínios internos, incluindo o SSO logindes.caixa.gov.br e a aplicação sicbs-frontend-des.apps.nprd.caixa, seguem por rota direta. A configuração fica persistida no DeploymentConfig e se mantém em reinícios dos pods. Verificado também que o Grid não é gerenciado por ferramenta de deploy (ArgoCD/Helm), portanto não há risco de sobrescrita automática.
+Garantir aderência aos requisitos de cada ambiente.
 
-3. Validação
+Templates (por ambiente): 
+  - Validar e ajustar os arquivos akvs* para correto apontamento ao Key Vault; 
+  - Revisar ConfigMaps conforme padrão da esteira e garantir configuração no values.yaml;   
 
-Novos pods (chrome-4, edge-4, firefox-5) em execução e registrados no Grid (status "ready": true).
-Aberta sessão WebDriver via Grid em cada navegador (Firefox 122, Chrome e Edge), com carregamento de https://cdn.perfdrive.com/ concluído entre 0,3s e 1,8s. Antes da configuração ocorria timeout.
-Página de login SSO (logindes.caixa.gov.br) e SICBS-frontend carregadas normalmente pelos navegadores do Grid.
-Executado o pipeline QAAPI-apitests (Release-1000, estágio QA ACESSIBILIDADE) com fluxo de login SSO. O WebDriver foi inicializado no Grid, a página de login carregou o script https://cdn.perfdrive.com/aperture/aperture.js e as etapas de CPF, avançar, senha e Entrar foram concluídas em cerca de 6 segundos, sem ocorrência de 504 Gateway Time-out ou TimeoutException.
+Istio: 
+  - Validar a configuração do Istio no ambiente; 
+  - Verificar se o certificado está corretamente configurado e válido;   
 
-4. Conclusão (infraestrutura)
+Chart.yaml (raiz do ambiente): 
+  - Validar e atualizar para a versão mais recente suportada pelo time de nuvem;  
 
-A causa dos timeouts (bloqueio de saída dos nós do Selenium Grid para o domínio externo cdn.perfdrive.com) foi corrigida. O Selenium Grid está apto para execução dos testes com login SSO.
+Evidências: Apresentar os ajustes realizados em cada repositório.   
 
-5. Ponto para avaliação do time de desenvolvimento / qualidade
+At.te, CXNDE04
 
-Na execução de validação, o teste falhou em etapa posterior, por motivo não relacionado à infraestrutura:
 
-[SSO] Falha na etapa: BOTAO_ENTRAR
-[SSO] Título atual: Login CAIXA - Informe sua senha
-Caused by: java.lang.RuntimeException: LoginDES retornou erro de autenticação: Senha inválida.
-  at com.deque.axe.SSOLoginAutomation.performLoginIfRequired(SSOLoginAutomation.java:100)
 
-O SSO recebeu a requisição e recusou a credencial do usuário de teste. As credenciais são lidas do arquivo parametros-login.json do repositório _sicbs-qualidade (teste-acessibilidade/SICBS-frontend). Solicitamos ao time responsável:
+Histórico de Informações de Trabalho da Ordem de Trabalho
+ID da Ordem de Trabalho	 WO0000081641979
+Criado em	 18/09/2026 22:10:13
+Criado por	 P507043
+Origem de Comunicação	 
+Exibir Acesso	 Público
+Notas	 Prezados~
 
-a) verificar e atualizar a senha do usuário de teste no LoginDES e no parametros-login.json (ou na variável/secret que o alimenta);
+Esta REQ permanece pendente, aguardando a conclusão da REQ000145922883 pelo time de Nuvem Pública, para que os ajustes de GitOps (APP, Project, Labels, Source/SourceVar, Cluster, values.yaml, templates, Istio e Chart.yaml) possam ser realizados.
 
-b) evitar execuções repetidas com a credencial atual, para não bloquear o usuário no SSO;
+Atte.
 
-c) após o ajuste, reexecutar o pipeline QAAPI-apitests e, persistindo erro de conectividade, abrir nova demanda para a Esteira DevOps.
+CTIS / CESTI / ESTEIRAS DEVOPS DES TQS
+ID da Ordem de Trabalho	 WO0000081641979
+Criado em	 17/09/2026 15:16:50
+Criado por	 P585600
+Origem de Comunicação	 
+Exibir Acesso	 Público
+Notas	 Pendencia.
 
-Diante do exposto, encerramos esta WO no escopo de infraestrutura da Esteira DevOps.
+Nota de atendimento — REQ000145922885
+
+Em atendimento à REQ000145922885, informamos que a configuração dos itens solicitados (GitOps, values.yaml, templates, Istio e Chart.yaml) para o ambiente DES está condicionada à conclusão da solicitação de infraestrutura em aberto junto ao time de Nuvem Pública, registrada na REQ000145922883 (recursos EKS, RDS, DynamoDB, MSK, EventBridge, S3, Static Web Site e plugins ArgoCD/Developer Hub/external-dns/akv2k8s referentes à app siidp-backend-arquitetura-referencia).
+
+Como a infraestrutura ainda não foi disponibilizada, esta REQ permanece pendente, aguardando a conclusão da REQ000145922883 pelo time de Nuvem Pública, para que os ajustes de GitOps (APP, Project, Labels, Source/SourceVar, Cluster, values.yaml, templates, Istio e Chart.yaml) possam ser realizados.
+
 
 Atenciosamente,
 
 Jessé Mouta Pereira Batista
 Analista
 CTIS / CESTI Esteira DEVOPS DES TQS NPRD
+ID da Ordem de Trabalho	 WO0000081641979
+Criado em	 16/09/2026 08:13:17
+Criado por	 P768728
+Origem de Comunicação	 
+Exibir Acesso	 Público
+Notas	 A CAIXA,
+
+Reitero a solicitação registrada por nosso analista em 15/06, às 10:52, referente à necessidade de informar:
+
+GitOps (ArgoCD) - DES/TQS:
+
+Nome/endpoint do Cluster de destino criado na infraestrutura referente à REQ, para os ambientes DES e TQS.
+Padrão esperado de nomenclatura para APP, Project e Labels a serem configurados.
+Repositório, branch e path de Source a serem apontados, além dos valores esperados de SourceVar.
+
+values.yaml (por ambiente DES/TQS):
+
+Parâmetros de HPA esperados (réplicas mínima/máxima, thresholds de CPU/memória).
+Configuração esperada de Service (porta, tipo) e Ingress (host, path).
+Tolerations aplicáveis (node pool/taint de destino).
+
+Templates:
+
+Nome do Key Vault e identificação dos secrets a serem referenciados nos arquivos akvs*, para DES e TQS.
+Chaves e valores esperados de ConfigMap pela aplicação, para configuração no values.yaml.
+
+Istio:
+
+Certificado a ser utilizado (domínio/validade) e eventuais regras específicas de Istio esperadas para o serviço.
+
+Chart.yaml:
+
+Confirmação, junto ao time de nuvem, da versão mais recente suportada do caixa-base-chart a ser aplicada, para que possamos prosseguir com o atendimento.
+
+Conforme orientação da CESTI36, requisições que não forem respondidas no prazo de 72h após a solicitação das informações complementares serão encerradas
+
+Após o encerramento, será necessário registrar uma nova REQ, informando o número da WO finalizada, para fins de continuidade.
+
+Ressaltamos ainda que reaberturas serão novamente encerradas, sendo obrigatório o registro de uma nova REQ conforme orientado acima.
+
+Permaneço à disposição.
+
+Atenciosamente,
+
+Esteira Devops - NPRD
+ID da Ordem de Trabalho	 WO0000081641979
+Criado em	 15/09/2026 10:52:03
+Criado por	 P585600
+Origem de Comunicação	 
+Exibir Acesso	 Público
+Notas	 Prezados,
+
+Em atendimento, informamos que os ajustes solicitados para o repositório siidp-backend-arquitetura-referencia serão realizados nos ambientes DES e TQS.
+
+Para darmos andamento aos itens listados, solicitamos as seguintes informações:
+
+GitOps (ArgoCD) - DES/TQS:
+
+Nome/endpoint do Cluster de destino criado na infraestrutura referente à REQ, para os ambientes DES e TQS.
+Padrão esperado de nomenclatura para APP, Project e Labels a serem configurados.
+Repositório, branch e path de Source a serem apontados, além dos valores esperados de SourceVar.
+
+values.yaml (por ambiente DES/TQS):
+
+Parâmetros de HPA esperados (réplicas mínima/máxima, thresholds de CPU/memória).
+Configuração esperada de Service (porta, tipo) e Ingress (host, path).
+Tolerations aplicáveis (node pool/taint de destino).
+
+Templates:
+
+Nome do Key Vault e identificação dos secrets a serem referenciados nos arquivos akvs*, para DES e TQS.
+Chaves e valores esperados de ConfigMap pela aplicação, para configuração no values.yaml.
+
+Istio:
+
+Certificado a ser utilizado (domínio/validade) e eventuais regras específicas de Istio esperadas para o serviço.
+
+Chart.yaml:
+
+Confirmação, junto ao time de nuvem, da versão mais recente suportada do caixa-base-chart a ser aplicada.
+
+Assim que recebermos essas informações, daremos sequência aos ajustes e apresentaremos as evidências por repositório, conforme solicitado.
+
+
+Atenciosamente,
+
+Jessé Mouta Pereira Batista
+Analista
+CTIS / CESTI Esteira DEVOPS DES TQS NPRD
+ID da Ordem de Trabalho	 WO0000081641979
+Criado em	 11/09/2026 16:27:26
+Criado por	 P590474
+Origem de Comunicação	 
+Exibir Acesso	 Público
+Notas	 Demanda inicial sem viés de falha, erro, degradação ou esgotamento de infraestrutura, serviço, máquina, armazenamento, rotina ou situação que não esteja na iminência de tornar-se incidente. Previsto atendimento no prazo indicado pelo demandante. [CENTRAL-SID]
+ID da Ordem de Trabalho	 WO0000081641979
+Criado em	 11/09/2026 15:43:44
+Criado por	 P768728
+Origem de Comunicação	 
+Exibir Acesso	 Público
+Notas	 Prezado(a),
+
+Informamos que sua solicitação foi recebida.
+
+Analisaremos a solicitação para nos certificarmos que o atendimento está dentro do escopo de atuação da nossa equipe.
+
+Caso seja identificado que o atendimento não corresponde ao nosso escopo, a solicitação será redirecionada à equipe responsável.
+
+Novas informações e atualizações serão registradas diretamente nesta WO.
+
+Atte.
+
+Esteira Devops DES TQS NPRD
+ID da Ordem de Trabalho	 WO0000081641979
+Criado em	 11/09/2026 15:33:08
+Criado por	 Remedy Application Service
+Origem de Comunicação	 E-mail
+Exibir Acesso	 Interno
+Notas	 Este ticket foi criado a partir do sistema de solicitação de serviço.
+Impresso por P585600 em Terça-feira, 22/09/2026 19:55:03
+
+
+
+Histórico de Informações de Trabalho da Ordem de Trabalho
+ID da Ordem de Trabalho	 WO0000081641977
+Criado em	 21/09/2026 18:41:00
+Criado por	 P640827
+Origem de Comunicação	 
+Exibir Acesso	 Público
+Notas	 À CAIXA,
+
+Prezados,
+
+Seguem as informações da conta:
+
+ID da conta: 385545779011
+nome da conta: accestruturantestinprd
+SSO: https://d-946760baff.awsapps.com/start
+
+Para o time de desenvolvimento: será necessário solicitar a matriz de acesso conforme alinhado com o COE.
+
+Atenciosamente,
+Ana Elisa Ferreira Bertoldo
+CTIS/CESTI/EquipeNuvem
+ID da Ordem de Trabalho	 WO0000081641977
+Criado em	 21/09/2026 18:05:42
+Criado por	 P640827
+Origem de Comunicação	 
+Exibir Acesso	 Público
+Notas	 À CAIXA,
+
+A conta o e toda sua estrutura de Azure DevOps e Terraform foram criados com sucesso.  Evidências em anexo.
+
+Atenciosamente,
+Ana Elisa Ferreira Bertoldo
+CTIS/CESTI/EquipeNuvem
+ID da Ordem de Trabalho	 WO0000081641977
+Criado em	 17/09/2026 12:36:26
+Criado por	 P528436
+Origem de Comunicação	 
+Exibir Acesso	 Público
+Notas	 Provisionamento de recursos sendo realizado na conta.
+ID da Ordem de Trabalho	 WO0000081641977
+Criado em	 16/09/2026 15:47:13
+Criado por	 P528436
+Origem de Comunicação	 
+Exibir Acesso	 Público
+Notas	 Aguardando finalização de configurações de rotas para a rede VPC da conta e prosseguir com a subida dos recursos.
+ID da Ordem de Trabalho	 WO0000081641977
+Criado em	 15/09/2026 16:25:28
+Criado por	 P528436
+Origem de Comunicação	 
+Exibir Acesso	 Público
+Notas	 Aguardando liberação pela CETEL do range de rede para criação da conta aws e criação dos serviço via IaC.
+ID da Ordem de Trabalho	 WO0000081641977
+Criado em	 11/09/2026 16:25:56
+Criado por	 P590474
+Origem de Comunicação	 
+Exibir Acesso	 Público
+Notas	 Demanda inicial sem viés de falha, erro, degradação ou esgotamento de infraestrutura, serviço, máquina, armazenamento, rotina ou situação que não esteja na iminência de tornar-se incidente. Previsto atendimento no prazo indicado pelo demandante. [CENTRAL-SID]
+ID da Ordem de Trabalho	 WO0000081641977
+Criado em	 11/09/2026 15:39:35
+Criado por	 P962331
+Origem de Comunicação	 
+Exibir Acesso	 Público
+Notas	 Prezado(a)   
+
+Informamos que sua solicitação foi recebida em nossa fila e seguirá o fluxo de atendimento.   
+
+Trata-se de uma atividade de complexidade baixa e será atendida o mais breve possível.   
+
+Em complemento as informações, destaca-se que:   
+
+Será necessário fazer planejamento para sua execução.   
+
+Informações futuras serão adicionadas a esta WO.   
+
+Qualquer dúvida, estamos à disposição   
+
+Antonia Costa  
+
+Preposta  
+
+CTIS /CESTI/Nuvem Publica  
+ID da Ordem de Trabalho	 WO0000081641977
+Criado em	 11/09/2026 15:32:31
+Criado por	 Remedy Application Service
+Origem de Comunicação	 E-mail
+Exibir Acesso	 Interno
+Notas	 Este ticket foi criado a partir do sistema de solicitação de serviço.
+Impresso por P585600 em Terça-feira, 22/09/2026 19:54:15
+
+
