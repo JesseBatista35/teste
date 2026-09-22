@@ -1,29 +1,136 @@
+Skip to main content
+Azure DevOps
+projetos
+/
+Caixa
+/
+Pipelines
+/
+Releases
+/
+QAAPI-apitests
+Search
 
-seluser@firefox-5-26gvg:/$ for B in chrome MicrosoftEdge; do
-  echo "=== $B ==="
-  S=$(curl -s -X POST $G/session -H 'Content-Type: application/json' \
-    -d "{\"capabilities\":{\"alwaysMatch\":{\"browserName\":\"$B\",\"acceptInsecureCerts\":true}}}" \
-    | grep -o '"sessionId" *: *"[^"]*"' | cut -d'"' -f4); echo "sessao=$S"
-  curl -s -X POST $G/session/$S/timeouts -H 'Content-Type: application/json' -d '{"pageLoad":30000}' >/dev/null
-  time curl -s -X POST $G/session/$S/url -H 'Content-Type: application/json' -d '{"url":"https://cdn.perfdrive.com/"}' | head -c 300; echo
-  curl -s -X POST $G/session/$S/execute/sync -H 'Content-Type: application/json' \
-    -d '{"script":"return [document.readyState, document.documentElement.outerHTML.substring(0,120)]","args":[]}'; echo
-  curl -s -X DELETE $G/session/$S >/dev/null
-done
-=== chrome ===
-sessao=69bc785b10d1723aaaeb521b733120b1
-{"value":null}
-real    0m0.328s
-user    0m0.004s
-sys     0m0.004s
 
-{"value":["complete","\u003Chtml xmlns=\"http://www.w3.org/1999/xhtml\">\u003Chead>\u003Cstyle id=\"xml-viewer-style\">/* Copyright 2014 The Chromium Authors\n * "]}
-=== MicrosoftEdge ===
-sessao=4eb13b26082b6c0bebeba2f19bf54f40
-{"value":null}
-real    0m0.369s
-user    0m0.003s
-sys     0m0.006s
+Caixa
 
-{"value":["complete","\u003Chtml xmlns=\"http://www.w3.org/1999/xhtml\">\u003Chead>\u003Cstyle id=\"xml-viewer-style\">/* Copyright 2014 The Chromium Authors\n * "]}
-seluser@firefox-5-26gvg:/$
+Overview
+
+Boards
+
+Repos
+
+Pipelines
+Pipelines
+Environments
+Releases
+Library
+Task groups
+Deployment groups
+Portal Infra
+
+Test Plans
+
+Artifacts
+Project settings
+All pipelines
+
+Qualidade
+
+QAAPI-apitests
+Predefined variables
+BUILD_VARIABLES (57)
+Variáveis disponíveis para todas as builds.
+Scopes: Release
+Usuario-Azure-DevOps (12)
+Scopes: Release
+NEXUS_VARIABLES (19)
+Variáveis disponíveis para todas as builds.
+Scopes: Release
+SIPCS-internacional-QA-AUTOAPI-DES (7)
+Variaveis para execução da automação de testes de API nas releases da Aplicação
+Scopes: QA-APITESTS-ALLURE
+bloqueia
+true
+dir_result_allure
+allure-results
+package_json_path
+.
+repo_autoapi
+_QAAPI-apitests
+repo_sigla
+_SIPCS-api-autoAPITeste
+sigla
+SIPCS
+swagger
+APIs/SIPCS-internacional/SIPCS-internacional.yaml
+SICBS-frontend-AXE-Automator-Teste (2)
+Acessibilidade teste
+Scopes: QA ACESSIBILIDADE
+caminho_resources
+teste-acessibilidade/SICBS-frontend
+repo_sigla
+_sicbs-qualidade
+QA-PERFORMANCE-SIMET-XID (7)
+Variaveis para execução da automação de testes de API nas releases da Aplicação.
+
+Scopes: QA-PERFORMANCE-CUSTOM
+config_json_path
+teste-performance/simet-xid-usuarios
+name_swagger_path
+_simet-qualidade/teste-performance/simet-xid-usuarios/swagger-simet-xid-usuarios.json
+ref_ErrorPct
+30
+ref_TempoMedio
+500
+ref_Vazao
+70
+repo_config_json
+_simet-qualidade
+repo_sinop_performance
+_SINOP-performance
+|Manage variable groups
+No pipelines match your search
+
+Select a release pipeline to view its releases
+
+No pipelines match your search
+
+Select a release pipeline to view its releases
+
+1 pipelines found
+
+Showing filters 1 through 2
+
+Showing 26 deployments
+
+Expanded
+
+Collapsed
+
+Expanded
+
+Row 3
+
+Collapsed
+
+Row 2
+
+2 pipelines found
+
+Row 2
+
+Row 2
+
+Row 2
+
+Row 2
+
+Showing filters 1 through 2
+
+Showing filters 1 through 2
+
+
+
+
+ta mais nao teria que adcinoar nada aqui, pois o novo deploy apagaria tudo que agente fez??
