@@ -1,3 +1,11 @@
-api.dataprev.consignado.keystore.if104.path=/infra_app/config/sifug/IF104.p12
-
-O caminho é explícito e direto pro arquivo IF104.p12 na raiz de /infra_app/config/sifug/. O código (visto no print do Marco) só faz new FileInputStream(properties.getProperty(KEYSTORE_DATAPREV_PATH)) — ele lê exatamente o que estiver nessa property, seja qual for a pasta. A pasta dataprev/ que achamos antes é só um repositório histórico de arquivos de geração do certificado (.key, .pem, .cnf), não é
+Jesse Mouta Pereira Batista
+Claudio Constantino Monteiro e Rafael Ferreira Sampaio eu habilitei o debug SSL (-Djavax.net.debug=ssl) no server srjtqapllx0021_sifug_inter_8080 e já reiniciei. Estou com o log em acompanhamento em…
+Marco Antonio Paranhos Silva
+Faz um teste na chamada, pf..
+ 
+fazendo aqui
+ 
+tá carregando a aplicação aqui Rafael Ferreira Sampaio Jesse Mouta Pereira Batista na hora do disparo aviso aqui
+ 
+disparado agora
+ 
