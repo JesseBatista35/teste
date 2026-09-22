@@ -60,6 +60,9 @@ Origem de Comunicação
 Exibir Acesso	 Público
 Notas	 Pendencia.
 
+
+
+
 Nota de atendimento — REQ000145922885
 
 Em atendimento à REQ000145922885, informamos que a configuração dos itens solicitados (GitOps, values.yaml, templates, Istio e Chart.yaml) para o ambiente DES está condicionada à conclusão da solicitação de infraestrutura em aberto junto ao time de Nuvem Pública, registrada na REQ000145922883 (recursos EKS, RDS, DynamoDB, MSK, EventBridge, S3, Static Web Site e plugins ArgoCD/Developer Hub/external-dns/akv2k8s referentes à app siidp-backend-arquitetura-referencia).
@@ -285,3 +288,127 @@ Notas	 Este ticket foi criado a partir do sistema de solicitação de serviço.
 Impresso por P585600 em Terça-feira, 22/09/2026 19:54:15
 
 
+
+<img width="1816" height="877" alt="image" src="https://github.com/user-attachments/assets/c3b3c2fa-f32a-4ff0-9465-4bedd6c6fce2" />
+
+
+
+
+Skip to content
+GitHub Enterprise
+Users managed by Caixa Economica Federal
+caixagithub
+siidp-backend-arquitetura-referencia
+Repository navigation
+Code
+Issues
+Pull requests
+Actions
+Projects
+Wiki
+Security and quality
+2
+ (2)
+Insights
+Settings
+CI/CD Workflow Generic
+caixagithub/siidp-backend-arquitetura-referencia_develop_35361748176.2 #2
+All jobs
+Run details
+Annotations
+1 error and 1 warning
+CI_DES / BUILD / BUILD
+failed 4 days ago in 1m 15s
+Search logs
+10s
+1s
+0s
+1s
+23s
+0s
+0s
+0s
+0s
+23s
+Set up Docker Buildx
+6s
+Configure AWS Credentials
+1s
+Assume role in PAAS account
+0s
+Login to ECR
+0s
+Connecting on Registry
+0s
+Docker meta
+1s
+Checkout DevSecOps config repo
+1s
+Localiza arquivos nexus
+0s
+Show nexus
+0s
+Inject nexus repo
+0s
+Build and push
+3s
+  Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+Run docker/build-push-action@v6
+  (node:1126) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+  (Use `node --trace-deprecation ...` to show where the warning was created)
+GitHub Actions runtime token ACs
+Docker info
+Proxy configuration
+Buildx version
+Builder info
+  /usr/bin/docker buildx build --cache-from type=registry,ref=027574771582.dkr.ecr.sa-east-1.amazonaws.com/siidp/backend-arquitetura-referencia/siidp-backend-arquitetura-referencia:buildcache --cache-to type=registry,ref=027574771582.dkr.ecr.sa-east-1.amazonaws.com/siidp/backend-arquitetura-referencia/siidp-backend-arquitetura-referencia:cache,mode=max --file ./Dockerfile --iidfile /home/runner/_work/_temp/docker-actions-toolkit-w8bI2b/build-iidfile-e3eeec61df.txt --label org.opencontainers.image.created=2026-09-18T15:21:34.247Z --label org.opencontainers.image.description=Adicionando aplicação: siidp-backend-arquitetura-referencia --label org.opencontainers.image.licenses= --label org.opencontainers.image.revision=de84a0b18a94d18b491c2a71d920f87209216ee5 --label org.opencontainers.image.source=https://github.com/caixagithub/siidp-backend-arquitetura-referencia --label org.opencontainers.image.title=siidp-backend-arquitetura-referencia --label org.opencontainers.image.url=https://github.com/caixagithub/siidp-backend-arquitetura-referencia --label org.opencontainers.image.version=35361748176 --platform linux/amd64 --attest type=provenance,mode=min,inline-only=true,builder-id=https://github.com/caixagithub/siidp-backend-arquitetura-referencia/actions/runs/35361748176/attempts/1 --tag 027574771582.dkr.ecr.sa-east-1.amazonaws.com/siidp/backend-arquitetura-referencia/siidp-backend-arquitetura-referencia:35361748176 --metadata-file /home/runner/_work/_temp/docker-actions-toolkit-w8bI2b/build-metadata-c82c813066.json --push .
+  #0 building with "builder-64a037b9-8aa5-4bde-8726-98d6748ebdd9" instance using docker-container driver
+  
+  #1 [internal] load build definition from Dockerfile
+  #1 transferring dockerfile: 971B done
+  #1 DONE 0.0s
+  
+  #2 [internal] load metadata for docker.io/library/maven:3-eclipse-temurin-25
+  #2 ...
+  
+  #3 [internal] load metadata for registry.access.redhat.com/ubi9/openjdk-25:latest
+  #3 DONE 1.0s
+  
+  #2 [internal] load metadata for docker.io/library/maven:3-eclipse-temurin-25
+  #2 DONE 1.2s
+  
+  #4 [internal] load .dockerignore
+  #4 transferring context: 168B done
+  #4 DONE 0.0s
+  
+  #5 [internal] load build context
+  #5 DONE 0.0s
+  
+  #6 [build 1/5] FROM docker.io/library/maven:3-eclipse-temurin-25@sha256:dd8e01b3be719853578c07b57ff8d9bbbbfe746f802226f05b19689420815221
+  #6 resolve docker.io/library/maven:3-eclipse-temurin-25@sha256:dd8e01b3be719853578c07b57ff8d9bbbbfe746f802226f05b19689420815221 0.0s done
+  #6 DONE 0.0s
+  
+  #7 [deploy 1/5] FROM registry.access.redhat.com/ubi9/openjdk-25:latest@sha256:513275ae909d56667d30f3420dbb6e6384ee33ec24c7527b6cccd0f1f5d1d54b
+  #7 resolve registry.access.redhat.com/ubi9/openjdk-25:latest@sha256:513275ae909d56667d30f3420dbb6e6384ee33ec24c7527b6cccd0f1f5d1d54b 0.0s done
+  #7 DONE 0.0s
+  
+  #8 [auth] sharing credentials for 027574771582.dkr.ecr.sa-east-1.amazonaws.com
+  #8 DONE 0.0s
+  
+  #9 importing cache manifest from 027574771582.dkr.ecr.sa-east-1.amazonaws.com/siidp/backend-arquitetura-referencia/siidp-backend-arquitetura-referencia:buildcache
+  #9 ERROR: failed to configure registry cache importer: 027574771582.dkr.ecr.sa-east-1.amazonaws.com/siidp/backend-arquitetura-referencia/siidp-backend-arquitetura-referencia:buildcache: not found
+  
+  #5 [internal] load build context
+  #5 transferring context: 2B 0.0s done
+  #5 DONE 0.0s
+  
+0s
+9s
+0s
+1s
+0s
+1s
+0s
+
+
+eles tetnaram rodar e deu erro sera se falta relamten configuraçoes??
