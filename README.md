@@ -1,16 +1,10 @@
-Prezados, boa tarde.
+/opt/open/jboss/7.0.0/bin/jboss-cli.sh --connect --controller=srjtqapllx0021:9990
 
-Diagnóstico e correção concluídos para o problema de certificado expirado na integração SIFUG-Dataprev (TQS).
 
-Resumo:
-- Certificado expirado (IF104.p12) substituído pelo novo certificado ECO.DATAPREV.DES.CAIXA.GOV.BR, emitido pela Autoridade Certificadora do SERPRO Final SSL, fornecido por Carlos Augusto de Sousa Ferreira.
-- Após a instalação, identificamos que a senha configurada na property api.dataprev.consignado.keystore.if104.password (sifug_sifgd.properties) estava desatualizada para o novo certificado, causando falha no carregamento do keystore (java.io.IOException: keystore password was incorrect).
-- Carlos Augusto atualizou a senha diretamente no servidor srjtqapllx0021.
-- Server srjtqapllx0021_sifug_inter_8080 reiniciado. Log de debug SSL confirmou handshake TLS completo e bem-sucedido com o Dataprev.
-- Teste de integração validado pelo time de desenvolvimento.
+/host=srjtqapllx0021/server-config=srjtqapllx0021_sifug_inter_8080/system-property=javax.net.debug:remove
 
-Diante do exposto, solicitamos o encerramento da REQ000145872659.
+/host=srjtqapllx0021/server-config=srjtqapllx0021_sifug_inter_8080:restart
+exit
 
-Agradecemos o suporte de todos os envolvidos (Claudio Constantino Monteiro, Leonardo Nacacio Ricardo Simao, Carlos Augusto de Sousa Ferreira, Marco Antonio Paranhos Silva, Rafael Ferreira Sampaio).
+ps -ef | grep sifug_inter_8080 | grep -v grep | grep -o "javax.net.debug=ssl"
 
-Att.
