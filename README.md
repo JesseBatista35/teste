@@ -158,21 +158,9 @@ Row 4. Clickable
 
 Row 2. Clickable
 
-Showing 50 filtered items.
-
-Showing 25 filtered items.
-
 Row 5. Clickable
 
 Row 2. Clickable
-
-Showing 25 filtered items.
-
-Get started and run this pipeline for the first time!
-
-Showing 50 filtered items.
-
-Showing 25 filtered items.
 
 Expanded
 
@@ -184,6 +172,10 @@ Row 2. Clickable
 
 Row 2. Clickable
 
+Showing 50 filtered items.
+
+Showing 25 filtered items.
+
 Showing 25 filtered items.
 
 Get started and run this pipeline for the first time!
@@ -192,4 +184,14 @@ Showing 50 filtered items.
 
 Showing 25 filtered items.
 
-<img width="1868" height="943" alt="image" src="https://github.com/user-attachments/assets/ae50eeb6-ee27-4c82-bc2c-ca43c6203fa6" />
+Showing 25 filtered items.
+
+Get started and run this pipeline for the first time!
+
+Showing 50 filtered items.
+
+Showing 25 filtered items.
+
+
+
+<img width="1871" height="919" alt="image" src="https://github.com/user-attachments/assets/91f4c682-e9ff-4d62-9fb2-3825276940f2" />
