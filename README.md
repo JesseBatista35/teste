@@ -1,8 +1,18 @@
-Pessoal, achamos a causa raiz. Não é problema de SSL/handshake - o log real da aplicação mostra:
+Carlos Augusto, tudo bem? Poderia entrar numa chamada rápida aqui no Teams? Encontramos a causa raiz do problema do SIFUG-Dataprev: a senha configurada na property do keystore está incorreta pro novo certificado.
 
-java.io.IOException: keystore password was incorrect
-ConsignadoIntegracaoDataprevResource - erro ao carregar repositorio de certificado
+Preciso que você digite a senha correta diretamente no arquivo de configuração no servidor (mesmo princípio da sala de inserção de senhas - eu compartilho a tela e passo o controle, você só digita o valor, sem precisar me falar a senha em voz alta ou por texto).
 
-A senha configurada na property api.dataprev.consignado.keystore.if104.password (sifug_sifgd.properties) está incorreta para o novo certificado eco.dataprev.des.caixa.gov.br.p12. Isso explica tudo que vimos até agora: por isso não aparecia log de SSL (o KeyStore.load() falha antes de chegar no handshake) e por isso o NullPointerException aparecia depois, na sequência do código.
+Já deixo os comandos prontos aqui pra ser rápido assim que você entrar:
 
-Carlos Augusto, precisamos da senha correta desse .p12 (a mesma usada na sessão do CESET) para atualizar a property. Podemos agendar uma nova sessão na sala de inserção de senhas para que alguém edite diretamente o arquivo sifug_sifgd.properties no servidor, assim ninguém precisa revelar a senha em texto - só digitar direto no lugar certo.
+1) Fazer backup da property atual antes de mexer:
+cp /infra_app/config/sifug/sifug_sifgd.properties /infra_app/config/sifug/sifug_sifgd.properties.bak_$(date +%Y%m%d%H%M)
+
+2) Abrir o arquivo pra edição:
+vi /infra_app/config/sifug/sifug_sifgd.properties
+
+3) Localizar a linha (buscar no vi com /keystore.if104.password):
+api.dataprev.consignado.keystore.if104.password=123456
+
+Nesse ponto eu paro e passo o controle da tela pra você trocar só o valor depois do "=" pela senha correta, salvar (Esc, :wq) e devolver o controle.
+
+Me avisa quando puder entrar.
