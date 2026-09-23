@@ -1,7 +1,4 @@
-Durante a execução da esteira de deploy em DES houve o seguinte erro:   
-Filtrando pods e encontrando o mais recente...
-Nenhum pod encontrado ou JSON não contém dados esperados
+<img width="1853" height="811" alt="image" src="https://github.com/user-attachments/assets/56c9482b-a064-4649-b4bd-9559ca8cf7df" />
 
-Ao olhar a página do fusionX (https://fusionx.caixa/catalog/default/component/sisph-api-painel-ddd/kubernetes) não aparece pods.
 
-Segue link da execução que apresentou a falha: https://github.com/caixagithub/sisph-api-painel-ddd/actions/runs/35875692408/job/107232199440
+o aks não exite. não tem  como saber o nome do vault name para cllacar na template do akvs no repo de infranprd
