@@ -1,13 +1,4 @@
-Jesse Mouta Pereira Batista
- 
-1. Disponibilizar o standalone do SIGFI FGC
- 
-https://sigfi-fgc.des.caixa/fgc-web/
- 
-2. O SIGFI FGC não usará mais o OPEN LDAP.
-As configurações devem ser alteradas para LDAP/SSO em desenvolvimento:
- 
-LDAP DES:
-cxextrux071.desenvolvimento.extracaixa:1489
-ClientID:
-cli-web-gfi
+<img width="1895" height="896" alt="image" src="https://github.com/user-attachments/assets/02ad87d2-f10e-4d94-8611-1444f1c14f9e" />
+
+
+repo vazio o time de desenvolvimento deve atuar aqui agora. me ajuda com texto pra fechar a demanda
