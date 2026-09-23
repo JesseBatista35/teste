@@ -1,178 +1,192 @@
-Ajustar ambiente ou parametrização de software
-Informar o Ambiente:*:	DES
-Nome do serviço ou sistema:*:	Sistema de Renda Fixa
-Janela de atendimento:*:	23/9/2026 12:50:00
-Prazo final da janela de atendimento:*:	24/9/2026 00:00:00
-Haverá previsão de indisponibilidade durante a execução do serviço:*:	Não
-Contato do responsável pela validação do ambiente após alteração:*:	c129427
+<img width="1849" height="877" alt="image" src="https://github.com/user-attachments/assets/5fc544ec-1b69-4b19-9143-b52a051cdd3d" />
 
 
-Descrição da solicitação:*:	https://devops.caixa/projetos/Caixa/_releaseProgress?_a=release-environment-logs&releaseId=524577&environmentId=2436459
-
-corrigir release.
+OLHA AI COMO ESSE FUNCIONA
 
 
-2026-09-03T16:29:12.4695860Z ##[section]Starting: Alterando Valores placeholders nos arquivos de config
-2026-09-03T16:29:12.4698854Z ==============================================================================
-2026-09-03T16:29:12.4698930Z Task         : Replace Tokens
-2026-09-03T16:29:12.4698975Z Description  : Replace tokens in files
-2026-09-03T16:29:12.4699038Z Version      : 3.3.1
-2026-09-03T16:29:12.4699079Z Author       : Guillaume Rouchon
-2026-09-03T16:29:12.4699131Z Help         : v3.3.1 - [More Information](https://github.com/qetza/vsts-replacetokens-task#readme)
-2026-09-03T16:29:12.4699222Z ==============================================================================
-2026-09-03T16:29:13.5333196Z ##[section]Finishing: Alterando Valores placeholders nos arquivos de config
+2026-06-19T16:58:38.9919565Z ##[section]Starting: Deploy Pacote
+2026-06-19T16:58:38.9922535Z ==============================================================================
+2026-06-19T16:58:38.9922629Z Task         : Bash
+2026-06-19T16:58:38.9922675Z Description  : Run a Bash script on macOS, Linux, or Windows
+2026-06-19T16:58:38.9922754Z Version      : 3.227.0
+2026-06-19T16:58:38.9922799Z Author       : Microsoft Corporation
+2026-06-19T16:58:38.9922849Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/bash
+2026-06-19T16:58:38.9922930Z ==============================================================================
+2026-06-19T16:58:40.0520499Z Generating script.
+2026-06-19T16:58:40.0530947Z ========================== Starting Command Output ===========================
+2026-06-19T16:58:40.0537916Z [command]/bin/bash /opt/ads-agent/_work/_temp/b1823b0d-4fb9-49f4-a19d-002962f43ee5.sh
+2026-06-19T16:58:40.0612173Z /opt/ads-agent/_work/_temp/b1823b0d-4fb9-49f4-a19d-002962f43ee5.sh: line 2: quantidade_vm: comando não encontrado
+2026-06-19T16:58:40.0630546Z ansible-playbook /opt/ads-agent/_work/r3314/a/esteira-jboss-vm-v2/site.yml --tags batch --skip-tags vm,monitoracao,autenticacao,git_conf,tsm,controlm -e sistema_ambiente=des -e sistema_nome=siifx-batch-rendimentos-ctm -e default_working_directory_tfs=/opt/ads-agent/_work/r3314/a -e build_repository_name_tfs=SIIFX-batch-rendimentos-ctm -e quantidade_vm= -e url_deploy=http://binario.caixa:8081/repository/snapshots/br/gov/caixa/siifxbatchrendimentosctm/siifxbatchrendimentosctm/1.0.1.1-SNAPSHOT/siifxbatchrendimentosctm-1.0.1.1-20260529.145847-1.jar -e package_path=/opt/ads-agent/_work/r3314/a/binario/siifxbatchrendimentosctm-1.0.1.1-20260529.145847-1.jar -e site=ctc_nprd -e batch_deploy=true
+2026-06-19T16:58:40.0635436Z /opt/ads-agent/_work/_temp/b1823b0d-4fb9-49f4-a19d-002962f43ee5.sh: line 5: quantidade_vm: comando não encontrado
+2026-06-19T16:58:42.0258877Z 
+2026-06-19T16:58:42.0259827Z PLAY [local] *******************************************************************
+2026-06-19T16:58:42.0533779Z 
+2026-06-19T16:58:42.0534639Z PLAY [Configurando o DNS] ******************************************************
+2026-06-19T16:58:42.2267731Z 
+2026-06-19T16:58:42.2268198Z PLAY [local] *******************************************************************
+2026-06-19T16:58:42.2299930Z 
+2026-06-19T16:58:42.2300489Z PLAY [Verificando serviços] ****************************************************
+2026-06-19T16:58:42.2378535Z 
+2026-06-19T16:58:42.2379297Z PLAY [Configuração LDAP] *******************************************************
+2026-06-19T16:58:42.2408592Z [WARNING]: Found variable using reserved name: when
+2026-06-19T16:58:42.2414462Z 
+2026-06-19T16:58:42.2414899Z PLAY [jboss] *******************************************************************
+2026-06-19T16:58:42.2495662Z 
+2026-06-19T16:58:42.2496135Z PLAY [Stack Jboss] *************************************************************
+2026-06-19T16:58:42.2730276Z Friday 19 June 2026  13:58:42 -0300 (0:00:00.306)       0:00:00.306 *********** 
+2026-06-19T16:58:42.8166282Z 
+2026-06-19T16:58:42.8167154Z TASK [Verifica ser o Jboss já foi instalado] ***********************************
+2026-06-19T16:58:42.8168688Z [DEPRECATION WARNING]: Distribution rhel 9.3 on host 
+2026-06-19T16:58:42.8169529Z caddeapllx2478.agil.nprd.caixa.gov.br should use /usr/libexec/platform-python, 
+2026-06-19T16:58:42.8169792Z but is using /usr/bin/python for backward compatibility with prior Ansible 
+2026-06-19T16:58:42.8169963Z releases. A future Ansible release will default to using the discovered 
+2026-06-19T16:58:42.8170134Z platform python for this host. See https://docs.ansible.com/ansible/2.9/referen
+2026-06-19T16:58:42.8170314Z ce_appendices/interpreter_discovery.html for more information. This feature 
+2026-06-19T16:58:42.8170479Z will be removed in version 2.12. Deprecation warnings can be disabled by 
+2026-06-19T16:58:42.8170637Z setting deprecation_warnings=False in ansible.cfg.
+2026-06-19T16:58:42.8170871Z ok: [caddeapllx2478.agil.nprd.caixa.gov.br]
+2026-06-19T16:58:42.8186649Z 
+2026-06-19T16:58:42.8186933Z PLAY [jboss] *******************************************************************
+2026-06-19T16:58:42.8229151Z 
+2026-06-19T16:58:42.8229473Z PLAY [jboss] *******************************************************************
+2026-06-19T16:58:42.8268928Z 
+2026-06-19T16:58:42.8269251Z PLAY [jboss] *******************************************************************
+2026-06-19T16:58:42.8292108Z 
+2026-06-19T16:58:42.8292565Z PLAY [Copiando deployments adicionais] *****************************************
+2026-06-19T16:58:42.8319407Z 
+2026-06-19T16:58:42.8319747Z PLAY [Copiando modules adicionais] *********************************************
+2026-06-19T16:58:42.8345526Z 
+2026-06-19T16:58:42.8345746Z PLAY [jboss] *******************************************************************
+2026-06-19T16:58:42.8380031Z 
+2026-06-19T16:58:42.8380563Z PLAY [jboss] *******************************************************************
+2026-06-19T16:58:42.8403628Z 
+2026-06-19T16:58:42.8404108Z PLAY [jboss] *******************************************************************
+2026-06-19T16:58:42.8434939Z 
+2026-06-19T16:58:42.8435342Z PLAY [jboss] *******************************************************************
+2026-06-19T16:58:42.8463180Z 
+2026-06-19T16:58:42.8463753Z PLAY [jboss] *******************************************************************
+2026-06-19T16:58:42.8486468Z 
+2026-06-19T16:58:42.8486823Z PLAY [local] *******************************************************************
+2026-06-19T16:58:42.8510555Z [WARNING]: Could not match supplied host pattern, ignoring: instance_restart
+2026-06-19T16:58:42.8514674Z 
+2026-06-19T16:58:42.8515129Z PLAY [instance_restart] ********************************************************
+2026-06-19T16:58:42.8515298Z skipping: no hosts matched
+2026-06-19T16:58:42.8516307Z [WARNING]: Could not match supplied host pattern, ignoring: machine_reboot
+2026-06-19T16:58:42.8519129Z 
+2026-06-19T16:58:42.8519396Z PLAY [machine_reboot] **********************************************************
+2026-06-19T16:58:42.8519566Z skipping: no hosts matched
+2026-06-19T16:58:42.8525189Z 
+2026-06-19T16:58:42.8525614Z PLAY [local] *******************************************************************
+2026-06-19T16:58:42.8553491Z [WARNING]: Could not match supplied host pattern, ignoring: instance_stop
+2026-06-19T16:58:42.8553627Z 
+2026-06-19T16:58:42.8554060Z PLAY [instance_stop] ***********************************************************
+2026-06-19T16:58:42.8554247Z skipping: no hosts matched
+2026-06-19T16:58:42.8556763Z 
+2026-06-19T16:58:42.8557036Z PLAY [machine_reboot] **********************************************************
+2026-06-19T16:58:42.8557185Z skipping: no hosts matched
+2026-06-19T16:58:42.8563669Z 
+2026-06-19T16:58:42.8563882Z PLAY [Configura TSM] ***********************************************************
+2026-06-19T16:58:42.8598558Z 
+2026-06-19T16:58:42.8599163Z PLAY [jboss] *******************************************************************
+2026-06-19T16:58:42.8622941Z 
+2026-06-19T16:58:42.8623500Z PLAY [Configura Control-M] *****************************************************
+2026-06-19T16:58:42.8656402Z 
+2026-06-19T16:58:42.8656743Z PLAY [jboss] *******************************************************************
+2026-06-19T16:58:42.8696542Z 
+2026-06-19T16:58:42.8696986Z PLAY [jboss] *******************************************************************
+2026-06-19T16:58:42.8735154Z 
+2026-06-19T16:58:42.8735449Z PLAY [jboss] *******************************************************************
+2026-06-19T16:58:42.8769297Z Friday 19 June 2026  13:58:42 -0300 (0:00:00.603)       0:00:00.910 *********** 
+2026-06-19T16:58:44.3028032Z 
+2026-06-19T16:58:44.3028534Z TASK [Gathering Facts] *********************************************************
+2026-06-19T16:58:44.3028704Z ok: [caddeapllx2478.agil.nprd.caixa.gov.br]
+2026-06-19T16:58:44.3370588Z Friday 19 June 2026  13:58:44 -0300 (0:00:01.460)       0:00:02.370 *********** 
+2026-06-19T16:58:44.3800280Z 
+2026-06-19T16:58:44.3801048Z TASK [Gerando lista de secure files] *******************************************
+2026-06-19T16:58:44.3801216Z ok: [caddeapllx2478.agil.nprd.caixa.gov.br]
+2026-06-19T16:58:44.3820096Z 
+2026-06-19T16:58:44.3820747Z PLAY [jboss] *******************************************************************
+2026-06-19T16:58:44.4058451Z Friday 19 June 2026  13:58:44 -0300 (0:00:00.068)       0:00:02.439 *********** 
+2026-06-19T16:58:44.9875487Z 
+2026-06-19T16:58:44.9876067Z TASK [Gathering Facts] *********************************************************
+2026-06-19T16:58:44.9876713Z ok: [caddeapllx2478.agil.nprd.caixa.gov.br]
+2026-06-19T16:58:45.0155027Z Friday 19 June 2026  13:58:45 -0300 (0:00:00.609)       0:00:03.049 *********** 
+2026-06-19T16:58:45.4144928Z 
+2026-06-19T16:58:45.4145641Z TASK [Cria Diretórios em /opt/batch/] ******************************************
+2026-06-19T16:58:45.4145833Z ok: [caddeapllx2478.agil.nprd.caixa.gov.br] => (item=/opt/batch)
+2026-06-19T16:58:45.6081816Z ok: [caddeapllx2478.agil.nprd.caixa.gov.br] => (item=/opt/batch/config)
+2026-06-19T16:58:45.8022377Z ok: [caddeapllx2478.agil.nprd.caixa.gov.br] => (item=/opt/batch/deploy)
+2026-06-19T16:58:45.9931339Z ok: [caddeapllx2478.agil.nprd.caixa.gov.br] => (item=/opt/batch/securefiles)
+2026-06-19T16:58:46.0198924Z Friday 19 June 2026  13:58:46 -0300 (0:00:01.004)       0:00:04.053 *********** 
+2026-06-19T16:58:46.0820434Z Friday 19 June 2026  13:58:46 -0300 (0:00:00.062)       0:00:04.115 *********** 
+2026-06-19T16:58:46.1526242Z included: /opt/ads-agent/_work/r3314/a/esteira-jboss-vm-v2/roles/batch/tasks/batch_deploy.yml for caddeapllx2478.agil.nprd.caixa.gov.br
+2026-06-19T16:58:46.1768760Z Friday 19 June 2026  13:58:46 -0300 (0:00:00.094)       0:00:04.210 *********** 
+2026-06-19T16:58:46.2298852Z 
+2026-06-19T16:58:46.2299708Z TASK [Cria variáveis] **********************************************************
+2026-06-19T16:58:46.2299882Z ok: [caddeapllx2478.agil.nprd.caixa.gov.br]
+2026-06-19T16:58:46.2541027Z Friday 19 June 2026  13:58:46 -0300 (0:00:00.077)       0:00:04.287 *********** 
+2026-06-19T16:58:46.6423081Z 
+2026-06-19T16:58:46.6423766Z TASK [Get path of deploy] ******************************************************
+2026-06-19T16:58:46.6424855Z changed: [caddeapllx2478.agil.nprd.caixa.gov.br] => (item=http://binario.caixa:8081/repository/snapshots/br/gov/caixa/siifxbatchrendimentosctm/siifxbatchrendimentosctm/1.0.1.1-SNAPSHOT/siifxbatchrendimentosctm-1.0.1.1-20260529.145847-1.jar)
+2026-06-19T16:58:46.6683396Z Friday 19 June 2026  13:58:46 -0300 (0:00:00.413)       0:00:04.701 *********** 
+2026-06-19T16:58:46.7225522Z 
+2026-06-19T16:58:46.7226245Z TASK [set package_urls] ********************************************************
+2026-06-19T16:58:46.7226596Z ok: [caddeapllx2478.agil.nprd.caixa.gov.br]
+2026-06-19T16:58:46.7522067Z Friday 19 June 2026  13:58:46 -0300 (0:00:00.084)       0:00:04.785 *********** 
+2026-06-19T16:58:47.1772886Z 
+2026-06-19T16:58:47.1774008Z TASK [Verifica o se package existe] ********************************************
+2026-06-19T16:58:47.1774903Z ok: [caddeapllx2478.agil.nprd.caixa.gov.br] => (item=/opt/ads-agent/_work/r3314/a/binario/siifxbatchrendimentosctm-1.0.1.1-20260529.145847-1.jar)
+2026-06-19T16:58:47.2022845Z Friday 19 June 2026  13:58:47 -0300 (0:00:00.450)       0:00:05.235 *********** 
+2026-06-19T16:58:47.9432229Z 
+2026-06-19T16:58:47.9433194Z TASK [Deploy do Pacote] ********************************************************
+2026-06-19T16:58:47.9433997Z ok: [caddeapllx2478.agil.nprd.caixa.gov.br] => (item=/opt/ads-agent/_work/r3314/a/binario/siifxbatchrendimentosctm-1.0.1.1-20260529.145847-1.jar)
+2026-06-19T16:58:47.9696485Z Friday 19 June 2026  13:58:47 -0300 (0:00:00.767)       0:00:06.003 *********** 
+2026-06-19T16:58:48.1982750Z 
+2026-06-19T16:58:48.1983801Z TASK [Verifica se o arquivo /producao//configuration/custom-deploy.sh existe] ***
+2026-06-19T16:58:48.1984149Z ok: [caddeapllx2478.agil.nprd.caixa.gov.br]
+2026-06-19T16:58:48.2213014Z Friday 19 June 2026  13:58:48 -0300 (0:00:00.251)       0:00:06.255 *********** 
+2026-06-19T16:58:48.2833667Z Friday 19 June 2026  13:58:48 -0300 (0:00:00.061)       0:00:06.316 *********** 
+2026-06-19T16:58:48.3452333Z Friday 19 June 2026  13:58:48 -0300 (0:00:00.061)       0:00:06.378 *********** 
+2026-06-19T16:58:48.4063109Z included: /opt/ads-agent/_work/r3314/a/esteira-jboss-vm-v2/roles/batch/tasks/batch_logs.yml for caddeapllx2478.agil.nprd.caixa.gov.br
+2026-06-19T16:58:48.4317007Z Friday 19 June 2026  13:58:48 -0300 (0:00:00.086)       0:00:06.465 *********** 
+2026-06-19T16:58:48.8285971Z 
+2026-06-19T16:58:48.8286718Z TASK [Criacao diretorio /logs/batch] *******************************************
+2026-06-19T16:58:48.8287403Z ok: [caddeapllx2478.agil.nprd.caixa.gov.br]
+2026-06-19T16:58:48.8309534Z 
+2026-06-19T16:58:48.8309929Z PLAY [localhost] ***************************************************************
+2026-06-19T16:58:48.8337864Z 
+2026-06-19T16:58:48.8338356Z PLAY [jboss] *******************************************************************
+2026-06-19T16:58:48.8379793Z 
+2026-06-19T16:58:48.8380173Z PLAY [jboss] *******************************************************************
+2026-06-19T16:58:48.8417467Z 
+2026-06-19T16:58:48.8418074Z PLAY [jboss] *******************************************************************
+2026-06-19T16:58:48.8445177Z 
+2026-06-19T16:58:48.8445544Z PLAY RECAP *********************************************************************
+2026-06-19T16:58:48.8445754Z caddeapllx2478.agil.nprd.caixa.gov.br : ok=14   changed=1    unreachable=0    failed=0    skipped=3    rescued=0    ignored=0   
+2026-06-19T16:58:48.8446385Z 
+2026-06-19T16:58:48.8447572Z Friday 19 June 2026  13:58:48 -0300 (0:00:00.413)       0:00:06.878 *********** 
+2026-06-19T16:58:48.8447890Z =============================================================================== 
+2026-06-19T16:58:48.8448236Z Gathering Facts --------------------------------------------------------- 1.46s
+2026-06-19T16:58:48.8448597Z Cria Diretórios em /opt/batch/ ------------------------------------------ 1.00s
+2026-06-19T16:58:48.8448953Z Deploy do Pacote -------------------------------------------------------- 0.77s
+2026-06-19T16:58:48.8449681Z Gathering Facts --------------------------------------------------------- 0.61s
+2026-06-19T16:58:48.8450101Z Verifica ser o Jboss já foi instalado ----------------------------------- 0.60s
+2026-06-19T16:58:48.8450342Z Verifica o se package existe -------------------------------------------- 0.45s
+2026-06-19T16:58:48.8450579Z Get path of deploy ------------------------------------------------------ 0.41s
+2026-06-19T16:58:48.8450800Z Criacao diretorio /logs/batch ------------------------------------------- 0.41s
+2026-06-19T16:58:48.8451033Z Verifica se o arquivo /producao//configuration/custom-deploy.sh existe --- 0.25s
+2026-06-19T16:58:48.8451331Z include_tasks ----------------------------------------------------------- 0.09s
+2026-06-19T16:58:48.8451553Z include_tasks ----------------------------------------------------------- 0.09s
+2026-06-19T16:58:48.8451778Z set package_urls -------------------------------------------------------- 0.08s
+2026-06-19T16:58:48.8452018Z Cria variáveis ---------------------------------------------------------- 0.08s
+2026-06-19T16:58:48.8452250Z Gerando lista de secure files ------------------------------------------- 0.07s
+2026-06-19T16:58:48.8452467Z include_tasks ----------------------------------------------------------- 0.06s
+2026-06-19T16:58:48.8452685Z Executa shell customizada ----------------------------------------------- 0.06s
+2026-06-19T16:58:48.8453019Z include_tasks ----------------------------------------------------------- 0.06s
+2026-06-19T16:58:48.8453178Z Playbook run took 0 days, 0 hours, 0 minutes, 6 seconds
+2026-06-19T16:58:48.9070698Z ##[section]Finishing: Deploy Pacote
 
-2026-09-03T16:29:13.5351435Z ##[section]Starting: Arquivos de Configuração
-2026-09-03T16:29:13.5354356Z ==============================================================================
-2026-09-03T16:29:13.5354434Z Task         : Bash
-2026-09-03T16:29:13.5354475Z Description  : Run a Bash script on macOS, Linux, or Windows
-2026-09-03T16:29:13.5354548Z Version      : 3.227.0
-2026-09-03T16:29:13.5354590Z Author       : Microsoft Corporation
-2026-09-03T16:29:13.5354638Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/bash
-2026-09-03T16:29:13.5354714Z ==============================================================================
-2026-09-03T16:29:14.2863051Z Generating script.
-2026-09-03T16:29:14.2877104Z ========================== Starting Command Output ===========================
-2026-09-03T16:29:14.2920166Z [command]/bin/bash /opt/ads-agent/_work/_temp/2d7bd34e-b142-4feb-ae8d-ecf81504d820.sh
-2026-09-03T16:29:14.2964606Z /opt/ads-agent/_work/_temp/2d7bd34e-b142-4feb-ae8d-ecf81504d820.sh: line 2: quantidade_vm: comando não encontrado
-2026-09-03T16:29:16.3997719Z 
-2026-09-03T16:29:16.3998220Z PLAY [local] *******************************************************************
-2026-09-03T16:29:16.4300197Z 
-2026-09-03T16:29:16.4300635Z PLAY [Configurando o DNS] ******************************************************
-2026-09-03T16:29:16.6040375Z 
-2026-09-03T16:29:16.6040848Z PLAY [local] *******************************************************************
-2026-09-03T16:29:16.6069052Z 
-2026-09-03T16:29:16.6069825Z PLAY [Verificando serviços] ****************************************************
-2026-09-03T16:29:16.6146015Z 
-2026-09-03T16:29:16.6146503Z PLAY [Configuração LDAP] *******************************************************
-2026-09-03T16:29:16.6175519Z [WARNING]: Found variable using reserved name: when
-2026-09-03T16:29:16.6182948Z 
-2026-09-03T16:29:16.6183107Z PLAY [jboss] *******************************************************************
-2026-09-03T16:29:16.6261425Z 
-2026-09-03T16:29:16.6261723Z PLAY [Stack Jboss] *************************************************************
-2026-09-03T16:29:16.6495362Z Thursday 03 September 2026  13:29:16 -0300 (0:00:00.310)       0:00:00.310 **** 
-2026-09-03T16:29:17.1160300Z 
-2026-09-03T16:29:17.1161096Z TASK [Verifica ser o Jboss já foi instalado] ***********************************
-2026-09-03T16:29:17.1161247Z [DEPRECATION WARNING]: Distribution rhel 9.3 on host 
-2026-09-03T16:29:17.1161492Z caddeapllx2801.agil.nprd.caixa.gov.br should use /usr/libexec/platform-python, 
-2026-09-03T16:29:17.1161657Z but is using /usr/bin/python for backward compatibility with prior Ansible 
-2026-09-03T16:29:17.1161813Z releases. A future Ansible release will default to using the discovered 
-2026-09-03T16:29:17.1161972Z platform python for this host. See https://docs.ansible.com/ansible/2.9/referen
-2026-09-03T16:29:17.1162127Z ce_appendices/interpreter_discovery.html for more information. This feature 
-2026-09-03T16:29:17.1162272Z will be removed in version 2.12. Deprecation warnings can be disabled by 
-2026-09-03T16:29:17.1162449Z setting deprecation_warnings=False in ansible.cfg.
-2026-09-03T16:29:17.1162581Z ok: [caddeapllx2801.agil.nprd.caixa.gov.br]
-2026-09-03T16:29:17.1176799Z 
-2026-09-03T16:29:17.1177033Z PLAY [jboss] *******************************************************************
-2026-09-03T16:29:17.1218532Z 
-2026-09-03T16:29:17.1218767Z PLAY [jboss] *******************************************************************
-2026-09-03T16:29:17.1255509Z 
-2026-09-03T16:29:17.1255758Z PLAY [jboss] *******************************************************************
-2026-09-03T16:29:17.1278917Z 
-2026-09-03T16:29:17.1279058Z PLAY [Copiando deployments adicionais] *****************************************
-2026-09-03T16:29:17.1305939Z 
-2026-09-03T16:29:17.1306278Z PLAY [Copiando modules adicionais] *********************************************
-2026-09-03T16:29:17.1331882Z 
-2026-09-03T16:29:17.1332018Z PLAY [jboss] *******************************************************************
-2026-09-03T16:29:17.1364173Z 
-2026-09-03T16:29:17.1364700Z PLAY [jboss] *******************************************************************
-2026-09-03T16:29:17.1392834Z 
-2026-09-03T16:29:17.1393001Z PLAY [jboss] *******************************************************************
-2026-09-03T16:29:17.1421657Z 
-2026-09-03T16:29:17.1421840Z PLAY [jboss] *******************************************************************
-2026-09-03T16:29:17.1447290Z 
-2026-09-03T16:29:17.1447462Z PLAY [jboss] *******************************************************************
-2026-09-03T16:29:17.1472856Z 
-2026-09-03T16:29:17.1473023Z PLAY [local] *******************************************************************
-2026-09-03T16:29:17.1494909Z [WARNING]: Could not match supplied host pattern, ignoring: instance_restart
-2026-09-03T16:29:17.1498089Z 
-2026-09-03T16:29:17.1498238Z PLAY [instance_restart] ********************************************************
-2026-09-03T16:29:17.1498382Z skipping: no hosts matched
-2026-09-03T16:29:17.1501038Z [WARNING]: Could not match supplied host pattern, ignoring: machine_reboot
-2026-09-03T16:29:17.1504500Z 
-2026-09-03T16:29:17.1504720Z PLAY [machine_reboot] **********************************************************
-2026-09-03T16:29:17.1505682Z skipping: no hosts matched
-2026-09-03T16:29:17.1510560Z 
-2026-09-03T16:29:17.1511013Z PLAY [local] *******************************************************************
-2026-09-03T16:29:17.1534584Z [WARNING]: Could not match supplied host pattern, ignoring: instance_stop
-2026-09-03T16:29:17.1537571Z 
-2026-09-03T16:29:17.1537797Z PLAY [instance_stop] ***********************************************************
-2026-09-03T16:29:17.1537940Z skipping: no hosts matched
-2026-09-03T16:29:17.1540975Z 
-2026-09-03T16:29:17.1541135Z PLAY [machine_reboot] **********************************************************
-2026-09-03T16:29:17.1541272Z skipping: no hosts matched
-2026-09-03T16:29:17.1546861Z 
-2026-09-03T16:29:17.1547041Z PLAY [local] *******************************************************************
-2026-09-03T16:29:17.1570088Z [WARNING]: Could not match supplied host pattern, ignoring: escopo_execucao
-2026-09-03T16:29:17.1573088Z 
-2026-09-03T16:29:17.1573217Z PLAY [Executar o Start do Sirot Connector no escopo definido] ******************
-2026-09-03T16:29:17.1573352Z skipping: no hosts matched
-2026-09-03T16:29:17.1579421Z 
-2026-09-03T16:29:17.1579748Z PLAY [local] *******************************************************************
-2026-09-03T16:29:17.1602572Z 
-2026-09-03T16:29:17.1602894Z PLAY [Executar o Stop do Sirot Connector] **************************************
-2026-09-03T16:29:17.1603043Z skipping: no hosts matched
-2026-09-03T16:29:17.1609238Z 
-2026-09-03T16:29:17.1609410Z PLAY [Configura TSM] ***********************************************************
-2026-09-03T16:29:17.1634384Z 
-2026-09-03T16:29:17.1634741Z PLAY [jboss] *******************************************************************
-2026-09-03T16:29:17.1666331Z 
-2026-09-03T16:29:17.1666732Z PLAY [Configura Control-M] *****************************************************
-2026-09-03T16:29:17.1698245Z 
-2026-09-03T16:29:17.1698531Z PLAY [jboss] *******************************************************************
-2026-09-03T16:29:17.1738283Z 
-2026-09-03T16:29:17.1738549Z PLAY [jboss] *******************************************************************
-2026-09-03T16:29:17.1776714Z 
-2026-09-03T16:29:17.1777070Z PLAY [jboss] *******************************************************************
-2026-09-03T16:29:17.1807221Z Thursday 03 September 2026  13:29:17 -0300 (0:00:00.531)       0:00:00.842 **** 
-2026-09-03T16:29:18.7266479Z 
-2026-09-03T16:29:18.7267028Z TASK [Gathering Facts] *********************************************************
-2026-09-03T16:29:18.7267188Z ok: [caddeapllx2801.agil.nprd.caixa.gov.br]
-2026-09-03T16:29:18.7615629Z Thursday 03 September 2026  13:29:18 -0300 (0:00:01.580)       0:00:02.423 **** 
-2026-09-03T16:29:18.8049444Z 
-2026-09-03T16:29:18.8050351Z TASK [Gerando lista de secure files] *******************************************
-2026-09-03T16:29:18.8050938Z ok: [caddeapllx2801.agil.nprd.caixa.gov.br]
-2026-09-03T16:29:18.8071426Z 
-2026-09-03T16:29:18.8071831Z PLAY [jboss] *******************************************************************
-2026-09-03T16:29:18.8390777Z Thursday 03 September 2026  13:29:18 -0300 (0:00:00.077)       0:00:02.500 **** 
-2026-09-03T16:29:19.4260084Z 
-2026-09-03T16:29:19.4260630Z TASK [Gathering Facts] *********************************************************
-2026-09-03T16:29:19.4260839Z ok: [caddeapllx2801.agil.nprd.caixa.gov.br]
-2026-09-03T16:29:19.4521299Z Thursday 03 September 2026  13:29:19 -0300 (0:00:00.613)       0:00:03.113 **** 
-2026-09-03T16:29:19.8535838Z 
-2026-09-03T16:29:19.8536623Z TASK [Cria Diretórios em /opt/batch/] ******************************************
-2026-09-03T16:29:19.8536796Z ok: [caddeapllx2801.agil.nprd.caixa.gov.br] => (item=/opt/batch)
-2026-09-03T16:29:20.0506839Z ok: [caddeapllx2801.agil.nprd.caixa.gov.br] => (item=/opt/batch/config)
-2026-09-03T16:29:20.2470978Z ok: [caddeapllx2801.agil.nprd.caixa.gov.br] => (item=/opt/batch/deploy)
-2026-09-03T16:29:20.4441888Z ok: [caddeapllx2801.agil.nprd.caixa.gov.br] => (item=/opt/batch/securefiles)
-2026-09-03T16:29:20.4698558Z Thursday 03 September 2026  13:29:20 -0300 (0:00:01.017)       0:00:04.130 **** 
-2026-09-03T16:29:20.5328871Z included: /opt/ads-agent/_work/r17630/a/esteira-jboss-vm-v2/roles/batch/tasks/batch_config.yml for caddeapllx2801.agil.nprd.caixa.gov.br
-2026-09-03T16:29:20.5548899Z Thursday 03 September 2026  13:29:20 -0300 (0:00:00.085)       0:00:04.216 **** 
-2026-09-03T16:29:20.6107486Z 
-2026-09-03T16:29:20.6108485Z TASK [Cria variável build_repository_name] *************************************
-2026-09-03T16:29:20.6108694Z ok: [caddeapllx2801.agil.nprd.caixa.gov.br]
-2026-09-03T16:29:20.6310555Z Thursday 03 September 2026  13:29:20 -0300 (0:00:00.076)       0:00:04.292 **** 
-2026-09-03T16:29:20.7998731Z 
-2026-09-03T16:29:20.7999489Z TASK [Copia Arquivos do Repositório de Config] *********************************
-2026-09-03T16:29:20.7999878Z An exception occurred during task execution. To see the full traceback, use -vvv. The error was: If you are using a module and expect the file to exist on the remote, see the remote_src option
-2026-09-03T16:29:20.8000344Z fatal: [caddeapllx2801.agil.nprd.caixa.gov.br]: FAILED! => {"changed": false, "msg": "Could not find or access '/opt/ads-agent/_work/r17630/a/_esteira-jboss-vm-v2-config/' on the Ansible Controller.\nIf you are using a module and expect the file to exist on the remote, see the remote_src option"}
-2026-09-03T16:29:20.8006061Z 
-2026-09-03T16:29:20.8006792Z PLAY RECAP *********************************************************************
-2026-09-03T16:29:20.8007060Z caddeapllx2801.agil.nprd.caixa.gov.br : ok=7    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
-2026-09-03T16:29:20.8007164Z 
-2026-09-03T16:29:20.8007529Z Thursday 03 September 2026  13:29:20 -0300 (0:00:00.169)       0:00:04.462 **** 
-2026-09-03T16:29:20.8007693Z =============================================================================== 
-2026-09-03T16:29:20.8007941Z Gathering Facts --------------------------------------------------------- 1.58s
-2026-09-03T16:29:20.8008175Z Cria Diretórios em /opt/batch/ ------------------------------------------ 1.02s
-2026-09-03T16:29:20.8008407Z Gathering Facts --------------------------------------------------------- 0.61s
-2026-09-03T16:29:20.8008640Z Verifica ser o Jboss já foi instalado ----------------------------------- 0.53s
-2026-09-03T16:29:20.8008855Z Copia Arquivos do Repositório de Config --------------------------------- 0.17s
-2026-09-03T16:29:20.8009063Z include_tasks ----------------------------------------------------------- 0.09s
-2026-09-03T16:29:20.8009277Z Gerando lista de secure files ------------------------------------------- 0.08s
-2026-09-03T16:29:20.8009492Z Cria variável build_repository_name ------------------------------------- 0.08s
-2026-09-03T16:29:20.8009643Z Playbook run took 0 days, 0 hours, 0 minutes, 4 seconds
-2026-09-03T16:29:20.8658807Z ##[error]Bash exited with code '2'.
-2026-09-03T16:29:20.8661349Z ##[section]Finishing: Arquivos de Configuração
 
 
 
-<img width="1857" height="895" alt="image" src="https://github.com/user-attachments/assets/38054601-a28b-4737-9355-cded9275a413" />
+ESSE PASSA
