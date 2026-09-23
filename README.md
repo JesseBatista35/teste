@@ -1,62 +1,224 @@
+Skip to main content
+projetos
+/
+Caixa
+/
+Pipelines
+/
+Releases
+/
+SIPNC-manutseletjudicialpj-backend
+Search
 
--sh-4.2$ oc set env dc/sipnc-manutseletjudicialpj-backend-des --list -n sipnc-des
-# deploymentconfigs/sipnc-manutseletjudicialpj-backend-des, container sipnc-manutseletjudicialpj-backend-des
-TZ=America/Sao_Paulo
-# INSTANCE_IP from field path status.podIP
-AMBIENTE=NACIONAL
-API_MANAGER_URL=https://api.des.caixa:8443
-API_TRILHA_BASEPATH=/plataforma-unificada/trilha
-APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=b0142390-50c9-495e-85b4-7b2ade8fc1cf;IngestionEndpoint=https://brazilsoutheast-0.in.applicationinsights.azure.com/;LiveEndpoint=https://brazilsoutheast.livediagnostics.monitor.azure.com/
-APPLICATIONINSIGHTS_INSTRUMENTATION_LOGGING_LEVEL=INFO
-APPLICATIONINSIGHTS_PROXY=http://proxydes.caixa:80
-APPLICATIONINSIGHTS_ROLE_NAME=SIPNC-MANUTSELETJUDICIALPJ-DES
-APPLICATIONINSIGHTS_SAMPLING_PERCENTAGE=100
-APPLICATIONINSIGHTS_SELF_DIAGNOSTICS_LEVEL=INFO
-DATASOURCE_JDBC_URL=jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=OFF)(ADDRESS=(PROTOCOL=TCP)(HOST=cnpexdadvm01-scan8.extra.caixa.gov.br)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=ORAD01BC)(FAILOVER_MODE=(TYPE=SELECT)(METHOD=BASIC)(RETRIES=5)(DELAY=5))))
-FLAG_CERTIFICADO_DIGITAL=false
-JAVA_OPTIONS_APPEND=-Djavax.net.ssl.trustStore=/deployments/caixa-truststore-azure2024.jks -Xms512m -Xmx512m
-JAVA_OPTIONS=-Dserver.address=0.0.0.0 -Dserver.port=8080
-JAVA_OPTS_MONITORING=-javaagent:/opt/apm_agent/elastic-apm-agent.jar -Delastic.apm.config_file=/opt/apm_agent/elasticapm.properties -Delastic.apm.service_name=sipnc-manutseletjudicialpj-backend -Delastic.apm.environment=des -Delastic.apm.application_packages=br.gov.caixa -Delastic.apm.server_urls=http://apm-server-devops.produtos.caixa -Delastic.apm.global_labels=deployment=sipnc-manutseletjudicialpj-backend
-LOG_LEVEL=ERROR
-ORACLE_CONNECTIONTIMEOUT=30000
-ORACLE_IDLETIMEOUT=900000
-ORACLE_KEEPALIVETIME=0
-ORACLE_MAXIMUMPOOLSIZE=25
-ORACLE_MAXLIFETIME=1800000
-ORACLE_MINIMUMIDLE=3
-ORACLE_SHOW_SQL=false
-ORACLE_USER=spansd01
-SIPNC_SSO_URL=https://login.des.caixa
-SPRING_PROFILES_ACTIVE=production
-SSL_DISABLED=true
-SSO_ISSUER=https://login.des.caixa/auth/realms/intranet
-# CLIENT_SECRET from secret sipnc-manutseletjudicialpj-backend-des, key CLIENT_SECRET
-# CLIENT_SECRET_INTER from secret sipnc-manutseletjudicialpj-backend-des, key CLIENT_SECRET_INTER
-# CLIENT_SECRET_INTER_2 from secret sipnc-manutseletjudicialpj-backend-des, key CLIENT_SECRET_INTER_2
-# ORACLE_PASS from secret sipnc-manutseletjudicialpj-backend-des, key ORACLE_PASS
-# SIPNC_API_KEY from secret sipnc-manutseletjudicialpj-backend-des, key SIPNC_API_KEY
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$ oc get secret sipnc-manutseletjudicialpj-backend-des -n sipnc-des -o jsonpath='{.data}' | tr ',' '\n' | cut -d: -f1
-map[CLIENT_SECRET_INTER
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$ oc get dc sipnc-manutseletjudicialpj-backend-des -n sipnc-des -o jsonpath='{.spec.template.spec.containers[0].envFrom}'
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$ oc debug dc/sipnc-manutseletjudicialpj-backend-tqs -n sipnc-tqs -- sh -c 'cd /tmp && unzip -l /deployments/SIPNC-manutseletjudicialpj-backend.jar | grep -i "application.*\.\(properties\|yml\)"'
-Defaulting container name to sipnc-manutseletjudicialpj-backend-tqs.
-Use 'oc describe pod/sipnc-manutseletjudicialpj-backend-tqs-debug -n sipnc-tqs' to see all of the containers in this pod.
 
-Debugging with pod/sipnc-manutseletjudicialpj-backend-tqs-debug, original command: <image entrypoint>
-Waiting for pod to start ...
-sh: unzip: command not found
 
-Removing debug pod ...
--sh-4.2$ oc set env dc/sipnc-manutseletjudicialpj-backend-tqs SPRING_PROFILES_ACTIVE=tqs -n sipnc-tqs
-deploymentconfig.apps.openshift.io/sipnc-manutseletjudicialpj-backend-tqs updated
--sh-4.2$
+
+
+
+
+
+All pipelines
+
+SIPNC
+
+SIPNC-manutseletjudicialpj-backend
+Predefined variables
+SonarQube Variables (1)
+Variáveis com dados do SonarQube
+Scopes: Release
+Usuario-Azure-DevOps (12)
+Scopes: Release
+EGRESS_IP_OKD (81)
+WO0000072264656 - Config Portal Infrafácil NO_PROXY
+Scopes: Release
+MONITORACAO_LOGS (4)
+REQ000143540550 - Conforme autorizado na req por FLAVIO ALMEIDA GAGLIARDI, removido as variáveis JAVA_OPTS_MONITORING e URL_APM_SERVER, por entrar em conflitos com releases que utilizam o Application Insights
+Scopes: Release
+OKD-REGISTRY-CENTRALIZADO (7)
+Credenciais para o Registry Centralizado - Produtos 4 (OKD)
+Scopes: Release
+OKD-4-NPRD (12)
+Credenciais para o Cluster OKD4 de NPRD (DES/TQS/HMP)
+Scopes: EC DES,EC TQS,EC HMP
+SIPNC-MANUTSELETJUDICIALPJ-BACKEND-DES (3)
+Grupo de variáveis de SIPNC-MANUTSELETJUDICIALPJ-BACKEND-DES
+Scopes: EC DES
+SIPNC-COMMON-BACKEND-DES (32)
+Scopes: EC DES
+CLIENT_SECRET
+********
+CLIENT_SECRET_INTER
+********
+CLIENT_SECRET_INTER_2
+********
+ORACLE_PASS
+********
+SIPNC_API_KEY
+********
+_ENV.AMBIENTE
+NACIONAL
+_ENV.API_MANAGER_URL
+https://api.des.caixa:8443
+_ENV.API_TRILHA_BASEPATH
+/plataforma-unificada/trilha
+_ENV.APPLICATIONINSIGHTS_CONNECTION_STRING
+"InstrumentationKey=b0142390-50c9-495e-85b4-7b2ade8fc1cf;IngestionEndpoint=https://brazilsoutheast-0.in.applicationinsights.azure.com/;LiveEndpoint=https://brazilsoutheast.livediagnostics.monitor.azure.com/"
+_ENV.APPLICATIONINSIGHTS_INSTRUMENTATION_LOGGING_LEVEL
+INFO
+_ENV.APPLICATIONINSIGHTS_PROXY
+http://proxydes.caixa:80
+_ENV.APPLICATIONINSIGHTS_SAMPLING_PERCENTAGE
+100
+_ENV.APPLICATIONINSIGHTS_SELF_DIAGNOSTICS_LEVEL
+INFO
+_ENV.DATASOURCE_JDBC_URL
+jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=OFF)(ADDRESS=(PROTOCOL=TCP)(HOST=cnpexdadvm01-scan8.extra.caixa.gov.br)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=ORAD01BC)(FAILOVER_MODE=(TYPE=SELECT)(METHOD=BASIC)(RETRIES=5)(DELAY=5))))
+_ENV.FLAG_CERTIFICADO_DIGITAL
+false
+_ENV.ORACLE_CONNECTIONTIMEOUT
+30000
+_ENV.ORACLE_IDLETIMEOUT
+900000
+_ENV.ORACLE_KEEPALIVETIME
+0
+_ENV.ORACLE_MAXIMUMPOOLSIZE
+25
+_ENV.ORACLE_MAXLIFETIME
+1800000
+_ENV.ORACLE_MINIMUMIDLE
+3
+_ENV.ORACLE_SHOW_SQL
+false
+_ENV.ORACLE_USER
+spansd01
+_ENV.SIPNC_SSO_URL
+https://login.des.caixa
+_ENV.SPRING_PROFILES_ACTIVE
+production
+_ENV.SSL_DISABLED
+true
+_ENV.SSO_ISSUER
+https://login.des.caixa/auth/realms/intranet
+_SECRET.CLIENT_SECRET
+#{CLIENT_SECRET}#
+_SECRET.CLIENT_SECRET_INTER
+#{CLIENT_SECRET_INTER}#
+_SECRET.CLIENT_SECRET_INTER_2
+#{CLIENT_SECRET_INTER_2}#
+_SECRET.ORACLE_PASS
+#{ORACLE_PASS}#
+_SECRET.SIPNC_API_KEY
+#{SIPNC_API_KEY}#
+SIPNC-MANUTSELETJUDICIALPJ-BACKEND-TQS (3)
+Grupo de variáveis de SIPNC-MANUTSELETJUDICIALPJ-BACKEND-TQS
+
+Scopes: EC TQS
+_ENV.APPLICATIONINSIGHTS_ROLE_NAME
+SIPNC-MANUTSELETJUDICIALPJ-TQS
+_ENV.JAVA_OPTIONS_APPEND
+"-Djavax.net.ssl.trustStore=/deployments/caixa-truststore-azure2024.jks -Xms512m -Xmx512m"
+_ENV.LOG_LEVEL
+ERROR
+SIPNC-COMMON-BACKEND-TQS (32)
+Scopes: EC TQS
+CLIENT_SECRET
+********
+CLIENT_SECRET_INTER
+********
+CLIENT_SECRET_INTER_2
+********
+ORACLE_PASS
+********
+SIPNC_API_KEY
+********
+_ENV.AMBIENTE
+PILOTO
+_ENV.API_MANAGER_URL
+https://api.des.caixa:8443
+_ENV.API_TRILHA_BASEPATH
+/plataforma-unificada-tqs/trilha
+_ENV.APPLICATIONINSIGHTS_CONNECTION_STRING
+"InstrumentationKey=b0142390-50c9-495e-85b4-7b2ade8fc1cf;IngestionEndpoint=https://brazilsoutheast-0.in.applicationinsights.azure.com/;LiveEndpoint=https://brazilsoutheast.livediagnostics.monitor.azure.com/"
+_ENV.APPLICATIONINSIGHTS_INSTRUMENTATION_LOGGING_LEVEL
+INFO
+_ENV.APPLICATIONINSIGHTS_PROXY
+http://proxydes.caixa:80
+_ENV.APPLICATIONINSIGHTS_SAMPLING_PERCENTAGE
+100
+_ENV.APPLICATIONINSIGHTS_SELF_DIAGNOSTICS_LEVEL
+INFO
+_ENV.DATASOURCE_JDBC_URL
+jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=OFF)(ADDRESS=(PROTOCOL=TCP)(HOST=cnpexdadvm01-scan8.extra.caixa.gov.br)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=ORAD01BC)(FAILOVER_MODE=(TYPE=SELECT)(METHOD=BASIC)(RETRIES=5)(DELAY=5))))
+_ENV.FLAG_CERTIFICADO_DIGITAL
+false
+_ENV.ORACLE_CONNECTIONTIMEOUT
+30000
+_ENV.ORACLE_IDLETIMEOUT
+900000
+_ENV.ORACLE_KEEPALIVETIME
+0
+_ENV.ORACLE_MAXIMUMPOOLSIZE
+25
+_ENV.ORACLE_MAXLIFETIME
+1800000
+_ENV.ORACLE_MINIMUMIDLE
+3
+_ENV.ORACLE_SHOW_SQL
+false
+_ENV.ORACLE_USER
+spansd01
+_ENV.SIPNC_SSO_URL
+https://login.des.caixa
+_ENV.SPRING_PROFILES_ACTIVE
+production
+_ENV.SSL_DISABLED
+true
+_ENV.SSO_ISSUER
+https://login.des.caixa/auth/realms/intranet
+_SECRET.CLIENT_SECRET
+#{CLIENT_SECRET}#
+_SECRET.ORACLE_PASS
+#{ORACLE_PASS}#
+_SECRET.SIPNC_API_KEY
+#{SIPNC_API_KEY}#
+_SECRET_CLIENT_SECRET_INTER
+#{CLIENT_SECRET_INTER}#
+_SECRET_CLIENT_SECRET_INTER_2
+#{CLIENT_SECRET_INTER_2}#
+SIPNC-MANUTSELETJUDICIALPJ-BACKEND-HMP (1)
+Grupo de variáveis de SIPNC-MANUTSELETJUDICIALPJ-BACKEND-HMP
+Scopes: EC HMP
+OKD-4-APL (12)
+Scopes: EC PRD,EC PRD2
+SIPNC-MANUTSELETJUDICIALPJ-BACKEND-PRD (3)
+Grupo de variáveis de SIPNC-MANUTSELETJUDICIALPJ-BACKEND-PRD
+Scopes: EC PRD
+SIPNC-COMMON-BACKEND-PRD (32)
+Scopes: EC PRD
+SIPNC-MANUTSELETJUDICIALPJ-BACKEND-PRD2 (3)
+Grupo de variáveis de SIPNC-MANUTSELETJUDICIALPJ-BACKEND-PRD2
+Scopes: EC PRD2
+SIPNC-COMMON-BACKEND-PRD2 (32)
+Scopes: EC PRD2
+|Manage variable groups
+Row 2
+
+Showing filters 1 through 2
+
+Row 2
+
+Showing 16 deployments
+
+Row 2
+
+EC TQSDeploy release
+
+Showing 17 deployments
+
+Showing filters 1 through 2
+
+
+
+
+
+ADICINOEI A COMON DE TQS nao tinha pra ficar igual des
