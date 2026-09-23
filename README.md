@@ -1,114 +1,15 @@
-caixa-base-chart:
-#-------#
-# IMAGE #
-#-------#
-  image:
-    repository: acrcentralcaixanprd.azurecr.io/sisph/api-painel-ddd/sisph-api-painel-ddd
-    tag: "35875692408"
-    pullPolicy: Always
-#-----#
-# HPA #
-#-----#
-  replicaCount: 1
-  autoscaling:
-    enabled: false
-    minReplicas: 1
-    maxReplicas: 3
-    targetCPUUtilizationPercentage: 85
-    targetMemoryUtilizationPercentage: 85
-#-------------------------#
-# ROLLING UPDATE STRATEGY #
-#-------------------------#
-  strategy:
-    maxSurge: 25%
-    maxUnavailable: 50%
-#-----------#
-#  SERVICE  #
-#-----------#
-  service:
-    type: "ClusterIP"
-    ports:
-      - name: "port"
-        protocol: TCP
-        port: 80
-        targetPort: 8080
-#---------#
-# INGRESS #
-#---------#
-  istio:
-    - name: internal
-      enabled: true
-      servers:
-      - port:
-          number: 80
-          name: http-default
-          protocol: HTTP
-        hosts:
-        - sisph-api-painel-ddd.apl.des.private.azure
-      - port:
-          number: 443
-          name: https-custom
-          protocol: HTTPS
-        tls:
-          mode: SIMPLE
-          credentialName: akvs-sisph-api-painel-ddd-des-caixa-certificate
-        hosts:
-        - sisph-api-painel-ddd.des.caixa
-      prefix:
-        - /
-      targetPort: 80
-#-------------#
-#  RESOURCES  #
-#-------------#
-  resources:
-    requests:
-      cpu: 250m
-      memory: 256Mi
-    limits:
-      cpu: 500m
-      memory: 512Mi
-#----------#
-#  PROBES  #
-#----------#
-  probes:
-    enabled: true
-    useDefaults: false
-    livenessProbe:
-      initialDelaySeconds: 30
-      periodSeconds: 15
-      failureThreshold: 10
-      successThreshold: 1
-      httpGet:
-        path: /healthz
-        port: 8080
-    readinessProbe:
-      initialDelaySeconds: 15
-      periodSeconds: 15
-      failureThreshold: 3
-      successThreshold: 1
-      httpGet:
-        path: /healthz
-        port: 8080
-#-------------#
-#  CONFIGMAP  #
-#-------------#
-  configMapRefs:
-    - name: cm-sisph-api-painel-ddd
-#---------------#
-#  TOLERATIONS  #
-#---------------#
-  tolerations:
-    - key: "kubernetes.azure.com/scalesetpriority"
-      effect: "NoSchedule"
-      operator: "Equal"
-      value: "spot"
-    - key: "nuvem.caixa/nodepoolname"
-      effect: "NoSchedule"
-      operator: "Equal"
-      value: "appshab"
-#-------------#
-#   SECRETS   #
-#-------------#
-#  env:
-#    - name: <NOME_DA_VARIAVEL_NA_APLICACAO>
-#      value: akvs-<nome-do-secret>@azurekeyvault
+Com os dados informados, ajustamos o GitOps para o cluster aks-hab-des e configuramos o Istio para o host sisph-api-painel-ddd.des.caixa, com o certificado lido do Key Vault kv-hab-des. Também corrigimos a configuração de nodepool (toleration) e o host interno (sisph-api-painel-ddd.apl.des.private.azure), seguindo o padrão do sisph-api-auditoria.
+
+A emissão do certificado não é feita pela nossa equipe. O chamado deve ser aberto para a área de Criptografia/Proteção de Dados, solicitando:
+
+Certificado com CN sisph-api-painel-ddd.des.caixa
+Importação no Key Vault kv-hab-des com o nome sisph-api-painel-ddd-des-caixa
+Criação do registro DNS sisph-api-painel-ddd.des.caixa, apontando para o ingress do cluster aks-hab-des (mesmo destino do sisph-api-auditoria.des.caixa)
+
+Para garantir que a aplicação suba corretamente, precisamos que nos informem:
+
+Secrets: a aplicação precisa de alguma variável vinda do Key Vault (por exemplo: CosmosDB, EventHub, Blob Storage, Application Insights, como no sisph-api-auditoria)? Se sim, favor informar o nome da variável esperada pela aplicação e o nome do secret no Key Vault.
+ConfigMap: existem variáveis de ambiente não sensíveis que a aplicação precise? Hoje o ConfigMap está só com um valor de exemplo.
+Health check: a aplicação expõe o endpoint /healthz na porta 8080? Ele é usado nas probes de liveness e readiness.
+
+Enquanto isso, vamos reexecutar o deploy para validar a subida dos pods. Quando o certificado estiver disponível no Key Vault, o acesso HTTPS passa a funcionar sem novas alterações.
