@@ -1,3 +1,17 @@
+Ajustar ambiente ou parametrização de software
+Informar o Ambiente:*:	DES
+Nome do serviço ou sistema:*:	Sistema de Renda Fixa
+Janela de atendimento:*:	23/9/2026 12:50:00
+Prazo final da janela de atendimento:*:	24/9/2026 00:00:00
+Haverá previsão de indisponibilidade durante a execução do serviço:*:	Não
+Contato do responsável pela validação do ambiente após alteração:*:	c129427
+
+
+Descrição da solicitação:*:	https://devops.caixa/projetos/Caixa/_releaseProgress?_a=release-environment-logs&releaseId=524577&environmentId=2436459
+
+corrigir release.
+
+
 2026-09-03T16:29:12.4695860Z ##[section]Starting: Alterando Valores placeholders nos arquivos de config
 2026-09-03T16:29:12.4698854Z ==============================================================================
 2026-09-03T16:29:12.4698930Z Task         : Replace Tokens
