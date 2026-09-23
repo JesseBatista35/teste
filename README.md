@@ -1,22 +1,46 @@
-Problema: falha na esteira de deploy em DES (Nenhum pod encontrado ou JSON não contém dados esperados) e nenhum recurso exibido no FusionX para o sisph-api-painel-ddd.
+Disponibilizar o standalone do SIGFI FGC
 
-Causa raiz: o config.yaml do GitOps (gitops/apps/sisph-api-painel-ddd/des) estava com os dados de HMP (nome, project e path) e apontava para o cluster aks-sisph-nprd, que não existe. Com isso, a aplicação não foi criada no ArgoCD e nenhum pod foi implantado.
+https://sigfi-fgc.des.caixa/fgc-web/
 
-Ações realizadas:
+2. O SIGFI FGC não usará mais o OPEN LDAP.
+As configurações devem ser alteradas para LDAP/SSO em desenvolvimento:
 
-Corrigido o config.yaml para o ambiente DES, com destino no cluster aks-hab-des (confirmado pelo solicitante).
-Ajustado o values.yaml do repositório sisph-api-painel-ddd-infranprd (DES), seguindo o padrão do sisph-api-auditoria:
-Toleration do nodepool alterada para appshab.
-Host interno: sisph-api-painel-ddd.apl.des.private.azure.
-HTTPS configurado para sisph-api-painel-ddd.des.caixa.
-Criado o template AKVS para leitura do certificado sisph-api-painel-ddd-des-caixa no Key Vault kv-hab-des.
-Esteira reexecutada com sucesso.
+LDAP DES:
+cxextrux071.desenvolvimento.extracaixa:1489
+ 
+ClientID:
+cli-web-gfi
 
-Pendências sob responsabilidade do solicitante:
 
-Abrir chamado para a área de Criptografia/Proteção de Dados para:
-emissão do certificado sisph-api-painel-ddd.des.caixa;
-importação no kv-hab-des com o nome sisph-api-painel-ddd-des-caixa;
-criação do registro DNS.
-Após a importação, o HTTPS passa a funcionar sem novas alterações.
-Implementar o endpoint de health check /healthz na porta 8080, usado nas probes de liveness e readiness. Até essa implementação, o pod pode não ficar pronto e sofrer reinícios.
+
+#########################################################################
+#          Ambiente administrado e monitorado por Brasilia
+#########################################################################
+#
+# Site: CTC
+# Hostname: cxextrux045.desenvolvimento.extracaixa
+# SO Release: Solaris 10 - 150400-55
+# Serial Number: AK00289677
+# Memoria Total: 2.00 GB
+# VCPUs: 16 Modelo:
+# virtinfo can only be run from the global zone
+# Ambiente: DES
+#Descricao: LDAP Solaris DES
+#########################################################################
+(p585600@10.192.230.64) Password:
+Last login: Wed Sep 23 15:07:30 2026 from 10.122.150.31
+/usr/openwin/bin/xauth:  creating new authority file /home/p585600/.Xauthority
+Sun Microsystems Inc.   SunOS 5.10      Generic January 2005
+-bash-3.2$
+-bash-3.2$
+-bash-3.2$
+-bash-3.2$ sudo su
+-bash: sudo: command not found
+-bash-3.2$ sudo su
+-bash: sudo: command not found
+-bash-3.2$
+
+
+
+
+Entrei aqui me ajuda, a rpicipi parece que eu nao tenho acesso pra fazer nada
