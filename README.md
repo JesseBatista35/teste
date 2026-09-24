@@ -1,7 +1,5 @@
-<img width="1556" height="949" alt="image" src="https://github.com/user-attachments/assets/130c18d2-1e75-43a9-b7f8-cce43dfcf997" />
+Pablo, aprofundando no 401 do papel em TQS: encontrei no log o erro IDX10214: Audience validation failed, ou seja, o token que está sendo enviado tem uma audience que não bate com o que a API espera.
 
+Uma dúvida pra fechar isso: o token Bearer que você usou pra testar no TQS foi gerado direto ali, pelo Swagger/login do próprio ambiente TQS, ou foi o mesmo token que você já tinha usado antes pra testar no DES?
 
-<img width="1754" height="869" alt="image" src="https://github.com/user-attachments/assets/bd162c63-17c5-46fa-8a3a-f308a9f565c9" />
-
-
-nao tenh oacesso
+Também ajudaria saber: existe um App Registration separado no Azure AD específico pra TQS, ou é o mesmo Client ID/App usado em DES e PRD?
