@@ -23,3 +23,9 @@ Abri a REQ000146189275 (liberação de proxy DES) e ela está aguardando sua apr
 Consegue aprovar quando puder? Obrigado!
 
 Um ponto de atenção: a REQ anterior (REQ000146046751) ainda está aberta para o mesmo caso. Vale cancelar essa REQ ou vincular as duas, citando a nova, para a equipe de proxy não tratar em duplicidade.
+
+
+
+ELA JA FOI ATENDIDA
+
+
