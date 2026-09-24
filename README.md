@@ -1,55 +1,6 @@
-<img width="1611" height="357" alt="image" src="https://github.com/user-attachments/assets/6a90166d-ae5f-45c3-9167-afeac23e338e" />
-
-
-teve esssa modificação mais nao da pra saber qual foi
-
-Skip to main content
-Azure DevOps
-projetos
-/
-Caixa
-/
-Pipelines
-/
-Library
-Search
-
-
-Caixa
-
-Overview
-
-Boards
-
-Repos
-
-Pipelines
-Pipelines
-Environments
-Releases
-Library
-Task groups
-Deployment groups
-Portal Infra
-
-Test Plans
-
-Artifacts
-Project settings
-
-Library
-
-SIMCN-BACKEND-DES
-
-Variable group
-Properties
-Variable group name
-SIMCN-BACKEND-DES
-Description
+SIMCN-BACKEND-DES (19)
 Grupo de variáveis de SIMCN-BACKEND-DES
-
-
-Variables
+Scopes: EC DES
 DATASOURCE_ORACLE_CONNECTION_URL
 jdbc:oracle:thin:@oracle-nprd-1000.caixa:1521/prim_D01NGSRV
 DATASOURCE_ORACLE_MAX_POOL_SIZE
@@ -78,20 +29,13 @@ SERVER_NFS
 nfsctcnprd.ctc.caixa
 SIZE_VOLUME
 50Gi
+STORAGE_PATH
+/upload/des/simcn
+TRUSTSTORE_FILE
+/opt/jboss/standalone/configuration/caixa-truststore-acteste-nprd.jks
 sso.client.id
 cli-web-mcn
 sso.realm
 intranet
 sso.url
 https://login.des.caixa/auth
-STORAGE_PATH
-/upload/des/simcn
-TRUSTSTORE_FILE
-/opt/jboss/standalone/configuration/caixa-truststore-acteste-nprd.jks
-1 search results were found
-
-Expanded
-
-Collapsed
-
-Row 2
