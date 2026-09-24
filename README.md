@@ -1,4 +1,10 @@
-<img width="1852" height="959" alt="image" src="https://github.com/user-attachments/assets/4f89be78-065b-482b-96d1-312063e9f434" />
+union requests, dependencies, traces, customEvents
+| where timestamp > ago(3h)
+| where cloud_RoleName =~ "sigsj-alvara-des"
+| summarize count() by itemType
 
+customEvents
+| where timestamp > ago(1d)
+| where name == "alvara_ac_snapshot"
+| take 10
 
-eu fecheo o hub de consulta ai ele fica na essa tela se fechar ele volta pra a tela onde escolhe o ldai
