@@ -28,4 +28,78 @@ Um ponto de atenção: a REQ anterior (REQ000146046751) ainda está aberta para 
 
 ELA JA FOI ATENDIDA
 
+Histórico de Informações de Trabalho da Ordem de Trabalho
+ID da Ordem de Trabalho	 WO0000081676087
+Criado em	 18/09/2026 14:17:31
+Criado por	 P531441
+Origem de Comunicação	 
+Exibir Acesso	 Público
+Notas	 Prezados,
 
+Todos os endereços foram analisados em busca de vulnerabilidades. Não foram encontradas em blocklist internacional.
+
+Dessa forma, autorizada conexão com endereço de destino.
+
+
+
+
+Att
+Global HITSS - Conectividade Interna
+CESET - CN Segurança Cibernética
+ID da Ordem de Trabalho	 WO0000081676087
+Criado em	 18/09/2026 00:39:30
+Criado por	 P584553
+Origem de Comunicação	 
+Exibir Acesso	 Público
+Notas	 À
+
+HITSS\CESET
+
+Realizada análise das regras existentes no Proxy de Serviços PROXYDES.
+
+Foi localizada a regra OKD OCP que atende ao endereço de Origem solicitado.
+- 10.116.222.84
+
+Solicitamos autorização para inclusão dos seguintes DESTINOS na regra ou criação de nova regra a fim de atender o fluxo solicitado.
+- southcentralus-3.in.applicationinsights.azure.com
+- southcentralus.livediagnostics.monitor.azure.com
+- *.in.applicationinsights.azure.com
+- brazilsouth.livediagnostics.monitor.azure.com
+- brazilsoutheast.livediagnostics.monitor.azure.com
+
+Informamos que as demais URLs já são contemplada pela mesma regra.
+
+Atenciosamente,
+
+CETEL08\CETEL960
+-------------------------
+ID da Ordem de Trabalho	 WO0000081676087
+Criado em	 17/09/2026 17:29:41
+Criado por	 P970573
+Origem de Comunicação	 
+Exibir Acesso	 Público
+Notas	 Prezado (a) usuário (a)
+
+1. Informamos que sua solicitação foi recebida em nossa fila e seguirá o fluxo de atendimento.
+
+2. Trata-se de uma atividade de complexidade baixa e será atendida o mais breve
+possível.
+
+3. Esta demanda será apresentada para deliberação na reunião de Overview?
+( X ) SIM (  ) NÃO
+
+4. Em complemento as informações, destaca-se que: a atividade será encaminhada para a avaliação e autorização da área de CiberSegurança e será executada a partir das 19:00h, após a aprovação da segurança.
+
+5. Informações futuras serão adicionadas a esta WO.
+
+Atenciosamente,
+
+Josenilton B dos Santos (p970573)
+Preposto: CTIS / CETEL / DHCP, DNS e Proxy de Serviços
+ID da Ordem de Trabalho	 WO0000081676087
+Criado em	 17/09/2026 17:08:23
+Criado por	 Remedy Application Service
+Origem de Comunicação	 E-mail
+Exibir Acesso	 Interno
+Notas	 Este ticket foi criado a partir do sistema de solicitação de serviço.
+Impresso por P585600 em Quinta-feira, 24/09/2026 13:50:53
