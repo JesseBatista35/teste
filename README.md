@@ -1,60 +1,194 @@
-################################################################################
-# SIRTA - Configurações da aplicação (Quarkus)
-################################################################################
+atens de tudo achei auqi vairs build vfica presa aqui e dar timeout
 
-# Dev Services: desligado por padrão, ligado apenas em dev local
-quarkus.devservices.enabled=false
-%dev.quarkus.devservices.enabled=true
+Recupera Versão no POM
 
-################################################################################
-# DATASOURCE - ORACLE via variáveis de ambiente
-################################################################################
-quarkus.datasource.db-kind=oracle
-quarkus.datasource.jdbc.url=${DATABASE_DATASOURCE_JDBC_URL}
-quarkus.datasource.username=${DATABASE_USERNAME}
-quarkus.datasource.password=${DATABASE_PASSWORD}
+View raw log
 
-################################################################################
-# HIBERNATE ORM
-################################################################################
-quarkus.hibernate-orm.database.default-schema=RTAGTT
-quarkus.hibernate-orm.schema-management.strategy=none
+Starting: Recupera Versão no POM
+==============================================================================
+Task         : Bash
+Description  : Run a Bash script on macOS, Linux, or Windows
+Version      : 3.227.0
+Author       : Microsoft Corporation
+Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/bash
+==============================================================================
+Generating script.
+========================== Starting Command Output ===========================
+/usr/bin/bash /opt/ads-agent/_work/_temp/035ae1fe-f642-4da1-b8b3-c0c463b80ac0.sh
+##[error]The Operation will be canceled. The next steps may not contain expected logs.
+##[error]Bash exited with code 'null'.
+##[error]The operation was canceled.
+Finishing: Recupera Versão no POM
 
-################################################################################
-# HTTP / CORS
-################################################################################
-quarkus.http.port=8081
-quarkus.http.cors.enabled=true
-quarkus.http.cors.origins=${CORS_ORIGINS:https://sirta.des.caixa}
-quarkus.http.cors.headers=origin,accept,authorization,content-type,x-requested-with
-quarkus.http.cors.methods=GET,PUT,POST,DELETE
-quarkus.http.cors.access-control-allow-credentials=false
-%dev.quarkus.http.cors.origins=http://localhost:4200
 
-################################################################################
-# TLS - usar truststore com a CA corporativa (sem trust-all fora de dev)
-################################################################################
-#quarkus.tls.trust-store.pem.certs=/deployments/certs/ca-caixa.pem
-%dev.quarkus.tls.trust-all=true
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>br.gov.caixa.sirta.gtt</groupId>
+    <artifactId>sirta-gtt</artifactId>
+    <version>0.0.0.1-SNAPSHOT</version>
+    <packaging>quarkus</packaging>
 
-################################################################################
-# OIDC / KEYCLOAK
-################################################################################
-quarkus.oidc.auth-server-url=${QUARKUS_OIDC_AUTH_SERVER_URL}
-quarkus.oidc.client-id=${QUARKUS_OIDC_CLIENT_ID}
-quarkus.oidc.application-type=service
-quarkus.oidc.roles.source=accesstoken
+    <properties>
+        <compiler-plugin.version>3.15.0</compiler-plugin.version>
+        <maven.compiler.release>25</maven.compiler.release>
+        <maven.compiler.source>25</maven.compiler.source>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <lombok.version>1.18.48</lombok.version>
+        <quarkus.platform.artifact-id>quarkus-bom</quarkus.platform.artifact-id>
+        <quarkus.platform.group-id>io.quarkus.platform</quarkus.platform.group-id>
+        <quarkus.platform.version>3.39.5</quarkus.platform.version>
+        <skipITs>true</skipITs>
+        <surefire-plugin.version>3.5.6</surefire-plugin.version>
+    </properties>
 
-################################################################################
-# PERFIL TEST (H2 em memória, sem dependência de Keycloak/rede)
-################################################################################
-%test.quarkus.datasource.db-kind=h2
-%test.quarkus.datasource.jdbc.url=jdbc:h2:mem:RTA;DB_CLOSE_DELAY=-1;INIT=CREATE SCHEMA IF NOT EXISTS RTAGTT
-%test.quarkus.datasource.username=sa
-%test.quarkus.datasource.password=
-%test.quarkus.hibernate-orm.schema-management.strategy=drop-and-create
-%test.quarkus.oidc.enabled=false
-#%test.quarkus.hibernate-orm.log.sql=true
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>${quarkus.platform.group-id}</groupId>
+                <artifactId>${quarkus.platform.artifact-id}</artifactId>
+                <version>${quarkus.platform.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
-# Perfil H2 herda do TEST
-%h2.quarkus.config.profile.parent=test
+    <dependencies>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-rest</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-keycloak-authorization</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-smallrye-openapi</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-rest-jackson</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-hibernate-orm-panache</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-smallrye-health</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-jdbc-oracle</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-arc</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-hibernate-orm</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-hibernate-validator</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-jdbc-h2</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>${quarkus.platform.group-id}</groupId>
+                <artifactId>quarkus-maven-plugin</artifactId>
+                <version>${quarkus.platform.version}</version>
+                <extensions>true</extensions>
+            </plugin>
+            <plugin>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${surefire-plugin.version}</version>
+                <configuration>
+                    <argLine>@{argLine}</argLine>
+                    <systemPropertyVariables>
+                        <java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
+                        <maven.home>${maven.home}</maven.home>
+                    </systemPropertyVariables>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <version>${surefire-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>integration-test</goal>
+                            <goal>verify</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <argLine>@{argLine}</argLine>
+                    <systemPropertyVariables>
+                        <native.image.path>${project.build.directory}/${project.build.finalName}-runner</native.image.path>
+                        <java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
+                        <maven.home>${maven.home}</maven.home>
+                    </systemPropertyVariables>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${compiler-plugin.version}</version>
+                <configuration>
+                    <parameters>true</parameters>
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                            <version>${lombok.version}</version>
+                        </path>
+                    </annotationProcessorPaths>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <profiles>
+        <profile>
+            <id>native</id>
+            <activation>
+                <property>
+                    <name>native</name>
+                </property>
+            </activation>
+            <properties>
+                <quarkus.package.jar.enabled>false</quarkus.package.jar.enabled>
+                <skipITs>false</skipITs>
+                <quarkus.native.enabled>true</quarkus.native.enabled>
+            </properties>
+        </profile>
+    </profiles>
+</project>
