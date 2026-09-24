@@ -1,16 +1,10 @@
+POD=sigsj-alvara-des-666-2zzkm; NS=sigsj-des
 
--sh-4.2$ ^C
--sh-4.2$ oc exec sigsj-alvara-des-666-2zzkm -n sigsj-des -- env | grep -Ei 'JAVA_TOOL_OPTIONS|APPLICATIONINSIGHTS'
-APPLICATIONINSIGHTS_INSTRUMENTATION_LOGGING_LEVEL=INFO
-APPLICATIONINSIGHTS_SELF_DIAGNOSTICS_LEVEL=INFO
-APPLICATIONINSIGHTS_SAMPLING_PERCENTAGE=100
-APPLICATIONINSIGHTS_CONFIGURATION_CONTENT={"sampling":{"overrides":[{"telemetryType":"request","attributes":[{"key":"url.path","value":"^(\/q)?\/health\/.*","matchType":"regexp"}],"percentage":0}]}}
-APPLICATIONINSIGHTS_ROLE_NAME=SIGSJ-ALVARA-DES
-APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=f6b9b060-c8fc-4702-a924-a3632ca25bb1;IngestionEndpoint=https://brazilsouth-1.in.applicationinsights.azure.com/;LiveEndpoint=https://brazilsouth.livediagnostics.monitor.azure.com/;ApplicationId=3ba7c0c0-1c00-4692-8f9a-61a48d60d078
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$ oc logs sigsj-alvara-des-666-2zzkm  -n sigsj-des | grep -Ei 'Picked up|ApplicationInsights'
--sh-4.2$
+# Qual variável de opções da JVM chegou ao pod (o valor efetivo)
+oc exec $POD -n $NS -- env | grep -Ei 'JAVA_OPT|JAVA_OPTIONS|JAVA_TOOL'
+
+# Onde isso está definido: DC/Deployment, ConfigMap ou Secret
+oc get dc sigsj-alvara-des -n $NS -o yaml | grep -B1 -A2 -Ei 'JAVA_OPT|javaagent'
+
+# O jar do agente existe na imagem?
+oc exec $POD -n $NS -- ls /deployments/lib/main | grep -i applicationinsights
