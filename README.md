@@ -1,23 +1,41 @@
-Analisei o código do SICIA e descobri como funciona o acesso em HMP/PILOTO/PRD. Não precisa criar usuário novo nem mexer em nenhuma configuração do legado.
+Bom dia, Jesse. Depois das atualizações feitas no escopo dessa tarefa, as traces comuns à execução do quarkus pararam de aparecer no LDAI:
 
-Como o login funciona:
 
-O SICIA valida sua matrícula e senha de rede no LDAP corporativo.
-Depois confere se sua matrícula está em um dos grupos LDAP do SICIA. É o grupo que libera o acesso e define o perfil.
-No primeiro login, a aplicação cria seu usuário automaticamente na base.
+<img width="1422" height="760" alt="image" src="https://github.com/user-attachments/assets/3b7cf596-b8c0-47b0-b8a9-db1da701bc77" />
 
-Então o que precisa ser feito é incluir a sua matrícula (f737796) no grupo LDAP do perfil que você vai usar. Essa inclusão é feita pela CEST – Gestão de Identidade e Acesso.
 
-Os grupos do SICIA são:
+Tínhamos do alvara-des e alvará-local
 
-CIA_GESTORGESFI
-CIA_GERENTEGISEG
-CIA_GISEG
-CIA_AUDITOR
-CIA_TI
-CIA_OPERADORCENTRAL
-CIA_MANTENEDORA
-CIA_VISUALNACIONAL
-CIA_VISUALREGIONAL
 
-Em qual desses grupos você precisa ser incluído? Assim que você confirmar, eu atualizo a demanda com a solicitação correta e encaminho para a CEST.
+uanto ao restante da resposta, agradeço. Não tínhamos realmente feito todas as correções necessárias, obrigado, vou avaliar e subir novamente a aplicação. Entretanto, com essa questão do ldai acima, talvez esteja indo pra outro lugar agora
+
+
+Gean de Magalhaes de Souza, boa tarde. me colocaram em uma sala de crise aqui só consegui sair agora.
+ 
+vi aqui que chegou uma req para desfazer as alterações nas variaveis.
+ 
+Boa tarde, Jesse
+
+
+Sim, porque, após a alteração, os traces começaram a ir para outro endereço de LDAI
+
+
+ E me falaram na CEMOT que não conseguem ajustar o painel agora para trocar o apontamento
+
+ 
+ mais a gente não trocou o Instrument key.
+ 
+Como no fim das contas eu testei mais de uma vez as mudanças e não consegui os customEvents, melhor retornar ao estado anterior, que pelo menos isso estava funcionando
+ 
+Jesse Mouta Pereira Batista
+mais a gente não trocou o Instrument key.
+Eu não sei o que aconteceu
+
+O que você deseja?*:	Suporte ao ambiente de aplicação nas esteiras DevOps
+Qual o nome do Sistema?*:	SIGSJ-alvara
+Qual o ambiente*:	DES
+Selecione a sua Comunidade*:	Fomento e Depósitos Judiciais
+Formas de contato*:	Teams
+Descrição da necessidade*:	Solicito o desfazimento das alterações nas variáveis de esteira do projeto SIGSJ-alvara feitas no escopo da requisição REQ000146187679
+
+ 
