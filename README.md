@@ -1,25 +1,13 @@
-2026-09-25 10:05:24,976ERROR(EJB default - 7)WFLYEJB0020: Erro ao invocar o intervalo para o timer: [id=ef4b90cd-efc6-4c49-afb7-23c3ab63d82a timedObjectId=gec-4.51.3batch-b1472.gec-ejb.GerenciadorTimersBean auto-timer?:false persistent?:false timerService=org.jboss.as.ejb3.timerservice.TimerServiceImpl@c1c69fc initialExpiration=null intervalDuration(in milli sec)=0 nextExpiration=Fri Sep 25 10:06:00 BRT 2026 timerState=IN_TIMEOUT info=ACTC603]: javax.ejb.ConcurrentAccessTimeoutException: WFLYEJB0241: O intervalo de acesso atual EJB 3.1 PFD2 4.8.5.5.1 no GerenciadorTimersBean - não foi possível obter bloqueio com o 5000MILLISECONDS
-        at org.jboss.as.ejb3.concurrency.ContainerManagedConcurrencyInterceptor.processInvocation(ContainerManagedConcurrencyInterceptor.java:106) [wildfly-ejb3-7.1.6.GA-redhat-00002.jar:7.1.6.GA-redhat-00002]
-        at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:422) [jboss-invocation-1.5.0.Final-redhat-1.jar:1.5.0.Final-redhat-1]
-        at org.jboss.as.ejb3.component.interceptors.ShutDownInterceptorFactory$1.processInvocation(ShutDownInterceptorFactory.java:64) [wildfly-ejb3-7.1.6.GA-redhat-00002.jar:7.1.6.GA-redhat-00002]
-        at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:422) [jboss-invocation-1.5.0.Final-redhat-1.jar:1.5.0.Final-redhat-1]
-        at org.jboss.as.ee.component.NamespaceContextInterceptor.processInvocation(NamespaceContextInterceptor.java:50) [wildfly-ee-7.1.6.GA-redhat-00002.jar:7.1.6.GA-redhat-00002]
-        at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:422) [jboss-invocation-1.5.0.Final-redhat-1.jar:1.5.0.Final-redhat-1]
-        at org.jboss.invocation.ContextClassLoaderInterceptor.processInvocation(ContextClassLoaderInterceptor.java:60) [jboss-invocation-1.5.0.Final-redhat-1.jar:1.5.0.Final-redhat-1]
-        at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:422) [jboss-invocation-1.5.0.Final-redhat-1.jar:1.5.0.Final-redhat-1]
-        at org.jboss.invocation.InterceptorContext.run(InterceptorContext.java:438) [jboss-invocation-1.5.0.Final-redhat-1.jar:1.5.0.Final-redhat-1]
-        at org.wildfly.security.manager.WildFlySecurityManager.doChecked(WildFlySecurityManager.java:609) [wildfly-elytron-1.1.12.Final-redhat-00001.jar:1.1.12.Final-redhat-00001]
-        at org.jboss.invocation.AccessCheckingInterceptor.processInvocation(AccessCheckingInterceptor.java:57) [jboss-invocation-1.5.0.Final-redhat-1.jar:1.5.0.Final-redhat-1]
-        at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:422) [jboss-invocation-1.5.0.Final-redhat-1.jar:1.5.0.Final-redhat-1]
-        at org.jboss.invocation.ChainedInterceptor.processInvocation(ChainedInterceptor.java:53) [jboss-invocation-1.5.0.Final-redhat-1.jar:1.5.0.Final-redhat-1]
-        at org.jboss.as.ejb3.timerservice.TimedObjectInvokerImpl.callTimeout(TimedObjectInvokerImpl.java:99) [wildfly-ejb3-7.1.6.GA-redhat-00002.jar:7.1.6.GA-redhat-00002]
-        at org.jboss.as.ejb3.timerservice.TimedObjectInvokerImpl.callTimeout(TimedObjectInvokerImpl.java:109) [wildfly-ejb3-7.1.6.GA-redhat-00002.jar:7.1.6.GA-redhat-00002]
-        at org.jboss.as.ejb3.timerservice.CalendarTimerTask.invokeBeanMethod(CalendarTimerTask.java:66) [wildfly-ejb3-7.1.6.GA-redhat-00002.jar:7.1.6.GA-redhat-00002]
-        at org.jboss.as.ejb3.timerservice.CalendarTimerTask.callTimeout(CalendarTimerTask.java:53) [wildfly-ejb3-7.1.6.GA-redhat-00002.jar:7.1.6.GA-redhat-00002]
-        at org.jboss.as.ejb3.timerservice.TimerTask.run(TimerTask.java:160) [wildfly-ejb3-7.1.6.GA-redhat-00002.jar:7.1.6.GA-redhat-00002]
-        at org.jboss.as.ejb3.timerservice.TimerServiceImpl$Task$1.run(TimerServiceImpl.java:1220) [wildfly-ejb3-7.1.6.GA-redhat-00002.jar:7.1.6.GA-redhat-00002]
-        at org.wildfly.extension.requestcontroller.RequestController$QueuedTask$1.run(RequestController.java:497) [wildfly-request-controller-3.0.21.Final-redhat-00001.jar:3.0.21.Final-redhat-00001]
-        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [rt.jar:1.8.0_471]
-        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [rt.jar:1.8.0_471]
-        at java.lang.Thread.run(Thread.java:750) [rt.jar:1.8.0_471]
-        at org.jboss.threads.JBossThread.run(JBossThread.java:320) [jboss-threads-2.2.1.Final-redhat-1.jar:2.2.1.Final-redhat-1]
+P=$(pgrep -f 'Server:sigec-portabilidade-batch_node1_lx104')
+LOG=/opt/jboss/jboss-eap/hc/log/servers/sigec-portabilidade-batch_node1_lx104/server.log
+
+# 3 thread dumps com 10 s de intervalo (mostra se a thread está parada no mesmo ponto)
+for i in 1 2 3; do sudo -u jboss jstack -l $P > /tmp/batch-td$i.txt; sleep 10; done
+
+# Quando começou a travar e quais timers estão sendo barrados
+grep -n "WFLYEJB0241" $LOG | head -3
+grep "WFLYEJB0241" $LOG | grep -oE "info=[A-Z0-9]+" | sort | uniq -c
+
+
+
+grep -n "GerenciadorTimersBean\|br.gov.caixa" /tmp/batch-td1.txt | head -30
