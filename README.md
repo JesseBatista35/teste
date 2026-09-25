@@ -1,21 +1,23 @@
-Prezados,
+Pessoal, boa tarde!
 
-Transferimos esta demanda para análise e atendimento pela Segurança / Gestão de Identidades, responsável pelo LDAP corporativo (ldapcluster.corecaixa).
+Sobre a solicitação de credencial LDAP do SICIA (HMP/PILOTO/PRD), segue o status:
 
-Contexto levantado pela equipe DES/TQS NPRD (evidências na WO [Nº DA WO ANTERIOR]):
+O que levantamos:
+Hoje o SICIA não usa usuário técnico no LDAP. A conexão com o ldapcluster.corecaixa:489 é anônima, e o login é validado com a matrícula e a senha do próprio usuário. Por isso não existe uma credencial atual para repassar.
 
-Atualmente a aplicação SICIA não possui usuário técnico (conta de serviço) no LDAP. A conexão é aberta sem credenciais (consulta anônima em ou=People,o=caixa) e a autenticação é feita com o DN e a senha do próprio usuário no login.
-Configuração atual nos ambientes solicitados:
-LDAP_URL=ldap://ldapcluster.corecaixa:489
-LDAP_USER_BASE=ou=People,o=caixa
-LDAP_GROUP_BASE=ou=Groups, o=caixa
-STRATEGY=ldap-search
-Servidores da aplicação (os dados da abertura estavam incorretos):
+O que já foi feito:
+Encaminhei a demanda para a Segurança / Gestão de Identidades, que é quem cria contas de serviço no LDAP corporativo, com todo o contexto e os servidores corretos de cada ambiente:
+
 HMP: scthmapllx0110.df.caixa (10.116.117.168)
 PILOTO: cctcoitrlx008.df.caixa (10.123.38.230)
 PRD: cctdcapllx0632.df.caixa (10.123.40.149)
 
-Ponto de atenção: caso seja criada uma conta de serviço, a aplicação só passará a utilizá-la após ajuste no código pela equipe de desenvolvimento do SICIA. Hoje não existe parâmetro para usuário e senha de bind. Sugerimos alinhar com o solicitante o objetivo da credencial antes da criação.
+O que vocês já podem adiantar com a fábrica:
+Mesmo com a conta criada, a aplicação só vai usá-la depois de um ajuste no código, porque hoje não há onde configurar usuário e senha de bind. Sugestão:
 
-Atenciosamente,
-Jessé Batista – DES/TQS NPRD
+Criar as variáveis LDAP_BIND_DN e LDAP_BIND_PASSWORD no ecosystem de cada ambiente (ecosystem/deploy/env/).
+No services/ldap/libs/ldap.lib.js, fazer o bind com essa conta logo após abrir a conexão, antes das buscas (getPerfil e buscas de grupo), no lugar da consulta anônima atual.
+Não deixar a senha fixa no código nem no repositório. O ideal é injetar a senha de forma segura no servidor.
+Aproveitar a mudança para avaliar migrar para ldaps://. Hoje a conexão é ldap:// com validatecert: false, então a senha trafega sem criptografia.
+
+Assim, quando a Segurança liberar a conta, é só preencher as variáveis e publicar. Qualquer dúvida, estou à disposição!
