@@ -1,37 +1,17 @@
-Solicito as variaveis de ambiente:
-STRATEGY
-LDAP_URL
-LDAP_USER_BASE
-LDAP_GROUP_BASE
- DES - https://des.sicia.pedes.caixa/ [IP 10.116.83.94] [Hostname: sctdeapllx0094.df.caixa]
-TQS - https://tqs.sicia.pedes.caixa/ [ IP 10.116.18.118] [Hostname: scttqapllx0013.df.caixa]
-HMP - https://hmp.sicia.proinfo.caixa/ [ IP 10.116.114.124] [Hostname: scthmdadlx0002.df.caixa]
-PILOTO: https://piloto.sicia.caixa/ [ IP 10.123.6.86] [Hostname: ?]
-PRD - https://sicia.caixa/ [IP [10.123.6.10] [Hostname: ?]
+ps -ef | grep -Ei 'java|node|python|gunicorn|uvicorn|php|docker|containerd' | grep -v grep
+systemctl list-units --type=service --state=running | grep -viE 'systemd|dbus|ssh|cron|rsyslog'
+
+sudo grep -alE 'LDAP_URL|STRATEGY' /proc/[0-9]*/environ 2>/dev/null
+# para cada PID retornado:
+sudo cat /proc/<PID>/environ | tr '\0' '\n' | grep -E '^(STRATEGY|LDAP_URL|LDAP_USER_BASE|LDAP_GROUP_BASE)='
+
+sudo docker ps --format '{{.Names}}\t{{.Image}}'
+sudo docker inspect <container> --format '{{range .Config.Env}}{{println .}}{{end}}' \
+  | grep -E '^(STRATEGY|LDAP_URL|LDAP_USER_BASE|LDAP_GROUP_BASE)='
+
+  systemctl cat <servico> | grep -E 'Environment|EnvironmentFile'
 
 
-ection to 10.116.94.211 closed.
-[p585600@cadsvitrlx100 ~]$ ssh 10.116.83.94
-The authenticity of host '10.116.83.94 (10.116.83.94)' can't be established.
-RSA key fingerprint is SHA256:mcdhv12LJcvAUCkjX0BkSsIFVMGpsoBigG58h5vjUck.
-This key is not known by any other names
-Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
-Warning: Permanently added '10.116.83.94' (RSA) to the list of known hosts.
-p585600@10.116.83.94's password:
-
-The programs included with the Debian GNU/Linux system are free software;
-the exact distribution terms for each program are described in the
-individual files in /usr/share/doc/*/copyright.
-
-Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
-permitted by applicable law.
-p585600@SCTDEAPLLX0094:~$
-p585600@SCTDEAPLLX0094:~$
-p585600@SCTDEAPLLX0094:~$
-p585600@SCTDEAPLLX0094:~$
-p585600@SCTDEAPLLX0094:~$
-
-
-vamos pegar so de des e tqs 
-
-servidores como hmp pilto e prd e com time de infraestrutura
+  sudo grep -rEsn '(STRATEGY|LDAP_URL|LDAP_USER_BASE|LDAP_GROUP_BASE)\s*[=:]' \
+  /etc /opt /srv /var/www /app /home 2>/dev/null | grep -v '\.log:'
+sudo find / -xdev \( -name '.env' -o -name '*.env' -o -name 'docker-compose*.yml' \) 2>/dev/null
