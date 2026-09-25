@@ -1,52 +1,33 @@
-name: 'Purge CDN Cache'
-description: 'Realiza purge de URLs na CDN'
+Prezados, boa tarde.
 
-inputs:
-  API_URL:
-    description: Endpoint da API
-    required: true
+Encaminhamos a demanda para avaliação do time de Nuvem / DevSecOps, responsável pelas actions compartilhadas do repositório caixagithub/DevSecOps-Actions.
 
-  API_TOKEN:
-    description: Token de autenticação
-    required: true
+Aplicação: sisfm-mfe-host (DES)
+Workflow: CI/CD Workflow Generic, job CI_DES / DEPLOY (DES)
+Execução: https://github.com/caixagithub/sisfm-mfe-host/actions/runs/36154830896/job/108137376620
+Step com falha: Purge Cache (caixagithub/DevSecOps-Actions/.github/integrations/azion/purge@main)
 
-  CUSTOM_DOMAIN:
-    description: Domínio da aplicação
-    required: true
+Erro apresentado:
+curl: (3) URL rejected: No host part in the URL
+Error: Process completed with exit code 3.
 
-outputs:
-  response:
-    description: Resposta da API
-    value: ${{ steps.purge.outputs.response }}
+Análise realizada:
+A action .github/integrations/azion/purge declara três inputs obrigatórios: API_URL, API_TOKEN e CUSTOM_DOMAIN. No log da execução, o workflow chamador repassa somente API_TOKEN e CUSTOM_DOMAIN. O input API_URL não é informado.
 
-runs:
-  using: 'composite'
+Em actions do tipo composite, o GitHub não valida o required: true dos inputs. Com isso, API_URL chega vazio e o comando curl é executado contra a URL "/v4/workspace/purge/wildcard", sem esquema e sem host. Essa URL é rejeitada pelo curl com o erro acima.
 
-  steps:
-    - name: Purge Cache
-      id: purge
-      shell: bash
-      run: |
-        echo "CUSTOM_DOMAIN=${{ inputs.CUSTOM_DOMAIN }}"
-        RESPONSE=$(curl -vsS -X POST "${{ inputs.API_URL }}/v4/workspace/purge/wildcard" \
-          -H "Authorization: Token ${{ inputs.API_TOKEN }}" \
-          -H "Accept: application/json" \
-          -H "Content-Type: application/json" \
-          -d '{
-            "items": [
-              "https://${{ inputs.CUSTOM_DOMAIN }}/*"
-            ],
-            "layer": "cache"
-          }')
+O domínio informado (supergerenciador.des.caixa.gov.br) está correto e não é a causa da falha. Não identificamos problema na configuração do repositório sisfm-mfe-host.
 
-        echo "$RESPONSE"
+Possível causa:
+Inclusão ou alteração recente do input API_URL na action de purge da Azion sem a correspondente atualização do workflow genérico que a consome. Nesse caso, a falha deve afetar todos os repositórios que utilizam o purge da Azion, não apenas o sisfm-mfe-host.
 
-        if echo "$RESPONSE" | jq -e '.state == "executed"' > /dev/null; then
-          echo "✅ Cache purge successful"
-        else
-          echo "❌ Cache purge failed"
-          exit 1
-        fi
+Sugestão de correção (uma das opções):
 
-        echo "### Purge CDN" >> "$GITHUB_STEP_SUMMARY"
-        echo "Purge - Domain: ${{ inputs.CUSTOM_DOMAIN }}" >> "$GITHUB_STEP_SUMMARY"
+Incluir o parâmetro API_URL (URL base da API da Azion) na chamada da action dentro do workflow genérico.
+Definir um valor default para API_URL na própria action e incluir uma validação que interrompa a execução com mensagem clara quando o valor estiver vazio.
+
+Solicitamos a avaliação e a correção da action ou do workflow genérico, bem como a confirmação da URL base correta da API da Azion a ser utilizada.
+
+Atenciosamente,
+Jessé Batista – P585600
+CTIS/CESTI – Esteiras DevOps DES/TQS NPRD
