@@ -1,7 +1,2 @@
-não é pra criar usuário pro bind!
- 
-é pra continuar com o comportamento que está hj
-
-o usuário que eu pedi é um usuário que exista na base ou a inclusão da minha matriculaa como ususario
-
- o philipe disse isso porem ele s nao explicaram na demanda 
+sudo grep -n -A10 'findUser' /opt/sicia/server/config/passport/utils.js 2>/dev/null || \
+sudo grep -rn 'findUser *=' /opt/sicia/server --include=*.js --exclude-dir=node_modules | head
