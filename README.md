@@ -1,30 +1,36 @@
+Prezados,
 
-p585600@SCTTQAPLLX0013:~$ exit
-logout
-Connection to 10.116.18.118 closed.
-[p585600@cadsvitrlx100 ~]$ ssh 10.116.114.124
-The authenticity of host '10.116.114.124 (10.116.114.124)' can't be established.
-RSA key fingerprint is SHA256:9iD6v/pjccIfcVtOXqOYtl9EydpzdjhQ/zQftCpH47A.
-This key is not known by any other names
-Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
-Warning: Permanently added '10.116.114.124' (RSA) to the list of known hosts.
-p585600@10.116.114.124's password:
-Permission denied, please try again.
-p585600@10.116.114.124's password:
-Permission denied, please try again.
-p585600@10.116.114.124's password:
-p585600@10.116.114.124: Permission denied (publickey,password).
-[p585600@cadsvitrlx100 ~]$
-[p585600@cadsvitrlx100 ~]$
-[p585600@cadsvitrlx100 ~]$
-[p585600@cadsvitrlx100 ~]$
-[p585600@cadsvitrlx100 ~]$ ssh 10.123.6.86
-ssh: connect to host 10.123.6.86 port 22: Connection refused
-[p585600@cadsvitrlx100 ~]$
-[p585600@cadsvitrlx100 ~]$
-[p585600@cadsvitrlx100 ~]$ ssh 10.123.6.10
-ssh: connect to host 10.123.6.10 port 22: Connection refused
-[p585600@cadsvitrlx100 ~]$
+Seguem as variáveis de ambiente solicitadas do SICIA, extraídas dos processos em execução (PM2, serviço sicia-ldap):
+
+DES – https://des.sicia.pedes.caixa/ (10.116.83.94 / sctdeapllx0094.df.caixa)
+
+STRATEGY=user
+LDAP_URL=ldap://ldapcluster.corecaixa:489
+LDAP_USER_BASE=ou=People,o=caixa
+LDAP_GROUP_BASE=ou=Groups, o=caixa
+
+TQS – https://tqs.sicia.pedes.caixa/ (10.116.18.118 / scttqapllx0013.df.caixa)
+
+STRATEGY=user
+LDAP_URL=ldap://ldapcluster.corecaixa:489
+LDAP_USER_BASE=ou=People,o=caixa
+LDAP_GROUP_BASE=ou=Groups, o=caixa
+
+Obs.: o valor de LDAP_GROUP_BASE contém um espaço após a vírgula (ou=Groups, o=caixa), conforme configurado na aplicação.
+
+Os ambientes HMP, PILOTO e PRD estão fora do escopo de acesso da equipe DES/TQS NPRD. A solicitação desses valores deve ser direcionada ao time de Infraestrutura.
+
+Você registrou bem: três tentativas, três bloqueios diferentes, e isso comprova falta de acesso, não falta de vontade. Pode anexar ao chamado assim:
+
+Foi realizada tentativa de acesso aos demais ambientes a partir do jump server cadsvitrlx100, sem sucesso:
+
+HMP (10.116.114.124 / scthmdadlx0002.df.caixa): Permission denied (publickey,password). O usuário p585600 não possui credencial neste servidor.
+PILOTO (10.123.6.86): Connection refused na porta 22. Não há acesso SSH a partir da rede NPRD.
+PRD (10.123.6.10): Connection refused na porta 22. Não há acesso SSH a partir da rede NPRD.
+
+Esses ambientes não fazem parte do escopo de atendimento da equipe DES/TQS NPRD. Solicito o redirecionamento ao time de Infraestrutura para a coleta das variáveis STRATEGY, LDAP_URL, LDAP_USER_BASE e LDAP_GROUP_BASE em HMP, PILOTO e PRD.
 
 
-só pra nao dier que foi ruindade ta fora do meu escopo de atendimento nao tenho acesso oas servidores,
+
+Atenciosamente,
+Jessé Batista
