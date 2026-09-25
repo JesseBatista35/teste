@@ -1,29 +1,18 @@
-ean, o rollback foi concluído. A variável JAVA_OPTIONS_APPEND voltou ao valor original e a aplicação em DES já está rodando sem o agente do Application Insights. A telemetria volta a seguir somente pelo coletor da CEMOT (LDAI-DEPOSITOS-JUDICIAS), como estava antes.
+ATENÇÃO: DESCONSIDERAR A NOTA ANTERIOR.
 
+Após alinhamento com o solicitante (Philipe de Souza Alcantara Pereira – matrícula f737796), a necessidade foi esclarecida. Não se trata de credencial ou conta de serviço de LDAP para a aplicação. A configuração e o comportamento atuais do SICIA devem permanecer inalterados.
 
+SOLICITAÇÃO CORRETA:
+Inclusão da matrícula f737796 no grupo LDAP [GRUPO] (ou=Groups, o=caixa), para acesso à aplicação SICIA nos ambientes HMP, PILOTO e PRD.
 
+CONTEXTO TÉCNICO (verificado no código-fonte da aplicação):
 
+O SICIA autentica o usuário com a matrícula e a senha de rede no LDAP corporativo (ldapcluster.corecaixa:489).
+O acesso é liberado somente se a matrícula for membro (uniqueMember) de um dos grupos do SICIA em ou=Groups, o=caixa. O grupo define o perfil do usuário na aplicação.
+Grupos do SICIA: CIA_GESTORGESFI, CIA_GERENTEGISEG, CIA_GISEG, CIA_AUDITOR, CIA_TI, CIA_OPERADORCENTRAL, CIA_MANTENEDORA, CIA_VISUALNACIONAL, CIA_VISUALREGIONAL.
+No primeiro login, a aplicação cria o usuário automaticamente na base local. Não é necessário cadastro manual no banco nem alteração de configuração.
 
-Contexto: na REQ000146187679, a aplicação não registrava customEvents (alvara_ac_snapshot) no Application Insights. Na análise, identificamos que a variável _ENV.JAVA_OPTIONS_APPEND definida na release (escopo EC DES) sobrescrevia a do grupo SIGSJ-comum-des e não incluía o -javaagent do Application Insights. A variável foi ajustada para incluir o agente (3.7.1).
+Demanda direcionada à CEST – Gestão de Identidade e Acesso para inclusão da matrícula no grupo indicado.
 
-Impacto observado: com o agente ativo, a telemetria passou a ser enviada também para o LDAI-Fomento-Depositos-Judiciais, por meio da connection string já existente no grupo SIGSJ-insights-des. Além disso, o agente conflita com a extensão OpenTelemetry do Quarkus e prejudicou os traces enviados ao coletor da CEMOT (LDAI-DEPOSITOS-JUDICIAS), que é a base do painel negocial. Não houve troca de instrumentation key nem de LDAI na esteira.
-
-Ação executada:
-
-A variável de pipeline _ENV.JAVA_OPTIONS_APPEND (escopo EC DES) da release SIGSJ-alvara voltou ao valor original: -Djavax.net.ssl.trustStore=/deployments/caixa-truststore-acteste-nprd-sigsj-20260707.jks -Dotel.exporter.otlp.endpoint=https://otel-collector-nprd.cemot.cloud.caixa
-Nova release implantada em DES.
-
-Validação:
-
-No pod em execução, a variável JAVA_OPTIONS_APPEND está sem o -javaagent.
-O processo Java (PID 1) foi iniciado sem o agente do Application Insights.
-A telemetria voltou a seguir somente pelo coletor da CEMOT, como antes da alteração.
-Solicitada ao demandante a validação dos traces no painel da CEMOT.
-
-Observações e recomendações:
-
-Os customEvents seguem pendentes de ajuste na aplicação. A classe OpenTelemetryLogProvider usa um SdkLoggerProvider próprio, que exporta apenas para o coletor da CEMOT. A definição do destino (coletor da CEMOT encaminhando ao Application Insights, ou agente com LDAI-Fomento) deve ser alinhada entre o time do SIGSJ e a CEMOT.
-O uso do agente do Application Insights em módulos SIGSJ-Quarkus que já usam quarkus-opentelemetry não é recomendado sem avaliação prévia, por causa do conflito entre os dois.
-Recomendamos marcar como secret as credenciais hoje em texto aberto nos grupos SIGSJ-comum-des e SIGSJ-ALVARA-DES (secrets do OIDC, API keys e token FWC).
-
-Status: atendido.
+Atenciosamente,
+Jessé Batista – DES/TQS NPRD
