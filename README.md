@@ -1,10 +1,33 @@
+Prezados, bom dia.
 
--sh-4.2$
--sh-4.2$ oc logs sigsj-alvara-des-669-bsj5j -n sigsj-des | grep -Ei 'Application Insights Java Agent|set calls are ignored'
-2026-09-24 16:17:52.164-03:00 INFO  c.m.applicationinsights.agent - Application Insights Java Agent 3.7.1 started successfully (PID 8, JVM running for 6.056 s)
-2026-09-24 16:18:06.363-03:00 WARN  i.o.api.GlobalOpenTelemetry - You are currently using the OpenTelemetry Instrumentation Java Agent; all GlobalOpenTelemetry.set calls are ignored - the agent provides the global OpenTelemetry object used by your application.
--sh-4.2$
--sh-4.2$
--sh-4.2$ oc exec sigsj-alvara-des-669-bsj5j -n sigsj-des -- env | grep JAVA_OPTIONS_APPEND
-JAVA_OPTIONS_APPEND=-Djavax.net.ssl.trustStore=/deployments/caixa-truststore-acteste-nprd-sigsj-20260707.jks -javaagent:/deployments/lib/main/com.microsoft.azure.applicationinsights-agent-3.7.1.jar -Dotel.exporter.otlp.endpoint=https://otel-collector-nprd.cemot.cloud.caixa
--sh-4.2$
+Confirmamos que o agente do Application Insights (3.7.1) está ativo no pod atual (sigsj-alvara-des-669-bsj5j) e enviando telemetria normalmente ao LDAI-DEPOSITOS-JUDICIAS (requests e dependências).
+
+Porém não há registros do evento alvara_ac_snapshot em nenhuma tabela nas últimas 24 horas, nem mesmo dos eventos de snapshot vazio, que deveriam ser emitidos a cada 5 minutos (o log mostra 0/0 custom events emitidos em todos os ciclos).
+
+A classe OpenTelemetryAlvaraAcEventPublisher enviada continua obtendo o logger via OpenTelemetryLogProvider.getLogger(). Existem hoje três instâncias de OpenTelemetry na aplicação, e só uma delas envia ao Application Insights:
+
+Origem do logger	Destino
+SdkLoggerProvider próprio (OpenTelemetryLogProvider)	Somente coletor da CEMOT
+@Inject OpenTelemetry (bean do Quarkus)	Descartado (NoopLogRecordExporter, pois quarkus.otel.logs.enabled não está habilitado)
+GlobalOpenTelemetry.get() (fornecido pelo agente)	Application Insights
+
+Portanto, o logger deve ser obtido obrigatoriamente assim:
+
+java
+Logger logger = GlobalOpenTelemetry.get().getLogsBridge().get("sigsj-alvara");
+
+Se os eventos também forem necessários no painel da CEMOT, é preciso emitir pelos dois loggers: o global e o do OpenTelemetryLogProvider.
+
+Caso, após o ajuste, os eventos apareçam na tabela traces em vez de customEvents, a alternativa é usar a API do próprio Application Insights (com.microsoft.azure:applicationinsights-core:3.7.1):
+
+java
+new TelemetryClient().trackEvent("alvara_ac_snapshot", propriedades, null);
+
+Para validar após o deploy (o esperado é um evento com snapshot_empty=true a cada 5 minutos):
+
+kusto
+customEvents
+| where timestamp > ago(1h)
+| where name == "alvara_ac_snapshot"
+
+Fico à disposição.
