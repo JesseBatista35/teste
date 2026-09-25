@@ -1,6 +1,3 @@
-customEvents
-| where timestamp > ago(1d)
-| where name == "alvara_ac_snapshot"
-| take 10
+<img width="1860" height="866" alt="image" src="https://github.com/user-attachments/assets/287eb34a-cc86-4779-9817-0fa263785738" />
 
 
