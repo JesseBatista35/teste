@@ -1,36 +1,9 @@
+À Suporte/CAIXA / Wanderson França (P911751)
 
--sh-4.2$
--sh-4.2$ oc rsh -n selenium-grid dc/chrome curl -sv --max-time 15 -o /dev/null https://cdn.perfdrive.com/ 2>&1 | grep -iE "proxy|connected|HTTP/"
-* Uses proxy env variable no_proxy == '.caixa,.caixa.gov.br,.corecaixa,.local,.svc,localhost,127.0.0.1,10.0.0.0/8,25.0.0.0/8'
-* Uses proxy env variable https_proxy == 'http://proxyprd.caixa:80'
-* Connected to (nil) (10.252.32.136) port 80 (#0)
-* Establish HTTP proxy tunnel to cdn.perfdrive.com:443
-> CONNECT cdn.perfdrive.com:443 HTTP/1.1
-> Proxy-Connection: Keep-Alive
-< HTTP/1.1 200 Connection established
-< Proxy-Connection: Keep-Alive
-* Proxy replied 200 to CONNECT request
-* ALPN, offering http/1.1
-* Connection state changed (HTTP/2 confirmed)
-* Copying HTTP/2 data in stream buffer to connection buffer after upgrade: len=0
-> GET / HTTP/2
-< HTTP/2 200
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$ oc set env dc/edge dc/firefox -n selenium-grid --list | grep -i proxy
-HTTP_PROXY=http://proxyprd.caixa:80
-http_proxy=http://proxyprd.caixa:80
-HTTPS_PROXY=http://proxyprd.caixa:80
-https_proxy=http://proxyprd.caixa:80
-NO_PROXY=.caixa,.caixa.gov.br,.corecaixa,.local,.svc,localhost,127.0.0.1,10.0.0.0/8,25.0.0.0/8
-no_proxy=.caixa,.caixa.gov.br,.corecaixa,.local,.svc,localhost,127.0.0.1,10.0.0.0/8,25.0.0.0/8
-HTTP_PROXY=http://proxyprd.caixa:80
-http_proxy=http://proxyprd.caixa:80
-HTTPS_PROXY=http://proxyprd.caixa:80
-https_proxy=http://proxyprd.caixa:80
-NO_PROXY=.caixa,.caixa.gov.br,.corecaixa,.local,.svc,localhost,127.0.0.1,10.0.0.0/8,25.0.0.0/8
-no_proxy=.caixa,.caixa.gov.br,.corecaixa,.local,.svc,localhost,127.0.0.1,10.0.0.0/8,25.0.0.0/8
--sh-4.2$
+A solicitação é de atualização da versão do Chrome no Selenium Grid (namespace selenium-grid, cluster produtos4), ferramenta cujo único administrador é o P911751. A alteração não está no escopo das esteiras NPRD.
+
+Confirmamos que o pedido procede: o nó Chrome roda a versão 120.0.6099.224 (início de 2024), com as imagens de todos os componentes fixadas por digest desde a criação. A atualização deve ser feita em conjunto em todos os componentes do Grid (router, distributor, event-bus, sessions, session-queue e nós chrome/edge/firefox).
+
+Sobre a devolução: a criação da sessão com sucesso não descarta o Grid. O log mostra que a etapa BOTAO_ENTRAR falhou por "session deleted because of page crash", ou seja, a aba do Chrome crashou dentro do nó do Grid. Identificamos ainda que o /dev/shm do nó Chrome está com o padrão de 64 MB, causa mais comum desse erro em containers. Recomendamos, junto com a atualização, incluir volume de 2 GB para /dev/shm nas DCs dos nós (emptyDir, medium: Memory), pois a atualização isolada pode não resolver o crash.
+
+Devolvemos ao responsável pela ferramenta.
