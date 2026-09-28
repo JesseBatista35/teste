@@ -12,3 +12,35 @@ Definição da N1W1: DFHPIDSH como primeiro programa nos AORs, routable/dynamic 
 Se o D01POSOL está instalado somente nos AORs. O ASRA foi registrado no CICQTWB3, que é TOR.
 
 Se possível, confirmem também se houve novo dump às 11:05 no CICQTWB3.
+
+
+
+antes de amdar
+
+
+o evertorn heleno disse isso
+
+Rodrigo Portela das Chagas
+📷
+Essa última execução não chegou aqui no CICS.
+ 
+I WEBS(*) PROG(D01POSOL)                                                      
+
+  STATUS:  RESULTS - OVERTYPE TO MODIFY                                         
+
+  Webs(lancamento                      ) Pip(D01SPIPE)                         
+
+     Ins Ccs(00000) Uri($803020 ) Pro(D01POSOL) Com Xopsup Xopdir              
+
+  Webs(lancamentoV4                    ) Pip(D01SPIPE)                         
+
+     Ins Ccs(00000)               Pro(D01POSOL) Com Xopsup Xopdir              
+
+
+                                                     SYSID=AWQ1 APPLID=CICQAWB1
+
+ 
+
+
+
+ 
