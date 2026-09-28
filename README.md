@@ -1,46 +1,13 @@
-Pedro, obrigado pelo teste. Consegui acompanhar no log do pod: o erro 500 do CICS Web Interface chegou às 11:04:57 e às 11:05:50.
+Rodrigo, obrigado pelo retorno. Confirmei no log do pod que o 500 "CICS Web Interface error" chegou às 11:04:57 e às 11:05:50, mas entendi que a requisição não chegou ao D01POSOL do lado de vocês. Isso indica que o erro é barrado na camada web, antes do programa.
 
-Testei a chamada pelas duas portas (2587 e 32587) e o retorno é o mesmo 500, então a porta não é a causa. O pod está estável, com o limite de memória ajustado, e a requisição chega ao CICS.
+O CEMT que você colou mostra o ponto central: o lancamento tem Uri($803020), e o lancamentoV4 (Pip D01SPIPE, Pro D01POSOL) está sem URIMAP associado. Pelo tutorial (item 6), o DFHLS2WS gera o URIMAP na instalação do web service. O D01UMTQS foi criado manualmente e não faz esse vínculo com o pipeline.
 
-Pela monitoração da Karen, o D01POSOL recebe o texto cru da requisição HTTP (POST /sid01/lancamentoV4 HTTP/1.1, Content-Type: text/xml, Host: cicsweb.tqs.caixa), e não os campos convertidos do SOAP. Isso indica que o programa é chamado sem passar pelo pipeline do web service (DFHPIDSH).
-
-Peço ao time de Mainframe a verificação de:
+Peço a verificação de:
 
 CEMT I URIMAP(D01UMTQS): USAGE, PIPELINE, WEBSERVICE, PROGRAM e TRANSACTION;
-CEMT I WEBS(lancamentoV4): URIMAP associado e STATE. No CICQAWB1 ele aparece sem Uri($...), diferente dos demais serviços do D01SPIPE;
-Definição da N1W1: DFHPIDSH como primeiro programa nos AORs, routable/dynamic no TOR;
-Se o D01POSOL está instalado somente nos AORs. O ASRA foi registrado no CICQTWB3, que é TOR.
+Por que o lancamentoV4 está instalado sem URIMAP. Se o gerado pelo DFHLS2WS não foi instalado, ou se o manual assumiu o mesmo path;
+Se necessário, remover ou desabilitar o URIMAP manual e executar CEMT PERFORM PIPE(D01SPIPE) SCAN em cada região, para o URIMAP do web service ser reinstalado;
+Definição da N1W1: DFHPIDSH como primeiro programa nos AORs e routable/dynamic no TOR.
 
-Se possível, confirmem também se houve novo dump às 11:05 no CICQTWB3.
-
-
-
-antes de amdar
-
-
-o evertorn heleno disse isso
-
-Rodrigo Portela das Chagas
-📷
-Essa última execução não chegou aqui no CICS.
- 
-I WEBS(*) PROG(D01POSOL)                                                      
-
-  STATUS:  RESULTS - OVERTYPE TO MODIFY                                         
-
-  Webs(lancamento                      ) Pip(D01SPIPE)                         
-
-     Ins Ccs(00000) Uri($803020 ) Pro(D01POSOL) Com Xopsup Xopdir              
-
-  Webs(lancamentoV4                    ) Pip(D01SPIPE)                         
-
-     Ins Ccs(00000)               Pro(D01POSOL) Com Xopsup Xopdir              
-
-
-                                                     SYSID=AWQ1 APPLID=CICQAWB1
-
- 
-
-
-
+Do meu lado, o pod está estável (memória ajustada e porta 32587). Fico com o log aberto para o próximo teste.
  
