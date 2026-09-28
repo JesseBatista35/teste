@@ -14,3 +14,9 @@ Se o URIMAP manual estiver sem PIPELINE/WEBSERVICE, removê-lo (ou desabilitá-l
 Definição da N1W1: DFHPIDSH como primeiro programa nos AORs, routable/dynamic no TOR, e D01POSOL instalado somente nos AORs. O ASRA foi registrado no CICQTWB3, que é TOR.
 
 Como o problema não está no payload nem na aplicação, fico com o log do pod aberto e valido o retorno quando o Pedro ou o Rodrigo dispararem o novo teste.
+
+
+oc set env dc/sid01-lancamentos-financeiros-okd4-tqs CICSWEB_ROOT_ENDPOINT_HTTPS=https://cicsweb.tqs.caixa:32587 -n sid01-tqs
+
+oc get pods -n sid01-tqs
+
