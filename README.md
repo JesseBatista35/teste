@@ -24,3 +24,4 @@ precisavmo fazer essa gente cdo contrl m votlar a funcinar
 
 
 
+<img width="1057" height="741" alt="image" src="https://github.com/user-attachments/assets/7f6d4e8f-04e8-438b-9307-53d80a54d460" />
