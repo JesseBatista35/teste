@@ -1,26 +1,26 @@
 
-,[root@caddeapllx2462 p585600]#
-[root@caddeapllx2462 p585600]#
-[root@caddeapllx2462 p585600]#
-[root@caddeapllx2462 p585600]# ps -ef | grep -i vcx | grep -v grep
-vcxprox+     967       1  0 set02 ?        00:00:11 /opt/node/bin/node /opt/app/vcx/main/proxyServer.bundle.js
-vcxserv+     968       1  0 set02 ?        00:00:23 /opt/node/bin/node /opt/app/vcx/main/server.bundle.js
-[root@caddeapllx2462 p585600]#
-[root@caddeapllx2462 p585600]#
-[root@caddeapllx2462 p585600]# mkdir -p /mnt/teste_nfs
-mount -t nfs nprdnfs01.ad.caixa:/fs_sipcs_vcx /mnt/teste_nfs
-df -hT /mnt/teste_nfs
-touch /mnt/teste_nfs/teste && ls -l /mnt/teste_nfs && rm -f /mnt/teste_nfs/teste
-umount /mnt/teste_nfs && rmdir /mnt/teste_nfs
-mount: (hint) your fstab has been modified, but systemd still uses
-       the old version; use 'systemctl daemon-reload' to reload.
-Sist. Arq.                       Tipo  Tam. Usado Disp. Uso% Montado em
-nprdnfs01.ad.caixa:/fs_sipcs_vcx nfs4   50G     0   50G   0% /mnt/teste_nfs
-total 24
--rw-r--r-- 1 nobody nobody 0 set 28 12:34 teste
-[root@caddeapllx2462 p585600]#
-[root@caddeapllx2462 p585600]#
-[root@caddeapllx2462 p585600]#
-[root@caddeapllx2462 p585600]#
-[root@caddeapllx2462 p585600]#
-[root@caddeapllx2462 p585600]#
+Last failed login: Mon Sep 28 12:38:34 -03 2026 from 10.211.14.73 on ssh:notty
+There were 2 failed login attempts since the last successful login.
+Last login: Mon Sep 28 10:57:51 2026 from 10.211.14.73
+[p585600@cadsvitrlx100 ~]$ ssh 10.116.201.173
+The authenticity of host '10.116.201.173 (10.116.201.173)' can't be established.
+ED25519 key fingerprint is SHA256:nUeIvBFrSC3NFPoCobdHkzyxYxUxjc77QZklc6lFtc0.
+This host key is known by the following other names/addresses:
+    ~/.ssh/known_hosts:59: 10.116.201.113
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '10.116.201.173' (ED25519) to the list of known hosts.
+p585600@10.116.201.173's password:
+[p585600@caddeapllx2695 ~]$
+[p585600@caddeapllx2695 ~]$
+[p585600@caddeapllx2695 ~]$
+[p585600@caddeapllx2695 ~]$
+
+
+estou noessa maquina e tem um agente do contral m rodando na maquina estamo  finalzaid um process novo via contral m 
+
+Estava funcinandn e eprdeu todas a configuraçai 
+
+precisavmo fazer essa gente cdo contrl m votlar a funcinar
+
+
+
