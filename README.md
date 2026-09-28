@@ -8,3 +8,7 @@ CEMT I WEBS(lancamentoV4) em cada CICS de TQS, agora com Uri($...) associado;
 Em qual porta HTTPS o URIMAP gerado atende (TCPIPSERVICE), 2587 ou 32587, para eu deixar a variável da pipeline igual.
 
 Pedro/Rodrigo, avisem aqui antes de disparar o débito.
+
+
+
+Este D01UMTQS não está em uso, já até removi o mesmo do CICS, o urimap para essa transação é Uri($803020 )
