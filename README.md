@@ -1,14 +1,10 @@
-Everton, obrigado pelo retorno. Entendi que o job DFHLS2WS da Karen configurou o URIMAP em todos os CICS de TQS e que o D01UMTQS não está em uso.
+Everton, obrigado pelo retorno. Entendi que o D01UMTQS foi removido e que o URIMAP da transação é o $803020.
 
-O último teste (11:05) foi antes disso, então peço um novo teste. Do meu lado, o pod está estável e apontado para a porta 32587, e deixo o log aberto para acompanhar.
+Duas confirmações, por favor:
 
-Para o teste valer, peço a confirmação de:
+Qual é o path do $803020 (Path e Usage)? A aplicação chama /sid01/lancamentoV4, e no CEMT I WEBS(*) PROG(D01POSOL) o lancamento tem esse Uri e o lancamentoV4 aparece sem Uri.
+Esse $803020 está instalado e habilitado em todos os CICS de TQS, incluindo o CICQTWB3?
 
-CEMT I WEBS(lancamentoV4) em cada CICS de TQS, agora com Uri($...) associado;
-Em qual porta HTTPS o URIMAP gerado atende (TCPIPSERVICE), 2587 ou 32587, para eu deixar a variável da pipeline igual.
+Como o D01UMTQS foi removido depois do nosso último teste (11:05), peço um novo teste do débito. Do meu lado, o pod está estável na porta 32587, e deixo o log aberto para acompanhar.
 
-Pedro/Rodrigo, avisem aqui antes de disparar o débito.
-
-
-
-Este D01UMTQS não está em uso, já até removi o mesmo do CICS, o urimap para essa transação é Uri($803020 )
+Pedro/Rodrigo, avisem aqui antes de disparar.
