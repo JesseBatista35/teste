@@ -1,10 +1,12 @@
-Everton, obrigado pelo retorno. Entendi que o D01UMTQS foi removido e que o URIMAP da transação é o $803020.
+<img width="1414" height="910" alt="image" src="https://github.com/user-attachments/assets/7bb2667f-5619-4a6b-91df-98ef6302e77e" />
 
-Duas confirmações, por favor:
 
-Qual é o path do $803020 (Path e Usage)? A aplicação chama /sid01/lancamentoV4, e no CEMT I WEBS(*) PROG(D01POSOL) o lancamento tem esse Uri e o lancamentoV4 aparece sem Uri.
-Esse $803020 está instalado e habilitado em todos os CICS de TQS, incluindo o CICQTWB3?
+11:25
 
-Como o D01UMTQS foi removido depois do nosso último teste (11:05), peço um novo teste do débito. Do meu lado, o pod está estável na porta 32587, e deixo o log aberto para acompanhar.
 
-Pedro/Rodrigo, avisem aqui antes de disparar.
+o everton disse
+Realmente urimap está sem número após execução do job, 
+
+
+ <img width="800" height="46" alt="image" src="https://github.com/user-attachments/assets/d0a050fe-a9f5-4ff5-be83-dcf04627ac32" />
+
