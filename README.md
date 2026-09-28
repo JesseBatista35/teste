@@ -1,20 +1,14 @@
+su - ctmagelx
 
-Timeout occurred before Server responded.
- Check if Server performed the request.
- If so, use utility CTMAGCFG to increase 'Timeout for Agent utilities'.
 
- Agent ping to Control-M/Server        : Failed
+# confirma ambiente
+whoami; echo $CONTROLM
 
- Agent processes status:
- -----------------------------------------------
- Java Services                         : Running (["ar","tracker","housekeeping","ssh-courier","ag-mngr"]  on port 10571)
- Uploader Service                      : Not Running ()
- Agent Listener                        : Running as root (1171405)
- Agent Tracker                         : Running as root (1171471)
- Agent Tracker-Worker                  : Running as root (1171558) - ATW000
+# portas configuradas
+grep -E "AGENT_TO_SERVER_PORT|SERVER_TO_AGENT_PORT|CTMSHOST|CTMPERMHOSTS" $CONTROLM/data/CONFIG.dat
 
- DNS Translation of Server crjdeaprlx038
- -----------------------------------------------
- Server Host Address #1                : 10.116.99.99
---- End of Report ---
-[root@caddeapllx2695 p585600]#
+# em qual porta o servidor responde
+for ip in 10.116.99.99 10.116.99.100; do for p in 7005 7006 7015 7016 7105 7115; do timeout 3 bash -c "</dev/tcp/$ip/$p" 2>/dev/null && echo "$ip:$p ABERTA"; done; done
+
+# ping agente -> servidor
+ag_ping
