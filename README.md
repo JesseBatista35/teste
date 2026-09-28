@@ -1,19 +1,24 @@
 Bom dia pessoal!
 
-Analisei o tutorial de CICS WebService enviado pela Claudia e cruzei com as evidências. Segue o que observei:
+Analisei o tutorial de CICS WebService enviado pela Claudia e cruzei com as evidências do ambiente.
 
-1. O D01POSOL recebe o HTTP cru. Pela monitoração da Karen, o working storage do D01POSOL contém POST /sid01/lancamentoV4 HTTP/1.1, Content-Type: text/xml; charset=UTF-8 e Host: cicsweb.tqs.caixa. Num web service SOAP provider, o pipeline (DFHPIDSH) converte o XML para a COMMAREA antes de chamar o programa. Os campos numéricos chegam corrompidos e o programa abenda com ASRA.
+O que vimos:
 
-2. Suspeita: o URIMAP manual desvia o pipeline. O URIMAP D01UMTQS (Path /sid01/lancamentoV4, Https) foi definido manualmente, pois o web service não estava instalado em TQS. Pelo item 6 do tutorial, o URIMAP correto é gerado pelo DFHLS2WS na instalação do WEBSERVICE. No CEMT I WEBS(*) PROG(D01*) do CICQAWB1, o lancamentoV4 (Pip D01SPIPE, Pro D01POSOL) aparece sem Uri($...) associado, diferente dos demais serviços. Se o URIMAP manual tem o mesmo path e aponta direto para o programa, ele assume a requisição no lugar do URIMAP gerado, e o pipeline não é executado.
+Pela monitoração da Karen, o working storage do D01POSOL recebe o texto cru da requisição HTTP (POST /sid01/lancamentoV4 HTTP/1.1, Content-Type: text/xml, Host: cicsweb.tqs.caixa), e não os campos convertidos do SOAP. Por isso os campos numéricos chegam corrompidos e o programa abenda com ASRA.
+O WSDL do lancamentoV4 abre em TQS pela porta 32587 (cicsweb.tqs.caixa:32587/sid01/lancamentoV4?wsdl), que é a porta padrão do web service segundo o tutorial, e é a mesma usada em DES.
+Na pipeline de TQS, a variável CICSWEB_ROOT_ENDPOINT_HTTPS estava com a porta 2587, diferente de DES (32587).
+O CICQTWB3 tem as duas portas em LISTEN (2587 e 32587). A 2587 pode ser um listener diferente, onde o URIMAP manual D01UMTQS (criado por vocês, pois o web service não estava instalado em TQS) entrega a requisição direto ao D01POSOL, sem passar pelo pipeline (DFHPIDSH).
+No CEMT I WEBS(*) PROG(D01*) do CICQAWB1, o lancamentoV4 (Pip D01SPIPE, Pro D01POSOL) aparece sem Uri($...) associado, diferente dos demais serviços.
 
-3. Peço a verificação de:
+O que faço agora:
 
-CEMT I URIMAP(D01UMTQS): conferir USAGE, PIPELINE, WEBSERVICE, PROGRAM e TRANSACTION;
-CEMT I WEBS(lancamentoV4): confirmar o URIMAP associado e o STATE (Inservice);
-Se o URIMAP manual estiver sem PIPELINE/WEBSERVICE, removê-lo (ou desabilitá-lo) e executar CEMT PERFORM PIPE(D01SPIPE) SCAN em cada região, para o URIMAP gerado assumir o path;
-Definição da N1W1: DFHPIDSH como primeiro programa nos AORs, routable/dynamic no TOR, e D01POSOL instalado somente nos AORs. O ASRA foi registrado no CICQTWB3, que é TOR.
+Alterei a variável CICSWEB_ROOT_ENDPOINT_HTTPS do pod de TQS de 2587 para 32587, alinhando com DES e com a porta em que o WSDL abre.
+Vou deixar o log do pod aberto para acompanhar o próximo teste.
 
-Como o problema não está no payload nem na aplicação, fico com o log do pod aberto e valido o retorno quando o Pedro ou o Rodrigo dispararem o novo teste.
+Peço:
+
+Pedro/Rodrigo, avisem aqui e disparem uma nova chamada de débito, para eu validar o resultado no log.
+Se o erro persistir, peço ao time de Mainframe a verificação de: CEMT I URIMAP(D01UMTQS) (USAGE, PIPELINE, WEBSERVICE, PROGRAM, TRANSACTION); CEMT I WEBS(lancamentoV4) (URIMAP associado e STATE); a definição da N1W1 (DFHPIDSH como primeiro programa nos AORs, routable/dynamic no TOR); e se o D01POSOL está instalado somente nos AORs, já que o ASRA foi registrado no CICQTWB3, que é TOR.
 
 
 oc set env dc/sid01-lancamentos-financeiros-okd4-tqs CICSWEB_ROOT_ENDPOINT_HTTPS=https://cicsweb.tqs.caixa:32587 -n sid01-tqs
