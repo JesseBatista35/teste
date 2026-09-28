@@ -1,24 +1,60 @@
-Prezados,
 
-Realizada a montagem do NFS no servidor caddeapllx2462 (IP de backup/storage 10.188.6.220):
+[p585600@cadsvitrlx100 ~]$ scp p686198@10.116.18.153:/opt/SIALI/jboss-eap-6.4/standalone/log/server.log.2026-09-28 .
 
-Origem: nprdnfs01.ad.caixa:/fs_sipcs_vcx
-Ponto de montagem: /sipcs/vcx
-Protocolo: NFSv3 (opções rw,sync,hard,vers=3,_netdev)
-Montagem persistida no /etc/fstab (backup em /etc/fstab.bkp_WO0000081726775)
-Proprietário: vcxservice:vcxservice, permissão 775 (usuários vcxservice e vcxproxyservice com acesso de escrita)
+***********************************************************************
+(1) - Este e um computador privado de propriedade da Caixa Economica
+Federal. Usuarios autorizados e nao autorizados nao possuem direitos de
+divulgar as informacoes contidas aqui.
+(2) - Ao fazer uso do sistema, o usuario esta ciente que pode estar
+sendo monitorado, interceptado e auditado pelo departamento competente
+da Caixa Economica Federal.
+(3) - O uso nao autorizado ou improprio deste sistema pode resultar em
+um processo disciplinar administrativo e/ou punicao atraves de acoes
+civis ou criminais. Ao continuar o uso deste sistema, indica que voce
+esta ciente e concordando com os termos e condicoes acima descritos.
 
-Evidência:
+Pressione <Control+D> IMEDIATAMENTE se voce nao concorda com as
+condicoes deste aviso
+***********************************************************************
+p686198@10.116.18.153's password:
+Permission denied, please try again.
+p686198@10.116.18.153's password:
+Permission denied, please try again.
+p686198@10.116.18.153's password:
+p686198@10.116.18.153: Permission denied (publickey,gssapi-keyex,gssapi-with-mic,password).
+Connection closed
+[p585600@cadsvitrlx100 ~]$ ssh 10.116.18.153
+***********************************************************************
+(1) - Este e um computador privado de propriedade da Caixa Economica
+Federal. Usuarios autorizados e nao autorizados nao possuem direitos de
+divulgar as informacoes contidas aqui.
+(2) - Ao fazer uso do sistema, o usuario esta ciente que pode estar
+sendo monitorado, interceptado e auditado pelo departamento competente
+da Caixa Economica Federal.
+(3) - O uso nao autorizado ou improprio deste sistema pode resultar em
+um processo disciplinar administrativo e/ou punicao atraves de acoes
+civis ou criminais. Ao continuar o uso deste sistema, indica que voce
+esta ciente e concordando com os termos e condicoes acima descritos.
 
-nprdnfs01.ad.caixa:/fs_sipcs_vcx nfs 50G 0 50G 0% /sipcs/vcx
-drwxrwxr-x 2 vcxservice vcxservice 0 set 28 14:29 /sipcs/vcx
+Pressione <Control+D> IMEDIATAMENTE se voce nao concorda com as
+condicoes deste aviso
+***********************************************************************
+p585600@10.116.18.153's password:
+Last login: Mon Sep 14 16:09:11 2026 from 10.122.150.31
+   ___   ___     _     _   _   ___     _    __
+  / __| | __|   /_\   | | | | / __|   / |  /  \
+ | (__  | _|   / _ \  | |_| | \__ \   | | | () |
+  \___| |___| /_/ \_\  \___/  |___/   |_|  \__/
 
-Validada a escrita com os usuários da aplicação.
+         ### CAIXA ECONOMICA FEDERAL ###
 
-Obs.: o diretório de dados da aplicação atualmente é /opt/app/vcx/datafiles (local). Caso a aplicação deva passar a utilizar o NFS, é necessário ajuste de configuração pela equipe responsável pelo SIPCS/VCX.
+[p585600@scttqapllx0039 ~]$
+[p585600@scttqapllx0039 ~]$
+[p585600@scttqapllx0039 ~]$
+[p585600@scttqapllx0039 ~]$
+[p585600@scttqapllx0039 ~]$
 
-Att,
-Jessé Batista – P585600
 
 
-Obs. 2: o grupo de variáveis SIPCS-VCX-VISA-CREDITO-NFS-DES (release SIPCS-vcx-visa-credito-NAO-EXECUTAR) ainda referencia o NFS antigo (nfsctcnprd.ctc.caixa:/ifs/CADSVISISD4/SERVIDORES/CETAD/SIPCS em /opt/app/vcx/datafiles). A montagem desta WO foi realizada manualmente no host. Caso a esteira volte a ser utilizada, será necessário atualizar as variáveis para o novo compartilhamento e validar a compatibilidade do script de montagem com o storage cpwsprd01.
+
+me ajuda a epgar esse log de hoje
