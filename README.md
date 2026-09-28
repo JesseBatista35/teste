@@ -3,58 +3,11 @@ Se o erro persistir, peço ao time de Mainframe a verificação de: CEMT I URIMA
 eu nao mandie essa parte aqui acima 
 
 
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$ oc rollout latest dc/sid01-lancamentos-financeiros-okd4-tqs -n sid01-tqs
-deploymentconfig.apps.openshift.io/sid01-lancamentos-financeiros-okd4-tqs rolled out
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$ oc get pods -n sid01-tqs
-NAME                                                   READY     STATUS              RESTARTS        AGE
-sid01-api-lnf-tqs-4-sd5kr                              1/1       Running             401 (22m ago)   25d
-sid01-lancamentos-financeiros-okd4-tqs-50-deploy       0/1       Completed           0               9d
-sid01-lancamentos-financeiros-okd4-tqs-51-deploy       0/1       Completed           0               9d
-sid01-lancamentos-financeiros-okd4-tqs-51-xm7sw        1/1       Running             8 (11h ago)     6d20h
-sid01-lancamentos-financeiros-okd4-tqs-52-deploy       1/1       Running             0               6s
-sid01-lancamentos-financeiros-okd4-tqs-52-vrzhq        0/1       ContainerCreating   0               2s
-sid01-simulador-tqs-201-deploy                         0/1       Completed           0               109d
-sid01-simulador-tqs-202-deploy                         0/1       Completed           0               103d
-sid01-simulador-tqs-202-kc4pr                          1/1       Running             0               103d
-sid01-situacao-lancamentos-financeiros-tqs-17-2z2vp    1/1       Running             0               23d
-sid01-situacao-lancamentos-financeiros-tqs-17-deploy   0/1       Completed           0               23d
-sid01-zosconnproxy-tqs-1-752dk                         2/2       Running             0               122d
-sid01-zosconnproxy-tqs-1-deploy                        0/1       Completed           0               122d
-sid01-zosconnproxy-tqs-1-mxwh9                         2/2       Running             0               30d
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$ oc get pods -n sid01-tqs
-NAME                                                   READY     STATUS      RESTARTS        AGE
-sid01-api-lnf-tqs-4-sd5kr                              1/1       Running     401 (22m ago)   25d
-sid01-lancamentos-financeiros-okd4-tqs-50-deploy       0/1       Completed   0               9d
-sid01-lancamentos-financeiros-okd4-tqs-51-deploy       0/1       Completed   0               9d
-sid01-lancamentos-financeiros-okd4-tqs-51-xm7sw        1/1       Running     8 (11h ago)     6d20h
-sid01-lancamentos-financeiros-okd4-tqs-52-deploy       1/1       Running     0               13s
-sid01-lancamentos-financeiros-okd4-tqs-52-vrzhq        0/1       Running     0               9s
-sid01-simulador-tqs-201-deploy                         0/1       Completed   0               109d
-sid01-simulador-tqs-202-deploy                         0/1       Completed   0               103d
-sid01-simulador-tqs-202-kc4pr                          1/1       Running     0               103d
-sid01-situacao-lancamentos-financeiros-tqs-17-2z2vp    1/1       Running     0               23d
-sid01-situacao-lancamentos-financeiros-tqs-17-deploy   0/1       Completed   0               23d
-sid01-zosconnproxy-tqs-1-752dk                         2/2       Running     0               122d
-sid01-zosconnproxy-tqs-1-deploy                        0/1       Completed   0               122d
-sid01-zosconnproxy-tqs-1-mxwh9                         2/2       Running     0               30d
--sh-4.2$
--sh-4.2$
--sh-4.2$ oc set env dc/sid01-lancamentos-financeiros-okd4-tqs --list -n sid01-tqs | grep CICSWEB
-CICSWEB_ROOT_ENDPOINT_HTTP=https://cicsweb.tqs.caixa:2584
-CICSWEB_ROOT_ENDPOINT_HTTPS=https://cicsweb.tqs.caixa:32587
--sh-4.2$
--sh-4.2$
--sh-4.2$
+Opa, feito! erro 500 às 11h05
+
+<img width="800" height="540" alt="image" src="https://github.com/user-attachments/assets/28bcec3b-8080-45e4-b65c-dfc9286b784c" />
+
+
 -sh-4.2$ oc logs -f sid01-lancamentos-financeiros-okd4-tqs-52-vrzhq  -n sid01-tqs
 exec java -Dquarkus.http.host=0.0.0.0 -Dquarkus.http.port=8080 -Djava.util.logging.manager=org.jboss.logmanager.LogManager -Djavax.net.ssl.trustStore=/deployments/caixa-truststore-acteste-nprd.jks -javaagent:/deployments/lib/main/com.microsoft.azure.applicationinsights-agent-3.4.13.jar -Dhttps.proxyHost=proxydes.caixa -Dhttps.proxyPort=80 -Dhttp.nonProxyHosts=*.caixa|*.caixa.gov.br|10.0.0.0/8 -XX:+ExitOnOutOfMemoryError -cp . -jar /deployments/quarkus-run.jar
 OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
@@ -75,4 +28,212 @@ https://login.tqs.caixa/auth/realms/intranet
 2026-09-28 11:01:41,910 INFO  [io.quarkus] (main) sid01-lancamentos-financeiros 1.5.0.2 on JVM (powered by Quarkus 2.13.8.Final) started in 11.211s. Listening on: http://0.0.0.0:8080
 2026-09-28 11:01:41,910 INFO  [io.quarkus] (main) Profile prod activated.
 2026-09-28 11:01:41,910 INFO  [io.quarkus] (main) Installed features: [cdi, hibernate-validator, logging-gelf, resteasy, resteasy-jsonb, smallrye-context-propagation, smallrye-health, smallrye-metrics, smallrye-openapi, swagger-ui, vertx]
+2026-09-28 11:02:30.697-03:00 ERROR c.azure.core.http.policy.RetryPolicy - {"az.sdk.message":"Retry attempts have been exhausted.","exception":"http, none, proxydes.caixa/10.252.32.63:80 => /169.254.169.254:80, status: 502 Proxy Error ( The specified Secure Sockets Layer (SSL) port is not allowed. Forefront TMG is not configured to allow SSL requests from this port. Most Web browsers use port 443 for SSL requests.  )","tryCount":3}
+2026-09-28 11:04:54,592 INFO  [org.apa.cxf.wsd.ser.fac.ReflectionServiceFactoryBean] (executor-thread-1) Creating Service {http://caixa.gov.br/sid01/lancamentoV4}D01POSOLService from WSDL: jar:file:/deployments/app/sid01-lancamentos-financeiros-1.5.0.2.jar!/wsdl/D01POSOL_N1W1.wsdl
+2026-09-28 11:04:55,610 INFO  [org.apa.cxf.wsd.ser.fac.ReflectionServiceFactoryBean] (executor-thread-1) Creating Service {http://caixa.gov.br/sid01/lancamentoV4}D01POSOLService from WSDL: jar:file:/deployments/app/sid01-lancamentos-financeiros-1.5.0.2.jar!/wsdl/D01POSOL_N1W1.wsdl
+2026-09-28 11:04:57,008 WARN  [org.apa.cxf.pha.PhaseInterceptorChain] (executor-thread-1) Interceptor for {http://caixa.gov.br/sid01/lancamentoV4}D01POSOLService#{http://caixa.gov.br/sid01/lancamentoV4}lancamentoV4 has thrown exception, unwinding now: org.apache.cxf.interceptor.Fault: Response was of unexpected text/html ContentType.  Incoming portion of HTML stream: <!doctype html public "-//IETF//DTD HTML 2.0//EN">
+<html>
+<head>
+<title>CICS Web Interface error</title>
+</head>
+<body>
+<h1>500 Internal Server Error</h1>
+</body>
+</html>
+        at org.apache.cxf.interceptor.StaxInInterceptor.handleMessage(StaxInInterceptor.java:97)
+        at org.apache.cxf.phase.PhaseInterceptorChain.doIntercept(PhaseInterceptorChain.java:307)
+        at org.apache.cxf.endpoint.ClientImpl.onMessage(ClientImpl.java:829)
+        at org.apache.cxf.transport.http.HTTPConduit$WrappedOutputStream.handleResponseInternal(HTTPConduit.java:1726)
+        at org.apache.cxf.transport.http.HTTPConduit$WrappedOutputStream.handleResponse(HTTPConduit.java:1592)
+        at org.apache.cxf.transport.http.HTTPConduit$WrappedOutputStream.close(HTTPConduit.java:1389)
+        at org.apache.cxf.transport.http.asyncclient.AsyncHTTPConduit$AsyncWrappedOutputStream.close(AsyncHTTPConduit.java:428)
+        at org.apache.cxf.transport.AbstractConduit.close(AbstractConduit.java:56)
+        at org.apache.cxf.transport.http.HTTPConduit.close(HTTPConduit.java:689)
+        at org.apache.cxf.interceptor.MessageSenderInterceptor$MessageSenderEndingInterceptor.handleMessage(MessageSenderInterceptor.java:63)
+        at org.apache.cxf.phase.PhaseInterceptorChain.doIntercept(PhaseInterceptorChain.java:307)
+        at org.apache.cxf.endpoint.ClientImpl.doInvoke(ClientImpl.java:528)
+        at org.apache.cxf.endpoint.ClientImpl.invoke(ClientImpl.java:439)
+        at org.apache.cxf.endpoint.ClientImpl.invoke(ClientImpl.java:354)
+        at org.apache.cxf.endpoint.ClientImpl.invoke(ClientImpl.java:312)
+        at org.apache.cxf.frontend.ClientProxy.invokeSync(ClientProxy.java:96)
+        at org.apache.cxf.jaxws.JaxWsClientProxy.invoke(JaxWsClientProxy.java:140)
+        at com.sun.proxy.$Proxy147.lancamentoV4(Unknown Source)
+        at br.gov.caixa.sid01.service.LancamentoService.debitar(LancamentoService.java:188)
+        at br.gov.caixa.sid01.service.LancamentoService_ClientProxy.debitar(Unknown Source)
+        at br.gov.caixa.sid01.service.ServiceRequestFacade.debitar(ServiceRequestFacade.java:95)
+        at br.gov.caixa.sid01.resource.lancamento.debito.DebitoResource.debitar(DebitoResource.java:226)
+        at br.gov.caixa.sid01.resource.lancamento.debito.DebitoResource_Subclass.debitar$$superforward1(Unknown Source)
+        at br.gov.caixa.sid01.resource.lancamento.debito.DebitoResource_Subclass$$function$$1.apply(Unknown Source)
+        at io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:54)
+        at io.quarkus.hibernate.validator.runtime.interceptor.AbstractMethodValidationInterceptor.validateMethodInvocation(AbstractMethodValidationInterceptor.java:71)
+        at io.quarkus.hibernate.validator.runtime.jaxrs.JaxrsEndPointValidationInterceptor.validateMethodInvocation(JaxrsEndPointValidationInterceptor.java:35)
+        at io.quarkus.hibernate.validator.runtime.jaxrs.JaxrsEndPointValidationInterceptor_Bean.intercept(Unknown Source)
+        at io.quarkus.arc.impl.InterceptorInvocation.invoke(InterceptorInvocation.java:42)
+        at io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:50)
+        at io.smallrye.metrics.interceptors.CountedInterceptor.countedCallable(CountedInterceptor.java:85)
+        at io.smallrye.metrics.interceptors.CountedInterceptor.countedMethod(CountedInterceptor.java:61)
+        at io.smallrye.metrics.interceptors.CountedInterceptor_Bean.intercept(Unknown Source)
+        at io.quarkus.arc.impl.InterceptorInvocation.invoke(InterceptorInvocation.java:42)
+        at io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:50)
+        at io.smallrye.metrics.interceptors.SimplyTimedInterceptor.timedCallable(SimplyTimedInterceptor.java:91)
+        at io.smallrye.metrics.interceptors.SimplyTimedInterceptor.simplyTimedMethod(SimplyTimedInterceptor.java:65)
+        at io.smallrye.metrics.interceptors.SimplyTimedInterceptor_Bean.intercept(Unknown Source)
+        at io.quarkus.arc.impl.InterceptorInvocation.invoke(InterceptorInvocation.java:42)
+        at io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:50)
+        at io.smallrye.metrics.interceptors.TimedInterceptor.timedCallable(TimedInterceptor.java:92)
+        at io.smallrye.metrics.interceptors.TimedInterceptor.timedMethod(TimedInterceptor.java:65)
+        at io.smallrye.metrics.interceptors.TimedInterceptor_Bean.intercept(Unknown Source)
+        at io.quarkus.arc.impl.InterceptorInvocation.invoke(InterceptorInvocation.java:42)
+        at io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:50)
+        at io.smallrye.metrics.interceptors.ConcurrentGaugeInterceptor.concurrentCallable(ConcurrentGaugeInterceptor.java:91)
+        at io.smallrye.metrics.interceptors.ConcurrentGaugeInterceptor.countedMethod(ConcurrentGaugeInterceptor.java:62)
+        at io.smallrye.metrics.interceptors.ConcurrentGaugeInterceptor_Bean.intercept(Unknown Source)
+        at io.quarkus.arc.impl.InterceptorInvocation.invoke(InterceptorInvocation.java:42)
+        at io.quarkus.arc.impl.AroundInvokeInvocationContext.perform(AroundInvokeInvocationContext.java:41)
+        at io.quarkus.arc.impl.InvocationContexts.performAroundInvoke(InvocationContexts.java:33)
+        at br.gov.caixa.sid01.resource.lancamento.debito.DebitoResource_Subclass.debitar(Unknown Source)
+        at br.gov.caixa.sid01.resource.lancamento.debito.DebitoResource_ClientProxy.debitar(Unknown Source)
+        at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+        at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+        at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+        at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+        at org.jboss.resteasy.core.MethodInjectorImpl.invoke(MethodInjectorImpl.java:170)
+        at org.jboss.resteasy.core.MethodInjectorImpl.invoke(MethodInjectorImpl.java:130)
+        at org.jboss.resteasy.core.ResourceMethodInvoker.internalInvokeOnTarget(ResourceMethodInvoker.java:660)
+        at org.jboss.resteasy.core.ResourceMethodInvoker.invokeOnTargetAfterFilter(ResourceMethodInvoker.java:524)
+        at org.jboss.resteasy.core.ResourceMethodInvoker.lambda$invokeOnTarget$2(ResourceMethodInvoker.java:474)
+        at org.jboss.resteasy.core.interception.jaxrs.PreMatchContainerRequestContext.filter(PreMatchContainerRequestContext.java:364)
+        at org.jboss.resteasy.core.ResourceMethodInvoker.invokeOnTarget(ResourceMethodInvoker.java:476)
+        at org.jboss.resteasy.core.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:434)
+        at org.jboss.resteasy.core.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:408)
+        at org.jboss.resteasy.core.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:69)
+        at org.jboss.resteasy.core.SynchronousDispatcher.invoke(SynchronousDispatcher.java:492)
+        at org.jboss.resteasy.core.SynchronousDispatcher.lambda$invoke$4(SynchronousDispatcher.java:261)
+        at org.jboss.resteasy.core.SynchronousDispatcher.lambda$preprocess$0(SynchronousDispatcher.java:161)
+        at org.jboss.resteasy.core.interception.jaxrs.PreMatchContainerRequestContext.filter(PreMatchContainerRequestContext.java:364)
+        at org.jboss.resteasy.core.SynchronousDispatcher.preprocess(SynchronousDispatcher.java:164)
+        at org.jboss.resteasy.core.SynchronousDispatcher.invoke(SynchronousDispatcher.java:247)
+        at io.quarkus.resteasy.runtime.standalone.RequestDispatcher.service(RequestDispatcher.java:73)
+        at io.quarkus.resteasy.runtime.standalone.VertxRequestHandler.dispatch(VertxRequestHandler.java:151)
+        at io.quarkus.resteasy.runtime.standalone.VertxRequestHandler$1.run(VertxRequestHandler.java:91)
+        at io.quarkus.vertx.core.runtime.VertxCoreRecorder$14.runWith(VertxCoreRecorder.java:576)
+        at org.jboss.threads.EnhancedQueueExecutor$Task.run(EnhancedQueueExecutor.java:2449)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1478)
+        at org.jboss.threads.DelegatingRunnable.run(DelegatingRunnable.java:29)
+        at org.jboss.threads.ThreadLocalResettingRunnable.run(ThreadLocalResettingRunnable.java:29)
+        at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+        at java.base/java.lang.Thread.run(Thread.java:829)
 
+2026-09-28 11:04:57,090 ERROR [br.gov.cai.sid.res.lan.deb.DebitoResource] (executor-thread-1) METODO: debitar DETALHE: javax.xml.ws.soap.SOAPFaultException: Response was of unexpected text/html ContentType.  Incoming portion of HTML stream: <!doctype html public "-//IETF//DTD HTML 2.0//EN">
+<html>
+<head>
+<title>CICS Web Interface error</title>
+</head>
+<body>
+<h1>500 Internal Server Error</h1>
+</body>
+</html>
+2026-09-28 11:05:50,191 WARN  [org.apa.cxf.pha.PhaseInterceptorChain] (executor-thread-0) Interceptor for {http://caixa.gov.br/sid01/lancamentoV4}D01POSOLService#{http://caixa.gov.br/sid01/lancamentoV4}lancamentoV4 has thrown exception, unwinding now: org.apache.cxf.interceptor.Fault: Response was of unexpected text/html ContentType.  Incoming portion of HTML stream: <!doctype html public "-//IETF//DTD HTML 2.0//EN">
+<html>
+<head>
+<title>CICS Web Interface error</title>
+</head>
+<body>
+<h1>500 Internal Server Error</h1>
+</body>
+</html>
+        at org.apache.cxf.interceptor.StaxInInterceptor.handleMessage(StaxInInterceptor.java:97)
+        at org.apache.cxf.phase.PhaseInterceptorChain.doIntercept(PhaseInterceptorChain.java:307)
+        at org.apache.cxf.endpoint.ClientImpl.onMessage(ClientImpl.java:829)
+        at org.apache.cxf.transport.http.HTTPConduit$WrappedOutputStream.handleResponseInternal(HTTPConduit.java:1726)
+        at org.apache.cxf.transport.http.HTTPConduit$WrappedOutputStream.handleResponse(HTTPConduit.java:1592)
+        at org.apache.cxf.transport.http.HTTPConduit$WrappedOutputStream.close(HTTPConduit.java:1389)
+        at org.apache.cxf.transport.http.asyncclient.AsyncHTTPConduit$AsyncWrappedOutputStream.close(AsyncHTTPConduit.java:428)
+        at org.apache.cxf.transport.AbstractConduit.close(AbstractConduit.java:56)
+        at org.apache.cxf.transport.http.HTTPConduit.close(HTTPConduit.java:689)
+        at org.apache.cxf.interceptor.MessageSenderInterceptor$MessageSenderEndingInterceptor.handleMessage(MessageSenderInterceptor.java:63)
+        at org.apache.cxf.phase.PhaseInterceptorChain.doIntercept(PhaseInterceptorChain.java:307)
+        at org.apache.cxf.endpoint.ClientImpl.doInvoke(ClientImpl.java:528)
+        at org.apache.cxf.endpoint.ClientImpl.invoke(ClientImpl.java:439)
+        at org.apache.cxf.endpoint.ClientImpl.invoke(ClientImpl.java:354)
+        at org.apache.cxf.endpoint.ClientImpl.invoke(ClientImpl.java:312)
+        at org.apache.cxf.frontend.ClientProxy.invokeSync(ClientProxy.java:96)
+        at org.apache.cxf.jaxws.JaxWsClientProxy.invoke(JaxWsClientProxy.java:140)
+        at com.sun.proxy.$Proxy147.lancamentoV4(Unknown Source)
+        at br.gov.caixa.sid01.service.LancamentoService.debitar(LancamentoService.java:188)
+        at br.gov.caixa.sid01.service.LancamentoService_ClientProxy.debitar(Unknown Source)
+        at br.gov.caixa.sid01.service.ServiceRequestFacade.debitar(ServiceRequestFacade.java:95)
+        at br.gov.caixa.sid01.resource.lancamento.debito.DebitoResource.debitar(DebitoResource.java:226)
+        at br.gov.caixa.sid01.resource.lancamento.debito.DebitoResource_Subclass.debitar$$superforward1(Unknown Source)
+        at br.gov.caixa.sid01.resource.lancamento.debito.DebitoResource_Subclass$$function$$1.apply(Unknown Source)
+        at io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:54)
+        at io.quarkus.hibernate.validator.runtime.interceptor.AbstractMethodValidationInterceptor.validateMethodInvocation(AbstractMethodValidationInterceptor.java:71)
+        at io.quarkus.hibernate.validator.runtime.jaxrs.JaxrsEndPointValidationInterceptor.validateMethodInvocation(JaxrsEndPointValidationInterceptor.java:35)
+        at io.quarkus.hibernate.validator.runtime.jaxrs.JaxrsEndPointValidationInterceptor_Bean.intercept(Unknown Source)
+        at io.quarkus.arc.impl.InterceptorInvocation.invoke(InterceptorInvocation.java:42)
+        at io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:50)
+        at io.smallrye.metrics.interceptors.CountedInterceptor.countedCallable(CountedInterceptor.java:85)
+        at io.smallrye.metrics.interceptors.CountedInterceptor.countedMethod(CountedInterceptor.java:61)
+        at io.smallrye.metrics.interceptors.CountedInterceptor_Bean.intercept(Unknown Source)
+        at io.quarkus.arc.impl.InterceptorInvocation.invoke(InterceptorInvocation.java:42)
+        at io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:50)
+        at io.smallrye.metrics.interceptors.SimplyTimedInterceptor.timedCallable(SimplyTimedInterceptor.java:91)
+        at io.smallrye.metrics.interceptors.SimplyTimedInterceptor.simplyTimedMethod(SimplyTimedInterceptor.java:65)
+        at io.smallrye.metrics.interceptors.SimplyTimedInterceptor_Bean.intercept(Unknown Source)
+        at io.quarkus.arc.impl.InterceptorInvocation.invoke(InterceptorInvocation.java:42)
+        at io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:50)
+        at io.smallrye.metrics.interceptors.TimedInterceptor.timedCallable(TimedInterceptor.java:92)
+        at io.smallrye.metrics.interceptors.TimedInterceptor.timedMethod(TimedInterceptor.java:65)
+        at io.smallrye.metrics.interceptors.TimedInterceptor_Bean.intercept(Unknown Source)
+        at io.quarkus.arc.impl.InterceptorInvocation.invoke(InterceptorInvocation.java:42)
+        at io.quarkus.arc.impl.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:50)
+        at io.smallrye.metrics.interceptors.ConcurrentGaugeInterceptor.concurrentCallable(ConcurrentGaugeInterceptor.java:91)
+        at io.smallrye.metrics.interceptors.ConcurrentGaugeInterceptor.countedMethod(ConcurrentGaugeInterceptor.java:62)
+        at io.smallrye.metrics.interceptors.ConcurrentGaugeInterceptor_Bean.intercept(Unknown Source)
+        at io.quarkus.arc.impl.InterceptorInvocation.invoke(InterceptorInvocation.java:42)
+        at io.quarkus.arc.impl.AroundInvokeInvocationContext.perform(AroundInvokeInvocationContext.java:41)
+        at io.quarkus.arc.impl.InvocationContexts.performAroundInvoke(InvocationContexts.java:33)
+        at br.gov.caixa.sid01.resource.lancamento.debito.DebitoResource_Subclass.debitar(Unknown Source)
+        at br.gov.caixa.sid01.resource.lancamento.debito.DebitoResource_ClientProxy.debitar(Unknown Source)
+        at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+        at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+        at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+        at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+        at org.jboss.resteasy.core.MethodInjectorImpl.invoke(MethodInjectorImpl.java:170)
+        at org.jboss.resteasy.core.MethodInjectorImpl.invoke(MethodInjectorImpl.java:130)
+        at org.jboss.resteasy.core.ResourceMethodInvoker.internalInvokeOnTarget(ResourceMethodInvoker.java:660)
+        at org.jboss.resteasy.core.ResourceMethodInvoker.invokeOnTargetAfterFilter(ResourceMethodInvoker.java:524)
+        at org.jboss.resteasy.core.ResourceMethodInvoker.lambda$invokeOnTarget$2(ResourceMethodInvoker.java:474)
+        at org.jboss.resteasy.core.interception.jaxrs.PreMatchContainerRequestContext.filter(PreMatchContainerRequestContext.java:364)
+        at org.jboss.resteasy.core.ResourceMethodInvoker.invokeOnTarget(ResourceMethodInvoker.java:476)
+        at org.jboss.resteasy.core.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:434)
+        at org.jboss.resteasy.core.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:408)
+        at org.jboss.resteasy.core.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:69)
+        at org.jboss.resteasy.core.SynchronousDispatcher.invoke(SynchronousDispatcher.java:492)
+        at org.jboss.resteasy.core.SynchronousDispatcher.lambda$invoke$4(SynchronousDispatcher.java:261)
+        at org.jboss.resteasy.core.SynchronousDispatcher.lambda$preprocess$0(SynchronousDispatcher.java:161)
+        at org.jboss.resteasy.core.interception.jaxrs.PreMatchContainerRequestContext.filter(PreMatchContainerRequestContext.java:364)
+        at org.jboss.resteasy.core.SynchronousDispatcher.preprocess(SynchronousDispatcher.java:164)
+        at org.jboss.resteasy.core.SynchronousDispatcher.invoke(SynchronousDispatcher.java:247)
+        at io.quarkus.resteasy.runtime.standalone.RequestDispatcher.service(RequestDispatcher.java:73)
+        at io.quarkus.resteasy.runtime.standalone.VertxRequestHandler.dispatch(VertxRequestHandler.java:151)
+        at io.quarkus.resteasy.runtime.standalone.VertxRequestHandler$1.run(VertxRequestHandler.java:91)
+        at io.quarkus.vertx.core.runtime.VertxCoreRecorder$14.runWith(VertxCoreRecorder.java:576)
+        at org.jboss.threads.EnhancedQueueExecutor$Task.run(EnhancedQueueExecutor.java:2449)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1478)
+        at org.jboss.threads.DelegatingRunnable.run(DelegatingRunnable.java:29)
+        at org.jboss.threads.ThreadLocalResettingRunnable.run(ThreadLocalResettingRunnable.java:29)
+        at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+        at java.base/java.lang.Thread.run(Thread.java:829)
+
+2026-09-28 11:05:50,193 ERROR [br.gov.cai.sid.res.lan.deb.DebitoResource] (executor-thread-0) METODO: debitar DETALHE: javax.xml.ws.soap.SOAPFaultException: Response was of unexpected text/html ContentType.  Incoming portion of HTML stream: <!doctype html public "-//IETF//DTD HTML 2.0//EN">
+<html>
+<head>
+<title>CICS Web Interface error</title>
+</head>
+<body>
+<h1>500 Internal Server Error</h1>
+</body>
+</html>
+2026-09-28 11:06:40.703-03:00 WARN  c.a.m.o.e.i.p.TelemetryPipeline - In the last 5 minutes, the following operation has failed 1 times (out of 15): Sending telemetry to the ingestion service:
+ * Received response code 400 (103: Field 'time' on type 'Envelope' is older than the allowed min date. Expected: now - 172800000ms) (1 times)
