@@ -1,1 +1,1 @@
-oc logs sipar-inter-des-25-nbb8n --since=10m | grep -iE "403|certif|x509|forbidden|error" | tail -30
+oc get template apache24-https-caixa-release -n openshift -o yaml | grep -iE "image|Listen|health|targetPort|registry" | head -30
