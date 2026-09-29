@@ -1,26 +1,9 @@
+oc set image dc/sipar-inter-frontend-des \
+  sipar-inter-frontend-des=image-registry.openshift-image-registry.svc:5000/openshift/httpd:2.4-el8
 
--sh-4.2$
--sh-4.2$
--sh-4.2$ mkdir -p ~/bkp-sipar-wo81742301 && cd ~/bkp-sipar-wo81742301
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$ oc get dc sipar-inter-frontend-des -o yaml > dc-frontend.yaml
--sh-4.2$
--sh-4.2$
--sh-4.2$ oc get cm default-virtualhost-ssl-conf-sipar-inter-frontend -o yaml > cm-vhost.yaml
--sh-4.2$
--sh-4.2$
--sh-4.2$ oc get svc sipar-inter-frontend-des -o yaml > svc-frontend.yaml
--sh-4.2$ oc get route sipar-inter-frontend-des -o yaml > route-frontend.yaml
--sh-4.2$
--sh-4.2$
--sh-4.2$ ls -l
-total 36
--rw-r--r-- 1 p585600 usucef  4874 Set 29 16:54 cm-vhost.yaml
--rw-r--r-- 1 p585600 usucef 18573 Set 29 16:54 dc-frontend.yaml
--rw-r--r-- 1 p585600 usucef  2113 Set 29 16:54 route-frontend.yaml
--rw-r--r-- 1 p585600 usucef  2021 Set 29 16:54 svc-frontend.yaml
--sh-4.2$
--sh-4.2$
--sh-4.2$
+oc set probe dc/sipar-inter-frontend-des --liveness --readiness --remove
+
+oc set probe dc/sipar-inter-frontend-des --liveness --readiness \
+  --open-tcp=8080 --initial-delay-seconds=30 --timeout-seconds=5
+
+oc get dc sipar-inter-frontend-des -o yaml | grep -E "image:|tcpSocket|port: 8080"
