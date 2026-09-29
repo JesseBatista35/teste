@@ -1,15 +1,9 @@
+Montagem realizada no host cbrdeapllx010 (NPRD) após a inclusão, pelo Armazenamento, do IP de backup NPRD 192.168.228.118 (eth2) no export.
 
-[root@cbrdeapllx010 p585600]#
-[root@cbrdeapllx010 p585600]# puppet config print runinterval
-1800
-[root@cbrdeapllx010 p585600]# grep -iE 'Mount\[' /opt/puppetlabs/puppet/cache/state/state.yaml | head
-[root@cbrdeapllx010 p585600]#
-[root@cbrdeapllx010 p585600]#
-[root@cbrdeapllx010 p585600]#
-[root@cbrdeapllx010 p585600]#
-[root@cbrdeapllx010 p585600]#
-[root@cbrdeapllx010 p585600]# puppet agent -t --noop 2>&1 | grep -iE 'fstab|mount|SIGOT|Resources\[mount\]'
+Share: nfsctcnprd.ctc.caixa:/ifs/CADSVISISD4/SERVIDORES/CEPTIBR/SIGOT
+Ponto de montagem: /SIGOT (nfs4 vers=4.0, persistido no /etc/fstab com _netdev)
+df -hT /SIGOT: 10G, 907M usados (9%)
+Teste de gravação e remoção OK com os usuários jboss e f599802.
+Não há esteira associada a este host: as releases SIGOT no Azure DevOps são de aplicações OKD e a rotina batch (Control-M) não possui pipeline. O Puppet ativo no host não gerencia montagens; a entrada manual no fstab é preservada (validado com puppet agent --noop).
 
-
-
-JA IFZEMOS O QUE TIHA QUE FZER ENTOA VAMOS FINALIZAR
+Observação: o IP 192.168.236.197, incluído inicialmente, não pertence a este host. Fica a critério do Armazenamento avaliar a remoção.
