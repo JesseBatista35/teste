@@ -1,13 +1,46 @@
-O deploy do SIAVL-atddigital-backend em TQS (release 534515) falhava por timeout na task "Verificando Status do Deployment". Nos logs do pod, a aplicação Spring Boot não inicializava por falta da propriedade SSO_INTER_SIPER_URL ("Could not resolve placeholder 'SSO_INTER_SIPER_URL'" ao criar o bean issuerProperties). O pod não ficava disponível e o rollout excedia o TIMEOUT_DEPLOY.
+<img width="1906" height="997" alt="image" src="https://github.com/user-attachments/assets/d72acab2-d0ce-4185-83bc-fbc63fc0edb2" />
 
-Causa:
-A variável _ENV.SSO_INTER_SIPER_URL existia no grupo SIAVL-ATDDIGITAL-BACKEND-DES, mas não havia sido criada no grupo SIAVL-ATDDIGITAL-BACKEND-TQS.
 
-Solução:
-Incluída a variável _ENV.SSO_INTER_SIPER_URL no grupo SIAVL-ATDDIGITAL-BACKEND-TQS, com o mesmo valor utilizado em DES. Isso é consistente com as demais configurações de SSO do grupo TQS, que já apontam para o ambiente DES. Após a inclusão, o release foi reexecutado e o deploy concluído com sucesso.
 
-Recomendações ao time da aplicação:
+Fala Jesse Mouta Pereira Batista, blz?
+ 
+queria tirar uma duvida sobre estas duas reqs
+ 
+REQ000146319054 - Para o artefato SICCR_Parametros_JavaWeb
+REQ000146318691 - Para o artefato SIFEC-CCR
+ 
+Flavio de Almeida Gagliardi, boa tarde beleza e com voce? 
+ 
+o relatório chegou a ser gerado na ferramenta da red hat?
+ 
+Flavio de Almeida Gagliardi
+o relatório chegou a ser gerado na ferramenta da red hat?
+não tenho acesso ao MTA. então fiz o relatório pelo pacote do ear. 
+ 
+acho que tem uma confusão ae
+ 
+rsrsrs
+ 
+o mta mudou de nome, chama-se mtr
+ 
+ele é aberto para nós do suporte
+ 
+tenta acessar ae
+ 
+https://secure-mtr-mtr.apps.produtos4.caixa/windup-ui/#/projects-details/205678/analysis-results/executions
+ 
+abriu
+ 
+rsrs
+ 
+vou fazer aqui. 
+ 
+REQ000146318691 - essa ta na fila do cledson
+ 
+REQ000146319054- essa eu fechei
+ 
+posso pedir ao deamandante para reabrir?
 
-Confirmar se existe realm/URL específica de TQS para SSO_INTER_SIPER_URL. Se houver, solicitar o ajuste do valor.
-Ao incluir novas variáveis no código, replicá-las em todos os grupos de ambiente (DES/TQS/HMP/PRD) para evitar falhas nos próximos deploys.
-A variável SIAVL_SIECM_SSO_CLIENT_SECRET está em texto aberto no grupo de TQS. Recomenda-se marcá-la como secret (ou migrá-la para o cofre BeyondTrust, como em DES) e avaliar a rotação da credencial.
+
+
+ 
