@@ -1,10 +1,12 @@
+oc get is quarkus-java-binary-s2i -n openshift \
+  -o jsonpath='{range .status.tags[*]}{.tag}{"\t"}{.items[0].image}{"\n"}{end}' | grep -E '^8\.2'
 
--sh-4.2$
--sh-4.2$
--sh-4.2$ oc get istag quarkus-java-binary-s2i:8.2 -n openshift -o jsonpath='{.image.dockerImageMetadata.Config.Env}' | tr ',' '\n' | grep -i java
-^[[D[PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin container=oci JAVA_OPTIONS=-Dquarkus.http.host=0.0.0.0 -Dquarkus.http.port=8080 -Djava.util.logging.manager=org.jboss.logmanager.LogManager   LANG=en_US.UTF-8 LANGUAGE=en_US:en OPENSHIFT_BUILD_NAME=quarkus-java-binary-s2i-24 OPENSHIFT_BUILD_NAMESPACE=docker-build OPENSHIFT_BUILD_SOURCE=http://cloudconfig.caixa/openshift/docker-build.git OPENSHIFT_BUILD_REFERENCE=master OPENSHIFT_BUILD_COMMIT=bdd3b65cc61abe92517cd5af295ca96fb23d21cd]
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$
+  for t in 8.2 8.2-openjdk21.0.1; do
+  echo "== $t"
+  oc run java-check-${t//./-} --rm -i --restart=Never -n build-images-ads \
+    --image=image-registry.openshift-image-registry.svc:5000/openshift/quarkus-java-binary-s2i:$t \
+    --command -- java -version 2>&1 | head -3
+done
+
+oc get istag quarkus-java-binary-s2i:8.2-openjdk21.0.1 -n openshift \
+  -o jsonpath='{.image.dockerImageMetadata.Config.Env}' | tr ' ' '\n' | grep OPENSHIFT_BUILD
