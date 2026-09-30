@@ -1,1 +1,12 @@
-Liberar HTTPS (TCP/443) dos EgressIPs do SISPL no OCP-Plus (10.190.160.208 DES e 10.190.160.209 TQS) para o objeto COFRE_BEYOND_TRUST, pois a aplicação busca a credencial do banco no Cofre BeyondTrust ao iniciar o pod e, sem esse acesso, o deploy falha e a migração fica bloqueada (WO0000081669519).
+# 1. Em qual cluster você está (comparar com o OKD_API_REGISTRY do variable group OKD-REGISTRY-CENTRALIZADO)
+oc whoami --show-server
+
+# 2. Todas as tags do IS
+oc get is quarkus-java-binary-s2i -n openshift -o jsonpath='{.status.tags[*].tag}{"\n"}'
+
+# 3. Em qual tag/histórico aparece o digest usado na Build
+oc describe is quarkus-java-binary-s2i -n openshift | grep -B4 -E 'e2c350a5|ddff87db'
+
+
+oc get pod -n build-images-ads | grep java-check
+oc delete pod java-check-8-2 -n build-images-ads --ignore-not-found
