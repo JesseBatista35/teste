@@ -1,23 +1,25 @@
-Copyright (C) Microsoft Corporation. All rights reserved.
+1. Details
 
-PS C:\WINDOWS\system32> cd $env:USERPROFILE\Downloads
-PS C:\Users\p585600\Downloads> Get-ChildItem SIFEC-CCR.ear, sifec-ccr-parametros.ear | Select-Object Name, Length
+Name: SIFEC-CCR-EAP7-JDK8
+Description: REQ000146318691 - Cenário 1: JBoss EAP 7 mantendo Java 8
 
-Name                       Length
-----                       ------
-SIFEC-CCR.ear            71435273
-sifec-ccr-parametros.ear 71401159
+2. Add applications: upload do SIFEC-CCR.ear.
 
+3. Set transformation target: selecione só o card Application server migration → JBoss EAP 7.
 
-PS C:\Users\p585600\Downloads> Get-FileHash SIFEC-CCR.ear, sifec-ccr-parametros.ear -Algorithm SHA256 | Select-Object Hash, Path
+Select packages: deixe o padrão, mas confira se br.gov.caixa está marcado. Libs de terceiros (hibernate, jackson etc.) podem ficar de fora, senão o relatório incha e demora.
 
-Hash                                                             Path
-----                                                             ----
-AC7C54D101BC92F26716F7B18949804EFE1011C2D19606D65D496C9749D1F956 C:\Users\p585600\Downloads\SIFEC-CCR.ear
-F5D1DE25EFC9249A2895C2BFAEB11F4F92EC8C316A0B7935599010CEA25AB509 C:\Users\p585600\Downloads\sifec-ccr-parametros.ear
+4. Advanced → Options: se houver campo source, informe eap6 (ou java-ee). O resto pode ficar como está.
 
+5. Review → Save and run.
 
-PS C:\Users\p585600\Downloads>
+Depois repita tudo para o cenário 2:
 
+Name: SIFEC-CCR-EAP7-JDK17
+Targets: JBoss EAP 7 + OpenJDK 17. Se o card OpenJDK tiver seletor de versão, escolha 17.
 
-<img width="1876" height="905" alt="image" src="https://github.com/user-attachments/assets/5fef2e1c-b689-4b34-8cd7-4d0853750ff6" />
+Opcional, enquanto roda: veja o que muda entre os dois EARs, porque isso já adianta a análise da REQ de parâmetros:
+
+powershell
+cd $env:USERPROFILE\Downloads
+Compare-Object (tar -tf SIFEC-CCR.ear) (tar -tf sifec-ccr-parametros.ear)
