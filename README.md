@@ -5,8 +5,6 @@ projetos
 Caixa
 /
 Pipelines
-/
-Library
 Search
 
 
@@ -31,59 +29,138 @@ Test Plans
 
 Artifacts
 Project settings
-
-Library
 
-SIREX-AGENDA-API-DES
+SIREX
+
+SIREX-agenda-api
 
-Variable group
-Properties
-Variable group name
-SIREX-AGENDA-API-DES
-Description
-Grupo de variáveis de SIREX-AGENDA-API-DES
-
+Tasks
 
 Variables
-_ENV.API_CAIXA_BASE_URL
-https://api.des.caixa:8443
-_ENV.API_INFORMACAO_CORPORATIVA_PRIVADAS_BASE_URL
-informacoes-corporativas-privadas
-_ENV.API_INFORMACAO_CORPORATIVA_PUBLICAS_BASE_URL
-informacoes-corporativas-publicas
-_ENV.DATABASE_HOST
-cnpexdadvm01-scan4.extra.caixa.gov.br
-_ENV.DATABASE_PASSWORD
-'${SREXBD01_ORACLE}'
-_ENV.DATABASE_PORT
-1521
-_ENV.DATABASE_SERVICE
-cdbd08ngpdb003
-_ENV.DATABASE_USERNAME
-SREXBD01
-_ENV.JAVA_OPTIONS_APPEND
-"-Djavax.net.ssl.trustStore=/deployments/caixa-truststore-acteste-nprd.jks -javaagent:/deployments/applicationinsights-agent-3.2.10.jar"
-_ENV.NO_PROXY
-.caixa,.caixa.gov.br
-_ENV.PIX_ENVIRONMENT
-DES
-_ENV.QUARKUS_OIDC_AUTH_SERVER_URL
-https://login.des.caixa/auth/realms/intranet
-_ENV.SMALLRYE.CONFIG.SOURCE.FILE.LOCATIONS
-/usr/src/app/secrets_files/SIREX_DES/
-_ENV.SSO_API_KEY
-'${SIREX_BT_APIKEY}'
-_ENV.SSO_CLIENT_ID
-cli-ser-rex-agenda
-_ENV.SSO_CLIENT_SECRET
-'${CLISERREXAGENDA_SSO_INTRA}'
-_ENV.SSO_ISSUER_URI
-https://login.des.caixa/auth/realms/intranet
-_ENV.SSO_REALM
-intranet
-1 search results were found
 
-Row 2
+Triggers
+
+Options
+
+History
+BUILD_DEFAULT_QUARKUS_OPENJDK
+Task version
+7.*
+Display name
+BUILD_DEFAULT_QUARKUS_OPENJDK
+AZPAT
+$(AZPAT)
+FORTIFY_API
+$(FORTIFY_API)
+FORTIFY_APITOKEN
+$(FORTIFY_APITOKEN)
+FORTIFY_BUILD
+$(FORTIFY_BUILD)
+FORTIFY_CI_TOKEN
+$(FORTIFY_CI_TOKEN)
+FORTIFY_CLIENT_AUTH_TOKEN
+$(FORTIFY_CLIENT_AUTH_TOKEN)
+fortify_disable
+$(fortify_disable)
+FORTIFY_FPR_NAME
+$(FORTIFY_FPR_NAME)
+FORTIFY_NEW_VERSION
+$(FORTIFY_NEW_VERSION)
+FORTIFY_PASS
+$(FORTIFY_PASS)
+FORTIFY_POOL_GOLD_NOVO
+$(FORTIFY_POOL_GOLD_NOVO)
+FORTIFY_POOL_SILVER_NOVO
+$(FORTIFY_POOL_SILVER_NOVO)
+FORTIFY_REGEX
+$(FORTIFY_REGEX)
+FORTIFY_SENSOR_POOL
+$(FORTIFY_SENSOR_POOL)
+FORTIFY_UPTOKEN
+$(FORTIFY_UPTOKEN)
+FORTIFY_URL
+$(FORTIFY_URL)
+FORTIFY_URL_CONTROLLER
+$(FORTIFY_URL_CONTROLLER)
+FORTIFY_USER
+$(FORTIFY_USER)
+FORTIFY_VERSION_BUILD
+$(FORTIFY_VERSION_BUILD)
+FTFY_MVN_GOAL
+$(FTFY_MVN_GOAL)
+GradleVersion
+$(GradleVersion)
+JAVA_VERSION
+open-jdk-21.0.5/
+KEYSTORE_SECUREFILEPATH
+$(KEYSTORE_SECUREFILEPATH)
+lista_versao
+$(lista_versao)
+MAVEN_VERSION
+3.8.5
+MVN_GOAL
+clean package -U
+nexus_interno_pass
+$(nexus_interno_pass)
+nexus_interno_user
+$(nexus_interno_user)
+NEXUS_REPOSITORY_ID
+$(NEXUS_REPOSITORY_ID)
+NEXUS_URL_MAVEN_RELEASE
+$(NEXUS_URL_MAVEN_RELEASE)
+NEXUS_URL_MAVEN_SNAPSHOT
+$(NEXUS_URL_MAVEN_SNAPSHOT)
+NODE_EXTRA_CA_CERTS
+$(NODE_EXTRA_CA_CERTS)
+p_language
+$(p_language)
+POM_PATH
+pom.xml
+POM_VERSION
+$(POM_VERSION)
+project.group
+$(project.group)
+project.name
+$(project.name)
+project.version
+$(project.version)
+REPO_FINAL_NAME
+$(REPO_FINAL_NAME)
+REPOSITORIO
+$(REPOSITORIO)
+SCANCENTRAL_URL
+$(SCANCENTRAL_URL)
+SONAR_LOGIN
+$(SONAR_LOGIN)
+SONAR_PASSWORD
+$(SONAR_PASSWORD)
+SONAR_PROPERTIES
+$(SONAR_PROPERTIES)
+SONAR_URL
+$(SONAR_URL)
+tbuild
+$(tbuild)
+token
+$(token)
+token_id
+$(token_id)
+valida.vec
+$(valida.vec)
+version.app
+$(version.app)
+versionApp
+$(versionApp)
+Control Options
+Output Variables
+Showing 25 filtered items.
+
+Get started and run this pipeline for the first time!
+
+Showing 37 filtered items.
+
+Showing 25 filtered items.
 
 
-o que eu nao entendi é pra que o agente do app insiggts ali se nao tem o restatne da configuraça
+
+
+onde que tme isso na build
