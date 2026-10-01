@@ -1,3 +1,19 @@
+Bom dia, Jesse!
+ 
+Obrigado pelo retorno
+ 
+eu fiquei com uma duvida
+ 
+qual o caminho do export pai?
+ 
+eu abri a REQ000146319736 solicitando a criação do export que falta
+ 
+Jesse, eu imagino que você está com um monta de demandas a partir de hoje... mas conseguimos marcar uma conversa pra amanhã 11h pra eu tirar umas dúvidas com você a respeito da WO0000080992068 que você atendeu, por favor?
+ 
+acabei de te enviar o convite por e-mail
+ 
+
+
 À equipe de armazenamento:
 
 Criação de export faltante para conclusão da WO0000080992068
