@@ -1,28 +1,35 @@
-À CAIXA,
+Projeto 1: SIFEC-CCR-PARAMETROS-EAP7-JDK8
+Projects → Create project
+Name: SIFEC-CCR-PARAMETROS-EAP7-JDK8
+Description: REQ000146319054 - Cenário 1: JBoss EAP 7 mantendo Java 8
+Add applications: upload do sifec-ccr-parametros.ear.
+Set transformation target: só o card JBoss EAP 7. OpenJDK fica desmarcado.
+Select packages: só br.
+Custom rules / Custom labels: clique em Next.
+Options:
+Target: eap7
+Source: eap6
+Export CSV ligado
+Review → Save and run
+Projeto 2: SIFEC-CCR-PARAMETROS-EAP7-JDK17
+Name: SIFEC-CCR-PARAMETROS-EAP7-JDK17
+Description: REQ000146319054 - Cenário 2: JBoss EAP 7 com Java 17
+Upload do mesmo sifec-ccr-parametros.ear.
+Targets: card JBoss EAP 7 + card OpenJDK.
+Packages: só br.
+Options, onde estava o erro da vez anterior:
+Target: eap7 + openjdk11 + openjdk17
+Source: eap6 + openjdk (o genérico, não o openjdk11)
+Export CSV ligado
+Review → Save and run
 
-Prezados,
+Para conferir: na aba Logs, a primeira linha [0/XXXX] do JDK17 tem que mostrar um número maior que o do JDK8. Se mostrar o mesmo, os targets de Java não entraram.
 
-Durante a análise, verificamos que o artifact de configuração da release SICOW-lg-okd (alias _SICOW-lg-okd-config) apontava para o repositório SICOW-portal-okd-config. Com isso, o módulo SICOW-lg vinha sendo implantado com os arquivos de configuração do SICOW-portal.
+Os dois podem rodar em paralelo. Quando terminarem, cole aqui os dois CSVs, como fez com o SIFEC-CCR. Eu comparo e monto o texto da REQ.
 
-Ações realizadas pela esteira:
+O que deve aparecer, pela análise manual de ontem:
 
-Artifact excluído e recriado apontando para o repositório correto, SICOW-lg-okd-config (branch master), mantendo o mesmo Source alias _SICOW-lg-okd-config para preservar as referências das tasks dos estágios EC DES e EC TQS.
-Incluída no repositório SICOW-lg-okd-config a pasta configuration, com a configuração do Application Insights.
+Cenário 1: Hibernate 4.1.1 embutido, JNDI na arqref, persistence.xml (dialeto e cache Ehcache), MANIFEST com wmq.jmsra.rar e framework.jar, e jsr311/JAX-RS 1.1 no api.war.
+Cenário 2: itens a mais de javax.annotation/activation e possivelmente Lombok.
 
-Pendências sob responsabilidade do time de desenvolvimento:
-
-Concluir a configuração do Application Insights no repositório SICOW-lg-okd-config conforme a wiki da Caixa:
-https://devops.caixa/projetos/Caixa/_wiki/wikis/Caixa.wiki/211/Configura%C3%A7%C3%A3o-do-Application-Insights-no-JBoss-(VM-e-Container)
-
-Pontos de atenção:
-
-standalone.conf: incluir o agente do Application Insights:
-JAVA_OPTS="$JAVA_OPTS -javaagent:$JBOSS_HOME/standalone/deployments/applicationinsights-agent-3.7.1.jar"
-e, caso a linha do Elastic APM (-javaagent:/opt/apm_agent/elastic-apm-agent.jar ...) esteja ativa, avaliar sua desativação. Não é recomendado utilizar dois agentes de APM simultaneamente.
-jboss-deployments: adicionar a linha com.microsoft.azure:applicationinsights-agent:3.7.1:jar, mantendo os artefatos já existentes. Sem esse jar, o agente do item 1 impede a JVM de iniciar.
-configuration/applicationinsights.json: ajustar o role.name para identificar o SICOW-lg (o valor atual veio do portal) e validar a connection string.
-Demais arquivos (datasources, jboss-custom.cli, standalone-*.xml): revisar para garantir que refletem o SICOW-lg, já que os deploys anteriores usaram a configuração do portal.
-
-Com a correção da origem do artifact, a demanda da esteira está concluída. Os ajustes de configuração da aplicação ficam sob responsabilidade do time de desenvolvimento.
-
-Atenciosamente,
+Lembre que o resultado deve ser menor que o do SIFEC-CCR, porque essa aplicação tem bem menos integrações embutidas.
