@@ -1,48 +1,37 @@
-Deploy via jboss-cli — JBoss EAP Standalone
+Deploy via jboss-cli — JBoss EAP Domain
 1 de out. de 2026 · @Jessé Batista
 Pré-requisitos
-O deploy é feito com o jboss-cli.sh em modo não interativo (--connect + --command), sem precisar abrir a console antes.
-• Acesso SSH ao servidor (ou a uma máquina com o jboss-cli.sh que alcance a management do JBoss).
-• O arquivo .ear/.war copiado para a máquina onde o CLI roda (ex.: /tmp/aplicacao.ear). O CLI faz o upload do arquivo para o servidor.
-• Management do JBoss acessível. Padrão: localhost:9990. Se for outra porta ou host, use --controller=<host>:<porta>.
+No modo domain, o CLI conecta sempre no Domain Controller (master), não no host onde a instância roda. O deploy sobe o arquivo para o repositório do domínio e depois o atribui a um ou mais server-groups.
+• Host e porta de management do Domain Controller (padrão 9990).
+• Nome do server-group de destino. Para listar: jboss-cli.sh --connect --controller=<host-DC>:9990 --command=":read-children-names(child-type=server-group)".
+• O arquivo .ear/.war na máquina onde o CLI roda (ex.: /tmp/aplicacao.ear).
 • Se a management exigir autenticação: --user=<usuario> --password=<senha>.
 Passo a passo
-1. Verificar o nome do deployment atual
-   /opt/jboss/bin/jboss-cli.sh --connect --command="deployment-info"
-   Anote o nome que aparece na coluna NAME (ex.: aplicacao.ear ou aplicacao-1.0.ear).
+1. Verificar o deployment atual e em quais grupos está
+   /opt/jboss/bin/jboss-cli.sh --connect --controller=<host-DC>:9990 --command="deployment-info --server-group=<grupo>"
+   Anote o nome do deployment (ex.: aplicacao.ear ou aplicacao-1.0.ear).
 2. Fazer o deploy
-   Se o nome atual for igual ao do arquivo novo (ou se for o primeiro deploy):
-   /opt/jboss/bin/jboss-cli.sh --connect --command="deploy /tmp/aplicacao.ear --force"
-   Se o nome atual for diferente do arquivo novo, informe o nome atual com --name para substituir em vez de criar um segundo deployment:
-   /opt/jboss/bin/jboss-cli.sh --connect --command="deploy /tmp/aplicacao.ear --name=aplicacao-1.0.ear --force"
+   Primeiro deploy (a aplicação ainda não existe no domínio): informe o server-group.
+   /opt/jboss/bin/jboss-cli.sh --connect --controller=<host-DC>:9990 --command="deploy /tmp/aplicacao.ear --server-groups=<grupo>"
+   Para mais de um grupo, separe por vírgula; para todos, use --all-server-groups.
+   Atualização (redeploy): use --force sem --server-groups. Ele troca o conteúdo e redeploya em todos os grupos onde a aplicação já estava.
+   /opt/jboss/bin/jboss-cli.sh --connect --controller=<host-DC>:9990 --command="deploy /tmp/aplicacao.ear --force"
+   Se o nome do deployment atual for diferente do arquivo novo, acrescente --name=<nome-atual>.
 3. Conferir o resultado
-   /opt/jboss/bin/jboss-cli.sh --connect --command="deployment-info"
-   O STATUS deve estar OK. Em seguida, verifique o log:
-   tail -f <JBOSS_HOME>/standalone/log/server.log
-   Procure por Deployed "aplicacao.ear" e confira se não há exceções.
+   /opt/jboss/bin/jboss-cli.sh --connect --controller=<host-DC>:9990 --command="deployment-info --name=aplicacao.ear"
+   Mostra o status em cada server-group. O log fica por instância, no host onde ela roda:
+   tail -f <JBOSS_HOME>/domain/servers/<nome-da-instancia>/log/server.log
 Alternativa: modo interativo
-Dá o mesmo resultado, comando a comando:
-/opt/jboss/bin/jboss-cli.sh --connect
-O prompt fica [standalone@localhost:9990 /]. Então:
-deployment-info
+/opt/jboss/bin/jboss-cli.sh --connect --controller=<host-DC>:9990
+O prompt fica [domain@<host-DC>:9990 /]. Então:
+deployment-info --server-group=<grupo>
 deploy /tmp/aplicacao.ear --force
-deployment-info
+deployment-info --name=aplicacao.ear
 exit
-Se abrir sem --connect, o prompt fica [disconnected /]; digite connect (ou connect <host>:<porta>) antes dos comandos.
+No primeiro deploy, troque --force por --server-groups=<grupo>.
+Undeploy
+• Remover de todos os grupos e do repositório:
+  jboss-cli.sh --connect --controller=<host-DC>:9990 --command="undeploy aplicacao.ear --all-relevant-server-groups"
+• Remover só de um grupo, mantendo o arquivo no repositório:
+  jboss-cli.sh --connect --controller=<host-DC>:9990 --command="undeploy aplicacao.ear --server-groups=<grupo> --keep-content"
 Problemas comuns
-Sintoma
-Causa provável
-O que fazer
-Dois deployments da mesma aplicação / conflito de context-root
---force com nome diferente do deployment existente
-Usar --name=<nome-atual> ou fazer undeploy <nome-antigo> antes
-Failed to connect to the controller
-Management em outra porta/host ou JBoss parado
-Conferir porta no standalone.xml e usar --controller=<host>:<porta>
-Path ... doesn't exist
-Arquivo não está na máquina onde o CLI roda
-Copiar o .ear para o caminho informado
-Deploy com STATUS FAILED
-Erro na aplicação (dependência, datasource, etc.)
-Ver a exceção no server.log
-Para remover uma aplicação: jboss-cli.sh --connect --command="undeploy aplicacao.ear".
