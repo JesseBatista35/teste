@@ -1,84 +1,26 @@
-1. Favor realizar  alteração (ou renomeado) o ponto de montagem abaixo referente a integração SIHDG x POWERCENTER:
+ta bom tem outra w.o dela ambem vamos jutnar tudo ou isso e outra coisa 
 
-     SERVER_NFS = hypernprd56.ad.caixa
-     PATH_NFS = /fs_sihdg
-     PATH_DESTINO = /sihdg_sinaf/
-    
-       **** Renomear o ponto de montagem:
-                 DE:   PATH_DESTINO = /sihdg/
-                 PARA:  PATH_DESTINO = /sihdg_powercenter/
+Fazer  Suporte ao ambiente de aplicação nas esteiras DevOps
+Qual o nome do Sistema?*:	SIHDG
+Qual o ambiente*:	TQS
+Selecione a sua Comunidade*:	Financeiro e Pagamentos
+Formas de contato*:	via Teams
+Descrição da necessidade*:	Prezados!
 
-        SIZE_VOLUME_SINAF=20Gi
+A/C JORGE MILLIS
 
-2. Solicito imagem do terminal do OKD com os NFS montados
+1. NA REQ000145920719 / WO0000081640818, FOI MONTADO O NFS DO POWERCENTER, em TQS
+
+2. MAS ESSA MONTAGEM DO NFS NÃO APARECE NA LIBRARY < SIHDG-JBOSS8-TQS >
+
+3. SOLICITO INCLUIR NA LIBRARY OS NOMES DAS VARIAVEIS ABAIXO PARA NÃO CONFUNDIR COM O OUTRO NFS JÁ CONFIGURADO:
+
+   SERVER_NFS_PWC = hypernprd12.ad.caixa
+   PATH_NFS_PWC = /fs_sihdg_des_pwc
+      PATH_DESTINO_PWC = /sihdg_des_pwc
+      SIZE_VOLUME_SINAF =20GiB
+
+*** LEMBRANDO QUE TENHO DOIS NFS EM TQS COM PONTOS DE MONTAGEM DISTINTO
 
 Atenciosamente,
 Sandra
-
-Histórico de Informações de Trabalho da Ordem de Trabalho
-ID da Ordem de Trabalho	 WO0000081763077
-Criado em	 01/10/2026 09:54:31
-Criado por	 C148227
-Origem de Comunicação	 
-Exibir Acesso	 Público
-Notas	 Após revisão, segue o pedido atualizado:
-
-Solicito que seja alterado (ou renomeado), em DES, o ponto de montagem abaixo referente a integração SIHDG x POWERCENTER:
-    SERVER_NFS = hypernprd56.ad.caixa
-    PATH_NFS = /fs_sihdg
-    PATH_DESTINO = /sihdg_des
-    SIZE_VOLUME_SINAF=20GiB
- 
- *** ALTERAR ESSE PONTO DE MONTAGEM PARA:
-   SERVER_NFS_PWC = hypernprd56.ad.caixa
-   PATH_NFS_PWC = /fs_sihdg_des_pwc
-     PATH_DESTINO_PWC = /sihdg_des_pwc
-     SIZE_VOLUME_SINAF =20GiB
-ID da Ordem de Trabalho	 WO0000081763077
-Criado em	 30/09/2026 21:25:27
-Criado por	 P635388
-Origem de Comunicação	 
-Exibir Acesso	 Público
-Notas	 Prezados,
-
-Solicitamos esclarecimento da equipe quanto a demanda e conforme contato no teams ficou agendada a conversa para amanhã
-
-Att
-ID da Ordem de Trabalho	 WO0000081763077
-Criado em	 30/09/2026 16:53:11
-Criado por	 P779123
-Origem de Comunicação	 
-Exibir Acesso	 Público
-Notas	 Demanda inicial sem viés de falha, erro, degradação ou esgotamento de infraestrutura, serviço, máquina, armazenamento, rotina ou situação que não esteja na iminência de tornar-se incidente. Previsto atendimento em até 24 horas.[CENTRAL-SID]
-OBS: Saneamento realizado considerando a nota anterior da equipe técnica que informa atendimento em até 24 horas
-ID da Ordem de Trabalho	 WO0000081763077
-Criado em	 30/09/2026 14:49:46
-Criado por	 P768728
-Origem de Comunicação	 
-Exibir Acesso	 Público
-Notas	 Prezado(a),
-
-Informamos que sua solicitação foi recebida.
-
-Nosso SLA para atendimento é de até 24h úteis, analisaremos a solicitação para nos certificarmos que o atendimento está dentro do escopo de atuação da nossa equipe.
-
-Caso seja identificado que o atendimento não corresponde ao nosso escopo, a solicitação será redirecionada à equipe responsável.
-
-Novas informações e atualizações serão registradas diretamente nesta WO.
-
-Atte.
-
-Esteira Devops DES TQS NPRD
-ID da Ordem de Trabalho	 WO0000081763077
-Criado em	 30/09/2026 14:44:36
-Criado por	 C148227
-Origem de Comunicação	 
-Exibir Acesso	 Público
-Notas	 Solicito continuação do atendimento da REQ000145918510
-ID da Ordem de Trabalho	 WO0000081763077
-Criado em	 30/09/2026 14:43:47
-Criado por	 Remedy Application Service
-Origem de Comunicação	 E-mail
-Exibir Acesso	 Interno
-Notas	 Este ticket foi criado a partir do sistema de solicitação de serviço.
-Impresso por P585600 em Quinta-feira, 01/10/2026 14:07:28
