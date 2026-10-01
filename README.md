@@ -15,5 +15,7 @@ configuration/applicationinsights.json: ajustar o role.name para identificar o S
 Revisar os demais arquivos (datasources, jboss-custom.cli, standalone-*.xml) para garantir que refletem o SICOW-seg, já que os deploys anteriores usaram a configuração do portal.
 
 
-Concluir a configuração do Application Insights no repositório SICOW-seg-okd-config conforme a wiki da Caixa: [inserir link da wiki]. Isso inclui os ajustes no standalone.conf e no jboss-deployments e a revisão dos demais arquivos, já que os deploys anteriores usaram a configuração do portal.
+Concluir a configuração do Application Insights no repositório SICOW-seg-okd-config conforme a wiki da Caixa: https://devops.caixa/projetos/Caixa/_wiki/wikis/Caixa.wiki/211/Configura%C3%A7%C3%A3o-do-Application-Insights-no-JBoss-(VM-e-Container) Isso inclui os ajustes no standalone.conf e no jboss-deployments e a revisão dos demais arquivos, já que os deploys anteriores usaram a configuração do portal.
+
+
 
