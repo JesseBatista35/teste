@@ -11,15 +11,18 @@ Incluída no repositório SICOW-seg-okd-config a pasta configuration, com a conf
 
 Pendências sob responsabilidade do time de desenvolvimento:
 
+Concluir a configuração do Application Insights no repositório SICOW-seg-okd-config conforme a wiki da Caixa:
+https://devops.caixa/projetos/Caixa/_wiki/wikis/Caixa.wiki/211/Configura%C3%A7%C3%A3o-do-Application-Insights-no-JBoss-(VM-e-Container)
+
+Pontos de atenção:
+
 standalone.conf: incluir o agente do Application Insights:
 JAVA_OPTS="$JAVA_OPTS -javaagent:$JBOSS_HOME/standalone/deployments/applicationinsights-agent-3.7.1.jar"
-e avaliar a desativação da linha do Elastic APM (-javaagent:/opt/apm_agent/elastic-apm-agent.jar ...), que hoje está ativa. Usar dois agentes de APM ao mesmo tempo não é recomendado.
-jboss-deployments: adicionar a linha com.microsoft.azure:applicationinsights-agent:3.7.1:jar, mantendo os artefatos já existentes. Sem esse jar, o -javaagent do item 1 impede a JVM de iniciar.
+e avaliar a desativação da linha do Elastic APM (-javaagent:/opt/apm_agent/elastic-apm-agent.jar ...), que hoje está ativa. Não é recomendado utilizar dois agentes de APM simultaneamente.
+jboss-deployments: adicionar a linha com.microsoft.azure:applicationinsights-agent:3.7.1:jar, mantendo os artefatos já existentes. Sem esse jar, o agente do item 1 impede a JVM de iniciar.
 configuration/applicationinsights.json: ajustar o role.name para identificar o SICOW-seg (o valor atual veio do portal) e validar a connection string.
-Revisar os demais arquivos (datasources, jboss-custom.cli, standalone-*.xml) para garantir que refletem o SICOW-seg, já que os deploys anteriores usaram a configuração do portal.
+Demais arquivos (datasources, jboss-custom.cli, standalone-*.xml): revisar para garantir que refletem o SICOW-seg, já que os deploys anteriores usaram a configuração do portal.
 
+Com a correção da origem do artifact, a demanda da esteira está concluída. Os ajustes de configuração da aplicação ficam sob responsabilidade do time de desenvolvimento.
 
-Concluir a configuração do Application Insights no repositório SICOW-seg-okd-config conforme a wiki da Caixa: https://devops.caixa/projetos/Caixa/_wiki/wikis/Caixa.wiki/211/Configura%C3%A7%C3%A3o-do-Application-Insights-no-JBoss-(VM-e-Container) Isso inclui os ajustes no standalone.conf e no jboss-deployments e a revisão dos demais arquivos, já que os deploys anteriores usaram a configuração do portal.
-
-
-
+Atenciosamente,
