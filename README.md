@@ -1,3 +1,6 @@
+<img width="1032" height="732" alt="image" src="https://github.com/user-attachments/assets/3edf327c-21f7-411f-9a57-b9f6353798a7" />
+
+
 rdeapllx0005 p585600]#
 [root@sbrdeapllx0005 p585600]#
 [root@sbrdeapllx0005 p585600]# ./jboss-cli.sh --connect --controller=10.116.88.20:9999
