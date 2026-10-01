@@ -1,37 +1,78 @@
-Deploy via jboss-cli — JBoss EAP Domain
-1 de out. de 2026 · @Jessé Batista
-Pré-requisitos
-No modo domain, o CLI conecta sempre no Domain Controller (master), não no host onde a instância roda. O deploy sobe o arquivo para o repositório do domínio e depois o atribui a um ou mais server-groups.
-• Host e porta de management do Domain Controller (padrão 9990).
-• Nome do server-group de destino. Para listar: jboss-cli.sh --connect --controller=<host-DC>:9990 --command=":read-children-names(child-type=server-group)".
-• O arquivo .ear/.war na máquina onde o CLI roda (ex.: /tmp/aplicacao.ear).
-• Se a management exigir autenticação: --user=<usuario> --password=<senha>.
-Passo a passo
-1. Verificar o deployment atual e em quais grupos está
-   /opt/jboss/bin/jboss-cli.sh --connect --controller=<host-DC>:9990 --command="deployment-info --server-group=<grupo>"
-   Anote o nome do deployment (ex.: aplicacao.ear ou aplicacao-1.0.ear).
-2. Fazer o deploy
-   Primeiro deploy (a aplicação ainda não existe no domínio): informe o server-group.
-   /opt/jboss/bin/jboss-cli.sh --connect --controller=<host-DC>:9990 --command="deploy /tmp/aplicacao.ear --server-groups=<grupo>"
-   Para mais de um grupo, separe por vírgula; para todos, use --all-server-groups.
-   Atualização (redeploy): use --force sem --server-groups. Ele troca o conteúdo e redeploya em todos os grupos onde a aplicação já estava.
-   /opt/jboss/bin/jboss-cli.sh --connect --controller=<host-DC>:9990 --command="deploy /tmp/aplicacao.ear --force"
-   Se o nome do deployment atual for diferente do arquivo novo, acrescente --name=<nome-atual>.
-3. Conferir o resultado
-   /opt/jboss/bin/jboss-cli.sh --connect --controller=<host-DC>:9990 --command="deployment-info --name=aplicacao.ear"
-   Mostra o status em cada server-group. O log fica por instância, no host onde ela roda:
-   tail -f <JBOSS_HOME>/domain/servers/<nome-da-instancia>/log/server.log
-Alternativa: modo interativo
-/opt/jboss/bin/jboss-cli.sh --connect --controller=<host-DC>:9990
-O prompt fica [domain@<host-DC>:9990 /]. Então:
-deployment-info --server-group=<grupo>
-deploy /tmp/aplicacao.ear --force
-deployment-info --name=aplicacao.ear
-exit
-No primeiro deploy, troque --force por --server-groups=<grupo>.
-Undeploy
-• Remover de todos os grupos e do repositório:
-  jboss-cli.sh --connect --controller=<host-DC>:9990 --command="undeploy aplicacao.ear --all-relevant-server-groups"
-• Remover só de um grupo, mantendo o arquivo no repositório:
-  jboss-cli.sh --connect --controller=<host-DC>:9990 --command="undeploy aplicacao.ear --server-groups=<grupo> --keep-content"
-Problemas comuns
+Disponibilzar certificado digital para instalação em ambiente não produção (anexar o PKCS12) do certificado.
+
+1.2. Indicar os comandos de conversão de formatos do certificado, caso pertinente;
+1.3. Ajuste da WO conforme a Janela de Instalação indicada nesta REQ;
+1.4. Designar esta WO à área indicada na REQ como responsável pela instalação.
+
+
+Histórico de Informações de Trabalho da Ordem de Trabalho
+ID da Ordem de Trabalho	 WO0000081765245
+Criado em	 30/09/2026 16:17:54
+Criado por	 P995963
+Origem de Comunicação	 
+Exibir Acesso	 Público
+Notas	 Demanda inicial sem viés de falha, erro, degradação ou esgotamento de infraestrutura, serviço, máquina, armazenamento, rotina ou situação que não esteja na iminência de tornar-se incidente. Previsto atendimento em até 24 horas úteis. [CENTRAL-SID]
+
+OBS: Saneamento realizado considerando a nota anterior da equipe técnica que informa atendimento em até 24 horas úteis.
+ID da Ordem de Trabalho	 WO0000081765245
+Criado em	 30/09/2026 15:46:04
+Criado por	 P507043
+Origem de Comunicação	 
+Exibir Acesso	 Público
+Notas	 Prezado(a),
+
+
+
+Informamos que sua solicitação foi recebida.  
+
+
+
+Nosso SLA para atendimento é de até 24h úteis, analisaremos a solicitação para nos certificarmos que o atendimento está dentro do escopo de atuação da nossa equipe.
+
+
+
+Caso seja identificado que o atendimento não corresponde ao nosso escopo, a solicitação será redirecionada à equipe responsável.
+
+
+
+Novas informações e atualizações serão registradas diretamente nesta WO.
+
+
+
+Atte.
+
+
+
+Esteira Devops DES TQS NPRD
+ID da Ordem de Trabalho	 WO0000081765245
+Criado em	 30/09/2026 15:42:27
+Criado por	 P502678
+Origem de Comunicação	 
+Exibir Acesso	 Público
+Notas	 Prezados(as),
+
+1 – Disponibilizaremos o arquivo PKCS#12 através de compartilhamento de arquivo no OneDrive.
+
+2 - Para solicitar o arquivo PKCS#12 e a inserção da senha do certificado no momento da instalação no ambiente o técnico deverá ingressar em um dos canais na equipe criada no Teams para essa finalidade. As orientações de como acessar a equipe e o link para os canais estão disponíveis através do link https://caixa.sharepoint.com/:w:/r/teams/O365GRP-CESET-Inserodesenhas/Documentos%20Compartilhados/General/Instru%C3%A7%C3%B5es%20da%20Equipe.docx?d=w427f7e74198a45bb91f6335e8595bde2&csf=1&web=1&e=0iQbhI
+
+03 – Caso seja necessário extrair do arquivo PKCS#12 os arquivos .crt e .key, executar os comandos abaixo:
+
+openssl pkcs12 -in INFILE.p12 -out OUTFILE.key -nodes -nocerts
+openssl pkcs12 -in INFILE.p12 -out OUTFILE.crt -nokeys
+
+Obs.: será solicitada a senha do arquivo PKCS#12.
+
+Duvidas: https://www.ssl.com/pt/como/chave-privada-de-certificados-de-exporta%C3%A7%C3%A3o-do-arquivo-pkcs12-com-openssl/
+
+4 - Informamos que a cadeia de certificados NPRD (ACInternaIcptestes) está disponível em http://icptestes.caixa/ .
+
+ 
+Atenciosamente,
+CAIXA/CEPRO/CN de Segurança Cibernética
+ID da Ordem de Trabalho	 WO0000081765245
+Criado em	 30/09/2026 15:41:22
+Criado por	 Remedy Application Service
+Origem de Comunicação	 E-mail
+Exibir Acesso	 Interno
+Notas	 Este ticket foi criado a partir do sistema de solicitação de serviço.
+Impresso por P585600 em Quinta-feira, 01/10/2026 15:15:56
