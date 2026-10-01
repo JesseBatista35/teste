@@ -1,2 +1,1 @@
-grep -i "connection-url" /opt/server/standalone/configuration/standalone.xml
-
+   timeout 5 bash -c '</dev/tcp/10.116.93.230/31153' && echo PORTA_OK || echo FALHOU
