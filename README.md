@@ -1,10 +1,9 @@
-Bom dia,
+Prezados,
 
-Peço desculpas pelo não comparecimento à reunião de hoje às 11h — estava em uma sala de crise no momento e não consegui participar.
+Esclarecendo: esta WO trata da criação de um novo export no storage (.../SIEXC/SWIFT), conforme pergunta de capacidade feita pela equipe de Armazenamento em 01/10 às 01h11 — etapa que antecede qualquer montagem em host. Não se trata, portanto, de uma solicitação apenas de montagem.
 
-Podemos remarcar para um outro horário que seja conveniente para você? Fico à disposição.
-
-Sobre sua dúvida: o caminho do export pai é /ifs/CADSVISISD4/SERVIDORES/CEPTIBR/SIEXC (storage CADSVISISD4, zona SERVIDORES) — mesmo path já utilizado pelos outros compartilhamentos do SIEXC. A REQ000146319736 está correta solicitando a criação do export filho .../SIEXC/SWIFT replicando os clientes do pai.
+Permanecemos no aguardo da definição de capacidade do novo compartilhamento junto ao requisitante original, para então repassar à equipe de Armazenamento e dar sequência à criação do export.
 
 Atenciosamente,
 Jessé Batista
+CTIS/CESTI — Esteira DEVOPS DES TQS NPRD
