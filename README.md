@@ -1,30 +1,10 @@
-<img width="1862" height="916" alt="image" src="https://github.com/user-attachments/assets/b5e0c1ba-fe24-45f5-a10e-bc9a3363467a" />
 
+SICOW-seg-okd-config
 
-entao em sala vimos auqi que que ao artificat esta apontat correto mais o source repositoru esta apotando errado.
-
-agente fvai excluir e configurar novamento
-
-cada moduol apontao para o seu repo de config certo.
-
-a grande questão é que só o sicow-portal-ok-config esta correto com repo de configo correto dai pedira pra gente copiar a s informa desse repo e colocar no ostros mais acredio que tem coisa que sao excluivas do portal okd, 
-
-a principio pessamos em de copiar  a pasta configuration que tem a configuraçao do appinstigs e tamben o arquivo standolone .conf. faça uma analise pra mim, se podemos copiar todos esse arivos ou seguir copaindo so o stadalone e a config do app e o restante
-
-
-
-<img width="1870" height="908" alt="image" src="https://github.com/user-attachments/assets/be045df3-1a2d-4449-9b2d-aa18316884ba" />
-
-
-
-jboss-deployments
-
-group_id:artifact_id:version:extension
-com.microsoft.azure:applicationinsights-agent:3.7.1:jar
-
-
+esse aqui tem  isso
 
 standalone.conf
+
 
 
 ## -*- shell-script -*- ######################################################
@@ -86,9 +66,7 @@ if [ "x$JAVA_OPTS" = "x" ]; then
    JAVA_OPTS="$JAVA_OPTS -Djboss.modules.system.pkgs=org.jboss.byteman,org.jboss.logmanager"
    JAVA_OPTS="$JAVA_OPTS -Djava.util.logging.manager=org.jboss.logmanager.LogManager"   
    JAVA_OPTS="$JAVA_OPTS -javaagent:/opt/jmx_exporter/jmx_prometheus.jar=8778:/opt/jmx_exporter/jmx_prometheus.yaml"
-#  JAVA_OPTS="$JAVA_OPTS -javaagent:/opt/apm_agent/elastic-apm-agent.jar -Delastic.apm.config_file=/opt/apm_agent/elasticapm.properties -Delastic.apm.service_name=__SistemaNome__ -Delastic.apm.environment=__SistemaAmbiente__ -Delastic.apm.application_packages=br.gov.caixa -Delastic.apm.server_urls=__URL_APM_SERVER__ -Delastic.apm.global_labels=deployment=__DEPLOYMENT__"
-   JAVA_OPTS="$JAVA_OPTS -javaagent:$JBOSS_HOME/standalone/deployments/applicationinsights-agent-3.7.1.jar"
-#  JAVA_OPTS="$JAVA_OPTS -javaagent:$JBOSS_HOME/standalone/deployments/applicationinsights-agent.jar"
+   JAVA_OPTS="$JAVA_OPTS -javaagent:/opt/apm_agent/elastic-apm-agent.jar -Delastic.apm.config_file=/opt/apm_agent/elasticapm.properties -Delastic.apm.service_name=__SistemaNome__ -Delastic.apm.environment=__SistemaAmbiente__ -Delastic.apm.application_packages=br.gov.caixa -Delastic.apm.server_urls=__URL_APM_SERVER__ -Delastic.apm.global_labels=deployment=__DEPLOYMENT__"
 else
    echo "JAVA_OPTS already set in environment; overriding default settings with values: $JAVA_OPTS"
 fi
@@ -135,5 +113,10 @@ else
 fi
 
 
+<img width="1896" height="893" alt="image" src="https://github.com/user-attachments/assets/3a8e9417-36ed-4c8f-af6e-30fffb76e24a" />
 
 
+ja ta feito do sicow-seg-ok. 
+
+so adicninei a pasta configuranti . o restante da cnfiguraçao fica para o time de desenvolvimento me ajuda com a ota para fechar  o
+sicow-seg
