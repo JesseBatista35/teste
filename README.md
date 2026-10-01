@@ -1,3 +1,7 @@
+À CAIXA,
+
+Prezados,
+
 Durante a análise, verificamos que o artifact de configuração da release SICOW-seg-okd (alias _SICOW-seg-okd-config) apontava para o repositório SICOW-portal-okd-config. Com isso, o módulo SICOW-seg vinha sendo implantado com os arquivos de configuração do SICOW-portal.
 
 Ações realizadas pela esteira:
