@@ -1,28 +1,7 @@
-h-5.1$ mount | grep -i nfs
-sh: mount: command not found
-sh-5.1$ ls -la /sihdg_tqs /sihdg_tqs/Arquivos_SINAF 2>&1 | head
-/sihdg_tqs:
-total 8
-drwxrwxrwx. 3 1000001 1000000 4096 Sep 10  2024 .
-dr-xr-xr-x. 1 root    root      93 Oct  1 15:29 ..
-drwxrwxrwx. 2 jboss        99 4096 Apr  9 18:38 Arquivos_SINAF
+Validação da CRQ000001499711 (origem SIHDG-JBOSS8-TQS 10.116.221.46 → CBRDEDADNT002 10.116.29.201:31153), em 01/10 às 12:37:
 
-/sihdg_tqs/Arquivos_SINAF:
-total 40
-drwxrwxrwx. 2 jboss        99 4096 Apr  9 18:38 .
-drwxrwxrwx. 3 1000001 1000000 4096 Sep 10  2024 ..
-sh-5.1$
-sh-5.1$
-sh-5.1$
-sh-5.1$ touch /sihdg_tqs/.teste_escrita && echo ESCRITA_OK && rm -f /sihdg_tqs/.teste_escrita
-ESCRITA_OK
-sh-5.1$
-sh-5.1$
-sh-5.1$
-sh-5.1$ getent hosts CBRDEDADNT002.extra.caixa.gov.br
-10.116.93.230   CBRDEDADNT002.extra.caixa.gov.br
-sh-5.1$
-sh-5.1$
-sh-5.1$ timeout 5 bash -c '</dev/tcp/10.116.29.201/31153' && echo PORTA_OK_IP || echo FALHOU_IP
-FALHOU_IP
-sh-5.1$
+A origem foi confirmada: o EgressIP do namespace sihdg-tqs no OKD4 NPRD é 10.116.221.46.
+O teste TCP a partir do pod para 10.116.29.201:31153 falha por timeout.
+O nome CBRDEDADNT002.extra.caixa.gov.br ainda resolve para 10.116.93.230, e não para 10.116.29.201.
+
+Solicitamos verificar a aplicação da regra e da rota para esse fluxo e confirmar se a atualização do DNS faz parte da mudança.
