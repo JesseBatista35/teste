@@ -1,5 +1,8 @@
 package br.gov.caixa.siapo.movimentacao.application;
 
+import jakarta.enterprise.context.ApplicationScoped;
+
+@ApplicationScoped
 public class ProcessamentoSisfinService extends ProcessamentoService {
 
     @Override
@@ -8,6 +11,3 @@ public class ProcessamentoSisfinService extends ProcessamentoService {
     }
 
 }
-
-
-ta assim hoje
