@@ -1,20 +1,8 @@
+getfacl /opt/batch/securefiles/caixa-truststore-acteste-nprd.jks
+su - f517263 -c "head -c1 /opt/batch/securefiles/caixa-truststore-acteste-nprd.jks >/dev/null && echo LEITURA OK || echo SEM PERMISSAO"
 
- 0 s:/C=BR/O=Caixa Economica Federal/CN=login.des.caixa
-   i:/C=BR/O=Caixa Economica Federal/CN=AC Icptestes Sub
- 1 s:/C=BR/O=Caixa Economica Federal/CN=AC Icptestes Sub
-   i:/C=BR/O=Caixa Economica Federal/CN=AC Icptestes Raiz
- 2 s:/C=BR/O=Caixa Economica Federal/CN=AC Icptestes Raiz
-   i:/C=BR/O=Caixa Economica Federal/CN=AC Icptestes Raiz
-[root@caddeapllx1567 p585600]#
-[root@caddeapllx1567 p585600]#
-[root@caddeapllx1567 p585600]# su - f517263 -c "cd /producao/rotina/RSADB001/shell && ./<script_da_rotina>.sh"
--bash: script_da_rotina: Arquivo ou diretório não encontrado
-[root@caddeapllx1567 p585600]# su - f517263 -c "cd /producao/rotina/RSADB001/shell && ./<script_da_rotina>.sh"
--bash: script_da_rotina: Arquivo ou diretório não encontrado
-[root@caddeapllx1567 p585600]#
-[root@caddeapllx1567 p585600]#
-[root@caddeapllx1567 p585600]#
-[root@caddeapllx1567 p585600]#
+setfacl -m u:f517263:r /opt/batch/securefiles/caixa-truststore-acteste-nprd.jks
 
+grep -r "JAVA_TOOL_OPTIONS\|ssl-sirsa" /producao/rotina/RSADB001/ /opt/batch/ 2>/dev/null
 
-ara se ja terminisomo deu certo vamos fechar a w.o
+stat /opt/batch/securefiles/caixa-truststore-acteste-nprd.jks | grep -E "Modify|Change"
