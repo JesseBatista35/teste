@@ -1,64 +1,20 @@
+Prezado Ronaldo,
 
-Prezados,
+Agradecemos o detalhamento e as evidências.
 
-Foi realizada a implantação do Azure Application Insights no ambiente TQS do sistema SIREX Agenda.
+Conforme orientação da CESTI36 e da Wiki de DevOps ("Configuração do Application Insights no JBoss (VM e Container)"), o Application Insights não deve ser configurado no ambiente TQS. A Wiki explica o motivo: como o volume de dados enviados à nuvem impacta diretamente no custo da ferramenta, o procedimento adotado é validar as configurações apenas em DES e, depois que os parâmetros de análise estiverem ajustados, seguir direto para PRD.
 
-A implantação foi concluída com sucesso e o agente foi iniciado corretamente, conforme evidência abaixo:
+Por isso, não daremos andamento à liberação de comunicação do ambiente TQS com os endpoints do Azure (brazilsouth-1.in.applicationinsights.azure.com e brazilsouth.livediagnostics.monitor.azure.com). O bloqueio no proxy (Forefront TMG – 502) é esperado nesse cenário.
 
-Application Insights Java Agent 3.7.10 started successfully
+Recomendações:
 
+Remover a configuração do agente no TQS: retirar o -javaagent e as variáveis do Application Insights do grupo de variáveis/Release de TQS, e executar uma nova Release.
+Concentrar a validação no ambiente DES. Para isso, seguir os requisitos da Wiki: regra de firewall para o proxynuvem.caixa e liberação dos endpoints Azure no proxy.
+Depois de validada em DES, a configuração segue para PRD pelo fluxo normal.
 
-Também foi validado o carregamento do agente pela JVM:
+Link da Wiki para referência: https://devops.caixa/projetos/Caixa/_wiki/wikis/Caixa.wiki/211/Configuração-do-Application-Insights-no-JBoss-(VM-e-Container)
 
--javaagent:/deployments/lib/main/com.microsoft.azure.applicationinsights-agent-3.7.10.jar
-
-
-Entretanto, a telemetria não está sendo enviada ao Azure devido a bloqueio de comunicação identificado nos logs da aplicação.
-
-Erro encontrado:
-
-HttpProxyConnectException
-
-status: 502 Proxy Error
-
-Forefront TMG denied the specified Uniform Resource Locator (URL)
-
-
-Endpoints afetados:
-
-https://brazilsouth-1.in.applicationinsights.azure.com
-
-https://brazilsouth.livediagnostics.monitor.azure.com
-
-
-Solicitamos apoio para validação e eventual liberação de comunicação do ambiente TQS com os endpoints Azure necessários ao funcionamento do Application Insights.
-
-Evidência anexada:
-
-Log do pod sirex-agenda-api-tqs-19-kkkjn
-Trechos contendo:
-Application Insights Java Agent 3.7.10 started successfully
-HttpProxyConnectException
-502 Proxy Error
-Forefront TMG denied the specified Uniform Resource Locator (URL)
+Diante do exposto, estamos encerrando esta WO. Ficamos à disposição para apoiar na configuração em DES, se necessário.
 
 Atenciosamente,
-
-Ronaldo C. Oliveira
-c140030
-
-
-
-me ajdua a repsonder essa w.o
-
-Todos, conforme orientações da CESTI36 e trecho abaixo retirado da WIKI:
- 
- "Não é para configurar o Application Insights em ambiente de TQS"
- 
- 
-"Como a quantidade de dados enviados a nuvem impacta no custo de utilização da ferramenta, temos adotado o procedimento de validar as configurações apenas em DES e, uma vez que os parâmetros de análise estejam corretamente ajustados, partimos direto para o ambiente PRD."
-
-
-<img width="1919" height="1037" alt="image" src="https://github.com/user-attachments/assets/c4ed87bb-5276-45b0-a881-8d35d4ee36eb" />
-
-
+Jessé Batista – CESTI
