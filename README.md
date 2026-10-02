@@ -1,26 +1,13 @@
+Ao iniciar, a rotina RSADB001 do SIRSA precisa se conectar ao SSO da Caixa (login.des.caixa). Para essa conexão ser aceita, a aplicação lê um arquivo de certificados que fica no servidor e indica que o certificado do SSO é confiável.
 
-[root@caddeapllx1567 p585600]#
-[root@caddeapllx1567 p585600]#
-[root@caddeapllx1567 p585600]# getfacl /opt/batch/securefiles/caixa-truststore-acteste-nprd.jks
-getfacl: Removing leading '/' from absolute path names
-# file: opt/batch/securefiles/caixa-truststore-acteste-nprd.jks
-# owner: ctmagelx
-# group: controlm
-user::rw-
-user:f517263:r--
-group::---
-mask::r--
-other::---
+Esse arquivo é instalado pela esteira com acesso restrito ao usuário do Control-M, que executa a rotina no fluxo normal. Como a execução foi feita manualmente com o usuário f517263, a aplicação não conseguiu ler o arquivo. Sem ele, usou os certificados padrão do Java, que não reconhecem os certificados internos da Caixa, e ocorreu o erro de certificado.
 
-[root@caddeapllx1567 p585600]#
-[root@caddeapllx1567 p585600]#
-[root@caddeapllx1567 p585600]# su - f517263 -c "head -c1 /opt/batch/securefiles/caixa-truststore-acteste-nprd.jks >/dev/null && echo LEITURA OK || echo SEM PERMISSAO"
-LEITURA OK
-[root@caddeapllx1567 p585600]#
-[root@caddeapllx1567 p585600]#
-[root@caddeapllx1567 p585600]# setfacl -m u:f517263:r /opt/batch/securefiles/caixa-truststore-acteste-nprd.jks
-[root@caddeapllx1567 p585600]# grep -r "JAVA_TOOL_OPTIONS\|ssl-sirsa" /producao/rotina/RSADB001/ /opt/batch/ 2>/dev/null
-[root@caddeapllx1567 p585600]# stat /opt/batch/securefiles/caixa-truststore-acteste-nprd.jks | grep -E "Modify|Change"
-Modify: 2026-07-24 15:45:05.866541096 -0300
-Change: 2026-10-02 16:03:59.868794055 -0300
-[root@caddeapllx1567 p585600]#
+O que foi feito
+
+Liberamos a leitura do arquivo de certificados para o usuário f517263, sem alterar o acesso do Control-M.
+Confirmamos que o usuário consegue ler o arquivo e que ele contém os certificados corretos para o SSO.
+Removemos do grupo de variáveis SIRSA-batch-tqs a variável JAVA_TOOL_OPTIONS, que apontava para um arquivo de certificados na pasta pessoal do usuário e não era necessária.
+Realizamos um novo deploy e validamos que a permissão se manteve.
+
+Próximos passos
+Favor executar a rotina novamente e validar. Caso o erro volte a ocorrer, favor nos acionar
