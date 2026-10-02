@@ -1,15 +1,3 @@
-Replicar no módulo SICOW_IMP_OKD a configuração de monitoramento já implementada no SICOW PORTAL OKD.
- 
-Escopo da adequação:
-Incluir a configuração do agente do Application Insights no arquivo standalone.conf, conforme modelo já implementado:
-JAVA_OPTS="$JAVA_OPTS -javaagent:$JBOSS_HOME/standalone/deployments/applicationinsights-agent-3.7.1.jar"
- 
-Validar a existência e configuração do artefato applicationinsights-agent-3.7.1.jar no ambiente do módulo.
-Verificar a configuração do arquivo jboss-deployments, conforme modelo implementado no SICOW PORTAL OKD:
-com.microsoft.azure:applicationinsights-agent:3.7.1
-
-
-
 ## -*- shell-script -*- ######################################################
 ##                                                                          ##
 ##  JBoss EAP Bootstrap Script Configuration                                ##
@@ -69,8 +57,9 @@ if [ "x$JAVA_OPTS" = "x" ]; then
    JAVA_OPTS="$JAVA_OPTS -Djboss.modules.system.pkgs=org.jboss.byteman,org.jboss.logmanager"
    JAVA_OPTS="$JAVA_OPTS -Djava.util.logging.manager=org.jboss.logmanager.LogManager"   
    JAVA_OPTS="$JAVA_OPTS -javaagent:/opt/jmx_exporter/jmx_prometheus.jar=8778:/opt/jmx_exporter/jmx_prometheus.yaml"
- # JAVA_OPTS="$JAVA_OPTS -javaagent:/opt/apm_agent/elastic-apm-agent.jar -Delastic.apm.config_file=/opt/apm_agent/elasticapm.properties -Delastic.apm.service_name=__SistemaNome__ -Delastic.apm.environment=__SistemaAmbiente__ -Delastic.apm.application_packages=br.gov.caixa -Delastic.apm.server_urls=__URL_APM_SERVER__ -Delastic.apm.global_labels=deployment=__DEPLOYMENT__"
+#  JAVA_OPTS="$JAVA_OPTS -javaagent:/opt/apm_agent/elastic-apm-agent.jar -Delastic.apm.config_file=/opt/apm_agent/elasticapm.properties -Delastic.apm.service_name=__SistemaNome__ -Delastic.apm.environment=__SistemaAmbiente__ -Delastic.apm.application_packages=br.gov.caixa -Delastic.apm.server_urls=__URL_APM_SERVER__ -Delastic.apm.global_labels=deployment=__DEPLOYMENT__"
    JAVA_OPTS="$JAVA_OPTS -javaagent:$JBOSS_HOME/standalone/deployments/applicationinsights-agent-3.7.1.jar"
+#  JAVA_OPTS="$JAVA_OPTS -javaagent:$JBOSS_HOME/standalone/deployments/applicationinsights-agent.jar"
 else
    echo "JAVA_OPTS already set in environment; overriding default settings with values: $JAVA_OPTS"
 fi
@@ -93,21 +82,6 @@ fi
 # Uncomment this in order to be able to run WildFly on FreeBSD
 # when you get "epoll_create function not implemented" message in dmesg output
 #JAVA_OPTS="$JAVA_OPTS -Djava.nio.channels.spi.SelectorProvider=sun.nio.ch.PollSelectorProvider"
-Replicar no módulo SICOW_IMP_OKD a configuração de monitoramento já implementada no SICOW PORTAL OKD.
- 
-Escopo da adequação:
-Incluir a configuração do agente do Application Insights no arquivo standalone.conf, conforme modelo já implementado:
-JAVA_OPTS="$JAVA_OPTS -javaagent:$JBOSS_HOME/standalone/deployments/applicationinsights-agent-3.7.1.jar"
- 
-Validar a existência e configuração do artefato applicationinsights-agent-3.7.1.jar no ambiente do módulo.
-Verificar a configuração do arquivo jboss-deployments, conforme modelo implementado no SICOW PORTAL OKD:
-com.microsoft.azure:applicationinsights-agent:3.7.1
-
-jboss-deployments
-
-group_id:artifact_id:version:extension
-com.microsoft.azure:applicationinsights-agent:3.7.1:jar
-
 
 # Use system or custom proxies, but not BOTH.
 JAVA_OPTS="$JAVA_OPTS -Djava.net.useSystemProxies=false"
@@ -122,21 +96,6 @@ JAVA_OPTS="$JAVA_OPTS -Dhttp.nonProxyHosts=localhost\|127.0.0.1\|*.caixa"
 export https_proxy=__JVM_PROXY_HOST__:__JVM_PROXY_PORT__
 export http_proxy=__JVM_PROXY_HOST__:__JVM_PROXY_PORT__
 
-# CONFIGURACAO DE PROXY PARA O APPLICATION INSIGHTS
-
-# Use system or custom proxies, but not BOTH.
-JAVA_OPTS="$JAVA_OPTS -Djava.net.useSystemProxies=false"
-
-# CUSTOM Proxies.
-JAVA_OPTS="$JAVA_OPTS -Dhttp.proxyHost=__URL_PROXY__"
-JAVA_OPTS="$JAVA_OPTS -Dhttp.proxyPort=80"
-
-JAVA_OPTS="$JAVA_OPTS -Dhttps.proxyHost=__URL_PROXY__"
-JAVA_OPTS="$JAVA_OPTS -Dhttps.proxyPort=80"
-
-# NO_PROXY
-JAVA_OPTS="$JAVA_OPTS -Dhttp.nonProxyHosts=localhost\|127.0.0.1\|*.caixa\|*.caixa.gov.br"
-
 # proxydes.caixa = ip 10.252.32.65
 
 # enable garbage collection logging if not set in environment differently
@@ -147,4 +106,4 @@ else
 fi
 
 
-PRONTO É IOSSO NE
+ESSE É O DO SICOW PORTAL QUE DE ACORDO COM ELES FUNCIONA ENTAO TEM QUE DEXAR ASSIM POSSO COPIAR TODOS E DEIZAIR IGUAL ESSE?
