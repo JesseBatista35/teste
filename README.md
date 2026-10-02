@@ -1,14 +1,17 @@
-O pipeline do SIAPO-movimentacao-micro foi regularizado. Para validar, criamos a branch de teste 0.0.0.1-Teste-Cesti com os ajustes abaixo, e o build #20261002.1033-1.0.0-SNAPSHOT foi executado com sucesso.
+sobre a dúvida de quem cria as pastas no servidor após o Armazenamento provisionar o NFS:
 
-Ajustes realizados:
+A divisão de responsabilidade é:
 
-pom.xml: o quarkus-maven-plugin estava sem o bloco <executions> com o goal build. Por isso o Maven não gerava o pacote executável (target/quarkus-app/quarkus-run.jar) e a etapa "Copiando Artefatos para StagingDirectory" falhava. Incluímos os goals build, generate-code e generate-code-tests, conforme o padrão de projetos Quarkus.
-ProcessamentoSisfinService.java: depois do ajuste no pom, o build do Quarkus passou a validar a injeção de dependências e acusou que a classe não tinha anotação de escopo. Incluímos @ApplicationScoped. Sem essa anotação, a aplicação também falharia ao subir.
+Armazenamento (storage): cria o export no Isilon — ou seja, o compartilhamento NFS em si (path, capacidade, zona, liberação de IPs/ACL). Isso é feito do lado do storage, não dentro do servidor.
 
-Próximos passos (time de desenvolvimento):
+Esteiras (nós): depois que o export existe e está montável, somos nós quem realizamos, dentro do servidor:
 
-Validar as alterações da branch 0.0.0.1-Teste-Cesti e aplicá-las na branch de vocês.
-Gerar uma nova TAG a partir do commit com as correções, por exemplo 0.0.0.2, e executar o pipeline por ela. O build da branch de teste foi publicado como SNAPSHOT e serve apenas para DES. A TAG no padrão VEC é necessária para implantação em TQS/HMP/PRD.
-Recomendamos verificar se outras classes injetadas via @Inject também estão sem anotação de escopo, para evitar o mesmo erro.
+Criação da estrutura de diretórios/subpastas específica da aplicação
+Ajuste de ownership (chown) para o usuário de serviço da aplicação, geralmente jboss
+Ajuste de permissões (chmod)
+Configuração do /etc/fstab para persistir o mount
+Validação do mount (mount -a)
 
-Após a aplicação e o novo build pela TAG, a branch 0.0.0.1-Teste-Cesti pode ser removida.
+Multi-Suporte SO: entra em situações diferentes dessa, relacionadas à infraestrutura do próprio sistema operacional da VM, como: instalação de pacotes de sistema, patches e atualizações de SO, configuração de kernel, problemas de rede/interface da VM, criação ou configuração inicial do servidor (quando a VM é provisionada), e troubleshooting de falhas do próprio SO. Ou seja, SO cuida da "máquina" em si, não da configuração funcional específica de uma aplicação.
+
+Criar pastas, ajustar ownership e permissões vinculadas à estrutura que o time de desenvolvimento/negócio definiu para a aplicação é configuração funcional do ambiente — não é infraestrutura de SO, e sim algo que fazemos regularmente nas esteiras.
