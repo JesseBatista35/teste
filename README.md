@@ -1,15 +1,3 @@
-
-O que você deseja?*:	Suporte ao FusionX
-Sigla do Sistema*:	SISPM
-Qual o ambiente*:	NPRD
-Informe a URL da execução no FusionX* *:	https://fusionx.caixa/create/tasks/b34c4f81-3ff9-429a-9661-7edfe9428aa7
-Selecione a sua Comunidade*:	Depósitos e Captação
-Formas de contato*:	Teams
-c091459. c095090
-Descrição da necessidade*:	Sanitização no SISPM para rodar novamente após criação dos grupos necessários.
-
-
-
 ​
 Search...
 
@@ -22,124 +10,14 @@ Aprendizado
 Meu grupo
 Notifications
 1
-Self-service
-Create new software components using standard templates in your organization
-Jornada Corporativa
-Crie sua jornada com um novo projeto, novos recursos e nova aplicação.
-
-Vamos identificar sua aplicação
-Vamos catalogar sua aplicação
-Review
-👋 Olá! Seja bem-vindo(a) ao nosso assistente de criação de aplicações.
-Vice-presidência *
-10
-Você irá necessitar que seja criado infraestrutura de nuvem pro seu projeto ? (Conta e recursos.) *
-0
-Se NÃO tiver infra, você só poderá criar repositório do tipo Vazio ou doc.
-
-⚙️ Dados de Provisionamento de Infraestrutura
-Preenchimento dos dados para a identificar o projeto e realizar o provisionamento da infraestrutura na nuvem comunidade/box.
-Código da Unidade - Centro de Custo *
-5583
-Código da unidade demandante do projeto. Ex: 5088
-
-Nome do Projeto *
-SPLIT PAYMENT
-Nome do projeto ou solução de negócio. Ex. Gerenciador Financeiro
-
-Comunidade/Box responsável pela demanda *
-CMDC
-Ex: BPEDO e CMPIX
-
-Ambientes de Nuvem do Projeto *
-0,1,4
-Selecione todos os ambientes existentes no projeto.
-
-Ambiente Principal do Chamado *
-0
-Ambiente ao qual o chamado se refere.
-
-Matrícula do Responsável pelo Projeto (Abertura do Chamado) *
-c095090
-SEM DIGITO. Ex: Cxxxxxx
-
-E-mail do Responsável pelo Projeto *
-joe.ferreira@caixa.gov.br
-Selecione recursos extras de nuvem para sua Infraestrutura.
-Gerenciador de API
-Tipo do API Manager *
-0
-Armazenamento de objetos
-Quantidade de Storage Accounts *
-1
-Cluster Kubernetes
-Banco de Dados Relacional
-Banco de Dados Não-Relacional
-Cache for Redis
-Static Web Site
-Plataforma de streaming de dados em tempo real e ingestão de eventos em grande escala.
-
-Serviço de Streaming de Eventos
-Serviço de mensagens totalmente gerenciado para comunicação entre aplicativos e serviços.
-
-Serviço de mensageria
-☁️ Criação de Conta na Nuvem
-Preencha os dados para provisionamento MPAS da Comunidade/Box.
-SIGLA da Comunidade/BOX *
-CMDDC
-SIGLA única da Comunidade/Box para vinculação á Conta de Nuvem e grupos. Ex: BPEDO, CMPIX
-
-Códigos das Unidades (CGC) dos membros que compõem a Comunidade/Box
-Informe um ou mais códigos das unidades.
-
-CGC *
-5583
-CGC *
-7390
-CGC *
-5088
-CGC *
-5142
-Agora precisamos entender sua aplicação.
-🌐 Repositório: Para criar os repositórios de Fontes e Infraestrutura.
-🏢 Linguagem e Tipo de Projeto: Para identificar e classificar seu projeto
-Repositório de fontes
-0
-Dominios Negociais e Tecnológicos *
-6
-Selecione a linha de negócio do seu projeto para definição do domínio de nuvem.
-
-Linguagem de Programação, Framework ou Outros
-3
-Selecione a linguagem de programação do seu módulo/serviço
-
-Tipo de Repositório *
-2
-Escolha Qual o Tipo de Repositório
-
-Sigla do Sistema
-Selecione a sigla do sistema (integrado ao SIPGC)
-
-Informe o NOME DO MÓDULO - SEM SIGLA OU TIPO *
-informe-preliminar
-Informe o nome do módulo, NÃO deve ter a SIGLA nem o TIPO. OBS: o nome final do repositório será formado por sigla-tipo-modulo
-
-Descrição do módulo *
-Repositório para módulo backend do split payment-informe preliminar.
-Fale um pouco sobre o seu módulo/serviço
-
-Modelo de Código Fonte *
-0
-Você gostaria de utilizar seu próprio modelo ou um modelo padrão?
-
-Utilizar Pipeline Ágil de Mudança?
-1
-Se 'Sim', serão solicitadas informações para preenchimento automático, via pipeline, do formulário de Mudanças.
+Run of Jornada Corporativa
+Task b34c4f81-3ff9-429a-9661-7edfe9428aa7
 
 
+Search
+502026-10-02T13:56:57.399Z Finished step ✅ 15.1 - Aprovando PR GitOps - Desenvolvimento512026-10-02T13:56:57.402Z Beginning step 🌍 PASSO 16 - Criando environments no github522026-10-02T13:57:15.439Z Finished step 🌍 PASSO 16 - Criando environments no github532026-10-02T13:57:15.442Z Beginning step 🔗 PASSO 17 - Adiciona o grupo desenvolvedor ao Enterprise Application542026-10-02T13:57:25.535Z Error: playbook execution fail.55    at main (/opt/app-root/src/dynamic-plugins-root/mycloudlab-scaffolder-backend-module-ansible-controller-0.5.3/dist/index.cjs.js:126:19)56    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)57    at async Object.handler (/opt/app-root/src/dynamic-plugins-root/mycloudlab-scaffolder-backend-module-ansible-controller-0.5.3/dist/index.cjs.js:134:7)58    at async NunjucksWorkflowRunner.executeStep (/opt/app-root/src/node_modules/@backstage/plugin-scaffolder-backend/dist/scaffolder/tasks/NunjucksWorkflowRunner.cjs.js:240:9)59    at async NunjucksWorkflowRunner.execute (/opt/app-root/src/node_modules/@backstage/plugin-scaffolder-backend/dist/scaffolder/tasks/NunjucksWorkflowRunner.cjs.js:356:9)60    at async TaskWorker.runOneTask (/opt/app-root/src/node_modules/@backstage/plugin-scaffolder-backend/dist/scaffolder/tasks/TaskWorker.cjs.js:119:26)61    at async run (/opt/app-root/src/node_modules/p-queue/dist/index.js:163:29)
 
-<img width="1199" height="670" alt="image" src="https://github.com/user-attachments/assets/65495c05-0f07-4abe-882e-0984cbe305b7" />
+
+<img width="1723" height="928" alt="image" src="https://github.com/user-attachments/assets/21f86fb5-476d-480e-af05-388f54e3b85c" />
 
 
-
-DEMADNA INCOMPLETA AS INFORMASOES ESTAO DIVERGENTE O LINK DO FUSIONX NAO CORESTPODE A NEHUM MODULO DO SISPM MENCIONADO NA REQ. ESTOU CERTO??OU ENTENDI ERRADO?
