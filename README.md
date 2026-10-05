@@ -1,119 +1,1545 @@
-Skip to main content
-Azure DevOps
-projetos
-/
-Caixa
-/
-Pipelines
-/
-Library
-Search
+
+sicql-mapsfeeder-tqs-7
+Running
 
 
-Caixa
+WARNING: disabled security due to insuficient parameters.
+database: postgresql
+No custom JAVA_OPTS defined, building by parameters.
+Resulting JBOSS_JAVA_SIZING=-XX:+UseG1GC -XX:+UseGCOverheadLimit -XX:-OmitStackTraceInFastThrow -XX:+UseStringDeduplication -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/opt/maps/data -Duser.timezone=America/Fortaleza -Djava.awt.headless=true -Xmx1g -XX:MaxMetaspaceSize=256m -XX:ReservedCodeCacheSize=128m
+No product license found, ignoring.
+Executing module specific pre-initialization.
+[0m11:18:43,736 INFO  [org.jboss.modules] (CLI command executor) JBoss Modules version 2.0.0.Final
+[0m[0m11:18:43,850 INFO  [org.jboss.msc] (CLI command executor) JBoss MSC version 1.4.13.Final
+[0m[0m11:18:43,856 INFO  [org.jboss.threads] (CLI command executor) JBoss Threads version 2.4.0.Final
+[0m[0m11:18:44,051 INFO  [org.jboss.as] (MSC service thread 1-2) WFLYSRV0049: WildFly Full 26.0.0.Final (WildFly Core 18.0.0.Final) starting
+[0m[0m11:18:46,538 INFO  [org.wildfly.security] (ServerService Thread Pool -- 27) ELY00001: WildFly Elytron version 1.18.1.Final
+[0m[33m11:18:48,729 WARN  [org.wildfly.extension.elytron] (MSC service thread 1-1) WFLYELY00023: KeyStore file '/opt/wildfly/standalone/configuration/application.keystore' does not exist. Used blank.
+[0m[33m11:18:48,734 WARN  [org.wildfly.extension.elytron] (MSC service thread 1-4) WFLYELY01084: KeyStore /opt/wildfly/standalone/configuration/application.keystore not found, it will be auto generated on first use with a self-signed certificate for host localhost
+[0m[0m11:18:48,835 INFO  [org.jboss.as.patching] (MSC service thread 1-1) WFLYPAT0050: WildFly Full cumulative patch ID is: base, one-off patches include: none
+[0m[0m11:18:49,230 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0212: Resuming server
+[0m[0m11:18:49,232 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0025: WildFly Full 26.0.0.Final (WildFly Core 18.0.0.Final) started in 5491ms - Started 50 of 73 services (24 services are lazy, passive or on-demand)
+[0mThe batch executed successfully
+[0m11:18:49,826 INFO  [org.jboss.as] (MSC service thread 1-6) WFLYSRV0050: WildFly Full 26.0.0.Final (WildFly Core 18.0.0.Final) stopped in 187ms
+[0m[0m11:18:52,026 INFO  [org.jboss.modules] (CLI command executor) JBoss Modules version 2.0.0.Final
+[0m[0m11:18:52,061 INFO  [org.jboss.msc] (CLI command executor) JBoss MSC version 1.4.13.Final
+[0m[0m11:18:52,128 INFO  [org.jboss.threads] (CLI command executor) JBoss Threads version 2.4.0.Final
+[0m[0m11:18:52,330 INFO  [org.jboss.as] (MSC service thread 1-2) WFLYSRV0049: WildFly Full 26.0.0.Final (WildFly Core 18.0.0.Final) starting
+[0m[0m11:18:54,568 INFO  [org.wildfly.security] (ServerService Thread Pool -- 27) ELY00001: WildFly Elytron version 1.18.1.Final
+[0m[33m11:18:56,827 WARN  [org.wildfly.extension.elytron] (MSC service thread 1-1) WFLYELY00023: KeyStore file '/opt/wildfly/standalone/configuration/application.keystore' does not exist. Used blank.
+[0m[33m11:18:56,834 WARN  [org.wildfly.extension.elytron] (MSC service thread 1-3) WFLYELY01084: KeyStore /opt/wildfly/standalone/configuration/application.keystore not found, it will be auto generated on first use with a self-signed certificate for host localhost
+[0m[0m11:18:56,854 INFO  [org.jboss.as.patching] (MSC service thread 1-1) WFLYPAT0050: WildFly Full cumulative patch ID is: base, one-off patches include: none
+[0m[0m11:18:57,337 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0212: Resuming server
+[0m[0m11:18:57,338 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0025: WildFly Full 26.0.0.Final (WildFly Core 18.0.0.Final) started in 5309ms - Started 50 of 73 services (24 services are lazy, passive or on-demand)
+[0mThe batch executed successfully
+[0m11:18:57,758 INFO  [org.jboss.as] (MSC service thread 1-8) WFLYSRV0050: WildFly Full 26.0.0.Final (WildFly Core 18.0.0.Final) stopped in 88ms
+[0mNo Debug log packages found. Ignoring
+[0m11:18:59,842 INFO  [org.jboss.modules] (CLI command executor) JBoss Modules version 2.0.0.Final
+[0m[0m11:18:59,958 INFO  [org.jboss.msc] (CLI command executor) JBoss MSC version 1.4.13.Final
+[0m[0m11:18:59,964 INFO  [org.jboss.threads] (CLI command executor) JBoss Threads version 2.4.0.Final
+[0m[0m11:19:00,227 INFO  [org.jboss.as] (MSC service thread 1-2) WFLYSRV0049: WildFly Full 26.0.0.Final (WildFly Core 18.0.0.Final) starting
+[0m[0m11:19:02,745 INFO  [org.wildfly.security] (ServerService Thread Pool -- 4) ELY00001: WildFly Elytron version 1.18.1.Final
+[0m[33m11:19:04,930 WARN  [org.wildfly.extension.elytron] (MSC service thread 1-8) WFLYELY00023: KeyStore file '/opt/wildfly/standalone/configuration/application.keystore' does not exist. Used blank.
+[0m[33m11:19:04,935 WARN  [org.wildfly.extension.elytron] (MSC service thread 1-2) WFLYELY01084: KeyStore /opt/wildfly/standalone/configuration/application.keystore not found, it will be auto generated on first use with a self-signed certificate for host localhost
+[0m[0m11:19:05,027 INFO  [org.jboss.as.patching] (MSC service thread 1-8) WFLYPAT0050: WildFly Full cumulative patch ID is: base, one-off patches include: none
+[0m[0m11:19:05,432 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0212: Resuming server
+[0m[0m11:19:05,433 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0025: WildFly Full 26.0.0.Final (WildFly Core 18.0.0.Final) started in 5588ms - Started 50 of 73 services (24 services are lazy, passive or on-demand)
+[0mWARNING: redeployment is required on deployment [feeder.war]
+[0m11:19:05,643 INFO  [org.jboss.as.repository] (CLI command executor) WFLYDR0001: Content added at location /opt/wildfly/standalone/data/content/8b/dcce8ce3f995816e10a53274bfcccff7a64329/content
+[0mThe batch executed successfully
+[0m11:19:05,936 INFO  [org.jboss.as] (MSC service thread 1-8) WFLYSRV0050: WildFly Full 26.0.0.Final (WildFly Core 18.0.0.Final) stopped in 96ms
+[0m=========================================================================
 
-Overview
+  JBoss Bootstrap Environment
 
-Boards
+  JBOSS_HOME: /opt/wildfly
 
-Repos
+  JAVA: /usr/java/openjdk-8/bin/java
 
-Pipelines
-Pipelines
-Environments
-Releases
-Library
-Task groups
-Deployment groups
-Portal Infra
+  JAVA_OPTS:  -server -XX:+UseG1GC -XX:+UseGCOverheadLimit -XX:-OmitStackTraceInFastThrow -XX:+UseStringDeduplication -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/opt/maps/data -Duser.timezone=America/Fortaleza -Djava.awt.headless=true -Xmx1g -XX:MaxMetaspaceSize=256m -XX:ReservedCodeCacheSize=128m -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs=org.jboss.byteman -Djava.awt.headless=true 
 
-Test Plans
+=========================================================================
 
-Artifacts
-Project settings
+[0m11:19:06,863 INFO  [org.jboss.modules] (main) JBoss Modules version 2.0.0.Final
+[0m[0m11:19:07,940 INFO  [org.jboss.msc] (main) JBoss MSC version 1.4.13.Final
+[0m[0m11:19:07,946 INFO  [org.jboss.threads] (main) JBoss Threads version 2.4.0.Final
+[0m[0m11:19:08,382 INFO  [org.jboss.as] (MSC service thread 1-2) WFLYSRV0049: WildFly Full 26.0.0.Final (WildFly Core 18.0.0.Final) starting
+[0m[0m11:19:10,936 INFO  [org.wildfly.security] (ServerService Thread Pool -- 27) ELY00001: WildFly Elytron version 1.18.1.Final
+[0m[0m11:19:13,622 INFO  [org.jboss.as.repository] (ServerService Thread Pool -- 10) WFLYDR0001: Content added at location /opt/wildfly/standalone/data/content/d6/9aef568f4051b56a0736d8f0081d2c5f12142b/content
+[0m[0m11:19:14,178 INFO  [org.jboss.as.repository] (ServerService Thread Pool -- 10) WFLYDR0001: Content added at location /opt/wildfly/standalone/data/content/25/f9d762db9b61b791c70d474d06ca2e55be2122/content
+[0m[0m11:19:14,192 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0039: Creating http management service using socket-binding (management-http)
+[0m[0m11:19:14,232 INFO  [org.xnio] (MSC service thread 1-7) XNIO version 3.8.5.Final
+[0m[0m11:19:14,251 INFO  [org.xnio.nio] (MSC service thread 1-7) XNIO NIO Implementation Version 3.8.5.Final
+[0m[0m11:19:14,339 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 54) WFLYCLINF0001: Activating Infinispan subsystem.
+[0m[0m11:19:14,340 INFO  [org.jboss.as.jaxrs] (ServerService Thread Pool -- 56) WFLYRS0016: RESTEasy version 4.7.4.Final
+[0m[0m11:19:14,343 INFO  [org.wildfly.extension.elytron.oidc._private] (ServerService Thread Pool -- 52) WFLYOIDC0001: Activating WildFly Elytron OIDC Subsystem
+[0m[0m11:19:14,343 INFO  [org.wildfly.extension.microprofile.config.smallrye] (ServerService Thread Pool -- 64) WFLYCONF0001: Activating MicroProfile Config Subsystem
+[0m[33m11:19:14,343 WARN  [org.jboss.as.txn] (ServerService Thread Pool -- 74) WFLYTX0013: The node-identifier attribute on the /subsystem=transactions is set to the default value. This is a danger for environments running multiple servers. Please make sure the attribute value is unique.
+[0m[0m11:19:14,436 INFO  [org.wildfly.extension.microprofile.jwt.smallrye] (ServerService Thread Pool -- 65) WFLYJWT0001: Activating MicroProfile JWT Subsystem
+[0m[0m11:19:14,443 INFO  [org.wildfly.extension.microprofile.opentracing] (ServerService Thread Pool -- 66) WFLYTRACEXT0001: Activating MicroProfile OpenTracing Subsystem
+[0m[0m11:19:14,442 INFO  [org.jboss.as.jsf] (ServerService Thread Pool -- 61) WFLYJSF0007: Activated the following Jakarta Server Faces Implementations: [main]
+[0m[0m11:19:14,444 INFO  [org.wildfly.extension.io] (ServerService Thread Pool -- 55) WFLYIO001: Worker 'default' has auto-configured to 64 IO threads with 512 max task threads based on your 32 available processors
+[0m[0m11:19:14,448 INFO  [org.jboss.as.naming] (ServerService Thread Pool -- 67) WFLYNAM0001: Activating Naming Subsystem
+[0m[0m11:19:14,448 INFO  [org.jboss.as.webservices] (ServerService Thread Pool -- 76) WFLYWS0002: Activating WebServices Extension
+[0m[0m11:19:14,542 INFO  [org.jboss.as.naming] (MSC service thread 1-5) WFLYNAM0003: Starting Naming Service
+[0m[0m11:19:14,543 INFO  [org.wildfly.extension.health] (ServerService Thread Pool -- 53) WFLYHEALTH0001: Activating Base Health Subsystem
+[0m[0m11:19:14,640 INFO  [org.wildfly.extension.metrics] (ServerService Thread Pool -- 63) WFLYMETRICS0001: Activating Base Metrics Subsystem
+[0m[0m11:19:14,638 INFO  [org.jboss.as.connector.subsystems.datasources] (ServerService Thread Pool -- 44) WFLYJCA0004: Deploying JDBC-compliant driver class org.h2.Driver (version 1.4)
+[0m[0m11:19:14,752 INFO  [org.jboss.as.connector.subsystems.datasources] (ServerService Thread Pool -- 44) WFLYJCA0005: Deploying non-JDBC-compliant driver class org.postgresql.Driver (version 42.3)
+[0m[0m11:19:14,757 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-6) WFLYUT0003: Undertow 2.2.14.Final starting
+[0m[0m11:19:14,854 INFO  [org.jboss.as.connector] (MSC service thread 1-4) WFLYJCA0009: Starting Jakarta Connectors Subsystem (WildFly/IronJacamar 1.5.3.Final)
+[0m[0m11:19:14,933 INFO  [org.jboss.as.mail.extension] (MSC service thread 1-8) WFLYMAIL0001: Bound mail session [java:jboss/mail/Default]
+[0m[0m11:19:14,943 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-8) WFLYJCA0018: Started Driver service with driver-name = h2
+[0m[0m11:19:14,945 INFO  [org.jboss.remoting] (MSC service thread 1-5) JBoss Remoting version 5.0.23.Final
+[0m[0m11:19:14,943 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-2) WFLYJCA0018: Started Driver service with driver-name = postgresql
+[0m[0m11:19:15,245 INFO  [org.jboss.as.connector.subsystems.datasources] (ServerService Thread Pool -- 44) WFLYJCA0004: Deploying JDBC-compliant driver class oracle.jdbc.OracleDriver (version 18.3)
+[0m[0m11:19:15,249 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-7) WFLYJCA0018: Started Driver service with driver-name = oracle
+[0m[33m11:19:15,331 WARN  [org.wildfly.extension.elytron] (MSC service thread 1-2) WFLYELY00023: KeyStore file '/opt/wildfly/standalone/configuration/application.keystore' does not exist. Used blank.
+[0m[0m11:19:15,733 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-5) WFLYUT0012: Started server default-server.
+[0m[0m11:19:15,747 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 75) WFLYUT0014: Creating file handler for path '/opt/wildfly/welcome-content' with options [directory-listing: 'false', follow-symlink: 'false', case-sensitive: 'true', safe-symlink-paths: '[]']
+[0m[0m11:19:15,754 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-2) Queuing requests.
+[0m[0m11:19:15,755 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-2) WFLYUT0018: Host default-host starting
+[0m[33m11:19:15,755 WARN  [org.wildfly.extension.elytron] (MSC service thread 1-8) WFLYELY01084: KeyStore /opt/wildfly/standalone/configuration/application.keystore not found, it will be auto generated on first use with a self-signed certificate for host localhost
+[0m[0m11:19:15,945 INFO  [org.jboss.as.ejb3] (MSC service thread 1-7) WFLYEJB0481: Strict pool slsb-strict-max-pool is using a max instance size of 512 (per class), which is derived from thread worker pool sizing.
+[0m[0m11:19:15,945 INFO  [org.jboss.as.ejb3] (MSC service thread 1-3) WFLYEJB0482: Strict pool mdb-strict-max-pool is using a max instance size of 128 (per class), which is derived from the number of CPUs on this host.
+[0m[0m11:19:16,040 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-5) WFLYUT0006: Undertow HTTP listener default listening on 0.0.0.0:8080
+[0m[0m11:19:17,029 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-1) WFLYUT0006: Undertow HTTPS listener https listening on 0.0.0.0:8443
+[0m[0m11:19:17,350 INFO  [org.jboss.as.ejb3] (MSC service thread 1-4) WFLYEJB0493: Jakarta Enterprise Beans subsystem suspension complete
+[0m[0m11:19:17,625 INFO  [org.jboss.as.connector.subsystems.datasources.AbstractDataSourceService$AS7DataSourceDeployer] (MSC service thread 1-8) IJ020018: Enabling <validate-on-match> for java:jboss/datasources/odinDS
+[0m[0m11:19:17,670 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-7) WFLYJCA0001: Bound data source [java:jboss/datasources/odinDS]
+[0m[0m11:19:17,738 INFO  [org.jboss.as.patching] (MSC service thread 1-8) WFLYPAT0050: WildFly Full cumulative patch ID is: base, one-off patches include: none
+[0m[0m11:19:17,754 INFO  [org.jboss.as.server.deployment.scanner] (MSC service thread 1-8) WFLYDS0013: Started FileSystemDeploymentService for directory /opt/wildfly/standalone/deployments
+[0m[0m11:19:17,757 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-6) WFLYSRV0027: Starting deployment of "feeder.war" (runtime-name: "feeder.war")
+[0m[0m11:19:17,825 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-4) WFLYSRV0027: Starting deployment of "wmq.jmsra.rar" (runtime-name: "wmq.jmsra.rar")
+[0m[0m11:19:17,938 INFO  [org.jboss.ws.common.management] (MSC service thread 1-5) JBWS022052: Starting JBossWS 5.4.4.Final (Apache CXF 3.4.5) 
+[0m[0m11:19:30,529 INFO  [org.jboss.as.connector.deployers.RADeployer] (MSC service thread 1-6) IJ020001: Required license terms for file:/opt/wildfly/standalone/tmp/vfs/temp/tempf9052ab1406dc83f/content-cf9fb18587b44613/contents/
+[0m[0m11:19:31,734 INFO  [org.jboss.as.connector.deployers.RaXmlDeployer] (MSC service thread 1-3) IJ020001: Required license terms for file:/opt/wildfly/standalone/tmp/vfs/temp/tempf9052ab1406dc83f/content-cf9fb18587b44613/contents/
+[0m[0m11:19:31,840 INFO  [org.jboss.as.connector.deployment] (MSC service thread 1-3) WFLYJCA0007: Registered connection factory java:jboss/DefaultJMSConnectionFactory
+[0m[33m11:19:31,927 WARN  [org.jboss.as.connector.deployers.RaXmlDeployer] (MSC service thread 1-3) IJ020016: Missing <recovery> element. XA recovery disabled for: java:jboss/DefaultJMSConnectionFactory
+[0m[0m11:19:31,930 INFO  [org.jboss.as.connector.deployers.RaXmlDeployer] (MSC service thread 1-3) wmq.jmsra.rar: MQJCA5003: 'maxSequentialDeliveryFailures' cannot be set outside Websphere Liberty Profile
+[0m[0m11:19:32,140 INFO  [org.jboss.as.connector.deployment] (MSC service thread 1-3) WFLYJCA0006: Registered admin object at java:/queue/FeederPrecificador
+[0m[0m11:19:32,142 INFO  [org.jboss.as.connector.deployment] (MSC service thread 1-3) WFLYJCA0006: Registered admin object at java:/queue/AtivoFeeder
+[0m[0m11:19:32,241 INFO  [org.hibernate.validator.internal.util.Version] (MSC service thread 1-3) HV000001: Hibernate Validator 6.0.22.Final
+[0m[0m11:19:32,429 INFO  [org.infinispan.CONTAINER] (ServerService Thread Pool -- 79) ISPN000128: Infinispan version: Infinispan 'Taedonggang' 12.1.7.Final
+[0m[0m11:19:32,637 INFO  [org.infinispan.CONFIG] (MSC service thread 1-8) ISPN000152: Passivation configured without an eviction policy being selected. Only manually evicted entities will be passivated.
+[0m[0m11:19:32,638 INFO  [org.infinispan.CONFIG] (MSC service thread 1-8) ISPN000152: Passivation configured without an eviction policy being selected. Only manually evicted entities will be passivated.
+[0m[0m11:19:32,828 INFO  [org.infinispan.CONTAINER] (ServerService Thread Pool -- 79) ISPN000556: Starting user marshaller 'org.wildfly.clustering.infinispan.spi.marshalling.InfinispanProtoStreamMarshaller'
+[0m[0m11:19:33,133 INFO  [org.infinispan.CONTAINER] (ServerService Thread Pool -- 79) ISPN000025: wakeUpInterval is <= 0, not starting expired purge thread
+[0m[0m11:19:33,334 INFO  [org.jboss.as.connector.deployers.RaXmlDeployer] (MSC service thread 1-3) IJ020002: Deployed: file:/opt/wildfly/standalone/tmp/vfs/temp/tempf9052ab1406dc83f/content-cf9fb18587b44613/contents/
+[0m[0m11:19:33,335 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 79) WFLYCLINF0002: Started http-remoting-connector cache from ejb container
+[0m[0m11:19:33,427 INFO  [org.jboss.as.connector.deployment] (MSC service thread 1-2) WFLYJCA0002: Bound Jakarta Connectors AdminObject [java:/queue/FeederPrecificador]
+[0m[0m11:19:33,427 INFO  [org.jboss.as.connector.deployment] (MSC service thread 1-5) WFLYJCA0002: Bound Jakarta Connectors ConnectionFactory [java:jboss/DefaultJMSConnectionFactory]
+[0m[0m11:19:33,428 INFO  [org.jboss.as.connector.deployment] (MSC service thread 1-7) WFLYJCA0002: Bound Jakarta Connectors AdminObject [java:/queue/AtivoFeeder]
+[0m[33m11:19:40,333 WARN  [org.jboss.as.ee] (MSC service thread 1-4) WFLYEE0007: Not installing optional component org.springframework.http.server.ServletServerHttpAsyncRequestControl due to an exception (enable DEBUG log level to see the cause)
+[0m[33m11:19:40,334 WARN  [org.jboss.as.ee] (MSC service thread 1-4) WFLYEE0007: Not installing optional component org.springframework.web.context.request.async.StandardServletAsyncWebRequest due to an exception (enable DEBUG log level to see the cause)
+[0m[0m11:19:40,827 INFO  [io.undertow.servlet] (ServerService Thread Pool -- 82) No Spring WebApplicationInitializer types detected on classpath
+[0m[0m11:19:40,837 INFO  [io.undertow.servlet] (ServerService Thread Pool -- 82) Initializing Spring root WebApplicationContext
+[0m[0m11:19:40,837 INFO  [org.springframework.web.context.ContextLoader] (ServerService Thread Pool -- 82) Root WebApplicationContext: initialization started
+[0m[0m11:19:40,857 INFO  [org.springframework.context.support.ClassPathXmlApplicationContext] (ServerService Thread Pool -- 82) Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@aa0006e: startup date [Mon Oct 05 11:19:40 BRT 2026]; root of context hierarchy
+[0m[0m11:19:40,932 INFO  [org.springframework.beans.factory.xml.XmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from URL [file:/opt/maps/config/beanRefContext.xml]
+[0m[0m11:19:41,190 INFO  [jmine.tec.utils.spring.CachingClassPathXmlApplicationContext] (ServerService Thread Pool -- 82) Refreshing jmine.tec.utils.spring.CachingClassPathXmlApplicationContext@33e047cb: startup date [Mon Oct 05 11:19:41 BRT 2026]; root of context hierarchy
+[0m[0m11:19:41,191 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [odin-core-db-storage.xml]
+[0m[0m11:19:41,236 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [odin-core-minimal.xml]
+[0m[0m11:19:41,558 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [odin-core-dependencies.xml]
+[0m[0m11:19:41,629 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [jmine-tec-security-impl.xml]
+[0m[0m11:19:41,634 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [jmine-tec-services-impl.xml]
+[0m[0m11:19:41,638 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [jmine-tec-data-digester.xml]
+[0m[0m11:19:41,643 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [jmine-tec-log.xml]
+[0m[0m11:19:41,728 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [jmine-tec-persist.xml]
+[0m[0m11:19:42,142 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [jmine-tec-security-api.xml]
+[0m[0m11:19:42,229 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [jmine-tec-security-api-beans.xml]
+[0m[0m11:19:42,237 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [jmine-tec-component.xml]
+[0m[0m11:19:42,240 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [jmine-tec-component-beans.xml]
+[0m[0m11:19:42,348 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [component/threadlocal.xml]
+[0m[0m11:19:42,352 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [jmine-tec-utils.xml]
+[0m[0m11:19:42,354 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [jmine-tec-utils-beans.xml]
+[0m[0m11:19:42,428 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [jmine-tec-dependency-injection.xml]
+[0m[0m11:19:42,431 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [jmine-tec-dependency-injection-beans.xml]
+[0m[0m11:19:42,435 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [jmine-tec-persist-beans.xml]
+[0m[0m11:19:42,453 INFO  [org.springframework.beans.factory.support.DefaultListableBeanFactory] (ServerService Thread Pool -- 82) Overriding bean definition for bean 'controllerLocator' with a different definition: replacing [Generic bean: class [jmine.tec.component.ControllerLocator]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [jmine-tec-component-beans.xml]] with [Generic bean: class [jmine.tec.component.ControllerLocator]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [jmine-tec-persist-beans.xml]]
+[0m[0m11:19:42,531 INFO  [org.springframework.beans.factory.support.DefaultListableBeanFactory] (ServerService Thread Pool -- 82) Overriding bean definition for bean 'persister' with a different definition: replacing [Generic bean: class [jmine.tec.persist.impl.PersisterImpl]; scope=singleton; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in VFS resource ["/content/feeder.war/WEB-INF/lib/jmine-tec-persist-3.13.13.201.jar/jmine/tec/persist/impl/PersisterImpl.class"]] with [Generic bean: class [jmine.tec.persist.impl.PersisterImpl]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [jmine-tec-persist-beans.xml]]
+[0m[0m11:19:42,535 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [jmine-tec-persist-query-interceptors.xml]
+[0m[0m11:19:42,540 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [jmine-tec-persist-mapping.xml]
+[0m[0m11:19:42,545 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [jmine-tec-persist-services.xml]
+[0m[0m11:19:42,550 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [jmine-tec-services-api.xml]
+[0m[0m11:19:42,552 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [jmine-tec-component.xml]
+[0m[0m11:19:42,626 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [jmine-tec-services-api-beans.xml]
+[0m[0m11:19:42,632 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [jmine-tec-data-digester-beans.xml]
+[0m[0m11:19:42,639 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [jmine-tec-data-digester-mapping.xml]
+[0m[0m11:19:42,642 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [jmine-tec-data-digester-services.xml]
+[0m[0m11:19:42,726 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [jmine-tec-services-impl-beans.xml]
+[0m[0m11:19:42,738 INFO  [org.springframework.beans.factory.support.DefaultListableBeanFactory] (ServerService Thread Pool -- 82) Overriding bean definition for bean 'exportActor' with a different definition: replacing [Generic bean: class [jmine.tec.services.api.export.NoopExportActor]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [jmine-tec-services-api-beans.xml]] with [Generic bean: class [jmine.tec.services.impl.export.impl.ExportActorImpl]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [jmine-tec-services-impl-beans.xml]]
+[0m[0m11:19:42,738 INFO  [org.springframework.beans.factory.support.DefaultListableBeanFactory] (ServerService Thread Pool -- 82) Overriding bean definition for bean 'serviceRuntime' with a different definition: replacing [Generic bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=baseServiceImplementorRuntimeFactory; factoryMethodName=create; initMethodName=null; destroyMethodName=null; defined in class path resource [jmine-tec-services-api-beans.xml]] with [Generic bean: class [jmine.tec.services.impl.implementor.descriptor.ServiceRuntimeImpl]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [jmine-tec-services-impl-beans.xml]]
+[0m[0m11:19:42,739 INFO  [org.springframework.beans.factory.support.DefaultListableBeanFactory] (ServerService Thread Pool -- 82) Overriding bean definition for bean 'convertibleTypeConverter' with a different definition: replacing [Generic bean: class [jmine.tec.di.type.services.ConvertibleTypeConverter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [jmine-tec-services-api-beans.xml]] with [Generic bean: class [jmine.tec.di.type.services.ConvertibleTypeConverter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [jmine-tec-services-impl-beans.xml]]
+[0m[0m11:19:42,739 INFO  [org.springframework.beans.factory.support.DefaultListableBeanFactory] (ServerService Thread Pool -- 82) Overriding bean definition for bean 'serviceExecutionPlanner' with a different definition: replacing [Generic bean: class [jmine.tec.services.api.execution.steps.FullExecutionPlanner]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [jmine-tec-services-api-beans.xml]] with [Generic bean: class [jmine.tec.services.impl.execution.PreProcessingServiceExecutionPlanner]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [jmine-tec-services-impl-beans.xml]]
+[0m[0m11:19:42,739 INFO  [org.springframework.beans.factory.support.DefaultListableBeanFactory] (ServerService Thread Pool -- 82) Overriding bean definition for bean 'servicesExecutionListenerFactory' with a different definition: replacing [Generic bean: class [jmine.tec.services.api.execution.steps.SingletonServiceExecutionListenerFactory]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [jmine-tec-services-api-beans.xml]] with [Generic bean: class [jmine.tec.services.impl.execution.PersistenceAwareServiceExecutionListenerFactory]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [jmine-tec-services-impl-beans.xml]]
+[0m[0m11:19:42,741 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [jmine-tec-services-impl-services.xml]
+[0m[0m11:19:42,745 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [jmine-tec-services-impl-mapping.xml]
+[0m[0m11:19:42,748 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [jmine-tec-services-impl-exporters.xml]
+[0m[0m11:19:42,827 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [jmine-tec-security-impl-beans.xml]
+[0m[0m11:19:42,835 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [jmine-tec-security-impl-services.xml]
+[0m[0m11:19:42,838 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [jmine-tec-security-impl-exporters.xml]
+[0m[0m11:19:42,842 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [jmine-tec-security-impl-mapping.xml]
+[0m[0m11:19:42,845 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [jmine-tec-report.xml]
+[0m[0m11:19:42,847 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [jmine-tec-services-impl.xml]
+[0m[0m11:19:42,848 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [jmine-tec-report-minimal.xml]
+[0m[0m11:19:42,850 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [jmine-tec-report-minimal-beans.xml]
+[0m[0m11:19:42,862 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [jmine-tec-report-reports.xml]
+[0m[0m11:19:42,866 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [jmine-tec-batch.xml]
+[0m[0m11:19:42,926 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [jmine-tec-log.xml]
+[0m[0m11:19:42,928 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [jmine-tec-services-impl.xml]
+[0m[0m11:19:42,929 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [jmine-tec-purge.xml]
+[0m[0m11:19:42,931 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [jmine-tec-persist.xml]
+[0m[0m11:19:42,932 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [jmine-tec-log.xml]
+[0m[0m11:19:42,933 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [jmine-tec-services-impl.xml]
+[0m[0m11:19:42,933 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [jmine-tec-purge-beans.xml]
+[0m[0m11:19:42,943 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [jmine-tec-purge-mapping.xml]
+[0m[0m11:19:42,946 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [jmine-tec-purge-services.xml]
+[0m[0m11:19:42,949 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [jmine-tec-batch-beans.xml]
+[0m[0m11:19:43,029 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [jmine-tec-batch-mapping.xml]
+[0m[0m11:19:43,033 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [jmine-tec-batch-services.xml]
+[0m[0m11:19:43,035 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [jmine-tec-batch-exporters.xml]
+[0m[0m11:19:43,038 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [jmine-tec-data-digester.xml]
+[0m[0m11:19:43,039 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [jmine-tec-cluster.xml]
+[0m[0m11:19:43,041 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [jmine-tec-log.xml]
+[0m[0m11:19:43,041 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [jmine-tec-cluster-beans.xml]
+[0m[0m11:19:43,044 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [jmine-tec-cluster-mapping.xml]
+[0m[0m11:19:43,129 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [jmine-tec-scheduling.xml]
+[0m[0m11:19:43,131 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [jmine-tec-log.xml]
+[0m[0m11:19:43,132 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [jmine-tec-cluster.xml]
+[0m[0m11:19:43,132 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [jmine-tec-services-impl.xml]
+[0m[0m11:19:43,133 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [jmine-tec-script-persistence.xml]
+[0m[0m11:19:43,135 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [jmine-tec-services-impl.xml]
+[0m[0m11:19:43,135 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [jmine-tec-script-persistence-beans.xml]
+[0m[0m11:19:43,139 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [jmine-tec-script-persistence-mapping.xml]
+[0m[0m11:19:43,142 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [jmine-tec-script-persistence-services.xml]
+[0m[0m11:19:43,144 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [jmine-tec-script-persistence-exporters.xml]
+[0m[0m11:19:43,226 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [jmine-tec-script-groovy.xml]
+[0m[0m11:19:43,235 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [jmine-tec-script-persistence.xml]
+[0m[0m11:19:43,236 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [jmine-tec-script-groovy-beans.xml]
+[0m[0m11:19:43,240 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [jmine-tec-script-beanshell-compiler.xml]
+[0m[0m11:19:43,242 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [jmine-tec-script-persistence.xml]
+[0m[0m11:19:43,243 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [jmine-tec-script-beanshell.xml]
+[0m[0m11:19:43,246 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [jmine-tec-script-persistence.xml]
+[0m[0m11:19:43,246 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [jmine-tec-script-beanshell-beans.xml]
+[0m[0m11:19:43,249 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [jmine-tec-script-beanshell-compiler-beans.xml]
+[0m[0m11:19:43,252 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [jmine-tec-scheduling-beans.xml]
+[0m[0m11:19:43,328 INFO  [org.springframework.beans.factory.support.DefaultListableBeanFactory] (ServerService Thread Pool -- 82) Overriding bean definition for bean 'scriptDAO' with a different definition: replacing [Generic bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=daoFactory; factoryMethodName=getDAOByClass; initMethodName=null; destroyMethodName=null; defined in class path resource [jmine-tec-script-persistence-beans.xml]] with [Generic bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=daoFactory; factoryMethodName=getDAOByClass; initMethodName=null; destroyMethodName=null; defined in class path resource [jmine-tec-scheduling-beans.xml]]
+[0m[0m11:19:43,329 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [jmine-tec-scheduling-mapping.xml]
+[0m[0m11:19:43,333 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [jmine-tec-scheduling-services.xml]
+[0m[0m11:19:43,335 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [jmine-tec-scheduling-exporters.xml]
+[0m[0m11:19:43,428 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [jmine-tec-persist-liquibase.xml]
+[0m[0m11:19:43,526 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [odin-core-mapping.xml]
+[0m[0m11:19:43,530 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [odin-core-beans.xml]
+[0m[0m11:19:43,535 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [odin-core-services.xml]
+[0m[0m11:19:43,537 INFO  [org.springframework.beans.factory.support.DefaultListableBeanFactory] (ServerService Thread Pool -- 82) Overriding bean definition for bean 'pagingService' with a different definition: replacing [Generic bean: class [jmine.tec.persist.impl.hibernate.page.PagingService]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [jmine-tec-persist-beans.xml]] with [Generic bean: class [jmine.tec.persist.impl.hibernate.page.PagingService]; scope=; abstract=false; lazyInit=true; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [odin-core-services.xml]]
+[0m[0m11:19:43,538 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [odin-core-diagnosticians.xml]
+[0m[0m11:19:43,540 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [odin-core-quartz-beans.xml]
+[0m[0m11:19:43,628 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [odin-core-exporters.xml]
+[0m[0m11:19:43,634 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [odin-core-session-factory.xml]
+[0m[0m11:19:43,638 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [odin-config.xml]
+[0m[0m11:19:43,730 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [generated/generated-application.xml]
+[0m[0m11:19:43,736 INFO  [jmine.tec.utils.spring.CachingXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [jmine-tec-cluster-config-quartz.xml]
+[0m[0m11:19:44,827 INFO  [org.springframework.beans.factory.config.PropertyPlaceholderConfigurer] (ServerService Thread Pool -- 82) Properties resource not found: class path resource [jmine-transactional-controller.properties] cannot be opened because it does not exist
+[0m[0m11:19:45,157 INFO  [org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor] (ServerService Thread Pool -- 82) JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[0m[0m11:19:45,456 INFO  [org.quartz.impl.StdSchedulerFactory] (ServerService Thread Pool -- 82) Using default implementation for ThreadExecutor
+[0m[0m11:19:45,534 INFO  [org.quartz.core.SchedulerSignalerImpl] (ServerService Thread Pool -- 82) Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+[0m[0m11:19:45,534 INFO  [org.quartz.core.QuartzScheduler] (ServerService Thread Pool -- 82) Quartz Scheduler v.2.3.0 created.
+[0m[0m11:19:45,534 INFO  [org.quartz.simpl.RAMJobStore] (ServerService Thread Pool -- 82) RAMJobStore initialized.
+[0m[0m11:19:45,535 INFO  [org.quartz.core.QuartzScheduler] (ServerService Thread Pool -- 82) Scheduler meta-data: Quartz Scheduler (v2.3.0) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
 
-Library
-
-SICQL-mapspegasusenquadramento-tqs
+[0m[0m11:19:45,535 INFO  [org.quartz.impl.StdSchedulerFactory] (ServerService Thread Pool -- 82) Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+[0m[0m11:19:45,535 INFO  [org.quartz.impl.StdSchedulerFactory] (ServerService Thread Pool -- 82) Quartz scheduler version: 2.3.0
+[0m[0m11:19:45,535 INFO  [org.quartz.core.QuartzScheduler] (ServerService Thread Pool -- 82) JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@1416b591
+[0m[0m11:19:45,548 INFO  [org.springframework.transaction.jta.JtaTransactionManager] (ServerService Thread Pool -- 82) Using JTA UserTransaction: org.wildfly.transaction.client.LocalUserTransaction@50bd2455
+[0m[0m11:19:45,548 INFO  [org.springframework.transaction.jta.JtaTransactionManager] (ServerService Thread Pool -- 82) Using JTA TransactionManager: org.wildfly.transaction.client.ContextTransactionManager@2229342b
+[0m[0m11:19:45,549 INFO  [org.springframework.transaction.jta.JtaTransactionManager] (ServerService Thread Pool -- 82) Using JTA TransactionSynchronizationRegistry: org.jboss.as.txn.service.internal.tsr.TransactionSynchronizationRegistryWrapper@6266cba2
+[0m[0m11:19:45,829 INFO  [org.hibernate.annotations.common.Version] (ServerService Thread Pool -- 82) Hibernate Commons Annotations 3.2.0.Final
+[0m[0m11:19:45,832 INFO  [org.hibernate.cfg.Environment] (ServerService Thread Pool -- 82) Hibernate 3.6.10.Final
+[0m[0m11:19:45,834 INFO  [org.hibernate.cfg.Environment] (ServerService Thread Pool -- 82) hibernate.properties not found
+[0m[0m11:19:45,836 INFO  [org.hibernate.cfg.Environment] (ServerService Thread Pool -- 82) Bytecode provider name : javassist
+[0m[0m11:19:45,837 INFO  [org.hibernate.cfg.Environment] (ServerService Thread Pool -- 82) using JDK 1.4 java.sql.Timestamp handling
+[0m[0m11:19:45,931 INFO  [org.hibernate.cfg.AnnotationBinder] (ServerService Thread Pool -- 82) Binding entity from annotated class: odin.domain.FeederExecution
+[0m[0m11:19:45,940 INFO  [org.hibernate.cfg.annotations.EntityBinder] (ServerService Thread Pool -- 82) Bind entity odin.domain.FeederExecution on table FEEDER_EXECUTION
+[0m[0m11:19:46,027 INFO  [org.hibernate.cfg.AnnotationBinder] (ServerService Thread Pool -- 82) Binding entity from annotated class: odin.domain.DownloadExecution
+[0m[0m11:19:46,028 INFO  [org.hibernate.cfg.annotations.EntityBinder] (ServerService Thread Pool -- 82) Bind entity odin.domain.DownloadExecution on table EXEC_DOWN
+[0m[0m11:19:46,034 INFO  [org.hibernate.cfg.AnnotationBinder] (ServerService Thread Pool -- 82) Binding entity from annotated class: odin.domain.DownloadedFile
+[0m[0m11:19:46,034 INFO  [org.hibernate.cfg.annotations.EntityBinder] (ServerService Thread Pool -- 82) Bind entity odin.domain.DownloadedFile on table DOWNLOADED_FILE
+[0m[0m11:19:46,038 INFO  [org.hibernate.cfg.AnnotationBinder] (ServerService Thread Pool -- 82) Binding entity from annotated class: jmine.tec.datadigester.fileregistry.domain.FileRegistry
+[0m[0m11:19:46,038 INFO  [org.hibernate.cfg.annotations.EntityBinder] (ServerService Thread Pool -- 82) Bind entity jmine.tec.datadigester.fileregistry.domain.FileRegistry on table FILE_REGISTRY
+[0m[0m11:19:46,042 INFO  [org.hibernate.cfg.AnnotationBinder] (ServerService Thread Pool -- 82) Binding entity from annotated class: jmine.tec.persist.impl.liquibase.domain.PostscriptChangeLog
+[0m[0m11:19:46,042 INFO  [org.hibernate.cfg.annotations.EntityBinder] (ServerService Thread Pool -- 82) Bind entity jmine.tec.persist.impl.liquibase.domain.PostscriptChangeLog on table POSTSCRIPT_CHANGELOG
+[0m[0m11:19:46,043 INFO  [org.hibernate.cfg.AnnotationBinder] (ServerService Thread Pool -- 82) Binding entity from annotated class: odin.domain.SendExecution
+[0m[0m11:19:46,043 INFO  [org.hibernate.cfg.annotations.EntityBinder] (ServerService Thread Pool -- 82) Bind entity odin.domain.SendExecution on table EXEC_SEND
+[0m[0m11:19:46,044 INFO  [org.hibernate.cfg.AnnotationBinder] (ServerService Thread Pool -- 82) Binding filter definition: authFilter
+[0m[0m11:19:46,044 INFO  [org.hibernate.cfg.AnnotationBinder] (ServerService Thread Pool -- 82) Binding entity from annotated class: odin.domain.FetchInfo
+[0m[0m11:19:46,044 INFO  [org.hibernate.cfg.annotations.EntityBinder] (ServerService Thread Pool -- 82) Bind entity odin.domain.FetchInfo on table FETCH_INFO
+[0m[0m11:19:46,048 INFO  [org.hibernate.cfg.AnnotationBinder] (ServerService Thread Pool -- 82) Binding entity from annotated class: jmine.tec.datadigester.domain.DigesterLock
+[0m[0m11:19:46,048 INFO  [org.hibernate.cfg.annotations.EntityBinder] (ServerService Thread Pool -- 82) Bind entity jmine.tec.datadigester.domain.DigesterLock on table DIGLOC
+[0m[0m11:19:46,049 INFO  [org.hibernate.cfg.AnnotationBinder] (ServerService Thread Pool -- 82) Binding entity from annotated class: jmine.tec.datadigester.executionlog.domain.ExecutionLogContent
+[0m[0m11:19:46,049 INFO  [org.hibernate.cfg.annotations.EntityBinder] (ServerService Thread Pool -- 82) Bind entity jmine.tec.datadigester.executionlog.domain.ExecutionLogContent on table EXECUTION_LOG_CONTENT
+[0m[0m11:19:46,050 INFO  [org.hibernate.cfg.AnnotationBinder] (ServerService Thread Pool -- 82) Binding entity from annotated class: odin.domain.CvmWsInfo
+[0m[0m11:19:46,050 INFO  [org.hibernate.cfg.annotations.EntityBinder] (ServerService Thread Pool -- 82) Bind entity odin.domain.CvmWsInfo on table CVM_WS_INFO
+[0m[0m11:19:46,051 INFO  [org.hibernate.cfg.AnnotationBinder] (ServerService Thread Pool -- 82) Binding entity from annotated class: odin.domain.DatabaseInfo
+[0m[0m11:19:46,051 INFO  [org.hibernate.cfg.annotations.EntityBinder] (ServerService Thread Pool -- 82) Bind entity odin.domain.DatabaseInfo on table DATABASE_INFO
+[0m[0m11:19:46,052 INFO  [org.hibernate.cfg.AnnotationBinder] (ServerService Thread Pool -- 82) Binding entity from annotated class: odin.domain.Schedule
+[0m[0m11:19:46,125 INFO  [org.hibernate.cfg.annotations.EntityBinder] (ServerService Thread Pool -- 82) Bind entity odin.domain.Schedule on table SCHEDULE
+[0m[0m11:19:46,127 INFO  [org.hibernate.cfg.AnnotationBinder] (ServerService Thread Pool -- 82) Binding entity from annotated class: jmine.tec.security.impl.domain.MetaCredential
+[0m[0m11:19:46,128 INFO  [org.hibernate.cfg.annotations.EntityBinder] (ServerService Thread Pool -- 82) Bind entity jmine.tec.security.impl.domain.MetaCredential on table META_CREDENTIAL
+[0m[0m11:19:46,137 INFO  [org.hibernate.cfg.AnnotationBinder] (ServerService Thread Pool -- 82) Binding entity from annotated class: odin.domain.HttpPostInfo
+[0m[0m11:19:46,138 INFO  [org.hibernate.cfg.annotations.EntityBinder] (ServerService Thread Pool -- 82) Bind entity odin.domain.HttpPostInfo on table HTTP_POST_INFO
+[0m[0m11:19:46,140 INFO  [org.hibernate.cfg.AnnotationBinder] (ServerService Thread Pool -- 82) Binding entity from annotated class: jmine.tec.persist.impl.domain.AbstractSystemParameter
+[0m[0m11:19:46,140 INFO  [org.hibernate.cfg.annotations.EntityBinder] (ServerService Thread Pool -- 82) Bind entity jmine.tec.persist.impl.domain.AbstractSystemParameter on table SYSTEM_PARAM
+[0m[0m11:19:46,143 INFO  [org.hibernate.cfg.AnnotationBinder] (ServerService Thread Pool -- 82) Binding entity from annotated class: jmine.tec.persist.impl.domain.TimeSystemParameter
+[0m[0m11:19:46,227 INFO  [org.hibernate.cfg.AnnotationBinder] (ServerService Thread Pool -- 82) Binding entity from annotated class: jmine.tec.persist.impl.dbchangelog.domain.DatabaseVersion
+[0m[0m11:19:46,227 INFO  [org.hibernate.cfg.annotations.EntityBinder] (ServerService Thread Pool -- 82) Bind entity jmine.tec.persist.impl.dbchangelog.domain.DatabaseVersion on table DATABASE_VERSION
+[0m[0m11:19:46,228 INFO  [org.hibernate.cfg.AnnotationBinder] (ServerService Thread Pool -- 82) Binding entity from annotated class: jmine.tec.cluster.domain.ClusterNode
+[0m[0m11:19:46,228 INFO  [org.hibernate.cfg.annotations.EntityBinder] (ServerService Thread Pool -- 82) Bind entity jmine.tec.cluster.domain.ClusterNode on table CLUSTER_NODE
+[0m[0m11:19:46,228 INFO  [org.hibernate.cfg.AnnotationBinder] (ServerService Thread Pool -- 82) Binding entity from annotated class: jmine.tec.persist.impl.audit.domain.AuditableType
+[0m[0m11:19:46,229 INFO  [org.hibernate.cfg.annotations.EntityBinder] (ServerService Thread Pool -- 82) Bind entity jmine.tec.persist.impl.audit.domain.AuditableType on table AUDIT_TYPE
+[0m[0m11:19:46,229 INFO  [org.hibernate.cfg.AnnotationBinder] (ServerService Thread Pool -- 82) Binding entity from annotated class: jmine.tec.security.impl.domain.Credential
+[0m[0m11:19:46,229 INFO  [org.hibernate.cfg.annotations.EntityBinder] (ServerService Thread Pool -- 82) Bind entity jmine.tec.security.impl.domain.Credential on table CREDENTIAL
+[0m[0m11:19:46,231 INFO  [org.hibernate.cfg.AnnotationBinder] (ServerService Thread Pool -- 82) Binding entity from annotated class: jmine.tec.security.impl.domain.ActionCredential
+[0m[0m11:19:46,232 INFO  [org.hibernate.cfg.AnnotationBinder] (ServerService Thread Pool -- 82) Binding entity from annotated class: odin.domain.FtpInfo
+[0m[0m11:19:46,232 INFO  [org.hibernate.cfg.annotations.EntityBinder] (ServerService Thread Pool -- 82) Bind entity odin.domain.FtpInfo on table FTP_INFO
+[0m[0m11:19:46,232 INFO  [org.hibernate.cfg.AnnotationBinder] (ServerService Thread Pool -- 82) Binding entity from annotated class: jmine.tec.persist.impl.domain.StringSystemParameter
+[0m[0m11:19:46,233 INFO  [org.hibernate.cfg.AnnotationBinder] (ServerService Thread Pool -- 82) Binding entity from annotated class: jmine.tec.persist.impl.authorization.lookup.domain.AuthorizationUpdateMapping
+[0m[0m11:19:46,233 INFO  [org.hibernate.cfg.annotations.EntityBinder] (ServerService Thread Pool -- 82) Bind entity jmine.tec.persist.impl.authorization.lookup.domain.AuthorizationUpdateMapping on table AUTH_UPDATE_MAPPING
+[0m[0m11:19:46,233 INFO  [org.hibernate.cfg.AnnotationBinder] (ServerService Thread Pool -- 82) Binding entity from annotated class: jmine.tec.persist.impl.audit.domain.AuditEntity
+[0m[0m11:19:46,233 INFO  [org.hibernate.cfg.annotations.EntityBinder] (ServerService Thread Pool -- 82) Bind entity jmine.tec.persist.impl.audit.domain.AuditEntity on table AUDIT_ENTITY
+[0m[0m11:19:46,235 INFO  [org.hibernate.cfg.AnnotationBinder] (ServerService Thread Pool -- 82) Binding entity from annotated class: jmine.tec.datadigester.executionlog.domain.ExecutionLog
+[0m[0m11:19:46,235 INFO  [org.hibernate.cfg.annotations.EntityBinder] (ServerService Thread Pool -- 82) Bind entity jmine.tec.datadigester.executionlog.domain.ExecutionLog on table EXECUTION_LOG
+[0m[0m11:19:46,238 INFO  [org.hibernate.cfg.AnnotationBinder] (ServerService Thread Pool -- 82) Binding entity from annotated class: jmine.tec.persist.impl.audit.domain.AuditProperty
+[0m[0m11:19:46,238 INFO  [org.hibernate.cfg.annotations.EntityBinder] (ServerService Thread Pool -- 82) Bind entity jmine.tec.persist.impl.audit.domain.AuditProperty on table AUDIT_PROPERTY
+[0m[0m11:19:46,239 INFO  [org.hibernate.cfg.AnnotationBinder] (ServerService Thread Pool -- 82) Binding entity from annotated class: odin.domain.BCBWsInfo
+[0m[0m11:19:46,239 INFO  [org.hibernate.cfg.annotations.EntityBinder] (ServerService Thread Pool -- 82) Bind entity odin.domain.BCBWsInfo on table BCB_INFO
+[0m[0m11:19:46,239 INFO  [org.hibernate.cfg.AnnotationBinder] (ServerService Thread Pool -- 82) Binding entity from annotated class: odin.domain.FeederFile
+[0m[0m11:19:46,239 INFO  [org.hibernate.cfg.annotations.EntityBinder] (ServerService Thread Pool -- 82) Bind entity odin.domain.FeederFile on table FEEDER_FILE
+[0m[0m11:19:46,244 INFO  [org.hibernate.cfg.AnnotationBinder] (ServerService Thread Pool -- 82) Binding entity from annotated class: jmine.tec.persist.impl.audit.domain.AuditVersion
+[0m[0m11:19:46,244 INFO  [org.hibernate.cfg.annotations.EntityBinder] (ServerService Thread Pool -- 82) Bind entity jmine.tec.persist.impl.audit.domain.AuditVersion on table AUDIT_VERSION
+[0m[0m11:19:46,246 INFO  [org.hibernate.cfg.AnnotationBinder] (ServerService Thread Pool -- 82) Binding entity from annotated class: jmine.tec.persist.impl.jms.domain.JMSMonitoringMessage
+[0m[0m11:19:46,246 INFO  [org.hibernate.cfg.annotations.EntityBinder] (ServerService Thread Pool -- 82) Bind entity jmine.tec.persist.impl.jms.domain.JMSMonitoringMessage on table JMS_MONIT_MESSAGE
+[0m[0m11:19:46,247 INFO  [org.hibernate.cfg.AnnotationBinder] (ServerService Thread Pool -- 82) Binding entity from annotated class: jmine.tec.security.impl.domain.ChineseWallCredential
+[0m[0m11:19:46,248 INFO  [org.hibernate.cfg.AnnotationBinder] (ServerService Thread Pool -- 82) Binding entity from annotated class: jmine.tec.persist.impl.audit.domain.AuditValuedProperty
+[0m[0m11:19:46,326 INFO  [org.hibernate.cfg.AnnotationBinder] (ServerService Thread Pool -- 82) Binding entity from annotated class: odin.domain.WebServiceInfo
+[0m[0m11:19:46,327 INFO  [org.hibernate.cfg.annotations.EntityBinder] (ServerService Thread Pool -- 82) Bind entity odin.domain.WebServiceInfo on table WEBSERVICE_INFO
+[0m[0m11:19:46,327 INFO  [org.hibernate.cfg.AnnotationBinder] (ServerService Thread Pool -- 82) Binding entity from annotated class: jmine.tec.persist.impl.domain.NumericSystemParameter
+[0m[0m11:19:46,327 INFO  [org.hibernate.cfg.AnnotationBinder] (ServerService Thread Pool -- 82) Binding entity from annotated class: jmine.tec.persist.watch.domain.WatchedEntity
+[0m[0m11:19:46,328 INFO  [org.hibernate.cfg.annotations.EntityBinder] (ServerService Thread Pool -- 82) Bind entity jmine.tec.persist.watch.domain.WatchedEntity on table WATCHED_ENTITY
+[0m[0m11:19:46,328 INFO  [org.hibernate.cfg.AnnotationBinder] (ServerService Thread Pool -- 82) Binding entity from annotated class: odin.domain.HttpGetInfo
+[0m[0m11:19:46,329 INFO  [org.hibernate.cfg.annotations.EntityBinder] (ServerService Thread Pool -- 82) Bind entity odin.domain.HttpGetInfo on table HTTP_GET_INFO
+[0m[0m11:19:46,329 INFO  [org.hibernate.cfg.AnnotationBinder] (ServerService Thread Pool -- 82) Binding entity from annotated class: jmine.tec.security.impl.domain.TenantCredential
+[0m[0m11:19:46,329 INFO  [org.hibernate.cfg.AnnotationBinder] (ServerService Thread Pool -- 82) Binding entity from annotated class: jmine.tec.security.impl.domain.Group
+[0m[0m11:19:46,330 INFO  [org.hibernate.cfg.annotations.QueryBinder] (ServerService Thread Pool -- 82) Binding Named query: grupo.entityIds => select chineseId.entityId from User usuario join usuario.groups grupo join grupo.credentials credential join credential.ids chineseId where usuario.id = ? and credential.class = ChineseWallCredential and credential.entityName = ? and credential.client.id = ?
+[0m[0m11:19:46,330 INFO  [org.hibernate.cfg.annotations.EntityBinder] (ServerService Thread Pool -- 82) Bind entity jmine.tec.security.impl.domain.Group on table USER_GROUP
+[0m[0m11:19:46,333 INFO  [org.hibernate.cfg.AnnotationBinder] (ServerService Thread Pool -- 82) Binding entity from annotated class: odin.domain.ChainInfo
+[0m[0m11:19:46,333 INFO  [org.hibernate.cfg.annotations.EntityBinder] (ServerService Thread Pool -- 82) Bind entity odin.domain.ChainInfo on table CHAIN_INFO
+[0m[0m11:19:46,336 INFO  [org.hibernate.cfg.AnnotationBinder] (ServerService Thread Pool -- 82) Binding entity from annotated class: odin.domain.DateParameter
+[0m[0m11:19:46,336 INFO  [org.hibernate.cfg.annotations.EntityBinder] (ServerService Thread Pool -- 82) Bind entity odin.domain.DateParameter on table DT_PARAMETERS
+[0m[0m11:19:46,341 INFO  [org.hibernate.cfg.AnnotationBinder] (ServerService Thread Pool -- 82) Binding entity from annotated class: jmine.tec.security.impl.domain.ChineseWallEntityId
+[0m[0m11:19:46,341 INFO  [org.hibernate.cfg.annotations.EntityBinder] (ServerService Thread Pool -- 82) Bind entity jmine.tec.security.impl.domain.ChineseWallEntityId on table CREDENTIAL_ENTITY_ID
+[0m[0m11:19:46,342 INFO  [org.hibernate.cfg.AnnotationBinder] (ServerService Thread Pool -- 82) Binding entity from annotated class: jmine.tec.persist.impl.domain.SystemParameterGroup
+[0m[0m11:19:46,342 INFO  [org.hibernate.cfg.annotations.EntityBinder] (ServerService Thread Pool -- 82) Bind entity jmine.tec.persist.impl.domain.SystemParameterGroup on table SYSTEM_PARAM_GRP
+[0m[0m11:19:46,343 INFO  [org.hibernate.cfg.AnnotationBinder] (ServerService Thread Pool -- 82) Binding entity from annotated class: jmine.tec.security.impl.domain.SecurityClient
+[0m[0m11:19:46,343 INFO  [org.hibernate.cfg.annotations.EntityBinder] (ServerService Thread Pool -- 82) Bind entity jmine.tec.security.impl.domain.SecurityClient on table SECURITY_CLIENT
+[0m[0m11:19:46,343 INFO  [org.hibernate.cfg.AnnotationBinder] (ServerService Thread Pool -- 82) Binding entity from annotated class: odin.domain.Site
+[0m[0m11:19:46,344 INFO  [org.hibernate.cfg.annotations.EntityBinder] (ServerService Thread Pool -- 82) Bind entity odin.domain.Site on table SITE
+[0m[0m11:19:46,344 INFO  [org.hibernate.cfg.AnnotationBinder] (ServerService Thread Pool -- 82) Binding entity from annotated class: jmine.tec.security.impl.domain.User
+[0m[0m11:19:46,344 INFO  [org.hibernate.cfg.annotations.QueryBinder] (ServerService Thread Pool -- 82) Binding Named query: usuario.entityIds => select chineseId.entityId from User usuario join usuario.credentials credential join credential.ids chineseId where usuario.id = ? and credential.class = ChineseWallCredential and credential.entityName = ? and credential.client.id = ?
+[0m[0m11:19:46,345 INFO  [org.hibernate.cfg.annotations.EntityBinder] (ServerService Thread Pool -- 82) Bind entity jmine.tec.security.impl.domain.User on table USER_SYSTEM
+[0m[0m11:19:46,425 INFO  [org.hibernate.cfg.AnnotationBinder] (ServerService Thread Pool -- 82) Binding entity from annotated class: jmine.tec.security.impl.domain.PastPassword
+[0m[0m11:19:46,426 INFO  [org.hibernate.cfg.annotations.EntityBinder] (ServerService Thread Pool -- 82) Bind entity jmine.tec.security.impl.domain.PastPassword on table PAST_PASSWORD
+[0m[0m11:19:46,426 INFO  [org.hibernate.cfg.AnnotationBinder] (ServerService Thread Pool -- 82) Binding entity from annotated class: jmine.tec.persist.impl.dbchangelog.domain.DatabaseChangeLog
+[0m[0m11:19:46,427 INFO  [org.hibernate.cfg.annotations.EntityBinder] (ServerService Thread Pool -- 82) Bind entity jmine.tec.persist.impl.dbchangelog.domain.DatabaseChangeLog on table DATABASE_CHANGE_RECORD
+[0m[0m11:19:46,427 INFO  [org.hibernate.cfg.AnnotationBinder] (ServerService Thread Pool -- 82) Binding entity from annotated class: jmine.tec.security.impl.domain.TaskCredential
+[0m[0m11:19:46,428 INFO  [org.hibernate.cfg.AnnotationBinder] (ServerService Thread Pool -- 82) Binding entity from annotated class: odin.domain.DirectoryInfo
+[0m[0m11:19:46,428 INFO  [org.hibernate.cfg.annotations.EntityBinder] (ServerService Thread Pool -- 82) Bind entity odin.domain.DirectoryInfo on table DIRECTORY_INFO
+[0m[0m11:19:46,428 INFO  [org.hibernate.cfg.AnnotationBinder] (ServerService Thread Pool -- 82) Binding entity from annotated class: jmine.tec.datadigester.fileregistry.domain.DriverProperty
+[0m[0m11:19:46,428 INFO  [org.hibernate.cfg.annotations.EntityBinder] (ServerService Thread Pool -- 82) Bind entity jmine.tec.datadigester.fileregistry.domain.DriverProperty on table DRIVER_PROPS
+[0m[0m11:19:46,430 INFO  [org.hibernate.cfg.AnnotationBinder] (ServerService Thread Pool -- 82) Binding entity from annotated class: jmine.tec.persist.impl.authorization.lookup.domain.AuthorizableLookupEntry
+[0m[0m11:19:46,431 INFO  [org.hibernate.cfg.annotations.EntityBinder] (ServerService Thread Pool -- 82) Bind entity jmine.tec.persist.impl.authorization.lookup.domain.AuthorizableLookupEntry on table AUTHORIZABLE_LOOKUP_ENTRY
+[0m[0m11:19:46,530 INFO  [org.hibernate.cfg.AnnotationBinder] (ServerService Thread Pool -- 82) Binding entity from annotated class: jmine.tec.persist.impl.schema.domain.Hint
+[0m[0m11:19:46,531 INFO  [org.hibernate.cfg.annotations.EntityBinder] (ServerService Thread Pool -- 82) Bind entity jmine.tec.persist.impl.schema.domain.Hint on table HINT_TABLE
+[0m[0m11:19:46,534 INFO  [org.hibernate.cfg.AnnotationBinder] (ServerService Thread Pool -- 82) Binding entity from annotated class: jmine.tec.security.impl.domain.UrlCredential
+[0m[0m11:19:46,534 INFO  [org.hibernate.cfg.AnnotationBinder] (ServerService Thread Pool -- 82) Binding entity from annotated class: jmine.tec.persist.impl.uniquevalue.domain.UniqueValueReference
+[0m[0m11:19:46,534 INFO  [org.hibernate.cfg.annotations.EntityBinder] (ServerService Thread Pool -- 82) Bind entity jmine.tec.persist.impl.uniquevalue.domain.UniqueValueReference on table UNIQUE_VALUE_REFERENCE
+[0m[0m11:19:46,536 INFO  [org.hibernate.cfg.AnnotationBinder] (ServerService Thread Pool -- 82) Binding entity from annotated class: jmine.tec.datadigester.executionlog.domain.ExecutionLogItem
+[0m[0m11:19:46,536 INFO  [org.hibernate.cfg.annotations.EntityBinder] (ServerService Thread Pool -- 82) Bind entity jmine.tec.datadigester.executionlog.domain.ExecutionLogItem on table EXECUTION_LOG_ITEM
+[0m[0m11:19:46,537 INFO  [org.hibernate.cfg.AnnotationBinder] (ServerService Thread Pool -- 82) Binding entity from annotated class: odin.domain.FileInformation
+[0m[0m11:19:46,538 INFO  [org.hibernate.cfg.annotations.EntityBinder] (ServerService Thread Pool -- 82) Bind entity odin.domain.FileInformation on table FILE_INFORMATION
+[0m[0m11:19:46,538 INFO  [org.hibernate.cfg.AnnotationBinder] (ServerService Thread Pool -- 82) Binding entity from annotated class: jmine.tec.persist.impl.domain.BooleanSystemParameter
+[0m[0m11:19:46,539 INFO  [org.hibernate.cfg.AnnotationBinder] (ServerService Thread Pool -- 82) Binding entity from annotated class: jmine.tec.security.impl.domain.AuthorizableCredential
+[0m[0m11:19:46,539 INFO  [org.hibernate.cfg.AnnotationBinder] (ServerService Thread Pool -- 82) Binding entity from annotated class: jmine.tec.persist.impl.dbchangelog.domain.DatabaseIssues
+[0m[0m11:19:46,539 INFO  [org.hibernate.cfg.annotations.EntityBinder] (ServerService Thread Pool -- 82) Bind entity jmine.tec.persist.impl.dbchangelog.domain.DatabaseIssues on table DATABASE_ISSUES
+[0m[0m11:19:46,539 INFO  [org.hibernate.cfg.AnnotationBinder] (ServerService Thread Pool -- 82) Binding entity from annotated class: odin.domain.Application
+[0m[0m11:19:46,540 INFO  [org.hibernate.cfg.annotations.EntityBinder] (ServerService Thread Pool -- 82) Bind entity odin.domain.Application on table APPLICATION
+[0m[0m11:19:46,541 INFO  [org.hibernate.cfg.AnnotationBinder] (ServerService Thread Pool -- 82) Binding entity from annotated class: jmine.tec.security.impl.domain.UserAccessData
+[0m[0m11:19:46,541 INFO  [org.hibernate.cfg.annotations.EntityBinder] (ServerService Thread Pool -- 82) Bind entity jmine.tec.security.impl.domain.UserAccessData on table USER_ACCESS_DATA
+[0m[0m11:19:46,542 INFO  [org.hibernate.cfg.AnnotationBinder] (ServerService Thread Pool -- 82) Binding entity from annotated class: odin.domain.HttpRequestHeader
+[0m[0m11:19:46,542 INFO  [org.hibernate.cfg.annotations.EntityBinder] (ServerService Thread Pool -- 82) Bind entity odin.domain.HttpRequestHeader on table HTTP_REQUEST_HEADER
+[0m[0m11:19:46,633 INFO  [org.hibernate.cfg.annotations.CollectionBinder] (ServerService Thread Pool -- 82) Mapping collection: jmine.tec.security.impl.domain.ChineseWallCredential.ids -> CREDENTIAL_ENTITY_ID
+[0m[0m11:19:46,633 INFO  [org.hibernate.cfg.annotations.CollectionBinder] (ServerService Thread Pool -- 82) Mapping collection: odin.domain.HttpPostInfo.headers -> HTTP_REQUEST_HEADER
+[0m[0m11:19:46,633 INFO  [org.hibernate.cfg.annotations.CollectionBinder] (ServerService Thread Pool -- 82) Mapping collection: jmine.tec.security.impl.domain.MetaCredential.credentials -> CREDENTIAL
+[0m[0m11:19:46,633 INFO  [org.hibernate.cfg.annotations.CollectionBinder] (ServerService Thread Pool -- 82) Mapping collection: jmine.tec.persist.impl.audit.domain.AuditEntity.versions -> AUDIT_VERSION
+[0m[0m11:19:46,633 INFO  [org.hibernate.cfg.annotations.CollectionBinder] (ServerService Thread Pool -- 82) Mapping collection: jmine.tec.datadigester.executionlog.domain.ExecutionLog.privateItems -> EXECUTION_LOG_ITEM
+[0m[0m11:19:46,633 INFO  [org.hibernate.cfg.annotations.CollectionBinder] (ServerService Thread Pool -- 82) Mapping collection: jmine.tec.persist.impl.audit.domain.AuditVersion.allProperties -> AUDIT_PROPERTY
+[0m[0m11:19:46,634 INFO  [org.hibernate.cfg.annotations.CollectionBinder] (ServerService Thread Pool -- 82) Mapping collection: jmine.tec.security.impl.domain.User.pastPasswords -> PAST_PASSWORD
+[0m[0m11:19:46,634 INFO  [org.hibernate.cfg.annotations.CollectionBinder] (ServerService Thread Pool -- 82) Mapping collection: jmine.tec.persist.impl.authorization.lookup.domain.AuthorizableLookupEntry.authUpdateMapping -> AUTH_UPDATE_MAPPING
+[0m[0m11:19:46,636 INFO  [org.hibernate.cfg.Configuration] (ServerService Thread Pool -- 82) Hibernate Validator not found: ignoring
+[0m[0m11:19:47,929 INFO  [jmine.tec.persist.impl.spring.AnnotationSessionFactoryBean] (ServerService Thread Pool -- 82) Building new Hibernate SessionFactory
+[0m[0m11:19:49,831 INFO  [org.hibernate.cfg.search.HibernateSearchEventListenerRegister] (ServerService Thread Pool -- 82) Unable to find org.hibernate.search.event.FullTextIndexEventListener on the classpath. Hibernate Search is not enabled.
+[0m[0m11:19:50,531 INFO  [org.hibernate.connection.ConnectionProviderFactory] (ServerService Thread Pool -- 82) Initializing connection provider: org.springframework.orm.hibernate3.LocalDataSourceConnectionProvider
+[0m[0m11:19:51,657 INFO  [org.hibernate.dialect.Dialect] (ServerService Thread Pool -- 82) Using dialect: org.hibernate.dialect.PostgreSQLDialect
+[0m[0m11:19:51,663 INFO  [org.hibernate.engine.jdbc.JdbcSupportLoader] (ServerService Thread Pool -- 82) Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+[0m[0m11:19:51,663 INFO  [org.hibernate.cfg.SettingsFactory] (ServerService Thread Pool -- 82) Database ->
+       name : PostgreSQL
+    version : 11.6
+      major : 11
+      minor : 6
+[0m[0m11:19:51,663 INFO  [org.hibernate.cfg.SettingsFactory] (ServerService Thread Pool -- 82) Driver ->
+       name : PostgreSQL JDBC Driver
+    version : 42.3.1
+      major : 42
+      minor : 3
+[0m[0m11:19:51,665 INFO  [org.hibernate.transaction.TransactionFactoryFactory] (ServerService Thread Pool -- 82) Transaction strategy: org.springframework.orm.hibernate3.SpringTransactionFactory
+[0m[0m11:19:51,666 INFO  [org.hibernate.transaction.TransactionManagerLookupFactory] (ServerService Thread Pool -- 82) No TransactionManagerLookup configured (in JTA environment, use of read-write or transactional second-level cache is not recommended)
+[0m[0m11:19:51,666 INFO  [org.hibernate.cfg.SettingsFactory] (ServerService Thread Pool -- 82) Automatic flush during beforeCompletion(): disabled
+[0m[0m11:19:51,666 INFO  [org.hibernate.cfg.SettingsFactory] (ServerService Thread Pool -- 82) Automatic session close at end of transaction: disabled
+[0m[0m11:19:51,666 INFO  [org.hibernate.cfg.SettingsFactory] (ServerService Thread Pool -- 82) JDBC batch size: 15
+[0m[0m11:19:51,666 INFO  [org.hibernate.cfg.SettingsFactory] (ServerService Thread Pool -- 82) JDBC batch updates for versioned data: disabled
+[0m[0m11:19:51,666 INFO  [org.hibernate.cfg.SettingsFactory] (ServerService Thread Pool -- 82) Scrollable result sets: enabled
+[0m[0m11:19:51,666 INFO  [org.hibernate.cfg.SettingsFactory] (ServerService Thread Pool -- 82) JDBC3 getGeneratedKeys(): enabled
+[0m[0m11:19:51,666 INFO  [org.hibernate.cfg.SettingsFactory] (ServerService Thread Pool -- 82) Connection release mode: auto
+[0m[0m11:19:51,666 INFO  [org.hibernate.cfg.SettingsFactory] (ServerService Thread Pool -- 82) Default schema: odin
+[0m[0m11:19:51,666 INFO  [org.hibernate.cfg.SettingsFactory] (ServerService Thread Pool -- 82) Default batch fetch size: 1
+[0m[0m11:19:51,667 INFO  [org.hibernate.cfg.SettingsFactory] (ServerService Thread Pool -- 82) Generate SQL with comments: disabled
+[0m[0m11:19:51,667 INFO  [org.hibernate.cfg.SettingsFactory] (ServerService Thread Pool -- 82) Order SQL updates by primary key: disabled
+[0m[0m11:19:51,667 INFO  [org.hibernate.cfg.SettingsFactory] (ServerService Thread Pool -- 82) Order SQL inserts for batching: disabled
+[0m[0m11:19:51,667 INFO  [org.hibernate.cfg.SettingsFactory] (ServerService Thread Pool -- 82) Query translator: org.hibernate.hql.ast.ASTQueryTranslatorFactory
+[0m[0m11:19:51,667 INFO  [org.hibernate.hql.ast.ASTQueryTranslatorFactory] (ServerService Thread Pool -- 82) Using ASTQueryTranslatorFactory
+[0m[0m11:19:51,667 INFO  [org.hibernate.cfg.SettingsFactory] (ServerService Thread Pool -- 82) Query language substitutions: {}
+[0m[0m11:19:51,667 INFO  [org.hibernate.cfg.SettingsFactory] (ServerService Thread Pool -- 82) JPA-QL strict compliance: disabled
+[0m[0m11:19:51,667 INFO  [org.hibernate.cfg.SettingsFactory] (ServerService Thread Pool -- 82) Second-level cache: enabled
+[0m[0m11:19:51,667 INFO  [org.hibernate.cfg.SettingsFactory] (ServerService Thread Pool -- 82) Query cache: enabled
+[0m[0m11:19:51,667 INFO  [org.hibernate.cfg.SettingsFactory] (ServerService Thread Pool -- 82) Cache region factory : org.hibernate.cache.impl.bridge.RegionFactoryCacheProviderBridge
+[0m[0m11:19:51,668 INFO  [org.hibernate.cache.impl.bridge.RegionFactoryCacheProviderBridge] (ServerService Thread Pool -- 82) Cache provider: net.sf.ehcache.hibernate.EhCacheProvider
+[0m[0m11:19:51,669 INFO  [org.hibernate.cfg.SettingsFactory] (ServerService Thread Pool -- 82) Optimize cache for minimal puts: enabled
+[0m[0m11:19:51,669 INFO  [org.hibernate.cfg.SettingsFactory] (ServerService Thread Pool -- 82) Structured second-level cache entries: disabled
+[0m[0m11:19:51,669 INFO  [org.hibernate.cfg.SettingsFactory] (ServerService Thread Pool -- 82) Query cache factory: org.hibernate.cache.StandardQueryCacheFactory
+[0m[0m11:19:51,671 INFO  [org.hibernate.cfg.SettingsFactory] (ServerService Thread Pool -- 82) Statistics: disabled
+[0m[0m11:19:51,671 INFO  [org.hibernate.cfg.SettingsFactory] (ServerService Thread Pool -- 82) Deleted entity synthetic identifier rollback: disabled
+[0m[0m11:19:51,671 INFO  [org.hibernate.cfg.SettingsFactory] (ServerService Thread Pool -- 82) Default entity-mode: pojo
+[0m[0m11:19:51,671 INFO  [org.hibernate.cfg.SettingsFactory] (ServerService Thread Pool -- 82) Named query checking : enabled
+[0m[0m11:19:51,671 INFO  [org.hibernate.cfg.SettingsFactory] (ServerService Thread Pool -- 82) Check Nullability in Core (should be disabled when Bean Validation is on): disabled
+[0m[0m11:19:51,677 INFO  [org.hibernate.impl.SessionFactoryImpl] (ServerService Thread Pool -- 82) building session factory
+[0m[0m11:19:51,680 INFO  [org.hibernate.type.BasicTypeRegistry] (ServerService Thread Pool -- 82) Type registration [materialized_blob] overrides previous : org.hibernate.type.MaterializedBlobType@1aeb578f
+[0m[33m11:19:51,726 WARN  [net.sf.ehcache.config.ConfigurationFactory] (ServerService Thread Pool -- 82) No configuration found. Configuring ehcache from ehcache-failsafe.xml  found in the classpath: vfs:/content/feeder.war/WEB-INF/lib/ehcache-2.10.5.jar/ehcache-failsafe.xml
+[0m[33m11:19:52,741 WARN  [net.sf.ehcache.hibernate.AbstractEhcacheProvider] (ServerService Thread Pool -- 82) Could not find a specific ehcache configuration for cache named [jmine.tec.security.impl.domain.SecurityClient]; using defaults.
+[0m[0m11:19:53,744 INFO  [org.hibernate.impl.SessionFactoryObjectFactory] (ServerService Thread Pool -- 82) Not binding factory to JNDI, no JNDI name configured
+[0m[0m11:19:53,745 INFO  [org.hibernate.cache.UpdateTimestampsCache] (ServerService Thread Pool -- 82) starting update timestamps cache at region: org.hibernate.cache.UpdateTimestampsCache
+[0m[33m11:19:53,745 WARN  [net.sf.ehcache.hibernate.AbstractEhcacheProvider] (ServerService Thread Pool -- 82) Could not find a specific ehcache configuration for cache named [org.hibernate.cache.UpdateTimestampsCache]; using defaults.
+[0m[0m11:19:53,752 INFO  [org.hibernate.cache.StandardQueryCache] (ServerService Thread Pool -- 82) starting query cache at region: org.hibernate.cache.StandardQueryCache
+[0m[33m11:19:53,752 WARN  [net.sf.ehcache.hibernate.AbstractEhcacheProvider] (ServerService Thread Pool -- 82) Could not find a specific ehcache configuration for cache named [org.hibernate.cache.StandardQueryCache]; using defaults.
+[0m[0m11:19:54,245 INFO  [org.hibernate.dialect.Dialect] (ServerService Thread Pool -- 82) Using dialect: org.hibernate.dialect.Oracle10gDialect
+[0m[0m11:19:54,246 INFO  [org.hibernate.dialect.Dialect] (ServerService Thread Pool -- 82) Using dialect: org.hibernate.dialect.PostgreSQLDialect
+[0m[0m11:19:54,247 INFO  [org.hibernate.dialect.Dialect] (ServerService Thread Pool -- 82) Using dialect: jmine.tec.persist.impl.schema.impl.dialects.ImprovedMSSQLServerDialect
+[0m[0m11:19:54,249 INFO  [org.hibernate.dialect.Dialect] (ServerService Thread Pool -- 82) Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+[0m[0m11:19:54,250 INFO  [org.hibernate.dialect.Dialect] (ServerService Thread Pool -- 82) Using dialect: jmine.tec.persist.impl.schema.impl.dialects.H2Dialect$1
+[0m[0m11:19:54,736 INFO  [org.springframework.cache.ehcache.EhCacheManagerFactoryBean] (ServerService Thread Pool -- 82) Initializing EhCache CacheManager 'jmineCacheManager'
+[0m[0m11:19:55,331 INFO  [jmine.tec.persist.impl.services.config.PersistenceConfigurationFactoryBean] (ServerService Thread Pool -- 82) DataSource of type org.jboss.as.connector.subsystems.datasources.WildFlyDataSource found!
+[0m[0m11:19:55,331 INFO  [jmine.tec.persist.impl.services.config.PersistenceConfigurationFactoryBean] (ServerService Thread Pool -- 82) Looking for schema based on hibernate dialect: org.hibernate.dialect.PostgreSQLDialect
+[0m[0m11:19:55,331 INFO  [jmine.tec.persist.impl.services.config.PersistenceConfigurationFactoryBean] (ServerService Thread Pool -- 82) Schema dialect found for 'org.hibernate.dialect.PostgreSQLDialect'!
+[0m[0m11:19:55,331 INFO  [jmine.tec.persist.impl.services.config.PersistenceConfigurationFactoryBean] (ServerService Thread Pool -- 82) TransactionManager of type org.springframework.transaction.jta.JtaTransactionManager with name jtaTransactionManager found!
+[0m[0m11:19:55,932 INFO  [org.springframework.context.annotation.AnnotationConfigApplicationContext] (ServerService Thread Pool -- 82) Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@6102bcb4: startup date [Mon Oct 05 11:19:55 BRT 2026]; root of context hierarchy
+[0m[0m11:19:56,328 INFO  [jmine.tec.component.services.spring.StaticNamespaceXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [component/hibernate/session-factory.xml]
+[0m[0m11:19:56,435 INFO  [jmine.tec.component.services.spring.StaticNamespaceXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [component/refdb/create-db-schema.xml]
+[0m[0m11:19:56,525 INFO  [jmine.tec.component.services.spring.StaticNamespaceXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [component/transaction/transactional-aspect.xml]
+[0m[0m11:19:56,530 INFO  [jmine.tec.component.services.spring.StaticNamespaceXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [component/transaction/jta.xml]
+[0m[0m11:19:56,627 INFO  [jmine.tec.component.services.spring.StaticNamespaceXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [component/autowire.xml]
+[0m[0m11:19:56,728 INFO  [jmine.tec.component.services.spring.StaticNamespaceXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [component/thread-pool.xml]
+[0m[0m11:19:56,732 INFO  [jmine.tec.component.services.spring.StaticNamespaceXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [component/aop.xml]
+[0m[0m11:19:56,825 INFO  [jmine.tec.component.services.spring.StaticNamespaceXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [component/threadlocal.xml]
+[0m[0m11:19:56,828 INFO  [jmine.tec.component.services.spring.StaticNamespaceXmlBeanDefinitionReader] (ServerService Thread Pool -- 82) Loading XML bean definitions from class path resource [component/asynchronous.xml]
+[0m[0m11:19:56,938 INFO  [org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor] (ServerService Thread Pool -- 82) JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[0m[0m11:19:57,432 INFO  [org.hibernate.cfg.AnnotationBinder] (ServerService Thread Pool -- 82) Binding entity from annotated class: jmine.tec.log.runtime.domain.ExceptionRecord
+[0m[0m11:19:57,432 INFO  [org.hibernate.cfg.annotations.EntityBinder] (ServerService Thread Pool -- 82) Bind entity jmine.tec.log.runtime.domain.ExceptionRecord on table EXCEPTION_RECORD
+[0m[0m11:19:57,438 INFO  [org.hibernate.cfg.Configuration] (ServerService Thread Pool -- 82) Hibernate Validator not found: ignoring
+[0m[0m11:19:57,530 INFO  [jmine.tec.persist.impl.services.hibernate.PostProcessingSessionFactoryBean] (ServerService Thread Pool -- 82) Building new Hibernate SessionFactory
+[0m[0m11:19:57,537 INFO  [org.hibernate.cfg.search.HibernateSearchEventListenerRegister] (ServerService Thread Pool -- 82) Unable to find org.hibernate.search.event.FullTextIndexEventListener on the classpath. Hibernate Search is not enabled.
+[0m[0m11:19:57,537 INFO  [org.hibernate.connection.ConnectionProviderFactory] (ServerService Thread Pool -- 82) Initializing connection provider: org.springframework.orm.hibernate3.LocalDataSourceConnectionProvider
+[0m[0m11:19:57,629 INFO  [org.hibernate.dialect.Dialect] (ServerService Thread Pool -- 82) Using dialect: org.hibernate.dialect.PostgreSQLDialect
+[0m[0m11:19:57,630 INFO  [org.hibernate.engine.jdbc.JdbcSupportLoader] (ServerService Thread Pool -- 82) Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+[0m[0m11:19:57,630 INFO  [org.hibernate.cfg.SettingsFactory] (ServerService Thread Pool -- 82) Database ->
+       name : PostgreSQL
+    version : 11.6
+      major : 11
+      minor : 6
+[0m[0m11:19:57,630 INFO  [org.hibernate.cfg.SettingsFactory] (ServerService Thread Pool -- 82) Driver ->
+       name : PostgreSQL JDBC Driver
+    version : 42.3.1
+      major : 42
+      minor : 3
+[0m[0m11:19:57,630 INFO  [org.hibernate.transaction.TransactionFactoryFactory] (ServerService Thread Pool -- 82) Transaction strategy: org.springframework.orm.hibernate3.SpringTransactionFactory
+[0m[0m11:19:57,630 INFO  [org.hibernate.transaction.TransactionManagerLookupFactory] (ServerService Thread Pool -- 82) No TransactionManagerLookup configured (in JTA environment, use of read-write or transactional second-level cache is not recommended)
+[0m[0m11:19:57,630 INFO  [org.hibernate.cfg.SettingsFactory] (ServerService Thread Pool -- 82) Automatic flush during beforeCompletion(): disabled
+[0m[0m11:19:57,630 INFO  [org.hibernate.cfg.SettingsFactory] (ServerService Thread Pool -- 82) Automatic session close at end of transaction: disabled
+[0m[0m11:19:57,630 INFO  [org.hibernate.cfg.SettingsFactory] (ServerService Thread Pool -- 82) JDBC batch size: 10
+[0m[0m11:19:57,630 INFO  [org.hibernate.cfg.SettingsFactory] (ServerService Thread Pool -- 82) JDBC batch updates for versioned data: disabled
+[0m[0m11:19:57,630 INFO  [org.hibernate.cfg.SettingsFactory] (ServerService Thread Pool -- 82) Scrollable result sets: enabled
+[0m[0m11:19:57,630 INFO  [org.hibernate.cfg.SettingsFactory] (ServerService Thread Pool -- 82) JDBC3 getGeneratedKeys(): enabled
+[0m[0m11:19:57,630 INFO  [org.hibernate.cfg.SettingsFactory] (ServerService Thread Pool -- 82) Connection release mode: auto
+[0m[0m11:19:57,630 INFO  [org.hibernate.cfg.SettingsFactory] (ServerService Thread Pool -- 82) Default schema: odin
+[0m[0m11:19:57,630 INFO  [org.hibernate.cfg.SettingsFactory] (ServerService Thread Pool -- 82) Default batch fetch size: 1
+[0m[0m11:19:57,630 INFO  [org.hibernate.cfg.SettingsFactory] (ServerService Thread Pool -- 82) Generate SQL with comments: disabled
+[0m[0m11:19:57,630 INFO  [org.hibernate.cfg.SettingsFactory] (ServerService Thread Pool -- 82) Order SQL updates by primary key: disabled
+[0m[0m11:19:57,630 INFO  [org.hibernate.cfg.SettingsFactory] (ServerService Thread Pool -- 82) Order SQL inserts for batching: disabled
+[0m[0m11:19:57,630 INFO  [org.hibernate.cfg.SettingsFactory] (ServerService Thread Pool -- 82) Query translator: org.hibernate.hql.ast.ASTQueryTranslatorFactory
+[0m[0m11:19:57,630 INFO  [org.hibernate.hql.ast.ASTQueryTranslatorFactory] (ServerService Thread Pool -- 82) Using ASTQueryTranslatorFactory
+[0m[0m11:19:57,630 INFO  [org.hibernate.cfg.SettingsFactory] (ServerService Thread Pool -- 82) Query language substitutions: {}
+[0m[0m11:19:57,630 INFO  [org.hibernate.cfg.SettingsFactory] (ServerService Thread Pool -- 82) JPA-QL strict compliance: disabled
+[0m[0m11:19:57,630 INFO  [org.hibernate.cfg.SettingsFactory] (ServerService Thread Pool -- 82) Second-level cache: disabled
+[0m[0m11:19:57,630 INFO  [org.hibernate.cfg.SettingsFactory] (ServerService Thread Pool -- 82) Query cache: disabled
+[0m[0m11:19:57,630 INFO  [org.hibernate.cfg.SettingsFactory] (ServerService Thread Pool -- 82) Cache region factory : org.hibernate.cache.impl.NoCachingRegionFactory
+[0m[0m11:19:57,631 INFO  [org.hibernate.cfg.SettingsFactory] (ServerService Thread Pool -- 82) Optimize cache for minimal puts: disabled
+[0m[0m11:19:57,631 INFO  [org.hibernate.cfg.SettingsFactory] (ServerService Thread Pool -- 82) Structured second-level cache entries: disabled
+[0m[0m11:19:57,631 INFO  [org.hibernate.cfg.SettingsFactory] (ServerService Thread Pool -- 82) Statistics: disabled
+[0m[0m11:19:57,631 INFO  [org.hibernate.cfg.SettingsFactory] (ServerService Thread Pool -- 82) Deleted entity synthetic identifier rollback: disabled
+[0m[0m11:19:57,631 INFO  [org.hibernate.cfg.SettingsFactory] (ServerService Thread Pool -- 82) Default entity-mode: pojo
+[0m[0m11:19:57,631 INFO  [org.hibernate.cfg.SettingsFactory] (ServerService Thread Pool -- 82) Named query checking : enabled
+[0m[0m11:19:57,631 INFO  [org.hibernate.cfg.SettingsFactory] (ServerService Thread Pool -- 82) Check Nullability in Core (should be disabled when Bean Validation is on): disabled
+[0m[0m11:19:57,632 INFO  [org.hibernate.impl.SessionFactoryImpl] (ServerService Thread Pool -- 82) building session factory
+[0m[0m11:19:57,632 INFO  [org.hibernate.type.BasicTypeRegistry] (ServerService Thread Pool -- 82) Type registration [materialized_blob] overrides previous : org.hibernate.type.MaterializedBlobType@1aeb578f
+[0m[0m11:19:57,728 INFO  [org.hibernate.impl.SessionFactoryObjectFactory] (ServerService Thread Pool -- 82) Not binding factory to JNDI, no JNDI name configured
+[0m[31m11:20:01,232 ERROR [jmine.tec.security.impl.authentication.bcrypt.BCryptAuthenticationManager] (ServerService Thread Pool -- 82) You are currently using the MD5 to BCrypt migration mode. This operation mode is only recommended to be used ONLY TEMPORARILY as it makes the security manager complacent with with insecurely hashed passwords.
+[0m[33m11:20:03,931 WARN  [jmine.tec.services.api.factory.ServiceClassListFactoryBean] (ServerService Thread Pool -- 82) jmine.tec.scheduling.exporter.ScheduledTaskExporter is not a Service by neither of the known API's
+[0m[0m11:20:04,234 INFO  [odin.config.Config] (ServerService Thread Pool -- 82) Configuração do Odin lida. [deleteOldFilesCronExpression:0 0 23 * * ? 2100;sendReportsCronExpression:0 0 21 * * ? 2100;fileMaxLife:10;attemptsToDownload:0;attemptsToSend:0]
+[0m[0m11:20:04,842 INFO  [org.quartz.impl.StdSchedulerFactory] (ServerService Thread Pool -- 82) Using default implementation for ThreadExecutor
+[0m[0m11:20:04,843 INFO  [org.quartz.core.SchedulerSignalerImpl] (ServerService Thread Pool -- 82) Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+[0m[0m11:20:04,844 INFO  [org.quartz.core.QuartzScheduler] (ServerService Thread Pool -- 82) Quartz Scheduler v.2.3.0 created.
+[0m[0m11:20:04,844 INFO  [org.quartz.simpl.RAMJobStore] (ServerService Thread Pool -- 82) RAMJobStore initialized.
+[0m[0m11:20:04,844 INFO  [org.quartz.core.QuartzScheduler] (ServerService Thread Pool -- 82) Scheduler meta-data: Quartz Scheduler (v2.3.0) 'odinQuartzSchedulerFactoryBean' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
 
-Variable group
-Properties
-Variable group name
-SICQL-mapspegasusenquadramento-tqs
-Description
+[0m[0m11:20:04,844 INFO  [org.quartz.impl.StdSchedulerFactory] (ServerService Thread Pool -- 82) Quartz scheduler 'odinQuartzSchedulerFactoryBean' initialized from an externally provided properties instance.
+[0m[0m11:20:04,844 INFO  [org.quartz.impl.StdSchedulerFactory] (ServerService Thread Pool -- 82) Quartz scheduler version: 2.3.0
+[0m[0m11:20:04,844 INFO  [org.quartz.core.QuartzScheduler] (ServerService Thread Pool -- 82) JobFactory set to: org.springframework.scheduling.quartz.AdaptableJobFactory@2477c766
+[0m[0m11:20:04,929 INFO  [odin.DataFeederController] (ServerService Thread Pool -- 82) Iniciando Odin...
+[0m[0m11:20:05,025 INFO  [odin.scheduler.quartz.QuartzDataFeederScheduler] (ServerService Thread Pool -- 82) Trigger de remoção de arquivos agendado...
+[0m[0m11:20:05,027 INFO  [odin.scheduler.quartz.QuartzDataFeederScheduler] (ServerService Thread Pool -- 82) Trigger de envio de relatórios agendado...
+[0m[0m11:20:05,027 INFO  [odin.DataFeederController] (ServerService Thread Pool -- 82) Deletando Retry Schedules...
+[0m[33m11:20:05,334 WARN  [org.hibernate.util.JDBCExceptionReporter] (ServerService Thread Pool -- 82) SQL Error: 0, SQLState: 42P01
+[0m[31m11:20:05,335 ERROR [org.hibernate.util.JDBCExceptionReporter] (ServerService Thread Pool -- 82) ERROR: relation "odin.feeder_file" does not exist
+  Position: 2686
+[0m[33m11:20:05,339 WARN  [odin.DataFeederController] (ServerService Thread Pool -- 82) Não foi possível inicializar o Odin
+[0m[31m11:20:05,433 ERROR [stderr] (ServerService Thread Pool -- 82) jmine.tec.persist.impl.exception.PersistenceException: Erro executando query.
+[0m[31m11:20:05,433 ERROR [stderr] (ServerService Thread Pool -- 82) 	at jmine.tec.persist.impl.dao.BaseDAO.executeQuery(BaseDAO.java:499)
+[0m[31m11:20:05,434 ERROR [stderr] (ServerService Thread Pool -- 82) 	at jmine.tec.persist.impl.dao.BaseDAO.findAll(BaseDAO.java:707)
+[0m[31m11:20:05,434 ERROR [stderr] (ServerService Thread Pool -- 82) 	at odin.dao.FeederFileDAO.deleteRetrySchedules(FeederFileDAO.java:52)
+[0m[31m11:20:05,434 ERROR [stderr] (ServerService Thread Pool -- 82) 	at odin.DataFeederController.start(DataFeederController.java:92)
+[0m[31m11:20:05,434 ERROR [stderr] (ServerService Thread Pool -- 82) 	at odin.util.DataFeederControllerStarter.afterPropertiesSet(DataFeederControllerStarter.java:18)
+[0m[31m11:20:05,434 ERROR [stderr] (ServerService Thread Pool -- 82) 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1689)
+[0m[31m11:20:05,434 ERROR [stderr] (ServerService Thread Pool -- 82) 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1627)
+[0m[31m11:20:05,434 ERROR [stderr] (ServerService Thread Pool -- 82) 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:553)
+[0m[31m11:20:05,434 ERROR [stderr] (ServerService Thread Pool -- 82) 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:481)
+[0m[31m11:20:05,434 ERROR [stderr] (ServerService Thread Pool -- 82) 	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:312)
+[0m[31m11:20:05,434 ERROR [stderr] (ServerService Thread Pool -- 82) 	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+[0m[31m11:20:05,434 ERROR [stderr] (ServerService Thread Pool -- 82) 	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:308)
+[0m[31m11:20:05,434 ERROR [stderr] (ServerService Thread Pool -- 82) 	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+[0m[31m11:20:05,434 ERROR [stderr] (ServerService Thread Pool -- 82) 	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:761)
+[0m[31m11:20:05,434 ERROR [stderr] (ServerService Thread Pool -- 82) 	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:867)
+[0m[31m11:20:05,434 ERROR [stderr] (ServerService Thread Pool -- 82) 	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:543)
+[0m[31m11:20:05,434 ERROR [stderr] (ServerService Thread Pool -- 82) 	at org.springframework.context.support.ClassPathXmlApplicationContext.<init>(ClassPathXmlApplicationContext.java:139)
+[0m[31m11:20:05,434 ERROR [stderr] (ServerService Thread Pool -- 82) 	at org.springframework.context.support.ClassPathXmlApplicationContext.<init>(ClassPathXmlApplicationContext.java:93)
+[0m[31m11:20:05,434 ERROR [stderr] (ServerService Thread Pool -- 82) 	at jmine.tec.utils.spring.CachingClassPathXmlApplicationContext.<init>(CachingClassPathXmlApplicationContext.java:23)
+[0m[31m11:20:05,434 ERROR [stderr] (ServerService Thread Pool -- 82) 	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+[0m[31m11:20:05,434 ERROR [stderr] (ServerService Thread Pool -- 82) 	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+[0m[31m11:20:05,434 ERROR [stderr] (ServerService Thread Pool -- 82) 	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+[0m[31m11:20:05,434 ERROR [stderr] (ServerService Thread Pool -- 82) 	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+[0m[31m11:20:05,434 ERROR [stderr] (ServerService Thread Pool -- 82) 	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:142)
+[0m[31m11:20:05,434 ERROR [stderr] (ServerService Thread Pool -- 82) 	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:122)
+[0m[31m11:20:05,434 ERROR [stderr] (ServerService Thread Pool -- 82) 	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:271)
+[0m[31m11:20:05,434 ERROR [stderr] (ServerService Thread Pool -- 82) 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1198)
+[0m[31m11:20:05,434 ERROR [stderr] (ServerService Thread Pool -- 82) 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1100)
+[0m[31m11:20:05,434 ERROR [stderr] (ServerService Thread Pool -- 82) 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:511)
+[0m[31m11:20:05,434 ERROR [stderr] (ServerService Thread Pool -- 82) 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:481)
+[0m[31m11:20:05,434 ERROR [stderr] (ServerService Thread Pool -- 82) 	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:312)
+[0m[31m11:20:05,434 ERROR [stderr] (ServerService Thread Pool -- 82) 	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+[0m[31m11:20:05,434 ERROR [stderr] (ServerService Thread Pool -- 82) 	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:308)
+[0m[31m11:20:05,434 ERROR [stderr] (ServerService Thread Pool -- 82) 	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+[0m[31m11:20:05,435 ERROR [stderr] (ServerService Thread Pool -- 82) 	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1086)
+[0m[31m11:20:05,435 ERROR [stderr] (ServerService Thread Pool -- 82) 	at org.springframework.beans.factory.access.SingletonBeanFactoryLocator.useBeanFactory(SingletonBeanFactoryLocator.java:396)
+[0m[31m11:20:05,435 ERROR [stderr] (ServerService Thread Pool -- 82) 	at org.springframework.web.context.ContextLoader.loadParentContext(ContextLoader.java:563)
+[0m[31m11:20:05,435 ERROR [stderr] (ServerService Thread Pool -- 82) 	at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:322)
+[0m[31m11:20:05,435 ERROR [stderr] (ServerService Thread Pool -- 82) 	at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:107)
+[0m[31m11:20:05,435 ERROR [stderr] (ServerService Thread Pool -- 82) 	at io.undertow.servlet.core.ApplicationListeners.contextInitialized(ApplicationListeners.java:187)
+[0m[31m11:20:05,435 ERROR [stderr] (ServerService Thread Pool -- 82) 	at io.undertow.servlet.core.DeploymentManagerImpl$1.call(DeploymentManagerImpl.java:219)
+[0m[31m11:20:05,435 ERROR [stderr] (ServerService Thread Pool -- 82) 	at io.undertow.servlet.core.DeploymentManagerImpl$1.call(DeploymentManagerImpl.java:187)
+[0m[31m11:20:05,435 ERROR [stderr] (ServerService Thread Pool -- 82) 	at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:42)
+[0m[31m11:20:05,435 ERROR [stderr] (ServerService Thread Pool -- 82) 	at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
+[0m[31m11:20:05,435 ERROR [stderr] (ServerService Thread Pool -- 82) 	at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1544)
+[0m[31m11:20:05,435 ERROR [stderr] (ServerService Thread Pool -- 82) 	at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1544)
+[0m[31m11:20:05,435 ERROR [stderr] (ServerService Thread Pool -- 82) 	at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1544)
+[0m[31m11:20:05,435 ERROR [stderr] (ServerService Thread Pool -- 82) 	at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1544)
+[0m[31m11:20:05,435 ERROR [stderr] (ServerService Thread Pool -- 82) 	at io.undertow.servlet.core.DeploymentManagerImpl.deploy(DeploymentManagerImpl.java:255)
+[0m[31m11:20:05,435 ERROR [stderr] (ServerService Thread Pool -- 82) 	at org.wildfly.extension.undertow.deployment.UndertowDeploymentService.startContext(UndertowDeploymentService.java:105)
+[0m[31m11:20:05,435 ERROR [stderr] (ServerService Thread Pool -- 82) 	at org.wildfly.extension.undertow.deployment.UndertowDeploymentService$1.run(UndertowDeploymentService.java:87)
+[0m[31m11:20:05,435 ERROR [stderr] (ServerService Thread Pool -- 82) 	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+[0m[31m11:20:05,435 ERROR [stderr] (ServerService Thread Pool -- 82) 	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+[0m[31m11:20:05,435 ERROR [stderr] (ServerService Thread Pool -- 82) 	at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+[0m[31m11:20:05,435 ERROR [stderr] (ServerService Thread Pool -- 82) 	at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
+[0m[31m11:20:05,435 ERROR [stderr] (ServerService Thread Pool -- 82) 	at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
+[0m[31m11:20:05,435 ERROR [stderr] (ServerService Thread Pool -- 82) 	at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1377)
+[0m[31m11:20:05,435 ERROR [stderr] (ServerService Thread Pool -- 82) 	at java.lang.Thread.run(Thread.java:750)
+[0m[31m11:20:05,435 ERROR [stderr] (ServerService Thread Pool -- 82) 	at org.jboss.threads.JBossThread.run(JBossThread.java:513)
+[0m[31m11:20:05,436 ERROR [stderr] (ServerService Thread Pool -- 82) Caused by: org.hibernate.exception.SQLGrammarException: could not execute query
+[0m[31m11:20:05,436 ERROR [stderr] (ServerService Thread Pool -- 82) 	at org.hibernate.exception.SQLStateConverter.convert(SQLStateConverter.java:92)
+[0m[31m11:20:05,436 ERROR [stderr] (ServerService Thread Pool -- 82) 	at org.hibernate.exception.JDBCExceptionHelper.convert(JDBCExceptionHelper.java:66)
+[0m[31m11:20:05,436 ERROR [stderr] (ServerService Thread Pool -- 82) 	at org.hibernate.loader.Loader.doList(Loader.java:2545)
+[0m[31m11:20:05,436 ERROR [stderr] (ServerService Thread Pool -- 82) 	at org.hibernate.loader.Loader.listIgnoreQueryCache(Loader.java:2276)
+[0m[31m11:20:05,436 ERROR [stderr] (ServerService Thread Pool -- 82) 	at org.hibernate.loader.Loader.list(Loader.java:2271)
+[0m[31m11:20:05,436 ERROR [stderr] (ServerService Thread Pool -- 82) 	at org.hibernate.loader.criteria.CriteriaLoader.list(CriteriaLoader.java:119)
+[0m[31m11:20:05,436 ERROR [stderr] (ServerService Thread Pool -- 82) 	at org.hibernate.impl.SessionImpl.list(SessionImpl.java:1716)
+[0m[31m11:20:05,436 ERROR [stderr] (ServerService Thread Pool -- 82) 	at org.hibernate.impl.CriteriaImpl.list(CriteriaImpl.java:347)
+[0m[31m11:20:05,436 ERROR [stderr] (ServerService Thread Pool -- 82) 	at jmine.tec.persist.impl.dao.BaseDAO.paginateExecuteQuery(BaseDAO.java:1387)
+[0m[31m11:20:05,436 ERROR [stderr] (ServerService Thread Pool -- 82) 	at jmine.tec.persist.impl.dao.BaseDAO.paginateExecuteQuery(BaseDAO.java:1374)
+[0m[31m11:20:05,436 ERROR [stderr] (ServerService Thread Pool -- 82) 	at jmine.tec.persist.impl.dao.BaseDAO.executeQuery(BaseDAO.java:497)
+[0m[31m11:20:05,436 ERROR [stderr] (ServerService Thread Pool -- 82) 	... 58 more
+[0m[31m11:20:05,436 ERROR [stderr] (ServerService Thread Pool -- 82) Caused by: org.postgresql.util.PSQLException: ERROR: relation "odin.feeder_file" does not exist
+[0m[31m11:20:05,436 ERROR [stderr] (ServerService Thread Pool -- 82)   Position: 2686
+[0m[31m11:20:05,436 ERROR [stderr] (ServerService Thread Pool -- 82) 	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2674)
+[0m[31m11:20:05,436 ERROR [stderr] (ServerService Thread Pool -- 82) 	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2364)
+[0m[31m11:20:05,436 ERROR [stderr] (ServerService Thread Pool -- 82) 	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:354)
+[0m[31m11:20:05,437 ERROR [stderr] (ServerService Thread Pool -- 82) 	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:484)
+[0m[31m11:20:05,437 ERROR [stderr] (ServerService Thread Pool -- 82) 	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:404)
+[0m[31m11:20:05,437 ERROR [stderr] (ServerService Thread Pool -- 82) 	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:162)
+[0m[31m11:20:05,437 ERROR [stderr] (ServerService Thread Pool -- 82) 	at org.postgresql.jdbc.PgPreparedStatement.executeQuery(PgPreparedStatement.java:114)
+[0m[31m11:20:05,437 ERROR [stderr] (ServerService Thread Pool -- 82) 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[0m[31m11:20:05,437 ERROR [stderr] (ServerService Thread Pool -- 82) 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+[0m[31m11:20:05,437 ERROR [stderr] (ServerService Thread Pool -- 82) 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[0m[31m11:20:05,437 ERROR [stderr] (ServerService Thread Pool -- 82) 	at java.lang.reflect.Method.invoke(Method.java:498)
+[0m[31m11:20:05,437 ERROR [stderr] (ServerService Thread Pool -- 82) 	at org.postgresql.ds.PGPooledConnection$StatementHandler.invoke(PGPooledConnection.java:441)
+[0m[31m11:20:05,437 ERROR [stderr] (ServerService Thread Pool -- 82) 	at com.sun.proxy.$Proxy142.executeQuery(Unknown Source)
+[0m[31m11:20:05,437 ERROR [stderr] (ServerService Thread Pool -- 82) 	at org.jboss.jca.adapters.jdbc.WrappedPreparedStatement.executeQuery(WrappedPreparedStatement.java:504)
+[0m[31m11:20:05,437 ERROR [stderr] (ServerService Thread Pool -- 82) 	at org.hibernate.jdbc.AbstractBatcher.getResultSet(AbstractBatcher.java:208)
+[0m[31m11:20:05,437 ERROR [stderr] (ServerService Thread Pool -- 82) 	at org.hibernate.loader.Loader.getResultSet(Loader.java:1953)
+[0m[31m11:20:05,437 ERROR [stderr] (ServerService Thread Pool -- 82) 	at org.hibernate.loader.Loader.doQuery(Loader.java:802)
+[0m[31m11:20:05,437 ERROR [stderr] (ServerService Thread Pool -- 82) 	at org.hibernate.loader.Loader.doQueryAndInitializeNonLazyCollections(Loader.java:274)
+[0m[31m11:20:05,437 ERROR [stderr] (ServerService Thread Pool -- 82) 	at org.hibernate.loader.Loader.doList(Loader.java:2542)
+[0m[31m11:20:05,437 ERROR [stderr] (ServerService Thread Pool -- 82) 	... 66 more
+[0m[0m11:20:05,526 INFO  [org.quartz.impl.StdSchedulerFactory] (ServerService Thread Pool -- 82) Using default implementation for ThreadExecutor
+[0m[0m11:20:05,528 INFO  [org.quartz.core.SchedulerSignalerImpl] (ServerService Thread Pool -- 82) Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+[0m[0m11:20:05,528 INFO  [org.quartz.core.QuartzScheduler] (ServerService Thread Pool -- 82) Quartz Scheduler v.2.3.0 created.
+[0m[0m11:20:05,528 INFO  [org.quartz.simpl.RAMJobStore] (ServerService Thread Pool -- 82) RAMJobStore initialized.
+[0m[0m11:20:05,528 INFO  [org.quartz.core.QuartzScheduler] (ServerService Thread Pool -- 82) Scheduler meta-data: Quartz Scheduler (v2.3.0) 'masterNodeIdentificatorScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
 
-
-
-Variables
-_ENV.CERTIFICATE_NAME
-mapspegasusenquadramento
-_ENV.CERTIFICATE_PASSWORD
-#{CERTIFICATE_PASSWORD}#
-_ENV.DATABASE_HOST
-10.116.28.37
-_ENV.DATABASE_NAME
-cqldb001
-_ENV.DATABASE_PORT
-5204
-_ENV.DATABASE_SCHEMA
-enq
-_ENV.DATABASE_USERNAME
-scqlbt01
-_ENV.ENQUADRAMENTO_OAUTH2_ATIVO_CLIENT_SECRET
-enquadramentosecret
-_ENV.ENQUADRAMENTO_SYSTEM_SYSADMIN_ACTIVE
-false
-_ENV.HTTP_BASIC_INTEGRATION_USERNAME
-SCQLTB03
-_ENV.LDAP_ANONYMOUS_READ_ONLY
-true
-_ENV.LDAP_BIND_DN
-_ENV.LDAP_BIND_PASSWORD
-_ENV.LDAP_DOMAIN
-_ENV.LDAP_GROUP_BASE_DN
-cn=SICQL,ou=groups,o=caixa
-_ENV.LDAP_GROUP_FILTER
-"(&(objectClass=groupOfUniqueNames)(uniqueMember=uid={0},ou=people,o=caixa))"
-_ENV.LDAP_GROUP_NAME_ATTRIBUTE
-cn
-_ENV.LDAP_URL
-ldap://10.192.230.65:2489
-_ENV.LDAP_USER_BASE_DN
-"ou=people,o=caixa"
-_ENV.LDAP_USER_FILTER
-"(&(objectClass=inetOrgPerson)(objectClass=cefusuario)(uid={0}))"
-_ENV.MAPS_PEGASUS_ATIVO_URL
-http://sicql-sp.tqs.desenvolvimento.extracaixa/sicql/api/
-_ENV.MAPS_PEGASUS_PASSIVO_URL
-http://sicql-sp.tqs.desenvolvimento.extracaixa/sicqp/api/
-_ENV.REVERSE_PROXY_URL
-https://sicql-mapspegasusenquadramento-tqs.apps.nprd.caixa
-_ENV.SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_JWK-SET-URI
-http://localhost:8080/enquadramento/auth/certs
-_ENV.TLS_ENABLED
-false
-_SECRET.DATABASE_PASSWORD
-#{PASSWORD}#
-_SECRET.HTTP_BASIC_INTEGRATION_PASSWORD
-#{INTEGRATION_PASSWORD}#
-CERTIFICATE_PASSWORD
-INTEGRATION_PASSWORD
-********
-PASSWORD
-pwscqlbt01
-16.149 search results were found
-
-16.212 search results were found
-
-8.233 search results were found
-
-8.233 search results were found
-
-16.212 search results were found
-
-4 search results were found
-
-Row 5
-
-
-qual desses
+[0m[0m11:20:05,528 INFO  [org.quartz.impl.StdSchedulerFactory] (ServerService Thread Pool -- 82) Quartz scheduler 'masterNodeIdentificatorScheduler' initialized from an externally provided properties instance.
+[0m[0m11:20:05,528 INFO  [org.quartz.impl.StdSchedulerFactory] (ServerService Thread Pool -- 82) Quartz scheduler version: 2.3.0
+[0m[0m11:20:05,528 INFO  [org.quartz.core.QuartzScheduler] (ServerService Thread Pool -- 82) JobFactory set to: org.springframework.scheduling.quartz.AdaptableJobFactory@13afb25
+[0m[0m11:20:07,046 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) SELECT COUNT(*) FROM odin.databasechangelog
+[0m[0m11:20:07,127 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) SELECT COUNT(*) FROM odin.databasechangeloglock
+[0m[0m11:20:07,136 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE TABLE odin.databasechangeloglock (ID NUMERIC(10, 0) NOT NULL, LOCKED BOOLEAN NOT NULL, LOCKGRANTED TIMESTAMP WITHOUT TIME ZONE, LOCKEDBY VARCHAR(255), CONSTRAINT DATABASECHANGELOGLOCK_PKEY PRIMARY KEY (ID))
+[0m[0m11:20:07,224 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) SELECT COUNT(*) FROM odin.databasechangeloglock
+[0m[0m11:20:07,226 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) DELETE FROM odin.databasechangeloglock
+[0m[0m11:20:07,227 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangeloglock (ID, LOCKED) VALUES (1, FALSE)
+[0m[0m11:20:07,232 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) SELECT LOCKED FROM odin.databasechangeloglock WHERE ID=1
+[0m[0m11:20:07,240 INFO  [liquibase.lockservice.StandardLockService] (ServerService Thread Pool -- 82) Successfully acquired change log lock
+[0m[0m11:20:11,528 INFO  [liquibase.changelog.StandardChangeLogHistoryService] (ServerService Thread Pool -- 82) Creating database history table with name: odin.databasechangelog
+[0m[0m11:20:11,530 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE TABLE odin.databasechangelog (ID VARCHAR(255) NOT NULL, AUTHOR VARCHAR(255) NOT NULL, FILENAME VARCHAR(255) NOT NULL, DATEEXECUTED TIMESTAMP WITHOUT TIME ZONE NOT NULL, ORDEREXECUTED NUMERIC(10, 0) NOT NULL, EXECTYPE VARCHAR(10) NOT NULL, MD5SUM VARCHAR(35), DESCRIPTION VARCHAR(255), COMMENTS VARCHAR(255), TAG VARCHAR(255), LIQUIBASE VARCHAR(20), CONTEXTS VARCHAR(255), LABELS VARCHAR(255), DEPLOYMENT_ID VARCHAR(10))
+[0m[0m11:20:11,547 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) SELECT COUNT(*) FROM odin.databasechangelog
+[0m[0m11:20:11,626 INFO  [liquibase.changelog.StandardChangeLogHistoryService] (ServerService Thread Pool -- 82) Reading from odin.databasechangelog
+[0m[0m11:20:11,627 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) SELECT * FROM odin.databasechangelog ORDER BY DATEEXECUTED ASC, ORDEREXECUTED ASC
+[0m[0m11:20:11,629 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) SELECT COUNT(*) FROM odin.databasechangeloglock
+[0m[0m11:20:12,930 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE SEQUENCE odin.SEQ_JMSMSG START WITH 100000
+[0m[0m11:20:12,935 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Sequence SEQ_JMSMSG created
+[0m[0m11:20:12,938 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-0-1::lundberg (generated) ran successfully in 9ms
+[0m[0m11:20:12,938 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) SELECT MAX(ORDEREXECUTED) FROM odin.databasechangelog
+[0m[0m11:20:13,027 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-0-1', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 1, '8:176b4ede15b43d1093af77d24db7d6e8', 'createSequence sequenceName=SEQ_JMSMSG', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:13,032 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE SEQUENCE odin.SEQ_APLIC START WITH 100000
+[0m[0m11:20:13,034 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Sequence SEQ_APLIC created
+[0m[0m11:20:13,037 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-1::lundberg (generated) ran successfully in 6ms
+[0m[0m11:20:13,038 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-1', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 2, '8:be1dcc2dd1faa6beefe1960b968e6805', 'createSequence sequenceName=SEQ_APLIC', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:13,126 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE SEQUENCE odin.SEQ_AUDENT START WITH 100000
+[0m[0m11:20:13,129 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Sequence SEQ_AUDENT created
+[0m[0m11:20:13,131 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-2::lundberg (generated) ran successfully in 6ms
+[0m[0m11:20:13,133 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-2', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 3, '8:4ae7663686e704c999b3c895cb9f63e2', 'createSequence sequenceName=SEQ_AUDENT', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:13,136 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE SEQUENCE odin.SEQ_AUDPRO START WITH 100000
+[0m[0m11:20:13,137 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Sequence SEQ_AUDPRO created
+[0m[0m11:20:13,141 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-3::lundberg (generated) ran successfully in 5ms
+[0m[0m11:20:13,142 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-3', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 4, '8:e149dba936aa095ea45b8a446b278168', 'createSequence sequenceName=SEQ_AUDPRO', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:13,146 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE SEQUENCE odin.SEQ_AUDTYP START WITH 100000
+[0m[0m11:20:13,147 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Sequence SEQ_AUDTYP created
+[0m[0m11:20:13,149 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-4::lundberg (generated) ran successfully in 3ms
+[0m[0m11:20:13,150 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-4', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 5, '8:c1bfbb8d5f1ed05e19cf2c9f4833a496', 'createSequence sequenceName=SEQ_AUDTYP', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:13,154 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE SEQUENCE odin.SEQ_AUDVER START WITH 100000
+[0m[0m11:20:13,155 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Sequence SEQ_AUDVER created
+[0m[0m11:20:13,156 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-5::lundberg (generated) ran successfully in 2ms
+[0m[0m11:20:13,226 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-5', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 6, '8:0f00dafa313bf0d5a25bab9d8da847d5', 'createSequence sequenceName=SEQ_AUDVER', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:13,230 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE SEQUENCE odin.SEQ_AUTLOE START WITH 100000
+[0m[0m11:20:13,231 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Sequence SEQ_AUTLOE created
+[0m[0m11:20:13,234 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-6::lundberg (generated) ran successfully in 4ms
+[0m[0m11:20:13,235 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-6', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 7, '8:a4e68d4da51c8c521ef9e6c307314f96', 'createSequence sequenceName=SEQ_AUTLOE', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:13,238 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE SEQUENCE odin.SEQ_AUUPMP START WITH 100000
+[0m[0m11:20:13,241 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Sequence SEQ_AUUPMP created
+[0m[0m11:20:13,243 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-7::lundberg (generated) ran successfully in 5ms
+[0m[0m11:20:13,244 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-7', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 8, '8:357a726b587b3f0e02c5e0417cecf12c', 'createSequence sequenceName=SEQ_AUUPMP', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:13,247 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE SEQUENCE odin.SEQ_CLSNOD START WITH 100000
+[0m[0m11:20:13,248 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Sequence SEQ_CLSNOD created
+[0m[0m11:20:13,255 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-8::lundberg (generated) ran successfully in 8ms
+[0m[0m11:20:13,257 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-8', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 9, '8:a9b6f3a24b1eb48a566ad898f77dade0', 'createSequence sequenceName=SEQ_CLSNOD', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:13,260 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE SEQUENCE odin.SEQ_CREDEN START WITH 100000
+[0m[0m11:20:13,261 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Sequence SEQ_CREDEN created
+[0m[0m11:20:13,264 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-9::lundberg (generated) ran successfully in 4ms
+[0m[0m11:20:13,265 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-9', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 10, '8:45edbcdd9b33553f83ebe8ee0473e28e', 'createSequence sequenceName=SEQ_CREDEN', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:13,268 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE SEQUENCE odin.SEQ_CREENI START WITH 100000
+[0m[0m11:20:13,270 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Sequence SEQ_CREENI created
+[0m[0m11:20:13,274 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-10::lundberg (generated) ran successfully in 6ms
+[0m[0m11:20:13,276 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-10', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 11, '8:5189678ae65a36c25bdf11210392aabb', 'createSequence sequenceName=SEQ_CREENI', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:13,279 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE SEQUENCE odin.SEQ_DBCHRD START WITH 100000
+[0m[0m11:20:13,281 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Sequence SEQ_DBCHRD created
+[0m[0m11:20:13,283 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-11::lundberg (generated) ran successfully in 4ms
+[0m[0m11:20:13,325 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-11', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 12, '8:51c58e53c4d88dc98dba52281a55c5b8', 'createSequence sequenceName=SEQ_DBCHRD', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:13,330 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE SEQUENCE odin.SEQ_DBISSU START WITH 100000
+[0m[0m11:20:13,331 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Sequence SEQ_DBISSU created
+[0m[0m11:20:13,338 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-12::lundberg (generated) ran successfully in 8ms
+[0m[0m11:20:13,340 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-12', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 13, '8:14cc382c2d966a1e9ada40ba785cc8fc', 'createSequence sequenceName=SEQ_DBISSU', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:13,343 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE SEQUENCE odin.SEQ_DBVERS START WITH 100000
+[0m[0m11:20:13,347 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Sequence SEQ_DBVERS created
+[0m[0m11:20:13,349 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-13::lundberg (generated) ran successfully in 6ms
+[0m[0m11:20:13,350 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-13', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 14, '8:907b0e4c57dc0681a57aa89da02ab5cf', 'createSequence sequenceName=SEQ_DBVERS', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:13,431 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE SEQUENCE odin.SEQ_DIGLOC START WITH 100000
+[0m[0m11:20:13,432 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Sequence SEQ_DIGLOC created
+[0m[0m11:20:13,434 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-14::lundberg (generated) ran successfully in 4ms
+[0m[0m11:20:13,435 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-14', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 15, '8:23bf88b21a195a809b5b80531272e380', 'createSequence sequenceName=SEQ_DIGLOC', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:13,441 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE SEQUENCE odin.SEQ_DOWN_FILE START WITH 100000
+[0m[0m11:20:13,443 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Sequence SEQ_DOWN_FILE created
+[0m[0m11:20:13,450 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-15::lundberg (generated) ran successfully in 9ms
+[0m[0m11:20:13,451 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-15', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 16, '8:1b737a3b4933446cf9c7309892ab793e', 'createSequence sequenceName=SEQ_DOWN_FILE', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:13,454 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE SEQUENCE odin.SEQ_DRVPRO START WITH 100000
+[0m[0m11:20:13,455 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Sequence SEQ_DRVPRO created
+[0m[0m11:20:13,457 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-16::lundberg (generated) ran successfully in 3ms
+[0m[0m11:20:13,458 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-16', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 17, '8:841fd1b508e67d391646cba26c47ca48', 'createSequence sequenceName=SEQ_DRVPRO', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:13,465 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE SEQUENCE odin.SEQ_DT_PARAM START WITH 100000
+[0m[0m11:20:13,466 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Sequence SEQ_DT_PARAM created
+[0m[0m11:20:13,470 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-17::lundberg (generated) ran successfully in 5ms
+[0m[0m11:20:13,525 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-17', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 18, '8:827a97a626da1c06a16873dbacb0f310', 'createSequence sequenceName=SEQ_DT_PARAM', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:13,530 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE SEQUENCE odin.SEQ_EXCREC START WITH 100000
+[0m[0m11:20:13,531 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Sequence SEQ_EXCREC created
+[0m[0m11:20:13,533 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-18::lundberg (generated) ran successfully in 3ms
+[0m[0m11:20:13,535 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-18', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 19, '8:a559dd9f10003ad47adb138ecb76c8d9', 'createSequence sequenceName=SEQ_EXCREC', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:13,537 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE SEQUENCE odin.SEQ_EXEC START WITH 100000
+[0m[0m11:20:13,538 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Sequence SEQ_EXEC created
+[0m[0m11:20:13,543 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-19::lundberg (generated) ran successfully in 6ms
+[0m[0m11:20:13,544 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-19', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 20, '8:8fb6a92228abcb0e79702842b3a41721', 'createSequence sequenceName=SEQ_EXEC', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:13,551 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE SEQUENCE odin.SEQ_EXELOC START WITH 100000
+[0m[0m11:20:13,552 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Sequence SEQ_EXELOC created
+[0m[0m11:20:13,555 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-20::lundberg (generated) ran successfully in 4ms
+[0m[0m11:20:13,556 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-20', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 21, '8:be9f7dce4c0643da3c5c6721702b5d8f', 'createSequence sequenceName=SEQ_EXELOC', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:13,562 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE SEQUENCE odin.SEQ_EXELOG START WITH 100000
+[0m[0m11:20:13,563 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Sequence SEQ_EXELOG created
+[0m[0m11:20:13,566 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-21::lundberg (generated) ran successfully in 4ms
+[0m[0m11:20:13,567 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-21', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 22, '8:cb32ceef6836169b3ae535aa052cf798', 'createSequence sequenceName=SEQ_EXELOG', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:13,570 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE SEQUENCE odin.SEQ_EXELOI START WITH 100000
+[0m[0m11:20:13,572 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Sequence SEQ_EXELOI created
+[0m[0m11:20:13,574 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-22::lundberg (generated) ran successfully in 4ms
+[0m[0m11:20:13,575 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-22', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 23, '8:5b572f8c5410025a7396aff6c894fb91', 'createSequence sequenceName=SEQ_EXELOI', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:13,579 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE SEQUENCE odin.SEQ_FEEDER_FILE START WITH 100000
+[0m[0m11:20:13,580 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Sequence SEQ_FEEDER_FILE created
+[0m[0m11:20:13,587 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-23::lundberg (generated) ran successfully in 8ms
+[0m[0m11:20:13,588 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-23', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 24, '8:3830166c228e4672419d341ab27a636b', 'createSequence sequenceName=SEQ_FEEDER_FILE', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:13,592 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE SEQUENCE odin.SEQ_FETCH START WITH 100000
+[0m[0m11:20:13,593 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Sequence SEQ_FETCH created
+[0m[0m11:20:13,600 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-24::lundberg (generated) ran successfully in 8ms
+[0m[0m11:20:13,601 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-24', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 25, '8:0d56918f377c569be64ed63285b2fa41', 'createSequence sequenceName=SEQ_FETCH', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:13,605 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE SEQUENCE odin.SEQ_FILERG START WITH 100000
+[0m[0m11:20:13,606 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Sequence SEQ_FILERG created
+[0m[0m11:20:13,608 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-25::lundberg (generated) ran successfully in 4ms
+[0m[0m11:20:13,609 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-25', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 26, '8:be92102096f697c2f658a6524f7c55fc', 'createSequence sequenceName=SEQ_FILERG', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:13,612 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE SEQUENCE odin.SEQ_FILE_INFO START WITH 100000
+[0m[0m11:20:13,613 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Sequence SEQ_FILE_INFO created
+[0m[0m11:20:13,615 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-26::lundberg (generated) ran successfully in 3ms
+[0m[0m11:20:13,625 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-26', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 27, '8:2db5cdf7049b1a4d52eb9140ae1aebbe', 'createSequence sequenceName=SEQ_FILE_INFO', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:13,628 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE SEQUENCE odin.SEQ_JMOMSG START WITH 100000
+[0m[0m11:20:13,632 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Sequence SEQ_JMOMSG created
+[0m[0m11:20:13,634 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-27::lundberg (generated) ran successfully in 7ms
+[0m[0m11:20:13,635 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-27', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 28, '8:67718d35b8319dbd90897dc34881b465', 'createSequence sequenceName=SEQ_JMOMSG', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:13,641 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE SEQUENCE odin.SEQ_MTCRED START WITH 100000
+[0m[0m11:20:13,643 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Sequence SEQ_MTCRED created
+[0m[0m11:20:13,647 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-28::lundberg (generated) ran successfully in 6ms
+[0m[0m11:20:13,648 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-28', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 29, '8:4d03b3502d4139106d4e6be140312f23', 'createSequence sequenceName=SEQ_MTCRED', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:13,652 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE SEQUENCE odin.SEQ_PASPWD START WITH 100000
+[0m[0m11:20:13,653 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Sequence SEQ_PASPWD created
+[0m[0m11:20:13,657 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-29::lundberg (generated) ran successfully in 5ms
+[0m[0m11:20:13,658 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-29', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 30, '8:6b20de7b92c334a60805a6cde6868835', 'createSequence sequenceName=SEQ_PASPWD', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:13,664 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE SEQUENCE odin.SEQ_REQ_HEAD START WITH 100000
+[0m[0m11:20:13,665 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Sequence SEQ_REQ_HEAD created
+[0m[0m11:20:13,669 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-30::lundberg (generated) ran successfully in 5ms
+[0m[0m11:20:13,725 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-30', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 31, '8:9b9b43f7425f79a0ecad974032987f5b', 'createSequence sequenceName=SEQ_REQ_HEAD', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:13,729 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE SEQUENCE odin.SEQ_SCHED START WITH 100000
+[0m[0m11:20:13,731 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Sequence SEQ_SCHED created
+[0m[0m11:20:13,734 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-31::lundberg (generated) ran successfully in 5ms
+[0m[0m11:20:13,736 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-31', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 32, '8:6ec3e346b9bbb8c25030665cca7a4c02', 'createSequence sequenceName=SEQ_SCHED', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:13,738 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE SEQUENCE odin.SEQ_SECCLI START WITH 100000
+[0m[0m11:20:13,739 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Sequence SEQ_SECCLI created
+[0m[0m11:20:13,741 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-32::lundberg (generated) ran successfully in 3ms
+[0m[0m11:20:13,742 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-32', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 33, '8:55319413cfa9113a5a3a8af1ced701bf', 'createSequence sequenceName=SEQ_SECCLI', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:13,745 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE SEQUENCE odin.SEQ_SITE START WITH 100000
+[0m[0m11:20:13,746 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Sequence SEQ_SITE created
+[0m[0m11:20:13,749 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-33::lundberg (generated) ran successfully in 4ms
+[0m[0m11:20:13,750 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-33', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 34, '8:679ed02983b4fa04397123f440e4889a', 'createSequence sequenceName=SEQ_SITE', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:13,756 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE SEQUENCE odin.SEQ_SYSPAR START WITH 100000
+[0m[0m11:20:13,759 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Sequence SEQ_SYSPAR created
+[0m[0m11:20:13,762 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-34::lundberg (generated) ran successfully in 6ms
+[0m[0m11:20:13,763 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-34', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 35, '8:5b20b42a98d72cf6637eedac2be1c712', 'createSequence sequenceName=SEQ_SYSPAR', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:13,771 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE SEQUENCE odin.SEQ_SYSPGR START WITH 100000
+[0m[0m11:20:13,773 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Sequence SEQ_SYSPGR created
+[0m[0m11:20:13,777 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-35::lundberg (generated) ran successfully in 6ms
+[0m[0m11:20:13,825 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-35', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 36, '8:bacc6d3f45d9bf850b22508bcc7ff3ea', 'createSequence sequenceName=SEQ_SYSPGR', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:13,829 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE SEQUENCE odin.SEQ_UNVARE START WITH 100000
+[0m[0m11:20:13,833 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Sequence SEQ_UNVARE created
+[0m[0m11:20:13,836 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-36::lundberg (generated) ran successfully in 7ms
+[0m[0m11:20:13,838 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-36', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 37, '8:5f65a93a0900245e8b392afee56e98df', 'createSequence sequenceName=SEQ_UNVARE', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:13,846 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE SEQUENCE odin.SEQ_USACDT START WITH 100000
+[0m[0m11:20:13,847 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Sequence SEQ_USACDT created
+[0m[0m11:20:13,853 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-37::lundberg (generated) ran successfully in 8ms
+[0m[0m11:20:13,855 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-37', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 38, '8:e71638e24ccab65f02eae9145e9b8457', 'createSequence sequenceName=SEQ_USACDT', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:13,861 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE SEQUENCE odin.SEQ_USRGRO START WITH 100000
+[0m[0m11:20:13,862 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Sequence SEQ_USRGRO created
+[0m[0m11:20:13,867 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-38::lundberg (generated) ran successfully in 7ms
+[0m[0m11:20:13,869 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-38', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 39, '8:90d8f888a0639c7c8463691b8267df80', 'createSequence sequenceName=SEQ_USRGRO', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:13,872 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE SEQUENCE odin.SEQ_USRSYS START WITH 100000
+[0m[0m11:20:13,873 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Sequence SEQ_USRSYS created
+[0m[0m11:20:13,878 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-39::lundberg (generated) ran successfully in 6ms
+[0m[0m11:20:13,880 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-39', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 40, '8:0ed7f76728eaaf404f49045e3c76e494', 'createSequence sequenceName=SEQ_USRSYS', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:13,884 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE SEQUENCE odin.SEQ_WTCENT START WITH 100000
+[0m[0m11:20:13,889 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Sequence SEQ_WTCENT created
+[0m[0m11:20:13,892 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-40::lundberg (generated) ran successfully in 8ms
+[0m[0m11:20:13,894 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-40', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 41, '8:a368825e37e4c0119673e6eb08c1625e', 'createSequence sequenceName=SEQ_WTCENT', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:13,899 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE TABLE odin.APPLICATION (APPLIC_NAME VARCHAR(255) NOT NULL, AUTH BOOLEAN DEFAULT FALSE, COD_APLIC numeric(20, 0) NOT NULL, COD_AUT numeric(20, 0), CONNECTION_FACTORY VARCHAR(255), DT_AUT TIMESTAMP WITHOUT TIME ZONE, OPERACAO numeric(10, 0), SEND_QUEUE VARCHAR(255), URL VARCHAR(255), USU_AUT VARCHAR(255), VERSION numeric(20, 0) NOT NULL, CONSTRAINT PK_APLIC PRIMARY KEY (COD_APLIC))
+[0m[0m11:20:13,926 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON TABLE odin.APPLICATION IS 'A APLICACAO REPRESENTA UMA FILA EM QUE O ODIN ESTÁ CONFIGURADO PARA ENVIAR OS ARQUIVOS'
+[0m[0m11:20:13,933 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.APPLICATION.APPLIC_NAME IS 'NOME DA APLICACAO'
+[0m[0m11:20:13,934 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.APPLICATION.AUTH IS 'CAMPO QUE INDICA SE O REGISTRO ESTA EM AUTORIZACAO (1) OU NÃO (0).'
+[0m[0m11:20:13,941 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.APPLICATION.COD_APLIC IS 'CODIGO DA APLICACAO'
+[0m[0m11:20:13,941 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.APPLICATION.COD_AUT IS 'CODIGO ORIGINAL DO REGISTRO PENDENTE DE AUTORIZACAO. UTILIZADO EM CASO DE ALTERACAO OU EXCLUSAO DO REGISTRO.'
+[0m[0m11:20:13,942 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.APPLICATION.CONNECTION_FACTORY IS 'CONNECTION_FACTORY'
+[0m[0m11:20:13,943 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.APPLICATION.DT_AUT IS 'DATA EM QUE O REGISTRO FOI COLOCADO EM AUTORIZACAO.'
+[0m[0m11:20:13,943 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.APPLICATION.OPERACAO IS 'INDICA A OPERACAO QUE FOI COLOCADA EM AUTORIZACAO: INCLUSAO (0), ALTERACAO (1), EXCLUSAO (2), INCLUSAO NA BASE FRIA (3), ALTERACAO NA BASE FRIA (4), EXCLUSAO NA BASE FRIA (5), INCLUSAO COM ACAO (6), ALTERACAO COM ACAO (7), REJEICAO NA AUTORIZACAO (8).'
+[0m[0m11:20:13,944 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.APPLICATION.SEND_QUEUE IS 'NOME DA FILA'
+[0m[0m11:20:13,944 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.APPLICATION.URL IS 'ENDERECO DA CONNECTION FACTORY'
+[0m[0m11:20:13,945 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.APPLICATION.USU_AUT IS 'NOME DO USUARIO QUE COLOCOU O REGISTRO EM AUTORIZACAO.'
+[0m[0m11:20:13,946 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.APPLICATION.VERSION IS 'CAMPO PARA LOCK OTIMISTA.'
+[0m[0m11:20:13,946 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Table APPLICATION created
+[0m[0m11:20:13,952 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-41::lundberg (generated) ran successfully in 54ms
+[0m[0m11:20:13,954 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-41', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 42, '8:138c0f0c159bca825fae8191ac50664a', 'createTable tableName=APPLICATION', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:13,958 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE TABLE odin.ASSOC_USER_CREDENTIAL (COD_USER numeric(20, 0) NOT NULL, COD_CREDENTIAL numeric(20, 0) NOT NULL, CONSTRAINT PK_ASUSCR PRIMARY KEY (COD_USER, COD_CREDENTIAL))
+[0m[0m11:20:13,972 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON TABLE odin.ASSOC_USER_CREDENTIAL IS 'ARMAZENA A ASSOCIACAO ENTRE OS USUARIOS E AS CREDENCIAIS.'
+[0m[0m11:20:13,973 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.ASSOC_USER_CREDENTIAL.COD_USER IS 'CODIGO DO USUARIO.'
+[0m[0m11:20:13,974 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.ASSOC_USER_CREDENTIAL.COD_CREDENTIAL IS 'CODIGO DA CREDENCIAL'
+[0m[0m11:20:13,974 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Table ASSOC_USER_CREDENTIAL created
+[0m[0m11:20:13,976 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-42::lundberg (generated) ran successfully in 19ms
+[0m[0m11:20:13,978 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-42', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 43, '8:6b68c18209cb3e133f52d048fcbdfee3', 'createTable tableName=ASSOC_USER_CREDENTIAL', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:13,981 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE TABLE odin.ASSOC_USER_GROUP (COD_USER numeric(20, 0) NOT NULL, COD_USER_GROUP numeric(20, 0) NOT NULL, CONSTRAINT PK_ASUSGR PRIMARY KEY (COD_USER, COD_USER_GROUP))
+[0m[0m11:20:13,991 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON TABLE odin.ASSOC_USER_GROUP IS 'ARMAZENA A ASSOCIACAO ENTRE OS USUARIOS E SEUS GRUPOS.'
+[0m[0m11:20:13,992 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.ASSOC_USER_GROUP.COD_USER IS 'CODIGO DO USUARIO.'
+[0m[0m11:20:13,992 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.ASSOC_USER_GROUP.COD_USER_GROUP IS 'CODIGO DO GRUPO DE USUARIO.'
+[0m[0m11:20:13,993 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Table ASSOC_USER_GROUP created
+[0m[0m11:20:13,995 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-43::lundberg (generated) ran successfully in 14ms
+[0m[0m11:20:13,997 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-43', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 44, '8:c0fb9fad50c9d6961ca820ce4aef481e', 'createTable tableName=ASSOC_USER_GROUP', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:14,001 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE TABLE odin.ASSOC_USER_GROUP_CREDENTIAL (COD_USER_GROUP numeric(20, 0) NOT NULL, COD_CREDENTIAL numeric(20, 0) NOT NULL, CONSTRAINT PK_ASUSGC PRIMARY KEY (COD_USER_GROUP, COD_CREDENTIAL))
+[0m[0m11:20:14,009 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON TABLE odin.ASSOC_USER_GROUP_CREDENTIAL IS 'ARMAZENA A ASSOCIACAO ENTRE GRUPO DE USUARIOS E AS CREDENCIAIS.'
+[0m[0m11:20:14,010 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.ASSOC_USER_GROUP_CREDENTIAL.COD_USER_GROUP IS 'CODIGO DO GRUPO DE USUARIO.'
+[0m[0m11:20:14,010 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.ASSOC_USER_GROUP_CREDENTIAL.COD_CREDENTIAL IS 'CODIGO DA CREDENCIAL.'
+[0m[0m11:20:14,011 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Table ASSOC_USER_GROUP_CREDENTIAL created
+[0m[0m11:20:14,013 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-44::lundberg (generated) ran successfully in 12ms
+[0m[0m11:20:14,014 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-44', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 45, '8:2dac74e15b830ab5ffe6ce99ac2d5076', 'createTable tableName=ASSOC_USER_GROUP_CREDENTIAL', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:14,018 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE TABLE odin.AUDIT_ENTITY (CLASS VARCHAR(255) NOT NULL, COD_AUDIT_ENTITY numeric(20, 0) NOT NULL, COD_ENTITY numeric(20, 0) NOT NULL, NAME VARCHAR(255) NOT NULL, CONSTRAINT PK_AUDENT PRIMARY KEY (COD_AUDIT_ENTITY))
+[0m[0m11:20:14,043 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON TABLE odin.AUDIT_ENTITY IS 'ARMAZENA AS ENTIDADES DO PROCESSO DE AUDITORIA.'
+[0m[0m11:20:14,043 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.AUDIT_ENTITY.CLASS IS 'CLASSE JAVA DA ENTIDADE DO PROCESSO DE AUDITORIA.'
+[0m[0m11:20:14,044 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.AUDIT_ENTITY.COD_AUDIT_ENTITY IS 'CODIGO DO REGISTRO DE AUDITORIA DA ENTIDADE.'
+[0m[0m11:20:14,045 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.AUDIT_ENTITY.COD_ENTITY IS 'IDENTIFICADOR DA ENTIDADE (PK) DO PROCESSO DE AUDITORIA.'
+[0m[0m11:20:14,045 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.AUDIT_ENTITY.NAME IS 'NOME DA ENTIDADE DO PROCESSO DE AUDITORIA.'
+[0m[0m11:20:14,046 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Table AUDIT_ENTITY created
+[0m[0m11:20:14,050 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-45::lundberg (generated) ran successfully in 32ms
+[0m[0m11:20:14,051 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-45', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 46, '8:e20d4eabde984346a8d03769f07c7f48', 'createTable tableName=AUDIT_ENTITY', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:14,054 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE TABLE odin.AUDIT_PROPERTY (COD_AUDIT_PROPERTY numeric(20, 0) NOT NULL, COD_AUDIT_VERSION numeric(20, 0), NAME VARCHAR(255), NEW_VALUE VARCHAR(255), OLD_VALUE VARCHAR(255), TP_PROPERTY numeric(10, 0) NOT NULL, XPATH VARCHAR(255) NOT NULL, CONSTRAINT PK_AUDPRO PRIMARY KEY (COD_AUDIT_PROPERTY))
+[0m[0m11:20:14,072 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON TABLE odin.AUDIT_PROPERTY IS 'ARMAZENA AS PROPRIEDADES INCLUIDAS/MODIFICADAS DE CADA ENTIDADE NO PROCESSO DE AUDITORIA, PARA CADA VERSAO DA ENTIDADE.'
+[0m[0m11:20:14,073 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.AUDIT_PROPERTY.COD_AUDIT_PROPERTY IS 'CODIGO DA PROPRIEDADE AUDITADA.'
+[0m[0m11:20:14,074 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.AUDIT_PROPERTY.COD_AUDIT_VERSION IS 'CODIGO DA PROPRIEDADE AUDITADA.'
+[0m[0m11:20:14,074 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.AUDIT_PROPERTY.NAME IS 'NOME DA PROPRIEDADE AUDITADA.'
+[0m[0m11:20:14,075 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.AUDIT_PROPERTY.NEW_VALUE IS 'NOVO VALOR DA PROPRIEDADE.'
+[0m[0m11:20:14,075 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.AUDIT_PROPERTY.OLD_VALUE IS 'VALOR ANTIGO DA PROPRIEDADE.'
+[0m[0m11:20:14,076 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.AUDIT_PROPERTY.TP_PROPERTY IS 'TIPO DA PROPRIEDADE AUDITADA. (1) PROPRIEDADE COM VALOR NAO AUDITADO, (2) PROPRIEDADE COM VALOR AUDITADO.'
+[0m[0m11:20:14,077 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.AUDIT_PROPERTY.XPATH IS 'CAMINHO DA PROPRIEDADE AUDITADA.'
+[0m[0m11:20:14,077 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Table AUDIT_PROPERTY created
+[0m[0m11:20:14,080 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-46::lundberg (generated) ran successfully in 26ms
+[0m[0m11:20:14,081 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-46', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 47, '8:38125150067d8d7870a691517a6c3901', 'createTable tableName=AUDIT_PROPERTY', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:14,087 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE TABLE odin.AUDIT_TYPE (BUSINESS_NAME VARCHAR(255) NOT NULL, CLASS_NAME VARCHAR(255) NOT NULL, COD_AUDIT_TYPE numeric(20, 0) NOT NULL, CONSTRAINT PK_AUDTYP PRIMARY KEY (COD_AUDIT_TYPE))
+[0m[0m11:20:14,105 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON TABLE odin.AUDIT_TYPE IS 'ARMAZENA OS TIPOS AUDITAVEIS'
+[0m[0m11:20:14,105 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.AUDIT_TYPE.BUSINESS_NAME IS 'NOME DE NEGOCIO DO TIPO AUDITAVEL.'
+[0m[0m11:20:14,106 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.AUDIT_TYPE.CLASS_NAME IS 'NOME DA CLASSE DO TIPO AUDITAVEL.'
+[0m[0m11:20:14,107 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.AUDIT_TYPE.COD_AUDIT_TYPE IS 'CODIGO DO TIPO AUDITAVEL.'
+[0m[0m11:20:14,107 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Table AUDIT_TYPE created
+[0m[0m11:20:14,110 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-47::lundberg (generated) ran successfully in 23ms
+[0m[0m11:20:14,112 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-47', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 48, '8:e7abecde2acd390ab78015f4dcc52d46', 'createTable tableName=AUDIT_TYPE', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:14,118 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE TABLE odin.AUDIT_VERSION (ACTION numeric(1, 0), AUTHOR VARCHAR(255), COD_AUDIT_ENTITY numeric(20, 0), COD_AUDIT_TYPE numeric(20, 0), COD_AUDIT_VERSION numeric(20, 0) NOT NULL, COD_ENTITY numeric(20, 0), DIFF OID, SOURCE VARCHAR(255), STATUS VARCHAR(255), TIMESTAMP TIMESTAMP WITHOUT TIME ZONE, CONSTRAINT PK_AUDVER PRIMARY KEY (COD_AUDIT_VERSION))
+[0m[0m11:20:14,135 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON TABLE odin.AUDIT_VERSION IS 'Armazena as versoes da entidade no processo de auditoria, ou seja, quantas vezes uma entidade foi alterada.'
+[0m[0m11:20:14,135 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.AUDIT_VERSION.ACTION IS 'AÇÃO QUE GEROU A AUDITORIA. 0. INCLUSÃO; 1. ALTERAÇÃO; 2. EXCLUSÃO; 3. INCLUSÃO NA BASE FRIA;  4. ALTERAÇÃO NA BASE FRIA; 5. EXCLUSÃO DA BASE FRIA; 6. INCLUSÃO COM AÇÃO; 7. ALTERAÇÃO COM AÇÃO; 8. REJEIÇÃO DA AUTORIZAÇÃO.'
+[0m[0m11:20:14,136 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.AUDIT_VERSION.AUTHOR IS 'USUÁRIO AUTOR DA ALTERAÇÃO.'
+[0m[0m11:20:14,136 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.AUDIT_VERSION.COD_AUDIT_ENTITY IS 'CODIGO DA ENTIDADE DO PROCESSO DE AUDITORIA.'
+[0m[0m11:20:14,137 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.AUDIT_VERSION.COD_AUDIT_TYPE IS 'CODIGO DO TIPO AUDITAVEL.'
+[0m[0m11:20:14,137 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.AUDIT_VERSION.COD_AUDIT_VERSION IS 'CODIGO DA VERSÃO DA ENTIDADE AUDITADA.'
+[0m[0m11:20:14,138 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.AUDIT_VERSION.COD_ENTITY IS 'IDENTIFICADOR DA ENTIDADE AUDITADA.'
+[0m[0m11:20:14,138 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.AUDIT_VERSION.DIFF IS 'DIFF'
+[0m[0m11:20:14,139 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.AUDIT_VERSION.SOURCE IS 'ORIGEM DA ALTERAÇÃO QUE GEROU A AUDITORIA.'
+[0m[0m11:20:14,140 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.AUDIT_VERSION.STATUS IS 'MENSAGEM QUE INDICA O STATUS DA VERSÃO DA ENTIDADE AUDITADA.'
+[0m[0m11:20:14,140 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.AUDIT_VERSION.TIMESTAMP IS 'DATA/HORA DA ALTERAÇÃO DA ENTIDADE.'
+[0m[0m11:20:14,141 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Table AUDIT_VERSION created
+[0m[0m11:20:14,143 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-48::lundberg (generated) ran successfully in 26ms
+[0m[0m11:20:14,144 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-48', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 49, '8:01652bae4db48c1e639c0dc95aa472b7', 'createTable tableName=AUDIT_VERSION', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:14,147 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE TABLE odin.AUTHORIZABLE_LOOKUP_ENTRY (AUTHORIZABLE_ENTITY_ID numeric(20, 0) NOT NULL, AUTHORIZABLE_TYPE_NAME VARCHAR(255) NOT NULL, COD_AUTHORIZABLE_LOOKUP_ENTRY numeric(20, 0) NOT NULL, COMPONENT_NAME VARCHAR(255), DATA_AS_JSON TEXT NOT NULL, HOT_ENTITY_ID numeric(20, 0), OPERACAO numeric(10, 0), TS_CREATION TIMESTAMP WITHOUT TIME ZONE NOT NULL, USU_AUT VARCHAR(255), VERSION numeric(20, 0), CONSTRAINT PK_AUTLOE PRIMARY KEY (COD_AUTHORIZABLE_LOOKUP_ENTRY))
+[0m[0m11:20:14,165 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON TABLE odin.AUTHORIZABLE_LOOKUP_ENTRY IS 'ENTIDADES QUE ESTAO NA BASE FRIA AGUARDANDO AUTORIZACAO'
+[0m[0m11:20:14,166 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.AUTHORIZABLE_LOOKUP_ENTRY.AUTHORIZABLE_ENTITY_ID IS 'ID DO OBJETO AUTORIZAVEL.'
+[0m[0m11:20:14,167 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.AUTHORIZABLE_LOOKUP_ENTRY.AUTHORIZABLE_TYPE_NAME IS 'CLASSE DO OBJETO AUTORIZAVEL.'
+[0m[0m11:20:14,167 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.AUTHORIZABLE_LOOKUP_ENTRY.COD_AUTHORIZABLE_LOOKUP_ENTRY IS 'CODIGO DA ENTRADA NA TABELA DE LOOKUP.'
+[0m[0m11:20:14,168 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.AUTHORIZABLE_LOOKUP_ENTRY.COMPONENT_NAME IS 'NOME DO COMPONENTE QUE DEU ORIGEM AO PEDIDO DE AUTORIZACAO'
+[0m[0m11:20:14,168 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.AUTHORIZABLE_LOOKUP_ENTRY.DATA_AS_JSON IS 'DADOS A SEREM AUTORIZADOS SERIALIZADOS EM JSON.'
+[0m[0m11:20:14,169 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.AUTHORIZABLE_LOOKUP_ENTRY.HOT_ENTITY_ID IS 'ID DO OBJETO QUENTE A SER ATUALIZADO OU REMOVIDO.'
+[0m[0m11:20:14,170 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.AUTHORIZABLE_LOOKUP_ENTRY.OPERACAO IS 'INDICA A OPERACAO QUE FOI COLOCADA EM AUTORIZACAO: INCLUSAO (0), ALTERACAO (1), EXCLUSAO (2), INCLUSAO NA BASE FRIA (3), ALTERACAO NA BASE FRIA (4), EXCLUSAO NA BASE FRIA (5), INCLUSAO COM ACAO (6), ALTERACAO COM ACAO (7), REJEICAO NA AUTORIZACAO (8).'
+[0m[0m11:20:14,170 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.AUTHORIZABLE_LOOKUP_ENTRY.TS_CREATION IS 'DATA DE CRIACAO DE LINHA NO BANCO DE DADOS'
+[0m[0m11:20:14,171 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.AUTHORIZABLE_LOOKUP_ENTRY.USU_AUT IS 'NOME DO USUARIO QUE COLOCOU O REGISTRO EM AUTORIZACAO.'
+[0m[0m11:20:14,171 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.AUTHORIZABLE_LOOKUP_ENTRY.VERSION IS 'CAMPO PARA LOCK OTIMISTA.'
+[0m[0m11:20:14,171 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Table AUTHORIZABLE_LOOKUP_ENTRY created
+[0m[0m11:20:14,173 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-49::lundberg (generated) ran successfully in 26ms
+[0m[0m11:20:14,175 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-49', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 50, '8:102cde9466ea79accbaaf3a36f275eea', 'createTable tableName=AUTHORIZABLE_LOOKUP_ENTRY', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:14,177 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE TABLE odin.AUTH_UPDATE_MAPPING (AUTHORIZABLE_TYPE_NAME VARCHAR(255) NOT NULL, COD_AUTHORIZABLE_LOOKUP_ENTRY numeric(20, 0) NOT NULL, COD_AUTH_UPDATE_MAPPING numeric(20, 0) NOT NULL, COLD_ENTITY_ID numeric(20, 0) NOT NULL, HOT_ENTITY_ID numeric(20, 0) NOT NULL, CONSTRAINT PK_AUUPMP PRIMARY KEY (COD_AUTH_UPDATE_MAPPING))
+[0m[0m11:20:14,187 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON TABLE odin.AUTH_UPDATE_MAPPING IS 'MAPEAMENTO ENTRE ENTIDADES NA BASE QUENTE E SEUS REGISTROS FRIOS PARA ATUALIZACAO'
+[0m[0m11:20:14,188 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.AUTH_UPDATE_MAPPING.AUTHORIZABLE_TYPE_NAME IS 'NOME DO TIPO AUTORIZAVEL'
+[0m[0m11:20:14,225 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.AUTH_UPDATE_MAPPING.COD_AUTHORIZABLE_LOOKUP_ENTRY IS 'CODIGO DA ENTRADA DE AUTORIZACAO RAIZ'
+[0m[0m11:20:14,226 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.AUTH_UPDATE_MAPPING.COD_AUTH_UPDATE_MAPPING IS 'CODIGO DA ENTRADA NA TABELA DE LOOKUP EM CASCADE.'
+[0m[0m11:20:14,227 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.AUTH_UPDATE_MAPPING.COLD_ENTITY_ID IS 'CODIGO DA ENTIDADE FRIA A QUE ESTE REGISTRO SE REFERE'
+[0m[0m11:20:14,227 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.AUTH_UPDATE_MAPPING.HOT_ENTITY_ID IS 'CODIGO DA ENTIDADE QUENTE A QUE ESTE REGISTRO SE REFERE'
+[0m[0m11:20:14,228 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Table AUTH_UPDATE_MAPPING created
+[0m[0m11:20:14,231 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-50::lundberg (generated) ran successfully in 54ms
+[0m[0m11:20:14,232 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-50', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 51, '8:a20eedfdabda42356e0196eb9bbcb432', 'createTable tableName=AUTH_UPDATE_MAPPING', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:14,236 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE TABLE odin.BCB_INFO (BCB_WS_INFO numeric(20, 0) NOT NULL, IDENTIFIER numeric(10, 0) NOT NULL, CONSTRAINT PK_BCBINF PRIMARY KEY (BCB_WS_INFO))
+[0m[0m11:20:14,247 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON TABLE odin.BCB_INFO IS 'DEFINICAO DE DOWNLOAD VIA WEBSERVICE DO BANCO CENTRAL'
+[0m[0m11:20:14,248 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.BCB_INFO.BCB_WS_INFO IS 'CÓDIGO DA DEFINIÇÃO DE ARQUIVO'
+[0m[0m11:20:14,249 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.BCB_INFO.IDENTIFIER IS 'IDENTIFICADOR DO DOWNLOAD'
+[0m[0m11:20:14,249 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Table BCB_INFO created
+[0m[0m11:20:14,251 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-51::lundberg (generated) ran successfully in 15ms
+[0m[0m11:20:14,252 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-51', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 52, '8:f8e69dd7c6c40198a8dee19ec12c2fb2', 'createTable tableName=BCB_INFO', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:14,254 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE TABLE odin.CHAIN_INFO (COD_FETCH_INFO numeric(20, 0) NOT NULL, CONSTRAINT PK_CHAINF PRIMARY KEY (COD_FETCH_INFO))
+[0m[0m11:20:14,261 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON TABLE odin.CHAIN_INFO IS 'DEFINICAO DE DOWNLOAD UTILIZANDO INFOS EM SEQUENCIA'
+[0m[0m11:20:14,262 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.CHAIN_INFO.COD_FETCH_INFO IS 'CÓDIGO DA DEFINIÇÃO DE ARQUIVO'
+[0m[0m11:20:14,262 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Table CHAIN_INFO created
+[0m[0m11:20:14,268 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-52::lundberg (generated) ran successfully in 14ms
+[0m[0m11:20:14,270 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-52', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 53, '8:38bf499aeef3e0bb9d8aa5596424530f', 'createTable tableName=CHAIN_INFO', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:14,274 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE TABLE odin.CHAIN_INFO_FECTH_INFO (COD_CHAIN_INFO numeric(20, 0) NOT NULL, COD_FETCH_INFO numeric(20, 0) NOT NULL, POSITION numeric(10, 0) NOT NULL, CONSTRAINT PK_CH_FTC PRIMARY KEY (COD_CHAIN_INFO, POSITION))
+[0m[0m11:20:14,282 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON TABLE odin.CHAIN_INFO_FECTH_INFO IS 'ARMAZENA AS INFORMAÇÕES DA CADEIA DE DOWNLOAD'
+[0m[0m11:20:14,282 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.CHAIN_INFO_FECTH_INFO.COD_CHAIN_INFO IS 'DEFINICOES PARA DOWNLOAD RODAM ORDENADOS PELA COLUNA POSITION'
+[0m[0m11:20:14,283 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.CHAIN_INFO_FECTH_INFO.COD_FETCH_INFO IS 'CODIGO DO FETCH INFO'
+[0m[0m11:20:14,283 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.CHAIN_INFO_FECTH_INFO.POSITION IS 'DETERMINA A ORDEM DO REGISTRO'
+[0m[0m11:20:14,284 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Table CHAIN_INFO_FECTH_INFO created
+[0m[0m11:20:14,286 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-53::lundberg (generated) ran successfully in 13ms
+[0m[0m11:20:14,287 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-53', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 54, '8:a3caf60a2252cc063ac05dee59772455', 'createTable tableName=CHAIN_INFO_FECTH_INFO', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:14,291 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE TABLE odin.CHAIN_INFO_REGEXES (COD_CHAIN_INFO numeric(20, 0) NOT NULL, POSITION numeric(10, 0) NOT NULL, REGEX VARCHAR(255), CONSTRAINT PK_CHAREG PRIMARY KEY (COD_CHAIN_INFO, POSITION))
+[0m[0m11:20:14,306 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON TABLE odin.CHAIN_INFO_REGEXES IS 'ASSOCIAÇÃO ENTRE AS CADEIAS DE DOWNLOAD E AS EXPRESSÕES REGULARES'
+[0m[0m11:20:14,307 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.CHAIN_INFO_REGEXES.COD_CHAIN_INFO IS 'EXPRESSOES REGULARES DE VALIDACAO DE CADA DOWNLOAD'
+[0m[0m11:20:14,307 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.CHAIN_INFO_REGEXES.POSITION IS 'DETERMINA A ORDEM DO REGISTRO'
+[0m[0m11:20:14,308 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.CHAIN_INFO_REGEXES.REGEX IS 'EXPRESSÃO REGULAR'
+[0m[0m11:20:14,308 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Table CHAIN_INFO_REGEXES created
+[0m[0m11:20:14,313 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-54::lundberg (generated) ran successfully in 22ms
+[0m[0m11:20:14,314 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-54', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 55, '8:9314fc79959c1f1df9c35d781d8d5056', 'createTable tableName=CHAIN_INFO_REGEXES', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:14,319 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE TABLE odin.CLUSTER_NODE (COD_CLUSTER_NODE numeric(20, 0) NOT NULL, HEART_BEATS numeric(20, 0) NOT NULL, HOSTNAME VARCHAR(255) NOT NULL, CONSTRAINT PK_CLSNOD PRIMARY KEY (COD_CLUSTER_NODE))
+[0m[0m11:20:14,329 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON TABLE odin.CLUSTER_NODE IS 'TABELA QUE CONTEM OS NOS DE UM CLUSTER'
+[0m[0m11:20:14,330 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.CLUSTER_NODE.COD_CLUSTER_NODE IS 'CODIGO DO CLUSTER NODE'
+[0m[0m11:20:14,330 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.CLUSTER_NODE.HEART_BEATS IS 'CONTADOR DE NUMERO DE HEART BEATS'
+[0m[0m11:20:14,331 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.CLUSTER_NODE.HOSTNAME IS 'HOSTNAME DO NO'
+[0m[0m11:20:14,331 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Table CLUSTER_NODE created
+[0m[0m11:20:14,333 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-55::lundberg (generated) ran successfully in 14ms
+[0m[0m11:20:14,334 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-55', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 56, '8:66ae4a4a8567f0d8ee6e80df75817b2c', 'createTable tableName=CLUSTER_NODE', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:14,338 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE TABLE odin.CREDENTIAL (ACTION VARCHAR(255), AUTH BOOLEAN DEFAULT FALSE, AUTHORIZABLE VARCHAR(255), CHINESE_WALL_DESCR VARCHAR(256), COD_AUT numeric(20, 0), COD_CREDENTIAL numeric(20, 0) NOT NULL, COD_META_CREDENTIAL numeric(20, 0), COD_SEC_CLIENT numeric(20, 0), DT_AUT TIMESTAMP WITHOUT TIME ZONE, ENTITY_NAME VARCHAR(255), FULL_ACCESS BOOLEAN, MNE VARCHAR(45) NOT NULL, OPERACAO numeric(10, 0), SCREEN_NAME VARCHAR(255), TASK_DESCR VARCHAR(255), TASK_NAME VARCHAR(255), TENANT_ID numeric(20, 0), TYPE_CREDENTIAL numeric(10, 0) NOT NULL, URL VARCHAR(200), USU_AUT VARCHAR(255), VERSION numeric(20, 0) NOT NULL, CONSTRAINT PK_CREDEN PRIMARY KEY (COD_CREDENTIAL))
+[0m[0m11:20:14,355 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON TABLE odin.CREDENTIAL IS 'ARMAZENA AS CREDENCIAIS QUE DAO AO USUARIO/GRUPO ACESSO AO SISTEMA. UMA CREDENCIAL PODE SER UMA URL, UM METODO DE UM BEAN (ACTION),UMA TAREFA (TASK) OU UMA ENTIDADE UTILIZADA PARA CHINESE WALL, POR EXEMPLO, CARTEIRA.'
+[0m[0m11:20:14,356 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.CREDENTIAL.ACTION IS 'NOME DA ACAO QUE A CREDENCIAL DE ACTION REPRESENTA.'
+[0m[0m11:20:14,357 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.CREDENTIAL.AUTH IS 'CAMPO QUE INDICA SE O REGISTRO ESTA EM AUTORIZACAO (1) OU NÃO (0).'
+[0m[0m11:20:14,357 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.CREDENTIAL.AUTHORIZABLE IS 'NOME DO AUTHORIZABLE QUE A CREDENCIAL REPRESENTA.'
+[0m[0m11:20:14,358 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.CREDENTIAL.CHINESE_WALL_DESCR IS 'DESCRICAO DA PERMISSAO PARA A CREDENCIAL DE CHINESE WALL.'
+[0m[0m11:20:14,358 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.CREDENTIAL.COD_AUT IS 'CODIGO ORIGINAL DO REGISTRO PENDENTE DE AUTORIZACAO. UTILIZADO EM CASO DE ALTERACAO OU EXCLUSAO DO REGISTRO.'
+[0m[0m11:20:14,359 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.CREDENTIAL.COD_CREDENTIAL IS 'CODIGO DA CREDENCIAL.'
+[0m[0m11:20:14,359 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.CREDENTIAL.COD_META_CREDENTIAL IS 'CODIGO DA META CREDENCIAL'
+[0m[0m11:20:14,360 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.CREDENTIAL.COD_SEC_CLIENT IS 'IDENTIFICADOR DO SISTEMA CLIENTE DA SEGURANCA.'
+[0m[0m11:20:14,360 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.CREDENTIAL.DT_AUT IS 'DATA EM QUE O REGISTRO FOI COLOCADO EM AUTORIZACAO.'
+[0m[0m11:20:14,361 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.CREDENTIAL.ENTITY_NAME IS 'NOME DA ENTIDADE A QUAL SERA ATRIBUIDA PERMISSAO DE ACESSO (CHINESE WALL).'
+[0m[0m11:20:14,361 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.CREDENTIAL.FULL_ACCESS IS 'INDICA SE A CREDENCIAL POSSUI ACESSO TOTAL AO SISTEMA (1) OU NAO (0).'
+[0m[0m11:20:14,362 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.CREDENTIAL.MNE IS 'MNEMONICO DA CREDENCIAL'
+[0m[0m11:20:14,362 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.CREDENTIAL.OPERACAO IS 'INDICA A OPERACAO QUE FOI COLOCADA EM AUTORIZACAO: INCLUSAO (0), ALTERACAO (1), EXCLUSAO (2), INCLUSAO NA BASE FRIA (3), ALTERACAO NA BASE FRIA (4), EXCLUSAO NA BASE FRIA (5), INCLUSAO COM ACAO (6), ALTERACAO COM ACAO (7), REJEICAO NA AUTORIZACAO (8).'
+[0m[0m11:20:14,362 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.CREDENTIAL.SCREEN_NAME IS 'O NOME DA TELA OU DA PAGINA WEB ASSOCIADA A UMA CREDENCIAL URL.'
+[0m[0m11:20:14,363 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.CREDENTIAL.TASK_DESCR IS 'DESCRICAO DA TAREFA PARA A CREDENCIAL DE TASK.'
+[0m[0m11:20:14,363 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.CREDENTIAL.TASK_NAME IS 'NOME DA TAREFA PARA A CREDENCIAL DE TASK.'
+[0m[0m11:20:14,364 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.CREDENTIAL.TENANT_ID IS 'CODIGO DO TENANT PERMITIDO PARA A CREDENCIAL.'
+[0m[0m11:20:14,364 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.CREDENTIAL.TYPE_CREDENTIAL IS 'IDENTIFICA O TIPO DA CREDENCIAL. (1) URL, (2) CHINESE WALL, (3) TASK, (4) ACTION, (5) AUTORIZACAO, (6) TENANT.'
+[0m[0m11:20:14,365 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.CREDENTIAL.URL IS 'DESCRICAO DA URL QUE ATRIBUI PERMISSAO DE ACESSO VIA MENU NO SISTEMA.'
+[0m[0m11:20:14,365 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.CREDENTIAL.USU_AUT IS 'NOME DO USUARIO QUE COLOCOU O REGISTRO EM AUTORIZACAO.'
+[0m[0m11:20:14,366 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.CREDENTIAL.VERSION IS 'CAMPO PARA LOCK OTIMISTA.'
+[0m[0m11:20:14,366 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Table CREDENTIAL created
+[0m[0m11:20:14,369 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-56::lundberg (generated) ran successfully in 32ms
+[0m[0m11:20:14,370 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-56', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 57, '8:5c3cc39ed996e9ac53bfcd82039a9c20', 'createTable tableName=CREDENTIAL', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:14,378 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE TABLE odin.CREDENTIAL_ENTITY_ID (AUTH BOOLEAN DEFAULT FALSE, COD_AUT numeric(20, 0), COD_CREDENTIAL numeric(20, 0), COD_CRED_ENTITY numeric(20, 0) NOT NULL, COD_ENTITY numeric(20, 0) NOT NULL, DT_AUT TIMESTAMP WITHOUT TIME ZONE, OPERACAO numeric(10, 0), USU_AUT VARCHAR(255), VERSION numeric(20, 0) NOT NULL, CONSTRAINT PK_CREENI PRIMARY KEY (COD_CRED_ENTITY))
+[0m[0m11:20:14,385 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON TABLE odin.CREDENTIAL_ENTITY_ID IS 'ARMAZENA OS IDS DAS CREDENCIAIS UTILIZADAS NO CHINESE WALL.'
+[0m[0m11:20:14,386 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.CREDENTIAL_ENTITY_ID.AUTH IS 'CAMPO QUE INDICA SE O REGISTRO ESTA EM AUTORIZACAO (1) OU NÃO (0).'
+[0m[0m11:20:14,386 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.CREDENTIAL_ENTITY_ID.COD_AUT IS 'CODIGO ORIGINAL DO REGISTRO PENDENTE DE AUTORIZACAO. UTILIZADO EM CASO DE ALTERACAO OU EXCLUSAO DO REGISTRO.'
+[0m[0m11:20:14,387 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.CREDENTIAL_ENTITY_ID.COD_CREDENTIAL IS 'CODIGO DA CREDENCIAL.'
+[0m[0m11:20:14,387 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.CREDENTIAL_ENTITY_ID.COD_CRED_ENTITY IS 'CODIGO DA CREDENCIAL DA. ENTIDADE'
+[0m[0m11:20:14,388 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.CREDENTIAL_ENTITY_ID.COD_ENTITY IS 'CODIGO DA ENTIDADE PERMITIDOS PARA A CREDENCIAL.'
+[0m[0m11:20:14,388 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.CREDENTIAL_ENTITY_ID.DT_AUT IS 'DATA EM QUE O REGISTRO FOI COLOCADO EM AUTORIZACAO.'
+[0m[0m11:20:14,389 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.CREDENTIAL_ENTITY_ID.OPERACAO IS 'INDICA A OPERACAO QUE FOI COLOCADA EM AUTORIZACAO: INCLUSAO (0), ALTERACAO (1), EXCLUSAO (2), INCLUSAO NA BASE FRIA (3), ALTERACAO NA BASE FRIA (4), EXCLUSAO NA BASE FRIA (5), INCLUSAO COM ACAO (6), ALTERACAO COM ACAO (7), REJEICAO NA AUTORIZACAO (8).'
+[0m[0m11:20:14,390 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.CREDENTIAL_ENTITY_ID.USU_AUT IS 'NOME DO USUARIO QUE COLOCOU O REGISTRO EM AUTORIZACAO.'
+[0m[0m11:20:14,390 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.CREDENTIAL_ENTITY_ID.VERSION IS 'CAMPO PARA LOCK OTIMISTA.'
+[0m[0m11:20:14,391 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Table CREDENTIAL_ENTITY_ID created
+[0m[0m11:20:14,395 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-57::lundberg (generated) ran successfully in 17ms
+[0m[0m11:20:14,396 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-57', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 58, '8:5e680cbd5e2589e8104f6063cb207cab', 'createTable tableName=CREDENTIAL_ENTITY_ID', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:14,401 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE TABLE odin.CVM_WS_INFO (CVM_WS_INFO numeric(20, 0) NOT NULL, DELIVERY BOOLEAN, CONSTRAINT PK_CVMINF PRIMARY KEY (CVM_WS_INFO))
+[0m[0m11:20:14,413 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON TABLE odin.CVM_WS_INFO IS 'DEFINICAO DE DOWNLOAD PELO WEBSERVICE DA CVM'
+[0m[0m11:20:14,414 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.CVM_WS_INFO.CVM_WS_INFO IS 'CÓDIGO DA DEFINIÇÃO DE ARQUIVO'
+[0m[0m11:20:14,415 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.CVM_WS_INFO.DELIVERY IS 'BOOLEANO QUE DEFINE SE O ARQUIVO E DE ENTREGA (TRUE) OU DE COMPETENCIA (FALSE) (0) FALSO, (1) VERDADEIRO.'
+[0m[0m11:20:14,415 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Table CVM_WS_INFO created
+[0m[0m11:20:14,417 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-58::lundberg (generated) ran successfully in 16ms
+[0m[0m11:20:14,418 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-58', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 59, '8:f06a536707352964447bf4e45fff5e00', 'createTable tableName=CVM_WS_INFO', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:14,421 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE TABLE odin.DATABASE_CHANGE_RECORD (CHANGE_DESCRIPTION VARCHAR(255) NOT NULL, CHANGE_TIMESTAMP TIMESTAMP WITHOUT TIME ZONE NOT NULL, COD_DB_CHANGE_RECORD numeric(20, 0) NOT NULL, CONSTRAINT PK_DBCHRD PRIMARY KEY (COD_DB_CHANGE_RECORD))
+[0m[0m11:20:14,430 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON TABLE odin.DATABASE_CHANGE_RECORD IS 'REGISTROS DE ALTERAÇÕES FEITAS NO BANCO DE DADOS.'
+[0m[0m11:20:14,431 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.DATABASE_CHANGE_RECORD.CHANGE_DESCRIPTION IS 'DESCRIÇÃO DA ALTERAÇÃO NO BANCO DE DADOS.'
+[0m[0m11:20:14,432 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.DATABASE_CHANGE_RECORD.CHANGE_TIMESTAMP IS 'DATA/HORA DA ALTERAÇÃO DO BANCO DE DADOS.'
+[0m[0m11:20:14,432 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.DATABASE_CHANGE_RECORD.COD_DB_CHANGE_RECORD IS 'CÓDIGO SEQUENCIAL DO REGISTRO DE ALTERAÇÃO.'
+[0m[0m11:20:14,433 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Table DATABASE_CHANGE_RECORD created
+[0m[0m11:20:14,437 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-59::lundberg (generated) ran successfully in 16ms
+[0m[0m11:20:14,438 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-59', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 60, '8:d74a312788a05711d9d2b1df76a0f98d', 'createTable tableName=DATABASE_CHANGE_RECORD', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:14,443 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE TABLE odin.DATABASE_INFO (COD_FETCH_INFO numeric(20, 0) NOT NULL, COLUMN_SEPARATOR CHAR(1), DB_NAME VARCHAR(255), DB_TYPE numeric(10, 0), HOST VARCHAR(255), LINE_SEPARATOR CHAR(1), PORT numeric(10, 0), QUERY VARCHAR(255), CONSTRAINT PK_DBINF PRIMARY KEY (COD_FETCH_INFO))
+[0m[0m11:20:14,459 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON TABLE odin.DATABASE_INFO IS 'DEFINE GERACAO DE ARQUIVO A PARTIR DE UM BANCO DE DADOS'
+[0m[0m11:20:14,460 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.DATABASE_INFO.COD_FETCH_INFO IS 'CÓDIGO DA DEFINIÇÃO DE ARQUIVO'
+[0m[0m11:20:14,461 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.DATABASE_INFO.COLUMN_SEPARATOR IS 'SEPARADOR DE COLUNAS QUE SERA UTILIZADO PARA A GERACAO DO ARQUIVO'
+[0m[0m11:20:14,461 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.DATABASE_INFO.DB_NAME IS 'NOME DO BANCO DE DADOS'
+[0m[0m11:20:14,462 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.DATABASE_INFO.DB_TYPE IS 'TIPO DO BD. 0-MYSQL, 1-ORACLE, 2-MSSQL'
+[0m[0m11:20:14,462 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.DATABASE_INFO.HOST IS 'HOST DO BANCO'
+[0m[0m11:20:14,463 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.DATABASE_INFO.LINE_SEPARATOR IS 'SEPARADOR DE LINHAS QUE SERA UTILIZADO PARA GERACAO DO ARQUIVO'
+[0m[0m11:20:14,463 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.DATABASE_INFO.PORT IS 'PORTA'
+[0m[0m11:20:14,464 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.DATABASE_INFO.QUERY IS 'QUERY A SER EXECUTADA'
+[0m[0m11:20:14,464 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Table DATABASE_INFO created
+[0m[0m11:20:14,467 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-60::lundberg (generated) ran successfully in 25ms
+[0m[0m11:20:14,468 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-60', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 61, '8:cbb0d33b749052551ed225aaf746a313', 'createTable tableName=DATABASE_INFO', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:14,473 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE TABLE odin.DATABASE_ISSUES (ALTER_HASH VARCHAR(255) NOT NULL, COD_DATABASE_ISSUE numeric(20, 0) NOT NULL, CREATED TIMESTAMP WITHOUT TIME ZONE NOT NULL, ISSUE_CODE VARCHAR(255) NOT NULL, CONSTRAINT PK_DBISSU PRIMARY KEY (COD_DATABASE_ISSUE))
+[0m[0m11:20:14,496 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON TABLE odin.DATABASE_ISSUES IS 'ARMAZENA AS TAREFAS INSERIDAS NA BASE DE DADOS'
+[0m[0m11:20:14,497 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.DATABASE_ISSUES.ALTER_HASH IS 'HASH DO ALTER PARA GARANTIR INTEGRIDADE'
+[0m[0m11:20:14,497 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.DATABASE_ISSUES.COD_DATABASE_ISSUE IS 'ID UNICO DA ISSUE APLICADA'
+[0m[0m11:20:14,498 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.DATABASE_ISSUES.CREATED IS 'DATA/HORA DA APLICACAO'
+[0m[0m11:20:14,498 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.DATABASE_ISSUES.ISSUE_CODE IS 'CODIGO DA ISSUE APLICADA'
+[0m[0m11:20:14,499 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Table DATABASE_ISSUES created
+[0m[0m11:20:14,502 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-61::lundberg (generated) ran successfully in 29ms
+[0m[0m11:20:14,503 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-61', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 62, '8:7e4d6021812c139190d74c15723661ac', 'createTable tableName=DATABASE_ISSUES', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:14,509 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE TABLE odin.DATABASE_VERSION (COD_DATABASE_VERSION numeric(20, 0) NOT NULL, CREATED TIMESTAMP WITHOUT TIME ZONE NOT NULL, NAME VARCHAR(255) NOT NULL, CONSTRAINT PK_DBVERS PRIMARY KEY (COD_DATABASE_VERSION))
+[0m[0m11:20:14,514 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON TABLE odin.DATABASE_VERSION IS 'ARMAZENA A VERSAO ATUAL DA BASE DE DADOS'
+[0m[0m11:20:14,515 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.DATABASE_VERSION.COD_DATABASE_VERSION IS 'ID UNICO DA VERSAO GERADA'
+[0m[0m11:20:14,515 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.DATABASE_VERSION.CREATED IS 'DATA/HORA DA TROCA DE VERSAO'
+[0m[0m11:20:14,516 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.DATABASE_VERSION.NAME IS 'NOME DA VERSAO INSTALADA'
+[0m[0m11:20:14,516 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Table DATABASE_VERSION created
+[0m[0m11:20:14,518 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-62::lundberg (generated) ran successfully in 9ms
+[0m[0m11:20:14,519 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-62', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 63, '8:f2ec51224ba12504ef425437fd1b263a', 'createTable tableName=DATABASE_VERSION', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:14,522 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE TABLE odin.DIGLOC (COD_DIGLOC numeric(20, 0) NOT NULL, FILENAME VARCHAR(255) NOT NULL, IS_USING BOOLEAN NOT NULL, TS TIMESTAMP WITHOUT TIME ZONE NOT NULL, CONSTRAINT PK_DIGLOC PRIMARY KEY (COD_DIGLOC))
+[0m[0m11:20:14,539 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON TABLE odin.DIGLOC IS 'CONTROLE DE EXECUCAO DO PROCESSO DE IMPORTACAO DE ARQUIVOS.'
+[0m[0m11:20:14,540 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.DIGLOC.COD_DIGLOC IS 'CÓDIGO DO REGISTRO DE CONTROLE DA EXECUÇÃO.'
+[0m[0m11:20:14,540 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.DIGLOC.FILENAME IS 'NOME DO ARQUIVO QUE ESTÁ EM EXECUÇÃO.'
+[0m[0m11:20:14,541 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.DIGLOC.IS_USING IS 'INFORMA SE O REGISTRO ESTÁ OU NÃO EM USO NO MOMENTO. (0) FALSO, (1) VERDADEIRO.'
+[0m[0m11:20:14,541 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.DIGLOC.TS IS 'DATA/HORA DO INÍCIO DA EXECUÇÃO.'
+[0m[0m11:20:14,542 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Table DIGLOC created
+[0m[0m11:20:14,547 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-63::lundberg (generated) ran successfully in 26ms
+[0m[0m11:20:14,548 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-63', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 64, '8:5b17af708c25d8676f04413bbdb1f574', 'createTable tableName=DIGLOC', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:14,553 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE TABLE odin.DIRECTORY_INFO (COD_FETCH_INFO numeric(20, 0) NOT NULL, EXTENSION VARCHAR(255), FILENAME VARCHAR(255), PATH VARCHAR(255), CONSTRAINT PK_DIRINF PRIMARY KEY (COD_FETCH_INFO))
+[0m[0m11:20:14,567 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON TABLE odin.DIRECTORY_INFO IS 'DEFINE INFORMACOES DE OBTENCAO DE ARQUIVOS DE UM DIRETORIO ESPECIFICO'
+[0m[0m11:20:14,567 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.DIRECTORY_INFO.COD_FETCH_INFO IS 'CÓDIGO DA DEFINIÇÃO DE ARQUIVO'
+[0m[0m11:20:14,568 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.DIRECTORY_INFO.EXTENSION IS 'Extensão do arquivo'
+[0m[0m11:20:14,568 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.DIRECTORY_INFO.FILENAME IS 'Nome do arquivo'
+[0m[0m11:20:14,569 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.DIRECTORY_INFO.PATH IS 'DIRETORIOS EM QUE SERAO OBTIDOS OS ARQUIVOS'
+[0m[0m11:20:14,569 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Table DIRECTORY_INFO created
+[0m[0m11:20:14,571 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-64::lundberg (generated) ran successfully in 18ms
+[0m[0m11:20:14,572 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-64', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 65, '8:c63ecd19d76f7d3cfb468b0ef9ad622c', 'createTable tableName=DIRECTORY_INFO', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:14,576 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE TABLE odin.DOWNLOADED_FILE (COD_FILE numeric(20, 0) NOT NULL, COD_FILE_INFO numeric(20, 0) NOT NULL, COMPRESSED_FILE OID, CONSTRAINT PK_DWNFIL PRIMARY KEY (COD_FILE))
+[0m[0m11:20:14,584 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON TABLE odin.DOWNLOADED_FILE IS 'ARQUIVO BAIXADO PELO ODIN'
+[0m[0m11:20:14,584 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.DOWNLOADED_FILE.COD_FILE IS 'CODIGO DO ARQUIVO BAIXADO'
+[0m[0m11:20:14,585 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.DOWNLOADED_FILE.COD_FILE_INFO IS 'INFORMACOES DO ARQUIVO'
+[0m[0m11:20:14,585 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.DOWNLOADED_FILE.COMPRESSED_FILE IS 'ARQUIVO BAIXADO COMPRIMIDO'
+[0m[0m11:20:14,586 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Table DOWNLOADED_FILE created
+[0m[0m11:20:14,588 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-65::lundberg (generated) ran successfully in 13ms
+[0m[0m11:20:14,589 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-65', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 66, '8:92187312b9a1a93b1b93cf7a5f8cbb90', 'createTable tableName=DOWNLOADED_FILE', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:14,591 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE TABLE odin.DRIVER_PROPS (COD_DRIVER_PROPS numeric(20, 0) NOT NULL, DRV_NAME VARCHAR(255) NOT NULL, CONSTRAINT PK_DRVPRO PRIMARY KEY (COD_DRIVER_PROPS))
+[0m[0m11:20:14,597 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON TABLE odin.DRIVER_PROPS IS 'PROPRIEDADES DO DRIVER.'
+[0m[0m11:20:14,598 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.DRIVER_PROPS.COD_DRIVER_PROPS IS 'CODIGO DA PROPRIEDADE DO DRIVER'
+[0m[0m11:20:14,598 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.DRIVER_PROPS.DRV_NAME IS 'FULL QUALIFIED NAME DO DRIVER.'
+[0m[0m11:20:14,598 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Table DRIVER_PROPS created
+[0m[0m11:20:14,604 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-66::lundberg (generated) ran successfully in 13ms
+[0m[0m11:20:14,605 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-66', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 67, '8:32ffe24e47ef9001c6a80b4d0f917f58', 'createTable tableName=DRIVER_PROPS', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:14,608 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE TABLE odin.DRV_MAP_PROPERTIES (COD_DRIVER_PROPS numeric(20, 0) NOT NULL, PROP_NAME VARCHAR(255) NOT NULL, PROP_VALUE VARCHAR(255) NOT NULL, CONSTRAINT PK_DRVMPR PRIMARY KEY (COD_DRIVER_PROPS, PROP_NAME))
+[0m[0m11:20:14,622 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON TABLE odin.DRV_MAP_PROPERTIES IS 'VALORES MAPEADOS DAS PROPRIEDADES DO DRIVER'
+[0m[0m11:20:14,623 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.DRV_MAP_PROPERTIES.COD_DRIVER_PROPS IS 'CÓDIGO DA ASSOCIAÇÃO DA PROPRIEDADE COM O VALOR'
+[0m[0m11:20:14,623 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.DRV_MAP_PROPERTIES.PROP_NAME IS 'NOME DA PROPRIEDADE DO DRIVER'
+[0m[0m11:20:14,624 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.DRV_MAP_PROPERTIES.PROP_VALUE IS 'VALOR DA PROPRIEDADE DO DRIVER'
+[0m[0m11:20:14,624 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Table DRV_MAP_PROPERTIES created
+[0m[0m11:20:14,628 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-67::lundberg (generated) ran successfully in 21ms
+[0m[0m11:20:14,629 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-67', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 68, '8:45a1dd9178c523123a6669b604ea3246', 'createTable tableName=DRV_MAP_PROPERTIES', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:14,632 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE TABLE odin.DT_PARAMETERS (COD_DT_PARAM numeric(20, 0) NOT NULL, FORMAT VARCHAR(255) NOT NULL, CONSTRAINT PK_DTPARA PRIMARY KEY (COD_DT_PARAM))
+[0m[0m11:20:14,640 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON TABLE odin.DT_PARAMETERS IS 'ARMAZENA AS DATA PARAMETRIZADAS PARA DOWNLOAD DE ARQUIVO'
+[0m[0m11:20:14,641 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.DT_PARAMETERS.COD_DT_PARAM IS 'CODIGO DO PARAMETRO DE DATA'
+[0m[0m11:20:14,642 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.DT_PARAMETERS.FORMAT IS 'FORMATO DA DATA'
+[0m[0m11:20:14,642 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Table DT_PARAMETERS created
+[0m[0m11:20:14,647 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-68::lundberg (generated) ran successfully in 15ms
+[0m[0m11:20:14,649 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-68', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 69, '8:25b1c2c8dadbb48bd085af020d8017c7', 'createTable tableName=DT_PARAMETERS', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:14,655 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE TABLE odin.DT_PARAM_MAP (COD_DT_PARAM numeric(20, 0) NOT NULL, DIFF numeric(10, 0), FIELD numeric(10, 0) NOT NULL, CONSTRAINT PK_DTPMAP PRIMARY KEY (COD_DT_PARAM, FIELD))
+[0m[0m11:20:14,666 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON TABLE odin.DT_PARAM_MAP IS 'ASSOCIACAO DOS CAMPOS DAS DATAS PARAMETRIZADAS E SEUS VALORES'
+[0m[0m11:20:14,667 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.DT_PARAM_MAP.COD_DT_PARAM IS 'CÓDIGO DA DATA PARAMETRIZADA'
+[0m[0m11:20:14,667 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.DT_PARAM_MAP.DIFF IS 'DIFERENÇA DE PERÍODOS SOMADOS'
+[0m[0m11:20:14,668 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.DT_PARAM_MAP.FIELD IS 'VALOR DA DATA PARAMETRIZADA'
+[0m[0m11:20:14,668 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Table DT_PARAM_MAP created
+[0m[0m11:20:14,670 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-69::lundberg (generated) ran successfully in 15ms
+[0m[0m11:20:14,671 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-69', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 70, '8:a622e977804bd0519fad4e84c3a296aa', 'createTable tableName=DT_PARAM_MAP', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:14,674 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE TABLE odin.EXCEPTION_RECORD (COD_EXCEPTION numeric(20, 0) NOT NULL, MSG_EXCEPTION VARCHAR(255), STACK_EXCEPTION TEXT, SYSTEM_EXCEPTION VARCHAR(255), TIMESTAMP_EXCEPTION TIMESTAMP WITHOUT TIME ZONE NOT NULL, USER_EXCEPTION VARCHAR(255), CONSTRAINT PK_EXCREC PRIMARY KEY (COD_EXCEPTION))
+[0m[0m11:20:14,695 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON TABLE odin.EXCEPTION_RECORD IS 'ARMAZENA OS ERROS (EXCEPTION) OCORRIDOS NO SISTEMA.'
+[0m[0m11:20:14,696 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.EXCEPTION_RECORD.COD_EXCEPTION IS 'CODIGO DO ERRO.'
+[0m[0m11:20:14,696 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.EXCEPTION_RECORD.MSG_EXCEPTION IS 'MENSAGEM DO ERRO.'
+[0m[0m11:20:14,697 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.EXCEPTION_RECORD.STACK_EXCEPTION IS 'DETALHE DO ERRO.'
+[0m[0m11:20:14,697 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.EXCEPTION_RECORD.SYSTEM_EXCEPTION IS 'SISTEMA EM QUE O ERRO OCORREU.'
+[0m[0m11:20:14,698 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.EXCEPTION_RECORD.TIMESTAMP_EXCEPTION IS 'DATA/HORA DA OCORRENCIA DO ERRO.'
+[0m[0m11:20:14,698 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.EXCEPTION_RECORD.USER_EXCEPTION IS 'USUÁRIO LOGADO NO MOMENTO EM QUE O ERRO OCORREU.'
+[0m[0m11:20:14,698 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Table EXCEPTION_RECORD created
+[0m[0m11:20:14,701 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-70::lundberg (generated) ran successfully in 27ms
+[0m[0m11:20:14,702 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-70', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 71, '8:be8024ada461e55bb13a7228f99a14e4', 'createTable tableName=EXCEPTION_RECORD', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:14,708 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE TABLE odin.EXC_EXTRA_INFO (COD_EXCEPTION numeric(20, 0) NOT NULL, NAME VARCHAR(255) NOT NULL, VALUE VARCHAR(255) NOT NULL, CONSTRAINT PK_EXCCTX PRIMARY KEY (COD_EXCEPTION, NAME))
+[0m[0m11:20:14,733 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON TABLE odin.EXC_EXTRA_INFO IS 'INFORMAÇÕES ADICIONAIS SOBRE OS ERROS.'
+[0m[0m11:20:14,734 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.EXC_EXTRA_INFO.COD_EXCEPTION IS 'CODIGO DO ERRO.'
+[0m[0m11:20:14,735 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.EXC_EXTRA_INFO.NAME IS 'NOME DA PROPRIEDADE DO CONTEXTO DA EXCECAO'
+[0m[0m11:20:14,735 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.EXC_EXTRA_INFO.VALUE IS 'VALOR DA PROPRIEDADE NOMEADA'
+[0m[0m11:20:14,735 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Table EXC_EXTRA_INFO created
+[0m[0m11:20:14,741 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-71::lundberg (generated) ran successfully in 33ms
+[0m[0m11:20:14,743 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-71', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 72, '8:086d29c8f0af3d569e5a6e728d6f587f', 'createTable tableName=EXC_EXTRA_INFO', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:14,748 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE TABLE odin.EXECUTION_LOG (COD_EXECUTION_LOG numeric(20, 0) NOT NULL, COD_EXECUTION_LOG_CONTENT numeric(20, 0) NOT NULL, FILE_CODE VARCHAR(255), FILE_DT date, FILE_NAME VARCHAR(255), ORIGIN VARCHAR(255), ST numeric(1, 0) NOT NULL, TOTAL_ITEM numeric(10, 0), TIPO_EXECUCAO numeric(10, 0), TS_FINISH TIMESTAMP WITHOUT TIME ZONE, TS_START TIMESTAMP WITHOUT TIME ZONE NOT NULL, USERNAME VARCHAR(255) NOT NULL, CONSTRAINT PK_EXELOG PRIMARY KEY (COD_EXECUTION_LOG))
+[0m[0m11:20:14,760 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON TABLE odin.EXECUTION_LOG IS 'ARMAZENA OS LOGS DE EXECUCAO'
+[0m[0m11:20:14,761 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.EXECUTION_LOG.COD_EXECUTION_LOG IS 'CODIGO DO LOG DE EXECUCAO.'
+[0m[0m11:20:14,761 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.EXECUTION_LOG.COD_EXECUTION_LOG_CONTENT IS 'CODIGO DO CONTEUDO DO ARQUIVO DE INTEGRACAO.'
+[0m[0m11:20:14,762 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.EXECUTION_LOG.FILE_CODE IS 'CODIGO DA INTERFACE UTILIZADA PARA LEITURA DO ARQUIVO.'
+[0m[0m11:20:14,762 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.EXECUTION_LOG.FILE_DT IS 'DATA DE GERACAO DO ARQUIVO DE INTEGRACAO.'
+[0m[0m11:20:14,763 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.EXECUTION_LOG.FILE_NAME IS 'NOME DO ARQUIVO DE INTEGRACAO.'
+[0m[0m11:20:14,763 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.EXECUTION_LOG.ORIGIN IS 'ORIGEM DA INTEGRACAO: PODE SER SISTEMA, DATAFEEDER, INTERFACE.'
+[0m[0m11:20:14,764 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.EXECUTION_LOG.ST IS 'STATUS DA EXECUCAO DA INTEGRACAO. 0. EM EXECUCAO; 1. OK; 2. ERRO; 3. ALERTAS; 4. REVERTIDO; 5. PARCIAL'
+[0m[0m11:20:14,764 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.EXECUTION_LOG.TOTAL_ITEM IS 'NUMERO TOTAL DE ITENS CONTIDOS NO ARQUIVO DA INTEGRACAO.'
+[0m[0m11:20:14,765 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.EXECUTION_LOG.TS_FINISH IS 'DATA/HORA DO TERMINO DA EXECUCAO DA INTEGRACAO.'
+[0m[0m11:20:14,765 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.EXECUTION_LOG.TS_START IS 'DATA/HORA DO INICIO DA EXECUCAO DA INTEGRACAO.'
+[0m[0m11:20:14,765 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.EXECUTION_LOG.USERNAME IS 'NOME DO USUARIO QUE DISPAROU A EXECUCAO DA INTEGRACAO.'
+[0m[0m11:20:14,766 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Table EXECUTION_LOG created
+[0m[0m11:20:14,768 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-72::lundberg (generated) ran successfully in 21ms
+[0m[0m11:20:14,769 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-72', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 73, '8:6e35cdf6de410ba1c3faa230bdec0b8e', 'createTable tableName=EXECUTION_LOG', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:14,772 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE TABLE odin.EXECUTION_LOG_CONTENT (COD_EXECUTION_LOG_CONTENT numeric(20, 0) NOT NULL, CONTENT OID NOT NULL, CONSTRAINT PK_EXELOC PRIMARY KEY (COD_EXECUTION_LOG_CONTENT))
+[0m[0m11:20:14,781 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON TABLE odin.EXECUTION_LOG_CONTENT IS 'ARMAZENA O CONTEUDO DO LOG DE EXECUCAO'
+[0m[0m11:20:14,782 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.EXECUTION_LOG_CONTENT.COD_EXECUTION_LOG_CONTENT IS 'CONTEUDO DO ARQUIVO DE INTEGRACAO.'
+[0m[0m11:20:14,782 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.EXECUTION_LOG_CONTENT.CONTENT IS 'CONTEUDO BINARIO'
+[0m[0m11:20:14,782 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Table EXECUTION_LOG_CONTENT created
+[0m[0m11:20:14,784 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-73::lundberg (generated) ran successfully in 12ms
+[0m[0m11:20:14,785 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-73', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 74, '8:a842e65d6d051f6cbffa14f8e459184c', 'createTable tableName=EXECUTION_LOG_CONTENT', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:14,788 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE TABLE odin.EXECUTION_LOG_ITEM (COD_EXECUTION_LOG numeric(20, 0) NOT NULL, COD_EXECUTION_LOG_ITEM numeric(20, 0) NOT NULL, CONTENT TEXT, MSG TEXT, ST numeric(1, 0), STACK TEXT, CONSTRAINT PK_EXELOI PRIMARY KEY (COD_EXECUTION_LOG_ITEM))
+[0m[0m11:20:14,803 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON TABLE odin.EXECUTION_LOG_ITEM IS 'ARMAZENA DETALHES DE LOG DO PROCESSO DE IMPORTACAO DE ARQUIVOS DO TIPO PLANILHA DE SERVICOS.'
+[0m[0m11:20:14,804 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.EXECUTION_LOG_ITEM.COD_EXECUTION_LOG IS 'CODIGO DO LOG DE EXECUÇÃO AO QUAL ESTE ITEM PERTENCE.'
+[0m[0m11:20:14,805 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.EXECUTION_LOG_ITEM.COD_EXECUTION_LOG_ITEM IS 'CODIGO DO ITEM DO LOG DE EXECUÇÃO.'
+[0m[0m11:20:14,805 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.EXECUTION_LOG_ITEM.CONTENT IS 'CONTEÚDO DO ITEM DO LOG DE EXECUÇÃO. PODE CONTER UMA LINHA OU TRECHO DO ARQUIVO, OU AINDA UM REGISTRO NUM FORMATO ESPECÍFICO DO SISTEMA.'
+[0m[0m11:20:14,806 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.EXECUTION_LOG_ITEM.MSG IS 'MENSAGEM QUE DESCREVE O ITEM OU O STATUS DA EXECUÇÃO DO ITEM.'
+[0m[0m11:20:14,806 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.EXECUTION_LOG_ITEM.ST IS 'STATUS DA EXECUÇÃO DO ITEM DA INTEGRAÇÃO. 0. OK; 1. ERRO; 2. NÃO EXECUTADO; 3. ITEM INSERIDO; 4. ITEM ATUALIZADO; 5. EXECUTADO COM ALERTAS; 6. ITEM IGNORADO.'
+[0m[0m11:20:14,807 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.EXECUTION_LOG_ITEM.STACK IS 'LOG DE ERRO/ALERTA DA EXECUÇÃO DO ITEM.'
+[0m[0m11:20:14,807 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Table EXECUTION_LOG_ITEM created
+[0m[0m11:20:14,810 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-74::lundberg (generated) ran successfully in 22ms
+[0m[0m11:20:14,811 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-74', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 75, '8:4ea8e0e271c008501a3468ea45d390f0', 'createTable tableName=EXECUTION_LOG_ITEM', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:14,814 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE TABLE odin.EXEC_DOWN (COD_FEEDER_EXEC numeric(20, 0) NOT NULL, ERROR_TYPE numeric(1, 0), CONSTRAINT PK_DWNEXE PRIMARY KEY (COD_FEEDER_EXEC))
+[0m[0m11:20:14,824 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON TABLE odin.EXEC_DOWN IS 'EXECUCAO DE UM DOWNLOAD'
+[0m[0m11:20:14,825 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.EXEC_DOWN.COD_FEEDER_EXEC IS 'CÓDIGO DA EXECUÇÃO (BAIXA OU ENVIO)'
+[0m[0m11:20:14,826 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.EXEC_DOWN.ERROR_TYPE IS 'TIPO DE ERRO. UNKNOWN = 1; FETCHING = 2; COMPRESSING = 3; SAVING = 4;'
+[0m[0m11:20:14,826 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Table EXEC_DOWN created
+[0m[0m11:20:14,828 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-75::lundberg (generated) ran successfully in 14ms
+[0m[0m11:20:14,830 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-75', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 76, '8:468753f30dee6f205d8de0efb2cb974b', 'createTable tableName=EXEC_DOWN', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:14,832 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE TABLE odin.EXEC_SEND (COD_APLIC numeric(20, 0) NOT NULL, COD_FEEDER_EXEC numeric(20, 0) NOT NULL, CONSTRAINT PK_SNDEXE PRIMARY KEY (COD_FEEDER_EXEC))
+[0m[0m11:20:14,848 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON TABLE odin.EXEC_SEND IS 'EXECUCAO DE ENVIO PARA UMA APLICACAO'
+[0m[0m11:20:14,849 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.EXEC_SEND.COD_APLIC IS 'APLICACAO'
+[0m[0m11:20:14,849 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.EXEC_SEND.COD_FEEDER_EXEC IS 'CÓDIGO DA EXECUÇÃO (BAIXA OU ENVIO)'
+[0m[0m11:20:14,849 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Table EXEC_SEND created
+[0m[0m11:20:14,851 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-76::lundberg (generated) ran successfully in 19ms
+[0m[0m11:20:14,853 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-76', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 77, '8:6f86942e3392041e51df14b49713c921', 'createTable tableName=EXEC_SEND', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:14,857 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE TABLE odin.FEEDER_EXECUTION (COD_DOWN_FILE numeric(20, 0), COD_EXCEPTION numeric(20, 0), COD_FEEDER_EXEC numeric(20, 0) NOT NULL, COD_FEEDER_FILE numeric(20, 0) NOT NULL, EXEC_TIMESTAMP TIMESTAMP WITHOUT TIME ZONE NOT NULL, STATUS numeric(1, 0) NOT NULL, CONSTRAINT PK_FEDEXE PRIMARY KEY (COD_FEEDER_EXEC))
+[0m[0m11:20:14,863 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON TABLE odin.FEEDER_EXECUTION IS 'REPRESENTA UMA EXECUCAO DO FEEDER'
+[0m[0m11:20:14,864 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.FEEDER_EXECUTION.COD_DOWN_FILE IS 'ARQUIVO BAIXADO'
+[0m[0m11:20:14,864 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.FEEDER_EXECUTION.COD_EXCEPTION IS 'IDENTIFICA OS ERROS (EXCEPTION)'
+[0m[0m11:20:14,865 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.FEEDER_EXECUTION.COD_FEEDER_EXEC IS 'CODIGO DA EXECUCAO'
+[0m[0m11:20:14,865 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.FEEDER_EXECUTION.COD_FEEDER_FILE IS 'FEEDER FILE'
+[0m[0m11:20:14,866 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.FEEDER_EXECUTION.EXEC_TIMESTAMP IS 'TIMESTAMP DA EXECUCAO'
+[0m[0m11:20:14,866 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.FEEDER_EXECUTION.STATUS IS 'STATUS DA EXECUCAO (1) DOWNLOAD COM SUCESSO, (2) ERRO DURANTE O DOWNLOAD, (3) ENVIADO COM SUCESSO, (4) ERRO ENVIANDO O ARQUIVO, (5) ERRO DURANTE A VALIDAÇÃO..'
+[0m[0m11:20:14,867 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Table FEEDER_EXECUTION created
+[0m[0m11:20:14,868 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-77::lundberg (generated) ran successfully in 12ms
+[0m[0m11:20:14,870 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-77', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 78, '8:a7e373d90c3e130f815bd63f419ed1ef', 'createTable tableName=FEEDER_EXECUTION', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:14,873 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE TABLE odin.FEEDER_FILE (AUTH BOOLEAN DEFAULT FALSE, COD_AUT numeric(20, 0), COD_FEEDER_FILE numeric(20, 0) NOT NULL, COD_FETCH_INFO numeric(20, 0) NOT NULL, COD_SITE numeric(20, 0), DESCRIPTION VARCHAR(255), DIRECT VARCHAR(255), DT_AUT TIMESTAMP WITHOUT TIME ZONE, FILE_CODE VARCHAR(255) NOT NULL, OPERACAO numeric(10, 0), RETRIES numeric(10, 0), RETRY_INTERVAL numeric(10, 0), SAVE_COPY BOOLEAN, USU_AUT VARCHAR(255), VERSION numeric(20, 0) NOT NULL, CONSTRAINT PK_FEEFIL PRIMARY KEY (COD_FEEDER_FILE))
+[0m[0m11:20:14,895 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON TABLE odin.FEEDER_FILE IS 'ARQUIVO DO FEEDER'
+[0m[0m11:20:14,896 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.FEEDER_FILE.AUTH IS 'CAMPO QUE INDICA SE O REGISTRO ESTA EM AUTORIZACAO (1) OU NÃO (0).'
+[0m[0m11:20:14,897 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.FEEDER_FILE.COD_AUT IS 'CODIGO ORIGINAL DO REGISTRO PENDENTE DE AUTORIZACAO. UTILIZADO EM CASO DE ALTERACAO OU EXCLUSAO DO REGISTRO.'
+[0m[0m11:20:14,897 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.FEEDER_FILE.COD_FEEDER_FILE IS 'CODIGO DO ARQUIVO'
+[0m[0m11:20:14,901 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.FEEDER_FILE.COD_FETCH_INFO IS 'INFORMACOES SOBRE A RECUPERACAO DO ARQUIVO'
+[0m[0m11:20:14,901 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.FEEDER_FILE.COD_SITE IS 'SITE'
+[0m[0m11:20:14,902 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.FEEDER_FILE.DESCRIPTION IS 'DESCRICAO DO ARQUIVO'
+[0m[0m11:20:14,902 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.FEEDER_FILE.DIRECT IS 'DIRETORIO A SER SALVA A COPIA'
+[0m[0m11:20:14,902 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.FEEDER_FILE.DT_AUT IS 'DATA EM QUE O REGISTRO FOI COLOCADO EM AUTORIZACAO.'
+[0m[0m11:20:14,903 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.FEEDER_FILE.FILE_CODE IS 'FILE CODE, DEVE COINCIDIR COM O CONFIGURADO NA APLICACAO (PROCESSORS E DRIVERS)'
+[0m[0m11:20:14,904 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.FEEDER_FILE.OPERACAO IS 'INDICA A OPERACAO QUE FOI COLOCADA EM AUTORIZACAO: INCLUSAO (0), ALTERACAO (1), EXCLUSAO (2), INCLUSAO NA BASE FRIA (3), ALTERACAO NA BASE FRIA (4), EXCLUSAO NA BASE FRIA (5), INCLUSAO COM ACAO (6), ALTERACAO COM ACAO (7), REJEICAO NA AUTORIZACAO (8).'
+[0m[0m11:20:14,904 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.FEEDER_FILE.RETRIES IS 'NUMERO DE TENTATIVAS'
+[0m[0m11:20:14,904 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.FEEDER_FILE.RETRY_INTERVAL IS 'INTERVALO ENTRE TENTATIVAS'
+[0m[0m11:20:14,905 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.FEEDER_FILE.SAVE_COPY IS 'BOOLEANO QUE CONFIGURA SE DEVE SER SALVA UMA COPIA DO ARQUIVO EM DISCO (0) FALSO, (1) VERDADEIRO.'
+[0m[0m11:20:14,905 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.FEEDER_FILE.USU_AUT IS 'NOME DO USUARIO QUE COLOCOU O REGISTRO EM AUTORIZACAO.'
+[0m[0m11:20:14,905 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.FEEDER_FILE.VERSION IS 'CAMPO PARA LOCK OTIMISTA.'
+[0m[0m11:20:14,906 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Table FEEDER_FILE created
+[0m[0m11:20:14,908 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-78::lundberg (generated) ran successfully in 36ms
+[0m[0m11:20:14,909 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-78', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 79, '8:c362bd5489125ebd93912dd66a536fd3', 'createTable tableName=FEEDER_FILE', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:14,912 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE TABLE odin.FEEDER_FILE_APLIC (COD_APLIC numeric(20, 0) NOT NULL, COD_FEEDER_FILE numeric(20, 0) NOT NULL)
+[0m[0m11:20:14,913 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON TABLE odin.FEEDER_FILE_APLIC IS 'ASSOCIAÇÃO ENTRE O ARQUIVO E APLICAÇÃO'
+[0m[0m11:20:14,913 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.FEEDER_FILE_APLIC.COD_APLIC IS 'ARQUIVOS DA APLICAÇÃO'
+[0m[0m11:20:14,914 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.FEEDER_FILE_APLIC.COD_FEEDER_FILE IS 'CODIGO DO ARQUIVO'
+[0m[0m11:20:14,914 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Table FEEDER_FILE_APLIC created
+[0m[0m11:20:14,917 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-79::lundberg (generated) ran successfully in 5ms
+[0m[0m11:20:14,918 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-79', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 80, '8:9b1ea210c1c161dca58d3428b2f0c4ee', 'createTable tableName=FEEDER_FILE_APLIC', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:14,921 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE TABLE odin.FEEDER_FILE_SCHEDULE (COD_FEEDER_FILE numeric(20, 0) NOT NULL, COD_SCHEDULE numeric(20, 0) NOT NULL)
+[0m[0m11:20:14,922 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON TABLE odin.FEEDER_FILE_SCHEDULE IS 'ASSOCIAÇÃO ENTRA O ARQUIVO E O AGENDAMENTO'
+[0m[0m11:20:14,923 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.FEEDER_FILE_SCHEDULE.COD_FEEDER_FILE IS 'AGENDAMENTOS DO ARQUIVO'
+[0m[0m11:20:14,923 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.FEEDER_FILE_SCHEDULE.COD_SCHEDULE IS 'CODIGO DO AGENDAMENTO'
+[0m[0m11:20:14,924 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Table FEEDER_FILE_SCHEDULE created
+[0m[0m11:20:14,925 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-80::lundberg (generated) ran successfully in 4ms
+[0m[0m11:20:14,926 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-80', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 81, '8:867fbe8fc1963f0950bb3c20ba09e7a2', 'createTable tableName=FEEDER_FILE_SCHEDULE', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:14,934 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE TABLE odin.FETCH_INFO (AUTH BOOLEAN DEFAULT FALSE, COD_AUT numeric(20, 0), COD_FETCH_INFO numeric(20, 0) NOT NULL, DT_AUT TIMESTAMP WITHOUT TIME ZONE, DT_PARAM numeric(20, 0), OPERACAO numeric(10, 0), PWORD VARCHAR(255), REGEX VARCHAR(255), TYPE numeric(1, 0), USER_NAME VARCHAR(255), USU_AUT VARCHAR(255), VERSION numeric(20, 0) NOT NULL, CONSTRAINT PK_FTCINF PRIMARY KEY (COD_FETCH_INFO))
+[0m[0m11:20:14,945 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON TABLE odin.FETCH_INFO IS 'DEFINE COMO FAZER O DOWNLOAD DE UM ARQUIVO'
+[0m[0m11:20:14,946 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.FETCH_INFO.AUTH IS 'CAMPO QUE INDICA SE O REGISTRO ESTA EM AUTORIZACAO (1) OU NÃO (0).'
+[0m[0m11:20:14,946 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.FETCH_INFO.COD_AUT IS 'CODIGO ORIGINAL DO REGISTRO PENDENTE DE AUTORIZACAO. UTILIZADO EM CASO DE ALTERACAO OU EXCLUSAO DO REGISTRO.'
+[0m[0m11:20:14,947 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.FETCH_INFO.COD_FETCH_INFO IS 'CODIGO DO FETCH INFO'
+[0m[0m11:20:14,947 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.FETCH_INFO.DT_AUT IS 'DATA EM QUE O REGISTRO FOI COLOCADO EM AUTORIZACAO.'
+[0m[0m11:20:14,948 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.FETCH_INFO.DT_PARAM IS 'PARAMETRO DE CONFIGURACAO DE DATA'
+[0m[0m11:20:14,948 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.FETCH_INFO.OPERACAO IS 'INDICA A OPERACAO QUE FOI COLOCADA EM AUTORIZACAO: INCLUSAO (0), ALTERACAO (1), EXCLUSAO (2), INCLUSAO NA BASE FRIA (3), ALTERACAO NA BASE FRIA (4), EXCLUSAO NA BASE FRIA (5), INCLUSAO COM ACAO (6), ALTERACAO COM ACAO (7), REJEICAO NA AUTORIZACAO (8).'
+[0m[0m11:20:14,948 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.FETCH_INFO.PWORD IS 'PASSWORD'
+[0m[0m11:20:14,949 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.FETCH_INFO.REGEX IS 'EXPRESSAO REGULAR DE VALIDACAO DO ARQUIVO BAIXADO'
+[0m[0m11:20:14,949 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.FETCH_INFO.TYPE IS 'TIPO DO FETCH INFO (0) DATABASE, (1) DIRECTORY, (2) FTP, (3) HTTP_GET, (4) HTTP_POST, (5) WEBSERVICE, (6) BANCO_CENTRAL, (7) CHAIN_FLUX.'
+[0m[0m11:20:14,950 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.FETCH_INFO.USER_NAME IS 'NOME DO USUARIO'
+[0m[0m11:20:14,950 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.FETCH_INFO.USU_AUT IS 'NOME DO USUARIO QUE COLOCOU O REGISTRO EM AUTORIZACAO.'
+[0m[0m11:20:14,951 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.FETCH_INFO.VERSION IS 'CAMPO PARA LOCK OTIMISTA.'
+[0m[0m11:20:14,951 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Table FETCH_INFO created
+[0m[0m11:20:14,955 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-81::lundberg (generated) ran successfully in 22ms
+[0m[0m11:20:14,956 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-81', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 82, '8:51840e73bccec4e4f9d8019e4feb18d3', 'createTable tableName=FETCH_INFO', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:14,962 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE TABLE odin.FILE_INFORMATION (COD_FILE_INFO numeric(20, 0) NOT NULL, FILE_CODE VARCHAR(255) NOT NULL, FILE_NAME VARCHAR(255) NOT NULL, TIMESTAMP_FILE date NOT NULL, CONSTRAINT PK_FILINF PRIMARY KEY (COD_FILE_INFO))
+[0m[0m11:20:14,984 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON TABLE odin.FILE_INFORMATION IS 'INFORMACOES DO ARQUIVO BAIXADO PELO ODIN'
+[0m[0m11:20:14,985 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.FILE_INFORMATION.COD_FILE_INFO IS 'CODIGO DAS INFORMACOES DO ARQUIVO BAIXADO'
+[0m[0m11:20:14,985 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.FILE_INFORMATION.FILE_CODE IS 'FILE CODE DO ARQUIVO'
+[0m[0m11:20:14,986 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.FILE_INFORMATION.FILE_NAME IS 'NOME DO ARQUIVO'
+[0m[0m11:20:14,986 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.FILE_INFORMATION.TIMESTAMP_FILE IS 'DATA DO ARQUIVO'
+[0m[0m11:20:14,986 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Table FILE_INFORMATION created
+[0m[0m11:20:14,990 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-82::lundberg (generated) ran successfully in 29ms
+[0m[0m11:20:14,991 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-82', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 83, '8:eac1114b4843a925e3121857056c1028', 'createTable tableName=FILE_INFORMATION', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:14,996 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE TABLE odin.FILE_REGISTRY (COD_FILE_REG numeric(20, 0) NOT NULL, DRIVER_CLASS VARCHAR(255) NOT NULL, FILE_CODE VARCHAR(255) NOT NULL, FREQUENCY numeric(1, 0) NOT NULL, MONTH_DAY numeric(10, 0), PROCESSOR_ID VARCHAR(255) NOT NULL, VALIDATOR_CLASS VARCHAR(255), CONSTRAINT PK_FILERG PRIMARY KEY (COD_FILE_REG))
+[0m[0m11:20:15,008 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON TABLE odin.FILE_REGISTRY IS 'REPRESENTA UM ARQUIVO QUE PODE SER IMPORTADO PELA APLICACAO, COM SEUS DADOS DE DRIVER, PROCESSOR E FREQUENCIA.'
+[0m[0m11:20:15,009 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.FILE_REGISTRY.COD_FILE_REG IS 'CODIGO SEQUENCIAL DA TABELA.'
+[0m[0m11:20:15,010 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.FILE_REGISTRY.DRIVER_CLASS IS 'NOME COMPLETO DA CLASSE DO DRIVER QUE EFETUA O PARSE DESSE ARQUIVO.'
+[0m[0m11:20:15,010 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.FILE_REGISTRY.FILE_CODE IS 'CODIGO DO ARQUIVO PARA IMPORTACAO.'
+[0m[0m11:20:15,011 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.FILE_REGISTRY.FREQUENCY IS 'PERIODICIDADE COM QUE O ARQUIVO DEVE SER IMPORTADO. (0) NONE, (1) DAILY, (2) MONTHLY.'
+[0m[0m11:20:15,011 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.FILE_REGISTRY.MONTH_DAY IS 'DIA DO MES QUE INDICA O INICIO DO CICLO PARA FREQUENCIAS MENSAIS.'
+[0m[0m11:20:15,012 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.FILE_REGISTRY.PROCESSOR_ID IS 'IDENTIFICADOR (ID) DO BEAN QUE REPRESENTA O PROCESSOR PARA ESSE ARQUIVO, COMO ESPECIFICADO NO SPRING.'
+[0m[0m11:20:15,012 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.FILE_REGISTRY.VALIDATOR_CLASS IS 'NOME COMPLETO DA CLASSE PARA VALIDAR UM BEAN.'
+[0m[0m11:20:15,013 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Table FILE_REGISTRY created
+[0m[0m11:20:15,017 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-83::lundberg (generated) ran successfully in 22ms
+[0m[0m11:20:15,019 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-83', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 84, '8:8a9c2fc0695875e6a1e350d6a95f41c3', 'createTable tableName=FILE_REGISTRY', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:15,026 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE TABLE odin.FTP_INFO (COD_FETCH_INFO numeric(20, 0) NOT NULL, DIRECTORY VARCHAR(255), FILENAME VARCHAR(255), HOST VARCHAR(255), PORT numeric(10, 0), CONSTRAINT PK_FTPINF PRIMARY KEY (COD_FETCH_INFO))
+[0m[0m11:20:15,040 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON TABLE odin.FTP_INFO IS 'DEFINE COMO BAIXAR UM ARQUIVO VIA FTP'
+[0m[0m11:20:15,041 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.FTP_INFO.COD_FETCH_INFO IS 'CÓDIGO DA DEFINIÇÃO DE ARQUIVO'
+[0m[0m11:20:15,041 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.FTP_INFO.DIRECTORY IS 'CAMINHO DO FTP'
+[0m[0m11:20:15,042 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.FTP_INFO.FILENAME IS 'NOME DO ARQUIVO'
+[0m[0m11:20:15,042 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.FTP_INFO.HOST IS 'HOST'
+[0m[0m11:20:15,043 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.FTP_INFO.PORT IS 'PORTA'
+[0m[0m11:20:15,043 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Table FTP_INFO created
+[0m[0m11:20:15,045 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-84::lundberg (generated) ran successfully in 20ms
+[0m[0m11:20:15,046 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-84', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 85, '8:b34b82cf5a1b5c59ed92718b3a567bfe', 'createTable tableName=FTP_INFO', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:15,050 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE TABLE odin.HINT_TABLE (COLUNA VARCHAR(255) NOT NULL, PAYLOAD VARCHAR(255), TABELA VARCHAR(255) NOT NULL, TIPO VARCHAR(255) NOT NULL, CONSTRAINT PK_HINT PRIMARY KEY (COLUNA, TABELA, TIPO))
+[0m[0m11:20:15,075 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON TABLE odin.HINT_TABLE IS 'ARMAZENA DICAS DO SCHEMA PARA O GEVELL'
+[0m[0m11:20:15,076 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.HINT_TABLE.COLUNA IS 'NOME DA COLUNA'
+[0m[0m11:20:15,077 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.HINT_TABLE.PAYLOAD IS 'PAYLOAD DO HINT'
+[0m[0m11:20:15,077 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.HINT_TABLE.TABELA IS 'NOME DA TABELA'
+[0m[0m11:20:15,078 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.HINT_TABLE.TIPO IS 'TIPO DA COLUMN'
+[0m[0m11:20:15,078 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Table HINT_TABLE created
+[0m[0m11:20:15,082 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-85::lundberg (generated) ran successfully in 32ms
+[0m[0m11:20:15,083 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-85', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 86, '8:42d6696ebe50a80e4cfa016c1f4c9375', 'createTable tableName=HINT_TABLE', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:15,090 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE TABLE odin.HTTP_GET_INFO (COD_FETCH_INFO numeric(20, 0) NOT NULL, PORT numeric(10, 0), URL VARCHAR(255) NOT NULL, CONSTRAINT PK_GETINF PRIMARY KEY (COD_FETCH_INFO))
+[0m[0m11:20:15,097 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON TABLE odin.HTTP_GET_INFO IS 'DEFINE DOWNLOAD VIA HTTP GET'
+[0m[0m11:20:15,098 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.HTTP_GET_INFO.COD_FETCH_INFO IS 'CÓDIGO DA DEFINIÇÃO DE ARQUIVO'
+[0m[0m11:20:15,098 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.HTTP_GET_INFO.PORT IS 'PORTA'
+[0m[0m11:20:15,099 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.HTTP_GET_INFO.URL IS 'URL DO ARQUIVO'
+[0m[0m11:20:15,099 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Table HTTP_GET_INFO created
+[0m[0m11:20:15,101 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-86::lundberg (generated) ran successfully in 11ms
+[0m[0m11:20:15,102 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-86', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 87, '8:941ed2f22752c79ef699fa54ff31c0e6', 'createTable tableName=HTTP_GET_INFO', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:15,115 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE TABLE odin.HTTP_POST_INFO (AUTO_REDIRECT BOOLEAN, BODY VARCHAR(2048), COD_FETCH_INFO numeric(20, 0) NOT NULL, COOKIES_DISABLED BOOLEAN, HOST VARCHAR(255), PORT numeric(10, 0), URL VARCHAR(255), CONSTRAINT PK_PSTINF PRIMARY KEY (COD_FETCH_INFO))
+[0m[0m11:20:15,135 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON TABLE odin.HTTP_POST_INFO IS 'DEFINE O DOWNLOAD DE ARQUIVO VIA HTTP POST'
+[0m[0m11:20:15,136 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.HTTP_POST_INFO.AUTO_REDIRECT IS 'BOOLEANO QUE DEFINE SE DEVE TER AUTO REDIRECT PARA A RESPOSTA DO POST (0) FALSO, (1) VERDADEIRO.'
+[0m[0m11:20:15,136 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.HTTP_POST_INFO.BODY IS 'CONTEUDO DO POST'
+[0m[0m11:20:15,137 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.HTTP_POST_INFO.COD_FETCH_INFO IS 'CÓDIGO DA DEFINIÇÃO DE ARQUIVO'
+[0m[0m11:20:15,137 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.HTTP_POST_INFO.COOKIES_DISABLED IS 'BOOLEANO QUE DEFINE SE OS COOKIES ESTAO DESABILITADOS (0) FALSO, (1) VERDADEIRO.'
+[0m[0m11:20:15,138 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.HTTP_POST_INFO.HOST IS 'HOST'
+[0m[0m11:20:15,138 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.HTTP_POST_INFO.PORT IS 'DEFINE A PORTA DE COMUNICAÇÃO HTTP'
+[0m[0m11:20:15,139 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.HTTP_POST_INFO.URL IS 'URL'
+[0m[0m11:20:15,139 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Table HTTP_POST_INFO created
+[0m[0m11:20:15,141 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-87::lundberg (generated) ran successfully in 27ms
+[0m[0m11:20:15,142 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-87', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 88, '8:a0881d08998cfb2800f95c00fb3609ea', 'createTable tableName=HTTP_POST_INFO', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:15,145 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE TABLE odin.HTTP_REQUEST_HEADER (AUTH BOOLEAN DEFAULT FALSE, COD_AUT numeric(20, 0), COD_HTTP_REQ numeric(20, 0), COD_HTTP_REQ_HEADER numeric(20, 0) NOT NULL, DT_AUT TIMESTAMP WITHOUT TIME ZONE, HEADER VARCHAR(255), OPERACAO numeric(10, 0), USU_AUT VARCHAR(255), VERSION numeric(20, 0) NOT NULL, CONSTRAINT PK_REQHDR PRIMARY KEY (COD_HTTP_REQ_HEADER))
+[0m[0m11:20:15,161 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON TABLE odin.HTTP_REQUEST_HEADER IS 'HEADER DO REQUEST HTTP'
+[0m[0m11:20:15,162 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.HTTP_REQUEST_HEADER.AUTH IS 'CAMPO QUE INDICA SE O REGISTRO ESTA EM AUTORIZACAO (1) OU NÃO (0).'
+[0m[0m11:20:15,162 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.HTTP_REQUEST_HEADER.COD_AUT IS 'CODIGO ORIGINAL DO REGISTRO PENDENTE DE AUTORIZACAO. UTILIZADO EM CASO DE ALTERACAO OU EXCLUSAO DO REGISTRO.'
+[0m[0m11:20:15,163 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.HTTP_REQUEST_HEADER.COD_HTTP_REQ IS 'LISTA DE HEADERS DO REQUEST'
+[0m[0m11:20:15,163 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.HTTP_REQUEST_HEADER.COD_HTTP_REQ_HEADER IS 'CODIGO DO HEADER'
+[0m[0m11:20:15,164 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.HTTP_REQUEST_HEADER.DT_AUT IS 'DATA EM QUE O REGISTRO FOI COLOCADO EM AUTORIZACAO.'
+[0m[0m11:20:15,164 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.HTTP_REQUEST_HEADER.HEADER IS 'HEADER'
+[0m[0m11:20:15,165 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.HTTP_REQUEST_HEADER.OPERACAO IS 'INDICA A OPERACAO QUE FOI COLOCADA EM AUTORIZACAO: INCLUSAO (0), ALTERACAO (1), EXCLUSAO (2), INCLUSAO NA BASE FRIA (3), ALTERACAO NA BASE FRIA (4), EXCLUSAO NA BASE FRIA (5), INCLUSAO COM ACAO (6), ALTERACAO COM ACAO (7), REJEICAO NA AUTORIZACAO (8).'
+[0m[0m11:20:15,165 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.HTTP_REQUEST_HEADER.USU_AUT IS 'NOME DO USUARIO QUE COLOCOU O REGISTRO EM AUTORIZACAO.'
+[0m[0m11:20:15,165 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.HTTP_REQUEST_HEADER.VERSION IS 'CAMPO PARA LOCK OTIMISTA.'
+[0m[0m11:20:15,166 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Table HTTP_REQUEST_HEADER created
+[0m[0m11:20:15,167 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-88::lundberg (generated) ran successfully in 23ms
+[0m[0m11:20:15,169 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-88', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 89, '8:759752ea5206691b99cf1b8393b67d9d', 'createTable tableName=HTTP_REQUEST_HEADER', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:15,172 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE TABLE odin.JMS_MONIT_MESSAGE (COD_JMS_MONIT_MSG numeric(20, 0) NOT NULL, CONNECTION_FACTORY_JNDI VARCHAR(1000), ERROR_MSG TEXT, RECEIVE_MDB VARCHAR(1000), RECEIVE_MQ_QUEUE VARCHAR(1000), SEND_MQ_QUEUE VARCHAR(1000), SEND_QUEUE_JNDI VARCHAR(1000), TS_MSG_PUT TIMESTAMP WITHOUT TIME ZONE, TS_MSG_RECEIVE TIMESTAMP WITHOUT TIME ZONE, TS_MSG_SEND TIMESTAMP WITHOUT TIME ZONE, CONSTRAINT PK_JMOMSG PRIMARY KEY (COD_JMS_MONIT_MSG))
+[0m[0m11:20:15,186 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON TABLE odin.JMS_MONIT_MESSAGE IS 'ARMAZENA MENSAGENS DE MONITORAMENTO JMS'
+[0m[0m11:20:15,186 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.JMS_MONIT_MESSAGE.COD_JMS_MONIT_MSG IS 'CODIGO DA MENSAGEM JMS MONITORADA.'
+[0m[0m11:20:15,187 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.JMS_MONIT_MESSAGE.CONNECTION_FACTORY_JNDI IS 'JNDI DA CONNECTION FACTORY.'
+[0m[0m11:20:15,187 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.JMS_MONIT_MESSAGE.ERROR_MSG IS 'DETALHE DO ERRO.'
+[0m[0m11:20:15,188 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.JMS_MONIT_MESSAGE.RECEIVE_MDB IS 'MDB DE RECEBIMENTO DA MENSAGEM.'
+[0m[0m11:20:15,188 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.JMS_MONIT_MESSAGE.RECEIVE_MQ_QUEUE IS 'FILA NO MQ DE RECEBIMENTO.'
+[0m[0m11:20:15,189 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.JMS_MONIT_MESSAGE.SEND_MQ_QUEUE IS 'FILA NO MQ DE ENVIO.'
+[0m[0m11:20:15,189 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.JMS_MONIT_MESSAGE.SEND_QUEUE_JNDI IS 'JNDI DA FILA DE ENVIO.'
+[0m[0m11:20:15,190 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.JMS_MONIT_MESSAGE.TS_MSG_PUT IS 'TIMESTAMP NA QUAL A MENSAGEM POSTADA NA FILA.'
+[0m[0m11:20:15,190 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.JMS_MONIT_MESSAGE.TS_MSG_RECEIVE IS 'TIMESTAMP NA QUAL A MENSAGEM CHEGOU.'
+[0m[0m11:20:15,190 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.JMS_MONIT_MESSAGE.TS_MSG_SEND IS 'TIMESTAMP NA QUAL A MENSAGEM FOI ENVIADA.'
+[0m[0m11:20:15,191 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Table JMS_MONIT_MESSAGE created
+[0m[0m11:20:15,193 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-89::lundberg (generated) ran successfully in 22ms
+[0m[0m11:20:15,195 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-89', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 90, '8:919208565687f6a289986a25f12ece43', 'createTable tableName=JMS_MONIT_MESSAGE', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:15,198 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE TABLE odin.META_CREDENTIAL (COD_META_CREDENTIAL numeric(20, 0) NOT NULL, DESCRIPTION VARCHAR(255), NAME VARCHAR(255) NOT NULL, CONSTRAINT PK_MTCRED PRIMARY KEY (COD_META_CREDENTIAL))
+[0m[0m11:20:15,212 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON TABLE odin.META_CREDENTIAL IS 'ARMAZENA METACREDENTIALS QUE AGRUPAM CREDENCIAIS'
+[0m[0m11:20:15,212 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.META_CREDENTIAL.COD_META_CREDENTIAL IS 'CODIGO DA META CREDENCIAL'
+[0m[0m11:20:15,213 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.META_CREDENTIAL.DESCRIPTION IS 'DESCRICAO DA CREDENCIAL'
+[0m[0m11:20:15,213 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.META_CREDENTIAL.NAME IS 'NOME DA CREDENCIAL'
+[0m[0m11:20:15,214 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Table META_CREDENTIAL created
+[0m[0m11:20:15,215 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-90::lundberg (generated) ran successfully in 17ms
+[0m[0m11:20:15,217 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-90', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 91, '8:268a3dea0a5e6c727e3e33cdec5453a7', 'createTable tableName=META_CREDENTIAL', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:15,219 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE TABLE odin.PAST_PASSWORD (COD_PAST_PASPWD numeric(20, 0) NOT NULL, COD_USER numeric(20, 0) NOT NULL, HASHED_PASPWD VARCHAR(60), TIME TIMESTAMP WITHOUT TIME ZONE, CONSTRAINT PK_PASPWD PRIMARY KEY (COD_PAST_PASPWD))
+[0m[0m11:20:15,232 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON TABLE odin.PAST_PASSWORD IS 'ARMAZENA AS SENHAS QUE CADA USUARIO USOU ANTERIORMENTE'
+[0m[0m11:20:15,233 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.PAST_PASSWORD.COD_PAST_PASPWD IS 'CODIGO'
+[0m[0m11:20:15,233 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.PAST_PASSWORD.COD_USER IS 'USUARIO'
+[0m[0m11:20:15,234 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.PAST_PASSWORD.HASHED_PASPWD IS 'SENHA'
+[0m[0m11:20:15,234 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.PAST_PASSWORD.TIME IS 'INSTANTE EM QUE A SENHA FOI MOVIDA PARA A TABELA DE SENHAS PASSADAS'
+[0m[0m11:20:15,235 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Table PAST_PASSWORD created
+[0m[0m11:20:15,238 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-91::lundberg (generated) ran successfully in 19ms
+[0m[0m11:20:15,239 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-91', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 92, '8:253698dbe071c0caa2dd54850528b62d', 'createTable tableName=PAST_PASSWORD', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:15,245 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE TABLE odin.SCHEDULE (AUTH BOOLEAN DEFAULT FALSE, COD_AUT numeric(20, 0), COD_SCHEDULE numeric(20, 0) NOT NULL, CRON_EXP VARCHAR(255) NOT NULL, DT_AUT TIMESTAMP WITHOUT TIME ZONE, OPERACAO numeric(10, 0), RETRY BOOLEAN NOT NULL, RETRY_TIMESTAMP date, USU_AUT VARCHAR(255), VERSION numeric(20, 0) NOT NULL, CONSTRAINT PK_SCHED PRIMARY KEY (COD_SCHEDULE))
+[0m[0m11:20:15,266 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON TABLE odin.SCHEDULE IS 'AGENDAMENTO'
+[0m[0m11:20:15,266 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.SCHEDULE.AUTH IS 'CAMPO QUE INDICA SE O REGISTRO ESTA EM AUTORIZACAO (1) OU NÃO (0).'
+[0m[0m11:20:15,267 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.SCHEDULE.COD_AUT IS 'CODIGO ORIGINAL DO REGISTRO PENDENTE DE AUTORIZACAO. UTILIZADO EM CASO DE ALTERACAO OU EXCLUSAO DO REGISTRO.'
+[0m[0m11:20:15,268 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.SCHEDULE.COD_SCHEDULE IS 'CODIGO DO AGENDAMENTO'
+[0m[0m11:20:15,268 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.SCHEDULE.CRON_EXP IS 'EXPRESSAO DO CRON'
+[0m[0m11:20:15,268 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.SCHEDULE.DT_AUT IS 'DATA EM QUE O REGISTRO FOI COLOCADO EM AUTORIZACAO.'
+[0m[0m11:20:15,269 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.SCHEDULE.OPERACAO IS 'INDICA A OPERACAO QUE FOI COLOCADA EM AUTORIZACAO: INCLUSAO (0), ALTERACAO (1), EXCLUSAO (2), INCLUSAO NA BASE FRIA (3), ALTERACAO NA BASE FRIA (4), EXCLUSAO NA BASE FRIA (5), INCLUSAO COM ACAO (6), ALTERACAO COM ACAO (7), REJEICAO NA AUTORIZACAO (8).'
+[0m[0m11:20:15,269 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.SCHEDULE.RETRY IS 'ESPECIFICA SE O AGENDAMENTO É UMA RETENTATIVA (0) FALSO, (1) VERDADEIRO.'
+[0m[0m11:20:15,270 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.SCHEDULE.RETRY_TIMESTAMP IS 'DATA ORIGINAL DO ARQUIVO UTILIZADO EM RETENTATIVAS DE DOWNLOAD'
+[0m[0m11:20:15,270 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.SCHEDULE.USU_AUT IS 'NOME DO USUARIO QUE COLOCOU O REGISTRO EM AUTORIZACAO.'
+[0m[0m11:20:15,272 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.SCHEDULE.VERSION IS 'CAMPO PARA LOCK OTIMISTA.'
+[0m[0m11:20:15,272 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Table SCHEDULE created
+[0m[0m11:20:15,274 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-92::lundberg (generated) ran successfully in 29ms
+[0m[0m11:20:15,275 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-92', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 93, '8:7fcc7a51b6b0f40c090379c6e3d70455', 'createTable tableName=SCHEDULE', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:15,279 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE TABLE odin.SECURITY_CLIENT (COD_SEC_CLIENT numeric(20, 0) NOT NULL, NAME VARCHAR(30) NOT NULL, CONSTRAINT PK_SECCLI PRIMARY KEY (COD_SEC_CLIENT))
+[0m[0m11:20:15,290 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON TABLE odin.SECURITY_CLIENT IS 'ARMAZENA OS SISTEMAS CLIENTES DE SEGURANCA.'
+[0m[0m11:20:15,291 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.SECURITY_CLIENT.COD_SEC_CLIENT IS 'CODIGO DO SISTEMA CLIENTE DE SEGURANCA.'
+[0m[0m11:20:15,291 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.SECURITY_CLIENT.NAME IS 'NOME DO SISTEMA CLIENTE DE SEGURANCA.'
+[0m[0m11:20:15,292 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Table SECURITY_CLIENT created
+[0m[0m11:20:15,294 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-93::lundberg (generated) ran successfully in 15ms
+[0m[0m11:20:15,295 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-93', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 94, '8:9d33582bb41e69fd78e4cd6076c247e7', 'createTable tableName=SECURITY_CLIENT', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:15,299 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE TABLE odin.SITE (AUTH BOOLEAN DEFAULT FALSE, COD_AUT numeric(20, 0), COD_SITE numeric(20, 0) NOT NULL, DT_AUT TIMESTAMP WITHOUT TIME ZONE, NAME VARCHAR(255), OPERACAO numeric(10, 0), URL VARCHAR(255), USU_AUT VARCHAR(255), VERSION numeric(20, 0) NOT NULL, CONSTRAINT PK_SITE PRIMARY KEY (COD_SITE))
+[0m[0m11:20:15,316 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON TABLE odin.SITE IS 'ARMAZENA O ENDEREÇO DOS SITES DE DOWNLOAD'
+[0m[0m11:20:15,316 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.SITE.AUTH IS 'CAMPO QUE INDICA SE O REGISTRO ESTA EM AUTORIZACAO (1) OU NÃO (0).'
+[0m[0m11:20:15,317 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.SITE.COD_AUT IS 'CODIGO ORIGINAL DO REGISTRO PENDENTE DE AUTORIZACAO. UTILIZADO EM CASO DE ALTERACAO OU EXCLUSAO DO REGISTRO.'
+[0m[0m11:20:15,317 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.SITE.COD_SITE IS 'CODIGO DO SITE'
+[0m[0m11:20:15,318 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.SITE.DT_AUT IS 'DATA EM QUE O REGISTRO FOI COLOCADO EM AUTORIZACAO.'
+[0m[0m11:20:15,318 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.SITE.NAME IS 'NOME DO SITE'
+[0m[0m11:20:15,319 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.SITE.OPERACAO IS 'INDICA A OPERACAO QUE FOI COLOCADA EM AUTORIZACAO: INCLUSAO (0), ALTERACAO (1), EXCLUSAO (2), INCLUSAO NA BASE FRIA (3), ALTERACAO NA BASE FRIA (4), EXCLUSAO NA BASE FRIA (5), INCLUSAO COM ACAO (6), ALTERACAO COM ACAO (7), REJEICAO NA AUTORIZACAO (8).'
+[0m[0m11:20:15,319 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.SITE.URL IS 'URL'
+[0m[0m11:20:15,320 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.SITE.USU_AUT IS 'NOME DO USUARIO QUE COLOCOU O REGISTRO EM AUTORIZACAO.'
+[0m[0m11:20:15,320 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.SITE.VERSION IS 'CAMPO PARA LOCK OTIMISTA.'
+[0m[0m11:20:15,320 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Table SITE created
+[0m[0m11:20:15,326 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-94::lundberg (generated) ran successfully in 28ms
+[0m[0m11:20:15,327 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-94', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 95, '8:30ed2ff4f428de721a500243126ddfbd', 'createTable tableName=SITE', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:15,331 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE TABLE odin.SYSTEM_PARAM (AUTH BOOLEAN DEFAULT FALSE, COD_AUT numeric(20, 0), COD_SYSTEM_PARAM numeric(20, 0) NOT NULL, COD_SYSTEM_PARAM_GRP numeric(20, 0) NOT NULL, DESCR_PARAM VARCHAR(255) NOT NULL, DT_AUT TIMESTAMP WITHOUT TIME ZONE, EDITABLE BOOLEAN NOT NULL, MNE_PARAM VARCHAR(255) NOT NULL, OPERACAO numeric(10, 0), PARAM_BOOL_VL BOOLEAN, PARAM_NUM_VL numeric(20, 2), PARAM_TIME_VL TIME WITHOUT TIME ZONE, PARAM_TXT_VL VARCHAR(255), TP_PARAM numeric(10, 0) NOT NULL, USU_AUT VARCHAR(255), VERSION numeric(20, 0) NOT NULL, VISIBLE BOOLEAN NOT NULL, CONSTRAINT PK_SYSPAR PRIMARY KEY (COD_SYSTEM_PARAM))
+[0m[0m11:20:15,351 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON TABLE odin.SYSTEM_PARAM IS 'ARMAZENA OS PARAMETROS DO SISTEMA'
+[0m[0m11:20:15,351 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.SYSTEM_PARAM.AUTH IS 'CAMPO QUE INDICA SE O REGISTRO ESTA EM AUTORIZACAO (1) OU NÃO (0).'
+[0m[0m11:20:15,352 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.SYSTEM_PARAM.COD_AUT IS 'CODIGO ORIGINAL DO REGISTRO PENDENTE DE AUTORIZACAO. UTILIZADO EM CASO DE ALTERACAO OU EXCLUSAO DO REGISTRO.'
+[0m[0m11:20:15,352 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.SYSTEM_PARAM.COD_SYSTEM_PARAM IS 'CODIGO DO PARAMETRO DE SISTEMA'
+[0m[0m11:20:15,352 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.SYSTEM_PARAM.COD_SYSTEM_PARAM_GRP IS 'CODIGO DO GRUPO DE PARAMETRO DE SISTEMA'
+[0m[0m11:20:15,353 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.SYSTEM_PARAM.DESCR_PARAM IS 'DESCRICAO DO PARAMETRO DE SISTEMA.'
+[0m[0m11:20:15,353 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.SYSTEM_PARAM.DT_AUT IS 'DATA EM QUE O REGISTRO FOI COLOCADO EM AUTORIZACAO.'
+[0m[0m11:20:15,354 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.SYSTEM_PARAM.EDITABLE IS 'INDICA SE O PARAMETRO E EDITAVEL: 0 - NAO. 1 - SIM.'
+[0m[0m11:20:15,354 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.SYSTEM_PARAM.MNE_PARAM IS 'MNEMONICO DO PARAMETRO DE SISTEMA.'
+[0m[0m11:20:15,355 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.SYSTEM_PARAM.OPERACAO IS 'INDICA A OPERACAO QUE FOI COLOCADA EM AUTORIZACAO: INCLUSAO (0), ALTERACAO (1), EXCLUSAO (2), INCLUSAO NA BASE FRIA (3), ALTERACAO NA BASE FRIA (4), EXCLUSAO NA BASE FRIA (5), INCLUSAO COM ACAO (6), ALTERACAO COM ACAO (7), REJEICAO NA AUTORIZACAO (8).'
+[0m[0m11:20:15,355 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.SYSTEM_PARAM.PARAM_BOOL_VL IS 'VALOR BOOLEAN DO PARAMETRO DE SISTEMA (0) FALSO, (1) VERDADEIRO.'
+[0m[0m11:20:15,355 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.SYSTEM_PARAM.PARAM_NUM_VL IS 'VALOR NUMERICO DO PARAMETRO DE SISTEMA.'
+[0m[0m11:20:15,356 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.SYSTEM_PARAM.PARAM_TIME_VL IS 'HORARIO PARAMETRIZADO'
+[0m[0m11:20:15,356 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.SYSTEM_PARAM.PARAM_TXT_VL IS 'VALOR TEXTO DO PARAMETRO DE SISTEMA.'
+[0m[0m11:20:15,357 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.SYSTEM_PARAM.TP_PARAM IS 'TIPO DE PARÂMETRO DE SISTEMA. (0) BOOLEAN, (1) NUMERICO, (2) TEXTO, (4) HORARIO.'
+[0m[0m11:20:15,357 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.SYSTEM_PARAM.USU_AUT IS 'NOME DO USUARIO QUE COLOCOU O REGISTRO EM AUTORIZACAO.'
+[0m[0m11:20:15,358 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.SYSTEM_PARAM.VERSION IS 'CAMPO PARA LOCK OTIMISTA.'
+[0m[0m11:20:15,358 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.SYSTEM_PARAM.VISIBLE IS 'INDICA SE O PARAMETRO E VISIVEL: 0 - NAO. 1 - SIM.'
+[0m[0m11:20:15,359 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Table SYSTEM_PARAM created
+[0m[0m11:20:15,364 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-95::lundberg (generated) ran successfully in 34ms
+[0m[0m11:20:15,365 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-95', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 96, '8:3216b36ed002289d34f0de71776e8c61', 'createTable tableName=SYSTEM_PARAM', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:15,368 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE TABLE odin.SYSTEM_PARAM_GRP (COD_SYSTEM_PARAM_GRP numeric(20, 0) NOT NULL, MNE_SYSTEM_PARAM_GRP VARCHAR(255) NOT NULL, CONSTRAINT PK_SYSPGR PRIMARY KEY (COD_SYSTEM_PARAM_GRP))
+[0m[0m11:20:15,374 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON TABLE odin.SYSTEM_PARAM_GRP IS 'GRUPO DO PARAMETRO DE SISTEMA'
+[0m[0m11:20:15,374 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.SYSTEM_PARAM_GRP.COD_SYSTEM_PARAM_GRP IS 'CODIGO DO GRUPO DO PARAMETRO DE SISTEMA'
+[0m[0m11:20:15,375 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.SYSTEM_PARAM_GRP.MNE_SYSTEM_PARAM_GRP IS 'MNEMONICO DO GRUPO DO PARAMETRO DE SISTEMA'
+[0m[0m11:20:15,375 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Table SYSTEM_PARAM_GRP created
+[0m[0m11:20:15,377 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-96::lundberg (generated) ran successfully in 9ms
+[0m[0m11:20:15,378 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-96', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 97, '8:d18f099e369adfb1396343835ea96c8c', 'createTable tableName=SYSTEM_PARAM_GRP', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:15,381 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE TABLE odin.UNIQUE_VALUE_REFERENCE (COD_UNIQ_VL_REF numeric(20, 0) NOT NULL, MNE_UNIQ_VL_REF VARCHAR(255) NOT NULL, NEXT_VALUE numeric(20, 0) NOT NULL, TP numeric(10, 0) NOT NULL, CONSTRAINT PK_UNVARE PRIMARY KEY (COD_UNIQ_VL_REF))
+[0m[0m11:20:15,389 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON TABLE odin.UNIQUE_VALUE_REFERENCE IS 'CONTROLE DA GERACAO DE NUMEROS UNICOS SEQUENCIAIS UTILIZADOS EM OUTRAS TABELAS.'
+[0m[0m11:20:15,389 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.UNIQUE_VALUE_REFERENCE.COD_UNIQ_VL_REF IS 'CODIGO DO CONTROLE DE SEQUENCIAL.'
+[0m[0m11:20:15,390 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.UNIQUE_VALUE_REFERENCE.MNE_UNIQ_VL_REF IS 'MNEMONICO DA ENTIDADE QUE UTILIZA A GERACAO DE SEQUENCIAL.'
+[0m[0m11:20:15,390 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.UNIQUE_VALUE_REFERENCE.NEXT_VALUE IS 'PROXIMO VALOR A SER UTILIZADO COMO SEQUENCIAL.'
+[0m[0m11:20:15,391 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.UNIQUE_VALUE_REFERENCE.TP IS 'IDENTIFICA O TIPO DE GERADOR DE NUMEROS UNICOS SEQUENCIAIS. (0) GENERICO.'
+[0m[0m11:20:15,391 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Table UNIQUE_VALUE_REFERENCE created
+[0m[0m11:20:15,393 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-97::lundberg (generated) ran successfully in 12ms
+[0m[0m11:20:15,395 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-97', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 98, '8:dbf2081514330be8f42d69a6937416e0', 'createTable tableName=UNIQUE_VALUE_REFERENCE', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:15,397 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE TABLE odin.USER_ACCESS_DATA (COD_USER_ACCESS_DATA numeric(20, 0) NOT NULL, LOGIN_TIMESTAMP TIMESTAMP WITHOUT TIME ZONE NOT NULL, LOGOUT_TIMESTAMP TIMESTAMP WITHOUT TIME ZONE, SEC_CLIENT VARCHAR(255) NOT NULL, SESSION_ID VARCHAR(255), USERNAME VARCHAR(255) NOT NULL, CONSTRAINT PK_USACDT PRIMARY KEY (COD_USER_ACCESS_DATA))
+[0m[0m11:20:15,411 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON TABLE odin.USER_ACCESS_DATA IS 'ARMAZENA OS DADOS DE ACESSO DE UM USUARIO.'
+[0m[0m11:20:15,411 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.USER_ACCESS_DATA.COD_USER_ACCESS_DATA IS 'CODIGO DO DADO DE ACESSO DE USUARIO'
+[0m[0m11:20:15,412 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.USER_ACCESS_DATA.LOGIN_TIMESTAMP IS 'DATA/HORA DO LOGIN'
+[0m[0m11:20:15,412 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.USER_ACCESS_DATA.LOGOUT_TIMESTAMP IS 'DATA/HORA DO LOGOUT'
+[0m[0m11:20:15,413 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.USER_ACCESS_DATA.SEC_CLIENT IS 'NOME DO SISTEMA CLIENTE DE SEGURANCA'
+[0m[0m11:20:15,413 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.USER_ACCESS_DATA.SESSION_ID IS 'IDENTIFICACAO DA SESSAO DE CONEXAO'
+[0m[0m11:20:15,414 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.USER_ACCESS_DATA.USERNAME IS 'NOME DO USUARIO'
+[0m[0m11:20:15,414 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Table USER_ACCESS_DATA created
+[0m[0m11:20:15,416 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-98::lundberg (generated) ran successfully in 19ms
+[0m[0m11:20:15,417 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-98', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 99, '8:dcb4c75daa23b353b9477dd5b246c9f7', 'createTable tableName=USER_ACCESS_DATA', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:15,421 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE TABLE odin.USER_GROUP (AUTH BOOLEAN DEFAULT FALSE, COD_AUT numeric(20, 0), COD_USER_GROUP numeric(20, 0) NOT NULL, DT_AUT TIMESTAMP WITHOUT TIME ZONE, NAME_USER_GROUP VARCHAR(100) NOT NULL, OPERACAO numeric(10, 0), USU_AUT VARCHAR(255), VERSION numeric(20, 0) NOT NULL, CONSTRAINT PK_USRGRO PRIMARY KEY (COD_USER_GROUP))
+[0m[0m11:20:15,427 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON TABLE odin.USER_GROUP IS 'ARMAZENA OS GRUPOS DE USUARIOS PARA ACESSO AO SISTEMA.'
+[0m[0m11:20:15,428 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.USER_GROUP.AUTH IS 'CAMPO QUE INDICA SE O REGISTRO ESTA EM AUTORIZACAO (1) OU NÃO (0).'
+[0m[0m11:20:15,429 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.USER_GROUP.COD_AUT IS 'CODIGO ORIGINAL DO REGISTRO PENDENTE DE AUTORIZACAO. UTILIZADO EM CASO DE ALTERACAO OU EXCLUSAO DO REGISTRO.'
+[0m[0m11:20:15,429 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.USER_GROUP.COD_USER_GROUP IS 'CODIGO DO GRUPO DE USUARIOS.'
+[0m[0m11:20:15,430 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.USER_GROUP.DT_AUT IS 'DATA EM QUE O REGISTRO FOI COLOCADO EM AUTORIZACAO.'
+[0m[0m11:20:15,430 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.USER_GROUP.NAME_USER_GROUP IS 'NOME DO GRUPO DE USUARIOS.'
+[0m[0m11:20:15,431 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.USER_GROUP.OPERACAO IS 'INDICA A OPERACAO QUE FOI COLOCADA EM AUTORIZACAO: INCLUSAO (0), ALTERACAO (1), EXCLUSAO (2), INCLUSAO NA BASE FRIA (3), ALTERACAO NA BASE FRIA (4), EXCLUSAO NA BASE FRIA (5), INCLUSAO COM ACAO (6), ALTERACAO COM ACAO (7), REJEICAO NA AUTORIZACAO (8).'
+[0m[0m11:20:15,431 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.USER_GROUP.USU_AUT IS 'NOME DO USUARIO QUE COLOCOU O REGISTRO EM AUTORIZACAO.'
+[0m[0m11:20:15,432 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.USER_GROUP.VERSION IS 'CAMPO PARA LOCK OTIMISTA.'
+[0m[0m11:20:15,432 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Table USER_GROUP created
+[0m[0m11:20:15,434 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-99::lundberg (generated) ran successfully in 13ms
+[0m[0m11:20:15,435 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-99', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 100, '8:3a28f77e9448ef1991ffa1fa4465cbbf', 'createTable tableName=USER_GROUP', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:15,438 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE TABLE odin.USER_SYSTEM (AUTH BOOLEAN DEFAULT FALSE, BLOCKED_UNTIL TIMESTAMP WITHOUT TIME ZONE, COD_AUT numeric(20, 0), COD_USER numeric(20, 0) NOT NULL, DT_AUT TIMESTAMP WITHOUT TIME ZONE, FIRST_LOGIN_ERROR_TIME TIMESTAMP WITHOUT TIME ZONE, LAST_PASSWORD_CHANGE TIMESTAMP WITHOUT TIME ZONE, N_LOGIN_ERRORS numeric(10, 0) DEFAULT 0, OPERACAO numeric(10, 0), PASSWORD VARCHAR(60) NOT NULL, RECOVER_HASH_EXPIRES TIMESTAMP WITHOUT TIME ZONE, RECOVER_PASSWORD_HASH VARCHAR(60), TP numeric(10, 0) NOT NULL, USERNAME VARCHAR(100) NOT NULL, USU_AUT VARCHAR(255), VERSION numeric(20, 0) NOT NULL, CONSTRAINT PK_USRSYS PRIMARY KEY (COD_USER))
+[0m[0m11:20:15,464 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON TABLE odin.USER_SYSTEM IS 'ARMAZENA OS USUARIOS QUE ACESSAM O SISTEMA.'
+[0m[0m11:20:15,465 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.USER_SYSTEM.AUTH IS 'CAMPO QUE INDICA SE O REGISTRO ESTA EM AUTORIZACAO (1) OU NÃO (0).'
+[0m[0m11:20:15,465 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.USER_SYSTEM.BLOCKED_UNTIL IS 'ATE QUANDO ESTE USUARIO ESTA COM O LOGIN BLOQUEADO POR CONTA DE ERROS DE LOGIN ANTERIORES.'
+[0m[0m11:20:15,466 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.USER_SYSTEM.COD_AUT IS 'CODIGO ORIGINAL DO REGISTRO PENDENTE DE AUTORIZACAO. UTILIZADO EM CASO DE ALTERACAO OU EXCLUSAO DO REGISTRO.'
+[0m[0m11:20:15,466 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.USER_SYSTEM.COD_USER IS 'CODIGO DO USUARIO.'
+[0m[0m11:20:15,467 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.USER_SYSTEM.DT_AUT IS 'DATA EM QUE O REGISTRO FOI COLOCADO EM AUTORIZACAO.'
+[0m[0m11:20:15,467 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.USER_SYSTEM.FIRST_LOGIN_ERROR_TIME IS 'HORA NA QUAL O USUARIO ERROU A SENHA PELA PRIMEIRA VEZ EM UMA SERIE DE ERROS.'
+[0m[0m11:20:15,468 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.USER_SYSTEM.LAST_PASSWORD_CHANGE IS 'DATA NA QUAL O USUARIO TROCOU SUA SENHA PELA ULTIMA VEZ.'
+[0m[0m11:20:15,468 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.USER_SYSTEM.N_LOGIN_ERRORS IS 'NUMERO DE ERROS DE LOGIN FEITOS DENTRO DE UMA SERIE DE ERROS.'
+[0m[0m11:20:15,469 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.USER_SYSTEM.OPERACAO IS 'INDICA A OPERACAO QUE FOI COLOCADA EM AUTORIZACAO: INCLUSAO (0), ALTERACAO (1), EXCLUSAO (2), INCLUSAO NA BASE FRIA (3), ALTERACAO NA BASE FRIA (4), EXCLUSAO NA BASE FRIA (5), INCLUSAO COM ACAO (6), ALTERACAO COM ACAO (7), REJEICAO NA AUTORIZACAO (8).'
+[0m[0m11:20:15,469 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.USER_SYSTEM.PASSWORD IS 'SENHA CRIPTOGRAFADA DO USUARIO.'
+[0m[0m11:20:15,469 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.USER_SYSTEM.RECOVER_HASH_EXPIRES IS 'ATE QUANDO VAI DURAR O LINK PARA TROCA DE SENHA.'
+[0m[0m11:20:15,470 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.USER_SYSTEM.RECOVER_PASSWORD_HASH IS 'HASH UTILIZADO PARA GERAR O LINK PARA TROCA DE SENHA'
+[0m[0m11:20:15,470 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.USER_SYSTEM.TP IS 'IDENTIFICA O TIPO DO USUARIO. (0) GENERICO.'
+[0m[0m11:20:15,471 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.USER_SYSTEM.USERNAME IS 'NOME DO USUARIO.'
+[0m[0m11:20:15,471 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.USER_SYSTEM.USU_AUT IS 'NOME DO USUARIO QUE COLOCOU O REGISTRO EM AUTORIZACAO.'
+[0m[0m11:20:15,471 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.USER_SYSTEM.VERSION IS 'CAMPO PARA LOCK OTIMISTA.'
+[0m[0m11:20:15,472 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Table USER_SYSTEM created
+[0m[0m11:20:15,475 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-100::lundberg (generated) ran successfully in 37ms
+[0m[0m11:20:15,476 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-100', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 101, '8:4e276e24232dc95d525d5d76e1e808c9', 'createTable tableName=USER_SYSTEM', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:15,479 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE TABLE odin.WATCHED_ENTITY (ENTITY_CLASS VARCHAR(255) NOT NULL, ENTITY_ID numeric(20, 0) NOT NULL, ID_WATCHED_ENTITY numeric(20, 0) NOT NULL, LAST_EDIT TIMESTAMP WITHOUT TIME ZONE NOT NULL, USER_NAME VARCHAR(255) NOT NULL, CONSTRAINT PK_WTCENT PRIMARY KEY (ID_WATCHED_ENTITY))
+[0m[0m11:20:15,500 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON TABLE odin.WATCHED_ENTITY IS 'GUARDA ENTIDADES QUE ESTAO SENDO ALTERADAS POR USUARIOS'
+[0m[0m11:20:15,525 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.WATCHED_ENTITY.ENTITY_CLASS IS 'CLASSE DA ENTIDADE MONITORADA'
+[0m[0m11:20:15,526 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.WATCHED_ENTITY.ENTITY_ID IS 'ID DA ENTIDADE MONITORADA'
+[0m[0m11:20:15,527 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.WATCHED_ENTITY.ID_WATCHED_ENTITY IS 'CODIGO UNICO DA ENTIDADE'
+[0m[0m11:20:15,527 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.WATCHED_ENTITY.LAST_EDIT IS 'TIMESTAMP DA ULTIMA ALTERACAO'
+[0m[0m11:20:15,528 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.WATCHED_ENTITY.USER_NAME IS 'NOME DO USUARIO QUE ESTA EDITANDO A ENTRADA'
+[0m[0m11:20:15,528 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Table WATCHED_ENTITY created
+[0m[0m11:20:15,531 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-101::lundberg (generated) ran successfully in 53ms
+[0m[0m11:20:15,532 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-101', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 102, '8:4397a51f364b7790bc06778a26781873', 'createTable tableName=WATCHED_ENTITY', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:15,544 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) CREATE TABLE odin.WEBSERVICE_INFO (COD_FETCH_INFO numeric(20, 0) NOT NULL, SCRIPT VARCHAR(255), WSDL VARCHAR(255), CONSTRAINT PK_WEBINF PRIMARY KEY (COD_FETCH_INFO))
+[0m[0m11:20:15,573 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON TABLE odin.WEBSERVICE_INFO IS 'DEFINE COMO BAIXAR ARQUIVO POR WEB SERVICE'
+[0m[0m11:20:15,574 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.WEBSERVICE_INFO.COD_FETCH_INFO IS 'CÓDIGO DA DEFINIÇÃO DE ARQUIVO'
+[0m[0m11:20:15,575 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.WEBSERVICE_INFO.SCRIPT IS 'WEB SERVICE SCRIPT'
+[0m[0m11:20:15,575 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) COMMENT ON COLUMN odin.WEBSERVICE_INFO.WSDL IS 'WEB SERVICE DEFINITION LANGUAGE'
+[0m[0m11:20:15,576 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Table WEBSERVICE_INFO created
+[0m[0m11:20:15,580 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-102::lundberg (generated) ran successfully in 36ms
+[0m[0m11:20:15,581 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-102', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 103, '8:1f345dc0c530554bc0a2171aeefa3f25', 'createTable tableName=WEBSERVICE_INFO', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:15,585 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) ALTER TABLE odin.APPLICATION ADD CONSTRAINT AK_APLIC_0 UNIQUE (APPLIC_NAME, AUTH)
+[0m[0m11:20:15,593 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Unique constraint added to APPLICATION(APPLIC_NAME, AUTH)
+[0m[0m11:20:15,595 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-103::lundberg (generated) ran successfully in 11ms
+[0m[0m11:20:15,625 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-103', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 104, '8:397d2a0e789d3075d6d4f512c8012192', 'addUniqueConstraint constraintName=AK_APLIC_0, tableName=APPLICATION', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:15,632 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) ALTER TABLE odin.AUDIT_TYPE ADD CONSTRAINT AK_AUDTYP_JT_0 UNIQUE (CLASS_NAME)
+[0m[0m11:20:15,644 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Unique constraint added to AUDIT_TYPE(CLASS_NAME)
+[0m[0m11:20:15,646 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-104::lundberg (generated) ran successfully in 14ms
+[0m[0m11:20:15,647 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-104', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 105, '8:22825664ebccd7a0823af58301c29d47', 'addUniqueConstraint constraintName=AK_AUDTYP_JT_0, tableName=AUDIT_TYPE', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:15,654 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) ALTER TABLE odin.AUTHORIZABLE_LOOKUP_ENTRY ADD CONSTRAINT AK_AUTLOE_JT_0 UNIQUE (AUTHORIZABLE_ENTITY_ID, AUTHORIZABLE_TYPE_NAME)
+[0m[0m11:20:15,660 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Unique constraint added to AUTHORIZABLE_LOOKUP_ENTRY(AUTHORIZABLE_ENTITY_ID, AUTHORIZABLE_TYPE_NAME)
+[0m[0m11:20:15,662 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-105::lundberg (generated) ran successfully in 9ms
+[0m[0m11:20:15,664 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-105', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 106, '8:f89b93d98d67a96aa475a7ee81cdd187', 'addUniqueConstraint constraintName=AK_AUTLOE_JT_0, tableName=AUTHORIZABLE_LOOKUP_ENTRY', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:15,667 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) ALTER TABLE odin.AUTH_UPDATE_MAPPING ADD CONSTRAINT AK_AUUPMP_JT_0 UNIQUE (COD_AUTH_UPDATE_MAPPING, AUTHORIZABLE_TYPE_NAME, HOT_ENTITY_ID, COLD_ENTITY_ID)
+[0m[0m11:20:15,674 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Unique constraint added to AUTH_UPDATE_MAPPING(COD_AUTH_UPDATE_MAPPING, AUTHORIZABLE_TYPE_NAME, HOT_ENTITY_ID, COLD_ENTITY_ID)
+[0m[0m11:20:15,677 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-106::lundberg (generated) ran successfully in 11ms
+[0m[0m11:20:15,679 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-106', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 107, '8:2f7380d503cf85af88ddb4e812e3d6f3', 'addUniqueConstraint constraintName=AK_AUUPMP_JT_0, tableName=AUTH_UPDATE_MAPPING', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:15,682 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) ALTER TABLE odin.CHAIN_INFO_FECTH_INFO ADD CONSTRAINT AK_CH_FTC_0 UNIQUE (COD_FETCH_INFO)
+[0m[0m11:20:15,694 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Unique constraint added to CHAIN_INFO_FECTH_INFO(COD_FETCH_INFO)
+[0m[0m11:20:15,696 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-107::lundberg (generated) ran successfully in 14ms
+[0m[0m11:20:15,726 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-107', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 108, '8:714044f7ad75d7d14e5b0795a182f24f', 'addUniqueConstraint constraintName=AK_CH_FTC_0, tableName=CHAIN_INFO_FECTH_INFO', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:15,731 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) ALTER TABLE odin.CREDENTIAL ADD CONSTRAINT AK_CREDEN_JT_0 UNIQUE (MNE, AUTH)
+[0m[0m11:20:15,737 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Unique constraint added to CREDENTIAL(MNE, AUTH)
+[0m[0m11:20:15,739 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-108::lundberg (generated) ran successfully in 8ms
+[0m[0m11:20:15,740 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-108', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 109, '8:9cc5dd8441c601d28996d0099f110f30', 'addUniqueConstraint constraintName=AK_CREDEN_JT_0, tableName=CREDENTIAL', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:15,743 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) ALTER TABLE odin.EXECUTION_LOG ADD CONSTRAINT AK_EXELOG_JT_0 UNIQUE (COD_EXECUTION_LOG_CONTENT)
+[0m[0m11:20:15,754 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Unique constraint added to EXECUTION_LOG(COD_EXECUTION_LOG_CONTENT)
+[0m[0m11:20:15,756 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-109::lundberg (generated) ran successfully in 13ms
+[0m[0m11:20:15,757 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-109', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 110, '8:b0c092bbe1a7652ac3354a2e09bf16cb', 'addUniqueConstraint constraintName=AK_EXELOG_JT_0, tableName=EXECUTION_LOG', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:15,761 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) ALTER TABLE odin.FEEDER_FILE ADD CONSTRAINT AK_FEEFIL_0 UNIQUE (FILE_CODE, AUTH)
+[0m[0m11:20:15,771 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Unique constraint added to FEEDER_FILE(FILE_CODE, AUTH)
+[0m[0m11:20:15,778 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-110::lundberg (generated) ran successfully in 17ms
+[0m[0m11:20:15,780 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-110', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 111, '8:1ce03a768e8e4dcc58cc698a09dff4c7', 'addUniqueConstraint constraintName=AK_FEEFIL_0, tableName=FEEDER_FILE', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:15,785 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) ALTER TABLE odin.FEEDER_FILE_SCHEDULE ADD CONSTRAINT AK_FILSCH_0 UNIQUE (COD_SCHEDULE)
+[0m[0m11:20:15,797 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Unique constraint added to FEEDER_FILE_SCHEDULE(COD_SCHEDULE)
+[0m[0m11:20:15,802 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-111::lundberg (generated) ran successfully in 17ms
+[0m[0m11:20:15,803 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-111', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 112, '8:ce748a8d723fbaefe69e98af06a11f4b', 'addUniqueConstraint constraintName=AK_FILSCH_0, tableName=FEEDER_FILE_SCHEDULE', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:15,806 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) ALTER TABLE odin.META_CREDENTIAL ADD CONSTRAINT AK_MTCRED_0 UNIQUE (NAME)
+[0m[0m11:20:15,814 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Unique constraint added to META_CREDENTIAL(NAME)
+[0m[0m11:20:15,817 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-112::lundberg (generated) ran successfully in 11ms
+[0m[0m11:20:15,818 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-112', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 113, '8:49b34e7f99512b3d3455a02bf4a9f123', 'addUniqueConstraint constraintName=AK_MTCRED_0, tableName=META_CREDENTIAL', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:15,826 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) ALTER TABLE odin.SYSTEM_PARAM ADD CONSTRAINT AK_SYSPAR_JT_0 UNIQUE (MNE_PARAM, AUTH)
+[0m[0m11:20:15,833 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Unique constraint added to SYSTEM_PARAM(MNE_PARAM, AUTH)
+[0m[0m11:20:15,838 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-113::lundberg (generated) ran successfully in 12ms
+[0m[0m11:20:15,839 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-113', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 114, '8:4efc9d9ab261d33596c79b2cd0c03fdf', 'addUniqueConstraint constraintName=AK_SYSPAR_JT_0, tableName=SYSTEM_PARAM', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:15,843 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) ALTER TABLE odin.SYSTEM_PARAM_GRP ADD CONSTRAINT AK_SYSPGR_JT_0 UNIQUE (MNE_SYSTEM_PARAM_GRP)
+[0m[0m11:20:15,851 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Unique constraint added to SYSTEM_PARAM_GRP(MNE_SYSTEM_PARAM_GRP)
+[0m[0m11:20:15,855 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-114::lundberg (generated) ran successfully in 12ms
+[0m[0m11:20:15,857 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-114', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 115, '8:da857663951694971ddacaf3910b47bc', 'addUniqueConstraint constraintName=AK_SYSPGR_JT_0, tableName=SYSTEM_PARAM_GRP', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:15,862 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) ALTER TABLE odin.UNIQUE_VALUE_REFERENCE ADD CONSTRAINT AK_UNVARE_0 UNIQUE (MNE_UNIQ_VL_REF)
+[0m[0m11:20:15,871 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Unique constraint added to UNIQUE_VALUE_REFERENCE(MNE_UNIQ_VL_REF)
+[0m[0m11:20:15,875 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-115::lundberg (generated) ran successfully in 13ms
+[0m[0m11:20:15,876 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) INSERT INTO odin.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1663264861470-115', 'lundberg (generated)', 'db/changelog/base/00-changelog.yaml', NOW(), 116, '8:23ad9b5fa8b8e85f9c059d7e94b48957', 'addUniqueConstraint constraintName=AK_UNVARE_0, tableName=UNIQUE_VALUE_REFERENCE', '', 'EXECUTED', NULL, NULL, '3.8.0', '1210011630')
+[0m[0m11:20:15,880 INFO  [liquibase.executor.jvm.JdbcExecutor] (ServerService Thread Pool -- 82) ALTER TABLE odin.USER_GROUP ADD CONSTRAINT AK_USRGRO_1 UNIQUE (AUTH, NAME_USER_GROUP)
+[0m[0m11:20:15,892 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) Unique constraint added to USER_GROUP(AUTH, NAME_USER_GROUP)
+[0m[0m11:20:15,895 INFO  [liquibase.changelog.ChangeSet] (ServerService Thread Pool -- 82) ChangeSet db/changelog/base/00-changelog.yaml::1663264861470-116::lundberg (generated) ran successfully in 15ms
+[0m
