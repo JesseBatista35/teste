@@ -1,13 +1,21 @@
-Durante a etapa "Configurando Stack de Monitoração" da esteira esteira-jboss-vm, a consulta à base PostgreSQL falha na autenticação.
 
-Origem: cadsvaprlx072 (10.122.155.67), agente Azure DevOps
-Destino: 10.244.74.86:5432 / database monitordb001 / usuário monitdbadm
 
-Validações realizadas:
-
-Conectividade OK (nc/telnet na porta 5432).
-Teste direto do agente com a senha configurada na esteira (conexão com SSL): FATAL: password authentication failed for user "monitdbadm".
-
-A conexão com SSL é aceita pelo pg_hba.conf e rejeitada na senha. A mensagem "no pg_hba.conf entry ... no encryption" do log é apenas o fallback do cliente sem SSL, e não é a causa.
-
-Solicitação: verificar se a senha do usuário monitdbadm foi alterada ou expirou (VALID UNTIL) e informar a credencial vigente, para atualização na esteira.
+Gostaria de ajustar para ficar assim:
+ 
+No ponto de montagem atual do POWERCENTER alterar de /sihdg_des -> para /sihdg_des_pwc
+ 
+No ponto de montagem atual do SINAF alterar de /sihdg_sinaf -> para /sihdg_des
+ 
+Pois preciso manter a propriedade SIHDG-path.arquivo.sinaf apontada para /sihdg_des/Arquivos_Sinaf
+ 
+Dai, poderia gerar a release e enviar o print do terminal OKD com os 2 NFS montados (/sihdg_des e /sihdg_des_pwc)
+ 
+pode ser assim?
+ 
+ 
+Após ajustes teríamos:
+ 
+SINAF: nprdnfs01.ad.caixa:/ifs/cpwsprd01/nprd/fs_sihdg_des montado em /sihdg_des (50G)
+ 
+POWERCENTER: hypernprd56.ad.caixa:/fs_sihdg_des_pwc montado em /sihdg_des_pwc (50G)
+ 
