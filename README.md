@@ -1,57 +1,90 @@
-​
-Search...
+Skip to content
+GitHub Enterprise
+Users managed by Caixa Economica Federal
+caixagithub
+sispm-qualidade
+Repository navigation
+Code
+Issues
+Pull requests
+Actions
+Projects
+Security and quality
+Insights
+Settings
+caixagithub
+sispm-qualidade
+Private
+Go to file
+t
+T
+author
+Dev QA Bot
+chore: estrutura inicial/atualização de testes de qualidade (SISPM)
+a406eb3
+ · 
+3 days ago
+Name		
+teste-acessibilidade
+chore: estrutura inicial/atualização de testes de qualidade (SISPM)
+3 days ago
+teste-api
+chore: estrutura inicial/atualização de testes de qualidade (SISPM)
+3 days ago
+teste-funcional
+chore: estrutura inicial/atualização de testes de qualidade (SISPM)
+3 days ago
+teste-performance
+chore: estrutura inicial/atualização de testes de qualidade (SISPM)
+3 days ago
+README.md
+chore: estrutura inicial/atualização de testes de qualidade (SISPM)
+3 days ago
+Repository files navigation
+README
+SISPM-QUALIDADE
+Repositório centralizado de testes de qualidade do sistema SISPM.
 
-Home logo
-Home
-Catalogo
-Self-service
-APIs
-Aprendizado
-Meu grupo
-Notifications
-1
-Self-service
-Create new software components using standard templates in your organization
-Sanitização Controlada de Repositórios GitHub
-Sanitização controlada de repositórios GitHub e manifests GitOps. Funcionalidades:
+Estrutura
+teste-api/ — testes de API (contratos, integração, e2e)
+teste-performance/ — testes de carga, estresse e desempenho
+teste-funcional/ — testes funcionais e de regressão
+teste-acessibilidade/ — validações de acessibilidade
+regra-de-negocio/ — testes de regra de negócio
+Este repositório é gerenciado automaticamente por playbook Ansible (AAP).
 
-Inventory
-Validação de recursos
-Cleanup controlado
-Remoção de manifests GitOps
-Remoção de repositórios GitHub Apenas os repositórios informados serão processados.
-Configuração da Sanitização
-Review
-Work Order (WO) *
-Work Order associada à solicitação. Exemplo: WO123456
+About
 
-Organização onde a sanitização será executada *
-0
-Selecione a organização GitHub que será utilizada durante a execução da sanitização.
-
-Repositórios para Sanitização *
-Informe explicitamente os repositórios que serão processados. Exemplos:
-
-repo1
-
-ou
-
-repo1,repo2 Caso algum repositório não seja encontrado, a execução será interrompida e uma mensagem será exibida informando quais nomes não foram encontrados.
-
-Quando habilitado:
-
-NÃO executa deletes reais
-Apenas simula a sanitização
-Exibe os recursos encontrados
-⚠️ Quando desabilitado: deletes reais serão executados.
-
-Modo Simulação (não remove recursos)
-Quando habilitado:
-
-Remove manifests GitOps reais
-Executa cleanup no repositório GitOps
-Remove repositório ⚠️ Utilize com cautela.
-Remover repositório
-
-
-ME AJDUA A FAZER ENTOA O PREOCESSO
+No description or website provided.
+Topics
+Resources
+Readme
+Activity
+Custom properties
+Stars
+0 stars
+Watchers
+0 watching
+Forks
+0 forks
+Releases
+No releases published
+Create a new release
+Packages
+No packages published
+Publish your first package
+Contributors
+No contributors
+Footer
+© 2026 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Community
+Docs
+Contact
+Manage cookies
+Do not share my personal information
+ 
