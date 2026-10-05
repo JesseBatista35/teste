@@ -1,3 +1,10 @@
+Necessito alteração na configuração das releases do:
+SIFGD-pagamentos-backend
+
+A release aparentemente não está com as configurações corretas. 
+
+A release está com um erro em uma tarefa e não está subindo os pods para o okd
+
 2026-10-05T14:01:34.3717936Z ##[section]Starting: Verificando Status do Deployment
 2026-10-05T14:01:34.3721044Z ==============================================================================
 2026-10-05T14:01:34.3721135Z Task         : Bash
