@@ -1,16 +1,11 @@
 Prezados,
 
-Encaminho pedido para ajustar a pipeline do referido repositório para direcionar corretamente os recursos de AKS:
+Informo que o ajuste referente ao ambiente NPRD (DES → aks-aixa-des) no repositório sisva-backend-transacional-pix já foi realizado pela equipe de Esteiras DES/TQS.
 
-- DES/NPRD = [aks-aixa-des]
-- PLT e PRD = [aks-aixa-prd]
+Para concluir a demanda, falta direcionar PLT e PRD para o cluster aks-aixa-prd. Essa alteração é feita no repositório GitOps de infraestrutura e nos ambientes produtivos. Nossa equipe não tem acesso a esse repositório nem atua nesses ambientes.
 
-Em caso de dúvidas, favor contatar no Teams c141132.
+Por isso, solicitamos que seja aberta uma nova REQ direcionada ao time de Nuvem para realizar o ajuste nos arquivos config.yaml de PLT/PRD. Sugerimos referenciar esta demanda na nova REQ, para manter o histórico.
 
-
-<img width="1422" height="318" alt="image" src="https://github.com/user-attachments/assets/fe7ed560-a181-4170-930c-1a23579c4830" />
-
-
-feinto nprd.
-
-me ajuda co mtexto para fechar a demanda
+Atenciosamente,
+Jessé Batista – P585600
+Esteiras DevOps DES/TQS NPRD – CESTI
