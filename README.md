@@ -1,20 +1,87 @@
-Para eliminar qualquer dúvida na REQ000146323670 / WO0000081763077, segue o meu entendimento do que será feito em DES. Me confirma se está correto?
+Beleza, vou ajustar isso nas properties
+ 
+isso, mais temos que adicionar na library tambem
+ 
+WFLYCTL0211: Cannot resolve expression '${env.ACTIVEMQ_URL}'
 
-Situação atual em DES (variable group SIHDG-JBOSS8-DES)
+WFLYCTL0211: Cannot resolve expression '${env.ACTIVEMQ_USERNAME}'
 
-SINAF: nprdnfs01.ad.caixa:/ifs/cpwsprd01/nprd/fs_sihdg_sinaf montado em /sihdg_sinaf (50G), já concluído na WO0000081616760
-PowerCenter: hypernprd56.ad.caixa:/fs_sihdg montado em /sihdg_des (50G)
+WFLYCTL0211: Cannot resolve expression '${env.ACTIVEMQ_PASSWORD}'
+ 
+Isso, library. Tô acostumado com JBoss mexendo nas properties
+ 
+Aí eu adiciono na library só _ENV.ACTIVEMQ_URL e já era?
+ 
+URL, username e password no caso
+ 
+podia adicionar essas
+ 
+ACTIVEMQ_PASSWORD	
 
-O que será feito
+_ENV.ACTIVEMQ_URL	tcp://<host>:<porta> tem que confirmar
 
-O mesmo export hypernprd56.ad.caixa:/fs_sihdg passará a ser montado em /sihdg_powercenter (renomeado de /sihdg_des), igual ao padrão do TQS
-Não será criado storage novo, e o export /fs_sihdg_des_pwc citado antes não será utilizado
-O SINAF permanece como está, em /sihdg_sinaf
+_ENV.ACTIVEMQ_USERNAME	(usuário)	
 
-Pontos para sua confirmação
-
-No pedido consta PATH_DESTINO = /sihdg_sinaf/ junto com hypernprd56:/fs_sihdg, mas em DES o /sihdg_sinaf é o storage nprdnfs01. Confirma que o único ajuste é /sihdg_des → /sihdg_powercenter?
-Hoje a propriedade SIHDG-path.arquivo.sinaf aponta para /sihdg_des/. Com a troca, esse caminho deixa de existir. Para onde a aplicação deve ler os arquivos do SINAF depois da mudança: /sihdg_sinaf/ ou /sihdg_powercenter/?
-O SIZE_VOLUME_SINAF=20Gi se refere ao PowerCenter? Se sim, o volume atual está com 50Gi e não será reduzido. Pode manter assim?
-
-Com a sua confirmação eu aplico, rodo o release e envio o print do terminal do OKD com os dois NFS montados (/sihdg_sinaf e /sihdg_powercenter).
+_SECRET.ACTIVEMQ_PASSWORD	#{ACTIVEMQ_PASSWORD}#	
+ 
+ACTIVEMQ_PASSWORD essa como secret 
+ 
+Aaaaah eu não setei em DES essas libraries
+ 
+Em tqs deixa eu ver o que deu
+ 
+quebrou tambem
+ 
+ver o log
+ 
+Reclamou igual
+ 
+Beleza, esse tem que resolver com a fornecedora
+ 
+Muito obrigado de qualquer forma
+ 
+Quer que eu abra uma REQ pra formalizar?
+ 
+beleza mano.
+ 
+bom final de semana. vou indo nessa.
+ 
+qualquer coisa na segunda a gente continua. 
+ 
+Igualmente
+ 
+Cara, vou dizer agora porque se não eu esqueço na segunda...
+ 
+Adicionei essas properties na library de TQS e rodei a pipeline da release de novo (criei uma nova release pra garantir que refletisse). Notei que a task
+ 
+Exportando Variáveis de Ambiente "_ENV."
+2026-10-02T20:49:05.3349072Z CERTIFICATE_NAME=mapspegasusenquadramento
+2026-10-02T20:49:05.3350621Z CERTIFICATE_PASSWORD=#{CERTIFICATE_PASSWORD}#
+2026-10-02T20:49:05.3350892Z DATABASE_HOST=10.116.28.37
+2026-10-02T20:49:05.3351230Z DATABASE_NAME=cqldb001
+2026-10-02T20:49:05.3351415Z DATABASE_PORT=5204
+2026-10-02T20:49:05.3351561Z DATABASE_SCHEMA=enq
+2026-10-02T20:49:05.3351827Z DATABASE_USERNAME=scqlbt01
+2026-10-02T20:49:05.3352040Z ENQUADRAMENTO_OAUTH2_ATIVO_CLIENT_SECRET=enquadramentosecret
+2026-10-02T20:49:05.3352276Z ENQUADRAMENTO_SYSTEM_SYSADMIN_ACTIVE=false
+2026-10-02T20:49:05.3352459Z HTTP_BASIC_INTEGRATION_USERNAME=SCQLTB03
+2026-10-02T20:49:05.3352676Z LDAP_ANONYMOUS_READ_ONLY=true
+2026-10-02T20:49:05.3352851Z LDAP_BIND_DN=
+2026-10-02T20:49:05.3353029Z LDAP_BIND_PASSWORD=
+2026-10-02T20:49:05.3353165Z LDAP_DOMAIN=
+2026-10-02T20:49:05.3353361Z LDAP_GROUP_BASE_DN=cn=SICQL,ou=groups,o=caixa
+2026-10-02T20:49:05.3353609Z LDAP_GROUP_FILTER="(&(objectClass=groupOfUniqueNames)(uniqueMember=uid={0},ou=people,o=caixa))"
+2026-10-02T20:49:05.3353783Z LDAP_GROUP_NAME_ATTRIBUTE=cn
+2026-10-02T20:49:05.3353932Z LDAP_URL=ldap://10.192.230.65:2489
+2026-10-02T20:49:05.3354810Z LDAP_USER_BASE_DN="ou=people,o=caixa"
+2026-10-02T20:49:05.3355480Z LDAP_USER_FILTER="(&(objectClass=inetOrgPerson)(objectClass=cefusuario)(uid={0}))"
+2026-10-02T20:49:05.3355849Z MAPS_PEGASUS_ATIVO_URL=http://sicql-sp.tqs.desenvolvimento.extracaixa/sicql/api/
+2026-10-02T20:49:05.3356094Z MAPS_PEGASUS_PASSIVO_URL=http://sicql-sp.tqs.desenvolvimento.extracaixa/sicqp/api/
+2026-10-02T20:49:05.3356320Z REVERSE_PROXY_URL=https://sicql-mapspegasusenquadramento-tqs.apps.nprd.caixa
+ 
+Tá com essas propriedades aqui. Só que essas propriedades são de outro módulo (enquadramento). Parece que essa release só replicou as libraries do outro módulo:
+ 
+Sabe se dá pra arrumar isso?
+ 
+Execute um script Bash no macOS, Linux ou Windows.
+ 
