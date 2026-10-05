@@ -1,30 +1,21 @@
+POD=sicql-mapsfeeder-tqs-5-q65w8
+
+# 1) Motivo do restart e configuração das probes
+oc describe pod $POD | grep -E -A6 "Last State|Liveness|Readiness"
+oc get events --field-selector involvedObject.name=$POD --sort-by=.lastTimestamp | tail -15
+
+# 2) Fim do log da execução anterior (o que estava acontecendo quando morreu)
+oc logs $POD --previous | tail -60
+
+# 3) Erros relevantes
+oc logs $POD --previous | grep -Ei 'ERROR|WFLYCTL0211|Cannot resolve|JMSWMQ|MQRC|Exception' | head -40
 
 
-Using project "sipge-tqs".
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$ oc project sicql-tqs
-Now using project "sicql-tqs" on server "https://api.nprd.caixa:6443".
--sh-4.2$
--sh-4.2$
--sh-4.2$ oc get pods
-NAME                                           READY     STATUS      RESTARTS       AGE
-sicql-maps-feeder-tqs-1-deploy                 0/1       Error       0              2d18h
-sicql-mapsfeeder-tqs-4-deploy                  0/1       Error       0              16m
-sicql-mapsfeeder-tqs-5-deploy                  1/1       Running     0              5m18s
-sicql-mapsfeeder-tqs-5-q65w8                   0/1       Running     4 (72s ago)    5m16s
-sicql-mapspegasusenquadramento-tqs-52-deploy   0/1       Completed   0              74d
-sicql-mapspegasusenquadramento-tqs-53-bzzt5    1/1       Running     0              20d
-sicql-mapspegasusenquadramento-tqs-53-deploy   0/1       Completed   0              20d
-sicql-mapspegasusgestorescef-tqs-57-deploy     0/1       Completed   0              74d
-sicql-mapspegasusgestorescef-tqs-58-deploy     0/1       Completed   0              20d
-sicql-mapspegasusgestorescef-tqs-58-h9lpn      1/1       Running     0              20d
-sicql-mapspegasusgestorescef-tqs-58-wpzvt      1/1       Running     0              20d
-sicql-mapspricing-tqs-45-deploy                0/1       Completed   0              40d
-sicql-mapspricing-tqs-46-deploy                0/1       Completed   0              20d
-sicql-mapspricing-tqs-46-s4xrh                 1/1       Running     1 (3d8h ago)   20d
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$
+
+oc set env dc/sicql-mapspricing-tqs --list | grep -Ei 'mq|queue|ldap|activemq'
+oc get dc sicql-mapspricing-tqs -o jsonpath='{.spec.template.spec.containers[0].livenessProbe}{"\n"}{.spec.template.spec.containers[0].readinessProbe}{"\n"}{.spec.template.spec.containers[0].resources}{"\n"}'
+
+oc set env dc/sicql-mapsfeeder-tqs --list | grep -Ei 'mq|queue|ldap|activemq'
+oc get dc sicql-mapsfeeder-tqs -o jsonpath='{.spec.template.spec.containers[0].livenessProbe}{"\n"}{.spec.template.spec.containers[0].readinessProbe}{"\n"}{.spec.template.spec.containers[0].resources}{"\n"}'
+
+oc get dc | grep feeder
