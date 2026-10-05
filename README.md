@@ -1,18 +1,3 @@
-sispm-backend-informe-preliminar,sispm-backend-informe-preliminar-infraprd,sispm-backend-informe-preliminar-infranprd
+Olá! A sanitização foi realizada (task FusionX f19b117f-249a-48c6-9f26-cf4b9e697026): removidos os repositórios sispm-backend-informe-preliminar, -infraprd e -infranprd, os manifests GitOps e o registro no Backstage. O repositório sispm-qualidade foi mantido, por ser centralizado da sigla. Ele será atualizado na reexecução.
 
-
-
-<img width="1660" height="815" alt="image" src="https://github.com/user-attachments/assets/b360b335-6da6-487b-8eda-6e8273d212d3" />
-
-
-<img width="1596" height="877" alt="image" src="https://github.com/user-attachments/assets/06ea4c39-903a-4fa0-b902-727adb9c413e" />
-
-
-SANITIZEI SO O 
-
-<img width="1596" height="877" alt="image" src="https://github.com/user-attachments/assets/6d28eaed-e64c-474f-9d97-0ae4da330df9" />
-
-
-ELE JA LIMPA TUDO 
-
-O QUALIDATA AINDA TA AQUI
+A jornada pode ser executada novamente. Antes disso, por favor, corrijam no formulário a divergência da sigla da comunidade (CMDC em um campo e CMDDC em outro), para evitar nova falha na associação de grupos.
