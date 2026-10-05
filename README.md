@@ -1,43 +1,51 @@
-Analisei o erro do Sonar no SIFGD-pagamentos-frontend (branch feat-frontend).
+Oi Pedro, tudo bem? Analisei o erro do Sonar no SIFGD-pagamentos-frontend (branch feat-frontend).
 
-*O que derruba a build:* a esteira de Angular espera o relatório de testes em `reports/sonar-report.xml` e a cobertura em `coverage/lcov.info`, que é o padrão Jest. O projeto de vocês usa Karma, que não gera esses arquivos, então o scanner falha ao procurar o relatório.
+*Causa:* a esteira de Angular segue o padrão *Jest*. Ela espera o relatório de testes em `reports/sonar-report.xml` e a cobertura em `coverage/lcov.info`. O projeto está com Karma, que não gera esses arquivos, então o scanner falha.
 
-Obs.: a esteira roda com `-Dproject.settings=NONE`, então o `sonar-project.properties` do repositório é ignorado. Os ajustes precisam ser no karma/package.json.
+Obs.: a esteira roda com `-Dproject.settings=NONE`, então o `sonar-project.properties` do repo é ignorado e pode ser removido.
 
-*Ajustes no repositório (mantendo Karma):*
+*Ajuste: migrar os testes de Karma para Jest*
 
-1. Instalar o reporter:
-`npm i -D karma-sonarqube-unit-reporter`
-
-2. No `karma.conf.js`:
+1. Trocar as dependências:
 ```
-plugins: [ ...os existentes..., require('karma-sonarqube-unit-reporter') ],
-reporters: ['progress', 'sonarqubeUnit'],
-sonarQubeUnitReporter: {
-  sonarQubeVersion: 'LATEST',
-  outputFile: 'reports/sonar-report.xml',
-  overrideTestDescription: true,
-  testPaths: ['./src'],
-  testFilePattern: '.spec.ts',
-  useBrowserName: false
-},
-coverageReporter: {
-  dir: require('path').join(__dirname, './coverage'),
-  subdir: '.',
-  reporters: [{ type: 'lcovonly' }, { type: 'text-summary' }]
-},
+npm uninstall karma karma-chrome-launcher karma-coverage karma-jasmine karma-jasmine-html-reporter jasmine-core @types/jasmine
+npm i -D jest@29 jest-preset-angular@14 @types/jest jest-sonar-reporter
 ```
 
-3. No `package.json`, o script de teste precisa rodar uma vez só, com cobertura e browser headless:
-`"test": "ng test --watch=false --code-coverage --browsers=ChromeHeadless"`
+2. Apagar o `karma.conf.js` e remover o bloco `"test"` do `angular.json`.
 
-4. Criar um `tsconfig.sonar.json` na raiz:
+3. Criar `setup-jest.ts` na raiz:
 ```
-{
-  "extends": "./tsconfig.json",
-  "compilerOptions": { "moduleResolution": "node" }
+import { setupZoneTestEnv } from 'jest-preset-angular/setup-env/zone';
+setupZoneTestEnv();
+```
+
+4. Criar `jest.config.js` na raiz:
+```
+module.exports = {
+  preset: 'jest-preset-angular',
+  setupFilesAfterEnv: ['<rootDir>/setup-jest.ts'],
+  testPathIgnorePatterns: ['/node_modules/', '/dist/'],
+  collectCoverage: true,
+  coverageDirectory: 'coverage',
+  coverageReporters: ['lcov', 'text-summary'],
+  testResultsProcessor: 'jest-sonar-reporter'
+};
+```
+
+5. No `package.json`:
+```
+"scripts": { ..., "test": "jest" },
+"jestSonar": {
+  "reportPath": "reports",
+  "reportFile": "sonar-report.xml"
 }
 ```
-O Angular 19 usa `moduleResolution: bundler`, que o nosso SonarQube (9.9) não reconhece. Sem esse arquivo, o Sonar pula todos os .ts e a análise fica vazia. Do meu lado, eu configuro a pipeline para usar esse tsconfig.
 
-*Alternativa:* migrar os testes para Jest com `jest-sonar-reporter`, que é o padrão que a esteira já espera.
+6. No `tsconfig.spec.json`, trocar `"types": ["jasmine"]` por `"types": ["jest"]`.
+
+7. Nos `.spec.ts`, trocar a sintaxe do Jasmine pela do Jest onde houver: `spyOn` vira `jest.spyOn`, `jasmine.createSpyObj` vira objeto com `jest.fn()`, `and.returnValue` vira `mockReturnValue`.
+
+Antes de subir, rodem `npm test` localmente e confiram se foram gerados `reports/sonar-report.xml` e `coverage/lcov.info`.
+
+Assim que subirem, me avisa que rodo a pipeline de novo.
