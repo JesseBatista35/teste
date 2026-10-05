@@ -1,3 +1,11 @@
+.2$
+-sh-4.2$ }
+-sh: erro de sintaxe próximo do `token' não esperado `}'
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
 -sh-4.2$
 -sh-4.2$
 -sh-4.2$
@@ -59,4 +67,28 @@ keytool error: java.io.IOException: keystore password was incorrect
 command terminated with exit code 1
 -sh-4.2$
 -sh-4.2$
+-sh-4.2$
+-sh-4.2$ oc get rc simpi-dict-api-des-135 simpi-dict-api-des-137 \
+>   -o custom-columns=RC:.metadata.name,IMG:.spec.template.spec.containers[*].image
+RC                       IMG
+simpi-dict-api-des-135   default-route-openshift-image-registry.apps.produtos4.caixa/build-images-ads/simpi-dict-api:20261001.0951-1.0.0-SNAPSHOT
+simpi-dict-api-des-137   default-route-openshift-image-registry.apps.produtos4.caixa/build-images-ads/simpi-dict-api:20261005.1328-1.0.0-SNAPSHOT
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$ diff <(oc get rc simpi-dict-api-des-135 -o yaml | sed -n '/template:/,$p') \
+-sh: erro de sintaxe próximo do `token' não esperado `('
+-sh-4.2$      <(oc get rc simpi-dict-api-des-137 -o yaml | sed -n '/template:/,$p')
+-sh: erro de sintaxe próximo do `token' não esperado `('
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$  oc debug rc/simpi-dict-api-des-137 -c simpi-dict-api-des -- \
+>   sha256sum /deployments/sispi_user_keystore_kafka_des.p12
+Debugging with pod/simpi-dict-api-des-137-debug, original command: <image entrypoint>
+Waiting for pod to start ...
+e7101a164f46384c2bf1d0596c1ed6cdaabb7d16b99a2993548791470a8b280f  /deployments/sispi_user_keystore_kafka_des.p12
+
+Removing debug pod ...
+-sh-4.2$ ^C
 -sh-4.2$
