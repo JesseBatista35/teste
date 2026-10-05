@@ -1,16 +1,18 @@
-Favor realizar a exclusão do projeto sirmc-web-canais-landpage e seus artefatos relacionados.
+Prezados,
 
+Conforme solicitado, o projeto sirmc-web-canais-landpage e os artefatos relacionados foram excluídos por meio do processo automatizado de sanitização no portal (Task dbbabb80-9a03-462c-938c-b8a569e427f2), executado em 05/10/2026, às 16:04.
 
-realizado a sanitização me ajuda com texto para fechar a w.o
+Todas as etapas foram concluídas com sucesso:
 
+Validação de parâmetros: OK
+Sanitização GitHub/GitOps: remoção do repositório e das configurações GitOps associadas. OK
+Unregister no Backstage: remoção do componente do catálogo. OK
+Registro da exclusão no audit log: OK
 
+Não há pendências. Caso algum artefato remanescente seja identificado, favor abrir nova solicitação.
 
+Encerrando a W.O.
 
-
-<img width="1630" height="741" alt="image" src="https://github.com/user-attachments/assets/0f26f1ca-322c-45c4-9483-9c35ed31e942" />
-
-
-
-
-
-
+Atenciosamente,
+Jessé Batista
+CTIS/CESTI – DES/TQS NPRD
