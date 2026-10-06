@@ -3,6 +3,4 @@ Abra https://siepr-backend-intranet-des.apps.nprd.caixa/q/health, clique em Avan
 
 
 
--sh-4.2$ hostname
-cadsvaprlx067.intra.caixa.gov.br
--sh-4.2$
+scp p585600@cadsvaprlx067.intra.caixa.gov.br:/tmp/AC_Icptestes_Raiz.cer p585600@cadsvaprlx067.intra.caixa.gov.br:/tmp/AC_Icptestes_Sub.cer $HOME\Downloads\
