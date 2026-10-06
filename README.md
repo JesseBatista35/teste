@@ -1,4 +1,6 @@
-read -p "client_id: " CID; read -s -p "client_secret: " CSEC; echo
+
+[root@caddeapllx2695 tmp]#
+[root@caddeapllx2695 tmp]# read -p "client_id: " CID; read -s -p "client_secret: " CSEC; echo
 export no_proxy="$no_proxy,sicsn.caixa"
 J=/tmp/bt_cookies.txt; rm -f $J
 
@@ -12,3 +14,9 @@ curl -s -o /dev/null -w "signappin HTTP %{http_code}\n" -c $J -b $J -X POST http
 curl -s -o /dev/null -w "secrets HTTP %{http_code}\n" -c $J -b $J "https://sicsn.caixa/BeyondTrust/api/public/v3/Secrets-Safe/Secrets?FolderPath=SIIFX_BATCH_DES"
 
 curl -s -o /dev/null -c $J -b $J -X POST https://sicsn.caixa/BeyondTrust/api/public/v3/Auth/Signout; rm -f $J
+client_id:
+client_secret:
+token: ...
+signappin HTTP 000
+secrets HTTP 000
+[root@caddeapllx2695 tmp]#
