@@ -1,60 +1,18 @@
+Boa tarde, apanhei bastante, mas descobri o problema
+ 
+Na validação via linha de comando precisamos a mexer nos parâmetros do curlm pois estávamos recebendo HTTP 400:
+DE: -d "grant_type=client_credentials&client_id=$clientid&client_secret=$clientsecret"
+PARA: --data-urlencode "grant_type=client_credentials" --data-urlencode "client_id=${clientid}" --data-urlencode "client_secret=${clientsecret}"
+ 
+Adotei a ação de atualizar e depois instalar do zero baseado em experiência anterior, onde update/upgrade trás lixo de versões anteriores, e parti para a instalação do zero por conta desse artigo: https://community.bmc.com/s/article/Control-M-Application-Integrator-REST-job-performing-POST-incorrectly-sends-empty-body-causing-the-job-to-fail-with-an-HTTP-400-response (CTM-3795 has been created to address this issue and is implemented in Control-M Application Integrator 9.0.20.100.  Install the latest available version to address this issue.)
+ 
+Como eu já tinha feito e refeito diversas vezes vários procedimentos, leitura de logs com debug e etc, questionei a IA sobre a diferença entre -d "..." e --data-urlencode "..." no curl.
+ 
+A resposta foi voltada a explicar a conversão de caracretes em códigos hexadecimais, pedi a tabela completa e ajustei o clientid e secret, ficou assim:
+ClientID ANTES: 098c4f49-efa5-4042-b19f-8a8b5afc79d2
+ClientID DEPOIS: 098c4f49%2Defa5%2D4042%2Db19f%2D8a8b5afc79d2
+ 
+Fiz o mesmo com o Secret, que tinha o caractere "+" e "=" e converti para "%2B" e "%3D" 
 
-[root@caddeapllx2695 tmp]#
-[root@caddeapllx2695 tmp]# sed -n '245,300p' $X | grep -vE "^\s*$" | grep -v client_secret
-              <extractInfo class="array">
-                <extractInfoElement class="object">
-                  <cdataPath type="string"/>
-                  <cdataop type="string">any</cdataop>
-                  <doSection class="array">
-                    <doSectionElement class="object">
-                      <doOption type="string">extract</doOption>
-                      <extHandleData class="object">
-                        <colNum type="string">1</colNum>
-                        <colSperator type="string">;</colSperator>
-                        <extOption type="string">column</extOption>
-                        <extractData class="object">
-                          <cdataElem type="string">wholeElm</cdataElem>
-                          <cdataPath type="string"/>
-                          <keepExtracted type="boolean">true</keepExtracted>
-                          <keepParamEncrypt type="boolean">true</keepParamEncrypt>
-                          <keepParamName type="string">SESSIONID</keepParamName>
-                          <operator type="string">eq</operator>
-                          <value type="string"/>
-                        </extractData>
-                        <fileName type="string"/>
-                        <pattern type="string"/>
-                        <previewLine type="string">ASP.NET_SessionId=o0fyuf3is2o0354v1wdynfhl; path=/; secure; HttpOnly; SameSite=Lax;</previewLine>
-                        <rmvBlanks type="boolean">false</rmvBlanks>
-                        <searchForTextEnd type="string"/>
-                        <searchForTextEndIndex class="object"/>
-                        <searchForTextStart type="string"/>
-                        <searchForTextStartIndex type="number">0</searchForTextStartIndex>
-                        <siblingElem type="string"/>
-                      </extHandleData>
-                      <uid type="string">0.41187127717819527</uid>
-                    </doSectionElement>
-                  </doSection>
-                  <elementName type="string">Set-Cookie</elementName>
-                  <elementPath type="string"/>
-                  <extractFrom type="string">HEADER</extractFrom>
-                  <httpCode type="string">successful</httpCode>
-                  <httpCodeOther type="string"/>
-                  <onOption type="string">start</onOption>
-                  <onOptionVal type="string"/>
-                  <onSection class="array"/>
-                  <onSectionOperator type="string">and</onSectionOperator>
-                  <operator type="string">any</operator>
-                  <resElement type="string"/>
-                  <secValue type="string"/>
-                  <uid type="string">0.7615633508804065</uid>
-                  <value type="string"/>
-                </extractInfoElement>
-                <extractInfoElement class="object">
-                  <cdataPath type="string"/>
-                  <cdataop type="string">any</cdataop>
-                  <doSection class="array">
-                    <doSectionElement class="object">
-                      <doOption type="string">runtimeParam</doOption>
-                      <extHandleData class="object">
-                        <extractData class="object">
-[root@caddeapllx2695 tmp]#
+
+anteriomente ja tinahda dando desse problema e o lucas claver serovel assim na osei se vale se esta no mesmo contexto
