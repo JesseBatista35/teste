@@ -1,28 +1,45 @@
-Analisamos o erro do SIEPR em DES e encontramos a causa. O problema não está na aplicação: frontend, backend e rotas estão funcionando normalmente.
+A dev Jacqueline (f915141) não está conseguindo acessar o repositório <https://devops.caixa/projetos/Caixa/_git/SIECO-Android>. 
+Funcionava normalmente. Ela já tinha acesso. 
+Solicitamos auxílio para reconceder o acesso.
+Agradeço desde já.
 
-O que está acontecendo
 
-O ambiente DES (OpenShift NPRD, endereços *.apps.nprd.caixa) usa certificados emitidos pela cadeia de teste da Caixa (AC Icptestes). Essa cadeia não vem instalada por padrão nas estações, então o seu navegador não reconhece o certificado como confiável.
 
-Por isso o endereço do frontend aparece como "Não seguro" na barra do navegador. A tela abriu porque o aviso foi aceito manualmente.
-As chamadas que o frontend faz para o backend acontecem em segundo plano e não exibem esse aviso para aceitar. O navegador simplesmente bloqueia a chamada (ERR_CERT_AUTHORITY_INVALID), e a aplicação recebe o "erro 0 / Unknown Error".
+À CAIXA
 
-Nos nossos testes isso não aparece porque as estações da nossa equipe já têm essa cadeia instalada.
+Prezados
 
-O que você precisa fazer
+Realizada análise das permissões de acesso da colaboradora Jacqueline (matrícula f915141) ao repositório SIECO-Android no Azure DevOps.
 
-Estou enviando dois arquivos: AC_Icptestes_Raiz.cer e AC_Icptestes_Sub.cer. Instale os dois na sua máquina:
+Durante a validação, foi identificado que a colaboradora está vinculada ao grupo ARRECADACAO-squad-spread. Após análise das configurações de segurança do repositório, verificou-se que o grupo não possuía permissão explícita de acesso ao repositório em questão.
 
-Duplo clique em AC_Icptestes_Raiz.cer → Instalar Certificado → Usuário Atual → marque "Colocar todos os certificados no repositório a seguir" → Procurar → Autoridades de Certificação Raiz Confiáveis → OK → Avançar → Concluir → confirme com Sim no aviso de segurança.
-Duplo clique em AC_Icptestes_Sub.cer → mesmo caminho, mas escolha Autoridades de Certificação Intermediárias.
-Feche todas as janelas do navegador (Edge/Chrome), abra novamente e acesse o SIEPR.
+Como ação corretiva, foi adicionada a permissão do grupo ARRECADACAO-squad-spread nas configurações de segurança do repositório SIECO-Android, sendo concedida a permissão Read (Allow), permitindo a visualização e o acesso ao conteúdo do repositório pelos membros do grupo.
 
-Depois disso, o "Não seguro" deve sumir e as telas devem carregar normalmente.
+Após a implementação do ajuste, foi realizada tentativa de contato com a colaboradora por meio do Microsoft Teams para validação do acesso. Entretanto, a usuária encontrava-se com status Offline, impossibilitando a confirmação imediata da correção.
 
-Se não conseguir instalar
+Solicitamos que a colaboradora realize novo teste de acesso ao repositório por meio do endereço:
 
-Se a sua estação bloquear a instalação de certificados, abra um chamado no suporte à estação solicitando a instalação da cadeia AC Icptestes (Raiz e Sub), informando que é necessária para acesso aos sistemas no ambiente DES.
+https://devops.caixa/projetos/Caixa/_git/SIECO-Android
 
-Contorno temporário
+Caso a inconsistência persista, solicitamos o retorno com evidências do erro apresentado para continuidade da análise.
 
-Enquanto isso, se precisar usar o sistema: abra https://siepr-backend-intranet-des.apps.nprd.caixa/q/health, clique em Avançado → Continuar, volte na aba do SIEPR e aperte F5. Isso vale só até fechar o navegador.
+
+Atenciosamente,
+
+Jessé Mouta Pereira Batista
+Analista
+CTIS / CESTI Esteira DEVOPS DES TQS NPRD
+
+
+
+mais agora com evidencia o problema esta no git e nao na esteira
+
+
+
+A dev informou que persiste o erro e mandou a evidência em anexo.
+
+
+
+<img width="1354" height="547" alt="imagem (1)" src="https://github.com/user-attachments/assets/8e6724fe-2937-476d-9672-de04cacb8723" />
+
+
