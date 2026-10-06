@@ -1,13 +1,4 @@
 
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$ H=siepr-backend-intranet-tqs.apps.nprd.caixa
--sh-4.2$ openssl s_client -connect $H:443 -servername $H -showcerts </dev/null 2>/dev/null | grep -E ' s:| i:'
- 0 s:/C=BR/O=Caixa Economica Federal/CN=*.apps.nprd.caixa
-   i:/C=BR/O=Caixa Economica Federal/CN=AC Icptestes Sub
- 1 s:/C=BR/O=Caixa Economica Federal/CN=AC Icptestes Raiz
-   i:/C=BR/O=Caixa Economica Federal/CN=AC Icptestes Raiz
--sh-4.2$
--sh-4.2$
--sh-4.2$
+Christian, validamos o TQS e ele usa o mesmo certificado do DES (cadeia AC Icptestes). O DES funcionou porque você aceitou o aviso do navegador para aquele endereço, e esse aceite não vale para o TQS.
+
+A solução definitiva é instalar os dois certificados que enviei (AC_Icptestes_Raiz.cer em "Autoridades de Certificação Raiz Confiáveis" e AC_Icptestes_Sub.cer em "Autoridades de Certificação Intermediárias") e fechar todas as janelas do navegador antes de testar. Com isso, DES e TQS funcionam sem precisar aceitar avisos.
