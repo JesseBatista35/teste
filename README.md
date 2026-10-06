@@ -1,18 +1,25 @@
-Boa tarde, apanhei bastante, mas descobri o problema
- 
-Na validação via linha de comando precisamos a mexer nos parâmetros do curlm pois estávamos recebendo HTTP 400:
-DE: -d "grant_type=client_credentials&client_id=$clientid&client_secret=$clientsecret"
-PARA: --data-urlencode "grant_type=client_credentials" --data-urlencode "client_id=${clientid}" --data-urlencode "client_secret=${clientsecret}"
- 
-Adotei a ação de atualizar e depois instalar do zero baseado em experiência anterior, onde update/upgrade trás lixo de versões anteriores, e parti para a instalação do zero por conta desse artigo: https://community.bmc.com/s/article/Control-M-Application-Integrator-REST-job-performing-POST-incorrectly-sends-empty-body-causing-the-job-to-fail-with-an-HTTP-400-response (CTM-3795 has been created to address this issue and is implemented in Control-M Application Integrator 9.0.20.100.  Install the latest available version to address this issue.)
- 
-Como eu já tinha feito e refeito diversas vezes vários procedimentos, leitura de logs com debug e etc, questionei a IA sobre a diferença entre -d "..." e --data-urlencode "..." no curl.
- 
-A resposta foi voltada a explicar a conversão de caracretes em códigos hexadecimais, pedi a tabela completa e ajustei o clientid e secret, ficou assim:
-ClientID ANTES: 098c4f49-efa5-4042-b19f-8a8b5afc79d2
-ClientID DEPOIS: 098c4f49%2Defa5%2D4042%2Db19f%2D8a8b5afc79d2
- 
-Fiz o mesmo com o Secret, que tinha o caractere "+" e "=" e converti para "%2B" e "%3D" 
+Pessoal, segue a atualização sobre o job CX_101-abertura-movimento-aporte (CTMD_DES, agente caddeapllx2695).
 
+O que foi corrigido na máquina/agente:
 
-anteriomente ja tinahda dando desse problema e o lucas claver serovel assim na osei se vale se esta no mesmo contexto
+Job type IIFX distribuído e presente no agente.
+Certificado AC Interna APL importado no truststore do Application Integrator (apcerts) e no Java do agente (cacerts). O erro de certificado (PKIX) no acesso ao BeyondTrust (sicsn.caixa) foi resolvido.
+Scripts executa-job.sh e env_config.sh corrigidos (estavam salvos com BOM, o que quebrava a primeira linha).
+Pacote jq instalado (usado pelo env_config.sh).
+
+Situação atual:
+Os passos Gerar token, Login no Beyond Trust e Logout executam com sucesso. O job falha apenas no passo "Obter credencial", com HTTP 401 "User not authenticated". Com isso a credencial chega vazia ao script.
+
+Validação feita:
+Executei o mesmo fluxo via curl a partir do agente, com a mesma credencial do job. Token, SignAppin e consulta ao Secrets-Safe (pasta SIIFX_BATCH_DES) retornaram HTTP 200. Ou seja, a conta tem acesso e o BeyondTrust está respondendo corretamente. O cookie de sessão (ASP.NET_SessionId) é emitido na chamada de token e precisa ser reenviado nas chamadas seguintes.
+
+Conclusão:
+O problema está na configuração do job type IIFX (Application Integrator), na forma como a sessão é repassada entre os passos. Não é problema da máquina, do agente nem do BeyondTrust.
+
+Sugestões para quem mantém o job type IIFX (testar uma de cada vez):
+
+No passo Gerar token, desativar a criptografia do parâmetro SESSIONID (keepParamEncrypt = false), redistribuir no agente e testar com Run Now.
+Se não resolver, ativar o gerenciamento de cookies (setCookie = true) também no passo Gerar token.
+Se ainda persistir, verificar no portal da BMC se há problema conhecido de cookies não repassados entre passos do Application Integrator.
+
+Vou registrar essas informações na REQ e encaminhar para a análise do job type.
