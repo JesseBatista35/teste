@@ -2,9 +2,6 @@ Abra https://siepr-backend-intranet-des.apps.nprd.caixa/q/health, clique em Avan
 
 
 
-PS C:\Users\p585600> scp p585600@cadsvaprlx067.intra.caixa.gov.br:/tmp/AC_Icptestes_Raiz.cer p585600@cadsvaprlx067.intra.caixa.gov.br:/tmp/AC_Icptestes_Sub.cer $HOME\Downloads\
-ssh: connect to host cadsvaprlx067.intra.caixa.gov.br port 22: Connection timed out
-C:\WINDOWS\System32\OpenSSH\scp.exe: Connection closed
-PS C:\Users\p585600>
-
+openssl x509 -in /tmp/AC_Icptestes_Sub.cer -inform DER -noout -text 2>/dev/null | grep "CA Issuers" \
+ || openssl x509 -in /tmp/AC_Icptestes_Sub.cer -noout -text | grep "CA Issuers"
 
