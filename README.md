@@ -33,3 +33,23 @@ Error from server (NotFound): deploymentconfigs.apps.openshift.io "sicmo-intrane
 
 
 
+Streaming events...
+Showing 3 events
+Older events are not stored.
+PodPsicmo-internet-des-97-8bb57
+NamespaceNSsicmo-des
+6 de out. de 2026, 12:35
+Generated from kubelet on ceadecldlx019.nprd.caixa
+2 times in the last 2 minutes
+Unable to attach or mount volumes: unmounted volumes=[sicmo-internet-data-des], unattached volumes=[sicmo-internet-data-des caixa-truststore-acteste-nprd secrets kube-api-access-b6tdd script-bt-volume]: timed out waiting for the condition
+PodPsicmo-internet-des-97-8bb57
+NamespaceNSsicmo-des
+6 de out. de 2026, 12:34
+Generated from kubelet on ceadecldlx019.nprd.caixa
+10 times in the last 4 minutes
+MountVolume.SetUp failed for volume "sicmo-internet-data-des" : mount failed: exit status 32 Mounting command: mount Mounting arguments: -t nfs hypernprd12.ad.caixa:/fs_sicmo /var/lib/kubelet/pods/6cea3605-4634-444c-a977-58f4eb281ff9/volumes/kubernetes.io~nfs/sicmo-internet-data-des Output: mount.nfs: access denied by server while mounting hypernprd12.ad.caixa:/fs_sicmo
+PodPsicmo-internet-des-97-8bb57
+NamespaceNSsicmo-des
+6 de out. de 2026, 12:30
+Generated from default-scheduler
+Successfully assigned sicmo-des/sicmo-internet-des-97-8bb57 to ceadecldlx019.nprd.caixa
