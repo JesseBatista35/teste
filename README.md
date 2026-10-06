@@ -34,6 +34,7 @@ spec:
       storage: 10Gi
   storageClassName: ""
   volumeName: sicmo-internet-data-des
+EOF
 
 
 grep server pv-pvc-internet.yaml
