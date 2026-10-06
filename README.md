@@ -1,91 +1,21 @@
-cara voce esta sendo muito vago. eu nao entendi e ate agora nao sei como resolver isso
+Abra https://siepr-backend-intranet-des.apps.nprd.caixa/q/health, clique em Avançado → Continuar, depois volte na aba do SIEPR e aperte F5.
 
 
-Skip to main content
-Azure DevOps
-projetos
-/
-Caixa
-/
-Repos
-/
-Files
-/
-
-SIEPR-frontend
-Search
 
 
-Caixa
 
-Overview
+cd /tmp
+H=siepr-backend-intranet-des.apps.nprd.caixa
 
-Boards
+# Raiz (o próprio servidor envia)
+openssl s_client -connect $H:443 -servername $H -showcerts </dev/null 2>/dev/null \
+  | awk '/BEGIN/{n++} n==2' | sed -n '/BEGIN/,/END/p' > AC_Icptestes_Raiz.cer
 
-Repos
-Files
-Commits
-Pushes
-Branches
-Tags
-Pull requests
-
-Pipelines
-
-Test Plans
-
-Artifacts
-Project settings
-SIEPR-frontend
-
-.github
-instructions
-.s2i
-bin
-.vscode
-extensions.json
-launch.json
-settings.json
-tasks.json
-docs
-src
-
-app
-assets
-environments
-custom.js
-favicon.ico
-index.html
-main.ts
-styles.scss
-.editorconfig
-.gitignore
-.npmrc
-angular.json
-jest-global-mocks.ts
-jest.config.js
-package-lock.json
-package.json
-README.md
-setup-jest.ts
-sonar-project.properties
-tsconfig.app.json
-tsconfig.json
-
-develop
-
-/
-.github
-.github
-
-New
-
-Contents
-History
-
-instructions
-29 de set.
-e8b99e81
-Merged PR 161562: Melhorias na documentação dos componentes DSC Luis Eduardo Ribeiro Guerra
+# Endereço de download do Sub (vem dentro do certificado)
+openssl s_client -connect $H:443 -servername $H </dev/null 2>/dev/null \
+  | openssl x509 -noout -text | grep -A2 "Authority Information Access"
 
 
+  curl -o AC_Icptestes_Sub.cer '<URL que apareceu>'
+
+  
