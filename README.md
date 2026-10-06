@@ -1,4 +1,5 @@
-LOG=$(grep -l "client_secret=" /opt/ctmage/ctm/cm/AI/CustomerLogs/*.xml | tail -1)
+
+[root@caddeapllx2695 tmp]# LOG=$(grep -l "client_secret=" /opt/ctmage/ctm/cm/AI/CustomerLogs/*.xml | tail -1)
 BODY=$(grep -o "client_id=[^<]*" $LOG | head -1 | sed 's/&amp;/\&/g')
 J=/tmp/bt.txt; rm -f $J; CA="--cacert /tmp/ac_interna_apl.pem"
 
@@ -13,3 +14,9 @@ grep -i "^set-cookie" /tmp/h2 | cut -d= -f1
 
 curl -sS $CA -o /dev/null -b $J -X POST https://sicsn.caixa/BeyondTrust/api/public/v3/Auth/Signout
 rm -f $J /tmp/h1 /tmp/h2; unset BODY TOKEN R LOG
+--- token ---
+Set-Cookie: ASP.NET_SessionId
+--- signappin ---
+[root@caddeapllx2695 tmp]#
+[root@caddeapllx2695 tmp]#
+[root@caddeapllx2695 tmp]#
