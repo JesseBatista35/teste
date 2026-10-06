@@ -1,25 +1,32 @@
-Pessoal, segue a atualização sobre o job CX_101-abertura-movimento-aporte (CTMD_DES, agente caddeapllx2695).
+Análise realizada no agente Control-M caddeapllx2695.agil.nprd.caixa.gov.br (CTMD_DES), job CX_101-abertura-movimento-aporte (Folder SIIFX_CAIXINHAS_DES, Application SIIFX_DES).
 
-O que foi corrigido na máquina/agente:
+Ações executadas no escopo de infraestrutura/esteira (DES):
 
-Job type IIFX distribuído e presente no agente.
-Certificado AC Interna APL importado no truststore do Application Integrator (apcerts) e no Java do agente (cacerts). O erro de certificado (PKIX) no acesso ao BeyondTrust (sicsn.caixa) foi resolvido.
-Scripts executa-job.sh e env_config.sh corrigidos (estavam salvos com BOM, o que quebrava a primeira linha).
-Pacote jq instalado (usado pelo env_config.sh).
+Verificado que o job type IIFX está distribuído no agente (apps-repo/IIFX).
+Importado o certificado AC Interna APL no truststore do Application Integrator (/opt/ctmage/ctm/cm/AI/data/security/apcerts) e no cacerts do Java do agente (/opt/ctmage/JRE/lib/security/cacerts), com backup prévio dos dois arquivos. Corrigido o erro PKIX na comunicação com o BeyondTrust (sicsn.caixa).
+Removido o BOM dos scripts /producao/executa-job.sh e /producao/env_config.sh, com backup prévio.
+Instalado o pacote jq, dependência do env_config.sh.
+Agente reiniciado e comunicação com o servidor sspdeaprlx0028 validada (ag_diag_comm com pings OK).
 
-Situação atual:
-Os passos Gerar token, Login no Beyond Trust e Logout executam com sucesso. O job falha apenas no passo "Obter credencial", com HTTP 401 "User not authenticated". Com isso a credencial chega vazia ao script.
+Resultado:
+Após as correções, os passos Gerar token, Login no Beyond Trust e Logout executam com sucesso. O job falha no passo "Obter credencial" com HTTP 401 "User not authenticated".
 
-Validação feita:
-Executei o mesmo fluxo via curl a partir do agente, com a mesma credencial do job. Token, SignAppin e consulta ao Secrets-Safe (pasta SIIFX_BATCH_DES) retornaram HTTP 200. Ou seja, a conta tem acesso e o BeyondTrust está respondendo corretamente. O cookie de sessão (ASP.NET_SessionId) é emitido na chamada de token e precisa ser reenviado nas chamadas seguintes.
+Evidência:
+Teste manual via curl a partir do próprio agente, com a mesma credencial configurada no job type, executou com sucesso o fluxo completo (token, SignAppin e Secrets-Safe na pasta SIIFX_BATCH_DES), todos com HTTP 200. O cookie de sessão ASP.NET_SessionId é emitido na chamada de token e deve ser reenviado nas chamadas seguintes.
 
 Conclusão:
-O problema está na configuração do job type IIFX (Application Integrator), na forma como a sessão é repassada entre os passos. Não é problema da máquina, do agente nem do BeyondTrust.
+O ambiente (máquina, agente, certificados e acesso ao BeyondTrust) está funcional. A falha remanescente está na configuração do job type IIFX do Application Integrator, no repasse da sessão entre os passos.
 
-Sugestões para quem mantém o job type IIFX (testar uma de cada vez):
+Encaminhamento:
+Solicito à comunidade/equipe responsável pelo job type IIFX a análise e o ajuste, considerando:
 
-No passo Gerar token, desativar a criptografia do parâmetro SESSIONID (keepParamEncrypt = false), redistribuir no agente e testar com Run Now.
-Se não resolver, ativar o gerenciamento de cookies (setCookie = true) também no passo Gerar token.
-Se ainda persistir, verificar no portal da BMC se há problema conhecido de cookies não repassados entre passos do Application Integrator.
+Desativar a criptografia do parâmetro SESSIONID no passo Gerar token (keepParamEncrypt = false) e testar.
+Caso não resolva, ativar o gerenciamento de cookies (setCookie = true) no passo Gerar token.
+Caso persista, verificar junto à BMC possível problema conhecido de repasse de cookies entre passos do Application Integrator.
 
-Vou registrar essas informações na REQ e encaminhar para a análise do job type.
+Pendências de correção definitiva fora deste atendimento:
+
+Equipe do SIIFX: salvar os scripts do repositório SIIFX-caixinhas-batch como UTF-8 sem BOM e com fim de linha LF.
+Esteira/template da VM Control-M: incluir o jq e a cadeia de certificados AC Interna da Caixa, para que novos deploys não reintroduzam os problemas.
+
+Encerrando este atendimento no escopo de infraestrutura/esteira DES.
