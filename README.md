@@ -1,1 +1,1 @@
-Jesse Mouta Pereira Batista, estes certificados são renovados conforme muda a pipe?
+Christian, não. O que você instalou foi a cadeia das autoridades certificadoras de teste da Caixa (AC Icptestes), válida até 2042. Ela não muda com deploys ou alterações na pipeline. O certificado do ambiente OpenShift é renovado pela própria plataforma e continuará sendo emitido por essa mesma cadeia, então não será necessária nova instalação. Como bônus, outros sistemas em DES/TQS (*.apps.nprd.caixa) também passam a abrir sem aviso de certificado.
