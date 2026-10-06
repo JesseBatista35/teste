@@ -2,11 +2,7 @@ Abra https://siepr-backend-intranet-des.apps.nprd.caixa/q/health, clique em Avan
 
 
 
-Opção 1: mandar o link para o Christian (mais simples)
 
-O Sub você já confirmou que está em:
-http://icptestes.caixa/certs/acicptestessub.cer
-
-
-openssl x509 -in /tmp/AC_Icptestes_Sub.cer -inform DER -noout -text 2>/dev/null | grep -A2 "Authority Information Access" \
- || openssl x509 -in /tmp/AC_Icptestes_Sub.cer -noout -text | grep -A2 "Authority Information Access"
+-sh-4.2$ hostname
+cadsvaprlx067.intra.caixa.gov.br
+-sh-4.2$
