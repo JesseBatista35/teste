@@ -1,6 +1,12 @@
 Abra https://siepr-backend-intranet-des.apps.nprd.caixa/q/health, clique em Avançado → Continuar, depois volte na aba do SIEPR e aperte F5.
 
 
+<img width="1918" height="587" alt="image" src="https://github.com/user-attachments/assets/54183885-9830-4993-9bf4-d5dbb694ba99" />
+
+
+
+
+
 -sh-4.2$
 -sh-4.2$ openssl x509 -in /tmp/AC_Icptestes_Sub.cer -inform DER -out /tmp/AC_Icptestes_Sub.pem -outform PEM 2>/dev/null \
 >  || cp /tmp/AC_Icptestes_Sub.cer /tmp/AC_Icptestes_Sub.pem
