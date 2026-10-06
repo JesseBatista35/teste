@@ -1,13 +1,10 @@
-Sanitizar os seguinte repos para sua correta criação posterior:
+Prezado(a),
 
-https://github.com/caixagithub/sigcn-backend-raf-orquestrador
+Conforme solicitado em demanda, o atendimento foi realizado. Os repositórios abaixo foram sanitizados via FusionX (task edc81753-1468-43f8-85c8-3faffcd9ca71) e estão liberados para nova criação:
 
-https://github.com/caixagithub/sigcn-backend-raf-orquestrador-infranprd
+sigcn-backend-raf-orquestrador
+sigcn-backend-raf-orquestrador-infranprd
+sigcn-backend-raf-orquestrador-infraprd
 
-https://github.com/caixagithub/sigcn-backend-raf-orquestrador-infraprd
-
-
-<img width="1761" height="848" alt="image" src="https://github.com/user-attachments/assets/a7cb6ab0-5dc9-457e-a847-05ed19812d04" />
-
-
-m ajda a fechar a w.o
+Atenciosamente,
+Jessé Batista – DES/TQS NPRD
