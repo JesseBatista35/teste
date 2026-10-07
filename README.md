@@ -1,234 +1,265 @@
-2026-10-07T14:43:41.4267015Z ##[debug]Evaluating condition for step: 'Configurando Stack de Monitoração'
-2026-10-07T14:43:41.4267567Z ##[debug]Evaluating: succeeded()
-2026-10-07T14:43:41.4267748Z ##[debug]Evaluating succeeded:
-2026-10-07T14:43:41.4268041Z ##[debug]=> True
-2026-10-07T14:43:41.4268311Z ##[debug]Result: True
-2026-10-07T14:43:41.4268549Z ##[section]Starting: Configurando Stack de Monitoração
-2026-10-07T14:43:41.4271351Z ==============================================================================
-2026-10-07T14:43:41.4271428Z Task         : Bash
-2026-10-07T14:43:41.4271469Z Description  : Run a Bash script on macOS, Linux, or Windows
-2026-10-07T14:43:41.4271541Z Version      : 3.227.0
-2026-10-07T14:43:41.4271583Z Author       : Microsoft Corporation
-2026-10-07T14:43:41.4271632Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/bash
-2026-10-07T14:43:41.4271710Z ==============================================================================
-2026-10-07T14:43:42.1663334Z ##[debug]Using node path: /opt/ads-agent/externals/node16/bin/node
-2026-10-07T14:43:42.2343530Z ##[debug]agent.TempDirectory=/opt/ads-agent/_work/_temp
-2026-10-07T14:43:42.2353393Z ##[debug]loading inputs and endpoints
-2026-10-07T14:43:42.2379616Z ##[debug]loading INPUT_TARGETTYPE
-2026-10-07T14:43:42.2380418Z ##[debug]loading INPUT_FILEPATH
-2026-10-07T14:43:42.2380676Z ##[debug]loading INPUT_SCRIPT
-2026-10-07T14:43:42.2380923Z ##[debug]loading INPUT_WORKINGDIRECTORY
-2026-10-07T14:43:42.2381148Z ##[debug]loading INPUT_FAILONSTDERR
-2026-10-07T14:43:42.2381396Z ##[debug]loading ENDPOINT_AUTH_SYSTEMVSSCONNECTION
-2026-10-07T14:43:42.2381650Z ##[debug]loading ENDPOINT_AUTH_SCHEME_SYSTEMVSSCONNECTION
-2026-10-07T14:43:42.2381917Z ##[debug]loading ENDPOINT_AUTH_PARAMETER_SYSTEMVSSCONNECTION_ACCESSTOKEN
-2026-10-07T14:43:42.2382167Z ##[debug]loading SECRET_FORTIFY_PASS
-2026-10-07T14:43:42.2382392Z ##[debug]loading SECRET_PW_ISILON
-2026-10-07T14:43:42.2382619Z ##[debug]loading SECRET_MQ_CLI_SENHA
-2026-10-07T14:43:42.2382851Z ##[debug]loading SECRET_OKD_TOKEN_PRODUTOS
-2026-10-07T14:43:42.2383210Z ##[debug]loading SECRET_BT_SECRETS_PATH
-2026-10-07T14:43:42.2383450Z ##[debug]loading SECRET_PW_ALOCAIP
-2026-10-07T14:43:42.2383663Z ##[debug]loading SECRET_MQ_SPI_SENHA
-2026-10-07T14:43:42.2383886Z ##[debug]loading SECRET_TOKEN_CRQ
-2026-10-07T14:43:42.2384110Z ##[debug]loading SECRET_ORACLE_SENHA
-2026-10-07T14:43:42.2384329Z ##[debug]loading SECRET_GRAYLOG_PASSWORD
-2026-10-07T14:43:42.2384553Z ##[debug]loading SECRET_ANSIBLE_VAULT
-2026-10-07T14:43:42.2384785Z ##[debug]loading SECRET_OKD_TOKEN_KAFKA
-2026-10-07T14:43:42.2385009Z ##[debug]loading SECRET_MQ_SID_SENHA
-2026-10-07T14:43:42.2393781Z ##[debug]loading SECRET_SSO_SENHA
-2026-10-07T14:43:42.2394029Z ##[debug]loading SECRET_FORTIFY_APITOKEN
-2026-10-07T14:43:42.2394269Z ##[debug]loading SECRET_AZPAT
-2026-10-07T14:43:42.2394476Z ##[debug]loaded 24
-2026-10-07T14:43:42.2394695Z ##[debug]Agent.ProxyUrl=undefined
-2026-10-07T14:43:42.2394917Z ##[debug]Agent.CAInfo=undefined
-2026-10-07T14:43:42.2395128Z ##[debug]Agent.ClientCert=undefined
-2026-10-07T14:43:42.2395564Z ##[debug]Agent.SkipCertValidation=True
-2026-10-07T14:43:42.2403555Z ##[debug]check path : /opt/ads-agent/_work/_tasks/Bash_6c731c3c-3c68-459a-a5c9-bde6e6595b5b/3.227.0/task.json
-2026-10-07T14:43:42.2405574Z ##[debug]adding resource file: /opt/ads-agent/_work/_tasks/Bash_6c731c3c-3c68-459a-a5c9-bde6e6595b5b/3.227.0/task.json
-2026-10-07T14:43:42.2406037Z ##[debug]system.culture=en-US
-2026-10-07T14:43:42.2413580Z ##[debug]failOnStderr=false
-2026-10-07T14:43:42.2423706Z ##[debug]workingDirectory=/opt/ads-agent/_work/r4224/a
-2026-10-07T14:43:42.2423969Z ##[debug]check path : /opt/ads-agent/_work/r4224/a
-2026-10-07T14:43:42.2424208Z ##[debug]targetType=inline
-2026-10-07T14:43:42.2424427Z ##[debug]bashEnvValue=undefined
-2026-10-07T14:43:42.2424857Z ##[debug]script=set -x
+2026-10-07T14:51:13.5102921Z ##[debug]Evaluating condition for step: 'Configurando Stack de Monitoração'
+2026-10-07T14:51:13.5103427Z ##[debug]Evaluating: succeeded()
+2026-10-07T14:51:13.5103603Z ##[debug]Evaluating succeeded:
+2026-10-07T14:51:13.5103874Z ##[debug]=> True
+2026-10-07T14:51:13.5104092Z ##[debug]Result: True
+2026-10-07T14:51:13.5104292Z ##[section]Starting: Configurando Stack de Monitoração
+2026-10-07T14:51:13.5107419Z ==============================================================================
+2026-10-07T14:51:13.5107509Z Task         : Bash
+2026-10-07T14:51:13.5107553Z Description  : Run a Bash script on macOS, Linux, or Windows
+2026-10-07T14:51:13.5107637Z Version      : 3.227.0
+2026-10-07T14:51:13.5107681Z Author       : Microsoft Corporation
+2026-10-07T14:51:13.5107730Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/bash
+2026-10-07T14:51:13.5107811Z ==============================================================================
+2026-10-07T14:51:14.1509456Z ##[debug]Using node path: /opt/ads-agent/externals/node16/bin/node
+2026-10-07T14:51:14.2198541Z ##[debug]agent.TempDirectory=/opt/ads-agent/_work/_temp
+2026-10-07T14:51:14.2206435Z ##[debug]loading inputs and endpoints
+2026-10-07T14:51:14.2233838Z ##[debug]loading INPUT_TARGETTYPE
+2026-10-07T14:51:14.2234148Z ##[debug]loading INPUT_FILEPATH
+2026-10-07T14:51:14.2234399Z ##[debug]loading INPUT_SCRIPT
+2026-10-07T14:51:14.2234642Z ##[debug]loading INPUT_WORKINGDIRECTORY
+2026-10-07T14:51:14.2235920Z ##[debug]loading INPUT_FAILONSTDERR
+2026-10-07T14:51:14.2236765Z ##[debug]loading ENDPOINT_AUTH_SYSTEMVSSCONNECTION
+2026-10-07T14:51:14.2237287Z ##[debug]loading ENDPOINT_AUTH_SCHEME_SYSTEMVSSCONNECTION
+2026-10-07T14:51:14.2237580Z ##[debug]loading ENDPOINT_AUTH_PARAMETER_SYSTEMVSSCONNECTION_ACCESSTOKEN
+2026-10-07T14:51:14.2237858Z ##[debug]loading SECRET_MQ_SID_SENHA
+2026-10-07T14:51:14.2238857Z ##[debug]loading SECRET_OKD_TOKEN_PRODUTOS
+2026-10-07T14:51:14.2239236Z ##[debug]loading SECRET_MQ_SPI_SENHA
+2026-10-07T14:51:14.2239496Z ##[debug]loading SECRET_FORTIFY_PASS
+2026-10-07T14:51:14.2239749Z ##[debug]loading SECRET_OKD_TOKEN_KAFKA
+2026-10-07T14:51:14.2239987Z ##[debug]loading SECRET_PW_ALOCAIP
+2026-10-07T14:51:14.2240862Z ##[debug]loading SECRET_TOKEN_CRQ
+2026-10-07T14:51:14.2241097Z ##[debug]loading SECRET_PW_ISILON
+2026-10-07T14:51:14.2241338Z ##[debug]loading SECRET_SSO_SENHA
+2026-10-07T14:51:14.2243004Z ##[debug]loading SECRET_BT_SECRETS_PATH
+2026-10-07T14:51:14.2245109Z ##[debug]loading SECRET_ANSIBLE_VAULT
+2026-10-07T14:51:14.2247189Z ##[debug]loading SECRET_MQ_CLI_SENHA
+2026-10-07T14:51:14.2249324Z ##[debug]loading SECRET_GRAYLOG_PASSWORD
+2026-10-07T14:51:14.2251443Z ##[debug]loading SECRET_ORACLE_SENHA
+2026-10-07T14:51:14.2253522Z ##[debug]loading SECRET_AZPAT
+2026-10-07T14:51:14.2255607Z ##[debug]loading SECRET_FORTIFY_APITOKEN
+2026-10-07T14:51:14.2257675Z ##[debug]loaded 24
+2026-10-07T14:51:14.2259809Z ##[debug]Agent.ProxyUrl=undefined
+2026-10-07T14:51:14.2261879Z ##[debug]Agent.CAInfo=undefined
+2026-10-07T14:51:14.2263992Z ##[debug]Agent.ClientCert=undefined
+2026-10-07T14:51:14.2266076Z ##[debug]Agent.SkipCertValidation=True
+2026-10-07T14:51:14.2268217Z ##[debug]check path : /opt/ads-agent/_work/_tasks/Bash_6c731c3c-3c68-459a-a5c9-bde6e6595b5b/3.227.0/task.json
+2026-10-07T14:51:14.2270437Z ##[debug]adding resource file: /opt/ads-agent/_work/_tasks/Bash_6c731c3c-3c68-459a-a5c9-bde6e6595b5b/3.227.0/task.json
+2026-10-07T14:51:14.2272554Z ##[debug]system.culture=en-US
+2026-10-07T14:51:14.2274637Z ##[debug]failOnStderr=false
+2026-10-07T14:51:14.2276725Z ##[debug]workingDirectory=/opt/ads-agent/_work/r15891/a
+2026-10-07T14:51:14.2278813Z ##[debug]check path : /opt/ads-agent/_work/r15891/a
+2026-10-07T14:51:14.2280949Z ##[debug]targetType=inline
+2026-10-07T14:51:14.2283007Z ##[debug]bashEnvValue=undefined
+2026-10-07T14:51:14.2285294Z ##[debug]script=set -x
 REPO=$(echo _SIRTA | sed 's/_//')
-ansible-playbook /opt/ads-agent/esteira-jboss-vm/site.yml --tags monitoracao --skip-tags jboss -e sistema_ambiente=tqs -e quantidade_vm=1 -e sistema_nome=SIRTA -e default_working_directory_tfs=/opt/ads-agent/_work/r4224/a -e build_repository_name_tfs=$REPO -e centralizadora_desenvolvimento=7390 -e centralizadora_operacoes=7259 -e fields_site=BR -e site=ctc_nprd
-2026-10-07T14:43:42.2425408Z Generating script.
-2026-10-07T14:43:42.2426681Z ##[debug]which 'bash'
-2026-10-07T14:43:42.2432644Z ##[debug]found: '/bin/bash'
-2026-10-07T14:43:42.2433203Z ##[debug]Agent.Version=3.225.2
-2026-10-07T14:43:42.2433624Z ##[debug]agent.tempDirectory=/opt/ads-agent/_work/_temp
-2026-10-07T14:43:42.2434035Z ##[debug]check path : /opt/ads-agent/_work/_temp
-2026-10-07T14:43:42.2434761Z ========================== Starting Command Output ===========================
-2026-10-07T14:43:42.2436357Z ##[debug]which '/bin/bash'
-2026-10-07T14:43:42.2436636Z ##[debug]found: '/bin/bash'
-2026-10-07T14:43:42.2437263Z ##[debug]/bin/bash arg: /opt/ads-agent/_work/_temp/24e448d9-8065-4aad-ac5a-74942e18f3d4.sh
-2026-10-07T14:43:42.2444070Z ##[debug]exec tool: /bin/bash
-2026-10-07T14:43:42.2445131Z ##[debug]arguments:
-2026-10-07T14:43:42.2445402Z ##[debug]   /opt/ads-agent/_work/_temp/24e448d9-8065-4aad-ac5a-74942e18f3d4.sh
-2026-10-07T14:43:42.2446127Z [command]/bin/bash /opt/ads-agent/_work/_temp/24e448d9-8065-4aad-ac5a-74942e18f3d4.sh
-2026-10-07T14:43:42.2490769Z ++ echo _SIRTA
-2026-10-07T14:43:42.2490912Z ++ sed s/_//
-2026-10-07T14:43:42.2499834Z + REPO=SIRTA
-2026-10-07T14:43:42.2500775Z + ansible-playbook /opt/ads-agent/esteira-jboss-vm/site.yml --tags monitoracao --skip-tags jboss -e sistema_ambiente=tqs -e quantidade_vm=1 -e sistema_nome=SIRTA -e default_working_directory_tfs=/opt/ads-agent/_work/r4224/a -e build_repository_name_tfs=SIRTA -e centralizadora_desenvolvimento=7390 -e centralizadora_operacoes=7259 -e fields_site=BR -e site=ctc_nprd
-2026-10-07T14:43:44.1076766Z 
-2026-10-07T14:43:44.1077268Z PLAY [local] *******************************************************************
-2026-10-07T14:43:44.1766011Z 
-2026-10-07T14:43:44.1766641Z PLAY [Configurando o DNS] ******************************************************
-2026-10-07T14:43:44.3665455Z 
-2026-10-07T14:43:44.3665973Z PLAY [local] *******************************************************************
-2026-10-07T14:43:44.3684388Z 
-2026-10-07T14:43:44.3684588Z PLAY [local] *******************************************************************
-2026-10-07T14:43:44.3711762Z 
-2026-10-07T14:43:44.3712332Z PLAY [Verificando serviços] ****************************************************
-2026-10-07T14:43:44.3804788Z Wednesday 07 October 2026  11:43:44 -0300 (0:00:00.331)       0:00:00.331 ***** 
-2026-10-07T14:43:46.1289438Z 
-2026-10-07T14:43:46.1290443Z TASK [Gathering Facts] *********************************************************
-2026-10-07T14:43:46.1290696Z ok: [caddeapllx1858.agil.nprd.caixa.gov.br]
-2026-10-07T14:43:46.1445817Z Wednesday 07 October 2026  11:43:46 -0300 (0:00:01.763)       0:00:02.095 ***** 
-2026-10-07T14:43:46.5355441Z 
-2026-10-07T14:43:46.5356184Z TASK [Verifiando o jxm_exporter esta instalado] ********************************
-2026-10-07T14:43:46.5357071Z ok: [caddeapllx1858.agil.nprd.caixa.gov.br]
-2026-10-07T14:43:46.5488296Z Wednesday 07 October 2026  11:43:46 -0300 (0:00:00.404)       0:00:02.500 ***** 
-2026-10-07T14:43:46.6018120Z Wednesday 07 October 2026  11:43:46 -0300 (0:00:00.052)       0:00:02.553 ***** 
-2026-10-07T14:43:46.6538512Z Wednesday 07 October 2026  11:43:46 -0300 (0:00:00.052)       0:00:02.605 ***** 
-2026-10-07T14:43:46.7091999Z Wednesday 07 October 2026  11:43:46 -0300 (0:00:00.055)       0:00:02.660 ***** 
-2026-10-07T14:43:47.1110359Z 
-2026-10-07T14:43:47.1111077Z TASK [Criando o grupo do "node_exporter"] **************************************
-2026-10-07T14:43:47.1111426Z ok: [caddeapllx1858.agil.nprd.caixa.gov.br]
-2026-10-07T14:43:47.1257117Z Wednesday 07 October 2026  11:43:47 -0300 (0:00:00.416)       0:00:03.077 ***** 
-2026-10-07T14:43:47.6630137Z 
-2026-10-07T14:43:47.6630688Z TASK [Criando o usuario "node_exporter" vinculado ao grupo "node_exporter"] ****
-2026-10-07T14:43:47.6630856Z ok: [caddeapllx1858.agil.nprd.caixa.gov.br]
-2026-10-07T14:43:47.6746115Z Wednesday 07 October 2026  11:43:47 -0300 (0:00:00.548)       0:00:03.625 ***** 
-2026-10-07T14:43:48.3718462Z 
-2026-10-07T14:43:48.3719065Z TASK [node_exporter : Copia o Apache Exporter para o servidor] *****************
-2026-10-07T14:43:48.3719325Z ok: [caddeapllx1858.agil.nprd.caixa.gov.br]
-2026-10-07T14:43:48.3886050Z Wednesday 07 October 2026  11:43:48 -0300 (0:00:00.714)       0:00:04.340 ***** 
-2026-10-07T14:43:49.1715365Z 
-2026-10-07T14:43:49.1716091Z TASK [node_exporter : Criando o service do Node Exporter] **********************
-2026-10-07T14:43:49.1716285Z ok: [caddeapllx1858.agil.nprd.caixa.gov.br]
-2026-10-07T14:43:49.1826901Z Wednesday 07 October 2026  11:43:49 -0300 (0:00:00.794)       0:00:05.134 ***** 
-2026-10-07T14:43:49.6666099Z 
-2026-10-07T14:43:49.6667043Z TASK [Download RPM filebeat] ***************************************************
-2026-10-07T14:43:49.6668050Z changed: [caddeapllx1858.agil.nprd.caixa.gov.br]
-2026-10-07T14:43:49.6799986Z Wednesday 07 October 2026  11:43:49 -0300 (0:00:00.497)       0:00:05.631 ***** 
-2026-10-07T14:43:50.5326936Z 
-2026-10-07T14:43:50.5327447Z TASK [Instalando o filebeat versao 7.2.1] **************************************
-2026-10-07T14:43:50.5327616Z ok: [caddeapllx1858.agil.nprd.caixa.gov.br]
-2026-10-07T14:43:50.5456584Z Wednesday 07 October 2026  11:43:50 -0300 (0:00:00.864)       0:00:06.496 ***** 
-2026-10-07T14:43:50.8223453Z 
-2026-10-07T14:43:50.8223939Z TASK [Delete RPM filebeat] *****************************************************
-2026-10-07T14:43:50.8224146Z changed: [caddeapllx1858.agil.nprd.caixa.gov.br]
-2026-10-07T14:43:50.8348263Z Wednesday 07 October 2026  11:43:50 -0300 (0:00:00.290)       0:00:06.786 ***** 
-2026-10-07T14:43:51.4277652Z 
-2026-10-07T14:43:51.4278153Z TASK [Template a file to /etc/filebeat/filebeat.yml] ***************************
-2026-10-07T14:43:51.4278317Z ok: [caddeapllx1858.agil.nprd.caixa.gov.br]
-2026-10-07T14:43:51.4400355Z Wednesday 07 October 2026  11:43:51 -0300 (0:00:00.605)       0:00:07.391 ***** 
-2026-10-07T14:43:51.7216628Z 
-2026-10-07T14:43:51.7217769Z TASK [Verificando APM Agent] ***************************************************
-2026-10-07T14:43:51.7218010Z ok: [caddeapllx1858.agil.nprd.caixa.gov.br]
-2026-10-07T14:43:51.7331056Z Wednesday 07 October 2026  11:43:51 -0300 (0:00:00.292)       0:00:07.684 ***** 
-2026-10-07T14:43:51.7924453Z Wednesday 07 October 2026  11:43:51 -0300 (0:00:00.059)       0:00:07.743 ***** 
-2026-10-07T14:43:51.8449959Z Wednesday 07 October 2026  11:43:51 -0300 (0:00:00.052)       0:00:07.796 ***** 
-2026-10-07T14:43:51.8959512Z Wednesday 07 October 2026  11:43:51 -0300 (0:00:00.050)       0:00:07.847 ***** 
-2026-10-07T14:43:51.9494798Z Wednesday 07 October 2026  11:43:51 -0300 (0:00:00.053)       0:00:07.900 ***** 
-2026-10-07T14:43:51.9995554Z Wednesday 07 October 2026  11:43:51 -0300 (0:00:00.050)       0:00:07.950 ***** 
-2026-10-07T14:43:52.4384084Z 
-2026-10-07T14:43:52.4384810Z TASK [Verifica se existe servico zabbix-agent] *********************************
-2026-10-07T14:43:52.4385845Z fatal: [caddeapllx1858.agil.nprd.caixa.gov.br]: FAILED! => {"changed": true, "cmd": ["systemctl", "is-active", "zabbix-agent"], "delta": "0:00:00.004965", "end": "2026-10-07 11:43:52.424458", "msg": "non-zero return code", "rc": 3, "start": "2026-10-07 11:43:52.419493", "stderr": "", "stderr_lines": [], "stdout": "unknown", "stdout_lines": ["unknown"]}
-2026-10-07T14:43:52.4386109Z ...ignoring
-2026-10-07T14:43:52.4507614Z Wednesday 07 October 2026  11:43:52 -0300 (0:00:00.451)       0:00:08.402 ***** 
-2026-10-07T14:43:52.5191952Z Wednesday 07 October 2026  11:43:52 -0300 (0:00:00.068)       0:00:08.470 ***** 
-2026-10-07T14:43:53.1021878Z 
-2026-10-07T14:43:53.1022787Z TASK [zabbix : Install libpcre2-8 - Red Hat 7] *********************************
-2026-10-07T14:43:53.1023167Z ok: [caddeapllx1858.agil.nprd.caixa.gov.br]
-2026-10-07T14:43:53.1128286Z Wednesday 07 October 2026  11:43:53 -0300 (0:00:00.593)       0:00:09.064 ***** 
-2026-10-07T14:43:53.7125730Z 
-2026-10-07T14:43:53.7126730Z TASK [Install zabbix agent2] ***************************************************
-2026-10-07T14:43:53.7127319Z ok: [caddeapllx1858.agil.nprd.caixa.gov.br] => (item=http://10.122.154.12/deploy/zabbix-agent2-plugin-mongodb-6.0.23-release1.el7.x86_64.rpm)
-2026-10-07T14:43:54.2604857Z ok: [caddeapllx1858.agil.nprd.caixa.gov.br] => (item=http://10.122.154.12/deploy/zabbix-agent2-plugin-postgresql-6.0.23-release1.el7.x86_64.rpm)
-2026-10-07T14:43:54.8187988Z ok: [caddeapllx1858.agil.nprd.caixa.gov.br] => (item=http://10.122.154.12/deploy/zabbix-agent2-6.0.23-release1.el7.x86_64.rpm)
-2026-10-07T14:43:54.8313775Z Wednesday 07 October 2026  11:43:54 -0300 (0:00:01.718)       0:00:10.782 ***** 
-2026-10-07T14:43:55.4312694Z 
-2026-10-07T14:43:55.4313591Z TASK [Template a file to /etc/zabbix_zabbix_agente.d/monit_agent2.conf] ********
-2026-10-07T14:43:55.4314256Z ok: [caddeapllx1858.agil.nprd.caixa.gov.br]
-2026-10-07T14:43:55.4424744Z Wednesday 07 October 2026  11:43:55 -0300 (0:00:00.611)       0:00:11.393 ***** 
-2026-10-07T14:43:56.0649671Z 
-2026-10-07T14:43:56.0650195Z TASK [Garantindo que o zabbix_agent2 esta startado] ****************************
-2026-10-07T14:43:56.0650606Z ok: [caddeapllx1858.agil.nprd.caixa.gov.br]
-2026-10-07T14:43:56.0777151Z Wednesday 07 October 2026  11:43:56 -0300 (0:00:00.635)       0:00:12.029 ***** 
-2026-10-07T14:43:56.1266263Z Wednesday 07 October 2026  11:43:56 -0300 (0:00:00.048)       0:00:12.078 ***** 
-2026-10-07T14:43:56.1854775Z 
-2026-10-07T14:43:56.1855497Z TASK [zabbix : Gera o nome do grupo e templates quando o ambiente não é PRD] ***
-2026-10-07T14:43:56.1855709Z ok: [caddeapllx1858.agil.nprd.caixa.gov.br]
-2026-10-07T14:43:56.1985675Z Wednesday 07 October 2026  11:43:56 -0300 (0:00:00.072)       0:00:12.150 ***** 
-2026-10-07T14:43:56.9915839Z 
-2026-10-07T14:43:56.9916417Z TASK [zabbix : hostgroup create to Zabbix Az CEMOT] ****************************
-2026-10-07T14:43:56.9916734Z ok: [caddeapllx1858.agil.nprd.caixa.gov.br]
-2026-10-07T14:43:57.0021495Z Wednesday 07 October 2026  11:43:57 -0300 (0:00:00.803)       0:00:12.953 ***** 
-2026-10-07T14:43:57.6114099Z 
-2026-10-07T14:43:57.6114622Z TASK [zabbix : template get to Zabbix Az CEMOT] ********************************
-2026-10-07T14:43:57.6114788Z ok: [caddeapllx1858.agil.nprd.caixa.gov.br]
-2026-10-07T14:43:57.6251183Z Wednesday 07 October 2026  11:43:57 -0300 (0:00:00.622)       0:00:13.576 ***** 
-2026-10-07T14:43:58.2407063Z 
-2026-10-07T14:43:58.2407688Z TASK [zabbix : hostgroup get to Zabbix Az CEMOT] *******************************
-2026-10-07T14:43:58.2408046Z ok: [caddeapllx1858.agil.nprd.caixa.gov.br]
-2026-10-07T14:43:58.2543195Z Wednesday 07 October 2026  11:43:58 -0300 (0:00:00.629)       0:00:14.205 ***** 
-2026-10-07T14:43:58.8855788Z 
-2026-10-07T14:43:58.8856553Z TASK [zabbix : proxy get to Zabbix Az CEMOT] ***********************************
-2026-10-07T14:43:58.8856894Z ok: [caddeapllx1858.agil.nprd.caixa.gov.br]
-2026-10-07T14:43:58.8991455Z Wednesday 07 October 2026  11:43:58 -0300 (0:00:00.644)       0:00:14.850 ***** 
-2026-10-07T14:43:59.5559796Z 
-2026-10-07T14:43:59.5560497Z TASK [zabbix : host create to Zabbix Az CEMOT] *********************************
-2026-10-07T14:43:59.5560793Z ok: [caddeapllx1858.agil.nprd.caixa.gov.br]
-2026-10-07T14:43:59.5680737Z Wednesday 07 October 2026  11:43:59 -0300 (0:00:00.668)       0:00:15.519 ***** 
-2026-10-07T14:43:59.6181158Z Wednesday 07 October 2026  11:43:59 -0300 (0:00:00.049)       0:00:15.569 ***** 
-2026-10-07T14:43:59.6758938Z 
-2026-10-07T14:43:59.6759436Z TASK [zabbix : Gera o nome do grupo e define os templates quando o ambiente NPRD] ***
-2026-10-07T14:43:59.6759607Z ok: [caddeapllx1858.agil.nprd.caixa.gov.br]
-2026-10-07T14:43:59.6869220Z Wednesday 07 October 2026  11:43:59 -0300 (0:00:00.068)       0:00:15.638 ***** 
-2026-10-07T14:43:59.7419206Z 
-2026-10-07T14:43:59.7419889Z TASK [zabbix : Gera os nomes de grupos e dados para tratamento dos consolidados.] ***
-2026-10-07T14:43:59.7420228Z ok: [caddeapllx1858.agil.nprd.caixa.gov.br]
-2026-10-07T14:43:59.7548710Z Wednesday 07 October 2026  11:43:59 -0300 (0:00:00.067)       0:00:15.706 ***** 
-2026-10-07T14:43:59.8093798Z /opt/ads-agent/ansible/lib/python2.7/site-packages/psycopg2/__init__.py:144: UserWarning: The psycopg2 wheel package will be renamed from release 2.8; in order to keep installing from binary please use "pip install psycopg2-binary" instead. For details see: <http://initd.org/psycopg/docs/install.html#binary-install-from-pypi>.
-2026-10-07T14:43:59.8094182Z   """)
-2026-10-07T14:44:02.4750230Z 
-2026-10-07T14:44:02.4751029Z TASK [zabbix : Consultar os dados do sistema.] *********************************
-2026-10-07T14:44:02.4751763Z fatal: [caddeapllx1858.agil.nprd.caixa.gov.br]: FAILED! => {"changed": false, "msg": "unable to connect to database: FATAL:  password authentication failed for user \"monitdbadm\"\nFATAL:  no pg_hba.conf entry for host \"10.122.156.86\", user \"monitdbadm\", database \"monitordb001\", no encryption\n"}
-2026-10-07T14:44:02.4752032Z 
-2026-10-07T14:44:02.4752172Z PLAY RECAP *********************************************************************
-2026-10-07T14:44:02.4752385Z caddeapllx1858.agil.nprd.caixa.gov.br : ok=24   changed=3    unreachable=0    failed=1    skipped=11   rescued=0    ignored=1   
-2026-10-07T14:44:02.4752471Z 
-2026-10-07T14:44:02.4752843Z Wednesday 07 October 2026  11:44:02 -0300 (0:00:02.720)       0:00:18.426 ***** 
-2026-10-07T14:44:02.4753172Z =============================================================================== 
-2026-10-07T14:44:02.4753726Z zabbix : Consultar os dados do sistema. --------------------------------- 2.72s
-2026-10-07T14:44:02.4754130Z Gathering Facts --------------------------------------------------------- 1.76s
-2026-10-07T14:44:02.4754362Z Install zabbix agent2 --------------------------------------------------- 1.72s
-2026-10-07T14:44:02.4754586Z Instalando o filebeat versao 7.2.1 -------------------------------------- 0.86s
-2026-10-07T14:44:02.4754849Z zabbix : hostgroup create to Zabbix Az CEMOT ---------------------------- 0.80s
-2026-10-07T14:44:02.4755075Z node_exporter : Criando o service do Node Exporter ---------------------- 0.79s
-2026-10-07T14:44:02.4755299Z node_exporter : Copia o Apache Exporter para o servidor ----------------- 0.71s
-2026-10-07T14:44:02.4755520Z zabbix : host create to Zabbix Az CEMOT --------------------------------- 0.67s
-2026-10-07T14:44:02.4755759Z zabbix : proxy get to Zabbix Az CEMOT ----------------------------------- 0.64s
-2026-10-07T14:44:02.4755994Z Garantindo que o zabbix_agent2 esta startado ---------------------------- 0.64s
-2026-10-07T14:44:02.4756215Z zabbix : hostgroup get to Zabbix Az CEMOT ------------------------------- 0.63s
-2026-10-07T14:44:02.4756459Z zabbix : template get to Zabbix Az CEMOT -------------------------------- 0.62s
-2026-10-07T14:44:02.4756769Z Template a file to /etc/zabbix_zabbix_agente.d/monit_agent2.conf -------- 0.61s
-2026-10-07T14:44:02.4756990Z Template a file to /etc/filebeat/filebeat.yml --------------------------- 0.61s
-2026-10-07T14:44:02.4757203Z zabbix : Install libpcre2-8 - Red Hat 7 --------------------------------- 0.59s
-2026-10-07T14:44:02.4757723Z Criando o usuario "node_exporter" vinculado ao grupo "node_exporter" ---- 0.55s
-2026-10-07T14:44:02.4757940Z Download RPM filebeat --------------------------------------------------- 0.50s
-2026-10-07T14:44:02.4758206Z Verifica se existe servico zabbix-agent --------------------------------- 0.45s
-2026-10-07T14:44:02.4758426Z Criando o grupo do "node_exporter" -------------------------------------- 0.42s
-2026-10-07T14:44:02.4758664Z Verifiando o jxm_exporter esta instalado -------------------------------- 0.40s
-2026-10-07T14:44:02.4758883Z Playbook run took 0 days, 0 hours, 0 minutes, 18 seconds
-2026-10-07T14:44:02.5385054Z ##[debug]Exit code 2 received from tool '/bin/bash'
-2026-10-07T14:44:02.5385388Z ##[debug]STDIO streams have closed for tool '/bin/bash'
-2026-10-07T14:44:02.5412275Z ##[error]Bash exited with code '2'.
-2026-10-07T14:44:02.5412765Z ##[debug]Processed: ##vso[task.issue type=error;]Bash exited with code '2'.
-2026-10-07T14:44:02.5413600Z ##[debug]task result: Failed
-2026-10-07T14:44:02.5414588Z ##[debug]Processed: ##vso[task.complete result=Failed;done=true;]
-2026-10-07T14:44:02.5416994Z ##[section]Finishing: Configurando Stack de Monitoração
+ansible-playbook /opt/ads-agent/esteira-jboss-vm/site.yml --tags monitoracao --skip-tags jboss -e sistema_ambiente=des -e quantidade_vm=1 -e sistema_nome=SIRTA -e default_working_directory_tfs=/opt/ads-agent/_work/r15891/a -e build_repository_name_tfs=$REPO -e centralizadora_desenvolvimento=7390 -e centralizadora_operacoes=7259 -e fields_site=BR -e site=$(site)
+2026-10-07T14:51:14.2287630Z Generating script.
+2026-10-07T14:51:14.2289745Z ##[debug]which 'bash'
+2026-10-07T14:51:14.2293962Z ##[debug]found: '/bin/bash'
+2026-10-07T14:51:14.2296084Z ##[debug]Agent.Version=3.225.2
+2026-10-07T14:51:14.2298176Z ##[debug]agent.tempDirectory=/opt/ads-agent/_work/_temp
+2026-10-07T14:51:14.2300346Z ##[debug]check path : /opt/ads-agent/_work/_temp
+2026-10-07T14:51:14.2302536Z ========================== Starting Command Output ===========================
+2026-10-07T14:51:14.2304658Z ##[debug]which '/bin/bash'
+2026-10-07T14:51:14.2306747Z ##[debug]found: '/bin/bash'
+2026-10-07T14:51:14.2308863Z ##[debug]/bin/bash arg: /opt/ads-agent/_work/_temp/0ac0c03a-c606-4091-9f3c-a94fc1f32f13.sh
+2026-10-07T14:51:14.2311034Z ##[debug]exec tool: /bin/bash
+2026-10-07T14:51:14.2313155Z ##[debug]arguments:
+2026-10-07T14:51:14.2315256Z ##[debug]   /opt/ads-agent/_work/_temp/0ac0c03a-c606-4091-9f3c-a94fc1f32f13.sh
+2026-10-07T14:51:14.2317513Z [command]/bin/bash /opt/ads-agent/_work/_temp/0ac0c03a-c606-4091-9f3c-a94fc1f32f13.sh
+2026-10-07T14:51:14.2349479Z ++ echo _SIRTA
+2026-10-07T14:51:14.2351181Z ++ sed s/_//
+2026-10-07T14:51:14.2361707Z + REPO=SIRTA
+2026-10-07T14:51:14.2366348Z ++ site
+2026-10-07T14:51:14.2368425Z /opt/ads-agent/_work/_temp/0ac0c03a-c606-4091-9f3c-a94fc1f32f13.sh: line 3: site: comando não encontrado
+2026-10-07T14:51:14.2369991Z + ansible-playbook /opt/ads-agent/esteira-jboss-vm/site.yml --tags monitoracao --skip-tags jboss -e sistema_ambiente=des -e quantidade_vm=1 -e sistema_nome=SIRTA -e default_working_directory_tfs=/opt/ads-agent/_work/r15891/a -e build_repository_name_tfs=SIRTA -e centralizadora_desenvolvimento=7390 -e centralizadora_operacoes=7259 -e fields_site=BR -e site=
+2026-10-07T14:51:16.1588463Z 
+2026-10-07T14:51:16.1589578Z PLAY [local] *******************************************************************
+2026-10-07T14:51:16.2099496Z 
+2026-10-07T14:51:16.2100230Z PLAY [Configurando o DNS] ******************************************************
+2026-10-07T14:51:16.3627301Z 
+2026-10-07T14:51:16.3628236Z PLAY [local] *******************************************************************
+2026-10-07T14:51:16.3656177Z 
+2026-10-07T14:51:16.3656809Z PLAY [Verificando serviços] ****************************************************
+2026-10-07T14:51:16.3761056Z Wednesday 07 October 2026  11:51:16 -0300 (0:00:00.275)       0:00:00.275 ***** 
+2026-10-07T14:51:18.3618706Z 
+2026-10-07T14:51:18.3619672Z TASK [Gathering Facts] *********************************************************
+2026-10-07T14:51:18.3620062Z ok: [caddeapllx1749.agil.nprd.caixa.gov.br]
+2026-10-07T14:51:19.5768884Z ok: [caddeapllx938.agil.nprd.caixa.gov.br]
+2026-10-07T14:51:19.5956085Z Wednesday 07 October 2026  11:51:19 -0300 (0:00:03.219)       0:00:03.494 ***** 
+2026-10-07T14:51:20.0108456Z 
+2026-10-07T14:51:20.0109361Z TASK [Verifiando o jxm_exporter esta instalado] ********************************
+2026-10-07T14:51:20.0110134Z ok: [caddeapllx938.agil.nprd.caixa.gov.br]
+2026-10-07T14:51:20.0191720Z ok: [caddeapllx1749.agil.nprd.caixa.gov.br]
+2026-10-07T14:51:20.0335284Z Wednesday 07 October 2026  11:51:20 -0300 (0:00:00.437)       0:00:03.932 ***** 
+2026-10-07T14:51:20.1046205Z Wednesday 07 October 2026  11:51:20 -0300 (0:00:00.071)       0:00:04.003 ***** 
+2026-10-07T14:51:20.1753918Z Wednesday 07 October 2026  11:51:20 -0300 (0:00:00.070)       0:00:04.074 ***** 
+2026-10-07T14:51:20.2470858Z Wednesday 07 October 2026  11:51:20 -0300 (0:00:00.071)       0:00:04.146 ***** 
+2026-10-07T14:51:20.6939048Z 
+2026-10-07T14:51:20.6939957Z TASK [Criando o grupo do "node_exporter"] **************************************
+2026-10-07T14:51:20.6940618Z ok: [caddeapllx1749.agil.nprd.caixa.gov.br]
+2026-10-07T14:51:20.7080489Z ok: [caddeapllx938.agil.nprd.caixa.gov.br]
+2026-10-07T14:51:20.7275832Z Wednesday 07 October 2026  11:51:20 -0300 (0:00:00.480)       0:00:04.626 ***** 
+2026-10-07T14:51:21.3110188Z 
+2026-10-07T14:51:21.3112091Z TASK [Criando o usuario "node_exporter" vinculado ao grupo "node_exporter"] ****
+2026-10-07T14:51:21.3112301Z ok: [caddeapllx1749.agil.nprd.caixa.gov.br]
+2026-10-07T14:51:21.3338169Z ok: [caddeapllx938.agil.nprd.caixa.gov.br]
+2026-10-07T14:51:21.3487028Z Wednesday 07 October 2026  11:51:21 -0300 (0:00:00.621)       0:00:05.247 ***** 
+2026-10-07T14:51:22.0685354Z 
+2026-10-07T14:51:22.0685876Z TASK [node_exporter : Copia o Apache Exporter para o servidor] *****************
+2026-10-07T14:51:22.0686288Z ok: [caddeapllx1749.agil.nprd.caixa.gov.br]
+2026-10-07T14:51:22.0921861Z ok: [caddeapllx938.agil.nprd.caixa.gov.br]
+2026-10-07T14:51:22.1076780Z Wednesday 07 October 2026  11:51:22 -0300 (0:00:00.758)       0:00:06.006 ***** 
+2026-10-07T14:51:22.9175056Z 
+2026-10-07T14:51:22.9175530Z TASK [node_exporter : Criando o service do Node Exporter] **********************
+2026-10-07T14:51:22.9175731Z ok: [caddeapllx1749.agil.nprd.caixa.gov.br]
+2026-10-07T14:51:22.9473135Z ok: [caddeapllx938.agil.nprd.caixa.gov.br]
+2026-10-07T14:51:22.9622240Z Wednesday 07 October 2026  11:51:22 -0300 (0:00:00.854)       0:00:06.861 ***** 
+2026-10-07T14:51:23.4944714Z 
+2026-10-07T14:51:23.4945475Z TASK [Download RPM filebeat] ***************************************************
+2026-10-07T14:51:23.4945928Z changed: [caddeapllx938.agil.nprd.caixa.gov.br]
+2026-10-07T14:51:23.5119309Z changed: [caddeapllx1749.agil.nprd.caixa.gov.br]
+2026-10-07T14:51:23.5291135Z Wednesday 07 October 2026  11:51:23 -0300 (0:00:00.566)       0:00:07.428 ***** 
+2026-10-07T14:51:24.4531073Z 
+2026-10-07T14:51:24.4531640Z TASK [Instalando o filebeat versao 7.2.1] **************************************
+2026-10-07T14:51:24.4531808Z ok: [caddeapllx938.agil.nprd.caixa.gov.br]
+2026-10-07T14:51:24.7252455Z ok: [caddeapllx1749.agil.nprd.caixa.gov.br]
+2026-10-07T14:51:24.7391622Z Wednesday 07 October 2026  11:51:24 -0300 (0:00:01.210)       0:00:08.638 ***** 
+2026-10-07T14:51:25.0469483Z 
+2026-10-07T14:51:25.0470454Z TASK [Delete RPM filebeat] *****************************************************
+2026-10-07T14:51:25.0470670Z changed: [caddeapllx938.agil.nprd.caixa.gov.br]
+2026-10-07T14:51:25.0523607Z changed: [caddeapllx1749.agil.nprd.caixa.gov.br]
+2026-10-07T14:51:25.0665735Z Wednesday 07 October 2026  11:51:25 -0300 (0:00:00.327)       0:00:08.965 ***** 
+2026-10-07T14:51:25.9856995Z 
+2026-10-07T14:51:25.9857796Z TASK [Template a file to /etc/filebeat/filebeat.yml] ***************************
+2026-10-07T14:51:25.9858527Z changed: [caddeapllx938.agil.nprd.caixa.gov.br]
+2026-10-07T14:51:25.9990536Z changed: [caddeapllx1749.agil.nprd.caixa.gov.br]
+2026-10-07T14:51:26.0112479Z Wednesday 07 October 2026  11:51:26 -0300 (0:00:00.944)       0:00:09.910 ***** 
+2026-10-07T14:51:26.3151143Z 
+2026-10-07T14:51:26.3152097Z TASK [Verificando APM Agent] ***************************************************
+2026-10-07T14:51:26.3152306Z ok: [caddeapllx938.agil.nprd.caixa.gov.br]
+2026-10-07T14:51:26.3171075Z ok: [caddeapllx1749.agil.nprd.caixa.gov.br]
+2026-10-07T14:51:26.3323599Z Wednesday 07 October 2026  11:51:26 -0300 (0:00:00.320)       0:00:10.231 ***** 
+2026-10-07T14:51:26.4058031Z Wednesday 07 October 2026  11:51:26 -0300 (0:00:00.073)       0:00:10.304 ***** 
+2026-10-07T14:51:26.4803803Z Wednesday 07 October 2026  11:51:26 -0300 (0:00:00.074)       0:00:10.379 ***** 
+2026-10-07T14:51:26.5543087Z Wednesday 07 October 2026  11:51:26 -0300 (0:00:00.073)       0:00:10.453 ***** 
+2026-10-07T14:51:26.6251981Z Wednesday 07 October 2026  11:51:26 -0300 (0:00:00.069)       0:00:10.523 ***** 
+2026-10-07T14:51:26.6956565Z Wednesday 07 October 2026  11:51:26 -0300 (0:00:00.070)       0:00:10.594 ***** 
+2026-10-07T14:51:27.1501840Z 
+2026-10-07T14:51:27.1502743Z TASK [Verifica se existe servico zabbix-agent] *********************************
+2026-10-07T14:51:27.1503919Z fatal: [caddeapllx1749.agil.nprd.caixa.gov.br]: FAILED! => {"changed": true, "cmd": ["systemctl", "is-active", "zabbix-agent"], "delta": "0:00:00.015874", "end": "2026-10-07 11:51:27.132484", "msg": "non-zero return code", "rc": 3, "start": "2026-10-07 11:51:27.116610", "stderr": "", "stderr_lines": [], "stdout": "unknown", "stdout_lines": ["unknown"]}
+2026-10-07T14:51:27.1504704Z ...ignoring
+2026-10-07T14:51:27.1542956Z fatal: [caddeapllx938.agil.nprd.caixa.gov.br]: FAILED! => {"changed": true, "cmd": ["systemctl", "is-active", "zabbix-agent"], "delta": "0:00:00.005292", "end": "2026-10-07 11:51:27.136639", "msg": "non-zero return code", "rc": 3, "start": "2026-10-07 11:51:27.131347", "stderr": "", "stderr_lines": [], "stdout": "unknown", "stdout_lines": ["unknown"]}
+2026-10-07T14:51:27.1543285Z ...ignoring
+2026-10-07T14:51:27.1674487Z Wednesday 07 October 2026  11:51:27 -0300 (0:00:00.472)       0:00:11.066 ***** 
+2026-10-07T14:51:27.2397913Z Wednesday 07 October 2026  11:51:27 -0300 (0:00:00.072)       0:00:11.138 ***** 
+2026-10-07T14:51:27.8764553Z 
+2026-10-07T14:51:27.8765525Z TASK [zabbix : Install libpcre2-8 - Red Hat 7] *********************************
+2026-10-07T14:51:27.8766156Z ok: [caddeapllx938.agil.nprd.caixa.gov.br]
+2026-10-07T14:51:29.2724253Z fatal: [caddeapllx1749.agil.nprd.caixa.gov.br]: FAILED! => {"changed": false, "changes": {"installed": ["/root/.ansible/tmp/ansible-moduletmp-1791384687.7-Tafo4A/libpcre2-8-0-10.39-150400.2.3.x86_64Y5YPRJ.rpm"]}, "msg": "This system is not registered with RHN Classic or Red Hat Satellite.\nYou can use rhn_register to register.\nRed Hat Satellite or RHN Classic support will be disabled.\n\n\nTransaction check error:\n  file /usr/lib64/libpcre2-8.so.0 from install of libpcre2-8-0-10.39-150400.2.3.x86_64 conflicts with file from package pcre2-10.23-2.el7.x86_64\n\nError Summary\n-------------\n\n", "rc": 1, "results": ["Loaded plugins: product-id, rhnplugin, search-disabled-repos, subscription-\n              : manager\nThis system is not registered with an entitlement server. You can use subscription-manager to register.\nExamining /root/.ansible/tmp/ansible-moduletmp-1791384687.7-Tafo4A/libpcre2-8-0-10.39-150400.2.3.x86_64Y5YPRJ.rpm: libpcre2-8-0-10.39-150400.2.3.x86_64\nMarking /root/.ansible/tmp/ansible-moduletmp-1791384687.7-Tafo4A/libpcre2-8-0-10.39-150400.2.3.x86_64Y5YPRJ.rpm to be installed\nResolving Dependencies\n--> Running transaction check\n---> Package libpcre2-8-0.x86_64 0:10.39-150400.2.3 will be installed\n--> Finished Dependency Resolution\n\nDependencies Resolved\n\n================================================================================\n Package\n      Arch   Version          Repository                                   Size\n================================================================================\nInstalling:\n libpcre2-8-0\n      x86_64 10.39-150400.2.3 /libpcre2-8-0-10.39-150400.2.3.x86_64Y5YPRJ 910 k\n\nTransaction Summary\n================================================================================\nInstall  1 Package\n\nTotal size: 910 k\nInstalled size: 910 k\nDownloading packages:\nRunning transaction check\nRunning transaction test\n"]}
+2026-10-07T14:51:29.2725624Z ...ignoring
+2026-10-07T14:51:29.2871765Z Wednesday 07 October 2026  11:51:29 -0300 (0:00:02.047)       0:00:13.186 ***** 
+2026-10-07T14:51:29.9809809Z 
+2026-10-07T14:51:29.9810646Z TASK [Install zabbix agent2] ***************************************************
+2026-10-07T14:51:29.9811085Z ok: [caddeapllx938.agil.nprd.caixa.gov.br] => (item=http://10.122.154.12/deploy/zabbix-agent2-plugin-mongodb-6.0.23-release1.el7.x86_64.rpm)
+2026-10-07T14:51:30.2189891Z ok: [caddeapllx1749.agil.nprd.caixa.gov.br] => (item=http://10.122.154.12/deploy/zabbix-agent2-plugin-mongodb-6.0.23-release1.el7.x86_64.rpm)
+2026-10-07T14:51:30.5933710Z ok: [caddeapllx938.agil.nprd.caixa.gov.br] => (item=http://10.122.154.12/deploy/zabbix-agent2-plugin-postgresql-6.0.23-release1.el7.x86_64.rpm)
+2026-10-07T14:51:30.8171460Z ok: [caddeapllx1749.agil.nprd.caixa.gov.br] => (item=http://10.122.154.12/deploy/zabbix-agent2-plugin-postgresql-6.0.23-release1.el7.x86_64.rpm)
+2026-10-07T14:51:31.2257045Z ok: [caddeapllx938.agil.nprd.caixa.gov.br] => (item=http://10.122.154.12/deploy/zabbix-agent2-6.0.23-release1.el7.x86_64.rpm)
+2026-10-07T14:51:31.4093512Z ok: [caddeapllx1749.agil.nprd.caixa.gov.br] => (item=http://10.122.154.12/deploy/zabbix-agent2-6.0.23-release1.el7.x86_64.rpm)
+2026-10-07T14:51:31.4253544Z Wednesday 07 October 2026  11:51:31 -0300 (0:00:02.138)       0:00:15.324 ***** 
+2026-10-07T14:51:32.0869334Z 
+2026-10-07T14:51:32.0870306Z TASK [Template a file to /etc/zabbix_zabbix_agente.d/monit_agent2.conf] ********
+2026-10-07T14:51:32.0881962Z ok: [caddeapllx938.agil.nprd.caixa.gov.br]
+2026-10-07T14:51:32.0882320Z ok: [caddeapllx1749.agil.nprd.caixa.gov.br]
+2026-10-07T14:51:32.1031152Z Wednesday 07 October 2026  11:51:32 -0300 (0:00:00.677)       0:00:16.002 ***** 
+2026-10-07T14:51:32.7206268Z 
+2026-10-07T14:51:32.7208595Z TASK [Garantindo que o zabbix_agent2 esta startado] ****************************
+2026-10-07T14:51:32.7208769Z ok: [caddeapllx938.agil.nprd.caixa.gov.br]
+2026-10-07T14:51:32.7511849Z ok: [caddeapllx1749.agil.nprd.caixa.gov.br]
+2026-10-07T14:51:32.7673516Z Wednesday 07 October 2026  11:51:32 -0300 (0:00:00.664)       0:00:16.666 ***** 
+2026-10-07T14:51:32.8390357Z Wednesday 07 October 2026  11:51:32 -0300 (0:00:00.071)       0:00:16.738 ***** 
+2026-10-07T14:51:32.8987884Z 
+2026-10-07T14:51:32.8988637Z TASK [zabbix : Gera o nome do grupo e templates quando o ambiente não é PRD] ***
+2026-10-07T14:51:32.8988812Z ok: [caddeapllx938.agil.nprd.caixa.gov.br]
+2026-10-07T14:51:32.9156330Z ok: [caddeapllx1749.agil.nprd.caixa.gov.br]
+2026-10-07T14:51:32.9329840Z Wednesday 07 October 2026  11:51:32 -0300 (0:00:00.094)       0:00:16.832 ***** 
+2026-10-07T14:51:33.9109638Z 
+2026-10-07T14:51:33.9110183Z TASK [zabbix : hostgroup create to Zabbix Az CEMOT] ****************************
+2026-10-07T14:51:33.9111206Z ok: [caddeapllx1749.agil.nprd.caixa.gov.br]
+2026-10-07T14:51:33.9111367Z ok: [caddeapllx938.agil.nprd.caixa.gov.br]
+2026-10-07T14:51:33.9257988Z Wednesday 07 October 2026  11:51:33 -0300 (0:00:00.992)       0:00:17.824 ***** 
+2026-10-07T14:51:34.6510410Z 
+2026-10-07T14:51:34.6511183Z TASK [zabbix : template get to Zabbix Az CEMOT] ********************************
+2026-10-07T14:51:34.6511463Z ok: [caddeapllx1749.agil.nprd.caixa.gov.br]
+2026-10-07T14:51:34.6713651Z ok: [caddeapllx938.agil.nprd.caixa.gov.br]
+2026-10-07T14:51:34.6889892Z Wednesday 07 October 2026  11:51:34 -0300 (0:00:00.763)       0:00:18.588 ***** 
+2026-10-07T14:51:35.4019799Z 
+2026-10-07T14:51:35.4020319Z TASK [zabbix : hostgroup get to Zabbix Az CEMOT] *******************************
+2026-10-07T14:51:35.4020489Z ok: [caddeapllx938.agil.nprd.caixa.gov.br]
+2026-10-07T14:51:35.4043063Z ok: [caddeapllx1749.agil.nprd.caixa.gov.br]
+2026-10-07T14:51:35.4212209Z Wednesday 07 October 2026  11:51:35 -0300 (0:00:00.732)       0:00:19.320 ***** 
+2026-10-07T14:51:36.1772085Z 
+2026-10-07T14:51:36.1772683Z TASK [zabbix : proxy get to Zabbix Az CEMOT] ***********************************
+2026-10-07T14:51:36.1772926Z ok: [caddeapllx1749.agil.nprd.caixa.gov.br]
+2026-10-07T14:51:36.1923638Z ok: [caddeapllx938.agil.nprd.caixa.gov.br]
+2026-10-07T14:51:36.2082389Z Wednesday 07 October 2026  11:51:36 -0300 (0:00:00.786)       0:00:20.107 ***** 
+2026-10-07T14:51:37.0067460Z 
+2026-10-07T14:51:37.0068363Z TASK [zabbix : host create to Zabbix Az CEMOT] *********************************
+2026-10-07T14:51:37.0068578Z ok: [caddeapllx938.agil.nprd.caixa.gov.br]
+2026-10-07T14:51:37.0110392Z ok: [caddeapllx1749.agil.nprd.caixa.gov.br]
+2026-10-07T14:51:37.0241842Z Wednesday 07 October 2026  11:51:37 -0300 (0:00:00.815)       0:00:20.923 ***** 
+2026-10-07T14:51:37.0959101Z Wednesday 07 October 2026  11:51:37 -0300 (0:00:00.071)       0:00:20.994 ***** 
+2026-10-07T14:51:37.1558132Z 
+2026-10-07T14:51:37.1558987Z TASK [zabbix : Gera o nome do grupo e define os templates quando o ambiente NPRD] ***
+2026-10-07T14:51:37.1559389Z ok: [caddeapllx938.agil.nprd.caixa.gov.br]
+2026-10-07T14:51:37.1720835Z ok: [caddeapllx1749.agil.nprd.caixa.gov.br]
+2026-10-07T14:51:37.1869780Z Wednesday 07 October 2026  11:51:37 -0300 (0:00:00.091)       0:00:21.086 ***** 
+2026-10-07T14:51:37.2471666Z 
+2026-10-07T14:51:37.2472440Z TASK [zabbix : Gera os nomes de grupos e dados para tratamento dos consolidados.] ***
+2026-10-07T14:51:37.2473046Z ok: [caddeapllx938.agil.nprd.caixa.gov.br]
+2026-10-07T14:51:37.2608144Z ok: [caddeapllx1749.agil.nprd.caixa.gov.br]
+2026-10-07T14:51:37.2778763Z Wednesday 07 October 2026  11:51:37 -0300 (0:00:00.090)       0:00:21.177 ***** 
+2026-10-07T14:51:37.3369084Z /opt/ads-agent/ansible/lib/python2.7/site-packages/psycopg2/__init__.py:144: UserWarning: The psycopg2 wheel package will be renamed from release 2.8; in order to keep installing from binary please use "pip install psycopg2-binary" instead. For details see: <http://initd.org/psycopg/docs/install.html#binary-install-from-pypi>.
+2026-10-07T14:51:37.3370718Z   """)
+2026-10-07T14:51:40.0569482Z 
+2026-10-07T14:51:40.0585945Z TASK [zabbix : Consultar os dados do sistema.] *********************************
+2026-10-07T14:51:40.0586349Z fatal: [caddeapllx1749.agil.nprd.caixa.gov.br]: FAILED! => {"changed": false, "msg": "unable to connect to database: FATAL:  password authentication failed for user \"monitdbadm\"\nFATAL:  no pg_hba.conf entry for host \"10.122.155.67\", user \"monitdbadm\", database \"monitordb001\", no encryption\n"}
+2026-10-07T14:51:40.0631872Z fatal: [caddeapllx938.agil.nprd.caixa.gov.br]: FAILED! => {"changed": false, "msg": "unable to connect to database: FATAL:  password authentication failed for user \"monitdbadm\"\nFATAL:  no pg_hba.conf entry for host \"10.122.155.67\", user \"monitdbadm\", database \"monitordb001\", no encryption\n"}
+2026-10-07T14:51:40.0642000Z Wednesday 07 October 2026  11:51:40 -0300 (0:00:02.785)       0:00:23.963 ***** 
+2026-10-07T14:51:40.0660849Z 
+2026-10-07T14:51:40.0661330Z PLAY RECAP *********************************************************************
+2026-10-07T14:51:40.0662038Z caddeapllx1749.agil.nprd.caixa.gov.br : ok=24   changed=4    unreachable=0    failed=1    skipped=11   rescued=0    ignored=2   
+2026-10-07T14:51:40.0662394Z caddeapllx938.agil.nprd.caixa.gov.br : ok=24   changed=4    unreachable=0    failed=1    skipped=11   rescued=0    ignored=1   
+2026-10-07T14:51:40.0662578Z 
+2026-10-07T14:51:40.0663128Z Wednesday 07 October 2026  11:51:40 -0300 (0:00:00.001)       0:00:23.964 ***** 
+2026-10-07T14:51:40.0663664Z =============================================================================== 
+2026-10-07T14:51:40.0664089Z Gathering Facts --------------------------------------------------------- 3.22s
+2026-10-07T14:51:40.0664460Z zabbix : Consultar os dados do sistema. --------------------------------- 2.79s
+2026-10-07T14:51:40.0664845Z Install zabbix agent2 --------------------------------------------------- 2.14s
+2026-10-07T14:51:40.0665358Z zabbix : Install libpcre2-8 - Red Hat 7 --------------------------------- 2.05s
+2026-10-07T14:51:40.0665756Z Instalando o filebeat versao 7.2.1 -------------------------------------- 1.21s
+2026-10-07T14:51:40.0666070Z zabbix : hostgroup create to Zabbix Az CEMOT ---------------------------- 0.99s
+2026-10-07T14:51:40.0666387Z Template a file to /etc/filebeat/filebeat.yml --------------------------- 0.94s
+2026-10-07T14:51:40.0666724Z node_exporter : Criando o service do Node Exporter ---------------------- 0.85s
+2026-10-07T14:51:40.0667087Z zabbix : host create to Zabbix Az CEMOT --------------------------------- 0.82s
+2026-10-07T14:51:40.0667448Z zabbix : proxy get to Zabbix Az CEMOT ----------------------------------- 0.79s
+2026-10-07T14:51:40.0667786Z zabbix : template get to Zabbix Az CEMOT -------------------------------- 0.76s
+2026-10-07T14:51:40.0668084Z node_exporter : Copia o Apache Exporter para o servidor ----------------- 0.76s
+2026-10-07T14:51:40.0668403Z zabbix : hostgroup get to Zabbix Az CEMOT ------------------------------- 0.73s
+2026-10-07T14:51:40.0668707Z Template a file to /etc/zabbix_zabbix_agente.d/monit_agent2.conf -------- 0.68s
+2026-10-07T14:51:40.0669013Z Garantindo que o zabbix_agent2 esta startado ---------------------------- 0.66s
+2026-10-07T14:51:40.0670352Z Criando o usuario "node_exporter" vinculado ao grupo "node_exporter" ---- 0.62s
+2026-10-07T14:51:40.0670674Z Download RPM filebeat --------------------------------------------------- 0.57s
+2026-10-07T14:51:40.0671318Z Criando o grupo do "node_exporter" -------------------------------------- 0.48s
+2026-10-07T14:51:40.0671590Z Verifica se existe servico zabbix-agent --------------------------------- 0.47s
+2026-10-07T14:51:40.0671823Z Verifiando o jxm_exporter esta instalado -------------------------------- 0.44s
+2026-10-07T14:51:40.0671982Z Playbook run took 0 days, 0 hours, 0 minutes, 23 seconds
+2026-10-07T14:51:40.1291014Z ##[debug]Exit code 2 received from tool '/bin/bash'
+2026-10-07T14:51:40.1291343Z ##[debug]STDIO streams have closed for tool '/bin/bash'
+2026-10-07T14:51:40.1317888Z ##[error]Bash exited with code '2'.
+2026-10-07T14:51:40.1318407Z ##[debug]Processed: ##vso[task.issue type=error;]Bash exited with code '2'.
+2026-10-07T14:51:40.1318886Z ##[debug]task result: Failed
+2026-10-07T14:51:40.1319955Z ##[debug]Processed: ##vso[task.complete result=Failed;done=true;]
+2026-10-07T14:51:40.1327883Z ##[section]Finishing: Configurando Stack de Monitoração
