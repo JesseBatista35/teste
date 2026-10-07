@@ -1,11 +1,3 @@
+getent hosts caddeapllx135.extra.caixa.gov.br caddeapllx136.extra.caixa.gov.br
 
--sh-4.2$ ps -ef | grep [j]boss-modules | tr ' ' '\n' | grep -E '^-D(\[|jboss\.(home|server\.base)|.*modcluster)'
--D[Standalone]
--Djboss.home.dir=/opt/jboss/jboss-eap
--Djboss.server.base.dir=/opt/jboss/jboss-eap/standalone
--Dhttp.modcluster.proxy1=10.116.223.231
--Dhttp.modcluster.proxy2=10.116.223.232
--Djboss_modcluster_proxy_list=caddeapllx135.extra.caixa.gov.br:6666,caddeapllx136.extra.caixa.gov.br:6666
--Djboss_modcluster_balancer=sirta
--Djboss.server.base.dir=/opt/jboss/jboss-eap/standalone
--sh-4.2$
+grep -n "modcluster" /opt/jboss/jboss-eap/standalone/configuration/standalone*.xml
