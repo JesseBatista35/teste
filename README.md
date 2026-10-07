@@ -1,1 +1,19 @@
-Prezado(a), conforme solicitado em demanda, o atendimento foi realizado. A falha na release do SISPL-parametros-ocp4-plus ocorria porque o agent job estava configurado no pool Release-Linux, cujo cliente oc não suporta o comando "oc rollout restart" utilizado na etapa de atualização de imagem. O agent job foi alterado para o pool Release-Linux-OKD4, compatível com o cluster OCP-Plus. A release foi executada novamente e o deploy foi concluído com sucesso nos ambientes DES e TQS.
+1. Será necessário que você adicione o port-group a interface do servidor. Segue abaixo o nome do
+port-group:
+
+tn-NPRD|NPRD_BKP-ap|VL3697-ep|192.168.226./23
+
+2. Com relação ao IP, você pode alocar via ferramenta alocaIP na rede 192.168.224.0/19
+
+https://alocaip.telecom.caixa
+
+
+Atenciosamente,
+Valdir Soares
+TELEDATA\CETEL\REDE
+
+
+<img width="1757" height="827" alt="image" src="https://github.com/user-attachments/assets/478e3400-0f68-48e6-9aa7-24bda1d87802" />
+
+
+eu meso que tenoho que fazer isso?
