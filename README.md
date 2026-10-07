@@ -13,515 +13,515 @@ GestióIP
 disabled	disabled	disabled	
 
  1        
- (from 33)      
+ (from 11)      
 
-    	192.168.224.1	CADNGCORSW0001		CTC											
+    	192.168.243.7			CTC											
 
-    	192.168.224.2	CADNGCORSW0002		CTC											
+    	192.168.243.8			CTC											
 
-    	192.168.224.3	ACI_VL3697-bd	tn-NPRD:BKP-vrf	CTC	ACI				cisco						
+    	192.168.243.9			CTC											
 
-    	192.168.224.4	ISILON_NPRD		CTC											
+    	192.168.243.10			CTC											
 
-    	192.168.224.5	ISILON_NPRD		CTC											
+    	192.168.243.11			CTC											
 
-    	192.168.224.6	ISILON_NPRD		CTC											
+    	192.168.243.12			CTC											
 
-    	192.168.224.7	ISILON_NPRD		CTC											
+    	192.168.243.13			CTC											
 
-    	192.168.224.8	ISILON_NPRD		CTC											
+    	192.168.243.14			CTC											
 
-    	192.168.224.9	ISILON_NPRD		CTC											
+    	192.168.243.15			CTC											
 
-    	192.168.224.10	ISILON_NPRD		CTC											
+    	192.168.243.16			CTC											
 
-    	192.168.224.11	ISILON_NPRD		CTC											
+    	192.168.243.17			CTC											
 
-    	192.168.224.12	ISILON_NPRD		CTC											
+    	192.168.243.18			CTC											
 
-    	192.168.224.13	ISILON_NPRD		CTC											
+    	192.168.243.19			CTC											
 
-    	192.168.224.14	ISILON_NPRD		CTC											
+    	192.168.243.20			CTC											
 
-    	192.168.224.15	ISILON_NPRD		CTC											
+    	192.168.243.21			CTC											
 
-    	192.168.224.16	ISILON_NPRD		CTC											
+    	192.168.243.22			CTC											
 
-    	192.168.224.17	ISILON_NPRD		CTC											
+    	192.168.243.23			CTC											
 
-    	192.168.224.18	ISILON_NPRD		CTC											
+    	192.168.243.24			CTC											
 
-    	192.168.224.19	ISILON_NPRD		CTC											
+    	192.168.243.25			CTC											
 
-    	192.168.224.20	ISILON_NPRD		CTC											
+    	192.168.243.26			CTC											
 
-    	192.168.224.21	ISILON_NPRD		CTC											
+    	192.168.243.27			CTC											
 
-    	192.168.224.22	ISILON_NPRD		CTC											
+    	192.168.243.28			CTC											
 
-    	192.168.224.23	ISILON_NPRD		CTC											
+    	192.168.243.29			CTC											
 
-    	192.168.224.24	ISILON_NPRD		CTC											
+    	192.168.243.30			CTC											
 
-    	192.168.224.25	ISILON_NPRD		CTC											
+    	192.168.243.31			CTC											
 
-    	192.168.224.26	ISILON_NPRD		CTC											
+    	192.168.243.32			CTC											
 
-    	192.168.224.27	ISILON_NPRD		CTC											
+    	192.168.243.33			CTC											
 
-    	192.168.224.28	ISILON_NPRD		CTC											
+    	192.168.243.34			CTC											
 
-    	192.168.224.29	ISILON_NPRD		CTC											
+    	192.168.243.35			CTC											
 
-    	192.168.224.30	ISILON_NPRD		CTC											
+    	192.168.243.36			CTC											
 
-    	192.168.224.31	ISILON_NPRD		CTC											
+    	192.168.243.37			CTC											
 
-    	192.168.224.32	ISILON_NPRD		CTC											
+    	192.168.243.38			CTC											
 
-    	192.168.224.33	ISILON_NPRD		CTC											
+    	192.168.243.39			CTC											
 
-    	192.168.224.34	ISILON_NPRD		CTC											
+    	192.168.243.40			CTC											
 
-    	192.168.224.35	ISILON_NPRD		CTC											
+    	192.168.243.41			CTC											
 
-    	192.168.224.36	ISILON_NPRD		CTC											
+    	192.168.243.42			CTC											
 
-    	192.168.224.37	ISILON_NPRD		CTC											
+    	192.168.243.43			CTC											
 
-    	192.168.224.38	ISILON_NPRD		CTC											
+    	192.168.243.44			CTC											
 
-    	192.168.224.39	ISILON_NPRD		CTC											
+    	192.168.243.45			CTC											
 
-    	192.168.224.40	ISILON_NPRD		CTC											
+    	192.168.243.46			CTC											
 
-    	192.168.224.41	ISILON_NPRD		CTC											
+    	192.168.243.47			CTC											
 
-    	192.168.224.42	ISILON_NPRD		CTC											
+    	192.168.243.48			CTC											
 
-    	192.168.224.43	ISILON_NPRD		CTC											
+    	192.168.243.49			CTC											
 
-    	192.168.224.44	ISILON_NPRD		CTC											
+    	192.168.243.50			CTC											
 
-    	192.168.224.45	ISILON_NPRD		CTC											
+    	192.168.243.51			CTC											
 
-    	192.168.224.46	ISILON_NPRD		CTC											
+    	192.168.243.52			CTC											
 
-    	192.168.224.47	ISILON_NPRD		CTC											
+    	192.168.243.53			CTC											
 
-    	192.168.224.48	ISILON_NPRD		CTC											
+    	192.168.243.54			CTC											
 
-    	192.168.224.49	ISILON_NPRD		CTC											
+    	192.168.243.55			CTC											
 
-    	192.168.224.50	CADSVGERLX195	WO0000078816561	CTC											
+    	192.168.243.56			CTC											
 
-    	192.168.224.51	CADDEBKPLX1125	Projeto Esteiras - interfaces-bkp	CTC											
+    	192.168.243.57			CTC											
 
-    	192.168.224.52	CADDEBKPLX1126	Projeto Esteiras - interfaces-bkp	CTC											
+    	192.168.243.58			CTC											
 
-    	192.168.224.53	ISILON_NPRD		CTC											
+    	192.168.243.59			CTC											
 
-    	192.168.224.54	ISILON_NPRD		CTC											
+    	192.168.243.60			CTC											
 
-    	192.168.224.55	ISILON_NPRD		CTC											
+    	192.168.243.61			CTC											
 
-    	192.168.224.56	ISILON_NPRD		CTC											
+    	192.168.243.62			CTC											
 
-    	192.168.224.57	ISILON_NPRD		CTC											
+    	192.168.243.63			CTC											
 
-    	192.168.224.58	ISILON_NPRD		CTC											
+    	192.168.243.64			CTC											
 
-    	192.168.224.59	ISILON_NPRD		CTC											
+    	192.168.243.65			CTC											
 
-    	192.168.224.60	ISILON_NPRD		CTC											
+    	192.168.243.66			CTC											
 
-    	192.168.224.61	ISILON_NPRD		CTC											
+    	192.168.243.67			CTC											
 
-    	192.168.224.62	ISILON_NPRD		CTC											
+    	192.168.243.68			CTC											
 
-    	192.168.224.63	ISILON_NPRD		CTC											
+    	192.168.243.69			CTC											
 
-    	192.168.224.64	RESERVADO_ISILON		CTC											
+    	192.168.243.70			CTC											
 
-    	192.168.224.65	RESERVADO_ISILON		CTC											
+    	192.168.243.71			CTC											
 
-    	192.168.224.66	RESERVADO_ISILON		CTC											
+    	192.168.243.72			CTC											
 
-    	192.168.224.67	RESERVADO_ISILON		CTC											
+    	192.168.243.73			CTC											
 
-    	192.168.224.68	RESERVADO_ISILON		CTC											
+    	192.168.243.74			CTC											
 
-    	192.168.224.69	RESERVADO_ISILON		CTC											
+    	192.168.243.75			CTC											
 
-    	192.168.224.70	RESERVADO_ISILON		CTC											
+    	192.168.243.76			CTC											
 
-    	192.168.224.71	RESERVADO_ISILON		CTC											
+    	192.168.243.77			CTC											
 
-    	192.168.224.72	RESERVADO_ISILON		CTC											
+    	192.168.243.78			CTC											
 
-    	192.168.224.73	RESERVADO_ISILON		CTC											
+    	192.168.243.79			CTC											
 
-    	192.168.224.74	RESERVADO_ISILON		CTC											
+    	192.168.243.80			CTC											
 
-    	192.168.224.75	RESERVADO_ISILON		CTC											
+    	192.168.243.81			CTC											
 
-    	192.168.224.76	RESERVADO_ISILON		CTC											
+    	192.168.243.82			CTC											
 
-    	192.168.224.77	RESERVADO_ISILON		CTC											
+    	192.168.243.83			CTC											
 
-    	192.168.224.78	RESERVADO_ISILON		CTC											
+    	192.168.243.84			CTC											
 
-    	192.168.224.79	RESERVADO_ISILON		CTC											
+    	192.168.243.85			CTC											
 
-    	192.168.224.80	RESERVADO_ISILON		CTC											
+    	192.168.243.86			CTC											
 
-    	192.168.224.81	RESERVADO_ISILON		CTC											
+    	192.168.243.87			CTC											
 
-    	192.168.224.82	RESERVADO_ISILON		CTC											
+    	192.168.243.88			CTC											
 
-    	192.168.224.83	RESERVADO_ISILON		CTC											
+    	192.168.243.89			CTC											
 
-    	192.168.224.84	RESERVADO_ISILON		CTC											
+    	192.168.243.90			CTC											
 
-    	192.168.224.85	RESERVADO_ISILON		CTC											
+    	192.168.243.91			CTC											
 
-    	192.168.224.86	RESERVADO_ISILON		CTC											
+    	192.168.243.92			CTC											
 
-    	192.168.224.87	RESERVADO_ISILON		CTC											
+    	192.168.243.93			CTC											
 
-    	192.168.224.88	RESERVADO_ISILON		CTC											
+    	192.168.243.94			CTC											
 
-    	192.168.224.89	RESERVADO_ISILON		CTC											
+    	192.168.243.95			CTC											
 
-    	192.168.224.90	RESERVADO_ISILON		CTC											
+    	192.168.243.96			CTC											
 
-    	192.168.224.91	RESERVADO_ISILON		CTC											
+    	192.168.243.97			CTC											
 
-    	192.168.224.92	RESERVADO_ISILON		CTC											
+    	192.168.243.98			CTC											
 
-    	192.168.224.93	RESERVADO_ISILON		CTC											
+    	192.168.243.99			CTC											
 
-    	192.168.224.94	RESERVADO_ISILON		CTC											
+    	192.168.243.100			CTC											
 
-    	192.168.224.95	RESERVADO_ISILON		CTC											
+    	192.168.243.101			CTC											
 
-    	192.168.224.96	RESERVADO_ISILON		CTC											
+    	192.168.243.102			CTC											
 
-    	192.168.224.97	RESERVADO_ISILON		CTC											
+    	192.168.243.103			CTC											
 
-    	192.168.224.98	RESERVADO_ISILON		CTC											
+    	192.168.243.104			CTC											
 
-    	192.168.224.99	RESERVADO_ISILON		CTC											
+    	192.168.243.105			CTC											
 
-    	192.168.224.100	RESERVADO_ISILON		CTC											
+    	192.168.243.106			CTC											
 
-    	192.168.224.101	RESERVADO_ISILON		CTC											
+    	192.168.243.107			CTC											
 
-    	192.168.224.102	RESERVADO_ISILON		CTC											
+    	192.168.243.108			CTC											
 
-    	192.168.224.103	RESERVADO_ISILON		CTC											
+    	192.168.243.109			CTC											
 
-    	192.168.224.104	RESERVADO_ISILON		CTC											
+    	192.168.243.110			CTC											
 
-    	192.168.224.105	RESERVADO_ISILON		CTC											
+    	192.168.243.111			CTC											
 
-    	192.168.224.106	RESERVADO_ISILON		CTC											
+    	192.168.243.112			CTC											
 
-    	192.168.224.107	RESERVADO_ISILON		CTC											
+    	192.168.243.113			CTC											
 
-    	192.168.224.108	RESERVADO_ISILON		CTC											
+    	192.168.243.114			CTC											
 
-    	192.168.224.109	RESERVADO_ISILON		CTC											
+    	192.168.243.115			CTC											
 
-    	192.168.224.110	RESERVADO_ISILON		CTC											
+    	192.168.243.116			CTC											
 
-    	192.168.224.111	RESERVADO_ISILON		CTC											
+    	192.168.243.117			CTC											
 
-    	192.168.224.112	RESERVADO_ISILON		CTC											
+    	192.168.243.118			CTC											
 
-    	192.168.224.113	RESERVADO_ISILON		CTC											
+    	192.168.243.119			CTC											
 
-    	192.168.224.114	RESERVADO_ISILON		CTC											
+    	192.168.243.120			CTC											
 
-    	192.168.224.115	RESERVADO_ISILON		CTC											
+    	192.168.243.121			CTC											
 
-    	192.168.224.116	RESERVADO_ISILON		CTC											
+    	192.168.243.122			CTC											
 
-    	192.168.224.117	RESERVADO_ISILON		CTC											
+    	192.168.243.123			CTC											
 
-    	192.168.224.118	RESERVADO_ISILON		CTC											
+    	192.168.243.124			CTC											
 
-    	192.168.224.119	RESERVADO_ISILON		CTC											
+    	192.168.243.125			CTC											
 
-    	192.168.224.120	RESERVADO_ISILON		CTC											
+    	192.168.243.126			CTC											
 
-    	192.168.224.121	RESERVADO_ISILON		CTC											
+    	192.168.243.127			CTC											
 
-    	192.168.224.122	RESERVADO_ISILON		CTC											
+    	192.168.243.128			CTC											
 
-    	192.168.224.123	RESERVADO_ISILON		CTC											
+    	192.168.243.129			CTC											
 
-    	192.168.224.124	RESERVADO_ISILON		CTC											
+    	192.168.243.130			CTC											
 
-    	192.168.224.125	RESERVADO_ISILON		CTC											
+    	192.168.243.131			CTC											
 
-    	192.168.224.126	RESERVADO_ISILON		CTC											
+    	192.168.243.132			CTC											
 
-    	192.168.224.127	RESERVADO_ISILON		CTC											
+    	192.168.243.133			CTC											
 
-    	192.168.224.128	RESERVADO_ISILON		CTC											
+    	192.168.243.134			CTC											
 
-    	192.168.224.129	srjdeapllx0033	CEPTIRJ - TAS000022591239	CTC											
+    	192.168.243.135			CTC											
 
-    	192.168.224.130	srjdeapllx0034	CEPTIRJ - TAS000022591239	CTC											
+    	192.168.243.136			CTC											
 
-    	192.168.224.131	srjdeapllx069	CEPTIRJ - TAS000022591239	CTC											
+    	192.168.243.137			CTC											
 
-    	192.168.224.132	CADDEBKPLX328	Projeto Esteiras - interfaces-bkp	CTC											
+    	192.168.243.138			CTC											
 
-    	192.168.224.133	CADDEBKPLX329	Projeto Esteiras - interfaces-bkp	CTC											
+    	192.168.243.139			CTC											
 
-    	192.168.224.134	CADBKBKPLX003	SpectrumProtectPlus - NPRD - TSM	CTC											
+    	192.168.243.140			CTC											
 
-    	192.168.224.135	CADSVITRLX022	SpectrumProtectPlus - NPRD - TSM	CTC											
+    	192.168.243.141			CTC											
 
-    	192.168.224.136	CADSVITRLX023	SpectrumProtectPlus - NPRD - TSM	CTC											
+    	192.168.243.142			CTC											
 
-    	192.168.224.137	CADSVITRLX024	SpectrumProtectPlus - NPRD - TSM	CTC											
+    	192.168.243.143			CTC											
 
-    	192.168.224.138	CADSVITRLX024	SpectrumProtectPlus - NPRD - TSM	CTC											
+    	192.168.243.144			CTC											
 
-    	192.168.224.139	CADDEBKPLX001	SpectrumProtectPlus - NPRD - TSM - VE - Datamove	CTC											
+    	192.168.243.145			CTC											
 
-    	192.168.224.140	CADDEGERNT001	WO0000033040692 - gerencia windows	CTC											
+    	192.168.243.146			CTC											
 
-    	192.168.224.141	cadsvgersh048	IP nova rede Backup - NPRD	CTC											
+    	192.168.243.147			CTC											
 
-    	192.168.224.142	cadsvgersh049	IP nova rede Backup - NPRD	CTC											
+    	192.168.243.148			CTC											
 
-    	192.168.224.143	cadsvgersh056	IP nova rede Backup - NPRD	CTC											
+    	192.168.243.149			CTC											
 
-    	192.168.224.144	CADDEBKPLX1038	Projeto Esteiras - interfaces-bkp	CTC											
+    	192.168.243.150			CTC											
 
-    	192.168.224.145	CADDEBKPLX1039	Projeto Esteiras - interfaces-bkp	CTC											
+    	192.168.243.151			CTC											
 
-    	192.168.224.146	cadsvgersh061	IP nova rede Backup - NPRD	CTC											
+    	192.168.243.152			CTC											
 
-    	192.168.224.147	cadsvgersh065	IP nova rede Backup - NPRD	CTC											
+    	192.168.243.153			CTC											
 
-    	192.168.224.148	CADDEBKPLX947	Projeto Esteiras - interfaces-bkp	CTC											
+    	192.168.243.154			CTC											
 
-    	192.168.224.149	cadsvgersh072	IP nova rede Backup - NPRD	CTC											
+    	192.168.243.155			CTC											
 
-    	192.168.224.150	CADDEBKPLX990	Projeto Esteiras - interfaces-bkp	CTC											
+    	192.168.243.156			CTC											
 
-    	192.168.224.151	CADDEBKPLX991	Projeto Esteiras - interfaces-bkp	CTC											
+    	192.168.243.157			CTC											
 
-    	192.168.224.152	CADDEGERLX001	WO0000033040692	CTC											
+    	192.168.243.158			CTC											
 
-    	192.168.224.153	CADDEBKPLX948	Projeto Esteiras - interfaces-bkp	CTC											
+    	192.168.243.159			CTC											
 
-    	192.168.224.154	cadsvgersh076	CRQ000000384515	CTC											
+    	192.168.243.160			CTC											
 
-    	192.168.224.155	CADDEBKPLX952	Projeto Esteiras - interfaces-bkp	CTC											
+    	192.168.243.161			CTC											
 
-    	192.168.224.156	cadsvgersh078	CRQ000000384515	CTC											
+    	192.168.243.162			CTC											
 
-    	192.168.224.157	CRJDEAPRNT004	TAS000024017152	CTC											
+    	192.168.243.163			CTC											
 
-    	192.168.224.158	CADSVGERSH080	CRQ384326	CTC											
+    	192.168.243.164			CTC											
 
-    	192.168.224.159	Teste_BOLHACTC_VM	Teste_BOLHACTC_VM	CTC											
+    	192.168.243.165			CTC											
 
-    	192.168.224.160	CADDEGERNT002	WO0000033671660	CTC											
+    	192.168.243.166			CTC											
 
-    	192.168.224.161	CADDEGERNT003	WO0000033671660	CTC											
+    	192.168.243.167			CTC											
 
-    	192.168.224.162	CADDEGERNT004	WO0000033671660	CTC											
+    	192.168.243.168			CTC											
 
-    	192.168.224.163	CADDEGERNT005	WO0000033671660	CTC											
+    	192.168.243.169			CTC											
 
-    	192.168.224.164	CADSVGERNT050	Instância TSM - NPRD	CTC											
+    	192.168.243.170			CTC											
 
-    	192.168.224.165	CADSVGERNT051	Instância TSM - NPRD	CTC											
+    	192.168.243.171			CTC											
 
-    	192.168.224.166	CADSVGERNT068	Instância TSM - NPRD	CTC											
+    	192.168.243.172			CTC											
 
-    	192.168.224.167	CADSVGERNT067	Instância TSM - NPRD	CTC											
+    	192.168.243.173			CTC											
 
-    	192.168.224.168	SRJHMAPRNT0001		CTC	WINDOWS		WO0000034009229								
+    	192.168.243.174			CTC											
 
-    	192.168.224.169	SRJHMAPRNT0002		CTC	WINDOWS		WO0000034009229								
+    	192.168.243.175			CTC											
 
-    	192.168.224.170	SRJHMAPRNT0005		CTC	WINDOWS		WO0000034009229								
+    	192.168.243.176			CTC											
 
-    	192.168.224.171	SRJHMAPRLX0001		CTC	LINUX		WO0000034009229								
+    	192.168.243.177			CTC											
 
-    	192.168.224.172	SRJHMAPRLX0002		CTC	LINUX		WO0000034009229								
+    	192.168.243.178			CTC											
 
-    	192.168.224.173	SRJHMAPRLX0003		CTC	LINUX		WO0000034009229								
+    	192.168.243.179			CTC											
 
-    	192.168.224.174	SRJHMAPRLX0004		CTC	LINUX		WO0000034009229								
+    	192.168.243.180			CTC											
 
-    	192.168.224.175	SRJHMAPRLX0005		CTC	LINUX		WO0000034009229								
+    	192.168.243.181			CTC											
 
-    	192.168.224.176	SRJHMAPRLX0006		CTC	LINUX		WO0000034009229								
+    	192.168.243.182			CTC											
 
-    	192.168.224.177	SRJHMAPRLX0007		CTC	LINUX		WO0000034009229								
+    	192.168.243.183			CTC											
 
-    	192.168.224.178	SRJHMAPRLX0008		CTC	LINUX		WO0000034009229								
+    	192.168.243.184			CTC											
 
-    	192.168.224.179	SRJHMAPRLX0009		CTC	LINUX		WO0000034009229								
+    	192.168.243.185			CTC											
 
-    	192.168.224.180	SRJHMAPRLX0010		CTC	LINUX		WO0000034009229								
+    	192.168.243.186			CTC											
 
-    	192.168.224.181	SRJHMAPRLX0012		CTC	LINUX		WO0000034009229								
+    	192.168.243.187			CTC											
 
-    	192.168.224.182	SRJHMAPRLX0013		CTC	LINUX		WO0000034009229								
+    	192.168.243.188			CTC											
 
-    	192.168.224.183	SRJHMAPRLX0017		CTC	LINUX		WO0000034009229								
+    	192.168.243.189			CTC											
 
-    	192.168.224.184	SRJHMAPRLX0018		CTC	LINUX		WO0000034009229								
+    	192.168.243.190			CTC											
 
-    	192.168.224.185	SRJHMAPRLX027		CTC	LINUX		WO0000034009229								
+    	192.168.243.191			CTC											
 
-    	192.168.224.186	SRJHMAPRLX028		CTC	LINUX		WO0000034009229								
+    	192.168.243.192			CTC											
 
-    	192.168.224.187	SRJHMAPRLX029		CTC	LINUX		WO0000034009229								
+    	192.168.243.193			CTC											
 
-    	192.168.224.188	SRJHMAPLLX0001		CTC	LINUX		WO0000034009229								
+    	192.168.243.194			CTC											
 
-    	192.168.224.189	SRJHMAPLLX0002		CTC	LINUX		WO0000034009229								
+    	192.168.243.195			CTC											
 
-    	192.168.224.190	SRJHMAPLNT0004		CTC	WINDOWS		WO0000034009229								
+    	192.168.243.196			CTC											
 
-    	192.168.224.191	SRJHMAPLLX0032		CTC	LINUX		WO0000034009229								
+    	192.168.243.197			CTC											
 
-    	192.168.224.192	SRJHMAPLLX0033		CTC	LINUX		WO0000034009229								
+    	192.168.243.198			CTC											
 
-    	192.168.224.193	SRJHMAPLLX0026		CTC	LINUX		WO0000034009229								
+    	192.168.243.199			CTC											
 
-    	192.168.224.194	SRJHMAPLLX0027		CTC	LINUX		WO0000034009229								
+    	192.168.243.200			CTC											
 
-    	192.168.224.195	CADDEBKPLX1532	Projeto Esteiras - interfaces-bkp	CTC											
+    	192.168.243.201			CTC											
 
-    	192.168.224.196	SRJHMAPLLX0044		CTC	LINUX		WO0000034009229								
+    	192.168.243.202			CTC											
 
-    	192.168.224.197	SRJHMAPLLX043		CTC	LINUX		WO0000034009229								
+    	192.168.243.203			CTC											
 
-    	192.168.224.198	SRJHMAPLLX036		CTC	LINUX		WO0000034009229								
+    	192.168.243.204			CTC											
 
-    	192.168.224.199	SRJHMAPLLX0039		CTC	LINUX		WO0000034009229								
+    	192.168.243.205			CTC											
 
-    	192.168.224.200	SRJHMAPLLX0040		CTC	LINUX		WO0000034009229								
+    	192.168.243.206			CTC											
 
-    	192.168.224.201	SRJHMAPLLX0041		CTC	LINUX		WO0000034009229								
+    	192.168.243.207			CTC											
 
-    	192.168.224.202	SRJHMAPLLX0042		CTC	LINUX		WO0000034009229								
+    	192.168.243.208			CTC											
 
-    	192.168.224.203	SRJHMAPLLX068		CTC	LINUX		WO0000034009229								
+    	192.168.243.209			CTC											
 
-    	192.168.224.204	SRJHMAPLLX0048		CTC	LINUX		WO0000034009229								
+    	192.168.243.210			CTC											
 
-    	192.168.224.205	SRJHMAPLLX0049		CTC	LINUX		WO0000034009229								
+    	192.168.243.211			CTC											
 
-    	192.168.224.206	SRJHMAPLLX0050		CTC	LINUX		WO0000034009229								
+    	192.168.243.212			CTC											
 
-    	192.168.224.207	SRJHMAPLLX0051		CTC	LINUX		WO0000034009229								
+    	192.168.243.213			CTC											
 
-    	192.168.224.208	SRJHMAPLLX0052		CTC	LINUX		WO0000034009229								
+    	192.168.243.214			CTC											
 
-    	192.168.224.209	SRJHMAPLLX0053		CTC	LINUX		WO0000034009229								
+    	192.168.243.215			CTC											
 
-    	192.168.224.210	SRJHMAPLLX0054		CTC	LINUX		WO0000034009229								
+    	192.168.243.216			CTC											
 
-    	192.168.224.211	SRJHMAPLLX0055		CTC	LINUX		WO0000034009229								
+    	192.168.243.217			CTC											
 
-    	192.168.224.212	SRJHMAPLLX0056		CTC	LINUX		WO0000034009229								
+    	192.168.243.218			CTC											
 
-    	192.168.224.213	SRJHMAPLLX0057		CTC	LINUX		WO0000034009229								
+    	192.168.243.219			CTC											
 
-    	192.168.224.214	SRJHMAPLLX0058		CTC	LINUX		WO0000034009229								
+    	192.168.243.220			CTC											
 
-    	192.168.224.215	SRJHMAPLLX0059		CTC	LINUX		WO0000034009229								
+    	192.168.243.221			CTC											
 
-    	192.168.224.216	SRJHMAPLLX0060		CTC	LINUX		WO0000034009229								
+    	192.168.243.222			CTC											
 
-    	192.168.224.217	SRJHMAPLLX0061		CTC	LINUX		WO0000034009229								
+    	192.168.243.223			CTC											
 
-    	192.168.224.218	SRJHMAPLLX0062		CTC	LINUX		WO0000034009229								
+    	192.168.243.224			CTC											
 
-    	192.168.224.219	SRJHMAPLLX0064		CTC	LINUX		WO0000034009229								
+    	192.168.243.225			CTC											
 
-    	192.168.224.220	SRJHMAPLLX0065		CTC	LINUX		WO0000034009229								
+    	192.168.243.226			CTC											
 
-    	192.168.224.221	SRJHMAPLLX0066	WO0000034009229.	CTC	LINUX		WO0000034009229								
+    	192.168.243.227			CTC											
 
-    	192.168.224.222	SRJHMAPLLX067	WO0000034009229.	CTC											
+    	192.168.243.228			CTC											
 
-    	192.168.224.223	SRJHMAPLLX0063	WO0000034009229.	CTC											
+    	192.168.243.229			CTC											
 
-    	192.168.224.224	SRJHMAPLLX089	WO0000034009229.	CTC											
+    	192.168.243.230			CTC											
 
-    	192.168.224.225	SRJHMAPLLX090	WO0000034009229.	CTC											
+    	192.168.243.231			CTC											
 
-    	192.168.224.226	SRJHMAPLLX091	WO0000034009229.	CTC											
+    	192.168.243.232			CTC											
 
-    	192.168.224.227	SRJHMAPLLX092	WO0000034009229.	CTC											
+    	192.168.243.233			CTC											
 
-    	192.168.224.228	SRJHMAPLLX093	WO0000034009229.	CTC											
+    	192.168.243.234			CTC											
 
-    	192.168.224.229	SRJHMAPLLX094	WO0000034009229.	CTC											
+    	192.168.243.235			CTC											
 
-    	192.168.224.230	crjdeaprlx042	WO0000052172888	CTC											
+    	192.168.243.236			CTC											
 
-    	192.168.224.231	SRJDEDADNT094	WO0000034009229.	CTC											
+    	192.168.243.237			CTC											
 
-    	192.168.224.232	SRJDEAPLLX0015	WO0000034009229.	CTC											
+    	192.168.243.238			CTC											
 
-    	192.168.224.233	SRJDEAPLLX0016	WO0000034009229.	CTC											
+    	192.168.243.239			CTC											
 
-    	192.168.224.234	SRJDEAPLLX064	WO0000034009229.	CTC											
+    	192.168.243.240			CTC											
 
-    	192.168.224.235	SRJDEAPLLX0033	WO0000034009229.	CTC											
+    	192.168.243.241			CTC											
 
-    	192.168.224.236	CADDEBKPLX330	Projeto Esteiras - interfaces-bkp	CTC											
+    	192.168.243.242			CTC											
 
-    	192.168.224.237	SBRHMAPRNT0067	WO0000034009229.	CTC											
+    	192.168.243.243			CTC											
 
-    	192.168.224.238	SRJHMAPRNT0007	WO0000034009229.	CTC											
+    	192.168.243.244			CTC											
 
-    	192.168.224.239	SRJHMAPRNT0008	WO0000034009229.	CTC											
+    	192.168.243.245			CTC											
 
-    	192.168.224.240	SRJHMAPRNT0009	WO0000034009229.	CTC											
+    	192.168.243.246			CTC											
 
-    	192.168.224.241	SRJHMAPRNT0010	WO0000034009229.	CTC											
+    	192.168.243.247			CTC											
 
-    	192.168.224.242	crjhmapllx025	IP rede Backup NPRD	CTC											
+    	192.168.243.248			CTC											
 
-    	192.168.224.243	SRJHMAPRNT0012	WO0000034009229.	CTC											
+    	192.168.243.249			CTC											
 
-    	192.168.224.244	SRJHMAPRNT0013	WO0000034009229.	CTC											
+    	192.168.243.250			CTC											
 
-    	192.168.224.245	SRJHMAPRNT0017	WO0000034009229.	CTC											
+    	192.168.243.251			CTC											
 
-    	192.168.224.246	SRJHMAPRLX030	WO0000034009229.	CTC											
+    	192.168.243.252			CTC											
 
-    	192.168.224.247	SRJHMAPRLX031	WO0000034009229.	CTC											
+    	192.168.243.253			CTC											
 
-    	192.168.224.248	SRJHMAPRLX032	WO0000034009229.	CTC											
+    	192.168.243.254			CTC											
 
-    	192.168.224.249	SRJHMAPRLX033	WO0000034009229.	CTC											
+    	192.168.243.255			CTC											
 
-    	192.168.224.250	SRJHMAPRLX034	WO0000034009229.	CTC											
+    	192.168.244.0			CTC											
 
-    	192.168.224.251	SRJHMAPRLX035	WO0000034009229.	CTC											
+    	192.168.244.1			CTC											
 
-    	192.168.224.252	SRJHMAPRLX036	WO0000034009229.	CTC											
+    	192.168.244.2			CTC											
 
-    	192.168.224.253	SRJHMAPRLX037	WO0000034009229.	CTC											
+    	192.168.244.3			CTC											
 
-    	192.168.224.254	SRJHMAPRLX038	WO0000034009229.	CTC											
+    	192.168.244.4			CTC											
 
  
 
