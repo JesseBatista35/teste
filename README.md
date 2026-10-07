@@ -1,32 +1,39 @@
-Análise realizada no agente Control-M caddeapllx2695.agil.nprd.caixa.gov.br (CTMD_DES), job CX_101-abertura-movimento-aporte (Folder SIIFX_CAIXINHAS_DES, Application SIIFX_DES).
 
-Ações executadas no escopo de infraestrutura/esteira (DES):
+Sistema: 
+Segmento: Bancário/São Paulo
+Produto: Outros
+Ambiente: Multiplataforma
+Comunidade: Canais Próprios Clientes
+Unidade Demandante: 5088-CESOA
+Telefone para contato: 11999999999
+Caixa postal da unidade demandante: cesoa140
+Tipo de Serviço: 
+Banco de Dados: 
+Instância: 
+Solicitação baseada na matriz: 
+Tipo das Tabelas: 
+Tabelas a serem importadas: 
 
-Verificado que o job type IIFX está distribuído no agente (apps-repo/IIFX).
-Importado o certificado AC Interna APL no truststore do Application Integrator (/opt/ctmage/ctm/cm/AI/data/security/apcerts) e no cacerts do Java do agente (/opt/ctmage/JRE/lib/security/cacerts), com backup prévio dos dois arquivos. Corrigido o erro PKIX na comunicação com o BeyondTrust (sicsn.caixa).
-Removido o BOM dos scripts /producao/executa-job.sh e /producao/env_config.sh, com backup prévio.
-Instalado o pacote jq, dependência do env_config.sh.
-Agente reiniciado e comunicação com o servidor sspdeaprlx0028 validada (ag_diag_comm com pings OK).
+Descrições adicionais: Favor checar:
 
-Resultado:
-Após as correções, os passos Gerar token, Login no Beyond Trust e Logout executam com sucesso. O job falha no passo "Obter credencial" com HTTP 401 "User not authenticated".
+1) se os comandos "mail" ou "mailx" estão ativos nos servidores cspibapllx017 e dt7261ux372.
 
-Evidência:
-Teste manual via curl a partir do próprio agente, com a mesma credencial configurada no job type, executou com sucesso o fluxo completo (token, SignAppin e Secrets-Safe na pasta SIIFX_BATCH_DES), todos com HTTP 200. O cookie de sessão ASP.NET_SessionId é emitido na chamada de token e deve ser reenviado nas chamadas seguintes.
+2) se as configurações para envio de e-mail estão feitas nos referidos servidores.
 
-Conclusão:
-O ambiente (máquina, agente, certificados e acesso ao BeyondTrust) está funcional. A falha remanescente está na configuração do job type IIFX do Application Integrator, no repasse da sessão entre os passos.
 
-Encaminhamento:
-Solicito à comunidade/equipe responsável pelo job type IIFX a análise e o ajuste, considerando:
-
-Desativar a criptografia do parâmetro SESSIONID no passo Gerar token (keepParamEncrypt = false) e testar.
-Caso não resolva, ativar o gerenciamento de cookies (setCookie = true) no passo Gerar token.
-Caso persista, verificar junto à BMC possível problema conhecido de repasse de cookies entre passos do Application Integrator.
-
-Pendências de correção definitiva fora deste atendimento:
-
-Equipe do SIIFX: salvar os scripts do repositório SIIFX-caixinhas-batch como UTF-8 sem BOM e com fim de linha LF.
-Esteira/template da VM Control-M: incluir o jq e a cadeia de certificados AC Interna da Caixa, para que novos deploys não reintroduzam os problemas.
-
-Encerrando este atendimento no escopo de infraestrutura/esteira DES.
+p585600@10.118.74.50's password:
+Creating home directory for p585600.
+[p585600@cspibapllx017 ~]$
+[p585600@cspibapllx017 ~]$
+[p585600@cspibapllx017 ~]$
+[p585600@cspibapllx017 ~]$ ps -ef | jboss
+-bash: jboss: command not found
+[p585600@cspibapllx017 ~]$ ps -ef | grep jboss
+jboss6    8900 19895  0 Sep20 ?        00:40:17 /opt/jboss/jdk/bin/java -D[Server:sinbc-portalbanking-lx017] -XX:PermSize=512m -XX:MaxPermSize=512m -Xms2048m -Xmx2048m -XX:-UseSplitVerifier -Dcom.ibm.msg.client.commonservices.log.status=OFF -Djboss.modcluster.proxyList=cadibintlx074:6666,cadibintlx075:6666 -Dfile.encoding=iso-8859-1 -Djboss.modules.policy-permissions=true -Djava.awt.headless=true -Djboss.modules.system.pkgs=org.jboss.byteman,com.sun.crypto.provider,com.wily -Djboss.home.dir=/opt/jboss/jboss-eap-6.4 -Dorg.apache.coyote.http11.Http11Protocol.MAX_HEADER_SIZE=16384 -Djava.net.preferIPv4Stack=true -Dcom.wily.introscope.agentProfile=/opt/apm/wily/core/config/IntroscopeAgent-siibc.profile -Djboss.server.log.dir=/opt/jboss/jboss-eap-6.4/domain/servers/sinbc-portalbanking-lx017/log -Djboss.server.temp.dir=/opt/jboss/jboss-eap-6.4/domain/servers/sinbc-portalbanking-lx017/tmp -Djboss.server.data.dir=/opt/jboss/jboss-eap-6.4/domain/servers/sinbc-portalbanking-lx017/data -Dorg.jboss.boot.log.file=/opt/jboss/jboss-eap-6.4/domain/servers/sinbc-portalbanking-lx017/log/server.log -Dlogging.configuration=file:/opt/jboss/jboss-eap-6.4/domain/configuration/default-server-logging.properties -jar /opt/jboss/jboss-eap-6.4/jboss-modules.jar -mp /opt/jboss/jboss-eap-6.4/modules:/opt/jboss/jboss-eap-6.4/modules-caixa -jaxpmodule javax.xml.jaxp-provider org.jboss.as.server
+p585600  13420 12970  0 09:15 pts/0    00:00:00 grep jboss
+root     19570     1  0 Jul08 ?        00:00:00 su - jboss6 -c LAUNCH_JBOSS_IN_BACKGROUND=1 JBOSS_PIDFILE=/opt/jboss/jboss-eap-6.4/domain/log/jboss-as-domain.pid /opt/jboss/jboss-eap-6.4/bin/domain.sh --domain-config=domain.xml --host-config=host.xml
+jboss6   19575 19570  0 Jul08 ?        00:00:00 /bin/sh /opt/jboss/jboss-eap-6.4/bin/domain.sh --domain-config=domain.xml --host-config=host.xml
+jboss6   19895 19575  0 Jul08 ?        00:44:59 /opt/jboss/jdk/bin/java -D[Process Controller] -server -Xms1024m -Xmx1024m -XX:MaxPermSize=512m -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs=org.jboss.byteman,com.sun.crypto.provider,com.wily -Djava.awt.headless=true -Djboss.modules.policy-permissions=true -Dorg.jboss.boot.log.file=/opt/jboss/jboss-eap-6.4/domain/log/process-controller.log -Dlogging.configuration=file:/opt/jboss/jboss-eap-6.4/domain/configuration/logging.properties -jar /opt/jboss/jboss-eap-6.4/jboss-modules.jar -mp /opt/jboss/jboss-eap-6.4/modules:/opt/jboss/jboss-eap-6.4/modules-caixa org.jboss.as.process-controller -jboss-home /opt/jboss/jboss-eap-6.4 -jvm /opt/jboss/jdk/bin/java -mp /opt/jboss/jboss-eap-6.4/modules:/opt/jboss/jboss-eap-6.4/modules-caixa -- -Dorg.jboss.boot.log.file=/opt/jboss/jboss-eap-6.4/domain/log/host-controller.log -Dlogging.configuration=file:/opt/jboss/jboss-eap-6.4/domain/configuration/logging.properties -server -Xms1024m -Xmx1024m -XX:MaxPermSize=512m -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs=org.jboss.byteman,com.sun.crypto.provider,com.wily -Djava.awt.headless=true -Djboss.modules.policy-permissions=true -- -default-jvm /opt/jboss/jdk/bin/java --domain-config=domain.xml --host-config=host.xml
+jboss6   19913 19895  0 Jul08 ?        00:56:31 /opt/jboss/jdk/bin/java -D[Host Controller] -Dorg.jboss.boot.log.file=/opt/jboss/jboss-eap-6.4/domain/log/host-controller.log -Dlogging.configuration=file:/opt/jboss/jboss-eap-6.4/domain/configuration/logging.properties -server -Xms1024m -Xmx1024m -XX:MaxPermSize=512m -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs=org.jboss.byteman,com.sun.crypto.provider,com.wily -Djava.awt.headless=true -Djboss.modules.policy-permissions=true -jar /opt/jboss/jboss-eap-6.4/jboss-modules.jar -mp /opt/jboss/jboss-eap-6.4/modules:/opt/jboss/jboss-eap-6.4/modules-caixa -jaxpmodule javax.xml.jaxp-provider org.jboss.as.host-controller -mp /opt/jboss/jboss-eap-6.4/modules:/opt/jboss/jboss-eap-6.4/modules-caixa --pc-address 127.0.0.1 --pc-port 45253 -default-jvm /opt/jboss/jdk/bin/java --domain-config=domain.xml --host-config=host.xml -Djboss.home.dir=/opt/jboss/jboss-eap-6.4
+jboss6   20010 19895  0 Jul08 ?        00:53:21 /opt/jboss/jdk/bin/java -D[Server:simcv01-lx017] -XX:PermSize=256m -XX:MaxPermSize=256m -Xms2048m -Xmx2048m -XX:-UseSplitVerifier -Djboss.modcluster.proxyList=cadibintlx074:6667,cadibintlx075:6667 -Djboss.balancer.group=simcv -Dapache.url.name=simcv2.caixa -Djboss.modules.policy-permissions=true -Djava.awt.headless=true -Djboss.modules.system.pkgs=org.jboss.byteman,com.sun.crypto.provider,com.wily -Djava.net.preferIPv4Stack=true -Dcom.wily.introscope.agentProfile=/opt/apm/wily/core/config/IntroscopeAgent-simcv.profile -Dorg.apache.coyote.http11.Http11Protocol.MAX_HEADER_SIZE=16384 -Djboss.home.dir=/opt/jboss/jboss-eap-6.4 -Djboss.balancer.name=simcvbalancer -Djboss.server.log.dir=/opt/jboss/jboss-eap-6.4/domain/servers/simcv01-lx017/log -Djboss.server.temp.dir=/opt/jboss/jboss-eap-6.4/domain/servers/simcv01-lx017/tmp -Djboss.server.data.dir=/opt/jboss/jboss-eap-6.4/domain/servers/simcv01-lx017/data -Dlogging.configuration=file:/opt/jboss/jboss-eap-6.4/domain/servers/simcv01-lx017/data/logging.properties -jar /opt/jboss/jboss-eap-6.4/jboss-modules.jar -mp /opt/jboss/jboss-eap-6.4/modules:/opt/jboss/jboss-eap-6.4/modules-caixa -jaxpmodule javax.xml.jaxp-provider org.jboss.as.server
+[p585600@cspibapllx017 ~]$
