@@ -1,4 +1,1 @@
-<img width="1023" height="780" alt="image" src="https://github.com/user-attachments/assets/b15cc259-232a-4fe1-a124-f00c0671e3b4" />
-
-
-nao aparce esta em ordem aleatoria
+[...document.querySelectorAll('option')].filter(o => /192\.168\.2(2[4-9]|[3-5]\d)\.|BKP/i.test(o.text)).map(o => o.text)
