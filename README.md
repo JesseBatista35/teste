@@ -1,11 +1,7 @@
-p585600@cspibapllx017 ~]$ sudo ls -l /var/spool/cron/
-total 8
--rw------- 1 2928715 mobter   2 2019-07-15 08:08 p928715
--rw------- 1 root    root   487 2024-10-31 21:53 root
-[p585600@cspibapllx017 ~]$
+<img width="1859" height="142" alt="image" src="https://github.com/user-attachments/assets/2535a609-b397-4f73-a45d-bf02dd26c5e8" />
 
 
 
-ja an da pra fechar  odiganostico o que foi pedido na req ja temos ne???
+[p585600@cadsvitrlx100 ~]$ ssh 10.184.15.181
 
-vamos pra outra vm
+nem tem acesso a esse outro servidor é um secidor de baclup de produção acho que nao tem mail/mailx nessa maquina
