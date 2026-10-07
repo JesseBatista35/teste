@@ -1,12 +1,3 @@
-
--sh-4.2$
--sh-4.2$ ssh 10.122.156.84
-^C
--sh-4.2$ ssh 10.122.156.86
-^C
--sh-4.2$ 10.122.155.67
--sh: 10.122.155.67: comando não encontrado
--sh-4.2$ ssh 10.122.155.67
-
-
-o 10.122.155.62 acesssa as maquinas no okd
+oc get pods -A -o wide | grep -E '10\.122\.(156\.8[46]|155\.67)'
+oc rsh -n <namespace> <pod>
+ls /opt/ads-agent/esteira-jboss-vm
