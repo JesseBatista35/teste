@@ -1,226 +1,167 @@
 
-Transcrição. Use as setas para navegar entre as entradas da transcrição.
-
-
-Pesquisar
-
-O conteúdo gerado por IA pode estar incorreto
-
-Patricia Vourakis Barbosa Braga começou a transcrição
-JA
+Por favor, alterar a default branch do repositório siplx-api-gestao-apuracao para develop. Atualmente a default branch é a main, por favor alterar para develop. Esse é um padrão que estamos utilizando em todos os nossos repositórios.
 
-Jailson Martins Alves
-0 minutos 5 segundos0:05
-Jailson Martins Alves 0 minutos 5 segundos
-Voltou a funcionar, aí eu precisava passar essa orientação para a galera aí, porque quando eles pegarem esse problema que não estiver funcionando, não estiver instalando o pacote, tem que ir lá dentro do servidor, olhar o servidor e copiar os arquivos.
-Jailson Martins Alves 0 minutos 20 segundos
-por raiz do repouso eu vou mostrar aqui como é
-F
+Segue link do repositório: https://github.com/caixagithub/siplx-api-gestao-apuracao/se
 
-Flavio de Almeida Gagliardi
-0 minutos 23 segundos0:23
-Flavio de Almeida Gagliardi 0 minutos 23 segundos
-Tá, pera aí, só um minutinho, já espera o galera entrar aqui. O Patricia, tá ouvindo a gente aí?
+<img width="1833" height="930" alt="image" src="https://github.com/user-attachments/assets/54883713-01f0-4df8-88bf-338d952b3851" />
 
-Rafael Augusto Soares
-0 minutos 24 segundos0:24
-Rafael Augusto Soares 0 minutos 24 segundos
-No.
 
-Patricia Vourakis Barbosa Braga
-0 minutos 30 segundos0:30
-Patricia Vourakis Barbosa Braga 0 minutos 30 segundos
-Santos.
-JA
+Skip to content
+GitHub Enterprise
+Users managed by Caixa Economica Federal
+caixagithub
+siplx-api-gestao-sorteio
+Repository navigation
+Code
+Issues
+Pull requests
+2
+ (2)
+Actions
+Projects
+Wiki
+Security and quality
+Insights
+Settings
+Settings: caixagithub/siplx-api-gestao-sorteio
+Access
+Code, planning, and automation
+Security and quality
+Integrations
+General
+Repository name
+siplx-api-gestao-sorteio
+Template repository Loading
+Template repositories let users generate new repositories with the same directory structure and files. Learn more about template repositories.
 
-Jailson Martins Alves
-0 minutos 31 segundos0:31
-Jailson Martins Alves 0 minutos 31 segundos
-Paula.
-F
+Default branch
+The default branch is considered the “base” branch in your repository, against which all pull requests and code commits are automatically made, unless you specify a different branch.
 
-Flavio de Almeida Gagliardi
-0 minutos 32 segundos0:32
-Flavio de Almeida Gagliardi 0 minutos 32 segundos
-O Patricia, você consegue trazer a nossa galera aí do time de terceiros? Porque o Jailson estava ajudando a gente a tratar uma tasca aqui de monitoração que estava com erro e aí ele quer passar uma orientação aqui para todo mundo, tá? Então quem tiver aí no turno que você puder chamar agora.
-Flavio de Almeida Gagliardi 0 minutos 48 segundos
-Se não der para entrar todo mundo, claro, não tem problema, não é? Depois a gente repassa isso.
+develop
+Releases
+Enable release immutability Loading
+Disallow assets and tags from being modified once a release is published.
 
-Patricia Vourakis Barbosa Braga
-0 minutos 53 segundos0:53
-Patricia Vourakis Barbosa Braga 0 minutos 53 segundos
-Não, tudo bem, só um minuto.
-Patricia Vourakis Barbosa Braga 2 minutos 28 segundos
-Tem alguns que estão em sala, deixa eu trazer os que estão disponíveis.
-Patricia Vourakis Barbosa Braga 2 minutos 35 segundos
-Martins.
-Patricia Vourakis Barbosa Braga 2 minutos 54 segundos
-deixa eu ver quem já entrou
-JA
+Features
+Wikis Loading
+Wikis host documentation for your repository.
 
-Jailson Martins Alves
-3 minutos3:00
-Jailson Martins Alves 3 minutos
-Half.
-Jailson Martins Alves 3 minutos 3 segundos
-Au I hakia.
+Restrict editing to users in teams with push access only Loading
+Issues Loading
+Issues integrate lightweight task tracking into your repository. Keep projects on track with issue labels and milestones, and reference them in commit messages.
 
-Patricia Vourakis Barbosa Braga
-3 minutos 4 segundos3:04
-Patricia Vourakis Barbosa Braga 3 minutos 4 segundos
-Yeah.
+Issue permissions
+Loading
+If restricted, issues will still be readable by everyone who can see this repository.
 
-Rafael Augusto Soares
-3 minutos 4 segundos3:04
-Rafael Augusto Soares 3 minutos 4 segundos
-Right.
-JA
+Get organized with issue templates
+Give contributors issue templates that help you cut through the noise and help them push your project forward.
 
-Jailson Martins Alves
-3 minutos 7 segundos3:07
-Jailson Martins Alves 3 minutos 7 segundos
-Isso por causa do repositório.
+Allow forking Loading
+If disabled, existing forks will be unaffected.
 
-Patricia Vourakis Barbosa Braga
-3 minutos 7 segundos3:07
-Patricia Vourakis Barbosa Braga 3 minutos 7 segundos
-So.
+Sponsorships   Loading
+Sponsorships help your community know how to financially support this repository.
 
-Rafael Augusto Soares
-3 minutos 15 segundos3:15
-Rafael Augusto Soares 3 minutos 15 segundos
-porque não tem o repositório lá né não tá montado no ambiente
-JA
+Display a "Sponsor" button
+Add links to GitHub Sponsors or third-party methods your repository accepts for financial contributions to your project.
 
-Jailson Martins Alves
-3 minutos 17 segundos3:17
-Jailson Martins Alves 3 minutos 17 segundos
-Sim, mas é porque é o seguinte, eu não sei o que aconteceu, não sei o que fizeram, não sei quem fez. É que o repositório anterior era esse cara aqui que está aqui dentro, saca?
+Discussions Loading
+Discussions is the space for your community to have conversations, ask questions and post answers without opening issues.
 
-Rafael Augusto Soares
-3 minutos 20 segundos3:20
-Rafael Augusto Soares 3 minutos 20 segundos
-Yeah.
+Get started with Discussions
+Engage your community by having discussions right in your repository, where your community already lives
 
-Patricia Vourakis Barbosa Braga
-3 minutos 29 segundos3:29
-Patricia Vourakis Barbosa Braga 3 minutos 29 segundos
-Santos.
-JA
+Projects Loading
+Projects on GitHub are created at the repository owner's level (organization or user) and can be linked to a repository's Projects tab. Projects are suitable for cross-repository development efforts such as feature work, complex product roadmaps or even Issue triage.
 
-Jailson Martins Alves
-3 minutos 32 segundos3:32
-Jailson Martins Alves 3 minutos 32 segundos
-Então esse cara aqui ele consegue instalar os pacotes, se eu dou aqui e um.
+Pull requests Loading
+Pull requests allow others to suggest changes to your repository.
 
-Patricia Vourakis Barbosa Braga
-3 minutos 32 segundos3:32
-Patricia Vourakis Barbosa Braga 3 minutos 32 segundos
-Santos.
-JA
+Pull request permissions
+Loading
+If restricted, pull requests will still be readable by everyone who can see this repository.
 
-Jailson Martins Alves
-3 minutos 38 segundos3:38
-Jailson Martins Alves 3 minutos 38 segundos
-Hush.
-Jailson Martins Alves 3 minutos 39 segundos
-Post Chris
-Jailson Martins Alves 3 minutos 43 segundos
-SQL.
-Jailson Martins Alves 3 minutos 45 segundos
-Opera.
-Jailson Martins Alves 3 minutos 52 segundos
-Ele traz informações, só que ele não traz o post do que a gente precisa, tá? Ele não tem aqui o post do que a gente precisa, porque ele está buscando dentro desse cara aqui.
+Pull Requests
+When merging pull requests, you can allow any combination of merge commits, squashing, or rebasing. At least one option must be enabled. If you have linear history requirement enabled on any protected branch, you must enable squashing or rebasing.
 
-Rafael Augusto Soares
-3 minutos 58 segundos3:58
-Rafael Augusto Soares 3 minutos 58 segundos
-Uh-huh.
-JA
+Allow merge commits Loading
+Add all commits from the head branch to the base branch with a merge commit.
 
-Jailson Martins Alves
-4 minutos 5 segundos4:05
-Jailson Martins Alves 4 minutos 5 segundos
-Só que o repositório que tem o arquivo que a gente precisa está aqui. Assim, quem fez isso? Não sei. Não sei se foi a automação que fizeram. Não sei, tá? Porque a gente não tem automação para isso aqui.
+Default commit message
+Presented when merging a pull request with merge.
 
-Rafael Augusto Soares
-4 minutos 15 segundos4:15
-Rafael Augusto Soares 4 minutos 15 segundos
-Mm.
-Rafael Augusto Soares 4 minutos 22 segundos
-Then, no, that's it. OK, face manual, obviously.
+Allow squash merging Loading
+Combine all commits from the head branch into a single commit in the base branch.
 
-Patricia Vourakis Barbosa Braga
-4 minutos 22 segundos4:22
-Patricia Vourakis Barbosa Braga 4 minutos 22 segundos
-Pronto, Flávio.
-JA
-Jailson Martins Alves
-4 minutos 24 segundos4:24
-Jailson Martins Alves 4 minutos 24 segundos
-É, alguém deve ter feito, não sei.
+Default commit message
+Presented when merging a pull request with squash.
 
-Patricia Vourakis Barbosa Braga
-4 minutos 25 segundos4:25
-Patricia Vourakis Barbosa Braga 4 minutos 25 segundos
-Yeah.
-F
-Flavio de Almeida Gagliardi
-4 minutos 31 segundos4:31
-Flavio de Almeida Gagliardi 4 minutos 31 segundos
-O Jailson, deixa eu perguntar uma coisa aí que eu estou viajando, tá? Esse assunto que você está falando aí está relacionado com aquele tasco de monitoração ou não? Isso, tá, beleza.
+Allow rebase merging Loading
+Add all commits from the head branch onto the base branch individually.
 
-Patricia Vourakis Barbosa Braga
-4 minutos 32 segundos4:32
-Patricia Vourakis Barbosa Braga 4 minutos 32 segundos
-Okay.
-JA
-Jailson Martins Alves
-4 minutos 33 segundos4:33
-Jailson Martins Alves 4 minutos 33 segundos
-Oi.
-Jailson Martins Alves 4 minutos 35 segundos
-Mm.
-Jailson Martins Alves 4 minutos 42 segundos
-Sim, é o de ontem, é o de ontem, é o de ontem.
+Control how and when users are prompted to update their branches if there are new changes available in the base branch.
 
-Patricia Vourakis Barbosa Braga
-4 minutos 53 segundos4:53
-Patricia Vourakis Barbosa Braga 4 minutos 53 segundos
-Analistas de Pessoas de Pessoas de Pessoas de Pessoas de P
-F
-Flavio de Almeida Gagliardi
-4 minutos 57 segundos4:57
-Flavio de Almeida Gagliardi 4 minutos 57 segundos
-Then, I have Daiana.
-JA
-Jailson Martins Alves
-4 minutos 59 segundos4:59
-Jailson Martins Alves 4 minutos 59 segundos
-tá beleza Então olha só pessoal Olha só boa tarde para todos aí Flávio me reportou ontem aqui que tava tendo problema com a teste de monitoração tá alguns anos atrás aí o Reinaldo falou para a gente não vai dar mais suporte para essa esteira antiga
-Jailson Martins Alves 5 minutos 18 segundos
-Está o Esteiras antigo, que eu digo é o Ence bom antigo, que esse sistema aqui, ele está no Ence bom antigo, ele não está no Terraform. Para quê? Para a gente forçar as comunidades migrar do Ence bom antigo para o Terraform. Só que isso não está acontecendo. Então houve essa necessidade de a gente fazer ajuste nesse código.
-Jailson Martins Alves 5 minutos 36 segundos
-Tá só que o Reinaldo já tinha falado uns 4 anos atrás, Rafael, você participou da época que o Reinaldo falou que a gente não era mais para dar suporte para isso? Você lembra disso? Lembra, né? Aí eu falei isso por Flávio ontem, só que assim aí veio a demanda para a gente adequar. Então assim a gente foi lá, ajustou o código, adequou o código.
+Always suggest updating pull request branches Loading
+Whenever there are new changes available in the base branch, present an “update branch” option in the pull request.
 
-Rafael Augusto Soares
-5 minutos 44 segundos5:44
-Rafael Augusto Soares 5 minutos 44 segundos
-Sing land.
-JA
-Jailson Martins Alves
-5 minutos 55 segundos5:55
-Jailson Martins Alves 5 minutos 55 segundos
-Só que tem um problema aqui, ele precisa instalar um pacote, esse pacote aqui do Postgres, que com esse repositório que tem hoje no servidor não se acha esse pacote, tá?
-Jailson Martins Alves 6 minutos 8 segundos
-Não se acha esse pacote do postgles, beleza? Então o que tem que ser feito aqui? Aí depois de quebrar a cabeça aqui, eu vim aqui dentro desse repositório.
-Jailson Martins Alves 6 minutos 19 segundos
-E eu vi que tem uns arquivos aqui dentro, tá? Tem esses caras aqui todinho, esses 4 eu falei web, então ele está dentro de um desses aqui. Então o que eu fiz aqui? CP.
-Jailson Martins Alves 6 minutos 31 segundos
-Eu vou ter um asterisco.
-Jailson Martins Alves 6 minutos 33 segundos
-e ponto ponto barra tô copiando esses cara tudinho para o
-Jailson Martins Alves 6 minutos 39 segundos
-Para o raiz do.
-Jailson Martins Alves 6 minutos 42 segundos
-e um repouso tá então o que que eu fiz fui lá ele disse que já existe um
+You can allow setting pull requests to merge automatically once all required reviews and status checks have passed.
+
+Allow auto-merge Loading
+Waits for merge requirements to be met and then merges automatically. Learn more
+
+After pull requests are merged, you can have head branches deleted automatically.
+
+Automatically delete head branches Loading
+Deleted branches will still be able to be restored.
+
+Commits
+Require contributors to sign off on web-based commits Loading
+Enabling this setting will require contributors to sign off on commits made through GitHub’s web interface. Signing off is a way for contributors to affirm that their commit complies with the repository's terms, commonly the Developer Certificate of Origin (DCO). Learn more about signing off on commits.
+
+Allow comments on individual commits Loading
+Enabling this setting will allow anyone who can view this repository to add commit comments. Existing commit comments are not affected by this setting and will remain viewable, editable, and deletable.
+
+Archives
+When creating source code archives, you can choose to include files stored using Git LFS in the archive.
+
+Include Git LFS objects in archives 
+Git LFS usage in archives is billed at the same rate as usage with the client.
+
+Pushes
+Limit how many branches and tags can be updated in a single push Preview Loading
+Pushes will be rejected if they attempt to update more than this. Learn more about this setting, and send us your feedback.
+
+Issues
+After merging a pull request, linked issues can be closed automatically.
+
+Auto-close issues with merged linked pull requests Loading
+Whenever linked pull requests have merged, auto-close the issue.
+
+Danger Zone
+Change repository visibility
+This repository is currently private.
+Disable branch protection rules
+Disable branch protection rules enforcement and APIs
+
+Transfer ownership
+Transfer this repository to another user or to an organization where you have the ability to create repositories.
+
+Archive this repository
+Mark this repository as archived and read-only.
+
+Delete this repository
+Once you delete a repository, there is no going back. Please be certain.
+
+Footer
+© 2026 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Community
+Docs
+Contact
+Manage cookies
+Do not share my personal information
