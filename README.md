@@ -273,5 +273,8 @@ cluster:
     <img width="1869" height="875" alt="image" src="https://github.com/user-attachments/assets/6a8ab34c-63ef-4dfb-9516-a7e84c35aef9" />
 
 
-nem tem aks criado.
+<img width="1856" height="648" alt="image" src="https://github.com/user-attachments/assets/3a2367b1-e2be-4231-9f6d-0f4b42cd3099" />
+
+
+
 
