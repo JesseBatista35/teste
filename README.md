@@ -1,47 +1,7 @@
-exit
--sh-4.2$ oc delete pod teste-egress -n sihdg-tqs
-pod "teste-egress" deleted
--sh-4.2$ oc get netnamespace sihdg-tqs -o yaml
-apiVersion: network.openshift.io/v1
-egressIPs:
-- 10.116.221.46
-kind: NetNamespace
-metadata:
-  creationTimestamp: 2023-12-22T20:55:45Z
-  generation: 2
-  labels:
-    projeto: sihdg-tqs
-  managedFields:
-  - apiVersion: network.openshift.io/v1
-    fieldsType: FieldsV1
-    fieldsV1:
-      f:netid: {}
-      f:netname: {}
-    manager: Go-http-client
-    operation: Update
-    time: 2023-12-22T20:55:45Z
-  - apiVersion: network.openshift.io/v1
-    fieldsType: FieldsV1
-    fieldsV1:
-      f:egressIPs: {}
-      f:metadata:
-        f:labels:
-          .: {}
-          f:projeto: {}
-    manager: oc
-    operation: Update
-    time: 2023-12-22T20:56:30Z
-  name: sihdg-tqs
-  resourceVersion: "321916710"
-  uid: ac94b137-b0f7-45c4-a3f4-7c5d3f164470
-netid: 12401478
-netname: sihdg-tqs
--sh-4.2$ oc get hostsubnet ceadecldlx084.nprd.caixa -o yaml | grep -B2 -A2 -i "10.116.221.46"
-- 10.116.222.164
-- 10.116.220.210
-- 10.116.221.46
-- 10.116.220.180
-- 10.116.221.183
--sh-4.2$
--sh-4.2$
--sh-4.2$
+Boa tarde, pessoal. Obrigado pelo retorno e pelas capturas. Concordo com a explicação sobre as duas camadas do OKD (IP do cluster e IP de saída do projeto), e é justamente por isso que investigamos: se o pacote saísse com o egress IP, a captura da origem 10.116.221.46 deveria ter registrado bytes.
+
+Do nosso lado, conferimos a configuração do egress (namespace, nó e interface) e não encontramos divergência. Também refizemos o teste a partir de pods do sihdg-tqs; desconsiderem o das 11:27, que era de um host fora do OKD. Do nó de egress, com origem 10.116.221.46, a conexão em 10.116.29.201:31153 foi estabelecida normalmente às ~14:21 (-03).
+
+Vocês conseguem verificar se as capturas JV e JV1 (origem 10.116.221.46) registraram algum byte por volta de 14:21? Isso confirma se a regra da CRQ funciona com essa origem.
+
+Se sim, passo na sequência os horários dos testes feitos a partir dos pods, que deram timeout.
