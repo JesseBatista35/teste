@@ -1,98 +1,37 @@
+set -e
 
+DIR="/opt/jboss-eap/standalone/configuration/pdfa"
+ARQ_ORIGEM="/opt/jboss-eap/standalone/configuration/logoTreePdfA.png"
+ARQ_DESTINO="$DIR/logoTreePdfA.png"
 
+# Verifica se o arquivo de origem existe
+if [ ! -f "$ARQ_ORIGEM" ]; then
+    echo "ERRO: Arquivo de origem não encontrado: $ARQ_ORIGEM"
+    exit 1
+fi
 
+# Cria o diretório somente se não existir
+if [ ! -d "$DIR" ]; then
+    mkdir -p "$DIR"
+    echo "Diretório criado: $DIR"
+else
+    echo "Diretório já existe: $DIR"
+fi
 
+# Ajusta dono e permissões do diretório
+chown jboss:jboss "$DIR"
+chmod 777 "$DIR"
 
+# Copia o arquivo
+cp "$ARQ_ORIGEM" "$ARQ_DESTINO"
 
-### BEGIN INIT INFO
-# Provides: Sigdb Agent
-# Required-Start: $local_fs $network $syslog
-# Required-Stop: $local_fs $syslog
-# Should-Start: $syslog
-# Should-Stop: $network $syslog
-# Default-Start: 2 3 4 5
-# Default-Stop: 0 1 6
-# Short-Description: Start Sigdb Agent
-# Description: Start Start Sigdb Agent
-### END INIT INFO
-cd /sigdb;nohup ./run &
+# Ajusta dono e permissões do arquivo copiado
+chown jboss:jboss "$ARQ_DESTINO"
+chmod 777 "$ARQ_DESTINO"
 
+echo "Diretório configurado e arquivo copiado com sucesso."
+ls -ld "$DIR"
+ls -l "$ARQ_DESTINO"
 
-
-Skip to main content
-Azure DevOps
-projetos
-/
-Caixa
-/
-Repos
-/
-Files
-/
-
-SIEXC-web-aplicacao-config
-Search
-
-
-Caixa
-
-Overview
-
-Boards
-
-Repos
-Files
-Commits
-Pushes
-Branches
-Tags
-Pull requests
-
-Pipelines
-
-Test Plans
-
-Artifacts
-Project settings
-SIEXC-web-aplicacao-config
-
-configuration
-jboss
-sigdb
-des
-run
-prd
-init
-tqs
-run
-sigdb
-README.md
-
-master
-
-/
-sigdb
-/
-sigdb
-sigdb
-
-Edit
-
-Contents
-History
-Compare
-Blame
-
-123456789101112
-### BEGIN INIT INFO
-# Provides: Sigdb Agent
-# Required-Start: $local_fs $network $syslog
-# Required-Stop: $local_fs $syslog
-# Should-Start: $syslog
-# Should-Stop: $network $syslog
-# Default-Start: 2 3 4 5
-# Default-Stop: 0 1 6
-# Short-Description: Start Sigdb Agent
-# Description: Start Start Sigdb Agent
-### END INIT INFO
-cd /sigdb;nohup ./run &
+#Realiza  instalação bibliotecas libldap_r-2.4.so.2 apache
+dnf install -y openldap-compat
