@@ -1,25 +1,98 @@
-#  AgtSigdb -m<alias-desse-host> -h<ip-do-destino> -i<ip-desse-servidor>
-#  onde:
-#    nome-desse-host    -
-#    ip-do-destino      -
-#    ip-desse-servidor  -
-LD_LIBRARY_PATH=/usr/lib
-export LD_LIBRARY_PATH
-
-umask 000
-nohup ./AgtSigdb -mtr7259lx193 -h10.192.224.66 -i10.116.199.181 &
 
 
 
- tqs
- 
-#  AgtSigdb -m<alias-desse-host> -h<ip-do-destino> -i<ip-desse-servidor>
-#  onde:
-#    nome-desse-host    -
-#    ip-do-destino      -
-#    ip-desse-servidor  -
-LD_LIBRARY_PATH=/usr/lib
-export LD_LIBRARY_PATH
 
-umask 000
-nohup ./AgtSigdb -mtr7259lx521 -h10.192.224.63 -i10.116.201.141 &
+
+
+### BEGIN INIT INFO
+# Provides: Sigdb Agent
+# Required-Start: $local_fs $network $syslog
+# Required-Stop: $local_fs $syslog
+# Should-Start: $syslog
+# Should-Stop: $network $syslog
+# Default-Start: 2 3 4 5
+# Default-Stop: 0 1 6
+# Short-Description: Start Sigdb Agent
+# Description: Start Start Sigdb Agent
+### END INIT INFO
+cd /sigdb;nohup ./run &
+
+
+
+Skip to main content
+Azure DevOps
+projetos
+/
+Caixa
+/
+Repos
+/
+Files
+/
+
+SIEXC-web-aplicacao-config
+Search
+
+
+Caixa
+
+Overview
+
+Boards
+
+Repos
+Files
+Commits
+Pushes
+Branches
+Tags
+Pull requests
+
+Pipelines
+
+Test Plans
+
+Artifacts
+Project settings
+SIEXC-web-aplicacao-config
+
+configuration
+jboss
+sigdb
+des
+run
+prd
+init
+tqs
+run
+sigdb
+README.md
+
+master
+
+/
+sigdb
+/
+sigdb
+sigdb
+
+Edit
+
+Contents
+History
+Compare
+Blame
+
+123456789101112
+### BEGIN INIT INFO
+# Provides: Sigdb Agent
+# Required-Start: $local_fs $network $syslog
+# Required-Stop: $local_fs $syslog
+# Should-Start: $syslog
+# Should-Stop: $network $syslog
+# Default-Start: 2 3 4 5
+# Default-Stop: 0 1 6
+# Short-Description: Start Sigdb Agent
+# Description: Start Start Sigdb Agent
+### END INIT INFO
+cd /sigdb;nohup ./run &
