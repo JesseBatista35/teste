@@ -1,3 +1,4 @@
-<img width="1631" height="834" alt="image" src="https://github.com/user-attachments/assets/3926b1e4-3b7d-431c-bd18-287191047f1f" />
+<img width="1562" height="705" alt="image" src="https://github.com/user-attachments/assets/a844b814-9d69-4058-9a32-61a796bace15" />
 
 
+estao proegidas
