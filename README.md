@@ -1,15 +1,14 @@
-Análise: a aplicação sipdm-api-estudante (DES, namespace sipdm-des) retornava HTTP 500 porque não conseguia conectar ao SQL Server do PDM (CRJDEDADNT009 – 10.116.100.127:1433, banco PDMDB001). O log apresentava SQLServerException: Connect timed out em todas as operações com banco.
+Flávio, boa tarde! Tudo bem?
 
-Causa: o namespace sipdm-des sai para a rede com o egress IP dedicado 10.116.221.183, que não possui regra de firewall liberando acesso ao banco. Foram validados:
+Registrei a solicitação de regra de firewall ID 98173 e preciso da sua aprovação, por favor.
 
-teste TCP do pod para o banco → timeout;
-teste a partir do bastion → sucesso (banco ativo);
-ausência de NetworkPolicy ou EgressNetworkPolicy no namespace.
+É para o SIPDM em DES: a aplicação sipdm-api-estudante está retornando erro 500 porque não consegue conectar no banco SQL Server do PDM. O namespace sai com egress IP dedicado, que não está liberado para o banco.
 
-Ação: registrada solicitação de regra de firewall ID 98173 (origem 10.116.221.183 → destino 10.116.100.127, TCP/1433), em aprovação.
+Regra:
+• Origem: 10.116.221.183 (egress IP do namespace sipdm-des)
+• Destino: 10.116.100.127 (CRJDEDADNT009)
+• Porta: TCP/1433
 
-Após a aplicação da regra, a aplicação volta a conectar ao banco automaticamente, sem necessidade de redeploy. Para validar: timeout 5 bash -c '</dev/tcp/10.116.100.127/1433' de dentro do pod.
+O banco está ativo: a partir do bastion conecta normalmente. Só a origem do namespace está bloqueada.
 
-E a mensagem para o Flávio:
-
-Depois que a regra for executada, lembre de validar em até 24h: a CETEL encerra a tarefa de validação por decurso de prazo.
+Obrigado!
