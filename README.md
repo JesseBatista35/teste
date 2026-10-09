@@ -1,6 +1,48 @@
-O valor no cofre é idêntico ao que estava na Library. Os dois são OI8OTCQC8nJPq9vi9psPgSScWu/6RbezD1o2KzlHETg=. Então os dados já cifrados no Oracle e no Redis continuam legíveis e não precisa de teste de regressão por troca de chave.
-O arquivo não tem quebra de linha no final. O prompt sh-4.4$ aparece colado no valor, e o tamanho de 44 bytes bate com os 32 bytes da chave em Base64. Uma quebra de linha sobrando é causa comum de “chave inválida” e não ocorreu aqui.
-Os 9 secrets estão no diretório e foram gravados às 18:38, na subida da 316, com nomes em maiúsculo, exatamente como os placeholders agora esperam.
-O SICLI está como subdiretório, como previsto. Se algum dia a aplicação precisar do SICLI_APIKEY, o caminho tem que entrar no VAULT_LOCATION.
+#DATASOURCE
+quarkus.datasource.db-kind=oracle
+quarkus.datasource.jdbc.driver=oracle.jdbc.OracleDriver
+quarkus.datasource.metrics.enabled=true
+quarkus.hibernate-orm.log.sql=false
+quarkus.hibernate-orm.log.bind-parameters=false
 
-O SIINP-nucleo em DES está resolvido, sem override manual e com todas as credenciais vindo do cofre. Pendente apenas orientar o Lucas a seguir o mesmo padrão em DES2, TQS e TQS2: remover a env var e usar placeholders em maiúsculo.
+#HIBERNATE
+quarkus.hibernate-orm.database.default-schema=INP
+quarkus.hibernate-orm.dialect=org.hibernate.dialect.Oracle12cDialect
+
+#QUARKUS PATH
+quarkus.http.non-application-root-path=/q
+
+#QUARKUS RESOURCES
+org.eclipse.microprofile.rest.client.propagateHeaders=Authorization,apikey
+br.gov.caixa.inp.restclient.ParticipantsRestClient/mp-rest/uri=${OPEN_BANKING_BRASIL_URI_PARTICIPANTS}
+
+quarkus.tls.trust-all=true
+
+quarkus.http.encoding.enabled=true
+quarkus.http.encoding.charset=UTF-8
+quarkus.http.encoding.force=true
+
+# CAIXA APIM
+caixa-api-manager.url=${CAIXA_SIINP_APIM_URL}
+caixa-siinp-apim.api-key=${CAIXA_SIINP_APIM_APIKEY}
+caixa-siinp-apim.client-id=${CAIXA_SSO_INTRANET_CLIENT_ID}
+caixa-siinp-apim.client-secret=${CAIXA_SSO_INTRANET_CLIENT_SECRET}
+
+# PIX DICT API REST CLIENT
+caixa-api-pix-dict.path=${CAIXA_PIXAPI_DICT_PATH}
+
+#QUARKUS INDEX PAGE
+quarkus.index-page.enabled=false
+
+# HYBRID PCM
+pcm.lista-convenios-skip-sweeping=${LISTA_CONVENIOS_SKIP_SWEEPING:}
+
+
+# REDIS LOCAL
+%dev.quarkus.redis.devservices.enabled=false
+%dev.quarkus.redis.hosts=redis://localhost:52708
+
+
+# SSO INTER 2
+caixa.mp.jwt.verify.ssointer2.publicKey=${CAIXA_MP_JWT_VERIFY_SSOINTER2_PUBLICKEY:xxxxx}
+caixa.mp.jwt.verify.ssointer2.issuer=${CAIXA_MP_JWT_VERIFY_SSOINTER2_ISSUER:xxxxx}
