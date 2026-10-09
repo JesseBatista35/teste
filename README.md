@@ -5,3 +5,6 @@ Qualquer dúvida, solicito, por gentileza, entrar em contato com o colaborador G
 
 
 ele nao colocou o modulo
+
+
+<img width="1533" height="475" alt="image" src="https://github.com/user-attachments/assets/78276d42-3871-45ee-babe-174493a33f74" />
