@@ -1,20 +1,6 @@
-2026-10-09 15:43:47,510 INFO  [br.gov.cai.sii.v1.PlanilhaComercializacaoResource] (main) [REQUISICAO_RECEBIDA][REQUEST] Path: planilhaComercializacoes/rendimentos  CorrelationId: 7954e8a8-c166-46be-acb5-9db07f62457c, Body: SEM PARAMETROS
-2026-10-09 15:43:47,510 ERROR [br.gov.cai.sii.v1.PlanilhaComercializacaoResource] (main) Erro ao listar rendimentos o Registro de Planilha Comercializacao: 7954e8a8-c166-46be-acb5-9db07f62457c: java.lang.RuntimeException: Erro interno
-	at br.gov.caixa.siifx.service.planilhacomercializacao.PlanilhaComercializacaoRendimentoService.listar(PlanilhaComercializacaoRendimentoService.java:21)
-	at br.gov.caixa.siifx.v1.PlanilhaComercializacaoResource.listarRendimento(PlanilhaComercializacaoResource.java:986)
-	at br.gov.caixa.siifx.v1.PlanilhaComercializacaoResourceTest.testListarRendimento_RuntimeException(PlanilhaComercializacaoResourceTest.java:668)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:727)
-	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
-	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
-	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156)
-	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147)
-	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86)
-	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103)
-	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93)
-	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
-	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
-	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+<img width="1885" height="901" alt="image" src="https://github.com/user-attachments/assets/b914b128-8d47-45a6-a544-a84a3e953fdf" />
+
+
+Prezados, solicito por gentileza ajuste na nossa esteira para que seja possível distribuir builds tanto para teste internos quanto externos. Dependendo da branch executada, está disponibilizando apenas para testes internos.
+
+
