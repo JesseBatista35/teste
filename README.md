@@ -1,1 +1,7 @@
-Liberação de acesso do ambiente de desenvolvimento do sistema SIPDM (namespace sipdm-des, endereço de saída 10.116.221.183) ao banco de dados SQL Server do sistema PDM (10.116.100.127, porta 1433), necessário porque a aplicação sipdm-api-estudante retorna erro em todas as operações por não conseguir conectar ao banco, conforme a REQ[número].
+
+-sh-4.2$ nslookup 10.116.100.127
+127.100.116.10.in-addr.arpa     name = CRJDEDADNT009.desenvolvimento.extracaixa.
+
+Authoritative answers can be found from:
+
+-sh-4.2$
