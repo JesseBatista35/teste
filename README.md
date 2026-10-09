@@ -1,26 +1,10 @@
+# Corpo da resposta 500 (a página de erro costuma trazer a exceção)
+oc exec $P -- curl -s http://localhost:8080/login2/ | head -60
 
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$ oc exec $P -- /opt/jboss/bin/jboss-cli.sh -c --command="/deployment=sipcs-login-unico-jboss-okd.war/subsystem=undertow:read-attribute(name=context-root)"
-{
-    "outcome" => "success",
-    "result" => "/login2"
-}
--sh-4.2$
--sh-4.2$
--sh-4.2$ oc exec $P -- curl -s -o /dev/null -w "raiz-app: %{http_code}\n" http://localhost:8080/sipcs-login-unico-jboss-okd/
-raiz-app: 404
--sh-4.2$
--sh-4.2$
--sh-4.2$ oc exec $P -- curl -s -o /dev/null -w "login2:   %{http_code}\n" http://localhost:8080/login2/
-login2:   500
--sh-4.2$
--sh-4.2$
--sh-4.2$ oc exec $P -- sh -c 'unzip -l /opt/jboss/standalone/deployments/sipcs-login-unico-jboss-okd.war | grep -iE "jboss-web.xml|web.xml"'
-      163  10-02-2026 14:36   WEB-INF/jboss-web.xml
-     3422  10-02-2026 14:36   WEB-INF/web.xml
--sh-4.2$
+# Stacktrace gerado no server.log logo após o curl
+oc exec $P -- tail -150 /opt/jboss/standalone/log/server.log | grep -E -A25 "ERROR|Exception|Caused by" | head -120
+
+
+oc exec $P -- /opt/jboss/bin/jboss-cli.sh -c --command="/subsystem=datasources:read-children-names(child-type=data-source)"
+# depois, com o nome que aparecer:
+oc exec $P -- /opt/jboss/bin/jboss-cli.sh -c --command="/subsystem=datasources/data-source=NOME:test-connection-in-pool"
