@@ -1,13 +1,3 @@
-
--sh-4.2$
--sh-4.2$ oc exec $P -- /opt/jboss/bin/jboss-cli.sh -c --command="/subsystem=datasources/data-source=siatcDS:test-connection-in-pool"
-{
-    "outcome" => "failed",
-    "failure-description" => "WFLYJCA0040: failed to invoke operation: WFLYJCA0047: Connection is not valid",
-    "rolled-back" => true
-}
-command terminated with exit code 1
--sh-4.2$
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
@@ -42,30 +32,41 @@ command terminated with exit code 1
 			<artifactId>log4j</artifactId>
 			<version>1.2.17</version>
 		</dependency>
+
+		<!-- AJUSTE OKD/EAP 7.4: commons-lang 2.x usado pelo codigo (SessionUtil) e nao fornecido pelo JBoss EAP 7.4.
+		     Antes vinha do servidor legado; agora precisa ser empacotado no WAR. -->
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>2.6</version>
+		</dependency>
+
+		<!-- AJUSTE OKD/EAP 7.4: APIs Java EE fornecidas pelo JBoss -> scope provided
+		     (com scope compile iam para WEB-INF/lib e conflitam com as do servidor). -->
 		<dependency>
 			<groupId>javax.enterprise</groupId>
 			<artifactId>cdi-api</artifactId>
-			<scope>compile</scope>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.jboss.spec.javax.servlet</groupId>
 			<artifactId>jboss-servlet-api_3.1_spec</artifactId>
-			<scope>compile</scope>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.jboss.spec.javax.ws.rs</groupId>
 			<artifactId>jboss-jaxrs-api_2.0_spec</artifactId>
-			<scope>compile</scope>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.jboss.spec.javax.faces</groupId>
 			<artifactId>jboss-jsf-api_2.2_spec</artifactId>
-			<scope>compile</scope>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.jboss.spec.javax.annotation</groupId>
 			<artifactId>jboss-annotations-api_1.2_spec</artifactId>
-			<scope>compile</scope>
+			<scope>provided</scope>
 		</dependency>
 
 		<!-- Import the RichFaces core library -->
