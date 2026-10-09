@@ -1,496 +1,492 @@
-# =============================================================================
-# Solution: iOS Deploy — TestFlight manual
-# =============================================================================
-# Orquestra os workflow-jobs single-job:
-#   resolve-identity → resolve-binaries ∥ check-gate
-#     → sast ∥ sonar (apenas se o gate ainda não passou no commit)
-#     → build → test → hardening (opt DES / obrig PLT+PRD) → distribute
-#
-# Uso:
-#   uses: CAIXAPLATFORM/github-solutions/.github/workflows/ios--deploy.yaml@main
-#   with:
-#     ref: develop
-#     version: "1.92.0"
-#   secrets: inherit
-# =============================================================================
+Skip to content
+GitHub Enterprise
+Users managed by Caixa Economica Federal
+CAIXAPLATFORM
+github-solutions
+Repository navigation
+Code
+Issues
+Pull requests
+1
+ (1)
+Actions
+Projects
+Wiki
+Security and quality
+Insights
+Settings
+CAIXAPLATFORM
+github-solutions
+Internal
+Go to file
+t
+T
+author
+Guilherme Tadeu
+docs: adiciona especificacao argocd
+f40ab9d
+ · 
+last month
+Name		
+.github/workflows
+Merge branch 'main' of https://github.com/CAIXAPLATFORM/github-solutions
+2 months ago
+caller-examples-ios
+fix(ios): simplify testflight deploy caller
+2 months ago
+docs
+docs: adiciona especificacao argocd
+last month
+tests
+fix(ios): valitdation contract
+2 months ago
+README.md
+up test
+2 months ago
+Repository files navigation
+README
+github-solutions
+Repositório de contratos públicos consumidos via workflow_call. Define a interface pública consumida pelos callers, valida pré-condições e orquestra a chamada para o CI específico do domínio e para o CD compartilhado.
 
-name: "iOS Deploy"
+!!! info "Princípio" Funciona como uma fachada — desacopla o consumidor (caller) da implementação interna. Trate os inputs como API pública.
 
-concurrency:
-  group: "ios-${{ inputs.environment }}-${{ github.repository }}-${{ inputs.version }}"
-  cancel-in-progress: false
+Histórico de Merge
+Merge realizado com o repositório https://github.com/caixagithub/DevSecOps-Solutions/
+Commit: 6de1e74bfff7bef67b6c88e8b021fd3156be4bd0
+Data: Wed Jun 24 15:50:17 2026 -0300
+Convenção de Nomes
+Os workflows seguem o padrão:
 
+{domínio}--{subdomínio}--{nome}.yml
+Segmento	Propósito	Exemplos
+domínio	Área tecnológica principal	docker, java, dotnet, typescript, ios, android
+subdomínio	Refinamento opcional	maven, gradle, app, lib
+nome	Ação do pipeline	ci-cd, release, deploy-des, quality-gate
+!!! example "Exemplos" - java--maven--ci-cd.yml → CI/CD completo para Java Maven - dotnet--ci-cd.yml → CI/CD completo para .NET (sem subdomínio) - ios--ci.yml → Apenas CI para iOS - docker--build-push-quarantine.yml → Build e push Docker
+
+Estrutura de Diretórios
+github-solutions/
+└── .github/
+    └── workflows/
+        ├── docker--build-push-quarantine.yml
+        ├── docker--promote-to-stable.yml
+        ├── java--maven--ci-cd.yml
+        ├── java--gradle--ci-cd.yml
+        ├── dotnet--ci-cd.yml
+        ├── typescript--ci-cd.yml
+        ├── ios--ci.yml
+        ├── ios--release.yml
+        ├── ios--deploy-des.yml
+        ├── ios--quality-gate.yml
+        ├── ios--gitflow-auto-pr.yml
+        ├── android--ci.yml
+        ├── android--release.yml
+        ├── android--deploy-des.yml
+        ├── security--daily-scan.yml
+        └── versioning--tag-on-merge.yml
+Contratos por Domínio
+Docker — Build & Push Quarantine
+Input	Tipo	Obrigatório	Default	Descrição
+image_name	string	sim	—	Nome da imagem
+event_name	string	sim	—	Evento que disparou o workflow
+name: Docker – Build & Push Quarantine
 on:
   workflow_call:
     inputs:
-      project-root:
-        description: "Diretório do projeto relativo à raiz do repositório."
-        required: false
-        type: string
-        default: "."
-      ref:
-        description: "Branch de origem do deploy."
+      image_name:
         required: true
         type: string
-      ref-policy:
-        description: "Política de ref: branch-allowlist, fgts-des-work-branch ou any-branch."
-        required: false
-        type: string
-        default: "branch-allowlist"
-      allowed-deploy-branches:
-        description: "Branches permitidas para deploy, separadas por vírgula."
-        required: false
-        type: string
-        default: "develop,main"
-      version:
-        description: "Versão de marketing (ex: 1.92.0)."
+      event_name:
         required: true
         type: string
-      build-number:
-        description: "Número sequencial de build. Vazio para calcular automaticamente."
+jobs:
+  orchestrate:
+    uses: CAIXAPLATFORM/github-workflows-jobs/.github/workflows/docker--build-scan-push-quarantine.yml@v1
+    with:
+      image_name: ${{ inputs.image_name }}
+      event_name: ${{ inputs.event_name }}
+    secrets: inherit
+Java Maven — CI/CD
+Input	Tipo	Obrigatório	Default	Descrição
+java_version	string	não	"21"	Versão do JDK
+artifact_id	string	sim	—	ID do artefato Maven
+deploy_environment	string	não	"des"	Ambiente: des / tqs / hmp / prd
+name: Java – CI/CD Maven
+on:
+  workflow_call:
+    inputs:
+      java_version:
         required: false
         type: string
-        default: ""
-      build-base:
-        description: >
-          Novo sequencial desejado do release (inteiro positivo, ex: 453). Quando
-          informado, tem precedência sobre build-number: a plataforma deriva uma
-          única vez o número final do ambiente (N.1 em DES, N.2 em PLT, N.3 em
-          PRD) e o usa como fonte única.
+        default: "21"
+      artifact_id:
+        required: true
+        type: string
+      deploy_environment:
         required: false
         type: string
-        default: ""
-      build-number-format:
-        description: >
-          Formato do build number: seq-env (N.ambiente) ou env-seq (ambiente.N).
-          Vazio usa vars.IOS_BUILD_NUMBER_FORMAT.
+        default: "des"
+jobs:
+  ci:
+    uses: CAIXAPLATFORM/github-workflows-jobs/.github/workflows/java--maven--ci.yml@v1
+    with:
+      java_version: ${{ inputs.java_version }}
+      artifact_id: ${{ inputs.artifact_id }}
+    secrets: inherit
+  cd:
+    uses: CAIXAPLATFORM/github-workflows-jobs/.github/workflows/shared--cd.yml@v1
+    needs: ci
+    with:
+      artifact_id: ${{ inputs.artifact_id }}
+      artifact_type: "jar"
+      deploy_environment: ${{ inputs.deploy_environment }}
+    secrets: inherit
+.NET — CI/CD
+Input	Tipo	Obrigatório	Default	Descrição
+dotnet_version	string	não	"8.0"	Versão do .NET SDK
+project_name	string	sim	—	Nome do projeto
+deploy_environment	string	não	"des"	Ambiente: des / tqs / hmp / prd
+name: .NET – CI/CD
+on:
+  workflow_call:
+    inputs:
+      dotnet_version:
         required: false
         type: string
-        default: ""
-      dry-run:
-        description: >
-          Quando true, a solution executa build, validações e inspeção do IPA,
-          mas NÃO chama os workflow-jobs de hardening e distribuição. Nenhuma
-          action autentica no Appdome ou no App Store Connect.
-        required: false
-        type: boolean
-        default: false
-      build-number-strategy:
-        description: >
-          Estratégia de build number: manual (número explícito) ou testflight-query (consulta ASC).
-          Vazio usa vars.IOS_BUILD_NUMBER_STRATEGY ou o default testflight-query.
+        default: "8.0"
+      project_name:
+        required: true
+        type: string
+      deploy_environment:
         required: false
         type: string
-        default: ""
-      environment:
-        description: "Ambiente de destino (DES, PLT, PRD)."
+        default: "des"
+jobs:
+  ci:
+    uses: CAIXAPLATFORM/github-workflows-jobs/.github/workflows/dotnet--ci.yml@v1
+    with:
+      dotnet_version: ${{ inputs.dotnet_version }}
+      project_name: ${{ inputs.project_name }}
+    secrets: inherit
+  cd:
+    uses: CAIXAPLATFORM/github-workflows-jobs/.github/workflows/shared--cd.yml@v1
+    needs: ci
+    with:
+      artifact_id: ${{ inputs.project_name }}
+      artifact_type: "dll"
+      deploy_environment: ${{ inputs.deploy_environment }}
+    secrets: inherit
+TypeScript — CI/CD
+Input	Tipo	Obrigatório	Default	Descrição
+node_version	string	não	"20"	Versão do Node.js
+package_manager	string	não	"npm"	npm ou yarn
+project_name	string	sim	—	Nome do projeto
+deploy_environment	string	não	"des"	Ambiente: des / tqs / hmp / prd
+name: TypeScript – CI/CD
+on:
+  workflow_call:
+    inputs:
+      node_version:
         required: false
         type: string
-        default: "DES"
-      xcode-version:
-        description: "Versão major.minor do Xcode."
+        default: "20"
+      package_manager:
         required: false
         type: string
-        default: ""
-      xcode-workspace:
-        description: "Caminho do workspace (*.xcworkspace)."
+        default: "npm"
+      project_name:
+        required: true
+        type: string
+      deploy_environment:
         required: false
         type: string
-        default: ""
-      xcode-scheme:
-        description: "Scheme do Xcode."
+        default: "des"
+jobs:
+  ci:
+    uses: CAIXAPLATFORM/github-workflows-jobs/.github/workflows/typescript--ci.yml@v1
+    with:
+      node_version: ${{ inputs.node_version }}
+      package_manager: ${{ inputs.package_manager }}
+      project_name: ${{ inputs.project_name }}
+    secrets: inherit
+  cd:
+    uses: CAIXAPLATFORM/github-workflows-jobs/.github/workflows/shared--cd.yml@v1
+    needs: ci
+    with:
+      artifact_id: ${{ inputs.project_name }}
+      artifact_type: "npm"
+      deploy_environment: ${{ inputs.deploy_environment }}
+    secrets: inherit
+iOS — CI
+Input	Tipo	Obrigatório	Default	Descrição
+scheme	string	sim	—	Scheme do Xcode
+xcode_version	string	não	"15.4"	Versão do Xcode
+bundle_id	string	sim	—	Bundle identifier
+name: iOS – CI
+on:
+  workflow_call:
+    inputs:
+      scheme:
+        required: true
+        type: string
+      xcode_version:
         required: false
         type: string
-        default: ""
-      test-scheme:
-        description: "Scheme de testes. Vazio mantém fallback para xcode-scheme em callers antigos."
+        default: "15.4"
+      bundle_id:
+        required: true
+        type: string
+jobs:
+  orchestrate:
+    uses: CAIXAPLATFORM/github-workflows-jobs/.github/workflows/ios--ci.yml@v1
+    with:
+      scheme: ${{ inputs.scheme }}
+      xcode_version: ${{ inputs.xcode_version }}
+      bundle_id: ${{ inputs.bundle_id }}
+    secrets: inherit
+Android — CI
+Input	Tipo	Obrigatório	Default	Descrição
+module	string	não	"app"	Módulo Gradle
+build_variant	string	não	"debug"	Variante de build
+java_version	string	não	"17"	Versão do JDK
+name: Android – CI
+on:
+  workflow_call:
+    inputs:
+      module:
         required: false
         type: string
-        default: ""
-      pre-build-script:
-        description: "Caminho relativo para script de pré-build."
+        default: "app"
+      build_variant:
         required: false
         type: string
-        default: ""
-      extra-xcargs:
-        description: "Build settings adicionais para xcodebuild (ex: UNICO_API_KEY=xxx)."
+        default: "debug"
+      java_version:
         required: false
         type: string
-        default: ""
-      private-pods:
-        description: "Habilita acesso a repositórios privados CocoaPods."
-        required: false
-        type: boolean
-        default: false
-      enable-cocoa-debug:
-        description: "Habilitar CocoaDebug no ambiente de Piloto."
-        required: false
-        type: boolean
-        default: false
-      # --- Hardening (Appdome) ---
-      enable-hardening:
-        description: >
-          Habilita hardening Appdome. Obrigatório em PLT/PRD (forçado pelo pipeline),
-          opcional em DES (default false).
-        required: false
-        type: boolean
-        default: false
-      resign-mode:
-        description: "Modo de re-assinatura pós-Appdome: auto (fastlane sigh) ou manual."
-        required: false
-        type: string
-        default: "auto"
-      # --- Testes ---
-      skip-tests:
-        description: "Pula a etapa de compilação e teste unitário."
-        required: false
-        type: boolean
-        default: false
-      # --- Distribuição ---
-      upload-method:
-        description: >
-          Método de upload para TestFlight: auto, api-key, apple-id, altool.
-        required: false
-        type: string
-        default: "auto"
-      testflight-groups:
-        description: "Grupos TestFlight CSV. Vazio usa vars.IOS_TESTFLIGHT_GROUPS do environment."
-        required: false
-        type: string
-        default: ""
-      testflight-restricted-group:
-        description: "Grupo TestFlight restrito. Vazio usa vars.IOS_TESTFLIGHT_RESTRICT_GROUP do environment."
-        required: false
-        type: string
-        default: ""
-      restrict-distribution:
-        description: "Forçar distribuição para o grupo restrito."
-        required: false
-        type: boolean
-        default: false
-      changelog:
-        description: "Texto What to Test / changelog do build no TestFlight."
-        required: false
-        type: string
-        default: ""
-      skip-waiting-for-build-processing:
-        description: "Pular espera de processamento do build no App Store Connect."
-        required: false
-        type: string
-        default: "true"
-      # --- Signing (transitório — será removido após migração para AKV+OIDC) ---
-      use-legacy-signing-secrets:
-        description: "Usar secrets base64 em vez do Key Vault."
-        required: false
-        type: boolean
-        default: false
-      signing-config-script:
-        description: "Caminho do script de assinatura no repo do app."
-        required: false
-        type: string
-        default: ""
-      signing-team-id:
-        description: "DEVELOPMENT_TEAM Apple."
-        required: false
-        type: string
-        default: ""
-      signing-profile-app:
-        description: "Nome do perfil de provisionamento do app."
-        required: false
-        type: string
-        default: ""
-      signing-profile-app-uuid:
-        description: "UUID do perfil de provisionamento do app."
-        required: false
-        type: string
-        default: ""
-      signing-profile-widget:
-        description: "Nome do perfil de provisionamento do widget."
-        required: false
-        type: string
-        default: ""
-      signing-code-sign-identity:
-        description: "Identidade de assinatura (ex: iPhone Distribution)."
-        required: false
-        type: string
-        default: ""
-      bundle-identifier:
-        description: "Bundle ID do app (ex: br.gov.caixa.tem)."
-        required: false
-        type: string
-        default: ""
-      sonar-project-key:
-        description: "Chave do projeto no SonarQube."
-        required: false
-        type: string
-        default: ""
+        default: "17"
+jobs:
+  orchestrate:
+    uses: CAIXAPLATFORM/github-workflows-jobs/.github/workflows/android--ci.yml@v1
+    with:
+      module: ${{ inputs.module }}
+      build_variant: ${{ inputs.build_variant }}
+      java_version: ${{ inputs.java_version }}
+    secrets: inherit
+App-Infra — Policy Gate & GitOps Sync
+Valida o values.yaml de um repositório app-infra contra as políticas de security-policies-as-code e, após o merge, propaga o resultado para o gitops-apps via PR.
 
-    secrets:
-      SD_KEY_BIOMETRIA:
-        description: "Chave opcional de biometria encaminhada somente ao build."
-        required: false
+Um workflow só, com os dois gatilhos — mesma ideia de docker--build-push-quarantine: em pull_request apenas valida; em push valida e escreve. O evento é detectado pela própria orquestração (github.event_name já é o evento do chamador dentro de um reusable workflow), então não há input para isso.
 
-permissions:
-  contents: read
-  pull-requests: read
-  id-token: write
-  attestations: write
-  actions: read
-  security-events: write
+Input	Tipo	Obrigatório	Default	Descrição
+env_name	string	sim	—	nprd ou prd — qual bloco de limits.yaml aplica
+values_path	string	sim	—	Caminho do values.yaml da app no repositório chamador
+gitops_team	string	não	""	Segmento de time em apps/<team>/.... Vazio desliga o sync
+gitops_app	string	não	""	Segmento da app em apps/<team>/<app>/...
+gitops_repo	string	não	CAIXAPLATFORM/gitops-apps	Repositório GitOps de destino
+gitops_owner	string	não	CAIXAPLATFORM	Org dona do token de escrita
+gitops_base_branch	string	não	main	Branch base do PR no GitOps
+direct_commit_envs	string	não	""	Ambientes escritos direto na branch base, sem PR. Vazio (padrão) = PR para todos os ambientes. Inclua um ambiente só depois de validar o fluxo nele
+security_policies_repo	string	não	CAIXA-GOVERNANCE/security-policies-as-code	Repositório das políticas de segurança
+security_policies_ref	string	não	main	Branch/tag das políticas
+security_policies_dir	string	não	security-policies	Diretório local do checkout das políticas
+security_policies_owner	string	não	CAIXA-GOVERNANCE	Org dona do token de GitHub App
+runner_label	string	não	ubuntu-latest	Label do runner
+Secret	Obrigatório	Descrição
+GH_APP_ID	sim	App ID do GitHub App com leitura em CAIXA-GOVERNANCE/security-policies-as-code
+GH_APP_PRIVATE_KEY	sim	Chave privada do mesmo GitHub App
+GH_PLATFORM_APP_ID	não	Client ID do GitHub App multi-org (o mesmo usado pelos workflows migration--*), com Contents: Write e Pull requests: Write em gitops-apps. Só necessário quando gitops_team está preenchido
+GH_PLATFORM_APP_PRIVATE_KEY	não	Chave privada do mesmo App
+name: App-Infra Policy Gate
+
+on:
+  pull_request:
+    paths:
+      - "nprd/values.yaml"
+  push:
+    branches: [main]
+    paths:
+      - "nprd/values.yaml"
 
 jobs:
-  resolve-identity:
-    name: "Identidade"
-    uses: CAIXAPLATFORM/github-workflow-jobs/.github/workflows/shared--resolve-identity.yaml@main
+  gate:
+    uses: CAIXAPLATFORM/github-solutions/.github/workflows/appinfra--policy-gate.yml@main
     with:
-      environment: ${{ inputs.environment }}
-    secrets: inherit
+      env_name: nprd
+      values_path: nprd/values.yaml
+      gitops_team: poc
+      gitops_app: demo-app
+    secrets:
+      GH_APP_ID: ${{ secrets.GH_APP_ID }}
+      GH_APP_PRIVATE_KEY: ${{ secrets.GH_APP_PRIVATE_KEY }}
+      GH_PLATFORM_APP_ID: ${{ secrets.GH_PLATFORM_APP_ID }}
+      GH_PLATFORM_APP_PRIVATE_KEY: ${{ secrets.GH_PLATFORM_APP_PRIVATE_KEY }}
+Para usar apenas o portão, sem propagar: omita gitops_team/gitops_app e os dois secrets GH_PLATFORM_APP_*, e deixe só o gatilho pull_request.
 
-  resolve-binaries:
-    name: "Binários do Podfile"
-    needs: [resolve-identity]
-    uses: CAIXAPLATFORM/github-workflow-jobs/.github/workflows/ios--resolve-binaries.yaml@main
-    with:
-      project-root: ${{ inputs.project-root }}
-      app-name: ${{ needs.resolve-identity.outputs.app-name }}
-      ref: ${{ inputs.ref }}
-    secrets: inherit
+O que é escrito no gitops-apps
+Destino: apps/<gitops_team>/<gitops_app>/environments/<env_name>/values-<env_name>.yaml.
 
-  derive-build-number:
-    name: "Derivar Build Number"
-    needs: [resolve-identity]
-    if: inputs.build-base != ''
-    uses: CAIXAPLATFORM/github-workflow-jobs/.github/workflows/ios--derive-build-number.yaml@main
-    with:
-      build-base: ${{ inputs.build-base }}
-      environment: ${{ inputs.environment }}
-      build-number-format: ${{ inputs.build-number-format }}
-    secrets: inherit
+O conteúdo é o bloco caixa-base-chart: do values.yaml da app-infra, sem o wrapper (o destino é plano) e sem image — essa chave pertence a release-patch.yaml, reescrito por FusionX/Ansible a cada release. A fronteira está documentada no próprio gitops-apps.
 
-  check-gate:
-    name: "Gate já aprovado?"
-    needs: [resolve-identity]
-    uses: CAIXAPLATFORM/github-workflow-jobs/.github/workflows/quality--check-gate.yaml@main
-    with:
-      ref: ${{ inputs.ref }}
-      ref-policy: ${{ inputs.ref-policy }}
-      allowed-branches: ${{ inputs.allowed-deploy-branches }}
-      build-number: ${{ inputs.build-number }}
-    secrets: inherit
+A escrita só acontece quando há mudança de fato: rodar de novo com o mesmo values.yaml não produz commit nem PR. Se o diretório da app não existir no gitops-apps, o job falha com mensagem explícita — o onboarding da app lá continua sendo passo à parte.
 
-  sast:
-    name: "CodeQL (SAST)"
-    needs: [resolve-identity, check-gate]
-    if: needs.check-gate.outputs.quality-passed != 'true'
-    uses: CAIXAPLATFORM/github-workflow-jobs/.github/workflows/security--sast.yaml@main
-    with:
-      project-root: ${{ inputs.project-root }}
-      app-name: ${{ needs.resolve-identity.outputs.app-name }}
-      ref: ${{ needs.check-gate.outputs.commit-sha }}
-      environment: ${{ inputs.environment }}
-      xcode-workspace: ${{ inputs.xcode-workspace }}
-      xcode-scheme: ${{ inputs.xcode-scheme }}
-      xcode-version: ${{ inputs.xcode-version }}
-      pre-build-script: ${{ inputs.pre-build-script }}
-      private-pods: ${{ inputs.private-pods }}
-      build-identifier: "${{ inputs.version }}.${{ needs.check-gate.outputs.commit-sha }}"
-    secrets: inherit
+Como a mudança chega ao gitops-apps depende de direct_commit_envs:
 
-  sonar:
-    name: "SonarQube (Qualidade)"
-    needs: [resolve-identity, check-gate]
-    if: needs.check-gate.outputs.quality-passed != 'true'
-    uses: CAIXAPLATFORM/github-workflow-jobs/.github/workflows/security--sonar.yaml@main
-    with:
-      app-name: ${{ needs.resolve-identity.outputs.app-name }}
-      ref: ${{ needs.check-gate.outputs.commit-sha }}
-      build-identifier: "${{ inputs.version }}.${{ needs.check-gate.outputs.commit-sha }}"
-    secrets: inherit
+Ambiente	Comportamento
+fora da lista — padrão para todos	PR aberto aguardando revisão humana
+na lista (ex.: direct_commit_envs: "nprd")	Commit direto na branch base. Sem PR, sem espera — o ArgoCD sincroniza na próxima passada
+O padrão é conservador de propósito: nada chega a um cluster sem alguém ver o diff. Habilite o commit direto por ambiente depois de validar o fluxo nele.
 
-  build:
-    name: "Build Assinado"
-    needs: [resolve-identity, resolve-binaries, derive-build-number, check-gate, sast, sonar]
-    if: always() && !failure() && !cancelled()
-    uses: CAIXAPLATFORM/github-workflow-jobs/.github/workflows/ios--build.yaml@main
-    with:
-      project-root: ${{ inputs.project-root }}
-      app-name: ${{ needs.resolve-identity.outputs.app-name }}
-      ref: ${{ inputs.ref }}
-      environment: ${{ inputs.environment }}
-      version: ${{ inputs.version }}
-      build-number: ${{ needs.derive-build-number.outputs.build-number || inputs.build-number }}
-      # Com build-base informado, o número derivado é a fonte única e segue
-      # pelo resolver em modo manual, sem consulta ASC.
-      build-number-strategy: ${{ inputs.build-base != '' && 'manual' || (inputs.build-number-strategy || vars.IOS_BUILD_NUMBER_STRATEGY || 'testflight-query') }}
-      # Paridade com o legado: fora de PRD o build fica restrito a
-      # testadores internos do TestFlight (testFlightInternalTestingOnly).
-      testflight-internal-only: ${{ inputs.environment != 'PRD' }}
-      xcode-version: ${{ inputs.xcode-version }}
-      xcode-workspace: ${{ inputs.xcode-workspace }}
-      xcode-scheme: ${{ inputs.xcode-scheme }}
-      bundle-identifier: ${{ inputs.bundle-identifier }}
-      pre-build-script: ${{ inputs.pre-build-script }}
-      extra-xcargs: ${{ inputs.extra-xcargs }}
-      binaries-artifact: ${{ needs.resolve-binaries.outputs.has-binaries == 'true' && needs.resolve-binaries.outputs.artifact-name || '' }}
-      use-legacy-signing-secrets: ${{ inputs.use-legacy-signing-secrets }}
-      signing-config-script: ${{ inputs.signing-config-script }}
-      signing-team-id: ${{ inputs.signing-team-id }}
-      signing-profile-app: ${{ inputs.signing-profile-app }}
-      signing-profile-app-uuid: ${{ inputs.signing-profile-app-uuid }}
-      signing-profile-widget: ${{ inputs.signing-profile-widget }}
-      signing-code-sign-identity: ${{ inputs.signing-code-sign-identity }}
-      private-pods: ${{ inputs.private-pods }}
-      enable-cocoa-debug: ${{ inputs.enable-cocoa-debug }}
-      clean-install: true
-    secrets: inherit
+No commit direto, se outra execução escrever no gitops-apps entre o checkout e o push, o job faz rebase e tenta de novo (até 3 vezes) — sem isso a sincronização se perderia em silêncio até a próxima alteração do values.yaml.
 
-  test:
-    name: "Compilação e Teste"
-    needs: [resolve-identity, build]
-    if: always() && !failure() && !cancelled() && inputs.skip-tests != true
-    uses: CAIXAPLATFORM/github-workflow-jobs/.github/workflows/ios--build-and-test.yaml@main
-    with:
-      project-root: ${{ inputs.project-root }}
-      app-name: ${{ needs.resolve-identity.outputs.app-name }}
-      ref: ${{ inputs.ref }}
-      environment: ${{ inputs.environment }}
-      xcode-workspace: ${{ inputs.xcode-workspace }}
-      xcode-scheme: ${{ inputs.xcode-scheme }}
-      test-scheme: ${{ inputs.test-scheme }}
-      xcode-version: ${{ inputs.xcode-version }}
-      pre-build-script: ${{ inputs.pre-build-script }}
-      private-pods: ${{ inputs.private-pods }}
-    secrets: inherit
+E2E de dispatch assíncrono multi-organização
+Esta solução de referência comprova o transporte íntegro de um único artefato entre o repositório chamador e a plataforma, com duas janelas privilegiadas curtas. Solutions apenas orquestram workflows reutilizáveis: não executam steps ou comandos run e não recebem valores de segredos de aplicação.
 
-  inspect:
-    name: "Inspecionar IPA"
-    needs: [resolve-identity, derive-build-number, check-gate, build, test]
-    if: always() && !failure() && !cancelled() && inputs.dry-run == true
-    uses: CAIXAPLATFORM/github-workflow-jobs/.github/workflows/ios--ipa-inspect.yaml@main
-    with:
-      project-root: ${{ inputs.project-root }}
-      app-name: ${{ needs.resolve-identity.outputs.app-name }}
-      ipa-artifact: ${{ needs.build.outputs.ipa-artifact }}
-      expected-build-number: ${{ needs.derive-build-number.outputs.build-number }}
-      expected-marketing-version: ${{ inputs.version }}
-    secrets: inherit
+Arquitetura e sequência dos cinco runs
+Run	Organização	Responsabilidade
+Run 1	Chamador	Executa qualidade, constrói o artefato uma única vez e envia a solicitação artifact.
+Run 2	Plataforma	Busca, valida, sela e atesta o artefato; então envia o callback artifact-prepared.
+Run 3	Chamador	Verifica o artefato republicado, executa o smoke test e envia a solicitação deploy-check.
+Run 4	Plataforma	Repete a autorização do segredo, executa o deploy dry-run e envia o callback deploy-check-complete.
+Run 5	Chamador	Valida a cadeia completa, o recibo e os cinco runs; publica o resultado final.
+Os jobs dos runs 1, 3 e 5 executam no contexto do chamador com arc-runner-set-default-nprod. Os handlers da plataforma usam arc-runner-set-default-aks-nprod em DES e arc-runner-set-default-aks-prod em PRD.
 
-  # Em dry-run a solution NÃO chama hardening nem distribute em modo real: o
-  # bloqueio dos efeitos externos é estrutural, não uma flag de simulação nas
-  # actions.
-  #
-  # Os dois jobs abaixo chamam os MESMOS workflow-jobs em resolve-only, que
-  # executa só as etapas sem efeito externo — integridade do IPA, keychain de
-  # assinatura, credenciais do Appdome, caminho do IPA, grupos e método de
-  # upload. É a mesma lógica do deploy real, não uma cópia que pode divergir.
-  hardening-check:
-    name: "Checagem de hardening (dry-run)"
-    needs: [resolve-identity, build, test]
-    if: >-
-      always() && !failure() && !cancelled() && inputs.dry-run == true &&
-      (inputs.enable-hardening == true || inputs.environment != 'DES')
-    uses: CAIXAPLATFORM/github-workflow-jobs/.github/workflows/ios--hardening.yaml@main
-    with:
-      resolve-only: true
-      project-root: ${{ inputs.project-root }}
-      app-name: ${{ needs.resolve-identity.outputs.app-name }}
-      environment: ${{ inputs.environment }}
-      ipa-artifact: ${{ needs.build.outputs.ipa-artifact }}
-      ipa-sha256: ${{ needs.build.outputs.ipa-sha256 }}
-      resign-mode: ${{ inputs.resign-mode }}
-      use-legacy-signing-secrets: ${{ inputs.use-legacy-signing-secrets }}
-      signing-team-id: ${{ inputs.signing-team-id }}
-      signing-profile-app: ${{ inputs.signing-profile-app }}
-      signing-profile-widget: ${{ inputs.signing-profile-widget }}
-      signing-code-sign-identity: ${{ inputs.signing-code-sign-identity }}
-    secrets: inherit
+O correlation_id, o SHA-256 do payload e os identificadores dos runs ligam as cinco execuções. A plataforma não recompila a aplicação e os callbacks não transportam tokens nem valores de segredos.
 
-  distribute-check:
-    name: "Checagem de distribuição (dry-run)"
-    needs: [resolve-identity, derive-build-number, check-gate, build, test]
-    if: always() && !failure() && !cancelled() && inputs.dry-run == true
-    uses: CAIXAPLATFORM/github-workflow-jobs/.github/workflows/ios--distribute.yaml@main
-    with:
-      resolve-only: true
-      project-root: ${{ inputs.project-root }}
-      app-name: ${{ needs.resolve-identity.outputs.app-name }}
-      environment: ${{ inputs.environment }}
-      version: ${{ inputs.version }}
-      build-number: ${{ needs.derive-build-number.outputs.build-number || inputs.build-number }}
-      # Em dry-run não existe artefato hardenizado: a checagem roda sobre o IPA
-      # do build, que é o mesmo insumo do deploy real quando o seal está off.
-      ipa-artifact: ${{ needs.build.outputs.ipa-artifact }}
-      bundle-identifier: ${{ inputs.bundle-identifier }}
-      upload-method: ${{ inputs.upload-method }}
-      groups: ${{ inputs.testflight-groups || vars.IOS_TESTFLIGHT_GROUPS }}
-      restricted-group: ${{ inputs.testflight-restricted-group || vars.IOS_TESTFLIGHT_RESTRICT_GROUP }}
-      restrict-distribution: ${{ inputs.restrict-distribution || (inputs.enable-cocoa-debug && inputs.environment == 'PLT') }}
-      changelog: ${{ inputs.changelog }}
-      skip-waiting-for-build-processing: ${{ inputs.skip-waiting-for-build-processing }}
-    secrets: inherit
+Contratos das solutions
+Arquivo	Gatilho	Contrato
+e2e--ci.yml	workflow_call	Encadeia qualidade, único build e dispatch da fase artifact.
+e2e--artifact-handler.yml	workflow_dispatch	Valida a solicitação, transfere e sela o artefato e sempre tenta o callback do Run 2.
+e2e--continue.yml	workflow_call	Valida artifact-prepared, executa o smoke test no Run 3 e despacha deploy-check.
+e2e--deploy-handler.yml	workflow_dispatch	Executa o deploy dry-run e sempre tenta o callback do Run 4.
+e2e--finalize.yml	workflow_call	Valida deploy-check-complete, o recibo e a proveniência antes do status final.
+Os contratos usam inputs em kebab-case e payloads JSON com schema fechado. Os handlers são fail-closed: falhas, cancelamentos, jobs ignorados e outputs obrigatórios vazios produzem callback de falha sanitizado.
 
-  dry-run-plan:
-    name: "Plano de Dry-run"
-    needs: [derive-build-number, check-gate, build, inspect, hardening-check, distribute-check]
-    if: always() && !failure() && !cancelled() && inputs.dry-run == true
-    uses: CAIXAPLATFORM/github-workflow-jobs/.github/workflows/ios--dry-run-plan.yaml@main
-    with:
-      environment: ${{ inputs.environment }}
-      marketing-version: ${{ inputs.version }}
-      build-number: ${{ needs.derive-build-number.outputs.build-number || inputs.build-number }}
-      bundle-identifier: ${{ inputs.bundle-identifier }}
-      ipa-sha256: ${{ needs.build.outputs.ipa-sha256 }}
-      # Método resolvido pela checagem — não o input cru, que só declara intenção.
-      upload-method: ${{ needs.distribute-check.outputs.resolved-mode || inputs.upload-method }}
-      hardening-would-run: ${{ inputs.enable-hardening == true || inputs.environment != 'DES' }}
-      what-to-test: ${{ inputs.changelog }}
-    secrets: inherit
+Variáveis, segredos e ambientes
+O repositório chamador configura:
 
-  hardening:
-    name: "Hardening (Appdome)"
-    needs: [resolve-identity, build, test]
-    if: >-
-      always() && !failure() && !cancelled() && inputs.dry-run != true &&
-      (inputs.enable-hardening == true || inputs.environment != 'DES')
-    uses: CAIXAPLATFORM/github-workflow-jobs/.github/workflows/ios--hardening.yaml@main
-    with:
-      project-root: ${{ inputs.project-root }}
-      app-name: ${{ needs.resolve-identity.outputs.app-name }}
-      environment: ${{ inputs.environment }}
-      ipa-artifact: ${{ needs.build.outputs.ipa-artifact }}
-      ipa-sha256: ${{ needs.build.outputs.ipa-sha256 }}
-      resign-mode: ${{ inputs.resign-mode }}
-      # O hardening roda em runner próprio: precisa da mesma configuração de
-      # assinatura do build para selar (-pr) e reassinar após o Appdome.
-      use-legacy-signing-secrets: ${{ inputs.use-legacy-signing-secrets }}
-      signing-team-id: ${{ inputs.signing-team-id }}
-      signing-profile-app: ${{ inputs.signing-profile-app }}
-      signing-profile-app-uuid: ${{ inputs.signing-profile-app-uuid }}
-      signing-profile-widget: ${{ inputs.signing-profile-widget }}
-      signing-code-sign-identity: ${{ inputs.signing-code-sign-identity }}
-    secrets: inherit
+Tipo	Nome	Uso
+Variável	GH_APP_ID	Identificador do GitHub App que inicia os handlers e lê artefatos.
+Segredo	GH_APP_PRIVATE_KEY	Chave privada do GitHub App; nunca entra no payload.
+O repositório github-solutions configura as variáveis AZURE_TENANT_ID, AZURE_TOKEN_ISSUER_CLIENT_ID, AZURE_APPS_KEYVAULT_NAME=kv-sigit-apps-prd, AZURE_GITHUB_APP_SIGNING_KEY_NAME, E2E_APP_ID e E2E_INSTALLATION_ID_CAIXAGITHUB.
 
-  distribute:
-    name: "Distribuir TestFlight"
-    needs: [resolve-identity, derive-build-number, check-gate, build, test, hardening]
-    if: always() && !failure() && !cancelled() && inputs.dry-run != true
-    uses: CAIXAPLATFORM/github-workflow-jobs/.github/workflows/ios--distribute.yaml@main
-    with:
-      project-root: ${{ inputs.project-root }}
-      app-name: ${{ needs.resolve-identity.outputs.app-name }}
-      environment: ${{ inputs.environment }}
-      version: ${{ inputs.version }}
-      build-number: ${{ needs.derive-build-number.outputs.build-number || inputs.build-number }}
-      ipa-artifact: ${{ needs.hardening.outputs.sealed-ipa-artifact || needs.build.outputs.ipa-artifact }}
-      # O artefato hardenizado carrega o IPA selado E o original; sem nomear o
-      # selado, o distribute cai no default <app-name>.ipa e sobe o IPA sem as
-      # proteções do Appdome.
-      ipa-filename: ${{ needs.hardening.outputs.sealed-ipa-artifact && format('{0}-sealed.ipa', needs.resolve-identity.outputs.app-name) || '' }}
-      bundle-identifier: ${{ inputs.bundle-identifier }}
-      upload-method: ${{ inputs.upload-method }}
-      groups: ${{ inputs.testflight-groups || vars.IOS_TESTFLIGHT_GROUPS }}
-      restricted-group: ${{ inputs.testflight-restricted-group || vars.IOS_TESTFLIGHT_RESTRICT_GROUP }}
-      restrict-distribution: ${{ inputs.restrict-distribution || (inputs.enable-cocoa-debug && inputs.environment == 'PLT') }}
-      changelog: ${{ inputs.changelog }}
-      skip-waiting-for-build-processing: ${{ inputs.skip-waiting-for-build-processing }}
-    secrets: inherit
+Os ambientes do GitHub des e prd configuram AZURE_CLIENT_ID, AZURE_SUBSCRIPTION_ID e AZURE_CONSUMER_KEYVAULT_NAME. Nenhuma credencial estática do Azure é permitida como alternativa.
+
+Identidades, cofres e executores
+Operação	Identidade	Cofre	Executor
+Token e callback da plataforma	SIDPPB011	kv-sigit-apps-prd	Executor protegido da plataforma sem ambiente de aplicação
+Segredo de aplicação em des	SIDPPB013	kv-sigit-secrets-des	arc-runner-set-default-aks-nprod
+Segredo de aplicação em prd	SIDPPB012	kv-sigit-secrets-prd	arc-runner-set-default-aks-prod
+O ambiente validado seleciona o executor e a identidade. Não existe fallback automático de executor, cofre ou credencial quando OIDC, DNS, rede ou RBAC falha.
+
+Nomes e autorização dos segredos
+Os nomes corporativos usados pela matriz são:
+
+siiad-backendtestepagamentos-nprd-smoketest para develop/des;
+siiad-backendtestepagamentos-prd-smoketest para main/prd.
+Antes de ler o valor, o workflow privilegiado exige as cinco tags:
+
+Tag	Valor esperado
+repository_id	1296736810
+scope	app
+team	siiad
+app	backend-testepagamentos
+environment	nprd em des; prd em prd
+O valor só é lido depois da validação do nome, do repositório e das cinco tags. Ele permanece no job privilegiado e nunca aparece em saída, artefato, resumo, callback ou log.
+
+Execução da matriz
+Os pares permitidos são develop/des e main/prd. Uma execução manual por workflow_dispatch também deve informar um environment coerente com a ref; qualquer divergência falha em modo fail-closed antes do acesso privilegiado.
+
+Execução manual padrão: main + prd.
+Execução manual alternativa: develop + des.
+Durante o desenvolvimento coordenado, as referências entre os repositórios são temporariamente @feat/e2e-dispatch. Antes da matriz OIDC real, há um gate obrigatório: substituir todas essas referências por tags ou SHAs imutáveis, publicados na ordem github-actions, github-workflow-jobs, github-solutions e repositório chamador. A matriz não deve ser executada contra branches mutáveis.
+
+Resumos, callbacks e diagnóstico
+Os jobs de verificação e smoke test registram executor (runner), pod e evidência do artefato. A finalização registra status, código de falha e links para os cinco runs. Os callbacks artifact-prepared e deploy-check-complete carregam somente o schema público sanitizado.
+
+O deploy dry-run não chama ArgoCD, Ansible, registry ou endpoint da aplicação. O recibo final deve registrar executed=false; qualquer outro valor reprova o Run 5.
+
+Use os códigos de falha abaixo para diagnóstico:
+
+Código	Verificação principal
+invalid_payload	Schema, tipos, UUID, branch e ambiente.
+caller_validation_failed	Repositório, ID, SHA, ref e proveniência do run chamador.
+oidc_login_failed	Subject, FIC, tenant e AZURE_CLIENT_ID.
+vault_unreachable	DNS, private endpoint, rota e firewall do cofre.
+vault_access_denied	RBAC da identidade no Key Vault.
+secret_tags_invalid	Nome e cinco tags obrigatórias do segredo.
+artifact_not_found	Nome, run de origem, retenção e permissão Actions: read.
+artifact_digest_mismatch	Digest do payload, manifesto e atestação.
+artifact_seal_failed	Selagem, atestação e publicação do artefato final.
+smoke_test_failed	Pacote verificado e comando de smoke test do chamador.
+dry_run_failed	Recibo, executed=false e ausência de operação real.
+callback_failed	GitHub App, cofre de assinatura e permissão no repositório chamador.
+Se o callback não puder ser enviado, consulte os jobs e logs do handler e do callback. Não reutilize segredo estático, não troque de identidade e não desvie para outro executor para mascarar a causa.
+
+⚠️ Arquivos Legados
+Os seguintes arquivos são legados e não seguem a convenção de nomes estabelecida. Eles devem ser refatorados para se adequar ao padrão atual:
+
+Arquivo	Status	Observação
+quality-assurance.yml	Legado	Refatorar para quality--analysis.yml
+dotnet-libs-pipelines.yml	Legado	Refatorar para dotnet--lib--ci-cd.yml
+generic-pipelines.yaml	Legado	Refatorar para generic--ci-cd.yml
+dockerfile-validation-pipelines.yaml	Legado	Refatorar para docker--validation.yml
+codeql-pipelines.yaml	Legado	Refatorar para security--codeql.yml
+!!! warning "Importante" Não adicione novos workflows neste padrão. Siga a convenção de nomes ao criar novos workflows.
+
+Governança
+Aspecto	Regra
+Versionamento	Semantic versioning via tags (v1, v1.2.0)
+Breaking changes	Incremento de major version (v1 → v2)
+Review	Mínimo 2 aprovações para merge em main
+Testes	Todo contrato deve ter workflow de validação
+About
+
+No description, website, or topics provided.
+Resources
+Readme
+Activity
+Custom properties
+Stars
+0 stars
+Watchers
+0 watching
+Forks
+0 forks
+Releases
+No releases published
+Create a new release
+Deployments
+44
+ (44)
+nprd
+des
+2 months ago
+Packages
+No packages published
+Publish your first package
+Contributors
+6
+ (6)
+@c159719_caixa
+@f671632_caixa
+@f647481_caixa
+@c159788_caixa
+@c112141_caixa
+@c161184_caixa
+Languages
+Python
+100%
+Footer
+© 2026 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Community
+Docs
+Contact
+Manage cookies
+Do not share my personal information
+ 
