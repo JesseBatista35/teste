@@ -1,90 +1,121 @@
-Solicito verificar o bloqueio de acesso reportado pelos desenvolvedores do sistema SISPM no ambiente DES, site Bancário-SP.
+Skip to content
+GitHub Enterprise
+Users managed by Caixa Economica Federal
+caixagithub
+Organization navigation
+Overview
+Repositories
+5k+
+ (5k+)
+Projects
+81
+ (81)
+Packages
+20
+ (20)
+Teams
+2.6k
+ (2.6k)
+People
+4.9k
+ (4.9k)
+Security and quality
+Insights
+Settings
+@caixagithub
+CAIXA CORPORATIVO
+ 168 followers
+ Brazil
+ Part of Caixa Economica Federal
+PinnedLoading
+caixagithub doesn't have any pinned repositories yet.
+ Repositories
+sispm
+Loading
+18 results for all repositories matching sispm sorted by last updated	 Clear filter
+Showing 10 of 18 repositories
+sispm-backend-servico-camada-anticorrupcao Private
+Adicionando aplicação: sispm-backend-servico-camada-anticorrupcao
 
-Após o atendimento da CRQ000001513603, identifiquei que os desenvolvedores continuam recebendo mensagem de bloqueio. Realizei nova validação e o comportamento persiste, conforme evidência anexa.
+ Java  0  0  0  0 Updated 19 hours ago
+sispm-backend-informe-segregacao Private
+Adicionando aplicação: sispm-backend-informe-segregacao
 
+ Java  0  0  0  0 Updated yesterday
+sispm-backend-informe-segregacao-infranprd Private
+Adicionando aplicação: sispm-backend-informe-segregacao-infranprd
 
-Histórico de Informações de Trabalho da Ordem de Trabalho
-ID da Ordem de Trabalho	 WO0000081889976
-Criado em	 09/10/2026 22:46:28
-Criado por	 P680693
-Origem de Comunicação	 
-Exibir Acesso	 Público
-Notas	 Em contato com a Sra. Shieley, ficou acordado que ela irá procurar a equipe de Esteiras DES para prestar as devidas informações amanhã, às 14h,  no chat:  WO0000081889976/verificar o bloqueio de acesso reportado. | Chat de Grupo | Microsoft Teams
-ID da Ordem de Trabalho	 WO0000081889976
-Criado em	 09/10/2026 22:16:02
-Criado por	 P507043
-Origem de Comunicação	 
-Exibir Acesso	 Público
-Notas	 Á Caixa  
+ 0  0  0  1 Updated 2 days ago
+sispm-backend-servico-anticorrupcao-infranprd Private
+Adicionando aplicação: sispm-backend-servico-anticorrupcao-infranprd
 
+ 0  0  0  0 Updated 2 days ago
+sispm-backend-servico-anticorrupcao Private
+Adicionando aplicação: sispm-backend-servico-anticorrupcao
 
+ Java  0  0  0  1 Updated 3 days ago
+sispm-backend-servico-informe-preliminar-infranprd Private
+Adicionando aplicação: sispm-backend-servico-informe-preliminar-infranprd
 
-Necessitamos informações  sobre o IP de   origem e destino para prosseguir com o atendimento .
+ 0  0  0  0 Updated 4 days ago
+sispm-backend-servico-anticorrupcao-infraprd Private
+Adicionando aplicação: sispm-backend-servico-anticorrupcao-infraprd
 
-Foi criada uma sala no teams envolvendo as equipes de Esteiras DES TQS , CETEL02 e Operação Data Center para tratarmos essa demanda.
+ 0  0  0  0 Updated 4 days ago
+sispm-backend-servico-camada-anticorrupcao-infraprd Private
+Adicionando aplicação: sispm-backend-servico-camada-anticorrupcao-infraprd
 
+ 0  0  0  0 Updated 4 days ago
+sispm-backend-servico-camada-anticorrupcao-infranprd Private
+Adicionando aplicação: sispm-backend-servico-camada-anticorrupcao-infranprd
 
+ 0  0  0  0 Updated 4 days ago
+sispm-backend-camada-anticorrupcao-infraprd Private
+Adicionando aplicação: sispm-backend-camada-anticorrupcao-infraprd
 
-No aguardo .
-Att  
-Esteira Devops DES TQS NPRD
-
-ID da Ordem de Trabalho	 WO0000081889976
-Criado em	 09/10/2026 21:06:40
-Criado por	 P635388
-Origem de Comunicação	 
-Exibir Acesso	 Público
-Notas	 Prezados,
-
-Favor encaminhar o chamado para a equipe de redes
-
-Att
-ID da Ordem de Trabalho	 WO0000081889976
-Criado em	 09/10/2026 20:20:58
-Criado por	 P642161
-Origem de Comunicação	 
-Exibir Acesso	 Público
-Notas	 Demanda inicial sem viés de falha, erro, degradação ou esgotamento de infraestrutura, serviço, máquina, armazenamento, rotina ou situação que não esteja na iminência de tornar-se incidente. Previsto atendimento no prazo indicado pelo demandante. [CENTRAL-SID]
-ID da Ordem de Trabalho	 WO0000081889976
-Criado em	 09/10/2026 18:40:48
-Criado por	 P507043
-Origem de Comunicação	 
-Exibir Acesso	 Público
-Notas	 Prezado(a),
-
-
-
-Informamos que sua solicitação PRIORIZADA foi recebida .  
-
-
-
-Nosso SLA para atendimento é de até 8h úteis, analisaremos a solicitação para nos certificarmos que o atendimento está dentro do escopo de atuação da nossa equipe.
-
-
-
-Caso seja identificado que o atendimento não corresponde ao nosso escopo, a solicitação será redirecionada à equipe responsável.
-
-
-
-Novas informações e atualizações serão registradas diretamente nesta WO.
-
-
-
-Atte.
-
-
-
-Esteira DEVOPS DES TQS NPRD
-ID da Ordem de Trabalho	 WO0000081889976
-Criado em	 09/10/2026 18:16:41
-Criado por	 C091459
-Origem de Comunicação	 
-Exibir Acesso	 Público
-Notas	 Anexo do Registro de Solicitação.
-ID da Ordem de Trabalho	 WO0000081889976
-Criado em	 09/10/2026 18:16:40
-Criado por	 Remedy Application Service
-Origem de Comunicação	 E-mail
-Exibir Acesso	 Interno
-Notas	 Este ticket foi criado a partir do sistema de solicitação de serviço.
-Impresso por P585600 em Sábado, 10/10/2026 14:43:58
+ 0  0  0  0 Updated 4 days ago
+View all repositories
+People
+@c148700_caixa
+@c116358_caixa
+@c101018_caixa
+@c091804_caixa
+@c113236_caixa
+@c151543_caixa
+@c122429_caixa
+@c141132_caixa
+@c148679_caixa
+@c111761_caixa
+@c132779_caixa
+@c149141_caixa
+@c151771_caixa
+@c083442_caixa
+@c149157_caixa
+@c129141_caixa
+@c077914_caixa
+@c110503_caixa
+@c149154_caixa
+@c116309_caixa
+View all
+Top languages
+ Java  C#  TypeScript  Python  HTML
+Most used topics
+Manage
+ 
+infra
+estavel
+infranprd
+suporte
+boxnovosnegociosmoradia
+Footer
+© 2026 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Community
+Docs
+Contact
+Manage cookies
+Do not share my personal information
