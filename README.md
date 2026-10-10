@@ -1,292 +1,153 @@
+Suas VPCs
 
-Pular para conteúdo principal
+VPCs
+
+Controles de criptografia de VPC 
+Suas VPCs (1/1) Informações
+Last updated
+less than a minute ago
 
 
-Pesquisar
-[Alt+S]
+Ações
+Criar VPC
+
+1
 
 
+Name
+	
+ID da VPC
+	
+Estado
+	
+ID de controle da criptografia
+	
+Modo de controle de criptografia
+	
+Bloquear acesso público
+	
+CIDR IPv4
+	
+CIDR IPv6
+	
+Conjunto de opções de DHCP
+	
+Tabela de rota principal
+	
+Network ACL principal
+	
+Locação
+	
+VPC padrão
+	
+ID do proprietário
 
+Name
+	
+ID da VPC
+	
+Estado
+	
+ID de controle da criptografia
+	
+Modo de controle de criptografia
+	
+Bloquear acesso público
+	
+CIDR IPv4
+	
+CIDR IPv6
+	
+Conjunto de opções de DHCP
+	
+Tabela de rota principal
+	
+Network ACL principal
+	
+Locação
+	
+VPC padrão
+	
+ID do proprietário
 
-Estados Unidos (Ohio)
+vpc-spoke-nprd
+vpc-0a2f94c37017cbb40
+Available
+–
+–
+Desativado
+2 CIDRs
 
-ID da conta: 2256-3239-4003
-PermissionSetSupportWrite/p585600@corp.caixa.gov.br
-
-Página inicial do console
-Todos os serviços
-Página inicial do console
-Todos os serviços
-Todos os serviços
-Serviços por categoria
-Computação
-EC2
-Lightsail
-Lambda
-Batch
-Elastic Beanstalk
-Serverless Application Repository
-AWS Outposts
-EC2 Image Builder
-AWS App Runner
-Parallel Computing Service
-AWS Global View
-Contêineres
-Elastic Container Service
-Elastic Kubernetes Service
-Red Hat OpenShift Service on AWS
-Elastic Container Registry
-Armazenamento
-S3
-EFS
-FSx
-S3 Glacier
-Storage Gateway
-AWS Backup
-Recycle Bin
-AWS Elastic Disaster Recovery
-Banco de dados
-Aurora and RDS
-ElastiCache
-Neptune
-Amazon DocumentDB
-Amazon Keyspaces
-Amazon Timestream
-DynamoDB
-Aurora DSQL
-Amazon MemoryDB
-Oracle Database@AWS
-Migração e transferência
-AWS Migration Hub
-AWS Transform MGN
-Application Discovery Service
-Database Migration Service
-AWS Transfer Family
-AWS Snow Family
-DataSync
-AWS Transform
-AWS Mainframe Modernization
-Amazon Elastic VMware Service
-Redes e entrega de conteúdo
-VPC
-CloudFront
-API Gateway
-Direct Connect
-AWS App Mesh
-Global Accelerator
-Route 53
-Terminal de Transferência de Dados da AWS
-Amazon Route 53 Global Resolver
-AWS Cloud Map
-RTB Fabric
-Application Recovery Controller
-Ferramentas do desenvolvedor
-CodeCommit
-CodeBuild
-CodeDeploy
-CodePipeline
-Cloud9
-CloudShell
-X-Ray
-AWS FIS
-Infrastructure Composer
-AWS App Studio
-AWS DevOps Agent
-AWS AppConfig
-CodeArtifact
-Amazon Q Developer
-Amazon CodeCatalyst
-Kiro
-Capacitação do cliente
-AWS IQ
-Managed Services
-Activate for Startups
-AWS re:Post Private
-Support
-Blockchain
-Amazon Managed Blockchain
-Satélite
-Ground Station
-Quantum Technologies
-Amazon Braket
-Gerenciamento e governança
-AWS Organizations
-CloudWatch
-AWS Auto Scaling
-CloudFormation
-AWS Config
-Service Catalog
-Systems Manager
-Trusted Advisor
-Control Tower
-AWS Well-Architected Tool
-Amazon Q Developer in chat applications (Anteriormente AWS Chatbot)
-Launch Wizard
-AWS Compute Optimizer
-Resource Groups & Tag Editor
-Amazon Grafana
-Amazon Prometheus
-AWS Resilience Hub
-Incident Manager
-AWS para SAP
-AWS Health Dashboard
-AWS Proton
-AWS Sustainability
-AWS User Notifications
-AWS Partner Central
-CloudTrail
-AWS License Manager
-AWS Resource Explorer
-Service Quotas
-Serviços de mídia
-Kinesis Video Streams
-MediaConvert
-MediaLive
-MediaPackage
-MediaStore
-MediaTailor
-Elemental Appliances & Software
-Amazon Interactive Video Service
-Elemental Inference
-AWS Deadline Cloud
-MediaConnect
-Machine Learning
-Amazon SageMaker AI
-Amazon Augmented AI
-Amazon CodeGuru
-Amazon DevOps Guru
-Amazon Comprehend
-Amazon Forecast
-Amazon Fraud Detector
-Amazon Kendra
-Amazon Personalize
-Amazon Polly
-Amazon Rekognition
-Amazon Textract
-Amazon Transcribe
-Amazon Translate
-Amazon Monitron
-AWS HealthLake
-Amazon Q Business
-Amazon Bedrock (endpoint mantle)
-Registro de Agentes da AWS
-Claude Platform na AWS
-AWS HealthOmics
-Amazon Nova Act
-Amazon Bedrock
-Amazon Bedrock AgentCore
-Amazon Q
-Amazon Comprehend Medical
-Amazon Lex
-Amazon Bio Discovery
-AWS HealthImaging
-Análise de dados
-Athena
-Amazon Redshift
-CloudSearch
-Amazon OpenSearch Service
-Kinesis
-QuickSight
-AWS Data Exchange
-AWS Lake Formation
-MSK
-AWS Glue DataBrew
-Managed Apache Flink
-EMR
-AWS Clean Rooms
-Amazon SageMaker
-AWS Entity Resolution
-AWS Glue
-Amazon Data Firehose
-Amazon DataZone
-Amazon Quick
-Segurança, identidade e conformidade
-Resource Access Manager
-Cognito
-Secrets Manager
-GuardDuty
-Amazon Inspector
-Amazon Macie
-IAM Identity Center
-Certificate Manager
-Key Management Service
-CloudHSM
-Directory Service
-AWS Firewall Manager
-AWS Artifact
-Detective
-AWS Signer
-Security Lake
-Agente de Segurança da AWS (agora parte do AWS Continuum)
-Amazon Verified Permissions
-AWS Audit Manager
-Security Hub CSPM
-IAM
-WAF & Shield
-Security Hub
-AWS Private Certificate Authority
-Network Security Manager
-AWS Payment Cryptography
-AWS Security Incident Response
-Cloud Financial Management
-AWS Marketplace
-AWS Billing Conductor
-AWS FinOps Agent
-Gerenciamento de faturamento e custos
-Dispositivos móveis
-AWS Amplify
-AWS AppSync
-Device Farm
-Amazon Location Service
-Integração de aplicativos
-Step Functions
-Amazon AppFlow
-Amazon MQ
-Simple Notification Service
-Simple Queue Service
-SWF
-Apache Airflow gerenciado
-AWS B2B Data Interchange
-Amazon EventBridge
-Aplicativos empresariais
-Amazon Connect Customer
-Amazon Chime
-Amazon Simple Email Service
-Amazon WorkDocs
-Amazon WorkMail
-Amazon Connect Health
-Amazon Connect Talent
-Amazon Connect Decisions
-Amazon Pinpoint
-AWS Wickr
-AWS AppFabric
-AWS End User Messaging
-Amazon Chime SDK
-Computação de usuário final
-WorkSpaces
-WorkSpaces Applications
-WorkSpaces Thin Client
-WorkSpaces Secure Browser
-Internet das Coisas
-IoT Device Defender
-IoT Device Management
-IoT Greengrass
-IoT SiteWise
-IoT Core
-IoT TwinMaker
-AWS IoT FleetWise
-Desenvolvimento de jogos
-Amazon GameLift Servers
-Amazon GameLift Streams
-
-CloudShell
-Kit de ferramentas de agentes para a AWS
-Comentários
-© 2026, Amazon Web Services, Inc. ou suas afiliadas.
-Privacidade
-Termos
-Preferências de cookies
+10.249.79.0/24
+100.64.0.0/16
+–
+dopt-0cc4c7d2e5c22f1fc
+rtb-0f207443319ff267b
+acl-0c928fab74e0bb865
+default
+Não
+225632394003
+Criar VPC
+Criar VPC padrão
+Criar log de fluxo
+Editar configurações da VPC
+Editar CIDRs
+Gerenciar rotas de middlebox
+Criar controle de criptografia
+Gerenciar tags
+Excluir VPC
+vpc-0a2f94c37017cbb40 / vpc-spoke-nprd
 
 
 
-qual desse serviclos vamos com calma
+Detalhes
+
+Mapa de recursos
+
+CIDRs
+
+Logs de fluxos
+
+Tags
+
+Recursos relacionados
+
+Integrações
+Detalhes
+ID da VPC
+vpc-0a2f94c37017cbb40
+Resolução de DNS
+Habilitado
+Network ACL principal
+acl-0c928fab74e0bb865
+CIDR IPv6
+–
+ID de controle da criptografia
+–
+Estado
+Available
+Locação
+default
+VPC padrão
+Não
+Métricas de uso do endereço de rede
+Desabilitado
+Modo de controle de criptografia
+–
+Bloquear acesso público
+Desativado
+Conjunto de opções de DHCP
+dopt-0cc4c7d2e5c22f1fc
+CIDR IPv4
+2 CIDRs
+Grupos de regras do Firewall de DNS do resolvedor do Route 53
+Falha ao carregar grupos de regras
+Nomes de host DNS
+Habilitado
+Tabela de rota principal
+rtb-0f207443319ff267b
+Grupo IPv6
+–
+ID do proprietário
+225632394003
+Exibindo itens 1 a 1 de 1
