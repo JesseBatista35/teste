@@ -16,11 +16,11 @@ PermissionSetSupportWrite/p585600@corp.caixa.gov.br
 Amazon Elastic Kubernetes Service
 Clusters
 eks-cdc-nprd
-Acesso
+Recursos
 Amazon Elastic Kubernetes Service
 Clusters
 eks-cdc-nprd
-Acesso
+Recursos
 
 
 
@@ -50,55 +50,62 @@ Amazon ECR
 AWS Batch
 Documentação
 Workshops do EKS
-Acesso
-Configuração de acesso
-Gerenciar
-Modo de autenticação
-API do EKS
+Recursos
+Status da workload
 
-Entradas de acesso do IAM
+Visão geral dos recursos de workload agrupados por status.
 
-Associações de Identidade de Pods
+Erro ao carregar recursos
+Pods
+Erro ao carregar recursos
+DaemonSets
+Erro ao carregar recursos
+Implantações
+Erro ao carregar recursos
+ReplicaSets
+Erro ao carregar recursos
+StatefulSets
+Erro ao carregar recursos
+Trabalhos
+Tipos de recursos
 
-Provedores de identidade OIDC
-Entradas de acesso do IAM (5) Informações
-Última atualização
-10 de outubro de 2026, 15:10 (UTC-03:00)
+Cargas de trabalho
+PodTemplates
+Pods
+ReplicaSets
+Implantações
+StatefulSets
+DaemonSets
+Trabalhos
+CronJobs
+PriorityClasses
+HorizontalPodAutoscalers
+ResourceClaims
+ResourceClaimTemplates
+ResourceSlices
+Cluster
+Serviços e redes
+Configuração e segredos
+Armazenamento
+Autenticação
+Autorização
+Política
+Extensões
+Cargas de trabalho: Pods (0)
 
 Visualizar detalhes
-Editar
-Excluir
-Criar
+O pod é o menor e mais simples objeto do Kubernetes. Um pod representa um conjunto de contêineres em execução no cluster.
+Saiba mais 
+Filtros de consultas avançadas
 
 1
 
-Seleção de entradas de acesso	
-ARN da entidade principal do IAM
-Tipo
-Nome de usuário
-Nomes de grupo
-Políticas de acesso
-arn:aws:iam::225632394003:role/aft-global-TerraformPipeline-Role
-Padrão
-arn:aws:sts::225632394003:assumed-role/aft-global-TerraformPipeline-Role/{{SessionName}}
-AmazonEKSClusterAdminPolicy
-arn:aws:iam::225632394003:role/aws-reserved/sso.amazonaws.com/sa-east-1/AWSReservedSSO_PermissionSetSupportWrite_f262960c2ae839d6
-Padrão
-arn:aws:sts::225632394003:assumed-role/AWSReservedSSO_PermissionSetSupportWrite_f262960c2ae839d6/{{SessionName}}
-AmazonEKSClusterAdminPolicy
-arn:aws:iam::225632394003:role/aws-service-role/eks.amazonaws.com/AWSServiceRoleForAmazonEKS
-Padrão
-arn:aws:sts::225632394003:assumed-role/AWSServiceRoleForAmazonEKS/{{SessionName}}
-eks:managed
-AmazonEKSClusterInsightsPolicy, AmazonEKSEventPolicy, AmazonEKSPodIdentityPolicy
-arn:aws:iam::225632394003:role/eks-cdc-nprd-node-role
-EC2 Linux
-system:node:{{EC2PrivateDNSName}}
-system:nodes
-arn:aws:iam::225632394003:role/vpc-spoke-nprd-EC2-SSM-Role
-Padrão
-arn:aws:sts::225632394003:assumed-role/vpc-spoke-nprd-EC2-SSM-Role/{{SessionName}}
-AmazonEKSClusterAdminPolicy
+Seleção de recursos	
+Nome
+Criado
+Status
+Erro ao carregar recursos
+Failed to fetch
 
 CloudShell
 Kit de ferramentas de agentes para a AWS
@@ -107,4 +114,4 @@ Comentários
 Privacidade
 Termos
 Preferências de cookies
-Exibindo itens de 1 a 5 de 5
+Erro ao carregar recursosErro ao carregar recursosErro ao carregar recursos.Erro ao carregar recursos.Erro ao carregar recursos.Erro ao carregar recursos.Exibindo itens de 1 a 0 de 0
