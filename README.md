@@ -1,11 +1,17 @@
-Jesse Mouta Pereira Batista
- 
-Bom dia, Jesse! Vi que talvez você já esteja preparando a pipeline. Para evitarmos duplicar trabalho e seguirmos o padrão de DevOps, queria alinhar como o repositório SIEPR-curso-bec3-frontend entra nesse fluxo.
-Você já está considerando esse repositório? Se sim, podemos combinar o que fica com o time de desenvolvimento — por exemplo, testes e build — e o que precisa ser configurado por DevOps, como agente, acesso ao registry npm e validação nas PRs.
-Também identificamos uma credencial configurada no .npmrc versionado. Não compartilharei o valor aqui; qual é o procedimento recomendado para tratá-la e fazer a autenticação da pipeline com segurança?
+Bom dia! Obrigado pelo contato e pelo cuidado em alinhar antes, ajuda bastante.
 
+Só para contextualizar: sou do time de Esteiras DevOps DES/TQS e nossos atendimentos são feitos via REQ. Os ajustes que fiz na pipeline foram para atender uma REQ específica.
 
+Para incluir o SIEPR-curso-bec3-frontend no fluxo, o ideal é abrir uma REQ para a esteira informando o repositório e o que vocês esperam da pipeline. Assim registramos o escopo e evitamos duplicidade de trabalho.
 
- priemiro ponto atedemos por req, fiz algusn ajuster an pipiline para tadetimdneo de req
-me ajuda a respodner ele que somoso esteiras, fazenos ajustes no repositrio sobre npm e nao sei o que podemos passar orietação mais isso fica com time de desenvolvimento
- 
+Sobre a divisão, de forma geral:
+• Time de desenvolvimento: código, package.json, scripts de build e testes, qualidade/cobertura e o conteúdo do repositório (incluindo o .npmrc).
+• Esteira (via REQ): configuração da pipeline, agente, autenticação no registry npm pelo lado da pipeline e validações nas PRs.
+
+Sobre a credencial no .npmrc, obrigado por não compartilhar o valor. A correção no repositório fica com o time de vocês, mas deixo algumas orientações:
+1. Remover a credencial do .npmrc versionado, mantendo apenas a configuração do registry.
+2. Como ela ficou no histórico do Git, o ideal é considerá-la exposta e solicitar a revogação/troca com o responsável.
+3. Na pipeline, a autenticação é feita pela própria esteira, por variáveis protegidas, e não pelo .npmrc do repositório. Configuramos isso no atendimento da REQ.
+4. Para uso local, cada desenvolvedor pode manter suas credenciais no .npmrc do próprio usuário (~/.npmrc), fora do repositório.
+
+Qualquer dúvida, fico à disposição!
