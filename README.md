@@ -1,17 +1,13 @@
-Jesse Mouta Pereira Batista
-Bom dia, Figura Carrijo Viana Figur.   Tipos de NFS: na esteira existem ISILON e VM. O script também prevê HUAWEI, mas ainda não está implementado: hoje ele só monta ISILON e VM.   Como a esteira de…
-Muito obrigado, Jesse!! Isso esclarece muita coisa!! 
- 
-Pessoal, abri uma REQ000146556860 solicitando a montagem/configuração na esteira de todos os NFS que precisamos para fazer o De-Para de produção.
+Prezada Figura, bom dia.
 
+Estamos encerrando esta REQ por orientação, pois o fluxo adequado para essa demanda é outro.
 
- Solicito a configuração dos NFS informados na esteira de DES, ajustando os mounts existentes e criando os necessários conforme a relação encaminhada. Os compartilhamentos repetidos devem ser mantidos para atendimento do mapeamento DE/PARA com os diretórios atualmente utilizados em Produção.
+Como funciona hoje:
 
-Solicito a recriação da esteira com destruição da configuração atual, a fim de evitar conflitos durante a montagem dos compartilhamentos.
+Provisionamento do NFS (Armazenamento): a criação do compartilhamento, com path, capacidade e liberação de acesso (ACL) para os IPs do servidor principal e do servidor de backup, deve ser solicitada ao time de Armazenamento pelo InfraFácil, via formulário de provisionamento. Hoje o Armazenamento não atende mais por WO direta e está em migração de rede (IPs na faixa 10.188.0.0/16).
+Montagem na esteira (Esteiras DES/TQS): só depois que o compartilhamento existir e estiver liberado, abrimos a demanda para a esteira, informando por NFS: endpoint de origem, mount point de destino e tipo (ISILON ou VM). A esteira apenas monta o que já está provisionado e acessível.
+Recriação da esteira com destruição da configuração: não é feita por este time. Se for realmente necessária, trata-se de reprovisionamento do ambiente e deve seguir pelo fluxo de INFRA, também pelo InfraFácil. Em geral, para evitar conflito de mount, basta ajustar as variáveis e reexecutar a esteira.
 
-Ao final da atividade, favor anexar evidências da montagem dos NFS por meio do comando df -h -T, executado no servidor principal e no servidor de backup.
+Próximos passos: após o Armazenamento concluir o provisionamento e confirmar a liberação de acesso, abra uma nova REQ para o time de Esteiras com a relação completa do DE/PARA, que atenderemos.
 
-Os compartilhamentos já possuem liberação de acesso para os servidores do ambiente de DES.
-
-
-eu acho que ela está no fluxo errado 
+Permanecemos à disposição.
