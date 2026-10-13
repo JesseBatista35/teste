@@ -1,20 +1,17 @@
-Prezados,
+Jesse Mouta Pereira Batista
+Bom dia, Figura Carrijo Viana Figur.   Tipos de NFS: na esteira existem ISILON e VM. O script também prevê HUAWEI, mas ainda não está implementado: hoje ele só monta ISILON e VM.   Como a esteira de…
+Muito obrigado, Jesse!! Isso esclarece muita coisa!! 
+ 
+Pessoal, abri uma REQ000146556860 solicitando a montagem/configuração na esteira de todos os NFS que precisamos para fazer o De-Para de produção.
 
-Em atenção à solicitação, esclarecemos que a análise de impacto entregue na WO0000081742003 mapeou os workflows afetados pela migração do label ubuntu-latest para Ubuntu 26.04 e as ações recomendadas. A execução de builds e a validação dos testes, porém, são responsabilidade das comunidades donas das aplicações, e não da equipe de Esteiras DevOps DES/TQS NPRD.
 
-Para o teste, cada comunidade deve executar o build dos seus repositórios utilizando runs-on: ubuntu-26.04 e validar o resultado. Os principais pontos de atenção são:
+ Solicito a configuração dos NFS informados na esteira de DES, ajustando os mounts existentes e criando os necessários conforme a relação encaminhada. Os compartilhamentos repetidos devem ser mantidos para atendimento do mapeamento DE/PARA com os diretórios atualmente utilizados em Produção.
 
-Java default 17 → 25: jobs sem setup-java declarado
-Java 8: removido da imagem
-Helm 3 → 4
-Docker 28 → 29
-Python do sistema 3.12 → 3.14: jobs sem setup-python declarado
+Solicito a recriação da esteira com destruição da configuração atual, a fim de evitar conflitos durante a montagem dos compartilhamentos.
 
-A relação dos workflows centrais e dos repositórios de aplicação impactados está no documento em anexo, com os riscos e a ação recomendada para cada item.
+Ao final da atividade, favor anexar evidências da montagem dos NFS por meio do comando df -h -T, executado no servidor principal e no servidor de backup.
 
-Caso a comunidade identifique falha durante os testes, a equipe de Esteiras permanece à disposição para apoiar na análise. Até o fim do rollout (19/11), o label ubuntu-24.04 pode ser usado como contingência.
+Os compartilhamentos já possuem liberação de acesso para os servidores do ambiente de DES.
 
-Atenciosamente,
-Jessé Mouta Pereira Batista
-Analista
-CTIS / CESTI Esteira DEVOPS DES TQS NPRD
+
+eu acho que ela está no fluxo errado 
