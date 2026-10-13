@@ -1,8 +1,9 @@
 Prezada Figura, bom dia.
 
-Vamos atender a configuração dos NFS na esteira de DES. Para prosseguir, precisamos de algumas informações:
+Estamos encerrando esta solicitação por orientação, pois a montagem na esteira depende de uma etapa anterior que não foi identificada.
 
-Relação completa do DE/PARA, informando por NFS: endpoint de origem (produção), endpoint a ser montado em DES, mount point de destino e tipo (ISILON ou VM), incluindo os compartilhamentos repetidos.
-Confirmação da liberação de acesso (ACL) de cada export para o IP principal e para o IP de backup dos servidores de DES. No tipo VM, essa liberação é manual e feita pelo time de Armazenamento. Sem ela, a montagem falha por timeout ou permissão negada. Caso os exports ainda não estejam provisionados ou liberados, a solicitação deve ser feita ao Armazenamento pelo InfraFácil.
+Provisionamento do NFS (Armazenamento): a criação dos compartilhamentos, com path, capacidade e liberação de acesso (ACL) para o IP do servidor principal e o IP do servidor de backup, deve ser solicitada ao time de Armazenamento pelo InfraFácil, via formulário de provisionamento. Hoje o Armazenamento não atende mais por WO direta e está em migração de rede (IPs na faixa 10.188.0.0/16).
+Configuração na esteira (Esteiras DES/TQS): assim que o Armazenamento concluir o provisionamento, a demanda é encaminhada ao nosso time, e então realizamos a configuração dos NFS na esteira de DES, com base no DE/PARA informado. A esteira apenas monta o que já está provisionado e liberado. Sem a ACL, a montagem falha por timeout ou permissão negada.
+Recriação da esteira: será avaliada após o recebimento dos dados, analisando quais variáveis e mounts precisam ser ajustados ou limpos. A recriação completa só será executada se for realmente necessária.
 
-Sobre a recriação da esteira com destruição da configuração atual: não será feita de imediato. Com o DE/PARA em mãos, vamos analisar quais variáveis e mounts precisam ser ajustados ou limpos para o fluxo funcionar. A recriação completa só será executada se for realmente necessária, pois ela remove a configuração atual do servidor, incluindo montagens que hoje funcionam.
+Permanecemos à disposição.
