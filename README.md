@@ -1,30 +1,73 @@
-Evandro, terminei a análise da WO0000081889976 (SISPM). Segue o passo a passo do que fiz e o que encontrei:
 
-*1. Descobrir onde o SISPM roda*
-No GitHub (caixagithub) os repos sispm-backend-* têm os pares -infranprd/-infraprd. No values/config do sispm-backend-informe-segregacao-infranprd vi que o deploy vai para o cluster EKS *eks-cdc-nprd* via ArgoCD.
+Fazer Suporte ao GitHub
+Sigla do Sistema*:	...
+Qual o ambiente*:	NPRD
+Informe a URL do repositório no GitHub*:	...
+Selecione a sua Comunidade*:	Esteiras Digitais
+Formas de contato*:	c148670
+Descrição da necessidade*:	Prezados,
 
-*2. Achar a conta AWS*
-A mensagem do Felipe que a Shirlei encaminhou cita a VPC 10.249.79.0/24 da conta 225632394003. No portal de acesso da AWS esse ID é a conta *accdepecapnprd*.
+Conforme solicitação na WO0000081742003, solicito por gentileza a execução das tarefas abaixo:
 
-*3. Conferir no console AWS (região São Paulo)*
-• VPC: vpc-spoke-nprd, faixa 10.249.79.0/24 (o destino da CRQ)
-• EKS: eks-cdc-nprd está nessa conta, com endpoint da API *privado*
-• Ao abrir os Pods no console, dá "Failed to fetch". Consegui reproduzir o mesmo problema dos devs
-• Pelas tags, o cluster é do *COE*, time de incidente *CESTI35*, owner Joe Santana Ferreira
+testar os workflows mapeados com ubuntu-26.04 nos repositórios New-Flow-Test.
+Documentar os workflows que rodaram com sucesso, os que falharam.
 
-*4. Testar a rede da minha estação (VPN)*
-• DNS: o endpoint do cluster resolve para 10.249.79.56 e .82 ✅
-• Porta 443: Test-NetConnection conectou nos dois IPs ✅
-• curl direto, sem proxy: o cluster respondeu 401 (normal, sem credencial) ✅
-Ou seja, a regra de firewall da CRQ000001513603 está funcionando.
+Prazo: 14/10
 
-*5. Achar o que bloqueia de verdade*
-• *Proxy do navegador:* o navegador usa o PAC siprx-pacv4.pac, que manda o endereço do EKS (*.eks.amazonaws.com) para o proxy de internet. Como o endpoint é privado, o proxy não alcança e o console mostra "Failed to fetch". Pelo CMD funciona porque não passa pelo proxy.
-• *Permissão no cluster:* nas Access Entries do EKS só tem o perfil PermissionSetSupportWrite e roles técnicas. Não tem nenhuma entrada para o perfil dos devs, então mesmo resolvendo o proxy eles vão tomar "Unauthorized".
 
-*Conclusão*
-O firewall está OK. Faltam duas ações, nenhuma de Esteiras:
-1. *Equipe de Proxy/PAC:* exceção DIRECT para o hostname do cluster (7E48322A0761B3CA4EC5B83EC023BD28.gr7.sa-east-1.eks.amazonaws.com). Melhor não liberar *.eks.amazonaws.com inteiro para não quebrar clusters com endpoint público.
-2. *COE / CESTI35:* criar Access Entry no eks-cdc-nprd para o permission set dos devs do SISPM.
+essa foi nossa nota
 
-Só falta perguntar aos devs qual permission set eles usam (aparece no topo do console AWS). Já deixei a nota da WO pronta com as evidências, te mando pra você registrar e reatribuir.
+
+À CAIXA
+
+Análise de impacto – Migração do label ubuntu-latest para Ubuntu 26.04 (GitHub Actions)
+
+Conforme comunicado do GitHub, o label ubuntu-latest passará da imagem Ubuntu 24.04 para a 26.04. O rollout será gradual, de 19/10/2026 a 19/11/2026. A análise foi feita nas orgs caixagithub e caixadepartamental. O documento completo segue em anexo.
+
+Resultado:
+
+caixadepartamental: sem impacto. Nenhum workflow utiliza ubuntu-latest.
+caixagithub: impacto concentrado em 7 workflows centrais (DevSecOps-Solutions e DevSecOps-Actions) que ainda usam runner hospedado pelo GitHub. Todos os repositórios que os chamam herdam o impacto. A esteira padrão (generic-pipelines.yaml e generic-pipelines-departamental.yaml) roda em runner próprio (ARC/self-hosted) e não é afetada.
+
+Workflows centrais impactados:
+
+gsc-integration-generic-pipeline.yaml: job VALIDATION, portão de deploy de 20+ repositórios (criticidade alta)
+java-libs-pipelines.yaml: build e publicação de libs Java (criticidade alta)
+generic-s3-pipelines.yaml: deploy de front para S3 (criticidade alta)
+akv.yml: leitura de segredos do Key Vault (criticidade alta)
+buildGradle.yml / mobile/android/buildGradle.yml: build Gradle/Android (criticidade média a alta)
+codeql-pipelines.yaml: CodeQL das linguagens que não são Java (criticidade média)
+dockerfile-validation-pipelines.yaml: validação de Dockerfile (criticidade média)
+
+Principais riscos da nova imagem:
+
+Java default passa de 17 para 25, o que afeta jobs sem setup-java
+Java 8 removido da imagem
+Helm 3 → 4
+Docker 28 → 29
+Python do sistema 3.12 → 3.14
+
+Também foram identificados repositórios de aplicação com ubuntu-latest próprio que precisam de ajuste pontual, detalhados no documento. Os principais são jobs de CodeQL/Java sem setup-java e os templates do DevHub e do cookiecutter de automação.
+
+Ações recomendadas:
+
+Até 10/10: testar os workflows centrais com ubuntu-26.04 nos repositórios New-Flow-Test.
+Até 16/10: fixar o label explícito nos centrais, via Fusionx: ubuntu-26.04 no que for validado e ubuntu-24.04 (suportado por mais 2 anos) no restante.
+Até 16/10: ajustar os templates (DevHub skeleton e cookiecutter) e comunicar os donos dos repositórios de aplicação listados.
+De 19/10 a 19/11: monitorar as falhas durante o rollout. Em caso de quebra, reverter o job afetado para ubuntu-24.04.
+
+
+
+Atenciosamente,
+
+Jessé Mouta Pereira Batista
+Analista
+CTIS / CESTI Esteira DEVOPS DES TQS NPRD
+
+
+
+eu nao enteid ele pedoiu para testar mais nao colocou quals sao os repositorios. 
+
+ou seja ele que quer que eu façaoa o trabalho dele
+
+e outra o teste é com equipe de desenvolvimento e nao com a esteiras
