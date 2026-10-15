@@ -34,97 +34,64 @@ Search logs
 0s
 0s
 14s
-    Labels:
-     org.mobyproject.buildkit.worker.executor:         oci
-     org.mobyproject.buildkit.worker.hostname:         0febe46e74ef
-     org.mobyproject.buildkit.worker.network:          host
-     org.mobyproject.buildkit.worker.oci.process-mode: sandbox
-     org.mobyproject.buildkit.worker.selinux.enabled:  false
-     org.mobyproject.buildkit.worker.snapshotter:      overlayfs
-    GC Policy rule#0:
-     All:            false
-     Filters:        type==source.local type==exec.cachemount type==source.git.checkout
-     Keep Duration:  48h0m0s
-     Max Used Space: 488.3MiB
-    GC Policy rule#1:
-     All:            false
-     Keep Duration:  1440h0m0s
-     Reserved Space: 1.863GiB
-     Max Used Space: 14.9GiB
-     Min Free Space: 3.725GiB
-    GC Policy rule#2:
-     All:            false
-     Reserved Space: 1.863GiB
-     Max Used Space: 14.9GiB
-     Min Free Space: 3.725GiB
-    GC Policy rule#3:
-     All:            true
-     Reserved Space: 1.863GiB
-     Max Used Space: 14.9GiB
-     Min Free Space: 3.725GiB
-Inspect builder
-    {
-      "nodes": [
-        {
-          "name": "builder-608a32ff-6150-47a4-8a8a-75890eac24170",
-          "endpoint": "unix:///var/run/docker.sock",
-          "status": "running",
-          "buildkitd-flags": "--allow-insecure-entitlement security.insecure --allow-insecure-entitlement network.host",
-          "buildkit": "v0.32.2",
-          "platforms": "linux/amd64,linux/amd64/v2,linux/amd64/v3,linux/amd64/v4,linux/386",
-          "features": {
-            "Automatically load images to the Docker Engine image store": true,
-            "Cache export": true,
-            "Direct push": true,
-            "Docker exporter": true,
-            "Multi-platform build": true,
-            "OCI exporter": true
-          },
-          "labels": {
-            "org.mobyproject.buildkit.worker.executor": "oci",
-            "org.mobyproject.buildkit.worker.hostname": "0febe46e74ef",
-            "org.mobyproject.buildkit.worker.network": "host",
-            "org.mobyproject.buildkit.worker.oci.process-mode": "sandbox",
-            "org.mobyproject.buildkit.worker.selinux.enabled": "false",
-            "org.mobyproject.buildkit.worker.snapshotter": "overlayfs"
-          },
-          "gcPolicy": [
-            {
-              "all": false,
-              "filter": [
-                "type==source.local type==exec.cachemount type==source.git.checkout"
-              ],
-              "keepDuration": "48h0m0s",
-              "maxUsedSpace": "488.3MiB"
-            },
-            {
-              "all": false,
-              "keepDuration": "1440h0m0s",
-              "reservedSpace": "1.863GiB",
-              "maxUsedSpace": "14.9GiB",
-              "minFreeSpace": "3.725GiB"
-            },
-            {
-              "all": false,
-              "reservedSpace": "1.863GiB",
-              "maxUsedSpace": "14.9GiB",
-              "minFreeSpace": "3.725GiB"
-            },
-            {
-              "all": true,
-              "reservedSpace": "1.863GiB",
-              "maxUsedSpace": "14.9GiB",
-              "minFreeSpace": "3.725GiB"
-            }
-          ]
-        }
-      ],
-      "name": "builder-608a32ff-6150-47a4-8a8a-75890eac2417",
-      "driver": "docker-container",
-      "lastActivity": "2026-09-09T18:03:14.000Z"
-    }
-BuildKit version
-    builder-608a32ff-6150-47a4-8a8a-75890eac24170: v0.32.2
+Connecting on Registry
+0s
+Run set -euo pipefail
+    set -euo pipefail
+    
+    # Normalize image path (lowercase)
+    REPO_PATH="$(echo "siarx/backend-autoridade-registro/siarx-backend-autoridade-registro" | tr '[:upper:]' '[:lower:]')"
+    echo "image_dir=$REPO_PATH" >> "$GITHUB_OUTPUT"
+    if [[ "" == "azure" ]]; then
+      echo "Connecting to Azure Container Registry..."
+      USERNAME="00000000-0000-0000-0000-000000000000"
+    
+      az login --identity --client-id "***" --output none
+    
+      TOKEN="$(az acr login \
+        --name "acrcentralcaixanprd" \
+        --expose-token \
+        --output tsv \
+        --query accessToken)"
+    
+      REGISTRY="acrcentralcaixanprd.azurecr.io"
+      REGISTR_PRD="acrcentralcaixaprd.azurecr.io"
+      IMAGE_NAME="${REGISTRY}/${REPO_PATH}"
+    
+      # Outputs for Azure
+      echo "username=$USERNAME" >> "$GITHUB_OUTPUT"
+      echo "token=$TOKEN" >> "$GITHUB_OUTPUT"
+      echo "image=$IMAGE_NAME" >> "$GITHUB_OUTPUT"
+      echo "registry_url=$REGISTRY" >> "$GITHUB_OUTPUT"
+      echo "registry_url_prd=$REGISTR_PRD" >> "$GITHUB_OUTPUT"
+    elif [[ "" == "aws" ]]; then
+      echo "Connecting to AWS ECR..."
+      REGISTRY=""
+      echo "registry_url=$REGISTRY"
+      echo "registry_url=" >> "$GITHUB_OUTPUT"
+      IMAGE_NAME="${REGISTRY}/${REPO_PATH}"
+    
+      # Outputs for AWS (no username/token needed)
+      echo "image=$IMAGE_NAME" >> "$GITHUB_OUTPUT"
+    else
+      echo "Unsupported cloud_provider: " >&2
+      exit 1
+    fi
+    
+    echo "IMAGE=$IMAGE_NAME"
+    shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+    env:
+      pythonLocation: /home/runner/_work/_tool/Python/3.11.16/x64
+      PKG_CONFIG_PATH: /home/runner/_work/_tool/Python/3.11.16/x64/lib/pkgconfig
+      Python_ROOT_DIR: /home/runner/_work/_tool/Python/3.11.16/x64
+      Python2_ROOT_DIR: /home/runner/_work/_tool/Python/3.11.16/x64
+      Python3_ROOT_DIR: /home/runner/_work/_tool/Python/3.11.16/x64
+      LD_LIBRARY_PATH: /home/runner/_work/_tool/Python/3.11.16/x64/lib
+      REPOSITORY_ARTIFACTS_APP: NEXUS
+      LANGUAGES: ["java"]
+      Informe o nome da variavel usada no projeto: Informe o valor referente a esta variavel
+  Unsupported cloud_provider: 
+  Error: Process completed with exit code 1.
 0s
 6s
 0s
