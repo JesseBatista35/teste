@@ -1,9 +1,3 @@
-
-
-
-Solicita-se suporte para análise do erro apresentado na esteira do projeto SIARX Backend Autoridade de Registro (siarx-backend-autoridade-registro), durante a execução do build na etapa Docker Container Build, visando identificar a causa da falha e orientar as ações necessárias para conclusão do build e disponibilização do ambiente DES.
-
-
 Skip to content
 GitHub Enterprise
 Users managed by Caixa Economica Federal
@@ -40,50 +34,97 @@ Search logs
 0s
 0s
 14s
-Run caixagithub/DevSecOps-Actions/.github/chaintools/dockercontainer/build@main
-  with:
-    buildContext: /home/runner/_work/siarx-backend-autoridade-registro/siarx-backend-autoridade-registro
-    sigla: siarx
-    modulo: backend-autoridade-registro
-    uses_packages: false
-    uses_nexus: false
-    client_id_runner: ***
-    github_token_org: ***
-    repository: siarx-backend-autoridade-registro
-    command: build
-    Dockerfile: ./Dockerfile
-  env:
-    pythonLocation: /home/runner/_work/_tool/Python/3.11.16/x64
-    PKG_CONFIG_PATH: /home/runner/_work/_tool/Python/3.11.16/x64/lib/pkgconfig
-    Python_ROOT_DIR: /home/runner/_work/_tool/Python/3.11.16/x64
-    Python2_ROOT_DIR: /home/runner/_work/_tool/Python/3.11.16/x64
-    Python3_ROOT_DIR: /home/runner/_work/_tool/Python/3.11.16/x64
-    LD_LIBRARY_PATH: /home/runner/_work/_tool/Python/3.11.16/x64/lib
-    REPOSITORY_ARTIFACTS_APP: NEXUS
-    LANGUAGES: ["java"]
-    Informe o nome da variavel usada no projeto: Informe o valor referente a esta variavel
-Set up QEMU
-8s
-  Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
-Run docker/setup-qemu-action@v3
-Docker info
-Pulling binfmt Docker image
-Image info
-Binfmt version
-Installing QEMU static binaries
-Extracting available platforms
-Set up Docker Buildx
-6s
-  Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
-Run docker/setup-buildx-action@v3
-  (node:704) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
-  (Use `node --trace-deprecation ...` to show where the warning was created)
-Docker info
-Buildx version
-Inspecting default docker context
-Creating a new builder instance
-Booting builder
+    Labels:
+     org.mobyproject.buildkit.worker.executor:         oci
+     org.mobyproject.buildkit.worker.hostname:         0febe46e74ef
+     org.mobyproject.buildkit.worker.network:          host
+     org.mobyproject.buildkit.worker.oci.process-mode: sandbox
+     org.mobyproject.buildkit.worker.selinux.enabled:  false
+     org.mobyproject.buildkit.worker.snapshotter:      overlayfs
+    GC Policy rule#0:
+     All:            false
+     Filters:        type==source.local type==exec.cachemount type==source.git.checkout
+     Keep Duration:  48h0m0s
+     Max Used Space: 488.3MiB
+    GC Policy rule#1:
+     All:            false
+     Keep Duration:  1440h0m0s
+     Reserved Space: 1.863GiB
+     Max Used Space: 14.9GiB
+     Min Free Space: 3.725GiB
+    GC Policy rule#2:
+     All:            false
+     Reserved Space: 1.863GiB
+     Max Used Space: 14.9GiB
+     Min Free Space: 3.725GiB
+    GC Policy rule#3:
+     All:            true
+     Reserved Space: 1.863GiB
+     Max Used Space: 14.9GiB
+     Min Free Space: 3.725GiB
 Inspect builder
+    {
+      "nodes": [
+        {
+          "name": "builder-608a32ff-6150-47a4-8a8a-75890eac24170",
+          "endpoint": "unix:///var/run/docker.sock",
+          "status": "running",
+          "buildkitd-flags": "--allow-insecure-entitlement security.insecure --allow-insecure-entitlement network.host",
+          "buildkit": "v0.32.2",
+          "platforms": "linux/amd64,linux/amd64/v2,linux/amd64/v3,linux/amd64/v4,linux/386",
+          "features": {
+            "Automatically load images to the Docker Engine image store": true,
+            "Cache export": true,
+            "Direct push": true,
+            "Docker exporter": true,
+            "Multi-platform build": true,
+            "OCI exporter": true
+          },
+          "labels": {
+            "org.mobyproject.buildkit.worker.executor": "oci",
+            "org.mobyproject.buildkit.worker.hostname": "0febe46e74ef",
+            "org.mobyproject.buildkit.worker.network": "host",
+            "org.mobyproject.buildkit.worker.oci.process-mode": "sandbox",
+            "org.mobyproject.buildkit.worker.selinux.enabled": "false",
+            "org.mobyproject.buildkit.worker.snapshotter": "overlayfs"
+          },
+          "gcPolicy": [
+            {
+              "all": false,
+              "filter": [
+                "type==source.local type==exec.cachemount type==source.git.checkout"
+              ],
+              "keepDuration": "48h0m0s",
+              "maxUsedSpace": "488.3MiB"
+            },
+            {
+              "all": false,
+              "keepDuration": "1440h0m0s",
+              "reservedSpace": "1.863GiB",
+              "maxUsedSpace": "14.9GiB",
+              "minFreeSpace": "3.725GiB"
+            },
+            {
+              "all": false,
+              "reservedSpace": "1.863GiB",
+              "maxUsedSpace": "14.9GiB",
+              "minFreeSpace": "3.725GiB"
+            },
+            {
+              "all": true,
+              "reservedSpace": "1.863GiB",
+              "maxUsedSpace": "14.9GiB",
+              "minFreeSpace": "3.725GiB"
+            }
+          ]
+        }
+      ],
+      "name": "builder-608a32ff-6150-47a4-8a8a-75890eac2417",
+      "driver": "docker-container",
+      "lastActivity": "2026-09-09T18:03:14.000Z"
+    }
+BuildKit version
+    builder-608a32ff-6150-47a4-8a8a-75890eac24170: v0.32.2
 0s
 6s
 0s
@@ -91,74 +132,3 @@ Inspect builder
 1s
 0s
 0s
-
-
-
-GitHub Enterprise
-Users managed by Caixa Economica Federal
-caixagithub
-siarx-backend-autoridade-registro-infraprd
-Repository navigation
-Code
-Issues
-Pull requests
-Actions
-Projects
-Wiki
-Security and quality
-Insights
-Settings
-caixagithub
-siarx-backend-autoridade-registro-infraprd
-Private
-Go to file
-t
-T
-ansible-connect-emu[bot]
-ansible-connect-emu[bot]
-Merge pull request #1 from caixagithub/feature/add-files-siarx-backen…
-c866163
- · 
-last month
-Name		
-plt
-PR automático
-last month
-prd
-PR automático
-last month
-README.md
-Initial commit
-last month
-Repository files navigation
-README
-siarx-backend-autoridade-registro-infraprd
-Adicionando aplicação: siarx-backend-autoridade-registro-infraprd
-
-About
-
-Adicionando aplicação: siarx-backend-autoridade-registro-infraprd
-
-Topics
-Resources
-Readme
-Activity
-Custom properties
-Stars
-0 stars
-Watchers
-0 watching
-Forks
-0 forks
-Releases
-No releases published
-Create a new release
-Packages
-No packages published
-Publish your first package
-Contributors
-No contributors
-
-
-
- é outra w.o mais acho que é o mesmo problem tem que sanitizar
