@@ -1,7 +1,3 @@
-# 1. Mesmo curl, mas COM proxy do sistema (sem o --noproxy)
-curl.exe -kv -m 15 https://sigpd-backend.esteiras.des.caixa/sigpd-api/v1/health-check/live
+<img width="1894" height="1012" alt="image" src="https://github.com/user-attachments/assets/0b112d50-60da-42f1-a9f9-aac216cd19f6" />
 
-# 2. Qual proxy/PAC a estação usa
-Get-ItemProperty 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Internet Settings' | Select ProxyEnable,ProxyServer,AutoConfigURL,ProxyOverride
 
-Start-Process msedge "--no-proxy-server --user-data-dir=$env:TEMP\edge-noproxy https://sigpd-backend.esteiras.des.caixa/sigpd-api/v1/health-check/live"
