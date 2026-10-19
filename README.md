@@ -173,3 +173,8 @@ esse ip
 
 
 posiu tem que cira um serviço pra cada um certo?
+
+
+
+<img width="1908" height="967" alt="image" src="https://github.com/user-attachments/assets/7d0409fa-66c2-4f12-96d2-cfeec4544a24" />
+
