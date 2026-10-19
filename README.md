@@ -1,1 +1,9 @@
-<img width="1891" height="990" alt="image" src="https://github.com/user-attachments/assets/2e240bcd-c378-44be-8391-58880df7625f" />
+# 1. Porta da VIP alcançável?
+Test-NetConnection sigpd-backend.esteiras.des.caixa -Port 443
+Test-NetConnection sigpd-backend.esteiras.des.caixa -Port 80
+
+# 2. Direto, sem proxy
+curl.exe -kv --noproxy "*" -m 15 https://sigpd-backend.esteiras.des.caixa/sigpd-api/v1/health-check/live
+
+# 3. Caminho até a VIP
+tracert -d -h 15 10.116.180.22
