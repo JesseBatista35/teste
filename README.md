@@ -1,38 +1,38 @@
-Prezados,
+<img width="1912" height="995" alt="image" src="https://github.com/user-attachments/assets/17c27e99-45f9-4ce3-9754-e6b20c10848a" />
 
-Analisamos a falha na etapa "Run Code Analisis" (SonarQube) da pipeline do SIPNC-conta1288judi-microfront, branch feature/STSK00002828.
 
-A análise de código e a leitura da cobertura (coverage/lcov.info) foram concluídas normalmente. A falha ocorre na importação do relatório de execução de testes:
 
-  java.io.FileNotFoundException: reports/sonarqubeTestReport.xml (Arquivo ou diretório inexistente)
 
-A esteira espera o relatório de testes em reports/sonarqubeTestReport.xml (parâmetro sonar.testExecutionReportPaths). A configuração atual do projeto não gera esse arquivo:
-
-1. O jest.config.js usa testResultsProcessor: 'jest-sonar-reporter', mas o pacote jest-sonar-reporter não está declarado no package.json.
-
-2. Sem configuração específica, o jest-sonar-reporter grava o relatório em ./test-report.xml, e não em reports/sonarqubeTestReport.xml.
-
-3. O arquivo sonar-project.properties não é considerado pela esteira, que executa o scanner com project.settings=NONE. Por isso, o valor sonar.testExecutionReportPaths=test-report.xml definido nele não tem efeito.
-
-Ajustes necessários no repositório da aplicação:
-
-a) Incluir a dependência:
-   npm i -D jest-sonar-reporter
-
-b) Incluir no package.json, no nível raiz:
-   "jestSonar": {
-     "reportPath": "reports",
-     "reportFile": "sonarqubeTestReport.xml",
-     "indent": 2
-   }
-
-c) Validar localmente com "npm run test" e confirmar que o arquivo reports/sonarqubeTestReport.xml é gerado.
-
-d) Commitar o package.json e o package-lock.json atualizados e executar novamente a pipeline.
-
-Sugestão adicional, sem impacto na falha atual: o package.json contém entradas duplicadas em devDependencies (@babel/core, ts-jest e babel-preset-jest). Recomendamos a limpeza.
-
-Devolvemos a demanda ao time de desenvolvimento para os ajustes. Após a correção, havendo nova falha na esteira, favor reabrir com o log da execução.
-
-Atenciosamente,
-Jessé Batista – CESTI / Esteiras DevOps DES/TQS
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$ ps -ef | grep jboss
+root       8676      1  0 Out14 ?        00:00:00 runuser jboss -c LAUNCH_JBOSS_IN_BACKGROUND=1 JBOSS_PIDFILE=/opt/jboss/jboss-eap/standalone/tmp/jboss-eap-standalone.pid /opt/jboss/jboss-eap/bin/standalone.sh                -b 10.116.194.156                -bmanagement 10.116.194.156                -bprivate 10.116.194.156                                                -Dhttp.modcluster.proxy1=10.116.223.231                                 -Dhttp.modcluster.proxy2=10.116.223.232                                 -Djboss_modcluster_proxy_list="caddeapllx135.extra.caixa.gov.br:6666,caddeapllx136.extra.caixa.gov.br:6666"                -Djboss_modcluster_balancer=sigpd-backend                -Djboss.cluster.tcp.initial_hosts=10.116.194.156[7600]                -Djboss.node.name=caddeapllx929                -Djboss.tx.node.id=caddeapllx929                -u 230.0.0.4                                -Djboss.server.base.dir=/opt/jboss/jboss-eap/standalone                -Djboss.server.log.dir=/logs/jboss/jboss-eap/standalone/sigpd-backend -c standalone-full-ha.xml
+jboss      8679   8676  0 Out14 ?        00:00:00 /bin/sh /opt/jboss/jboss-eap/bin/standalone.sh -b 10.116.194.156 -bmanagement 10.116.194.156 -bprivate 10.116.194.156 -Dhttp.modcluster.proxy1=10.116.223.231 -Dhttp.modcluster.proxy2=10.116.223.232 -Djboss_modcluster_proxy_list=caddeapllx135.extra.caixa.gov.br:6666,caddeapllx136.extra.caixa.gov.br:6666 -Djboss_modcluster_balancer=sigpd-backend -Djboss.cluster.tcp.initial_hosts=10.116.194.156[7600] -Djboss.node.name=caddeapllx929 -Djboss.tx.node.id=caddeapllx929 -u 230.0.0.4 -Djboss.server.base.dir=/opt/jboss/jboss-eap/standalone -Djboss.server.log.dir=/logs/jboss/jboss-eap/standalone/sigpd-backend -c standalone-full-ha.xml
+jboss      8867   8679 45 Out14 ?        2-07:45:44 java -D[Standalone] -verbose:gc -Xloggc:/logs/jboss/jboss-eap/standalone/sigpd-backend/gc.log -XX:+PrintGCDetails -XX:+PrintGCDateStamps -XX:+UseGCLogFileRotation -XX:NumberOfGCLogFiles=5 -XX:GCLogFileSize=3M -XX:-TraceClassUnloading -Xms1024m -Xmx2048m -XX:MetaspaceSize=96m -XX:MaxMetaspaceSize=512m -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs=org.jboss.byteman -Djava.awt.headless=true -Djavax.net.ssl.trustStore=/opt/jboss/jboss-eap/standalone/configuration/caixa-truststore-acteste-nprd.jks -Djavax.net.ssl.trustStorePassword= -Djboss.modules.policy-permissions=true -Djava.awt.headless=true -server -XX:+ExplicitGCInvokesConcurrent -XX:+UseG1GC -XX:MaxGCPauseMillis=500 -Xbootclasspath/p:/opt/jboss/jboss-eap/modules/system/layers/base/org/jboss/logmanager/main/jboss-logmanager-2.0.7.Final-redhat-1.jar -Djboss.modules.system.pkgs=org.jboss.byteman,org.jboss.logmanager -Djava.util.logging.manager=org.jboss.logmanager.LogManager -javaagent:/opt/jmx_exporter/jmx_prometheus.jar=8778:/opt/jmx_exporter/jmx_prometheus.yaml -javaagent:/opt/jboss/jboss-eap/standalone/deployments/applicationinsights-agent.jar -Dapplicationinsights.configuration.file=/opt/jboss/jboss-eap/standalone/configuration/applicationinsights.json -Dcom.ibm.msg.client.commonservices.log.outputName=/logs/jboss/jboss-eap/standalone/sigpd-backend/mqjms.log -Djava.net.useSystemProxies=false -Dhttp.proxyHost=proxydes.caixa -Dhttp.proxyPort=80 -Dhttps.proxyHost=proxydes.caixa -Dhttps.proxyPort=80 -Dhttp.nonProxyHosts=localhost|127.0.0.1|*.caixa|*.caixa.gov.br -Dhttps.protocols=[TLSv1.2,TLSv1.3] -Dorg.jboss.boot.log.file=/logs/jboss/jboss-eap/standalone/sigpd-backend/server.log -Dlogging.configuration=file:/opt/jboss/jboss-eap/standalone/configuration/logging.properties -jar /opt/jboss/jboss-eap/jboss-modules.jar -mp /opt/jboss/jboss-eap/modules org.jboss.as.standalone -Djboss.home.dir=/opt/jboss/jboss-eap -Djboss.server.base.dir=/opt/jboss/jboss-eap/standalone -b 10.116.194.156 -bmanagement 10.116.194.156 -bprivate 10.116.194.156 -Dhttp.modcluster.proxy1=10.116.223.231 -Dhttp.modcluster.proxy2=10.116.223.232 -Djboss_modcluster_proxy_list=caddeapllx135.extra.caixa.gov.br:6666,caddeapllx136.extra.caixa.gov.br:6666 -Djboss_modcluster_balancer=sigpd-backend -Djboss.cluster.tcp.initial_hosts=10.116.194.156[7600] -Djboss.node.name=caddeapllx929 -Djboss.tx.node.id=caddeapllx929 -u 230.0.0.4 -Djboss.server.base.dir=/opt/jboss/jboss-eap/standalone -Djboss.server.log.dir=/logs/jboss/jboss-eap/standalone/sigpd-backend -c standalone-full-ha.xml
+p585600  112054 112023  0 15:11 pts/1    00:00:00 grep --color=auto jboss
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$ ps -ef | grep java
+jboss      8867   8679 45 Out14 ?        2-07:45:52 java -D[Standalone] -verbose:gc -Xloggc:/logs/jboss/jboss-eap/standalone/sigpd-backend/gc.log -XX:+PrintGCDetails -XX:+PrintGCDateStamps -XX:+UseGCLogFileRotation -XX:NumberOfGCLogFiles=5 -XX:GCLogFileSize=3M -XX:-TraceClassUnloading -Xms1024m -Xmx2048m -XX:MetaspaceSize=96m -XX:MaxMetaspaceSize=512m -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs=org.jboss.byteman -Djava.awt.headless=true -Djavax.net.ssl.trustStore=/opt/jboss/jboss-eap/standalone/configuration/caixa-truststore-acteste-nprd.jks -Djavax.net.ssl.trustStorePassword= -Djboss.modules.policy-permissions=true -Djava.awt.headless=true -server -XX:+ExplicitGCInvokesConcurrent -XX:+UseG1GC -XX:MaxGCPauseMillis=500 -Xbootclasspath/p:/opt/jboss/jboss-eap/modules/system/layers/base/org/jboss/logmanager/main/jboss-logmanager-2.0.7.Final-redhat-1.jar -Djboss.modules.system.pkgs=org.jboss.byteman,org.jboss.logmanager -Djava.util.logging.manager=org.jboss.logmanager.LogManager -javaagent:/opt/jmx_exporter/jmx_prometheus.jar=8778:/opt/jmx_exporter/jmx_prometheus.yaml -javaagent:/opt/jboss/jboss-eap/standalone/deployments/applicationinsights-agent.jar -Dapplicationinsights.configuration.file=/opt/jboss/jboss-eap/standalone/configuration/applicationinsights.json -Dcom.ibm.msg.client.commonservices.log.outputName=/logs/jboss/jboss-eap/standalone/sigpd-backend/mqjms.log -Djava.net.useSystemProxies=false -Dhttp.proxyHost=proxydes.caixa -Dhttp.proxyPort=80 -Dhttps.proxyHost=proxydes.caixa -Dhttps.proxyPort=80 -Dhttp.nonProxyHosts=localhost|127.0.0.1|*.caixa|*.caixa.gov.br -Dhttps.protocols=[TLSv1.2,TLSv1.3] -Dorg.jboss.boot.log.file=/logs/jboss/jboss-eap/standalone/sigpd-backend/server.log -Dlogging.configuration=file:/opt/jboss/jboss-eap/standalone/configuration/logging.properties -jar /opt/jboss/jboss-eap/jboss-modules.jar -mp /opt/jboss/jboss-eap/modules org.jboss.as.standalone -Djboss.home.dir=/opt/jboss/jboss-eap -Djboss.server.base.dir=/opt/jboss/jboss-eap/standalone -b 10.116.194.156 -bmanagement 10.116.194.156 -bprivate 10.116.194.156 -Dhttp.modcluster.proxy1=10.116.223.231 -Dhttp.modcluster.proxy2=10.116.223.232 -Djboss_modcluster_proxy_list=caddeapllx135.extra.caixa.gov.br:6666,caddeapllx136.extra.caixa.gov.br:6666 -Djboss_modcluster_balancer=sigpd-backend -Djboss.cluster.tcp.initial_hosts=10.116.194.156[7600] -Djboss.node.name=caddeapllx929 -Djboss.tx.node.id=caddeapllx929 -u 230.0.0.4 -Djboss.server.base.dir=/opt/jboss/jboss-eap/standalone -Djboss.server.log.dir=/logs/jboss/jboss-eap/standalone/sigpd-backend -c standalone-full-ha.xml
+p585600  112061 112023  0 15:11 pts/1    00:00:00 grep --color=auto java
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$ ps -ef | grep sigpd
+root       8676      1  0 Out14 ?        00:00:00 runuser jboss -c LAUNCH_JBOSS_IN_BACKGROUND=1 JBOSS_PIDFILE=/opt/jboss/jboss-eap/standalone/tmp/jboss-eap-standalone.pid /opt/jboss/jboss-eap/bin/standalone.sh                -b 10.116.194.156                -bmanagement 10.116.194.156                -bprivate 10.116.194.156                                                -Dhttp.modcluster.proxy1=10.116.223.231                                 -Dhttp.modcluster.proxy2=10.116.223.232                                 -Djboss_modcluster_proxy_list="caddeapllx135.extra.caixa.gov.br:6666,caddeapllx136.extra.caixa.gov.br:6666"                -Djboss_modcluster_balancer=sigpd-backend                -Djboss.cluster.tcp.initial_hosts=10.116.194.156[7600]                -Djboss.node.name=caddeapllx929                -Djboss.tx.node.id=caddeapllx929                -u 230.0.0.4                                -Djboss.server.base.dir=/opt/jboss/jboss-eap/standalone                -Djboss.server.log.dir=/logs/jboss/jboss-eap/standalone/sigpd-backend -c standalone-full-ha.xml
+jboss      8679   8676  0 Out14 ?        00:00:00 /bin/sh /opt/jboss/jboss-eap/bin/standalone.sh -b 10.116.194.156 -bmanagement 10.116.194.156 -bprivate 10.116.194.156 -Dhttp.modcluster.proxy1=10.116.223.231 -Dhttp.modcluster.proxy2=10.116.223.232 -Djboss_modcluster_proxy_list=caddeapllx135.extra.caixa.gov.br:6666,caddeapllx136.extra.caixa.gov.br:6666 -Djboss_modcluster_balancer=sigpd-backend -Djboss.cluster.tcp.initial_hosts=10.116.194.156[7600] -Djboss.node.name=caddeapllx929 -Djboss.tx.node.id=caddeapllx929 -u 230.0.0.4 -Djboss.server.base.dir=/opt/jboss/jboss-eap/standalone -Djboss.server.log.dir=/logs/jboss/jboss-eap/standalone/sigpd-backend -c standalone-full-ha.xml
+jboss      8867   8679 45 Out14 ?        2-07:46:13 java -D[Standalone] -verbose:gc -Xloggc:/logs/jboss/jboss-eap/standalone/sigpd-backend/gc.log -XX:+PrintGCDetails -XX:+PrintGCDateStamps -XX:+UseGCLogFileRotation -XX:NumberOfGCLogFiles=5 -XX:GCLogFileSize=3M -XX:-TraceClassUnloading -Xms1024m -Xmx2048m -XX:MetaspaceSize=96m -XX:MaxMetaspaceSize=512m -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs=org.jboss.byteman -Djava.awt.headless=true -Djavax.net.ssl.trustStore=/opt/jboss/jboss-eap/standalone/configuration/caixa-truststore-acteste-nprd.jks -Djavax.net.ssl.trustStorePassword= -Djboss.modules.policy-permissions=true -Djava.awt.headless=true -server -XX:+ExplicitGCInvokesConcurrent -XX:+UseG1GC -XX:MaxGCPauseMillis=500 -Xbootclasspath/p:/opt/jboss/jboss-eap/modules/system/layers/base/org/jboss/logmanager/main/jboss-logmanager-2.0.7.Final-redhat-1.jar -Djboss.modules.system.pkgs=org.jboss.byteman,org.jboss.logmanager -Djava.util.logging.manager=org.jboss.logmanager.LogManager -javaagent:/opt/jmx_exporter/jmx_prometheus.jar=8778:/opt/jmx_exporter/jmx_prometheus.yaml -javaagent:/opt/jboss/jboss-eap/standalone/deployments/applicationinsights-agent.jar -Dapplicationinsights.configuration.file=/opt/jboss/jboss-eap/standalone/configuration/applicationinsights.json -Dcom.ibm.msg.client.commonservices.log.outputName=/logs/jboss/jboss-eap/standalone/sigpd-backend/mqjms.log -Djava.net.useSystemProxies=false -Dhttp.proxyHost=proxydes.caixa -Dhttp.proxyPort=80 -Dhttps.proxyHost=proxydes.caixa -Dhttps.proxyPort=80 -Dhttp.nonProxyHosts=localhost|127.0.0.1|*.caixa|*.caixa.gov.br -Dhttps.protocols=[TLSv1.2,TLSv1.3] -Dorg.jboss.boot.log.file=/logs/jboss/jboss-eap/standalone/sigpd-backend/server.log -Dlogging.configuration=file:/opt/jboss/jboss-eap/standalone/configuration/logging.properties -jar /opt/jboss/jboss-eap/jboss-modules.jar -mp /opt/jboss/jboss-eap/modules org.jboss.as.standalone -Djboss.home.dir=/opt/jboss/jboss-eap -Djboss.server.base.dir=/opt/jboss/jboss-eap/standalone -b 10.116.194.156 -bmanagement 10.116.194.156 -bprivate 10.116.194.156 -Dhttp.modcluster.proxy1=10.116.223.231 -Dhttp.modcluster.proxy2=10.116.223.232 -Djboss_modcluster_proxy_list=caddeapllx135.extra.caixa.gov.br:6666,caddeapllx136.extra.caixa.gov.br:6666 -Djboss_modcluster_balancer=sigpd-backend -Djboss.cluster.tcp.initial_hosts=10.116.194.156[7600] -Djboss.node.name=caddeapllx929 -Djboss.tx.node.id=caddeapllx929 -u 230.0.0.4 -Djboss.server.base.dir=/opt/jboss/jboss-eap/standalone -Djboss.server.log.dir=/logs/jboss/jboss-eap/standalone/sigpd-backend -c standalone-full-ha.xml
+p585600  112076 112023  0 15:11 pts/1    00:00:00 grep --color=auto sigpd
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$ cat^C
+-sh-4.2$ cat logs/jboss/jboss-eap/standalone/sigpd-backend/server.log
+cat: logs/jboss/jboss-eap/standalone/sigpd-backend/server.log: Arquivo ou diretório não encontrado
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$ cat jboss/jboss-eap/standalone/sigpd-backend/server.log
+cat: jboss/jboss-eap/standalone/sigpd-backend/server.log: Arquivo ou diretório não encontrado
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
