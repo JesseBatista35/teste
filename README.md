@@ -1,83 +1,94 @@
+## -*- shell-script -*- ######################################################
+##                                                                          ##
+##  JBoss EAP Bootstrap Script Configuration                                ##
+##                                                                          ##
+##############################################################################
 
-[p585600@caddeapllx2557 ~]$
-[p585600@caddeapllx2557 ~]$
-[p585600@caddeapllx2557 ~]$
-[p585600@caddeapllx2557 ~]$
-[p585600@caddeapllx2557 ~]$ grep -nE "ERROR|WFLYCTL0013|WFLYCTL0412|Caused by" /opt/jboss-eap/standalone/log/server.log | tail -60
-11:     co.elastic.apm.agent.shaded.slf4j.simpleLogger.log.co.elastic.apm = ERROR
-106:2026-10-20 09:40:26,795 ERROR [org.jboss.as.controller] (Controller Boot Thread) WFLYCTL0362: As funcionalidades exigidas pelo recurso '/subsystem=modcluster/proxy=default' não estão disponíveis:
-121:    co.elastic.apm.agent.shaded.slf4j.simpleLogger.log.co.elastic.apm = ERROR
-[p585600@caddeapllx2557 ~]$
-[p585600@caddeapllx2557 ~]$
-[p585600@caddeapllx2557 ~]$
-[p585600@caddeapllx2557 ~]$
+#
+# This file is optional; it may be removed if not needed.
+#
+
+#
+# Specify the maximum file descriptor limit, use "max" or "maximum" to use
+# the default, as queried by the system.
+#
+# Defaults to "maximum"
+#
+#MAX_FD="maximum"
+
+#
+# Specify the profiler configuration file to load.
+#
+# Default is to not load profiler configuration file.
+#
+#PROFILER=""
+
+#
+# Specify the location of the Java home directory.  If set then $JAVA will
+# be defined to $JAVA_HOME/bin/java, else $JAVA will be "java".
+#
+#JAVA_HOME="/opt/java/jdk"
+
+#
+# Specify the exact Java VM executable to use.
+#
+#JAVA=""
+
+if [ "x$JBOSS_MODULES_SYSTEM_PKGS" = "x" ]; then
+   JBOSS_MODULES_SYSTEM_PKGS="org.jboss.byteman,org.jboss.logmanager"
+fi
+
+# Uncomment the following line to prevent manipulation of JVM options
+# by shell scripts.
+#
+#PRESERVE_JAVA_OPTS=true
+
+#
+# Specify options to pass to the Java VM.
+#
+if [ "x$JAVA_OPTS" = "x" ]; then
+   JAVA_OPTS="-Xms__JVM_HEAP_MIN__ -Xmx__JVM_HEAP_MAX__ -XX:MetaspaceSize=__JVM_METASPACE_MIN__ -XX:MaxMetaspaceSize=__JVM_METASPACE_MAX__ -Djava.net.preferIPv4Stack=true"
+   JAVA_OPTS="$JAVA_OPTS -Djboss.modules.system.pkgs=$JBOSS_MODULES_SYSTEM_PKGS -Djava.awt.headless=true"
+   JAVA_OPTS="$JAVA_OPTS -Djavax.net.ssl.trustStore=$JBOSS_HOME/standalone/configuration/__JKS_FILE__ -Djavax.net.ssl.trustStorePassword=__PASSWORD_TRUSTSTORE__"
+   JAVA_OPTS="$JAVA_OPTS -Djboss.modules.policy-permissions=true"
+   JAVA_OPTS="$JAVA_OPTS -server -XX:+ExplicitGCInvokesConcurrent -XX:+UseG1GC -XX:MaxGCPauseMillis=500"
+   JAVA_OPTS="$JAVA_OPTS -Xbootclasspath/a:${JBOSS_HOME}/modules/system/layers/base/org/wildfly/common/main/wildfly-common-1.5.4.Final-redhat-00001.jar"
+   JAVA_OPTS="$JAVA_OPTS -Xbootclasspath/a:${JBOSS_HOME}/modules/system/layers/base/org/jboss/logmanager/main/jboss-logmanager-2.1.18.Final-redhat-00001.jar"
+   #JAVA_OPTS="$JAVA_OPTS -Djboss.modules.system.pkgs=org.jboss.byteman,org.jboss.logmanager"
+   JAVA_OPTS="$JAVA_OPTS -Dsun.util.logging.disableCallerCheck=true"
+   JAVA_OPTS="$JAVA_OPTS -Djava.util.logging.manager=org.jboss.logmanager.LogManager"   
+   JAVA_OPTS="$JAVA_OPTS -javaagent:/opt/jmx_exporter/jmx_prometheus.jar=8778:/opt/jmx_exporter/jmx_prometheus.yaml"
+   JAVA_OPTS="$JAVA_OPTS -javaagent:/opt/apm_agent/elastic-apm-agent-1.15.0.jar -Delastic.apm.config_file=/opt/apm_agent/elasticapm-1.15.0.properties -Delastic.apm.service_name=__SistemaNome__ -Delastic.apm.environment=__SistemaAmbiente__ -Delastic.apm.application_packages=br.gov.caixa -Delastic.apm.server_urls=__URL_APM_SERVER__ -Delastic.apm.global_labels=deployment=__DEPLOYMENT__"
+else
+   echo "JAVA_OPTS already set in environment; overriding default settings with values: $JAVA_OPTS"
+fi
+
+# Sample JPDA settings for remote socket debugging
+#JAVA_OPTS="$JAVA_OPTS -agentlib:jdwp=transport=dt_socket,address=8787,server=y,suspend=n"
+
+# Sample JPDA settings for shared memory debugging
+#JAVA_OPTS="$JAVA_OPTS -agentlib:jdwp=transport=dt_shmem,server=y,suspend=n,address=jboss"
+
+# Uncomment to not use JBoss Modules lockless mode
+#JAVA_OPTS="$JAVA_OPTS -Djboss.modules.lockless=false"
+
+# Uncomment to gather JBoss Modules metrics
+#JAVA_OPTS="$JAVA_OPTS -Djboss.modules.metrics=true"
+
+# Uncomment this to run with a security manager enabled
+# SECMGR="true"
+
+# Uncomment this in order to be able to run WildFly on FreeBSD
+# when you get "epoll_create function not implemented" message in dmesg output
+#JAVA_OPTS="$JAVA_OPTS -Djava.nio.channels.spi.SelectorProvider=sun.nio.ch.PollSelectorProvider"
+
+# enable garbage collection logging if not set in environment differently
+if [ "x$GC_LOG" = "x" ]; then
+   GC_LOG="true"
+else
+   echo "GC_LOG set in environment to $GC_LOG"
+fi
 
 
 
-
-
-
-[p585600@caddeapllx955 ~]$
-[p585600@caddeapllx955 ~]$
-[p585600@caddeapllx955 ~]$ cat /opt/jboss-eap/version.txt
-Red Hat JBoss Enterprise Application Platform - Version 7.4.18.GA
-[p585600@caddeapllx955 ~]$
-[p585600@caddeapllx955 ~]$
-[p585600@caddeapllx955 ~]$
-[p585600@caddeapllx955 ~]$ sudo systemctl status jboss* --no-pager -l | head -30
-sudo journalctl -u 'jboss*' --since "11:20" --no-pager | tail -40
-sudo tail -80 /opt/jboss-eap/standalone/log/server.log
-grep -nE "Xms|Xmx|Metaspace|#\{" /opt/jboss-eap/bin/standalone.conf
-
-Presumimos que você recebeu as instruções de sempre do administrador
-de sistema local. Basicamente, resume-se a estas três coisas:
-
-    #1) Respeite a privacidade dos outros.
-    #2) Pense antes de digitar.
-    #3) Com grandes poderes vêm grandes responsabilidades.
-
-[sudo] senha para p585600:
-out 20 11:26:04 caddeapllx955.agil.nprd.caixa.gov.br jboss-eap-standalone.sh[26437]: Stopping JBoss EAP:
-out 20 11:26:04 caddeapllx955.agil.nprd.caixa.gov.br jboss-eap-standalone.sh[26439]: /opt/jboss-eap/bin/common_start.sh: linha 85: success: comando não encontrado
-out 20 11:26:04 caddeapllx955.agil.nprd.caixa.gov.br systemd[1]: jboss-eap-standalone.service: Deactivated successfully.
-out 20 11:26:04 caddeapllx955.agil.nprd.caixa.gov.br systemd[1]: Started JBoss EAP Systemctl - STANDALONE.
-out 20 11:26:16 caddeapllx955.agil.nprd.caixa.gov.br systemd[1]: Starting JBoss EAP Systemctl - STANDALONE...
-out 20 11:26:16 caddeapllx955.agil.nprd.caixa.gov.br jboss-eap-standalone.sh[27151]: /opt/jboss-eap/bin/init.d/jboss-eap-standalone.sh: linha 4: /etc/init.d/functions: Arquivo ou diretório inexistente
-out 20 11:26:16 caddeapllx955.agil.nprd.caixa.gov.br runuser[27153]: pam_unix(runuser:session): session opened for user jboss(uid=30000115) by (uid=0)
-out 20 11:26:16 caddeapllx955.agil.nprd.caixa.gov.br runuser[27153]: pam_unix(runuser:session): session closed for user jboss
-out 20 11:26:16 caddeapllx955.agil.nprd.caixa.gov.br runuser[27157]: pam_unix(runuser:session): session opened for user jboss(uid=30000115) by (uid=0)
-out 20 11:26:16 caddeapllx955.agil.nprd.caixa.gov.br runuser[27157]: pam_unix(runuser:session): session closed for user jboss
-out 20 11:26:16 caddeapllx955.agil.nprd.caixa.gov.br runuser[27161]: pam_unix(runuser:session): session opened for user jboss(uid=30000115) by (uid=0)
-out 20 11:26:16 caddeapllx955.agil.nprd.caixa.gov.br jboss-eap-standalone.sh[27151]: Starting JBoss EAP:
-out 20 11:26:16 caddeapllx955.agil.nprd.caixa.gov.br jboss-eap-standalone.sh[27362]: Invalid maximum heap size: -Xmx
-out 20 11:26:16 caddeapllx955.agil.nprd.caixa.gov.br jboss-eap-standalone.sh[27362]: Error: Could not create the Java Virtual Machine.
-out 20 11:26:16 caddeapllx955.agil.nprd.caixa.gov.br jboss-eap-standalone.sh[27362]: Error: A fatal exception has occurred. Program will exit.
-out 20 11:26:16 caddeapllx955.agil.nprd.caixa.gov.br runuser[27161]: pam_unix(runuser:session): session closed for user jboss
-out 20 11:26:22 caddeapllx955.agil.nprd.caixa.gov.br jboss-eap-standalone.sh[27390]: /opt/jboss-eap/bin/common_start.sh: linha 58: success: comando não encontrado
-out 20 11:26:22 caddeapllx955.agil.nprd.caixa.gov.br jboss-eap-standalone.sh[27391]: /opt/jboss-eap/bin/init.d/jboss-eap-standalone.sh: linha 4: /etc/init.d/functions: Arquivo ou diretório inexistente
-out 20 11:26:22 caddeapllx955.agil.nprd.caixa.gov.br jboss-eap-standalone.sh[27391]: Stopping JBoss EAP:
-out 20 11:26:22 caddeapllx955.agil.nprd.caixa.gov.br jboss-eap-standalone.sh[27393]: /opt/jboss-eap/bin/common_start.sh: linha 85: success: comando não encontrado
-out 20 11:26:22 caddeapllx955.agil.nprd.caixa.gov.br systemd[1]: jboss-eap-standalone.service: Deactivated successfully.
-out 20 11:26:22 caddeapllx955.agil.nprd.caixa.gov.br systemd[1]: Started JBoss EAP Systemctl - STANDALONE.
-out 20 11:29:47 caddeapllx955.agil.nprd.caixa.gov.br systemd[1]: Starting JBoss EAP Systemctl - STANDALONE...
-out 20 11:29:47 caddeapllx955.agil.nprd.caixa.gov.br jboss-eap-standalone.sh[27828]: /opt/jboss-eap/bin/init.d/jboss-eap-standalone.sh: linha 4: /etc/init.d/functions: Arquivo ou diretório inexistente
-out 20 11:29:47 caddeapllx955.agil.nprd.caixa.gov.br runuser[27830]: pam_unix(runuser:session): session opened for user jboss(uid=30000115) by (uid=0)
-out 20 11:29:47 caddeapllx955.agil.nprd.caixa.gov.br runuser[27830]: pam_unix(runuser:session): session closed for user jboss
-out 20 11:29:47 caddeapllx955.agil.nprd.caixa.gov.br runuser[27834]: pam_unix(runuser:session): session opened for user jboss(uid=30000115) by (uid=0)
-out 20 11:29:47 caddeapllx955.agil.nprd.caixa.gov.br runuser[27834]: pam_unix(runuser:session): session closed for user jboss
-out 20 11:29:47 caddeapllx955.agil.nprd.caixa.gov.br runuser[27838]: pam_unix(runuser:session): session opened for user jboss(uid=30000115) by (uid=0)
-out 20 11:29:47 caddeapllx955.agil.nprd.caixa.gov.br jboss-eap-standalone.sh[27828]: Starting JBoss EAP:
-out 20 11:29:47 caddeapllx955.agil.nprd.caixa.gov.br jboss-eap-standalone.sh[28039]: Invalid maximum heap size: -Xmx
-out 20 11:29:47 caddeapllx955.agil.nprd.caixa.gov.br jboss-eap-standalone.sh[28039]: Error: Could not create the Java Virtual Machine.
-out 20 11:29:47 caddeapllx955.agil.nprd.caixa.gov.br jboss-eap-standalone.sh[28039]: Error: A fatal exception has occurred. Program will exit.
-out 20 11:29:47 caddeapllx955.agil.nprd.caixa.gov.br runuser[27838]: pam_unix(runuser:session): session closed for user jboss
-out 20 11:29:53 caddeapllx955.agil.nprd.caixa.gov.br jboss-eap-standalone.sh[28053]: /opt/jboss-eap/bin/common_start.sh: linha 58: success: comando não encontrado
-out 20 11:29:53 caddeapllx955.agil.nprd.caixa.gov.br jboss-eap-standalone.sh[28054]: /opt/jboss-eap/bin/init.d/jboss-eap-standalone.sh: linha 4: /etc/init.d/functions: Arquivo ou diretório inexistente
-out 20 11:29:53 caddeapllx955.agil.nprd.caixa.gov.br jboss-eap-standalone.sh[28054]: Stopping JBoss EAP:
-out 20 11:29:53 caddeapllx955.agil.nprd.caixa.gov.br jboss-eap-standalone.sh[28056]: /opt/jboss-eap/bin/common_start.sh: linha 85: success: comando não encontrado
-out 20 11:29:53 caddeapllx955.agil.nprd.caixa.gov.br systemd[1]: jboss-eap-standalone.service: Deactivated successfully.
-out 20 11:29:53 caddeapllx955.agil.nprd.caixa.gov.br systemd[1]: Started JBoss EAP Systemctl - STANDALONE.
-50:   JAVA_OPTS="-Xms1024m -Xmx 2048m -XX:MetaspaceSize=256m -XX:MaxMetaspaceSize=512m -Djava.net.preferIPv4Stack=true"
-[p585600@caddeapllx955 ~]$
-[p585600@caddeapllx955 ~]$
-[p585600@caddeapllx955 ~]$
+tinha um espaço na varaivel
