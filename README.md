@@ -1,10 +1,3 @@
-jboss-deployments
- ta assim
-
-group_id:artifact_id:version:extension
-br.gov.caixa.SirotconEAP:sirotcon-ejb:2.3.0.1:jar
-
-
 <?xml version='1.0' encoding='UTF-8'?>
 
 <server xmlns="urn:jboss:domain:16.0">
@@ -163,6 +156,28 @@ br.gov.caixa.SirotconEAP:sirotcon-ejb:2.3.0.1:jar
                         <user-name>sa</user-name>
                         <password>sa</password>
                     </security>
+                </datasource>
+                <datasource jndi-name="java:jboss/datasources/SIGSJ04" pool-name="SIGSJ04" enabled="true" use-java-context="true" statistics-enabled="true">
+                    <connection-url>__SIGSJ04_CONNECTION_STRING__</connection-url>
+                    <driver>ojdbc8.jar</driver>
+                    <pool>
+                        <min-pool-size>1</min-pool-size>
+                        <max-pool-size>50</max-pool-size>
+                        <flush-strategy>IdleConnections</flush-strategy>
+                    </pool>
+                    <security>
+                        <user-name>__SIGSJ04_USER__</user-name>
+                        <password>__SIGSJ04_PASSWORD__</password>
+                    </security>
+                    <timeout>
+                        <idle-timeout-minutes>5</idle-timeout-minutes>
+                    </timeout>
+                    <validation>
+                        <valid-connection-checker class-name="org.jboss.jca.adapters.jdbc.extensions.oracle.OracleValidConnectionChecker"/>
+                        <validate-on-match>true</validate-on-match>
+                        <stale-connection-checker class-name="org.jboss.jca.adapters.jdbc.extensions.oracle.OracleStaleConnectionChecker"/>
+                        <exception-sorter class-name="org.jboss.jca.adapters.jdbc.extensions.oracle.OracleExceptionSorter"/>
+                    </validation>
                 </datasource>
                 <drivers>
                     <driver name="h2" module="com.h2database.h2">
@@ -573,3 +588,12 @@ br.gov.caixa.SirotconEAP:sirotcon-ejb:2.3.0.1:jar
         </outbound-socket-binding>
     </socket-binding-group>
 </server>
+
+
+
+
+group_id:artifact_id:version:extension
+br.gov.caixa.SirotconEAP:sirotcon-ejb:2.3.0.1:jar
+com.oracle.database.jdbc:ojdbc8:23.26.0.0.0:jar
+
+
