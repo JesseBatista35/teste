@@ -1,5 +1,3 @@
-ajuste agora o intranet
-
 <?xml version='1.0' encoding='UTF-8'?>
 
 <server xmlns="urn:jboss:domain:16.0">
@@ -490,9 +488,6 @@ ajuste agora o intranet
             </proxy>
         </subsystem>
         <subsystem xmlns="urn:jboss:domain:naming:2.0">
-            <bindings>
-                <lookup name="java:global/sirotcon-ejb-2.3.0.1-farm/SIROTConBean!br.gov.caixa.sirot.ejb.SIROTCon" lookup="java:global/sirotcon-ejb/SIROTConBean!br.gov.caixa.sirot.ejb.SIROTCon"/>
-            </bindings>
             <remote-naming/>
         </subsystem>
         <subsystem xmlns="urn:jboss:domain:pojo:1.0"/>
@@ -580,7 +575,3 @@ ajuste agora o intranet
         </outbound-socket-binding>
     </socket-binding-group>
 </server>
-
-
-
-ja exclui o jboss-deployments
