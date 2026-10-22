@@ -1,20 +1,25 @@
+pode rodar o build e a release
+ 
+vou acompanhar aqui
+ 
+ta 
+uma questão, vocês voa ajustar o internet tambem né?
+ 
+e o intranet né
+ 
+sim 
+é porque estávamos aplicando os ajsutes do boleto no internet, mais nesse caso acho que nao compensa
+ 
+rsrsr
+ 
 
-[root@caddeapllx2557 p585600]#
-[root@caddeapllx2557 p585600]# ^C
-[root@caddeapllx2557 p585600]# ls -l /opt/jboss-eap/standalone/deployments/
-total 12724
--rwxrw-rw- 1 jboss jboss 13008140 out 21 16:35 boletoService-ear.ear
--rw-r--r-- 1 jboss jboss       21 out 21 16:35 boletoService-ear.ear.deployed
--rwxrwxr-x 1 jboss jboss     8888 jun 23  2021 README.txt
--rw-r--r-- 1 jboss jboss       16 out 22 15:01 sirotcon-ejb.jar.undeployed
-[root@caddeapllx2557 p585600]#
-[root@caddeapllx2557 p585600]#
-[root@caddeapllx2557 p585600]# ls -l /tmp/bkp_sirotcon/
-total 868
--rw-r--r-- 1 jboss jboss 884041 out 21 15:02 sirotcon-ejb.jar
--rw-r--r-- 1 jboss jboss     16 out 21 15:02 sirotcon-ejb.jar.deployed
-[root@caddeapllx2557 p585600]#
+o internet ta assim
 
 
+O JBoss encontra-se operacional, com inicialização concluída e porta de gerenciamento disponível. O deploy falha devido à persistence-unit SIGSJ04, definida no arquivo persistence.xml e utilizada pela classe EntityManagerProvider, que referencia a datasource java:jboss/datasources/SIGSJ04. Não foi encontrada configuração correspondente no runtime do JBoss nem em servidores de referência analisados. Solicita-se validação da aplicação quanto à datasource esperada ou mecanismo de provisionamento da mesma
 
-<img width="1210" height="565" alt="image" src="https://github.com/user-attachments/assets/2a17d8dd-82e8-43a3-a2c0-1921e48a2c2e" />
+
+<img width="1601" height="349" alt="image" src="https://github.com/user-attachments/assets/45067d48-0da1-4dfd-add5-5a845e844883" />
+
+
+enao minha questao agora pé a seguinte se o internet ta assim e fizemos os ajustes para eles suibr depois a gisele com time da fabirca vai mudar entoa nao seria melhor esperar eles ja aplicarem as configuraçoes dpois agente entra? poara ajustar 
