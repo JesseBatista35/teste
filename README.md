@@ -4,12 +4,11 @@ projetos
 /
 Caixa
 /
-Repos
+Pipelines
 /
-Files
+Releases
 /
-
-SIICO-unidades-jboss-config
+SICLI-ncc
 Search
 
 
@@ -20,72 +19,357 @@ Overview
 Boards
 
 Repos
-Files
-Commits
-Pushes
-Branches
-Tags
-Pull requests
 
 Pipelines
+Pipelines
+Environments
+Releases
+Library
+Task groups
+Deployment groups
+Portal Infra
 
 Test Plans
 
 Artifacts
 Project settings
-SIICO-unidades-jboss-config
+All pipelines
+
+SICLI
+
+SICLI-ncc
+Predefined variables
+Usuario-Azure-DevOps (12)
+Scopes: Release
+OKD-PRODUTOS (8)
+Credenciais para o Cluster OKD4 de PRODUTOS
+Scopes: Release
+SonarQube Variables (1)
+Variáveis com dados do SonarQube
+Scopes: Release
+MONITORACAO_LOGS (4)
+REQ000143540550 - Conforme autorizado na req por FLAVIO ALMEIDA GAGLIARDI, removido as variáveis JAVA_OPTS_MONITORING e URL_APM_SERVER, por entrar em conflitos com releases que utilizam o Application Insights
+Scopes: Release
+TERRAFORM-ESTEIRA-COMMON (6)
+WO0000079295714 - add variável INFRAFACIL
+Scopes: Release
+ANSIBLE_JBOSS_VM_VERSION_3 (11)
+WO0000072264656 - Config Portal Infrafácil NO_PROXY cadsvgerap027-1.intra.caixa.gov.br, 10.122.144.168
+Scopes: Release
+TERRAFORM-ESTEIRA-NPRD (17)
+Variáveis do terraform para automação de ambientes
+Scopes: EC DES,EC TQS,EC HMP
+TERRAFORM_CLUSTER
+CTC_NPRDXF2488HV7_NPRD
+TERRAFORM_DATACENTER
+NPRD
+TERRAFORM_DATASTORE
+CTCHWNPRDC011_0259
+TERRAFORM_ESX_NETWORK
+tn-NPRD+NPRD_AUTO_DES_BSB-ap+VL3676-ep+10.116.192.0
+TERRAFORM_ESX_NETWORK_BCK
+tn-NPRD|NPRD_BKP-ap|VL3697-ep
+TERRAFORM_ESX_NETWORK_BCK_1
+tn-BACKUP|BACKUP-NPRD-ap|BACKUP-NPRD-ep
+TERRAFORM_ESX_PASSWORD
+********
+TERRAFORM_ESX_USERNAME
+s736660
+TERRAFORM_ESX_VCENTER_SERVER
+10.122.144.195
+TERRAFORM_NET_ADAPTER_TYPE
+vmxnet3
+TERRAFORM_VM_DNS
+["10.116.193.77", "10.116.193.78"]
+TERRAFORM_VM_DOMAIN
+agil.nprd.caixa.gov.br
+TERRAFORM_VM_IPNETMASK
+19
+TERRAFORM_VM_IPNETMASK_BCK
+19
+TERRAFORM_VM_IPNETMASK_BCK_1
+16
+TERRAFORM_VSPHERE_FOLDER
+/vm
+TERRAFORM_VSPHERE_POOL
+/Resources/RP_TERRAFORM_NPRD
+sample-java-des (13)
+WO0000081293906 - SISME
+Scopes: EC DES,EC TQS
+JVM_HEAP_MAX
+4096m
+JVM_HEAP_MIN
+4096m
+JVM_METASPACE_MAX
+512m
+JVM_METASPACE_MIN
+512M
+PASSWORD_TRUSTSTORE
+changeit
+PATH_DESTINO
+/sample
+PATH_NFS
+/ifs/CADSVISISD4/SERVIDORES/CESTI/SAMPLE_DES
+SERVER_NFS
+nfsctcnprd.ctc.caixa
+SIZE_VOLUME
+50Gi
+SSO_URL_INTERNET
+https://login.des.caixa.gov.br
+SSO_URL_INTRANET
+https://login.des.caixa
+TESTE_TRUST
+caixa-truststore-acteste-nprd.jks
+VERSAO
+$(Build.BuildNumber)
+SICLI-NCC-DES (41)
+Grupo de variáveis de SICLI-NCC-DES
+Scopes: EC DES
+AMBIENTE
+DES
+APIKEY
+l7xxd8a9fd1dcb6146c79ac3d2c35fe6f6b2
+API_SERPRO_RFB
+https://gateway.apiserpro.serpro.gov.br/consulta-faturamento-trial/v1
+API_SERPRO_RFB_BEARER_TRIAL
+06aef429-a981-3ec5-a1f8-71d38d86481e
+API_SERPRO_RFB_CRIPTO
+MIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCIIQuDuMkLAKWDJnvHM12OU8HbvPsffVfUgEa4K6zBa0nkYKgm67bT/ZjJmv6XgmkvE+TQDNw5y4snSdl1FvqozKY5+Ed0CELuI8EdG+6kNK4Mi5yr1Q8k+RVPl0zpepeo+fibLt3DehrfR7iXOc/XwEv0FLdabuTssEv4sY//o+OGDXvKNtI08npeu5WP4csI5Xw/8bJBBq7ko+9V/KYpZpTgp32Gt4+HUJYhXEmM9In28jLA+bs06FbPXgjb38Ckg3IIRmKH2p9lz1AE4HLy2HJMrOR4/FMa2JNYDmFhqicQwuNQrcunC5iYjwLFzlbKZjosVxlxRG2Gf2TSg+S3AgMBAAECggEAfa1MbSK3cVH6fHeWBRWWBSWsr0rs6WiWItj+8V9ZEgUUZiUaeTxbQaI6Yb6X15cNtun98Fo/I5iYcwBKJEC/0AGIYbKnfSd3a1ZVHqPAEZeVLH3kefutDKxtkVqVJmUJCXcmn1aIZMUhdAxKDkvQaFbfiItrr7D75szohsSfthnm4v2m8wJHHwORTQpjqpvQdQZ378cg/Mah9fhNFMHY4QYlihzdu20iqqNq+0+18HaD3azdM4WfwhGg/paHaqdRSvl9O2JOAs3HWyyXFaqw1vLmUsHaCFGDo73egQYvMS8yfU8ydN+pi/0g+JKOSrpobMO825nLoxiq8i2t6pPjaQKBgQC9lOiFUKBlLYyFeNOXleOdj32OBAeqWAs0qdWTw8viCujsncwmUESJTFkklBut+6a1GyaMAaMqhDo8OqO9KMEizahhgb8F8nsy7dLQDvBbUwL3hHH05IXFWKd9kgVOscuNj9yDHDmT1YCJRl7xh7b5KK8dJ5vygBlMkhuzU38+RQKBgQC30hyOUgwkSqXh32eGmxRuxdYJF3wJgoQomO//pIYiJo8yZC3KukxK+Sbzkr/z8wobmdwhwELhkoLS+C0sTfKeOAXYCHH9Kg2MQb6SsdkzO8dtWIRVNqDwzWBiCwQB7Ad9a3vPJ9Li2QRBHhsAYoNyiV+TDQEWEsQYCUaHPVG0ywKBgDvKQ88Pz5Y5WFEb+zeaiS+++m0YrkY2AEq6qWYx4RJIOI+vcJxAwmy+zHpxz4z+ieQiTPTo60nUa/1kzREyUj8kt08ROWqpv9sfEFaX74wN0Si496uxitLjk+dRbyUTg8wArB4Zf7s1IZWpwPXRxI4uG5RJUrCXX+M7TUswMTg1AoGAMuqPIFjXpiHLKvJ/sYg5M6m27JPFtrihNMGQEMaYpNL7bSDUkkfiJA45XNR0OPVEAnsuv2aK4AJ+HEPD93ar0mmALOPB9zbzw7reN7HtkMRpK/+NwDC+iZTJsr6MYJ/pPzNLewjz4APuqr7VCdk/wbUNdSTv/RY7nNDM6V7xx9sCgYBZb6WAhKIwPxYaCTBDDkcEoWX1L3JhkIULfuPsPY9H4+LwaP9ftUx4sOam3Gsp2/6shNfGvNKa3qv165P3W/Zyc3MmMIz3CZRVrOMtEInbPXQ63u4GkaWOnnHRK5pLM3/n/POJWgDBeROiZp/oxlfXBEgJRO7AXB8YOLdY6HtkFw==
+API_SICLI
+http://apicadastro.des.caixa/cadastro
+API_SICPF
+https://api.des.caixa:8443/cadastro-receita/v4/pessoas-fisicas/
+API_SIISO
+http://des.web.corerj.caixa:8645
+API_SIISO_V4
+https://api.des.caixa:8443/cadastro-receita/v4/
+APPLICATIONINSIGHTS_CONNECTION_STRING
+InstrumentationKey=1db83fd9-8b2f-4a25-89d8-8cf25fa9321a;IngestionEndpoint=https://brazilsouth-1.in.applicationinsights.azure.com/;LiveEndpoint=https://brazilsouth.livediagnostics.monitor.azure.com/
+APPLICATIONINSIGHTS_INSTRUMENTATION_LOGGING_LEVEL
+INFO
+APPLICATIONINSIGHTS_PROXY
+http://proxydes.caixa:80
+APPLICATIONINSIGHTS_ROLE_NAME
+SICLI-NCC-DES
+APPLICATIONINSIGHTS_SAMPLING_PERCENTAGE
+10
+APPLICATIONINSIGHTS_SELF_DIAGNOSTICS_LEVEL
+INFO
+DB2_CONNECTION_STRING
+jdbc:db2://10.192.224.76:5021/CSD1
+DB2_PASSWORD
+********
+DB2_USER
+SCLIBD04
+HORARIO_VERAO
+N
+JACKSON_DESERILIZER
+br.gov.caixa
+JAVAX_TRUSTSTORE
+/opt/jboss-eap/standalone/configuration/caixa-truststore-acteste-nprd.jks
+LOGIN_SISET
+https://login.des.caixa
+SENHA_BACEN
+********
+SENHA_SERVICO
+********
+SIECM.SERVERURL
+http://siecm.des.caixa/siecm-web/ECM/
+SISET_SECRET
+985d1019-3eaf-427d-ac6b-c726a871f6c9
+SSO_AUTH_URL
+https://login.des.caixa/auth
+SSO_CLIENT_ID
+cli-web-cli
+SSO_CLIENT_SECRET
+********
+URL_APM_SERVER
+http://apm-server-devops.produtos.caixa
+URL_PREFIX_PROD
+https://novocadastro.des.caixa
+URL_PREFIX_REST
+https://novocadastro.des.caixa/
+URL_PROXY
+proxydes.caixa
+URL_STA
+https://sta-h.bcb.gov.br/staws/
+USER_SERVICO
+sclibd06
+USUARIO_BACEN
+211047990.S-GESIRHMP
+VALIDA_CERTIFICADO_LOGIN
+N
+http.nonProxyHosts
+*.caixa|*.extracaixa
+javax.net.ssl.trustStorePassword
+********
+javax.net.ssl.trustStoreType
+jks
+org.apache.coyote.http11.DEFAULT_CONNECTION_TIMEOUT
+300000
+JCICS-DES (43)
 
-jboss
-jboss-custom.cli
-jboss-deployments
-jboss-modules-custom
-standalone-full-ha.xml
-standalone.conf
-00-mpm.conf
-httpd.conf
-README.md
-vhost.conf
+Scopes: EC DES
+JCICIS_AUTORH_VALUE
+3147
+JCICIS_CADMUT_VALUE
+3159
+JCICIS_SERVER_VALUE
+ibmaplacs.des.extranet.caixa
+JCICIS_SIACJ_VALUE
+3162
+JCICIS_SIACT_VALUE
+3129
+JCICIS_SIAEF_VALUE
+3014
+JCICIS_SIAFC_VALUE
+3144
+JCICIS_SIARC_AR_VALUE
+3179
+JCICIS_SIARC_AV_VALUE
+3181
+JCICIS_SIBCN_VALUE
+3169
+JCICIS_SICLI_VALUE
+3130
+JCICIS_SICRS_VALUE
+3125
+JCICIS_SIDEJ_VALUE
+3184
+JCICIS_SIECC_VALUE
+3166
+JCICIS_SIEMP_VALUE
+3121
+JCICIS_SIFES_VALUE
+3123
+JCICIS_SIFGE_VALUE
+3185
+JCICIS_SIGEC_VALUE
+3167
+JCICIS_SIGED_VALUE
+3103
+JCICIS_SIGES_VALUE
+3161
+JCICIS_SIGFI_VALUE
+3131
+JCICIS_SIGMA_VALUE
+3172
+JCICIS_SIGRB_VALUE
+3183
+JCICIS_SIGRH_VALUE
+3015
+JCICIS_SIICO_VALUE
+3117
+JCICIS_SIMAT_VALUE
+3163
+JCICIS_SINAD_VALUE
+3168
+JCICIS_SINAF_VALUE
+3143
+JCICIS_SIOPI_VALUE
+3016
+JCICIS_SIORC_VALUE
+3126
+JCICIS_SIPAG_VALUE
+3182
+JCICIS_SIPCS_VALUE
+6003
+JCICIS_SIPEN_VALUE
+3148
+JCICIS_SIPES_VALUE
+3145
+JCICIS_SIPEV_VALUE
+3176
+JCICIS_SIPEX_VALUE
+3140
+JCICIS_SIPONWEB_VALUE
+3114
+JCICIS_SIROP_VALUE
+3146
+JCICIS_SITAH_VALUE
+3164
+JCICIS_SIT_VALUE
+3110
+JCICIS_SIVOL_VALUE
+3175
+JCICIS_SIWAR_VALUE
+3161
+JCICIS_TIMEOUT_VALUE
+20000
+SICLI-NCC-TQS (41)
+Grupo de variáveis de SICLI-NCC-TQS
+Scopes: EC TQS
+JCICS-TQS (43)
+Scopes: EC TQS
+sample-java-hmp (13)
+WO0000081430821
+Scopes: EC HMP
+SICLI-NCC-HMP (43)
+Grupo de variáveis de SICLI-NCC-HMP
+Scopes: EC HMP
+JCICS-HMP (43)
+Scopes: EC HMP
+TERRAFORM-ESTEIRA-PRD-CTC-NPCN (17)
+Variáveis do terraform para automação de ambientes TERRAFORM_VSPHERE_POOL - RP_ESTEIRAS_AGEIS_NPCN_CTC_V7 13/03/2025
+Scopes: EC PRD CTC
+sample-java-prd (10)
+Scopes: EC PRD CTC,EC PRD DTC
+SICLI-NCC-PRD (39)
+Grupo de variáveis de SICLI-NCC-PRD
+Scopes: EC PRD CTC
+JCICS_CLI_NCC_PRD (43)
+Scopes: EC PRD CTC
+TERRAFORM-ESTEIRA-PRD-DTC-PCN (15)
+Variáveis do terraform para automação de ambientes
+Scopes: EC PRD DTC
+|Manage variable groups
+Row 61
 
-master
+Row 54
 
-/
-jboss
-/
-standalone-full-ha.xml
-standalone-full-ha.xml
+Row 5
 
-Edit
+Row 2
 
-Contents
-History
-Compare
-Blame
+Expanded
 
-1234567891011121314151617181920212223242526272829303132333435363738394041424344
+Collapsed
+
+Row 2
+
+Expanded
+
+Collapsed
+
+562 pipelines found
+
+Select a release pipeline to view its releases
+
+38 pipelines found
+
+Select a release pipeline to view its releases
+
+34 pipelines found
+
+Select a release pipeline to view its releases
+
+1 pipelines found
+
+Select a release pipeline to view its releases
+
+1 pipelines found
+
+Row 2
+
+Showing filters 1 through 2
+
+
+
 <?xml version='1.0' encoding='UTF-8'?>
 
 <server xmlns="urn:jboss:domain:16.0">
     <extensions>
-        <extension module="org.jboss.as.clustering.infinispan"/>
-        <extension module="org.jboss.as.connector"/>
-        <extension module="org.jboss.as.deployment-scanner"/>
-        <extension module="org.jboss.as.ee"/>
-        <extension module="org.jboss.as.ejb3"/>
-        <extension module="org.jboss.as.jaxrs"/>
-…        <socket-binding name="txn-recovery-environment" port="4712"/>
-        <socket-binding name="txn-status-manager" port="4713"/>
-        <outbound-socket-binding name="mail-smtp">
-            <remote-destination host="${jboss.mail.server.host:localhost}" port="${jboss.mail.server.port:25}"/>
-        </outbound-socket-binding>
-    </socket-binding-group>
-</server>
-
-
-
-<?xml version='1.0' encoding='UTF-8'?>
-
-<server xmlns="urn:jboss:domain:16.0">
-    <extensions>
+        <extension module="org.keycloak.keycloak-adapter-subsystem"/>
         <extension module="org.jboss.as.clustering.infinispan"/>
         <extension module="org.jboss.as.connector"/>
         <extension module="org.jboss.as.deployment-scanner"/>
@@ -103,6 +387,7 @@ Blame
         <extension module="org.jboss.as.pojo"/>
         <extension module="org.jboss.as.remoting"/>
         <extension module="org.jboss.as.sar"/>
+        <extension module="org.jboss.as.security"/>
         <extension module="org.jboss.as.transactions"/>
         <extension module="org.jboss.as.webservices"/>
         <extension module="org.jboss.as.weld"/>
@@ -122,7 +407,60 @@ Blame
         <extension module="org.wildfly.extension.undertow"/>
         <extension module="org.wildfly.iiop-openjdk"/>
     </extensions>
+    <system-properties>
+        <property name="API_SICPF" value="__API_SICPF__"  />
+        <property name="API_SIISO" value="__API_SIISO__"  />
+        <property name="LOGIN_SISET" value="__LOGIN_SISET__" />
+        <property name="SIECM.SERVERURL" value="__SIECM_SERVERURL__"  />
+        <property name="SISET_SECRET" value="__SISET_SECRET__"  />
+        <property name="org.apache.coyote.http11.DEFAULT_CONNECTION_TIMEOUT" value="300000"  />
+        <property name="-Djsse.enableSNIExtension=false"  />
+        <property name="http.nonProxyHosts" value="*.caixa|*.extracaixa"  />
+        <property name="javax.net.ssl.trustStoreType" value="jks"  />
+        <property name="javax.net.ssl.trustStore" value="__JAVAX_TRUSTSTORE__"  />
+        <property name="javax.net.ssl.trustStorePassword" value="changeit"  />
+        <property name="jackson.deserialization.whitelist.packages" value="br.gov.caixa"/>
+        <property name="AMBIENTE" value="__AMBIENTE__"  />
+        <property name="USER_SERVICO" value="__USER_SERVICO__"  />
+        <property name="SENHA_SERVICO" value="__SENHA_SERVICO__"  />
+        <property name="API_SICLI" value="__API_SICLI__"/>
+        <property name="URL_PREFIX_PROD" value="__URL_PREFIX_PROD__" />
+        <property name="URL_PREFIX_REST" value="__URL_PREFIX_REST__"  />
+        <property name="API_SIISO_V4" value="__API_SIISO_V4__" />
+        <property name="APIKEY" value="__APIKEY__" />
+        <property name="VALIDA_CERTIFICADO_LOGIN" value="__VALIDA_CERTIFICADO_LOGIN__"  />
+        <property name="API_SERPRO_RFB" value="__API_SERPRO_RFB__" />
+        <property name="URL_STA" value="__URL_STA__"/>
+        <property name="USUARIO_BACEN" value="__USUARIO_BACEN__"/>
+        <property name="SENHA_BACEN" value="__SENHA_BACEN__"/>
+        <property name="HORARIO_VERAO" value="__HORARIO_VERAO__" />
+    </system-properties>
     <management>
+        <security-realms>
+            <security-realm name="ManagementRealm">
+                <authentication>
+                    <local default-user="$local" skip-group-loading="true"/>
+                    <properties path="mgmt-users.properties" relative-to="jboss.server.config.dir"/>
+                </authentication>
+                <authorization map-groups-to-roles="false">
+                    <properties path="mgmt-groups.properties" relative-to="jboss.server.config.dir"/>
+                </authorization>
+            </security-realm>
+            <security-realm name="ApplicationRealm">
+                <server-identities>
+                    <ssl>
+                        <keystore path="application.keystore" relative-to="jboss.server.config.dir" keystore-password="password" alias="server" key-password="password" generate-self-signed-certificate-host="localhost"/>
+                    </ssl>
+                </server-identities>
+                <authentication>
+                    <local default-user="$local" allowed-users="*" skip-group-loading="true"/>
+                    <properties path="application-users.properties" relative-to="jboss.server.config.dir"/>
+                </authentication>
+                <authorization>
+                    <properties path="application-roles.properties" relative-to="jboss.server.config.dir"/>
+                </authorization>
+            </security-realm>
+        </security-realms>
         <audit-log>
             <formatters>
                 <json-formatter name="json-formatter"/>
@@ -137,8 +475,8 @@ Blame
             </logger>
         </audit-log>
         <management-interfaces>
-            <http-interface http-authentication-factory="management-http-authentication">
-                <http-upgrade enabled="true" sasl-authentication-factory="management-sasl-authentication"/>
+            <http-interface security-realm="ManagementRealm">
+                <http-upgrade enabled="true"/>
                 <socket-binding http="management-http"/>
             </http-interface>
         </management-interfaces>
@@ -185,7 +523,7 @@ Blame
             </logger>
             <logger category="stdout">
                 <level name="OFF"/>
-            </logger>
+            </logger>              
             <root-logger>
                 <level name="INFO"/>
                 <handlers>
@@ -203,7 +541,6 @@ Blame
         <subsystem xmlns="urn:jboss:domain:batch-jberet:2.0">
             <default-job-repository name="in-memory"/>
             <default-thread-pool name="batch"/>
-            <security-domain name="ApplicationDomain"/>
             <job-repository name="in-memory">
                 <in-memory/>
             </job-repository>
@@ -216,19 +553,30 @@ Blame
         <subsystem xmlns="urn:jboss:domain:core-management:1.0"/>
         <subsystem xmlns="urn:jboss:domain:datasources:6.0">
             <datasources>
-                <datasource jndi-name="java:jboss/datasources/ExampleDS" pool-name="ExampleDS" enabled="true" use-java-context="true" statistics-enabled="true">
-                    <connection-url>jdbc:h2:mem:test;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE</connection-url>
-                    <driver>h2</driver>
+                <datasource jta="false" jndi-name="java:/jdbc/DB2SicliDS" pool-name="jdbc/DB2SicliDS" enabled="true" use-ccm="false">
+                    <connection-url>__DB2_CONNECTION_STRING__</connection-url>
+                    <driver-class>com.ibm.db2.jcc.DB2Driver</driver-class>
+                    <driver>db2jcc4.36.6.jar</driver>
+                    <pool>
+                        <min-pool-size>1</min-pool-size>
+                        <max-pool-size>50</max-pool-size>
+                        <flush-strategy>IdleConnections</flush-strategy>
+                    </pool>
                     <security>
-                        <user-name>sa</user-name>
-                        <password>sa</password>
+                        <user-name>__DB2_USER__</user-name>
+                        <password>__DB2_PASSWORD__</password>
                     </security>
+                    <timeout>
+                        <idle-timeout-minutes>5</idle-timeout-minutes>
+                    </timeout>
+                    <validation>
+                        <valid-connection-checker class-name="org.jboss.jca.adapters.jdbc.extensions.db2.DB2ValidConnectionChecker"/>
+                        <check-valid-connection-sql>select count(1) from SYSIBM.SYSDUMMY1</check-valid-connection-sql>
+                        <validate-on-match>true</validate-on-match>
+                        <stale-connection-checker class-name="org.jboss.jca.adapters.jdbc.extensions.db2.DB2StaleConnectionChecker"/>
+                        <exception-sorter class-name="org.jboss.jca.adapters.jdbc.extensions.db2.DB2ExceptionSorter"/>
+                    </validation>
                 </datasource>
-                <drivers>
-                    <driver name="h2" module="com.h2database.h2">
-                        <xa-datasource-class>org.h2.jdbcx.JdbcDataSource</xa-datasource-class>
-                    </driver>
-                </drivers>
             </datasources>
         </subsystem>
         <subsystem xmlns="urn:jboss:domain:deployment-scanner:2.0">
@@ -250,7 +598,6 @@ Blame
                     <managed-scheduled-executor-service name="default" jndi-name="java:jboss/ee/concurrency/scheduler/default" context-service="default" hung-task-termination-period="0" hung-task-threshold="60000" keepalive-time="3000"/>
                 </managed-scheduled-executor-services>
             </concurrent>
-            <default-bindings context-service="java:jboss/ee/concurrency/context/default" datasource="java:jboss/datasources/ExampleDS" jms-connection-factory="java:jboss/DefaultJMSConnectionFactory" managed-executor-service="java:jboss/ee/concurrency/executor/default" managed-scheduled-executor-service="java:jboss/ee/concurrency/scheduler/default" managed-thread-factory="java:jboss/ee/concurrency/factory/default"/>
         </subsystem>
         <subsystem xmlns="urn:jboss:domain:ee-security:1.0"/>
         <subsystem xmlns="urn:jboss:domain:ejb3:9.0">
@@ -297,9 +644,6 @@ Blame
             </thread-pools>
             <iiop enable-by-default="false" use-qualified-name="false"/>
             <default-security-domain value="other"/>
-            <application-security-domains>
-                <application-security-domain name="other" security-domain="ApplicationDomain"/>
-            </application-security-domains>
             <default-missing-method-permissions-deny-access value="true"/>
             <statistics enabled="${wildfly.ejb3.statistics-enabled:${wildfly.statistics-enabled:false}}"/>
             <log-system-exceptions value="true"/>
@@ -372,13 +716,6 @@ Blame
                         </mechanism>
                     </mechanism-configuration>
                 </http-authentication-factory>
-                <http-authentication-factory name="application-http-authentication" security-domain="ApplicationDomain" http-server-mechanism-factory="global">
-                    <mechanism-configuration>
-                        <mechanism mechanism-name="BASIC">
-                            <mechanism-realm realm-name="ApplicationRealm"/>
-                        </mechanism>
-                    </mechanism-configuration>
-                </http-authentication-factory>
                 <provider-http-server-mechanism-factory name="global"/>
             </http>
             <sasl>
@@ -431,7 +768,7 @@ Blame
         <subsystem xmlns="urn:wildfly:health:1.0" security-enabled="false"/>
         <subsystem xmlns="urn:jboss:domain:iiop-openjdk:2.1">
             <orb socket-binding="iiop"/>
-            <initializers security="elytron" transactions="spec"/>
+            <initializers security="identity" transactions="spec"/>
             <security server-requires-ssl="false" client-requires-ssl="false"/>
         </subsystem>
         <subsystem xmlns="urn:jboss:domain:infinispan:12.0">
@@ -506,7 +843,6 @@ Blame
         </subsystem>
         <subsystem xmlns="urn:jboss:domain:messaging-activemq:13.0">
             <server name="default">
-                <security elytron-domain="ApplicationDomain"/>
                 <statistics enabled="${wildfly.messaging-activemq.statistics-enabled:${wildfly.statistics-enabled:false}}"/>
                 <security-setting name="#">
                     <role name="guest" send="true" consume="true" create-non-durable-queue="true" delete-non-durable-queue="true"/>
@@ -535,23 +871,48 @@ Blame
             </server>
         </subsystem>
         <subsystem xmlns="urn:wildfly:metrics:1.0" security-enabled="false" exposed-subsystems="*" prefix="${wildfly.metrics.prefix:jboss}"/>
-        <!--subsystem xmlns="urn:jboss:domain:modcluster:5.0">
-            <proxy name="default" advertise-socket="modcluster" listener="ajp">
-                <dynamic-load-provider>
-                    <load-metric type="cpu"/>
-                </dynamic-load-provider>
-            </proxy>
-        </subsystem-->
         <subsystem xmlns="urn:jboss:domain:naming:2.0">
             <remote-naming/>
         </subsystem>
         <subsystem xmlns="urn:jboss:domain:pojo:1.0"/>
         <subsystem xmlns="urn:jboss:domain:remoting:4.0">
-            <http-connector name="http-remoting-connector" connector-ref="default" sasl-authentication-factory="application-sasl-authentication"/>
+            <http-connector name="http-remoting-connector" connector-ref="default" security-realm="ApplicationRealm"/>
         </subsystem>
         <subsystem xmlns="urn:jboss:domain:request-controller:1.0"/>
         <subsystem xmlns="urn:jboss:domain:resource-adapters:6.0"/>
         <subsystem xmlns="urn:jboss:domain:sar:1.0"/>
+        <subsystem xmlns="urn:jboss:domain:security:2.0">
+            <security-domains>
+                <security-domain name="other" cache-type="default">
+                    <authentication>
+                        <login-module code="Remoting" flag="optional">
+                            <module-option name="password-stacking" value="useFirstPass"/>
+                        </login-module>
+                        <login-module code="RealmDirect" flag="required">
+                            <module-option name="password-stacking" value="useFirstPass"/>
+                        </login-module>
+                    </authentication>
+                </security-domain>
+                <security-domain name="jboss-web-policy" cache-type="default">
+                    <authorization>
+                        <policy-module code="Delegating" flag="required"/>
+                    </authorization>
+                </security-domain>
+                <security-domain name="jaspitest" cache-type="default">
+                    <authentication-jaspi>
+                        <login-module-stack name="dummy">
+                            <login-module code="Dummy" flag="optional"/>
+                        </login-module-stack>
+                        <auth-module code="Dummy"/>
+                    </authentication-jaspi>
+                </security-domain>
+                <security-domain name="jboss-ejb-policy" cache-type="default">
+                    <authorization>
+                        <policy-module code="Delegating" flag="required"/>
+                    </authorization>
+                </security-domain>
+            </security-domains>
+        </subsystem>
         <subsystem xmlns="urn:jboss:domain:security-manager:1.0">
             <deployment-permissions>
                 <maximum-set>
@@ -569,15 +930,24 @@ Blame
             <coordinator-environment statistics-enabled="${wildfly.transactions.statistics-enabled:${wildfly.statistics-enabled:false}}"/>
             <object-store path="tx-object-store" relative-to="jboss.server.data.dir"/>
         </subsystem>
+        <subsystem xmlns="urn:jboss:domain:keycloak:1.1">
+            <secure-deployment name="sicli-web.war">
+                <realm>intranet</realm>
+                <resource>__SSO_CLIENT_ID__</resource>
+                <auth-server-url>__SSO_AUTH_URL__</auth-server-url>
+                <ssl-required>EXTERNAL</ssl-required>
+                <credential name="secret">__SSO_CLIENT_SECRET__</credential>
+            </secure-deployment>
+        </subsystem>
         <subsystem xmlns="urn:jboss:domain:undertow:12.0" default-server="default-server" default-virtual-host="default-host" default-servlet-container="default" default-security-domain="other" statistics-enabled="${wildfly.undertow.statistics-enabled:${wildfly.statistics-enabled:false}}">
             <buffer-cache name="default"/>
             <server name="default-server">
-                <ajp-listener name="ajp" socket-binding="ajp" max-parameters="30000" max-post-size="52428800"/>
+                <ajp-listener name="ajp" socket-binding="ajp" secure="true" scheme="https"/>
                 <http-listener name="default" socket-binding="http" redirect-socket="https" enable-http2="true"/>
-                <https-listener name="https" socket-binding="https" ssl-context="applicationSSC" enable-http2="true"/>
+                <https-listener name="https" socket-binding="https" security-realm="ApplicationRealm" enable-http2="true"/>
                 <host name="default-host" alias="localhost">
                     <location name="/" handler="welcome-content"/>
-                    <http-invoker http-authentication-factory="application-http-authentication"/>
+                    <http-invoker security-realm="ApplicationRealm"/>
                 </host>
             </server>
             <servlet-container name="default">
@@ -587,9 +957,6 @@ Blame
             <handlers>
                 <file name="welcome-content" path="${jboss.home.dir}/welcome-content"/>
             </handlers>
-            <application-security-domains>
-                <application-security-domain name="other" security-domain="ApplicationDomain"/>
-            </application-security-domains>
         </subsystem>
         <subsystem xmlns="urn:jboss:domain:webservices:2.0" statistics-enabled="${wildfly.webservices.statistics-enabled:${wildfly.statistics-enabled:false}}">
             <wsdl-host>${jboss.bind.address:127.0.0.1}</wsdl-host>
@@ -615,13 +982,13 @@ Blame
         </interface>
     </interfaces>
     <socket-binding-group name="standard-sockets" default-interface="public" port-offset="${jboss.socket.binding.port-offset:0}">
+        <socket-binding name="management-http" interface="management" port="${jboss.management.http.port:9990}"/>
+        <socket-binding name="management-https" interface="management" port="${jboss.management.https.port:9993}"/>
         <socket-binding name="ajp" port="${jboss.ajp.port:8009}"/>
         <socket-binding name="http" port="${jboss.http.port:8080}"/>
         <socket-binding name="https" port="${jboss.https.port:8443}"/>
         <socket-binding name="iiop" interface="unsecure" port="3528"/>
-        <socket-binding name="iiop-ssl" interface="unsecure" port="3529"/>
-        <socket-binding name="management-http" interface="management" port="${jboss.management.http.port:9990}"/>
-        <socket-binding name="management-https" interface="management" port="${jboss.management.https.port:9993}"/>
+        <socket-binding name="iiop-ssl" interface="unsecure" port="3529"/>        
         <socket-binding name="txn-recovery-environment" port="4712"/>
         <socket-binding name="txn-status-manager" port="4713"/>
         <outbound-socket-binding name="mail-smtp">
@@ -632,204 +999,4 @@ Blame
 
 
 
-
-Skip to main content
-Azure DevOps
-projetos
-/
-Caixa
-/
-Pipelines
-Search
-
-
-Caixa
-
-Overview
-
-Boards
-
-Repos
-
-Pipelines
-Pipelines
-Environments
-Releases
-Library
-Task groups
-Deployment groups
-Portal Infra
-
-Test Plans
-
-Artifacts
-Project settings
-All pipelines
-
-SIICO
-
-SIICO-unidades-jboss
-Predefined variables
-Usuario-Azure-DevOps (12)
-Scopes: Release
-OKD-PRODUTOS (8)
-Credenciais para o Cluster OKD4 de PRODUTOS
-Scopes: Release
-SonarQube Variables (1)
-Variáveis com dados do SonarQube
-Scopes: Release
-MONITORACAO_LOGS (4)
-REQ000143540550 - Conforme autorizado na req por FLAVIO ALMEIDA GAGLIARDI, removido as variáveis JAVA_OPTS_MONITORING e URL_APM_SERVER, por entrar em conflitos com releases que utilizam o Application Insights
-Scopes: Release
-TERRAFORM-ESTEIRA-COMMON (6)
-WO0000079295714 - add variável INFRAFACIL
-Scopes: Release
-INFRAFACIL
-infradevops-novoportal-backend-prd.apps.produtos4.caixa
-TERRAFORM_ESX_PASSWORD
-********
-TERRAFORM_ESX_USERNAME
-s736660
-TF_HTTPS_NO_PROXY
-10.122.144.168,10.122.144.195,10.122.144.130,10.221.144.17,*.caixa,*.intra.caixa.gov.br,cadsvgerap030-1.intra.caixa.gov.br,cadsvgerap027-1.intra.caixa.gov.br,cadsvgerap028-1.intra.caixa.gov.br,cert-api.access.redhat.com,cadsvgerap107-1.intra.caixa.gov.br
-TF_HTTPS_PROXY
-http://proxynuvem.caixa:80
-arm_access_key
-********
-ANSIBLE_JBOSS_VM_VERSION_3 (11)
-WO0000072264656 - Config Portal Infrafácil NO_PROXY cadsvgerap027-1.intra.caixa.gov.br, 10.122.144.168
-Scopes: Release
-ANSIBLE_CONFIG
-$(HOME_ADS_AGENT)/$(DIR_ANSIBLE)/ansible.cfg
-ANSIBLE_INVENTORY_ANY_UNPARSED_IS_FAILED
-True
-ANSIBLE_VAULT
-********
-DIR_ANSIBLE
-esteira-jboss-vm-v2
-HOME_ADS_AGENT
-$(System.DefaultWorkingDirectory)
-NO_PROXY
-10.122.144.168,10.122.144.195,10.122.144.130,10.221.144.17,devops.caixa,cadsvgerap004-1.intra.caixa.gov.br,cadsvgerap028-1.intra.caixa.gov.br,infradevops-novoportal-backend-prd.apps.produtos4.caixa,infradevops-ads-api-prd.apps.produtos4.caixa,infradevops-db-api-prd.apps.produtos4.caixa,cadsvgerap027-1.intra.caixa.gov.br
-REPO_ESTEIRA_JBOSS_VM
-https://devops.caixa/projetos/Infraestrutura/_git/esteira-jboss-vm-v2
-REPO_ESTEIRA_JBOSS_VM_BRANCH
-master
-REPO_ESTEIRA_TERRAFORM
-https://devops.caixa/projetos/Infraestrutura/_git/esteira-vm-release-terraform
-REPO_ESTEIRA_TERRAFORM_BRANCH
-main
-TOKEN_INFRAFACIL_MUDANCA
-********
-TERRAFORM-ESTEIRA-NPRD (17)
-Variáveis do terraform para automação de ambientes
-Scopes: EC DES,EC TQS,EC HMP
-TERRAFORM_CLUSTER
-CTC_NPRDXF2488HV7_NPRD
-TERRAFORM_DATACENTER
-NPRD
-TERRAFORM_DATASTORE
-CTCHWNPRDC011_0259
-TERRAFORM_ESX_NETWORK
-tn-NPRD+NPRD_AUTO_DES_BSB-ap+VL3676-ep+10.116.192.0
-TERRAFORM_ESX_NETWORK_BCK
-tn-NPRD|NPRD_BKP-ap|VL3697-ep
-TERRAFORM_ESX_NETWORK_BCK_1
-tn-BACKUP|BACKUP-NPRD-ap|BACKUP-NPRD-ep
-TERRAFORM_ESX_PASSWORD
-********
-TERRAFORM_ESX_USERNAME
-s736660
-TERRAFORM_ESX_VCENTER_SERVER
-10.122.144.195
-TERRAFORM_NET_ADAPTER_TYPE
-vmxnet3
-TERRAFORM_VM_DNS
-["10.116.193.77", "10.116.193.78"]
-TERRAFORM_VM_DOMAIN
-agil.nprd.caixa.gov.br
-TERRAFORM_VM_IPNETMASK
-19
-TERRAFORM_VM_IPNETMASK_BCK
-19
-TERRAFORM_VM_IPNETMASK_BCK_1
-16
-TERRAFORM_VSPHERE_FOLDER
-/vm
-TERRAFORM_VSPHERE_POOL
-/Resources/RP_TERRAFORM_NPRD
-SIICO-UNIDADES-JBOSS-DES (10)
-Grupo de variáveis de SIICO-UNIDADES-JBOSS-DES
-Scopes: EC DES
-CICS_PORTA
-7000
-CICS_SENHA
-********
-CICS_USER
-JDIRCICD
-JCICSDIRECT_HOST
-10.216.80.110
-JCONNECTOR_PROPERTIES
-/opt/jboss-eap/standalone/configuration/jconnector.properties
-JVM_HEAP_MAX
-2048m
-JVM_HEAP_MIN
-1024m
-JVM_METASPACE_MAX
-512m
-JVM_METASPACE_MIN
-256m
-PASSWORD_TRUSTSTORE
-changeit
-SIICO-UNIDADES-JBOSS-TQS (1)
-Grupo de variáveis de SIICO-UNIDADES-JBOSS-TQS
-Scopes: EC TQS
-SIICO-UNIDADES-JBOSS-HMP (1)
-Grupo de variáveis de SIICO-UNIDADES-JBOSS-HMP
-Scopes: EC HMP
-INIT
-Criado via api
-TERRAFORM-ESTEIRA-PRD-CTC-NPCN (17)
-Variáveis do terraform para automação de ambientes TERRAFORM_VSPHERE_POOL - RP_ESTEIRAS_AGEIS_NPCN_CTC_V7 13/03/2025
-Scopes: EC PRD CTC
-SIICO-UNIDADES-JBOSS-PRD (1)
-Grupo de variáveis de SIICO-UNIDADES-JBOSS-PRD
-Scopes: EC PRD CTC,EC PRD DTC
-TERRAFORM-ESTEIRA-PRD-DTC-PCN (15)
-Variáveis do terraform para automação de ambientes
-Scopes: EC PRD DTC
-|Manage variable groups
-Expanded
-
-Showing 2 items.
-
-Collapsed
-
-Expanded
-
-Expanded
-
-Collapsed
-
-Collapsed
-
-No pipelines match your search
-
-Select a release pipeline to view its releases
-
-No pipelines match your search
-
-Select a release pipeline to view its releases
-
-No pipelines match your search
-
-Select a release pipeline to view its releases
-
-1 pipelines found
-
-Row 2
-
-Showing filters 1 through 2
-
-Showing filters 1 through 2
-
+esse dá?
