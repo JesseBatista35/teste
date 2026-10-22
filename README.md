@@ -1,28 +1,122 @@
-Retorno CESTI – SIECM-middleware (TQS) – Guardrail Fortify / Privacy Violation
+vamos ao intenet
 
-À equipe SIECM,
+Ir para Conteúdo Principal
+SINCC
+#INTERNO.TODOS
+VMs
+Pesquisar
+Linhas
 
-Conforme a REQ000146671991, a CESTI identificou a causa da falha no step “SAST: Guardrail Segurança Cibernética”. O Fortify aponta um achado Critical do tipo Privacy Violation no arquivo:
+50
+1 - 1 de 1
+VCenter
+Cluster
+VM Name
+DNS Name
+VM Host
+Serial Number
+Datacenter
+Datastores
+Resource Pool
+Folder
+Status
+IPs
+Subnets
+Tipos
+Nr. de CPUs
+Sistema Operacional
+Tamanho de Disco (GB)
+Notas
+Data da Coleta
+VCenter
+Cluster
+VM Name
+DNS Name
+VM Host
+Serial Number
+Datacenter
+Datastores
+Resource Pool
+Folder
+Status
+IPs
+Subnets
+Tipos
+Nr. de CPUs
+Sistema Operacional
+Tamanho de Disco (GB)
+Notas
+Data da Coleta
+cadsvgerap030-1.intra.caixa.gov.br	CTC_NPRDXF2488HV7_NPRD	CADDEAPLLX1121	caddeapllx1121	cadsvgersh626.intra.caixa.gov.br	PI00988800000262	NPRD	CTCHWNPRDC011_0260	RP_NPRD_001	JBOSS	Ligado	10.116.195.93	10.116.192.0/19	Vmxnet3	2	Red Hat Enterprise Linux 7 (64-bit)	22,28	
+[Teste] Esteira Agil: Servidor Jboss - SIGSJ-INTERNET
 
-src/main/java/br/gov/caixa/siecm/infra/ier/connector/AbstractJarmGateway.java
+21/10/2026 15:36:47
+1 - 1 de 1
+v1.2.0 - 12/08/2024 :: v2.0.4 - 05/10/2026
 
-A correção completa foi implementada e validada pela CESTI na branch cesti_teste (commit 41466348). Nessa branch o achado Critical deixou de ser identificado pelo Fortify e a esteira passou pelo Guardrail.
 
-Ao analisarmos o commit da equipe ce9dac65 (“Refatoração: melhorar logging e uso de constantes no AbstractJarmGateway”), verificamos que a correção foi aplicada apenas parcialmente. Foram alterados somente dois trechos:
+esse cara 1121ta na descriçao como teste
 
-o catch do establishUserContext;
-o catch genérico do executeWithConnection.
 
-Os demais ajustes feitos na branch cesti_teste não foram incorporados, como o tratamento de logs e exceções em withReadUserContext e installRmReadSubject e a padronização das mensagens. Por isso o Guardrail continua encontrando uma vulnerabilidade crítica e a esteira segue barrada.
+Gisele, bom dia
+ 
+?
+ 
+tudo bem?
+ 
+bom dia
+ 
+tudo sim e vc?
+ 
+tudo bem graças a Deus, voce saberia me informar o hostname  ou o ip do SIGSJ legado? 
+ 
+deixa eu ver aqui
+ 
+eu acesso por essa URL o desenvolvimento https://10.116.82.156:8037/sigsj_intranet/
+ 
+obrigado
 
-Ação necessária (equipe de desenvolvimento):
 
-Substituir o conteúdo do AbstractJarmGateway.java na branch de trabalho pelo arquivo completo da branch cesti_teste (commit 41466348). Pode ser feito por cherry-pick ou merge. Não basta reaplicar trechos isolados.
-Gerar uma nova TAG e executar a pipeline.
-Se algum achado ainda aparecer, o detalhe (arquivo, linha e categoria) pode ser consultado diretamente no SSC (https://sast.caixa/ssc), na aplicação SIECM-middleware, versão 1.0.0.
 
-Não é necessária a abertura de sala. A correção já está pronta e validada no repositório, e falta apenas a equipe aplicá-la integralmente. Diante disso, encerramos a demanda. Caso o erro persista após a aplicação completa do arquivo da branch cesti_teste, favor abrir nova requisição anexando o log da execução.
+ 
+-sh-4.2$ ^C
+-sh-4.2$ exit
+logout
+Connection to 10.116.195.93 closed.
+[p585600@cadsvitrlx100 ~]$ ssh 10.116.82.156
+The authenticity of host '10.116.82.156 (10.116.82.156)' can't be established.
+RSA key fingerprint is SHA256:4syI7cyn+8y4NieUzq5i1LX5sM/BfCSfRTH5Yn7TfcU.
+This host key is known by the following other names/addresses:
+    ~/.ssh/known_hosts:53: 10.116.88.98
+    ~/.ssh/known_hosts:55: 10.116.88.97
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '10.116.82.156' (RSA) to the list of known hosts.
+***********************************************************************
+(1) - Este e um computador privado de propriedade da Caixa Economica
+Federal. Usuarios autorizados e nao autorizados nao possuem direitos de
+divulgar as informacoes contidas aqui.
+(2) - Ao fazer uso do sistema, o usuario esta ciente que pode estar
+sendo monitorado, interceptado e auditado pelo departamento competente
+da Caixa Economica Federal.
+(3) - O uso nao autorizado ou improprio deste sistema pode resultar em
+um processo disciplinar administrativo e/ou punicao atraves de acoes
+civis ou criminais. Ao continuar o uso deste sistema, indica que voce
+esta ciente e concordando com os termos e condicoes acima descritos.
 
-Atenciosamente,
-Jessé Batista
-CTIS / CESTI – Esteira DevOps DES/TQS NPRD
+Pressione <Control+D> IMEDIATAMENTE se voce nao concorda com as
+condicoes deste aviso
+***********************************************************************
+p585600@10.116.82.156's password:
+Creating home directory for p585600.
+[p585600@sspdeaprlx0045 ~]$
+[p585600@sspdeaprlx0045 ~]$
+[p585600@sspdeaprlx0045 ~]$
+[p585600@sspdeaprlx0045 ~]$
+
+
+
+
+
+me ajuda a verificar qual p verdadeiro uqel é o teste, e se podemos mudar o nomeo no infrafacil do 1121 para teste da rodaremos uman nova release e ele craira uma nova vm
+
+
