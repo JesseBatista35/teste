@@ -1,23 +1,22 @@
-
-p585600@10.116.94.211's password:
-Last login: Thu Oct 22 14:26:19 2026 from 10.122.150.31
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$  for i in 1 2 3 4 5 6; do echo "$(date +%T) $(ss -tnp | grep 'pid=72951' | grep -cE '10.252.32.6[35]:80') $(ss -tnp | grep 'pid=72951' | grep -E '10.252.32.6[35]:80' | grep -c CLOSE-WAIT)"; sleep 60; done
-14:50:55 0 0
-14:51:55 0 0
-14:52:55 0 0
-14:53:55 0 0
-14:54:55 0 0
-14:55:55 0 0
--sh-4.2$
+sudo su
+for i in 1 2 3 4 5 6; do echo "$(date +%T) $(ss -tnp | grep 'pid=72951' | grep -cE '10.252.32.6[35]:80') $(ss -tnp | grep 'pid=72951' | grep -E '10.252.32.6[35]:80' | grep -c CLOSE-WAIT)"; sleep 60; done
 
 
 
-[root@sbrdeapllx104 /]# timeout 120 tcpdump -i any -nn -l -s0 'tcp dst port 80 and (dst host 10.252.32.63 or dst host 10.252.32.65)' 2>/dev/null \
->  | grep --line-buffered -aoE "211\.[0-9]+ > .*HTTP: [A-Z]+ [^ ]+" \
->  | while read l; do port=$(echo "$l" | cut -d' ' -f1 | cut -d. -f2); req=$(echo "$l" | grep -oE "HTTP: [A-Z]+ [^ ]+"); pid=$(ss -tnp "sport = :$port" | grep -oE 'pid=[0-9]+' | head -1); echo "$req $pid"; done \
->  | sort | uniq -c | sort -rn
-Terminado
-[root@sbrdeapllx104 /]#
+# Captura de 2 min em arquivo
+timeout 120 tcpdump -i any -nn -s0 -w /tmp/proxy.pcap 'tcp dst port 80 and (dst host 10.252.32.63 or dst host 10.252.32.65)'
+
+# Teve pacote?
+tcpdump -nn -r /tmp/proxy.pcap 2>/dev/null | wc -l
+
+# Requisições feitas ao proxy (CONNECT/GET/POST) e a porta de origem
+tcpdump -nn -A -r /tmp/proxy.pcap 2>/dev/null | grep -aoE "(CONNECT|GET|POST|PUT) [^ ]+ HTTP/1\.[01]" | sort | uniq -c | sort -rn
+tcpdump -nn -r /tmp/proxy.pcap 2>/dev/null | grep -E "Flags \[S\]" | awk '{print $3}' | sort | uniq | head -30
+
+
+Ainda durante a captura, noutra sessão como root, tire um retrato de qual porta pertence a qual processo:
+
+bash
+
+
+ss -tnp | grep -E "10.252.32.6[35]:80" | awk '{print $1, $4, $6}' | sort > /tmp/ss_snap.txt; wc -l /tmp/ss_snap.txt; awk '{print $3}' /tmp/ss_snap.txt | grep -oE 'pid=[0-9]+' | sort | uniq -c
