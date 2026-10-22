@@ -1,32 +1,14 @@
+ps -ef | grep sigec-portabilidade-batch | grep -v grep
+tail -300 /opt/jboss/jboss-eap/hc/servers/sigec-portabilidade-batch_node1_lx104/log/server.log
+grep -nE "ACTC403|WFLYEJB0241|WFLYEJB0043|OutOfMemory|native thread|stopped" /opt/jboss/jboss-eap/hc/servers/sigec-portabilidade-batch_node1_lx104/log/server.log | tail -50
 
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$ sudo su
-[sudo] senha para p585600:
-[root@sbrdeapllx104 p585600]#
-[root@sbrdeapllx104 p585600]#
-[root@sbrdeapllx104 p585600]# /opt/jboss/jboss-eap/bin/jboss-cli.sh --connect --controller=remote://10.116.89.0:9999
-Authenticating against security realm: ManagementRealm
-Username: P585600
-Password:
-Failed to connect to the controller: Unable to authenticate against controller at 10.116.89.0:9999: Authentication failed: all available authentication mechanisms failed:
-   DIGEST-MD5: javax.security.sasl.SaslException: DIGEST-MD5: Server rejected authentication
-[root@sbrdeapllx104 p585600]# /opt/jboss/jboss-eap/bin/jboss-cli.sh --connect --controller=remote://10.116.89.0:9999
-Authenticating against security realm: ManagementRealm
-Username: p585600
-Password:
-Failed to connect to the controller: Unable to authenticate against controller at 10.116.89.0:9999: Authentication failed: all available authentication mechanisms failed:
-   DIGEST-MD5: javax.security.sasl.SaslException: DIGEST-MD5: Server rejected authentication
-[root@sbrdeapllx104 p585600]# /opt/jboss/jboss-eap/bin/jboss-cli.sh --connect --controller=remote://10.116.89.0:9999
-Authenticating against security realm: ManagementRealm
-Username: p585600
-Password:
-Failed to connect to the controller: Unable to authenticate against controller at 10.116.89.0:9999: Authentication failed: all available authentication mechanisms failed:
-   DIGEST-MD5: javax.security.sasl.SaslException: DIGEST-MD5: Server rejected authentication
-[root@sbrdeapllx104 p585600]#
-[root@sbrdeapllx104 p585600]#
-[root@sbrdeapllx104 p585600]#
-[root@sbrdeapllx104 p585600]#
-[root@sbrdeapllx104 p585600]#
 
+/usr/lib/jvm/jdk-1.8.0_471-oracle-x64/bin/jstack -F <pid> > /tmp/jstack_batch_$(date +%Y%m%d_%H%M).txt
+ss -tnp | grep "pid=<pid>" | grep -cE "10.252.32.6[35]:80"
+
+exit   # sai do root
+ssh p585600@10.116.89.0
+sudo su
+/opt/jboss/jboss-eap/bin/jboss-cli.sh --connect --controller=10.116.89.0:9999
+
+/host=sbrdeapllx104_credito/server-config=sigec-portabilidade-batch_node1_lx104:read-attribute(name=status)
