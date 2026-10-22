@@ -39,7 +39,7 @@
         <extension module="org.wildfly.extension.security.manager"/>
         <extension module="org.wildfly.extension.undertow"/>
         <extension module="org.wildfly.iiop-openjdk"/>
-        <extension module="org.keycloak.keycloak-adapter-subsystem"/> 
+        <extension module="org.keycloak.keycloak-adapter-subsystem"/>
     </extensions>
 
     <system-properties>
@@ -121,7 +121,7 @@
                 </formatter>
             </console-handler>
 
-            <periodic-rotating-file-handler name="SICOWPORTAL">
+            <periodic-rotating-file-handler name="SICOWPENHOR" autoflush="true">
                 <formatter>
                     <pattern-formatter pattern="%d{HH:mm:ss,SSS} %-5p [%c] (%t) %s%E%n"/>
                 </formatter>
@@ -153,7 +153,6 @@
                     <handler name="CONSOLE"/>
                     <handler name="FILE"/>
                     <handler name="SICOWPENHOR"/>
-                  
                 </handlers>
             </root-logger>
             <formatter name="PATTERN">
@@ -482,6 +481,8 @@
                     <param name="direct-deliver" value="false"/>
                 </remote-acceptor>
                 <in-vm-acceptor name="in-vm" server-id="0"/>
+                <jms-queue name="ExpiryQueue" entries="java:/jms/queue/ExpiryQueue"/>
+                <jms-queue name="DLQ" entries="java:/jms/queue/DLQ"/>
                 <jms-queue name="sipnlReq" entries="jms/queue/sipnl/sipnlReq java:jboss/exported/jms/queue/sipnl/sipnlReq"/>
                 <jms-queue name="sipnlRet" entries="jms/queue/sipnl/sipnlRet java:jboss/exported/jms/queue/sipnl/sipnlRet"/>
                 <jms-queue name="totemReq" entries="jms/queue/sipnl/totemReq java:jboss/exported/jms/queue/sipnl/totemReq"/>
@@ -497,7 +498,7 @@
                 <pooled-connection-factory name="hornetq-ra" entries="java:/JmsXA" connectors="in-vm" transaction="xa"/>
             </server>
         </subsystem>
-        
+
         <subsystem xmlns="urn:jboss:domain:naming:2.0">
             <remote-naming/>
         </subsystem>
@@ -600,7 +601,7 @@
                             <module-option name="debug" value="true"/>
                         </login-module>
                     </authentication>
-                </security-domain>            
+                </security-domain>
                 <security-domain name="sicowPenhorSecurityDomain" cache-type="default">
                     <authentication>
                         <login-module code="br.gov.caixa.security.CaixaLoginModule" flag="required" module="br.gov.caixa.siusr">
@@ -704,5 +705,3 @@
         </outbound-socket-binding>
     </socket-binding-group>
 </server>
-
-corrige ai pra mim
