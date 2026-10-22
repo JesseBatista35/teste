@@ -1,3 +1,10 @@
+jboss-deployments
+ ta assim
+
+group_id:artifact_id:version:extension
+br.gov.caixa.SirotconEAP:sirotcon-ejb:2.3.0.1:jar
+
+
 <?xml version='1.0' encoding='UTF-8'?>
 
 <server xmlns="urn:jboss:domain:16.0">
@@ -118,18 +125,6 @@
             </logger>
             <logger category="stdout">
                 <level name="OFF"/>
-            </logger>
-            <logger category="br.gov.caixa.sirot" use-parent-handlers="false">
-                <level name="DEBUG"/>
-                <handlers>
-                    <handler name="sirot"/>
-                </handlers>
-            </logger>
-            <logger category="br.gov.caixa.libsp" use-parent-handlers="false">
-                <level name="DEBUG"/>
-                <handlers>
-                    <handler name="ceflib"/>
-                </handlers>
             </logger>
             <root-logger>
                 <level name="INFO"/>
@@ -488,6 +483,9 @@
             </proxy>
         </subsystem>
         <subsystem xmlns="urn:jboss:domain:naming:2.0">
+            <bindings>
+                <lookup name="java:global/sirotcon-ejb-2.3.0.1-farm/SIROTConBean!br.gov.caixa.sirot.ejb.SIROTCon" lookup="java:global/sirotcon-ejb/SIROTConBean!br.gov.caixa.sirot.ejb.SIROTCon"/>
+            </bindings>
             <remote-naming/>
         </subsystem>
         <subsystem xmlns="urn:jboss:domain:pojo:1.0"/>
