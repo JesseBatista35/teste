@@ -1,65 +1,72 @@
-À CAIXA,
+Solicitamos a verificação da indisponibilidade na instância Java Batch do SIGEC Portabilidade em DES.
 
-1- Qual erro ou problema identificado?
-O serviço sigdb.service (systemd) do servidor caddeapllx2480 (DES) falhava ao iniciar com status=203/EXEC. Com isso, o agente SIGDB não era iniciado automaticamente e só funcionava quando iniciado manualmente.
+ambiente de DES, não está sendo atualizado quando estamos solicitando deploy via esteira (Gid).
 
-2- O que foi feito? (Ações, Procedimentos, Acionamentos)
+Há uma mensagem dizendo que o canal foi "stopped".
 
-Identificado que o script /sigdb/run, chamado pela unit do systemd, não possuía a instrução de interpretador (#!/bin/bash) na primeira linha, o que impedia sua execução pelo systemd. Foram descartadas as hipóteses de permissão, quebra de linha CRLF e SELinux (desabilitado no servidor).
-Realizado backup dos arquivos (/sigdb/run.bkp.20261022 e /root/sigdb.service.bkp.20261022).
-Incluída a instrução #!/bin/bash no início do /sigdb/run.
-Encerrado o processo do agente iniciado manualmente, para liberar a porta 35000.
-Executados daemon-reload, reset-failed e start do serviço.
-Validado o ciclo stop/start: o agente sobe e para corretamente pelo systemd, com a porta 35000 em LISTEN.
+Instância:
 
-Evidência:
+SIGEC PORTABILIDADE - DES (batch)
+SIGEC-PORTABILIDADE-BATCH-DEPLOY-DES
+Link: https://sigec.des.caixa/gec-web/por/
 
-● sigdb.service - Agente SIGDB
-     Loaded: loaded (/etc/systemd/system/sigdb.service; enabled; preset: disabled)
-     Active: active (running) since Thu 2026-10-22 12:41:44 -03
-    Process: 147204 ExecStart=/sigdb/run (code=exited, status=0/SUCCESS)
-   Main PID: 147205 (AgtSigdb)
 
-LISTEN 0 3 0.0.0.0:35000 0.0.0.0:* users:(("AgtSigdb",pid=147220,fd=5))
-MainPID=147220
+<img width="1132" height="488" alt="imagem (2)" src="https://github.com/user-attachments/assets/66fc3392-b684-4639-839f-b8fad6d02715" />
 
-3- Envolvimento em Alguma Sala: Não.
 
-4- Causa Raiz/Motivação: O script /sigdb/run não possuía shebang (#!/bin/bash), o que impedia sua execução pelo systemd (erro 203/EXEC).
+Histórico de Informações de Trabalho da Ordem de Trabalho
+ID da Ordem de Trabalho	 WO0000082064862
+Criado em	 22/10/2026 13:45:16
+Criado por	 P776093
+Origem de Comunicação	 
+Exibir Acesso	 Público
+Notas	 Campo "Notas" ajustado pela Operação Datacenter conforme abaixo:
 
-5- Solução Aplicada: Definitiva para a inicialização automática do agente SIGDB no ambiente DES.
+Verificar indisponibilidade na instância Java Batch do SIGEC Portabilidade em DES, conforme detalhamento em REQ.
 
-6- Orientação para continuidade (cadastro no mainframe):
+Data final mantida para o dia 23/10/2026 12:17:00, conforme ajuste realizado pela equipe técnica.
+ID da Ordem de Trabalho	 WO0000082064862
+Criado em	 22/10/2026 13:43:07
+Criado por	 P776093
+Origem de Comunicação	 
+Exibir Acesso	 Público
+Notas	 Demanda inicial com viés de falha, erro, degradação ou esgotamento de infraestrutura, serviço, máquina, armazenamento, rotina ou situação que esteja na iminência de tornar-se incidente. Previsto atendimento no prazo indicado pelo demandante.
 
-O teste de envio realizado a partir do servidor estabelece conexão com o mainframe, porém recebe o retorno de erro de cadastro:
+[CENTRAL-SID]
+ID da Ordem de Trabalho	 WO0000082064862
+Criado em	 22/10/2026 12:36:31
+Criado por	 P768728
+Origem de Comunicação	 
+Exibir Acesso	 Público
+Notas	 Prezado(a),
 
-[root@caddeapllx2480 sigdb]# ./Sigdb /c SIHEX /var/sistemas/SIHEX/ENTRADA/
-Tentando conectar...
-Recebido Pacote de 35 Bytes GDBA            002-1006
-Fechando Conexao
-Erro -1006 no Cadastramento
+Informamos que sua solicitação foi recebida.
 
-A comunicação de rede e o agente estão operacionais. O retorno -1006 é gerado pelo mainframe e indica ausência ou pendência de cadastro no SIGDB para este agente e/ou sistema. Por se tratar de cadastro da aplicação, a tratativa está fora do escopo da Esteira DevOps NPRD.
+Conforme definição da Coordenação NPRD (CESTI36) e em conformidade com o fluxo de atendimento estabelecido para a Esteira DevOps NPRD, os atendimentos realizados por esta equipe seguem SLAs específicos, distintos dos praticados pelas demais macrocélulas.
 
-Orientamos que a equipe de desenvolvimento abra chamado para a equipe responsável pelo SIGDB no mainframe, solicitando o cadastro e a liberação do agente com as seguintes informações:
+Dessa forma, o SLA desta solicitação foi ajustado para até 24 horas úteis, prazo aplicável à sua classificação.
 
-Item	Valor
-Ambiente	Desenvolvimento (DES)
-Servidor	caddeapllx2480.agil.nprd.caixa.gov.br
-IP do servidor	10.116.200.237
-Nome do agente (parâmetro -m)	tr7261lx480
-Host de destino (mainframe)	10.192.224.66
-Porta do agente	35000/TCP
-Sistema	SIHEX
-Diretório de entrada	/var/sistemas/SIHEX/ENTRADA/
-Erro retornado	GDBA 002-1006 – Erro -1006 no Cadastramento
+Nesse período, a demanda será analisada para validação do escopo de atuação da equipe e definição do tratamento adequado.
 
-O chamado também deve informar os arquivos e transmissões que o sistema SIHEX precisa realizar via SIGDB, dado que somente a equipe da aplicação possui.
+Caso seja identificado que a solicitação não pertence ao escopo de atendimento da Esteira DevOps NPRD, a demanda será direcionada à equipe responsável, observando os fluxos e processos vigentes.
 
-Observação sobre Produção: o servidor cadnpcldlx1508 (PRD) não é atendido por esta equipe. Recomenda-se que a equipe responsável pelo ambiente produtivo verifique se o /sigdb/run também está sem a instrução #!/bin/bash, pois a mesma correção se aplica.
-
-Diante do exposto, encerramos esta demanda no âmbito da Esteira DevOps NPRD.
+Novas informações e atualizações serão registradas diretamente nesta WO.
 
 Atenciosamente,
-Jessé Batista – P585600
-CTIS/CESTI/ESTEIRAS DEVOPS
+
+Esteira DevOps NPRD
+ID da Ordem de Trabalho	 WO0000082064862
+Criado em	 22/10/2026 12:17:01
+Criado por	 C161842
+Origem de Comunicação	 
+Exibir Acesso	 Público
+Notas	 Anexo do Registro de Solicitação.
+ID da Ordem de Trabalho	 WO0000082064862
+Criado em	 22/10/2026 12:17:00
+Criado por	 Remedy Application Service
+Origem de Comunicação	 E-mail
+Exibir Acesso	 Interno
+Notas	 Este ticket foi criado a partir do sistema de solicitação de serviço.
+Impresso por P585600 em Quinta-feira, 22/10/2026 13:55:57
+
+
