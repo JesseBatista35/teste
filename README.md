@@ -1,7 +1,39 @@
-Gisele, achamos a causa do ClassNotFoundException: br.gov.caixa.log.Log no intranet.
 
-O sirotcon-ejb que a esteira implantava antes (artefato br.gov.caixa.SirotconEAP:sirotcon-ejb:2.3.0.1) trazia dentro dele as libs de que o SIROT depende: CeflogEAP-2.5.0.0, ceflib-2.5.0.1, log4j-1.2.17 e o sirotcon-ejb-lib. A classe br.gov.caixa.log.Log fica no CeflogEAP-2.5.0.0.
+[sudo] senha para p585600:
+[root@caddeapllx2854 p585600]# ps -ef | grep [j]ava | grep -oE "jboss.home.dir=[^ ]*|jboss.server.log.dir=[^ ]*|-c [^ ]*"
+jboss.home.dir=/opt/jboss-eap
+jboss.server.log.dir=/logs/jboss/jboss-eap/standalone/sigsj-internet
+-c standalone-full-ha.xml
+[root@caddeapllx2854 p585600]#
+[root@caddeapllx2854 p585600]#
+[root@caddeapllx2854 p585600]#
+[root@caddeapllx2854 p585600]# LOG=<jboss.server.log.dir>/server.log
+bash: jboss.server.log.dir: Arquivo ou diretório inexistente
+[root@caddeapllx2854 p585600]#
+[root@caddeapllx2854 p585600]#
+[root@caddeapllx2854 p585600]#
+[root@caddeapllx2854 p585600]# grep -nE "WFLYCTL0412|WFLYCTL0180|missing|SIGSJ04|datasources|WFLYJCA|Driver" $LOG | tail -40
+^C
+[root@caddeapllx2854 p585600]#
+[root@caddeapllx2854 p585600]#
+[root@caddeapllx2854 p585600]#
+[root@caddeapllx2854 p585600]# grep -nE "WFLYCTL0412|WFLYCTL0180|missing|SIGSJ04|datasources|WFLYJCA|Driver" $LOG | tail -40
 
-Na build nova, o sigsj_intranet.war leva só o sirotcon-ejb-2.3.0.1-farm e o sirotcon-ejb-lib-2.3.0.2-farm, sem o CeflogEAP e sem o ceflib.
 
-Consegue incluir no pom as dependências CeflogEAP 2.5.0.0 e ceflib 2.5.0.1 e gerar uma nova build? O boleto deve precisar do mesmo ajuste. Do nosso lado, config e servidor já estão prontos para a nova versão.
+
+^C
+[root@caddeapllx2854 p585600]#
+[root@caddeapllx2854 p585600]#
+[root@caddeapllx2854 p585600]#
+[root@caddeapllx2854 p585600]#
+[root@caddeapllx2854 p585600]#
+[root@caddeapllx2854 p585600]#
+[root@caddeapllx2854 p585600]# JH=<jboss.home.dir>
+bash: erro de sintaxe próximo ao token inesperado `newline'
+[root@caddeapllx2854 p585600]#
+[root@caddeapllx2854 p585600]#
+[root@caddeapllx2854 p585600]# $JH/bin/jboss-cli.sh --connect --controller=10.116.202.45:9990 --commands="/subsystem=datasources:read-children-names(child-type=data-source),/subsystem=datasources:read-children-names(child-type=xa-data-source),/subsystem=datasources:read-children-names(child-type=jdbc-driver)"
+ls $JH/modules/com/oracle* $JH/modules/system/layers/base/com/oracle* 2>/dev/null
+bash: /bin/jboss-cli.sh: Arquivo ou diretório inexistente
+[root@caddeapllx2854 p585600]# ^C
+[root@caddeapllx2854 p585600]#
