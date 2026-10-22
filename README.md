@@ -476,9 +476,6 @@
             </proxy>
         </subsystem>
         <subsystem xmlns="urn:jboss:domain:naming:2.0">
-            <bindings>
-                <lookup name="java:global/sirotcon-ejb-2.3.0.1-farm/SIROTConBean!br.gov.caixa.sirot.ejb.SIROTCon" lookup="java:global/sirotcon-ejb/SIROTConBean!br.gov.caixa.sirot.ejb.SIROTCon"/>
-            </bindings>
             <remote-naming/>
         </subsystem>
         <subsystem xmlns="urn:jboss:domain:pojo:1.0"/>
@@ -594,6 +591,3 @@
         </outbound-socket-binding>
     </socket-binding-group>
 </server>
-
-
-confere o que tem que mudar e ja menda pront
