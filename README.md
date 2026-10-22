@@ -1,24 +1,8 @@
+# A versão farm (no war) referencia br/gov/caixa/log; a EAP (backup) não deveria
+unzip -p /tmp/earchk/sigsj_intranet.war WEB-INF/lib/sirotcon-ejb-2.3.0.1-farm.jar > /tmp/earchk/farm.jar
+unzip -p /tmp/earchk/farm.jar br/gov/caixa/sirot/ejb/SIROTConImpl.class | strings | grep -c "br/gov/caixa/log"
+unzip -p /tmp/bkp_sirotcon/sirotcon-ejb.jar br/gov/caixa/sirot/ejb/SIROTConImpl.class | strings | grep -c "br/gov/caixa/log"
 
-[root@caddeapllx955 earchk]#
-[root@caddeapllx955 earchk]#
-[root@caddeapllx955 earchk]# unzip -p /tmp/bkp_sirotcon/sirotcon-ejb.jar META-INF/MANIFEST.MF
-Manifest-Version: 1.0
-Archiver-Version: Plexus Archiver
-Created-By: Apache Maven
-Built-By: f612413
-Build-Jdk: 1.6.0_23
-
-Name: sirotcon-ejb
-groupId: br.gov.caixa
-implementation-version: LABEL-2.3.0.1
-artifactId: sirotcon-ejb
-mode: development
-
-[root@caddeapllx955 earchk]#
-[root@caddeapllx955 earchk]#
-[root@caddeapllx955 earchk]#
-[root@caddeapllx955 earchk]# unzip -p /tmp/bkp_sirotcon/sirotcon-ejb.jar 'META-INF/maven/*/pom.xml' 2>/dev/null | grep -B2 -A4 -iE "log|<scope>"
-[root@caddeapllx955 earchk]#
-[root@caddeapllx955 earchk]#
-[root@caddeapllx955 earchk]#
-[root@caddeapllx955 earchk]#
+# A versão EAP já traz o conteúdo do sirotcon-ejb-lib embutido?
+unzip -l /tmp/bkp_sirotcon/sirotcon-ejb.jar | grep -ciE "\.class$"
+unzip -l /tmp/bkp_sirotcon/sirotcon-ejb.jar | grep -iE "lib|\.jar$" | head
