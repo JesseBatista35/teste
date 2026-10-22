@@ -1,39 +1,17 @@
+LOG=/logs/jboss/jboss-eap/standalone/sigsj-internet/server.log
+JH=/opt/jboss-eap
 
-[sudo] senha para p585600:
-[root@caddeapllx2854 p585600]# ps -ef | grep [j]ava | grep -oE "jboss.home.dir=[^ ]*|jboss.server.log.dir=[^ ]*|-c [^ ]*"
-jboss.home.dir=/opt/jboss-eap
-jboss.server.log.dir=/logs/jboss/jboss-eap/standalone/sigsj-internet
--c standalone-full-ha.xml
-[root@caddeapllx2854 p585600]#
-[root@caddeapllx2854 p585600]#
-[root@caddeapllx2854 p585600]#
-[root@caddeapllx2854 p585600]# LOG=<jboss.server.log.dir>/server.log
-bash: jboss.server.log.dir: Arquivo ou diretório inexistente
-[root@caddeapllx2854 p585600]#
-[root@caddeapllx2854 p585600]#
-[root@caddeapllx2854 p585600]#
-[root@caddeapllx2854 p585600]# grep -nE "WFLYCTL0412|WFLYCTL0180|missing|SIGSJ04|datasources|WFLYJCA|Driver" $LOG | tail -40
-^C
-[root@caddeapllx2854 p585600]#
-[root@caddeapllx2854 p585600]#
-[root@caddeapllx2854 p585600]#
-[root@caddeapllx2854 p585600]# grep -nE "WFLYCTL0412|WFLYCTL0180|missing|SIGSJ04|datasources|WFLYJCA|Driver" $LOG | tail -40
+# 1) Erro da datasource no log
+grep -nE "WFLYCTL0412|WFLYCTL0180|SIGSJ04|WFLYJCA" $LOG | tail -20
 
+# 2) Datasources e drivers que existem hoje no standalone
+grep -nE "<datasource |<xa-datasource |<driver name" $JH/standalone/configuration/standalone-full-ha.xml
 
+# 3) Módulos de driver JDBC já instalados no template
+ls -d $JH/modules/com/* $JH/modules/system/layers/base/com/* 2>/dev/null | grep -iE "oracle|ibm|db2|microsoft|sqlserver|postgres"
 
-^C
-[root@caddeapllx2854 p585600]#
-[root@caddeapllx2854 p585600]#
-[root@caddeapllx2854 p585600]#
-[root@caddeapllx2854 p585600]#
-[root@caddeapllx2854 p585600]#
-[root@caddeapllx2854 p585600]#
-[root@caddeapllx2854 p585600]# JH=<jboss.home.dir>
-bash: erro de sintaxe próximo ao token inesperado `newline'
-[root@caddeapllx2854 p585600]#
-[root@caddeapllx2854 p585600]#
-[root@caddeapllx2854 p585600]# $JH/bin/jboss-cli.sh --connect --controller=10.116.202.45:9990 --commands="/subsystem=datasources:read-children-names(child-type=data-source),/subsystem=datasources:read-children-names(child-type=xa-data-source),/subsystem=datasources:read-children-names(child-type=jdbc-driver)"
-ls $JH/modules/com/oracle* $JH/modules/system/layers/base/com/oracle* 2>/dev/null
-bash: /bin/jboss-cli.sh: Arquivo ou diretório inexistente
-[root@caddeapllx2854 p585600]# ^C
-[root@caddeapllx2854 p585600]#
+# 4) Qual banco a aplicação espera (persistence.xml dentro do EAR)
+cd /tmp && rm -rf intchk && mkdir intchk && cd intchk
+EAR=$(ls $JH/standalone/deployments/*.ear | head -1); echo $EAR
+unzip -l $EAR | grep -iE "\.war|\.jar" | head
+
