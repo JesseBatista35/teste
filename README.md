@@ -1,16 +1,9 @@
-Oi Jesse tudo bem?
- 
-O Vitor me passou essa mensagem 
- 
-No Intranet removemos a dependência do deployment externo do SIROT. O sirotcon-ejb agora vem via Maven e é empacotado na aplicação, então não precisamos mais da referência:
- 
-oi Gisele, tudo bem e com voce?
- 
-também to bem 
- 
-Gisele Cristina Dias
-No Intranet removemos a dependência do deployment externo do SIROT. O sirotcon-ejb agora vem via Maven e é empacotado na aplicação, então não precisamos mais da referência:
-Essa configuração só fazia sentido quando o EJB era disponibilizado pelo servidor. Agora o SIROTConBean é carregado pelo próprio EAR/WAR
+gestão de resposta para a Gisele:
 
+Oi Gisele, tudo bem sim! Entendi, obrigado.
 
- <img width="1364" height="486" alt="image" src="https://github.com/user-attachments/assets/73dd8b79-ce40-4578-9f58-c7b9aca26225" />
+No boleto, para destravar o deploy, ajustamos o jboss-deployment-structure.xml para deployment.sirotcon-ejb.jar e o EJB está sendo implantado pela esteira. Já está OK em DES.
+
+Se preferirem padronizar o boleto como no intranet (EJB empacotado via Maven, sem a dependência externa), sem problema: é só nos avisar quando a build for para a release, que no mesmo deploy retiramos do config o sirotcon-ejb do jboss-deployments e o alias JNDI do standalone, para não ficar EJB duplicado no servidor.
+
+E sobre o intranet: a versão em DES hoje é a build de 14/10, que ainda usa o EJB externo. Quando a build nova com essa mudança for para a release, fazemos a mesma limpeza no config do intranet.
