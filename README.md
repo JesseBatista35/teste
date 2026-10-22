@@ -16,3 +16,6 @@ Vocês conseguem preencher na Library SIGSJ-INTERNET-DES os dados de conexão do
 SIGSJ04_CONNECTION_STRING: no formato jdbc:oracle:thin:@//HOST:PORTA/SERVICE_NAME
 SIGSJ04_USER: usuário do banco
 SIGSJ04_PASSWORD: senha, marcando o cadeado para ficar como variável secreta
+
+
+SIROT: por enquanto o internet continua com o SIROT externo, como está hoje. Quando a build com o SIROT empacotado estiver pronta, nos avisem que ajustamos o config na mesma release. Lembrando que, além do sirotcon-ejb, essa build precisa levar o CeflogEAP e o ceflib, como vimos no intranet.
