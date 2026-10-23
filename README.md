@@ -1,43 +1,41 @@
-Um conjunto de registros é uma coleção de registros em uma zona que têm o mesmo nome e são do mesmo tipo. Os Conjuntos de Registros serão buscados automaticamente em lotes de 100 à medida que você percorrer os conjuntos de registros existentes.Saiba mais
+<img width="1631" height="562" alt="image" src="https://github.com/user-attachments/assets/a173ca5a-d843-4281-856d-43d9740f6f2d" />
 
-
+
+
+Base da rede | Zonas DNS privadas
+Versão prévia | Caixa Economica Federal (caixa.onmicrosoft.com)
+
+
+apl.des.private.azure | Conjuntos de registros
+Zona privada do DNS
 Pesquisar
-Buscou 6 conjunto(s) de registros.
-Buscou 6 conjunto(s) de registros.
-0 conjuntos de registros selecionados
-@
-SOA
-3600
-Email: azureprivatedns-host.microsoft.com
-Host: azureprivatedns.net
-Refresh: 3600
-Retry: 300
-Expire: 2419200
-Minimum TTL: 10
-Serial number: 1
-False
-siobs-intra-administracaodovinculo
-A
-3600
-10.245.156.7
-False
-siobs-intra-administracaopingfederate
-A
-3600
-10.245.156.7
-False
-siobs-intra-remocaodovinculoworker
-A
-3600
-10.245.156.7
-False
-siobs-intra-vinculostateworker
-A
-3600
-10.245.156.7
-False
-siobs-sv-vinculodedispositivo
-A
-3600
-10.245.156.7
-False
+
+Visão geral
+Log de atividade
+IAM (Controle de acesso)
+Marcações
+Diagnosticar e resolver problemas
+Visualizador de recursos
+
+Configurações
+Bloqueios
+Propriedades
+
+Gerenciamento de DNS
+Conjuntos de registros
+Links de Rede Virtual
+
+Monitoramento
+Alertas
+Métrica
+Recomendações do supervisor
+
+Automação
+CLI / PS
+Tarefas
+Exportar modelo
+
+Ajuda
+Adicione ou remova favoritos pressionando Ctrl+Shift+F
+
+
