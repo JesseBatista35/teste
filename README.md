@@ -1,41 +1,187 @@
-<img width="1631" height="562" alt="image" src="https://github.com/user-attachments/assets/a173ca5a-d843-4281-856d-43d9740f6f2d" />
+Um conjunto de registros é uma coleção de registros em uma zona que têm o mesmo nome e são do mesmo tipo. Os Conjuntos de Registros serão buscados automaticamente em lotes de 100 à medida que você percorrer os conjuntos de registros existentes.Saiba mais
 
-
-
-Base da rede | Zonas DNS privadas
-Versão prévia | Caixa Economica Federal (caixa.onmicrosoft.com)
-
-
-apl.des.private.azure | Conjuntos de registros
-Zona privada do DNS
-Pesquisar
-
-Visão geral
-Log de atividade
-IAM (Controle de acesso)
-Marcações
-Diagnosticar e resolver problemas
-Visualizador de recursos
-
-Configurações
-Bloqueios
-Propriedades
-
-Gerenciamento de DNS
-Conjuntos de registros
-Links de Rede Virtual
-
-Monitoramento
-Alertas
-Métrica
-Recomendações do supervisor
-
-Automação
-CLI / PS
-Tarefas
-Exportar modelo
-
-Ajuda
-Adicione ou remova favoritos pressionando Ctrl+Shift+F
-
-
+
+siplx
+Encontrados 46 conjuntos de registros com base no texto correspondente 'siplx'.
+Encontrados 46 conjuntos de registros com base no texto correspondente 'siplx'.
+0 conjuntos de registros selecionados
+siplx-api-apuracao-prognostico-numerico
+A
+300
+10.245.116.134
+False
+siplx-api-canal
+A
+300
+10.245.116.134
+False
+siplx-api-canal-fisico
+A
+300
+10.245.116.134
+False
+siplx-api-consulta-parametros-canal
+A
+300
+10.245.116.134
+False
+siplx-api-gestao-apuracao
+A
+300
+10.245.116.134
+False
+siplx-api-gestao-sorteio
+A
+300
+10.245.116.134
+False
+siplx-api-param-produ-prognum
+A
+300
+10.245.116.134
+False
+siplx-api-plataforma-geracao-relatorios
+A
+300
+10.245.116.134
+False
+siplx-api-registro-aposta-prognostico-numerico
+A
+300
+10.245.116.134
+False
+siplx-backend-cryptoplx
+A
+300
+10.245.116.134
+False
+siplx-portal-gestao
+A
+300
+10.245.116.134
+False
+siplx-portal-gestao-backend
+A
+300
+10.245.116.134
+False
+siplx-processa-fila-auditoria
+A
+300
+10.245.116.134
+False
+siplx-processa-fila-financeiro
+A
+300
+10.245.116.134
+False
+siplx-registra-aposta
+A
+300
+10.245.116.134
+False
+siplx-registra-aposta-orquestrador
+A
+300
+10.245.116.134
+False
+siplx-servicos-auditoria
+A
+300
+10.245.116.134
+False
+siplx-servicos-financeiros
+A
+300
+10.245.116.134
+False
+siplx-servicos-produto-prognostico-numerico
+A
+300
+10.245.116.134
+False
+siplx-siplx-processa-fila-prognostico-numerico
+A
+300
+10.245.116.134
+False
+txt-a-siplx-api-apuracao-prognostico-numerico
+TXT
+300
+"heritage=external-dns,external-dns/owner=externaldns-aks-plx-nprd,external-dns/resource=gateway/siplx-api-apuracao-prognostico-numerico/siplx-api-apuracao-prognostico-numerico-des-internal"
+False
+txt-a-siplx-api-canal-fisico
+TXT
+300
+"heritage=external-dns,external-dns/owner=externaldns-aks-plx-nprd,external-dns/resource=gateway/siplx-api-canal-fisico/siplx-api-canal-fisico-des-internal"
+False
+txt-a-siplx-api-consulta-parametros-canal
+TXT
+300
+"heritage=external-dns,external-dns/owner=externaldns-aks-plx-nprd,external-dns/resource=gateway/siplx-api-consulta-parametros-canal/siplx-api-consulta-parametros-canal-des-internal"
+False
+txt-a-siplx-api-gestao-apuracao
+TXT
+300
+"heritage=external-dns,external-dns/owner=externaldns-aks-plx-nprd,external-dns/resource=gateway/siplx-api-gestao-apuracao/siplx-api-gestao-apuracao-des-internal"
+False
+txt-a-siplx-api-gestao-sorteio
+TXT
+300
+"heritage=external-dns,external-dns/owner=externaldns-aks-plx-nprd,external-dns/resource=gateway/siplx-api-gestao-sorteio/siplx-api-gestao-sorteio-des-internal"
+False
+txt-a-siplx-api-param-produ-prognum
+TXT
+300
+"heritage=external-dns,external-dns/owner=externaldns-aks-plx-nprd,external-dns/resource=gateway/siplx-api-param-produ-prognum/siplx-api-param-produ-prognum-des-internal"
+False
+txt-a-siplx-api-plataforma-geracao-relatorios
+TXT
+300
+"heritage=external-dns,external-dns/owner=externaldns-aks-plx-nprd,external-dns/resource=gateway/siplx-plataforma-geracao-relatorios/siplx-plataforma-geracao-relatorios-des-internal"
+False
+txt-a-siplx-api-registro-aposta-prognostico-numerico
+TXT
+300
+"heritage=external-dns,external-dns/owner=externaldns-aks-plx-nprd,external-dns/resource=gateway/siplx-api-registro-aposta-prognostico-numerico/siplx-api-registro-aposta-prognostico-numerico-des-internal"
+False
+txt-a-siplx-backend-cryptoplx
+TXT
+300
+"heritage=external-dns,external-dns/owner=externaldns-aks-plx-nprd,external-dns/resource=gateway/siplx-backend-cryptoplx/siplx-backend-cryptoplx-des-internal"
+False
+txt-a-siplx-backend-sched-prognum
+TXT
+300
+"heritage=external-dns,external-dns/owner=externaldns-aks-plx-nprd,external-dns/resource=gateway/siplx-backend-schedulers-prognostico-numerico/siplx-backend-schedulers-prognostico-numerico-des-internal"
+False
+txt-a-siplx-backend-schedulers-financeiro
+TXT
+300
+"heritage=external-dns,external-dns/owner=externaldns-aks-plx-nprd,external-dns/resource=gateway/siplx-backend-schedulers-financeiro/siplx-backend-schedulers-financeiro-des-internal"
+False
+txt-a-siplx-backend-validacao-publica
+TXT
+300
+"heritage=external-dns,external-dns/owner=externaldns-aks-plx-nprd,external-dns/resource=gateway/siplx-backend-validacao-publica/siplx-backend-validacao-publica-des-internal"
+False
+txt-a-siplx-configuracao
+TXT
+300
+"heritage=external-dns,external-dns/owner=externaldns-aks-plx-nprd,external-dns/resource=gateway/siplx-configuracao/siplx-configuracao-des-internal"
+False
+txt-a-siplx-processa-fila-auditoria
+TXT
+300
+"heritage=external-dns,external-dns/owner=externaldns-aks-plx-nprd,external-dns/resource=gateway/siplx-processa-fila-auditoria/siplx-processa-fila-auditoria-des-internal"
+False
+txt-a-siplx-registra-aposta-orquestrador
+TXT
+300
+"heritage=external-dns,external-dns/owner=externaldns-aks-plx-nprd,external-dns/resource=gateway/siplx-registra-aposta-orquestrador/siplx-registra-aposta-orquestrador-des-internal"
+False
+txt-a-siplx-servicos-auditoria
+TXT
+300
+"heritage=external-dns,external-dns/owner=externaldns-aks-plx-nprd,external-dns/resource=gateway/siplx-servicos-auditoria/siplx-servicos-auditoria-des-internal"
+False
