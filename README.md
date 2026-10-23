@@ -1,93 +1,142 @@
--sh-4.2$ oc exec sicow-penhor-okd-des-60-ndhzc -n sicow-des -- sed -n '1,120p' /usr/local/s2i/assemble
-#!/bin/bash
+penhor
 
-set -x
+module add --name=br.gov.caixa.siusr --resource-delimiter=, --resources=/tmp/siusr-loginModule-1.11.0.jar --dependencies=javax.api,sun.jdk,org.apache.commons.lang,javaee.api,org.picketbox
 
-#Jboss Home
-JBOSS_HOME=/opt/jboss
+portal
 
-# Source code provided to STI is at /tmp/src/
-LOCAL_SOURCE_DIR=/tmp/src
-
-# Resulting WAR files will be deployed to /opt/eap/standalone/deployments
-DEPLOY_DIR=$JBOSS_HOME/standalone/deployments
-
-# Modules File
-modules_file="/tmp/src/jboss-modules"
-generic_deployments="/tmp/src/jboss-deployments"
-jboss_cli_offline="/tmp/src/cli-offline.sh"
+module add --name=br.gov.caixa.siusr --resource-delimiter=, --resources=/tmp/siusr-loginModule-1.11.0.jar --dependencies=javax.api,sun.jdk,org.apache.commons.lang,javaee.api,org.picketbox
 
 
-function copy_generic_deployments() {
-  if [[ -f $generic_deployments ]]
-    then
-      # Removing commented line from jboss-deployments
-      sed -i '1d' $modules_file
-      # Removing blank lines
-      sed -i '/^$/d' $modules_file
-      # Running for for download modules to /tmp/src
-      for jars in $(cat /tmp/src/jboss-deployments)
-      do
-         artifact_id=`echo $jars | cut -d':' -f2`
-         version=`echo $jars | cut -d':' -f3`
-         extension=`echo $jars | cut -d':' -f4`
-         mvn org.apache.maven.plugins:maven-dependency-plugin:2.9:get -DrepoUrl=$NEXUS_URL -Dartifact=$jars -Ddest=/tmp/src/${artifact_id}-${version}.${extension}
-      done
-    else
-      echo "Nenhum Deploy adicional será configurado"
-  fi
-}
 
-function copy_artifacts() {
-  if [ -d $LOCAL_SOURCE_DIR ]; then
-    echo "Copying all WAR and EAR artifacts from $LOCAL_SOURCE_DIR directory into $DEPLOY_DIR for later deployment..."
-    cp -v $LOCAL_SOURCE_DIR/*.jar $LOCAL_SOURCE_DIR/*.war $LOCAL_SOURCE_DIR/*.ear $LOCAL_SOURCE_DIR/*.rar $DEPLOY_DIR 2> /dev/null
-  fi
-}
+Skip to main content
+Azure DevOps
+projetos
+/
+Caixa
+/
+Repos
+/
+Files
+/
 
-function modules() {
-  if [[ -f $modules_file ]]
-   then
-      # Removing commented line from jboss-modules
-      sed -i '1d' $modules_file
-      # Removing blank lines
-      sed -i '/^$/d' $modules_file
-      # Running for for download modules to /tmp
-      for jars in $(cat /tmp/src/jboss-modules)
-      do
-         artifact_id=`echo $jars | cut -d':' -f2`
-         version=`echo $jars | cut -d':' -f3`
-         extension=`echo $jars | cut -d':' -f4`
-         mvn org.apache.maven.plugins:maven-dependency-plugin:2.9:get -DrepoUrl=$NEXUS_URL -Dartifact=$jars -Ddest=/tmp/${artifact_id}-${version}.${extension}
-      done
-    else
-      echo "Nenhum modulo adicional será configurado"
-  fi
-}
+SICOW-portal-okd
+Search
 
 
-function jboss_cli() {
-  if [[ -f $jboss_cli_offline ]]
-    then
-       if [[ $JBOSS_VERSION =~ "7" ]]
-         then
-            sed -i '1 i\embed-server' /tmp/src/cli-offline.sh
-            $JBOSS_HOME/bin/jboss-cli.sh --file=/tmp/src/cli-offline.sh
-         else
-           $JBOSS_HOME/bin/standalone.sh &
-           sleep 10
-           $JBOSS_HOME/bin/jboss-cli.sh --file=/tmp/src/cli-offline.sh
-      fi
-  fi
-}
+Caixa
 
-copy_generic_deployments
-modules
-jboss_cli
+Overview
 
-# Copy (probably binary) artifacts from the /tmp/src/
-# directory to the $JBOSS_HOME/standalone/deployments/
-copy_artifacts "deployments"
+Boards
 
-exit 0
--sh-4.2$
+Repos
+Files
+Commits
+Pushes
+Branches
+Tags
+Pull requests
+
+Pipelines
+
+Test Plans
+
+Artifacts
+Project settings
+SICOW-portal-okd
+
+src
+.tern-project
+.tfignore
+cli-offline.sh
+jboss-deployments
+jboss-modules
+pom.xml
+README.md
+sonar-project.properties
+
+develop
+
+/
+cli-offline.sh
+cli-offline.sh
+
+Edit
+
+Contents
+History
+Compare
+Blame
+
+1
+module add --name=br.gov.caixa.siusr --resource-delimiter=, --resources=/tmp/siusr-loginModule-1.11.0.jar --dependencies=javax.api,sun.jdk,org.apache.commons.lang,javaee.api,org.picketbox
+
+
+
+Skip to main content
+Azure DevOps
+projetos
+/
+Caixa
+/
+Repos
+/
+Files
+/
+
+SICOW-penhor-okd
+Search
+
+
+Caixa
+
+Overview
+
+Boards
+
+Repos
+Files
+Commits
+Pushes
+Branches
+Tags
+Pull requests
+
+Pipelines
+
+Test Plans
+
+Artifacts
+Project settings
+SICOW-penhor-okd
+
+src
+main
+test
+cli-offline.sh
+jboss-deployments
+jboss-modules
+pom.xml
+README.md
+
+1.0.16.9
+
+/
+cli-offline.sh
+cli-offline.sh
+
+Edit
+
+Contents
+History
+Compare
+Blame
+
+You updated Cesti-teste 30m ago
+Create a pull request
+
+1
+module add --name=br.gov.caixa.siusr --resource-delimiter=, --resources=/tmp/siusr-loginModule-1.11.0.jar --dependencies=javax.api,sun.jdk,org.apache.commons.lang,javaee.api,org.picketbox
+Expanded
+
+Collapsed
