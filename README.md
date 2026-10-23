@@ -1,10 +1,11 @@
+Pessoal, boa tarde!
 
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$ POD=sicow-penhor-okd-des-60-ndhzc
--sh-4.2$ oc exec $POD -n sicow-des -- ls -la /tmp/ | grep -i jar
--sh-4.2$ oc exec $POD -n sicow-des -- sh -c 'echo JBOSS_VERSION=$JBOSS_VERSION'
-JBOSS_VERSION=
--sh-4.2$ oc exec $POD -n sicow-des -- sh -c 'cat -A /tmp/src/jboss-modules 2>/dev/null; cat -A /tmp/src/cli-offline.sh 2>/dev/null'
-module add --name=br.gov.caixa.siusr --resource-delimiter=, --resources=/tmp/siusr-loginModule-1.11.0.jar --dependencies=javax.api,sun.jdk,org.apache.commons.lang,javaee.api,org.picketbox-sh-4.2$
+A esteira do SICOW-penhor-okd (DES) foi regularizada. A release SICOW-penhor-okd-1.0.15.9(5) concluiu com sucesso e o JBoss voltou a subir no pod.
+
+Causa do timeout: o JBoss não iniciava por erros no standalone-okd.xml. O container reiniciava em loop e a release estourava o tempo aguardando o rollout.
+
+Ajustes realizados no standalone-okd.xml:
+
+Incluída a extensão org.wildfly.extension.messaging-activemq, que faltava no bloco <extensions> e causava erro de parse no subsystem de messaging.
+Corrigido o handler de log: o arquivo definia SICOWPORTAL, mas o root-logger referenciava SICOWPENHOR.
+Criadas as filas DLQ e ExpiryQueue, referenciadas no address-setting.
