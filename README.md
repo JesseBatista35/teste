@@ -1,11 +1,3 @@
-Sim, para o link do Penhor pode. É ajuste de variável em DES, e você só roda a release do portal.
+<img width="1894" height="958" alt="image" src="https://github.com/user-attachments/assets/49f25af0-613d-4d19-a57c-b7573288e0da" />
 
-Na Library SICOW-PORTAL-OKD-DES:
 
-Variável	Valor novo
-SICOWPENHOR_WAR	https://sicow-penhor-okd-des.apps.nprd.caixa/sicowpenhor
-SICOWPORTALURL	https://sicow-portal-okd-des.apps.nprd.caixa/sicow-portal-okd/pages/home.cef
-
-Salve e rode a release do SICOW-portal-okd. Depois, entre no portal, faça login e clique em PENHOR. O Penhor deve abrir logado.
-
-Atenção a dois pontos:
