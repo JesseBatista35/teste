@@ -1,10 +1,5 @@
-
--sh-4.2$
--sh-4.2$
--sh-4.2$ oc logs sicow-portal-okd-des-197-nzdl5 -n sicow-des | grep -E "WFLYUT0021|WFLYSRV0010|WFLYSRV0026|ERROR" | tail -30
-12:24:51,139 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 78) WFLYUT0021: Registered web context: '/sicow-portal-okd' for server 'default-server'
-12:24:51,153 INFO  [org.jboss.as.server] (ServerService Thread Pool -- 38) WFLYSRV0010: Deployed "sicow-portal-okd.war" (runtime-name : "sicow-portal-okd.war")
-12:24:51,153 INFO  [org.jboss.as.server] (ServerService Thread Pool -- 38) WFLYSRV0010: Deployed "applicationinsights-agent-3.7.1.jar" (runtime-name : "applicationinsights-agent-3.7.1.jar")
--sh-4.2$
--sh-4.2$
--sh-4.2$
+Correção
+Antes de mexer, teste no navegador: https://sicow-portal-okd-des.apps.nprd.caixa/sicow-portal-okd/pages/home.cef. Deve abrir o portal.
+Na Library SICOW-PENHOR-OKD-DES, altere SICOWPORTALURL para:
+   https://sicow-portal-okd-des.apps.nprd.caixa/sicow-portal-okd/pages/home.cef
+Rode só a release do Penhor. Não precisa de build. Aproveite para vincular o grupo SICOW-BT-VAULT-SECRET-DES.
