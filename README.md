@@ -1,1 +1,1 @@
-oc logs <pod-penhor> -n sicow-des --since=3m | grep -iE "scowdb01|password authentication|IJ000453|Unable to get managed connection|Exception" | head -20
+É outro erro, e muito provavelmente é o banco. O login e a home do Penhor não precisam do banco: a autenticação vai no SIUSR. Já a tela Consulta → Contrato consulta o cowdb001, que está recusando a senha do scowdb01. Daí o 500.
