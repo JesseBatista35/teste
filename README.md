@@ -1,3 +1,5 @@
+essa é ataul tem que rodar uma nova? são tags entaou vou ter que cirar uma nova
+
 Copiando S2I para StagingDirectory
 
 View raw log
@@ -20,3 +22,14 @@ renamed '/opt/ads-agent/_work/1/s/cli-offline.sh' -> '/opt/ads-agent/_work/1/a/c
 renamed '/opt/ads-agent/_work/1/s/jboss-modules' -> '/opt/ads-agent/_work/1/a/jboss-modules'
 renamed '/opt/ads-agent/_work/1/s/jboss-deployments' -> '/opt/ads-agent/_work/1/a/jboss-deployments'
 Finishing: Copiando S2I para StagingDirectory
+
+
+
+jboss-modules
+
+group_id:artifact_id:version:extension
+br.gov.caixa.siusr:siusr-loginModule:1.11.0:jar
+
+
+
+![Uploading image.png…]()
