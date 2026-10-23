@@ -1,1 +1,1 @@
-https://sicow-portal-okd-des.apps.nprd.caixa/sicow-portal-okd/pages/home.cef
+oc logs <pod-penhor> -n sicow-des --since=5m | grep -E "ERROR|SEVERE|Exception|scowdb01"
