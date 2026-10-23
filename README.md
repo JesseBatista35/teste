@@ -1,187 +1,195 @@
-Um conjunto de registros é uma coleção de registros em uma zona que têm o mesmo nome e são do mesmo tipo. Os Conjuntos de Registros serão buscados automaticamente em lotes de 100 à medida que você percorrer os conjuntos de registros existentes.Saiba mais
+caixa-base-chart:
 
-
-siplx
-Encontrados 46 conjuntos de registros com base no texto correspondente 'siplx'.
-Encontrados 46 conjuntos de registros com base no texto correspondente 'siplx'.
-0 conjuntos de registros selecionados
-siplx-api-apuracao-prognostico-numerico
-A
-300
-10.245.116.134
-False
-siplx-api-canal
-A
-300
-10.245.116.134
-False
-siplx-api-canal-fisico
-A
-300
-10.245.116.134
-False
-siplx-api-consulta-parametros-canal
-A
-300
-10.245.116.134
-False
-siplx-api-gestao-apuracao
-A
-300
-10.245.116.134
-False
-siplx-api-gestao-sorteio
-A
-300
-10.245.116.134
-False
-siplx-api-param-produ-prognum
-A
-300
-10.245.116.134
-False
-siplx-api-plataforma-geracao-relatorios
-A
-300
-10.245.116.134
-False
-siplx-api-registro-aposta-prognostico-numerico
-A
-300
-10.245.116.134
-False
-siplx-backend-cryptoplx
-A
-300
-10.245.116.134
-False
-siplx-portal-gestao
-A
-300
-10.245.116.134
-False
-siplx-portal-gestao-backend
-A
-300
-10.245.116.134
-False
-siplx-processa-fila-auditoria
-A
-300
-10.245.116.134
-False
-siplx-processa-fila-financeiro
-A
-300
-10.245.116.134
-False
-siplx-registra-aposta
-A
-300
-10.245.116.134
-False
-siplx-registra-aposta-orquestrador
-A
-300
-10.245.116.134
-False
-siplx-servicos-auditoria
-A
-300
-10.245.116.134
-False
-siplx-servicos-financeiros
-A
-300
-10.245.116.134
-False
-siplx-servicos-produto-prognostico-numerico
-A
-300
-10.245.116.134
-False
-siplx-siplx-processa-fila-prognostico-numerico
-A
-300
-10.245.116.134
-False
-txt-a-siplx-api-apuracao-prognostico-numerico
-TXT
-300
-"heritage=external-dns,external-dns/owner=externaldns-aks-plx-nprd,external-dns/resource=gateway/siplx-api-apuracao-prognostico-numerico/siplx-api-apuracao-prognostico-numerico-des-internal"
-False
-txt-a-siplx-api-canal-fisico
-TXT
-300
-"heritage=external-dns,external-dns/owner=externaldns-aks-plx-nprd,external-dns/resource=gateway/siplx-api-canal-fisico/siplx-api-canal-fisico-des-internal"
-False
-txt-a-siplx-api-consulta-parametros-canal
-TXT
-300
-"heritage=external-dns,external-dns/owner=externaldns-aks-plx-nprd,external-dns/resource=gateway/siplx-api-consulta-parametros-canal/siplx-api-consulta-parametros-canal-des-internal"
-False
-txt-a-siplx-api-gestao-apuracao
-TXT
-300
-"heritage=external-dns,external-dns/owner=externaldns-aks-plx-nprd,external-dns/resource=gateway/siplx-api-gestao-apuracao/siplx-api-gestao-apuracao-des-internal"
-False
-txt-a-siplx-api-gestao-sorteio
-TXT
-300
-"heritage=external-dns,external-dns/owner=externaldns-aks-plx-nprd,external-dns/resource=gateway/siplx-api-gestao-sorteio/siplx-api-gestao-sorteio-des-internal"
-False
-txt-a-siplx-api-param-produ-prognum
-TXT
-300
-"heritage=external-dns,external-dns/owner=externaldns-aks-plx-nprd,external-dns/resource=gateway/siplx-api-param-produ-prognum/siplx-api-param-produ-prognum-des-internal"
-False
-txt-a-siplx-api-plataforma-geracao-relatorios
-TXT
-300
-"heritage=external-dns,external-dns/owner=externaldns-aks-plx-nprd,external-dns/resource=gateway/siplx-plataforma-geracao-relatorios/siplx-plataforma-geracao-relatorios-des-internal"
-False
-txt-a-siplx-api-registro-aposta-prognostico-numerico
-TXT
-300
-"heritage=external-dns,external-dns/owner=externaldns-aks-plx-nprd,external-dns/resource=gateway/siplx-api-registro-aposta-prognostico-numerico/siplx-api-registro-aposta-prognostico-numerico-des-internal"
-False
-txt-a-siplx-backend-cryptoplx
-TXT
-300
-"heritage=external-dns,external-dns/owner=externaldns-aks-plx-nprd,external-dns/resource=gateway/siplx-backend-cryptoplx/siplx-backend-cryptoplx-des-internal"
-False
-txt-a-siplx-backend-sched-prognum
-TXT
-300
-"heritage=external-dns,external-dns/owner=externaldns-aks-plx-nprd,external-dns/resource=gateway/siplx-backend-schedulers-prognostico-numerico/siplx-backend-schedulers-prognostico-numerico-des-internal"
-False
-txt-a-siplx-backend-schedulers-financeiro
-TXT
-300
-"heritage=external-dns,external-dns/owner=externaldns-aks-plx-nprd,external-dns/resource=gateway/siplx-backend-schedulers-financeiro/siplx-backend-schedulers-financeiro-des-internal"
-False
-txt-a-siplx-backend-validacao-publica
-TXT
-300
-"heritage=external-dns,external-dns/owner=externaldns-aks-plx-nprd,external-dns/resource=gateway/siplx-backend-validacao-publica/siplx-backend-validacao-publica-des-internal"
-False
-txt-a-siplx-configuracao
-TXT
-300
-"heritage=external-dns,external-dns/owner=externaldns-aks-plx-nprd,external-dns/resource=gateway/siplx-configuracao/siplx-configuracao-des-internal"
-False
-txt-a-siplx-processa-fila-auditoria
-TXT
-300
-"heritage=external-dns,external-dns/owner=externaldns-aks-plx-nprd,external-dns/resource=gateway/siplx-processa-fila-auditoria/siplx-processa-fila-auditoria-des-internal"
-False
-txt-a-siplx-registra-aposta-orquestrador
-TXT
-300
-"heritage=external-dns,external-dns/owner=externaldns-aks-plx-nprd,external-dns/resource=gateway/siplx-registra-aposta-orquestrador/siplx-registra-aposta-orquestrador-des-internal"
-False
-txt-a-siplx-servicos-auditoria
-TXT
-300
-"heritage=external-dns,external-dns/owner=externaldns-aks-plx-nprd,external-dns/resource=gateway/siplx-servicos-auditoria/siplx-servicos-auditoria-des-internal"
-False
+#-------#
+# IMAGE #
+#-------#
+
+  image:
+    # variavel de imagem do tipo de aplicação
+    repository: acrcentralcaixanprd.azurecr.io/siplx/plataforma-geracao-relatorios/siplx-plataforma-geracao-relatorios
+    tag: "39974702002"
+    pullPolicy: Always
+
+#-----#
+# HPA #
+#-----#
+  replicaCount: 1
+
+  autoscaling:
+    enabled: false
+    minReplicas: 1
+    maxReplicas: 1
+    targetCPUUtilizationPercentage: 85
+    targetMemoryUtilizationPercentage: 85
+    behavior:
+      scaleUp:
+        stabilizationWindowSeconds: 0
+        selectPolicy: Max
+        policies:
+        - type: Pods
+          value: 15
+          periodSeconds: 30
+      scaleDown:
+        stabilizationWindowSeconds: 800
+        selectPolicy: Max
+        policies:
+        - type: Pods
+          value: 1
+          periodSeconds: 60
+
+#-----#
+# PDB #
+#-----#
+
+  pdb:
+    enabled: true
+    minAvailable: 1
+    
+#-----------------#
+# ROLLING UPDATE STRATEGY #
+#-----------------#
+
+  strategy:
+    maxSurge: 25%
+    maxUnavailable: 0%
+
+#-----------------#
+# topologySpreadConstraints #
+#-----------------#
+
+  topologySpreadConstraints:
+  - maxSkew: 1
+    topologyKey: topology.kubernetes.io/zone
+    whenUnsatisfiable: ScheduleAnyway
+    labelSelector:
+      matchLabels:
+        appName: siplx-api-plataforma-geracao-relatorios
+
+#-----------#
+#  SERVICE  #
+#-----------#
+  
+  service:
+    type: "ClusterIP"
+    ports:
+      - name: "port"
+        protocol: TCP
+        port: 80
+        targetPort: 8080
+
+ #-------#
+ # ISTIO #
+ #-------#
+  istio:  
+    - name: internal
+      enabled: true
+      servers:
+      - port:
+          number: 80
+          name: http-default
+          protocol: HTTP
+        hosts:
+        - "siplx-api-plataforma-geracao-relatorios.apl.des.private.azure"
+      #- port:
+      #    number: 443
+      #    name: https-custom
+      #    protocol: HTTPS
+      #  tls:
+      #    mode: SIMPLE
+      #    credentialName: akvs-siplx-api-plataforma-geracao-relatorios-certificate # Nome do secret do certificado
+      #  hosts:
+      #    - siplx-api-plataforma-geracao-relatorios.des-nprd.caixa
+      prefix:
+        - /
+      targetPort: 80 
+  
+#-------------#
+#  RESOURCES  #
+#-------------#
+
+  resources:
+    requests:
+      cpu: 250m
+      memory: 500Mi
+    limits:
+      cpu: 500m
+      memory: 1Gi
+
+
+#----------#
+#  PROBES  #
+#----------#
+
+  probes:  
+    enabled: true
+    useDefaults: false  
+    livenessProbe: 
+      initialDelaySeconds: 90
+      periodSeconds: 20
+      failureThreshold: 5
+      successThreshold: 1
+      httpGet:
+        path: /q/health/live     
+        port: 8080
+    readinessProbe: 
+      initialDelaySeconds: 90
+      periodSeconds: 20
+      failureThreshold: 5
+      successThreshold: 1
+      httpGet:
+        path: /q/health/ready     
+        port: 8080
+    startupProbe:
+      httpGet:
+        enabled: true
+        path: '/q/health/live'
+      initialDelaySeconds: 90
+      periodSeconds: 20
+      failureThreshold: 15
+
+
+#-------------#
+#  CONFIGMAP  #
+#-------------#
+
+  configMapRefs:
+    - name: cm-siplx-api-plataforma-geracao-relatorios-des
+
+#---------------#
+#  TOLERATIONS  #
+#---------------#
+
+  tolerations:
+    - key: "nuvem.caixa/nodepoolname"
+      operator: Equal
+      value: "appsplx"
+      effect: NoSchedule
+    - key: "nuvem.caixa/nodepoolname"
+      operator: "Equal"
+      value: "siteplx"
+      effect: "NoSchedule"
+    - key: "kubernetes.azure.com/scalesetpriority"
+      effect: "NoSchedule"
+      operator: "Equal"
+      value: "spot"
+      
+
+#-------------# 
+#   SECRETS   # 
+#-------------# 
+
+  secretRefs:
+  env:
+    - name: DATASOURCE_PASSWORD
+      value: akvs-siplx-api-plataforma-geracao-relatorios-sql-des@azurekeyvault
+    - name: AUTH_SERVER_CLIENT_SECRET
+      value: akvs-env-sso-secret-des@azurekeyvault
+    - name: APPLICATION_CLIENT_SECRET
+      value: akvs-env-sso-secret-des@azurekeyvault
+    - name: REDIS_PASSWORD
+      value: akvs-env-redis-password-des@azurekeyvault
+    - name: NODE_IP
+      valueFrom:
+        fieldRef:
+          apiVersion: v1
+          fieldPath: status.hostIP
