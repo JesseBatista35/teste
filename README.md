@@ -1,4 +1,5 @@
-<img width="1899" height="938" alt="image" src="https://github.com/user-attachments/assets/431f6184-0ae9-48c7-813f-e105f7a7a7ed" />
 
-
-<img width="1891" height="934" alt="image" src="https://github.com/user-attachments/assets/8f6d28d3-9526-4255-a15d-408d4f950ab4" />
+-sh-4.2$ oc logs sicow-penhor-okd-des-64-c7wx4 -n sicow-des --since=5m | grep -E "ERROR|SEVERE|Exception|scowdb01"
+2026-10-23 11:14:12,343 WARN  [org.jboss.jca.core.connectionmanager.pool.strategy.OnePool] (JCA PoolFiller) IJ000610: Unable to fill pool: java:/jboss/datasources/sicow-ds: javax.resource.ResourceException: IJ031084: Unable to create connection
+Caused by: org.postgresql.util.PSQLException: FATAL: password authentication failed for user "scowdb01"
+-sh-4.2$
