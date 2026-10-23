@@ -63,7 +63,7 @@ caixa-base-chart:
     whenUnsatisfiable: ScheduleAnyway
     labelSelector:
       matchLabels:
-        appName: siplx-api-plataforma-geracao-relatorios
+        appName: siplx-plataforma-geracao-relatorios
 
 #-----------#
 #  SERVICE  #
@@ -89,6 +89,7 @@ caixa-base-chart:
           name: http-default
           protocol: HTTP
         hosts:
+        - "siplx-plataforma-geracao-relatorios.apl.des.private.azure"
         - "siplx-api-plataforma-geracao-relatorios.apl.des.private.azure"
       #- port:
       #    number: 443
