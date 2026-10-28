@@ -1,56 +1,33 @@
-group_id:artifact_id:version:extension
-br.gov.caixa.SirotconEAP:sirotcon-ejb:2.3.0.1:jar
+FAILED - RETRYING: Check Deployment details looking for status OK (56 retries left).
+FAILED - RETRYING: Check Deployment details looking for status OK (55 retries left).
+FAILED - RETRYING: Check Deployment details looking for status OK (54 retries left).
+FAILED - RETRYING: Check Deployment details looking for status OK (53 retries left).
+FAILED - RETRYING: Check Deployment details looking for status OK (52 retries left).
+FAILED - RETRYING: Check Deployment details looking for status OK (51 retries left).
+FAILED - RETRYING: Check Deployment details looking for status OK (50 retries left).
+FAILED - RETRYING: Check Deployment details looking for status OK (49 retries left).
+FAILED - RETRYING: Check Deployment details looking for status OK (48 retries left).
+FAILED - RETRYING: Check Deployment details looking for status OK (47 retries left).
+FAILED - RETRYING: Check Deployment details looking for status OK (46 retries left).
+FAILED - RETRYING: Check Deployment details looking for status OK (45 retries left).
+FAILED - RETRYING: Check Deployment details looking for status OK (44 retries left).
+FAILED - RETRYING: Check Deployment details looking for status OK (43 retries left).
+FAILED - RETRYING: Check Deployment details looking for status OK (42 retries left).
+FAILED - RETRYING: Check Deployment details looking for status OK (41 retries left).
+FAILED - RETRYING: Check Deployment details looking for status OK (40 retries left).
+FAILED - RETRYING: Check Deployment details looking for status OK (39 retries left).
+FAILED - RETRYING: Check Deployment details looking for status OK (38 retries left).
+FAILED - RETRYING: Check Deployment details looking for status OK (37 retries left).
+FAILED - RETRYING: Check Deployment details looking for status OK (36 retries left).
+FAILED - RETRYING: Check Deployment details looking for status OK (35 retries left).
+FAILED - RETRYING: Check Deployment details looking for status OK (34 retries left).
+FAILED - RETRYING: Check Deployment details looking for status OK (33 retries left).
 
 
-
-Azure DevOps
-projetos
-/
-Caixa
-/
-Repos
-/
-Files
-/
-
-SIGSJ-intranet-config
-Search
+ta asim me ajdua a ver o log
 
 
-Caixa
+sobe o que a gisele fez 
 
-Overview
+ela mecheu no stadalone eu copie de la e coloquei na amster
 
-Boards
-
-Repos
-Files
-Commits
-Pushes
-Branches
-Tags
-Pull requests
-
-Pipelines
-
-Test Plans
-
-Artifacts
-Project settings
-SIGSJ-intranet-config
-
-httpd
-jboss
-jboss-custom.cli
-jboss-deployments
-jboss-modules-custom
-standalone-full-ha.xml
-standalone.conf
-README.md
-
-feature/ajustes-standalone-eap74
-
-/
-jboss
-/
-jboss-deployments
