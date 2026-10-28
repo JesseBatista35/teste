@@ -20,7 +20,6 @@
         <extension module="org.jboss.as.pojo"/>
         <extension module="org.jboss.as.remoting"/>
         <extension module="org.jboss.as.sar"/>
-        <extension module="org.jboss.as.security"/>
         <extension module="org.jboss.as.transactions"/>
         <extension module="org.jboss.as.webservices"/>
         <extension module="org.jboss.as.weld"/>
@@ -40,10 +39,6 @@
         <extension module="org.wildfly.extension.undertow"/>
         <extension module="org.wildfly.iiop-openjdk"/>
     </extensions>
-    <system-properties>
-        <property name="CONNECTOR-FARM-HOST" value="10.116.89.101"/>
-        <property name="CONNECTOR-FARM-PORT" value="8111"/>
-    </system-properties>
     <management>
         <audit-log>
             <formatters>
@@ -123,18 +118,6 @@
             </logger>
             <logger category="stdout">
                 <level name="OFF"/>
-            </logger>
-            <logger category="br.gov.caixa.sirot" use-parent-handlers="false">
-                <level name="DEBUG"/>
-                <handlers>
-                    <handler name="sirot"/>
-                </handlers>
-            </logger>
-            <logger category="br.gov.caixa.libsp" use-parent-handlers="false">
-                <level name="DEBUG"/>
-                <handlers>
-                    <handler name="ceflib"/>
-                </handlers>
             </logger>
             <root-logger>
                 <level name="INFO"/>
@@ -515,6 +498,9 @@
             </proxy>
         </subsystem>
         <subsystem xmlns="urn:jboss:domain:naming:2.0">
+            <bindings>
+                <lookup name="java:global/sirotcon-ejb-2.3.0.1-farm/SIROTConBean!br.gov.caixa.sirot.ejb.SIROTCon" lookup="java:global/sirotcon-ejb/SIROTConBean!br.gov.caixa.sirot.ejb.SIROTCon"/>
+            </bindings>
             <remote-naming/>
         </subsystem>
         <subsystem xmlns="urn:jboss:domain:pojo:1.0"/>
@@ -524,50 +510,6 @@
         <subsystem xmlns="urn:jboss:domain:request-controller:1.0"/>
         <subsystem xmlns="urn:jboss:domain:resource-adapters:6.0"/>
         <subsystem xmlns="urn:jboss:domain:sar:1.0"/>
-        <subsystem xmlns="urn:jboss:domain:security:2.0">
-            <security-domains>
-                <security-domain name="other" cache-type="default">
-                    <authentication>
-                        <login-module code="Remoting" flag="optional">
-                            <module-option name="password-stacking" value="useFirstPass"/>
-                        </login-module>
-                        <login-module code="RealmDirect" flag="required">
-                            <module-option name="password-stacking" value="useFirstPass"/>
-                        </login-module>
-                    </authentication>
-                </security-domain>
-                <security-domain name="jboss-web-policy" cache-type="default">
-                    <authorization>
-                        <policy-module code="Delegating" flag="required"/>
-                    </authorization>
-                </security-domain>
-                <security-domain name="ldapRealm" cache-type="default">
-                    <authentication>
-                        <login-module code="Ldap" flag="required">
-                            <module-option name="java.naming.factory.initial" value="com.sun.jndi.ldap.LdapCtxFactory"/>
-                            <module-option name="java.naming.provider.url" value="ldap://10.116.92.130:489"/>
-                            <module-option name="java.naming.security.authentication" value="simple"/>
-                            <module-option name="principalDNPrefix" value="uid="/>
-                            <module-option name="principalDNSuffix" value=",ou=people,o=caixa"/>
-                            <module-option name="rolesCtxDN" value="cn=sigsj,ou=groups,o=caixa"/>
-                            <module-option name="uidAttributeID" value="uniqueMember"/>
-                            <module-option name="matchOnUserDN" value="true"/>
-                            <module-option name="roleAttributeID" value="cn"/>
-                            <module-option name="roleAttributeIsDN" value="false"/>
-                            <module-option name="searchTimeLimit" value="5000"/>
-                        </login-module>
-                        <login-module code="RoleMapping" flag="optional">
-                            <module-option name="rolesProperties" value="${jboss.server.config.dir}/props/siccl-roles.properties"/>
-                        </login-module>
-                    </authentication>
-                </security-domain>
-                <security-domain name="jboss-ejb-policy" cache-type="default">
-                    <authorization>
-                        <policy-module code="Delegating" flag="required"/>
-                    </authorization>
-                </security-domain>
-            </security-domains>
-        </subsystem>
         <subsystem xmlns="urn:jboss:domain:security-manager:1.0">
             <deployment-permissions>
                 <maximum-set>
