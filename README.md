@@ -1,53 +1,3 @@
-FAILED - RETRYING: Check Deployment details looking for status OK (56 retries left).
-FAILED - RETRYING: Check Deployment details looking for status OK (55 retries left).
-FAILED - RETRYING: Check Deployment details looking for status OK (54 retries left).
-FAILED - RETRYING: Check Deployment details looking for status OK (53 retries left).
-FAILED - RETRYING: Check Deployment details looking for status OK (52 retries left).
-FAILED - RETRYING: Check Deployment details looking for status OK (51 retries left).
-FAILED - RETRYING: Check Deployment details looking for status OK (50 retries left).
-FAILED - RETRYING: Check Deployment details looking for status OK (49 retries left).
-FAILED - RETRYING: Check Deployment details looking for status OK (48 retries left).
-FAILED - RETRYING: Check Deployment details looking for status OK (47 retries left).
-FAILED - RETRYING: Check Deployment details looking for status OK (46 retries left).
-FAILED - RETRYING: Check Deployment details looking for status OK (45 retries left).
-FAILED - RETRYING: Check Deployment details looking for status OK (44 retries left).
-FAILED - RETRYING: Check Deployment details looking for status OK (43 retries left).
-FAILED - RETRYING: Check Deployment details looking for status OK (42 retries left).
-FAILED - RETRYING: Check Deployment details looking for status OK (41 retries left).
-FAILED - RETRYING: Check Deployment details looking for status OK (40 retries left).
-FAILED - RETRYING: Check Deployment details looking for status OK (39 retries left).
-FAILED - RETRYING: Check Deployment details looking for status OK (38 retries left).
-FAILED - RETRYING: Check Deployment details looking for status OK (37 retries left).
-FAILED - RETRYING: Check Deployment details looking for status OK (36 retries left).
-FAILED - RETRYING: Check Deployment details looking for status OK (35 retries left).
-FAILED - RETRYING: Check Deployment details looking for status OK (34 retries left).
-FAILED - RETRYING: Check Deployment details looking for status OK (33 retries left).
-
-
-ta asim me ajdua a ver o log
-
-
-sobe o que a gisele fez 
-
-ela mecheu no stadalone eu copie de la e coloquei na amster
-
-
-hoje ta assim
-jboss-deployments
-
-group_id:artifact_id:version:extension
-br.gov.caixa.SirotconEAP:sirotcon-ejb:2.3.0.1:jar
-com.oracle.database.jdbc:ojdbc8:23.26.0.0.0:jar
-
-
-jboss-modules-custom
-
-group_id:artifact_id:version:extension
-
-
-
-standalone-full-ha.xml
-
 <?xml version='1.0' encoding='UTF-8'?>
 
 <server xmlns="urn:jboss:domain:16.0">
@@ -210,15 +160,15 @@ standalone-full-ha.xml
                 </datasource>
                 <datasource jndi-name="java:jboss/datasources/SIGSJ04" pool-name="SIGSJ04_Pool" enabled="true" use-java-context="true">
                     <connection-url>jdbc:oracle:thin:@CNPEXDADVM01CLU08.EXTRA.CAIXA.GOV.BR:1521/orad01bc</connection-url>
-                    <driver>oracle</driver>
+                    <driver>ojdbc8.jar</driver>
                     <pool>
-                        <min-pool-size>32</min-pool-size>
-                        <max-pool-size>128</max-pool-size>
+                        <min-pool-size>1</min-pool-size>
+                        <max-pool-size>50</max-pool-size>
                         <flush-strategy>IdleConnections</flush-strategy>
                     </pool>
                     <security>
-                        <user-name>F658838</user-name>
-                        <password>Logando7</password>
+                        <user-name>__SIGSJ04_USER__</user-name>
+                        <password>__SIGSJ04_PASSWORD__</password>
                     </security>
                     <timeout>
                         <idle-timeout-minutes>1</idle-timeout-minutes>
@@ -227,10 +177,6 @@ standalone-full-ha.xml
                 <drivers>
                     <driver name="h2" module="com.h2database.h2">
                         <xa-datasource-class>org.h2.jdbcx.JdbcDataSource</xa-datasource-class>
-                    </driver>
-                    <driver name="oracle" module="com.oracle">
-                        <driver-class>oracle.jdbc.OracleDriver</driver-class>
-                        <xa-datasource-class>oracle.jdbc.xa.client.OracleXADataSource</xa-datasource-class>
                     </driver>
                 </drivers>
             </datasources>
@@ -617,5 +563,3 @@ standalone-full-ha.xml
         </outbound-socket-binding>
     </socket-binding-group>
 </server>
-
-
