@@ -1,31 +1,10 @@
-Assunto: Timeout intermitente na transação CICS BG00 (DES) – SIGCB Intranet
+Jesse Mouta Pereira Batista, Pedro Henrique Paiva de Souza e Robson Batista da Costa.
+ 
+Conseguimos avançar na integração entre o Control-M e o BeyondTrust. Identificamos um problema no script /tmp/teste_cofre.sh e, como não temos permissão para alterá-lo, criamos uma nova versão em /producao, mantendo o script versionado no repositório do projeto. Com isso, o problema foi corrigido e a integração passou a funcionar corretamente.
+Como próximos passos, gostaríamos de destacar dois pontos de segurança que precisam ser avaliados:
+Certificado SSL/TLS: identificamos o uso do parâmetro -k nas chamadas via curl. Esse parâmetro desabilita a validação do certificado do servidor. Recomendamos que a integração seja configurada no Application Integrator, com a validação adequada do certificado SSL/TLS.
+Proteção do secret: observamos que a credencial está exposta nas configurações do AI. Por se tratar de uma informação sensível, recomendamos que seja configurada utilizando os mecanismos de proteção de credenciais/segredos disponibilizados pela ferramenta.
+Assim, do ponto de vista funcional, a integração está operacional, ficando pendentes essas adequações para garantir maior segurança na solução. Mauro Shigueo Yamashita Marinalva Zelia de Sousa Lima Vinicius Azevedo Nunes Lucas Vinicius de Almeida Santos
 
-Prezados,
 
-Estamos tratando um erro de “Read timed out” no SIGCB Intranet (DES), na funcionalidade “Manter Cedente”. Ao analisar o ambiente, descartamos web server, application server e rede. A falha ocorre na resposta da transação CICS no mainframe de DES.
-
-Fluxo da chamada:
-SIGCB (SJSAS8 dsv08, sspdeaplux0100) → conector SIROT local (127.0.0.1:8111) → sirotcics / ibmdes.caixa (10.192.224.66:9683)
-
-Dados da transação:
-
-Transação CICS: BG00
-Aplicação: SINCO (código 640400)
-Rota SIROT: rede 9683 (código 0029)
-Timeout do conector: 30 s
-
-Comportamento: a sessão TCP com o mainframe está estabelecida e a mensagem é enviada normalmente. Porém, a resposta não retorna em 30 s e o conector encerra a chamada com “Read timed out”.
-
-Ocorrências em 29/10/2026:
-
-Das 11:10 às 11:56: cerca de 40 timeouts. Nesse período a rota 9690 também apresentou timeouts de 120 s.
-Após a janela, ainda há ocorrências isoladas da BG00 às 12:44:32, 12:54:13 e 13:10:56.
-Exemplo de ID: 1793283639786 (11:20:39)
-
-Solicitamos verificar:
-
-Tempo de resposta e possíveis abends da transação BG00 nos horários citados
-Situação da região CICS (MAXTASK, fila de transações)
-Possíveis locks ou lentidão em recursos (DB2/VSAM) utilizados pela BG00
-
-Os logs completos estão disponíveis no servidor sspdeaplux0100 (/log_ias/ceflib/ceflib-dsv08.log e /log_ias/sirot2/sirot2-dsv08.log), caso precisem de mais detalhes.
+ como que  oscript tava com problema se o meui script foi a suloção para p caso?
