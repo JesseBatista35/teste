@@ -1,29 +1,7 @@
-# Para onde o nome aponta hoje
-nslookup sigsj-intranet.esteiras.des.caixa
+Pessoal, atualização do SIGSJ-intranet (DES):
 
-# A aplicação responde pelo Apache da 955 com o nome certo?
-curl -s -o /dev/null -w "%{http_code}\n" -H "Host: sigsj-intranet.esteiras.des.caixa" http://10.116.194.179/sigsj_intranet/
+✅ O JBoss na caddeapllx955 está subindo sem erros e a aplicação responde normalmente: um teste direto no servidor com o host sigsj-intranet.esteiras.des.caixa retornou HTTP 200 em /sigsj_intranet/.
 
+O que impede o acesso pela URL é o DNS: hoje sigsj-intranet.esteiras.des.caixa resolve para 10.116.180.22, que é o VIP do OKD, e não para o servidor da aplicação (10.116.194.179). Por isso a requisição nem chega no JBoss.
 
-
-
-C:\Users\p585600>nslookup sigsj-intranet.esteiras.des.caixa
-Servidor:  dfaddssd001.corp.caixa.gov.br
-Address:  10.222.149.10
-
-Nome:    sigsj-intranet.esteiras.des.caixa
-Address:  10.116.180.22
-
-
-
-
-
-[p585600@caddeapllx955 ~]$
-[p585600@caddeapllx955 ~]$
-[p585600@caddeapllx955 ~]$
-[p585600@caddeapllx955 ~]$ curl -s -o /dev/null -w "%{http_code}\n" -H "Host: sigsj-intranet.esteiras.des.caixa" http://10.116.194.179/sigsj_intranet/
-200
-[p585600@caddeapllx955 ~]$
-[p585600@caddeapllx955 ~]$
-[p585600@caddeapllx955 ~]$
-[p585600@caddeapllx955 ~]$
+@Evandro, para a reunião da tarde: precisamos definir se o caminho é um registro DNS apontando sigsj-intranet.esteiras.des.caixa para a 10.116.194.179 ou um VIP exclusivo para o SIGSJ (necessário se o acesso for por HTTPS, já que o Apache da VM atende em HTTP/80). O boleto e o internet vão precisar da mesma definição.
