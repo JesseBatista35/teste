@@ -1,10 +1,10 @@
-Jesse Mouta Pereira Batista, Pedro Henrique Paiva de Souza e Robson Batista da Costa.
- 
-Conseguimos avançar na integração entre o Control-M e o BeyondTrust. Identificamos um problema no script /tmp/teste_cofre.sh e, como não temos permissão para alterá-lo, criamos uma nova versão em /producao, mantendo o script versionado no repositório do projeto. Com isso, o problema foi corrigido e a integração passou a funcionar corretamente.
-Como próximos passos, gostaríamos de destacar dois pontos de segurança que precisam ser avaliados:
-Certificado SSL/TLS: identificamos o uso do parâmetro -k nas chamadas via curl. Esse parâmetro desabilita a validação do certificado do servidor. Recomendamos que a integração seja configurada no Application Integrator, com a validação adequada do certificado SSL/TLS.
-Proteção do secret: observamos que a credencial está exposta nas configurações do AI. Por se tratar de uma informação sensível, recomendamos que seja configurada utilizando os mecanismos de proteção de credenciais/segredos disponibilizados pela ferramenta.
-Assim, do ponto de vista funcional, a integração está operacional, ficando pendentes essas adequações para garantir maior segurança na solução. Mauro Shigueo Yamashita Marinalva Zelia de Sousa Lima Vinicius Azevedo Nunes Lucas Vinicius de Almeida Santos
+Obrigado pelo retorno, pessoal. Só complementando para o registro técnico:
 
+A causa raiz do 401 no passo “Obter credencial” é que o plugin do Application Integrator não captura nem reenvia o cookie de sessão ASP.NET_SessionId, que o BeyondTrust retorna na chamada de token. Isso foi confirmado pelo teste do Pedro no Postman e por testes com curl direto no agente caddeapllx2695. Por isso a solução foi tirar a autenticação dos passos REST do AI e fazê-la via script (curl com cookie jar), que é a versão que ficou em /producao.
 
- como que  oscript tava com problema se o meui script foi a suloção para p caso?
+Sobre os pontos de segurança, concordo e sugiro:
+
+Certificado: substituir o -k do curl por --cacert apontando para a cadeia AC Interna da Caixa (a AC Interna APL já está disponível no agente), mantendo a validação TLS.
+Secret: retirar o client_secret em texto puro da configuração do AI e usar o mecanismo de credencial protegida do Control-M/AI (campo de senha do Connection Profile ou parâmetro criptografado), passando o valor ao script sem expô-lo em log.
+
+Como o script está versionado no repositório do projeto e a credencial fica na configuração do job type, os ajustes devem ser feitos pelo time responsável pela aplicação/job. Fico à disposição para apoiar, principalmente na parte de certificado no agente.
