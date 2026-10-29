@@ -1,18 +1,19 @@
-Pessoal, atualização do SIGSJ-intranet (DES):
+2026-10-29T12:47:56.4000217Z ##[section]Starting: Alterando Valores placeholders nos arquivos de config
+2026-10-29T12:47:56.4003834Z ==============================================================================
+2026-10-29T12:47:56.4003948Z Task         : Replace Tokens
+2026-10-29T12:47:56.4004016Z Description  : Replace tokens in files
+2026-10-29T12:47:56.4004107Z Version      : 3.3.1
+2026-10-29T12:47:56.4004162Z Author       : Guillaume Rouchon
+2026-10-29T12:47:56.4004236Z Help         : v3.3.1 - [More Information](https://github.com/qetza/vsts-replacetokens-task#readme)
+2026-10-29T12:47:56.4004379Z ==============================================================================
+2026-10-29T12:47:56.5903387Z replacing tokens in: /opt/ads-agent/_work/r19265/a/_SIGSJ-intranet-config/jboss/standalone-full-ha.xml
+2026-10-29T12:47:56.6003563Z ##[error]  variable not found: SIGSJ04_CONNECTION_STRING
+2026-10-29T12:47:56.6005428Z ##[error]  variable not found: SIGSJ04_USER
+2026-10-29T12:47:56.6006451Z ##[error]  variable not found: SIGSJ04_PASSWORD
+2026-10-29T12:47:56.6048930Z replacing tokens in: /opt/ads-agent/_work/r19265/a/_SIGSJ-intranet-config/httpd/httpd.conf
+2026-10-29T12:47:56.6055686Z replacing tokens in: /opt/ads-agent/_work/r19265/a/_SIGSJ-intranet-config/httpd/vhost.conf
+2026-10-29T12:47:56.6060279Z replacing tokens in: /opt/ads-agent/_work/r19265/a/_SIGSJ-intranet-config/jboss/standalone.conf
+2026-10-29T12:47:56.6396717Z ##[section]Finishing: Alterando Valores placeholders nos arquivos de config
 
-✅ Release SIGSJ-intranet-38 concluída com sucesso, com todas as etapas verdes, incluindo o Check Deployments, na caddeapllx955. A aplicação está no ar no contexto /sigsj_intranet (e /sigsjintrastatic para os conteúdos estáticos).
 
-O que foi ajustado hoje:
-
-SIROT: a aplicação passou a levar o sirotcon-ejb empacotado no EAR, junto com as libs de que ele depende (CeflogEAP e ceflib). Com isso, o deploy externo do SIROT pela esteira (jboss-deployments) foi retirado. Os dois juntos geravam conflito no JBoss (WFLYEE0047 ... java:global/SERVER), e esse era o motivo do FAILED de hoje.
-Datasource SIGSJ04 (Oracle): configurada e conectando normalmente.
-Release: voltou a apontar para a branch feature/ajustes-standalone-eap74, onde estão os ajustes do standalone.
-
-Pontos para o PR da feature/ajustes-standalone-eap74 para a master:
-
-SIROT: manter o jboss-deployments sem a linha do sirotcon-ejb externo (fica só o driver Oracle, se for usado).
-Credenciais: levar o usuário e a senha do banco do standalone-full-ha.xml para variáveis da Library, com a senha como secreta, em vez de ficarem no arquivo.
-Driver Oracle: usar um único caminho, ou o módulo oracle ou o ojdbc8.jar implantado pela esteira. Hoje os dois estão ativos.
-log4j externo: o arquivo /log_jboss/config-log4j/sigsj_intranet.xml, que a aplicação usa, foi criado manualmente no servidor. Ele precisa ser incluído no repositório de config para a esteira criá-lo automaticamente.
-
-Quando o PR estiver pronto, nos avisem que acompanhamos a release a partir da master.
+como no log ja expos estou em sala com gisele e marcio eles autroizaram criar na na lbaruia com a mesa seha que ta
