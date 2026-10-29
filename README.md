@@ -1,1 +1,16 @@
-oc rsh sibec-arquivos-des-210-hkjgk sh -c 'cp -p "/sibec/Manutencao/BECT.E2.BOD1.M09.C3001.P1466.A4312054.C.ZIP" "/sibec3/Manutencao/" && ls -ln /sibec/Manutencao/BECT.E2.BOD1.M09.C3001.P1466.A4312054.C.ZIP /sibec3/Manutencao/BECT.E2.BOD1.M09.C3001.P1466.A4312054.C.ZIP'
+
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$ oc rsh sibec-arquivos-des-210-hkjgk sh -c 'cp -p "/sibec/Manutencao/BECT.E2.BOD1.M09.C3001.P1466.A4312054.C.ZIP" "/sibec3/Manutencao/" && ls -ln /sibec/Manutencao/BECT.E2.BOD1.M09.C3001.P1466.A4312054.C.ZIP /sibec3/Manutencao/BECT.E2.BOD1.M09.C3001.P1466.A4312054.C.ZIP'
+-rw-r-xr-x. 1 193291257 120 630 Sep 30 16:38 /sibec/Manutencao/BECT.E2.BOD1.M09.C3001.P1466.A4312054.C.ZIP
+-rw-r-xr-x. 1       185  99 630 Sep 30 16:38 /sibec3/Manutencao/BECT.E2.BOD1.M09.C3001.P1466.A4312054.C.ZIP
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
