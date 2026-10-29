@@ -207,7 +207,7 @@
             <deployment-scanner path="deployments" relative-to="jboss.server.base.dir" scan-interval="5000" runtime-failure-causes-rollback="${jboss.deployment.scanner.rollback.on.failure:false}"/>
         </subsystem>
         <subsystem xmlns="urn:jboss:domain:ee:6.0">
-            <spec-descriptor-property-replacement>false</spec-descriptor-property-replacement>
+            <spec-descriptor-property-replacement>true</spec-descriptor-property-replacement>
             <concurrent>
                 <context-services>
                     <context-service name="default" jndi-name="java:jboss/ee/concurrency/context/default" use-transaction-setup-provider="true"/>
@@ -646,7 +646,3 @@
         </outbound-socket-binding>
     </socket-binding-group>
 </server>
-
-
-
-ATUAMENTE ELE TA ASSIM
