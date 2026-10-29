@@ -1,1 +1,10 @@
-Demanda fora do escopo da equipe de Esteiras DES/TQS NPRD. A liberação de permissão de leitura/escrita para usuários no compartilhamento SMB \nprdsmb01.ad.caixa\fs_sisib_smb (ACL do share ou inclusão em grupo AD) é atribuição da equipe responsável pelo storage/NAS, a mesma que provisionou o compartilhamento na REQ000146870898. A parte de esteira (montagem do NFS fs_sisib no OKD DES) já foi atendida na WO0000082112572. Solicito o redirecionamento para a fila responsável.
+Boa tarde estou com algumas duvidas, sobre esta requisição, vc poderia me ajudar?
+ 
+quando vc disse q o servidor nprdsmb01.ad.caixa está na rede de backup NPRD (10.188.0.0/16), que normalmente não é acessível a partir das estações de trabalho, existem outras redes q são acessíveis pelas estações de trabalho? e a requisição fala que a área solicitante deve obter os IPs da DSP1 na nova rede de backup NPRD e solicitar a inclusão à equipe de Armazenamento, isso poderia influenciar nos acessos?
+
+
+
+ Boa tarde estou com algumas duvidas, sobre esta requisição, vc poderia me ajudar?
+ 
+quando vc disse q o servidor nprdsmb01.ad.caixa está na rede de backup NPRD (10.188.0.0/16), que normalmente não é acessível a partir das estações de trabalho, existem outras redes q são acessíveis pelas estações de trabalho? e a requisição fala que a área solicitante deve obter os IPs da DSP1 na nova rede de backup NPRD e solicitar a inclusão à equipe de Armazenamento, isso poderia influenciar nos acessos?
+ 
