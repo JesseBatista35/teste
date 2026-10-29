@@ -1,18 +1,5 @@
+oc get pods -n sibec-des | grep arquivos
+oc get dc sibec-arquivos-des -n sibec-des -o jsonpath='{.status.latestVersion}{"\n"}{range .spec.template.spec.containers[*].volumeMounts[*]}{.name}{" -> "}{.mountPath}{"\n"}{end}'
+oc get events -n sibec-des --sort-by=.metadata.creationTimestamp | tail -8
 
-^Ccommand terminated with exit code 130
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$ oc rsh sibec-arquivos-des-209-r7dn8 sh -c 'id; ls -ln /sibec/Folha | head -5; ls -ln /sibec/BECD.E2.BOD1.F03.C2505.P1466.ABR.C.TXT; du -sh /sibec /sibec3; find /sibec -type f | wc -l; find /sibec3 -type f | wc -l'
-error: Internal error occurred: error executing command in container: container is not created or running
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$ oc rsh sibec-arquivos-des-209-r7dn8 sh -c 'id; ls -ln /sibec/Folha | head -5; ls -ln /sibec/BECD.E2.BOD1.F03.C2505.P1466.ABR.C.TXT; du -sh /sibec /sibec3; find /sibec -type f | wc -l; find /sibec3 -type f | wc -l'
-Error from server (NotFound): pods "sibec-arquivos-des-209-r7dn8" not found
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$
+oc rsh <pod-novo> sh -c 'id; ls -ln /sibec/Folha | head -5; du -sh /sibec /sibec3; find /sibec -type f | wc -l; find /sibec3 -type f | wc -l'
