@@ -1,5 +1,61 @@
-oc rsh sibec-arquivos-des-209-r7dn8 sh -c 'cd /sibec && tar cf - . | (cd /sibec3 && tar xf - --no-same-owner); echo FIM rc=$?'
 
-  oc rsh sibec-arquivos-des-209-r7dn8 sh -c 'cp -rp /sibec/. /sibec3/; echo FIM rc=$?'
+-sh-4.2$ oc rsh sibec-arquivos-des-209-r7dn8 sh -c 'cd /sibec && tar cf - . | (cd /sibec3 && tar xf - --no-same-owner); echo FIM rc=$?'
+tar: ./Folha/BECD.E2.BOD1.F31.C2505.P1466.A5214838.C.ZIP: Cannot open: Permission denied
+tar: ./Folha/BECD.E2.BOD1.F31.C2505.P1466.A1302801.C.ZIP: Cannot open: Permission denied
+tar: ./Folha/PKTMPARC.ZCQY8324: Cannot open: Permission denied
+tar: ./Folha/BECD.E2.BOD1.F31.C2505.P1466.A4105409.C.ZIP: Cannot open: Permission denied
+tar: ./Folha/BECD.E2.BOD1.F31.C2505.P1466.A2601409.C.ZIP: Cannot open: Permission denied
+tar: ./Folha/BECD.E2.BOD1.F31.C2505.P1466.APR.C.ZIP: Cannot open: Permission denied
+tar: ./Folha/BECD.E2.BOD1.F31.C2505.P1466.APE.C.ZIP: Cannot open: Permission denied
+tar: ./Folha/BECD.E2.BOD1.F31.C2505.P1466.ARJ.C.ZIP: Cannot open: Permission denied
+tar: ./Folha/BECD.E2.BOD1.F31.C2505.P1466.A2804508.C.ZIP: Cannot open: Permission denied
+tar: ./Folha/BECD.E2.BOD1.F03.C2505.P1466.ABR.CY.TXT: Cannot open: Permission denied
+tar: ./Folha/BECD.E2.BOD1.F31.C2505.P1466.A2308906.C.ZIP: Cannot open: Permission denied
+tar: ./Folha/BECD.E2.BOD1.F31.C2505.P1466.A3203205.C.ZIP: Cannot open: Permission denied
+tar: ./Folha/BECD.E2.BOD1.F31.C2505.P1466.A5207253.C.ZIP: Cannot open: Permission denied
+tar: ./Folha/BECD.E2.BOD1.F31.C2505.P1466.AMG.C.ZIP: Cannot open: Permission denied
+tar: ./Folha/BECD.E2.BOD1.F31.C2505.P1466.A3304557.C.ZIP: Cannot open: Permission denied
+tar: ./Folha/BECD.E2.BOD1.F31.C2505.P1466.A2111300.C.ZIP: Cannot open: Permission denied
+tar: ./Folha/BECD.E2.BOD1.F03.C2505.P1466.ABR.CY.zip: Cannot open: Permission denied
+tar: ./Folha/BECD.E2.BOD1.F31.C2505.P1466.A1705508.C.ZIP: Cannot open: Permission denied
+tar: ./Folha/BECD.E2.BOD1.F31.C2505.P1466.APB.C.ZIP: Cannot open: Permission denied
+tar: ./Folha/BECD.E2.BOD1.F31.C2505.P1466.ABA.C.ZIP: Cannot open: Permission denied
+tar: ./Folha/BECD.E2.BOD1.F31.C2505.P1466.A5206206.C.ZIP: Cannot open: Permission denied
+tar: ./Folha/BECD.E2.BOD1.F31.C2505.P1466.ABR.C.ZIP: Cannot open: Permission denied
+tar: ./Folha/BECD.E2.BOD1.F31.C2505.P1466.A2112209.C.ZIP: Cannot open: Permission denied
+tar: ./Folha/BECD.E2.BOD1.F31.C2505.P1466.A3518701.C.ZIP: Cannot open: Permission denied
+tar: ./Folha/BECD.E2.BOD1.F03.C2505.P1466.AA3.C.ZIP: Cannot open: Permission denied
+tar: ./Folha/BECD.E2.BOD1.F31.C2505.P1466.AMA.C.ZIP: Cannot open: Permission denied
+tar: ./Folha/BECD.E2.BOD1.F31.C2505.P1466.A4322806.C.ZIP: Cannot open: Permission denied
+tar: ./Folha/BECD.E2.BOD1.F03.C2505.P1466.ABR.C.TXT: Cannot open: Permission denied
+tar: ./Folha/BECD.E2.BOD1.F31.C2505.P1466.A3303807.C.ZIP: Cannot open: Permission denied
+tar: ./Folha/BECD.E2.BOD1.F31.C2505.P1466.ARO.C.ZIP: Cannot open: Permission denied
+tar: ./Folha/BECD.E2.BOD1.F31.C2505.P1466.ADF.C.ZIP: Cannot open: Permission denied
+tar: ./Folha/BECD.E2.BOD1.F31.C2505.P1466.ARS.C.ZIP: Cannot open: Permission denied
+tar: ./Folha/BECD.E2.BOD1.F31.C2505.P1466.ACE.C.ZIP: Cannot open: Permission denied
+tar: ./Folha/BECD.E2.BOD1.F31.C2505.P1466.A3305109.C.ZIP: Cannot open: Permission denied
+tar: ./Folha/BECD.E2.BOD1.F31.C2505.P1466.A3200508.C.ZIP: Cannot open: Permission denied
+tar: ./Folha/BECD.E2.BOD1.F31.C2505.P1466.AGO.C.ZIP: Cannot open: Permission denied
+tar: ./Folha/BECD.E2.BOD1.F31.C2505.P1466.A2105302.C.ZIP: Cannot open: Permission denied
+tar: ./Folha/BECD.E2.BOD1.F31.C2505.P1466.A2802007.C.ZIP: Cannot open: Permission denied
+tar: ./Folha/BECD.E2.BOD1.F31.C2505.P1466.ASP.C.ZIP: Cannot open: Permission denied
+tar: ./Folha/BECD.E2.BOD1.F31.C2505.P1466.A2804201.C.ZIP: Cannot open: Permission denied
+tar: ./Folha/BECD.E2.BOD1.F31.C2505.P1466.A2504009.C.ZIP: Cannot open: Permission denied
+tar: ./Folha/BECD.E2.BOD1.F31.C2505.P1466.AES.C.ZIP: Cannot open: Permission denied
+tar: ./Folha/BECD.E2.BOD1.F31.C2505.P1466.AAM.C.ZIP: Cannot open: Permission denied
+tar: ./Folha/BECD.E2.BOD1.F31.C2505.P1466.A4203253.C.ZIP: Cannot open: Permission denied
+tar: ./Folha/BECD.E2.BOD1.F31.C2505.P1466.A1101435.C.ZIP: Cannot open: Permission denied
+tar: ./Folha/BECD.E2.BOD1.F31.C2505.P1466.A3113008.C.ZIP: Cannot open: Permission denied
+tar: ./Folha/BECD.E2.BOD1.F31.C2505.P1466.A5300108.C.ZIP: Cannot open: Permission denied
+tar: ./Folha/BECD.E2.BOD1.F31.C2505.P1466.A5003454.C.ZIP: Cannot open: Permission denied
+tar: ./Folha/BECD.E2.BOD1.F31.C2505.P1466.A2608750.C.ZIP: Cannot open: Permission denied
+tar: ./Folha/BECD.E2.BOD1.F31.C2505.P1466.A3127404.C.ZIP: Cannot open: Permission denied
+tar: ./Folha/BECD.E2.BOD1.F31.C2505.P1466.ASC.C.ZIP: Cannot open: Permission denied
+tar: ./Folha/BECD.E2.BOD1.F31.C2505.P1466.AMS.C.ZIP: Cannot open: Permission denied
+tar: ./Folha/BECD.E2.BOD1.F31.C2505.P1466.ATO.C.ZIP: Cannot open: Permission denied
+tar: ./Folha/BECD.E2.BOD1.F31.C2505.P1466.A4202107.C.ZIP: Cannot open: Permission denied
+tar: ./Folha/BECD.E2.BOD1.F31.C2505.P1466.A2931350.C.ZIP: Cannot open: Permission denied
+tar: ./Folha/BECD.E2.BOD1.F31.C2505.P1466.A2927408.C.ZIP: Cannot open: Permission denied
+tar: ./Folha/BECD.E2.BOD1.F31.C2505.P1466.ASE.C.ZIP: Cannot open: Permission denied
+tar: ./BECD.E2.BOD1.F03.C2505.P1466.ABR.C.TXT: Cannot open: Permission denied
 
-    oc rsh sibec-arquivos-des-209-r7dn8 sh -c 'du -sh /sibec /sibec3; find /sibec -type f | wc -l; find /sibec3 -type f | wc -l'
