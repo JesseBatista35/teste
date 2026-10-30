@@ -1,125 +1,385 @@
-2026-10-30T18:37:07.5746020Z ##[debug]Evaluating condition for step: 'Adicionando Multiplas Secrets'
-2026-10-30T18:37:07.5746423Z ##[debug]Evaluating: succeeded()
-2026-10-30T18:37:07.5746567Z ##[debug]Evaluating succeeded:
-2026-10-30T18:37:07.5746838Z ##[debug]=> True
-2026-10-30T18:37:07.5746994Z ##[debug]Result: True
-2026-10-30T18:37:07.5747162Z ##[section]Starting: Adicionando Multiplas Secrets
-2026-10-30T18:37:07.5750023Z ==============================================================================
-2026-10-30T18:37:07.5750109Z Task         : Bash
-2026-10-30T18:37:07.5750153Z Description  : Run a Bash script on macOS, Linux, or Windows
-2026-10-30T18:37:07.5750216Z Version      : 3.227.0
-2026-10-30T18:37:07.5750268Z Author       : Microsoft Corporation
-2026-10-30T18:37:07.5750320Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/bash
-2026-10-30T18:37:07.5750391Z ==============================================================================
-2026-10-30T18:37:07.6264149Z ##[debug]Using node path: /opt/ads-agent/externals/node16/bin/node
-2026-10-30T18:37:07.6947649Z ##[debug]agent.TempDirectory=/opt/ads-agent/_work/_temp
-2026-10-30T18:37:07.6955620Z ##[debug]loading inputs and endpoints
-2026-10-30T18:37:07.6962984Z ##[debug]loading INPUT_TARGETTYPE
-2026-10-30T18:37:07.6971780Z ##[debug]loading INPUT_FILEPATH
-2026-10-30T18:37:07.6972100Z ##[debug]loading INPUT_SCRIPT
-2026-10-30T18:37:07.6972950Z ##[debug]loading INPUT_WORKINGDIRECTORY
-2026-10-30T18:37:07.6973552Z ##[debug]loading INPUT_FAILONSTDERR
-2026-10-30T18:37:07.6974275Z ##[debug]loading ENDPOINT_AUTH_SYSTEMVSSCONNECTION
-2026-10-30T18:37:07.6974938Z ##[debug]loading ENDPOINT_AUTH_SCHEME_SYSTEMVSSCONNECTION
-2026-10-30T18:37:07.6977018Z ##[debug]loading ENDPOINT_AUTH_PARAMETER_SYSTEMVSSCONNECTION_ACCESSTOKEN
-2026-10-30T18:37:07.6982285Z ##[debug]loading SECRET_OKD_TOKEN_KAFKA
-2026-10-30T18:37:07.6983238Z ##[debug]loading SECRET_PASSWORD_CGC
-2026-10-30T18:37:07.6984955Z ##[debug]loading SECRET_PW_ALOCAIP
-2026-10-30T18:37:07.6986634Z ##[debug]loading SECRET_BT_SECRETS_PATH
-2026-10-30T18:37:07.6988006Z ##[debug]loading SECRET_PW_ISILON
-2026-10-30T18:37:07.6989193Z ##[debug]loading SECRET_DATASOURCE_PASSWORD
-2026-10-30T18:37:07.6989740Z ##[debug]loading SECRET_FORTIFY_APITOKEN
-2026-10-30T18:37:07.6990386Z ##[debug]loading SECRET_OKD_4_TOKEN
-2026-10-30T18:37:07.6990991Z ##[debug]loading SECRET_AZPAT
-2026-10-30T18:37:07.6991567Z ##[debug]loading SECRET_GRAYLOG_PASSWORD
-2026-10-30T18:37:07.6992103Z ##[debug]loading SECRET_FORTIFY_PASS
-2026-10-30T18:37:07.6993150Z ##[debug]loading SECRET_ALOCAIP_SENHA
-2026-10-30T18:37:07.6994123Z ##[debug]loading SECRET_TOKEN_CRQ
-2026-10-30T18:37:07.6994629Z ##[debug]loading SECRET_OKD_TOKEN_REGISTRY
-2026-10-30T18:37:07.6995210Z ##[debug]loaded 22
-2026-10-30T18:37:07.6999729Z ##[debug]Agent.ProxyUrl=undefined
-2026-10-30T18:37:07.6999955Z ##[debug]Agent.CAInfo=undefined
-2026-10-30T18:37:07.7000181Z ##[debug]Agent.ClientCert=undefined
-2026-10-30T18:37:07.7000408Z ##[debug]Agent.SkipCertValidation=True
-2026-10-30T18:37:07.7014867Z ##[debug]check path : /opt/ads-agent/_work/_tasks/Bash_6c731c3c-3c68-459a-a5c9-bde6e6595b5b/3.227.0/task.json
-2026-10-30T18:37:07.7016838Z ##[debug]adding resource file: /opt/ads-agent/_work/_tasks/Bash_6c731c3c-3c68-459a-a5c9-bde6e6595b5b/3.227.0/task.json
-2026-10-30T18:37:07.7017110Z ##[debug]system.culture=en-US
-2026-10-30T18:37:07.7025347Z ##[debug]failOnStderr=false
-2026-10-30T18:37:07.7026884Z ##[debug]workingDirectory=/opt/ads-agent/_work/r668/a
-2026-10-30T18:37:07.7027133Z ##[debug]check path : /opt/ads-agent/_work/r668/a
-2026-10-30T18:37:07.7027686Z ##[debug]targetType=inline
-2026-10-30T18:37:07.7027910Z ##[debug]bashEnvValue=undefined
-2026-10-30T18:37:07.7029172Z ##[debug]script=IS_SECURE=`env | grep _SECUREFILEPATH`
-
-if [ -z "$IS_SECURE" ]
-  then 
-      echo "Sem SECURE FILES para configurar"
+if [ -z "$DOWNLOADSECUREFILE_SECUREFILEPATH" ]; then
+download_path=`echo $DOWNLOADSECUREFILE1_SECUREFILEPATH`
 else
-for certificado in `env | grep _SECUREFILEPATH`; do
-     echo "Variavel de ambiente com o certificado = $certificado"
-     JKS_FILE=` basename $certificado`
-     FILE_PATH=${certificado#*=}
-     echo "Encontrado certificado = $JKS_FILE com o PATH $FILE_PATH"
-
-     filename=${JKS_FILE%%.*}
-     echo "nome do arquivo final = $filename"
-
-     secretName=`echo "$filename" | sed -r 's/_/-/g'`
-     echo "nome da Secret Name = $secretName"
-
-     echo "LOCALIZANDO SECRET OKD"
-
-     oc get secret $secretName -n sihdg-hmp
-     if [ "$?" -ne "1" ]; then
-          echo "EXCLUINDO SECRET OKD"
-          oc delete secret $secretName -n sihdg-hmp
-     fi
-
-     echo "CRIANDO SECRET OKD"
-     oc create secret generic $secretName --from-file="$FILE_PATH" -n sihdg-hmp
-     echo "oc create secret generic $secretName --from-file="$JKS_FILE" -n sihdg-hmp"
-
-    if [[ -n "okd4_nprd" && ("okd4_nprd" =~ "okd4" || "okd4_nprd" =~ "ocp" || "okd4_nprd" =~ "openshift") ]]
-    then
-      app="sihdg-jboss8-hmp"
-    else
-      app="sihdg-jboss8-hmp-esteiras"
-    fi
-	 
-     echo "SET VOLUME COM NOVA SECRET"
-     oc set volume deploymentconfig "$app" --add --name=$secretName --secret-name=$secretName --mount-path=/opt/server/standalone/configuration/$JKS_FILE --sub-path=$JKS_FILE --overwrite -n sihdg-hmp
-
-done 
+download_path=`echo $DOWNLOADSECUREFILE_SECUREFILEPATH`
 fi
-2026-10-30T18:37:07.7036889Z Generating script.
-2026-10-30T18:37:07.7039139Z ##[debug]which 'bash'
-2026-10-30T18:37:07.7046018Z ##[debug]found: '/usr/bin/bash'
-2026-10-30T18:37:07.7046819Z ##[debug]Agent.Version=3.236.1
-2026-10-30T18:37:07.7047417Z ##[debug]agent.tempDirectory=/opt/ads-agent/_work/_temp
-2026-10-30T18:37:07.7047673Z ##[debug]check path : /opt/ads-agent/_work/_temp
-2026-10-30T18:37:07.7051575Z ========================== Starting Command Output ===========================
-2026-10-30T18:37:07.7053540Z ##[debug]which '/usr/bin/bash'
-2026-10-30T18:37:07.7054961Z ##[debug]found: '/usr/bin/bash'
-2026-10-30T18:37:07.7055930Z ##[debug]/usr/bin/bash arg: /opt/ads-agent/_work/_temp/a4ff12a0-7960-4c5c-b61a-9a30b1d19a14.sh
-2026-10-30T18:37:07.7058478Z ##[debug]exec tool: /usr/bin/bash
-2026-10-30T18:37:07.7058701Z ##[debug]arguments:
-2026-10-30T18:37:07.7058947Z ##[debug]   /opt/ads-agent/_work/_temp/a4ff12a0-7960-4c5c-b61a-9a30b1d19a14.sh
-2026-10-30T18:37:07.7060382Z [command]/usr/bin/bash /opt/ads-agent/_work/_temp/a4ff12a0-7960-4c5c-b61a-9a30b1d19a14.sh
-2026-10-30T18:37:07.7183430Z Variavel de ambiente com o certificado = CACERTIFICATE_SECUREFILEPATH=
-2026-10-30T18:37:07.7199504Z Encontrado certificado = CACERTIFICATE_SECUREFILEPATH= com o PATH 
-2026-10-30T18:37:07.7199671Z nome do arquivo final = CACERTIFICATE_SECUREFILEPATH=
-2026-10-30T18:37:07.7229015Z nome da Secret Name = CACERTIFICATE-SECUREFILEPATH=
-2026-10-30T18:37:07.7229145Z LOCALIZANDO SECRET OKD
-2026-10-30T18:37:07.8026188Z Error from server (NotFound): secrets "CACERTIFICATE-SECUREFILEPATH=" not found
-2026-10-30T18:37:07.8069063Z CRIANDO SECRET OKD
-2026-10-30T18:37:07.8661661Z error: failed to create secret Secret "CACERTIFICATE-SECUREFILEPATH=" is invalid: metadata.name: Invalid value: "CACERTIFICATE-SECUREFILEPATH=": a lowercase RFC 1123 subdomain must consist of lower case alphanumeric characters, '-' or '.', and must start and end with an alphanumeric character (e.g. 'example.com', regex used for validation is '[a-z0-9]([-a-z0-9]*[a-z0-9])?(\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*')
-2026-10-30T18:37:07.8691130Z oc create secret generic CACERTIFICATE-SECUREFILEPATH= --from-file=CACERTIFICATE_SECUREFILEPATH= -n sihdg-hmp
-2026-10-30T18:37:07.8691307Z SET VOLUME COM NOVA SECRET
-2026-10-30T18:37:07.9592822Z warning: volume "CACERTIFICATE-SECUREFILEPATH=" did not previously exist and was not overwritten. A new volume with this name has been created instead.error: failed to patch volume update to pod template: DeploymentConfig.apps.openshift.io "sihdg-jboss8-hmp" is invalid: [spec.template.spec.volumes[0].name: Invalid value: "CACERTIFICATE-SECUREFILEPATH=": a lowercase RFC 1123 label must consist of lower case alphanumeric characters or '-', and must start and end with an alphanumeric character (e.g. 'my-name',  or '123-abc', regex used for validation is '[a-z0-9]([-a-z0-9]*[a-z0-9])?'), spec.template.spec.containers[0].volumeMounts[0].name: Not found: "CACERTIFICATE-SECUREFILEPATH="]
-2026-10-30T18:37:07.9638524Z ##[debug]Exit code 1 received from tool '/usr/bin/bash'
-2026-10-30T18:37:07.9641745Z ##[debug]STDIO streams have closed for tool '/usr/bin/bash'
-2026-10-30T18:37:07.9669157Z ##[error]Bash exited with code '1'.
-2026-10-30T18:37:07.9669821Z ##[debug]Processed: ##vso[task.issue type=error;]Bash exited with code '1'.
-2026-10-30T18:37:07.9670312Z ##[debug]task result: Failed
-2026-10-30T18:37:07.9671193Z ##[debug]Processed: ##vso[task.complete result=Failed;done=true;]
-2026-10-30T18:37:07.9683837Z ##[section]Finishing: Adicionando Multiplas Secrets
+env
+JKS_FILE=`basename $download_path`
+JKS_FILE_PATH=`echo $download_path`
+echo $download_path
+echo "##vso[task.setvariable variable=JKS_FILE]$JKS_FILE"
+echo "##vso[task.setvariable variable=JKS_FILE_PATH]$JKS_FILE_PATH"
+echo "##vso[task.setvariable variable=caCertificate.secureFilePath]$JKS_FILE_PATH"
+
+
+
+<img width="1749" height="891" alt="image" src="https://github.com/user-attachments/assets/1b70cbbb-8a71-458d-81de-0673df338dc6" />
+
+
+Skip to main content
+Azure DevOps
+projetos
+/
+Caixa
+/
+Pipelines
+/
+Releases
+/
+SIHDG-jboss8
+Search
+
+
+Caixa
+
+Overview
+
+Boards
+
+Repos
+
+Pipelines
+Pipelines
+Environments
+Releases
+Library
+Task groups
+Deployment groups
+Portal Infra
+
+Test Plans
+
+Artifacts
+Project settings
+All pipelines
+
+SIHDG
+
+SIHDG-jboss8
+Predefined variables
+SonarQube Variables (1)
+Variáveis com dados do SonarQube
+Scopes: Release
+Usuario-Azure-DevOps (12)
+Scopes: Release
+EGRESS_IP_OKD (81)
+WO0000072264656 - Config Portal Infrafácil NO_PROXY
+Scopes: Release
+MONITORACAO_LOGS (4)
+REQ000143540550 - Conforme autorizado na req por FLAVIO ALMEIDA GAGLIARDI, removido as variáveis JAVA_OPTS_MONITORING e URL_APM_SERVER, por entrar em conflitos com releases que utilizam o Application Insights
+Scopes: Release
+MUDANCA_GSC (3)
+WO0000079495945
+Scopes: Release
+ADAPTER_VARIABLES (9)
+Variáveis disponíveis para todas os projetos do tipo ADAPTER.
+Scopes: Release
+OKD-REGISTRY-CENTRALIZADO (7)
+Credenciais para o Registry Centralizado - Produtos 4 (OKD)
+Scopes: Release
+Compartilhamentos (4)
+Scopes: Release
+OKD-4-NPRD (12)
+Credenciais para o Cluster OKD4 de NPRD (DES/TQS/HMP)
+Scopes: EC DES,EC TQS,EC HMP
+SIHDG-JBOSS8-DES (44)
+Grupo de variáveis de SIHDG-JBOSS8-DES
+Scopes: EC DES
+DATASOURCE_CONNECTION_URL
+jdbc:sqlserver://10.116.93.91:1433;DatabaseName=HDGDB001;encrypt=true;trustServerCertificate=true
+DATASOURCE_PASSWORD
+********
+DATASOURCE_USER_NAME
+sihdguser
+JKS_FILE
+caixa-truststore-acteste-nprd.jks
+JVM_HEAP_MAX
+2048m
+JVM_HEAP_MIN
+1024m
+JVM_METASPACE_MAX
+512m
+JVM_METASPACE_MIN
+256m
+NFS_PATH
+/fs_sihdg
+NFS_PATH_SINAF
+/fs_sihdg_sinaf
+PASSWORD_TRUSTSTORE
+changeit
+PATH_DESTINO
+/sihdg_des_pwc
+PATH_DESTINO_SINAF
+/sihdg_des
+PATH_NFS
+/fs_sihdg
+SERVER_NFS
+hypernprd56.ad.caixa
+SERVER_NFS_SINAF
+nprdnfs01.ad.caixa
+SIHDG-DB_INTERNO
+true
+SIHDG-SEC_TEMPO_VIDA_TOKEN
+5
+SIHDG-classificacao.informacao
+#INTERNO.CONFIDENCIAL
+SIHDG-derivativo.avaliacao.remetente
+GEGAP
+SIHDG-mail.avaliacao.derivativo
+GEOMI@MAIL.CAIXA
+SIHDG-mail.endereco
+gitecbr05@caixa.gov.br
+SIHDG-mail.ordem.alteracao
+GEOMI@MAIL.CAIXA
+SIHDG-mail.ordem.cancelamento
+GEOMI@MAIL.CAIXA
+SIHDG-mail.ordem.execucao
+GEOMI@MAIL.CAIXA
+SIHDG-mail.ordem.insercao
+GEOMI@MAIL.CAIXA
+SIHDG-mail.ordem.invalidacao
+GEOMI@MAIL.CAIXA
+SIHDG-mail.registro.efetividade
+GEANF@MAIL.CAIXA,GEMOC@MAIL.CAIXA
+SIHDG-mail.smtp.host
+smtptest.correiolivre.caixa
+SIHDG-mail.smtp.port
+25
+SIHDG-ordem.alteracao.remetente
+GEGAP
+SIHDG-ordem.cancelamento.remetente
+GEGAP
+SIHDG-ordem.execucao.remetente
+GETES
+SIHDG-ordem.insercao.remetente
+GEGAP
+SIHDG-ordem.invalidacao.remetente
+GESEN
+SIHDG-path.arquivo.sinaf
+/sihdg_des/Arquivos_SINAF/
+SIZE_VOLUME
+50Gi
+SIZE_VOLUME_SINAF
+50Gi
+SSO_REALM
+intranet
+SSO_REQUIRED
+none
+SSO_RESOURCE
+cli-web-hdg
+SSO_URL
+https://login.des.caixa/auth
+_ENV.JAVA_OPTS_APPEND
+"-Djavax.net.ssl.trustStore=/opt/server/standalone/configuration/caixa-truststore-acteste-nprd.jks -Djava.security.properties=/opt/server/bin/java.security.override -Djava.security.disableSystemPropertiesFile=true"
+_ENV.SEC_URL_SERV_AUTH
+https://login.des.caixa/auth
+SIHDG-JBOSS8-TQS (46)
+
+Scopes: EC TQS
+DATASOURCE_CONNECTION_URL
+jdbc:sqlserver://10.116.29.201:31153;DatabaseName=HDGDB001;encrypt=true;trustServerCertificate=true
+DATASOURCE_PASSWORD
+********
+DATASOURCE_USER_NAME
+SHDGTB01
+JKS_FILE
+caixa-truststore-acteste-nprd.jks
+JVM_HEAP_MAX
+2048m
+JVM_HEAP_MIN
+1024m
+JVM_METASPACE_MAX
+512m
+JVM_METASPACE_MIN
+256m
+NFS_PATH
+/fs_sihdg_tqs
+NFS_SERVER
+hypernprd12.ad.caixa
+NFS_STORAGE_SIZE_VOLUME
+20Gi
+PASSWORD_TRUSTSTORE
+changeit
+PATH_DESTINO
+/sihdg_tqs
+PATH_DESTINO_PWC
+/sihdg_powercenter
+PATH_NFS
+/fs_sihdg_tqs
+PATH_NFS_PWC
+/fs_sihdg_powercenter
+SERVER_NFS
+hypernprd12.ad.caixa
+SERVER_NFS_PWC
+hypernprd12.ad.caixa
+SIHDG-DB_INTERNO
+true
+SIHDG-SEC_TEMPO_VIDA_TOKEN
+5
+SIHDG-classificacao.informacao
+#INTERNO.CONFIDENCIAL
+SIHDG-derivativo.avaliacao.remetente
+GEGAP
+SIHDG-mail.avaliacao.derivativo
+GEOMI@MAIL.CAIXA
+SIHDG-mail.endereco
+gitecbr05@caixa.gov.br
+SIHDG-mail.ordem.alteracao
+GEOMI@MAIL.CAIXA
+SIHDG-mail.ordem.cancelamento
+GEOMI@MAIL.CAIXA
+SIHDG-mail.ordem.execucao
+GEANF@MAIL.CAIXA
+SIHDG-mail.ordem.insercao
+GEOMI@MAIL.CAIXA
+SIHDG-mail.ordem.invalidacao
+GEANF@MAIL.CAIXA
+SIHDG-mail.registro.efetividade
+GEANF@MAIL.CAIXA,GEMOC@MAIL.CAIXA
+SIHDG-mail.smtp.host
+smtptest.correiolivre.caixa
+SIHDG-mail.smtp.port
+25
+SIHDG-ordem.alteracao.remetente
+GEGAP
+SIHDG-ordem.cancelamento.remetente
+GEGAP
+SIHDG-ordem.execucao.remetente
+GETES
+SIHDG-ordem.insercao.remetente
+GEGAP
+SIHDG-ordem.invalidacao.remetente
+GESEN
+SIHDG-path.arquivo.sinaf
+/sihdg_tqs/Arquivos_SINAF/
+SIZE_VOLUME
+20Gi
+SIZE_VOLUME_PWC
+50Gi
+SSO_REALM
+intranet
+SSO_REQUIRED
+none
+SSO_RESOURCE
+cli-web-hdg
+SSO_URL
+https://login.tqs.caixa/auth
+_ENV.JAVA_OPTS_APPEND
+"-Djavax.net.ssl.trustStore=/opt/server/standalone/configuration/caixa-truststore-acteste-nprd.jks -Djava.security.properties=/opt/server/bin/java.security.override -Djava.security.disableSystemPropertiesFile=true"
+_ENV.SEC_URL_SERV_AUTH
+https://login.tqs.caixa/auth
+SIHDG-JBOSS8-HMP (39)
+Grupo de variáveis de SIHDG-JBOSS8-HMP
+Scopes: EC HMP
+DATASOURCE_CONNECTION_URL
+jdbc:sqlserver://scthmdadnt0042.corp.caixa.gov.br:1433;DatabaseName=HDGDB001
+DATASOURCE_PASSWORD
+********
+DATASOURCE_USER_NAME
+shdghb02
+JKS_FILE
+caixa-truststore-acteste-nprd.jks
+JVM_HEAP_MAX
+2048m
+JVM_HEAP_MIN
+1024m
+JVM_METASPACE_MAX
+512m
+JVM_METASPACE_MIN
+256m
+NFS_PATH
+/ifs/CADSVISISD4/SERVIDORES/CETAD/SIHDG
+NFS_SERVER
+nfsctcnprd.ctc.caixa
+NFS_STORAGE_SIZE_VOLUME
+10Gi
+PASSWORD_TRUSTSTORE
+changeit
+PATH_DESTINO
+/sihdg
+SIHDG-DB_INTERNO
+true
+SIHDG-SEC_TEMPO_VIDA_TOKEN
+5
+SIHDG-classificacao.informacao
+#INTERNO.CONFIDENCIAL
+SIHDG-derivativo.avaliacao.remetente
+GEGAP
+SIHDG-mail.avaliacao.derivativo
+GEOMI@MAIL.CAIXA
+SIHDG-mail.endereco
+gitecbr05@caixa.gov.br
+SIHDG-mail.ordem.alteracao
+GEOMI@MAIL.CAIXA
+SIHDG-mail.ordem.cancelamento
+GEOMI@MAIL.CAIXA
+SIHDG-mail.ordem.execucao
+GEANF@MAIL.CAIXA
+SIHDG-mail.ordem.insercao
+GEOMI@MAIL.CAIXA
+SIHDG-mail.ordem.invalidacao
+GEANF@MAIL.CAIXA
+SIHDG-mail.registro.efetividade
+GEANF@MAIL.CAIXA,GEMOC@MAIL.CAIXA
+SIHDG-mail.smtp.host
+smtptest.correiolivre.caixa
+SIHDG-mail.smtp.port
+25
+SIHDG-ordem.alteracao.remetente
+GEGAP
+SIHDG-ordem.cancelamento.remetente
+GEGAP
+SIHDG-ordem.execucao.remetente
+GETES
+SIHDG-ordem.insercao.remetente
+GEGAP
+SIHDG-ordem.invalidacao.remetente
+GESEN
+SIHDG-path.arquivo.sinaf
+/sihdg/Arquivos_SINAF/
+SSO_REALM
+intranet
+SSO_REQUIRED
+none
+SSO_RESOURCE
+cli-web-hdg
+SSO_URL
+https://login.hmp.caixa/auth
+_ENV.JAVA_OPTS_APPEND
+"-Djavax.net.ssl.trustStore=/opt/server/standalone/configuration/caixa-truststore-acteste-nprd.jks -Djava.security.properties=/opt/server/bin/java.security.override -Djava.security.disableSystemPropertiesFile=true"
+_ENV.SEC_URL_SERV_AUTH
+https://login.hmp.caixa/auth
+OKD-4-APL (12)
+Scopes: EC PRD
+SIHDG-JBOSS8-PRD (1)
+Grupo de variáveis de SIHDG-JBOSS8-PRD
+Scopes: EC PRD
+|Manage variable groups
+Showing filters 1 through 2
+
+Showing 26 deployments
+
+EC HMPDeploy release
+
+Approving
+
+Approved
+
+Approving
+
+Approved
+
+Row 2
+
+Row 2
+
+Row 2
+
+Row 2
+
+Expanded
+
+Collapsed
+
+Showing filters 1 through 2
+
