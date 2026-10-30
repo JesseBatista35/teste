@@ -1,5 +1,10 @@
-Atualizando sobre o SIAVL-gestaomodelonota-backend (DES): o erro de incompatibilidade de Java foi resolvido. O jar é compilado em Java 21 e a imagem estava em openjdk17. Ajustamos a imagem e agora a aplicação sobe normalmente em Java 21, com Spring Boot iniciado e conexão ao banco ok.
+oc get pod -n siavl-des -l name=siavl-gestaomodelonota-des
 
-Agora estamos verificando outro ponto: as probes de liveness e readiness (/actuator/health/liveness e /actuator/health/readiness) estão retornando 401, o que faz o OpenShift reiniciar o pod. Tudo indica que o Spring Security está protegendo o /actuator. Se for confirmado, vai ser preciso liberar esses endpoints na configuração de segurança da aplicação (ex.: .requestMatchers("/actuator/health/**").permitAll()).
+POD=$(oc get pod -n siavl-des -l name=siavl-gestaomodelonota-des -o jsonpath='{.items[0].metadata.name}')
+oc exec $POD -n siavl-des -- curl -s -i http://localhost:8080/actuator/health/liveness
+oc exec $POD -n siavl-des -- curl -s -i http://localhost:8080/actuator/health/readiness
 
-Assim que eu confirmar, te aviso.
+.requestMatchers("/actuator/health/**").permitAll()
+
+oc set probe dc/siavl-gestaomodelonota-des -n siavl-des --liveness --readiness --remove
+oc set probe dc/siavl-gestaomodelonota-des -n siavl-des --liveness --readiness --open-tcp=8080 --initial-delay-seconds=60 --period-seconds=10 --timeout-seconds=3
