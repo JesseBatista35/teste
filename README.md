@@ -1,22 +1,28 @@
-# remove as probes antigas (exec /opt/jboss/...)
-oc set probe dc/sihdg-jboss8-hmp -n sihdg-hmp --liveness --readiness --remove
 
-# liveness igual ao DES
-oc set probe dc/sihdg-jboss8-hmp -n sihdg-hmp --liveness \
-  --get-url=http://:8080/sihdg-api/health \
-  --initial-delay-seconds=60 --period-seconds=10 --timeout-seconds=5 --failure-threshold=6
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$ oc rollout latest dc/sihdg-jboss8-hmp -n sihdg-hmp
+error: #2 is already in progress (Running).
+-sh-4.2$ oc cancel  rollout latest dc/sihdg-jboss8-hmp -n sihdg-hmp
+Error: unknown command "cancel" for "oc"
 
-# readiness igual ao DES
-oc set probe dc/sihdg-jboss8-hmp -n sihdg-hmp --readiness \
-  --get-url=http://:8080/sihdg-api/health \
-  --initial-delay-seconds=30 --period-seconds=10 --timeout-seconds=5 --failure-threshold=5
+Did you mean this?
+        cancel-build
 
-# conferir
-oc get dc sihdg-jboss8-hmp -n sihdg-hmp -o yaml | grep -A10 -E "^        (livenessProbe|readinessProbe):"
-
-
-
-oc rollout latest dc/sihdg-jboss8-hmp -n sihdg-hmp
-oc get pods -n sihdg-hmp -w | grep jboss8
-
-oc exec <pod-novo> -n sihdg-hmp -- curl -s -o /dev/null -w "%{http_code}\n" http://localhost:8080/sihdg-api/health
+Run 'oc --help' for usage.
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$ oc rollout latest dc/sihdg-jboss8-hmp -n sihdg-hmp
+deploymentconfig.apps.openshift.io/sihdg-jboss8-hmp rolled out
+-sh-4.2$ oc get pods -n sihdg-hmp -w | grep jboss8
+sihdg-jboss8-hmp-3-deploy      1/1       Running             0          8s
+sihdg-jboss8-hmp-3-s7gfv       0/1       ContainerCreating   0          6s
+sihdg-jboss8-hmp-3-s7gfv   0/1       Running   0         8s
+^C
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$ oc exec sihdg-jboss8-hmp-3-s7gfv -n sihdg-hmp -- curl -s -o /dev/null -w "%{http_code}\n" http://localhost:8080/sihdg-api/health
+200
+-sh-4.2$
