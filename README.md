@@ -1,17 +1,4 @@
-
-[ctmagelx@caddeapllx2501 ~]$
-[ctmagelx@caddeapllx2501 ~]$
-[ctmagelx@caddeapllx2501 ~]$ bash -c 'timeout 5 bash -c "</dev/tcp/10.116.99.99/7015" && echo ABERTA || echo FECHADA'
-bash: connect: Conexão recusada
-bash: linha 1: /dev/tcp/10.116.99.99/7015: Conexão recusada
-FECHADA
-[ctmagelx@caddeapllx2501 ~]$
-[ctmagelx@caddeapllx2501 ~]$
-[ctmagelx@caddeapllx2501 ~]$
-[ctmagelx@caddeapllx2501 ~]$ bash -c 'timeout 5 bash -c "</dev/tcp/10.116.99.100/7015" && echo ABERTA || echo FECHADA'
-bash: connect: Conexão recusada
-bash: linha 1: /dev/tcp/10.116.99.100/7015: Conexão recusada
-FECHADA
-[ctmagelx@caddeapllx2501 ~]$
-[ctmagelx@caddeapllx2501 ~]$
-[ctmagelx@caddeapllx2501 ~]$
+grep -E "CTMSHOST|CTMPERMHOSTS|AGENT_TO_SERVER_PORT|SERVER_TO_AGENT_PORT" ~/ctm/data/CONFIG.dat
+getent hosts crjdeaprlx038 crjdeaprlx039
+grep -i crjdeaprlx /etc/hosts
+ag_diag_comm | grep -iE "server host|port|ping"
