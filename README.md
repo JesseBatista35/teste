@@ -1,70 +1,56 @@
-src/main/resources/application.yaml
+<img width="1900" height="972" alt="image" src="https://github.com/user-attachments/assets/362894d2-aa95-466a-b8fc-606fa97331a9" />
 
-spring:
-  jackson:
-    deserialization:
-      fail-on-unknown-properties: true
-  application:
-    name: SIAVL-gestaomodelonota-backend
-  version: 1.0.0
-  datasource:
-    url: ${SPRING_DATASOURCE_URL}
-    username: ${SPRING_DATASOURCE_USERNAME}
-    password: ${SPRING_DATASOURCE_PASSWORD}
-    driver-class-name: oracle.jdbc.OracleDriver
-  jpa:
-    database-platform: org.hibernate.dialect.OracleDialect
-    hibernate:
-      ddl-auto: validate
-      naming.physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
-      naming.implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
-    properties:
-      hibernate:
-        globally_quoted_identifiers: true
-        format_sql: true
-        hbm2ddl:
-          auto: none
-        jdbc:
-          time_zone: America/Sao_Paulo
 
-management:
-  endpoints:
-    web:
-      exposure:
-        include: health,info,metrics
-  health:
-    livenessstate:
-      enabled: true
-    readinessstate:
-      enabled: true
-  endpoint:
-    health:
-      show-details: when_authorized
-      probes:
-        enabled: true
+me ajuda a corggir esse ploblmea acredito que o hc ta fora
 
-env:
-  apimanager:
-    url: ${APIMANAGER_URL}
-    key: ${APIMANAGER_KEY}
-    connect-timeout-ms: ${APIMANAGER_CONNECT_TIMEOUT_MS:5000}
-    read-timeout-ms: ${APIMANAGER_READ_TIMEOUT_MS:15000}
-  certificadodigital:
-    validar: ${CERT_REQUIRED}
 
-api:
-  caixa:
-    issuers: ${SSO_ISSUER}
-    cors:
-      allowed-origins: ${CORS_ALLOWED_ORIGINS:http://localhost:3002,https://siavl-gestaomodelonota-backend-des.apps.nprd.caixa}
 
-server:
-  servlet:
-    encoding:
-      charset: UTF-8
-      enabled: true
-      force: true
+[p585600@cadsvitrlx100 ~]$
+[p585600@cadsvitrlx100 ~]$ ssh 10.116.88.28
+The authenticity of host '10.116.88.28 (10.116.88.28)' can't be established.
+RSA key fingerprint is SHA256:kW3+up6ZqR6TzRpM6HJqeaxubKmfk9tEF23IalktbPs.
+This host key is known by the following other names/addresses:
+    ~/.ssh/known_hosts:7: 10.116.94.203
+    ~/.ssh/known_hosts:15: 10.116.88.25
+    ~/.ssh/known_hosts:81: 10.116.88.30
+    ~/.ssh/known_hosts:112: 10.116.88.24
+    ~/.ssh/known_hosts:114: 10.116.88.20
+    ~/.ssh/known_hosts:153: 10.116.89.252
+    ~/.ssh/known_hosts:156: 10.116.84.136
+    ~/.ssh/known_hosts:157: 10.116.84.137
+    (1 additional names omitted)
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '10.116.88.28' (RSA) to the list of known hosts.
+***********************************************************************
+(1) - Este e um computador privado de propriedade da Caixa Economica
+Federal. Usuarios autorizados e nao autorizados nao possuem direitos de
+divulgar as informacoes contidas aqui.
+(2) - Ao fazer uso do sistema, o usuario esta ciente que pode estar
+sendo monitorado, interceptado e auditado pelo departamento competente
+da Caixa Economica Federal.
+(3) - O uso nao autorizado ou improprio deste sistema pode resultar em
+um processo disciplinar administrativo e/ou punicao atraves de acoes
+civis ou criminais. Ao continuar o uso deste sistema, indica que voce
+esta ciente e concordando com os termos e condicoes acima descritos.
 
-logging:
-  pattern:
-    level: "%5p [correlationId=%X{correlationId:-}]"
+Pressione <Control+D> IMEDIATAMENTE se voce nao concorda com as
+condicoes deste aviso
+***********************************************************************
+p585600@10.116.88.28's password:
+Creating home directory for p585600.
+-sh-4.1$
+-sh-4.1$
+-sh-4.1$ ps -ef | grep jboss
+root     59722     1  0 10:11 pts/2    00:00:00 su - jboss -c JBOSS_PIDFILE=/opt/jboss/jboss-eap/hc/tmp/jboss_hc.pid LAUNCH_JBOSS_IN_BACKGROUND=1 /opt/jboss/jboss-eap/bin/domain.sh                -b 10.116.88.28                -bmanagement 10.116.88.28                -Djboss.domain.master.address=10.116.88.20                -Djboss.bind.address.unsecure=10.116.88.28                --host-config=host-slave.xml                -Djboss.domain.log.dir=/logs/jboss-eap/hc/                 -Djboss.domain.base.dir=/opt/jboss/jboss-eap/hc                -Djdk.tls.disabledAlgorithms=SSLv3,TLSv1,TLSv1.1,RC4,DES,3DES,MD5withRSA,DHkeySize                -Dhttps.protocols=TLSv1.2,TLSv1.3                -c domain.xml
+jboss    59724 59722  0 10:11 ?        00:00:00 /bin/sh /opt/jboss/jboss-eap/bin/domain.sh -b 10.116.88.28 -bmanagement 10.116.88.28 -Djboss.domain.master.address=10.116.88.20 -Djboss.bind.address.unsecure=10.116.88.28 --host-config=host-slave.xml -Djboss.domain.log.dir=/logs/jboss-eap/hc/ -Djboss.domain.base.dir=/opt/jboss/jboss-eap/hc -Djdk.tls.disabledAlgorithms=SSLv3,TLSv1,TLSv1.1,RC4,DES,3DES,MD5withRSA,DHkeySize -Dhttps.protocols=TLSv1.2,TLSv1.3 -c domain.xml
+jboss    60063 59724  1 10:11 ?        00:00:00 java -D[Process Controller] -server -Xms1g -Xmx1g -XX:MaxPermSize=256m -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs=org.jboss.byteman -Djava.awt.headless=true -Djboss.modules.policy-permissions=true -Dorg.jboss.boot.log.file=/logs/jboss-eap/hc/process-controller.log -Dlogging.configuration=file:/opt/jboss/jboss-eap/hc/configuration/logging.properties -jar /opt/jboss/jboss-eap/jboss-modules.jar -mp /opt/jboss/jboss-eap/modules org.jboss.as.process-controller -jboss-home /opt/jboss/jboss-eap -jvm java -mp /opt/jboss/jboss-eap/modules -- -Dorg.jboss.boot.log.file=/logs/jboss-eap/hc/host-controller.log -Dlogging.configuration=file:/opt/jboss/jboss-eap/hc/configuration/logging.properties -server -Xms1g -Xmx1g -XX:MaxPermSize=256m -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs=org.jboss.byteman -Djava.awt.headless=true -Djboss.modules.policy-permissions=true -- -default-jvm java -b 10.116.88.28 -bmanagement 10.116.88.28 -Djboss.domain.master.address=10.116.88.20 -Djboss.bind.address.unsecure=10.116.88.28 --host-config=host-slave.xml -Djboss.domain.log.dir=/logs/jboss-eap/hc/ -Djboss.domain.base.dir=/opt/jboss/jboss-eap/hc -Djdk.tls.disabledAlgorithms=SSLv3,TLSv1,TLSv1.1,RC4,DES,3DES,MD5withRSA,DHkeySize -Dhttps.protocols=TLSv1.2,TLSv1.3 -c domain.xml
+jboss    60082 60063 18 10:11 ?        00:00:07 java -D[Host Controller] -Dorg.jboss.boot.log.file=/logs/jboss-eap/hc/host-controller.log -Dlogging.configuration=file:/opt/jboss/jboss-eap/hc/configuration/logging.properties -server -Xms1g -Xmx1g -XX:MaxPermSize=256m -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs=org.jboss.byteman -Djava.awt.headless=true -Djboss.modules.policy-permissions=true -jar /opt/jboss/jboss-eap/jboss-modules.jar -mp /opt/jboss/jboss-eap/modules -jaxpmodule javax.xml.jaxp-provider org.jboss.as.host-controller -mp /opt/jboss/jboss-eap/modules --pc-address 127.0.0.1 --pc-port 44866 -default-jvm java -b 10.116.88.28 -bmanagement 10.116.88.28 -Djboss.domain.master.address=10.116.88.20 -Djboss.bind.address.unsecure=10.116.88.28 --host-config=host-slave.xml -Djboss.domain.log.dir=/logs/jboss-eap/hc/ -Djboss.domain.base.dir=/opt/jboss/jboss-eap/hc -Djdk.tls.disabledAlgorithms=SSLv3,TLSv1,TLSv1.1,RC4,DES,3DES,MD5withRSA,DHkeySize -Dhttps.protocols=TLSv1.2,TLSv1.3 -c domain.xml -Djboss.home.dir=/opt/jboss/jboss-eap
+jboss    60144 60063 99 10:11 ?        00:02:27 /usr/lib/jvm/jdk-1.8.0_451-oracle-x64/jre/bin/java -D[Server:sifec-intranet_node1_lx0009] -XX:PermSize=2048m -XX:MaxPermSize=2048m -Xms8192m -Xmx8192m -Djava.awt.headless=true -Dhttp.proxyHost=proxydes.caixa -Dhttp.proxyPort=80 -Dhttps.proxyHost=proxydes.caixa -Dhttps.proxyPort=80 -Dhttps.protocols=TLSv1.2 -Dhttp.nonProxyHosts=10.195.192.1|172.28.10.49|.caixa|*.intra.caixa.gov.br|*.extracaixa|*.siapenet.gov.br|*.caixa.gov.br -Dhttp.proxySet=true -Duser.language=pt -Duser.country=BR -Duser.timezone=GMT-3 -javaagent:/opt/appinsights/applicationinsights-agent-3.2.3.jar -Dapplicationinsights.configuration.file:/opt/appinsights/applicationinsights.json -DBNDES_CERTIFICADO_CAIXA_PATH=/upload/des/sifec/keystore.p12 -DSIPEN_USUARIO=SRVPEND1 -DSIGEC_PORTABILIDADE_URLBASE=http://sigec.des.caixa/gec-api/por -DDATAPREV_ECONSIGNADO_URL_AUTENTICACAO=https://hisdf.dataprev.gov.br/oauth2/token -DSIAPX_WS_MPOG_TRUST_STORE=/upload/des/sifec/certificados-sifec.jks -DSIACG_BACKEND_SALDOS_MOCK=false -DSICCR_HUB_WS_DB1_HOST=www1.consignet.com.br -Dlcr.mq.hostName=IBMSPDES.CAIXA -DAPI_MANAGER_URL_BASE=https://api.des.caixa:8443 -Dlcr.mq.port=1420 -DSSO_INTERNET_SECRET=de0ddc53-641c-4c38-bb48-0912d9d8227f -DSIAPX_WS_DB1_HOST=www1.consignet.com.br -DPWD_SAP_RURAL=EXT01sfc@ -DZETRA_USUARIO=cef_xml -DSIPEN_PASSWORD=PEND1SRV -DSIAPX_WS_DB1_PROTOCOLO=https -DSIRUR_SSO_INTRANET_SERVICE_SECRET =36ab01d0-f1a5-4b1b-9a76-839553c7a6a9 -DSIAPX_WS_DB1_URL_BASE=/DB1ConsignetWebService/services/WSConsignacao -DSSO_INTRANET_RESOURCE_NAME=cli-web-fec -DSSO_SERVICO_CLIENT_ID=cli-ser-fec -DSIROT_SERVIDOR=sspdeaplux0100 -DSSO_INTERNET_PUBLIC_CLIENT=false -DSIMTR_CONFORMIDADE_PROCESSO_ORIGEM=97 -DONLINE_BNDES_CLIENT_SECRET=dUQjfH0HN7FCcd4pe685IQmeIeka -DSSO_INTERNET_SERVICE_RESOURCE_NAME=cli-ser-fec -DSIGEC_PASSWORD=SGECDB01 -DSIARC_PASSWORD=SFECARCD -DZETRA_PROTOCOLO=https -DSIFEC_TIMEOUT_BARRAMENTO=10000 -DSIROT_REDE_TRANSMISSORA=7999 -DSIMTR_CONSIGNADO_CAMPO_FORMULARIO_CONTRATO=32504200 -DSICCR_HUB_WS_SERPRO_PROTOCOLO=https -DSIAPX_WS_MPOG_URL_BASE=/wssiapeconsig/consignataria -DURL_LDAP_EXTERNO=ldap://ldapclusterdes.extra.caixa.gov.br:1489 -Djboss.bind.address.management=10.116.88.28 -DSICCR_HUB_WS_SERPRO_HOST=hom5.siapenet.gov.br -Dsso.intranet.baseUrl=https://login.des.caixa/auth -DBNDES_ONLINE_CLIENT_SCOPE=fg2_read fg2 write bndesonline_read bndesonline_write -DSIMTR_CONSIGNADO_PROCESSO_ORIGEM=12504200 -Djdk.tls.disabledAlgorithms=SSLv3,TLSv1,TLSv1.1,RC4,DES,3DES,MD5withRSA,DHkeySize -DURL_SUAGR=http://api.agro.caixa/v1/analise-negocial/codigo -DDESENROLA_URL_TOKEN=https://auth-pprd.negociedigital.com.br/auth/realms/portal-devedor/protocol/openid-connect/token -DSIAPX_WS_MPOG_COD_CONVENIO=703201 -DURL_SIFEC=https://sifec.desenvolvimento.extracaixa/ -DMDA_DAP_CAF_CLIENT_SECRET=regv4yUDWuHAgA0fRPXCHHzfrA4a -DSSO_INTRANET_SERVICE_SECRET=cf65ddca-84c5-4548-81f2-163d245edf04 -DSIGEC_PORTABILIDADE_URLBASE_2=http://sigecpor2.des.caixa/gec-api/por -DINITIAL_CONTEXT_FACTORY=com.sun.jndi.ldap.LdapCtxFactory -DDESENROLA_URL_BASE=https://mtls-pprd.negociedigital.com.br -DSIAPX_WS_MPOG_KEY_STORE_PASS=changeit -DFGO_V2_URL_BASE_API=https://api.externo.hm.bb.com.br -DFGO_V2_API_KEY=7b46d24633b32143a8053eea3b9823de -DSICCR_BASE_EXTERNO=ou=People,o=caixa_des -DFGI_BNDES_CLIENT_SECRET=ZW3fv3nYQv9HaYdYKq2Jjkfvskka -DSIROT_PORTA=8111 -DSICCR_HUB_WS_SERPRO_CD_CONSIGNATARIA=104 -DSILCR_URL_BROKER_LCR=http://des.barramento.caixa/lcr -DSICCR_HUB_WS_DB1_USUARIO=TESTE_INTEGRADO@CAIXA -DSIFEC_API_MANAGER_API_KEY=l71b8caef13cd84aa5b90e87772a684c82 -DDB1_USUARIO=HOM_INTEGRACAO@HOM_WS_CAIXA -DURL_BASE_SINCE=https://since.des.caixa -DFGI_BNDES_URL_BASE=https://apis-gateway-h.bndes.gov.br -DCCR_API_URL=https://api.des.caixa:8443/credito -DSSO_INTERNET_SERVICE_SECRET=24715831-192f-45bf-a9b3-55d650f10a0e -DSICCR_HUB_WS_DB1_PROTOCOLO=https -DZETRA_PASSWORD=cef12345 -DONLINE_BNDES_CLIENT_SCOPE=bndesonline_read bndesonline_write -DSIAPX_WS_MPOG_PORTA=443 -DSSO_INTRANET_SERVICE_CDT_CLIENT_SECRET=f470c180-6fa5-4408-a78c-9b8a2e967c9a -DSIAPX_WS_DB1_USUARIO=WEBSERVICE_CAIXA@CAIXA -DZETRA_CLIENTE=CEF_XML -DAMBIENTE_APLICACAO=DES -DSICCR_HUB_WS_SERPRO_CD_PASSWORD_CONSIGNATARIA=UB15W3NUCO -DSIFEC_QRCODE_URL_API=http://cics.des.coredf.caixa/appl/api/ -DSICCR_BASE_INTERNO=ou=People,o=caixa -Dhttp.nonProxyHosts=*.caixa|*.intra.caixa.gov.br|*.desenvolvimento.extracaixa -DDATAPREV_ECONSIGNADO_TOKEN= -DSSO_INTERNET_REALM_NAME=internet -DSICCR_URL_LDAP_INTERNO=ldap://ldapclusterdes.extra.caixa.gov.br:1489 -DDASHBOARD_SINCE=https://since.des.caixa/dashboard.json -DSIFEC_QRCODE_URL_APX=http://cics.des.coredf.caixa/appl/apx/ -Djavax.net.ssl.keyStorePassword=changeit -DCVP_URL_BASE=https://integracaohm.caixavidaeprevidencia.com.br -Djava.awt.headless=true -DAPIM_CDT_API_SECRET=19527ce0ec5f486293151e7ecd1af043 -DCCR_PATH_CONCESSAO_SIMULACAO=/calculo-iof/v3/concessao/simulacao -DFASITEC_HOST=api.grupofasitec.com.br -Dlcr.mq.channel=SILCR.SVRCONN -DBNDES_CERTIFICADO_CAIXA_SENHA=qwerasdf -DZETRA_URL_BASE=/central_homologa/services -DSICCR_HUB_WS_SERPRO_URL_BASE=/wssiapeconsig -Djava.net.preferIPv4Stack=true -Djboss.home.dir=/opt/jboss/jboss-eap -DSIFEC_USUARIO_BARRAMENTO=SCNLFECD -DFGO_V2_CLIENT_SECRET=eyJpZCI6ImYwYjFhNmMtOTY4My00MjBmLTk3ODktODNlY2VmMDZjY2QyZDM1YjEiLCJjb2RpZ29QdWJsaWNhZG9yIjowLCJjb2RpZ29Tb2Z0d2FyZSI6MTA3MjEsInNlcXVlbmNpYWxJbnN0YWxhY2FvIjoxLCJzZXF1ZW5jaWFsQ3JlZGVuY2lhbCI6MiwiYW1iaWVudGUiOiJob21vbG9nYWNhbyIsImlhdCI6MTU5MTQ1MTA2MjMwMH0 -DSIFEC_USUARIO=SCNLFECD -DSIEMP_PASSWORD=S208706 -DSIEMP_USUARIO=SEMPDB01 -DDB1_HOST=www1.consignet.com.br -DURL_BARRAMENTO=http://des.barramento.caixa/ -DSILCR_URL_BROKER_SIBAR=http://des.barramento.caixa -DDATAPREV_ECONSIGNADO_CONSUMER_KEY= -DPATH_BASE_API_SIICO=informacoes-compartilhadas-privadas/v1 -Djavax.net.ssl.keyStore=/upload/des/sifec/certificados-sifec.jks -DURL_SISCOAF=https://treina.siscoaf.serpro.gov.br/coafws/service.asmx -DSIAPX_WS_MPOG_PROTOCOLO=https -DSSO_INTERNET_AUTH_URL=https://logindes.caixa.gov.br/auth -DTHREADTIMEOUT_DISABLE=false -Djboss.domain.base.dir=/opt/jboss/jboss-eap/hc -DDB1_PROTOCOLO=https -DSIFEC_SISGD_USER=SFECD001 -DFGI_BNDES_CLIENT_ID=t5v2zU2t8_EGIdf3euccPSzzZJYa -DDESENROLA_CERTIFICADO_PRIVADO_CAIXA_PATH=/upload/des/sifec/siccrdes.b3.caixa.gov.br_serpro.p12 -DSSO_INTRANET_AUTH_URL=https://login.des.caixa/auth -DSSO_INTRANET_PUBLIC_CLIENT=false -DSIARC_USUARIO=SFECARCD -DSICCR_PJ_TESTE_MOCK_RETORNO_SICLI=true -DsimulaSIRIC=false -DSSO_SERVICO_PATH_SETROLE=/servico/rest/setrole -DMTR_URL_BASE=http://simtr-api-intranet-des-esteiras.nprd2.caixa/simtr-api/rest/ -DSIFEC_NOME_SISTEMA=SIFEC -Djavax.net.ssl.trustStorePassword=changeit -DDESENROLA_CERTIFICADO_PRIVADO_CAIXA_SENHA=3puCe9LSwlGi1R -DCCR_PATH_IOF_ATRASO=/calculo-iof/v2/atraso -DURL_BASE_SIREP=https://sirep-frontend-intranet-des-esteiras.nprd2.caixa/sirep -DFGO_V2_API_KEY_NAME=gw-dev-app-key -Djboss.modules.policy-permissions=true -DSIAPX_WS_MPOG_COD_CONSIGNATARIA=7032 -Dbndes.url.base=https://ws-h.bndes.gov.br/apa/api/v1/ -DSSO_INTRANET_SERVICE_RESOURCE_NAME=cli-ser-fec -DBNDES_ONLINE_CLIENT_ID=0VjDf7MiMBpuEHQQNdwn4mGtCwUa -DSIACG_URL=https://siacg-backend-tqs.apps.nprd.caixa/servico -DAPIM_CDT_API_KEY=l790ce8632e39048e6a73aca22e279800a -DAPI_MANAGER_API_KEY=l714f9532275eb495c85015a769ab99181 -DFGO_V2_CLIENT_ID=eyJpZCI6IjI4MSIsImNvZGlnb1B1YmxpY2Fkb3IiOjAsImNvZGlnb1NvZnR3YXJlIjoxMDcyMSwic2VxdWVuY2lhbEluc3RhbGFjYW8iOjF9 -DSIMTR_CONSIGNADO_TIPO_RELACIONAMENTO=41105400 -DSIFEC_TEMPO_VIDA_MENSAGEM_BARRAMENTO=5000 -DMDA_PRONAMPE_CLIENT_ID=vXGbs231Dwb1C6WMAuIpTf6Rz5Ua -DZETRA_HOST=www.econsig.com.br -DCCR_PATH_CONCESSAO=/calculo-iof/v3/concessao -DDB1_URL_BASE=/DB1ConsignetWebService -DSSO_INTERNET_BEARER_ONLY=false -DSIFEC_SISGD_NU_SEGTO=4204 -DDB1_PASSWORD=d7f7e1b80ec4cd12696fefd963139872 -DSSO_INTERNET_RESOURCE_NAME=cli-web-fec -DSIWRC_URL=http://sc7448sr362.sc.caixa:8080/siwrc/ -DUSER_SAP_RURAL=SSFCBH01 -DSIRUR_SITAE_USUARIO=SRURTAED -Djavax.net.ssl.trustStore=/upload/des/sifec/certificados-sifec.jks -DSIFEC_QRCODE_REQUEST_PERM=sifec.caixa -DSIFEC_SISGD_PASSWORD=sfecd001 -DSSO_SERVICO_URL_BASE_INTRANET=https://login.des.caixa -DSIMTR_CONFORMIDADE_ID_PRODUTO=54 -DDATAPREV_ECONSIGNADO_PASSWORD= -DSICCR_HUB_WS_DB1_PASSWORD=46e25a8be134eee544fcc68c9ddbf10f -DSSO_INTRANET_SERVICE_CDT_CLIENT_ID=cli-ser-cdt -DSIFEC_SISGD_CONTENT_TYPE_PROPOSICOES=NO_SIFEC_001 -DSIRUR_SSO_INTRANET_SERVICE_RESOURCE_NAME=cli-ser-rur -DSIAPX_WS_MPOG_TRUST_STORE_PASS=changeit -Dlcr.mq.queueManager=QSDA -DSIGCB_DATA_VENCIMENTO=2021-01-25 -DMDA_DAP_CAF_URL_BASE_OAUTH=https://identityserver-hmg.agricultura.gov.br/oauth2/token -DMDA_DAP_CAF_URL_BASE_API=https://gateway-hmg.agricultura.gov.br/hmg-api-caf-bancos/v1/api/consulta-externa/pessoa-fisica -Djboss.modules.system.pkgs=org.jboss.byteman -DSICCR_PJ_IS_SICLI_REST_MOCK=true -DSIGEC_USUARIO=SGECDB01 -Djboss.bind.address=10.116.88.28 -DFASITEC_USUARIO=caixa_testes -DSIFEC_QRCODE_APX_URL=http://cics.des.coredf.caixa/appl/apx/ -DURL_SIPAN=https://negocios.des.caixa/wps/portal/sipan -DCREDITO_ROTATIVO_BASE_PATH=/credito-rotativo/tqs -Djboss.domain.log.dir=/logs/jboss-eap/hc/ -Dhttps.protocols=TLSv1.2,TLSv1.3 -DSSO_INTRANET_BEARER_ONLY=false -DDATAPREV_ECONSIGNADO_VERSAO_API=v2.2 -Dsso.internet.baseUrl=https://logindes.caixa.gov.br/auth -DFASITEC_PASSWORD=caixa104 -DURL_BDCAIXA_WEB=http://hmp.bdcaixaweb.proinfo.caixa/sibdo/rest/ -Djboss.bind.address.unsecure=10.116.88.28 -DSICCR_HUB_WS_DB1_PORTA=8585 -DTHREADTIMEOUT_DEFAULT_LIMIT=90000 -DSIEMP_SSO_INTRANET_SERVICE_SECRET=57b2aed6-68c2-4267-a937-f4a280e35485 -DSICCR_IP_SERVER_SIFEC=10.116.88.28 -DURL_SAP_RURAL=http://poqjscs.intra.caixa.gov.br:8108/RESTAdapter/ -DSIRUR_API_MANAGER_API_KEY=l74d2479020a094d7bb02e37eab021f48c -DSSO_INTRANET_TYPE_OF_SSL_REQUIRED=external -Dlcr.mq.username=SLCRSD01 -DVEICULO_EMAIL_FROM=gepva13@caixa.gov.br -DSIAPX_WS_MPOG_HOST=172.28.10.49 -DBNDES_ONLINE_URL_ENDPOINT=/bndesonline/v1 -DSSO_INTRANET_SERVICE_CCR_SECRET=ed8dc39e-3fe6-4264-91c0-bf12be2a58eb -DSIFEC_SISGD_SERVER_NAME=GED_DES -DSIAPX_WS_MPOG_PASSWORD=UB15W3NUCO -DDATAPREV_ECONSIGNADO_CONSUMER_SECRET=RzJBejc3blV6U3pwY3ZiYmVGeGhseUZHNlUwYTp4ZVlmaEE3T0R5QzhfdW04NWcwM0lpSDZHaTBh -DFASITEC_PROTOCOLO=https -DSSO_INTRANET_SECRET=36ab01d0-f1a5-4b1b-9a76-839553c7a6a9 -Djboss.domain.master.address=10.116.88.20 -DSIEMP_SSO_INTRANET_SERVICE_RESOURCE_NAME=cli-ser-emp -DFGI_BNDES_CLIENT_SCOPE=fg2_read,fg2_write -DSIAPX_WS_DB1_PORTA=8383 -DSIFEC_QRCODE_API_URL=http://cics.des.coredf.caixa/appl/api/ -DBNDES_ONLINE_CLIENT_SECRET=5eEI2rrlSYymRlyx2fP3hgDEEiYa -DDESENROLA_RESOURCE_NAME=e69b8413-fa06-47ca-937c-265de8229e86 -DBNDES_ONLINE_URL_BASE=https://apis-gateway-h.bndes.gov.br -DSIMTR_CONFORMIDADE_TIPO_RELACIONAMENTO_PESSOA=12 -DSIAPX_WS_DB1_PASSWORD=5FF37DCB5F0B76111BFBCFFDBC128B15 -DSICCR_URL_LDAP_EXTERNO=ldap://ldapclusterdes.extra.caixa.gov.br:1489 -DCCR_PATH_IOF_ATRASO_SIMULACAO=/calculo-iof/v2/atraso/simulacao -DLOGIN_URL_BASE=https://login.des.caixa -DSICCR_HUB_WS_DB1_URL_BASE=/DB1ConsignetWebService -DSSO_INTRANET_SERVICE_CCR_RESOURCE_NAME=cli-ser-ccr -DSIAPX_WS_MPOG_USUARIO=WSCEFS01 -DUNI_SIBAR_CONNECTION_FACTORY=java:/jms/UniSibarConnectionFactory -DSICCR_SIICO_URL_HMP= -DSSO_INTERNET_TYPE_OF_SSL_REQUIRED=external -DURL_SICLI=http://cadastro.des.coredf.caixa/default.asp -DURL_BASE_API_ORIGINACAO_CONSULTAR_PROPOSTA=http://siccr-api-credito-consulta-proposta-des-esteiras.nprd2.caixa -DONLINE_BNDES_CLIENT_ID=39Xev9lRHArbnlXI5AkxlDHOmPwa -DSSO_INTRANET_REALM_NAME=intranet -DDASHBOARD_SIREP=https://sirep.des.corerj.caixa/sirep/dashboard.json -DSSO_SERVICO_CLIENT_SECRET=cf65ddca-84c5-4548-81f2-163d245edf04 -Djboss.server.log.dir=/logs/jboss-eap/hc/servers/sifec-intranet_node1_lx0009 -Djboss.server.temp.dir=/opt/jboss/jboss-eap/hc/tmp/servers/sifec-intranet_node1_lx0009 -Djboss.server.data.dir=/opt/jboss/jboss-eap/hc/data/servers/sifec-intranet_node1_lx0009 -Dlogging.configuration=file:/opt/jboss/jboss-eap/hc/data/servers/sifec-intranet_node1_lx0009/logging.properties -jar /opt/jboss/jboss-eap/jboss-modules.jar -mp /opt/jboss/jboss-eap/modules -jaxpmodule javax.xml.jaxp-provider org.jboss.as.server
+p585600  60545 60426  0 10:12 pts/3    00:00:00 grep jboss
+-sh-4.1$
+-sh-4.1$
+-sh-4.1$
+
+
+
+
