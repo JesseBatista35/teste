@@ -245,3 +245,10 @@ Last login: Thu Oct 22 14:23:09 2026 from 10.116.94.211
 [domain@10.116.89.0:9999 /] /profile=<perfil>/subsystem=undertow/server=default-server/host=default-host:read-attribute(name=alias)**
 '**' is not a valid node type name.
 [domain@10.116.89.0:9999 /]
+
+
+
+O thaigo heferson fez essa analise ta certo isso?
+
+
+Realizada análise no Apache caddeapllx2794 (10.116.78.14). Foi identificado que o mod_cluster possui registro ativo do nó sbrdeapllx104.extra.caixa.gov.br (10.116.94.211:8829), associado ao JVMRoute sigec-portabilidade2_node1_lx104 e aos contextos /gec-web/por e /gec-api. Nos logs do mod_cluster foram identificadas mensagens indicando os mesmos contextos registrados simultaneamente nos balancers mycluster_sigec e mycluster_sigec2, sugerindo conflito de roteamento entre clusters. Necessária comparação com os Apaches atualmente ativos no balanceamento para validação dos registros mod_cluster e dos backends anunciados pelos JBoss.
