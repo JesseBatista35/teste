@@ -1,7 +1,3 @@
-vitec-sda8c-frontend-hub-ciaussp-frontend-2026-des-75b7fcf62rqs
-
-
-
 
 Argo
 v2.14.21+206a6ee
@@ -55,7 +51,7 @@ LAST SYNC
 
  Sync OK
 to 1bd5a2a
-Succeeded a minute ago (Tue Nov 03 2026 15:19:18 GMT-0300)
+Succeeded 5 minutes ago (Tue Nov 03 2026 15:19:18 GMT-0300)
 Author:
 Jesse Mouta Pereira Batista <p585600@corp.caixa.gov.br> -
 Comment:
@@ -76,7 +72,7 @@ vitec-sda8c-frontend-hub-ciaussp-frontend-2026-des-75b7fcf62rqs
 Pod
 -
 vitec-sda8c-frontend-hub-ciaussp-frontend-2026-nprd
-10 minutes ago   11/03/26
+14 minutes ago   11/03/26
  Degraded  
 Pod
 pod
@@ -151,87 +147,43 @@ vitec-sda8c-frontend-hub-ciaussp-frontend-2026-nprd
 Previous12Next
 Items per page: 10 
 
-Podpod
-vitec-sda8c-frontend-hub-ciaussp-frontend-2026-des-75b7fcf62rqs
- SUMMARY EVENTS LOGS
-REASON
-MESSAGE
-COUNT
-FIRST OCCURRED
-LAST OCCURRED
-Pulling
-Pulling image "acrcentralcaixanprd.azurecr.io/vitec/sda8c-frontend-hub-ciaussp-frontend-2026/vitec-sda8c-frontend-hub-ciaussp-frontend-2026:40890595504"
-4
-10m ago
-Today at 3:10 PM
-1m ago
-Today at 3:18 PM
-Created
-Container created
-4
-10m ago
-Today at 3:10 PM
-1m ago
-Today at 3:18 PM
-Started
-Container started
-4
-10m ago
-Today at 3:10 PM
-1m ago
-Today at 3:18 PM
-Killing
-Container vitec-sda8c-frontend-hub-ciaussp-frontend-2026-des failed liveness probe, will be restarted
-3
-7m ago
-Today at 3:12 PM
-1m ago
-Today at 3:18 PM
-Pulled
-Successfully pulled image "acrcentralcaixanprd.azurecr.io/vitec/sda8c-frontend-hub-ciaussp-frontend-2026/vitec-sda8c-frontend-hub-ciaussp-frontend-2026:40890595504" in 74ms (74ms including waiting). Image size: 26621594 bytes.
-1
-1m ago
-Today at 3:18 PM
-1m ago
-Today at 3:18 PM
-Pulled
-Successfully pulled image "acrcentralcaixanprd.azurecr.io/vitec/sda8c-frontend-hub-ciaussp-frontend-2026/vitec-sda8c-frontend-hub-ciaussp-frontend-2026:40890595504" in 106ms (106ms including waiting). Image size: 26621594 bytes.
-1
-4m ago
-Today at 3:15 PM
-4m ago
-Today at 3:15 PM
-Unhealthy
-Readiness probe failed: HTTP probe failed with statuscode: 404
-23
-9m ago
-Today at 3:10 PM
-4m ago
-Today at 3:15 PM
-Unhealthy
-Liveness probe failed: HTTP probe failed with statuscode: 404
-11
-9m ago
-Today at 3:10 PM
-6m ago
-Today at 3:13 PM
-Pulled
-Successfully pulled image "acrcentralcaixanprd.azurecr.io/vitec/sda8c-frontend-hub-ciaussp-frontend-2026/vitec-sda8c-frontend-hub-ciaussp-frontend-2026:40890595504" in 82ms (82ms including waiting). Image size: 26621594 bytes.
-1
-7m ago
-Today at 3:12 PM
-7m ago
-Today at 3:12 PM
-Scheduled
-Successfully assigned vitec-sda8c-frontend-hub-ciaussp-frontend-2026-nprd/vitec-sda8c-frontend-hub-ciaussp-frontend-2026-des-75b7fcf62rqs to aks-appssuser-89572759-vmss000000
-10m ago
-Today at 3:10 PM
-10m ago
-Today at 3:10 PM
-Pulled
-Successfully pulled image "acrcentralcaixanprd.azurecr.io/vitec/sda8c-frontend-hub-ciaussp-frontend-2026/vitec-sda8c-frontend-hub-ciaussp-frontend-2026:40890595504" in 103ms (103ms including waiting). Image size: 26621594 bytes.
-1
-10m ago
-Today at 3:10 PM
-10m ago
-Today at 3:10 PM
+SUMMARYPARAMETERSMANIFESTEVENTS
+VITEC-SDA8C-FRONTEND-HUB-CIAUSSP-FRONTEND-2026-DES
+
+PROJECT
+des
+LABELS
+appName=vitec-sda8c-frontend-hub-ciaussp-frontend-2026 env=des
+ANNOTATIONS
+CLUSTER
+aks-vitec-dep (https://dns-aks-vitec-dep-wu06ip6j.aks-vitec-dep.privatelink.brazilsouth.azmk8s.io:443)
+NAMESPACE
+vitec-sda8c-frontend-hub-ciaussp-frontend-2026-nprd   
+CREATED AT
+08/20/2026 15:32:14 (2 months ago)
+REPO URL
+https://github.com/caixadepartamental/vitec-sda8c-frontend-hub-ciaussp-frontend-2026-infranprd
+TARGET REVISION
+HEAD
+PATH
+des
+SYNC OPTIONS
+ RespectIgnoreDifferences
+ CreateNamespace
+RETRY OPTIONS
+Limit - 4Duration - 10sMax Duration - 10mFactor - 2
+STATUS
+ Synced to HEAD (1bd5a2a)
+HEALTH
+ Degraded
+LINKS
+IMAGES
+acrcentralcaixanprd.azurecr.io/vitec/sda8c-frontend-hub-ciaussp-frontend-2026/vitec-sda8c-frontend-hub-ciaussp-frontend-2026:40890595504
+acrportalidpprd.azurecr.io/angular-app:1.0.0
+SYNC POLICY
+
+AUTOMATED
+PRUNE RESOURCES
+SELF HEAL
+INFO
+
