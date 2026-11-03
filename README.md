@@ -75,20 +75,20 @@ caixa-base-chart:
     enabled: true  
     useDefaults: false  
     livenessProbe: 
-      initialDelaySeconds: 30
+      initialDelaySeconds: 10
       periodSeconds: 15
-      failureThreshold: 10
+      failureThreshold: 5
       successThreshold: 1
       httpGet:
-        path: /q/health/live     
+        path: /
         port: 8080
     readinessProbe: 
-      initialDelaySeconds: 15
-      periodSeconds: 15
+      initialDelaySeconds: 5
+      periodSeconds: 10
       failureThreshold: 3
       successThreshold: 1
       httpGet:
-        path: /q/health/live     
+        path: /
         port: 8080
 #-------------#
 #  CONFIGMAP  #
@@ -114,5 +114,3 @@ caixa-base-chart:
 #  env:
 #    - name: <NOME_DA_VARIAVEL_NA_APLICACAO>
 #      value: akvs-vitec-sda8c-frontend-hub-ciaussp-frontend-2026@azurekeyvault
-
-
