@@ -1,6 +1,3 @@
-grep -E "WFLYSRV0016|WFLYSRV0010|WFLYSRV0013" /opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/server.log | grep -i "sifec-2" | tail -5
-
-
-/opt/jboss/jboss-eap/bin/jboss-cli.sh --connect --controller=10.116.97.59:9990
+<img width="1835" height="833" alt="image" src="https://github.com/user-attachments/assets/58386838-ce81-47e1-ac5a-75a8e173f839" />
 
 
