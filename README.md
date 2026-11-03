@@ -1,22 +1,5 @@
+sudo grep "03/Nov/2026" /logs/apache2/SIFEC-INTRANET/sifec1.des.caixa-access.log > /tmp/migracaosifec-access.log
+sudo tail -500 /logs/apache2/SIFEC-INTRANET/sifec1.des.caixa-error.log > /tmp/migracaosifec-error.log
+wc -l /tmp/migracaosifec-*.log
 
-
-</VirtualHost>
-[p585600@cbrdeapllx476 ~]$ sudo sh -c 'grep "03/Nov/2026" /logs/apache2/SIFEC-INTRANET/sifec1.des.caixa-access.log > /tmp/migracaosifec-access.log'
-Sorry, user p585600 is not allowed to execute '/usr/bin/sh -c grep "03/Nov/2026" /logs/apache2/SIFEC-INTRANET/sifec1.des.caixa-access.log > /tmp/migracaosifec-access.log' as root on cbrdeapllx476.
-[p585600@cbrdeapllx476 ~]$
-[p585600@cbrdeapllx476 ~]$
-[p585600@cbrdeapllx476 ~]$
-[p585600@cbrdeapllx476 ~]$ sudo sh -c 'grep "Nov 03" /logs/apache2/SIFEC-INTRANET/sifec1.des.caixa-error.log > /tmp/migracaosifec-error.log'
-Sorry, user p585600 is not allowed to execute '/usr/bin/sh -c grep "Nov 03" /logs/apache2/SIFEC-INTRANET/sifec1.des.caixa-error.log > /tmp/migracaosifec-error.log' as root on cbrdeapllx476.
-[p585600@cbrdeapllx476 ~]$
-[p585600@cbrdeapllx476 ~]$
-[p585600@cbrdeapllx476 ~]$
-[p585600@cbrdeapllx476 ~]$ sudo chmod 644 /tmp/migracaosifec-*.log
-chmod: cannot access '/tmp/migracaosifec-*.log': No such file or directory
-[p585600@cbrdeapllx476 ~]$
-[p585600@cbrdeapllx476 ~]$
-[p585600@cbrdeapllx476 ~]$ wc -l /tmp/migracaosifec-*.log
-wc: '/tmp/migracaosifec-*.log': No such file or directory
-[p585600@cbrdeapllx476 ~]$
-[p585600@cbrdeapllx476 ~]$
-[p585600@cbrdeapllx476 ~]$
+sudo grep -nE -A25 "ERROR|Caused by" /opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/server.log | grep -viE "SECRET|PASSWORD|SENHA|API_KEY|TOKEN|CLIENT_ID|Set-Cookie|Cookie=" > /tmp/migracaosifec-jboss-erros.log
