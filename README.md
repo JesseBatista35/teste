@@ -1,37 +1,237 @@
-/docker-entrypoint.sh: /docker-entrypoint.d/ is not empty, will attempt to perform configuration
-/docker-entrypoint.sh: Looking for shell scripts in /docker-entrypoint.d/
-/docker-entrypoint.sh: Launching /docker-entrypoint.d/10-listen-on-ipv6-by-default.sh
-10-listen-on-ipv6-by-default.sh: info: Getting the checksum of /etc/nginx/conf.d/default.conf
-10-listen-on-ipv6-by-default.sh: info: /etc/nginx/conf.d/default.conf differs from the packaged version
-/docker-entrypoint.sh: Sourcing /docker-entrypoint.d/15-local-resolvers.envsh
-/docker-entrypoint.sh: Launching /docker-entrypoint.d/20-envsubst-on-templates.sh
-/docker-entrypoint.sh: Launching /docker-entrypoint.d/30-tune-worker-processes.sh
-/docker-entrypoint.sh: Configuration complete; ready for start up
-2026/11/03 18:18:21 [notice] 1#1: using the "epoll" event method
-2026/11/03 18:18:21 [notice] 1#1: nginx/1.31.8
-2026/11/03 18:18:21 [notice] 1#1: built by gcc 15.2.0 (Alpine 15.2.0)
-2026/11/03 18:18:21 [notice] 1#1: OS: Linux 6.8.0-1071-azure
-2026/11/03 18:18:21 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
-2026/11/03 18:18:21 [notice] 1#1: start worker processes
-2026/11/03 18:18:21 [notice] 1#1: start worker process 29
-2026/11/03 18:18:21 [notice] 1#1: start worker process 30
-2026/11/03 18:18:21 [notice] 1#1: start worker process 31
-2026/11/03 18:18:21 [notice] 1#1: start worker process 32
-2026/11/03 18:18:21 [notice] 1#1: start worker process 33
-2026/11/03 18:18:21 [notice] 1#1: start worker process 34
-2026/11/03 18:18:21 [notice] 1#1: start worker process 35
-2026/11/03 18:18:21 [notice] 1#1: start worker process 36
-2026/11/03 18:18:38 [error] 29#29: *1 open() "/usr/share/nginx/html/q/health/live" failed (2: No such file or directory), client: 192.168.9.1, server: localhost, request: "GET /q/health/live HTTP/1.1", host: "192.168.9.31:8080"
-192.168.9.1 - - [03/Nov/2026:18:18:38 +0000] "GET /q/health/live HTTP/1.1" 404 153 "-" "kube-probe/1.35" "-"
-2026/11/03 18:18:51 [error] 30#30: *2 open() "/usr/share/nginx/html/q/health/live" failed (2: No such file or directory), client: 192.168.9.1, server: localhost, request: "GET /q/health/live HTTP/1.1", host: "192.168.9.31:8080"
-192.168.9.1 - - [03/Nov/2026:18:18:51 +0000] "GET /q/health/live HTTP/1.1" 404 153 "-" "kube-probe/1.35" "-"
-2026/11/03 18:18:53 [error] 31#31: *3 open() "/usr/share/nginx/html/q/health/live" failed (2: No such file or directory), client: 192.168.9.1, server: localhost, request: "GET /q/health/live HTTP/1.1", host: "192.168.9.31:8080"
-192.168.9.1 - - [03/Nov/2026:18:18:53 +0000] "GET /q/health/live HTTP/1.1" 404 153 "-" "kube-probe/1.35" "-"
-2026/11/03 18:19:06 [error] 32#32: *4 open() "/usr/share/nginx/html/q/health/live" failed (2: No such file or directory), client: 192.168.9.1, server: localhost, request: "GET /q/health/live HTTP/1.1", host: "192.168.9.31:8080"
-192.168.9.1 - - [03/Nov/2026:18:19:06 +0000] "GET /q/health/live HTTP/1.1" 404 153 "-" "kube-probe/1.35" "-"
-2026/11/03 18:19:08 [error] 33#33: *5 open() "/usr/share/nginx/html/q/health/live" failed (2: No such file or directory), client: 192.168.9.1, server: localhost, request: "GET /q/health/live HTTP/1.1", host: "192.168.9.31:8080"
-192.168.9.1 - - [03/Nov/2026:18:19:08 +0000] "GET /q/health/live HTTP/1.1" 404 153 "-" "kube-probe/1.35" "-"
-192.168.9.1 - - [03/Nov/2026:18:19:21 +0000] "GET /q/health/live HTTP/1.1" 404 153 "-" "kube-probe/1.35" "-"
-2026/11/03 18:19:21 [error] 34#34: *6 open() "/usr/share/nginx/html/q/health/live" failed (2: No such file or directory), client: 192.168.9.1, server: localhost, request: "GET /q/health/live HTTP/1.1", host: "192.168.9.31:8080"
-2026/11/03 18:19:23 [error] 35#35: *7 open() "/usr/share/nginx/html/q/health/live" failed (2: No such file or directory), client: 192.168.9.1, server: localhost, request: "GET /q/health/live HTTP/1.1", host: "192.168.9.31:8080"
-192.168.9.1 - - [03/Nov/2026:18:19:23 +0000] "GET /q/health/live HTTP/1.1" 404 153 "-" "kube-probe/1.35" "-"
+vitec-sda8c-frontend-hub-ciaussp-frontend-2026-des-75b7fcf62rqs
+
+
+
+
+Argo
+v2.14.21+206a6ee
+Argo
+Applications
+Settings
+User Info
+Documentation
+Resource filters
+NAME
+NAME
+KINDS
+KINDS
+SYNC STATUS
+Synced
+6
+OutOfSync
+0
+HEALTH STATUS
+Progressing
+1
+Suspended
+0
+Healthy
+4
+Degraded
+2
+Missing
+0
+Unknown
+0
+NAMESPACES
+NAMESPACES
+Show Orphaned
+Applications
+ vitec-sda8c-frontend-hub-ciaussp-frontend-2026-des
+Application Details List
+Log out
+APP HEALTH 
+ Degraded
+SYNC STATUS 
+
+ Synced
+to HEAD (1bd5a2a)
+Auto sync is enabled.
+Author:
+Jesse Mouta Pereira Batista <p585600@corp.caixa.gov.br> -
+Comment:
+Update values.yaml
+LAST SYNC 
+
+ Sync OK
+to 1bd5a2a
+Succeeded a minute ago (Tue Nov 03 2026 15:19:18 GMT-0300)
+Author:
+Jesse Mouta Pereira Batista <p585600@corp.caixa.gov.br> -
+Comment:
+Update values.yaml
+APP CONDITIONS
+ 1 Warning
+Previous12Next
+Items per page: 10 
+NAME
+GROUP/KIND
+SYNC ORDER
+NAMESPACE
+CREATED AT
+STATUS
+Pod
+pod
+vitec-sda8c-frontend-hub-ciaussp-frontend-2026-des-75b7fcf62rqs
+Pod
+-
+vitec-sda8c-frontend-hub-ciaussp-frontend-2026-nprd
+10 minutes ago   11/03/26
+ Degraded  
+Pod
+pod
+vitec-sda8c-frontend-hub-ciaussp-frontend-2026-des-54cb864hbgv9
+Pod
+-
+vitec-sda8c-frontend-hub-ciaussp-frontend-2026-nprd
+3 hours ago   11/03/26
+ Healthy  
+Endpoints
+ep
+vitec-sda8c-frontend-hub-ciaussp-frontend-2026-des
+Endpoints
+-
+vitec-sda8c-frontend-hub-ciaussp-frontend-2026-nprd
+3 hours ago   11/03/26
+Service
+svc
+vitec-sda8c-frontend-hub-ciaussp-frontend-2026-des
+Service
+-
+vitec-sda8c-frontend-hub-ciaussp-frontend-2026-nprd
+3 hours ago   11/03/26
+ Healthy   Synced
+ReplicaSet
+rs
+vitec-sda8c-frontend-hub-ciaussp-frontend-2026-des-6f89bdcb6d
+apps/ReplicaSet
+-
+vitec-sda8c-frontend-hub-ciaussp-frontend-2026-nprd
+4 days ago   10/30/26
+ Healthy  
+ReplicaSet
+rs
+vitec-sda8c-frontend-hub-ciaussp-frontend-2026-des-75b7fcffb7
+apps/ReplicaSet
+-
+vitec-sda8c-frontend-hub-ciaussp-frontend-2026-nprd
+5 days ago   10/29/26
+ Progressing  
+ConfigMap
+cm
+cm-vitec-sda8c-frontend-hub-ciaussp-frontend-2026
+ConfigMap
+-
+vitec-sda8c-frontend-hub-ciaussp-frontend-2026-nprd
+2 months ago   08/20/26
+ Synced
+Secret
+secret
+akv2k8s-vitec-sda8c-frontend-hub-ciaussp-frontend-2026-des
+Secret
+-
+vitec-sda8c-frontend-hub-ciaussp-frontend-2026-nprd
+2 months ago   08/20/26
+Deployment
+deploy
+vitec-sda8c-frontend-hub-ciaussp-frontend-2026-des
+apps/Deployment
+-
+vitec-sda8c-frontend-hub-ciaussp-frontend-2026-nprd
+2 months ago   08/20/26
+ Degraded   Synced
+ReplicaSet
+rs
+vitec-sda8c-frontend-hub-ciaussp-frontend-2026-des-54cb864df8
+apps/ReplicaSet
+-
+vitec-sda8c-frontend-hub-ciaussp-frontend-2026-nprd
+2 months ago   08/20/26
+ Healthy  
+Previous12Next
+Items per page: 10 
+
+Podpod
+vitec-sda8c-frontend-hub-ciaussp-frontend-2026-des-75b7fcf62rqs
+ SUMMARY EVENTS LOGS
+REASON
+MESSAGE
+COUNT
+FIRST OCCURRED
+LAST OCCURRED
+Pulling
+Pulling image "acrcentralcaixanprd.azurecr.io/vitec/sda8c-frontend-hub-ciaussp-frontend-2026/vitec-sda8c-frontend-hub-ciaussp-frontend-2026:40890595504"
+4
+10m ago
+Today at 3:10 PM
+1m ago
+Today at 3:18 PM
+Created
+Container created
+4
+10m ago
+Today at 3:10 PM
+1m ago
+Today at 3:18 PM
+Started
+Container started
+4
+10m ago
+Today at 3:10 PM
+1m ago
+Today at 3:18 PM
+Killing
+Container vitec-sda8c-frontend-hub-ciaussp-frontend-2026-des failed liveness probe, will be restarted
+3
+7m ago
+Today at 3:12 PM
+1m ago
+Today at 3:18 PM
+Pulled
+Successfully pulled image "acrcentralcaixanprd.azurecr.io/vitec/sda8c-frontend-hub-ciaussp-frontend-2026/vitec-sda8c-frontend-hub-ciaussp-frontend-2026:40890595504" in 74ms (74ms including waiting). Image size: 26621594 bytes.
+1
+1m ago
+Today at 3:18 PM
+1m ago
+Today at 3:18 PM
+Pulled
+Successfully pulled image "acrcentralcaixanprd.azurecr.io/vitec/sda8c-frontend-hub-ciaussp-frontend-2026/vitec-sda8c-frontend-hub-ciaussp-frontend-2026:40890595504" in 106ms (106ms including waiting). Image size: 26621594 bytes.
+1
+4m ago
+Today at 3:15 PM
+4m ago
+Today at 3:15 PM
+Unhealthy
+Readiness probe failed: HTTP probe failed with statuscode: 404
+23
+9m ago
+Today at 3:10 PM
+4m ago
+Today at 3:15 PM
+Unhealthy
+Liveness probe failed: HTTP probe failed with statuscode: 404
+11
+9m ago
+Today at 3:10 PM
+6m ago
+Today at 3:13 PM
+Pulled
+Successfully pulled image "acrcentralcaixanprd.azurecr.io/vitec/sda8c-frontend-hub-ciaussp-frontend-2026/vitec-sda8c-frontend-hub-ciaussp-frontend-2026:40890595504" in 82ms (82ms including waiting). Image size: 26621594 bytes.
+1
+7m ago
+Today at 3:12 PM
+7m ago
+Today at 3:12 PM
+Scheduled
+Successfully assigned vitec-sda8c-frontend-hub-ciaussp-frontend-2026-nprd/vitec-sda8c-frontend-hub-ciaussp-frontend-2026-des-75b7fcf62rqs to aks-appssuser-89572759-vmss000000
+10m ago
+Today at 3:10 PM
+10m ago
+Today at 3:10 PM
+Pulled
+Successfully pulled image "acrcentralcaixanprd.azurecr.io/vitec/sda8c-frontend-hub-ciaussp-frontend-2026/vitec-sda8c-frontend-hub-ciaussp-frontend-2026:40890595504" in 103ms (103ms including waiting). Image size: 26621594 bytes.
+1
+10m ago
+Today at 3:10 PM
+10m ago
+Today at 3:10 PM
