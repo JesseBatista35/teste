@@ -1,5 +1,5 @@
-<img width="1911" height="1010" alt="image" src="https://github.com/user-attachments/assets/47e245b5-49c2-4a25-9982-386e067c77c1" />
+$CLI --command='/host=sbrdeapllx104_credito/server-config=sigec-portabilidade-batch_node1_lx104:read-attribute(name=status)'
 
-
-o thaguinh odisse que reiniciu uma isntancia do jbos e ele voltou a funcionar.
-
+curl -sv -o /dev/null -H "Host: sigec.des.caixa"     http://10.116.98.52/gec-web/por/ 2>&1 | grep -iE 'HTTP/1.1 |JSESSIONID'
+curl -sv -o /dev/null -H "Host: sigec.des.caixa"     http://10.116.78.14/gec-web/por/ 2>&1 | grep -iE 'HTTP/1.1 |JSESSIONID'
+curl -sv -o /dev/null -H "Host: sigecpor2.des.caixa" http://10.116.78.14/gec-web/por/ 2>&1 | grep -iE 'HTTP/1.1 |JSESSIONID'
