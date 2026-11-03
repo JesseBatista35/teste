@@ -1,17 +1,31 @@
-Oi Sandra, tudo bem?
+boa tarde
+ 
+foi gerada a CHG00017497 - REGRAS FW - ID: 98529 - iberação de acesso do ambiente de desenvolvimento do sistema SIPDM (namespace sipdm-des, endereço de saída 10.116.221.183) ao banco d... 
+ 
+e aplicada, não deu certo o acesso?
+ 
+foi aplicada ontem é isso?
+ 
+isso 
+ 
+na vdd dia 28/10:
+Regras aplicadas conforme planejamento e validada. CNPRDFW001-1> ping tcp 10.116.100.127 1433 source 10.116.221.183 65001 Type escape sequence to abort. Sending 5 TCP SYN requests to 10.116.100.127 port 1433 from 10.116.221.183 starting port 65001, timeout is 2 seconds: !!!!! Success rate is 100 percent (5/5), round-trip min/avg/max = 1/1/1 ms
+ 
 
-O deploy do SIHDG-jboss8 em HMP foi normalizado. A release 3.24.0.1 rodou com sucesso no stage EC HMP e a aplicação subiu sem erros (datasource sihdgDS conectado, health respondendo 200 e login via login.hmp.caixa).
 
-Ajustes realizados:
+ <img width="1904" height="762" alt="image" src="https://github.com/user-attachments/assets/935c5e69-aa65-4251-939c-c53861215735" />
 
-1. Secure file / truststore: o script "Exportando as variáveis do arquivo Trust Store" não reconhecia o secure file baixado com o reference name caCertificate e gravava o caminho vazio, o que quebrava a task "Adicionando Multiplas Secrets". O script foi ajustado para reconhecer esse nome e validar o arquivo antes de seguir.
 
-2. ConfigMap jboss-config: o stage HMP procurava o arquivo standalone-okd.xml, que não existe na branch jboss-8.0 do SIHDG-jboss8-config. Ajustado para usar o standalone.xml com a mesma chave usada em DES/TQS.
+mesma coisa
+ 
+se olhar o log vai ter o timeout provavelmente
+ 
+Jesse Mouta Pereira Batista, pode dar uma olhada por favor?
+ 
+Cleomar Barros de Oliveira Junior
+Jesse Mouta Pereira Batista, pode dar uma olhada por favor?
+Flavio de Almeida Gagliardi
 
-3. Probes do DeploymentConfig: as probes de HMP apontavam para /opt/jboss/bin/livenessProbe.sh e readinessProbe.sh (padrão da imagem JBoss 7), que não existem na imagem EAP 8. Foram alteradas para probe HTTP em /sihdg-api/health (porta 8080), igual ao DES.
 
-4. Conexão com o banco: a DATASOURCE_CONNECTION_URL do grupo SIHDG-JBOSS8-HMP recebeu encrypt=true;trustServerCertificate=true, no mesmo padrão de DES/TQS. O driver SQL Server 12.6 exige SSL por padrão e falhava com erro PKIX.
 
-Pode, por favor, validar o funcionamento da aplicação em HMP? Se notar qualquer comportamento diferente, me avisa.
-
-Obrigado!
+ <img width="577" height="274" alt="image" src="https://github.com/user-attachments/assets/8296143b-08d9-42f3-9413-5ad82af5fd53" />
