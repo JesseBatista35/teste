@@ -1,33 +1,7 @@
-<img width="1842" height="783" alt="image" src="https://github.com/user-attachments/assets/74eb4a38-ab73-4e34-933b-d3ca0f664849" />
-
-
-
-
-[root@caddeapllx2794 conf.d]#
-[root@caddeapllx2794 conf.d]# tail -f /logs/apache2/sigec-portabilidade2/sigecpor2.des.caixa-access.log /logs/apache2/gec-web/sigec.des.caixa-access.log
-==> /logs/apache2/sigec-portabilidade2/sigecpor2.des.caixa-access.log <==
-10.116.78.14 - - [03/Nov/2026:14:10:48 -0300] "GET /gec-web/por/ HTTP/1.1" 302 - "-" "curl/7.76.1" - 302 0 703 1713
-10.116.78.14 - - [03/Nov/2026:14:10:48 -0300] "GET /gec-web/por/ HTTP/1.1" 302 - "-" "curl/7.76.1" - 302 0 703 1588
-10.116.78.14 - - [03/Nov/2026:14:10:48 -0300] "GET /gec-web/por/ HTTP/1.1" 302 - "-" "curl/7.76.1" - 302 0 703 1596
-10.116.78.14 - - [03/Nov/2026:14:10:49 -0300] "GET /gec-web/por/ HTTP/1.1" 302 - "-" "curl/7.76.1" - 302 0 703 1649
-10.116.78.14 - - [03/Nov/2026:14:10:49 -0300] "GET /gec-web/por/ HTTP/1.1" 302 - "-" "curl/7.76.1" - 302 0 703 1658
-10.116.78.14 - - [03/Nov/2026:14:10:54 -0300] "GET /gec-web/por/ HTTP/1.1" 302 - "-" "curl/7.76.1" - 302 0 703 1626
-10.116.78.14 - - [03/Nov/2026:14:10:54 -0300] "GET /gec-web/por/ HTTP/1.1" 302 - "-" "curl/7.76.1" - 302 0 703 1546
-10.116.78.14 - - [03/Nov/2026:14:10:54 -0300] "GET /gec-web/por/ HTTP/1.1" 302 - "-" "curl/7.76.1" - 302 0 703 1993
-10.116.78.14 - - [03/Nov/2026:14:10:54 -0300] "GET /gec-web/por/ HTTP/1.1" 302 - "-" "curl/7.76.1" - 302 0 703 1473
-10.116.78.14 - - [03/Nov/2026:14:10:55 -0300] "GET /gec-web/por/ HTTP/1.1" 302 - "-" "curl/7.76.1" - 302 0 703 1741
-
-==> /logs/apache2/gec-web/sigec.des.caixa-access.log <==
-10.116.78.14 - - [03/Nov/2026:14:10:48 -0300] "GET /gec-web/por/ HTTP/1.1" 302 - "-" "curl/7.76.1" - 302 0 704 2513
-10.116.78.14 - - [03/Nov/2026:14:10:48 -0300] "GET /gec-web/por/ HTTP/1.1" 302 - "-" "curl/7.76.1" - 302 0 704 2519
-10.116.78.14 - - [03/Nov/2026:14:10:48 -0300] "GET /gec-web/por/ HTTP/1.1" 302 - "-" "curl/7.76.1" - 302 0 704 2470
-10.116.78.14 - - [03/Nov/2026:14:10:49 -0300] "GET /gec-web/por/ HTTP/1.1" 302 - "-" "curl/7.76.1" - 302 0 704 2810
-10.116.78.14 - - [03/Nov/2026:14:10:49 -0300] "GET /gec-web/por/ HTTP/1.1" 302 - "-" "curl/7.76.1" - 302 0 704 2401
-10.116.78.14 - - [03/Nov/2026:14:10:54 -0300] "GET /gec-web/por/ HTTP/1.1" 302 - "-" "curl/7.76.1" - 302 0 704 2759
-10.116.78.14 - - [03/Nov/2026:14:10:54 -0300] "GET /gec-web/por/ HTTP/1.1" 302 - "-" "curl/7.76.1" - 302 0 704 2495
-10.116.78.14 - - [03/Nov/2026:14:10:54 -0300] "GET /gec-web/por/ HTTP/1.1" 302 - "-" "curl/7.76.1" - 302 0 704 2474
-10.116.78.14 - - [03/Nov/2026:14:10:54 -0300] "GET /gec-web/por/ HTTP/1.1" 302 - "-" "curl/7.76.1" - 302 0 704 2609
-10.116.78.14 - - [03/Nov/2026:14:10:55 -0300] "GET /gec-web/por/ HTTP/1.1" 302 - "-" "curl/7.76.1" - 302 0 704 2742
-
-
-
+for i in $(seq 1 15); do
+  for h in sigec.des.caixa sigecpor2.des.caixa; do
+    printf "%s %s: " "$i" "$h"
+    curl -sk -o /dev/null -D - https://$h/gec-web/por/ | grep -oE 'HTTP/1.1 [0-9]+|sigec-portabilidade[^"]*_lx104' | tr '\n' ' '
+    echo
+  done
+done
