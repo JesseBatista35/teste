@@ -1,85 +1,15 @@
+Bom dia, Cavaco, tudo bem?
 
-[p585600@caddeapllx2794 ~]$
-[p585600@caddeapllx2794 ~]$
-[p585600@caddeapllx2794 ~]$  cd /opt/httpd/conf.d
-   diff httpd-sigec.des.conf.bkp_20261007 httpd-sigec.des.conf
-   diff httpd-sigecpor2.conf_20261007 httpd-sigecpor2.conf
-   cat httpd-sigec.des.conf.bkp_20261007
-2,3d1
-< <VirtualHost *:80>
-<         ServerName  sigec.des.caixa
-5d2
-<         RequestHeader set X-Forwarded-Proto "https"
-7,8c4,6
-<         RewriteEngine On
-<         RewriteRule ^/$ /gec-web/por/ [R]
----
-> <VirtualHost *:80>
->   ServerName  sigec.des.caixa
->   ServerAlias sigec.des.caixa
-11,17c9,11
-<         RewriteRule ^/gec-web/por$ /gec-web/por/ [R]
-<         ProxyPass ^/gec-web/por/ balancer://mycluster_sigec/gec-web/por/ stickysession=JSESSIONID|jsessionid nofailover=On
-<         ProxyPassReverse ^/gec-web/por/ balancer://mycluster_sigec/gec-web/por/
-<         <Location /balancer-manager>
-<                 SetHandler balancer-manager
-<                 Require all granted
-<         </Location>
----
->   RewriteEngine On
->   RequestHeader set X-Forwarded-Proto "https"
->   RewriteRule ^/$ /gec-web/por/ [R]
-21a16
->
-2,3d1
-< <VirtualHost *:80>
-<         ServerName  sigecpor2.des.caixa
-5,9c3,5
-<         RequestHeader set X-Forwarded-Proto "https"
-< #       Redirecionamento permanente para HTTPS
-<         RewriteEngine On
-<         #RewriteCond %{HTTPS} off
-<         #RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
----
-> <VirtualHost *:80>
->   ServerName  sigecpor2.des.caixa
->   ServerAlias sigecpor2.des.caixa
-11,12d6
-<         #RewriteEngine On
-<         RewriteRule ^/$ /gec-web/por/ [R]
-14,20c8,10
-<         RewriteRule ^/gec-web/por$ /gec-web/por/ [R]
-<         ProxyPass ^/gec-web/por/ balancer://mycluster_sigec2/gec-web/por/ stickysession=JSESSIONID|jsessionid nofailover=On
-<         ProxyPassReverse ^/gec-web/por/ balancer://mycluster_sigec2/gec-web/por/
-<         <Location /balancer-manager>
-<                 SetHandler balancer-manager
-<                 Require all granted
-<         </Location>
----
->   RewriteEngine On
->   RequestHeader set X-Forwarded-Proto "https"
->   RewriteRule ^/$ /gec-web/por/ [R]
-# VIP Compartilhado: 10.116.80.1
-<VirtualHost *:80>
-        ServerName  sigec.des.caixa
+Estou tratando a WO0000082132530, do redirecionamento cruzado entre Online e Batch do SIGEC Portabilidade em DES. A causa está no Apache novo caddeapllx2794 (10.116.78.14), que hoje está em “down” no service group da VIP 10.116.80.1 desde 28/10, quando o Murilo pediu à CETEL para balancear só nos Apaches antigos (sbrdeaprlx052 e sbrdeaprlx053).
 
-        RequestHeader set X-Forwarded-Proto "https"
+Vi que em 07/10 saíram as linhas de ProxyPass dos vhosts sigec.des.caixa (balancer://mycluster_sigec, Batch) e sigecpor2.des.caixa (balancer://mycluster_sigec2, Online). Sem elas, o mod_cluster entrega /gec-web/por para qualquer node, porque Batch e Online registram o mesmo contexto. O log do mod_cluster acusa isso (“context /gec-web/por is in balancer mycluster_sigec and mycluster_sigec2”). Testando direto no IP, o sigec.des.caixa cai no node sigec-portabilidade2 (Online).
 
-        RewriteEngine On
-        RewriteRule ^/$ /gec-web/por/ [R]
+Nos Apaches antigos essas linhas existem, iguais aos backups httpd-sigec.des.conf.bkp_20261007 e httpd-sigecpor2.conf_20261007, que estão no próprio caddeapllx2794.
 
+A remoção teve algum motivo específico? Se não houver impedimento, minha proposta é:
 
-        RewriteRule ^/gec-web/por$ /gec-web/por/ [R]
-        ProxyPass ^/gec-web/por/ balancer://mycluster_sigec/gec-web/por/ stickysession=JSESSIONID|jsessionid nofailover=On
-        ProxyPassReverse ^/gec-web/por/ balancer://mycluster_sigec/gec-web/por/
-        <Location /balancer-manager>
-                SetHandler balancer-manager
-                Require all granted
-        </Location>
+restaurar esses dois backups, guardando a versão atual;
+validar pelo IP;
+pedir à CETEL para voltar o 10.116.78.14 para “up” na VIP 10.116.80.1.
 
-        CustomLog /logs/apache2/gec-web/sigec.des.caixa-access.log combined
-        ErrorLog /logs/apache2/gec-web/sigec.des.caixa-error.log
-</VirtualHost>
-[p585600@caddeapllx2794 conf.d]$
-[p585600@caddeapllx2794 conf.d]$
-[p585600@caddeapllx2794 conf.d]$
+Pode ser?
