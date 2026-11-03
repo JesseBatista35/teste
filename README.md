@@ -1,15 +1,138 @@
-Bom dia, Cavaco, tudo bem?
+ 
+    <socket-binding-group name="standard-sockets" default-interface="public" port-offset="${jboss.socket.binding.port-offset:0}">
+        <socket-binding name="ajp" port="${jboss.ajp.port:8009}"/>
+        <socket-binding name="http" port="${jboss.http.port:8080}"/>
+        <socket-binding name="https" port="${jboss.https.port:8443}"/>
+        <socket-binding name="management-http" interface="management" port="${jboss.management.http.port:9990}"/>
+        <socket-binding name="management-https" interface="management" port="${jboss.management.https.port:9993}"/>
+        <socket-binding name="txn-recovery-environment" port="4712"/>
+        <socket-binding name="txn-status-manager" port="4713"/>
+        <outbound-socket-binding name="mail-smtp">
+            <remote-destination host="${jboss.mail.server.host:localhost}" port="${jboss.mail.server.port:25}"/>
+        </outbound-socket-binding>
+ 
+find /opt/jboss -name "sifec-2.160.0.0-b-20261028.173902-2.ear"
+ 
+find . -name "*.war"
 
-Estou tratando a WO0000082132530, do redirecionamento cruzado entre Online e Batch do SIGEC Portabilidade em DES. A causa está no Apache novo caddeapllx2794 (10.116.78.14), que hoje está em “down” no service group da VIP 10.116.80.1 desde 28/10, quando o Murilo pediu à CETEL para balancear só nos Apaches antigos (sbrdeaprlx052 e sbrdeaprlx053).
+find . -name "*.jar"
+ 
+grep -R "getServerPort" .
+ 
+grep -R "getRequestURL" .
+ 
+grep -R "redirect_uri" .
+ 
+grep -R "openid-connect/auth" .
+ 
+find . | egrep "sso|keycloak|oauth|openid"
+ 
+SSO_INTRANET_RESOURCE_NAME
 
-Vi que em 07/10 saíram as linhas de ProxyPass dos vhosts sigec.des.caixa (balancer://mycluster_sigec, Batch) e sigecpor2.des.caixa (balancer://mycluster_sigec2, Online). Sem elas, o mod_cluster entrega /gec-web/por para qualquer node, porque Batch e Online registram o mesmo contexto. O log do mod_cluster acusa isso (“context /gec-web/por is in balancer mycluster_sigec and mycluster_sigec2”). Testando direto no IP, o sigec.des.caixa cai no node sigec-portabilidade2 (Online).
+SSO_INTRANET_AUTH_URL
 
-Nos Apaches antigos essas linhas existem, iguais aos backups httpd-sigec.des.conf.bkp_20261007 e httpd-sigecpor2.conf_20261007, que estão no próprio caddeapllx2794.
+SSO_INTRANET_SECRET
+ 
+confidential-port
+ 
+https://eap74-nprd.des.caixa:9443/
+ 
+sifec-2.160.0.0-b-20261028.173902-2.ear
+ 
+http://binario.caixa:8081/repository/snapshots/br/gov/caixa/fec/sifec/2.160.0.0-b-SNAPSHOT/sifec-2.160.0.0-b-20261029.210221-4.ear
+ 
+Luiz Carlos dos Santos Neto adicionou Juliana de Carvalho Fernandes ao chat.
 
-A remoção teve algum motivo específico? Se não houver impedimento, minha proposta é:
+ 
+Thiago Pereira dos Santos Marques, tem um minuto para nos dar um apoio aqui?
+ 
+Estou colocando o fone. 
+ 
+Chama novamente, por favor.
+ 
+C:\Users\p515324>nslookup migracaosifec.des.caixa
 
-restaurar esses dois backups, guardando a versão atual;
-validar pelo IP;
-pedir à CETEL para voltar o 10.116.78.14 para “up” na VIP 10.116.80.1.
+Servidor:  dfaddssd001.corp.caixa.gov.br
 
-Pode ser?
+Address:  10.222.149.10
+ 
+Nome:    migracaosifec.des.caixa
+
+Address:  10.116.81.113
+ 
+ 
+C:\Users\p515324>nslookup sifec1.des.caixa
+
+Servidor:  dfaddssd001.corp.caixa.gov.br
+
+Address:  10.222.149.10
+ 
+Nome:    sifec1.des.caixa
+
+Address:  10.116.81.66
+ 
+Thiago Pereira dos Santos Marques adicionou Magnus dos Santos Silva ao chat.
+
+ 
+C:\Users\p515324>nslookup migracaosifec.des.caixa
+Servidor:  dfaddssd001.corp.caixa.gov.br
+Address:  10.222.149.10
+ 
+Nome:    migracaosifec.des.caixa
+Address:  10.116.81.113
+ 
+ 
+C:\Users\p515324>nslookup sifec1.des.caixa
+Servidor:  dfaddssd001.corp.caixa.gov.br
+Address:  10.222.149.10
+ 
+Nome:    sifec1.des.caixa
+Address:  10.116.81.66
+ 
+Thiago Pereira dos Santos Marques adicionou Magnus dos Santos Silva ao chat.
+ 
+ 
+https://
+
++ request.getServerName()
+
++ ":"
+
++ request.getServerPort()
+
++ request.getContextPath()
+ 
+Magnus dos Santos Silva saiu do chat.
+
+ 
+sexta-feira 19:48 Reunião encerrada 5h 49min 22s Migração JBoss 7.4 - SIFEC, SICCR, SIEMP, SIPENsexta-feira, 30 de outubro de 2026 13:59 - 19:48Exibir recapitulação4ConteúdoTranscriçãoSISTEMAS JBOSS CEDESBR 1.xlsxADDR FEC,CCR,EMP,PEN -  Migração JBoss 7.4 - 2210.pdf+1
+
+ 
+https://migracaosifec.des.caixa/fec-web/
+ 
+ 
+Paulo Henrique Barros Santos, Luiz Carlos dos Santos Neto, Flavio Luiz D Oliveira e Silva, Antonio Coelho Guimaraes Filho, Edson Prokot, Pablo Leite Costa, Relder Maia da Silva Batista, Flavio de Almeida Gagliardi, Jose Wilson Batista Rodrigues, Aline Holanda dos Santos Goncalves,Inocencio Teixeira de Oliveira Rodrigo Abreu Costa
+ 
+SIFEC no AR, com redirect correto para o SSO 
+ 
+Valeu pessoal, até a volta das férias!
+ 
+Bom dia Todos.
+ 
+ 
+O Link de acesso ao PJ não esta chamando a aplicação.
+ 
+Vinicius Ferreira Veras
+http://binario.caixa:8081/repository/snapshots/br/gov/caixa/fec/sifec/2.160.0.0-b-SNAPSHOT/sifec-2.160.0.0-b-20261029.210221-4.ear
+Bom dia. Esse é o último binário SIFEC?
+ 
+Patricia Vourakis Barbosa Braga adicionou Jesse Mouta Pereira Batista ao chat e compartilhou todo o histórico de chats.
+
+ 
+Importante!
+Jesse Mouta Pereira Batista bom dia , por favor verificar. Obrigada
+Pablo Leite Costa
+Bom dia Todos.   📷   O Link de acesso ao PJ não esta chamando a aplicação.
+ 
+Patricia do Prado Albuquerque, Bom dia, vou verificar. 
+ 
