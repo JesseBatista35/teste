@@ -1,18 +1,1 @@
-<jboss-deployment-structure xmlns="urn:jboss:deployment-structure:1.2">
-  <deployment>
-    <exclusions>
-      <module name="org.jboss.resteasy.resteasy-jackson2-provider"/>
-    </exclusions>
-    <dependencies>
-      <module name="org.jboss.resteasy.resteasy-jackson-provider" services="import"/>
-    </dependencies>
-  </deployment>
-  <sub-deployment name="fec-web.war">
-    <exclusions>
-      <module name="org.jboss.resteasy.resteasy-jackson2-provider"/>
-    </exclusions>
-    <dependencies>
-      <module name="org.jboss.resteasy.resteasy-jackson-provider" services="import"/>
-    </dependencies>
-  </sub-deployment>
-</jboss-deployment-structure>
+RESTEasy do EAP 7.4 usa Jackson 2, e essas classes estão anotadas com Jackson 1. Sugestão para o dev: incluir no .ear um jboss-deployment-structure.xml excluindo resteasy-jackson2-provider e incluindo resteasy-jackson-provider (envio o XML), ou migrar as anotações para com.fasterxml.jackson. Assim que gerarem o build, faço o deploy.
