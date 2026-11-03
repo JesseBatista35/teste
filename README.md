@@ -1,15 +1,7 @@
-
-***********************************************************************
-p585600@10.116.82.43's password:
-Last login: Tue Nov  3 10:06:08 2026 from 10.122.150.31
--sh-4.2$ ps -ef | grep [h]ttpd | head -3
--sh-4.2$
--sh-4.2$
--sh-4.2$ httpd -S 2>/dev/null | grep -i sigec # mostra o arquivo de cada vhost do sigec
--sh-4.2$
--sh-4.2$
--sh-4.2$
-
+CLI="/opt/jboss/jboss-eap/bin/jboss-cli.sh --connect --controller=10.116.89.0:9999"
+$CLI --command='/server-group=sigec-portabilidade2:read-attribute(name=profile)'
+$CLI --command='/profile=full-ha-sigec-portabilidade-batch/subsystem=modcluster:read-resource(recursive=true)'
+$CLI --command='/socket-binding-group=full-ha-sockets:read-resource(recursive=true)' | grep -B2 -A6 -i 'outbound\|proxy\|6666'
 
 
 
