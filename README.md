@@ -1,4 +1,3 @@
-esse ip de onde ??
- 
-10.116.221.183
- 
+Adriano, o 10.116.221.183 é o egress IP do namespace sipdm-des no cluster OpenShift NPRD. É o IP de saída dedicado desse namespace: todo tráfego dos pods do sipdm-des para fora do cluster deveria sair com esse IP de origem. Ele fica hospedado no nó ceadecldlx084.nprd.caixa (10.116.208.104) como IP secundário, e é por isso que pedimos a regra com essa origem.
+
+O que estranhamos na sua captura é que os SYNs para 10.116.100.127:1433 aparecem com origem 10.116.208.104 (o IP do próprio nó) e não com o egress IP. Durante o teste que está rodando agora, aparece algum SYN com origem 10.116.221.183 ou só do 10.116.208.104?
