@@ -1,111 +1,17 @@
-
-'read-attribute)name=profile)' is not a valid operation name.
-
-[domain@localhost:9443 /] /server-group=sifec-intranet:read-attribute(name=profile)
-{
-    "outcome" => "success",
-    "result" => "full-ha-sifec-intranet"
-}
-
-[domain@localhost:9443 /]
-[domain@localhost:9443 /]
-[domain@localhost:9443 /]
-[domain@localhost:9443 /] /profile=*/subsystem=security/security-domain=jaas-sifec:read-resource
-{
-    "outcome" => "success",
-    "result" => [{
-        "address" => [
-            ("profile" => "full-ha-sifec-intranet2"),
-            ("subsystem" => "security"),
-            ("security-domain" => "jaas-sifec")
-        ],
-        "outcome" => "success",
-        "result" => {
-            "cache-type" => "default",
-            "acl" => undefined,
-            "audit" => undefined,
-            "authentication" => {"classic" => undefined},
-            "authorization" => undefined,
-            "identity-trust" => undefined,
-            "jsse" => undefined,
-            "mapping" => undefined
-        }
-    }]
-}
-
-[domain@localhost:9443 /] /profile=*/subsystem=mail
-/  :
-[domain@localhost:9443 /] /profile=*/subsystem=mail/mail-session=*read-resource
-The operation name is missing or the format of the operation request is wrong.
-
-[domain@localhost:9443 /] /profile=*/subsystem=mail/mail-session=*:read-resource
-{
-    "outcome" => "success",
-    "result" => [
-        {
-            "address" => [
-                ("profile" => "full-ha-sipen"),
-                ("subsystem" => "mail"),
-                ("mail-session" => "default")
-            ],
-            "outcome" => "success",
-            "result" => {
-                "debug" => false,
-                "from" => undefined,
-                "jndi-name" => "java:jboss/mail/Default",
-                "custom" => undefined,
-                "server" => {"smtp" => undefined}
-            }
-        },
-        {
-            "address" => [
-                ("profile" => "full-ha-sifec-intranet"),
-                ("subsystem" => "mail"),
-                ("mail-session" => "default")
-            ],
-            "outcome" => "success",
-            "result" => {
-                "debug" => false,
-                "from" => undefined,
-                "jndi-name" => "java:jboss/mail/Default",
-                "custom" => undefined,
-                "server" => {"smtp" => undefined}
-            },
-            "rolled-back" => undefined
-        },
-        {
-            "address" => [
-                ("profile" => "full-ha-sifec-intranet2"),
-                ("subsystem" => "mail"),
-                ("mail-session" => "default")
-            ],
-            "outcome" => "success",
-            "result" => {
-                "debug" => false,
-                "from" => undefined,
-                "jndi-name" => "java:jboss/mail/Default",
-                "custom" => undefined,
-                "server" => {"smtp" => undefined}
-            },
-            "rolled-back" => undefined
-        },
-        {
-            "address" => [
-                ("profile" => "full-ha-siemp"),
-                ("subsystem" => "mail"),
-                ("mail-session" => "default")
-            ],
-            "outcome" => "success",
-            "result" => {
-                "debug" => false,
-                "from" => undefined,
-                "jndi-name" => "java:jboss/mail/Default",
-                "custom" => undefined,
-                "server" => {"smtp" => undefined}
-            },
-            "rolled-back" => undefined
-        }
-    ]
-}
-
-[domain@localhost:9443 /]
+p585600@10.116.97.79's password:
+[p585600@cbrdeapllx473 ~]$
+[p585600@cbrdeapllx473 ~]$
+[p585600@cbrdeapllx473 ~]$ ps -ef | grep jboss
+root      960540       1  0 Oct30 ?        00:00:00 runuser jboss -c LAUNCH_JBOSS_IN_BACKGROUND=1 JBOSS_PIDFILE=/opt/jboss/jboss-eap/hc/tmp/jboss-hc-des.pid /opt/jboss/jboss-eap/bin/domain.sh --host-config=host-slave.xml -b 10.116.97.79 -bmanagement 10.116.97.79 -Djboss.domain.base.dir=/opt/jboss/jboss-eap/hc -Djboss.domain.master.address=10.116.97.59 -Djboss.server.log.dir=/opt/jboss/jboss-eap/hc/log/jboss-eap/servers -c domain.xml
+jboss     960543  960540  0 Oct30 ?        00:00:00 /bin/sh /opt/jboss/jboss-eap/bin/domain.sh --host-config=host-slave.xml -b 10.116.97.79 -bmanagement 10.116.97.79 -Djboss.domain.base.dir=/opt/jboss/jboss-eap/hc -Djboss.domain.master.address=10.116.97.59 -Djboss.server.log.dir=/opt/jboss/jboss-eap/hc/log/jboss-eap/servers -c domain.xml
+jboss     960693  960543  0 Oct30 ?        00:02:45 java -D[Process Controller] -server -Xms64m -Xmx512m -XX:MaxMetaspaceSize=256m -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs=org.jboss.byteman -Djava.awt.headless=true -Djdk.serialFilter=maxbytes=10485760;maxdepth=128;maxarray=100000;maxrefs=300000 -Dorg.jboss.boot.log.file=/opt/jboss/jboss-eap/hc/log/process-controller.log -Dlogging.configuration=file:/opt/jboss/jboss-eap/hc/configuration/logging.properties -jar /opt/jboss/jboss-eap/jboss-modules.jar -mp /opt/jboss/jboss-eap/modules org.jboss.as.process-controller -jboss-home /opt/jboss/jboss-eap -jvm java -mp /opt/jboss/jboss-eap/modules -- -Dorg.jboss.boot.log.file=/opt/jboss/jboss-eap/hc/log/host-controller.log -Dlogging.configuration=file:/opt/jboss/jboss-eap/hc/configuration/logging.properties -server -Xms64m -Xmx512m -XX:MaxMetaspaceSize=256m -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs=org.jboss.byteman -Djava.awt.headless=true -Djdk.serialFilter=maxbytes=10485760;maxdepth=128;maxarray=100000;maxrefs=300000 -- -default-jvm java --host-config=host-slave.xml -b 10.116.97.79 -bmanagement 10.116.97.79 -Djboss.domain.base.dir=/opt/jboss/jboss-eap/hc -Djboss.domain.master.address=10.116.97.59 -Djboss.server.log.dir=/opt/jboss/jboss-eap/hc/log/jboss-eap/servers -c domain.xml
+jboss     960712  960693  0 Oct30 ?        00:03:42 java -D[Host Controller] -Dorg.jboss.boot.log.file=/opt/jboss/jboss-eap/hc/log/host-controller.log -Dlogging.configuration=file:/opt/jboss/jboss-eap/hc/configuration/logging.properties -server -Xms64m -Xmx512m -XX:MaxMetaspaceSize=256m -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs=org.jboss.byteman -Djava.awt.headless=true -Djdk.serialFilter=maxbytes=10485760;maxdepth=128;maxarray=100000;maxrefs=300000 -jar /opt/jboss/jboss-eap/jboss-modules.jar -mp /opt/jboss/jboss-eap/modules org.jboss.as.host-controller -mp /opt/jboss/jboss-eap/modules --pc-address 127.0.0.1 --pc-port 41005 -default-jvm java --host-config=host-slave.xml -b 10.116.97.79 -bmanagement 10.116.97.79 -Djboss.domain.base.dir=/opt/jboss/jboss-eap/hc -Djboss.domain.master.address=10.116.97.59 -Djboss.server.log.dir=/opt/jboss/jboss-eap/hc/log/jboss-eap/servers -c domain.xml -Djboss.home.dir=/opt/jboss/jboss-eap
+jboss     960773  960693  0 Oct30 ?        00:06:44 /usr/java/openjdk-1.8.0.482/jre/bin/java -D[Server:sifec-intranet2_node1_llx473] -D[pcid:299427267] -Xms64m -Xmx256m -Djava.awt.headless=true -Djava.net.preferIPv4Stack=true -Djboss.bind.address=10.116.97.79 -Djboss.bind.address.management=10.116.97.79 -Djboss.domain.base.dir=/opt/jboss/jboss-eap/hc -Djboss.domain.master.address=10.116.97.59 -Djboss.home.dir=/opt/jboss/jboss-eap -Djboss.modules.system.pkgs=org.jboss.byteman -Djdk.serialFilter=maxbytes=10485760;maxdepth=128;maxarray=100000;maxrefs=300000 -Djboss.server.log.dir=/opt/jboss/jboss-eap/hc/servers/sifec-intranet2_node1_llx473/log -Djboss.server.temp.dir=/opt/jboss/jboss-eap/hc/servers/sifec-intranet2_node1_llx473/tmp -Djboss.server.data.dir=/opt/jboss/jboss-eap/hc/servers/sifec-intranet2_node1_llx473/data -Dlogging.configuration=file:/opt/jboss/jboss-eap/hc/servers/sifec-intranet2_node1_llx473/data/logging.properties -jar /opt/jboss/jboss-eap/jboss-modules.jar -mp /opt/jboss/jboss-eap/modules org.jboss.as.server
+jboss     981465  960693  0 Oct30 ?        00:05:36 /usr/java/openjdk-1.8.0.482/jre/bin/java -D[Server:sifec-intranet_node1_lx473] -D[pcid:1855273277] -Xms8192m -Xmx8192m -Djava.awt.headless=true -Dhttp.proxyHost=proxydes.caixa -Dhttp.proxyPort=80 -Dhttps.proxyHost=proxydes.caixa -Dhttps.proxyPort=80 -Dhttps.protocols=TLSv1.2 -Dhttp.nonProxyHosts=10.195.192.1|172.28.10.49|.caixa|*.intra.caixa.gov.br|*.extracaixa|*.siapenet.gov.br|*.caixa.gov.br -Dhttp.proxySet=true -Duser.language=pt -Duser.country=BR -Duser.timezone=GMT-3 -DAPI_MANAGER_API_KEY=l714f9532275eb495c85015a769ab99181 -DAPI_MANAGER_URL_BASE=https://api.des.caixa:8443 -DAPI_SIBAN_URL_BASE=http://localhost:8080/siban-api -DAPI_SICLI_URL_BASE=https://api.des.caixa:8080 -DBASE=ou=People,o=caixa_des -DCNPJ_BENEFICIARIO=00360305000104 -DDATAPREV_CERTIFICADO_CAIXA_PATH=C:/Users/f957907/kit/certificado/dataprev/CO.DATAPREV.DES.CAIXA.GOV.BR_SERPRO.p12 -DDATAPREV_ECONSIGNADO_CONSUMER_KEY= -DDATAPREV_ECONSIGNADO_CONSUMER_SECRET=RzJBejc3blV6U3pwY3ZiYmVGeGhseUZHNlUwYTp4ZVlmaEE3T0R5QzhfdW04NWcwM0lpSDZHaTBh -DDATAPREV_ECONSIGNADO_CREDENTIALS_KS_64=VkVLZVYwOEJBWF9WdVdDV2ROckxhNU9ZNFVFYTpsRlFSRHQ3d0pKRnBwY29QUEhjZkdTNnNPNjRh -DDATAPREV_ECONSIGNADO_KS_64=U1NmbWRKb2VMQjBxcW5BblpHd2kzMEZsQjBZYTpsd2JkdTlrZjdhNlp3Z2lIdHlWMUJsUUNlWWdh -DDATAPREV_ECONSIGNADO_TEMPO_REVOGACAO_TOKEN=5 -DDATAPREV_ECONSIGNADO_TIMEOUT_CHAMADA_REST=3000 -DDATAPREV_ECONSIGNADO_TOKEN= -DDATAPREV_ECONSIGNADO_URL_AUTENTICACAO=https://hisdf.dataprev.gov.br/oauth2/token -DDATAPREV_ECONSIGNADO_URL_BASE=https://hapi-bancos.dataprev.gov.br -DDATAPREV_ECONSIGNADO_URL_SERVICOS=https://hapibancos.dataprev.gov.br -DDATAPREV_ECONSIGNADO_USER=95960325187 -DDATAPREV_ECONSIGNADO_VERSAO_API=v2.2 -DFGO_PRONAMPE_API_KEY=b82315c0c31e0135776b005056891bef -DFGO_PRONAMPE_API_KEY_NAME=gw-app-key -DFGO_PRONAMPE_CLIENT_ID=eyJpZCI6IjI4MSIsImNvZGlnb1B1YmxpY2Fkb3IiOjAsImNvZGlnb1NvZnR3YXJlIjoxMDcyMSwic2VxdWVuY2lhbEluc3RhbGFjYW8iOjF9 -DFGO_PRONAMPE_CLIENT_SECRET=eyJpZCI6ImYwYjFhNmMtOTY4My00MjBmLTk3ODktODNlY2VmMDZjY2QyZDM1YjEiLCJjb2RpZ29QdWJsaWNhZG9yIjowLCJjb2RpZ29Tb2Z0d2FyZSI6MTA3MjEsInNlcXVlbmNpYWxJbnN0YWxhY2FvIjoxLCJzZXF1ZW5jaWFsQ3JlZGVuY2lhbCI6MiwiYW1iaWVudGUiOiJob21vbG9nYWNhbyIsImlhdCI6MTU5MTQ1MTA2MjMwMH0 -DFGO_PRONAMPE_URL_BASE_API=https://api.hm.bb.com.br -DFGO_PRONAMPE_URL_BASE_OAUTH=https://oauth.hm.bb.com.br -DINITIAL_CONTEXT_FACTORY=com.sun.jndi.ldap.LdapCtxFactory -DMARGEM_DATAPREV_MOCK=false -DMOCK_INCLUIR_BOLETO_SIGCB=false -DMQ_USUARIO_SERVICO_GDB=SGCBS01D -DNUMERO_BENEFICIARIO=727375 -DSIACG_CONFORMIDADE_MOCK=false -DSIACG_URL=https://siacg-backend-tqs-esteiras.nprd2.caixa/servico/ -DSIAPX_PASSWORD=S279741 -DSIAPX_USUARIO=SFECAPXD -DSIAPX_WS_DB1_HOST=www1.consignet.com.br -DSIAPX_WS_DB1_PASSWORD=5FF37DCB5F0B76111BFBCFFDBC128B15 -DSIAPX_WS_DB1_PORTA=8383 -DSIAPX_WS_DB1_PROTOCOLO=https -DSIAPX_WS_DB1_URL_BASE=/DB1ConsignetWebService/services/WSConsignacao -DSIAPX_WS_DB1_USUARIO=WEBSERVICE_CAIXA@CAIXA -DSIAPX_WS_MPOG_COD_CONSIGNATARIA=7032 -DSIAPX_WS_MPOG_COD_CONVENIO=703201 -DSIAPX_WS_MPOG_HOST=hom5.siapenet.gov.br -DSIAPX_WS_MPOG_KEY_STORE_PASS=changeit -DSIAPX_WS_MPOG_PASSWORD=UB15W3NUCO -DSIAPX_WS_MPOG_PORTA=443 -DSIAPX_WS_MPOG_PROTOCOLO=https -DSIAPX_WS_MPOG_TRUST_STORE=C:/kit/java/jdk7/lib/security/cacerts -DSIAPX_WS_MPOG_TRUST_STORE_PASS=changeit -DSIAPX_WS_MPOG_URL_BASE=/wssiapeconsig/consignataria -DSIAPX_WS_MPOG_USUARIO=WSCEFS01 -DSIAPX_WS_ZETRA_CLIENTE=CEF -DSIAPX_WS_ZETRA_HOST=www.econsig.com.br -DSIAPX_WS_ZETRA_PASSWORD=cef12345 -DSIAPX_WS_ZETRA_PROTOCOLO=https -DSIAPX_WS_ZETRA_URL_BASE=/central_homologa/services/HostaHostService/ -DSIAPX_WS_ZETRA_USUARIO=cef_xml -DSIARC_PASSWORD=SFECARCD -DSIARC_USUARIO=SFECARCD -DSIBAR_FABRICA_SICLI_CONSULTA_CLIENTE=SicliQueueConnectionFactory -DSIBAR_FILA_SICLI_CONSULTA_CLIENTE_ENTRADA=SIBAR.REQ.CONSULTA_CLIENTE -DSIBAR_FILA_SICLI_CONSULTA_CLIENTE_SAIDA=SIBAR.RSP.CONSULTA_CLIENTE -DSIBAR_FILA_SICLI_CONSULTA_CLIENTE_TIMEOUT=1000 -DSICCR_BASE_INTERNO=ou=People,o=caixa -DSID01_SENHA=S296364 -DSID01_USUARIO=SPENSIDD -DSIECM_GED_LOCAL=OS_SIECMTESTE -DSIECM_GED_MOCK=false -DSIECM_GED_URL=http://siecm-preteste.des.caixa/siecm-web/ -DSIEMP_API_MANAGER_API_KEY=l7a0aa0ac4d1334c698850b59c76b9445f -DSIEMP_PASSWORD=S208706 -DSIEMP_SSO_INTRANET_SERVICE_RESOURCE_NAME=cli-ser-emp -DSIEMP_SSO_INTRANET_SERVICE_SECRET=57b2aed6-68c2-4267-a937-f4a280e35485 -DSIEMP_USUARIO=SEMPDB01 -DSIFEC_API_MANAGER_API_KEY=l71b8caef13cd84aa5b90e87772a684c82 -DSIFEC_NOME_SISTEMA=SIFEC -DSIFEC_SISGD_CONTENT_TYPE_PROPOSICOES=NO_SIFEC_001 -DSIFEC_SISGD_NU_SEGTO=4204 -DSIFEC_SISGD_PASSWORD=sfecd001 -DSIFEC_SISGD_SERVER_NAME=GED_DES -DSIFEC_SISGD_USER=SFECD001 -DSIFEC_TEMPO_VIDA_MENSAGEM_BARRAMENTO=10000 -DSIFEC_TIMEOUT_BARRAMENTO=10000 -DSIFEC_USUARIO=SCNLFECD -DSIFEC_USUARIO_BARRAMENTO=SCNLFECD -DSIFES_BASE_EXTERNO=ou=People,o=caixa -DSIFES_BASE_INTERNO=ou=People,o=caixa -DSIFES_URL_LDAP_EXTERNO=ldap://10.1.12.45:389 -DSIFES_URL_LDAP_INTERNO=ldap://10.1.12.45:389 -DSIGCB_CONSULTA_BOLETO_ENDPOINT=http://10.1.14.39/sibar/ConsultaCobrancaBancaria/Boleto?wsdl -DSIGCB_MANUTENCAO_BOLETO_ENDPOINT=http://10.1.14.39/sibar/ManutencaoCobrancaBancaria/Boleto/Externo?wsdl -DSIGEC_INTERNO_NOME_SISTEMA=SIGEC -DSIGEC_INTERNO_SISGD_CONTENT_TYPE_PROPOSICOES=NO_SIGEC_001 -DSIGEC_INTERNO_SISGD_NU_SEGTO=3321 -DSIGEC_INTERNO_SISGD_PASSWORD=At89io34 -DSIGEC_INTERNO_SISGD_SERVER_NAME=GED_DES -DSIGEC_INTERNO_SISGD_USER=SGECD001 -DSIGEC_PASSWORD=s322657 -DSIGEC_USUARIO=SGECTB01 -DSINCE_MQ_USUARIO_SERVICO=SNCEMQD1 -DSIWRC_URL=http://10.1.14.70/siwrc -DSSO2_INTERNET_TOKEN_PUBLIC_KEY=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxz8PNmiUW5J1669pWY0APB4flqqDnghAv/QV5DIHyXE39fj9u1DPXbgfDUhUfK0i/B0CHJukbI44Rgo/vuhCMImTnLjS49XuTH6GI4lU/CtdzE/qACMO/GUky73m0Uszo2Bh1wNV+fvw/mMQVAGKj6/qXjSB9npRZKydoXnwGPIepcrqF6KkMJIFtZ+0w35J9SYwgLNezUbAJgs9dq3yMj4ussSfxMFcUC9UKziJJSg0UQfl0fOQGMsrsnUbS2GgXeDqdskbZq9/wfL0ikU2pWf0hKjX+PXtqZI0SVWurVyydc0efbTE7qIlrwF8lWZ8NZ8zcV2oVk7TjoIktZ4zBwIDAQAB -DSSO_INTERNET_AUTH_URL=https://logindes.caixa.gov.br/auth -DSSO_INTERNET_BEARER_ONLY=false -DSSO_INTERNET_PUBLIC_CLIENT=false -DSSO_INTERNET_REALM_NAME=internet -DSSO_INTERNET_RESOURCE_NAME=cli-web-fec -DSSO_INTERNET_SECRET=de0ddc53-641c-4c38-bb48-0912d9d8227f -DSSO_INTERNET_TOKEN_PUBLIC_KEY=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxz8PNmiUW5J1669pWY0APB4flqqDnghAv/QV5DIHyXE39fj9u1DPXbgfDUhUfK0i/B0CHJukbI44Rgo/vuhCMImTnLjS49XuTH6GI4lU/CtdzE/qACMO/GUky73m0Uszo2Bh1wNV+fvw/mMQVAGKj6/qXjSB9npRZKydoXnwGPIepcrqF6KkMJIFtZ+0w35J9SYwgLNezUbAJgs9dq3yMj4ussSfxMFcUC9UKziJJSg0UQfl0fOQGMsrsnUbS2GgXeDqdskbZq9/wfL0ikU2pWf0hKjX+PXtqZI0SVWurVyydc0efbTE7qIlrwF8lWZ8NZ8zcV2oVk7TjoIktZ4zBwIDAQAB -DSSO_INTERNET_TYPE_OF_SSL_REQUIRED=external -DSSO_INTRANET_AUTH_URL=https://login.des.caixa/auth -DSSO_INTRANET_BEARER_ONLY=false -DSSO_INTRANET_PUBLIC_CLIENT=false -DSSO_INTRANET_REALM_NAME=intranet -DSSO_INTRANET_RESOURCE_NAME=cli-web-fec -DSSO_INTRANET_SECRET=36ab01d0-f1a5-4b1b-9a76-839553c7a6a9 -DSSO_INTRANET_SERVICE_CCR_RESOURCE_NAME=cli-ser-ccr -DSSO_INTRANET_SERVICE_CCR_SECRET=ed8dc39e-3fe6-4264-91c0-bf12be2a58eb -DSSO_INTRANET_TOKEN_PUBLIC_KEY=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzcYY/UbvrEldbQRd4TgLeP9bS8YnaL67MZUsfozWRyocBF3S0L7UEbkPaPoCoBnhoRv8VJHp0grqe3mqEmkMuDlt20Vx6q04ADDyS0c8xaU+Ot+g1Pgwjze944ATUjZogEMko6jvqqUGTt/Nt64yCCIaMaTB119vOBExQim7vPHNe/o7hLxh6VBYINxFA/esxjz8j28/uJWIiK0Gvt07Yx7ycn2DJlQHjnH2GzCSUL87AAYmjyYxW2JZaPLLvRlpcHIWrlr9GNtLiq0++xfJ0jFYxQWs1jxhlfXdqr8NE5vfA/RRRjRFnWzFOhIsOnIHPO9eEwwYzCZSoW2zXkFDYwIDAQAB -DSSO_INTRANET_TOKEN_URL=https://login.des.caixa/auth/realms/intranet/protocol/openid-connect/token -DSSO_INTRANET_TYPE_OF_SSL_REQUIRED=external -DSSO_SERVICO_URL_BASE_INTRANET=https://login.des.caixa -DTESTE_MOCK_CONSULTA_BOLETO_SIGCB=false -DTESTE_MOCK_RETORNO_SICLI_PF=false -DTESTE_MOCK_RETORNO_SICLI_PJ=false -DURL_BASE_SINCE=http://localhost:8181/menu-sifec -DURL_BASE_SIREP=https://sirep-frontend-intranet-des-esteiras.nprd2.caixa/sirep -DURL_CONSULTAR_BOLETO=https://des.barramento.caixa/sibar/ConsultaCobrancaBancaria/Boleto -DURL_CONSULTAR_SID09=http://des.barramento.caixa/sibar/ConsultaContaSID09?wsdl -DURL_LDAP_EXTERNO=ldap://10.1.12.46:389 -DURL_MANUTENCAO_BOLETO=https://des.barramento.caixa/sibar/ManutencaoCobrancaBancaria/Boleto -DURL_SIFEC=http://localhost:8080/ -DallowConnectingToRunningServer=true -Dbndes.url.base=https://ws-h.bndes.gov.br/apa/api/v1/ -Dcom.ibm.msg.client.commonservices.trace.status=ON -Dhttp.nonProxyHosts=*.caixa|10.116.82.132|10.116.82.132:8003|*.extracaixa|10.192.226.103 -Dhttp.proxyHost=internet.caixa -Dhttp.proxyPort=80 -Dhttps.proxyHost=internet.caixa -Dhttps.proxyPort=80 -Djava.awt.headless=true -Djava.net.preferIPv4Stack=true -Djavax.net.debug=true -Djavax.net.ssl.trustStore=C:/Desenvolvimento/JDK/jdk1.8.0_231/jre/lib/security/cacerts -Djavax.net.ssl.trustStorePassword=changeit -Djboss.bind.address=10.116.97.79 -Djboss.bind.address.management=10.116.97.79 -Djboss.domain.base.dir=/opt/jboss/jboss-eap/hc -Djboss.domain.master.address=10.116.97.59 -Djboss.home.dir=/opt/jboss/jboss-eap -Djboss.modules.system.pkgs=org.jboss.byteman -Djdk.serialFilter=maxbytes=10485760;maxdepth=128;maxarray=100000;maxrefs=300000 -Djdk.tls.client.protocols=TLSv1.2 -Dminuta.channel=CHANNEL.SIFEC -Dminuta.destination=SIFEC.REQ.GERAR_MINUTA -Dminuta.hostName=cxextrux061.desenvolvimento.extracaixa -Dminuta.password=SCNLFECD -Dminuta.port=1414 -Dminuta.queueManager=QM_broker01_DES -Dminuta.username=SCNLFECD -Dorg.apache.tomcat.util.http.Parameters.MAX_COUNT=5000 -Dsun.security.ssl.allowUnsafeRenegotiation=true -DurlConsultaBoleto=http://localhost:8181/fec-web/emprest/consultaBoleto/consulaBoletoRegistrado -Djboss.server.log.dir=/opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log -Djboss.server.temp.dir=/opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/tmp -Djboss.server.data.dir=/opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/data -Dlogging.configuration=file:/opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/data/logging.properties -jar /opt/jboss/jboss-eap/jboss-modules.jar -mp /opt/jboss/jboss-eap/modules org.jboss.as.server
+p585600  1445015 1444973  0 16:07 pts/1    00:00:00 grep --color=auto jboss
+[p585600@cbrdeapllx473 ~]$
+[p585600@cbrdeapllx473 ~]$
+[p585600@cbrdeapllx473 ~]$
+[p585600@cbrdeapllx473 ~]$
+[p585600@cbrdeapllx473 ~]$
+[p585600@cbrdeapllx473 ~]$
