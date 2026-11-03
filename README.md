@@ -1,122 +1,28 @@
-vitec-sda8c-backend-hub-ciaussp-backend-infranprd/des
-/values.yaml
 
 
+    #1) Respect the privacy of others.
+    #2) Think before you type.
+    #3) With great power comes great responsibility.
 
-
-caixa-base-chart:
-#-------#
-# IMAGE #
-#-------#
-  image:
-    # variavel de imagem do tipo de aplicação
-    repository: acrcentralcaixanprd.azurecr.io/vitec/sda8c-backend-hub-ciaussp-backend/vitec-sda8c-backend-hub-ciaussp-backend
-    tag: "41081845620"
-    pullPolicy: Always
-#-----#
-# HPA #
-#-----#
-  replicaCount: 1
-  autoscaling:
-    enabled: false
-    minReplicas: 1
-    maxReplicas: 3
-    targetCPUUtilizationPercentage: 85
-    targetMemoryUtilizationPercentage: 85
-#-----------------#
-# ROLLING UPDATE STRATEGY #
-#-----------------#
-  strategy:
-    maxSurge: 25%
-    maxUnavailable: 50%
-#-----------#
-#  SERVICE  #
-#-----------#
-  service:
-    type: "ClusterIP"
-    ports:
-      - name: "port"
-        protocol: TCP
-        port: 80
-        targetPort: 8080
-#---------#
-# INGRESS #
-#---------#
-  istio:  
-    - name: internal
-      enabled: true
-      servers:
-      - port:
-          number: 80
-          name: http-default
-          protocol: HTTP
-        hosts:
-        - "vitec-sda8c-backend-hub-ciaussp-backend.apl.des.private.azure"
-      #- port:
-      #    number: 443
-      #    name: https-custom
-      #    protocol: HTTPS
-      #  tls:
-      #    mode: SIMPLE
-      #    credentialName: akvs-vitec-sda8c-backend-hub-ciaussp-backend-certificate # Nome do secret do certificado
-      #  hosts:
-      #    - vitec-sda8c-backend-hub-ciaussp-backend.des.caixa
-      prefix:
-        - /
-      targetPort: 80
-#-------------#
-#  RESOURCES  #
-#-------------#
-  resources:
-    requests:
-      cpu: 250m
-      memory: 256Mi
-    limits:
-      cpu: 500m
-      memory: 512Mi
-#----------#
-#  PROBES  #
-#----------#
-  probes:
-    enabled: true  
-    useDefaults: false  
-    livenessProbe: 
-      initialDelaySeconds: 30
-      periodSeconds: 15
-      failureThreshold: 10
-      successThreshold: 1
-      httpGet:
-        path: /healthz     
-        port: 8080
-    readinessProbe: 
-      initialDelaySeconds: 15
-      periodSeconds: 15
-      failureThreshold: 3
-      successThreshold: 1
-      httpGet:
-        path: /healthz     
-        port: 8080
-#-------------#
-#  CONFIGMAP  #
-#-------------#
-  configMapRefs:
-    - name: cm-vitec-sda8c-backend-hub-ciaussp-backend
-#---------------#
-#  TOLERATIONS  #
-#---------------#
-  tolerations:
-    - key: "kubernetes.azure.com/scalesetpriority"
-      effect: "NoSchedule"
-      operator: "Equal"
-      value: "spot"
-    - key: "nuvem.caixa/nodepoolname"
-      effect: "NoSchedule"
-      operator: "Equal"
-      value: "appsvitec"
-#-------------# 
-#   SECRETS   # 
-#-------------# 
-#  secretRefs:
-#  env:
-#    - name: <NOME_DA_VARIAVEL_NA_APLICACAO>
-#      value: akvs-vitec-sda8c-backend-hub-ciaussp-backend@azurekeyvault
+[sudo] password for p585600:
+[root@cbrdeapllx471 p585600]#
+[root@cbrdeapllx471 p585600]#
+[root@cbrdeapllx471 p585600]#
+[root@cbrdeapllx471 p585600]# ./jboss-cli.sh --^C
+[root@cbrdeapllx471 p585600]#
+[root@cbrdeapllx471 p585600]#
+[root@cbrdeapllx471 p585600]#
+[root@cbrdeapllx471 p585600]# /opt/jboss/jboss-eap/jboss-cli.sh --connect --controller=localhost:9090
+bash: /opt/jboss/jboss-eap/jboss-cli.sh: No such file or directory
+[root@cbrdeapllx471 p585600]#
+[root@cbrdeapllx471 p585600]#
+[root@cbrdeapllx471 p585600]#
+[root@cbrdeapllx471 p585600]# hostname -f
+cbrdeapllx471.extra.caixa.gov.br
+[root@cbrdeapllx471 p585600]# hostname -i
+10.116.97.59
+[root@cbrdeapllx471 p585600]#
+[root@cbrdeapllx471 p585600]#
+[root@cbrdeapllx471 p585600]#
+[root@cbrdeapllx471 p585600]#
+[root@cbrdeapllx471 p585600]#
