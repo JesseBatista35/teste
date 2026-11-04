@@ -1,4 +1,13 @@
-Gagliardi, Patricia, por favor, conseguem alocar outra pessoa para seguir com o atendimento, ou permitir que que o Jesse possa entrar em sala com a gente para resolvermos? Já estamos a semanas com esse atendimento, esta impactando Super App e estamos sendo cobrados diariamente disso. 
+E, se der, faça o teste de mover o pod já, mesmo antes da sala. É rápido, está no seu escopo e, se funcionar, encerra a discussão:
 
+bash
+oc delete pod sipdm-api-estudante-des-266-qlttf -n sipdm-des
+oc get pod -n sipdm-des -o wide | grep estudante
 
-bom primeiro a culpta nao e nsosa de ter duas semasn teve todo o atendomento da chg, e tee o processo do lando do adriano, se nao tivermos as informaso nao adinta entrar em sala, nao vai resolver
+Garanta que o pod novo não caiu no ceadecldlx084. Se cair, delete de novo. Depois teste de dentro do pod novo:
+
+bash
+oc rsh -n sipdm-des <pod-novo>
+timeout 5 bash -c '</dev/tcp/10.116.100.127/1433' && echo OK || echo FALHOU
+
+Se der OK, você chega no grupo com o problema resolvido, e a cobrança acaba ali.
