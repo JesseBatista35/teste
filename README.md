@@ -1,4 +1,4 @@
-Eu entendo que os IPs 10.116.208.104 e 10.116.208.72 são ingress do seu cluster, se ele precisa fazer uma chamada para o banco de dados 10.116.100.127 eles nunca serão o seu egress, então para a chamada não faz diferença você mover o nó, visto que o IP de egress sempre será 10.116.221.183.
- 
-De todo modo eu tenho uma captura da origem 10.116.221.183 para o destino 10.116.100.127 e outra do tipo drop para ver se há drop de pacotes.
- 
+Na captura de drop para o destino 10.116.100.127 não há regra para o 10.116.208.104.
+Se você fez teste para o 10.116.208.72 não ta chegando aqui.
+
+<img width="800" height="399" alt="image" src="https://github.com/user-attachments/assets/8a1ca127-39cb-4cc2-bd37-4512db12597d" />
