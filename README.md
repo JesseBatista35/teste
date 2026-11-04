@@ -1,28 +1,234 @@
-Segue o resumo do caso, que serve para você se situar ou para colar para quem chegar agora:
+
+
+Pesquisar
+Transcrição. Use as setas para navegar entre as entradas da transcrição.
+
+O conteúdo gerado por IA pode estar incorreto
+
+Patricia Vourakis Barbosa Braga começou a transcrição
 
-Caso: SIPDM – sipdm-api-estudante (DES) com erro 500 por falha de conexão ao banco
+Patricia Vourakis Barbosa Braga
+0 minutos 3 segundos0:03
+Patricia Vourakis Barbosa Braga 0 minutos 3 segundos
+Tudo joia, deixa só.
+Patricia Vourakis Barbosa Braga 0 minutos 6 segundos
+Se essa nossa analista entrar.
 
-Sintoma: a aplicação sipdm-api-estudante (namespace sipdm-des, cluster OpenShift NPRD) retorna HTTP 500 em todas as operações. O log mostra SQLServerException: Connect timed out ao conectar no SQL Server do PDM: CRJDEDADNT009 – 10.116.100.127:1433 (banco PDMDB001). Isso impacta o Super App.
+Rodrigo Abreu Costa
+0 minutos 9 segundos0:09
+Rodrigo Abreu Costa 0 minutos 9 segundos
+Okay.
+Rodrigo Abreu Costa 0 minutos 10 segundos
+O.
 
-Como funciona a saída do cluster: cada namespace do OpenShift tem um egress IP próprio, o IP de origem com que seu tráfego sai para a rede. O do sipdm-des é o 10.116.221.183, hospedado no nó ceadecldlx084 (10.116.208.104). Por isso, as regras de firewall foram pedidas com essa origem.
+Patricia Vourakis Barbosa Braga
+0 minutos 17 segundos0:17
+Patricia Vourakis Barbosa Braga 0 minutos 17 segundos
+Só um momento.
 
-Histórico:
+Rodrigo Abreu Costa
+0 minutos 20 segundos0:20
+Rodrigo Abreu Costa 0 minutos 20 segundos
+No.
+J
 
-09/10: identificada a falta de regra de firewall. Aberta a regra 98173 (10.116.221.183 → 10.116.100.127:1433).
-22/10: regra aplicada no CNPRDFW001-1, mas o acesso continuou falhando. A CETEL indicou a necessidade de regra também no trecho CTC ↔ Rio.
-27–28/10: aberta e aplicada a regra 98502/98529 (CHG00017497). A CETEL validou com ping tcp a partir do firewall, com sucesso.
-03–04/11: o pod continuou com timeout. As capturas do Adriano (CETEL) mostraram a causa real.
+Jesse Mouta Pereira Batista
+0 minutos 20 segundos0:20
+Jesse Mouta Pereira Batista 0 minutos 20 segundos
+Patricia Martins.
 
-Causa encontrada:
+Patricia Vourakis Barbosa Braga
+0 minutos 21 segundos0:21
+Patricia Vourakis Barbosa Braga 0 minutos 21 segundos
+Oi, Jose, boa tarde.
+J
 
-O tráfego do pod para o banco não sai com o egress IP 10.116.221.183. Sai com o IP do nó, 10.116.208.104.
-Como não há regra para esse IP, o firewall descarta (acl-drop – Flow is denied by configured rule).
-Movi o pod para outro nó (ceadecldlx052) e o comportamento foi o mesmo: o tráfego continua saindo pelo nó 084 com o IP do nó.
-A configuração no OpenShift está correta (netnamespace e hostsubnet mostram o egress 10.116.221.183 no 084). Na prática, porém, o nó não está aplicando o SNAT do egress IP.
-Outros namespaces saem normalmente com seus egress IPs. Na mesma captura aparecem conexões funcionando para o banco a partir de outros egress IPs.
+Jesse Mouta Pereira Batista
+0 minutos 24 segundos0:24
+Jesse Mouta Pereira Batista 0 minutos 24 segundos
+Alright.
+Jesse Mouta Pereira Batista 0 minutos 25 segundos
+Boa tarde, está me vendo?
+Jesse Mouta Pereira Batista 1 hora 47 minutos 26 segundos
+E aí o que eu estou vendo aqui que ele tem, ele pega o demonstrativo do de R de dados versus dados aqui.
+Jesse Mouta Pereira Batista 1 hora 47 minutos 38 segundos
+Eu acho que nesse ambiente aqui do do do do do RHXEase do 74, ele usa Jackson 2 e essas classes acho que elas estão anotadas como Jackson 1. Então acho que uma sugestão né pra vocês, né? Vocês incluir lá no no year.
+Jesse Mouta Pereira Batista 1 hora 47 minutos 53 segundos
+Lá no Jose deployment structure do XML, é tirar esse rest Jackson 2 provider e incluir o rest is de Jackson provider para o envio do XML.
+L
+Luiz Carlos dos Santos Neto
+1 hora 48 minutos 9 segundos1:48:09
+Luiz Carlos dos Santos Neto 1 hora 48 minutos 9 segundos
+Really.
+J
+Jesse Mouta Pereira Batista
+1 hora 48 minutos 9 segundos1:48:09
+Jesse Mouta Pereira Batista 1 hora 48 minutos 9 segundos
+Deixa eu encerrar esse tail aqui. Eu acho que eu tenho um exemplo disso aqui que eu acho que eu fiz até com o Jefferson uma vez e a gente mandou para o pessoal.
 
-Conclusão: as regras de firewall estão corretas. O problema está no egress IP do OpenShift para o namespace sipdm-des.
+Vinicius Ferreira Veras
+1 hora 48 minutos 20 segundos1:48:20
+Vinicius Ferreira Veras 1 hora 48 minutos 20 segundos
+That.
+J
+Jesse Mouta Pereira Batista
+1 hora 48 minutos 20 segundos1:48:20
+Jesse Mouta Pereira Batista 1 hora 48 minutos 20 segundos
+O desenvolvedor, deixa eu ver se eu consigo passar para vocês aqui, deixa eu só procurar aqui rapidinho.
+Jesse Mouta Pereira Batista 1 hora 48 minutos 36 segundos
+Ó, mandei, acho que o teams aí ele vai desformatar o cara, mas é só pra vocês terem uma ideia.
+Jesse Mouta Pereira Batista 1 hora 48 minutos 43 segundos
+Seria essa inclusão, ó, Jackson 2, ó, tá vendo?
 
-Próximo passo: acionar o time de infraestrutura OpenShift (Fabio) para mover o egress IP 10.116.221.183 para outro nó. Foi a mesma ação que resolveu um caso idêntico no SIHDG-JBOSS8-TQS (WO0000081857473). Depois, validar de dentro do pod com o teste TCP para 10.116.100.127:1433.
+Thiago Jeferson de Sousa Silva
+1 hora 48 minutos 46 segundos1:48:46
+Thiago Jeferson de Sousa Silva 1 hora 48 minutos 46 segundos
+Manda manda no código, Jessé.
+J
+Jesse Mouta Pereira Batista
+1 hora 48 minutos 49 segundos1:48:49
+Jesse Mouta Pereira Batista 1 hora 48 minutos 49 segundos
+Deixa eu mandar no código aqui que fica mais fácil mesmo, é verdade.
+Jesse Mouta Pereira Batista 1 hora 49 minutos
+Aí ó, pronto.
+Jesse Mouta Pereira Batista 1 hora 49 minutos 6 segundos
+Não sei se vocês concordam, está com a.
+Jesse Mouta Pereira Batista 1 hora 49 minutos 10 segundos
+Com a.
+L
+Luiz Carlos dos Santos Neto
+1 hora 49 minutos 13 segundos1:49:13
+Luiz Carlos dos Santos Neto 1 hora 49 minutos 13 segundos
+No.
+J
+Jesse Mouta Pereira Batista
+1 hora 49 minutos 13 segundos1:49:13
+Jesse Mouta Pereira Batista 1 hora 49 minutos 13 segundos
+Vamos colocar essa inclusão, né? Mas é só uma sugestão, tá?
+Jesse Mouta Pereira Batista 1 hora 49 minutos 18 segundos
+Porque eu acho que o Jackson um, ele era do 64, como vocês estão no 74 agora?
+Jesse Mouta Pereira Batista 1 hora 49 minutos 26 segundos
+A gente podia fazer essa tentativa de migrar pro pro 2.
 
-Alternativa descartada: abrir regra para o IP do nó (10.116.208.104). Só funcionaria enquanto o egress estivesse no 084: em manutenção ou falha do nó, ele migra e o problema volta.
+Vinicius Ferreira Veras
+1 hora 49 minutos 30 segundos1:49:30
+Vinicius Ferreira Veras 1 hora 49 minutos 30 segundos
+Mm-hmm.
+J
+Jesse Mouta Pereira Batista
+1 hora 49 minutos 32 segundos1:49:32
+Jesse Mouta Pereira Batista 1 hora 49 minutos 32 segundos
+Hello.
+L
+Luiz Carlos dos Santos Neto
+1 hora 49 minutos 47 segundos1:49:47
+Luiz Carlos dos Santos Neto 1 hora 49 minutos 47 segundos
+Isso daí você consegue fazer agora, não vou ver nisso.
+
+Vinicius Ferreira Veras
+1 hora 49 minutos 52 segundos1:49:52
+Vinicius Ferreira Veras 1 hora 49 minutos 52 segundos
+Luiz, eu acho que eu vou precisar do procote, aquele que manja dessa parte.
+L
+Luiz Carlos dos Santos Neto
+1 hora 49 minutos 57 segundos1:49:57
+Luiz Carlos dos Santos Neto 1 hora 49 minutos 57 segundos
+Mm.
+Luiz Carlos dos Santos Neto 1 hora 50 minutos 1 segundo
+ele foi modificado né Não beleza aí então você vê com ele aí e aí faz as alterações e a gente volta aqui na sala pode ser sim pode ser amanhã também sim
+J
+Jesse Mouta Pereira Batista
+1 hora 50 minutos 2 segundos1:50:02
+Jesse Mouta Pereira Batista 1 hora 50 minutos 2 segundos
+Okay.
+
+Vinicius Ferreira Veras
+1 hora 50 minutos 4 segundos1:50:04
+Vinicius Ferreira Veras 1 hora 50 minutos 4 segundos
+Okay.
+J
+Jesse Mouta Pereira Batista
+1 hora 50 minutos 12 segundos1:50:12
+Jesse Mouta Pereira Batista 1 hora 50 minutos 12 segundos
+Would you say?
+Jesse Mouta Pereira Batista 1 hora 50 minutos 14 segundos
+Não tranquilo, é porque eu ia até falar que o nosso horário aqui é até as 18, mas tem a gente tem uma outra equipe também que fica, não é?
+L
+Luiz Carlos dos Santos Neto
+1 hora 50 minutos 24 segundos1:50:24
+Luiz Carlos dos Santos Neto 1 hora 50 minutos 24 segundos
+Okay.
+J
+Jesse Mouta Pereira Batista
+1 hora 50 minutos 25 segundos1:50:25
+Jesse Mouta Pereira Batista 1 hora 50 minutos 25 segundos
+Até depois, caso precise, é, eu até coloquei aqui só anotação para vocês poder verificar, para poder explicar melhor aí a questão lá do rest ease lá.
+L
+Luiz Carlos dos Santos Neto
+1 hora 50 minutos 37 segundos1:50:37
+Luiz Carlos dos Santos Neto 1 hora 50 minutos 37 segundos
+Beleza, cara, certinho. Então o Vinícius vai fazer a alteração aí e aí a gente volta para conversar. Pode ser amanhã, então.
+J
+Jesse Mouta Pereira Batista
+1 hora 50 minutos 38 segundos1:50:38
+Jesse Mouta Pereira Batista 1 hora 50 minutos 38 segundos
+Beleza?
+
+Vinicius Ferreira Veras
+1 hora 50 minutos 40 segundos1:50:40
+Vinicius Ferreira Veras 1 hora 50 minutos 40 segundos
+Santos.
+J
+Jesse Mouta Pereira Batista
+1 hora 50 minutos 40 segundos1:50:40
+Jesse Mouta Pereira Batista 1 hora 50 minutos 40 segundos
+Come.
+Jesse Mouta Pereira Batista 1 hora 50 minutos 45 segundos
+Tá, tranquilo, tá. Tranquilo, beleza.
+
+Vinicius Ferreira Veras
+1 hora 50 minutos 48 segundos1:50:48
+Vinicius Ferreira Veras 1 hora 50 minutos 48 segundos
+Beleza.
+L
+Luiz Carlos dos Santos Neto
+1 hora 50 minutos 49 segundos1:50:49
+Luiz Carlos dos Santos Neto 1 hora 50 minutos 49 segundos
+Valeu então, gente.
+
+Vinicius Ferreira Veras
+1 hora 50 minutos 50 segundos1:50:50
+Vinicius Ferreira Veras 1 hora 50 minutos 50 segundos
+Valeu, tchau, tchau.
+J
+Jesse Mouta Pereira Batista
+1 hora 50 minutos 50 segundos1:50:50
+Jesse Mouta Pereira Batista 1 hora 50 minutos 50 segundos
+Obrigado, valeu, tchau, tchau.
+L
+Luiz Carlos dos Santos Neto
+1 hora 50 minutos 52 segundos1:50:52
+Luiz Carlos dos Santos Neto 1 hora 50 minutos 52 segundos
+Yeah.
+
+Thiago Jeferson de Sousa Silva
+1 hora 50 minutos 53 segundos1:50:53
+Thiago Jeferson de Sousa Silva 1 hora 50 minutos 53 segundos
+Okay, so.
+J
+Jesse Mouta Pereira Batista
+1 hora 50 minutos 54 segundos1:50:54
+Jesse Mouta Pereira Batista 1 hora 50 minutos 54 segundos
+No.
+
+Patricia Vourakis Barbosa Braga parou a transcrição
+
+
+
+<img width="800" height="540" alt="image" src="https://github.com/user-attachments/assets/3227d44b-8232-48f2-83d7-210ae8bf17b1" />
+
+
+estao no chamando em sala para alinhar esse proble ma do hibarnet.
+
+mais pra mim tinha ficao que o plablo iria aplicar as correçoes e mandar um novo pacote, me ajuda a explicar em sala se relamente é isso eles estao entrao na sala agora
+
