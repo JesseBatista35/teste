@@ -37,3 +37,9 @@ Administrator. It usually boils down to these three things:
 10.116.3.22 - - [04/Nov/2026:14:25:29 -0300] "GET /fec-web/emprest/contrato/recebeDadosEspecificosContratoCarta/ID:c3e2d840c2d9c4f74040404040404040e3886f318f2b2980 HTTP/1.1" 200 7074 "https://migracaosifec.des.caixa/fec-web/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36 Edg/156.0.0.0" application/json 200 7074 7369 343914
 10.116.3.22 - - [04/Nov/2026:14:25:29 -0300] "GET /fec-web/emprest/contrato/recebeDadosEspecificosContratoCarta/ID:c3e2d840c2d9c4f74040404040404040e3886f31c7c7b181 HTTP/1.1" 200 7699 "https://migracaosifec.des.caixa/fec-web/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36 Edg/156.0.0.0" application/json 200 7699 7994 127311
 
+
+
+<img width="1324" height="786" alt="image" src="https://github.com/user-attachments/assets/9b664693-9351-41c8-aa3b-23d75b78a43f" />
+
+
+estamos na sala e ele esta falando que ele tem muitos modulos ele perguntou se da pra ir pegando os pacotes deploy e do antigo 6.4 e ir colocand oaqui
