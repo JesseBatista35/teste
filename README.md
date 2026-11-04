@@ -1,21 +1,11 @@
+# É egress IP?
+oc get egressip -o wide | grep 192.168.236.173
+oc get hostsubnet 2>/dev/null | grep 236.173        # se o cluster for OpenShift SDN
 
-[sudo] senha para p585600:
-[p585600@caddeapllx1580 ~]$
-[p585600@caddeapllx1580 ~]$
-[p585600@caddeapllx1580 ~]$ sudo journalctl -u NetworkManager --since "2026-10-01" | grep -iE 'conflict|duplicate|192.168.236'
-[p585600@caddeapllx1580 ~]$
-[p585600@caddeapllx1580 ~]$
-[p585600@caddeapllx1580 ~]$ sudo nmcli -f NAME,DEVICE,STATE,FILENAME con show
-NAME                         DEVICE  STATE    FILENAME
-VMware customization ens192  ens192  ativado  /etc/NetworkManager/system-connections/VMware-customization-ens192.nmconnection
-lo                           lo      ativado  /run/NetworkManager/system-connections/lo.nmconnection
-VMware customization ens224  --      --       /etc/NetworkManager/system-connections/VMware-customization-ens224.nmconnection
-[p585600@caddeapllx1580 ~]$
-[p585600@caddeapllx1580 ~]$
-[p585600@caddeapllx1580 ~]$
-[p585600@caddeapllx1580 ~]$
-[p585600@caddeapllx1580 ~]$ sudo grep -rn 192.168 /etc/NetworkManager/system-connections/ /etc/sysconfig/network-scripts/ 2>/dev/null
-/etc/NetworkManager/system-connections/VMware-customization-ens224.nmconnection:17:address1=192.168.236.173/19
-[p585600@caddeapllx1580 ~]$
-[p585600@caddeapllx1580 ~]$
-[p585600@caddeapllx1580 ~]$
+# Está na interface do nó?
+oc debug node/ceadecldlx071.nprd.caixa -- chroot /host sh -c \
+  'ip -4 addr | grep -B2 236.173; nmcli -f NAME,DEVICE,FILENAME con show; grep -rn 192.168 /etc/NetworkManager/system-connections/'
+
+# A config de rede vem de MachineConfig ou NMState? (se vier, editar no nó é sobrescrito)
+oc get nncp 2>/dev/null
+oc get mc | grep -iE 'net|nm|ens'
