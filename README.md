@@ -1,3 +1,41 @@
-<img width="989" height="731" alt="image" src="https://github.com/user-attachments/assets/82f941c0-7053-4ae5-a488-d245b01900f9" />
+                   "workflow-credito-pj-web.war" => {
+                        "allow-any-hostname" => false,
+                        "always-refresh-token" => false,
+                        "auth-server-url" => undefined,
+                        "auth-server-url-for-backend-requests" => undefined,
+                        "bearer-only" => false,
+                        "client-key-password" => undefined,
+                        "client-keystore" => undefined,
+                        "client-keystore-password" => undefined,
+                        "connection-pool-size" => undefined,
+                        "cors-allowed-headers" => undefined,
+                        "cors-allowed-methods" => undefined,
+                        "cors-max-age" => undefined,
+                        "disable-trust-manager" => false,
+                        "enable-basic-auth" => false,
+                        "enable-cors" => false,
+                        "expose-token" => false,
+                        "min-time-between-jwks-requests" => undefined,
+                        "principal-attribute" => undefined,
+                        "proxy-url" => undefined,
+                        "public-client" => false,
+                        "public-key-cache-ttl" => undefined,
+                        "realm" => "intranet",
+                        "realm-public-key" => undefined,
+                        "register-node-at-startup" => false,
+                        "register-node-period" => undefined,
+                        "resource" => "cli-web-fec",
+                        "ssl-required" => "external",
+                        "token-minimum-time-to-live" => undefined,
+                        "token-store" => undefined,
+                        "truststore" => undefined,
+                        "truststore-password" => undefined,
+                        "turn-off-change-session-id-on-login" => false,
+                        "use-resource-role-mappings" => false,
+                        "verify-token-audience" => false,
+                        "credential" => {"secret" => {"value" => "36ab01d0-f1a5-4b1b-9a76-839553c7a6a9"}}
+                    },
 
 
+
+                    eeles estao perguntam em sala se o pj tem isso aqui
