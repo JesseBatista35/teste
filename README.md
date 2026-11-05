@@ -1,7 +1,3 @@
-1. Corrija o SIFEC (no 471, dentro do jboss-cli):
-
-/server-group=sifec-intranet/deployment=SIFEC:redeploy
-
-Depois confira no 473 se os erros pararam:
-
-sudo tail -20 /opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/server.log | grep -c NoSuchFileException
+cd $HOME\Downloads
+tar -tf arqref-services-3.28.0.jar | findstr /i "ContratoSifbnServiceIface consultacontratos"
+tar -tf workflow-credito-pj-ear-8.40.1-20261105.100217-6.ear | findstr /i "arqref"
