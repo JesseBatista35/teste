@@ -1,60 +1,218 @@
-Relatório Detalhado da Reunião
-Data: Conforme transcrição disponibilizada
-Condução: Jander Ricardo Garcia Marques
-Participantes citados: Flavio de Almeida Gagliardi, Patricia Vourakis Barbosa Braga, Bruno Aparecido Marques, Fabio Pereira Siqueira, Jesse Mouta Pereira Batista, Marcos Aurelio da Silva Cavaco
-Resumo Executivo
-A reunião teve como foco o tratamento de demandas relacionadas ao contexto de ADDR/DDR e uma necessidade apresentada envolvendo o sistema CIPGEC. Foi alinhado que a equipe técnica deveria ser envolvida inicialmente para apresentação dos requisitos e esclarecimento das necessidades, ficando as deliberações e decisões posteriores sob responsabilidade da coordenação representada por Flávio Gagliardi.
-Não foram identificados erros técnicos, falhas operacionais ou incidentes durante o trecho disponibilizado da transcrição. A principal orientação foi garantir a participação dos técnicos responsáveis para avaliação da demanda antes de qualquer decisão.
-Pontos Principais Abordados
-Tema	Descrição
-CIPGEC	Solicitação de avaliação de demanda relacionada ao CIPGEC dentro do contexto do ADDR/DDR.
-Avaliação Técnica	Necessidade de participação da equipe técnica para entendimento do escopo e levantamento das necessidades.
-Governança da Demanda	Deliberação condicionada à análise prévia dos técnicos envolvidos.
-Coordenação	Flávio informou que avaliaria o tema após receber os esclarecimentos técnicos necessários.
-Erros ou Problemas Identificados
-Não foram registrados erros técnicos ou falhas operacionais no trecho da reunião disponibilizado.
-Item	Situação
-Erros de aplicação	Não identificado
-Incidentes em ambiente	Não identificado
-Bloqueios técnicos	Não identificado
-Pendências críticas	Não identificadas
-🟢 Status Geral: Sem registros de incidentes ou desvios durante a reunião.
-Soluções e Encaminhamentos Aplicados
-Solução/Encaminhamento	Objetivo
-Acionamento da equipe técnica	Levantar requisitos e esclarecer a necessidade apresentada.
-Análise preliminar da demanda	Compreensão do impacto no contexto do ADDR/DDR.
-Deliberação posterior da coordenação	Tomada de decisão baseada na avaliação técnica.
-Semáforo das Atividades
-Item	Status
-Identificação da demanda CIPGEC	🟢 Concluída
-Acionamento da equipe técnica	🟢 Concluído
-Levantamento dos requisitos	🟡 Em andamento
-Avaliação da coordenação	🟡 Pendente
-Definição dos próximos encaminhamentos	🟡 Pendente
-Implementações ou correções	⚪ Não iniciadas
- 
-Responsáveis
-Responsável	Atuação
-Flavio Gagliardi	Avaliação e deliberação da demanda após análise técnica.
-Patricia Braga	Acionamento e envolvimento da equipe técnica.
-Equipe Técnica	Levantamento de requisitos, análise e esclarecimento da necessidade apresentada.
-Orientações Repassadas
-Orientações de Flávio Gagliardi
-Envolver os técnicos responsáveis para entendimento detalhado da demanda.
-Realizar esclarecimentos antes da tomada de qualquer decisão.
-Submeter as conclusões para avaliação e deliberação da coordenação.
-Garantir que eventuais impactos no ADDR/DDR sejam devidamente avaliados.
-Orientações Operacionais
-Não avançar com definições sem validação técnica.
-Registrar os requisitos identificados.
-Formalizar os encaminhamentos resultantes da análise.
-Manter comunicação entre coordenação e equipes envolvidas.
-Próximos Passos
-Ação	Responsável	Prazo	Status
-Realizar entendimento detalhado da demanda CIPGEC	Equipe Técnica	A definir	🟡
-Levantar requisitos e impactos	Equipe Técnica	A definir	🟡
-Consolidar informações para apresentação	Patricia Braga	Após análise técnica	🟡
-Avaliar e deliberar sobre a demanda	Flavio Gagliardi	Após recebimento dos insumos	🟡
-Definir plano de ação e responsáveis	Coordenação e Equipe Técnica	A definir	⚪
-Conclusão
-A reunião teve caráter principalmente organizacional e de alinhamento. Foi definido que a demanda relacionada ao CIPGEC deverá passar por avaliação técnica antes de qualquer decisão formal. Não foram identificados erros, incidentes ou riscos críticos no conteúdo disponibilizado. O foco permanece no levantamento adequado dos requisitos, análise dos impactos e posterior deliberação pela coordenação.
+
+Marcos Aurelio da Silva Cavaco
+53 minutos 29 segundos53:29
+Marcos Aurelio da Silva Cavaco 53 minutos 29 segundos
+Dentro do VIP, desses contextos, a gente conseguiria fazer validar somente esse nó, se de fato ele conseguir atender as demandas de vocês.
+FS
+Fabio Pereira Siqueira
+53 minutos 33 segundos53:33
+Fabio Pereira Siqueira 53 minutos 33 segundos
+Maybe.
+Fabio Pereira Siqueira 53 minutos 37 segundos
+Santos.
+Fabio Pereira Siqueira 53 minutos 44 segundos
+Okay.
+Fabio Pereira Siqueira 53 minutos 45 segundos
+Yes.
+
+Marcos Aurelio da Silva Cavaco
+53 minutos 45 segundos53:45
+Marcos Aurelio da Silva Cavaco 53 minutos 45 segundos
+Porque o que tinha de ser aplicado de correção era a inserção daqueles dados ali que que eu tinha removido, tá? Foi eu que removi.
+FS
+Fabio Pereira Siqueira
+53 minutos 48 segundos53:48
+Fabio Pereira Siqueira 53 minutos 48 segundos
+No.
+Fabio Pereira Siqueira 53 minutos 51 segundos
+No.
+Fabio Pereira Siqueira 53 minutos 55 segundos
+Então, para efeitos práticos, o que a gente precisa nesse momento aqui é bater o martelo, se a gente avança com a aplicação da sua correção ou não, é isso?
+
+Marcos Aurelio da Silva Cavaco
+54 minutos 2 segundos54:02
+Marcos Aurelio da Silva Cavaco 54 minutos 2 segundos
+Exatamente, exatamente, o que tinha sido removido aqui foram esses detalhes.
+FS
+Fabio Pereira Siqueira
+54 minutos 5 segundos54:05
+Fabio Pereira Siqueira 54 minutos 5 segundos
+For Jander e Bruno.
+
+Jander Ricardo Garcia Marques
+54 minutos 7 segundos54:07
+Jander Ricardo Garcia Marques 54 minutos 7 segundos
+o seguinte e aqui falar que educação de
+Jander Ricardo Garcia Marques 54 minutos 12 segundos
+Então eu acho que tem que aplicar e testar, fazer todos os testes possíveis, fazer deploy, ver se porque a gente começou a ter aquele problema de sensibilizar o deploy, né o Fábio?
+FS
+Fabio Pereira Siqueira
+54 minutos 13 segundos54:13
+Fabio Pereira Siqueira 54 minutos 13 segundos
+Nothing.
+Fabio Pereira Siqueira 54 minutos 16 segundos
+Uh-huh.
+Fabio Pereira Siqueira 54 minutos 18 segundos
+É só ficar antenado no Francisco.
+Fabio Pereira Siqueira 54 minutos 23 segundos
+Yes.
+
+Jander Ricardo Garcia Marques
+54 minutos 24 segundos54:24
+Jander Ricardo Garcia Marques 54 minutos 24 segundos
+Tem que fazer todo os testes.
+FS
+Fabio Pereira Siqueira
+54 minutos 29 segundos54:29
+Fabio Pereira Siqueira 54 minutos 29 segundos
+Mas a então, mas a pergunta é, podemos aplicar?
+F
+Flavio de Almeida Gagliardi
+54 minutos 29 segundos54:29
+Flavio de Almeida Gagliardi 54 minutos 29 segundos
+Vocês vão, vocês precisam de apoio para fazer.
+
+Jander Ricardo Garcia Marques
+54 minutos 39 segundos54:39
+Jander Ricardo Garcia Marques 54 minutos 39 segundos
+Entendo que pode.
+FS
+Fabio Pereira Siqueira
+54 minutos 39 segundos54:39
+Fabio Pereira Siqueira 54 minutos 39 segundos
+FK.
+Fabio Pereira Siqueira 54 minutos 42 segundos
+Bruno, você vê algum tem alguma objeção para aplicar, não?
+
+Marcos Aurelio da Silva Cavaco
+54 minutos 46 segundos54:46
+Marcos Aurelio da Silva Cavaco 54 minutos 46 segundos
+Okay.
+
+Jander Ricardo Garcia Marques
+54 minutos 47 segundos54:47
+Jander Ricardo Garcia Marques 54 minutos 47 segundos
+Aí, o Flávio, a gente só vai precisar se a gente detectar algum problema, a gente visitar vocês.
+BM
+Bruno Aparecido Marques
+54 minutos 49 segundos54:49
+Bruno Aparecido Marques 54 minutos 49 segundos
+Good.
+F
+Flavio de Almeida Gagliardi
+54 minutos 51 segundos54:51
+Flavio de Almeida Gagliardi 54 minutos 51 segundos
+Ah, sim, não detectou, está bom, detectou o problema. Pode me marcar aqui nessa sala mesmo ou a Patricia que a gente já loca um técnico para verificar imediatamente.
+
+Jander Ricardo Garcia Marques
+55 minutos 4 segundos55:04
+Jander Ricardo Garcia Marques 55 minutos 4 segundos
+It is.
+F
+Flavio de Almeida Gagliardi
+55 minutos 4 segundos55:04
+Flavio de Almeida Gagliardi 55 minutos 4 segundos
+E voltar ao ambiente, se for caso.
+FS
+Fabio Pereira Siqueira
+55 minutos 5 segundos55:05
+Fabio Pereira Siqueira 55 minutos 5 segundos
+Beleza, então.
+
+Marcos Aurelio da Silva Cavaco
+55 minutos 7 segundos55:07
+Marcos Aurelio da Silva Cavaco 55 minutos 7 segundos
+Se it for o caso a gente fazer o rollback, né?
+BM
+Bruno Aparecido Marques
+55 minutos 8 segundos55:08
+Bruno Aparecido Marques 55 minutos 8 segundos
+You so.
+F
+Flavio de Almeida Gagliardi
+55 minutos 10 segundos55:10
+Flavio de Almeida Gagliardi 55 minutos 10 segundos
+He is, is there.
+FS
+Fabio Pereira Siqueira
+55 minutos 12 segundos55:12
+Fabio Pereira Siqueira 55 minutos 12 segundos
+Então, Cavaco, você tem, eu acho que você tem o que você precisaria de resposta e aí o Flavio, a gente quanto aquela pergunta inicial, a gente segue naquela, a gente vai conversar aqui, mas a gente vai tentar seguir naquela ideia de nós vamos subir um ambiente quebrando.
+
+Jander Ricardo Garcia Marques
+55 minutos 13 segundos55:13
+Jander Ricardo Garcia Marques 55 minutos 13 segundos
+Santos.
+Jander Ricardo Garcia Marques 55 minutos 17 segundos
+Hey.
+
+Marcos Aurelio da Silva Cavaco
+55 minutos 17 segundos55:17
+Marcos Aurelio da Silva Cavaco 55 minutos 17 segundos
+Mhm.
+F
+Flavio de Almeida Gagliardi
+55 minutos 23 segundos55:23
+Flavio de Almeida Gagliardi 55 minutos 23 segundos
+Tá bom?
+FS
+Fabio Pereira Siqueira
+55 minutos 29 segundos55:29
+Fabio Pereira Siqueira 55 minutos 29 segundos
+Pedindo apoio, sabendo que você precisa.
+F
+Flavio de Almeida Gagliardi
+55 minutos 29 segundos55:29
+Flavio de Almeida Gagliardi 55 minutos 29 segundos
+Sim.
+Flavio de Almeida Gagliardi 55 minutos 32 segundos
+Tá bom, fechado, cara.
+FS
+Fabio Pereira Siqueira
+55 minutos 33 segundos55:33
+Fabio Pereira Siqueira 55 minutos 33 segundos
+Okay.
+
+Marcos Aurelio da Silva Cavaco
+55 minutos 37 segundos55:37
+Marcos Aurelio da Silva Cavaco 55 minutos 37 segundos
+Pessoal, espero ter conseguido ajudar vocês aí no que foi pedido, né?
+FS
+Fabio Pereira Siqueira
+56 minutos 33 segundos56:33
+Fabio Pereira Siqueira 56 minutos 33 segundos
+Okay.
+
+Jander Ricardo Garcia Marques
+56 minutos 34 segundos56:34
+Jander Ricardo Garcia Marques 56 minutos 34 segundos
+Até mais.
+
+Marcos Aurelio da Silva Cavaco
+56 minutos 36 segundos56:36
+Marcos Aurelio da Silva Cavaco 56 minutos 36 segundos
+chama aqui Jesus depois valeu
+J
+Jesse Mouta Pereira Batista
+56 minutos 37 segundos56:37
+Jesse Mouta Pereira Batista 56 minutos 37 segundos
+Tá beleza, chama aí, valeu.
+
+Patricia Vourakis Barbosa Braga
+56 minutos 40 segundos56:40
+Patricia Vourakis Barbosa Braga 56 minutos 40 segundos
+Brigadão, gente.
+J
+Jesse Mouta Pereira Batista
+56 minutos 41 segundos56:41
+Jesse Mouta Pereira Batista 56 minutos 41 segundos
+Nada.
+Jesse Mouta Pereira Batista 56 minutos 43 segundos
+Thanks. Tchau.
+
+Patricia Vourakis Barbosa Braga
+56 minutos 43 segundos56:43
+Patricia Vourakis Barbosa Braga 56 minutos 43 segundos
+Show.
+
+Jander Ricardo Garcia Marques parou a transcrição
