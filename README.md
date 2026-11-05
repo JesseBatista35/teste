@@ -24,9 +24,6 @@ rm -f /tmp/props_pj.cli
 
 
 
-
--sh-4.1$
--sh-4.1$ cat /tmp/props_pj.cli
 /server-group=sifec-intranet/system-property=URL_BARRAMENTO:add(value="http://des.barramento.caixa/")
 /server-group=sifec-intranet/system-property=SILCR_URL_BROKER_SIBAR:add(value="http://des.barramento.caixa")
 /server-group=sifec-intranet/system-property=SSO_SERVICO_CLIENT_ID:add(value="cli-ser-fec")
@@ -48,7 +45,9 @@ rm -f /tmp/props_pj.cli
 /server-group=sifec-intranet/system-property=SICCR_PJ_TESTE_MOCK_RETORNO_SICLI:add(value="true")
 /server-group=sifec-intranet/system-property=SICCR_PJ_IS_SICLI_REST_MOCK:add(value="true")
 /server-group=sifec-intranet/system-property=AMBIENTE_APLICACAO:add(value="DES")
--sh-4.1$
 
 
-me manda o comando ja proint para rodar
+
+/server-group=sifec-intranet/system-property=SICCR_PJ_IS_SICLI_REST_MOCK:read-attribute(name=value)
+/server-group=sifec-intranet:restart-servers(blocking=true)
+/host=hc_cbrdeapllx473/server=sifec-intranet_node1_lx473:read-attribute(name=server-state)
