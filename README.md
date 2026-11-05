@@ -1,23 +1,328 @@
-1. Confirmar se o token está sendo enviado. No console do 7.4, expanda o headers: {...} de uma linha get .../perfil-acesso-usuario. Ou, na aba Rede, abra a chamada e veja os cabeçalhos da requisição. Deve haver Authorization: Bearer eyJ....
+<secure-deployment name="ccr-parametros-web.war">
+                <realm>intranet</realm>
+                <resource>cli-web-fec</resource>
+                <credential name="secret">36ab01d0-f1a5-4b1b-9a76-839553c7a6a9</credential>
+            </secure-deployment>
+            <secure-deployment name="ccr-parametros-api.war">
+                <realm>intranet</realm>
+                <resource>cli-web-fec</resource>
+                <credential name="secret">36ab01d0-f1a5-4b1b-9a76-839553c7a6a9</credential>
+            </secure-deployment>
 
-Se não houver: o Angular do PJ não pegou o token do SIFEC.
-Se houver: o token chega, mas o Keycloak do PJ não o aceita. Vá para o passo 2.
+            o prokot entrou na sala e falou desse contexto aqui que ele colocou em outra aploicaçao
 
-2. Ligar o DEBUG do Keycloak para ver por que o token é recusado (no jboss-cli do 471, servidor running):
 
-/profile=full-ha-sifec-intranet/subsystem=logging/logger=org.keycloak:add(level=DEBUG)
+            
 
-Se o handler FILE estiver em INFO, ajuste como falamos antes. Peça para abrirem o PJ de novo e veja no 473:
+[sudo] password for p585600:
+            cookie=OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            header=Cookie=JSESSIONID="DejusKc6vAOpca465u_WI2_4kLykDhB6vNItIiPR.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            cookie=OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            header=Cookie=JSESSIONID="DejusKc6vAOpca465u_WI2_4kLykDhB6vNItIiPR.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            cookie=OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            header=Cookie=JSESSIONID="DejusKc6vAOpca465u_WI2_4kLykDhB6vNItIiPR.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            cookie=OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            header=Cookie=JSESSIONID="DejusKc6vAOpca465u_WI2_4kLykDhB6vNItIiPR.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            cookie=OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            header=Cookie=JSESSIONID="DejusKc6vAOpca465u_WI2_4kLykDhB6vNItIiPR.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            cookie=OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            header=Cookie=JSESSIONID="DejusKc6vAOpca465u_WI2_4kLykDhB6vNItIiPR.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            cookie=OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            header=Cookie=JSESSIONID="DejusKc6vAOpca465u_WI2_4kLykDhB6vNItIiPR.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            cookie=OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            header=Cookie=JSESSIONID="DejusKc6vAOpca465u_WI2_4kLykDhB6vNItIiPR.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            cookie=OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            header=Cookie=JSESSIONID="DejusKc6vAOpca465u_WI2_4kLykDhB6vNItIiPR.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            cookie=OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            header=Cookie=JSESSIONID="DejusKc6vAOpca465u_WI2_4kLykDhB6vNItIiPR.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            cookie=OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            header=Cookie=JSESSIONID="DejusKc6vAOpca465u_WI2_4kLykDhB6vNItIiPR.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            cookie=OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            header=Cookie=JSESSIONID="DejusKc6vAOpca465u_WI2_4kLykDhB6vNItIiPR.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            cookie=OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            header=Cookie=JSESSIONID="DejusKc6vAOpca465u_WI2_4kLykDhB6vNItIiPR.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            cookie=OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            header=Cookie=JSESSIONID="DejusKc6vAOpca465u_WI2_4kLykDhB6vNItIiPR.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            cookie=OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            header=Cookie=JSESSIONID="DejusKc6vAOpca465u_WI2_4kLykDhB6vNItIiPR.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            cookie=OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            header=Cookie=JSESSIONID="DejusKc6vAOpca465u_WI2_4kLykDhB6vNItIiPR.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            cookie=OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            header=Cookie=JSESSIONID="DejusKc6vAOpca465u_WI2_4kLykDhB6vNItIiPR.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            cookie=OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            header=Cookie=JSESSIONID="DejusKc6vAOpca465u_WI2_4kLykDhB6vNItIiPR.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            cookie=OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            header=Cookie=JSESSIONID="DejusKc6vAOpca465u_WI2_4kLykDhB6vNItIiPR.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            cookie=OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            header=Cookie=JSESSIONID="DejusKc6vAOpca465u_WI2_4kLykDhB6vNItIiPR.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            cookie=OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            header=Cookie=JSESSIONID="DejusKc6vAOpca465u_WI2_4kLykDhB6vNItIiPR.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            cookie=OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            header=Cookie=JSESSIONID="DejusKc6vAOpca465u_WI2_4kLykDhB6vNItIiPR.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            cookie=OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            header=Cookie=JSESSIONID="DejusKc6vAOpca465u_WI2_4kLykDhB6vNItIiPR.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            cookie=OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            header=Cookie=JSESSIONID="DejusKc6vAOpca465u_WI2_4kLykDhB6vNItIiPR.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            cookie=OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            header=Cookie=JSESSIONID="DejusKc6vAOpca465u_WI2_4kLykDhB6vNItIiPR.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            cookie=OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            header=Cookie=JSESSIONID="DejusKc6vAOpca465u_WI2_4kLykDhB6vNItIiPR.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            cookie=OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            header=Cookie=JSESSIONID="DejusKc6vAOpca465u_WI2_4kLykDhB6vNItIiPR.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            cookie=OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            header=Cookie=JSESSIONID="DejusKc6vAOpca465u_WI2_4kLykDhB6vNItIiPR.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            cookie=OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            header=Cookie=JSESSIONID="DejusKc6vAOpca465u_WI2_4kLykDhB6vNItIiPR.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            cookie=OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            header=Cookie=JSESSIONID="DejusKc6vAOpca465u_WI2_4kLykDhB6vNItIiPR.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            cookie=OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            header=Cookie=JSESSIONID="DejusKc6vAOpca465u_WI2_4kLykDhB6vNItIiPR.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            cookie=OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            header=Cookie=JSESSIONID="DejusKc6vAOpca465u_WI2_4kLykDhB6vNItIiPR.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            cookie=OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            header=Cookie=JSESSIONID="DejusKc6vAOpca465u_WI2_4kLykDhB6vNItIiPR.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            cookie=OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            header=Cookie=JSESSIONID="DejusKc6vAOpca465u_WI2_4kLykDhB6vNItIiPR.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            cookie=OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            header=Cookie=JSESSIONID="DejusKc6vAOpca465u_WI2_4kLykDhB6vNItIiPR.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            cookie=OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            header=Cookie=JSESSIONID="DejusKc6vAOpca465u_WI2_4kLykDhB6vNItIiPR.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            cookie=OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            header=Cookie=JSESSIONID="DejusKc6vAOpca465u_WI2_4kLykDhB6vNItIiPR.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            cookie=OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            header=Cookie=JSESSIONID="DejusKc6vAOpca465u_WI2_4kLykDhB6vNItIiPR.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            cookie=OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            header=Cookie=JSESSIONID="DejusKc6vAOpca465u_WI2_4kLykDhB6vNItIiPR.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            cookie=OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            header=Cookie=JSESSIONID="DejusKc6vAOpca465u_WI2_4kLykDhB6vNItIiPR.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            cookie=OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            header=Cookie=JSESSIONID="DejusKc6vAOpca465u_WI2_4kLykDhB6vNItIiPR.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            cookie=OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            header=Cookie=JSESSIONID="DejusKc6vAOpca465u_WI2_4kLykDhB6vNItIiPR.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            cookie=OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            header=Cookie=JSESSIONID="DejusKc6vAOpca465u_WI2_4kLykDhB6vNItIiPR.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            cookie=OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            header=Cookie=JSESSIONID="DejusKc6vAOpca465u_WI2_4kLykDhB6vNItIiPR.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            cookie=OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            header=Cookie=JSESSIONID="DejusKc6vAOpca465u_WI2_4kLykDhB6vNItIiPR.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            cookie=OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            header=Cookie=JSESSIONID="DejusKc6vAOpca465u_WI2_4kLykDhB6vNItIiPR.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            cookie=OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            header=Cookie=JSESSIONID="DejusKc6vAOpca465u_WI2_4kLykDhB6vNItIiPR.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            cookie=OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            header=Cookie=JSESSIONID="DejusKc6vAOpca465u_WI2_4kLykDhB6vNItIiPR.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            cookie=OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            header=Cookie=JSESSIONID="DejusKc6vAOpca465u_WI2_4kLykDhB6vNItIiPR.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            cookie=OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            header=Cookie=JSESSIONID="DejusKc6vAOpca465u_WI2_4kLykDhB6vNItIiPR.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            cookie=OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            header=Cookie=JSESSIONID="DejusKc6vAOpca465u_WI2_4kLykDhB6vNItIiPR.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            cookie=OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            header=Cookie=JSESSIONID="DejusKc6vAOpca465u_WI2_4kLykDhB6vNItIiPR.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            cookie=OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            header=Cookie=JSESSIONID="DejusKc6vAOpca465u_WI2_4kLykDhB6vNItIiPR.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            cookie=OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            header=Cookie=JSESSIONID="DejusKc6vAOpca465u_WI2_4kLykDhB6vNItIiPR.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            cookie=OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            header=Cookie=JSESSIONID="DejusKc6vAOpca465u_WI2_4kLykDhB6vNItIiPR.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            cookie=OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            header=Cookie=JSESSIONID="DejusKc6vAOpca465u_WI2_4kLykDhB6vNItIiPR.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            cookie=OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            header=Cookie=JSESSIONID="DejusKc6vAOpca465u_WI2_4kLykDhB6vNItIiPR.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            cookie=OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            header=Cookie=JSESSIONID="DejusKc6vAOpca465u_WI2_4kLykDhB6vNItIiPR.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            cookie=OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            header=Cookie=JSESSIONID="DejusKc6vAOpca465u_WI2_4kLykDhB6vNItIiPR.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            cookie=OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            header=Cookie=JSESSIONID="DejusKc6vAOpca465u_WI2_4kLykDhB6vNItIiPR.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            cookie=OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            header=Cookie=JSESSIONID="DejusKc6vAOpca465u_WI2_4kLykDhB6vNItIiPR.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            cookie=OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            header=Cookie=JSESSIONID="DejusKc6vAOpca465u_WI2_4kLykDhB6vNItIiPR.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            cookie=OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            header=Cookie=JSESSIONID="DejusKc6vAOpca465u_WI2_4kLykDhB6vNItIiPR.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            cookie=OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            header=Cookie=JSESSIONID="DejusKc6vAOpca465u_WI2_4kLykDhB6vNItIiPR.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            cookie=OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            header=Cookie=JSESSIONID="DejusKc6vAOpca465u_WI2_4kLykDhB6vNItIiPR.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            cookie=OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            header=Cookie=JSESSIONID="DejusKc6vAOpca465u_WI2_4kLykDhB6vNItIiPR.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            cookie=OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            header=Cookie=JSESSIONID="DejusKc6vAOpca465u_WI2_4kLykDhB6vNItIiPR.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            cookie=OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            header=Cookie=JSESSIONID="DejusKc6vAOpca465u_WI2_4kLykDhB6vNItIiPR.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            cookie=OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            header=Cookie=JSESSIONID="DejusKc6vAOpca465u_WI2_4kLykDhB6vNItIiPR.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            cookie=OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            header=Cookie=JSESSIONID="DejusKc6vAOpca465u_WI2_4kLykDhB6vNItIiPR.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            cookie=OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            header=Cookie=JSESSIONID="DejusKc6vAOpca465u_WI2_4kLykDhB6vNItIiPR.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+               URI=/fec-web/emprest/app/token/json
+            cookie=OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            header=Cookie=JSESSIONID="DejusKc6vAOpca465u_WI2_4kLykDhB6vNItIiPR.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            cookie=OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            header=Cookie=JSESSIONID="DejusKc6vAOpca465u_WI2_4kLykDhB6vNItIiPR.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            cookie=OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            header=Cookie=JSESSIONID="DejusKc6vAOpca465u_WI2_4kLykDhB6vNItIiPR.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+               URI=/fec-web/emprest/app/login/workflow-credito-pj-web
+            cookie=OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            header=Cookie=JSESSIONID="DejusKc6vAOpca465u_WI2_4kLykDhB6vNItIiPR.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            cookie=OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            header=Cookie=JSESSIONID="DejusKc6vAOpca465u_WI2_4kLykDhB6vNItIiPR.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            cookie=OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            header=Cookie=JSESSIONID="DejusKc6vAOpca465u_WI2_4kLykDhB6vNItIiPR.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=31599238-08c8-4e93-a9b1-89652c70ecff
+            cookie=OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            header=Cookie=JSESSIONID="yawQKI0X3njJbGW0nCIVvSX2xP47EL--DZIXAh42.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            cookie=OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            header=Cookie=JSESSIONID="yawQKI0X3njJbGW0nCIVvSX2xP47EL--DZIXAh42.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            cookie=OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            header=Cookie=JSESSIONID="yawQKI0X3njJbGW0nCIVvSX2xP47EL--DZIXAh42.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            cookie=OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            header=Cookie=JSESSIONID="yawQKI0X3njJbGW0nCIVvSX2xP47EL--DZIXAh42.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            cookie=OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            header=Cookie=JSESSIONID="yawQKI0X3njJbGW0nCIVvSX2xP47EL--DZIXAh42.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            cookie=OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            header=Cookie=JSESSIONID="yawQKI0X3njJbGW0nCIVvSX2xP47EL--DZIXAh42.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            cookie=OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            header=Cookie=JSESSIONID="yawQKI0X3njJbGW0nCIVvSX2xP47EL--DZIXAh42.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            cookie=OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            header=Cookie=JSESSIONID="yawQKI0X3njJbGW0nCIVvSX2xP47EL--DZIXAh42.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            cookie=OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            header=Cookie=JSESSIONID="yawQKI0X3njJbGW0nCIVvSX2xP47EL--DZIXAh42.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            cookie=OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            header=Cookie=JSESSIONID="yawQKI0X3njJbGW0nCIVvSX2xP47EL--DZIXAh42.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            cookie=OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            header=Cookie=JSESSIONID="yawQKI0X3njJbGW0nCIVvSX2xP47EL--DZIXAh42.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            cookie=OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            header=Cookie=JSESSIONID="yawQKI0X3njJbGW0nCIVvSX2xP47EL--DZIXAh42.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            cookie=OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            header=Cookie=JSESSIONID="yawQKI0X3njJbGW0nCIVvSX2xP47EL--DZIXAh42.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            cookie=OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            header=Cookie=JSESSIONID="yawQKI0X3njJbGW0nCIVvSX2xP47EL--DZIXAh42.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            cookie=OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            header=Cookie=JSESSIONID="yawQKI0X3njJbGW0nCIVvSX2xP47EL--DZIXAh42.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            cookie=OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            header=Cookie=JSESSIONID="yawQKI0X3njJbGW0nCIVvSX2xP47EL--DZIXAh42.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            cookie=OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            header=Cookie=JSESSIONID="yawQKI0X3njJbGW0nCIVvSX2xP47EL--DZIXAh42.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            cookie=OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            header=Cookie=JSESSIONID="yawQKI0X3njJbGW0nCIVvSX2xP47EL--DZIXAh42.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            cookie=OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            header=Cookie=JSESSIONID="yawQKI0X3njJbGW0nCIVvSX2xP47EL--DZIXAh42.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            cookie=OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            header=Cookie=JSESSIONID="yawQKI0X3njJbGW0nCIVvSX2xP47EL--DZIXAh42.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            cookie=OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            header=Cookie=JSESSIONID="yawQKI0X3njJbGW0nCIVvSX2xP47EL--DZIXAh42.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            cookie=OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            header=Cookie=JSESSIONID="yawQKI0X3njJbGW0nCIVvSX2xP47EL--DZIXAh42.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            cookie=OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            header=Cookie=JSESSIONID="yawQKI0X3njJbGW0nCIVvSX2xP47EL--DZIXAh42.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            cookie=OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            header=Cookie=JSESSIONID="yawQKI0X3njJbGW0nCIVvSX2xP47EL--DZIXAh42.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            cookie=OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            header=Cookie=JSESSIONID="yawQKI0X3njJbGW0nCIVvSX2xP47EL--DZIXAh42.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            cookie=OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            header=Cookie=JSESSIONID="yawQKI0X3njJbGW0nCIVvSX2xP47EL--DZIXAh42.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            cookie=OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            header=Cookie=JSESSIONID="yawQKI0X3njJbGW0nCIVvSX2xP47EL--DZIXAh42.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            cookie=OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            header=Cookie=JSESSIONID="yawQKI0X3njJbGW0nCIVvSX2xP47EL--DZIXAh42.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            cookie=OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            header=Cookie=JSESSIONID="yawQKI0X3njJbGW0nCIVvSX2xP47EL--DZIXAh42.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            cookie=OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            header=Cookie=JSESSIONID="yawQKI0X3njJbGW0nCIVvSX2xP47EL--DZIXAh42.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            cookie=OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            header=Cookie=JSESSIONID="yawQKI0X3njJbGW0nCIVvSX2xP47EL--DZIXAh42.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            cookie=OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            header=Cookie=JSESSIONID="yawQKI0X3njJbGW0nCIVvSX2xP47EL--DZIXAh42.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            cookie=OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            header=Cookie=JSESSIONID="yawQKI0X3njJbGW0nCIVvSX2xP47EL--DZIXAh42.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            cookie=OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            header=Cookie=JSESSIONID="yawQKI0X3njJbGW0nCIVvSX2xP47EL--DZIXAh42.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            cookie=OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            header=Cookie=JSESSIONID="yawQKI0X3njJbGW0nCIVvSX2xP47EL--DZIXAh42.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            cookie=OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            header=Cookie=JSESSIONID="yawQKI0X3njJbGW0nCIVvSX2xP47EL--DZIXAh42.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            cookie=OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            header=Cookie=JSESSIONID="yawQKI0X3njJbGW0nCIVvSX2xP47EL--DZIXAh42.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            cookie=OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            header=Cookie=JSESSIONID="yawQKI0X3njJbGW0nCIVvSX2xP47EL--DZIXAh42.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            cookie=OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            header=Cookie=JSESSIONID="yawQKI0X3njJbGW0nCIVvSX2xP47EL--DZIXAh42.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            cookie=OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            header=Cookie=JSESSIONID="yawQKI0X3njJbGW0nCIVvSX2xP47EL--DZIXAh42.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            cookie=OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            header=Cookie=JSESSIONID="yawQKI0X3njJbGW0nCIVvSX2xP47EL--DZIXAh42.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            cookie=OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            header=Cookie=JSESSIONID="yawQKI0X3njJbGW0nCIVvSX2xP47EL--DZIXAh42.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            cookie=OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            header=Cookie=JSESSIONID="yawQKI0X3njJbGW0nCIVvSX2xP47EL--DZIXAh42.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            cookie=OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            header=Cookie=JSESSIONID="yawQKI0X3njJbGW0nCIVvSX2xP47EL--DZIXAh42.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            cookie=OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            header=Cookie=JSESSIONID="yawQKI0X3njJbGW0nCIVvSX2xP47EL--DZIXAh42.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            cookie=OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            header=Cookie=JSESSIONID="yawQKI0X3njJbGW0nCIVvSX2xP47EL--DZIXAh42.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            cookie=OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            header=Cookie=JSESSIONID="yawQKI0X3njJbGW0nCIVvSX2xP47EL--DZIXAh42.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            cookie=OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            header=Cookie=JSESSIONID="yawQKI0X3njJbGW0nCIVvSX2xP47EL--DZIXAh42.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            cookie=OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            header=Cookie=JSESSIONID="yawQKI0X3njJbGW0nCIVvSX2xP47EL--DZIXAh42.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            cookie=OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            header=Cookie=JSESSIONID="yawQKI0X3njJbGW0nCIVvSX2xP47EL--DZIXAh42.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            cookie=OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            header=Cookie=JSESSIONID="yawQKI0X3njJbGW0nCIVvSX2xP47EL--DZIXAh42.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            cookie=OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            header=Cookie=JSESSIONID="yawQKI0X3njJbGW0nCIVvSX2xP47EL--DZIXAh42.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            cookie=OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            header=Cookie=JSESSIONID="yawQKI0X3njJbGW0nCIVvSX2xP47EL--DZIXAh42.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            cookie=OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            header=Cookie=JSESSIONID="yawQKI0X3njJbGW0nCIVvSX2xP47EL--DZIXAh42.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            cookie=OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            header=Cookie=JSESSIONID="yawQKI0X3njJbGW0nCIVvSX2xP47EL--DZIXAh42.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            cookie=OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            header=Cookie=JSESSIONID="yawQKI0X3njJbGW0nCIVvSX2xP47EL--DZIXAh42.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            cookie=OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            header=Cookie=JSESSIONID="yawQKI0X3njJbGW0nCIVvSX2xP47EL--DZIXAh42.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            cookie=OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            header=Cookie=JSESSIONID="yawQKI0X3njJbGW0nCIVvSX2xP47EL--DZIXAh42.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            cookie=OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            header=Cookie=JSESSIONID="yawQKI0X3njJbGW0nCIVvSX2xP47EL--DZIXAh42.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            cookie=OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            header=Cookie=JSESSIONID="yawQKI0X3njJbGW0nCIVvSX2xP47EL--DZIXAh42.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            cookie=OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            header=Cookie=JSESSIONID="yawQKI0X3njJbGW0nCIVvSX2xP47EL--DZIXAh42.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            cookie=OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            header=Cookie=JSESSIONID="yawQKI0X3njJbGW0nCIVvSX2xP47EL--DZIXAh42.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            cookie=OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            header=Cookie=JSESSIONID="yawQKI0X3njJbGW0nCIVvSX2xP47EL--DZIXAh42.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            cookie=OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            header=Cookie=JSESSIONID="yawQKI0X3njJbGW0nCIVvSX2xP47EL--DZIXAh42.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            cookie=OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            header=Cookie=JSESSIONID="yawQKI0X3njJbGW0nCIVvSX2xP47EL--DZIXAh42.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            cookie=OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            header=Cookie=JSESSIONID="yawQKI0X3njJbGW0nCIVvSX2xP47EL--DZIXAh42.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            cookie=OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            header=Cookie=JSESSIONID="yawQKI0X3njJbGW0nCIVvSX2xP47EL--DZIXAh42.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            cookie=OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            header=Cookie=JSESSIONID="yawQKI0X3njJbGW0nCIVvSX2xP47EL--DZIXAh42.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            cookie=OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            header=Cookie=JSESSIONID="yawQKI0X3njJbGW0nCIVvSX2xP47EL--DZIXAh42.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            cookie=OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            header=Cookie=JSESSIONID="yawQKI0X3njJbGW0nCIVvSX2xP47EL--DZIXAh42.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            cookie=OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            header=Cookie=JSESSIONID="yawQKI0X3njJbGW0nCIVvSX2xP47EL--DZIXAh42.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            cookie=OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            header=Cookie=JSESSIONID="yawQKI0X3njJbGW0nCIVvSX2xP47EL--DZIXAh42.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+               URI=/fec-web/emprest/app/token/json
+            cookie=OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            header=Cookie=JSESSIONID="yawQKI0X3njJbGW0nCIVvSX2xP47EL--DZIXAh42.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            cookie=OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            header=Cookie=JSESSIONID="yawQKI0X3njJbGW0nCIVvSX2xP47EL--DZIXAh42.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+               URI=/fec-web/emprest/app/login/workflow-credito-pj-web
+            cookie=OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            header=Cookie=JSESSIONID="yawQKI0X3njJbGW0nCIVvSX2xP47EL--DZIXAh42.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            cookie=OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
+            header=Cookie=JSESSIONID="yawQKI0X3njJbGW0nCIVvSX2xP47EL--DZIXAh42.hc_cbrdeapllx473:sifec-intranet_node1_lx473"; OAuth_Token_Request_State=d768ee5f-e93d-4832-9ad9-d222985cd303
 
-bash
-sudo tail -f /opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/server.log | grep -iE --line-buffered "keycloak|bearer|token|signature|expired|audience|issuer|realm|workflow-credito"
-
-Mensagens como Failed to verify token, Invalid token issuer, Signature validation failed, Token is not active, No bearer token ou falha ao buscar a chave pública do login.des.caixa mostram a causa exata.
-
-Depois do teste, remova o DEBUG:
-
-/profile=full-ha-sifec-intranet/subsystem=logging/logger=org.keycloak:remove
-
-Frase para a sala:
-
-“No 6.4, o perfil-acesso-usuario devolve as roles do token (FEC0126, FEC0155...). No 7.4 devolve null, então as chamadas da API do PJ não estão sendo autenticadas pelo Keycloak. Pablo, nos headers do perfil-acesso-usuario vai o Authorization: Bearer? Enquanto isso, vou ligar o DEBUG do Keycloak no servidor para ver se o token está sendo recusado.”
