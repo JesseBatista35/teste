@@ -1,5 +1,8 @@
+ssh p585600@10.116.97.79
+sudo tail -f /opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/server.log | grep -iE --line-buffered "workflow-credito|WFLYSRV0010|WFLYSRV0021|WELD-001408|QuerySyntax|faltam|Registered web context"
 
-<img width="390" height="257" alt="image" src="https://github.com/user-attachments/assets/aaf4dbff-c804-487c-8f31-29d06f92977d" />
+
+ssh p585600@10.116.97.79
+sudo tail -f /opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/server.log | grep -iE --line-buffered "workflow-credito|WFLYSRV0010|WFLYSRV0021|WELD-001408|QuerySyntax|faltam|Registered web context"
 
 
-o palo mandou a correçao do PJ me ajuda a fazer aqui
