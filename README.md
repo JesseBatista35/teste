@@ -1,3 +1,6 @@
+VAMS TER QUE ENTREA EM SALA COM PABLO PARA PERGAR O F12
+
+
 **
 [p585600@cbrdeapllx473 ~]$
 [p585600@cbrdeapllx473 ~]$ sudo grep -n "10:1[5-9]" /opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/server.log | grep -iE "workflow|wpj|status=|Exception|WARN" | tail -40
