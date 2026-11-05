@@ -1,3 +1,349 @@
+
+
+Pesquisar
+Transcrição. Use as setas para navegar entre as entradas da transcrição.
+
+O conteúdo gerado por IA pode estar incorreto
+
+Jander Ricardo Garcia Marques começou a transcrição
+BM
+
+Bruno Aparecido Marques
+0 minutos 52 segundos0:52
+Bruno Aparecido Marques 0 minutos 52 segundos
+O.
+
+Jander Ricardo Garcia Marques
+2 minutos 17 segundos2:17
+Jander Ricardo Garcia Marques 2 minutos 17 segundos
+Pessoal, vou aqui pegar uma água e já volto, tá?
+F
+
+Flavio de Almeida Gagliardi
+2 minutos 35 segundos2:35
+Flavio de Almeida Gagliardi 2 minutos 35 segundos
+Só mais uns minutinhos aí, porque tá todo mundo numa, tá tendo um evento da Deser lá em Brasília e tava todo mundo na apresentação. Tô voltando agora, tá só um minutinho.
+BM
+
+Bruno Aparecido Marques
+2 minutos 46 segundos2:46
+Bruno Aparecido Marques 2 minutos 46 segundos
+Good.
+F
+
+Flavio de Almeida Gagliardi
+3 minutos 32 segundos3:32
+Flavio de Almeida Gagliardi 3 minutos 32 segundos
+Oi, Patricia.
+
+Patricia Vourakis Barbosa Braga
+3 minutos 34 segundos3:34
+Patricia Vourakis Barbosa Braga 3 minutos 34 segundos
+Oi, boa tarde, tudo jóia?
+F
+
+Flavio de Almeida Gagliardi
+3 minutos 34 segundos3:34
+Flavio de Almeida Gagliardi 3 minutos 34 segundos
+Tudo bem? O Patricia, o pessoal me chamou aqui para tratar um assunto do CIPGEC no contexto da DDR. Se você puder, traz um técnico aqui para eles explicarem o que eles precisam e depois eu delibero depois de outro assunto aqui em relação ao que está sendo atualizado. Mas vamos ver primeiro
+
+Patricia Vourakis Barbosa Braga
+3 minutos 46 segundos3:46
+Patricia Vourakis Barbosa Braga 3 minutos 46 segundos
+Tá joia.
+Patricia Vourakis Barbosa Braga 3 minutos 53 segundos
+Come on.
+F
+
+Flavio de Almeida Gagliardi
+3 minutos 54 segundos3:54
+Flavio de Almeida Gagliardi 3 minutos 54 segundos
+Que a galera precedes.
+
+Marcos Aurelio da Silva Cavaco
+33 minutos 16 segundos33:16
+Marcos Aurelio da Silva Cavaco 33 minutos 16 segundos
+Fica bom para todo mundo.
+Marcos Aurelio da Silva Cavaco 33 minutos 19 segundos
+Para que possamos entender aqui.
+F
+Flavio de Almeida Gagliardi
+33 minutos 19 segundos33:19
+Flavio de Almeida Gagliardi 33 minutos 19 segundos
+Pessoal, eu estava respondendo o teu chat aqui, não prestei atenção, é então está apontando já para os apachos atualizados.
+
+Marcos Aurelio da Silva Cavaco
+33 minutos 28 segundos33:28
+Marcos Aurelio da Silva Cavaco 33 minutos 28 segundos
+Não, pelo que já saiu, passou a informação aí, tá tá ensinado aqui ainda, Flávio.
+F
+Flavio de Almeida Gagliardi
+33 minutos 29 segundos33:29
+Flavio de Almeida Gagliardi 33 minutos 29 segundos
+At.
+Flavio de Almeida Gagliardi 33 minutos 34 segundos
+Yeah.
+FS
+Fabio Pereira Siqueira
+33 minutos 34 segundos33:34
+Fabio Pereira Siqueira 33 minutos 34 segundos
+Are you eating?
+
+Marcos Aurelio da Silva Cavaco
+33 minutos 35 segundos33:35
+Marcos Aurelio da Silva Cavaco 33 minutos 35 segundos
+Well
+J
+Jesse Mouta Pereira Batista
+33 minutos 36 segundos33:36
+Jesse Mouta Pereira Batista 33 minutos 36 segundos
+É por causa do prox pass, lembra?
+
+Marcos Aurelio da Silva Cavaco
+33 minutos 37 segundos33:37
+Marcos Aurelio da Silva Cavaco 33 minutos 37 segundos
+o Jack né tá aqui ó ele ainda tá no ambiente legado né tá na parte legado aqui ainda tá 5253 né e a nova máquina do Jack é essa daqui né que é justamente 7814
+Marcos Aurelio da Silva Cavaco 33 minutos 55 segundos
+aqui eu acabei de entrar nela aqui que é 2794 né
+Marcos Aurelio da Silva Cavaco 34 minutos 6 segundos
+e p p p p p p p p p p p p p p p p p p p p p p p p p p p p p p p p p p p p p p p p p p p p p p p p p p p p p p p p p p p p p p p p p p p p p p p p p p p p p p p p p p o p p p p p p p p p p p p p p p p p p o p p odo
+Marcos Aurelio da Silva Cavaco 34 minutos 23 segundos
+Temos os backups, os arcos de configuração.
+J
+Jesse Mouta Pereira Batista
+34 minutos 24 segundos34:24
+Jesse Mouta Pereira Batista 34 minutos 24 segundos
+Isso.
+
+Marcos Aurelio da Silva Cavaco
+34 minutos 30 segundos34:30
+Marcos Aurelio da Silva Cavaco 34 minutos 30 segundos
+E ajustamos, então agora que eu vou fazer, deixa eu só ver aqui.
+Marcos Aurelio da Silva Cavaco 34 minutos 37 segundos
+Beleza, ele está mandando para esse cara aqui. Cluster, Jack, Jackweb, e o Portes. Então aqui é o cluster e aqui o contexto.
+Marcos Aurelio da Silva Cavaco 34 minutos 54 segundos
+Beleza, então aqui esse é o 10, temos aqui o Portabilidade.
+Marcos Aurelio da Silva Cavaco 35 minutos 4 segundos
+Ele fala que com balancer.
+Marcos Aurelio da Silva Cavaco 35 minutos 9 segundos
+my cluster Jack 2 Jack web ****
+Marcos Aurelio da Silva Cavaco 35 minutos 16 segundos
+tá bom e tem aqui a
+Marcos Aurelio da Silva Cavaco 35 minutos 24 segundos
+Ele vai entrar também ou ele entra também ou não?
+F
+Flavio de Almeida Gagliardi
+35 minutos 37 segundos35:37
+Flavio de Almeida Gagliardi 35 minutos 37 segundos
+Fala aí, calma.
+J
+Jesse Mouta Pereira Batista
+35 minutos 39 segundos35:39
+Jesse Mouta Pereira Batista 35 minutos 39 segundos
+Eu acho.
+
+Jander Ricardo Garcia Marques
+35 minutos 42 segundos35:42
+Jander Ricardo Garcia Marques 35 minutos 42 segundos
+Isso aí é sjack sessão, cara, não é portabilidade não. Sessão, acho que ele já está na esteira. Acho que esse ambiente nem deve ser mais usado.
+J
+Jesse Mouta Pereira Batista
+35 minutos 43 segundos35:43
+Jesse Mouta Pereira Batista 35 minutos 43 segundos
+É porque a gente só viu
+
+Marcos Aurelio da Silva Cavaco
+35 minutos 43 segundos35:43
+Marcos Aurelio da Silva Cavaco 35 minutos 43 segundos
+Yeah.
+J
+Jesse Mouta Pereira Batista
+35 minutos 46 segundos35:46
+Jesse Mouta Pereira Batista 35 minutos 46 segundos
+Yeah.
+
+Marcos Aurelio da Silva Cavaco
+35 minutos 49 segundos35:49
+Marcos Aurelio da Silva Cavaco 35 minutos 49 segundos
+Listen.
+Marcos Aurelio da Silva Cavaco 35 minutos 52 segundos
+É que eu é bom saber, porque aqui, quando eu estou fazendo a validação de produção, eu estou justamente batendo nesses caras.
+
+Jander Ricardo Garcia Marques
+36 minutos 3 segundos36:03
+Jander Ricardo Garcia Marques 36 minutos 3 segundos
+Aí Flávio, o Sessão e o Comercial e eu não estou mais atuando neles não, tá? O Christopher ficou com eles e eu fiquei com Portabilidade.
+F
+Flavio de Almeida Gagliardi
+36 minutos 12 segundos36:12
+Flavio de Almeida Gagliardi 36 minutos 12 segundos
+In this.
+
+Marcos Aurelio da Silva Cavaco
+36 minutos 12 segundos36:12
+Marcos Aurelio da Silva Cavaco 36 minutos 12 segundos
+Beleza, então aqui.
+
+Jander Ricardo Garcia Marques
+36 minutos 12 segundos36:12
+Jander Ricardo Garcia Marques 36 minutos 12 segundos
+Então vai ser lá com Cristo, feio com Roberto.
+Jander Ricardo Garcia Marques 36 minutos 16 segundos
+No.
+
+Marcos Aurelio da Silva Cavaco
+36 minutos 17 segundos36:17
+Marcos Aurelio da Silva Cavaco 36 minutos 17 segundos
+No, no, no, no, no.
+Marcos Aurelio da Silva Cavaco 36 minutos 19 segundos
+o o dez e o por dois, né?
+Marcos Aurelio da Silva Cavaco 36 minutos 25 segundos
+Um, this, sim.
+Marcos Aurelio da Silva Cavaco 36 minutos 32 segundos
+Batch.
+Marcos Aurelio da Silva Cavaco 36 minutos 35 segundos
+Tá bom?
+FS
+Fabio Pereira Siqueira
+36 minutos 35 segundos36:35
+Fabio Pereira Siqueira 36 minutos 35 segundos
+Por que eu falo isso? Está porque o sjk bet, por uma necessidade que houve no passado, mas eu não vou entrar aqui em detalhes. Se você entrar no sjk 10, ele vai responder online também, mas não é o objetivo, está?
+
+Marcos Aurelio da Silva Cavaco
+36 minutos 43 segundos36:43
+Marcos Aurelio da Silva Cavaco 36 minutos 43 segundos
+Claro.
+Marcos Aurelio da Silva Cavaco 36 minutos 48 segundos
+Perfect.
+FS
+Fabio Pereira Siqueira
+36 minutos 49 segundos36:49
+Fabio Pereira Siqueira 36 minutos 49 segundos
+Você não precisa rotear a web para ele, agora a Tadeu para ele.
+
+Marcos Aurelio da Silva Cavaco
+36 minutos 51 segundos36:51
+Marcos Aurelio da Silva Cavaco 36 minutos 51 segundos
+Beleza.
+Marcos Aurelio da Silva Cavaco 36 minutos 54 segundos
+Tá aqui, ele tá jogando pro SSO, né?
+Marcos Aurelio da Silva Cavaco 37 minutos
+Yep.
+Marcos Aurelio da Silva Cavaco 37 minutos 4 segundos
+Provavelmente ele não bateu aqui, então deixa eu vim aqui Cd o pd htpd.
+Marcos Aurelio da Silva Cavaco 37 minutos 11 segundos
+It's a going to cheap.
+F
+Flavio de Almeida Gagliardi
+37 minutos 50 segundos37:50
+Flavio de Almeida Gagliardi 37 minutos 50 segundos
+Okay.
+
+Marcos Aurelio da Silva Cavaco
+38 minutos 7 segundos38:07
+Marcos Aurelio da Silva Cavaco 38 minutos 7 segundos
+I
+Marcos Aurelio da Silva Cavaco 38 minutos 37 segundos
+então nós né fizemos a correção deles tá os dois do ambiente aqui de Apache a gente equalizou o problema que estava acontecendo né é que deixa eu listar aqui a
+Marcos Aurelio da Silva Cavaco 38 minutos 57 segundos
+Esses arquivos aqui são os que mantém o histórico de alterações no.
+Marcos Aurelio da Silva Cavaco 39 minutos 5 segundos
+Os arquivos de V host, né? Eu havia removido as tags, né?
+Marcos Aurelio da Silva Cavaco 39 minutos 12 segundos
+Aqui.
+Marcos Aurelio da Silva Cavaco 39 minutos 14 segundos
+de proxy pass e proxy reverso. Isso deve ter causado a falha do Apache. E a gente pegou e refizemos essas configurações aqui.
+Marcos Aurelio da Silva Cavaco 39 minutos 28 segundos
+No.
+Marcos Aurelio da Silva Cavaco 39 minutos 30 segundos
+Agora ele está em complexo com os outros, com os outros a parte, se colocar e virar para cá, vai funcionar de novo.
+FS
+Fabio Pereira Siqueira
+39 minutos 40 segundos39:40
+Fabio Pereira Siqueira 39 minutos 40 segundos
+Então, basicamente, é só aplicar, né? Entre doze, treze, quatro e quinze, do e doze e quatro alguns que pode ficar dando um lugar para o seu.
+
+Marcos Aurelio da Silva Cavaco
+39 minutos 42 segundos39:42
+Marcos Aurelio da Silva Cavaco 39 minutos 42 segundos
+Sim, porque eu estou aqui dentro do CIJEC por 2, né? E aqui também seja por 2 pode ver que aqui na configuração tanto de proxy pass e proxy pass reveste o balance que eu estou chamando aqui.
+FS
+Fabio Pereira Siqueira
+39 minutos 59 segundos39:59
+Fabio Pereira Siqueira 39 minutos 59 segundos
+I will be fast.
+
+Marcos Aurelio da Silva Cavaco
+40 minutos40:00
+Marcos Aurelio da Silva Cavaco 40 minutos
+que está configurado lá no JBoss é o my cluster Jack 2 né eu tô fazendo redirect aqui para o contexto aqui tá da mesma forma né no proxy pass eu tô invocando o balance que tá configurado
+FS
+Fabio Pereira Siqueira
+40 minutos 4 segundos40:04
+Fabio Pereira Siqueira 40 minutos 4 segundos
+That's the sound.
+Fabio Pereira Siqueira 40 minutos 9 segundos
+Não, eu não quero. Eu não quero.
+
+Marcos Aurelio da Silva Cavaco
+40 minutos 15 segundos40:15
+Marcos Aurelio da Silva Cavaco 40 minutos 15 segundos
+no JBoss chamando aqui o balance de fato né o my cluster Jack 2 e fazendo a quebra para o contexto então ele tá certinho tanto
+FS
+Fabio Pereira Siqueira
+40 minutos 21 segundos40:21
+Fabio Pereira Siqueira 40 minutos 21 segundos
+Thank you.
+Fabio Pereira Siqueira 40 minutos 25 segundos
+Você falou, você falou que você está, você falou que você está no suject por 2, não é?
+
+Marcos Aurelio da Silva Cavaco
+40 minutos 29 segundos40:29
+Marcos Aurelio da Silva Cavaco 40 minutos 29 segundos
+Sim, Sigector 2 do novo servidor Apache, que é o 10167814, e a máquina antiga que é a que está atualmente em uso. Pode ver as configurações aqui.
+FS
+Fabio Pereira Siqueira
+40 minutos 37 segundos40:37
+Fabio Pereira Siqueira 40 minutos 37 segundos
+Stop.
+Fabio Pereira Siqueira 40 minutos 41 segundos
+E qual é o nome?
+
+Marcos Aurelio da Silva Cavaco
+40 minutos 43 segundos40:43
+Marcos Aurelio da Silva Cavaco 40 minutos 43 segundos
+Uh-huh.
+FS
+Fabio Pereira Siqueira
+40 minutos 43 segundos40:43
+Fabio Pereira Siqueira 40 minutos 43 segundos
+Tá, e como é que você diferencia lá no Jose o balanceamento entre o Jack e o Jack por 2? Ele tem outro nome, o balance do Jack.
+
+Marcos Aurelio da Silva Cavaco
+40 minutos 51 segundos40:51
+Marcos Aurelio da Silva Cavaco 40 minutos 51 segundos
+Tem, tem, tem, tem, tem, tem. Aqui eu estou te mostrando aqui o Suject For 2, né?
+FS
+Fabio Pereira Siqueira
+40 minutos 57 segundos40:57
+Fabio Pereira Siqueira 40 minutos 57 segundos
+Yes.
+Fabio Pereira Siqueira 40 minutos 58 segundos
+It's not.
+
+Marcos Aurelio da Silva Cavaco
+41 minutos41:00
+Marcos Aurelio da Silva Cavaco 41 minutos
+Eu vou tirar aqui sjack.conf.
+FS
+Fabio Pereira Siqueira
+41 minutos 1 segundo41:01
+Fabio Pereira Siqueira 41 minutos 1 segundo
+Até o vento aqui, tá? Boa tarde, tá com sono aqui?
+Fabio Pereira Siqueira 41 minutos 10 segundos
+Go.
+Fabio Pereira Siqueira 53 minutos 27 segundos
+Yes.
 
 Marcos Aurelio da Silva Cavaco
 53 minutos 29 segundos53:29
@@ -33,186 +379,3 @@ Marcos Aurelio da Silva Cavaco
 54 minutos 2 segundos54:02
 Marcos Aurelio da Silva Cavaco 54 minutos 2 segundos
 Exatamente, exatamente, o que tinha sido removido aqui foram esses detalhes.
-FS
-Fabio Pereira Siqueira
-54 minutos 5 segundos54:05
-Fabio Pereira Siqueira 54 minutos 5 segundos
-For Jander e Bruno.
-
-Jander Ricardo Garcia Marques
-54 minutos 7 segundos54:07
-Jander Ricardo Garcia Marques 54 minutos 7 segundos
-o seguinte e aqui falar que educação de
-Jander Ricardo Garcia Marques 54 minutos 12 segundos
-Então eu acho que tem que aplicar e testar, fazer todos os testes possíveis, fazer deploy, ver se porque a gente começou a ter aquele problema de sensibilizar o deploy, né o Fábio?
-FS
-Fabio Pereira Siqueira
-54 minutos 13 segundos54:13
-Fabio Pereira Siqueira 54 minutos 13 segundos
-Nothing.
-Fabio Pereira Siqueira 54 minutos 16 segundos
-Uh-huh.
-Fabio Pereira Siqueira 54 minutos 18 segundos
-É só ficar antenado no Francisco.
-Fabio Pereira Siqueira 54 minutos 23 segundos
-Yes.
-
-Jander Ricardo Garcia Marques
-54 minutos 24 segundos54:24
-Jander Ricardo Garcia Marques 54 minutos 24 segundos
-Tem que fazer todo os testes.
-FS
-Fabio Pereira Siqueira
-54 minutos 29 segundos54:29
-Fabio Pereira Siqueira 54 minutos 29 segundos
-Mas a então, mas a pergunta é, podemos aplicar?
-F
-Flavio de Almeida Gagliardi
-54 minutos 29 segundos54:29
-Flavio de Almeida Gagliardi 54 minutos 29 segundos
-Vocês vão, vocês precisam de apoio para fazer.
-
-Jander Ricardo Garcia Marques
-54 minutos 39 segundos54:39
-Jander Ricardo Garcia Marques 54 minutos 39 segundos
-Entendo que pode.
-FS
-Fabio Pereira Siqueira
-54 minutos 39 segundos54:39
-Fabio Pereira Siqueira 54 minutos 39 segundos
-FK.
-Fabio Pereira Siqueira 54 minutos 42 segundos
-Bruno, você vê algum tem alguma objeção para aplicar, não?
-
-Marcos Aurelio da Silva Cavaco
-54 minutos 46 segundos54:46
-Marcos Aurelio da Silva Cavaco 54 minutos 46 segundos
-Okay.
-
-Jander Ricardo Garcia Marques
-54 minutos 47 segundos54:47
-Jander Ricardo Garcia Marques 54 minutos 47 segundos
-Aí, o Flávio, a gente só vai precisar se a gente detectar algum problema, a gente visitar vocês.
-BM
-Bruno Aparecido Marques
-54 minutos 49 segundos54:49
-Bruno Aparecido Marques 54 minutos 49 segundos
-Good.
-F
-Flavio de Almeida Gagliardi
-54 minutos 51 segundos54:51
-Flavio de Almeida Gagliardi 54 minutos 51 segundos
-Ah, sim, não detectou, está bom, detectou o problema. Pode me marcar aqui nessa sala mesmo ou a Patricia que a gente já loca um técnico para verificar imediatamente.
-
-Jander Ricardo Garcia Marques
-55 minutos 4 segundos55:04
-Jander Ricardo Garcia Marques 55 minutos 4 segundos
-It is.
-F
-Flavio de Almeida Gagliardi
-55 minutos 4 segundos55:04
-Flavio de Almeida Gagliardi 55 minutos 4 segundos
-E voltar ao ambiente, se for caso.
-FS
-Fabio Pereira Siqueira
-55 minutos 5 segundos55:05
-Fabio Pereira Siqueira 55 minutos 5 segundos
-Beleza, então.
-
-Marcos Aurelio da Silva Cavaco
-55 minutos 7 segundos55:07
-Marcos Aurelio da Silva Cavaco 55 minutos 7 segundos
-Se it for o caso a gente fazer o rollback, né?
-BM
-Bruno Aparecido Marques
-55 minutos 8 segundos55:08
-Bruno Aparecido Marques 55 minutos 8 segundos
-You so.
-F
-Flavio de Almeida Gagliardi
-55 minutos 10 segundos55:10
-Flavio de Almeida Gagliardi 55 minutos 10 segundos
-He is, is there.
-FS
-Fabio Pereira Siqueira
-55 minutos 12 segundos55:12
-Fabio Pereira Siqueira 55 minutos 12 segundos
-Então, Cavaco, você tem, eu acho que você tem o que você precisaria de resposta e aí o Flavio, a gente quanto aquela pergunta inicial, a gente segue naquela, a gente vai conversar aqui, mas a gente vai tentar seguir naquela ideia de nós vamos subir um ambiente quebrando.
-
-Jander Ricardo Garcia Marques
-55 minutos 13 segundos55:13
-Jander Ricardo Garcia Marques 55 minutos 13 segundos
-Santos.
-Jander Ricardo Garcia Marques 55 minutos 17 segundos
-Hey.
-
-Marcos Aurelio da Silva Cavaco
-55 minutos 17 segundos55:17
-Marcos Aurelio da Silva Cavaco 55 minutos 17 segundos
-Mhm.
-F
-Flavio de Almeida Gagliardi
-55 minutos 23 segundos55:23
-Flavio de Almeida Gagliardi 55 minutos 23 segundos
-Tá bom?
-FS
-Fabio Pereira Siqueira
-55 minutos 29 segundos55:29
-Fabio Pereira Siqueira 55 minutos 29 segundos
-Pedindo apoio, sabendo que você precisa.
-F
-Flavio de Almeida Gagliardi
-55 minutos 29 segundos55:29
-Flavio de Almeida Gagliardi 55 minutos 29 segundos
-Sim.
-Flavio de Almeida Gagliardi 55 minutos 32 segundos
-Tá bom, fechado, cara.
-FS
-Fabio Pereira Siqueira
-55 minutos 33 segundos55:33
-Fabio Pereira Siqueira 55 minutos 33 segundos
-Okay.
-
-Marcos Aurelio da Silva Cavaco
-55 minutos 37 segundos55:37
-Marcos Aurelio da Silva Cavaco 55 minutos 37 segundos
-Pessoal, espero ter conseguido ajudar vocês aí no que foi pedido, né?
-FS
-Fabio Pereira Siqueira
-56 minutos 33 segundos56:33
-Fabio Pereira Siqueira 56 minutos 33 segundos
-Okay.
-
-Jander Ricardo Garcia Marques
-56 minutos 34 segundos56:34
-Jander Ricardo Garcia Marques 56 minutos 34 segundos
-Até mais.
-
-Marcos Aurelio da Silva Cavaco
-56 minutos 36 segundos56:36
-Marcos Aurelio da Silva Cavaco 56 minutos 36 segundos
-chama aqui Jesus depois valeu
-J
-Jesse Mouta Pereira Batista
-56 minutos 37 segundos56:37
-Jesse Mouta Pereira Batista 56 minutos 37 segundos
-Tá beleza, chama aí, valeu.
-
-Patricia Vourakis Barbosa Braga
-56 minutos 40 segundos56:40
-Patricia Vourakis Barbosa Braga 56 minutos 40 segundos
-Brigadão, gente.
-J
-Jesse Mouta Pereira Batista
-56 minutos 41 segundos56:41
-Jesse Mouta Pereira Batista 56 minutos 41 segundos
-Nada.
-Jesse Mouta Pereira Batista 56 minutos 43 segundos
-Thanks. Tchau.
-
-Patricia Vourakis Barbosa Braga
-56 minutos 43 segundos56:43
-Patricia Vourakis Barbosa Braga 56 minutos 43 segundos
-Show.
-
-Jander Ricardo Garcia Marques parou a transcrição
