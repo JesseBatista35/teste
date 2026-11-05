@@ -24,3 +24,31 @@ Depois do restart: peça para testarem o PJ. No F12, o perfil-acesso-usuario dev
 Sobre o secret: ele é uma credencial do SSO. Não deixe em print nem cole no chat da ADDR. Só use no comando.
 
 Frase para a sala:
+
+
+
+
+[domain@localhost:9999 /]
+[domain@localhost:9999 /]
+[domain@localhost:9999 /] /server-group=sifec-intranet/system-property=SSO_INTRANET_SERVICE_RESOURCE_NAME:read-resource
+{
+    "outcome" => "failed",
+    "failure-description" => "WFLYCTL0216: Management resource '[
+    (\"server-group\" => \"sifec-intranet\"),
+    (\"system-property\" => \"SSO_INTRANET_SERVICE_RESOURCE_NAME\")
+]' not found",
+    "rolled-back" => true
+}
+
+[domain@localhost:9999 /]
+[domain@localhost:9999 /]
+[domain@localhost:9999 /] /server-group=sifec-intranet/system-property=SSO_INTRANET_SERVICE_CCR_RESOURCE_NAME:read-resource
+{
+    "outcome" => "success",
+    "result" => {
+        "boot-time" => true,
+        "value" => "cli-ser-ccr"
+    }
+}
+
+[domain@localhost:9999 /]
