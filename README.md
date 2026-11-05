@@ -1,15 +1,1 @@
-
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$ oc exec -it sipgc-api-seguranca-des-142-k6762 -n sipgc-des -- getent hosts des.sigoc.caixa
-10.116.26.110   des.sigoc.caixa
--sh-4.2$
--sh-4.2$
--sh-4.2$ oc exec -it sipgc-api-seguranca-des-142-k6762 -n sipgc-des -- bash -c "timeout 5 bash -c '</dev/tcp/des.sigoc.caixa/443' && echo ABERTA || echo SEM CONEXAO"
-SEM CONEXAO
--sh-4.2$
--sh-4.2$
--sh-4.2$ oc exec -it sipgc-api-seguranca-des-142-k6762 -n sipgc-des -- bash -c "timeout 5 bash -c '</dev/tcp/des.sigoc.caixa/443' && echo ABERTA || echo SEM CONEXAO"
-SEM CONEXAO
--sh-4.2$
+Pablo, testei de dentro do pod do SIPGC em DES: o des.sigoc.caixa resolve (10.116.26.110), mas a porta 443 não abre. Confirmado, é bloqueio de firewall no egress do namespace, e não problema da aplicação. Vou abrir a solicitação de regra de firewall do egress do sipgc-des até o SIGOC. Pra TQS, me confirma se deve apontar pro des.sigoc.caixa ou pro SIGOC de TQS, que eu faço o mesmo teste lá. Te aviso quando a regra for aplicada.
