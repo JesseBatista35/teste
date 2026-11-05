@@ -1,26 +1,13 @@
-/profile=full-ha-sifec-intranet/subsystem=logging/periodic-rotating-file-handler=FILE:read-attribute(name=level)
-Se vier ALL, DEBUG ou undefined, está ok.
-Se vier INFO, libere temporariamente:
-  /profile=full-ha-sifec-intranet/subsystem=logging/periodic-rotating-file-handler=FILE:write-attribute(name=level,value=DEBUG)
 
-Só os pacotes wpj e intgr vão gerar DEBUG. O resto continua em INFO, porque é o logger raiz que controla isso.
 
-Se o comando der “not found”, liste os handlers:
+<img width="1637" height="1001" alt="image" src="https://github.com/user-attachments/assets/423ced80-74e2-4c9a-ac5f-817c69112f9c" />
 
-/profile=full-ha-sifec-intranet/subsystem=logging:read-children-names(child-type=periodic-rotating-file-handler)
 
-Teste:
+esse print e do 6.4
 
-Deixe o log aberto no 473:
-bash
-   sudo tail -f /opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/server.log | grep -iE --line-buffered "wpj|intgr|perfil|usuario|token|Exception|SSL|PKIX"
-Peça para o Pablo ou o Thiago entrarem de novo no SIFEC (a sessão caiu com o reload), abrirem o PJ e consultarem.
-No F12 deles, na chamada perfil-acesso-usuario, veja se há o header Authorization: Bearer.
 
-Depois do teste, desfaça tudo:
+<img width="1621" height="940" alt="image" src="https://github.com/user-attachments/assets/cfd30835-e0cf-4277-8daa-0433130f1a9f" />
 
-/profile=full-ha-sifec-intranet/subsystem=logging/logger=br.gov.caixa.wpj:remove
-/profile=full-ha-sifec-intranet/subsystem=logging/logger=br.gov.caixa.intgr:remove
-/profile=full-ha-sifec-intranet/subsystem=logging/periodic-rotating-file-handler=FILE:write-attribute(name=level,value=INFO)
 
-O último comando só é necessário se você tiver mudado o nível do handler.
+traz um objeto que em tese é vazio
+
