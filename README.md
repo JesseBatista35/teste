@@ -7,3 +7,24 @@ sudo awk '/<profile name="full-ha-sifec-intranet"/,/<\/profile>/' /opt/jboss/jbo
 sudo grep -nE "^14:[0-5][0-9].*\[stdout\]" /opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/server.log | tail -80
 
 Aí aparecem as tabelas que o PJ consultou na consulta de cliente e no perfil.
+
+
+
+[p585600@cbrdeapllx471 ~]$
+[p585600@cbrdeapllx471 ~]$
+[p585600@cbrdeapllx471 ~]$
+[p585600@cbrdeapllx471 ~]$
+[p585600@cbrdeapllx471 ~]$ sudo awk '/<profile name="full-ha-sifec-intranet"/,/<\/profile>/' /opt/jboss/jboss-eap/domain/configuration/domain.xml | grep -oE 'jndi-name="[^"]*"|<connection-url>[^<]*|<user-name>[^<]*'
+
+We trust you have received the usual lecture from the local System
+Administrator. It usually boils down to these three things:
+
+    #1) Respect the privacy of others.
+    #2) Think before you type.
+    #3) With great power comes great responsibility.
+
+[sudo] password for p585600:
+[p585600@cbrdeapllx471 ~]$
+[p585600@cbrdeapllx471 ~]$
+[p585600@cbrdeapllx471 ~]$
+[p585600@cbrdeapllx471 ~]$
