@@ -16,3 +16,30 @@ sudo grep -n "org.keycloak" /opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1
 Interessam linhas sobre workflow-credito-pj-web: se ele achou o token na sessão, se tentou autenticar e se recusou alguma coisa.
 
 Pode me mandar a resposta do Pablo e a saída do grep.
+
+
+
+
+[domain@localhost:9999 /]
+[domain@localhost:9999 /]
+[domain@localhost:9999 /] /profile=full-ha-sifec-intranet/subsystem=logging/logger=org.keycloak:add(level=DEBUG)
+{
+    "outcome" => "failed",
+    "failure-description" => {"domain-failure-description" => "WFLYCTL0212: Duplicate resource [
+    (\"profile\" => \"full-ha-sifec-intranet\"),
+    (\"subsystem\" => \"logging\"),
+    (\"logger\" => \"org.keycloak\")
+]"},
+    "rolled-back" => true
+}
+
+[domain@localhost:9999 /] /profile=full-ha-sifec-intranet/subsystem=logging/periodic-rotating-file-handler=FILE:read-attribute(name=level)
+{
+    "outcome" => "success",
+    "result" => "INFO"
+}
+
+[domain@localhost:9999 /]
+[domain@localhost:9999 /]
+[domain@localhost:9999 /]
+[domain@localhost:9999 /]
