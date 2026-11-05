@@ -1,68 +1,16 @@
-1. No 473, o request dump da consulta do CNPJ (o comando já esconde cookie e token):
+1. Confira o 7.4 (CLI do 471):
 
-LOG=/opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/server.log
-L=$(sudo grep -n "requestURI=/workflow-credito-pj-web/api/cliente/cnpj/03756362000103" $LOG | tail -1 | cut -d: -f1); echo "linha: $L"; sudo sed -n "${L},$((L+60))p" $LOG | grep -viE "cookie|authorization"
+/profile=full-ha-sifec-intranet/subsystem=undertow:read-children-names(child-type=server)
+/profile=full-ha-sifec-intranet/subsystem=undertow/server=default-server:read-children-names(child-type=host)
+/profile=full-ha-sifec-intranet/subsystem=undertow/server=default-server/host=default-host/setting=single-sign-on:read-resource
 
-Se aparecer linha: vazio, o request dump não pegou essa chamada. Nesse caso rode este, que mostra o que existe no log com essa URL:
+O esperado é default-server, default-host, e o terceiro dar “not found”, o que confirma que falta o SSO.
 
-sudo grep -n "cliente/cnpj" $LOG | tail -5
+2. Crie o SSO igual ao do 6.4:
 
-2. No 6.4, a verificação de SSO:
+/profile=full-ha-sifec-intranet/subsystem=undertow/server=default-server/host=default-host/setting=single-sign-on:add(domain="des.caixa")
 
-sed -n '18837,20596p' /opt/jboss/jboss-eap/dc/configuration/domain.xml | grep -niE "single-sign-on|<sso|sso-"
+3. Reinicie:
 
-O que eu quero ver no 1 são authType, remoteUser e principal, e no 2 se o 6.4 tem SSO configurado.
-
-
-
--sh-4.1$ rm -f /tmp/props_pj.cli
--sh-4.1$
--sh-4.1$
--sh-4.1$
--sh-4.1$
--sh-4.1$
--sh-4.1$
--sh-4.1$
--sh-4.1$
--sh-4.1$
--sh-4.1$
--sh-4.1$
--sh-4.1$
--sh-4.1$
--sh-4.1$
--sh-4.1$ sed -n '18837,20596p' /opt/jboss/jboss-eap/dc/configuration/domain.xml | grep -niE "single-sign-on|<sso|sso-"
-1549:                    <sso cache-container="web" cache-name="sso" domain="des.caixa" reauthenticate="false"/>
--sh-4.1$
--sh-4.1$
--sh-4.1$
-
-
-
-[p585600@cbrdeapllx473 ~]$
-[p585600@cbrdeapllx473 ~]$
-[p585600@cbrdeapllx473 ~]$
-[p585600@cbrdeapllx473 ~]$
-[p585600@cbrdeapllx473 ~]$
-[p585600@cbrdeapllx473 ~]$
-[p585600@cbrdeapllx473 ~]$
-[p585600@cbrdeapllx473 ~]$
-[p585600@cbrdeapllx473 ~]$
-[p585600@cbrdeapllx473 ~]$
-[p585600@cbrdeapllx473 ~]$
-[p585600@cbrdeapllx473 ~]$
-[p585600@cbrdeapllx473 ~]$ LOG=/opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/server.log
-[p585600@cbrdeapllx473 ~]$
-[p585600@cbrdeapllx473 ~]$
-[p585600@cbrdeapllx473 ~]$
-[p585600@cbrdeapllx473 ~]$ L=$(sudo grep -n "requestURI=/workflow-credito-pj-web/api/cliente/cnpj/03756362000103" $LOG | tail -1 | cut -d: -f1); echo "linha: $L"; sudo sed -n "${L},$((L+60))p" $LOG | grep -viE "cookie|authorization"
-linha:
-sed: -e expression #1, char 1: unknown command: `,'
-[p585600@cbrdeapllx473 ~]$
-[p585600@cbrdeapllx473 ~]$
-[p585600@cbrdeapllx473 ~]$
-[p585600@cbrdeapllx473 ~]$
-[p585600@cbrdeapllx473 ~]$ sudo grep -n "cliente/cnpj" $LOG | tail -5
-[p585600@cbrdeapllx473 ~]$
-[p585600@cbrdeapllx473 ~]$
-[p585600@cbrdeapllx473 ~]$
-
+/server-group=sifec-intranet:restart-servers(blocking=true)
+/host=hc_cbrdeapllx473/server=sifec-intranet_node1_lx473:read-attribute(name=server-state)
