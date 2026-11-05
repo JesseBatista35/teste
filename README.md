@@ -1,33 +1,14 @@
+O nome é só um rótulo e não atrapalha. O aviso do DB2 4223 é o mesmo de sempre, do fec-web, e não tem relação com o SICDT.
 
-[domain@localhost:9999 /]
-[domain@localhost:9999 /] /server-group=sifec-intranet/deployment=SIFEC-CDT:read-attribute(name=enabled)
-{
-    "outcome" => "failed",
-    "failure-description" => "WFLYCTL0216: Management resource '[
-    (\"server-group\" => \"sifec-intranet\"),
-    (\"deployment\" => \"SIFEC-CDT\")
-]' not found",
-    "rolled-back" => true
-}
+Confirmação (CLI do 471):
 
-[domain@localhost:9999 /]
-[domain@localhost:9999 /]
-[domain@localhost:9999 /]
+/server-group=sifec-intranet/deployment=SICDT-FEC:read-attribute(name=enabled)
+/deployment=SICDT-FEC/subdeployment=*:read-attribute(name=runtime-name)
 
+O esperado é true e os módulos do .ear listados.
 
+E veja se os dois contextos web registraram (no 473):
 
-    #3) With great power comes great responsibility.
+sudo grep -E "WFLYUT0021.*(sifec-cdt-web|sicdt-orig-api-rest)" /opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/server.log | tail -2
 
-[sudo] password for p585600:
-16:33:03,564 WARN  [org.hibernate.engine.jdbc.spi.SqlExceptionHelper] (default task-1) Origination unknown: [10228][11541][4.16.53] Ocorreram exceções de segurança ao carregar o driver. ERRORCODE=4223, SQLSTATE=null
-
-
-
-
-
-
-
-6:30:31,795 INFO  [org.jboss.as.server] (ServerService Thread Pool -- 102) WFLYSRV0010: "SICDT-FEC" foi implantado (runtime-name: "sifec-cdt-3.24.3.001.ear")
-
-
-
+Devem aparecer duas linhas, uma para /sifec-cdt-web e outra para /sicdt-orig-api-rest.
