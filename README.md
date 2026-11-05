@@ -1,45 +1,25 @@
-1. Pergunta para o Pablo (é a peça que falta):
+Vamos liberar temporariamente (CLI do 471, sem restart):
 
-Pablo, no 6.4 o perfil-acesso-usuario devolve as roles do token (FEC0126, offline_access, uma_authorization...). No 7.4 já igualamos banco, secure-deployment do Keycloak, properties, SSO (JSESSIONIDSSO) e caminho dos cookies, e ele continua voltando vazio, sem erro. Como o PJ obtém essas roles no código? request.getUserPrincipal() como KeycloakPrincipal, o KeycloakSecurityContext da sessão, request.isUserInRole, ou ele chama o Keycloak com o client cli-ser-fec? Pode mandar o trecho do endpoint perfil-acesso-usuario? Com isso eu sei exatamente o que falta no servidor.
+1. Confira o nível geral (root). O esperado é INFO:
 
-2. Ligue o DEBUG do Keycloak (CLI do 471, sem restart):
+/profile=full-ha-sifec-intranet/subsystem=logging/root-logger=ROOT:read-attribute(name=level)
 
-/profile=full-ha-sifec-intranet/subsystem=logging/logger=org.keycloak:add(level=DEBUG)
-/profile=full-ha-sifec-intranet/subsystem=logging/periodic-rotating-file-handler=FILE:read-attribute(name=level)
-Se o segundo devolver ALL ou DEBUG, está ok.
-Se devolver INFO, me avise antes de seguir.
+Se vier INFO, pode seguir. Se vier DEBUG ou ALL, pare e me avise, porque o log ia explodir.
 
-3. Peça um teste novo (login na InPrivate e abrir o PJ) e rode no 473:
+2. Garanta que o Keycloak está em DEBUG e libere o arquivo:
 
-sudo grep -n "org.keycloak" /opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/server.log | tail -40
+/profile=full-ha-sifec-intranet/subsystem=logging/logger=org.keycloak:write-attribute(name=level,value=DEBUG)
+/profile=full-ha-sifec-intranet/subsystem=logging/periodic-rotating-file-handler=FILE:write-attribute(name=level,value=DEBUG)
 
-Interessam linhas sobre workflow-credito-pj-web: se ele achou o token na sessão, se tentou autenticar e se recusou alguma coisa.
+Com o root em INFO, só os três loggers que ligamos (org.keycloak, br.gov.caixa.wpj, br.gov.caixa.intgr) vão gravar DEBUG. O resto continua igual.
 
-Pode me mandar a resposta do Pablo e a saída do grep.
+3. Peça o teste (login novo na InPrivate e abrir o PJ) e rode no 473:
 
+LOG=/opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/server.log
+sudo grep -nE "DEBUG \[(org\.keycloak|br\.gov\.caixa)" $LOG | tail -80
 
+Pode me mandar a saída. Agora deve aparecer o fluxo do Keycloak e o que o PJ faz ao montar o perfil.
 
+Quando terminarmos, desfaça com:
 
-[domain@localhost:9999 /]
-[domain@localhost:9999 /]
-[domain@localhost:9999 /] /profile=full-ha-sifec-intranet/subsystem=logging/logger=org.keycloak:add(level=DEBUG)
-{
-    "outcome" => "failed",
-    "failure-description" => {"domain-failure-description" => "WFLYCTL0212: Duplicate resource [
-    (\"profile\" => \"full-ha-sifec-intranet\"),
-    (\"subsystem\" => \"logging\"),
-    (\"logger\" => \"org.keycloak\")
-]"},
-    "rolled-back" => true
-}
-
-[domain@localhost:9999 /] /profile=full-ha-sifec-intranet/subsystem=logging/periodic-rotating-file-handler=FILE:read-attribute(name=level)
-{
-    "outcome" => "success",
-    "result" => "INFO"
-}
-
-[domain@localhost:9999 /]
-[domain@localhost:9999 /]
-[domain@localhost:9999 /]
-[domain@localhost:9999 /]
+/profile=full-ha-sifec-intranet/subsystem=logging/periodic-rotating-file-handler=FILE:write-attribute(name=level,value=INFO)
