@@ -1,10 +1,13 @@
-Jesse Mouta Pereira Batista
-Paulo Henrique Barros Santos e Rodrigo Abreu Costa   Segue Resumo de hoje no JBoss 7.4 (DES, sifec-intranet):   No ar: SIFEC 2.160.3.0 (Jackson corrigido), SIFEC-CCR, SICCR-BDCAIXA, HUB-FRONTEND e MI…
-Bom dia, Jesse.
- 
-Saberia me dizer como está sendo a compilação para o ambiente SIFEC DES para o JBoss 7.4 para essa fase de testes?
-Vamos subir o EAR pronto e mandar para vocês, ou será disponibilizada uma interface que podemos compilar, estilo RTC/Jenkins?
+Bom dia!
 
+Nesta fase de testes da migração, o deploy no JBoss 7.4 (DES) está sendo manual: não há Jenkins/RTC nem pipeline configurada para esse ambiente ainda.
 
+O fluxo que estamos usando:
 
- me perguntaram isso mais nao tem jekins estamos faznedo pela console mais é so acesso das esterias caimos de paraquedas aqui
+Vocês geram o .ear e publicam no Nexus (binario.caixa).
+Me mandam o link do Nexus no chat da ADDR.
+Eu faço o deploy no server-group sifec-intranet e acompanho o log. Se der erro, retorno com a análise (ambiente ou código).
+
+Foi assim com o SIFEC 2.160.3.0 e com o SICCR-PJ 8.40.1.
+
+Sobre uma esteira automatizada (build + deploy) para o 7.4, vou confirmar internamente qual é o modelo previsto para a fase pós-migração e retorno para vocês.
