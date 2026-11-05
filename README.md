@@ -1,79 +1,29 @@
+O prompt está sem o #, então você está fora do modo batch.
 
-[domain@localhost:9999 /] /host=hc_cbrdeapllx473/server=sifec-intranet_node1_lx473:read-attribute(name=server-state)
-{
-    "outcome" => "success",
-    "result" => "running"
-}
+1. Conferir:
 
-[domain@localhost:9999 /]
-[domain@localhost:9999 /]
-[domain@localhost:9999 /]
-[domain@localhost:9999 /]
-[domain@localhost:9999 /]
-[domain@localhost:9999 /]
-[domain@localhost:9999 /] /profile=full-ha-sifec-intranet/subsystem=security/security-domain=jaas-sifec/authentication=classic:remove
-{
-    "outcome" => "success",
-    "result" => undefined,
-    "server-groups" => {"sifec-intranet" => {"host" => {"hc_cbrdeapllx473" => {"sifec-intranet_node1_lx473" => {"response" => {
-        "outcome" => "success",
-        "result" => undefined,
-        "response-headers" => {
-            "operation-requires-reload" => true,
-            "process-state" => "reload-required"
-        }
-    }}}}}}
-}
+/profile=full-ha-sifec-intranet/subsystem=security/security-domain=jaas-sifec:read-resource(recursive=true)
+/profile=full-ha-sifec-intranet/subsystem=security/security-domain="java:/jaas/jaas-sifec":read-resource(recursive=true)
 
-[domain@localhost:9999 /] /profile=full-ha-sifec-intranet/subsystem=security/security-domain=jaas-sifec/authentication=classic:add(login-modules=[{code=org.keycloak.adapters.jboss.KeycloakLoginModule,flag=required}])
-{
-    "outcome" => "success",
-    "result" => undefined,
-    "server-groups" => {"sifec-intranet" => {"host" => {"hc_cbrdeapllx473" => {"sifec-intranet_node1_lx473" => {"response" => {
-        "outcome" => "success",
-        "result" => undefined,
-        "response-headers" => {
-            "operation-requires-reload" => true,
-            "process-state" => "reload-required"
-        }
-    }}}}}}
-}
+Nos dois deve aparecer só o org.keycloak.adapters.jboss.KeycloakLoginModule.
 
-[domain@localhost:9999 /] /profile=full-ha-sifec-intranet/subsystem=security/security-domain="java:/jaas/jaas-sifec"/authentication=classic:remove
-{
-    "outcome" => "success",
-    "result" => undefined,
-    "server-groups" => {"sifec-intranet" => {"host" => {"hc_cbrdeapllx473" => {"sifec-intranet_node1_lx473" => {"response" => {
-        "outcome" => "success",
-        "result" => undefined,
-        "response-headers" => {
-            "operation-requires-reload" => true,
-            "process-state" => "reload-required"
-        }
-    }}}}}}
-}
+2. Reload (avise a sala antes):
 
-[domain@localhost:9999 /] /profile=full-ha-sifec-intranet/subsystem=security/security-domain="java:/jaas/jaas-sifec"/authentication=classic:add(login-modules=[{code=org.keycloak.adapters.jboss.KeycloakLoginModule,flag=required}])
-{
-    "outcome" => "success",
-    "result" => undefined,
-    "server-groups" => {"sifec-intranet" => {"host" => {"hc_cbrdeapllx473" => {"sifec-intranet_node1_lx473" => {"response" => {
-        "outcome" => "success",
-        "result" => undefined,
-        "response-headers" => {
-            "operation-requires-reload" => true,
-            "process-state" => "reload-required"
-        }
-    }}}}}}
-}
+/server-group=sifec-intranet:reload-servers(blocking=true)
+/host=hc_cbrdeapllx473/server=sifec-intranet_node1_lx473:read-attribute(name=server-state)
 
-[domain@localhost:9999 /] run-batch
-The batch failed with the following error (you are remaining in the batch editing mode to have a chance to correct the error): Without arguments the command can be executed only in the b
-atch mode.
+O estado final deve ser running.
 
-[domain@localhost:9999 /]
-[domain@localhost:9999 /]
-[domain@localhost:9999 /]
-[domain@localhost:9999 /]
-[domain@localhost:9999 /]
-[domain@localhost:9999 /]
+3. Validar no 473 que tudo subiu:
+
+bash
+sudo grep -E "WFLYSRV0010|WFLYSRV0021|WFLYSRV0025" /opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/server.log | tail -12
+
+Devem aparecer "SIFEC" e "SICCR-PJ" implantados, sem WFLYSRV0021.
+
+4. Teste: peça para o Pablo abrir o PJ e consultar a lista de clientes. Para confirmar pelo Apache (476) que as APIs passaram a devolver conteúdo:
+
+bash
+sudo grep "workflow-credito-pj-web/api/perfil-acesso-usuario" /logs/apache2/SIFEC-INTRANET/sifec1.des.caixa-access.log | tail -3
+
+O que queremos ver: depois do 200, em vez de -, um número de bytes maior que zero.
