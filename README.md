@@ -1,1 +1,10 @@
-Pablo, testei de dentro do pod do SIPGC em DES: o des.sigoc.caixa resolve (10.116.26.110), mas a porta 443 não abre. Confirmado, é bloqueio de firewall no egress do namespace, e não problema da aplicação. Vou abrir a solicitação de regra de firewall do egress do sipgc-des até o SIGOC. Pra TQS, me confirma se deve apontar pro des.sigoc.caixa ou pro SIGOC de TQS, que eu faço o mesmo teste lá. Te aviso quando a regra for aplicada.
+Jesse Mouta Pereira Batista
+Paulo Henrique Barros Santos e Rodrigo Abreu Costa   Segue Resumo de hoje no JBoss 7.4 (DES, sifec-intranet):   No ar: SIFEC 2.160.3.0 (Jackson corrigido), SIFEC-CCR, SICCR-BDCAIXA, HUB-FRONTEND e MI…
+Bom dia, Jesse.
+ 
+Saberia me dizer como está sendo a compilação para o ambiente SIFEC DES para o JBoss 7.4 para essa fase de testes?
+Vamos subir o EAR pronto e mandar para vocês, ou será disponibilizada uma interface que podemos compilar, estilo RTC/Jenkins?
+
+
+
+ me perguntaram isso mais nao tem jekins estamos faznedo pela console mais é so acesso das esterias caimos de paraquedas aqui
