@@ -1,4 +1,48 @@
-sudo tail -f /opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/server.log | grep -iE --line-buffered "workflow-credito|ERROR|Exception"
+fala, mestre! bom dia. ótimo!
+ 
+O ideal é que o SIPGC TQS aponte para o SIGOC TQS mesmo
+ 
+REQ000146959849
+ 
+Requisição para ambiente de DES
+ 
+Para TQS
+REQ000146959859
+ 
+Ah, e o nosso serviço que consome o sigoc é esse aqui:
+https://sipgc-api-informacoes-des.apps.nprd.caixa
+ 
+Api de informações
 
 
-Pablo, o SICCR-PJ 8.40.1 (workflow-credito-pj-ear-8.40.1-20261105.100217-6.ear) subiu no JBoss 7.4, no sifec-intranet. O Thiago Jeferson fez a implantação às 10:01. O contexto /workflow-credito-pj-web está registrado e o status é enabled, sem erros de CDI. Pode testar o link do PJ pelo SIFEC em https://migracaosifec.des.caixa/fec-web/ ?/ ?
+
+ 	Solicito liberação de comunicação de saída (egress) do namespace/aplicação SIPGC em ambiente DES para o serviço SIGOC.
+Informar formas de contato:*:	Via Teams
+
+
+
+Qual o tipo de serviço?*:	Ajustar ambiente ou parametrização de software
+Informar o Ambiente:*:	DES
+Nome do serviço ou sistema:*:	SIPGC no seguinte serviço: Api de Informações
+Janela de atendimento:*:	05/11/2026 00:00:00
+Prazo final da janela de atendimento:*:	05/11/2026 22:59:00
+Haverá previsão de indisponibilidade durante a execução do serviço:*:	Não
+Contato do responsável pela validação do ambiente após alteração:*:	p585600@corp.caixa.gov.br
+Descrição da solicitação:*:	Solicito liberação de comunicação de saída (egress) do namespace/aplicação SIPGC em ambiente DES para o serviço SIGOC.
+Informar formas de contato:*:	Via Teams
+
+
+
+
+Qual o tipo de serviço?*:	Ajustar ambiente ou parametrização de software
+Informar o Ambiente:*:	DES
+Nome do serviço ou sistema:*:	SIPGC no seguinte serviço: Api de Informações
+Janela de atendimento:*:	05/11/2026 00:00:00
+Prazo final da janela de atendimento:*:	05/11/2026 22:59:00
+Haverá previsão de indisponibilidade durante a execução do serviço:*:	Não
+Contato do responsável pela validação do ambiente após alteração:*:	p585600@corp.caixa.gov.br
+Descrição da solicitação:*:	Solicito liberação de comunicação de saída (egress) do namespace/aplicação SIPGC em ambiente DES para o serviço SIGOC.
+Informar formas de contato:*:	Via Teams
+
+
+ele abriu dus req bora fazer
