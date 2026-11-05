@@ -1,10 +1,11 @@
+Pablo, fechei o diagnóstico:
 
--sh-4.2$ oc exec -it sipgc-api-informacoes-tqs-90-zczmd -n sipgc-tqs -- bash -c "timeout 5 bash -c '</dev/tcp/des.sigoc.caixa/443' && echo ABERTA || echo SEM CONEXAO"
+DES: do pod, o des.sigoc.caixa resolve (10.116.26.110), mas a porta 443 não abre. É bloqueio de firewall no egress do namespace. A REQ de DES (…849) eu complemento com origem, destino e porta.
+TQS: achei que o pod de TQS está com Sigoc:BaseUrl = https://des.sigoc.caixa/sigoc-web/rest no appsettings, ou seja, o TQS está batendo no SIGOC de DES. E a 443 de lá também não abre a partir de TQS.
 
-SEM CONEXAO
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$
+Pra fechar o TQS preciso de duas coisas:
+
+O host exato do SIGOC TQS que o SIPGC TQS deve consumir.
+Alguém trocar o Sigoc:BaseUrl pro host de TQS. Se quiser, eu configuro _ENV.Sigoc__BaseUrl na library de TQS, sem precisar de novo build.
+
+Com o host eu testo a conexão do pod de TQS e ajusto a REQ …859 com o destino certo. Me passa a URL quando puder.
