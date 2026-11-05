@@ -1,15 +1,23 @@
-Pablo, vocês abrem a regra de TQS, igual fizeram em DES. Os dados:
+REQ000146959849 (DES)
 
-Origem: sipgc-api-informacoes-tqs.apps.nprd.caixa (10.116.180.64), namespace sipgc-tqs
-Destino: hom.sigoc.caixa (10.123.20.225 / rs0000sr625.corp.caixa.gov.br)
-Protocolo/porta: TCP 443
-Evidência: testei de dentro do pod de TQS. O DNS resolve, mas a porta 443 não abre (sem conexão).
+Atendimento referente à indisponibilidade de comunicação do SIPGC (Api de Informações, ambiente DES) com o serviço SIGOC.
 
-Use o mesmo padrão do pedido de DES (98711), com origem e destino iguais.
+Diagnóstico: de dentro do pod sipgc-api-informacoes-des, o des.sigoc.caixa resolve (10.116.26.110), mas a conexão TCP na porta 443 não é estabelecida (sem conexão). A causa é bloqueio de rede (firewall), e não da aplicação.
 
-Duas observações:
+Ação realizada: identificado o bloqueio e passados ao time do SIPGC os dados para a regra de comunicação (origem sipgc-api-informacoes-des, destino des.sigoc.caixa 10.116.26.110, TCP 443). A regra foi solicitada pelo time do SIPGC (pedido 98711 / regra 1033850) e está em tratamento pela CETEL.
 
-Confirma por favor que o SIGOC de TQS é mesmo o hom.sigoc.caixa.
-O pod de TQS ainda aponta para des.sigoc.caixa no appsettings. Quando a regra sair, eu troco o Sigoc__BaseUrl na library de TQS para https://hom.sigoc.caixa/sigoc-web/rest. Sem isso a regra sozinha não resolve.
+Pendência: validar a conectividade após a aplicação da regra. Caso a conexão persista bloqueada, reabrir ou abrir nova solicitação informando o resultado do teste.
 
-Amanhã cedo eu testo o pod de DES de novo. Se continuar sem conexão, a gente revisa a origem das duas regras juntos, porque o IP da rota pode não ser o IP de saída do pod.
+Atendimento encerrado do lado de esteiras.
+
+REQ000146959859 (TQS)
+
+Atendimento referente à indisponibilidade de comunicação do SIPGC (Api de Informações, ambiente TQS) com o serviço SIGOC.
+
+Diagnóstico: o pod de TQS estava configurado para consumir des.sigoc.caixa (appsettings, Sigoc:BaseUrl), e a porta 443 desse destino não abre a partir de TQS. O host correto de TQS identificado é hom.sigoc.caixa (10.123.20.225). De dentro do pod de TQS, o DNS resolve, mas a porta 443 também não abre (sem conexão).
+
+Ação realizada: levantados os dados para a regra de comunicação (origem sipgc-api-informacoes-tqs, destino hom.sigoc.caixa 10.123.20.225, TCP 443) e repassados ao time do SIPGC, que solicitará a regra, como foi feito em DES.
+
+Pendências: (1) aplicação da regra de firewall; (2) troca do Sigoc__BaseUrl na library de TQS para https://hom.sigoc.caixa/sigoc-web/rest, após a regra; (3) validação da conectividade. Caso persista o bloqueio, abrir nova solicitação informando o resultado do teste.
+
+Atendimento encerrado do lado de esteiras.
