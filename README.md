@@ -1,16 +1,137 @@
-No jboss-cli do 471 (10.116.97.59), estes comandos mostram o cadastro do PJ e do fec-web lado a lado:
 
-/profile=full-ha-sifec-intranet/subsystem=keycloak/secure-deployment=workflow-credito-pj-web.war:read-resource(recursive=true)
-/profile=full-ha-sifec-intranet/subsystem=keycloak/secure-deployment=fec-web.war:read-resource(recursive=true)
+[domain@localhost:9999 /]
+[domain@localhost:9999 /]
+[domain@localhost:9999 /] /profile=full-ha-sifec-intranet/subsystem=keycloak/secure-deployment=workflow-credito-pj-web.war:read-resource(recursive=true)
+{
+    "outcome" => "success",
+    "result" => {
+        "allow-any-hostname" => false,
+        "always-refresh-token" => false,
+        "auth-server-url" => undefined,
+        "auth-server-url-for-backend-requests" => undefined,
+        "autodetect-bearer-only" => false,
+        "bearer-only" => false,
+        "client-key-password" => undefined,
+        "client-keystore" => undefined,
+        "client-keystore-password" => undefined,
+        "connection-pool-size" => undefined,
+        "cors-allowed-headers" => undefined,
+        "cors-allowed-methods" => undefined,
+        "cors-max-age" => undefined,
+        "disable-trust-manager" => false,
+        "enable-basic-auth" => false,
+        "enable-cors" => false,
+        "expose-token" => false,
+        "min-time-between-jwks-requests" => undefined,
+        "principal-attribute" => undefined,
+        "public-client" => false,
+        "realm" => "intranet",
+        "realm-public-key" => undefined,
+        "register-node-at-startup" => false,
+        "register-node-period" => undefined,
+        "resource" => "cli-web-fec",
+        "ssl-required" => "external",
+        "token-minimum-time-to-live" => undefined,
+        "token-store" => undefined,
+        "truststore" => undefined,
+        "truststore-password" => undefined,
+        "turn-off-change-session-id-on-login" => false,
+        "use-resource-role-mappings" => false,
+        "credential" => {"secret" => {"value" => "36ab01d0-f1a5-4b1b-9a76-839553c7a6a9"}}
+    }
+}
 
-O recursive=true também mostra o secret, então não deixe a tela compartilhada aberta por muito tempo nessa parte.
+[domain@localhost:9999 /]
+[domain@localhost:9999 /]
+[domain@localhost:9999 /]
+[domain@localhost:9999 /] /profile=full-ha-sifec-intranet/subsystem=keycloak/secure-deployment=fec-web.war:read-resource(recursive=true)
+{
+    "outcome" => "success",
+    "result" => {
+        "allow-any-hostname" => true,
+        "always-refresh-token" => false,
+        "auth-server-url" => "https://login.des.caixa/auth",
+        "auth-server-url-for-backend-requests" => undefined,
+        "autodetect-bearer-only" => false,
+        "bearer-only" => false,
+        "client-key-password" => undefined,
+        "client-keystore" => undefined,
+        "client-keystore-password" => undefined,
+        "connection-pool-size" => undefined,
+        "cors-allowed-headers" => undefined,
+        "cors-allowed-methods" => undefined,
+        "cors-max-age" => undefined,
+        "disable-trust-manager" => false,
+        "enable-basic-auth" => false,
+        "enable-cors" => false,
+        "expose-token" => false,
+        "min-time-between-jwks-requests" => undefined,
+        "principal-attribute" => undefined,
+        "public-client" => false,
+        "realm" => "intranet",
+        "realm-public-key" => undefined,
+        "register-node-at-startup" => false,
+        "register-node-period" => undefined,
+        "resource" => "cli-web-fec",
+        "ssl-required" => "all",
+        "token-minimum-time-to-live" => undefined,
+        "token-store" => undefined,
+        "truststore" => undefined,
+        "truststore-password" => undefined,
+        "turn-off-change-session-id-on-login" => false,
+        "use-resource-role-mappings" => false,
+        "credential" => {"secret" => {"value" => "36ab01d0-f1a5-4b1b-9a76-839553c7a6a9"}}
+    }
+}
 
-Para mostrar que o modelo do Prokot (o CCR-Parâmetros) é igual:
+[domain@localhost:9999 /]
+[domain@localhost:9999 /]
+[domain@localhost:9999 /] /profile=full-ha-sifec-intranet/subsystem=keycloak/secure-deployment=ccr-parametros-web.war:read-resource
+{
+    "outcome" => "success",
+    "result" => {
+        "allow-any-hostname" => false,
+        "always-refresh-token" => false,
+        "auth-server-url" => undefined,
+        "auth-server-url-for-backend-requests" => undefined,
+        "autodetect-bearer-only" => false,
+        "bearer-only" => false,
+        "client-key-password" => undefined,
+        "client-keystore" => undefined,
+        "client-keystore-password" => undefined,
+        "connection-pool-size" => undefined,
+        "cors-allowed-headers" => undefined,
+        "cors-allowed-methods" => undefined,
+        "cors-max-age" => undefined,
+        "disable-trust-manager" => false,
+        "enable-basic-auth" => false,
+        "enable-cors" => false,
+        "expose-token" => false,
+        "min-time-between-jwks-requests" => undefined,
+        "principal-attribute" => undefined,
+        "public-client" => false,
+        "realm" => "intranet",
+        "realm-public-key" => undefined,
+        "register-node-at-startup" => false,
+        "register-node-period" => undefined,
+        "resource" => "cli-web-fec",
+        "ssl-required" => "external",
+        "token-minimum-time-to-live" => undefined,
+        "token-store" => undefined,
+        "truststore" => undefined,
+        "truststore-password" => undefined,
+        "turn-off-change-session-id-on-login" => false,
+        "use-resource-role-mappings" => false,
+        "credential" => {"secret" => undefined}
+    }
+}
 
-/profile=full-ha-sifec-intranet/subsystem=keycloak/secure-deployment=ccr-parametros-web.war:read-resource
+[domain@localhost:9999 /]
+[domain@localhost:9999 /]
+[domain@localhost:9999 /] /profile=full-ha-sifec-intranet/subsystem=keycloak/secure-deployment=workflow-credito-pj-web.war:read-attribute(name=token-store)
+{
+    "outcome" => "success",
+    "result" => undefined
+}
 
-E para mostrar o ponto do token-store:
-
-/profile=full-ha-sifec-intranet/subsystem=keycloak/secure-deployment=workflow-credito-pj-web.war:read-attribute(name=token-store)
-
-O que apontar na tela: realm = intranet, resource = cli-web-fec e o secret iguais ao modelo do Prokot, e o token-store = undefined.
+[domain@localhost:9999 /]
