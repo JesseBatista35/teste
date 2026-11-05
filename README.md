@@ -1,45 +1,10 @@
+2. Acompanhe no 473 (abra o tail antes de confirmar o deploy):
 
-[domain@localhost:9999 /]
-[domain@localhost:9999 /] /profile=full-ha-sifec-intranet/subsystem=datasources/data-source="jdbc/OracleSicdtDS":write-attribute(name=password,value="pwcdtbd01")
-{
-    "outcome" => "success",
-    "result" => undefined,
-    "server-groups" => {"sifec-intranet" => {"host" => {"hc_cbrdeapllx473" => {"sifec-intranet_node1_lx473" => {"response" => {
-        "outcome" => "success",
-        "result" => undefined,
-        "response-headers" => {
-            "operation-requires-reload" => true,
-            "process-state" => "reload-required"
-        }
-    }}}}}}
-}
+sudo tail -f /opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/server.log | grep -E "WFLYSRV0010|WFLYCTL0013|ERROR|WELD-001408|sifec-cdt|sicdt|WFLYUT0021"
+WFLYUT0021: ... /sifec-cdt-web e /sicdt-orig-api-rest: os dois contextos subiram.
+WFLYSRV0010: Deployed "sifec-cdt-3.24.3.001.ear": sucesso.
+WFLYCTL0013 ou ERROR: me mande as linhas.
 
-[domain@localhost:9999 /]
-[domain@localhost:9999 /]
-[domain@localhost:9999 /]
-[domain@localhost:9999 /]
-[domain@localhost:9999 /] /server-group=sifec-intranet:restart-servers(blocking=true)
-{
-    "outcome" => "success",
-    "result" => undefined,
-    "server-groups" => undefined
-}
+3. Confirmação (CLI do 471):
 
-[domain@localhost:9999 /] /host=hc_cbrdeapllx473/server=sifec-intranet_node1_lx473:read-attribute(name=server-state)
-{
-    "outcome" => "success",
-    "result" => "running"
-}
-
-[domain@localhost:9999 /]
-[domain@localhost:9999 /]
-[domain@localhost:9999 /]
-[domain@localhost:9999 /] /host=hc_cbrdeapllx473/server=sifec-intranet_node1_lx473/subsystem=datasources/data-source="jdbc/OracleSicdtDS":test-connection-in-pool
-{
-    "outcome" => "success",
-    "result" => [true]
-}
-
-[domain@localhost:9999 /]
-[domain@localhost:9999 /]
-[domain@localhost:9999 /]
+/server-group=sifec-intranet/deployment=SIFEC-CDT:read-attribute(name=enabled)
