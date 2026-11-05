@@ -1,9 +1,4 @@
+<img width="1905" height="1073" alt="image" src="https://github.com/user-attachments/assets/27096d9e-e2e7-4840-af58-4f35952fe52b" />
 
-[sudo] password for p585600:
-15:    ProxyPass        ^/fec-web/ balancer://mod_cluster_sifec/fec-web/ stickysession=JSESSIONID|jsessionid nofailover=On
-16:    ProxyPassReverse ^/fec-web/ balancer://mod_cluster_sifec/fec-web/
-[p585600@cbrdeapllx476 ~]$
-[p585600@cbrdeapllx476 ~]$
-[p585600@cbrdeapllx476 ~]$
-[p585600@cbrdeapllx476 ~]$
-[p585600@cbrdeapllx476 ~]$
+
+<img width="1880" height="963" alt="image" src="https://github.com/user-attachments/assets/762cd6db-d238-42d8-a18f-717b4010956a" />
