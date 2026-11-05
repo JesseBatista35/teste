@@ -75,3 +75,18 @@ jackson-databind
 jackson-jaxrs-json-provider
  
 Não fiz alteração na Java EE em relação as versões anteriores. Também não alterei as versões do Hibernate e do SSO da Caixa, no entanto, farei os ajustes caso necessite de adequação e melhorias.
+
+
+tem essa menssagem no grupo de ontem
+
+
+
+Paulo Henrique Barros Santos
+Boa tarde! Na semana passada, iniciamos com o time de Produção o alinhamento para criação do ambiente do SIPEN. Acredito que essa solicitação tenha partido de lá
+Certo, sem problema! Só reforçando, conforme a Beth explicou, toda criação de infraestrutura deve ser direcionada exclusivamente ao CTC (ambiente principal e de contingência).
+DTC é exclusivo para DR e  segue como site "apagado" 
+
+
+
+
+ cara estou perdino nao sei oq ue e esse sictd e se ele sobe nesse sifec que estmaos mezendo
