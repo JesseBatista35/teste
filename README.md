@@ -1,1 +1,1 @@
-<img width="1871" height="882" alt="image" src="https://github.com/user-attachments/assets/54c1b588-cee8-4b6a-b059-885e9db584ba" />
+sudo grep -nE "^14:3[5-9]|^14:4[0-9]" /opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/server.log | grep -iE "ERROR|WARN|Exception|SICLI|mock|perfil|setrole" | grep -v NoSuchFile | tail -40
