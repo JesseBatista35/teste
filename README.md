@@ -1,54 +1,26 @@
+/profile=full-ha-sifec-intranet/subsystem=logging/periodic-rotating-file-handler=FILE:read-attribute(name=level)
+Se vier ALL, DEBUG ou undefined, está ok.
+Se vier INFO, libere temporariamente:
+  /profile=full-ha-sifec-intranet/subsystem=logging/periodic-rotating-file-handler=FILE:write-attribute(name=level,value=DEBUG)
 
-[domain@localhost:9999 /] /server-group=sifec-intranet:reload-servers(blocking=true)
-{
-    "outcome" => "success",
-    "result" => undefined,
-    "server-groups" => undefined
-}
+Só os pacotes wpj e intgr vão gerar DEBUG. O resto continua em INFO, porque é o logger raiz que controla isso.
 
-[domain@localhost:9999 /] /host=hc_cbrdeapllx473/server=sifec-intranet_node1_lx473:read-attribute(name=server-state)
-{
-    "outcome" => "success",
-    "result" => "running"
-}
+Se o comando der “not found”, liste os handlers:
 
-[domain@localhost:9999 /]
-[domain@localhost:9999 /]
-[domain@localhost:9999 /] /profile=full-ha-sifec-intranet/subsystem=logging/logger=br.gov.caixa.wpj:add(level=DEBUG)
-{
-    "outcome" => "success",
-    "result" => undefined,
-    "server-groups" => {"sifec-intranet" => {"host" => {"hc_cbrdeapllx473" => {"sifec-intranet_node1_lx473" => {"response" => {
-        "outcome" => "success",
-        "result" => undefined
-    }}}}}}
-}
+/profile=full-ha-sifec-intranet/subsystem=logging:read-children-names(child-type=periodic-rotating-file-handler)
 
-[domain@localhost:9999 /]
-[domain@localhost:9999 /]
-[domain@localhost:9999 /] /profile=full-ha-sifec-intranet/subsystem=logging/logger=br.gov.caixa.intgr:add(level=DEBUG)
-{
-    "outcome" => "success",
-    "result" => undefined,
-    "server-groups" => {"sifec-intranet" => {"host" => {"hc_cbrdeapllx473" => {"sifec-intranet_node1_lx473" => {"response" => {
-        "outcome" => "success",
-        "result" => undefined
-    }}}}}}
-}
+Teste:
 
-[domain@localhost:9999 /]
-[domain@localhost:9999 /]
-[domain@localhost:9999 /] /profile=full-ha-sifec-intranet/subsystem=logging/logger=br.gov.caixa.wpj:read-resource
-{
-    "outcome" => "success",
-    "result" => {
-        "category" => "br.gov.caixa.wpj",
-        "filter" => undefined,
-        "filter-spec" => undefined,
-        "handlers" => undefined,
-        "level" => "DEBUG",
-        "use-parent-handlers" => true
-    }
-}
+Deixe o log aberto no 473:
+bash
+   sudo tail -f /opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/server.log | grep -iE --line-buffered "wpj|intgr|perfil|usuario|token|Exception|SSL|PKIX"
+Peça para o Pablo ou o Thiago entrarem de novo no SIFEC (a sessão caiu com o reload), abrirem o PJ e consultarem.
+No F12 deles, na chamada perfil-acesso-usuario, veja se há o header Authorization: Bearer.
 
-[domain@localhost:9999 /]
+Depois do teste, desfaça tudo:
+
+/profile=full-ha-sifec-intranet/subsystem=logging/logger=br.gov.caixa.wpj:remove
+/profile=full-ha-sifec-intranet/subsystem=logging/logger=br.gov.caixa.intgr:remove
+/profile=full-ha-sifec-intranet/subsystem=logging/periodic-rotating-file-handler=FILE:write-attribute(name=level,value=INFO)
+
+O último comando só é necessário se você tiver mudado o nível do handler.
