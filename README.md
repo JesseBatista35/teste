@@ -1,11 +1,1 @@
-
-[domain@localhost:9999 /]
-[domain@localhost:9999 /]
-[domain@localhost:9999 /]
-[domain@localhost:9999 /] /profile=full-ha-sifec-intranet/subsystem=undertow/servlet-container=default:read-attribute(name=proactive-authentication)
-{
-    "outcome" => "success",
-    "result" => true
-}
-
-[domain@localhost:9999 /]
+<img width="1382" height="447" alt="image" src="https://github.com/user-attachments/assets/825f4950-7ef8-4fee-acb8-b68319b6da3c" />
