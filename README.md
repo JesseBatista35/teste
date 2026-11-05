@@ -12,3 +12,57 @@ sudo grep -n "cliente/cnpj" $LOG | tail -5
 sed -n '18837,20596p' /opt/jboss/jboss-eap/dc/configuration/domain.xml | grep -niE "single-sign-on|<sso|sso-"
 
 O que eu quero ver no 1 são authType, remoteUser e principal, e no 2 se o 6.4 tem SSO configurado.
+
+
+
+-sh-4.1$ rm -f /tmp/props_pj.cli
+-sh-4.1$
+-sh-4.1$
+-sh-4.1$
+-sh-4.1$
+-sh-4.1$
+-sh-4.1$
+-sh-4.1$
+-sh-4.1$
+-sh-4.1$
+-sh-4.1$
+-sh-4.1$
+-sh-4.1$
+-sh-4.1$
+-sh-4.1$
+-sh-4.1$ sed -n '18837,20596p' /opt/jboss/jboss-eap/dc/configuration/domain.xml | grep -niE "single-sign-on|<sso|sso-"
+1549:                    <sso cache-container="web" cache-name="sso" domain="des.caixa" reauthenticate="false"/>
+-sh-4.1$
+-sh-4.1$
+-sh-4.1$
+
+
+
+[p585600@cbrdeapllx473 ~]$
+[p585600@cbrdeapllx473 ~]$
+[p585600@cbrdeapllx473 ~]$
+[p585600@cbrdeapllx473 ~]$
+[p585600@cbrdeapllx473 ~]$
+[p585600@cbrdeapllx473 ~]$
+[p585600@cbrdeapllx473 ~]$
+[p585600@cbrdeapllx473 ~]$
+[p585600@cbrdeapllx473 ~]$
+[p585600@cbrdeapllx473 ~]$
+[p585600@cbrdeapllx473 ~]$
+[p585600@cbrdeapllx473 ~]$
+[p585600@cbrdeapllx473 ~]$ LOG=/opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/server.log
+[p585600@cbrdeapllx473 ~]$
+[p585600@cbrdeapllx473 ~]$
+[p585600@cbrdeapllx473 ~]$
+[p585600@cbrdeapllx473 ~]$ L=$(sudo grep -n "requestURI=/workflow-credito-pj-web/api/cliente/cnpj/03756362000103" $LOG | tail -1 | cut -d: -f1); echo "linha: $L"; sudo sed -n "${L},$((L+60))p" $LOG | grep -viE "cookie|authorization"
+linha:
+sed: -e expression #1, char 1: unknown command: `,'
+[p585600@cbrdeapllx473 ~]$
+[p585600@cbrdeapllx473 ~]$
+[p585600@cbrdeapllx473 ~]$
+[p585600@cbrdeapllx473 ~]$
+[p585600@cbrdeapllx473 ~]$ sudo grep -n "cliente/cnpj" $LOG | tail -5
+[p585600@cbrdeapllx473 ~]$
+[p585600@cbrdeapllx473 ~]$
+[p585600@cbrdeapllx473 ~]$
+
