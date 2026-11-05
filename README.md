@@ -1,30 +1,11 @@
 
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$ oc exec -it <pod-sipgc-api-informacoes-tqs> -n sipgc-tqs -- env | grep -i sigoc
--sh: pod-sipgc-api-informacoes-tqs: Arquivo ou diretório não encontrado
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$ oc exec -it <pod-sipgc-api-informacoes-tqs> -n sipgc-tqs -- getent hosts <host-sigoc-tqs>
--sh: erro de sintaxe próximo do `token' não esperado `newline'
--sh-4.2$ oc exec -it <pod-sipgc-api-informacoes-tqs> -n sipgc-tqs -- bash -c "timeout 5 bash -c '</dev/tcp/<host-sigoc-tqs>/443' && echo ABERTA || echo SEM CONEXAO"
--sh: pod-sipgc-api-informacoes-tqs: Arquivo ou diretório não encontrado
--sh-4.2$
--sh-4.2$
--sh-4.2$ oc get egressip
-error: the server doesn't have a resource type "egressip"
--sh-4.2$
--sh-4.2$
--sh-4.2$
+[p585600@cbrdeapllx473 ~]$ sudo tail -f /opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/server.log | grep -iE --line-buffered "workflow-credito|ERROR|Exception"
+10:01:14,609 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 128) WFLYUT0021: Contexto web registrado: '/workflow-credito-pj-web' para servidor 'default-server'
+10:01:14,637 INFO  [org.jboss.as.server] (ServerService Thread Pool -- 103) WFLYSRV0010: "SICCR-PJ" foi implantado (runtime-name: "workflow-credito-pj-ear-8.40.1-20261105.100217-6.ear")
+               URI=/fec-web/resources/js/comp/error.js
+10:10:28,794 WARN  [org.hibernate.engine.jdbc.spi.SqlExceptionHelper] (default task-3) SQL Warning Code: 4223, SQLState: null
+10:10:28,794 WARN  [org.hibernate.engine.jdbc.spi.SqlExceptionHelper] (default task-3) Origination unknown: [10228][11541][4.16.53] Ocorreram exceções de segurança ao carregar o driver. ERRORCODE=4223, SQLSTATE=null
+               URI=/fec-web/emprest/app/login/workflow-credito-pj-web
+               URI=/fec-web/resources/js/comp/error.js
+               URI=/fec-web/emprest/app/login/workflow-credito-pj-web
 
-
-
-
-Jesse, a tela abriu mas não trouxe retorno da lista.
-Tem como validar o log?
-
-
-<img width="1919" height="1026" alt="image" src="https://github.com/user-attachments/assets/14e45b96-e6a2-4181-9a38-945a671c28fd" />
