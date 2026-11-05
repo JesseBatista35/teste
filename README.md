@@ -1,69 +1,15 @@
-1. Veja para onde os datasources apontam (no 471, no bash; o comando não mostra senha):
+/profile=full-ha-sifec-intranet/subsystem=datasources/data-source="jdbc/OracleSiccrDS":read-attribute(name=jndi-name)
+/profile=full-ha-sifec-intranet/subsystem=datasources/data-source="jdbc/OracleSiccrDS":read-attribute(name=connection-url)
+/profile=full-ha-sifec-intranet/subsystem=datasources/data-source="jdbc/OracleSiccrDS":read-attribute(name=user-name)
+/profile=full-ha-sifec-intranet/subsystem=datasources/data-source="jdbc/OracleSiccrDS":read-attribute(name=enabled)
 
-sudo awk '/<profile name="full-ha-sifec-intranet"/,/<\/profile>/' /opt/jboss/jboss-eap/domain/configuration/domain.xml | grep -oE 'jndi-name="[^"]*"|<connection-url>[^<]*|<user-name>[^<]*'
+/profile=full-ha-sifec-intranet/subsystem=datasources/data-source="java:/jdbc/OracleSiccrDS_docker":read-attribute(name=jndi-name)
+/profile=full-ha-sifec-intranet/subsystem=datasources/data-source="java:/jdbc/OracleSiccrDS_docker":read-attribute(name=connection-url)
+/profile=full-ha-sifec-intranet/subsystem=datasources/data-source="java:/jdbc/OracleSiccrDS_docker":read-attribute(name=enabled)
 
-2. Pegue a SQL que o PJ executou no teste. O Hibernate já está imprimindo as queries no log (aquelas linhas [stdout] empregado0_...). Peça um novo teste e, logo depois, rode no 473:
+/profile=full-ha-sifec-intranet/subsystem=datasources/data-source="java:/jdbc/OracleDataguardDS_caixa":read-attribute(name=jndi-name)
+/profile=full-ha-sifec-intranet/subsystem=datasources/data-source="java:/jdbc/OracleDataguardDS_caixa":read-attribute(name=connection-url)
 
-sudo grep -nE "^14:[0-5][0-9].*\[stdout\]" /opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/server.log | tail -80
+/profile=full-ha-sifec-intranet/subsystem=datasources/data-source="java:/jdbc/OracleSiccrTributarioDS":read-attribute(name=jndi-name)
+/profile=full-ha-sifec-intranet/subsystem=datasources/data-source="java:/jdbc/OracleSiccrTributarioDS":read-attribute(name=connection-url)
 
-Aí aparecem as tabelas que o PJ consultou na consulta de cliente e no perfil.
-
-
-
-omain@localhost:9999 /]
-[domain@localhost:9999 /]
-[domain@localhost:9999 /] /profile=full-ha-sifec-intranet/subsystem=datasources:read-children-names(child-type=data-source)
-{
-    "outcome" => "success",
-    "result" => [
-        "ExampleDS",
-        "java:/jdbc/OracleDataguardDS_caixa",
-        "java:/jdbc/OracleSiccrDS_docker",
-        "java:/jdbc/OracleSiccrTributarioDS",
-        "jdbc/DB2SiarcDS",
-        "jdbc/DB2SiccrDS",
-        "jdbc/DB2SiempDS",
-        "jdbc/DB2SigecDS",
-        "jdbc/Db2SiccrDS_OLD",
-        "jdbc/IdmsSiapxDS",
-        "jdbc/OracleBndesDS",
-        "jdbc/OracleSiccrDS",
-        "jdbc/OracleSifesDS",
-        "jdbc/OracleSiganDS",
-        "jdbc/OracleSipgeDS",
-        "jdbc/OracleSirurDS",
-        "jdbc/SybaseSibanDS",
-        "jdbc/SybaseSibanDS_ORIGINAL",
-        "jdbc/SybaseSiempDS",
-        "jdbc/SybaseSifbnDS",
-        "jdbc/SybaseSifbnDS_ORIGINAL",
-        "jdbc/SybaseSifbnDS_ori",
-        "jdbc/SybaseSiganDS",
-        "jdbc/SybaseSiricDS"
-    ]
-}
-
-[domain@localhost:9999 /]
-[domain@localhost:9999 /]
-[domain@localhost:9999 /] /profile=full-ha-sifec-intranet/subsystem=datasources:read-children-names(child-type=xa-data-source)
-{
-    "outcome" => "success",
-    "result" => ["jdbc/DB2SifecDS"]
-}
-
-[domain@localhost:9999 /]
-[domain@localhost:9999 /]
-[domain@localhost:9999 /] /profile=full-ha-sifec-intranet/subsystem=datasources/data-source=NOME:read-attribute(name=jndi-name)
-{
-    "outcome" => "failed",
-    "failure-description" => "WFLYCTL0216: Management resource '[
-    (\"profile\" => \"full-ha-sifec-intranet\"),
-    (\"subsystem\" => \"datasources\"),
-    (\"data-source\" => \"NOME\")
-]' not found",
-    "rolled-back" => true
-}
-
-[domain@localhost:9999 /]
-[domain@localhost:9999 /]
-[domain@localhost:9999 /]
