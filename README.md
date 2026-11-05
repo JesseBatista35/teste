@@ -1,135 +1,25 @@
-1. No 473: o PJ recebeu a configuração do Keycloak?
+1. Comparar a configuração do PJ com a do fec-web (no jboss-cli do 471):
 
-bash
-sudo grep -i "Keycloak subsystem override" /opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/server.log | tail -10
+/profile=full-ha-sifec-intranet/subsystem=keycloak/secure-deployment=workflow-credito-pj-web.war:read-resource
 
-Deve aparecer uma linha ...override for deployment workflow-credito-pj-web.war. Se aparecer só para o fec-web e os outros, e não para o PJ, a causa está aí.
+O que comparar: resource (o client), bearer-only, realm e use-resource-role-mappings. Se o client for outro (por exemplo cli-web-ccr ou cli-ser-ccr) e o usuário não tiver role nesse client, a aplicação pode não encontrar o perfil e devolver vazio.
 
-2. No jboss-cli do 471: quais apps estão no Keycloak
+2. Na sala, com o Pablo, que é quem conhece o código. Pergunte:
 
-/profile=full-ha-sifec-intranet/subsystem=keycloak:read-children-names(child-type=secure-deployment)
+O que o endpoint api/perfil-acesso-usuario faz quando não encontra o perfil do usuário? Devolve vazio?
+De onde vem o perfil: do token (roles do Keycloak), do banco ou de um serviço (SIPER, SICLI etc.)?
 
-Se workflow-credito-pj-web.war não estiver na lista, me mande também a configuração de um que esteja, por exemplo:
+Se vier do banco, o aviso que apareceu no log às 10:10 passa a ser suspeito:
 
-/profile=full-ha-sifec-intranet/subsystem=keycloak/secure-deployment=fec-web.war:read-resource
+SQL Warning Code: 4223 ... Ocorreram exceções de segurança ao carregar o driver (DB2 JCC 4.16.53)
 
-Com isso eu monto o comando para criar a do PJ, igual à do fec-web.
+3. F12 em sala: na aba Rede, clique em perfil-acesso-usuario e veja:
 
-3. Na sala, com o Pablo (F12):
-No DevTools, aba Rede, clique em perfil-acesso-usuario e anote:
+Resposta: confirmar que está vazia;
+Cabeçalhos de resposta: veja se há algum header de erro da aplicação.
 
-Cabeçalhos de solicitação: existe Authorization: Bearer ... ou cookie de sessão?
-Resposta: está vazia mesmo?
+Frase para a sala:
 
-O Pablo também pode olhar no código o que a API retorna quando não encontra o usuário logado. Isso confirma ou descarta a hipótese.
+“A tela do PJ carrega, mas todas as chamadas da API (perfil-acesso-usuario, favoritos, natureza-juridica...) voltam HTTP 200 com corpo vazio, sem nenhum erro no log do JBoss. O SSO está configurado para o PJ e as requisições passam por ele, senão viria 302 ou 401. Pablo, você consegue ver no código o que o perfil-acesso-usuario retorna quando não encontra o perfil, e de onde ele busca esse perfil (token, banco ou outro serviço)?”
 
-Me manda as saídas dos passos 1 e 2.
-
-
-
-
-sipen           not added
-
-[domain@localhost:9999 /]
-[domain@localhost:9999 /]
-[domain@localhost:9999 /]
-[domain@localhost:9999 /]
-[domain@localhost:9999 /] /profile=full-ha-sifec-intranet/subsystem=keycloak:read-children-names(child-type=secure-deployment)
-{
-    "outcome" => "success",
-    "result" => [
-        "apx-api.war",
-        "apx-web.war",
-        "bdcaixa-web.war",
-        "bndes-web.war",
-        "ccr-api.war",
-        "ccr-parametros-api.war",
-        "ccr-parametros-web.war",
-        "ccr-web.war",
-        "construcard-web.war",
-        "emp-api.war",
-        "emp-web.war",
-        "empresas-web.war",
-        "fec-api.war",
-        "fec-sicdt-web.war",
-        "fec-web.war",
-        "garantias-web.war",
-        "gerenciador-minutas-api.war",
-        "gerenciador-minutas-web.war",
-        "gerenciadorminutas-api.war",
-        "hub-api.war",
-        "hub-web.war",
-        "ir-web.war",
-        "lcr-web.war",
-        "manterdocumento-web.war",
-        "mcm-web.war",
-        "mge-web.war",
-        "minutaGarantias-web.war",
-        "ori-web.war",
-        "pen-api.war",
-        "rural-web.war",
-        "sicdt-orig-api-rest.war",
-        "sifec-cdt-web.war",
-        "simtr-rest-web.war",
-        "sirur-web.war",
-        "workflow-credito-pj-web.war"
-    ]
-}
-
-[domain@localhost:9999 /]
-[domain@localhost:9999 /]
-[domain@localhost:9999 /]
-[domain@localhost:9999 /] /profile=full-ha-sifec-intranet/subsystem=keycloak/secure-deployment=fec-web.war:read-resource
-{
-    "outcome" => "success",
-    "result" => {
-        "allow-any-hostname" => true,
-        "always-refresh-token" => false,
-        "auth-server-url" => "https://login.des.caixa/auth",
-        "auth-server-url-for-backend-requests" => undefined,
-        "autodetect-bearer-only" => false,
-        "bearer-only" => false,
-        "client-key-password" => undefined,
-        "client-keystore" => undefined,
-        "client-keystore-password" => undefined,
-        "connection-pool-size" => undefined,
-        "cors-allowed-headers" => undefined,
-        "cors-allowed-methods" => undefined,
-        "cors-max-age" => undefined,
-        "disable-trust-manager" => false,
-        "enable-basic-auth" => false,
-        "enable-cors" => false,
-        "expose-token" => false,
-        "min-time-between-jwks-requests" => undefined,
-        "principal-attribute" => undefined,
-        "public-client" => false,
-        "realm" => "intranet",
-        "realm-public-key" => undefined,
-        "register-node-at-startup" => false,
-        "register-node-period" => undefined,
-        "resource" => "cli-web-fec",
-        "ssl-required" => "all",
-        "token-minimum-time-to-live" => undefined,
-        "token-store" => undefined,
-        "truststore" => undefined,
-        "truststore-password" => undefined,
-        "turn-off-change-session-id-on-login" => false,
-        "use-resource-role-mappings" => false,
-        "credential" => {"secret" => undefined}
-    }
-}
-
-[domain@localhost:9999 /]
-
-
-
-
-[p585600@cbrdeapllx473 ~]$
-[p585600@cbrdeapllx473 ~]$
-[p585600@cbrdeapllx473 ~]$ sudo grep -i "Keycloak subsystem override" /opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/server.log | tail -10
-09:59:26,014 INFO  [org.jboss.keycloak] (MSC service thread 1-6) Keycloak subsystem override for deployment workflow-credito-pj-web.war
-10:01:11,203 INFO  [org.jboss.keycloak] (MSC service thread 1-1) Keycloak subsystem override for deployment workflow-credito-pj-web.war
-[p585600@cbrdeapllx473 ~]$
-[p585600@cbrdeapllx473 ~]$
-[p585600@cbrdeapllx473 ~]$
-[p585600@cbrdeapllx473 ~]$
+Me manda a saída do passo 1.
