@@ -1,11 +1,21 @@
+2. No Apache (476, 10.116.78.12): as chamadas do PJ com o status
 
-[p585600@cbrdeapllx473 ~]$ sudo tail -f /opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/server.log | grep -iE --line-buffered "workflow-credito|ERROR|Exception"
-10:01:14,609 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 128) WFLYUT0021: Contexto web registrado: '/workflow-credito-pj-web' para servidor 'default-server'
-10:01:14,637 INFO  [org.jboss.as.server] (ServerService Thread Pool -- 103) WFLYSRV0010: "SICCR-PJ" foi implantado (runtime-name: "workflow-credito-pj-ear-8.40.1-20261105.100217-6.ear")
-               URI=/fec-web/resources/js/comp/error.js
-10:10:28,794 WARN  [org.hibernate.engine.jdbc.spi.SqlExceptionHelper] (default task-3) SQL Warning Code: 4223, SQLState: null
-10:10:28,794 WARN  [org.hibernate.engine.jdbc.spi.SqlExceptionHelper] (default task-3) Origination unknown: [10228][11541][4.16.53] Ocorreram exceções de segurança ao carregar o driver. ERRORCODE=4223, SQLSTATE=null
-               URI=/fec-web/emprest/app/login/workflow-credito-pj-web
-               URI=/fec-web/resources/js/comp/error.js
-               URI=/fec-web/emprest/app/login/workflow-credito-pj-web
+bash
+sudo grep "workflow-credito-pj" /logs/apache2/SIFEC-INTRANET/sifec1.des.caixa-access.log | tail -30
 
+O número logo depois de HTTP/1.1" é o status.
+
+3. No 473: o log completo do momento do teste (sem filtrar só ERROR)
+
+bash
+sudo grep -n "10:1[5-9]" /opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/server.log | grep -iE "workflow|wpj|status=|Exception|WARN" | tail -40
+
+Troque 10:1[5-9] pelo minuto do teste.
+
+Ponto de atenção no seu log:
+
+SQL Warning Code: 4223 ... Ocorreram exceções de segurança ao carregar o driver. ERRORCODE=4223
+
+É um aviso do driver DB2 (JCC 4.16.53) ao conectar. Normalmente aparece quando o driver tenta usar um recurso de segurança ou criptografia que não está disponível e cai para outro modo. Se a lista do PJ consulta o DB2, esse pode ser o motivo da resposta vazia. O passo 3 deve mostrar se ele aparece exatamente na hora da consulta.
+
+Me manda o print da aba Rede ou a saída dos passos 2 e 3.
