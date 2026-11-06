@@ -1,21 +1,31 @@
-boa tarde tudo bem??
-Sera que vc consegue me ajudar com uma questão de esteira...
- 
- 
-Estou tomando toco de quality gate (siavo-ms-spa)
- 
-ai pelo que consegui investigar 
-A esteira do SIAVO-ms-spa não está importando no SonarQube a cobertura gerada pelos testes Jest. O log indica que o sensor de cobertura JavaScript/TypeScript foi ignorado por ausência da configuração do relatório LCOV.
-Ajuste solicitado:
-Executar npm test antes do Sonar;
-Garantir a geração do arquivo coverage/lcov.info;
-Configurar no scanner:sonar.javascript.lcov.reportPaths=coverage/lcov.info;
-Validar no log que o LCOV foi importado corretamente.
-Após o ajuste, deve ser realizada uma nova execução da esteira para confirmar que a cobertura está sendo considerada pelo SonarQube.
- 
-como eu peço esse ajuste na esteira?? qual req deve ser aberta?
- 
-nao sei se exatamente isso
+Boa tarde! Tudo bem sim 🙂
 
+Dei uma olhada e, na verdade, não precisa abrir REQ para a esteira. A esteira já executa o Sonar; o que está faltando é a cobertura ser gerada e informada pelo próprio projeto. Reprovação de Quality Gate por cobertura é ajuste do lado da aplicação.
 
-cara acho que isso nao e qauqi na esteira e teste que voce com odevetem que faz me ajdua ai a responder ess mauloco no teams
+O que vocês precisam ajustar no repositório do SIAVO-ms-spa:
+
+1. Garantir que o script de teste gere a cobertura em LCOV. Ex.: no package.json, "test": "jest --coverage", e no jest.config deixar coverageReporters com "lcov" (o padrão do Jest já inclui) e coverageDirectory "coverage".
+2. Rodar localmente e conferir se o arquivo coverage/lcov.info está sendo criado.
+3. Informar o caminho para o Sonar no sonar-project.properties (ou nas propriedades do scanner):
+   sonar.javascript.lcov.reportPaths=coverage/lcov.info
+4. Conferir também se sonar.sources / sonar.tests / sonar.exclusions não estão tirando os arquivos da análise.
+5. Subir o ajuste e rodar a esteira de novo. No log do Sonar deve aparecer o sensor JavaScript/TypeScript Coverage processando o lcov.info, sem a mensagem de "ignorado".
+
+Se mesmo com isso a cobertura gerada não atingir o mínimo do Quality Gate, aí é aumentar os testes mesmo.
+
+Se depois desses passos o log mostrar que a esteira não está executando o npm test antes do Sonar ou não está repassando a propriedade, me chama que eu verifico a parte da pipeline com vocês.Boa tarde! Tudo bem sim 🙂
+
+Dei uma olhada e, na verdade, não precisa abrir REQ para a esteira. A esteira já executa o Sonar; o que está faltando é a cobertura ser gerada e informada pelo próprio projeto. Reprovação de Quality Gate por cobertura é ajuste do lado da aplicação.
+
+O que vocês precisam ajustar no repositório do SIAVO-ms-spa:
+
+1. Garantir que o script de teste gere a cobertura em LCOV. Ex.: no package.json, "test": "jest --coverage", e no jest.config deixar coverageReporters com "lcov" (o padrão do Jest já inclui) e coverageDirectory "coverage".
+2. Rodar localmente e conferir se o arquivo coverage/lcov.info está sendo criado.
+3. Informar o caminho para o Sonar no sonar-project.properties (ou nas propriedades do scanner):
+   sonar.javascript.lcov.reportPaths=coverage/lcov.info
+4. Conferir também se sonar.sources / sonar.tests / sonar.exclusions não estão tirando os arquivos da análise.
+5. Subir o ajuste e rodar a esteira de novo. No log do Sonar deve aparecer o sensor JavaScript/TypeScript Coverage processando o lcov.info, sem a mensagem de "ignorado".
+
+Se mesmo com isso a cobertura gerada não atingir o mínimo do Quality Gate, aí é aumentar os testes mesmo.
+
+Se depois desses passos o log mostrar que a esteira não está executando o npm test antes do Sonar ou não está repassando a propriedade, me chama que eu verifico a parte da pipeline com vocês.
