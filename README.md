@@ -1,7 +1,48 @@
-Oi! Tudo bem sim. O siifx-caixinhas-api-aplicacao está no OKD4 sim. Como é OKD, na mudança você não informa um servidor específico, e sim o cluster e o namespace.
+Causa identificada no repositório siemp-java-web-config:
+ 
+O arquivo standalone-full-ha.xml foi publicado incompleto. Ele possui o subsistema do mod_cluster:
+ 
+<subsystem xmlns="urn:jboss:domain:modcluster:5.0">
+    ...
+</subsystem>
+ 
+ 
+mas não possui todos os elementos obrigatórios para esse subsistema funcionar no JBoss EAP 7.4.
+ 
+O que deve ser feito no repositório:
+ 
+Comparar o arquivo standalone-full-ha.xml com o standalone-ha.xml e replicar a configuração completa do mod_cluster, garantindo a existência dos itens abaixo:
+ 
+Inclusão da extensão:
+<extension module="org.jboss.as.modcluster"/>
+ 
+ 
+na seção <extensions>.
+ 
+Inclusão do socket binding:
+<socket-binding name="modcluster"
+    multicast-address="${jboss.modcluster.multicast.address:224.0.1.105}"
+    multicast-port="23364"/>
+ 
+ 
+na seção <socket-binding-group>.
+ 
+Validar que o bloco do subsistema mod_cluster permaneça presente:
+<subsystem xmlns="urn:jboss:domain:modcluster:5.0">
+<proxy name="default" advertise-socket="modcluster" listener="ajp">
+<dynamic-load-provider>
+<load-metric type="cpu"/>
+</dynamic-load-provider>
+</proxy>
+</subsystem>
+ 
+ 
+Efeito observado em ambiente:
+ 
+A ausência da extensão e do socket binding impede a inicialização correta do JBoss EAP 7.4, gerando erros de bootstrap do servidor relacionados ao subsistema modcluster, exigindo correção manual do standalone-full-ha.xml após o deploy.
+ 
+Solicitação: ajustar o arquivo standalone-full-ha.xml no repositório para que ele fique consistente com a configuração de mod_cluster já existente no standalone-ha.xml, evitando intervenções manuais em futuras implantações.
 
-Conferi na release: o stage de PRD está configurado com SITE = okd4_prd e AMBIENTE = prd. Ou seja, vai subir no cluster OKD4 de produção, no namespace siifx-prd (mesmo padrão do siifx-des).
 
-Na mudança pode colocar: “OKD4 PRD (okd4_prd) – namespace siifx-prd”.
 
-Como é a primeira release em PRD, vale confirmar com o time da esteira de produção se o namespace já está criado. Eu atuo só em DES/TQS e não tenho acesso a PRD.
+melhora essa analise pra mmim
