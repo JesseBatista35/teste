@@ -1,49 +1,33 @@
-Assunto: SIEMP-java-web — standalone-full-ha.xml com configuração incompleta do mod_cluster (repositório siemp-java-web-config)
 
-Resumo
-O standalone-full-ha.xml publicado no repositório siemp-java-web-config declara o subsistema modcluster, mas não tem a extensão nem o socket binding de que esse subsistema depende. Com isso, o JBoss EAP 7.4 não inicializa corretamente após o deploy pela esteira, e é preciso corrigir o arquivo manualmente no servidor a cada implantação.
-
-Evidência
-Erro no boot do JBoss após o deploy:
-
-[colar aqui o trecho do server.log com o erro de bootstrap]
-
-Causa
-Para o subsistema urn:jboss:domain:modcluster:5.0 funcionar, três elementos precisam estar presentes juntos no arquivo. No standalone-full-ha.xml atual só existe o terceiro:
-
-Elemento	Seção	Situação no arquivo
-Extensão org.jboss.as.modcluster	<extensions>	Ausente
-Socket binding modcluster	<socket-binding-group>	Ausente
-Subsistema modcluster:5.0	<profile>	Presente
-
-Sem a extensão, o JBoss não consegue interpretar o bloco do subsistema e o parse da configuração falha. Sem o socket binding, o advertise-socket="modcluster" referencia um recurso que não existe.
-
-Correção solicitada no repositório
-
-Em <extensions>, incluir:
-xml
-<extension module="org.jboss.as.modcluster"/>
-Em <socket-binding-group>, incluir:
-xml
-<socket-binding name="modcluster" multicast-address="${jboss.modcluster.multicast.address:224.0.1.105}" multicast-port="23364"/>
-Manter o subsistema como está:
-xml
-<subsystem xmlns="urn:jboss:domain:modcluster:5.0">
-    <proxy name="default" advertise-socket="modcluster" listener="ajp">
-        <dynamic-load-provider>
-            <load-metric type="cpu"/>
-        </dynamic-load-provider>
-    </proxy>
-</subsystem>
-Como o proxy usa listener="ajp", confirmar também:
-no subsistema undertow, a existência de <ajp-listener name="ajp" socket-binding="ajp"/>;
-no <socket-binding-group>, a existência de <socket-binding name="ajp" port="${jboss.ajp.port:8009}"/>.
-
-Observação importante
-O standalone-ha.xml deve ser usado apenas como referência para os trechos do mod_cluster. Não substitua o arquivo inteiro: o perfil full-ha tem subsistemas que o ha não tem (messaging/ActiveMQ, IIOP etc.), e copiar o arquivo todo removeria essas configurações.
-
-Validação após o ajuste
-
-Gerar nova release a partir do commit corrigido.
-Confirmar no server.log que o boot termina sem erro (WFLYSRV0025 ... started).
-Confirmar que não é mais necessário alterar o standalone-full-ha.xml manualmente no servidor.
+^C
+[root@caddeapllx2862 p585600]# ps -ef | grep -c '[s]tandalone-full-ha.xml'
+3
+[root@caddeapllx2862 p585600]#
+[root@caddeapllx2862 p585600]#
+[root@caddeapllx2862 p585600]#
+[root@caddeapllx2862 p585600]#
+[root@caddeapllx2862 p585600]# ls -la /opt/jboss-eap/standalone/deployments/
+total 13800
+drwxrwxr-x 2 jboss jboss       91 nov  6 11:05 .
+drwxrwxr-x 8 jboss jboss       91 set 30  2024 ..
+-rwxrw-rw- 1 jboss jboss 14111803 nov  6 11:05 boletoService-ear.ear
+-rw-r--r-- 1 jboss jboss       21 nov  6 11:05 boletoService-ear.ear.deployed
+-rwxrwxr-x 1 jboss jboss     8888 jun 23  2021 README.txt
+[root@caddeapllx2862 p585600]# ls /opt/jboss-eap/standalone/deployments/ | grep -E '\.(failed|undeployed)$'
+[root@caddeapllx2862 p585600]#
+[root@caddeapllx2862 p585600]#
+[root@caddeapllx2862 p585600]#
+[root@caddeapllx2862 p585600]# grep -E 'WFLYUT0021|WFLYSRV0010|WFLYEE0047|NumberFormatException|ClassNotFound' /logs/jboss/jboss-eap/standalone/sigsj-boleto/server.log | tail -20
+2026-11-06 11:05:33,900 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 74) WFLYUT0021: Contexto web registrado: '/boletoService' para servidor 'default-server'
+2026-11-06 11:05:34,023 INFO  [org.jboss.as.server] (ServerService Thread Pool -- 43) WFLYSRV0010: "boletoService-ear.ear" foi implantado (runtime-name: "boletoService-ear.ear")
+[root@caddeapllx2862 p585600]#
+[root@caddeapllx2862 p585600]#
+[root@caddeapllx2862 p585600]#
+[root@caddeapllx2862 p585600]# curl -s -o /dev/null -w '%{http_code}\n' http://localhost/boletoService/
+404
+[root@caddeapllx2862 p585600]#
+[root@caddeapllx2862 p585600]#
+[root@caddeapllx2862 p585600]# grep -E 'log4j:ERROR|FileNotFoundException' /logs/jboss/jboss-eap/standalone/sigsj-boleto/server.log | tail -3
+2026-11-06 11:05:33,610 ERROR [stderr] (ServerService Thread Pool -- 74) log4j:ERROR Could not parse file [/log_jboss/config-log4j/sigsj_ws_boleto.xml].
+2026-11-06 11:05:33,610 ERROR [stderr] (ServerService Thread Pool -- 74) java.io.FileNotFoundException: /log_jboss/config-log4j/sigsj_ws_boleto.xml (Arquivo ou diretório inexistente)
+[root@caddeapllx2862 p585600]#
