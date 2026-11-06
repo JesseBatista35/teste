@@ -1,24 +1,4 @@
-
-}
-
-[domain@localhost:9999 /]
-[domain@localhost:9999 /]
-[domain@localhost:9999 /] /server-group=sifec-intranet:restart-servers(blocking=true)
-{
-    "outcome" => "success",
-    "result" => undefined,
-    "server-groups" => undefined
-}
-
-[domain@localhost:9999 /] /host=hc_cbrdeapllx473/server=sifec-intranet_node1_lx473:read-attribute(name=server-state)
-{
-    "outcome" => "success",
-    "result" => "running"
-}
-
-[domain@localhost:9999 /]
-[domain@localhost:9999 /]
-[domain@localhost:9999 /]
-[domain@localhost:9999 /]
+<img width="1905" height="1022" alt="image" src="https://github.com/user-attachments/assets/f78b5a5a-c5a2-4b4b-a7c2-1b2a6f386ea0" />
 
 
+deu certo malandro
