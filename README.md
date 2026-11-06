@@ -1,13 +1,3 @@
-Copyright (C) Microsoft Corporation. All rights reserved.
-
-PS C:\Users\p585600> curl.exe -skI https://migracaosifec.des.caixa/fec-web/
-HTTP/1.1 200 OK
-Date: Fri, 06 Nov 2026 15:07:26 GMT
-Server: Apache/2.4.57 (Red Hat)
-Last-Modified: Fri, 06 Nov 2026 13:58:40 GMT
-Content-Type: text/html; charset=UTF-8
-Content-Length: 8518
-Accept-Ranges: bytes
-
-PS C:\Users\p585600>
-
+Oi, Inocêncio! O teste foi em http:// (porta 80), e o ambiente do 7.4 só responde em HTTPS (443). Por isso o timeout.
+Acessa por https://migracaosifec.des.caixa/fec-web/, faz o login e entra no SICDT pelo menu do SIFEC. Validamos o PJ hoje por esse mesmo endereço.
+Se for testar por curl: curl -k https://migracaosifec.des.caixa/fec-web/
