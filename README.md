@@ -1,38 +1,14 @@
+4. No 471 (jboss-cli), aponte o truststore e reinicie:
 
-[p585600@cbrdeapllx473 ~]$
-[p585600@cbrdeapllx473 ~]$
-[p585600@cbrdeapllx473 ~]$
-[p585600@cbrdeapllx473 ~]$
-[p585600@cbrdeapllx473 ~]$ cd /tmp && rm -f caixa_cert*.pem
-[p585600@cbrdeapllx473 tmp]$
-[p585600@cbrdeapllx473 tmp]$
-[p585600@cbrdeapllx473 tmp]$
-[p585600@cbrdeapllx473 tmp]$
-[p585600@cbrdeapllx473 tmp]$ echo | openssl s_client -connect login.des.caixa:443 -showcerts 2>/dev/null | awk '/BEGIN CERTIFICATE/{n++;p=1} p{print > ("/tmp/caixa_cert" n ".pem")} /END CERTIFICATE/{p=0}'
-[p585600@cbrdeapllx473 tmp]$
-[p585600@cbrdeapllx473 tmp]$
-[p585600@cbrdeapllx473 tmp]$
-[p585600@cbrdeapllx473 tmp]$ for f in /tmp/caixa_cert*.pem; do echo "$f:"; openssl x509 -in $f -noout -subject; done
-/tmp/caixa_cert1.pem:
-subject=C=BR, O=Caixa Economica Federal, CN=login.des.caixa
-/tmp/caixa_cert2.pem:
-subject=C=BR, O=Caixa Economica Federal, CN=AC Icptestes Sub
-/tmp/caixa_cert3.pem:
-subject=C=BR, O=Caixa Economica Federal, CN=AC Icptestes Raiz
-[p585600@cbrdeapllx473 tmp]$
-[p585600@cbrdeapllx473 tmp]$
-[p585600@cbrdeapllx473 tmp]$
-[p585600@cbrdeapllx473 tmp]$ sudo cp $JHOME/lib/security/cacerts /opt/jboss/truststore/sifec-cacerts.jks
-sudo chmod 644 /opt/jboss/truststore/sifec-cacerts.jks
-sudo $JHOME/bin/keytool -importcert -noprompt -alias ac-icptestes-raiz -file /tmp/caixa_cert3.pem -keystore /opt/jboss/truststore/sifec-cacerts.jks -storepass changeit
-sudo $JHOME/bin/keytool -importcert -noprompt -alias ac-icptestes-sub -file /tmp/caixa_cert2.pem -keystore /opt/jboss/truststore/sifec-cacerts.jks -storepass changeit
-sudo chown -R jboss:jboss /opt/jboss/truststore
-sudo $JHOME/bin/keytool -list -keystore /opt/jboss/truststore/sifec-cacerts.jks -storepass changeit | grep -i icptestes
-Certificate was added to keystore
-Certificate was added to keystore
-ac-icptestes-raiz, Nov 6, 2026, trustedCertEntry,
-ac-icptestes-sub, Nov 6, 2026, trustedCertEntry,
-[p585600@cbrdeapllx473 tmp]$
-[p585600@cbrdeapllx473 tmp]$
-[p585600@cbrdeapllx473 tmp]$
-[p585600@cbrdeapllx473 tmp]$
+/server-group=sifec-intranet/system-property=javax.net.ssl.trustStore:write-attribute(name=value,value="/opt/jboss/truststore/sifec-cacerts.jks")
+/server-group=sifec-intranet/system-property=javax.net.ssl.trustStorePassword:write-attribute(name=value,value="changeit")
+/server-group=sifec-intranet:restart-servers(blocking=true)
+/host=hc_cbrdeapllx473/server=sifec-intranet_node1_lx473:read-attribute(name=server-state)
+
+Espere ficar running.
+
+5. Validar (no 473). Peça ao Inocêncio para repetir a chamada da API e rode:
+
+sudo grep -nE "Loaded URLs|Failed to load URLs|PKIX" /opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/server.log | tail -5
+
+O esperado é a linha mais recente Loaded URLs from https://login.des.caixa/..., sem PKIX, e a API sem 500.
