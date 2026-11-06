@@ -1,61 +1,75 @@
-[root@cbrdeapllx473 classes]# grep -R "cliente/cnpj" /opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log | tail -50
-/opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/sifec.log.2026-11-05:[PATH INFO:/cliente/cnpj/03756362000103]
-/opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/sifec.log.2026-11-05:[PATH INFO:/cliente/cnpj/03756362000103]
-/opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/sifec.log.2026-11-05:[PATH INFO:/cliente/cnpj/03756362000103]
-/opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/sifec.log.2026-11-05:[PATH INFO:/cliente/cnpj/03756362000103]
-/opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/sifec.log.2026-11-05:[PATH INFO:/cliente/cnpj/03756362000103]
-/opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/sifec.log.2026-11-05:[PATH INFO:/cliente/cnpj/03756362000103]
-/opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/sifec.log.2026-11-05:[PATH INFO:/cliente/cnpj/03756362000103]
-/opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/sifec.log.2026-11-05:[PATH INFO:/cliente/cnpj/03756362000103]
-/opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/sifec.log.2026-11-05:[PATH INFO:/cliente/cnpj/03756362000103]
-/opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/sifec.log.2026-11-05:[PATH INFO:/cliente/cnpj/03756362000103]
-/opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/sifec.log.2026-11-05:[PATH INFO:/cliente/cnpj/03756362000103]
-/opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/sifec.log.2026-11-05:[PATH INFO:/cliente/cnpj/03756362000103]
-/opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/sifec.log.2026-11-05:[PATH INFO:/cliente/cnpj/03756362000103]
-/opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/sifec.log.2026-11-05:[PATH INFO:/cliente/cnpj/03756362000103]
-/opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/sifec.log.2026-11-05:[PATH INFO:/cliente/cnpj/03756362000103]
-/opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/sifec.log.2026-11-05:[PATH INFO:/cliente/cnpj/03756362000103]
-/opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/sifec.log.2026-11-05:[PATH INFO:/cliente/cnpj/03756362000103]
-/opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/sifec.log.2026-11-05:[PATH INFO:/cliente/cnpj/03756362000103]
-/opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/sifec.log.2026-11-05:[PATH INFO:/cliente/cnpj/03756362000103]
-/opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/sifec.log.2026-11-05:[PATH INFO:/cliente/cnpj/03756362000103]
-/opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/sifec.log.2026-11-05:[PATH INFO:/cliente/cnpj/03756362000103]
-/opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/sifec.log.2026-11-05:[PATH INFO:/cliente/cnpj/03756362000103]
-/opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/sifec.log.2026-11-05:[PATH INFO:/cliente/cnpj/00505087000159]
-/opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/sifec.log:[PATH INFO:/cliente/cnpj/03756362000103]
-/opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/sifec.log:[PATH INFO:/cliente/cnpj/03756362000103]
-/opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/sifec.log:[PATH INFO:/cliente/cnpj/03756362000103]
-/opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/sifec.log:[PATH INFO:/cliente/cnpj/03756362000103]
-/opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/sifec.log:[PATH INFO:/cliente/cnpj/03756362000103]
-/opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/sifec.log:[PATH INFO:/cliente/cnpj/03756362000103]
-/opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/sifec.log:[PATH INFO:/cliente/cnpj/03756362000103]
-/opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/sifec.log:[PATH INFO:/cliente/cnpj/03756362000103]
-/opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/sifec.log:[PATH INFO:/cliente/cnpj/03756362000103]
-/opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/sifec.log:[PATH INFO:/cliente/cnpj/03756362000103]
-/opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/sifec.log:[PATH INFO:/cliente/cnpj/03756362000103]
-/opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/sifec.log:[PATH INFO:/cliente/cnpj/03756362000103]
-/opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/sifec.log:[PATH INFO:/cliente/cnpj/03756362000103]
-/opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/sifec.log:[PATH INFO:/cliente/cnpj/03756362000103]
-/opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/sifec.log:[PATH INFO:/cliente/cnpj/03756362000103]
-/opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/sifec.log:[PATH INFO:/cliente/cnpj/03756362000103]
-/opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/sifec.log:[PATH INFO:/cliente/cnpj/03756362000103]
-/opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/sifec.log:[PATH INFO:/cliente/cnpj/03756362000103]
-/opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/sifec.log:[PATH INFO:/cliente/cnpj/03756362000103]
-/opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/sifec.log:[PATH INFO:/cliente/cnpj/03756362000103]
-/opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/sifec.log:[PATH INFO:/cliente/cnpj/03756362000103]
-/opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/sifec.log:[PATH INFO:/cliente/cnpj/03756362000103]
-/opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/sifec.log:[PATH INFO:/cliente/cnpj/03756362000103]
-/opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/sifec.log:[PATH INFO:/cliente/cnpj/03756362000103]
-/opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/sifec.log:[PATH INFO:/cliente/cnpj/03756362000103]
-/opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/sifec.log:[PATH INFO:/cliente/cnpj/00505087000159]
-/opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/sifec.log:[PATH INFO:/cliente/cnpj/00505087000159]
-[root@cbrdeapllx473 classes]#
+Iniciado pelo usuário s535501
+Construindo no workspace /opt/integracao_continua/jenkins_home/workspace/SIGEC-LOG
+[WS-CLEANUP] Deleting project workspace...
+[WS-CLEANUP] Deferred wipeout is used...
+[WS-CLEANUP] Done
+[SIGEC-LOG] $ /bin/sh -xe /tmp/jenkins3780768057342354304.sh
++ /opt/integracao_continua/work/jenkins_script_steps/step_print_log.sh
+DES
+EAP7
+Procurando Logs do sigec-portabilidade-batch...
+Log instancia sigec-portabilidade-batch_node1_lx104:
+
+Failed to get the list of the operation properties: "WFLYHC0153: Canal encerrado"
+Finished: SUCCESS
 
 
-<img width="1914" height="1033" alt="image" src="https://github.com/user-attachments/assets/6d1c3568-f22a-4ac1-b2c2-95e69d9bed1c" />
-
-
-olaho o que o jeferson me msoutrou quando conssul pror esse cnpj ele retonra isso auqi nesse log
-
-
+ Todos, Bom dia Pessoal.
+Estamos com o SIGEC Portabilidade batch ind... por Jander Ricardo Garcia Marques
+Jander Ricardo Garcia Marques
+10:29
+Estamos com o SIGEC Portabilidade batch indisponível. Isso ocorreu depois da alteração de ontem.
+Conseguem verificar, por favor. por Jander Ricardo Garcia Marques
+Jander Ricardo Garcia Marques
+10:30
+Conseguem verificar, por favor.
+1 reação Curtir com o tom de pele Light.
+Início da citação, Jander Ricardo Garcia Ma... por Flavio de Almeida Gagliardi
+Flavio de Almeida Gagliardi
+10:31
+Jander Ricardo Garcia Marques
+06/11/2026 10:29
+Estamos com o SIGEC Portabilidade batch indisponível. Isso ocorreu depois da alteração de ontem.
+Bom dia
+Patricia Vourakis Barbosa Braga
+Pode verificar por gentileza? Obrigado
+1 reação Curtir com o tom de pele Light.
+Segue o log atual do batch:   Iniciado pelo... por Bruno Aparecido Marques
+Bruno Aparecido Marques
+10:31
+Segue o log atual do batch:
  
+Plain Text
+Iniciado pelo usuário s535501
+Construindo no workspace /opt/integracao_continua/jenkins_home/workspace/SIGEC-LOG
+[WS-CLEANUP] Deleting project workspace...
+[WS-CLEANUP] Deferred wipeout is used...
+[WS-CLEANUP] Done
+[SIGEC-LOG] $ /bin/sh -xe /tmp/jenkins3780768057342354304.sh
++ /opt/integracao_continua/work/jenkins_script_steps/step_print_log.sh
+DES
+EAP7
+Procurando Logs do sigec-portabilidade-batch...
+Log instancia sigec-portabilidade-batch_node1_lx104:
+Failed to get the list of the operation properties: "WFLYHC0153: Canal encerrado"
+Finished: SUCCESS
+ 
+Fabio Pereira Siqueira
+Patricia Vourakis Barbosa Braga adicionou Thiago Jeferson de Sousa Silva ao chat e compartilhou todo o histórico de chats.
+Patricia Vourakis Barbosa Braga adicionou Thiago Jeferson de Sousa Silva ao chat e compartilhou todo o histórico de chats.
+Início da citação, Bruno Aparecido Marques,... por Patricia Vourakis Barbosa Braga
+Patricia Vourakis Barbosa Braga
+10:32
+IMPORTANTE
+Bruno Aparecido Marques
+06/11/2026 10:31
+Segue o log atual do batch: Iniciado pelo usuário s535501 Construindo no workspace /opt/integracao_continua/jenkins_home/workspace/SIGEC-LOG [WS-CLEANUP] Deleting project workspace... [WS-CLEANUP…
+Jesse Mouta Pereira Batista e Thiago Jeferson de Sousa Silva bom dia , por favor verificar. Obrigada 
+Flavio de Almeida Gagliardi pc
+2 Curtir reações.
+2
+tem menu de contexto
+
+
+
+estao colcoado a culpoa na gente mais ano fizemos anda ontem
