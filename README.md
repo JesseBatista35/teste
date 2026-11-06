@@ -1,33 +1,26 @@
+Boleto TQS fechado ✅. O 404 é esperado: o RESTEasy atende /* e não tem nada na raiz.
 
-[root@caddeapllx2862 p585600]#
-[root@caddeapllx2862 p585600]#
-[root@caddeapllx2862 p585600]# cd /tmp
-unzip -l /opt/jboss-eap/standalone/deployments/boletoService-ear.ear | grep -i '\.war'
-unzip -o -q /opt/jboss-eap/standalone/deployments/boletoService-ear.ear '*.war' -d /tmp/boleto
-unzip -p /tmp/boleto/*.war WEB-INF/web.xml | grep -iE -A3 'url-pattern|resteasy'
- 14531399  11-06-2026 09:36   boletoService-war-2.0.2.8.war
-    <param-name>resteasy.scan.resources</param-name>
-    <param-value>true</param-value>
-  </context-param>
-  <servlet>
-    <servlet-name>Resteasy</servlet-name>
-    <servlet-class>org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher</servlet-class>
-    <load-on-startup>1</load-on-startup>
-  </servlet>
-  <servlet>
---
-    <url-pattern>/imprimeboleto</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>Resteasy</servlet-name>
-    <url-pattern>/*</url-pattern>
-  </servlet-mapping>
-</web-app>
-[root@caddeapllx2862 tmp]#
-[root@caddeapllx2862 tmp]#
-[root@caddeapllx2862 tmp]#
-[root@caddeapllx2862 tmp]#
-[root@caddeapllx2862 tmp]#
+O EAR do TQS traz boletoService-war-2.0.2.8.war, a mesma versão do DES. Então a tag 0.0.0.1 da release não trocou a versão da aplicação, e esse ponto já pode sair da lista para a sala.
 
+Se quiser, limpe o que extraímos: rm -rf /tmp/boleto
 
-ha ja ta obm to com pressao vamos para o prixmo
+Próximo: intranet TQS. Pegue o hostname da VM no log da task “Alocando o IP” do stage EC TQS da release do intranet, entre nela, rode sudo su e cole tudo de uma vez:
+
+bash
+ps -ef | grep -c '[s]tandalone-full-ha.xml'
+ls /opt/jboss-eap/standalone/deployments/
+ls /opt/jboss-eap/standalone/deployments/ | grep -E '\.(failed|undeployed)$'
+grep -E 'WFLYUT0021|WFLYSRV0010|WFLYEE0047|NumberFormatException|ClassNotFound' /logs/jboss/jboss-eap/standalone/sigsj-intranet/server.log | tail -10
+grep -iE 'SIGSJ04|ORA-[0-9]' /logs/jboss/jboss-eap/standalone/sigsj-intranet/server.log | tail -5
+curl -s -o /dev/null -w '%{http_code}\n' http://localhost/sigsj_intranet/
+
+O que se espera de cada linha, na ordem:
+
+3.
+O EAR com .deployed e o ojdbc8.jar, sem sirotcon-ejb.jar.
+Saída vazia.
+/sigsj_intranet e /sigsjintrastatic registrados, o EAR implantado e nenhum erro.
+O datasource SIGSJ04 ligado, sem ORA-.
+200 ou 302 (a tela de login).
+
+Me manda o resultado.
