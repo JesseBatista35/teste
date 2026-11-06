@@ -1,4 +1,2 @@
-<img width="1315" height="544" alt="image" src="https://github.com/user-attachments/assets/51854667-3966-4f65-9a1f-abab0d71a0c6" />
-
-
-
+grep -E 'WFLYUT0021|WFLYSRV0010|ERROR' /logs/jboss/jboss-eap/standalone/sigsj-internet/server.log | tail -20
+curl -s -o /dev/null -w '%{http_code}\n' http://localhost/<contexto-do-internet>/
