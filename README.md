@@ -1,11 +1,1 @@
-Oi Jesse, tudo bem?
-Te pedir um help, estamos pra publicar API em produção e será a primeira release. Vamos precisar publicar em prd, mas não sei qual o servidor de prd que subirá.
- 
-preciso informar isso na mudança, você sabe com quem conseguiria consultar isso?
- 
-Jesse
- 
-é pro siifx-caixinhas-api-aplicacao
- 
-ele está no okd né
- 
+Oi! Ele está no OKD4 sim (em DES fica no namespace siifx-des). Como é OKD, na mudança você informa o cluster OKD de PRD e o namespace, não um servidor específico. Dá pra ver isso no stage de PRD da release no Azure DevOps (service connection/cluster de destino). Se o stage de PRD ainda não estiver criado, por ser a primeira release, quem define e confirma é o time que atende a esteira de produção. Eu só tenho acesso a DES/TQS, então não consigo consultar o ambiente de PRD.Oi! Ele está no OKD4 sim (em DES fica no namespace siifx-des). Como é OKD, na mudança você informa o cluster OKD de PRD e o namespace, não um servidor específico. Dá pra ver isso no stage de PRD da release no Azure DevOps (service connection/cluster de destino). Se o stage de PRD ainda não estiver criado, por ser a primeira release, quem define e confirma é o time que atende a esteira de produção. Eu só tenho acesso a DES/TQS, então não consigo consultar o ambiente de PRD.
