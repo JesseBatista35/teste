@@ -1,22 +1,15 @@
+1. Veja para onde o truststore aponta (CLI do 471):
 
-[p585600@cbrdeapllx473 ~]$
-[p585600@cbrdeapllx473 ~]$ LOG=/opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/server.log
-[p585600@cbrdeapllx473 ~]$
-[p585600@cbrdeapllx473 ~]$
-[p585600@cbrdeapllx473 ~]$ LOG=/opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/server.log
-[p585600@cbrdeapllx473 ~]$ sudo grep -nE "^12:0[0-1]:" $LOG | grep -iE "ERROR|Exception|Caused by|sicdt" | head -40
+/server-group=sifec-intranet/system-property=javax.net.ssl.trustStore:read-attribute(name=value)
 
-We trust you have received the usual lecture from the local System
-Administrator. It usually boils down to these three things:
+2. No 473, veja o que o processo está usando de fato (o comando esconde a senha) e se o arquivo existe:
 
-    #1) Respect the privacy of others.
-    #2) Think before you type.
-    #3) With great power comes great responsibility.
+PID=$(pgrep -f "sifec-intranet_node1_lx473" | head -1); sudo cat /proc/$PID/cmdline | tr '\0' '\n' | grep -i "truststore" | grep -vi password
 
-[sudo] password for p585600:
-56896:12:00:03,176 WARN  [org.keycloak.adapters.KeycloakDeployment] (default task-37) Failed to load URLs from https://login.des.caixa/auth/realms/intranet/.well-known/openid-configuration: javax.net.ssl.SSLHandshakeException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
-56999:12:00:03,182 WARN  [org.keycloak.adapters.KeycloakDeployment] (default task-37) Failed to load URLs from https://login.des.caixa/auth/realms/intranet/.well-known/openid-configuration: javax.net.ssl.SSLHandshakeException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
-57105:12:00:03,185 ERROR [io.undertow.request] (default task-37) UT005023: Exception handling request to /sicdt-orig-api-rest/sicdt/v2/contrato/liberacao/consultar/99178267365/3194: java.lang.NullPointerException
-[p585600@cbrdeapllx473 ~]$ sudo sed -n 'NUM,+40p' $LOG | grep -vi "authorization"
-sed: -e expression #1, char 2: extra characters after command
-[p585600@cbrdeapllx473 ~]$
+3. No 473, veja qual AC assina o certificado do login.des.caixa:
+
+echo | openssl s_client -connect login.des.caixa:443 -showcerts 2>/dev/null | grep -E "^ *[0-9]+ s:|^ *i:"
+
+Pode me mandar as três saídas. Com elas te passo o passo a passo para montar o truststore com as ACs da Caixa (os certificados que separamos no /tmp/certs do 473), copiar para o 472, apontar a property e reiniciar.
+
+O erro do sed foi porque o NUM foi colado literalmente, mas não precisamos mais dele: o log já mostrou a causa.
