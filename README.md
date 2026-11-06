@@ -1,4 +1,1 @@
-<img width="1137" height="675" alt="image" src="https://github.com/user-attachments/assets/c7963816-f087-401d-84e5-9fda8540a1e4" />
-
-
-qual eu escolho aqui
+<img width="785" height="617" alt="image" src="https://github.com/user-attachments/assets/2d6649dc-ef5a-4326-909d-f1ec150a5ca0" />
