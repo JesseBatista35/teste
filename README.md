@@ -16,6 +16,40 @@ p585600   274317  274290  0 14:35 pts/1    00:00:00 grep --color=auto jboss
 [p585600@caddeapllx2835 ~]$
 
 
-
+[
 verificar: se o VIP 10.116.181.213 está aativo; se existe serviço associado ao VIP; se o backend 10.116.202.37 está vinculado ao pool; se o health-check do balanceador está aprovando o backend;
 se a porta 443 está publicada e encaminhada corretamente. Conforme Solicitado em REQ
+](https://devops.caixa/projetos/Caixa/_releaseProgress?releaseId=544866&_a=release-environment-logs&environmentId=2532020
+
+Prezados,
+
+Foram concluídas as configurações de DNS e certificado para:
+
+Plain Text
+sibdo-web.esteiras.des.caixa
+
+O DNS resolve corretamente para:
+
+Plain Text
+10.116.181.213
+
+O VIP responde ao ping e o traceroute alcança o endereço normalmente.
+
+Entretanto o acesso HTTPS permanece indisponível:
+
+Plain Text
+curl -vk https://sibdo-web.esteiras.des.caixa
+
+Retorno:
+
+Plain Text
+Failed to connect to server
+connect to 10.116.181.213 port 443 failed: Timed out
+
+Solicito verificar:
+
+se o VIP 10.116.181.213 está ativo;
+se existe serviço associado ao VIP;
+se o backend 10.116.202.37 está vinculado ao pool;
+se o health-check do balanceador está aprovando o backend;
+se a porta 443 está publicada e encaminhada corretamente.)
