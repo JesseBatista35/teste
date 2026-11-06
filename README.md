@@ -1,3 +1,4 @@
-<img width="1871" height="987" alt="image" src="https://github.com/user-attachments/assets/39a1f284-9ca4-4b7f-83d3-0519db4e8b66" />
-
-
+Variável	Valor
+SIGSJ04_CONNECTION_STRING	jdbc:oracle:thin:@CNPEXDADVM01CLU08.EXTRA.CAIXA.GOV.BR:1521/orad01bc
+SIGSJ04_USER	o mesmo do intranet DES
+SIGSJ04_PASSWORD	a mesma do intranet DES, marcada como secreta 🔒
