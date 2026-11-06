@@ -1,81 +1,19 @@
-4. No 471 (jboss-cli), aponte o truststore e reinicie:
+Inocêncio, achei e corrigi o 500 da API REST do SICDT. 👍
 
-/server-group=sifec-intranet/system-property=javax.net.ssl.trustStore:write-attribute(name=value,value="/opt/jboss/truststore/sifec-cacerts.jks")
-/server-group=sifec-intranet/system-property=javax.net.ssl.trustStorePassword:write-attribute(name=value,value="changeit")
-/server-group=sifec-intranet:restart-servers(blocking=true)
-/host=hc_cbrdeapllx473/server=sifec-intranet_node1_lx473:read-attribute(name=server-state)
+Onde estava o erro: a sicdt-orig-api-rest é bearer-only. Para validar o token, o adapter do Keycloak precisa buscar a configuração do realm em https://login.des.caixa. O truststore do servidor estava apontando para um caminho de Windows (C:/Desenvolvimento/JDK/.../cacerts), herdado de configuração de dev. Sem a cadeia de certificados da Caixa, a conexão falhava com PKIX path building failed, e o adapter quebrava com NullPointerException, gerando o 500.
 
-Espere ficar running.
+O que foi corrigido:
 
-5. Validar (no 473). Peça ao Inocêncio para repetir a chamada da API e rode:
+Criado o truststore /opt/jboss/truststore/sifec-cacerts.jks (cacerts do Java + AC Icptestes Raiz e AC Icptestes Sub da Caixa)
+javax.net.ssl.trustStore do server-group sifec-intranet apontando para esse arquivo
+Restart do sifec-intranet
 
-sudo grep -nE "Loaded URLs|Failed to load URLs|PKIX" /opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/server.log | tail -5
+Teste para você fazer:
 
-O esperado é a linha mais recente Loaded URLs from https://login.des.caixa/..., sem PKIX, e a API sem 500.
+Gere um token novo (o anterior pode ter expirado) e repita a mesma requisição:
+GET https://migracaosifec.des.caixa/sicdt-orig-api-rest/sicdt/v2/contrato/liberacao/consultar/99178267365/3194
+com os headers Authorization: Bearer <token> e Apikey.
+O esperado é 200 com o JSON da consulta. Se vier 401, me avise: aí ajustamos o client do secure-deployment para cli-ser-cdt, como na sua configuração.
+Teste também as outras chamadas da API que você usa no fluxo.
 
-
-p585600@cbrdeapllx473 tmp]$
-[p585600@cbrdeapllx473 tmp]$ sudo grep -nE "Loaded URLs|Failed to load URLs|PKIX" /opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/server.log | tail -5
-57091:  at sun.security.validator.PKIXValidator.engineValidate(PKIXValidator.java:323) [rt.jar:1.8.0_482]
-57102:  at sun.security.validator.PKIXValidator.doBuild(PKIXValidator.java:451) [rt.jar:1.8.0_482]
-58008:12:25:44,862 INFO  [org.keycloak.adapters.KeycloakDeployment] (default task-33) Loaded URLs from https://login.des.caixa/auth/realms/intranet/.well-known/openid-configuration
-58009:12:25:44,884 INFO  [org.keycloak.adapters.KeycloakDeployment] (default task-33) Loaded URLs from https://login.des.caixa/auth/realms/intranet/.well-known/openid-configuration
-66976:12:38:20,135 INFO  [org.keycloak.adapters.KeycloakDeployment] (default task-1) Loaded URLs from https://login.des.caixa/auth/realms/intranet/.well-known/openid-configuration
-[p585600@cbrdeapllx473 tmp]$
-[p585600@cbrdeapllx473 tmp]$
-[p585600@cbrdeapllx473 tmp]$
-[p585600@cbrdeapllx473 tmp]$
-[p585600@cbrdeapllx473 tmp]$
-[p585600@cbrdeapllx473 tmp]$
-
-
-
-
-[domain@localhost:9999 /]
-[domain@localhost:9999 /]
-[domain@localhost:9999 /] /server-group=sifec-intranet/system-property=javax.net.ssl.trustStore:write-attribute(name=value,value="/opt/jboss/truststore/sifec-cacerts.jks")
-{
-    "outcome" => "success",
-    "result" => undefined,
-    "server-groups" => {"sifec-intranet" => {"host" => {"hc_cbrdeapllx473" => {"sifec-intranet_node1_lx473" => {"response" => {
-        "outcome" => "success",
-        "result" => undefined
-    }}}}}}
-}
-
-[domain@localhost:9999 /] /server-group=sifec-intranet/system-property=javax.net.ssl.trustStorePassword:write-attribute(name=value,value="changeit")
-{
-    "outcome" => "success",
-    "result" => undefined,
-    "server-groups" => {"sifec-intranet" => {"host" => {"hc_cbrdeapllx473" => {"sifec-intranet_node1_lx473" => {"response" => {
-        "outcome" => "success",
-        "result" => undefined
-    }}}}}}
-}
-
-[domain@localhost:9999 /]
-[domain@localhost:9999 /]
-[domain@localhost:9999 /]
-[domain@localhost:9999 /]
-[domain@localhost:9999 /]
-[domain@localhost:9999 /]
-[domain@localhost:9999 /]
-[domain@localhost:9999 /] /server-group=sifec-intranet:restart-servers(blocking=true)
-{
-    "outcome" => "success",
-    "result" => undefined,
-    "server-groups" => undefined
-}
-
-[domain@localhost:9999 /]
-[domain@localhost:9999 /] /host=hc_cbrdeapllx473/server=sifec-intranet_node1_lx473:read-attribute(name=server-state)
-{
-    "outcome" => "success",
-    "result" => "running"
-}
-
-[domain@localhost:9999 /]
-[domain@localhost:9999 /]
-[domain@localhost:9999 /]
-[domain@localhost:9999 /]
-[domain@localhost:9999 /]
+Se der qualquer erro, me manda o horário que eu pego o log.
