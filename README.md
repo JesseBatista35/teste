@@ -1,25 +1,30 @@
-1. Ver o que o pod está usando de fato
 
-bash
-oc exec sismn-gecci-tqs-28-glhxs -c sismn-gecci-tqs -n sismn-tqs -- env | grep -iE 'datasource|jdbc'
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$ oc set env dc/sismn-gecci-tqs --list -n sismn-tqs | grep -i datasource
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$ oc exec sismn-gecci-tqs-28-glhxs -c sismn-gecci-tqs -n sismn-tqs -- env | grep -iE 'datasource|jdbc'
+QUARKUS_DATASOURCE_USERNAME=f710695
+QUARKUS_DATASOURCE_PASSWORD=E5BP9ZXp
+QUARKUS_DATASOURCE_JDBC_URL=jdbc:sybase:Tds:bbrdedadux001.corecaixa:20113?ServiceName=SMNDB001
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$ oc get dc sismn-gecci-tqs -n sismn-tqs -o yaml | grep -iE -A4 'envFrom|secretRef|configMapRef'
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$ oc get secret,cm -n sismn-tqs | grep -i gecci
 
-2. Se aparecer algo, descobrir de onde vem
-
-bash
-oc get dc sismn-gecci-tqs -n sismn-tqs -o yaml | grep -iE -A4 'envFrom|secretRef|configMapRef'
-
-Depois liste as secrets e configmaps do namespace:
-
-bash
-oc get secret,cm -n sismn-tqs | grep -i gecci
-
-3. Se o env do pod também vier vazio
-
-A URL está fixa no application.properties dentro da imagem. Nesse caso:
-
-bash
-oc exec sismn-gecci-tqs-28-glhxs -c sismn-gecci-tqs -n sismn-tqs -- sh -c 'grep -ri "datasource" /deployments/config/ /deployments/*.properties 2>/dev/null'
-
-Se não encontrar, a configuração está empacotada no jar e precisa ser lida no repositório do dev (src/main/resources/application.properties, perfil %tqs se houver).
-
-Me mande o resultado do passo 1. Ele mostra qual host, usuário e ServiceName de TQS o pod está tentando usar e que está gerando o JZ00L.
+secret/sismn-gecci-tqs                 Opaque                                1         244d
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$ oc exec sismn-gecci-tqs-28-glhxs -c sismn-gecci-tqs -n sismn-tqs -- sh -c 'grep -ri "datasource" /deployments/config/ /deployments/*.properties 2>/dev/null'
+command terminated with exit code 2
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
