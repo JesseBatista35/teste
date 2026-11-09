@@ -1,20 +1,23 @@
+Mensagem para a sala:
 
-[p585600@caddeapllx2864 ~]$
-[p585600@caddeapllx2864 ~]$
-[p585600@caddeapllx2864 ~]$
-[p585600@caddeapllx2864 ~]$ ls -l /opt/jboss-eap/standalone/deployments/ | grep -i framework
--rw-r--r-- 1 jboss jboss    63527 nov  9 10:45 framework.jar
--rw-r--r-- 1 jboss jboss       13 nov  9 10:45 framework.jar.deployed
-[p585600@caddeapllx2864 ~]$
-[p585600@caddeapllx2864 ~]$
-[p585600@caddeapllx2864 ~]$ sudo tail -f /logs/jboss/jboss-eap/standalone/siemp-java-web/server.log | grep -E "WFLYSRV0010|WFLYSRV0025|WFLYSRV0026|WFLYCTL0013|WFLYCTL0412|ERROR|framework|modcluster"
-[sudo] senha para p585600:
-2026-11-09 10:46:09,058 INFO  [org.jboss.as.server] (ServerService Thread Pool -- 43) WFLYSRV0010: "framework.jar" foi implantado (runtime-name: "framework.jar")
-2026-11-09 10:46:09,058 INFO  [org.jboss.as.server] (ServerService Thread Pool -- 43) WFLYSRV0010: "siemp-ear.ear" foi implantado (runtime-name: "siemp-ear.ear")
-2026-11-09 10:46:09,091 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0025: JBoss EAP 7.4.18.GA (WildFly Core 15.0.37.Final-redhat-00001) iniciado em 8379ms - Iniciado(s) 1425 de serviços 1627 (os serviços 367 estão lentos, passivos ou sob demanda)
+Pessoal, o primeiro deploy do SIEMP pela esteira funcionou ✅ (release SIEMP-java-web-8, servidor caddeapllx2864, JBoss EAP 7.4 standalone)
 
+Log do servidor:
 
+WFLYSRV0010: "framework.jar" foi implantado
+WFLYSRV0010: "siemp-ear.ear" foi implantado
+WFLYSRV0025: JBoss EAP 7.4.18.GA iniciado (sem erros)
 
+Ajustes feitos no SIEMP-java-web-config:
 
+mod_cluster no jboss/standalone-full-ha.xml: extensão org.jboss.as.modcluster e socket-binding modcluster (correção do Thiago Jeferson)
+framework.jar como deployment adicional em jboss/jboss-deployments, mantendo o cabeçalho do arquivo:
+group_id:artifact_id:version:extension
+br.gov.caixa:framework:2.0.1:jar
+Como o Sosthenes e o Denilson definiram, foi mantido o modelo atual (framework fornecido pelo ambiente). O pom do SIEMP não foi alterado.
 
-me passa o resmuo para eu eu possa pasrar em sala. deu certo passou o deploy a relase subiu
+Não há mais nenhum ajuste manual no servidor: tudo está no config da esteira.
+
+Próximo passo: validação funcional do SIEMP pelo time. Se aparecer erro de datasource/JNDI ou de property durante os testes, me mandem o horário que eu pego o log.
+
+Obrigado, Thiago Jeferson, Sosthenes e Denilson, pelo apoio!
