@@ -1,22 +1,13 @@
-Corrigir
-Variável	Valor atual (errado)	Valor correto
-_ENV.QUARKUS_DATASOURCE_JDBC_URL	jdbc:sqlserver://AGSQLDES100...;databaseName=master;...	jdbc:sybase:Tds:bbrdedadux001.corecaixa:20113?ServiceName=SMNDB001
-_ENV.QUARKUS_DATASOURCE_USERNAME	f710695	usuário de serviço do SMNDB001 em TQS (equivalente ao SSMNBD04 do DES; confirmar com o DBA ou o dev)
-SYSBASEDB01_DBPASS (secreta)	senha atual	senha do usuário de serviço acima
-Incluir (existem no DES e faltam no TQS)
 Variável	Valor
-_ENV.APL_AUTH_SERVICO_URL	https://login.des.caixa/auth/realms/intranet/protocol/openid-connect/token
-_ENV.APL_LOG_OPERACAO_NU_SITE	1
+_ENV.QUARKUS_DATASOURCE_JDBC_URL	jdbc:sybase:Tds:bbrdedadux001.corecaixa:20113?ServiceName=SMNDB001
 
-O APL_AUTH_SERVICO_URL aponta para login.des porque o QUARKUS_OIDC_AUTH_SERVER_URL do próprio TQS já usa login.des.
+Isso tira os ; e resolve o erro do oc set env.
 
-Ajuste de segurança (recomendado)
-Variável	Ajuste
-_ENV.APL_EMAIL_CONFIG_SMTP_PASSWORD	Marcar como secreta (cadeado), como já está no DES. O valor continua o mesmo.
-Opcional
-Variável	Atual	Sugestão
-_ENV.QUARKUS_LOG_LEVEL	DEBUG	INFO, como no DES. Deixe DEBUG se o dev estiver investigando algo.
+Se o pod precisar subir conectando no banco, entra mais uma:
 
-Se o DBA ainda não tiver o usuário de serviço: para destravar agora, mantenha f710695 no USERNAME e atualize a SYSBASEDB01_DBPASS com a senha atual dessa matrícula. A URL já corrigida é o que faz a release passar. Depois troque pelo usuário de serviço.
+Variável	Valor
+SYSBASEDB01_DBPASS	senha atual da f710695 (ou a do usuário de serviço, se trocar o USERNAME junto)
 
-Com o grupo salvo, reexecute o stage EC TQS.
+Sem isso, o deploy passa mas continua o JZ00L.
+
+O resto (as duas variáveis a incluir, deixar o SMTP como secreto, o log level) é melhoria e pode ficar para depois.
