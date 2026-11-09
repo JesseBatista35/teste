@@ -1,37 +1,13 @@
-A decisão está tomada e faz sentido para esta etapa: manter o modelo do 6.4, com o framework fornecido pelo ambiente. Era a opção 2, a mesma da primeira análise. A branch cetis com o pom alterado não deve ser usada: não faça merge, e se quiser pode apagá-la.
+br.gov.caixa:framework:2.0.1:jar
 
-Agora o ajuste é só no siemp-java-web-config, no arquivo jboss/jboss-deployments, que serve exatamente para “deployments adicionais que não estão nas imagens das VMs”.
+Mas atenção a um detalhe que pode fazer o config não funcionar mesmo estando certo. A esteira provavelmente baixa o arquivo com o nome padrão do Maven, framework-2.0.1.jar. O JBoss usa o nome do arquivo como nome do módulo, então ele vira deployment.framework-2.0.1.jar, e o manifest do SIEMP procura deployment.framework.jar. O erro continuaria.
 
-1. Abra o jboss/jboss-deployments no repositório e me mande o conteúdo. O formato segue a WIKI da esteira: em geral é uma lista com a URL do Nexus e o nome do arquivo de destino. Com ele, te digo a linha exata para incluir o framework com o nome framework.jar.
+Por isso, depois de rodar a esteira com essa linha, confira no 2864 qual nome o arquivo recebeu:
 
-2. Para validar já (sem esperar a esteira), coloque o jar à mão no 2864. O jar está no /tmp do 471. Se o scp direto não passar, vá pelo bastion 100:
+ls -l /opt/jboss-eap/standalone/deployments/ | grep -i framework
+framework.jar: a esteira renomeia, e está resolvido.
+framework-2.0.1.jar: precisa de um ajuste a mais no config. Dá para resolver no jboss/jboss-custom.cli ou no jboss/configuration/custom.sh, renomeando/implantando como framework.jar. Me avise que te passo o trecho.
 
-scp p585600@10.116.97.59:/tmp/framework-2.0.1-des.jar /tmp/
-scp /tmp/framework-2.0.1-des.jar p585600@10.116.202.54:/tmp/
+O artefato também precisa existir no Nexus que a esteira consulta (binario.caixa). Se a esteira falhar ao baixar br.gov.caixa:framework:2.0.1, será preciso publicá-lo lá.
 
-No 2864:
-
-sudo cp /tmp/framework-2.0.1-des.jar /opt/jboss-eap/standalone/deployments/framework.jar
-sudo chown jboss:jboss /opt/jboss-eap/standalone/deployments/framework.jar
-sudo rm -f /opt/jboss-eap/standalone/deployments/siemp-ear.ear.failed
-sudo touch /opt/jboss-eap/standalone/deployments/siemp-ear.ear.dodeploy
-sudo tail -f /logs/jboss/jboss-eap/standalone/siemp-java-web/server.log | grep -E "WFLYSRV0010|WFLYCTL0013|ERROR|framework"
-
-O esperado é WFLYSRV0010 ... "framework.jar" e depois WFLYSRV0010 ... "siemp-ear.ear".
-
-Resposta para a sala:
-
-De acordo, Sosthenes. Mantemos o modelo atual: o pom do SIEMP fica como está e o framework.jar (br.gov.caixa:framework:2.0.1) será disponibilizado pelo ambiente, como deployment adicional no siemp-java-web-config (arquivo jboss/jboss-deployments), com o nome framework.jar para resolver o deployment.framework.jar do manifest. A correção do mod_cluster no standalone-full-ha.xml já está no config e funcionou. Vou validar o framework no servidor da esteira e em seguida ajustamos o config.
-
-
-
-
-/jboss/ jboss-deployments
-
-group_id:artifact_id:version:extension
-
-
-voou colcoar na mao nao se funciana ja vamos fazer aqui
-
-
-
+Me mande o resultado do teste manual. Se o siemp-ear.ear subir com o framework.jar à mão, sabemos que o resto (datasources etc.) está ok e o único ponto do config é esse nome.
