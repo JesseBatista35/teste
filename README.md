@@ -22,3 +22,16 @@ O esperado é WFLYSRV0010 ... "framework.jar" e depois WFLYSRV0010 ... "siemp-ea
 Resposta para a sala:
 
 De acordo, Sosthenes. Mantemos o modelo atual: o pom do SIEMP fica como está e o framework.jar (br.gov.caixa:framework:2.0.1) será disponibilizado pelo ambiente, como deployment adicional no siemp-java-web-config (arquivo jboss/jboss-deployments), com o nome framework.jar para resolver o deployment.framework.jar do manifest. A correção do mod_cluster no standalone-full-ha.xml já está no config e funcionou. Vou validar o framework no servidor da esteira e em seguida ajustamos o config.
+
+
+
+
+/jboss/ jboss-deployments
+
+group_id:artifact_id:version:extension
+
+
+voou colcoar na mao nao se funciana ja vamos fazer aqui
+
+
+
