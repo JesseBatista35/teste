@@ -1,3 +1,5 @@
+oc set env dc/sismn-gecci-tqs --list -n sismn-tqs
+
 Se vier vazio ou quase vazio, não faça oc rollout latest nem um redeploy manual agora. O pod novo subiria sem datasource.
 
 Caminho para resolver
