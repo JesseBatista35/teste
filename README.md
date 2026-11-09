@@ -1,32 +1,32 @@
-Obrigado mestre. Vc sabe quais são os desenvolvedores que estão responsáveis por isso? 
- 
-Eu não conheço ninguém ainda
- 
-Rodrigo Abreu Costa
-Obrigado mestre. Vc sabe quais são os desenvolvedores que estão responsáveis por isso?
-não sei, acredito que o paulo saiba
- 
-Rodrigo Abreu Costa
-Eu não conheço ninguém ainda
-eu tbm não entrei agora tbm para cobrir o murilo. 
- 
-Jesse Mouta Pereira Batista
-não sei, acredito que o paulo saiba
-Eu falei com ele agorinha
- 
-Jesse Mouta Pereira Batista
-eu tbm não entrei agora tbm para cobrir o murilo.
-Sim sim, esta só cobrindo as 2 semanas né
- 
-Andamos alguma coisa? Precisa que eu ajude em alguma solicitação?
- 
-Vou só almoçar e já volto
- 
-Rodrigo Abreu Costa
-Andamos alguma coisa? Precisa que eu ajude em alguma solicitação?
-nesse caso temos que aguardar os dev com os novos pacotes,  caso o senhor e Paulo queria subir mais algum modulo, pode nos informar, mais como não sei sobre a fabrica. teríamos que avaliar o que fica mais viável se  é continuar subindo ou esperar as correções e ir subindo aos poucos. 
+📌 Status – Migração JBoss 7.4 (SIFEC, SICCR, SIEMP, SIPEN) – 09/11
 
+Boa tarde, pessoal! Para todos acompanharem pelo mesmo canal, segue a posição atual.
 
+✅ Concluído (ambiente de migração – migracaosifec, DES)
 
+SIFEC (2.160.3.0): no ar
+SICCR-PJ: no ar e funcionando (perfil e lista de clientes ok)
+SICDT (3.24.3.001): web e API REST validados pelo Inocêncio
+SIEMP, SIPEN, SIFEC-CCR, SICCR-BDCAIXA, SICCR-HUB-FRONTEND e SIFEC-MINUTAS-FRONT: implantados
+Ajustes de ambiente realizados: truststore com a cadeia da Caixa, SSO, properties do SICCR/SICDT, datasource do SICDT e ajuste no Undertow para o PJ
 
- me ajuda cpara enviar o elatorio no gurpo do addr estou sendo cobrando no ártiocura de coisas que nao esta nas minhas maos. 
+✅ Esteira (devops.caixa)
+
+SIEMP: primeiro deploy concluído hoje sem erros
+
+⏳ Pendências que dependem de novo pacote do desenvolvimento
+
+Módulo	O que falta	Responsável
+SIFEC-RURAL	Build com Jackson/RESTEasy como provided (pacote atual é do 6.4)	Dev do RURAL
+SIFEC-EMP	Build com correção de CDI (WELD-001408)	Dev do EMP
+SIEMP-EMPRESAS	Build com correção de CDI (WELD-001408)	Dev do SIEMP
+SICCR-PJ	Correção definitiva no BufferedResponseWrapper (hoje funciona com ajuste no servidor)	Pablo
+
+Do lado do ambiente não há impedimento. Assim que os pacotes forem gerados, é só enviar o link do Nexus aqui no grupo que fazemos o deploy e acompanhamos o log na hora.
+
+Para avançarmos:
+
+@Paulo, consegue indicar os desenvolvedores responsáveis pelo RURAL, EMP e EMPRESAS? Assim direcionamos os ajustes diretamente a eles.
+Se houver outros módulos já prontos para subir, podem nos informar a ordem de prioridade.
+
+Seguimos à disposição! 👍
