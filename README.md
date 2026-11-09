@@ -1,16 +1,20 @@
-Correção no jboss/jboss-deployments: o arquivo deve ficar exatamente assim, com as duas linhas:
 
-group_id:artifact_id:version:extension
-br.gov.caixa:framework:2.0.1:jar
+[p585600@caddeapllx2864 ~]$
+[p585600@caddeapllx2864 ~]$
+[p585600@caddeapllx2864 ~]$
+[p585600@caddeapllx2864 ~]$ ls -l /opt/jboss-eap/standalone/deployments/ | grep -i framework
+-rw-r--r-- 1 jboss jboss    63527 nov  9 10:45 framework.jar
+-rw-r--r-- 1 jboss jboss       13 nov  9 10:45 framework.jar.deployed
+[p585600@caddeapllx2864 ~]$
+[p585600@caddeapllx2864 ~]$
+[p585600@caddeapllx2864 ~]$ sudo tail -f /logs/jboss/jboss-eap/standalone/siemp-java-web/server.log | grep -E "WFLYSRV0010|WFLYSRV0025|WFLYSRV0026|WFLYCTL0013|WFLYCTL0412|ERROR|framework|modcluster"
+[sudo] senha para p585600:
+2026-11-09 10:46:09,058 INFO  [org.jboss.as.server] (ServerService Thread Pool -- 43) WFLYSRV0010: "framework.jar" foi implantado (runtime-name: "framework.jar")
+2026-11-09 10:46:09,058 INFO  [org.jboss.as.server] (ServerService Thread Pool -- 43) WFLYSRV0010: "siemp-ear.ear" foi implantado (runtime-name: "siemp-ear.ear")
+2026-11-09 10:46:09,091 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0025: JBoss EAP 7.4.18.GA (WildFly Core 15.0.37.Final-redhat-00001) iniciado em 8379ms - Iniciado(s) 1425 de serviços 1627 (os serviços 367 estão lentos, passivos ou sob demanda)
 
-Faça o commit e crie uma nova release. Ela precisa ser nova para pegar o commit atualizado.
 
-Na próxima release, confira no log da task “Deploy Config no JBOSS”, logo depois de “Lendo artefatos do arquivo CSV”:
 
-Aparecer “Copiando artefatos para o(s) servidor(es) Jboss” com changed e o framework: baixou e copiou.
-Erro de download (404): o br.gov.caixa:framework:2.0.1 não está no Nexus da esteira.
 
-Depois, no 2864:
 
-ls -l /opt/jboss-eap/standalone/deployments/ | grep -i framework
-framework.jar: resolvido, e o siemp-ear.ear deve subir.
+me passa o resmuo para eu eu possa pasrar em sala. deu certo passou o deploy a relase subiu
