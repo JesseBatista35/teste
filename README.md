@@ -1,31 +1,29 @@
-1. Mostre o erro na hora (os pacotes já estão no repositório do 471). Antes, abra o log no 473:
+Jesse Mouta Pereira Batista, Evandro Alves de Souza, Flavio de Almeida Gagliardi, Patricia Vourakis Barbosa Braga
+ 
+2. Variáveis do SIGSJ04 em TQS – Vitor Mendes Guedes, conforme combinado, na segunda você cadastra no grupo SIGSJ-INTRANET-TQS as variáveis SIGSJ04_CONNECTION_STRING, SIGSJ04_USER e SIGSJ04_PASSWORD (marcada como secreta) com os dados da base de TQS passados pela @Gisele. Com o ajuste do item 1 feito, rodamos a release novamente.
+ 
+Eu fiz a adequações das variáveis do SIGSJ INTERNET conforme abaixo em TQS com os dados que possuímos na conexão que temos no nosso ambiente TQS no servidor JBOSS.
+ 
+Com relação a senha, não há um campo de informação de senha na conexão com o banco de dados em TQS e sim uma tag de 
+<security-domain></security-domain>. Coloquei esta informação no campo SIGSJ04_PASSWORD mais não sei se é o mais indicado ou se deve existir uma variável SECURITY DOMAIN na library do SIGSJ INTERNET para realizar a conexão.
+ 
+ 
+também  fiquei com dúvida com relação a variável JVM_PROXY_HOST que está como proxydes.caixa, não deveria ser proxytqs.caixa..?
+ 
+ 
+Já com relação ao SIGSJ INTRANET confirmamos que o mesmo não utiliza o banco de dados oracle (somente o sigsj internet). É que em desenvolvimento no ambiente legado só há um único servidor para o SIGSJ INTRANET e SIGSJ INTERNET e a configuração do acesso ao oracle fica no servidor JBOSS 5.0 (não fica dentro do deploy da aplicação). Dentro do código fonte do SIGSJ INTRANET não há nenhum acesso ou referencia a conexão com o banco de dados oracle.
+ 
+Para o boleto, Vitor Mendes Guedes, pode confirmar se ele precisa de URL ou se é chamado apenas internamente?
+ 
+Vamos precisar de uma URL para o sigsj-boleto pois a mesma também é chamada externamente. 
+ 
 
-sudo tail -f /opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/server.log | grep -E "WELD-0014|WELD-001408|WFLYCTL0013|Unsatisfied|at injection point|ERROR"
 
-No CLI do 471, um de cada vez (o deploy vai falhar e ser revertido, sem impacto nos outros módulos):
+ <img width="800" height="412" alt="image" src="https://github.com/user-attachments/assets/d2da5368-2860-4488-ba73-4494bb2c042e" />
 
-deploy --name=SIFEC-EMP --server-groups=sifec-intranet
-deploy --name=SIEMP-EMPRESAS --server-groups=sifec-intranet
 
-A linha at injection point ... mostra exatamente qual classe injeta qual bean. É isso que ele precisa ver.
+o marcio disse isso
 
-2. O que falar para ele:
-
-Jefferson, os dois módulos sobem no 7.4 até o CDI, e aí a implantação é revertida com WELD-001408: Unsatisfied dependencies:
-
-SIFEC-EMP: o VeiculosTotalizadorBean é injetado pela interface, mas o bean não fica disponível por ela.
-SIEMP-EMPRESAS: o mesmo caso com o ParametrizacaoBean.
-
-O Weld do EAP 7.4 é mais rígido que o do 6.4. As causas mais comuns são:
-
-O bean não declara implements da interface que está sendo injetada.
-EJB (@Stateless/@Singleton) sem @Local(Interface.class) ou sem a interface na assinatura, quando injetado por ela.
-O módulo onde o bean está sem beans.xml, ou com bean-discovery-mode="annotated" e a classe sem anotação de escopo.
-
-Do lado do ambiente já testamos o que dava (inclusive a configuração do Weld) e não resolveu. O ajuste é no código. Assim que tiver o build, manda o link do Nexus que a gente sobe e acompanha.
-
-3. Se ele também cuidar do RURAL, aproveite:
-
-No SIFEC-RURAL 2.115.0.1, o pacote atual é do 6.4 e traz o jackson-jaxrs-json-provider junto, o que gera WELD-001318 (dependência ambígua com o do EAP 7.4). O ajuste é deixar resteasy-* e jackson-* como provided no pom, como o Inocêncio fez no SICDT.
-
-4. Combine o próximo passo antes de ele sair: quando ele envia os builds, e se prefere que vocês subam juntos na sala.
+vamos ver
+Jesse, já corrigi e subi a aplicação SIGSJ-internet
+ 
