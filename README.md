@@ -1,17 +1,41 @@
-Para confirmar no log da 473 que subiu limpo:
 
-sudo grep -nE "WFLYSRV0010.*HUB-FRONTEND2|WFLYSRV0021.*hub-web" /opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/server.log | tail -3
-Mensagem para a sala
+-sh-4.1$
+-sh-4.1$
+-sh-4.1$
+-sh-4.1$ sudo grep -n -iE 'mcm' /opt/jboss/jboss-eap/dc/configuration/domain.xml | grep -iE 'deployment name|secure-deployment'
+[sudo] password for p585600:
+20472:                <secure-deployment name="mcm-web.war">
+22116:                <secure-deployment name="mcm-web.war">
+23762:                <secure-deployment name="mcm-web.war">
+25412:                <secure-deployment name="mcm-web.war">
+27056:                <secure-deployment name="mcm-web.war">
+28522:                <secure-deployment name="mcm-web.war">
+29897:                <secure-deployment name="mcm-web.war">
+56519:        <deployment name="sitah_pmcmv_V1.0.8.8.ear" runtime-name="sitah_mcmv.ear">
+56816:        <deployment name="SIBAN-MCM2" runtime-name="mcm-1.0.0.25-b45.ear">
+56822:        <deployment name="SIBAN-MCM" runtime-name="mcm-1.0.1.23-b47.ear">
+57752:                <deployment name="SIBAN-MCM" runtime-name="mcm-1.0.1.23-b47.ear"/>
+58074:                <deployment name="SIBAN-MCM2" runtime-name="mcm-1.0.0.25-b45.ear"/>
+60586:                <deployment name="sitah_pmcmv_V1.0.8.8.ear" runtime-name="sitah_mcmv.ear"/>
+-sh-4.1$
 
-hub-web atualizado no JBoss 7.4 (sifec-intranet): saiu a 1.4.0-b378 e entrou a 1.10.0.1-b418, versão da planilha. A URL /hub-web/ está respondendo (redireciona para o login). As telas que dependem do hub-api só vão funcionar depois do build novo do backend, com o ajuste das queries.
 
-Próximo da lista: mcm-ear-1.0.1.23 (linha 15)
 
-Na 471:
 
-grep -n -iE 'mcm' /opt/jboss/jboss-eap/dc/configuration/domain.xml | grep -iE 'deployment name|secure-deployment'
 
-No 6.4:
-
-sudo grep -n -iE 'mcm' /opt/jboss/jboss-eap/dc/configuration/domain.xml | grep -iE 'deployment name|secure-deployment'
-Como o Claude está se saindo nesta sessão?
+[root@cbrdeapllx471 p585600]#
+[root@cbrdeapllx471 p585600]#
+[root@cbrdeapllx471 p585600]#
+[root@cbrdeapllx471 p585600]#
+[root@cbrdeapllx471 p585600]#
+[root@cbrdeapllx471 p585600]# grep -n -iE 'mcm' /opt/jboss/jboss-eap/dc/configuration/domain.xml | grep -iE 'deployment name|secure-deployment'
+1494:                <secure-deployment name="mcm-web.war">
+3916:        <deployment name="sitah_pmcmv_V1.0.8.8.ear" runtime-name="sitah_mcmv.ear">
+4210:        <deployment name="SIBAN-MCM2" runtime-name="mcm-1.0.0.25-b45.ear">
+4216:        <deployment name="SIBAN-MCM" runtime-name="mcm-1.0.1.23-b47.ear">
+[root@cbrdeapllx471 p585600]#
+[root@cbrdeapllx471 p585600]#
+[root@cbrdeapllx471 p585600]#
+[root@cbrdeapllx471 p585600]#
+[root@cbrdeapllx471 p585600]#
+[root@cbrdeapllx471 p585600]#
