@@ -35,3 +35,30 @@ O ag_ping precisa responder “Server is alive”.
 Peça ao time do Control-M para confirmar que o agente aparece “Available” no BR DES - Negocial. Depois, o Iury roda um job de teste.
 
 Me manda o resultado do passo 2 (getent e nc): é ele que diz se você segue direto para a release ou se precisa da regra de firewall antes.
+
+
+
+
+
+[p585600@caddeapllx2501 ~]$
+[p585600@caddeapllx2501 ~]$ getent hosts cxextrlx038
+10.192.224.54   cxextrlx038
+[p585600@caddeapllx2501 ~]$
+[p585600@caddeapllx2501 ~]$
+[p585600@caddeapllx2501 ~]$ nslookup cxextrlx038
+;; Got SERVFAIL reply from 10.116.193.77, trying next server
+Server:         10.116.193.78
+Address:        10.116.193.78#53
+
+** server can't find cxextrlx038: SERVFAIL
+
+[p585600@caddeapllx2501 ~]$
+[p585600@caddeapllx2501 ~]$
+[p585600@caddeapllx2501 ~]$
+[p585600@caddeapllx2501 ~]$ nc -zv cxextrlx038 7015
+-sh: nc: comando não encontrado
+[p585600@caddeapllx2501 ~]$
+[p585600@caddeapllx2501 ~]$
+[p585600@caddeapllx2501 ~]$
+
+
