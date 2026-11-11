@@ -1,21 +1,52 @@
-Os comandos já estão prontos, é só colar no CLI da 471. A senha veio em texto simples, então ela vai direto no comando:
 
-batch
-/profile=full-ha-sifec-intranet/subsystem=datasources/data-source="jdbc/SybaseSibanDS":write-attribute(name=connection-url,value="jdbc:sybase:Tds:10.116.92.132:4101/EMDB04?SERVER_INITIATED_TRANSACTIONS=false")
-/profile=full-ha-sifec-intranet/subsystem=datasources/data-source="jdbc/SybaseSibanDS":write-attribute(name=user-name,value="sccd")
-/profile=full-ha-sifec-intranet/subsystem=datasources/data-source="jdbc/SybaseSibanDS":write-attribute(name=password,value="abacaxi")
-run-batch
+[domain@localhost:9999 /]
+[domain@localhost:9999 /] /profile=full-ha-sifec-intranet/subsystem=datasources/data-source="jdbc/SybaseSibanDS":write-attribute(name=connection-url,value="jdbc:sybase:Tds:10.116.92.132:4101/EMDB04?SERVER_INITIATED_TRANSACTIONS=false")
+{
+    "outcome" => "success",
+    "result" => undefined,
+    "server-groups" => {"sifec-intranet" => {"host" => {"hc_cbrdeapllx473" => {"sifec-intranet_node1_lx473" => {"response" => {
+        "outcome" => "success",
+        "result" => undefined,
+        "response-headers" => {
+            "operation-requires-reload" => true,
+            "process-state" => "reload-required"
+        }
+    }}}}}}
+}
 
-Confira se ficou certo:
+[domain@localhost:9999 /] /profile=full-ha-sifec-intranet/subsystem=datasources/data-source="jdbc/SybaseSibanDS":write-attribute(name=user-name,value="sccd")
+{
+    "outcome" => "success",
+    "result" => undefined,
+    "server-groups" => {"sifec-intranet" => {"host" => {"hc_cbrdeapllx473" => {"sifec-intranet_node1_lx473" => {"response" => {
+        "outcome" => "success",
+        "result" => undefined,
+        "response-headers" => {
+            "operation-requires-reload" => true,
+            "process-state" => "reload-required"
+        }
+    }}}}}}
+}
 
-/profile=full-ha-sifec-intranet/subsystem=datasources/data-source="jdbc/SybaseSibanDS":read-attribute(name=connection-url)
+[domain@localhost:9999 /] /profile=full-ha-sifec-intranet/subsystem=datasources/data-source="jdbc/SybaseSibanDS":write-attribute(name=password,value="abacaxi")
+{
+    "outcome" => "success",
+    "result" => undefined,
+    "server-groups" => {"sifec-intranet" => {"host" => {"hc_cbrdeapllx473" => {"sifec-intranet_node1_lx473" => {"response" => {
+        "outcome" => "success",
+        "result" => undefined,
+        "response-headers" => {
+            "operation-requires-reload" => true,
+            "process-state" => "reload-required"
+        }
+    }}}}}}
+}
 
-Depois de avisar a sala, faça o restart para aplicar:
+[domain@localhost:9999 /]
+[domain@localhost:9999 /]
+[domain@localhost:9999 /]
+[domain@localhost:9999 /] run-batch
+The batch failed with the following error (you are remaining in the batch editing mode to have a chance to correct the error): Without arguments the command can be executed only in the bat
+ch mode.
 
-/server-group=sifec-intranet:restart-servers(blocking=true)
-
-E teste a conexão:
-
-/host=hc_cbrdeapllx473/server=sifec-intranet_node1_lx473/subsystem=datasources/data-source="jdbc/SybaseSibanDS":test-connection-in-pool
-
-Se voltar "result" => [true], o datasource do MCM está corrigido. Essa senha não deve ir para a sala.
+[domain@localhost:9999 /]
