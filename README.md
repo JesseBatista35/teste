@@ -1,13 +1,5 @@
-http://sigsj-intranet.esteiras.des.caixa
-https://sigsj-intranet.esteiras.des.caixa/sigsj_intranet
- 
- 
-http://sigsj-intranet.esteiras.tqs.caixa
-https://sigsj-intranet.esteiras.des.caixa/sigsj_intranet
- 
-entao márcio sobre essa questão eu nao sei explicar pois apricnicpio vocês solicitram URL customizada nao foi?
- 
-entao tem que aguardar o atendimento da req la para que seje disponibilizado a URL
- 
-acredito eu que seja esse o processo
- 
+Marcio, os endereços *.esteiras.des.caixa e *.esteiras.tqs.caixa apontam para o OpenShift, e o SIGSJ roda em VM, por isso não funcionam. Foi justamente por isso que pedimos a URL customizada (sigsj-intranet.des.caixa e sigsj-internet.des.caixa).
+
+Status do intranet DES: o VIP já foi criado e está apontando para a VM; falta a Segurança instalar o certificado no VIP (WO0000082200842) e depois abrir o DNS. Assim que isso for concluído, ajustamos a release e a URL passa a funcionar. O internet está no mesmo ponto, e o TQS vamos pedir na sequência.
+
+Enquanto isso, para testar, vocês conseguem acessar direto pelo servidor: http://caddeapllx955.agil.nprd.caixa.gov.br/sigsj_intranet/
