@@ -1,52 +1,18 @@
+2. Restart (na 471, depois dos 5 minutos)
+/server-group=sifec-intranet:restart-servers(blocking=true)
+3. Teste do datasource
+/host=hc_cbrdeapllx473/server=sifec-intranet_node1_lx473/subsystem=datasources/data-source="jdbc/SybaseSibanDS":test-connection-in-pool
 
-[domain@localhost:9999 /]
-[domain@localhost:9999 /] /profile=full-ha-sifec-intranet/subsystem=datasources/data-source="jdbc/SybaseSibanDS":write-attribute(name=connection-url,value="jdbc:sybase:Tds:10.116.92.132:4101/EMDB04?SERVER_INITIATED_TRANSACTIONS=false")
-{
-    "outcome" => "success",
-    "result" => undefined,
-    "server-groups" => {"sifec-intranet" => {"host" => {"hc_cbrdeapllx473" => {"sifec-intranet_node1_lx473" => {"response" => {
-        "outcome" => "success",
-        "result" => undefined,
-        "response-headers" => {
-            "operation-requires-reload" => true,
-            "process-state" => "reload-required"
-        }
-    }}}}}}
-}
+O esperado é "result" => [true].
 
-[domain@localhost:9999 /] /profile=full-ha-sifec-intranet/subsystem=datasources/data-source="jdbc/SybaseSibanDS":write-attribute(name=user-name,value="sccd")
-{
-    "outcome" => "success",
-    "result" => undefined,
-    "server-groups" => {"sifec-intranet" => {"host" => {"hc_cbrdeapllx473" => {"sifec-intranet_node1_lx473" => {"response" => {
-        "outcome" => "success",
-        "result" => undefined,
-        "response-headers" => {
-            "operation-requires-reload" => true,
-            "process-state" => "reload-required"
-        }
-    }}}}}}
-}
+4. Confirmar que tudo voltou
 
-[domain@localhost:9999 /] /profile=full-ha-sifec-intranet/subsystem=datasources/data-source="jdbc/SybaseSibanDS":write-attribute(name=password,value="abacaxi")
-{
-    "outcome" => "success",
-    "result" => undefined,
-    "server-groups" => {"sifec-intranet" => {"host" => {"hc_cbrdeapllx473" => {"sifec-intranet_node1_lx473" => {"response" => {
-        "outcome" => "success",
-        "result" => undefined,
-        "response-headers" => {
-            "operation-requires-reload" => true,
-            "process-state" => "reload-required"
-        }
-    }}}}}}
-}
+Na 471:
 
-[domain@localhost:9999 /]
-[domain@localhost:9999 /]
-[domain@localhost:9999 /]
-[domain@localhost:9999 /] run-batch
-The batch failed with the following error (you are remaining in the batch editing mode to have a chance to correct the error): Without arguments the command can be executed only in the bat
-ch mode.
+/server-group=sifec-intranet:read-children-resources(child-type=deployment)
 
-[domain@localhost:9999 /]
+Na 473, procure erros no startup:
+
+sudo grep -nE "WFLYSRV0021|JZ006|WFLYSRV0025" /opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/server.log | tail -10
+
+O WFLYSRV0025 indica que o servidor subiu. Se não aparecer JZ006 depois do horário do restart, o timeout está resolvido.
