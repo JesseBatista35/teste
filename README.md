@@ -1,42 +1,15 @@
-Os comandos foram digitados no bash, não no CLI do JBoss. O prompt mudou para [root@cbrdeapllx471 ...]#, ou seja, você saiu do CLI. Entre de novo e rode lá dentro:
+Confirmar que as aplicações voltaram depois do restart
 
-/opt/jboss/jboss-eap/bin/jboss-cli.sh --connect --controller=localhost:9999
+No CLI da 471:
 
-Quando o prompt voltar para [domain@localhost:9999 /], rode:
+/server-group=sifec-intranet:read-children-resources(child-type=deployment)
 
-/profile=full-ha-sifec-intranet/subsystem=datasources/data-source="jdbc/SybaseSibanDS":write-attribute(name=password,value="adsads")
+Na 473, procure falhas no startup:
 
-Confira:
+sudo awk 'NR>=38021' /opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/server.log | grep -E "WFLYSRV0021|JZ00|WFLYSRV0025"
 
-/profile=full-ha-sifec-intranet/subsystem=datasources/data-source="jdbc/SybaseSibanDS":read-attribute(name=password)
+O esperado é aparecer só o WFLYSRV0025 (servidor iniciado), sem WFLYSRV0021.
 
-O resultado tem que ser "adsads".
+Fica registrado que o jdbc/SybaseSifbnDS (FBNEM1, porta 4407) continua inacessível, mas igual ao 6.4, então não é regressão da migração.
 
-Depois de avisar a sala, faça o restart e o teste:
-
-/server-group=sifec-intranet:restart-servers(blocking=true)
-/host=hc_cbrdeapllx473/server=sifec-intranet_node1_lx473/subsystem=datasources/data-source="jdbc/SybaseSibanDS":test-connection-in-pool
-
-O esperado é "result" => [true].
-
-
-
-
-[domain@localhost:9999 /]
-[domain@localhost:9999 /]
-[domain@localhost:9999 /]
-[domain@localhost:9999 /]
-[domain@localhost:9999 /] /server-group=sifec-intranet:restart-servers(blocking=true)
-{
-    "outcome" => "success",
-    "result" => undefined,
-    "server-groups" => undefined
-}
-
-[domain@localhost:9999 /] /host=hc_cbrdeapllx473/server=sifec-intranet_node1_lx473/subsystem=datasources/data-source="jdbc/SybaseSibanDS":test-connection-in-pool
-{
-    "outcome" => "success",
-    "result" => [true]
-}
-
-[domain@localhost:9999 /]
+Próximo da lista: sifec-apx e sifec-arc. Ficou pendente o grep na 471 e no 6.4.
