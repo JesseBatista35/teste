@@ -9,3 +9,21 @@ Na 471 (CLI):
 /profile=full-ha-sifec-intranet/subsystem=datasources/data-source="jdbc/SybaseSibanDS":read-attribute(name=user-name)
 
 Me manda as duas saídas. Se o usuário for o mesmo, você roda o write-attribute da URL e combinamos o restart na sala.
+
+
+
+
+[domain@localhost:9999 /]
+[domain@localhost:9999 /]
+[domain@localhost:9999 /]
+[domain@localhost:9999 /]
+[domain@localhost:9999 /] /profile=full-ha-sifec-intranet/subsystem=datasources/data-source="jdbc/SybaseSibanDS":read-attribute(name=user-name)
+{
+    "outcome" => "success",
+    "result" => "banonline"
+}
+
+[domain@localhost:9999 /]
+[domain@localhost:9999 /]
+[domain@localhost:9999 /]
+[domain@localhost:9999 /]
