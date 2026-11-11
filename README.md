@@ -1,30 +1,264 @@
-Pessoal, atualização da migração do sifec-intranet para o JBoss 7.4 (DES), posição de hoje (11/11) às 17h:
+Skip to main content
+Azure DevOps
+projetos
+/
+Caixa
+/
+Pipelines
+/
+Releases
+/
+SIMIL-precificacao-rotinas-batch
+/
+SIMIL-precificacao-rotinas-batch-20
+Search
 
-✅ Implantados hoje
 
-SICCR-PARAMETROS: versão 3.3.1.1, confirmada pelo João Pedro. A API está respondendo. O front deve ser validado pelo sifec-web, no menu Serviços > Tributos.
-SICCR-HUB-FRONTEND (hub-web): atualizado de 1.4.0 para 1.10.0.1-b418, a versão da planilha. A URL /hub-web/ está respondendo (redireciona para o login).
-SIBAN-MCM: 1.0.1.23-b47, versão da planilha, pronto para validação.
+Caixa
 
-🔧 Ajustes de ambiente feitos pela DevOps
+Overview
 
-Incluídas as propriedades de integração do HUB (SICCR_HUB_WS_*), iguais às do 6.4.
-Corrigido o datasource jdbc/SybaseSibanDS, usado pelo SIBAN/MCM. No 7.4 ele apontava para outro banco Sybase (FBNEM1, inacessível) e gerava timeout. Agora aponta para o mesmo banco do 6.4 (EMDB04), com a credencial vigente, e o teste de conexão está OK.
-Foram feitos dois restarts do sifec-intranet (16:46 e 16:54) para aplicar os ajustes. Todas as aplicações do grupo voltaram ativas.
+Boards
 
-⏳ Pendente da fábrica (código)
+Repos
 
-hub-api 2.2.0: o deploy foi revertido porque a named query ProcessoEnvioContrato.buscar usa parâmetro ? sem número, que o Hibernate do 7.4 não aceita mais. É preciso trocar por ?1 ou por parâmetro nomeado e gerar um build novo. Enquanto isso, as telas do hub-web que dependem da API não funcionam.
-SIRUR 3.54.51.28: ajuste no persistence.xml (gerador “gen” duplicado nas unidades fec.pu e fec.rur.pu).
-LCR: aguardando o pacote sifec_lcr_1.117.1, que é o da planilha.
+Pipelines
+Pipelines
+Environments
+Releases
+Library
+Task groups
+Deployment groups
+Portal Infra
 
-📋 Validação
-Peço aos responsáveis que validem as aplicações em https://migracaosifec.des.caixa:
+Test Plans
 
-PARAMETROS: @João Pedro, pelo menu Serviços > Tributos do sifec-web.
-HUB-FRONTEND: quem do HUB pode validar? A validação é pela URL /hub-web/ direto ou por algum menu do sifec-web?
-MCM: quem do MCM/SIBAN pode validar?
+Artifacts
+Project settings
+SIMIL-precificacao-rotinas-batch
+
+SIMIL-precificacao-rotinas-batch-20
+
 
-Próximos da lista: sifec-apx e sifec-arc.
+EC DES
+
+Succeeded
 
-Também solicitei o DNS do siemp.des.caixa apontando para o VIP do SIEMP.
+
+Pipeline
+
+Tasks
+
+Variables
+
+Logs
+
+Tests
+Agent job
+Started: 11/11/2026, 15:43:20
+Pool:
+Release-Linux-OKD4
+·
+Agent: azp-ads-agent-release-5cd876f98-zxzcb
+
+3m 35s
+
+Initialize job
+·
+succeeded
+<1s
+
+Download Artifacts
+·
+succeeded
+1 warning
+1s
+
+Recupera VEC
+·
+succeeded
+1s
+
+VEC - Aferição
+·
+succeeded
+1 warning
+<1s
+
+Exportar variáveis NFS
+·
+succeeded
+<1s
+
+Exportar variáveis Infrafácil
+·
+succeeded
+<1s
+
+Alocando o IP (AlocaIP e Infradevops)
+·
+succeeded
+8s
+
+Exporta as variáveis para o Terraform
+·
+succeeded
+<1s
+
+Replace tokens in **/*.tfvars.json **/*.tf
+·
+succeeded
+<1s
+
+Remove caracteres
+·
+succeeded
+<1s
+
+Install Terraform 1.3.5
+·
+succeeded
+3s
+
+Terraform init
+·
+succeeded
+6s
+
+Terraform validate
+·
+succeeded
+1s
+
+Terraform workspace
+·
+succeeded
+1s
+
+Terraform destroy
+·
+succeeded
+<1s
+
+Terraform apply
+·
+succeeded
+21s
+
+Definir size como executado
+·
+succeeded
+25s
+
+Cadastrar Servidor no Satellite
+·
+succeeded
+8s
+
+Valida Variáveis Obrigatórias
+·
+succeeded
+<1s
+
+Recuperando URL Pacote Nexus
+·
+succeeded
+1s
+
+Recupera Pacote
+·
+succeeded
+1s
+
+Recuperando nome do repositório
+·
+succeeded
+1s
+
+Convertendo Minúsculo e Definindo nome do Projeto/Repositório
+·
+succeeded
+<1s
+
+Corrigindo Codificação Arquivos dos2unix
+·
+succeeded
+<1s
+
+Alterando Valores placeholders nos arquivos de config
+·
+succeeded
+
+<1s
+
+Permissionamento LDAP
+·
+succeeded
+18s
+
+Configurando JBoss
+·
+succeeded
+7s
+
+Configurando Stack de Monitoração
+·
+succeeded
+39s
+
+Configurando Logrotate
+·
+succeeded
+7s
+
+Arquivos de Configuração
+·
+succeeded
+27s
+
+Deploy Pacote
+·
+succeeded
+7s
+
+Secure Files
+·
+succeeded
+5s
+
+Configura Control-M
+·
+succeeded
+18s
+
+Finalize Job
+·
+succeeded
+<1s
+View detailed logs
+101 pipelines found
+
+Select a release pipeline to view its releases
+
+295 pipelines found
+
+Select a release pipeline to view its releases
+
+15 pipelines found
+
+Select a release pipeline to view its releases
+
+12 pipelines found
+
+Select a release pipeline to view its releases
+
+8 pipelines found
+
+Row 9
+
+Row 2
+
+
+
+
+deploy subiu vamos validar e fechar a req
