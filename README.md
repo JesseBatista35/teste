@@ -1,22 +1,30 @@
-Confirme o hosts e teste a porta sem o nc:
 
-grep -iE "cxextrlx038|crjdeaprlx03" /etc/hosts
-
-timeout 5 bash -c '</dev/tcp/10.192.224.54/7015' && echo "7015 ABERTA" || echo "7015 FECHADA/BLOQUEADA"
-
-Se preferir, use o curl:
-
-curl -v --connect-timeout 5 telnet://10.192.224.54:7015
-
-No curl, “Connected to” significa porta aberta. Timeout é firewall. “Connection refused” quer dizer que a rede chega, mas não há nada escutando nessa porta no servidor.
-
-Aproveite e veja quem é o dono do agente e o que ele está usando hoje:
-
-ps -ef | grep -E "p_ctmag|p_ctmat" | grep -v grep
-
-Com esses resultados:
-
-Porta aberta e /etc/hosts com cxextrlx038: confirme no repositório que o etc/hosts-des tem a mesma linha (10.192.224.54 cxextrlx038) e sem as do crjdeaprlx. Depois rode a release EC DES.
-Timeout: registre a regra de 10.116.200.250 para 10.192.224.54 na porta 7015, e de 10.192.224.54 para 10.116.200.250 na porta 7016, vinculada à REQ. Só depois rode a release.
-
-Cola aqui a saída dos três comandos.
+[p585600@caddeapllx2501 ~]$
+[p585600@caddeapllx2501 ~]$
+[p585600@caddeapllx2501 ~]$ grep -iE "cxextrlx038|crjdeaprlx03" /etc/hosts
+#10.116.99.99   crjdeaprlx038
+#10.116.99.100   crjdeaprlx039
+10.192.224.54  cxextrlx038
+[p585600@caddeapllx2501 ~]$
+[p585600@caddeapllx2501 ~]$
+[p585600@caddeapllx2501 ~]$
+[p585600@caddeapllx2501 ~]$ timeout 5 bash -c '</dev/tcp/10.192.224.54/7015' && echo "7015 ABERTA" || echo "7015 FECHADA/BLOQUEADA"
+7015 ABERTA
+[p585600@caddeapllx2501 ~]$
+[p585600@caddeapllx2501 ~]$
+[p585600@caddeapllx2501 ~]$
+[p585600@caddeapllx2501 ~]$ curl -v --connect-timeout 5 telnet://10.192.224.54:7015
+*   Trying 10.192.224.54:7015...
+* Connected to 10.192.224.54 (10.192.224.54) port 7015 (#0)
+^C
+[p585600@caddeapllx2501 ~]$
+[p585600@caddeapllx2501 ~]$
+[p585600@caddeapllx2501 ~]$
+[p585600@caddeapllx2501 ~]$ ps -ef | grep -E "p_ctmag|p_ctmat" | grep -v grep
+root     1751485       1  0 nov09 ?        00:00:01 /opt/ctmage/ctm/exe/p_ctmag
+root     1751558       1  0 nov09 ?        00:00:03 /opt/ctmage/ctm/exe/p_ctmat
+root     1751560 1751558  0 nov09 ?        00:00:00 /opt/ctmage/ctm/exe/p_ctmatw -ATW_NAME ATW000
+[p585600@caddeapllx2501 ~]$
+[p585600@caddeapllx2501 ~]$
+[p585600@caddeapllx2501 ~]$
+[p585600@caddeapllx2501 ~]$
