@@ -5,8 +5,6 @@ projetos
 Caixa
 /
 Pipelines
-/
-Task groups
 Search
 
 
@@ -31,41 +29,140 @@ Test Plans
 
 Artifacts
 Project settings
-Task groups
 
-Java-Build
+SIGEC
+
+SIGEC-portabilidade
 
 Tasks
 
-History
+Variables
 
-References
-Maven
-Task version
-4.*
-Display name
-Maven
-Maven POM file
-$(POM_PATH)
-Goal(s)
-$(MVN_GOAL)
+Triggers
+
 Options
 
-JUnit Test Results
-Publish to Azure Pipelines
-Code Coverage
-Code coverage tool
-None
-Advanced
-Code Analysis
-Run SonarQube or SonarCloud analysis
-Run Checkstyle
-Run PMD
-Run FindBugs
-Run SpotBugs analysis
+History
+Java-Build
+Task version
+5.*
+Display name
+Java-Build
+AZPAT
+$(AZPAT)
+FORTIFY_API
+$(FORTIFY_API)
+FORTIFY_APITOKEN
+$(FORTIFY_APITOKEN)
+FORTIFY_BUILD
+$(FORTIFY_BUILD)
+FORTIFY_CI_TOKEN
+$(FORTIFY_CI_TOKEN)
+FORTIFY_CLIENT_AUTH_TOKEN
+$(FORTIFY_CLIENT_AUTH_TOKEN)
+fortify_disable
+$(fortify_disable)
+FORTIFY_FPR_NAME
+$(FORTIFY_FPR_NAME)
+FORTIFY_NEW_VERSION
+$(FORTIFY_NEW_VERSION)
+FORTIFY_PASS
+$(FORTIFY_PASS)
+FORTIFY_POOL_GOLD_NOVO
+$(FORTIFY_POOL_GOLD_NOVO)
+FORTIFY_POOL_SILVER_NOVO
+$(FORTIFY_POOL_SILVER_NOVO)
+FORTIFY_REGEX
+$(FORTIFY_REGEX)
+FORTIFY_SENSOR_POOL
+$(FORTIFY_SENSOR_POOL)
+FORTIFY_UPTOKEN
+$(FORTIFY_UPTOKEN)
+FORTIFY_URL
+$(FORTIFY_URL)
+FORTIFY_URL_CONTROLLER
+$(FORTIFY_URL_CONTROLLER)
+FORTIFY_USER
+$(FORTIFY_USER)
+FORTIFY_VERSION_BUILD
+$(FORTIFY_VERSION_BUILD)
+GradleVersion
+$(GradleVersion)
+JAVA_VERSION
+open-jdk-17.0.8
+KEYSTORE_SECUREFILEPATH
+$(KEYSTORE_SECUREFILEPATH)
+lista_versao
+$(lista_versao)
+MAVEN_VERSION
+3.8.5
+MVN_GOAL
+clean package -Dversion.app=$(version.app) -DskipTests=true -U
+nexus_interno_pass
+$(nexus_interno_pass)
+nexus_interno_user
+$(nexus_interno_user)
+NEXUS_REPOSITORY_ID
+$(NEXUS_REPOSITORY_ID)
+NEXUS_URL_RELEASE
+$(NEXUS_URL_MAVEN_RELEASE)
+NEXUS_URL_SNAPSHOT
+$(NEXUS_URL_MAVEN_SNAPSHOT)
+NEXUS_URL_SNAPSHOT_ALIAS
+SNAPSHOT
+NODE_EXTRA_CA_CERTS
+$(NODE_EXTRA_CA_CERTS)
+p_language
+$(p_language)
+POM_PATH
+pom.xml
+project.extension
+$(project.extension)
+project.file
+$(project.file)
+project.group
+$(project.group)
+project.name
+$(project.name)
+project.release
+$(project.release)
+project.version
+$(project.version)
+REPOSITORIO
+$(REPOSITORIO)
+SCANCENTRAL_URL
+$(SCANCENTRAL_URL)
+SONAR_LOGIN
+$(SONAR_LOGIN)
+SONAR_PASSWORD
+$(SONAR_PASSWORD)
+SONAR_PROPERTIES
+$(SONAR_PROPERTIES)
+SONAR_URL
+$(SONAR_URL)
+token
+$(token)
+token_id
+$(token_id)
+valida.vec
+$(valida.vec)
+version.app
+$(version.app)
+versionApp
+$(versionApp)
 Control Options
-Showing filters 1 through 1
+Output Variables
+Row 3. Clickable
 
+Showing 8 filtered items.
 
+Get started and run this pipeline for the first time!
 
+Row 2. Clickable
+
+Row 2. Clickable
+
+Showing 8 filtered items.
+
+Get started and run this pipeline for the first time!
 
