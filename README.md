@@ -18,3 +18,51 @@ sudo tail -f /opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/serv
 Me mande as saídas dos passos 1 e 2.
 
 Como o Claude está se saindo nesta sessão?
+
+
+
+
+-sh-4.1$ sudo grep -n -iE 'hub-web|HUB-FRONTEND' /opt/jboss/jboss-eap/dc/configuration/domain.xml
+[sudo] password for p585600:
+20413:                <secure-deployment name="hub-web.war">
+22057:                <secure-deployment name="hub-web.war">
+23703:                <secure-deployment name="hub-web.war">
+25353:                <secure-deployment name="hub-web.war">
+26997:                <secure-deployment name="hub-web.war">
+56744:        <deployment name="SICCR-HUB-FRONTEND" runtime-name="hub-web-1.4.0-b378.ear">
+56753:        <deployment name="SICCR-HUB-FRONTEND4" runtime-name="hub-web-1.4.0-b383.ear">
+56765:        <deployment name="SICCR-HUB-FRONTEND3" runtime-name="hub-web-1.7.0-b397.ear">
+56840:        <deployment name="SICCR-HUB-FRONTEND5" runtime-name="hub-web-1.10.0.1-b417.ear">
+56951:        <deployment name="SICCR-HUB-FRONTEND2" runtime-name="hub-web-1.10.0.1-b418.ear">
+57748:                <deployment name="SICCR-HUB-FRONTEND" runtime-name="hub-web-1.4.0-b378.ear"/>
+58081:                <deployment name="SICCR-HUB-FRONTEND2" runtime-name="hub-web-1.10.0.1-b418.ear"/>
+58379:                <deployment name="SICCR-HUB-FRONTEND3" runtime-name="hub-web-1.7.0-b397.ear"/>
+58682:                <deployment name="SICCR-HUB-FRONTEND4" runtime-name="hub-web-1.4.0-b383.ear"/>
+58985:                <deployment name="SICCR-HUB-FRONTEND5" runtime-name="hub-web-1.10.0.1-b417.ear"/>
+-sh-4.1$
+
+
+
+
+
+
+[root@cbrdeapllx471 p585600]#
+[root@cbrdeapllx471 p585600]#
+[root@cbrdeapllx471 p585600]#
+[root@cbrdeapllx471 p585600]#
+[root@cbrdeapllx471 p585600]#
+[root@cbrdeapllx471 p585600]#
+[root@cbrdeapllx471 p585600]#
+[root@cbrdeapllx471 p585600]#
+[root@cbrdeapllx471 p585600]# grep -n -iE 'hub-web|HUB-FRONTEND' /opt/jboss/jboss-eap/dc/configuration/domain.xml
+1434:                <secure-deployment name="hub-web.war">
+4138:        <deployment name="SICCR-HUB-FRONTEND" runtime-name="hub-web-1.4.0-b378.ear">
+4147:        <deployment name="SICCR-HUB-FRONTEND4" runtime-name="hub-web-1.4.0-b383.ear">
+4159:        <deployment name="SICCR-HUB-FRONTEND3" runtime-name="hub-web-1.7.0-b397.ear">
+4234:        <deployment name="SICCR-HUB-FRONTEND5" runtime-name="hub-web-1.10.0.1-b417.ear">
+4393:        <deployment name="SICCR-HUB-FRONTEND2" runtime-name="hub-web-1.10.0.1-b418.ear">
+4486:                <deployment name="SICCR-HUB-FRONTEND" runtime-name="hub-web-1.4.0-b378.ear"/>
+[root@cbrdeapllx471 p585600]#
+[root@cbrdeapllx471 p585600]#
+[root@cbrdeapllx471 p585600]#
+[root@cbrdeapllx471 p585600]#
