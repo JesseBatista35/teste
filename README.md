@@ -1,81 +1,17 @@
-No CLI, rode as 4 linhas na ordem. A primeira (batch) é obrigatória: ela faz a troca acontecer de uma vez, e se o novo falhar, o 1.4.0 volta sozinho.
+Para confirmar no log da 473 que subiu limpo:
 
-batch
-/server-group=sifec-intranet/deployment=SICCR-HUB-FRONTEND:remove
-/server-group=sifec-intranet/deployment=SICCR-HUB-FRONTEND2:add(enabled=true)
-run-batch
+sudo grep -nE "WFLYSRV0010.*HUB-FRONTEND2|WFLYSRV0021.*hub-web" /opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/server.log | tail -3
+Mensagem para a sala
 
-Confira se ficou ativo:
+hub-web atualizado no JBoss 7.4 (sifec-intranet): saiu a 1.4.0-b378 e entrou a 1.10.0.1-b418, versão da planilha. A URL /hub-web/ está respondendo (redireciona para o login). As telas que dependem do hub-api só vão funcionar depois do build novo do backend, com o ajuste das queries.
 
-/server-group=sifec-intranet/deployment=SICCR-HUB-FRONTEND2:read-resource
-Teste na sua estação
-curl -k -s -o /dev/null -w "%{http_code}\n" https://migracaosifec.des.caixa/hub-web/
+Próximo da lista: mcm-ear-1.0.1.23 (linha 15)
 
-O front pode até abrir, mas as telas que chamam o hub-api vão falhar enquanto o build novo do backend não chegar, por causa do erro do ? na query. Isso não é problema do hub-web.
+Na 471:
 
-Se precisar voltar para o 1.4.0:
+grep -n -iE 'mcm' /opt/jboss/jboss-eap/dc/configuration/domain.xml | grep -iE 'deployment name|secure-deployment'
 
-batch
-/server-group=sifec-intranet/deployment=SICCR-HUB-FRONTEND2:remove
-/server-group=sifec-intranet/deployment=SICCR-HUB-FRONTEND:add(enabled=true)
-run-batch
+No 6.4:
 
-
-
-
-C:\Users\p585600>curl -k -s -o /dev/null -w "%{http_code}\n" https://migracaosifec.des.caixa/hub-web/
-302
-
-C:\Users\p585600>
-
-
-
-
-[domain@localhost:9999 /]
-[domain@localhost:9999 /] /server-group=sifec-intranet/deployment=SICCR-HUB-FRONTEND:remove
-{
-    "outcome" => "success",
-    "result" => undefined,
-    "server-groups" => {"sifec-intranet" => {"host" => {"hc_cbrdeapllx473" => {"sifec-intranet_node1_lx473" => {"response" => {
-        "outcome" => "success",
-        "result" => undefined
-    }}}}}}
-}
-
-[domain@localhost:9999 /]
-[domain@localhost:9999 /]
-[domain@localhost:9999 /]
-[domain@localhost:9999 /]
-[domain@localhost:9999 /]
-[domain@localhost:9999 /]
-[domain@localhost:9999 /] /server-group=sifec-intranet/deployment=SICCR-HUB-FRONTEND2:add(enabled=true)
-{
-    "outcome" => "success",
-    "result" => undefined,
-    "server-groups" => {"sifec-intranet" => {"host" => {"hc_cbrdeapllx473" => {"sifec-intranet_node1_lx473" => {"response" => {
-        "outcome" => "success",
-        "result" => undefined
-    }}}}}}
-}
-
-[domain@localhost:9999 /]
-[domain@localhost:9999 /]
-[domain@localhost:9999 /]
-[domain@localhost:9999 /]
-[domain@localhost:9999 /] /server-group=sifec-intranet/deployment=SICCR-HUB-FRONTEND2:read-resource
-{
-    "outcome" => "success",
-    "result" => {
-        "enabled" => true,
-        "name" => "SICCR-HUB-FRONTEND2",
-        "runtime-name" => "hub-web-1.10.0.1-b418.ear"
-    }
-}
-
-[domain@localhost:9999 /]
-[domain@localhost:9999 /]
-[domain@localhost:9999 /]
-[domain@localhost:9999 /] curl -k -s -o /dev/null -w "%{http_code}\n" https://migracaosifec.des.caixa/hub-web/
-Unexpected command 'curl -k -s -o /dev/null -w "%{http_code}\n" https://migracaosifec.des.caixa/hub-web/'. Type 'help --commands' for the list of supported commands.
-
-[domain@localhost:9999 /]
+sudo grep -n -iE 'mcm' /opt/jboss/jboss-eap/dc/configuration/domain.xml | grep -iE 'deployment name|secure-deployment'
+Como o Claude está se saindo nesta sessão?
