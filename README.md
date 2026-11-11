@@ -1,9 +1,13 @@
-export LD_LIBRARY_PATH=/opt/ctmage/ctm/exe
-ag_ping
 
-Se ainda reclamar da lib, use o caminho real:
-
-export LD_LIBRARY_PATH=/opt/ctmage/ctm/exe_9.0.19.200
-ag_ping
-
-O esperado é “Server is alive”.
+[root@caddeapllx2501 ~]#
+[root@caddeapllx2501 ~]#
+[root@caddeapllx2501 ~]# export LD_LIBRARY_PATH=/opt/ctmage/ctm/exe
+[root@caddeapllx2501 ~]#
+[root@caddeapllx2501 ~]#
+[root@caddeapllx2501 ~]# ag_ping
+Output:
+Server is alive.
+Result: Success.
+[root@caddeapllx2501 ~]#
+[root@caddeapllx2501 ~]#
+[root@caddeapllx2501 ~]#
