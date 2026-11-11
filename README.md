@@ -1,19 +1,5 @@
+Prezado(a), conforme solicitado em demanda, o atendimento foi realizado.
 
-[root@caddeapllx2501 ~]#
-[root@caddeapllx2501 ~]#
-[root@caddeapllx2501 ~]#
-[root@caddeapllx2501 ~]# grep -E "CTMSHOST|CTMPERMHOSTS" /opt/ctmage/ctm/data/CONFIG.dat
-CTMSHOST                            cxextrlx038
-CTMPERMHOSTS                        cxextrlx038
-[root@caddeapllx2501 ~]#
-[root@caddeapllx2501 ~]#
-[root@caddeapllx2501 ~]#
-[root@caddeapllx2501 ~]# export CONTROLM=/opt/ctmage/ctm LD_LIBRARY_PATH=/opt/ctmage/ctm/exe PATH=/opt/ctmage/ctm/scripts:/opt/ctmage/ctm/exe:$PATH
-[root@caddeapllx2501 ~]# ag_ping
-Output:
-Server is alive.
-Result: Success.
-[root@caddeapllx2501 ~]#
-[root@caddeapllx2501 ~]#
-[root@caddeapllx2501 ~]#
-[root@caddeapllx2501 ~]#
+O agente Control-M do servidor caddeapllx2501 (SIMIL-precificacao-rotinas-batch, DES) foi reapontado para o servidor cxextrlx038 (BR DES - Negocial), em substituição ao crjdeaprlx038, que não está mais acessível. Foram ajustados o arquivo etc/hosts-des do repositório SIMIL-precificacao-rotinas-batch-config e as variáveis CTMSHOST/CTMPERMHOSTS da release no ambiente DES. A release foi executada com sucesso e a comunicação do agente com o servidor Control-M foi validada (ag_ping: Server is alive).
+
+Solicitamos a validação da execução dos jobs pela equipe responsável.
