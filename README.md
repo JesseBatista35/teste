@@ -1,20 +1,14 @@
-Bom dia!
+Bom dia, Sandra! Tudo bem?
 
-Tudo bem, e com vocês?
+Traduzindo: o JBoss subiu sem o datasource do banco (sihdgDS), por isso a aplicação não inicializa. Não é falha de conexão com o banco, a configuração do datasource nem chegou ao servidor.
 
-Para formalizar, podem abrir a REQ no serviço de suporte às esteiras DevOps NPRD (categoria [AJUSTAR: nome do item de catálogo de esteira/release DES]), direcionada à nossa equipe (CESTI – DES/TQS NPRD).
+É o mesmo erro que tivemos em HMP. O stage de PRD ainda usa a task antiga de ConfigMap, que gera o arquivo com o nome standalone-okd.xml. O pod procura standalone.xml, não encontra e sobe com a configuração padrão da imagem, sem datasource.
 
-Para agilizar o atendimento, peço que a REQ contenha:
+O que precisa ser ajustado no stage EC PRD, igual ao que foi feito em HMP:
+1. ConfigMap jboss-config gerado a partir do standalone.xml, com a chave standalone.xml (resolve este erro).
+2. Probes do DeploymentConfig como HTTP em /sihdg-api/health (porta 8080), no lugar dos scripts /opt/jboss/bin/*Probe.sh, que não existem na imagem EAP 8.
+3. Conexão SSL com o SQL Server: importar a CA do certificado do banco de PRD no truststore, ou usar trustServerCertificate=true na URL, se a Segurança aceitar. Sem isso, o próximo erro será PKIX.
 
-Sistema/módulo: SIBEC3, com o nome exato do repositório/pipeline no Azure DevOps.
-Build: pipeline 874372, com o link da execução e a tag/versão da imagem gerada.
-Release: nome da release e o stage DES, com o link da última execução, se houver.
-Ambiente: DES, com o namespace no OKD, se souberem.
-Versão esperada x versão atual: qual versão deveria estar publicada e qual vocês observam hoje (ex.: endpoint de versão, tela “sobre” ou log da aplicação).
-Variáveis SSO: nome do grupo de variáveis (Library) e a lista das variáveis SSO que devem chegar à aplicação. Não é necessário informar os valores sensíveis, apenas os nomes.
-Como a aplicação lê essas variáveis: env do pod, arquivo de configuração, secret etc.
-Sintoma atual, se houver: erro de login/redirect, prints ou trecho de log.
-Referência à REQ000147011905 (ClientID), para mantermos a rastreabilidade entre as demandas.
-Contato técnico do lado de vocês e alinhamento com o Rafael para a janela de atualização em DES.
+Um ponto para confirmar: rodaram a release 3.22.0.5 (ear 3.22.0.4), mas a versão validada em HMP foi a 3.24.0.1. Vale confirmar qual versão deve ir para PRD.
 
-Com isso, confirmamos a versão publicada, executamos a release para DES se necessário e validamos se as variáveis da Library estão sendo injetadas corretamente no pod.
+O ideal é o time de PRD comparar o stage EC PRD com o EC HMP, que está funcionando. Fico à disposição!
