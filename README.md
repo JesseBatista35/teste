@@ -1,59 +1,44 @@
-p585600@caddeapllx2501 ~]$
-[p585600@caddeapllx2501 ~]$
-[p585600@caddeapllx2501 ~]$ sudo grep -E "CTMSHOST|CTMPERMHOSTS|ATCMNDATA|AGCMNDATA" /opt/ctmage/ctm/data/CONFIG.dat
-[sudo] senha para p585600:
-CTMSHOST                            crjdeaprlx038
-CTMPERMHOSTS                        crjdeaprlx038|crjdeaprlx039
-ATCMNDATA                           7015
-AGCMNDATA                           7016
-[p585600@caddeapllx2501 ~]$
-[p585600@caddeapllx2501 ~]$
-[p585600@caddeapllx2501 ~]$
-[p585600@caddeapllx2501 ~]$
-[p585600@caddeapllx2501 ~]$ sudo ss -lntp | grep 7016
-LISTEN 0      128          0.0.0.0:7016       0.0.0.0:*    users:(("p_ctmag",pid=1751485,fd=4))
-[p585600@caddeapllx2501 ~]$
-[p585600@caddeapllx2501 ~]$
-[p585600@caddeapllx2501 ~]$
-[p585600@caddeapllx2501 ~]$ ls /opt/ctmage/ctm/scripts | grep -E "ag_ping|ag_diag_comm|shut-ag|start-ag"
-ag_diag_comm
-shut-ag
-start-ag
-[p585600@caddeapllx2501 ~]$
-[p585600@caddeapllx2501 ~]$
-[p585600@caddeapllx2501 ~]$
-[p585600@caddeapllx2501 ~]$
-[p585600@caddeapllx2501 ~]$ sudo cp /opt/ctmage/ctm/data/CONFIG.dat /opt/ctmage/ctm/data/CONFIG.dat.bkp_20261111
-sudo sed -i -E 's/^(CTMSHOST[[:space:]]+).*/\1cxextrlx038/; s/^(CTMPERMHOSTS[[:space:]]+).*/\1cxextrlx038/' /opt/ctmage/ctm/data/CONFIG.dat
-sudo grep -E "CTMSHOST|CTMPERMHOSTS" /opt/ctmage/ctm/data/CONFIG.dat
-sudo /opt/ctmage/ctm/scripts/shut-ag -u root -p ALL
-sudo /opt/ctmage/ctm/scripts/start-ag -u root -p ALL
-CTMSHOST                            cxextrlx038
-CTMPERMHOSTS                        cxextrlx038
-*** CONTROLM environment variable is not defined . ***
+Como root, faça nesta ordem:
 
-*** CONTROLM environment variable is not defined . ***
+1. Ver se o agente sobe por serviço
 
-[p585600@caddeapllx2501 ~]$
-[p585600@caddeapllx2501 ~]$
-[p585600@caddeapllx2501 ~]$
-[p585600@caddeapllx2501 ~]$ sudo su -
-Último login: qua nov 11 15:34:36 -03 2026 em pts/1
-[root@caddeapllx2501 ~]#
-[root@caddeapllx2501 ~]#
-[root@caddeapllx2501 ~]#
-[root@caddeapllx2501 ~]# /opt/ctmage/ctm/scripts/ag_ping
--bash: /opt/ctmage/ctm/scripts/ag_ping: Arquivo ou diretório inexistente
-[root@caddeapllx2501 ~]#
-[root@caddeapllx2501 ~]#
-[root@caddeapllx2501 ~]# /opt/ctmage/ctm/scripts/ag_diag_comm
+systemctl list-units --all | grep -iE "ctm|control"
 
-2026-11-11 15:34:57
+Se aparecer um serviço (ex.: ctmag.service), use só ele e pule para o passo 4:
 
-This procedure runs for about 30 seconds. Please wait
-/opt/ctmage/ctm/scripts/ag_diag_comm: line 6: /scripts/sharch: No such file or directory
-*** Failed to get machine type. ***
+systemctl restart <servico>
+systemctl status <servico>
 
-[root@caddeapllx2501 ~]#
-[root@caddeapllx2501 ~]#
-[root@caddeapllx2501 ~]#
+2. Se não houver serviço, carregar o ambiente do agente
+
+ls -a /opt/ctmage
+grep -l CONTROLM /opt/ctmage/.* 2>/dev/null
+
+Faça source no arquivo que aparecer (normalmente .bash_profile ou .profile):
+
+source /opt/ctmage/.bash_profile
+echo $CONTROLM
+
+Se não houver profile, exporte na mão:
+
+export CONTROLM=/opt/ctmage/ctm
+export PATH=$CONTROLM/scripts:$CONTROLM/exe:$PATH
+
+3. Reiniciar o agente
+
+$CONTROLM/scripts/shut-ag -u root -p ALL
+$CONTROLM/scripts/start-ag -u root -p ALL
+ps -ef | grep -E "p_ctmag|p_ctmat" | grep -v grep
+
+Os PIDs precisam mudar e a hora de início precisa ser de hoje.
+
+4. Validar
+
+$CONTROLM/exe/ag_ping
+$CONTROLM/scripts/ag_diag_comm
+
+Esperado: “Server is alive” no ag_ping, e no ag_diag_comm o server host cxextrlx038 com comunicação ok.
+
+Se o ag_ping falhar mesmo com a porta 7015 aberta, provavelmente o agente ainda não está cadastrado no BR DES - Negocial. Nesse caso, peça ao time do Control-M para incluir o caddeapllx2501.
+
+Lembre também do repositório: confira o etc/hosts-des no SIMIL-precificacao-rotinas-batch-config (main) com 10.192.224.54 cxextrlx038. Assim a próxima release mantém o que você ajustou à mão.
