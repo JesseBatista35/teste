@@ -1,30 +1,9 @@
+Pessoal, atualização do SICCR-PARAMETROS no JBoss 7.4 (sifec-intranet):
 
-[root@cbrdeapllx471 p585600]#
-[root@cbrdeapllx471 p585600]#
-[root@cbrdeapllx471 p585600]#
-[root@cbrdeapllx471 p585600]#
-[root@cbrdeapllx471 p585600]#
-[root@cbrdeapllx471 p585600]#
-[root@cbrdeapllx471 p585600]#
-[root@cbrdeapllx471 p585600]# find /opt/jboss -path '*1e/ecf4c6065937c24797bf96123dacdc62730ddf/content'
-/opt/jboss/jboss-eap/dc/data/content/1e/ecf4c6065937c24797bf96123dacdc62730ddf/content
-[root@cbrdeapllx471 p585600]#
-[root@cbrdeapllx471 p585600]#
-[root@cbrdeapllx471 p585600]#
-[root@cbrdeapllx471 p585600]# unzip -p $(find /opt/jboss -path '*1e/ecf4c6065937c24797bf96123dacdc62730ddf/content') 'META-INF/maven/*/pom.properties'
-artifactId=sifec-ccr-parametros
-groupId=br.gov.caixa.ccr.parametros
-version=3.3.1.1
-[root@cbrdeapllx471 p585600]#
-[root@cbrdeapllx471 p585600]#
-[root@cbrdeapllx471 p585600]#
-[root@cbrdeapllx471 p585600]# unzip -p $(find /opt/jboss -path '*1e/ecf4c6065937c24797bf96123dacdc62730ddf/content') META-INF/MANIFEST.MF
-Manifest-Version: 1.0
-Build-Jdk-Spec: 1.8
-Created-By: Maven EAR Plugin 3.2.0
-Dependencies: deployment.wmq.jmsra.rar,org.joda.time,org.codehaus.jack
- son.jackson-mapper-asl,deployment.framework.jar
+Implantado com sucesso às 11:56. O pacote da console é o sifec-ccr-parametros.ear, que identificamos como a versão 3.3.1.1. No 6.4 DES está a 3.2.0.1.
+/ccr-parametros-api/ respondendo 200.
+/ccr-parametros-web/ retorna 404 na raiz do contexto, inclusive direto no servidor. Não é bloqueio de ambiente: o módulo não tem página na raiz.
 
-[root@cbrdeapllx471 p585600]#
-[root@cbrdeapllx471 p585600]#
-[root@cbrdeapllx471 p585600]#
+@João Pedro, pode confirmar se a 3.3.1.1 é a versão correta e passar a rota do parametros-web para validarmos o front?
+
+Ponto de atenção no código: as classes ConcessaoResourceV2, ConcessaoResourceV3 e ConcessaoResourceV3Simulacao não foram registradas como bean CDI (WELD-000167: @RequestScoped sem construtor adequado). Se os endpoints de concessão falharem, o ajuste é incluir um construtor sem argumentos nessas classes.
