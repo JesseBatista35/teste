@@ -1,19 +1,14 @@
-Microsoft Windows [versão 10.0.26200.9711]
-(c) Microsoft Corporation. Todos os direitos reservados.
+Jesse Mouta Pereira Batista, boa tarde! 
+ 
+Tudo bem?
+ 
+Temos ajustes do SSO do SIBEC3 integrados e a pipeline 874372 concluída com sucesso, com imagem gerada.
 
-C:\Users\p585600>nslookup proxytqs.caixa
-Servidor:  dfaddssd001.corp.caixa.gov.br
-Address:  10.222.149.10
+Precisamos confirmar a versão publicada em DES e, se necessário, solicitar a atualização, em alinhamento com o Rafael.
 
-*** dfaddssd001.corp.caixa.gov.br não encontrou proxytqs.caixa: Non-existent domain
+Também precisamos conferir se as variáveis SSO da Library estão chegando corretamente à aplicação.
 
-C:\Users\p585600>nslookup proxydes.caixa
-Servidor:  dfaddssd001.corp.caixa.gov.br
-Address:  10.222.149.10
+Poderia nos orientar sobre o serviço/categoria e as informações necessárias para formalizar essa REQ?
 
-Nome:    proxydes.caixa
-Addresses:  10.252.32.65
-          10.252.32.63
-
-
-C:\Users\p585600>
+A configuração do ClientID está sendo acompanhada separadamente pela REQ000147011905. Obrigado pelo apoio!
+ 
