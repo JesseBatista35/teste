@@ -1,13 +1,20 @@
-Pessoal, atualização do hub-api (SICCR-HUB-BACKEND2, hub-api-2.2.0-b809) no JBoss 7.4 (sifec-intranet):
+Próximo: hub-web-ear-1.10.0.1 (linha 14 da planilha). No 7.4 está ativo o SICCR-HUB-FRONTEND com hub-web-1.4.0-b378, então primeiro vamos ver se a 1.10.0.1 existe.
 
-Ambiente (DevOps): concluído. Incluímos as propriedades de integração do HUB (SICCR_HUB_WS_*, mesmos valores do 6.4) no server-group. A configuração de segurança (Keycloak) do hub-api.war já estava pronta.
+1. Na 471 (10.116.97.59): quais hub-web existem no 7.4
+grep -n -iE 'hub-web|HUB-FRONTEND' /opt/jboss/jboss-eap/dc/configuration/domain.xml
+2. No 6.4 (10.116.88.20): qual roda no sifec-intranet
+sudo grep -n -iE 'hub-web|HUB-FRONTEND' /opt/jboss/jboss-eap/dc/configuration/domain.xml
 
-Código (fábrica): ajuste necessário. O deploy foi revertido porque a unidade de persistência HUB-PU não sobe:
-Legacy-style query parameters (?) are no longer supported; use JPA-style ordinal parameters (e.g., ?1)
-Named query: ProcessoEnvioContrato.buscar (entidade br.gov.caixa.siccr.dominio.pf.ProcessoEnvioContratoEntidade)
+As linhas entre 57701 e 58040 mostram o que o 6.4 tem no sifec-intranet.
 
-O Hibernate do JBoss 7.4 não aceita mais o ? sem número. É preciso trocar por ?1, ?2... ou por parâmetro nomeado (:processo) e ajustar o setParameter correspondente. O ajuste é o mesmo que já foi feito no PJ.
+3. Se a 1.10.0.1 existir no 7.4
 
-O Hibernate para no primeiro erro que encontra. Por isso, vale procurar todas as queries com ? sem número no projeto e nas bibliotecas de domínio do SICCR, para não precisarmos de vários ciclos de build.
+Ela vai aparecer com um nome de deployment diferente, por exemplo SICCR-HUB-FRONTEND2 a 5. Nesse caso, a troca é feita em dois passos no CLI da 471: tirar a versão atual do server-group e colocar a nova. Vou te passar os comandos exatos com o nome certo assim que você me mandar a saída do passo 1.
 
-@Paulo, quem é o dev responsável pelo HUB? Assim que houver build novo, faço o deploy e acompanho o log.
+Deixe o log aberto na 473:
+
+sudo tail -f /opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/server.log | grep -E "WFLYSRV0010|WFLYSRV0027|WFLYSRV0021|WFLYUT0021|WELD-00|ERROR|Caused by|hub"
+
+Me mande as saídas dos passos 1 e 2.
+
+Como o Claude está se saindo nesta sessão?
