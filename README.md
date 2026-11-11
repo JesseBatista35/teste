@@ -1,20 +1,25 @@
-Campo	Valor
-Informe a solicitação	Inclusão (ou Alteração, conforme o teste acima)
-Endpoint de internet?	Não
-Ambiente	On premise
-Tipo de registro	Host (A)
-Nome DNS	siemp.des.caixa
-Endereço IP	o IP do VIP, o que termina em 9, que o Paulo pediu para colocar no chat. Copie de lá. Não é o IP da VM.
-Unidade/Coordenação Demandante	CESTI
+1. Na 471 (10.116.97.59): qual hub-api existe no 7.4
 
-Descrição/Observação:
+Como root, sem sudo:
 
-Inclusão de registro DNS do tipo Host (A) para a aplicação SIEMP (ambiente DES), no contexto da ADDR “Migração JBoss 7.4 - SIFEC, SICCR, SIEMP, SIPEN”.
+grep -n -iE 'hub-api|HUB-BACKEND' /opt/jboss/jboss-eap/dc/configuration/domain.xml
 
-O nome siemp.des.caixa deve resolver para o IP do VIP já criado para a aplicação. O certificado já está instalado no VIP, e o VIP responde na porta 443 e encaminha para o servidor da aplicação (caddeapllx2864 – 10.116.202.54). Testes de conexão no VIP via 443 foram realizados com sucesso.
+A lista de deployments do 7.4 tem SICCR-HUB-BACKEND2 a 5, mas não tem um SICCR-HUB-BACKEND sem número. Esse grep mostra o runtime-name de cada um, para achar o que é o hub-api 2.2.0.
 
-Solicitante: Jessé Batista (P585600) – CESTI / Esteiras DevOps NPRD.
+2. No 6.4 (10.116.88.20): o que roda no sifec-intranet
+sudo grep -n -iE 'hub-api|HUB-BACKEND' /opt/jboss/jboss-eap/dc/configuration/domain.xml
 
-Se tiver o número da REQ do VIP ou do certificado, inclua na descrição. Isso ajuda o time de DNS a validar mais rápido.
+As linhas entre 57701 e 58040 mostram o que o 6.4 tem no sifec-intranet.
 
-Antes de enviar, confira se o IP do VIP está no campo. Depois de aprovado, o teste é nslookup siemp.des.caixa devolvendo o IP do VIP e a URL abrindo no navegador.
+Configurações do 6.4 que o hub-api pode usar (propriedades, datasource, Keycloak):
+
+sudo grep -niE 'hub' /opt/jboss/jboss-eap/dc/configuration/domain.xml | grep -viE 'deployment name' | head -40
+3. Se houver pacote 2.2.0 no 7.4, deploy pela console
+
+Console https://eap74-nprd.des.caixa:9443 → Deployments → Server Groups → sifec-intranet → Add → Deploy Existing Content → selecione o deployment com o hub-api 2.2.0 → Deploy.
+
+Antes de clicar, deixe o log aberto na 473:
+
+sudo tail -f /opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/server.log | grep -E "WFLYSRV0010|WFLYSRV0027|WFLYSRV0021|WFLYUT0021|WELD-00|ERROR|Caused by|hub|HUB"
+
+Se o grep da 471 não mostrar nenhum hub-api 2.2.0, vamos precisar do pacote. Ele pode estar no Nexus (binario.caixa) ou com o dev do HUB. Me manda as saídas dos passos 1 e 2.
