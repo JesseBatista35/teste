@@ -1,19 +1,30 @@
-Dá para descobrir a versão desse pacote pelo arquivo guardado no repositório de conteúdo do DC. Na 471, como root:
 
-find /opt/jboss -path '*1e/ecf4c6065937c24797bf96123dacdc62730ddf/content'
+[root@cbrdeapllx471 p585600]#
+[root@cbrdeapllx471 p585600]#
+[root@cbrdeapllx471 p585600]#
+[root@cbrdeapllx471 p585600]#
+[root@cbrdeapllx471 p585600]#
+[root@cbrdeapllx471 p585600]#
+[root@cbrdeapllx471 p585600]#
+[root@cbrdeapllx471 p585600]# find /opt/jboss -path '*1e/ecf4c6065937c24797bf96123dacdc62730ddf/content'
+/opt/jboss/jboss-eap/dc/data/content/1e/ecf4c6065937c24797bf96123dacdc62730ddf/content
+[root@cbrdeapllx471 p585600]#
+[root@cbrdeapllx471 p585600]#
+[root@cbrdeapllx471 p585600]#
+[root@cbrdeapllx471 p585600]# unzip -p $(find /opt/jboss -path '*1e/ecf4c6065937c24797bf96123dacdc62730ddf/content') 'META-INF/maven/*/pom.properties'
+artifactId=sifec-ccr-parametros
+groupId=br.gov.caixa.ccr.parametros
+version=3.3.1.1
+[root@cbrdeapllx471 p585600]#
+[root@cbrdeapllx471 p585600]#
+[root@cbrdeapllx471 p585600]#
+[root@cbrdeapllx471 p585600]# unzip -p $(find /opt/jboss -path '*1e/ecf4c6065937c24797bf96123dacdc62730ddf/content') META-INF/MANIFEST.MF
+Manifest-Version: 1.0
+Build-Jdk-Spec: 1.8
+Created-By: Maven EAR Plugin 3.2.0
+Dependencies: deployment.wmq.jmsra.rar,org.joda.time,org.codehaus.jack
+ son.jackson-mapper-asl,deployment.framework.jar
 
-Isso mostra o caminho do arquivo. Depois, para ver a versão dentro dele:
-
-unzip -p $(find /opt/jboss -path '*1e/ecf4c6065937c24797bf96123dacdc62730ddf/content') 'META-INF/maven/*/pom.properties'
-unzip -p $(find /opt/jboss -path '*1e/ecf4c6065937c24797bf96123dacdc62730ddf/content') META-INF/MANIFEST.MF
-
-O pom.properties mostra o version=. O MANIFEST pode trazer Implementation-Version ou a data do build.
-
-Se os dois vierem vazios, liste o conteúdo, porque às vezes a versão está no nome dos módulos internos:
-
-unzip -l $(find /opt/jboss -path '*1e/ecf4c6065937c24797bf96123dacdc62730ddf/content')
-
-Com a versão em mãos, a gente confere com a planilha e com o João Pedro:
-
-Se bater com a planilha: fica esse pacote mesmo, que já está validado com a API 200.
-Se não bater: subimos o da planilha. Também vale perguntar ao João Pedro de onde veio esse sifec-ccr-parametros.ear sem versão.
+[root@cbrdeapllx471 p585600]#
+[root@cbrdeapllx471 p585600]#
+[root@cbrdeapllx471 p585600]#
