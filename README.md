@@ -1,11 +1,42 @@
-1. Na 473: testar a conexão para todos de uma vez
-for d in cxextrux047.desenvolvimento.extracaixa:55000 bdbr12.caixa:55000 10.116.92.132:4101 10.116.92.132:4102 10.116.92.132:4407 10.192.230.120:4101; do h=${d%:*}; p=${d#*:}; if timeout 5 bash -c "</dev/tcp/$h/$p" 2>/dev/null; then echo "OK      $d"; else echo "FALHOU  $d"; fi; done
 
-Pode copiar como está: todos os hosts e portas já estão no comando.
+[root@cbrdeapllx471 p585600]#
+[root@cbrdeapllx471 p585600]#
+[root@cbrdeapllx471 p585600]#
+[root@cbrdeapllx471 p585600]#
+[root@cbrdeapllx471 p585600]#
+[root@cbrdeapllx471 p585600]#
+[root@cbrdeapllx471 p585600]#
+[root@cbrdeapllx471 p585600]#
+[root@cbrdeapllx471 p585600]# for n in 747 871 879 969 1000 1031 1047 1060 1094; do awk -v n=$n 'NR<=n && /<profile name=/ {p=$0} NR<=n && /<(xa-)?data-source / {d=$0} NR==n {print n": "p" | "d; exit}' /opt/jboss/jboss-eap/dc/configuration/domain.xml; done
+747:         <profile name="full-ha-sifec-intranet"> |
+871:         <profile name="full-ha-sifec-intranet"> |
+879:         <profile name="full-ha-sifec-intranet"> |
+969:         <profile name="full-ha-sifec-intranet"> |
+1000:         <profile name="full-ha-sifec-intranet"> |
+1031:         <profile name="full-ha-sifec-intranet"> |
+1047:         <profile name="full-ha-sifec-intranet"> |
+1060:         <profile name="full-ha-sifec-intranet"> |
+1094:         <profile name="full-ha-sifec-intranet"> |
+[root@cbrdeapllx471 p585600]#
+[root@cbrdeapllx471 p585600]#
+[root@cbrdeapllx471 p585600]#
+[root@cbrdeapllx471 p585600]#
+[root@cbrdeapllx471 p585600]#
 
-2. Na 471: o nome de cada datasource e o profile
-for n in 747 871 879 969 1000 1031 1047 1060 1094; do awk -v n=$n 'NR<=n && /<profile name=/ {p=$0} NR<=n && /<(xa-)?data-source / {d=$0} NR==n {print n": "p" | "d; exit}' /opt/jboss/jboss-eap/dc/configuration/domain.xml; done
 
-Isso mostra, para cada linha, o profile e o jndi-name/pool-name do datasource.
 
-Com as duas saídas, a gente sabe qual banco o MCM usa e se o problema é firewall. Se algum der FALHOU, preparo o texto da regra (origem 10.116.97.79, que é a 473, para o host e porta que falharam). Lembre que o 472 (10.116.97.78) também é HC do sifec-intranet, então a regra deve incluir as duas máquinas.
+85600@cbrdeapllx473 ~]$
+[p585600@cbrdeapllx473 ~]$
+[p585600@cbrdeapllx473 ~]$ for d in cxextrux047.desenvolvimento.extracaixa:55000 bdbr12.caixa:55000 10.116.92.132:4101 10.116.92.132:4102 10.116.92.132:4407 10.192.230.120:4101; do h=${d%:*}; p=${d#*:}; if timeout 5 bash -c "</dev/tcp/$h/$p" 2>/dev/null; then echo "OK      $d"; else echo "FALHOU  $d"; fi; done
+OK      cxextrux047.desenvolvimento.extracaixa:55000
+OK      bdbr12.caixa:55000
+OK      10.116.92.132:4101
+OK      10.116.92.132:4102
+FALHOU  10.116.92.132:4407
+FALHOU  10.192.230.120:4101
+[p585600@cbrdeapllx473 ~]$
+[p585600@cbrdeapllx473 ~]$
+[p585600@cbrdeapllx473 ~]$
+[p585600@cbrdeapllx473 ~]$
+[p585600@cbrdeapllx473 ~]$
+
