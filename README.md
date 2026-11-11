@@ -16,3 +16,16 @@ Depois, cole a linha gerada no passo 1, a da senha.
 /host=hc_cbrdeapllx473/server=sifec-intranet_node1_lx473/subsystem=datasources/data-source="jdbc/SybaseSibanDS":test-connection-in-pool
 
 Se o teste voltar "result" => [true], o datasource do MCM está corrigido.
+
+
+
+
+-sh-4.1$
+-sh-4.1$ sudo sed -n '19236,19252p' /opt/jboss/jboss-eap/dc/configuration/domain.xml | sed -n 's#.*<password>\(.*\)</password>.*#/profile=full-ha-sifec-intranet/subsystem=datasources/data-source="jdbc/SybaseSibanDS":write-attribute(name=password,value="\1")#p'
+[sudo] password for p585600:
+/profile=full-ha-sifec-intranet/subsystem=datasources/data-source="jdbc/SybaseSibanDS":write-attribute(name=password,value="abacaxi")
+-sh-4.1$
+-sh-4.1$
+-sh-4.1$
+-sh-4.1$
+-sh-4.1$
