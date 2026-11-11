@@ -1,9 +1,16 @@
-Pessoal, atualização do SICCR-HUB-FRONTEND (hub-web) no JBoss 7.4, server-group sifec-intranet:
 
-Às 14:55, a versão 1.4.0-b378 foi substituída pela 1.10.0.1-b418, que é a versão da planilha.
-O deploy foi concluído sem erros e a configuração de segurança (Keycloak) foi aplicada.
-A URL https://migracaosifec.des.caixa/hub-web/ está respondendo e redireciona para o login, como esperado.
+Qual o tipo de serviço?*:	Ajustar ambiente ou parametrização de software
+Informar o Ambiente:*:	DES
+Nome do serviço ou sistema:*:	SIMIL-precificacao-rotinas-batch
+Janela de atendimento:*:	11/11/2026 13:45:00
+Prazo final da janela de atendimento:*:	13/11/2026 13:45:00
+Haverá previsão de indisponibilidade durante a execução do serviço:*:	Não
+Contato do responsável pela validação do ambiente após alteração:*:	C161214 -> iury.mota@caixa.gov.br
+Descrição da solicitação:*:	Direcionar para Jessé Batista. Chamado de referência: REQ000146916154
 
-Ponto de atenção: as telas do hub-web que consomem o hub-api ainda vão apresentar falha. O backend (hub-api-2.2.0-b809) não subiu por ajuste pendente no código: queries com parâmetro ? sem número, como em ProcessoEnvioContrato.buscar. Assim que a fábrica gerar o build novo do hub-api, fazemos o deploy e o front passa a funcionar por completo.
+Ajuste da configuração do agente Control-M no servidor caddeapllx2501 para apontar ao servidor do BR DES - Negocial. Hoje ele aponta para o crjdeaprlx038, que não está mais acessível.
+Ajuste do arquivo etc/hosts-des do repositório SIMIL-precificacao-rotinas-batch-config.
+Validação da comunicação do agente e do cadastro no servidor Control-M.
 
-@Paulo, quem do HUB pode validar o front? E a validação é pela URL /hub-web/ direto ou por algum menu do sifec-web?
+Link do projeto no DevOps: https://devops.caixa/projetos/Caixa/_git/SIMIL-precificacao-rotinas-batch
+Informar formas de contato:*:	Teams ou e-mail: C161214 -> iury.mota@caixa.gov.br
