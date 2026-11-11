@@ -1,34 +1,59 @@
-Rede ok: o cxextrlx038 resolve pelo /etc/hosts e a porta 7015 está aberta. O agente fica em /opt/ctmage/ctm e roda como root desde 09/11, ou seja, ainda com a configuração daquela release, que apontava para o crjdeaprlx038.
-
-1. Ver o que o agente está usando
-
-sudo grep -E "CTMSHOST|CTMPERMHOSTS|ATCMNDATA|AGCMNDATA" /opt/ctmage/ctm/data/CONFIG.dat
-sudo ss -lntp | grep 7016
-ls /opt/ctmage/ctm/scripts | grep -E "ag_ping|ag_diag_comm|shut-ag|start-ag"
-
-2. Se o CONFIG.dat ainda tiver o crjdeaprlx038
-
-O caminho certo é pela release, porque o grupo já está com cxextrlx038:
-
-No repositório SIMIL-precificacao-rotinas-batch-config, branch main, confirme que o etc/hosts-des tem 10.192.224.54 cxextrlx038 e não tem linhas ativas do crjdeaprlx. O /etc/hosts do host está assim, mas pode ter sido editado à mão; se o repositório estiver diferente, a release desfaz.
-Crie uma nova release e faça o deploy no EC DES.
-
-Se quiser testar antes da release, edite manualmente. A release vai gravar a mesma coisa depois.
-
-sudo cp /opt/ctmage/ctm/data/CONFIG.dat /opt/ctmage/ctm/data/CONFIG.dat.bkp_20261111
+p585600@caddeapllx2501 ~]$
+[p585600@caddeapllx2501 ~]$
+[p585600@caddeapllx2501 ~]$ sudo grep -E "CTMSHOST|CTMPERMHOSTS|ATCMNDATA|AGCMNDATA" /opt/ctmage/ctm/data/CONFIG.dat
+[sudo] senha para p585600:
+CTMSHOST                            crjdeaprlx038
+CTMPERMHOSTS                        crjdeaprlx038|crjdeaprlx039
+ATCMNDATA                           7015
+AGCMNDATA                           7016
+[p585600@caddeapllx2501 ~]$
+[p585600@caddeapllx2501 ~]$
+[p585600@caddeapllx2501 ~]$
+[p585600@caddeapllx2501 ~]$
+[p585600@caddeapllx2501 ~]$ sudo ss -lntp | grep 7016
+LISTEN 0      128          0.0.0.0:7016       0.0.0.0:*    users:(("p_ctmag",pid=1751485,fd=4))
+[p585600@caddeapllx2501 ~]$
+[p585600@caddeapllx2501 ~]$
+[p585600@caddeapllx2501 ~]$
+[p585600@caddeapllx2501 ~]$ ls /opt/ctmage/ctm/scripts | grep -E "ag_ping|ag_diag_comm|shut-ag|start-ag"
+ag_diag_comm
+shut-ag
+start-ag
+[p585600@caddeapllx2501 ~]$
+[p585600@caddeapllx2501 ~]$
+[p585600@caddeapllx2501 ~]$
+[p585600@caddeapllx2501 ~]$
+[p585600@caddeapllx2501 ~]$ sudo cp /opt/ctmage/ctm/data/CONFIG.dat /opt/ctmage/ctm/data/CONFIG.dat.bkp_20261111
 sudo sed -i -E 's/^(CTMSHOST[[:space:]]+).*/\1cxextrlx038/; s/^(CTMPERMHOSTS[[:space:]]+).*/\1cxextrlx038/' /opt/ctmage/ctm/data/CONFIG.dat
 sudo grep -E "CTMSHOST|CTMPERMHOSTS" /opt/ctmage/ctm/data/CONFIG.dat
 sudo /opt/ctmage/ctm/scripts/shut-ag -u root -p ALL
 sudo /opt/ctmage/ctm/scripts/start-ag -u root -p ALL
+CTMSHOST                            cxextrlx038
+CTMPERMHOSTS                        cxextrlx038
+*** CONTROLM environment variable is not defined . ***
 
-3. Validar
+*** CONTROLM environment variable is not defined . ***
 
-sudo su -
-/opt/ctmage/ctm/scripts/ag_ping
-/opt/ctmage/ctm/scripts/ag_diag_comm
+[p585600@caddeapllx2501 ~]$
+[p585600@caddeapllx2501 ~]$
+[p585600@caddeapllx2501 ~]$
+[p585600@caddeapllx2501 ~]$ sudo su -
+Último login: qua nov 11 15:34:36 -03 2026 em pts/1
+[root@caddeapllx2501 ~]#
+[root@caddeapllx2501 ~]#
+[root@caddeapllx2501 ~]#
+[root@caddeapllx2501 ~]# /opt/ctmage/ctm/scripts/ag_ping
+-bash: /opt/ctmage/ctm/scripts/ag_ping: Arquivo ou diretório inexistente
+[root@caddeapllx2501 ~]#
+[root@caddeapllx2501 ~]#
+[root@caddeapllx2501 ~]# /opt/ctmage/ctm/scripts/ag_diag_comm
 
-O ag_ping tem que responder “Server is alive”. Se os scripts reclamarem de variável de ambiente, rode antes um source no profile do agente (ls -a /opt/ctmage mostra o .bash_profile ou o .cshrc).
+2026-11-11 15:34:57
 
-Depois disso, peça ao time do Control-M para confirmar o agente “Available” no BR DES - Negocial e ao Iury para rodar o job de teste.
+This procedure runs for about 30 seconds. Please wait
+/opt/ctmage/ctm/scripts/ag_diag_comm: line 6: /scripts/sharch: No such file or directory
+*** Failed to get machine type. ***
 
-Manda a saída do passo 1.
+[root@caddeapllx2501 ~]#
+[root@caddeapllx2501 ~]#
+[root@caddeapllx2501 ~]#
