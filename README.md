@@ -1,3 +1,6 @@
+
+[root@caddeapllx2501 ~]#
+[root@caddeapllx2501 ~]#
 [root@caddeapllx2501 ~]# grep -E "CTMSHOST|CTMPERMHOSTS" /opt/ctmage/ctm/data/CONFIG.dat
 CTMSHOST                            crjdeaprlx038
 CTMPERMHOSTS                        crjdeaprlx038|crjdeaprlx039
@@ -31,4 +34,7 @@ CTMPERMHOSTS                        crjdeaprlx038|crjdeaprlx039
 [root@caddeapllx2501 ~]#
 [root@caddeapllx2501 ~]#
 [root@caddeapllx2501 ~]# ag_ping
-
+Output:
+Failed to initialize communication.
+Result: Failure.
+[root@caddeapllx2501 ~]#
