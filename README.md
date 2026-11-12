@@ -1,57 +1,17 @@
-Skip to main content
-Azure DevOps
-projetos
-/
-Caixa
-/
-Pipelines
-/
-Library
-Search
+Olá! Verificamos o SIBEC3 em DES. A versão com a PR 169604 foi publicada pela release 1.0.0-SNAPSHOT(23) em 12/11 às 09:20. O sso-config.json já retorna as configurações corretas e o acesso redireciona para o Login CAIXA (DES).
 
+O marcador API_DADOS_FAMILIA_PATH (e os demais de API) continua no bundle porque essas variáveis não existem no grupo SIEPR-CURSO-BEC3-FRONTEND-DES. Hoje o grupo tem apenas _ENV.API_BASE_PATH, _ENV.REALM, _ENV.SSO_BASE_PATH e _ENV.SSO_CLIENT_ID, além de HTTP_SERVICE_API sem o prefixo _ENV. (que, portanto, não chega à aplicação).
 
-Caixa
+Para concluir, preciso dos valores de DES para:
+_ENV.API_GESTAO_PATH
+_ENV.API_PARAMETRIZACAO_PATH
+_ENV.API_DADOS_FAMILIA_PATH
+_ENV.API_ARQUIVOS_PATH
+_ENV.API_RELATORIOS_PATH
+_ENV.API_MANUTENCAO_PATH
+_ENV.HORARIO_ACESSO_INTERNET_INICIO
+_ENV.HORARIO_ACESSO_INTERNET_FINAL
 
-Overview
+Peço também confirmar se _ENV.API_BASE_PATH deve mesmo apontar para o próprio frontend e se a HTTP_SERVICE_API ainda é utilizada.
 
-Boards
-
-Repos
-
-Pipelines
-Pipelines
-Environments
-Releases
-Library
-Task groups
-Deployment groups
-Portal Infra
-
-Test Plans
-
-Artifacts
-Project settings
-
-Library
-
-SIEPR-CURSO-BEC3-FRONTEND-DES
-
-Variable group
-Properties
-Variable group name
-SIEPR-CURSO-BEC3-FRONTEND-DES
-Description
-Grupo de variáveis de SIEPR-CURSO-BEC3-FRONTEND-DES
-
-
-Variables
-_ENV.API_BASE_PATH
-https://siepr-curso-bec3-frontend-des.apps.nprd.caixa
-_ENV.REALM
-internet
-_ENV.SSO_BASE_PATH
-https://logindes.caixa.gov.br/auth
-_ENV.SSO_CLIENT_ID
-cli-web-epr
-HTTP_SERVICE_API
-https://siepr-backend-des.apps.nprd.caixa
+Com os valores em mãos, incluo na Library e combinamos o horário da nova release em DES.
