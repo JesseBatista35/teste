@@ -19,3 +19,19 @@ Se for DeploymentConfig, troque deploy por dc. O namespace também aparece no lo
 Um alerta: você colou aqui o token do oc login. Ele dá acesso como você aos 1002 projetos. Quando terminar, rode oc logout para invalidar esse token. Nas próximas vezes, cole a saída a partir do comando seguinte ao login.
 
 Manda o resultado do curl e do get route.
+
+
+C:\Users\p585600>curl -sk https://siepr-curso-bec3-frontend-des.apps.nprd.caixa/assets/config/sso-config.json
+{"ssoUrl":"https://logindes.caixa.gov.br/auth","ambiente":"internet","clientId":"cli-web-epr"}
+
+C:\Users\p585600>
+
+
+
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$ oc get deploy,dc,pods -n <namespace> | grep -i bec3
+-sh: erro de sintaxe próximo do `token' não esperado `|'
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
