@@ -1,21 +1,23 @@
+2. Rodar o script do intranet:
 
-[p585600@caddeapllx955 ~]$
-[p585600@caddeapllx955 ~]$
-[p585600@caddeapllx955 ~]$
-[p585600@caddeapllx955 ~]$ sudo su
-[sudo] senha para p585600:
-[root@caddeapllx955 p585600]#
-[root@caddeapllx955 p585600]#
-[root@caddeapllx955 p585600]# ls -la /log_jboss/config-log4j/
-total 4
-drwxr-xr-x 2 jboss jboss  32 out 23 12:55 .
-drwxr-xr-x 3 jboss jboss  26 out 23 12:55 ..
--rwxr-xr-x 1 jboss jboss 503 out 23 12:55 sigsj_intranet.xml
-[root@caddeapllx955 p585600]#
-[root@caddeapllx955 p585600]#
-[root@caddeapllx955 p585600]#
-[root@caddeapllx955 p585600]# cp -p /log_jboss/config-log4j/sigsj_intranet.xml /tmp/sigsj_intranet.xml.bkp 2>/dev/null
-[root@caddeapllx955 p585600]#
-[root@caddeapllx955 p585600]#
-[root@caddeapllx955 p585600]#
-[root@caddeapllx955 p585600]#
+bash
+vi /tmp/custom-log4j.sh          # colar o custom.sh do INTRANET
+bash /tmp/custom-log4j.sh
+ls -la /log_jboss/config-log4j/ /log_jboss/sigsj_intranet/
+grep 'File' /log_jboss/config-log4j/sigsj_intranet.xml
+
+O grep deve mostrar /log_jboss/sigsj_intranet/sigsj_intranet.log.
+
+3. Fazer o redeploy do EAR:
+
+bash
+cd /opt/jboss-eap/standalone/deployments/
+touch sigsj_intranet-ear.ear.dodeploy
+
+4. Conferir, depois de uns 60 segundos:
+
+bash
+ls /opt/jboss-eap/standalone/deployments/ | grep sigsj_intranet
+ls -la /log_jboss/sigsj_intranet/
+tail -3 /log_jboss/sigsj_intranet/sigsj_intranet.log
+grep -E 'WFLYSRV0016|log4j:ERROR' /logs/jboss/jboss-eap/standalone/sigsj-intranet/server.log | tail -2
