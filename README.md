@@ -38,3 +38,18 @@ Depois dos 5 minutos, no CLI:
 "result" => [true]: o banco do SIRUR está corrigido. Daí é só esperar o link da 3.55.51.01 do Michael para fazer o deploy.
 Falhou de novo: na 473, rode o comando abaixo e me mande a saída:
   sudo grep -n "ORA-" /opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/server.log | tail -3
+
+
+
+
+
+
+-sh-4.1$
+-sh-4.1$
+-sh-4.1$ sudo sed -n '19311,19340p' /opt/jboss/jboss-eap/dc/configuration/domain.xml | sed -n 's#.*<password>\(.*\)</password>.*#/profile=full-ha-sifec-intranet/subsystem=datasources/data-source="jdbc/OracleSirurDS":write-attribute(name=password,value="\1")#p'
+[sudo] password for p585600:
+/profile=full-ha-sifec-intranet/subsystem=datasources/data-source="jdbc/OracleSirurDS":write-attribute(name=password,value="usururng")
+-sh-4.1$
+-sh-4.1$
+-sh-4.1$
+-sh-4.1$
