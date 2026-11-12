@@ -1,22 +1,30 @@
-1. Veja se a versão antiga ainda está no ar
 
-oc get pods -n siepr-des | grep bec3
-oc get rc -n siepr-des | grep bec3
-curl -sk https://siepr-curso-bec3-frontend-des.apps.nprd.caixa/assets/config/sso-config.json
+-sh-4.2$
+-sh-4.2$ oc get pods -n siepr-des | grep bec3
+siepr-curso-bec3-frontend-des-17-deploy   0/1       Completed   0          148m
+siepr-curso-bec3-frontend-des-18-7zb2w    2/2       Running     0          116m
+siepr-curso-bec3-frontend-des-18-deploy   0/1       Completed   0          116m
+siepr-curso-bec3-frontend-des-19-deploy   0/1       Error       0          35m
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$ oc get rc -n siepr-des | grep bec3
+siepr-curso-bec3-frontend-des-17   0         0         0         148m
+siepr-curso-bec3-frontend-des-18   1         1         1         116m
+siepr-curso-bec3-frontend-des-19   0         0         0         35m
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$ curl -sk https://siepr-curso-bec3-frontend-des.apps.nprd.caixa/assets/config/sso-config.json
+{"ssoUrl":"https://logindes.caixa.gov.br/auth","ambiente":"internet","clientId":"cli-web-epr"}
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$ oc rollout retry dc/siepr-curso-bec3-frontend-des -n siepr-des
+deploymentconfig.apps.openshift.io/siepr-curso-bec3-frontend-des retried rollout #19
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$ oc get pods -n siepr-des -w | grep bec3
+siepr-curso-bec3-frontend-des-17-deploy   0/1       Completed   0          2h
+siepr-curso-bec3-frontend-des-18-7zb2w    2/2       Running     0          1h
+siepr-curso-bec3-frontend-des-18-deploy   0/1       Completed   0          1h
 
-Com DeploymentConfig, rollout que falha normalmente mantém o pod anterior (o -18, da release 23). Se o curl responder o JSON, o DES continua de pé com a versão de hoje cedo.
-
-2. Tentar de novo (o 504 costuma ser passageiro)
-
-oc rollout retry dc/siepr-curso-bec3-frontend-des -n siepr-des
-oc get pods -n siepr-des -w | grep bec3
-
-Se o retry reclamar, faça Redeploy do stage EC DES na mesma release.
-
-3. Se o 504 continuar
-
-O problema é o registry default-route-openshift-image-registry.apps.produtos4.caixa, e aí é com o time de Nuvem/OKD. Mande o evento do pod com o erro de 504 nas assinaturas.
-
-Um ponto para confirmar com o dev: a imagem é a 1.0.0.4, não 1.0.0-SNAPSHOT. Para DES, vocês normalmente usam a build da develop. Veja se essa release foi criada com o artifact que vocês combinaram na sala.
-
-Manda a saída do passo 1.
