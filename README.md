@@ -1,21 +1,24 @@
-oot@caddeapllx2854 deployments]#
-[root@caddeapllx2854 deployments]# ls /opt/jboss-eap/standalone/deployments/ | grep sigsj_internet
-sigsj_internet-ear.ear
-sigsj_internet-ear.ear.deployed
-[root@caddeapllx2854 deployments]#
-[root@caddeapllx2854 deployments]#
-[root@caddeapllx2854 deployments]#
-[root@caddeapllx2854 deployments]# tail -5 /log_jboss/sigsj_internet/sigsj_internet.log
-[ INFO] 2026/11/12 16:50:05 sirot.IsoXmlMapeamento[ServerService Thread Pool -- 135] - Mapeando XML : GJXC
-[DEBUG] 2026/11/12 16:50:05 servlet.CaixaConfigServlet[ServerService Thread Pool -- 135] - SIGSJ INTERNET SUBIU COM SUCESSO!
-[ INFO] 2026/11/12 16:50:05 extension.undertow[ServerService Thread Pool -- 135] - WFLYUT0021: Contexto web registrado: '/sigsj_internet' para servidor 'default-server'
-[ INFO] 2026/11/12 16:50:05 as.server[DeploymentScanner-threads - 2] - WFLYSRV0016: A implanta▒▒o "sigsj_internet-ear.ear" foi substitu▒da pela implanta▒▒o "sigsj_internet-ear.ear"
-[root@caddeapllx2854 deployments]#
-[root@caddeapllx2854 deployments]#
-[root@caddeapllx2854 deployments]# grep -E 'WFLYSRV0016|log4j:ERROR' /logs/jboss/jboss-eap/standalone/sigsj-internet/server.log | tail -2
-2026-11-12 16:50:05,537 INFO  [org.jboss.as.server] (DeploymentScanner-threads - 2) WFLYSRV0016: A implantação "sigsj_internet-ear.ear" foi substituída pela implantação "sigsj_internet-ear.ear"
-[root@caddeapllx2854 deployments]#
-[root@caddeapllx2854 deployments]#
-[root@caddeapllx2854 deployments]#
-[root@caddeapllx2854 deployments]#
-[root@caddeapllx2854 deployments]#
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j='http://jakarta.apache.org/log4j/'>
+   <appender name="SIGSJ" class="org.apache.log4j.DailyRollingFileAppender">
+       <param name="Append" value="true" />
+       <param name="Encoding" value="ISO-8859-1" />
+       <param name="File" value="/log_jboss/sigsj_internet/${jboss.server.name}.log" />
+       <param name="DatePattern" value="'.'yyyy-MM-dd-a"></param>
+       <layout class="org.apache.log4j.PatternLayout">
+           <param name="ConversionPattern" value="[%5p] %d{yyyy/MM/dd HH:mm:ss} %c{2}[%t] - %m%n" />
+       </layout>
+   </appender>
+   <logger name="br.gov.caixa.sigsj">
+       <level value="DEBUG" />
+   </logger>
+   <root>
+       <priority value="INFO" />
+       <appender-ref ref="SIGSJ" />
+   </root>
+</log4j:configuration>
+
+
+
+do boleto é esse vamos fazer só em des, primeiro e avisa na sala
