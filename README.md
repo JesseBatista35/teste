@@ -1,4 +1,4 @@
-<img width="1791" height="421" alt="image" src="https://github.com/user-attachments/assets/2ecad37d-fd7b-4b1c-ba1e-a8e300edafb6" />
+<img width="1060" height="875" alt="image" src="https://github.com/user-attachments/assets/a6998d3f-426e-4a35-9115-a9a67c2cd901" />
 
 
-foi o que eu fiz irmao
+ta ai mano olha la o u´pdate que eu  fiz
