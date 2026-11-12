@@ -28,3 +28,21 @@ Porém, os VIPs estão sem certificado: a instalação ainda não foi realizada,
 • Seguir com o mesmo fluxo de URLs (certificado, VIP e DNS) para TQS.
 
 Qualquer dúvida, fico à disposição!
+
+
+
+Oi Rafael, tudo bem?
+
+Estou com o SIGSJ (intranet, internet e boleto) na esteira-jboss-vm-v2 e fiquei com uma dúvida sobre o custom.sh.
+
+As aplicações precisam de um XML de log4j externo em /log_jboss/config-log4j/ (igual ao legado). A ideia era entregar isso via custom.sh no repositório de config, mas olhando a esteira vi que:
+• o stack_custom.yml só executa o {{ jboss_home }}/standalone/configuration/custom.sh se ele já existir na VM;
+• na task "Deploy Config no JBOSS" são copiados do repo de config o standalone-full-ha.xml, o standalone.conf, o jboss-custom.cli, o jboss-deployments e o jboss-modules-custom, mas não encontrei cópia do custom.sh.
+
+Coloquei o custom.sh na pasta jboss/ do repo de config e, na release, a task "Verifica se o arquivo .../custom.sh existe" passa, mas a execução é pulada porque o arquivo não chega na VM.
+
+Dúvidas:
+1. Existe uma forma suportada de entregar o custom.sh pelo repo de config para VMs com JBoss? Se sim, em qual pasta ele deve ficar?
+2. Se hoje ele for só manual na VM, faz sentido a esteira copiar o jboss/custom.sh do repo de config (como faz com o standalone.conf), com permissão de execução, antes de executar?
+
+Por enquanto apliquei a configuração manualmente nas VMs de DES para destravar. Valeu!
