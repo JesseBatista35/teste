@@ -1,3 +1,12 @@
+#!/bin/bash
+# Configuração externa do log4j do SIGSJ-boleto
+# A aplicação lê o XML em /log_jboss/config-log4j/sigsj_ws_boleto.xml
+# e grava o log em /log_jboss/sigsj_internet/<nome-do-servidor>.log (igual ao legado)
+set -e
+
+mkdir -p /log_jboss/config-log4j /log_jboss/sigsj_internet
+
+cat > /log_jboss/config-log4j/sigsj_ws_boleto.xml <<'EOF'
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
 <log4j:configuration xmlns:log4j='http://jakarta.apache.org/log4j/'>
@@ -18,7 +27,8 @@
        <appender-ref ref="SIGSJ" />
    </root>
 </log4j:configuration>
+EOF
 
-
-
-do boleto é esse vamos fazer só em des, primeiro e avisa na sala
+chown -R jboss:jboss /log_jboss
+chmod 755 /log_jboss /log_jboss/config-log4j /log_jboss/sigsj_internet
+chmod 644 /log_jboss/config-log4j/sigsj_ws_boleto.xml
