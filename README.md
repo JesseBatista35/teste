@@ -1,16 +1,23 @@
-Paulo, Rodrigo, como não conseguimos fazer a reunião hoje, segue o ponto do SIEMP que precisa da decisão de vocês.
+Resumo do dia – ADDR Migração JBoss 7.4 (12/11)
 
-O problema: o endereço siemp.des.caixa está com dois IPs no DNS. Por isso o acesso fica intermitente, funcionando para uns e não para outros, ou alternando para a mesma pessoa.
+✅ Concluído hoje
 
-IP	O que é	Resultado do teste
-10.116.180.9	VIP novo da esteira (JBoss 7.4)	✅ 200, SIEMP 14.37.0.6 abrindo normalmente
-10.116.80.1	VIP antigo (legado)	❌ 404 em /siemp e em /siemp_java, com certificado de outro sistema (siecm)
+SICDT 3.24.3.004: implantado às 10:31. Aguardando a validação final do Inocêncio.
+SICCR-PARAMETROS spr3: implantado às 15:45, sem erros, com as HUs em desenvolvimento. Já pode ser testado.
+SIRUR (ambiente): corrigida a credencial do banco (ORA-01017). O teste de conexão está OK.
+SIEMP: DNS siemp.des.caixa criado. A aplicação abre em https://siemp.des.caixa/siemp/.
 
-Na solicitação de DNS, o IP novo foi incluído e o antigo foi mantido. Pelo teste, o antigo já não atende o SIEMP por esse nome.
+⏳ Pendências
 
-Opções:
+SIRUR 3.55.51.01: o ajuste do persistence.xml funcionou. O deploy caiu por outro ponto de código: unidade de persistência entityManagerFactory inexistente em EtapaCadastroProducaoRuralRepositoryImpl. Aguardando nova versão (@Michael).
+SIEMP – acesso intermitente: o DNS ficou com dois IPs, o novo (ok) e o antigo (404). Aguardando decisão do Paulo e do Rodrigo para remover o IP antigo.
+SIEMP – erro nas telas: conflito de biblioteca JSTL no pacote. As correções já foram passadas ao Denilson.
+Aguardando builds da fábrica: hub-api (queries com ?), LCR (pacote 1.117.1), RURAL, EMP e EMPRESAS.
 
-Opção A (recomendada): remover o IP antigo (10.116.80.1). O siemp.des.caixa passa a apontar só para o 7.4, e o acesso fica estável para a validação. Não afeta nenhum acesso que funcione hoje, porque o antigo já retorna 404.
-Opção B: remover o IP novo (10.116.180.9). O nome volta para o legado, que hoje já dá 404 por esse endereço. A validação do 7.4 ficaria sem endereço até a virada.
+📋 Amanhã
 
-Preciso do ok de vocês para abrir a REQ de DNS. Se for a opção A, abro amanhã cedo e aviso quando estiver resolvido.
+Abrir a REQ de DNS do SIEMP assim que houver o ok.
+Fazer o deploy dos pacotes novos que chegarem (SIRUR, SIEMP etc.).
+Seguir com os próximos pacotes da planilha.
+
+Obrigado a todos pelo apoio, em especial ao Thiago Jeferson pela análise do DNS do SIEMP.
