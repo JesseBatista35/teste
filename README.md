@@ -1,85 +1,24 @@
-Read the attached text
-O SIEMP abriu: https://siemp.des.caixa/siemp/ carregou a tela de login da versão 14.37.0.6, e o cadeado agora aparece normal. Ou seja, DNS, VIP, certificado e esteira estão funcionando. O Denilson só testou com o caminho errado (/siemp_java).
+1. No 6.4: gerar o comando da senha
+sudo sed -n '19311,19340p' /opt/jboss/jboss-eap/dc/configuration/domain.xml | sed -n 's#.*<password>\(.*\)</password>.*#/profile=full-ha-sifec-intranet/subsystem=datasources/data-source="jdbc/OracleSirurDS":write-attribute(name=password,value="\1")#p'
 
-Mensagem para o Denilson / sala
-Bom dia, Denilson! O DNS siemp.des.caixa foi criado hoje (WO0000082275737) e já está funcionando. O 404 apareceu porque o teste foi em /siemp_java, mas o contexto da aplicação é /siemp.
+O resultado é uma linha começando com /profile=...write-attribute(name=password,...). Cole essa linha no CLI da 471.
 
-O link correto é https://siemp.des.caixa/siemp/. Já abre a tela de login do SIEMP (versão 14.37.0.6). Pode seguir com a validação?
+Se o valor vier como ${VAULT::...}, pode usar mesmo assim, porque a 473 já tem o cofre do SIRUR configurado. Se não sair nenhuma linha, a senha está num security-domain. Nesse caso, me avise.
 
-SIRUR: o banco ainda falha (OracleSirurDS)
-O teste deu A conexão não é válida, o mesmo sintoma do SIBAN ontem. Antes do deploy da 3.55.51.01, vamos achar a credencial certa.
+2. Na 471: restart e teste (avise a sala antes)
+/server-group=sifec-intranet:restart-servers(blocking=true)
+/host=hc_cbrdeapllx473/server=sifec-intranet_node1_lx473/subsystem=datasources/data-source="jdbc/OracleSirurDS":test-connection-in-pool
 
-1. Na 473: o erro exato do Oracle
+O esperado é [true]. Se o SICDT 3.24.3.004 já estiver baixado, faça o deploy dele antes do restart, para aproveitar a mesma janela.
 
-sudo grep -n "ORA-" /opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/server.log | tail -5
-2. Na 471: existe outro datasource do SIRUR no 7.4 que funciona (tipo _ORIGINAL)?
+Mensagem para o Inocêncio
 
-grep -n -iE '<(xa-)?datasource .*sirur' /opt/jboss/jboss-eap/dc/configuration/domain.xml
-3. No 6.4 (10.116.88.20): URL e usuário do OracleSirurDS por profile (sem senha)
+Bom dia, Inocêncio! Obrigado pelo novo build e pelos testes. Vou fazer o redeploy da sifec-cdt-3.24.3.004 no JBoss 7.4 (sifec-intranet) hoje e acompanhar o log, inclusive para confirmar que o warning de ConectorException não aparece mais. Assim que estiver no ar te aviso para a validação final. Se estiver tudo ok, registramos a 3.24.3.004 como a versão estável do SICDT na migração.
 
-sudo awk '/<profile name=/{p=$0} /jndi-name="java:\/jdbc\/OracleSirurDS"/{d=1} d && /connection-url|user-name/ {print NR": "p" | "$0} d && /<\/datasource>/{d=0}' /opt/jboss/jboss-eap/dc/configuration/domain.xml
-Me manda as três saídas:
+Sobre o SIFEC, a versão em uso no 7.4 continua sendo a sifec-2.160.4.0.
 
-Se no passo 2 aparecer um datasource alternativo, a gente testa e copia a credencial, como fizemos no SIBAN.
-Senão, comparo usuário e URL com o 6.4 e te passo o ajuste.
-O SICDT 3.24.3.004 continua pendente. Me diga se o download na 471 funcionou ou se vamos pela console.
+Mensagem para o Michael (SIRUR)
 
-Como o Claude está se saindo nesta sessão?
+Bom dia, Michael! Obrigado pelo ajuste. Para validar a 3.55.51.01 precisamos fazer o deploy no JBoss 7.4, já que o erro só aparece no startup do servidor. Pode nos enviar o link do pacote no Nexus (binario.caixa)? Assim que recebermos, fazemos o deploy e retornamos com o resultado do log.
 
-
-
-
-
-[root@cbrdeapllx471 p585600]# grep -n -iE '<(xa-)?datasource .*sirur' /opt/jboss/jboss-eap/dc/configuration/domain.xml
-943:                    <datasource jta="false" jndi-name="java:/jdbc/OracleSirurDS" pool-name="jdbc/OracleSirurDS" enabled="true" use-ccm="false">
-2389:                    <datasource jta="true" jndi-name="java:/jdbc/OracleSirurDS" pool-name="jdbc/OracleSirurDS" enabled="true" use-ccm="true">
-[root@cbrdeapllx471 p585600]#
-[root@cbrdeapllx471 p585600]#
-[root@cbrdeapllx471 p585600]#
-
-
-
-[p585600@cbrdeapllx473 ~]$
-[p585600@cbrdeapllx473 ~]$
-[p585600@cbrdeapllx473 ~]$ sudo grep -n "ORA-" /opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/server.log | tail -5
-
-We trust you have received the usual lecture from the local System
-Administrator. It usually boils down to these three things:
-
-    #1) Respect the privacy of others.
-    #2) Think before you type.
-    #3) With great power comes great responsibility.
-
-[sudo] password for p585600:
-5351:Caused by: java.sql.SQLException: ORA-01017: invalid username/password; logon denied
-[p585600@cbrdeapllx473 ~]$
-
-
-
--sh-4.1$
--sh-4.1$ sudo awk '/<profile name=/{p=$0} /jndi-name="java:\/jdbc\/OracleSirurDS"/{d=1} d && /connection-url|user-name/ {print NR": "p" | "$0} d && /<\/datasource>/{d=0}' /opt/jboss/jboss-eap/dc/configuration/domain.xml
-[sudo] password for p585600:
-19311:         <profile name="full-ha-sifec-intranet"> |                         <connection-url>jdbc:oracle:thin:@oracle-nprd-1000.caixa:1521/prim_D01NGSRV</connection-url>
-19324:         <profile name="full-ha-sifec-intranet"> |                             <user-name>SRURBD01</user-name>
-21046:         <profile name="full-ha-sifec-intranet2"> |                         <connection-url>jdbc:oracle:thin:@oracle-nprd-1000.caixa:1521/prim_D01NGSRV</connection-url>
-21059:         <profile name="full-ha-sifec-intranet2"> |                             <user-name>SRURBD01</user-name>
-22692:         <profile name="full-ha-sifec-intranet3"> |                         <connection-url>jdbc:oracle:thin:@oracle-nprd-1000.caixa:1521/prim_D01NGSRV</connection-url>
-22705:         <profile name="full-ha-sifec-intranet3"> |                             <user-name>SRURBD01</user-name>
-24342:         <profile name="full-ha-sifec-intranet4"> |                         <connection-url>jdbc:oracle:thin:@oracle-nprd-1000.caixa:1521/prim_D01NGSRV</connection-url>
-24355:         <profile name="full-ha-sifec-intranet4"> |                             <user-name>SRURBD01</user-name>
-25986:         <profile name="full-ha-sifec-intranet5"> |                         <connection-url>jdbc:oracle:thin:@oracle-nprd-1000.caixa:1521/prim_D01NGSRV</connection-url>
-25999:         <profile name="full-ha-sifec-intranet5"> |                             <user-name>SRURBD01</user-name>
-27605:         <profile name="full-ha-sifec-batch"> |                         <connection-url>jdbc:oracle:thin:@oracle-nprd-1000.caixa:1521/prim_D01NGSRV</connection-url>
-27616:         <profile name="full-ha-sifec-batch"> |                             <user-name>SRURBD01</user-name>
-29011:         <profile name="full-ha-sifec-internet"> |                         <connection-url>jdbc:oracle:thin:@oracle-nprd-1000.caixa:1521/prim_D01NGSRV</connection-url>
-29024:         <profile name="full-ha-sifec-internet"> |                             <user-name>SRURBD01</user-name>
-51889:         <profile name="full-ha-sifec-api"> |                         <connection-url>jdbc:oracle:thin:@oracle-nprd-1000.caixa:1521/prim_D01NGSRV</connection-url>
-51900:         <profile name="full-ha-sifec-api"> |                             <user-name>SRURBD01</user-name>
--sh-4.1$
-
-
-
-
-cade a emnssegem par aop inocencio..
-
-e a menssagem par ao michal nao tem como agente testat ele tem que mandar o pocte com a correção
+Do nosso lado, estamos ajustando a credencial do banco do SIRUR no 7.4, que também impedia a subida. Ela estará pronta para o deploy da nova versão.
