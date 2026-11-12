@@ -1,26 +1,12 @@
-Consegue me mostrar o log do SIEMP , e o problema detectado , pq tenho que sair umas 16:30 ai qualquer coisa deixo a equipe vendo
- 
-Denilson Socrates de Sousa o siemp.des.caixa está intermitente porque ficou com dois IPs no DNS: o antigo (10.116.80.1) e o novo da esteira 7.4 (10.116.180.9). 
- 
-Testei os dois:
- 
-10.116.80.1 (antigo): 404 em /siemp e em /siemp_java. Ele não atende o SIEMP por esse nome; o certificado é de outro sistema (siecm).
+1. Ver os erros recentes (na 2864)
+sudo grep -nE "ERROR|Caused by" /logs/jboss/jboss-eap/standalone/siemp-java-web/server.log | tail -30
+2. Gerar um arquivo com o log de hoje para mandar ao Denilson
+sudo tail -n 5000 /logs/jboss/jboss-eap/standalone/siemp-java-web/server.log > /tmp/siemp-server-log.txt && sudo chmod 644 /tmp/siemp-server-log.txt && ls -lh /tmp/siemp-server-log.txt
 
-10.116.180.9 (novo): 200, SIEMP 14.37.0.6 funcionando.
- 
-precisamos da sala com o Paulo e vocês do Siemp para definir se podemos solicitar a cetel para remover o IP antigo. 
- 
-ah entendi !! por isso que alguns tem acesso e outros não 
- 
-isso
- 
-pra mim aqui hora acessa outra hora não
- 
-mas mesmo assim tem outro erro dentro do sistema e esse eu queria o log
- 
-so um momento vou te madnar ai
+Copie o arquivo /tmp/siemp-server-log.txt para a sua estação (WinSCP ou o que você costuma usar) e anexe no Teams.
 
+Se ele passar o horário, por exemplo 15:20, dá para mandar só o trecho daquele momento:
 
+sudo grep -n -A30 "15:2[0-9]:" /logs/jboss/jboss-eap/standalone/siemp-java-web/server.log | grep -E -A15 "ERROR|Exception" | head -150
 
- cara chato da muletia me ajdua a pegar esse log pra ele
- 
+Antes de mandar, dê uma olhada rápida se não aparece senha no trecho, por exemplo em URL de datasource ou em parâmetros.
