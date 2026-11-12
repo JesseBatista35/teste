@@ -1,8 +1,52 @@
+<img width="1286" height="884" alt="image" src="https://github.com/user-attachments/assets/f202ea86-1674-4dbb-ba45-9b4550dc5436" />
+
+
+<img width="1618" height="873" alt="image" src="https://github.com/user-attachments/assets/c156f8b9-2deb-419d-86c8-1b80dc4193d7" />
+
+
+-sh-4.2$
+-sh-4.2$ oc login --token=sha256~X2A_gcvcIT2DF3Xhi6ZJtuFzQMNmM2NQAInQUNdTuTM --server=https://api.nprd.caixa:6443
+Logged into "https://api.nprd.caixa:6443" as "p585600@corp.caixa.gov.br" using the token provided.
+
+You have access to 1002 projects, the list has been suppressed. You can list all projects with 'oc projects'
+
+Using project "default".
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$ oc get deploy -n siepr-des | grep -i bec3
+No resources found.
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$ oc project siepr-des
+Now using project "siepr-des" on server "https://api.nprd.caixa:6443".
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$ oc get deploy -n siepoc r-des | grep -i bec3
+No resources found.
+Error from server (NotFound): namespaces "siepoc" not found
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$ oc get deploy -n siepr oc r-des | grep -i bec3
+No resources found.
+Error from server (NotFound): namespaces "siepr" not found
+-sh-4.2$ oc get deploy -n siepr r-des | grep -i bec3
+No resources found.
+Error from server (NotFound): namespaces "siepr" not found
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+
+
 2. O que está hoje em DES (OKD)
 
 O namespace provável é o siepr-des, porque o repositório é SIEPR-curso-bec3-frontend.
 
-oc get deploy -n siepr-des | grep -i bec3
+oc get deploy -n siepoc r-des | grep -i bec3
 oc get deploy <nome> -n siepr-des -o jsonpath='{..image}{"\n"}'
 oc set env deploy/<nome> -n siepr-des --list | grep -E "SSO_BASE_PATH|REALM|SSO_CLIENT_ID|API_DADOS_FAMILIA_PATH"
 oc exec deploy/<nome> -n siepr-des -- find / -name "sso-config.json" 2>/dev/null
