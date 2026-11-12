@@ -1,9 +1,66 @@
-Michael, fizemos o deploy da 3.55.51.01 às 15:51. O ajuste no persistence.xml funcionou: o erro de Duplicate generator name gen não bloqueia mais, aparece apenas como aviso.
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j='http://jakarta.apache.org/log4j/'>
+   <appender name="SIGSJ" class="org.apache.log4j.DailyRollingFileAppender">
+       <param name="Append" value="true" />
+       <param name="Encoding" value="ISO-8859-1" />
+       <param name="File" value="/log_jboss/sigsj_internet/${jboss.server.name}.log" />
+       <param name="DatePattern" value="'.'yyyy-MM-dd-a"></param>
+       <layout class="org.apache.log4j.PatternLayout">
+           <param name="ConversionPattern" value="[%5p] %d{yyyy/MM/dd HH:mm:ss} %c{2}[%t] - %m%n" />
+       </layout>
+   </appender>
+   <logger name="br.gov.caixa.sigsj">
+       <level value="DEBUG" />
+   </logger>
+   <root>
+       <priority value="INFO" />
+       <appender-ref ref="SIGSJ" />
+   </root>
+</log4j:configuration>
 
-O deploy foi revertido por outro ponto de código:
-WFLYWELD0037: Não é possível encontrar uma unidade de persistência chamada 'entityManagerFactory' na implantação sirur-ejb.jar
-Ponto de injeção: br.gov.caixa.sirur.persistence.repository.impl.EtapaCadastroProducaoRuralRepositoryImpl.entityManager
 
-A classe usa @PersistenceContext(unitName = "entityManagerFactory"), mas as unidades disponíveis no pacote são fec.pu e fec.rur.pu (no sirur-ejb.jar), além de fecDS e SIEMP-PU. O ajuste é usar o nome correto da unidade, provavelmente fec.rur.pu, por se tratar de produção rural.
 
-Sugiro também procurar outras ocorrências de unitName = "entityManagerFactory" no projeto, para corrigir tudo de uma vez. Assim que gerar a nova versão, fazemos o deploy. O ambiente (banco e configurações) já está pronto.
+
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j='http://jakarta.apache.org/log4j/'>
+    <appender name="SIGSJ" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="Append" value="true" />
+        <param name="Encoding" value="ISO-8859-1" />
+        <param name="File" value="/log_jboss/sigsj_internet/sigsj_internet.log" />
+        <param name="DatePattern" value="'.'yyyy-MM-dd-a"></param>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="[%5p] %d{yyyy/MM/dd HH:mm:ss} %c{2}[%t] - %m%n" />
+        </layout>
+    </appender>
+    <logger name="br.gov.caixa.sigsj">
+        <level value="DEBUG" />
+    </logger>
+    <root>
+        <priority value="INFO" />
+        <appender-ref ref="SIGSJ" />
+    </root>
+</log4j:configuration>
+
+
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j='http://jakarta.apache.org/log4j/'>
+    <appender name="SIGSJ" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="Append" value="true" />
+        <param name="Encoding" value="ISO-8859-1" />
+        <param name="File" value="/log_jboss/sigsj_intranet/sigsj_intranet.log" />
+        <param name="DatePattern" value="'.'yyyy-MM-dd-a"></param>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="[%5p] %d{yyyy/MM/dd HH:mm:ss} %c{2}[%t] - %m%n" />
+        </layout>
+    </appender>
+    <logger name="br.gov.caixa.sigsj">
+        <level value="DEBUG" />
+    </logger>
+    <root>
+        <priority value="INFO" />
+        <appender-ref ref="SIGSJ" />
+    </root>
+</log4j:configuration>
