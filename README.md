@@ -1,18 +1,74 @@
+Skip to main content
+Azure DevOps
+projetos
+/
+Caixa
+/
+Pipelines
+/
+Library
+Search
 
-[p585600@cbrdeapllx473 ~]$
-[p585600@cbrdeapllx473 ~]$ sudo grep -nE "WFLYSRV0025|WFLYSRV0021" /opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/server.log | tail -3
 
-We trust you have received the usual lecture from the local System
-Administrator. It usually boils down to these three things:
+Caixa
 
-    #1) Respect the privacy of others.
-    #2) Think before you type.
-    #3) With great power comes great responsibility.
+Overview
 
-[sudo] password for p585600:
-13511:10:48:22,767 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0025: JBoss EAP 7.4.23.GA (WildFly Core 15.0.43.Final-redhat-00001) iniciado em 36378ms - Iniciado(s) 19323 de serviços 19583 (os serviços 658 estão lentos, passivos ou sob demanda)
-[p585600@cbrdeapllx473 ~]$
-[p585600@cbrdeapllx473 ~]$
-[p585600@cbrdeapllx473 ~]$
-[p585600@cbrdeapllx473 ~]$
-[p585600@cbrdeapllx473 ~]$
+Boards
+
+Repos
+
+Pipelines
+Pipelines
+Environments
+Releases
+Library
+Task groups
+Deployment groups
+Portal Infra
+
+Test Plans
+
+Artifacts
+Project settings
+
+Library
+
+SIEPR-CURSO-BEC3-FRONTEND-DES
+
+Variable group
+Properties
+Variable group name
+SIEPR-CURSO-BEC3-FRONTEND-DES
+Description
+Grupo de variáveis de SIEPR-CURSO-BEC3-FRONTEND-DES
+
+
+Variables
+_ENV.API_BASE_PATH
+https://siepr-curso-bec3-frontend-des.apps.nprd.caixa
+_ENV.REALM
+internet
+_ENV.SSO_BASE_PATH
+https://logindes.caixa.gov.br/auth
+_ENV.SSO_CLIENT_ID
+cli-web-epr
+HTTP_SERVICE_API
+https://siepr-backend-des.apps.nprd.caixa
+
+
+Oi Jessé!
+ 
+Vou procurar os valores aqui. Obrigado, Jesse.
+ 
+Atualizamos os valores lá. Obrigado, por suporte.
+
+
+ele nao atualizou na library, preciamos do valor apra atualizar na library se rodar um deploy vai falahr a apalicação
+
+
+
+ 
+
+
+
