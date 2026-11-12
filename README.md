@@ -1,115 +1,58 @@
-Jesse Mouta Pereira Batista
-Michael Lourant de Oliveira Ferreira     Incluir a propriedade abaixo no persistence.xml do sirur-ejb.jar, dentro do bloco <properties> das duas unidades, fec.pu e fec.rur.pu:   xml <property name="h…
-Caros,
- 
-Foi gerada a versão 3.55.51.01 com o ajuste sugerido no persistence.xml
- 
-Verifiquem se é o bastante... vamos estimar o esforço demandado pela solução de ajuste em cada uma das entidades.
- 
+Três frentes hoje. Vou na ordem mais rápida: SICDT, depois SIRUR, depois o SIEMP.
 
+1. SICDT 3.24.3.004 (build novo do Inocêncio)
 
-o denislosn disse isso, mais ainta ta sendo antedida a req da solicitação de DNS - É SO ELE ACOMPANAHR A SALA 
+Na 471, como root, baixe o pacote:
 
+curl -s -o /tmp/sifec-cdt-3.24.3.004.ear http://binario.caixa:8081/repository/releases/br/gov/caixa/sicdt/sifec-cdt/3.24.3.004/sifec-cdt-3.24.3.004.ear && ls -l /tmp/sifec-cdt-3.24.3.004.ear
 
-bom dia ! Acredito que tenha algo para ser ajustado no ambiente do SIEMP.
+Depois, no CLI, substitua o pacote atual. O --force troca o conteúdo do SICDT-FEC e faz o redeploy no sifec-intranet:
 
-<img width="607" height="119" alt="image" src="https://github.com/user-attachments/assets/a4491894-ba50-4bd6-a2ad-c0af2090c66a" />
+deploy /tmp/sifec-cdt-3.24.3.004.ear --name=SICDT-FEC --runtime-name=sifec-cdt-3.24.3.004.ear --force
 
+Log na 473:
 
+sudo tail -f /opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/server.log | grep -E "WFLYSRV0010|WFLYSRV0027|WFLYSRV0021|ERROR|Caused by|cdt|ConectorException"
+2. SIRUR 3.55.51.01 (persistence.xml ajustado pelo Michael)
 
-REQ000147022058 - Solicitação DNS SIEMP Esteira devops
+Antes do deploy, confira o banco. Ficou pendente o ORA-01017, que é nosso. No CLI da 471:
 
-[PROJETO ADDR] Favor criar/alterar o FQDN siemp.des.caixa para atender a nova infra do siemp na esteira devops caixa, para cumprir os prazos do projeto ADDR.
+/host=hc_cbrdeapllx473/server=sifec-intranet_node1_lx473/subsystem=datasources/data-source="jdbc/OracleSirurDS":test-connection-in-pool
+[true]: o banco está ok, pode seguir.
+Falhou: me manda a saída antes do deploy. Pode ser o mesmo caso do SIBAN, com credencial diferente do 6.4.
 
-Informe a solicitação*:	Inclusão
-Endpoint de internet?*:	Não
-Ambiente*:	On premise
-Tipo de registro*:	Host (A)
-Nota:	Essa opção é exclusiva para inclusão de um registro do tipo “Host A”, onde deve ser informado o nome DNS e o endereço IP para qual este será vinculado.
-Nome DNS*:	siemp.des.caixa
-Endereço IP*:	10.116.180.9
-Unidade/Coordenação Demandante*:	Comunidade de credito comercial e agronegocio
-Descrição/Observação*:	[PROJETO ADDR] Favor criar/alterar o FQDN siemp.des.caixa para atender a nova infra do siemp na esteira devops caixa, para cumprir os prazos do projeto ADDR.
+Para o deploy, falta o link do Nexus da 3.55.51.01. Peça ao Michael ou procure no Nexus por sifec-sirur. Com o link em mãos:
 
+curl -s -o /tmp/sifec-sirur-3.55.51.01.ear "LINK_DO_NEXUS"
 
-Histórico de Informações de Trabalho da Ordem de Trabalho
-ID da Ordem de Trabalho	 WO0000082275737
-Criado em	 11/11/2026 21:58:54
-Criado por	 P754719
-Origem de Comunicação	 
-Exibir Acesso	 Público
-Notas	 Sr(a) usuário(a),
+Me passe o link que eu monto esse comando já pronto.
 
-1. Realizada a inclusão do(s) registro(s) no DNS, conforme solicitado.
+Depois do download, no CLI:
 
-2. À disposição para esclarecimentos.
+deploy /tmp/sifec-sirur-3.55.51.01.ear --name=SIRUR --runtime-name=sifec-sirur-3.55.51.01.ear --force
+/server-group=sifec-intranet/deployment=SIRUR:add(enabled=true)
+3. SIEMP: o DNS foi atendido, e agora?
 
-Atenciosamente.
+O DNS já resolve: siemp.des.caixa → 10.116.180.9 (VIP). Pela esteira não falta nada, porque o caminho VIP → VM já está funcionando. O 404 - Not Found da tela é a página padrão do JBoss, o que mostra que a requisição chegou no servidor. O problema é o caminho: o EAR do SIEMP publica o contexto /siemp (contextRoot no pom), e não /siemp_java.
 
-CETELO8/CETEL960-CTIS
+Teste:
 
-Para análise técnica:
+https://siemp.des.caixa/siemp
 
-Name:    siemp.des.caixa
-Address: 10.116.180.9
+Se abrir, só falta conferir dois pontos:
 
-Name:    siemp.des.caixa
-Address: 10.116.180.9
+“Não seguro” no navegador: pode ser a cadeia do certificado. Clique no cadeado → certificado e veja se o nome é siemp.des.caixa e quem é o emissor.
+Login (SSO): se o SIEMP usa Keycloak, o client precisa aceitar o redirect https://siemp.des.caixa/*. Se o login voltar com erro de redirect, esse ajuste é no Keycloak.
+Respostas
 
-PS C:\Users\p754719>
-ID da Ordem de Trabalho	 WO0000082275737
-Criado em	 11/11/2026 14:10:41
-Criado por	 P655225
-Origem de Comunicação	 
-Exibir Acesso	 Público
-Notas	 Prezado(a),
+Para o Denilson (SIEMP):
 
-1. Informamos que sua solicitação foi recebida em nossa fila e seguirá o fluxo de atendimento.
-2. Trata-se de uma atividade de complexidade baixa e será atendida o mais breve
-possível.
-3. Esta demanda será apresentada para deliberação na reunião de Overview?
-( X ) SIM  (  ) NÃO
-4. Informações futuras serão adicionadas a esta WO.
+Bom dia, Denilson! O DNS siemp.des.caixa foi criado hoje (WO0000082275737) e já aponta para o VIP. O 404 que você viu vem do próprio JBoss, ou seja, a requisição está chegando no servidor. O contexto publicado pelo EAR é /siemp. Consegue testar em https://siemp.des.caixa/siemp?
 
-Atenciosamente,
+Para o Michael (SIRUR):
 
-Anderson Campelo Serpa Gama
-Preposto
-CTIS / CETEL / DHCP, DNS e Proxy de Serviços
-ID da Ordem de Trabalho	 WO0000082275737
-Criado em	 11/11/2026 13:53:01
-Criado por	 Remedy Application Service
-Origem de Comunicação	 E-mail
-Exibir Acesso	 Interno
-Notas	 Este ticket foi criado a partir do sistema de solicitação de serviço.
-Impresso por P585600 em Quinta-feira, 12/11/2026 09:58:44
+Obrigado, Michael! Pode me passar o link do Nexus da 3.55.51.01? Já faço o deploy no 7.4 e acompanho o log para ver se o ajuste no persistence.xml resolve.
 
+Para o Inocêncio (SICDT):
 
-==========================================================
- 
-Bom dia, Jesse Mouta
- 
-Gerei mais um artefato do SICDT. Segue o link abaixo para fazer o redeploy:
- 
-http://binario.caixa:8081/repository/releases/br/gov/caixa/sicdt/sifec-cdt/3.24.3.004/sifec-cdt-3.24.3.004.ear
- 
-Fiz ajustes no Arqref e na lib do framework (br.gov.caixa.bsb.sisgd) para evitar o warning. O SICDT agora usa no próprio sifec-cdt.ear, e o EAR contém arqref-core 3.7.2.2 (antes 3.7.2) e sisgd-framework 1.0 no deploy do SICDT, e não houve warning de ConectorException. Fiz testes de download de relatórios (PDF e CSV) e funcionaram perfeitamente.
- 
-Segue a minha configuração para o arqref:
- 
-arqref-core-version:     3.7.2
-
-arqref-services-version: 3.11.10
-
-arqref-web-version:      3.1.0.1
- 
-Continuo utilizando o sifec-2.160.4.0.ear - não sei se houve novas versões disponíveis dele.
- 
-Acredito que não há mais pendências e essa build 004 podemos declarar como estável. 
-Desde já, agradeço.
-
-
-TENHO ESSESE ESCLARECIMENTOS A GFAZER..
-
-SOBRE O DNS FOI ATENDIDNO O QUE TEMOS QUE FAZER AGORA NA ESTEIRA PARA PODER FUINCIONAR
- 
+Obrigado, Inocêncio! Vou fazer o redeploy da 3.24.3.004 agora e te aviso quando estiver no ar para a validação final.
