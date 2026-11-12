@@ -1,78 +1,40 @@
-SIEMP (DES, JBoss EAP 7.4 - caddeapllx2864) - trecho do server.log
-Arquivo: /logs/jboss/jboss-eap/standalone/siemp-java-web/server.log
-Ocorrências do erro no log: 73
+O que falar na reunião do SIEMP
 
-===== Ocorrência em 2026-11-12 10:38:41 =====
-2026-11-12 10:35:56,509 INFO  [org.apache.struts.tiles.TilesRequestProcessor] (default task-3) Tiles definition factory found for request processor ''.
-2026-11-12 10:38:41,260 WARN  [org.apache.commons.validator.ValidatorResources] (default task-7) Form 'mantemMatrizTaxaConvenio' not found for locale 'pt_BR'
-2026-11-12 10:38:41,554 ERROR [org.apache.struts.taglib.tiles.InsertTag] (default task-7) ServletException in '/layout/banner_topo.jsp': value: javax.servlet.ServletException: java.lang.NoSuchFieldError: value
-        at io.undertow.jsp@2.0.14.Final-redhat-00001//org.apache.jasper.runtime.PageContextImpl.doHandlePageException(PageContextImpl.java:889)
-        at io.undertow.jsp@2.0.14.Final-redhat-00001//org.apache.jasper.runtime.PageContextImpl.handlePageException(PageContextImpl.java:818)
-        at org.apache.jsp.layout.banner_005ftopo_jsp._jspService(banner_005ftopo_jsp.java:215)
-        at io.undertow.jsp@2.0.14.Final-redhat-00001//org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
-        at javax.servlet.api@2.0.0.Final-redhat-00001//javax.servlet.http.HttpServlet.service(HttpServlet.java:590)
-        at io.undertow.jsp@2.0.14.Final-redhat-00001//org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:433)
-        at io.undertow.jsp@2.0.14.Final-redhat-00001//org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:403)
-        at io.undertow.jsp@2.0.14.Final-redhat-00001//org.apache.jasper.servlet.JspServlet.service(JspServlet.java:347)
-        at javax.servlet.api@2.0.0.Final-redhat-00001//javax.servlet.http.HttpServlet.service(HttpServlet.java:590)
-        at io.undertow.servlet@2.2.33.SP1-redhat-00001//io.undertow.servlet.handlers.ServletHandler.handleRequest(ServletHandler.java:74)
-        at io.undertow.servlet@2.2.33.SP1-redhat-00001//io.undertow.servlet.handlers.security.ServletSecurityRoleHandler.handleRequest(ServletSecurityRoleHandler.java:62)
-        at io.undertow.jsp@2.0.14.Final-redhat-00001//io.undertow.jsp.JspFileHandler.handleRequest(JspFileHandler.java:32)
-        at io.undertow.servlet@2.2.33.SP1-redhat-00001//io.undertow.servlet.handlers.ServletChain$1.handleRequest(ServletChain.java:68)
-        at io.undertow.servlet@2.2.33.SP1-redhat-00001//io.undertow.servlet.handlers.ServletDispatchingHandler.handleRequest(ServletDispatchingHandler.java:36)
-        at org.wildfly.security.elytron-web.undertow-server@1.9.4.Final-redhat-00001//org.wildfly.elytron.web.undertow.server.ElytronRunAsHandler.lambda$handleRequest$1(ElytronRunAsHandler.java:68)
-        at org.wildfly.security.elytron-private@1.15.23.Final-redhat-00001//org.wildfly.security.auth.server.FlexibleIdentityAssociation.runAsFunctionEx(FlexibleIdentityAssociation.java:103)
-        at org.wildfly.security.elytron-private@1.15.23.Final-redhat-00001//org.wildfly.security.auth.server.Scoped.runAsFunctionEx(Scoped.java:161)
-        at org.wildfly.security.elytron-private@1.15.23.Final-redhat-00001//org.wildfly.security.auth.server.Scoped.runAs(Scoped.java:73)
-        at org.wildfly.security.elytron-web.undertow-server@1.9.4.Final-redhat-00001//org.wildfly.elytron.web.undertow.server.ElytronRunAsHandler.handleRequest(ElytronRunAsHandler.java:67)
-        at io.undertow.servlet@2.2.33.SP1-redhat-00001//io.undertow.servlet.handlers.RedirectDirHandler.handleRequest(RedirectDirHandler.java:68)
-        at io.undertow.core@2.2.33.SP1-redhat-00001//io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
-        at io.undertow.core@2.2.33.SP1-redhat-00001//io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
-        at io.undertow.servlet@2.2.33.SP1-redhat-00001//io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:257)
-        at io.undertow.servlet@2.2.33.SP1-redhat-00001//io.undertow.servlet.handlers.ServletInitialHandler.dispatchToServlet(ServletInitialHandler.java:192)
-        at io.undertow.servlet@2.2.33.SP1-redhat-00001//io.undertow.servlet.spec.RequestDispatcherImpl.includeImpl(RequestDispatcherImpl.java:337)
-        at io.undertow.servlet@2.2.33.SP1-redhat-00001//io.undertow.servlet.spec.RequestDispatcherImpl.setupIncludeImpl(RequestDispatcherImpl.java:285)
-        at io.undertow.servlet@2.2.33.SP1-redhat-00001//io.undertow.servlet.spec.RequestDispatcherImpl.include(RequestDispatcherImpl.java:249)
-        at io.undertow.jsp@2.0.14.Final-redhat-00001//org.apache.jasper.runtime.JspRuntimeLibrary.include(JspRuntimeLibrary.java:912)
-        at io.undertow.jsp@2.0.14.Final-redhat-00001//org.apache.jasper.runtime.PageContextImpl.include(PageContextImpl.java:631)
-        at deployment.siemp-ear.ear.siemp-web.war//org.apache.struts.tiles.TilesUtilImpl.doInclude(TilesUtilImpl.java:101)
-        at deployment.siemp-ear.ear.siemp-web.war//org.apache.struts.tiles.TilesUtil.doInclude(TilesUtil.java:137)
-        at deployment.siemp-ear.ear.siemp-web.war//org.apache.struts.taglib.tiles.InsertTag.doInclude(InsertTag.java:758)
-        at deployment.siemp-ear.ear.siemp-web.war//org.apache.struts.taglib.tiles.InsertTag$InsertHandler.doEndTag(InsertTag.java:890)
-        at deployment.siemp-ear.ear.siemp-web.war//org.apache.struts.taglib.tiles.InsertTag.doEndTag(InsertTag.java:460)
-        at org.apache.jsp.layout.template_jsp._jspx_meth_tiles_005finsert_005f0(template_jsp.java:304)
-        at org.apache.jsp.layout.template_jsp._jspService(template_jsp.java:172)
-        at io.undertow.jsp@2.0.14.Final-redhat-00001//org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
-        at javax.servlet.api@2.0.0.Final-redhat-00001//javax.servlet.http.HttpServlet.service(HttpServlet.java:590)
-        at io.undertow.jsp@2.0.14.Final-redhat-00001//org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:433)
-        at io.undertow.jsp@2.0.14.Final-redhat-00001//org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:403)
-        ...
+1. Abertura
 
-===== Causa raiz =====
-Caused by: java.lang.NoSuchFieldError: value
-        at deployment.siemp-ear.ear.siemp-web.war//org.apache.taglibs.standard.tag.el.core.OutTag.evaluateExpressions(OutTag.java:99)
-        at deployment.siemp-ear.ear.siemp-web.war//org.apache.taglibs.standard.tag.el.core.OutTag.doStartTag(OutTag.java:57)
-        at org.apache.jsp.layout.banner_005ftopo_jsp._jspx_meth_c_005fout_005f0(banner_005ftopo_jsp.java:256)
-        at org.apache.jsp.layout.banner_005ftopo_jsp._jspService(banner_005ftopo_jsp.java:114)
-        ... 110 more
+“Temos dois pontos no SIEMP: um de acesso, que é ambiente e fica com a gente, e um erro dentro do sistema, que é do pacote e fica com o time SIEMP. A aplicação está publicada no 7.4, versão 14.37.0.6.”
 
-2026-11-12 10:38:41,561 ERROR [io.undertow.request] (default task-7) UT005023: Exception handling request to /siemp/layout/template.jsp: javax.servlet.ServletException: javax.servlet.jsp.JspException: ServletException in '/layout/banner_topo.jsp': value
-        at io.undertow.jsp@2.0.14.Final-redhat-00001//org.apache.jasper.runtime.PageContextImpl.doHandlePageException(PageContextImpl.java:889)
-        at io.undertow.jsp@2.0.14.Final-redhat-00001//org.apache.jasper.runtime.PageContextImpl.handlePageException(PageContextImpl.java:818)
-        at org.apache.jsp.layout.template_jsp._jspService(template_jsp.java:247)
-        at io.undertow.jsp@2.0.14.Final-redhat-00001//org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
-        at javax.servlet.api@2.0.0.Final-redhat-00001//javax.servlet.http.HttpServlet.service(HttpServlet.java:590)
+2. Ponto 1: acesso intermitente (DNS) → DevOps
 
-===== Bibliotecas JSTL/API empacotadas no siemp-web.war (WEB-INF/lib) =====
-   105112  11-09-2026 10:11   WEB-INF/lib/servlet-api-2.5.jar
-    49757  11-09-2026 10:11   WEB-INF/lib/jsp-api-2.2.jar
-   423706  11-09-2026 10:11   WEB-INF/lib/jboss-j2ee-4.2.2.GA.jar
-    20682  11-09-2026 10:11   WEB-INF/lib/jstl-1.1.2.jar
-   393259  11-09-2026 10:11   WEB-INF/lib/standard-1.1.2.jar
+O siemp.des.caixa está com dois IPs no DNS:
+10.116.180.9: VIP novo da esteira. Abre o SIEMP normalmente (200).
+10.116.80.1: VIP antigo. Dá 404 em /siemp e em /siemp_java, com certificado de outro sistema (siecm).
+Por isso o acesso funciona para uns e não para outros, ou alterna.
+Causa: a REQ incluiu o IP novo sem remover o antigo.
+Pergunta para o Paulo e o Denilson:
 
-===== Taglibs do /layout/banner_topo.jsp =====
-1:<%@ page contentType="text/html;charset=ISO-8859-1" language="java" %>
-2:<%@page import="br.gov.caixa.siemp.comum.filtros.formatador.FormatadorNomeUsuario"%>
-3:<%@ taglib uri="/WEB-INF/tags/struts-tiles.tld" prefix="tiles" %>
-4:<%@ taglib uri="/WEB-INF/tags/c.tld" prefix="c" %>
-5:<%@ taglib uri="/WEB-INF/tlds/siemptag-html.tld" prefix="taghtml" %>
+“Alguém ainda usa o SIEMP legado em DES por esse nome? Pelo teste, ele já não funciona por esse endereço.”
+
+Proposta:
+
+“Abrir REQ para remover o 10.116.80.1. O nome fica só no 7.4. Preciso do ok de vocês.”
+
+Crédito ao Thiago Jeferson, que identificou os dois IPs.
+
+3. Ponto 2: erro dentro do sistema → time SIEMP (pacote)
+
+No log aparece NoSuchFieldError: value (73 vezes), no /layout/banner_topo.jsp. Esse banner está no template de todas as telas.
+Causa: o banner usa <c:out> pelo TLD antigo /WEB-INF/tags/c.tld (JSTL 1.1, que vem no standard-1.1.2.jar dentro do WAR). O JBoss 7.4 já fornece a JSTL 1.2, e a mistura das duas versões quebra.
+Ajuste no pacote:
+Trocar nas JSPs uri="/WEB-INF/tags/c.tld" por uri="http://java.sun.com/jsp/jstl/core". O mesmo vale para fmt/fn, se houver.
+Marcar como provided no pom: jstl-1.1.2, standard-1.1.2, servlet-api-2.5, jsp-api-2.2 e jboss-j2ee-4.2.2.GA.
+Gerar uma nova versão e rodar a esteira.
+O log já foi enviado ao Denilson.
+
+4. Fechamento (quem faz o quê)
+
+Quem	O quê
+Paulo/Denilson	Ok para remover o IP antigo do DNS
+Jessé	Abrir a REQ de DNS hoje e avisar quando o nslookup mostrar só 10.116.180.9
+Time SIEMP (Denilson)	Ajustar o JSTL no pacote e gerar nova versão
+Jessé	Acompanhar o deploy da nova versão e analisar o log
