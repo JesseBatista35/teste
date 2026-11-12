@@ -1,25 +1,63 @@
----
-- hosts: jboss
-  gather_facts: no
-  tasks:
-  - name: "Verifica se o arquivo {{ jboss_home }}/standalone/configuration/custom.sh existe"
-    stat:
-      path: "{{ jboss_home }}/standalone/configuration/custom.sh"
-    register: custom_result
+Skip to main content
+Azure DevOps
+projetos
+/
+Caixa
+/
+Repos
+/
+Files
+/
 
-  - name: "Executa shell customizada (jboss_home)"
-    shell: "{{ jboss_home }}/standalone/configuration/custom.sh"
-    when: custom_result.stat.exists
-
-  - name: "Verifica se o arquivo {{ batch_path_config }}/configuration/custom.sh existe"
-    stat:
-      path: "{{ batch_path_config }}/configuration/custom.sh"
-    register: custom_batch_result
-
-  - name: "Executa shell customizada (batch_path_config)"
-    shell: "{{ batch_path_config }}/configuration/custom.sh"
-    when: custom_batch_result.stat.exists
+SIGSJ-internet-config
+Search
 
 
+Caixa
 
-    so lemrbando que esse repo minllheres de aplicaçoes usam ele aqui na caixa
+Overview
+
+Boards
+
+Repos
+Files
+Commits
+Pushes
+Branches
+Tags
+Pull requests
+
+Pipelines
+
+Test Plans
+
+Artifacts
+Project settings
+SIGSJ-internet-config
+
+httpd
+jboss
+jboss-custom.cli
+jboss-deployments
+jboss-modules-custom
+standalone-full-ha.xml
+standalone.conf
+README.md
+
+master
+
+/
+jboss
+/
+jboss-custom.cli
+jboss-custom.cli
+
+Edit
+
+Contents
+History
+Compare
+Blame
+
+1
+
