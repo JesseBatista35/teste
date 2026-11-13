@@ -1,3 +1,6 @@
+<img width="1643" height="836" alt="image" src="https://github.com/user-attachments/assets/eebbaad3-81ee-44e2-8446-4017141438df" />
+
+
 Starting: Publica no Nexus
 ==============================================================================
 Task         : Bash
