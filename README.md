@@ -1,100 +1,145 @@
-<img width="1873" height="927" alt="image" src="https://github.com/user-attachments/assets/f6a5581f-6c29-43f4-95d2-0a0398c808db" />
-Skip to main content
-Azure DevOps
-projetos
-/
-Caixa
-/
-Pipelines
-Search
+<img width="1569" height="572" alt="image" src="https://github.com/user-attachments/assets/4bf544a4-a66d-41f8-ba89-d5231faf61b5" />
 
 
-Caixa
+<img width="1641" height="871" alt="image" src="https://github.com/user-attachments/assets/7271aa39-0ddd-47be-adda-0646b5d33f63" />
 
-Overview
 
-Boards
+if [[ "$BUILD_REPOSITORY_URI" == *"github.com"* ]]; then
+echo "É um repositório do GitHub"
+REPO_FINAL_NAME=`basename "$BUILD_REPOSITORY_URI" .git`
+echo "##vso[task.setvariable variable=fortify_disable;]gecmi"
+echo "##vso[task.setvariable variable=sonar_disable;]true"
+else
+echo "É um repositório do Devops.Caixa"
+REPO_FINAL_NAME=`echo $(Build.Repository.Name)`
+fi
+echo "Nome do repositório: $REPO_FINAL_NAME"
+echo "##vso[task.setvariable variable=REPO_FINAL_NAME;]$REPO_FINAL_NAME"
 
-Repos
 
-Pipelines
-Pipelines
-Environments
-Releases
-Library
-Task groups
-Deployment groups
-Portal Infra
 
-Test Plans
+echo "##[section]branch/tag: $BUILD_SOURCEBRANCHNAME"
 
-Artifacts
-Project settings
-
-SIIFX
-
-SIIFX-caixinhas-batch
+echo "##[warning] -------------------- ATENÇÃO --------------------
+##[warning] Foi definido conforme CE GEQTI 011/2024 que a partir de 03/2025 apenas compilações oriundas de tag dentro do padrão estabelecido no PPDS poderão ser implantadas em TQS/HMP/PRD.
+##[warning] Para mais informações acesse as urls:
+##[warning] https://devops.caixa/projetos/Caixa/_wiki/wikis/Caixa.wiki/1689/Valida%C3%A7%C3%A3o-da-VEC
+##[warning] https://caixa.sharepoint.com/sites/PPDS/SitePages/GCM_Diretrizes_Padrao_Baseline.aspx ou consulte a GEQTI04
+-------------------------------------------------"
+echo $BUILD_SOURCEBRANCH
+if [[ `echo $BUILD_SOURCEBRANCH | grep -c tags` -gt 0 ]];then
+pontos=`echo ${BUILD_SOURCEBRANCHNAME//[^\.]} | sed 's/\./\.\n/g' | wc -w`
+number=`echo $BUILD_SOURCEBRANCHNAME | sed 's/\\.//g'`
 
-Tasks
+if [[ ${pontos} = 3 ]];then
+if [[ ${number} =~ ^([0-9]+)$ ]];then
+echo "VEC $BUILD_SOURCEBRANCHNAME dentro do padrão estabelecido pelo PPDS.
+Pacote apto a ser implantado em TQS/HMP/PRD."
+vec='true'
+echo "##vso[build.updatebuildnumber]"$BUILD_SOURCEBRANCHNAME""
+else
+echo "A TAG $BUILD_SOURCEBRANCHNAME não se encontra dentro do padrão estabelecido pelo PPDS e este pacote não poderá ser implantado nos ambientes TQS/HMP/PRD."
+vec='false'
+fi
+else
+echo "A TAG $BUILD_SOURCEBRANCHNAME não se encontra dentro do padrão estabelecido pelo PPDS e este pacote não poderá ser implantado nos ambientes TQS/HMP/PRD."
+vec='false'
+fi
+elif [[ `echo $BUILD_SOURCEBRANCH | grep -c heads` -gt 0 ]];then
+echo "##[warning]Foi selecionada para compilação uma branch. Esteja ciente de que este pacote poderá ser implantado somente em ambiente DES."
+vec='false'
+else
+echo "##[warning]Foi selecionada para compilação uma branch. Esteja ciente de que este pacote poderá ser implantado somente em ambiente DES."
+vec='false'
+fi
 
-Variables
+echo "##[section]Valida VEC: $vec"
+echo "##vso[task.setvariable variable=valida.vec;]$vec"
 
-Triggers
+echo "------------------------------------------------- 
+ps: Essa regra se aplica somente a projetos que possuem infra criada na esteira devops."
 
-Options
 
-History
-Predefined variables
-system.collectionId
-7b4c9d5c-b041-4798-8dcb-fb11786a173b
-system.debug
-false
 
-system.definitionId
-6791
-system.teamProject
-Caixa
-tag_imagem
-8.2-openjdk21.0.1
-version.app
+#!/usr/bin/env bash
+set -euo pipefail
 
-Collapsed
+if [[ `echo $BUILD_SOURCEBRANCH | grep -c tags` -gt 0 ]];then
 
-Collapsed
+echo "Build originada de uma TAG."
 
-Row 3. Clickable
+# ====== CONFIGURAÇÃO ======
+TAG=$BUILD_SOURCEBRANCH
+REMOTE="origin"
 
-Row 3. Clickable
+# ====== RESOLVER COMMIT FINAL DA TAG ======
+if ! COMMIT=`git rev-parse "$TAG^{commit}" 2>/dev/null`; then
+  echo "Erro: a tag '$TAG' não existe ou não é válida."
+  exit 1
+fi
 
-Row 2. Clickable
+echo "Tag        : $TAG"
+echo "Commit     : $COMMIT"
+echo "Remote     : $REMOTE"
+echo
+echo "Analisando branches que contêm o commit..."
+echo "------------------------------------------------------------"
+printf "%-8s %s\n" "DISTÂNCIA" "BRANCH"
+echo "------------------------------------------------------------"
 
-Showing 25 filtered items.
+FOUND=0
 
-Showing 50 filtered items.
+while read -r BRANCH; do
+  if git merge-base --is-ancestor "$COMMIT" "$BRANCH"; then
+    DIST=`git rev-list --count "$COMMIT..$BRANCH"`
+    
+    # Remove origin/
+    BRANCH_DISPLAY="${BRANCH#origin/}"    
 
-Row 3. Clickable
+    printf "%-8s %s\n" "$DIST" "$BRANCH_DISPLAY"
+    FOUND=1
+  fi
+done < <(
+  git for-each-ref \
+    --format='%(refname:short)' \
+    "refs/remotes/$REMOTE"
+)
 
-Row 2. Clickable
+if [[ "$FOUND" -eq 0 ]]; then
+  echo "Nenhuma branch remota contém esse commit."
+  exit 1
+fi
 
-Showing 25 filtered items.
+echo "------------------------------------------------------------"
 
-Get started and run this pipeline for the first time!
+# ====== BRANCH MAIS PROVÁVEL ======
+BEST_BRANCH=$(
+  while read -r BRANCH; do
+    if git merge-base --is-ancestor "$COMMIT" "$BRANCH"; then
+      # Remove origin/
+      BRANCH_DISPLAY="${BRANCH#origin/}"    
+      echo "`git rev-list --count "$COMMIT..$BRANCH"` $BRANCH_DISPLAY"
+    fi
+  done < <(
+    git for-each-ref \
+      --format='%(refname:short)' \
+      "refs/remotes/$REMOTE"
+  ) | sort -n | head -n1
+)
 
-Showing 25 filtered items.
+BEST_DISTANCE=`echo "$BEST_BRANCH" | awk '{print $1}'`
+BEST_NAME=`echo "$BEST_BRANCH" | awk '{print $2}'`
 
-Showing 50 filtered items.
+echo "Branch mais provável de origem:"
+echo "$BEST_NAME (distância: $BEST_DISTANCE commits)"
 
-Row 2. Clickable
+else
 
-Showing 25 filtered items.
+echo "Build originada de uma BRANCH."
+BEST_NAME=$BUILD_SOURCEBRANCHNAME
 
-Get started and run this pipeline for the first time!
+fi
 
-Showing 25 filtered items.
+echo "Branch que será informada para o SONAR: $BEST_NAME "
 
-Showing 50 filtered items.
-
-Row 3. Clickable
-
-Row 3. Clickable
-
+echo "##vso[task.setvariable variable=sonar_branch;]$BEST_NAME"
