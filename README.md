@@ -1,33 +1,49 @@
-Reconfigurada a build do SIIFX-caixinhas-batch para os 3 subprojetos (batch-platform, mod-caixinhas e batch-launcher), construídos em sequência por três etapas Java-Build.
+Atualização ADDR SIGSJ – 13/11
 
-Causa da falha nas builds geradas por tag: a etapa da esteira que identifica o pacote ("Recupera versão projeto") procurava arquivos .jar em todo o repositório. Assim, as etapas do mod-caixinhas e do batch-launcher identificavam o core-starter já publicado pela primeira etapa, e a verificação no binario.caixa acusava pacote existente.
+✅ Aplicações em DES
 
-Correção: incluída a variável TARGET_PATH antes de cada Java-Build (batch-platform/core-starter, mod-caixinhas e batch-launcher), de modo que cada etapa identifique e publique somente o seu próprio artefato. Nenhum task group compartilhado foi alterado.
+SIGSJ-intranet, SIGSJ-internet e SIGSJ-boleto implantados e no ar em DES.
+SIGSJ-internet: com o SIROT embutido no build (e as bibliotecas ceflog/ceflib incluídas pela fábrica), a release voltou a subir normalmente. Do lado da esteira, removemos o SIROT externo do servidor e ajustamos o config para o SIROT embutido.
 
-Validação: build da tag 0.0.182.1 concluída com sucesso, com publicação no repositório releases do Nexus de core-starter, mod-caixinhas e siifx-caixinhas-batch (fat jar) na versão 0.0.182.1.
+✅ Log4j em DES
+Com os XMLs do legado enviados pela Gisele, configuramos o log4j nos três sistemas, e as aplicações estão gravando normalmente:
 
-Também foi ajustada, nos stages DES, TQS e TGE, a etapa
+Intranet: /log_jboss/sigsj_intranet/sigsj_intranet.log
+Internet: /log_jboss/sigsj_internet/sigsj_internet.log
+Boleto: /log_jboss/sigsj_internet/<nome-do-servidor>.log (padrão do legado)
+Obs.: a esteira executa o custom.sh apenas se ele já existir na VM, sem copiá-lo do repositório de config. Por isso, a configuração foi aplicada diretamente nas VMs. Ela permanece entre as releases e só se perde se a VM for recriada. Já acionamos o time da esteira sobre a forma definitiva de entrega.
 
+🌐 URLs customizadas – DES
+VIPs criados pela Rede, apontando para as VMs na porta 80:
 
+sigsj-intranet.des.caixa → VIP 10.116.180.8
+sigsj-internet.des.caixa → VIP 10.116.181.214
+sigsj-boleto.des.caixa → VIP 10.116.181.215
 
+As REQs anteriores de certificado foram encerradas por falta do IP do VIP. Foram abertas novas solicitações, já com VIP, balanceador e nome sugerido:
 
-Pessoal, a build do SIIFX-caixinhas-batch com os 3 subprojetos está corrigida. A tag 0.0.182.1 gerou e publicou os 3 artefatos no Nexus (core-starter, mod-caixinhas e siifx-caixinhas-batch). Já podem gerar tag normalmente.
+Intranet: REQ000147048801 / WO0000082298919
+Internet: REQ000147047987 / WO0000082299045
+Boleto: REQ000147048948 / WO0000082298966
 
-Ao subir em TQS, encontramos pendências de ambiente. Como TQS antes usava a VM de DES e agora tem VM própria (caddeapllx2876), ela está "zerada". Próximos passos:
+DNS aberto em paralelo, conforme alinhado com o Emanuel:
 
-Time SIIFX:
-1. Abrir nova REQ para ajuste do ambiente TQS do SIIFX-caixinhas-batch.
-2. Revisar o grupo de variáveis SIIFX-CAIXINHAS-BATCH-TQS:
-   - BATCH_PROFILE de TQS (pelo README seria "tgs"?), BATCH_HOME e BATCH_LOG_DIR, que hoje não existem no grupo TQS
-   - TOKEN_HOST, NSGD_DESFAZ_* e SIIFX_DATAGRID_* ainda apontam para DES. Confirmar se é intencional.
-   - NFS: TQS deve usar os mesmos diretórios de DES (CEPTIBR/SIIFX-BATCH e B2B/SIIFX) ou ter diretório próprio?
-   - Confirmar se o keystore dskeystore_tqs_siifx.jceks existe.
-3. Confirmar se os stages TGS/TGE também devem ter grupo de variáveis próprio.
+sigsj-intranet.des.caixa → REQ000147049343 / WO0000082299800
+sigsj-internet.des.caixa → REQ000147049349 / WO0000082299807
+sigsj-boleto.des.caixa → REQ000147048895 / WO0000082299364
 
-Esteira/Infra (eu encaminho):
-4. Interface e IP de backup da caddeapllx2876. Sem isso a VM não alcança o Isilon (NFS).
-5. Regra de firewall da caddeapllx2876 para o servidor Control-M de TQS.
-6. Liberação do IP de backup da 2876 no export do Isilon, conforme o diretório definido no item 2.
-7. Depois dos valores confirmados, vincular o grupo TQS à release (escopo EC TQS) e tirar o TQS do escopo do grupo DES.
+📌 Próximos passos
 
-Assim que esses itens estiverem ok, rodamos a release de TQS novamente a partir da tag 0.0.182.1.
+DES:
+
+Acompanhar a instalação dos certificados nos VIPs e a criação do DNS.
+Concluídas essas etapas, ajustar as variáveis de URL nas releases e validar o acesso pelas novas URLs.
+
+TQS (ainda não iniciado):
+
+Confirmar os nomes das URLs de TQS.
+Abrir as REQs de VIP primeiro, para obter o IP de cada VIP.
+Com o IP dos VIPs, abrir as REQs de certificado e de DNS.
+Aplicar a configuração do log4j nas VMs de TQS.
+
+Qualquer dúvida, fico à disposição!
