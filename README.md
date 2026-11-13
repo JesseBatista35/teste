@@ -1,78 +1,13 @@
-Próximo passo: comparar a definição do realm internet
+Ainda não é a comparação certa. Os blocos do 6.4 que apareceram (linhas 5916 e 6475) são de outros profiles. O ccr-api do sifec-intranet do 6.4 está na linha 20560, então o realm internet desse profile deve estar perto dela, e o head -15 cortou antes de chegar lá.
 
-Na 471 (root):
+O que já sabemos do 7.4: o realm internet aponta para https://logindes.caixa.gov.br/auth.
 
-grep -n -A10 '<realm name="internet"' /opt/jboss/jboss-eap/dc/configuration/domain.xml | grep -viE 'secret|credential' | head -15
+No 6.4 (10.116.88.20): listar todos os realms internet e intranet com o endereço
+sudo grep -n -A4 -E '<realm name="(internet|intranet)"' /opt/jboss/jboss-eap/dc/configuration/domain.xml | grep -E 'realm name|auth-server-url|realm-public-key' | cut -c1-150
 
-No 6.4 (10.116.88.20):
+Na saída, procure as linhas entre 18000 e 20972: são as do profile do sifec-intranet, próximas do ccr-api (20560).
 
-sudo grep -n -A10 '<realm name="internet"' /opt/jboss/jboss-eap/dc/configuration/domain.xml | grep -viE 'secret|credential' | head -15
+Na 471: o realm intranet do 7.4, para comparar
+grep -n -A4 -E '<realm name="(internet|intranet)"' /opt/jboss/jboss-eap/dc/configuration/domain.xml | grep -E 'realm name|auth-server-url|realm-public-key' | cut -c1-150
 
-Como o sifec-intranet do 6.4 vai até a linha 20972, use o primeiro bloco, o de linha menor que 20972.
-
-Também vale ver o realm intranet, porque o token pode estar vindo dele:
-
-grep -n -A10 '<realm name="intranet"' /opt/jboss/jboss-eap/dc/configuration/domain.xml | grep -viE 'secret|credential' | head -15
-
-
-
-
-[root@cbrdeapllx471 p585600]# grep -n -A10 '<realm name="internet"' /opt/jboss/jboss-eap/dc/configuration/domain.xml | grep -viE 'secret|credential' | head -15
-1429:                <realm name="internet">
-1430-                    <auth-server-url>https://logindes.caixa.gov.br/auth</auth-server-url>
-1431-                    <ssl-required>external</ssl-required>
-1432-                    <disable-trust-manager>true</disable-trust-manager>
-1433-                </realm>
-1434-                <secure-deployment name="hub-web.war">
-1435-                    <realm>intranet</realm>
-1436-                    <resource>cli-web-fec</resource>
-1438-                </secure-deployment>
-1439-                <secure-deployment name="simtr-rest-web.war">
-[root@cbrdeapllx471 p585600]#
-[root@cbrdeapllx471 p585600]#
-[root@cbrdeapllx471 p585600]#
-[root@cbrdeapllx471 p585600]#
-[root@cbrdeapllx471 p585600]#
-
-
-
-
--sh-4.1$ grep -n -A10 '<realm name="intranet"' /opt/jboss/jboss-eap/dc/configuration/domain.xml | grep -viE 'secret|credential' | head -15
-5911:                <realm name="intranet">
-5912-                    <auth-server-url>https://login.des.caixa/auth</auth-server-url>
-5913-                    <ssl-required>external</ssl-required>
-5914-                    <disable-trust-manager>true</disable-trust-manager>
-5915-                </realm>
-5916-                <realm name="internet">
-5917-                    <auth-server-url>https://logindes.caixa.gov.br/auth</auth-server-url>
-5918-                    <ssl-required>external</ssl-required>
-5919-                    <disable-trust-manager>true</disable-trust-manager>
-5920-                </realm>
-5921-                <secure-deployment name="fes-web.war">
---
-6470:                <realm name="intranet">
-6471-                    <auth-server-url>https://login.des.caixa/auth</auth-server-url>
-6472-                    <ssl-required>external</ssl-required>
--sh-4.1$
-
-
-
--sh-4.1$ sudo grep -n -A10 '<realm name="internet"' /opt/jboss/jboss-eap/dc/configuration/domain.xml | grep -viE 'secret|credential' | head -15
-5916:                <realm name="internet">
-5917-                    <auth-server-url>https://logindes.caixa.gov.br/auth</auth-server-url>
-5918-                    <ssl-required>external</ssl-required>
-5919-                    <disable-trust-manager>true</disable-trust-manager>
-5920-                </realm>
-5921-                <secure-deployment name="fes-web.war">
-5922-                    <realm>intranet</realm>
-5923-                    <resource>cli-web-fes</resource>
-5924-                    <auth-server-url>https://login.des.caixa/auth</auth-server-url>
-5925-                    <ssl-required>EXTERNAL</ssl-required>
---
-6475:                <realm name="internet">
-6476-                    <auth-server-url>https://logindes.caixa.gov.br/auth</auth-server-url>
-6477-                    <ssl-required>external</ssl-required>
-6478-                    <disable-trust-manager>true</disable-trust-manager>
--sh-4.1$
-
-
+Se o realm internet do sifec-intranet no 6.4 apontar para outro endereço (por exemplo login.des.caixa) ou tiver uma realm-public-key fixa, achamos a diferença. Me manda as duas saídas.
