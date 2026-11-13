@@ -1,10 +1,20 @@
+Próximo passo: deploy do SIRUR
 
+1. Confira que a janela 1 (log da 473) está aberta.
 
-[domain@localhost:9999 /] exit
-[root@cbrdeapllx471 p585600]# curl -s -o /tmp/sifec-sirur-3.55.51.02.ear http://binario.caixa:8081/repository/releases/br/gov/caixa/sirur/sifec-sirur/3.55.51.02/sifec-sirur-3.55.51.02.ear && ls -l /tmp/sifec-sirur-3.55.51.02.ear && file /tmp/sifec-sirur-3.55.51.02.ear
--rw-r--r-- 1 root root 76057197 Nov 13 15:05 /tmp/sifec-sirur-3.55.51.02.ear
-/tmp/sifec-sirur-3.55.51.02.ear: Zip archive data, at least v1.0 to extract
-[root@cbrdeapllx471 p585600]#
-[root@cbrdeapllx471 p585600]#
-[root@cbrdeapllx471 p585600]#
-[root@cbrdeapllx471 p585600]#
+2. Na 471, entre no CLI:
+
+/opt/jboss/jboss-eap/bin/jboss-cli.sh --connect --controller=localhost:9999
+
+3. Quando o prompt mudar para [domain@localhost:9999 /], rode um comando por vez:
+
+deploy /tmp/sifec-sirur-3.55.51.02.ear --name=SIRUR --runtime-name=sifec-sirur-3.55.51.02.ear --force
+
+Esse primeiro só troca o arquivo e não mostra nada. Depois rode:
+
+/server-group=sifec-intranet/deployment=SIRUR:add(enabled=true)
+
+4. Olhe o resultado:
+
+"outcome" => "success" e, na janela 1, WFLYSRV0010: "SIRUR" foi implantado: ✅ subiu.
+"outcome" => "failed": me manda a saída do CLI e o log da janela 1.
