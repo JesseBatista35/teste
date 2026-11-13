@@ -1,125 +1,40 @@
-package br.gov.caixa.sigec.rest;
-
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Properties;
-import java.util.Set;
-import java.util.TreeSet;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import javax.annotation.security.PermitAll;
-import javax.enterprise.context.RequestScoped;
-import javax.inject.Inject;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
-import javax.servlet.http.HttpServletRequest;
-import javax.ws.rs.core.Context;
-import javax.ws.rs.core.MediaType;
-
-import br.gov.caixa.arqrefcore.excecao.BusinessException;
-import br.gov.caixa.arqrefcore.excecao.SystemException;
-import br.gov.caixa.arqrefservices.dominio.Empregado;
-import br.gov.caixa.arqrefservices.negocio.EmpregadoService;
-import br.gov.caixa.arqrefservices.negocio.UserProfile;
-import br.gov.caixa.sifec.componentes.seguranca.sso.rest.AbstractSecurityRest;
-
-@PermitAll
-@RequestScoped
-@Path("/userprofile")
-public class UserProfileRest extends AbstractSecurityRest {
-
-	private static final Logger LOG = Logger.getLogger(UserProfileRest.class.getSimpleName());
-	private static final Properties GRUPOS_LDAP = new Properties();
-	static {
-		try {
-			UserProfileRest.GRUPOS_LDAP
-					.load(UserProfileRest.class.getClassLoader().getResourceAsStream("ldap_groups.properties"));
-		} catch (IOException ioe) {
-			LOG.log(Level.SEVERE, ioe.getMessage(), ioe);
-		}
-	}
-
-	@Inject
-	private EmpregadoService empregadoService;
-
-	@POST
-	@Path("/load")
-	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	public UserProfile loadUserProfile(@Context final HttpServletRequest request) {
-		final UserProfile user = new UserProfile();
-		final Empregado empregado = this.empregadoService.getEmpregadoPorMatricula(super.getUsuarioLogado());
-		if (empregado == null) {
-			throw new SystemException("Funcionário não encontrado no SICLI");
-		}
-		user.setEmpregado(empregado);
-		user.getEmpregado().setNumeroIP(user.getNumeroIP(request));
-		// user.setGrupoUsuarioList( this.loadgroups() );
-		return user;
-	}
-
-	@POST
-	@Path("/loadgroups")
-	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	public List<String> loadgroups() {
-		final Set<String> roles = new TreeSet<>();
-		for (Object key : UserProfileRest.GRUPOS_LDAP.keySet()) {
-			if (super.possuiFuncao((String) key)) {
-				roles.add(UserProfileRest.GRUPOS_LDAP.getProperty((String) key));
-			}
-		}
-		return new ArrayList<>(roles);
-	}
-
-	@POST
-	@Path("/carregarGrupos")
-	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	public List<String> carregarGrupos() {
-		final Set<String> roles = new TreeSet<>();
-		for (Object value : UserProfileRest.GRUPOS_LDAP.values()) {
-			roles.add((String) value);
-		}
-		return new ArrayList<>(roles);
-	}
-
-	/**
-	 * @param role
-	 * @return
-	 */
-	@POST
-	@Path("/hasRole/{role}")
-	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	public boolean hasRole(final @PathParam("role") String role) {
-		return this.loadgroups().contains(role);
-	}
-
-	/**
-	 * @param role
-	 * @throws BusinessException
-	 */
-	void validarRole(final String role) throws BusinessException {
-		if (!this.hasRole(role)) {
-			throw new BusinessException(
-					"Usu\u00E1rio logado n\u00E3o possui permiss\u00E3o para efetuar opera\u00E7\u00E3o desejada.");
-		}
-	}
-
-	@GET
-	@Path("/grupos")
-	public String grupos() {
-		final StringBuilder buffer = new StringBuilder();
-		final List<String> grupos = this.loadgroups();
-		if (grupos != null && !grupos.isEmpty()) {
-			for (String grupo : grupos) {
-				buffer.append(grupo);
-				buffer.append("<br/>");
-			}
-		}
-		return buffer.toString();
-	}
-
-}
+[INFO] --------------------------------[ jar ]---------------------------------
+Downloading from Nexus Caixa: http://binario.caixa:8081/repository/caixa-group-br/br/gov/caixa/arqref/arqref-web/3.1.0.1/arqref-web-3.1.0.1.pom
+[WARNING] The POM for br.gov.caixa.arqref:arqref-web:jar:3.1.0.1 is missing, no dependency information available
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ gec-xml ---
+[INFO] 
+[INFO] --- maven-resources-plugin:3.3.1:resources (default-resources) @ gec-xml ---
+[INFO] Copying 524 resources from src/main/resources to target/classes
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.13.0:compile (default-compile) @ gec-xml ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 2368 source files with javac [debug parameters release 17] to target/classes
+[INFO] Hibernate JPA 2 Static-Metamodel Generator 1.2.0.Final
+[WARNING] Error unmarshalling /META-INF/persistence.xml with exception :
+   javax.xml.bind.JAXBException: Implementation of JAXB-API has not been found on module path or classpath.
+   - with linked exception:
+  [java.lang.ClassNotFoundException: com.sun.xml.internal.bind.v2.ContextFactory]
+[WARNING] Supported source version 'RELEASE_6' from annotation processor 'org.hibernate.validator.ap.ConstraintValidationProcessor' less than -source '17'
+[WARNING] /opt/ads-agent/_work/21/s/gec-xml/src/main/java/br/gov/caixa/sigec/util/DataAdaptador.java:[50,59] Integer(java.lang.String) in java.lang.Integer has been deprecated and marked for removal
+##[warning] /opt/ads-agent/_work/21/s/gec-xml/src/main/java/br/gov/caixa/sigec/util/DataAdaptador.java(51,53): warning :  /opt/ads-agent/_work/21/s/gec-xml/src/main/java/br/gov/caixa/sigec/util/DataAdaptador.java:[51,53] Integer(java.lang.String) in java.lang.Integer has been deprecated and marked for removal
+##[warning] /opt/ads-agent/_work/21/s/gec-xml/src/main/java/br/gov/caixa/sigec/util/DataAdaptador.java(52,51): warning :  /opt/ads-agent/_work/21/s/gec-xml/src/main/java/br/gov/caixa/sigec/util/DataAdaptador.java:[52,51] Integer(java.lang.String) in java.lang.Integer has been deprecated and marked for removal
+##[warning] /opt/ads-agent/_work/21/s/gec-xml/src/main/java/br/gov/caixa/sigec/util/DataAdaptador.java(75,60): warning :  /opt/ads-agent/_work/21/s/gec-xml/src/main/java/br/gov/caixa/sigec/util/DataAdaptador.java:[75,60] Integer(java.lang.String) in java.lang.Integer has been deprecated and marked for removal
+##[warning] /opt/ads-agent/_work/21/s/gec-xml/src/main/java/br/gov/caixa/sigec/util/DataAdaptador.java(76,53): warning :  /opt/ads-agent/_work/21/s/gec-xml/src/main/java/br/gov/caixa/sigec/util/DataAdaptador.java:[76,53] Integer(java.lang.String) in java.lang.Integer has been deprecated and marked for removal
+##[warning] /opt/ads-agent/_work/21/s/gec-xml/src/main/java/br/gov/caixa/sigec/util/DataAdaptador.java(77,51): warning :  /opt/ads-agent/_work/21/s/gec-xml/src/main/java/br/gov/caixa/sigec/util/DataAdaptador.java:[77,51] Integer(java.lang.String) in java.lang.Integer has been deprecated and marked for removal
+[WARNING] /opt/ads-agent/_work/21/s/gec-xml/src/main/java/br/gov/caixa/sigec/util/DataAdaptador.java:[51,53] Integer(java.lang.String) in java.lang.Integer has been deprecated and marked for removal
+[WARNING] /opt/ads-agent/_work/21/s/gec-xml/src/main/java/br/gov/caixa/sigec/util/DataAdaptador.java:[52,51] Integer(java.lang.String) in java.lang.Integer has been deprecated and marked for removal
+[WARNING] /opt/ads-agent/_work/21/s/gec-xml/src/main/java/br/gov/caixa/sigec/util/DataAdaptador.java:[75,60] Integer(java.lang.String) in java.lang.Integer has been deprecated and marked for removal
+[WARNING] /opt/ads-agent/_work/21/s/gec-xml/src/main/java/br/gov/caixa/sigec/util/DataAdaptador.java:[76,53] Integer(java.lang.String) in java.lang.Integer has been deprecated and marked for removal
+[WARNING] /opt/ads-agent/_work/21/s/gec-xml/src/main/java/br/gov/caixa/sigec/util/DataAdaptador.java:[77,51] Integer(java.lang.String) in java.lang.Integer has been deprecated and marked for removal
+[INFO] 
+[INFO] --- maven-resources-plugin:3.3.1:testResources (default-testResources) @ gec-xml ---
+[INFO] skip non existing resourceDirectory /opt/ads-agent/_work/21/s/gec-xml/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.13.0:testCompile (default-testCompile) @ gec-xml ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:3.2.5:test (default-test) @ gec-xml ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ gec-xml ---
