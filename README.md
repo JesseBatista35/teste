@@ -1,24 +1,13 @@
-REQ 1 – Intranet
-Nome DNS: sigsj-intranet.des.caixa
-Endereço IP: 10.116.180.8
-Descrição/Observação:
 
-Criação de registro Host (A) para o SIGSJ-intranet (DES), apontando para o VIP 10.116.180.8 do balanceador CADDEAPRLB003-1 (VIP criado na WO0000082200842). Certificado em instalação na REQ000147048801. Conforme alinhado com a equipe, o DNS pode ser criado em paralelo.
 
-REQ 2 – Internet
-Nome DNS: sigsj-internet.des.caixa
-Endereço IP: 10.116.181.214
-Descrição/Observação:
+Criação do DNS do sigsj-intranet.des.caixa - REQ000147049343 /WO0000082299800.
+Criação do DNS do sigsj-internet.des.caixa - REQ000147049349/WO0000082299807
 
-Criação de registro Host (A) para o SIGSJ-internet (DES), apontando para o VIP 10.116.181.214 do balanceador CADDEAPRLB003-1 (VIP criado na WO0000082201229). Certificado em instalação na REQ000147047987. Conforme alinhado com a equipe, o DNS pode ser criado em paralelo.
 
-REQ 3 – Boleto
-Nome DNS: sigsj-boleto.des.caixa
-Endereço IP: 10.116.181.215
-Descrição/Observação:
+VAMOS FAZER AGORA DO TQS.
 
-Criação de registro Host (A) para o SIGSJ-boleto (DES), apontando para o VIP 10.116.181.215 do balanceador CADDEAPRLB003-1 (VIP criado na WO0000082200691). Certificado em instalação na REQ000147048948. Conforme alinhado com a equipe, o DNS pode ser criado em paralelo.
+VAMOS FAZER DA MANIRA CORRETA PARA NAO GERAR A EMSMA CONFUNSAO QUE GEROU EM DES.
 
-O Endpoint de internet fica “Não” mesmo no internet e no boleto, porque são URLs .des.caixa, de rede interna. O “internet” aqui é só o nome do sistema.
+PRIMEIRO URL CUSTOMIZANDA NÉ?
 
-Me passa os três números quando abrir.
+ 
