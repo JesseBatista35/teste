@@ -79,3 +79,18 @@ http://binario.caixa:8081/repository/releases/br/gov/caixa/fec/sifec/2.161.2.0/s
 <img width="1054" height="869" alt="image" src="https://github.com/user-attachments/assets/1eeb690c-a56e-4930-9cf8-2a4190b22c73" />
 
  
+
+Boa tarde mestre, quando vc voltar do almoço, consegue avaliar o erro que o Edson postou no grupo?
+ 
+Jesse Mouta Pereira Batista
+ 
+Mandaram uma versão do SIRUR mestre
+ 
+Mestre, quando puder, vamos focar no LCR, depois SIRUR e só aí vamos ver a questão do CCR, por favor
+ 
+Importante!
+Vamos seguir essa linha Jesse Mouta Pereira Batista 
+
+
+
+ vamos la vamos na primoreido que o paulo e  o rdirgo pediu bora fazer tudo me ajuda ai.. conforme ele pediu
