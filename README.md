@@ -1,78 +1,157 @@
 Histórico de Informações de Trabalho da Ordem de Trabalho
-ID da Ordem de Trabalho	 WO0000082187699
-Criado em	 04/11/2026 14:24:50
-Criado por	 C065144
+ID da Ordem de Trabalho	 WO0000082200691
+Criado em	 05/11/2026 21:34:23
+Criado por	 P705270
 Origem de Comunicação	 
 Exibir Acesso	 Público
-Notas	 Prezado Vitor
+Notas	 À TELEDATA/CETEL/REDES
 
-1    Informamos que, devido à ausência de informações sobre o VIP a ser instalado, esta demanda será concluída. Assim que a informação estiver disponível, a demanda poderá ser reaberta para que possamos redirecionar à equipe competente para a instalação do Certificado Digital.
+Script aplicado e validado conforme planejado.
 
-2    Permanecemos à disposição para quaisquer esclarecimentos adicionais.
+###########VALIDAÇÃO###########
 
-Atenciosamente,
-CEPRO - CN PROTECOES EM SEGURANCA DIGITAL
-ID da Ordem de Trabalho	 WO0000082187699
-Criado em	 04/11/2026 08:45:38
-Criado por	 P935210
+p705270@CADDEAPRLB003-1-Primary> show ns runningConfig | grep 10.116.181.215
+add ns ip 10.116.181.215 255.255.255.255 -type VIP -snmp DISABLED -hostRoute ENABLED
+add serviceGroup LB_SG_10.116.181.215_HTTP_80 HTTP -maxClient 0 -maxReq 0 -cip DISABLED -usip NO -useproxyport YES -cltTimeout 180 -svrTimeout 360 -CKA NO -TCPB NO -CMP NO -comment SIGSJ-BOLETO.DES.CAIXA -netProfile NETPROF_SNAT
+add lb vserver LB_VS_10.116.181.215_HTTP_80 HTTP 10.116.181.215 80 -persistenceType NONE -cltTimeout 180 -comment SIGSJ-BOLETO.DES.CAIXA -RHIstate ACTIVE
+add lb vserver LB_VS_10.116.181.215_SSL_443 SSL 10.116.181.215 443 -persistenceType SOURCEIP -timeout 15 -cltTimeout 180 -RHIstate ACTIVE
+bind lb vserver LB_VS_10.116.181.215_HTTP_80 Always_up
+bind lb vserver LB_VS_10.116.181.215_SSL_443 LB_SG_10.116.181.215_HTTP_80
+bind lb vserver LB_VS_10.116.181.215_HTTP_80 -policyName http_to_https_pol -priority 1 -gotoPriorityExpression END -type REQUEST
+bind serviceGroup LB_SG_10.116.181.215_HTTP_80 LB_SR_10.116.201.25 80
+bind serviceGroup LB_SG_10.116.181.215_HTTP_80 -monitorName CEF_TCP_DEFAULT_MON
+set ssl vserver LB_VS_10.116.181.215_SSL_443 -sslProfile CEF_SSL_PROFILE_FRONTEND_SECURITY
+
+
+At.te,
+Edson Pereira da Silva
+Analista de datacenter - Redes
+TELEDATA/CETEL/REDES
+ID da Ordem de Trabalho	 WO0000082200691
+Criado em	 05/11/2026 17:08:21
+Criado por	 C052949
 Origem de Comunicação	 
 Exibir Acesso	 Público
-Notas	 À CEPRO,
-Solicito a gentileza de informar o VIP a ser instalado.
+Notas	 Autorizamos criar o VIP 10.116.181.215 para sigsj-boleto.des.caixa, conforme planejamento, após às 20h. Att, CETEL02
+ID da Ordem de Trabalho	 WO0000082200691
+Criado em	 05/11/2026 17:07:46
+Criado por	 C052949
+Origem de Comunicação	 
+Exibir Acesso	 Público
+Notas	 Script retificado (certificado não foi gerado):
 
-Atenciosamente,
-Clara Dias.
-TELEDATA/CETEL/REDE DATA CENTER
-ID da Ordem de Trabalho	 WO0000082187699
-Criado em	 04/11/2026 08:38:15
-Criado por	 P705068
+À
+TELEDATA/CETEL/REDES,
+
+- IP alocado para o VIP: 10.116.181.215. Abaixo o script para a criação:
+
+### CADDEAPRLB003-1
+
+add server LB_SR_10.116.201.25 10.116.201.25
+add ns ip 10.116.181.215 255.255.255.255 -type VIP -snmp DISABLED -hostRoute ENABLED
+add serviceGroup LB_SG_10.116.181.215_HTTP_80 HTTP -maxClient 0 -maxReq 0 -cip DISABLED -usip NO -useproxyport YES -cltTimeout 180 -svrTimeout 360 -CKA NO -TCPB NO -CMP NO -comment SIGSJ-BOLETO.DES.CAIXA -netProfile NETPROF_SNAT
+add lb vserver LB_VS_10.116.181.215_HTTP_80 HTTP 10.116.181.215 80 -persistenceType NONE -cltTimeout 180 -comment SIGSJ-BOLETO.DES.CAIXA -RHIstate ACTIVE
+add lb vserver LB_VS_10.116.181.215_SSL_443 SSL 10.116.181.215 443 -persistenceType SOURCEIP -timeout 15 -cltTimeout 180 -RHIstate ACTIVE
+bind lb vserver LB_VS_10.116.181.215_HTTP_80 Always_up
+bind lb vserver LB_VS_10.116.181.215_SSL_443 LB_SG_10.116.181.215_HTTP_80
+bind lb vserver LB_VS_10.116.181.215_HTTP_80 -policyName http_to_https_pol -priority 1 -gotoPriorityExpression END -type REQUEST
+bind serviceGroup LB_SG_10.116.181.215_HTTP_80 LB_SR_10.116.201.25 80
+bind serviceGroup LB_SG_10.116.181.215_HTTP_80 -monitorName CEF_TCP_DEFAULT_MON
+set ssl vserver LB_VS_10.116.181.215_SSL_443 -sslProfile CEF_SSL_PROFILE_FRONTEND_SECURITY
+save ns config
+ID da Ordem de Trabalho	 WO0000082200691
+Criado em	 05/11/2026 17:06:59
+Criado por	 C052949
+Origem de Comunicação	 
+Exibir Acesso	 Público
+Notas	 VIP ficará DOWN até instalar o certificado no VIP
+ID da Ordem de Trabalho	 WO0000082200691
+Criado em	 05/11/2026 15:46:21
+Criado por	 P705973
+Origem de Comunicação	 
+Exibir Acesso	 Público
+Notas	 Ação: criar o VIP 10.116.181.215 para http://sigsj-boleto.des.caixa
+Risco: Baixo
+Impacto: Não
+Janela: de 19h de 05/11/2026 às 06h de 06/11/2026
+Plano de execução, Validação e Retorno: SIM
+ID da Ordem de Trabalho	 WO0000082200691
+Criado em	 05/11/2026 15:45:30
+Criado por	 P705973
+Origem de Comunicação	 
+Exibir Acesso	 Público
+Notas	 
+À
+TELEDATA/CETEL/REDES,
+
+- IP alocado para o VIP: 10.116.181.215. Abaixo o script para a criação:
+
+### CADDEAPRLB003-1
+
+add server LB_SR_10.116.201.25 10.116.201.25
+add ns ip 10.116.181.215 255.255.255.255 -type VIP -snmp DISABLED -hostRoute ENABLED
+add serviceGroup LB_SG_10.116.181.215_HTTP_80 HTTP -maxClient 0 -maxReq 0 -cip DISABLED -usip NO -useproxyport YES -cltTimeout 180 -svrTimeout 360 -CKA NO -TCPB NO -CMP NO -comment SIGSJ-BOLETO.DES.CAIXA -netProfile NETPROF_SNAT
+add lb vserver LB_VS_10.116.181.215_HTTP_80 HTTP 10.116.181.215 80 -persistenceType NONE -cltTimeout 180 -comment SIGSJ-BOLETO.DES.CAIXA -RHIstate ACTIVE
+add lb vserver LB_VS_10.116.181.215_SSL_443 SSL 10.116.181.215 443 -persistenceType SOURCEIP -timeout 15 -cltTimeout 180 -RHIstate ACTIVE
+bind lb vserver LB_VS_10.116.181.215_HTTP_80 Always_up
+bind lb vserver LB_VS_10.116.181.215_SSL_443 LB_SG_10.116.181.215_HTTP_80
+bind lb vserver LB_VS_10.116.181.215_HTTP_80 -policyName http_to_https_pol -priority 1 -gotoPriorityExpression END -type REQUEST
+bind serviceGroup LB_SG_10.116.181.215_HTTP_80 LB_SR_10.116.201.25 80
+bind serviceGroup LB_SG_10.116.181.215_HTTP_80 -monitorName CEF_TCP_DEFAULT_MON
+set ssl vserver LB_VS_10.116.181.215_SSL_443 -sslProfile CEF_SSL_PROFILE_FRONTEND_SECURITY
+bind ssl vserver LB_VS_10.116.181.215_SSL_443 -certkeyName CT2026_SIGSJ-BOLETO.DES.CAIXA_WO82200691
+save ns config
+
+
+
+Att,
+Magnus dos Santos Silva
+Analista de Datacenter - Redes
+TELEDATA/CETEL/REDES
+ID da Ordem de Trabalho	 WO0000082200691
+Criado em	 05/11/2026 14:24:34
+Criado por	 P908440
 Origem de Comunicação	 
 Exibir Acesso	 Público
 Notas	 À
+CEPRO,
 
-Prezados,
+- Favor importar o certificado do SIGSJ-BOLETO.DES.CAIXA no balanceador CADDEAPRLB003-1. Nome sugerido: CT2026_SIGSJ-BOLETO.DES.CAIXA_WO82200691. Após a importação, favor linká-lo a sua cadeia.
 
-O fqdn não possui resolução de nome, por favor informar o vip a ser instalado.
+À
+TELEDATA/CETEL/REDES,
+
+- IP alocado para o VIP: 10.116.181.215. Abaixo o script para a criação:
+
+### CADDEAPRLB003-1
+
+add server LB_SR_10.116.201.25 10.116.201.25
+add ns ip 10.116.181.215 255.255.255.255 -type VIP -snmp DISABLED -hostRoute ENABLED
+add serviceGroup LB_SG_10.116.181.215_HTTP_80 HTTP -maxClient 0 -maxReq 0 -cip DISABLED -usip NO -useproxyport YES -cltTimeout 180 -svrTimeout 360 -CKA NO -TCPB NO -CMP NO -comment SIGSJ-BOLETO.DES.CAIXA -netProfile NETPROF_SNAT
+add lb vserver LB_VS_10.116.181.215_HTTP_80 HTTP 10.116.181.215 80 -persistenceType NONE -cltTimeout 180 -comment SIGSJ-BOLETO.DES.CAIXA -RHIstate ACTIVE
+add lb vserver LB_VS_10.116.181.215_SSL_443 SSL 10.116.181.215 443 -persistenceType SOURCEIP -timeout 15 -cltTimeout 180 -RHIstate ACTIVE
+bind lb vserver LB_VS_10.116.181.215_HTTP_80 Always_up
+bind lb vserver LB_VS_10.116.181.215_SSL_443 LB_SG_10.116.181.215_HTTP_80
+bind lb vserver LB_VS_10.116.181.215_HTTP_80 -policyName http_to_https_pol -priority 1 -gotoPriorityExpression END -type REQUEST
+bind serviceGroup LB_SG_10.116.181.215_HTTP_80 LB_SR_10.116.201.25 80
+bind serviceGroup LB_SG_10.116.181.215_HTTP_80 -monitorName CEF_TCP_DEFAULT_MON
+set ssl vserver LB_VS_10.116.181.215_SSL_443 -sslProfile CEF_SSL_PROFILE_FRONTEND_SECURITY
+bind ssl vserver LB_VS_10.116.181.215_SSL_443 -certkeyName CT2026_SIGSJ-BOLETO.DES.CAIXA_WO82200691
+save ns config
+
+
 
 Att,
-Weverton de Oliveira Silva
-Analista de infraestrutura - Redes
+Magnus dos Santos Silva
+Analista de Datacenter - Redes
 TELEDATA/CETEL/REDES
-ID da Ordem de Trabalho	 WO0000082187699
-Criado em	 03/11/2026 16:15:00
-Criado por	 P502678
-Origem de Comunicação	 
-Exibir Acesso	 Público
-Notas	 Para instalação no VIP.
-ID da Ordem de Trabalho	 WO0000082187699
-Criado em	 03/11/2026 16:14:40
-Criado por	 P502678
-Origem de Comunicação	 
-Exibir Acesso	 Público
-Notas	 Prezados(as),
-
-1 – Disponibilizaremos o arquivo PKCS#12 através de compartilhamento de arquivo no OneDrive.
-
-2 - Para solicitar o arquivo PKCS#12 e a inserção da senha do certificado no momento da instalação no ambiente o técnico deverá ingressar em um dos canais na equipe criada no Teams para essa finalidade. As orientações de como acessar a equipe e o link para os canais estão disponíveis através do link https://caixa.sharepoint.com/:w:/r/teams/O365GRP-CESET-Inserodesenhas/Documentos%20Compartilhados/General/Instru%C3%A7%C3%B5es%20da%20Equipe.docx?d=w427f7e74198a45bb91f6335e8595bde2&csf=1&web=1&e=0iQbhI
-
-03 – Caso seja necessário extrair do arquivo PKCS#12 os arquivos .crt e .key, executar os comandos abaixo:
-
-openssl pkcs12 -in INFILE.p12 -out OUTFILE.key -nodes -nocerts
-openssl pkcs12 -in INFILE.p12 -out OUTFILE.crt -nokeys
-
-Obs.: será solicitada a senha do arquivo PKCS#12.
-
-Duvidas: https://www.ssl.com/pt/como/chave-privada-de-certificados-de-exporta%C3%A7%C3%A3o-do-arquivo-pkcs12-com-openssl/
-
-4 - Informamos que a cadeia de certificados NPRD (ACInternaIcptestes) está disponível em http://icptestes.caixa/ .
-
- 
-Atenciosamente,
-CAIXA/CEPRO/CN de Segurança Cibernética
-ID da Ordem de Trabalho	 WO0000082187699
-Criado em	 03/11/2026 16:12:49
+ID da Ordem de Trabalho	 WO0000082200691
+Criado em	 04/11/2026 15:30:09
 Criado por	 Remedy Application Service
 Origem de Comunicação	 E-mail
 Exibir Acesso	 Interno
 Notas	 Este ticket foi criado a partir do sistema de solicitação de serviço.
-Impresso por P585600 em Sexta-feira, 13/11/2026 10:10:45
+Impresso por P585600 em Sexta-feira, 13/11/2026 10:20:57
+
+
+essa é do boleto
