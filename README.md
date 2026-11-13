@@ -139,6 +139,17 @@
 				<version>7.0</version>
 				<scope>provided</scope>
 			</dependency>
+
+			<!-- Servlet API: o artifactId correto para a 4.0.1 e javax.servlet-api.
+			     javax.servlet:servlet-api:4.0.1 NAO existe em nenhum repositorio Maven
+			     (servlet-api so tem 2.x/3.0). Os modulos (gec-web) devem declarar
+			     javax.servlet:javax.servlet-api sem <version>, herdada daqui. -->
+			<dependency>
+				<groupId>javax.servlet</groupId>
+				<artifactId>javax.servlet-api</artifactId>
+				<version>${servlet.version}</version>
+				<scope>provided</scope>
+			</dependency>
 			<dependency>
 				<groupId>br.gov.caixa.arqref</groupId>
 				<artifactId>arqref-core</artifactId>
