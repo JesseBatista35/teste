@@ -1,145 +1,244 @@
-<img width="1569" height="572" alt="image" src="https://github.com/user-attachments/assets/4bf544a4-a66d-41f8-ba89-d5231faf61b5" />
+Recupera versão projeto (groupId:artifactId:type:version)
 
 
-<img width="1641" height="871" alt="image" src="https://github.com/user-attachments/assets/7271aa39-0ddd-47be-adda-0646b5d33f63" />
+cd $(Build.SourcesDirectory)
 
+find . -name maven-wrapper.jar -delete
 
-if [[ "$BUILD_REPOSITORY_URI" == *"github.com"* ]]; then
-echo "É um repositório do GitHub"
-REPO_FINAL_NAME=`basename "$BUILD_REPOSITORY_URI" .git`
-echo "##vso[task.setvariable variable=fortify_disable;]gecmi"
-echo "##vso[task.setvariable variable=sonar_disable;]true"
-else
-echo "É um repositório do Devops.Caixa"
-REPO_FINAL_NAME=`echo $(Build.Repository.Name)`
-fi
-echo "Nome do repositório: $REPO_FINAL_NAME"
-echo "##vso[task.setvariable variable=REPO_FINAL_NAME;]$REPO_FINAL_NAME"
+echo "Entrando no diretório: $(Build.SourcesDirectory)"
+echo "Arquivos encontrados: `ls -la`"
 
-
-
-echo "##[section]branch/tag: $BUILD_SOURCEBRANCHNAME"
-
-echo "##[warning] -------------------- ATENÇÃO --------------------
-##[warning] Foi definido conforme CE GEQTI 011/2024 que a partir de 03/2025 apenas compilações oriundas de tag dentro do padrão estabelecido no PPDS poderão ser implantadas em TQS/HMP/PRD.
-##[warning] Para mais informações acesse as urls:
-##[warning] https://devops.caixa/projetos/Caixa/_wiki/wikis/Caixa.wiki/1689/Valida%C3%A7%C3%A3o-da-VEC
-##[warning] https://caixa.sharepoint.com/sites/PPDS/SitePages/GCM_Diretrizes_Padrao_Baseline.aspx ou consulte a GEQTI04
--------------------------------------------------"
-echo $BUILD_SOURCEBRANCH
-if [[ `echo $BUILD_SOURCEBRANCH | grep -c tags` -gt 0 ]];then
-pontos=`echo ${BUILD_SOURCEBRANCHNAME//[^\.]} | sed 's/\./\.\n/g' | wc -w`
-number=`echo $BUILD_SOURCEBRANCHNAME | sed 's/\\.//g'`
-
-if [[ ${pontos} = 3 ]];then
-if [[ ${number} =~ ^([0-9]+)$ ]];then
-echo "VEC $BUILD_SOURCEBRANCHNAME dentro do padrão estabelecido pelo PPDS.
-Pacote apto a ser implantado em TQS/HMP/PRD."
-vec='true'
-echo "##vso[build.updatebuildnumber]"$BUILD_SOURCEBRANCHNAME""
-else
-echo "A TAG $BUILD_SOURCEBRANCHNAME não se encontra dentro do padrão estabelecido pelo PPDS e este pacote não poderá ser implantado nos ambientes TQS/HMP/PRD."
-vec='false'
-fi
-else
-echo "A TAG $BUILD_SOURCEBRANCHNAME não se encontra dentro do padrão estabelecido pelo PPDS e este pacote não poderá ser implantado nos ambientes TQS/HMP/PRD."
-vec='false'
-fi
-elif [[ `echo $BUILD_SOURCEBRANCH | grep -c heads` -gt 0 ]];then
-echo "##[warning]Foi selecionada para compilação uma branch. Esteja ciente de que este pacote poderá ser implantado somente em ambiente DES."
-vec='false'
-else
-echo "##[warning]Foi selecionada para compilação uma branch. Esteja ciente de que este pacote poderá ser implantado somente em ambiente DES."
-vec='false'
+if [ -z "$TARGET_PATH" ]; then 
+	TARGET_PATH="." 
 fi
 
-echo "##[section]Valida VEC: $vec"
-echo "##vso[task.setvariable variable=valida.vec;]$vec"
+for extension in ear war jar
+do
+   file=`find $TARGET_PATH -name "*.${extension}"`
+   if [ -n "${file}" ]
+   then
+			PROJECT_FILE="${file}"
+			p_extension="${extension}"
+			break
+   fi
+done
 
-echo "------------------------------------------------- 
-ps: Essa regra se aplica somente a projetos que possuem infra criada na esteira devops."
+echo "Encontrado o arquivo: $file\n"
+
+export PROJECT_DIR=`dirname ${PROJECT_FILE}`
+export PROJECT_POM_PROPERTIES_FILE=`find ${PROJECT_DIR} -name pom.properties`
+
+echo "Diretório do projeto: $PROJECT_DIR"
+echo "Conteúdo do diretório: `ls -la $PROJECT_DIR`"
+echo "Arquivo POM: $PROJECT_POM_PROPERTIES_FILE"
+
+#if [ -z $PROJECT_POM_PROPERTIES_FILE ]
+#then
+#      echo "Arquivo pom.properties não encontrado, favor verificar a versão da TAG <maven-ear-plugin-version> no pom.properties, algumas versões #possuem BUG e não gera o arquivo."
+#      exit 1
+#fi
 
 
+p_version=`egrep version ${PROJECT_POM_PROPERTIES_FILE} | awk -F = {'print $2'}`		 
+p_group=`egrep groupId ${PROJECT_POM_PROPERTIES_FILE} | awk -F = {'print $2'}`
+p_artifact=`egrep artifactId ${PROJECT_POM_PROPERTIES_FILE} | awk -F = {'print $2'}`
+p_projectKey=`echo $p_artifact | tr -cd '[:alnum:]'` 
 
-#!/usr/bin/env bash
-set -euo pipefail
+echo "${p_group}:${p_artifact}:${p_extension}:${p_version}"
 
-if [[ `echo $BUILD_SOURCEBRANCH | grep -c tags` -gt 0 ]];then
+echo "##vso[task.setvariable variable=project.group;]$p_group"
 
-echo "Build originada de uma TAG."
+echo "##vso[task.setvariable variable=project.name;]$p_artifact"
 
-# ====== CONFIGURAÇÃO ======
-TAG=$BUILD_SOURCEBRANCH
-REMOTE="origin"
+echo "##vso[task.setvariable variable=project.version;]$p_version"
 
-# ====== RESOLVER COMMIT FINAL DA TAG ======
-if ! COMMIT=`git rev-parse "$TAG^{commit}" 2>/dev/null`; then
-  echo "Erro: a tag '$TAG' não existe ou não é válida."
-  exit 1
-fi
+echo "##vso[task.setvariable variable=project.extension;]$p_extension"
 
-echo "Tag        : $TAG"
-echo "Commit     : $COMMIT"
-echo "Remote     : $REMOTE"
-echo
-echo "Analisando branches que contêm o commit..."
-echo "------------------------------------------------------------"
-printf "%-8s %s\n" "DISTÂNCIA" "BRANCH"
-echo "------------------------------------------------------------"
+echo "##vso[task.setvariable variable=project.key;]$p_projectKey"
 
-FOUND=0
+echo "##vso[task.setvariable variable=project.file;]${PROJECT_FILE}"
 
-while read -r BRANCH; do
-  if git merge-base --is-ancestor "$COMMIT" "$BRANCH"; then
-    DIST=`git rev-list --count "$COMMIT..$BRANCH"`
-    
-    # Remove origin/
-    BRANCH_DISPLAY="${BRANCH#origin/}"    
+if [[ ! -z ${PROJECT_RELEASE} ]] && ([ ${PROJECT_RELEASE} == false ] || [ ${PROJECT_RELEASE} == true ]) ; then
 
-    printf "%-8s %s\n" "$DIST" "$BRANCH_DISPLAY"
-    FOUND=1
-  fi
-done < <(
-  git for-each-ref \
-    --format='%(refname:short)' \
-    "refs/remotes/$REMOTE"
-)
-
-if [[ "$FOUND" -eq 0 ]]; then
-  echo "Nenhuma branch remota contém esse commit."
-  exit 1
-fi
-
-echo "------------------------------------------------------------"
-
-# ====== BRANCH MAIS PROVÁVEL ======
-BEST_BRANCH=$(
-  while read -r BRANCH; do
-    if git merge-base --is-ancestor "$COMMIT" "$BRANCH"; then
-      # Remove origin/
-      BRANCH_DISPLAY="${BRANCH#origin/}"    
-      echo "`git rev-list --count "$COMMIT..$BRANCH"` $BRANCH_DISPLAY"
-    fi
-  done < <(
-    git for-each-ref \
-      --format='%(refname:short)' \
-      "refs/remotes/$REMOTE"
-  ) | sort -n | head -n1
-)
-
-BEST_DISTANCE=`echo "$BEST_BRANCH" | awk '{print $1}'`
-BEST_NAME=`echo "$BEST_BRANCH" | awk '{print $2}'`
-
-echo "Branch mais provável de origem:"
-echo "$BEST_NAME (distância: $BEST_DISTANCE commits)"
+echo "##vso[task.setvariable variable=project.release;]${PROJECT_RELEASE}"
 
 else
 
-echo "Build originada de uma BRANCH."
-BEST_NAME=$BUILD_SOURCEBRANCHNAME
+echo "##vso[task.setvariable variable=project.release;]true"
+
+if [[ ${p_version} == *"$(NEXUS_URL_SNAPSHOT_ALIAS)"* ]]; then
+  echo "##vso[task.setvariable variable=project.release;]false"
+fi
 
 fi
 
-echo "Branch que será informada para o SONAR: $BEST_NAME "
+echo "##vso[task.setvariable variable=POM_PATH;]$(POM_PATH)"
 
-echo "##vso[task.setvariable variable=sonar_branch;]$BEST_NAME"
+
+
+Recupera repositório nexus
+
+
+
+#tudo que não for padrão VEC é snapshot
+if [ $(valida.vec) = true ]; then
+NEXUS_URL=$(NEXUS_URL_RELEASE)
+else
+NEXUS_URL=$(NEXUS_URL_SNAPSHOT)
+fi
+
+
+p_repository=`echo ${NEXUS_URL##*/}`
+echo "##vso[task.setvariable variable=project.repository;]$p_repository"
+
+
+
+Skip to main content
+Azure DevOps
+projetos
+/
+Caixa
+/
+Pipelines
+/
+Task groups
+Search
+
+
+Caixa
+
+Overview
+
+Boards
+
+Repos
+
+Pipelines
+Pipelines
+Environments
+Releases
+Library
+Task groups
+Deployment groups
+Portal Infra
+
+Test Plans
+
+Artifacts
+Project settings
+Task groups
+
+Java-Build
+
+Tasks
+
+History
+
+References
+Build Default
+Task version
+5.*
+Display name
+Task group: Build Default
+FORTIFY_API
+$(FORTIFY_API)
+FORTIFY_APITOKEN
+$(FORTIFY_APITOKEN)
+FORTIFY_BUILD
+$(FORTIFY_BUILD)
+FORTIFY_CI_TOKEN
+$(FORTIFY_CI_TOKEN)
+FORTIFY_CLIENT_AUTH_TOKEN
+$(FORTIFY_CLIENT_AUTH_TOKEN)
+fortify_disable
+$(fortify_disable)
+FORTIFY_FPR_NAME
+$(FORTIFY_FPR_NAME)
+FORTIFY_NEW_VERSION
+$(FORTIFY_NEW_VERSION)
+FORTIFY_PASS
+$(FORTIFY_PASS)
+FORTIFY_POOL_GOLD_NOVO
+$(FORTIFY_POOL_GOLD_NOVO)
+FORTIFY_POOL_SILVER_NOVO
+$(FORTIFY_POOL_SILVER_NOVO)
+FORTIFY_REGEX
+$(FORTIFY_REGEX)
+FORTIFY_SENSOR_POOL
+$(FORTIFY_SENSOR_POOL)
+FORTIFY_UPTOKEN
+$(FORTIFY_UPTOKEN)
+FORTIFY_URL
+$(FORTIFY_URL)
+FORTIFY_URL_CONTROLLER
+$(FORTIFY_URL_CONTROLLER)
+FORTIFY_USER
+$(FORTIFY_USER)
+FORTIFY_VERSION_BUILD
+$(FORTIFY_VERSION_BUILD)
+FTFY_MVN_GOAL
+$(FTFY_MVN_GOAL)
+GradleVersion
+$(GradleVersion)
+KEYSTORE_SECUREFILEPATH
+$(KEYSTORE_SECUREFILEPATH)
+library
+$(library)
+lista_versao
+$(lista_versao)
+nexus_interno_pass
+$(nexus_interno_pass)
+nexus_interno_user
+$(nexus_interno_user)
+NEXUS_REPOSITORY_ID
+$(NEXUS_REPOSITORY_ID)
+NEXUS_URL_RELEASE
+$(NEXUS_URL_RELEASE)
+NEXUS_URL_SNAPSHOT
+$(NEXUS_URL_SNAPSHOT)
+NODE_EXTRA_CA_CERTS
+$(NODE_EXTRA_CA_CERTS)
+p_language
+$(p_language)
+POM_PATH
+$(POM_PATH)
+project.extension
+$(project.extension)
+project.file
+$(project.file)
+project.group
+$(project.group)
+project.name
+$(project.name)
+project.release
+$(project.release)
+project.version
+$(project.version)
+REPO_FINAL_NAME
+$(REPO_FINAL_NAME)
+REPOSITORIO
+$(REPOSITORIO)
+SCANCENTRAL_URL
+$(SCANCENTRAL_URL)
+SONAR_LOGIN
+$(SONAR_LOGIN)
+SONAR_PASSWORD
+$(SONAR_PASSWORD)
+SONAR_PROPERTIES
+$(SONAR_PROPERTIES)
+SONAR_URL
+$(SONAR_URL)
+token
+$(token)
+token_id
+$(token_id)
+valida.vec
+$(valida.vec)
+version.app
+$(version.app)
+versionApp
+$(versionApp)
+Control Options
+Showing filters 1 through 1
+
+<img width="1687" height="911" alt="image" src="https://github.com/user-attachments/assets/fd36f27b-e606-4b40-b201-17b56dfebd6d" />
