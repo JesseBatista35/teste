@@ -138,3 +138,15 @@ Administrator. It usually boils down to these three things:
 
 
 
+[p585600@cbrdeapllx473 ~]$
+[p585600@cbrdeapllx473 ~]$ sudo tail -f /opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/server.log | grep -E "WFLYSRV0010|WFLYSRV0027|WFLYSRV0021|WFLYUT0021|ERROR|Caused by|WELD-001408|Duplicate|ORA-|lcr|LCR|sirur|SIRUR|sifec-2"
+15:14:57,191 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 172) WFLYUT0021: Contexto web registrado: '/fec-web' para servidor 'default-server'
+15:14:57,218 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 175) WFLYUT0021: Contexto web registrado: '/fec-api' para servidor 'default-server'
+15:14:57,246 INFO  [org.jboss.as.server] (ServerService Thread Pool -- 143) WFLYSRV0010: "SIFEC" foi implantado (runtime-name: "sifec-2.161.2.0.ear")
+
+
+
+foi solicitaod na sala uma nova verdsao do sifc subimos já.; 
+
+
+o jeferso fezx pela console so para registro nossso
