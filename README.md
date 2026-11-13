@@ -135,4 +135,4 @@ Criado por	 Remedy Application Service
 Origem de Comunicação	 E-mail
 Exibir Acesso	 Interno
 Notas	 Este ticket foi criado a partir do sistema de solicitação de serviço.
-Impresso por P585600 em Sexta-feira, 13/11/2026 10:38:17
+Impresso por P585600 em Sexta-feira, 13/11/2026 10:40:38
