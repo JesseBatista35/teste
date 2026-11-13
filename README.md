@@ -1,8 +1,4 @@
-sigsj-intranet.des.caixa - REQ000147048801 - WO0000082298919
-
-sigsj-internet.des.caixa em DES - REQ000147047987 -  WO0000082299045
-
-sigsj-boleto.des.caixa - DES - REQ000147048948/WO0000082298966
+<img width="871" height="713" alt="image" src="https://github.com/user-attachments/assets/5ce76d11-87d2-4965-870c-1c5c22a70683" />
 
 
-segue as reqa aberta pelo vitor agora
+ACHO QUE TEM QUE SER 1 PARA CADA
