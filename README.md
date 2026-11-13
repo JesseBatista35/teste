@@ -6,9 +6,7 @@ Caixa
 /
 Pipelines
 /
-Releases
-/
-SIIFX-caixinhas-batch
+Library
 Search
 
 
@@ -33,48 +31,22 @@ Test Plans
 
 Artifacts
 Project settings
-All pipelines
+
+Library
 
-SIIFX
-
-SIIFX-caixinhas-batch
-Predefined variables
-Usuario-Azure-DevOps (12)
-Scopes: Release
-OKD-PRODUTOS (8)
-Credenciais para o Cluster OKD4 de PRODUTOS
-Scopes: Release
-SonarQube Variables (1)
-Variáveis com dados do SonarQube
-Scopes: Release
-MONITORACAO_LOGS (4)
-REQ000143540550 - Conforme autorizado na req por FLAVIO ALMEIDA GAGLIARDI, removido as variáveis JAVA_OPTS_MONITORING e URL_APM_SERVER, por entrar em conflitos com releases que utilizam o Application Insights
-Scopes: Release
-TERRAFORM-ESTEIRA-COMMON (6)
-WO0000079295714 - add variável INFRAFACIL
-Scopes: Release
-ANSIBLE_JBOSS_VM_VERSION_3 (11)
-WO0000072264656 - Config Portal Infrafácil NO_PROXY cadsvgerap027-1.intra.caixa.gov.br, 10.122.144.168
-Scopes: Release
-Compartilhamentos (4)
-Scopes: Release
-TERRAFORM-ESTEIRA-NPRD (17)
-Variáveis do terraform para automação de ambientes
-Scopes: EC DES,EC TQS,EC TGS,EC HMP,EC TGE
-sample-java-des (13)
-WO0000081293906 - SISME
-Scopes: EC DES,EC TQS,EC TGS,EC TGE
-SIIFX-CAIXINHAS-BATCH-DES (37)
-Grupo de variáveis de SIIFX-CAIXINHAS-BATCH-DES
-Scopes: EC DES,EC TQS,EC TGS,EC TGE
-BATCH_HOME
-/opt/batch/deploy
-BATCH_LOG_DIR
-/logs/caixinhas
-BATCH_PROFILE
-des
+SIIFX-CAIXINHAS-BATCH-TQS
+
+Variable group
+Properties
+Variable group name
+SIIFX-CAIXINHAS-BATCH-TQS
+Description
+Grupo de variáveis de SIIFX-CAIXINHAS-BATCH-TQS
+
+
+Variables
 DB_ALIAS
-alias_sifxds01
+alias_sifxst01
 DB_IDLE
 3
 DB_PASS
@@ -83,12 +55,10 @@ DB_POOL_MAX
 32
 DB_POOL_MIN
 8
-DB_SCHEMA
-IFX
 DB_URL
-jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=cnpexdadvm01-scan8.extra.caixa.gov.br)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=orad01bc)))
+jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=cnpexdadvm01-scan11.extra.caixa.gov.br)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=orat01bc)))
 DB_USER
-SIFXDS01
+SIFXTS01
 JAVA_OPTIONS_APPEND
 -Djavax.net.ssl.trustStore=/opt/batch/securefiles/caixa-truststore-acteste-nprd.jks -Djavax.net.ssl.trustStorePassword=changeit
 JVM_HEAP_MAX
@@ -100,9 +70,9 @@ JVM_METASPACE_MAX
 JVM_METASPACE_MIN
 256m
 KEYSTORE
-/opt/jboss/standalone/configuration/dskeystore_des_siifx.jceks
+/opt/jboss/standalone/configuration/dskeystore_tqs_siifx.jceks
 LOG_LEVEL
-INFO
+DEBUG
 NFS_ENDPOINT_ISILON
 nfsctcnprd.ctc.caixa:/ifs/CADSVISISD4/SERVIDORES/CEPTIBR/SIIFX-BATCH
 NFS_ENDPOINT_ISILON_2
@@ -132,105 +102,18 @@ SIIFX_DATAGRID_PORT
 SIIFX_DATAGRID_USER
 sifxds04
 TASK_CORE_POOL_SIZE
-16
+8
 TASK_MAX_POOL_SIZE
-32
+16
 TASK_QUEUE_CAPACITY
-32
+16
 TOKEN_HOST
 https://login.des.caixa/auth/realms/intranet/protocol/openid-connect/token
 TOKEN_KEY
 ********
-sample-java-hmp (13)
-WO0000081430821
-Scopes: EC HMP
-SIIFX-CAIXINHAS-BATCH-HMP (1)
-Grupo de variáveis de SIIFX-CAIXINHAS-BATCH-HMP
-Scopes: EC HMP
-INIT
-Criado via api
-TERRAFORM-ESTEIRA-PRD-CTC-NPCN (17)
-Variáveis do terraform para automação de ambientes TERRAFORM_VSPHERE_POOL - RP_ESTEIRAS_AGEIS_NPCN_CTC_V7 13/03/2025
-
-Scopes: EC PRD CTC
-TERRAFORM_CLUSTER
-CTC_PRDXF2488HV7_NPCN
-TERRAFORM_DATACENTER
-DC_NPCN_CTC
-TERRAFORM_DATASTORE
-CTCHW3005_00034
-TERRAFORM_ESX_NETWORK
-tn-NPCN-CTC|APLICACAO|VL1187-ep
-TERRAFORM_ESX_NETWORK_BCK
-tn-BACKUP|BACKUP-CTC-ap|VL0020-ep
-TERRAFORM_ESX_NETWORK_BCK_1
-tn-BACKUP|BACKUP-PROD-ap|BACKUP-PROD-ep
-TERRAFORM_ESX_PASSWORD
-********
-TERRAFORM_ESX_USERNAME
-s736660
-TERRAFORM_ESX_VCENTER_SERVER
-cadsvgerap027-1.intra.caixa.gov.br
-TERRAFORM_NET_ADAPTER_TYPE
-vmxnet3
-TERRAFORM_VM_DNS
-["10.121.128.203", "10.121.128.204"]
-TERRAFORM_VM_DOMAIN
-agil.caixa.gov.br
-TERRAFORM_VM_IPNETMASK
-19
-TERRAFORM_VM_IPNETMASK_BCK
-20
-TERRAFORM_VM_IPNETMASK_BCK_1
-14
-TERRAFORM_VSPHERE_FOLDER
-/vm
-TERRAFORM_VSPHERE_POOL
-/Resources/RP_ESTEIRAS_AGEIS_NPCN_CTC_V7
-sample-java-prd (10)
-Scopes: EC PRD CTC,EC PRD DTC
-SIIFX-CAIXINHAS-BATCH-PRD (1)
-Grupo de variáveis de SIIFX-CAIXINHAS-BATCH-PRD
-Scopes: EC PRD CTC,EC PRD DTC
-TERRAFORM-ESTEIRA-PRD-DTC-PCN (15)
-Variáveis do terraform para automação de ambientes
-Scopes: EC PRD DTC
-TERRAFORM_CLUSTER
-DTC_PRDHW2488HV5_CANAIS
-TERRAFORM_DATACENTER
-DTC
-TERRAFORM_DATASTORE
-DTCHW3008_0000
-TERRAFORM_ESX_NETWORK
-tn-PCN-DTC|INTERNET-ap|VL2162-ep
-TERRAFORM_ESX_NETWORK_BCK
-PortGroup_Backup_10.223.32.0_VLAN62_Private
-TERRAFORM_ESX_PASSWORD
-********
-TERRAFORM_ESX_USERNAME
-s736660
-TERRAFORM_ESX_VCENTER_SERVER
-10.221.144.17
-TERRAFORM_NET_ADAPTER_TYPE
-vmxnet3
-TERRAFORM_VM_DNS
-["10.222.144.12", "10.222.144.13"]
-TERRAFORM_VM_DOMAIN
-agil.caixa.gov.br
-TERRAFORM_VM_IPNETMASK
-23
-TERRAFORM_VM_IPNETMASK_BCK
-20
-TERRAFORM_VSPHERE_FOLDER
-/vm/
-TERRAFORM_VSPHERE_POOL
-/Resources/RP_ESTEIRAS_CANAIS_DTC
-|Manage variable groups
 Showing 26 deployments
 
 EC TQSDeploy release
-
-Row 3
 
 Row 2
 
@@ -264,6 +147,12 @@ Row 2
 
 Showing filters 1 through 2
 
+4 search results were found
+
+Row 5
 
 
 
+
+
+a libary existe so nao esta vinculada
