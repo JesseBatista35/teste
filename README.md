@@ -1,527 +1,58 @@
-Skip to main content
-Azure DevOps
-projetos
-/
-Caixa
-/
-Pipelines
-Search
-
-
-Caixa
-
-Overview
-
-Boards
-
-Repos
-
-Pipelines
-Pipelines
-Environments
-Releases
-Library
-Task groups
-Deployment groups
-Portal Infra
-
-Test Plans
-
-Artifacts
-Project settings
-
-SIGEC
-
-SIGEC-portabilidade
-
-Tasks
-
-Variables
-
-Triggers
-
-Options
-
-History
-Java-Build
-Task version
-5.*
-Display name
-Java-Build
-AZPAT
-$(AZPAT)
-FORTIFY_API
-$(FORTIFY_API)
-FORTIFY_APITOKEN
-$(FORTIFY_APITOKEN)
-FORTIFY_BUILD
-$(FORTIFY_BUILD)
-FORTIFY_CI_TOKEN
-$(FORTIFY_CI_TOKEN)
-FORTIFY_CLIENT_AUTH_TOKEN
-$(FORTIFY_CLIENT_AUTH_TOKEN)
-fortify_disable
-$(fortify_disable)
-FORTIFY_FPR_NAME
-$(FORTIFY_FPR_NAME)
-FORTIFY_NEW_VERSION
-$(FORTIFY_NEW_VERSION)
-FORTIFY_PASS
-$(FORTIFY_PASS)
-FORTIFY_POOL_GOLD_NOVO
-$(FORTIFY_POOL_GOLD_NOVO)
-FORTIFY_POOL_SILVER_NOVO
-$(FORTIFY_POOL_SILVER_NOVO)
-FORTIFY_REGEX
-$(FORTIFY_REGEX)
-FORTIFY_SENSOR_POOL
-$(FORTIFY_SENSOR_POOL)
-FORTIFY_UPTOKEN
-$(FORTIFY_UPTOKEN)
-FORTIFY_URL
-$(FORTIFY_URL)
-FORTIFY_URL_CONTROLLER
-$(FORTIFY_URL_CONTROLLER)
-FORTIFY_USER
-$(FORTIFY_USER)
-FORTIFY_VERSION_BUILD
-$(FORTIFY_VERSION_BUILD)
-GradleVersion
-$(GradleVersion)
-JAVA_VERSION
-open-jdk-17.0.8
-KEYSTORE_SECUREFILEPATH
-$(KEYSTORE_SECUREFILEPATH)
-lista_versao
-$(lista_versao)
-MAVEN_VERSION
-3.8.5
-MVN_GOAL
-clean package -Dversion.app=$(version.app) -DskipTests=true -U -Ponline
-nexus_interno_pass
-$(nexus_interno_pass)
-nexus_interno_user
-$(nexus_interno_user)
-NEXUS_REPOSITORY_ID
-$(NEXUS_REPOSITORY_ID)
-NEXUS_URL_RELEASE
-$(NEXUS_URL_MAVEN_RELEASE)
-NEXUS_URL_SNAPSHOT
-$(NEXUS_URL_MAVEN_SNAPSHOT)
-NEXUS_URL_SNAPSHOT_ALIAS
-SNAPSHOT
-NODE_EXTRA_CA_CERTS
-$(NODE_EXTRA_CA_CERTS)
-p_language
-$(p_language)
-POM_PATH
-pom.xml
-project.extension
-$(project.extension)
-project.file
-$(project.file)
-project.group
-$(project.group)
-project.name
-$(project.name)
-project.release
-$(project.release)
-project.version
-$(project.version)
-REPOSITORIO
-$(REPOSITORIO)
-SCANCENTRAL_URL
-$(SCANCENTRAL_URL)
-SONAR_LOGIN
-$(SONAR_LOGIN)
-SONAR_PASSWORD
-$(SONAR_PASSWORD)
-SONAR_PROPERTIES
-$(SONAR_PROPERTIES)
-SONAR_URL
-$(SONAR_URL)
-token
-$(token)
-token_id
-$(token_id)
-valida.vec
-$(valida.vec)
-version.app
-$(version.app)
-versionApp
-$(versionApp)
-Control Options
-Output Variables
-Row 2. Clickable
-
-Expanded
-
-Row 3. Clickable
-
-Collapsed
-
-Showing 1 filtered items.
-
-Get started and run this pipeline for the first time!
-
-Row 2. Clickable
-
-Row 2. Clickable
-
-Showing 1 filtered items.
-
-Get started and run this pipeline for the first time!
-
-Row 3. Clickable
-
-Showing 11 filtered items.
-
-Get started and run this pipeline for the first time!
-
-Showing 1 filtered items.
-
-Get started and run this pipeline for the first time!
-
-Selected item SIGEC-portabilidade-batch
-
-Selected item SIGEC-portabilidade
-
-Row 3. Clickable
-
-Showing 11 filtered items.
-
-Get started and run this pipeline for the first time!
-
-
-
-
-
-Skip to main content
-Azure DevOps
-projetos
-/
-Caixa
-/
-Pipelines
-Search
-
-
-Caixa
-
-Overview
-
-Boards
-
-Repos
-
-Pipelines
-Pipelines
-Environments
-Releases
-Library
-Task groups
-Deployment groups
-Portal Infra
-
-Test Plans
-
-Artifacts
-Project settings
-
-SIGEC
-
-SIGEC-portabilidade-batch
-
-Tasks
-
-Variables
-
-Triggers
-
-Options
-
-History
-Java-Build
-Task version
-5.*
-Display name
-Java-Build
-AZPAT
-$(AZPAT)
-FORTIFY_API
-$(FORTIFY_API)
-FORTIFY_APITOKEN
-$(FORTIFY_APITOKEN)
-FORTIFY_BUILD
-$(FORTIFY_BUILD)
-FORTIFY_CI_TOKEN
-$(FORTIFY_CI_TOKEN)
-FORTIFY_CLIENT_AUTH_TOKEN
-$(FORTIFY_CLIENT_AUTH_TOKEN)
-fortify_disable
-$(fortify_disable)
-FORTIFY_FPR_NAME
-$(FORTIFY_FPR_NAME)
-FORTIFY_NEW_VERSION
-$(FORTIFY_NEW_VERSION)
-FORTIFY_PASS
-$(FORTIFY_PASS)
-FORTIFY_POOL_GOLD_NOVO
-$(FORTIFY_POOL_GOLD_NOVO)
-FORTIFY_POOL_SILVER_NOVO
-$(FORTIFY_POOL_SILVER_NOVO)
-FORTIFY_REGEX
-$(FORTIFY_REGEX)
-FORTIFY_SENSOR_POOL
-$(FORTIFY_SENSOR_POOL)
-FORTIFY_UPTOKEN
-$(FORTIFY_UPTOKEN)
-FORTIFY_URL
-$(FORTIFY_URL)
-FORTIFY_URL_CONTROLLER
-$(FORTIFY_URL_CONTROLLER)
-FORTIFY_USER
-$(FORTIFY_USER)
-FORTIFY_VERSION_BUILD
-$(FORTIFY_VERSION_BUILD)
-GradleVersion
-$(GradleVersion)
-JAVA_VERSION
-open-jdk-17.0.8
-KEYSTORE_SECUREFILEPATH
-$(KEYSTORE_SECUREFILEPATH)
-lista_versao
-$(lista_versao)
-MAVEN_VERSION
-3.8.5
-MVN_GOAL
-clean package -Dversion.app=$(version.app) -DskipTests=true -U
-nexus_interno_pass
-$(nexus_interno_pass)
-nexus_interno_user
-$(nexus_interno_user)
-NEXUS_REPOSITORY_ID
-$(NEXUS_REPOSITORY_ID)
-NEXUS_URL_RELEASE
-$(NEXUS_URL_MAVEN_RELEASE)
-NEXUS_URL_SNAPSHOT
-$(NEXUS_URL_MAVEN_SNAPSHOT)
-NEXUS_URL_SNAPSHOT_ALIAS
-SNAPSHOT
-NODE_EXTRA_CA_CERTS
-$(NODE_EXTRA_CA_CERTS)
-p_language
-$(p_language)
-POM_PATH
-pom.xml
-project.extension
-$(project.extension)
-project.file
-$(project.file)
-project.group
-$(project.group)
-project.name
-$(project.name)
-project.release
-$(project.release)
-project.version
-$(project.version)
-REPOSITORIO
-$(REPOSITORIO)
-SCANCENTRAL_URL
-$(SCANCENTRAL_URL)
-SONAR_LOGIN
-$(SONAR_LOGIN)
-SONAR_PASSWORD
-$(SONAR_PASSWORD)
-SONAR_PROPERTIES
-$(SONAR_PROPERTIES)
-SONAR_URL
-$(SONAR_URL)
-token
-$(token)
-token_id
-$(token_id)
-valida.vec
-$(valida.vec)
-version.app
-$(version.app)
-versionApp
-$(versionApp)
-Control Options
-Output Variables
-Showing 1 filtered items.
-
-Get started and run this pipeline for the first time!
-
-Expanded
-
-Collapsed
-
-
-Skip to main content
-Azure DevOps
-projetos
-/
-Caixa
-/
-Pipelines
-Search
-
-
-Caixa
-
-Overview
-
-Boards
-
-Repos
-
-Pipelines
-Pipelines
-Environments
-Releases
-Library
-Task groups
-Deployment groups
-Portal Infra
-
-Test Plans
-
-Artifacts
-Project settings
-
-SIGEC
-
-SIGEC-portabilidade-batch
-
-Tasks
-
-Variables
-
-Triggers
-
-Options
-
-History
-Predefined variables
-system.collectionId
-7b4c9d5c-b041-4798-8dcb-fb11786a173b
-system.debug
-false
-
-system.definitionId
-6635
-system.teamProject
-Caixa
-version.app
-
-Showing 1 filtered items.
-
-Get started and run this pipeline for the first time!
-
-Expanded
-
-Collapsed
-
-
-
-Skip to main content
-Azure DevOps
-projetos
-/
-Caixa
-/
-Pipelines
-Search
-
-
-Caixa
-
-Overview
-
-Boards
-
-Repos
-
-Pipelines
-Pipelines
-Environments
-Releases
-Library
-Task groups
-Deployment groups
-Portal Infra
-
-Test Plans
-
-Artifacts
-Project settings
-
-SIGEC
-
-SIGEC-portabilidade
-
-Tasks
-
-Variables
-
-Triggers
-
-Options
-
-History
-Predefined variables
-system.collectionId
-7b4c9d5c-b041-4798-8dcb-fb11786a173b
-system.debug
-false
-
-system.definitionId
-6648
-system.teamProject
-Caixa
-version.app
-
-Row 2. Clickable
-
-Expanded
-
-Row 3. Clickable
-
-Collapsed
-
-Showing 1 filtered items.
-
-Get started and run this pipeline for the first time!
-
-Row 2. Clickable
-
-Row 2. Clickable
-
-Showing 1 filtered items.
-
-Get started and run this pipeline for the first time!
-
-Row 3. Clickable
-
-Showing 11 filtered items.
-
-Get started and run this pipeline for the first time!
-
-Showing 1 filtered items.
-
-Get started and run this pipeline for the first time!
-
-Selected item SIGEC-portabilidade-batch
-
-Selected item SIGEC-portabilidade
-
-Row 3. Clickable
-
-Showing 11 filtered items.
-
-Get started and run this pipeline for the first time!
-
-
-
+2026-11-13T19:15:57.4207087Z ##[section]Starting: Copy Files to: /opt/ads-agent/_work/12/fortify
+2026-11-13T19:15:57.4211878Z ==============================================================================
+2026-11-13T19:15:57.4211959Z Task         : Copy files
+2026-11-13T19:15:57.4212010Z Description  : Copy files from a source folder to a target folder using patterns matching file paths (not folder paths)
+2026-11-13T19:15:57.4212133Z Version      : 2.211.0
+2026-11-13T19:15:57.4212184Z Author       : Microsoft Corporation
+2026-11-13T19:15:57.4212287Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/copy-files
+2026-11-13T19:15:57.4212361Z ==============================================================================
+2026-11-13T19:15:57.5687867Z found 35 files
+2026-11-13T19:15:57.5689884Z Cleaning target folder: /opt/ads-agent/_work/12/fortify
+2026-11-13T19:15:57.5701401Z Copying /opt/ads-agent/_work/12/s/.git/FETCH_HEAD to /opt/ads-agent/_work/12/fortify/.git/FETCH_HEAD
+2026-11-13T19:15:57.5725438Z Copying /opt/ads-agent/_work/12/s/.git/HEAD to /opt/ads-agent/_work/12/fortify/.git/HEAD
+2026-11-13T19:15:57.5731898Z Copying /opt/ads-agent/_work/12/s/.git/config to /opt/ads-agent/_work/12/fortify/.git/config
+2026-11-13T19:15:57.5735902Z Copying /opt/ads-agent/_work/12/s/.git/description to /opt/ads-agent/_work/12/fortify/.git/description
+2026-11-13T19:15:57.5741892Z Copying /opt/ads-agent/_work/12/s/.git/hooks/applypatch-msg.sample to /opt/ads-agent/_work/12/fortify/.git/hooks/applypatch-msg.sample
+2026-11-13T19:15:57.5748120Z Copying /opt/ads-agent/_work/12/s/.git/hooks/commit-msg.sample to /opt/ads-agent/_work/12/fortify/.git/hooks/commit-msg.sample
+2026-11-13T19:15:57.5754527Z Copying /opt/ads-agent/_work/12/s/.git/hooks/fsmonitor-watchman.sample to /opt/ads-agent/_work/12/fortify/.git/hooks/fsmonitor-watchman.sample
+2026-11-13T19:15:57.5759400Z Copying /opt/ads-agent/_work/12/s/.git/hooks/post-update.sample to /opt/ads-agent/_work/12/fortify/.git/hooks/post-update.sample
+2026-11-13T19:15:57.5764204Z Copying /opt/ads-agent/_work/12/s/.git/hooks/pre-applypatch.sample to /opt/ads-agent/_work/12/fortify/.git/hooks/pre-applypatch.sample
+2026-11-13T19:15:57.5768866Z Copying /opt/ads-agent/_work/12/s/.git/hooks/pre-commit.sample to /opt/ads-agent/_work/12/fortify/.git/hooks/pre-commit.sample
+2026-11-13T19:15:57.5779810Z Copying /opt/ads-agent/_work/12/s/.git/hooks/pre-merge-commit.sample to /opt/ads-agent/_work/12/fortify/.git/hooks/pre-merge-commit.sample
+2026-11-13T19:15:57.5783980Z Copying /opt/ads-agent/_work/12/s/.git/hooks/pre-push.sample to /opt/ads-agent/_work/12/fortify/.git/hooks/pre-push.sample
+2026-11-13T19:15:57.5788427Z Copying /opt/ads-agent/_work/12/s/.git/hooks/pre-rebase.sample to /opt/ads-agent/_work/12/fortify/.git/hooks/pre-rebase.sample
+2026-11-13T19:15:57.5792184Z Copying /opt/ads-agent/_work/12/s/.git/hooks/pre-receive.sample to /opt/ads-agent/_work/12/fortify/.git/hooks/pre-receive.sample
+2026-11-13T19:15:57.5796741Z Copying /opt/ads-agent/_work/12/s/.git/hooks/prepare-commit-msg.sample to /opt/ads-agent/_work/12/fortify/.git/hooks/prepare-commit-msg.sample
+2026-11-13T19:15:57.5799940Z Copying /opt/ads-agent/_work/12/s/.git/hooks/push-to-checkout.sample to /opt/ads-agent/_work/12/fortify/.git/hooks/push-to-checkout.sample
+2026-11-13T19:15:57.5803799Z Copying /opt/ads-agent/_work/12/s/.git/hooks/sendemail-validate.sample to /opt/ads-agent/_work/12/fortify/.git/hooks/sendemail-validate.sample
+2026-11-13T19:15:57.5807053Z Copying /opt/ads-agent/_work/12/s/.git/hooks/update.sample to /opt/ads-agent/_work/12/fortify/.git/hooks/update.sample
+2026-11-13T19:15:57.5809683Z Copying /opt/ads-agent/_work/12/s/.git/index to /opt/ads-agent/_work/12/fortify/.git/index
+2026-11-13T19:15:57.5813855Z Copying /opt/ads-agent/_work/12/s/.git/info/exclude to /opt/ads-agent/_work/12/fortify/.git/info/exclude
+2026-11-13T19:15:57.5819201Z Copying /opt/ads-agent/_work/12/s/.git/logs/HEAD to /opt/ads-agent/_work/12/fortify/.git/logs/HEAD
+2026-11-13T19:15:57.5824825Z Copying /opt/ads-agent/_work/12/s/.git/logs/refs/remotes/origin/Cesti-test-001 to /opt/ads-agent/_work/12/fortify/.git/logs/refs/remotes/origin/Cesti-test-001
+2026-11-13T19:15:57.5828701Z Copying /opt/ads-agent/_work/12/s/.git/logs/refs/remotes/origin/HEAD to /opt/ads-agent/_work/12/fortify/.git/logs/refs/remotes/origin/HEAD
+2026-11-13T19:15:57.5832314Z Copying /opt/ads-agent/_work/12/s/.git/logs/refs/remotes/origin/develop to /opt/ads-agent/_work/12/fortify/.git/logs/refs/remotes/origin/develop
+2026-11-13T19:15:57.5835926Z Copying /opt/ads-agent/_work/12/s/.git/logs/refs/remotes/origin/main to /opt/ads-agent/_work/12/fortify/.git/logs/refs/remotes/origin/main
+2026-11-13T19:15:57.5840425Z Copying /opt/ads-agent/_work/12/s/.git/logs/refs/remotes/origin/rtc/STRY00052082_migracao_java_17 to /opt/ads-agent/_work/12/fortify/.git/logs/refs/remotes/origin/rtc/STRY00052082_migracao_java_17
+2026-11-13T19:15:57.5856347Z Copying /opt/ads-agent/_work/12/s/.git/objects/pack/pack-d209734034d77a879257d5aed9582e4eb360ab68.idx to /opt/ads-agent/_work/12/fortify/.git/objects/pack/pack-d209734034d77a879257d5aed9582e4eb360ab68.idx
+2026-11-13T19:15:57.5878340Z Copying /opt/ads-agent/_work/12/s/.git/objects/pack/pack-d209734034d77a879257d5aed9582e4eb360ab68.pack to /opt/ads-agent/_work/12/fortify/.git/objects/pack/pack-d209734034d77a879257d5aed9582e4eb360ab68.pack
+2026-11-13T19:15:57.6286937Z Copying /opt/ads-agent/_work/12/s/.git/objects/pack/pack-d209734034d77a879257d5aed9582e4eb360ab68.rev to /opt/ads-agent/_work/12/fortify/.git/objects/pack/pack-d209734034d77a879257d5aed9582e4eb360ab68.rev
+2026-11-13T19:15:57.6295860Z Copying /opt/ads-agent/_work/12/s/.git/refs/remotes/origin/Cesti-test-001 to /opt/ads-agent/_work/12/fortify/.git/refs/remotes/origin/Cesti-test-001
+2026-11-13T19:15:57.6299307Z Copying /opt/ads-agent/_work/12/s/.git/refs/remotes/origin/HEAD to /opt/ads-agent/_work/12/fortify/.git/refs/remotes/origin/HEAD
+2026-11-13T19:15:57.6302115Z Copying /opt/ads-agent/_work/12/s/.git/refs/remotes/origin/develop to /opt/ads-agent/_work/12/fortify/.git/refs/remotes/origin/develop
+2026-11-13T19:15:57.6306226Z Copying /opt/ads-agent/_work/12/s/.git/refs/remotes/origin/main to /opt/ads-agent/_work/12/fortify/.git/refs/remotes/origin/main
+2026-11-13T19:15:57.6310748Z Copying /opt/ads-agent/_work/12/s/.git/refs/remotes/origin/rtc/STRY00052082_migracao_java_17 to /opt/ads-agent/_work/12/fortify/.git/refs/remotes/origin/rtc/STRY00052082_migracao_java_17
+2026-11-13T19:15:57.6314078Z Copying /opt/ads-agent/_work/12/s/README.md to /opt/ads-agent/_work/12/fortify/README.md
+2026-11-13T19:15:57.6358087Z ##[section]Finishing: Copy Files to: /opt/ads-agent/_work/12/fortify
+
+
+2026-11-13T19:15:57.6375196Z ##[section]Starting: Maven
+2026-11-13T19:15:57.6380688Z ==============================================================================
+2026-11-13T19:15:57.6380810Z Task         : Maven
+2026-11-13T19:15:57.6380859Z Description  : Build, test, and deploy with Apache Maven
+2026-11-13T19:15:57.6380923Z Version      : 4.225.0
+2026-11-13T19:15:57.6381015Z Author       : Microsoft Corporation
+2026-11-13T19:15:57.6381069Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/build/maven
+2026-11-13T19:15:57.6381138Z ==============================================================================
+2026-11-13T19:15:58.2072020Z ##[error]Unhandled: Not found mavenPOMFile: /opt/ads-agent/_work/12/s/pom.xml
+2026-11-13T19:15:58.2141473Z ##[section]Finishing: Maven
