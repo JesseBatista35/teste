@@ -2,6 +2,9 @@
 
 Criação do DNS do sigsj-intranet.des.caixa - REQ000147049343 /WO0000082299800.
 Criação do DNS do sigsj-internet.des.caixa - REQ000147049349/WO0000082299807
+Criação do DNS  do sigsj-boleto.des.caixa - REQ000147048895/WO0000082299364
+
+ 
 
 
 VAMOS FAZER AGORA DO TQS.
