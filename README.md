@@ -1,48 +1,124 @@
+Skip to main content
+Azure DevOps
+projetos
+/
+Caixa
+/
+Pipelines
+/
+SIGEC-portabilidade-batch
+/
+5.0.0-BATCH-SNAPSHOT
+Search
 
 
-===== MONTAGENS ATUAIS =====
-sunrpc on /var/lib/nfs/rpc_pipefs type rpc_pipefs (rw,relatime)
-[p585600@caddeapllx2876 ~]$
-[p585600@caddeapllx2876 ~]$ JAR=$(ls -t /opt/batch/deploy/*.jar 2>/dev/null | head -1); echo "JAR: $JAR"
-JAR: /opt/batch/deploy/siifx-caixinhas-batch.jar
-[p585600@caddeapllx2876 ~]$
-[p585600@caddeapllx2876 ~]$
-[p585600@caddeapllx2876 ~]$ unzip -l "$JAR" | grep -E "application.*\.ya?ml"
-      859  11-13-2026 12:11   BOOT-INF/classes/application-des.yml
-      428  11-13-2026 12:11   BOOT-INF/classes/application-hmp.yml
-      429  11-13-2026 12:11   BOOT-INF/classes/application-tgs.yml
-     3360  11-13-2026 12:11   BOOT-INF/classes/application.yml
-[p585600@caddeapllx2876 ~]$
-[p585600@caddeapllx2876 ~]$
-[p585600@caddeapllx2876 ~]$ for f in $(unzip -l "$JAR" | grep -oE "BOOT-INF/classes/application[^ ]*\.ya?ml"); do
-  echo "===== $f"
-  unzip -p "$JAR" "$f" | grep -inE "profile|datagrid|infinispan|11222|host"
-done
-===== BOOT-INF/classes/application-des.yml
-===== BOOT-INF/classes/application-hmp.yml
-===== BOOT-INF/classes/application-tgs.yml
-===== BOOT-INF/classes/application.yml
-79:        base-url: ${HOST_API_MNG:}
-101:      ambiente: ${BATCH_PROFILE:des}
-108:          address: ${PUSHGATEWAY_URL:localhost:9091}
-114:            host: ${HOSTNAME:NA}
-[p585600@caddeapllx2876 ~]$
-[p585600@caddeapllx2876 ~]$
-[p585600@caddeapllx2876 ~]$
-[p585600@caddeapllx2876 ~]$ sudo grep -rIl -E "BATCH_PROFILE|SIIFX_DATAGRID" /opt/batch /producao /etc/profile.d 2>/dev/null
+Caixa
 
-Presumimos que você recebeu as instruções de sempre do administrador
-de sistema local. Basicamente, resume-se a estas três coisas:
+Overview
 
-    #1) Respeite a privacidade dos outros.
-    #2) Pense antes de digitar.
-    #3) Com grandes poderes vêm grandes responsabilidades.
+Boards
 
-[sudo] senha para p585600:
-Sinto muito, tente novamente.
-[sudo] senha para p585600:
-Sinto muito, tente novamente.
-[sudo] senha para p585600:
-[p585600@caddeapllx2876 ~]$ timeout 5 bash -c '</dev/tcp/caddeapllx2221.agil.nprd.caixa.gov.br/11222' && echo "DATAGRID OK" || echo "DATAGRID FALHOU"
-DATAGRID OK
-[p585600@caddeapllx2876 ~]$
+Repos
+
+Pipelines
+Pipelines
+Environments
+Releases
+Library
+Task groups
+Deployment groups
+Portal Infra
+
+Test Plans
+
+Artifacts
+Project settings
+#5.0.0-BATCH-SNAPSHOT • chore(rtc/STRY00052082_migracao_java_17): ajustes na seção descrição ref. a parte negocial.
+SIGEC-portabilidade-batch
+
+Run new
+
+This run is being retained as one of 3 recent runs by pipeline.
+
+View retention leases
+Summary
+Releases
+Manually run
+ by 
+Jesse Mouta Pereira Batista
+View 250 changes
+Repository and version
+SIGEC-portabilidade
+rtc/STRY00052082_migracao_java_17
+d1542e94
+Time started and elapsed
+Today at 16:17
+4m 35s
+Related
+0 work items
+1 consumed
+Tests and coverage
+Get started
+Warnings
+34
+/opt/ads-agent/_work/82/s/gec-xml/src/main/java/br/gov/caixa/sigec/util/DataAdaptador.java(50,59): warning : /opt/ads-agent/_work/82/s/gec-xml/src/main/java/br/gov/caixa/sigec/util/DataAdaptador.java:[50,59] Integer(java.lang.String) in java.lang.Integer has been deprecated and marked for removal
+Maven
+/opt/ads-agent/_work/82/s/gec-xml/src/main/java/br/gov/caixa/sigec/util/DataAdaptador.java(51,53): warning : /opt/ads-agent/_work/82/s/gec-xml/src/main/java/br/gov/caixa/sigec/util/DataAdaptador.java:[51,53] Integer(java.lang.String) in java.lang.Integer has been deprecated and marked for removal
+Maven
+/opt/ads-agent/_work/82/s/gec-xml/src/main/java/br/gov/caixa/sigec/util/DataAdaptador.java(52,51): warning : /opt/ads-agent/_work/82/s/gec-xml/src/main/java/br/gov/caixa/sigec/util/DataAdaptador.java:[52,51] Integer(java.lang.String) in java.lang.Integer has been deprecated and marked for removal
+Maven
+/opt/ads-agent/_work/82/s/gec-xml/src/main/java/br/gov/caixa/sigec/util/DataAdaptador.java(75,60): warning : /opt/ads-agent/_work/82/s/gec-xml/src/main/java/br/gov/caixa/sigec/util/DataAdaptador.java:[75,60] Integer(java.lang.String) in java.lang.Integer has been deprecated and marked for removal
+Maven
+/opt/ads-agent/_work/82/s/gec-xml/src/main/java/br/gov/caixa/sigec/util/DataAdaptador.java(76,53): warning : /opt/ads-agent/_work/82/s/gec-xml/src/main/java/br/gov/caixa/sigec/util/DataAdaptador.java:[76,53] Integer(java.lang.String) in java.lang.Integer has been deprecated and marked for removal
+Maven
+/opt/ads-agent/_work/82/s/gec-xml/src/main/java/br/gov/caixa/sigec/util/DataAdaptador.java(77,51): warning : /opt/ads-agent/_work/82/s/gec-xml/src/main/java/br/gov/caixa/sigec/util/DataAdaptador.java:[77,51] Integer(java.lang.String) in java.lang.Integer has been deprecated and marked for removal
+Maven
+/opt/ads-agent/_work/82/s/gec-ejb/src/main/java/br/gov/caixa/sigec/dominio/HistoricoPosicaoSubsidioIofComplementar.java(30,59): warning : /opt/ads-agent/_work/82/s/gec-ejb/src/main/java/br/gov/caixa/sigec/dominio/HistoricoPosicaoSubsidioIofComplementar.java:[30,59] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+Maven
+/opt/ads-agent/_work/82/s/gec-ejb/src/main/java/br/gov/caixa/sigec/api/nuclea/AbstractNucleaAPI.java(65,9): warning : /opt/ads-agent/_work/82/s/gec-ejb/src/main/java/br/gov/caixa/sigec/api/nuclea/AbstractNucleaAPI.java:[65,9] Not generating getType(): A method with that name already exists
+Maven
+/opt/ads-agent/_work/82/s/gec-ejb/src/main/java/br/gov/caixa/sigec/api/nuclea/AbstractNucleaAPI.java(69,9): warning : /opt/ads-agent/_work/82/s/gec-ejb/src/main/java/br/gov/caixa/sigec/api/nuclea/AbstractNucleaAPI.java:[69,9] Not generating getConversorJack(): A method with that name already exists
+Maven
+/opt/ads-agent/_work/82/s/gec-ejb/src/main/java/br/gov/caixa/sigec/api/simtr/filter/FiltroDocumentoSimtr.java(12,1): warning : /opt/ads-agent/_work/82/s/gec-ejb/src/main/java/br/gov/caixa/sigec/api/simtr/filter/FiltroDocumentoSimtr.java:[12,1] Generating equals/hashCode implementation but without a call to superclass, even though this class does not extend java.lang.Object. If this is intentional, add '@EqualsAndHashCode(callSuper=false)' to your type.
+Maven
+View the log to see the remaining 23 warnings for this task
+Show 1 additional warnings
+Jobs
+Select a release pipeline to view its releases
+
+6 pipelines found
+
+Select a release pipeline to view its releases
+
+2 pipelines found
+
+Select a release pipeline to view its releases
+
+2 pipelines found
+
+Row 3
+
+Expanded
+
+Collapsed
+
+Row 2. Clickable
+
+Showing 1 filtered items.
+
+Get started and run this pipeline for the first time!
+
+Row 2. Clickable
+
+Row 2. Clickable
+
+Showing 1 filtered items.
+
+Get started and run this pipeline for the first time!
+
+Row 2. Clickable
+
+
+
+
+o batch funcionou
