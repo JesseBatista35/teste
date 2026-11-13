@@ -1,158 +1,33 @@
-Skip to main content
-Azure DevOps
-projetos
-/
-Caixa
-/
-Pipelines
-/
-Library
-Search
+Reconfigurada a build do SIIFX-caixinhas-batch para os 3 subprojetos (batch-platform, mod-caixinhas e batch-launcher), construídos em sequência por três etapas Java-Build.
 
+Causa da falha nas builds geradas por tag: a etapa da esteira que identifica o pacote ("Recupera versão projeto") procurava arquivos .jar em todo o repositório. Assim, as etapas do mod-caixinhas e do batch-launcher identificavam o core-starter já publicado pela primeira etapa, e a verificação no binario.caixa acusava pacote existente.
 
-Caixa
+Correção: incluída a variável TARGET_PATH antes de cada Java-Build (batch-platform/core-starter, mod-caixinhas e batch-launcher), de modo que cada etapa identifique e publique somente o seu próprio artefato. Nenhum task group compartilhado foi alterado.
 
-Overview
+Validação: build da tag 0.0.182.1 concluída com sucesso, com publicação no repositório releases do Nexus de core-starter, mod-caixinhas e siifx-caixinhas-batch (fat jar) na versão 0.0.182.1.
 
-Boards
-
-Repos
-
-Pipelines
-Pipelines
-Environments
-Releases
-Library
-Task groups
-Deployment groups
-Portal Infra
-
-Test Plans
-
-Artifacts
-Project settings
-
-Library
-
-SIIFX-CAIXINHAS-BATCH-TQS
-
-Variable group
-Properties
-Variable group name
-SIIFX-CAIXINHAS-BATCH-TQS
-Description
-Grupo de variáveis de SIIFX-CAIXINHAS-BATCH-TQS
-
-
-Variables
-DB_ALIAS
-alias_sifxst01
-DB_IDLE
-3
-DB_PASS
-********
-DB_POOL_MAX
-32
-DB_POOL_MIN
-8
-DB_URL
-jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=cnpexdadvm01-scan11.extra.caixa.gov.br)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=orat01bc)))
-DB_USER
-SIFXTS01
-JAVA_OPTIONS_APPEND
--Djavax.net.ssl.trustStore=/opt/batch/securefiles/caixa-truststore-acteste-nprd.jks -Djavax.net.ssl.trustStorePassword=changeit
-JVM_HEAP_MAX
-2048m
-JVM_HEAP_MIN
-1024m
-JVM_METASPACE_MAX
-512m
-JVM_METASPACE_MIN
-256m
-KEYSTORE
-/opt/jboss/standalone/configuration/dskeystore_tqs_siifx.jceks
-LOG_LEVEL
-DEBUG
-NFS_ENDPOINT_ISILON
-nfsctcnprd.ctc.caixa:/ifs/CADSVISISD4/SERVIDORES/CEPTIBR/SIIFX-BATCH
-NFS_ENDPOINT_ISILON_2
-nfsctcnprd.ctc.caixa:/ifs/CADSVISISD4/SERVIDORES/CEPTIRJ/NPRD/B2B/SIIFX
-NFS_MOUNT_POINT_ISILON
-/SIIFX
-NFS_MOUNT_POINT_ISILON_2
-/SIIFX_B2B
-NSGD_DESFAZ_CREDITO
-https://api.des.caixa:8443/conta-deposito/lancamentos-financeiros/v1/desfazimento/credito
-NSGD_DESFAZ_DEBITO
-https://api.des.caixa:8443/conta-deposito/lancamentos-financeiros/v1/desfazimento/debito
-NSGD_KEY
-********
-ORA_DRIVE
-oracle.jdbc.driver.OracleDriver
-PARALLEL
-8
-SERVER_LOG_LEVEL
-INFO
-SIIFX_DATAGRID_HOST
-caddeapllx2221.agil.nprd.caixa.gov.br
-SIIFX_DATAGRID_PASS
-********
-SIIFX_DATAGRID_PORT
-11222
-SIIFX_DATAGRID_USER
-sifxds04
-TASK_CORE_POOL_SIZE
-8
-TASK_MAX_POOL_SIZE
-16
-TASK_QUEUE_CAPACITY
-16
-TOKEN_HOST
-https://login.des.caixa/auth/realms/intranet/protocol/openid-connect/token
-TOKEN_KEY
-********
-Showing 26 deployments
-
-EC TQSDeploy release
-
-Row 2
-
-Showing 26 deployments
-
-Row 2
-
-Expanded
-
-Showing 26 deployments
-
-Row 2
-
-EC TQSDeploy release
-
-Showing 26 deployments
-
-Showing 26 deployments
-
-Row 3
-
-Row 3
-
-Showing filters 1 through 2
-
-Row 3
-
-Row 13
-
-Row 2
-
-Showing filters 1 through 2
-
-4 search results were found
-
-Row 5
+Também foi ajustada, nos stages DES, TQS e TGE, a etapa
 
 
 
 
+Pessoal, a build do SIIFX-caixinhas-batch com os 3 subprojetos está corrigida. A tag 0.0.182.1 gerou e publicou os 3 artefatos no Nexus (core-starter, mod-caixinhas e siifx-caixinhas-batch). Já podem gerar tag normalmente.
 
-a libary existe so nao esta vinculada
+Ao subir em TQS, encontramos pendências de ambiente. Como TQS antes usava a VM de DES e agora tem VM própria (caddeapllx2876), ela está "zerada". Próximos passos:
+
+Time SIIFX:
+1. Abrir nova REQ para ajuste do ambiente TQS do SIIFX-caixinhas-batch.
+2. Revisar o grupo de variáveis SIIFX-CAIXINHAS-BATCH-TQS:
+   - BATCH_PROFILE de TQS (pelo README seria "tgs"?), BATCH_HOME e BATCH_LOG_DIR, que hoje não existem no grupo TQS
+   - TOKEN_HOST, NSGD_DESFAZ_* e SIIFX_DATAGRID_* ainda apontam para DES. Confirmar se é intencional.
+   - NFS: TQS deve usar os mesmos diretórios de DES (CEPTIBR/SIIFX-BATCH e B2B/SIIFX) ou ter diretório próprio?
+   - Confirmar se o keystore dskeystore_tqs_siifx.jceks existe.
+3. Confirmar se os stages TGS/TGE também devem ter grupo de variáveis próprio.
+
+Esteira/Infra (eu encaminho):
+4. Interface e IP de backup da caddeapllx2876. Sem isso a VM não alcança o Isilon (NFS).
+5. Regra de firewall da caddeapllx2876 para o servidor Control-M de TQS.
+6. Liberação do IP de backup da 2876 no export do Isilon, conforme o diretório definido no item 2.
+7. Depois dos valores confirmados, vincular o grupo TQS à release (escopo EC TQS) e tirar o TQS do escopo do grupo DES.
+
+Assim que esses itens estiverem ok, rodamos a release de TQS novamente a partir da tag 0.0.182.1.
