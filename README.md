@@ -1,96 +1,81 @@
-Jesse. Pelos meus testes, está tudo OK. Obrigado pelo acompanhamento.
- 
-Boa tarde,
- 
-REQ000147043043 - Solicitação DNS - exclusão do vip antigo SIEMP
- 
-Solicito priorização no atendimento dessa requisição.
-Flavio de Almeida Gagliardi Patricia Vourakis Barbosa Braga Fabricio Leal do Vale Ana Paula Pazitto da Costa Elisabeth da Silva
- 
-Jesse Mouta Pereira Batista segue pacote do LCR
-https://fontes.caixa/deploy/deposito_captacao/-/blob/main/SILCR/05-Implantacao/Build/sifec_lcr_1.117.1.ear?ref_type=heads
- 
-Juliana de Carvalho Fernandes saiu do chat.
+PASSO 0: abrir as janelas
+Janela 1, na 473 (10.116.97.79): log em tempo real. Deixe aberta o tempo todo.
+sudo tail -f /opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/server.log | grep -E "WFLYSRV0010|WFLYSRV0027|WFLYSRV0021|WFLYUT0021|ERROR|Caused by|WELD-001408|Duplicate|ORA-|lcr|LCR|sirur|SIRUR|sifec-2"
+Janela 2, na 471 (10.116.97.59): como root. É onde você baixa os pacotes.
+Janela 3, na 471: CLI do JBoss.
+/opt/jboss/jboss-eap/bin/jboss-cli.sh --connect --controller=localhost:9999
+PASSO 1: LCR
 
- 
-Edson Prokot adicionou Matheus Gabriel de Oliveira Rodrigues ao chat e compartilhou todo o histórico de chats.
+1.1 Na janela 2, baixe o pacote:
 
- 
-Rodrigo Abreu Costa, bom dia!
- 
-Foi identificado um problema no SICCR-Javaweb na nossa esteira de testes, pelo nosso colega Matheus Gabriel de Oliveira Rodrigues. Ao tentar fazer uma simulação utilizando um token do canal cli-web-pnc, está retornando 401:
- 
- 
-Porém, este erro não ocorre no ambiente jboss 7.4.23 local, utilizando a mesma versão da aplicação:
- 
- 
-Assim, provavelmente alguma configuração no ambiente está causando este problema. Consegue nos auxiliar, por favor?
- 
-Edson Prokot
-Rodrigo Abreu Costa, bom dia!   Foi identificado um problema no SICCR-Javaweb na nossa esteira de testes, pelo nosso colega Matheus Gabriel de Oliveira Rodrigues. Ao tentar fazer uma simulação utiliz…
-Antonio Coelho Guimaraes Filho, Relder Maia da Silva Batista, Claudia Florisbela Freitas
- 
-Bom dia, Todos!! O WO0000082279780 ja esta com uma planilha em anexo com todos fqdn do sifec e em cada vertical a sua relação de maquinas, onde cada um compõe o seu proprio ambiente de produção.
-Qual sera o proximo passo? Qual ambiente do sifec sera criado primeiro? Ja tem ambiente totalmente migrado em dez e ser replicado para PRD? 
-Fico no aguardo para as próximas ações.
- 
- 
- 	SIFEC INTRANET	SIFEC INTERNET	SIFEC PILOTO	SIFEC INTER SSO	APICREDITO	APISICCR	CREDITO CONTINGÊNCIA
-FQDN(s):	sifec.caixa	sifec.caixa.gov.br	sifecpiloto.prd.caixa	credito.caixa.gov.br	apicredito.caixa	apisiccr.caixa	credito-contingencia.prd.caixa
- 	sifec.prd.caixa	 	 	 	 	 	 	 
- 
- 
-Rafael Alves Lima
-Bom dia, Todos!! O WO0000082279780 ja esta com uma planilha em anexo com todos fqdn do sifec e em cada vertical a sua relação de maquinas, onde cada um compõe o seu proprio ambiente de produção. Qual…
-Boa tarde meu caro!!! em DES estamos focando no ambiente SIFEC Intranet
- 
-Jesse Mouta Pereira Batista
-Paulo Henrique Barros Santos  Rodrigo Abreu Costa   Resumo do dia – ADDR Migração JBoss 7.4 (12/11)    Concluído hoje   SICDT 3.24.3.004: implantado às 10:31. Aguardando a validação final do Inocênci…
-segue a versão com o ajuste:
- 
-http://binario.caixa:8081/repository/releases/br/gov/caixa/sirur/sifec-sirur/3.55.51.02/sifec-sirur-3.55.51.02.ear
- 
-Michael Lourant de Oliveira Ferreira
-segue a versão com o ajuste:   http://binario.caixa:8081/repository/releases/br/gov/caixa/sirur/sifec-sirur/3.55.51.02/sifec-sirur…
-do SIRUR
- 
-Edson Prokot
-Rodrigo Abreu Costa, bom dia!   Foi identificado um problema no SICCR-Javaweb na nossa esteira de testes, pelo nosso colega Matheus Gabriel de Oliveira Rodrigues. Ao tentar fazer uma simulação utiliz…
-Vamos verificar Edson Prokot
- 
-Boa tarde! Thiago, Jesse por favor, faz o deploys desse EAR do SIFEC
-http://binario.caixa:8081/repository/releases/br/gov/caixa/fec/sifec/2.161.2.0/sifec-2.161.2.0.ear
- 
-14:29 Paulo Henrique Barros Santos iniciou uma reunião.
+curl -k -L -s -o /tmp/sifec_lcr_1.117.1.ear "https://fontes.caixa/deploy/deposito_captacao/-/raw/main/SILCR/05-Implantacao/Build/sifec_lcr_1.117.1.ear?ref_type=heads" && ls -l /tmp/sifec_lcr_1.117.1.ear && file /tmp/sifec_lcr_1.117.1.ear
+Zip archive data: siga para o 1.2.
+HTML: baixe pelo navegador e suba pela console. Content Repository → SILCR → Replace. Depois Server Groups → sifec-intranet → Add → Deploy Existing Content → SILCR. Em seguida, pule para o 1.3.
 
- 
-14:32 Reunião encerrada 3min 10s 
+1.2 Na janela 3, faça o deploy:
 
- 
-14:35 Você iniciou uma reunião.
+deploy /tmp/sifec_lcr_1.117.1.ear --name=SILCR --runtime-name=sifec_lcr_1.117.1.ear --force
+/server-group=sifec-intranet/deployment=SILCR:add(enabled=true)
 
- 
-14:37 Reunião encerrada 1m 58s 
+1.3 Olhe a janela 1:
 
+WFLYSRV0010 "SILCR" foi implantado: ✅ subiu. Vá para o 1.4.
+WFLYSRV0021: foi revertido. Me manda o log.
 
-<img width="800" height="557" alt="image" src="https://github.com/user-attachments/assets/ba3293b3-441a-40ec-a988-1b036ffa65a8" />
+1.4 Na janela 3, confira o Keycloak do LCR:
 
+/profile=full-ha-sifec-intranet/subsystem=keycloak:read-children-names(child-type=secure-deployment)
 
-<img width="1054" height="869" alt="image" src="https://github.com/user-attachments/assets/1eeb690c-a56e-4930-9cf8-2a4190b22c73" />
+Se o lcr-web.war não aparecer na lista, me avise.
 
- 
+PASSO 2: SIRUR 3.55.51.02
 
-Boa tarde mestre, quando vc voltar do almoço, consegue avaliar o erro que o Edson postou no grupo?
- 
-Jesse Mouta Pereira Batista
- 
-Mandaram uma versão do SIRUR mestre
- 
-Mestre, quando puder, vamos focar no LCR, depois SIRUR e só aí vamos ver a questão do CCR, por favor
- 
-Importante!
-Vamos seguir essa linha Jesse Mouta Pereira Batista 
+2.1 Na janela 2, baixe o pacote:
+
+curl -s -o /tmp/sifec-sirur-3.55.51.02.ear http://binario.caixa:8081/repository/releases/br/gov/caixa/sirur/sifec-sirur/3.55.51.02/sifec-sirur-3.55.51.02.ear && ls -l /tmp/sifec-sirur-3.55.51.02.ear && file /tmp/sifec-sirur-3.55.51.02.ear
+
+2.2 Na janela 3, faça o deploy:
+
+deploy /tmp/sifec-sirur-3.55.51.02.ear --name=SIRUR --runtime-name=sifec-sirur-3.55.51.02.ear --force
+/server-group=sifec-intranet/deployment=SIRUR:add(enabled=true)
+
+2.3 Olhe a janela 1:
+
+WFLYSRV0010 "SIRUR" foi implantado: ✅ subiu.
+entityManagerFactory, Duplicate generator ou WFLYSRV0021: me manda o log.
+PASSO 3: CCR, o 401 do Edson
+
+3.1 Na 473, veja por que o token foi recusado:
+
+sudo grep -nE "AdapterTokenVerifier|Failed to verify token|publicKey|Token is not active|Invalid token|realm|ccr-api" /opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/server.log | tail -15
+
+3.2 Na janela 2 (471), veja o Keycloak do ccr-api no 7.4:
+
+grep -n -A15 'secure-deployment name="ccr-api' /opt/jboss/jboss-eap/dc/configuration/domain.xml | grep -vi secret
+
+3.3 No 6.4 (10.116.88.20), veja o mesmo bloco:
+
+sudo grep -n -A15 'secure-deployment name="ccr-api' /opt/jboss/jboss-eap/dc/configuration/domain.xml | grep -vi secret | head -40
+
+3.4 Me manda as três saídas. Eu comparo e te passo os comandos de correção.
+
+PASSO 4: SIFEC 2.161.2.0
+
+4.1 Na janela 2, baixe o pacote:
+
+curl -s -o /tmp/sifec-2.161.2.0.ear http://binario.caixa:8081/repository/releases/br/gov/caixa/fec/sifec/2.161.2.0/sifec-2.161.2.0.ear && ls -l /tmp/sifec-2.161.2.0.ear && file /tmp/sifec-2.161.2.0.ear
+
+4.2 Na janela 3, faça o deploy. Ele troca o SIFEC atual (2.160.4.0) e faz o redeploy automático:
+
+deploy /tmp/sifec-2.161.2.0.ear --name=SIFEC --runtime-name=sifec-2.161.2.0.ear --force
+
+4.3 Na janela 1, o esperado é WFLYSRV0016 ... substituída pela implantação "sifec-2.161.2.0.ear".
+
+PASSO 5: fim do dia
+Confira tudo que está no ar, na janela 3:
+/server-group=sifec-intranet:read-children-resources(child-type=deployment)
+Me manda a saída que eu monto o resumo do dia para a sala.
+
+Regra geral: se aparecer WFLYSRV0021 em qualquer passo, pare e me mande o log antes de seguir para o próximo.
 
 
-
- vamos la vamos na primoreido que o paulo e  o rdirgo pediu bora fazer tudo me ajuda ai.. conforme ele pediu
