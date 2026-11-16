@@ -1,30 +1,9 @@
+Análise concluída – Login CAIXA / SIBEC3 (DES)
 
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$ oc get pod -n siepr-des siepr-backend-des-244-t982x -o jsonpath='{range .spec.initContainers[0].env[*]}{.name}{" -> "}{.valueFrom.secretKeyRef.name}{"/"}{.valueFrom.secretKeyRef.key}{"\n"}{end}'
-SECRETS_PATH -> /
-BT_API_URL -> /
-CLIENT_ID -> bt-client-secret-siepr-backend-des/BT_CLIENT_ID
-CLIENT_SECRET -> bt-client-secret-siepr-backend-des/BT_CLIENT_SECRET
-BT_API_VERSION -> /
-SECRETS_LIST -> /
-BT_VERIFY_CA -> /
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$ oc get pod -n siepr-des siepr-backend-intranet-des-142-xfmps -o jsonpath='{range .spec.initContainers[0].env[*]}{.name}{" -> "}{.valueFrom.secretKeyRef.name}{"/"}{.valueFrom.secretKeyRef.key}{"\n"}{end}'
-SECRETS_PATH -> /
-BT_API_URL -> /
-CLIENT_ID -> bt-client-secret-siepr-backend-intranet-des/BT_CLIENT_ID
-CLIENT_SECRET -> bt-client-secret-siepr-backend-intranet-des/BT_CLIENT_SECRET
-BT_API_VERSION -> /
-SECRETS_LIST -> /
-BT_VERIFY_CA -> /
--sh-4.2$
--sh-4.2$
--sh-4.2$
+Os erros relatados na página de CPF (Uncaught ReferenceError: waitOFDB is not defined e HTTP 400 no favicon.ico) vêm do tema da própria página do Login CAIXA (realm internet, logindes.caixa.gov.br). Não são gerados pelo SIBEC3 e não impedem a autenticação.
 
+Validação realizada: acesso a https://siepr-curso-bec3-frontend-des.apps.nprd.caixa com o CPF de teste 03848489074 (client cli-web-epr). O login no Login CAIXA foi concluído e o retorno ao SIBEC3 ocorreu normalmente, com o usuário identificado na tela e o token obtido com sucesso (HTTP 200).
 
-vao ao posnto pois esta fungio do escopo da demanda , o problema erelatod era de sso que nao exitems mais, o que podemos fazer ajustar nossa perte do que vvimos ensse novo problema e encerrar a demanda sem mais delongas
+Observação: depois do login, o SIBEC3 exibe “Usuário sem acesso ao sistema” porque as chamadas ao backend (parametros-portal, hora, invalidar) retornam HTTP 500 (“Parâmetro da certificação não informado no header”). Esse comportamento é do backend do SIEPR e não tem relação com o SSO. Identificamos que o siepr-backend-des está indisponível desde 13/11 por falha de autenticação no cofre de senhas (BeyondTrust), e que a origem do SIBEC3 não está liberada no CORS desse backend. Esses pontos devem ser tratados em demanda própria. A massa de dados citada pelo time (cadastro pendente em outro sistema) também deve ser concluída para o perfil de acesso.
+
+Demanda encerrada quanto ao escopo de SSO.
