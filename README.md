@@ -1,29 +1,24 @@
-Abertura
+O que verificar no 2501:
 
-“Gustavo, bem-vindo de volta! Vou te dar um panorama rápido de como estamos e do que vem pela frente.”
+bash
+# agente escutando na porta servidor->agente
+ss -ltnp | grep 7016
 
-Como estamos
+# houve tentativa de conexão do servidor depois de 12/11 11:31?
+grep -i "cxextrlx038" /opt/ctmage/ctm/dailylog/daily_ctmag_2026111*.log | tail -20
+ls -ltr /opt/ctmage/ctm/proclog | tail -20
 
-“Hoje o ambiente intranet do SIFEC no 7.4 já está com a maior parte das aplicações no ar: SIFEC, PJ, SICDT, Parâmetros, o front do HUB, MCM, BDCAIXA, CCR, FBN e Minutas. Algumas já foram validadas pelos devs, e o resto está em validação com os times.”
+Se o agente estiver escutando na 7016 e não aparecer nenhuma conexão vinda do cxextrlx038, a causa provável é firewall no sentido servidor → agente.
 
-“O SIEMP também está publicado pela esteira nova e já abre pelo siemp.des.caixa. Tinha uma intermitência porque o DNS ficou com o IP antigo junto com o novo. Já abrimos a REQ para tirar o antigo.”
+Sugestão de resposta para o Iury:
 
-O que a gente resolveu do nosso lado
+Bom dia, Iury! Verifiquei: o job não chegou a ser executado no agente. Ele ficou em “Wait Host”, que é quando o servidor Control-M não consegue entregar o job para o host. Por isso não existe output.
 
-“Na parte de ambiente, ajustamos tudo o que apareceu: truststore, SSO, cofre de senhas, propriedades das aplicações e alguns bancos que estavam com credencial ou endereço diferente do 6.4. Pelo lado da DevOps, não temos pendência travando nenhum deploy hoje.”
+Consegue me passar duas informações?
 
-O que depende da fábrica
+Na definição do job CRIACAO_OS_SIGDU, qual está no campo Host/Host Group? O agente está registrado como caddeapllx2501.agil.nprd.caixa.gov.br.
+Se possível, peça para quem administra o Control-M verificar se esse agente aparece como Available no servidor BR DES - Negocial.
 
-“O que está parado hoje é código. O LCR e o SIRUR já tiveram builds novos, mas ainda caem por ajustes de CDI e de JPA. Já passamos o diagnóstico detalhado para os devs. O hub-api precisa ajustar umas queries, e RURAL, EMP e EMPRESAS estão com o time do SIEMP.”
+Do meu lado, estou verificando a comunicação no sentido servidor → agente (porta 7016). A validação anterior cobriu o sentido agente → servidor.
 
-O que estamos investigando
-
-“Tem um ponto em aberto no CCR: uma chamada do consignado dá 401 no 7.4 e no 6.4 funciona. A configuração está igual nos dois, então estou olhando a infraestrutura em volta. Devo ter retorno hoje.”
-
-Próximos passos
-
-“A ordem que combinamos com o Paulo e o Rodrigo é: primeiro o LCR, depois o SIRUR, depois fechar o CCR. Assim que os builds chegarem, a gente sobe na hora. Depois disso, seguimos com o restante da planilha do sifec-intra e, em seguida, com os outros ambientes: internet, inter-SSO e API.”
-
-Fechamento
-
-“Basicamente é isso. Do nosso lado o ambiente está pronto, e o ritmo agora depende dos builds da fábrica. Quer que eu detalhe algum ponto?”
+Me passa a saída dos comandos e o host que estiver no job, e a gente fecha a causa.
