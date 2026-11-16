@@ -1,79 +1,817 @@
-2026-11-16T20:21:53.5380643Z ##[section]Starting: Executando Tag na Imagem do ambiente de build OKD3, OKD4 e OCP
-2026-11-16T20:21:53.5384098Z ==============================================================================
-2026-11-16T20:21:53.5384183Z Task         : Bash
-2026-11-16T20:21:53.5384228Z Description  : Run a Bash script on macOS, Linux, or Windows
-2026-11-16T20:21:53.5384305Z Version      : 3.227.0
-2026-11-16T20:21:53.5384350Z Author       : Microsoft Corporation
-2026-11-16T20:21:53.5384403Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/bash
-2026-11-16T20:21:53.5384486Z ==============================================================================
-2026-11-16T20:21:53.6611498Z Generating script.
-2026-11-16T20:21:53.6622254Z ========================== Starting Command Output ===========================
-2026-11-16T20:21:53.6629797Z [command]/bin/bash /opt/ads-agent/_work/_temp/a053fa16-a377-4ceb-b020-68ba479a056a.sh
-2026-11-16T20:21:53.6687781Z + echo ocp_nprd
-2026-11-16T20:21:53.6689811Z + egrep -q '^(okd4|ocp|openshift)'
-2026-11-16T20:21:53.6727200Z +++ OKD_REGISTRY
-2026-11-16T20:21:53.6733091Z /opt/ads-agent/_work/_temp/a053fa16-a377-4ceb-b020-68ba479a056a.sh: line 23: OKD_REGISTRY: comando não encontrado
-2026-11-16T20:21:53.6739554Z +++ ProjetoBuild
-2026-11-16T20:21:53.6744547Z /opt/ads-agent/_work/_temp/a053fa16-a377-4ceb-b020-68ba479a056a.sh: line 23: ProjetoBuild: comando não encontrado
-2026-11-16T20:21:53.6747763Z ++ check_status_code https:///v2///manifests/20261116.1231-1.0.0-SNAPSHOT
-2026-11-16T20:21:53.6748176Z ++ local url=https:///v2///manifests/20261116.1231-1.0.0-SNAPSHOT
-2026-11-16T20:21:53.6751542Z +++ OKD_TOKEN_REGISTRY
-2026-11-16T20:21:53.6756502Z /opt/ads-agent/_work/_temp/a053fa16-a377-4ceb-b020-68ba479a056a.sh: line 6: OKD_TOKEN_REGISTRY: comando não encontrado
-2026-11-16T20:21:53.6759386Z ++ curl --location --request GET https:///v2///manifests/20261116.1231-1.0.0-SNAPSHOT --header 'Authorization: Bearer ' --header 'Content-Type: text/plain' -s -k -o /dev/null -w '%{http_code}'
-2026-11-16T20:21:59.1962085Z + status_code=000
-2026-11-16T20:21:59.1964490Z + [[ 000 -ne 200 ]]
-2026-11-16T20:21:59.1965089Z + [[ des != \p\r\d ]]
-2026-11-16T20:21:59.1965446Z ++ ProjetoBuild
-2026-11-16T20:21:59.1969425Z /opt/ads-agent/_work/_temp/a053fa16-a377-4ceb-b020-68ba479a056a.sh: line 26: ProjetoBuild: comando não encontrado
-2026-11-16T20:21:59.1970827Z + handle_image_not_found 20261116.1231-1.0.0-SNAPSHOT '' ''
-2026-11-16T20:21:59.1971135Z + local build_number=20261116.1231-1.0.0-SNAPSHOT
-2026-11-16T20:21:59.1971352Z + local project_build=
-2026-11-16T20:21:59.1971542Z + local build_name=
-2026-11-16T20:21:59.1971647Z + echo ''
-2026-11-16T20:21:59.1971938Z + echo 'A tag 20261116.1231-1.0.0-SNAPSHOT não foi encontrada no ImageStream de Build: https://console-openshift-console.apps.produtos4.caixa/k8s/ns//imagestreams/'
-2026-11-16T20:21:59.1972261Z + echo 'Verifique se a tag 20261116.1231-1.0.0-SNAPSHOT foi gerada corretamente durante a Build'
-2026-11-16T20:21:59.1972441Z + exit 1
-2026-11-16T20:21:59.1972524Z 
-2026-11-16T20:21:59.1972848Z A tag 20261116.1231-1.0.0-SNAPSHOT não foi encontrada no ImageStream de Build: https://console-openshift-console.apps.produtos4.caixa/k8s/ns//imagestreams/
-2026-11-16T20:21:59.1973138Z Verifique se a tag 20261116.1231-1.0.0-SNAPSHOT foi gerada corretamente durante a Build
-2026-11-16T20:21:59.1992199Z ##[error]Bash exited with code '1'.
-2026-11-16T20:21:59.2027804Z ##[section]Finishing: Executando Tag na Imagem do ambiente de build OKD3, OKD4 e OCP
+Skip to main content
+Azure DevOps
+projetos
+/
+Caixa
+/
+Pipelines
+/
+Releases
+/
+SISPI-dict-reivindicacoes
+Search
+
+
+Caixa
+
+Overview
+
+Boards
+
+Repos
+
+Pipelines
+Pipelines
+Environments
+Releases
+Library
+Task groups
+Deployment groups
+Portal Infra
+
+Test Plans
+
+Artifacts
+Project settings
+All pipelines
+
+SISPI
+
+SISPI-dict-reivindicacoes
+Predefined variables
+Filter by keywords
+Scope
+
+
+AMBIENTE
+des
+AMBIENTE
+tqs
+AMBIENTE
+hmp
+AMBIENTE
+prd
+AMBIENTE_BUILD
+build-images-ads
+CGC_UNIDADE_DES
+7390
+CGC_UNIDADE_OPS
+7261
+PASSWORD_TRUSTSTORE
+changeit
+SISTEMANOME
+sispi-dict-reivindicacoes
+SITE
+ocp_nprd
+SITE
+ocp_prd
+TemplateRelease_OKD
+openshift/quarkus-caixa-release
+UNIDADE
+BR
+URL_APM_SERVER
+http://apm-server-devops.produtos.caixa
+URL_CUSTOMIZADA
+pix-qrcode.caixa.gov.br
+Showing filters 1 through 2
+
+Showing 8 deployments
+
+Row 2
+
+OCP4 EC DESDeploy release
+
+Showing 9 deployments
+
+Row 2
+
+Showing filters 1 through 2
+
+Showing filters 1 through 2
 
 
 
 
+Skip to main content
+Azure DevOps
+projetos
+/
+Caixa
+/
+Pipelines
+/
+Releases
+/
+SISPI-dict-reivindicacoes
+Search
 
-2026-11-16T20:21:59.2181576Z ##[section]Starting: Logs da Aplicação
-2026-11-16T20:21:59.2184953Z ==============================================================================
-2026-11-16T20:21:59.2185038Z Task         : Bash
-2026-11-16T20:21:59.2185082Z Description  : Run a Bash script on macOS, Linux, or Windows
-2026-11-16T20:21:59.2185159Z Version      : 3.227.0
-2026-11-16T20:21:59.2185317Z Author       : Microsoft Corporation
-2026-11-16T20:21:59.2185421Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/bash
-2026-11-16T20:21:59.2185500Z ==============================================================================
-2026-11-16T20:21:59.3356209Z Generating script.
-2026-11-16T20:21:59.3368369Z ========================== Starting Command Output ===========================
-2026-11-16T20:21:59.3376267Z [command]/bin/bash /opt/ads-agent/_work/_temp/36140dea-5899-40cd-9b72-2237ebb598d0.sh
-2026-11-16T20:21:59.3431266Z + shopt -s expand_aliases
-2026-11-16T20:21:59.3433057Z + [[ -n ocp_nprd ]]
-2026-11-16T20:21:59.3433448Z + [[ ocp_nprd =~ ocp ]]
-2026-11-16T20:21:59.3433677Z + app=sispi-dict-reivindicacoes-des
-2026-11-16T20:21:59.3433884Z + arquivo=/usr/local/bin/oc-v4.13
-2026-11-16T20:21:59.3434121Z + '[' -e /usr/local/bin/oc-v4.13 ']'
-2026-11-16T20:21:59.3434343Z + alias oc=/usr/local/bin/oc-v4.13
-2026-11-16T20:21:59.3434591Z + /usr/local/bin/oc-v4.13 version
-2026-11-16T20:21:59.4387808Z Client Version: 4.13.0-202307282024.p0.ge251b5e.assembly.stream-e251b5e
-2026-11-16T20:21:59.4388013Z Kustomize Version: v4.5.7
-2026-11-16T20:21:59.4388141Z Server Version: 4.15.59
-2026-11-16T20:21:59.4388264Z Kubernetes Version: v1.28.15+d227d65
-2026-11-16T20:21:59.4422583Z ++ /usr/local/bin/oc-v4.13 get pod -l name=sispi-dict-reivindicacoes-des -n sispi-des -o 'jsonpath={range .items[*]}{.metadata.name}{"\n"}' --sort-by=.metadata.creationTimestamp
-2026-11-16T20:21:59.4429011Z ++ tac
-2026-11-16T20:21:59.4429588Z ++ grep -v '^$'
-2026-11-16T20:21:59.4429756Z ++ head -n1
-2026-11-16T20:21:59.6058493Z + last_pod=sispi-dict-reivindicacoes-des-2-xsw4b
-2026-11-16T20:21:59.6058785Z + echo 'Logs do POD: sispi-dict-reivindicacoes-des-2-xsw4b'
-2026-11-16T20:21:59.6060821Z + /usr/local/bin/oc-v4.13 logs sispi-dict-reivindicacoes-des-2-xsw4b -c sispi-dict-reivindicacoes-des -n sispi-des
-2026-11-16T20:21:59.6061064Z Logs do POD: sispi-dict-reivindicacoes-des-2-xsw4b
-2026-11-16T20:21:59.7291740Z Error from server (BadRequest): container "sispi-dict-reivindicacoes-des" in pod "sispi-dict-reivindicacoes-des-2-xsw4b" is waiting to start: trying and failing to pull image
-2026-11-16T20:21:59.7345064Z ##[error]Bash exited with code '1'.
-2026-11-16T20:21:59.7378707Z ##[section]Finishing: Logs da Aplicação
+
+Caixa
+
+Overview
+
+Boards
+
+Repos
+
+Pipelines
+Pipelines
+Environments
+Releases
+Library
+Task groups
+Deployment groups
+Portal Infra
+
+Test Plans
+
+Artifacts
+Project settings
+All pipelines
+
+SISPI
+
+SISPI-dict-reivindicacoes
+Predefined variables
+SonarQube Variables (1)
+Variáveis com dados do SonarQube
+
+Scopes: Release
+SONAR_URL
+http://sonar.produtos.caixa
+Usuario-Azure-DevOps (12)
+Scopes: Release
+AZPAT
+********
+AZUSER
+s736639
+BT_API_URL
+https://sicsn.caixa/BeyondTrust/api/public/v3
+BT_SECRETS_PATH
+********
+FORTIFY_API
+https://novocodigoseguro.caixa/ssc/api/v1
+FORTIFY_APITOKEN
+********
+FORTIFY_PASS
+********
+FORTIFY_USER
+admin
+OKD_KAFKA
+api.kafka-nprd.caixa:6443
+OKD_TOKEN_KAFKA
+********
+TOKEN_CRQ
+********
+URL_CRQ
+https://infradevops-novoportal-backend-prd.apps.produtos4.caixa/api.php?acao=devopsCaixacriarMudancaPadrao
+EGRESS_IP_OKD (81)
+WO0000072264656 - Config Portal Infrafácil NO_PROXY
+Scopes: Release
+ALOCAIP_AMBIENTE
+Aplicacao
+ALOCAIP_AMBIENTE_OCP
+Aplicacao
+ALOCAIP_AMBIENTE_OCP_LOTERIAS_PRD
+Cloud
+ALOCAIP_AMBIENTE_OCP_PRD
+Cloud
+ALOCAIP_AMBIENTE_OKD4
+Aplicacao
+ALOCAIP_AMBIENTE_OKD4_PRD_CTC
+Cloud
+ALOCAIP_AMBIENTE_OPENSHIFT_LOTERIAS_NPRD
+Desenvolvimento
+ALOCAIP_AMBIENTE_OPENSHIFT_LOTERIAS_PRD
+Cloud
+ALOCAIP_AMBIENTE_PRD_CANAIS
+Cloud
+ALOCAIP_AMBIENTE_PRD_DTC
+Cloud
+ALOCAIP_CATEGORIA
+Linux
+ALOCAIP_CATEGORIA_OKD4_PRD_CTC
+Linux
+ALOCAIP_FIM_RANGE_OCP
+10.116.223.250
+ALOCAIP_FIM_RANGE_OCP_LOTERIAS_PRD
+10.190.64.200
+ALOCAIP_FIM_RANGE_OCP_PRD
+10.118.121.250
+ALOCAIP_FIM_RANGE_OKD4
+10.116.215.250
+ALOCAIP_FIM_RANGE_OKD4_PRD_CTC
+10.121.103.250
+ALOCAIP_FIM_RANGE_OPENSHIFT_LOTERIAS_NPRD
+10.190.160.254
+ALOCAIP_FIM_RANGE_OPENSHIFT_LOTERIAS_PRD
+10.190.255.253
+ALOCAIP_FIM_RANGE_PRD_CANAIS_CTC
+10.118.97.255
+ALOCAIP_FIM_RANGE_PRD_CANAIS_CTC_OB
+10.118.97.254
+ALOCAIP_FIM_RANGE_PRD_CANAIS_DTC
+10.220.225.255
+ALOCAIP_FIM_RANGE_PRD_DTC
+10.221.101.250
+ALOCAIP_ID
+"C&t@d02"
+ALOCAIP_INICIO_RANGE_OCP
+10.116.223.1
+ALOCAIP_INICIO_RANGE_OCP_LOTERIAS_PRD
+10.190.64.161
+ALOCAIP_INICIO_RANGE_OCP_PRD
+10.118.121.1
+ALOCAIP_INICIO_RANGE_OKD4
+10.116.209.0
+ALOCAIP_INICIO_RANGE_OKD4_PRD_CTC
+10.121.101.1
+ALOCAIP_INICIO_RANGE_OPENSHIFT_LOTERIAS_NPRD
+10.190.160.201
+ALOCAIP_INICIO_RANGE_OPENSHIFT_LOTERIAS_PRD
+10.190.255.245
+ALOCAIP_INICIO_RANGE_PRD_CANAIS_CTC
+10.118.96.100
+ALOCAIP_INICIO_RANGE_PRD_CANAIS_CTC_OB
+10.118.97.100
+ALOCAIP_INICIO_RANGE_PRD_CANAIS_DTC
+10.220.224.100
+ALOCAIP_INICIO_RANGE_PRD_DTC
+10.221.100.100
+ALOCAIP_RED_NUM
+3022
+ALOCAIP_RED_NUM_OCP
+4995
+ALOCAIP_RED_NUM_OCP_LOTERIAS_PRD
+13616
+ALOCAIP_RED_NUM_OCP_PRD
+6053
+ALOCAIP_RED_NUM_OKD4
+4995
+ALOCAIP_RED_NUM_OKD4_PRD_CTC
+4996
+ALOCAIP_RED_NUM_OPENSHIFT_LOTERIAS_NPRD
+14583
+ALOCAIP_RED_NUM_OPENSHIFT_LOTERIAS_PRD
+14582
+ALOCAIP_RED_NUM_PRD
+4104
+ALOCAIP_RED_NUM_PRD_CANAIS_CTC
+6053
+ALOCAIP_RED_NUM_PRD_CANAIS_DTC
+6055
+ALOCAIP_RED_NUM_PRD_DTC
+5199
+ALOCAIP_SENHA
+********
+ALOCAIP_SITE
+CTC
+ALOCAIP_SITE_DTC
+DTC
+ALOCAIP_SITE_OCP
+CTC
+ALOCAIP_SITE_OCP_LOTERIAS_PRD
+CTC
+ALOCAIP_SITE_OCP_PRD
+CTC
+ALOCAIP_SITE_OKD4
+CTC
+ALOCAIP_SITE_OKD4_PRD_CTC
+CTC
+ALOCAIP_SITE_OPENSHIFT_LOTERIAS_NPRD
+CTC
+ALOCAIP_SITE_OPENSHIFT_LOTERIAS_PRD
+CTC
+ALOCAIP_UNIDADE
+CEPTIBR
+ALOCAIP_UNIDADE_OCP
+CEPTI
+ALOCAIP_UNIDADE_OCP_LOTERIAS_PRD
+CETAD
+ALOCAIP_UNIDADE_OCP_PRD
+CETAD
+ALOCAIP_UNIDADE_OKD4
+CEPTI
+ALOCAIP_UNIDADE_OKD4_PRD_CTC
+CETAD
+ALOCAIP_UNIDADE_OPENSHIFT_LOTERIAS_NPRD
+CETAD
+ALOCAIP_UNIDADE_OPENSHIFT_LOTERIAS_PRD
+CETAD
+ALOCAIP_UNIDADE_PRD_CANAIS
+CETAD
+ALOCAIP_UNIDADE_PRD_DTC
+CETAD
+ALOCAIP_VERTICAL
+Desenvolvimento
+ALOCAIP_VERTICAL_OCP
+Desenvolvimento
+ALOCAIP_VERTICAL_OCP_LOTERIAS_PRD
+Cloud
+ALOCAIP_VERTICAL_OCP_PRD
+IBC
+ALOCAIP_VERTICAL_OKD4
+Desenvolvimento
+ALOCAIP_VERTICAL_OKD4_PRD_CTC
+Vertical_Nao_PCN
+ALOCAIP_VERTICAL_OPENSHIFT_LOTERIAS_NPRD
+Cloud
+ALOCAIP_VERTICAL_OPENSHIFT_LOTERIAS_PRD
+Cloud
+ALOCAIP_VERTICAL_PRD_CANAIS
+IBC
+ALOCAIP_VERTICAL_PRD_DTC
+Vertical Nao PCN
+APIALOCAIP
+https://api.alocaip.telecom.caixa
+PASSWORD_CGC
+********
+PORTALIF
+https://infradevops-novoportal-backend-prd.apps.produtos4.caixa
+USER_CGC
+USR_CETADPOR1
+MONITORACAO_LOGS (4)
+REQ000143540550 - Conforme autorizado na req por FLAVIO ALMEIDA GAGLIARDI, removido as variáveis JAVA_OPTS_MONITORING e URL_APM_SERVER, por entrar em conflitos com releases que utilizam o Application Insights
+Scopes: Release
+DIR_LOGS
+/opt/ads-agent/esteira-logs
+GRAYLOG_PASSWORD
+********
+GRAYLOG_USERNAME
+API_CLIENT
+REPOSITORY_LOGS
+https://devops.caixa/projetos/Infraestrutura/_git/esteira-logs
+PIX-API-SUPORTE-DES (49)
+Scopes: OCP4 EC DES
+PASSWORD_DB
+********
+PASSWORD_DB_DG
+********
+PASSWORD_PROXY
+********
+PIX_API_KEY
+********
+_ENV.JAVA_OPTIONS_APPEND
+"-Xms1280m -Djavax.net.ssl.trustStore=/deployments/caixa-truststore-acteste-nprd.jks -Djavaagent:/deployments/lib/main/com.microsoft.azure.applicationinsights-agent-3.5.1.jar -Djavax.net.ssl.keyStore=/deployments/caixa-keystore-mpi-mq-plexd-nprd.jks"
+_ENV.JAVA_TOOL_OPTIONS
+"-Dfile.encoding=UTF8"
+_ENV.PIX.LOGIN.CAIXA.INTRANET.READTIMEOUT
+1000
+_ENV.PIX.LOGIN.CAIXA.INTRANET.TIMEOUT
+1000
+_ENV.PIX.LOGIN.CAIXA.INTRANET.URL
+https://login.des.caixa/auth/realms/intranet
+_ENV.PIX.LOGIN.CAIXA.LOGINX.URL
+https://loginxdes.caixa.gov.br/auth/realms/r_inter_siper
+_ENV.PIX.LOGIN.PROXY.CAIXA.INTERNET.READTIMEOUT
+1000
+_ENV.PIX.LOGIN.PROXY.CAIXA.INTERNET.TIMEOUT
+1000
+_ENV.PIX.LOGIN.PROXY.CAIXA.INTERNET.URL
+http://sispi-api-proxy-sso-des:8080/auth/realms/internet
+_ENV.PIX.LOGIN.PROXY.CAIXA.INTRANET.READTIMEOUT
+1000
+_ENV.PIX.LOGIN.PROXY.CAIXA.INTRANET.TIMEOUT
+1000
+_ENV.PIX.LOGIN.PROXY.CAIXA.INTRANET.URL
+http://sispi-api-proxy-sso-des:8080/auth/realms/intranet
+_ENV.PIX.LOGIN.PROXY.LOGINX.READTIMEOUT
+1000
+_ENV.PIX.LOGIN.PROXY.LOGINX.TIMEOUT
+1000
+_ENV.PIX.LOGIN.PROXY.LOGINX.URL
+http://sispi-api-proxy-sso-des:8080/auth/realms/r_inter_siper
+_ENV.PIX_API_MANAGER
+https://api.des.caixa:8443
+_ENV.PIX_ENVIRONMENT
+DES
+_ENV.PIX_ISPB_CAIXA
+00360305
+_ENV.PIX_LOGIN_CAIXA_INTERNET_URL
+https://logindes.caixa.gov.br/auth/realms/internet
+_ENV.PIX_LOGIN_CAIXA_INTRANET_URL
+https://login.des.caixa/auth/realms/intranet
+_ENV.PIX_LOGIN_CAIXA_LOGIN2_URL
+https://login2des.caixa.gov.br/auth/realms/internet
+_ENV.PIX_LOGIN_CAIXA_LOGINX_URL
+https://loginxdes.caixa.gov.br/auth/realms/r_inter_siper
+_ENV.PIX_LOGIN_CAIXA_SSO_PROXY_INTRANET_URL
+https://sispi-api-proxy-sso-des.apps.pixnprd4.caixa/auth/realms/intranet
+_ENV.PIX_SUPORTE_DATABASE_CHECKCONNECTION_SCHEDUDLE
+"0 * * ? * * *"
+_ENV.PIX_SUPORTE_DEPENDENCY_MONITOR_SSOINTER_ENABLED
+true
+_ENV.PIX_SUPORTE_DEPENDENCY_MONITOR_SSOINTRA_ENABLED
+true
+_ENV.PIX_SUPORTE_DEPENDENCY_MONITOR_SSO_NAME
+"SSO Caixa"
+_ENV.PIX_SUPORTE_DEPENDENCY_SCHEDULE
+"0 * * ? * * *"
+_ENV.PIX_SUPORTE_LOG_LEVEL
+br.gov.caixa:INFO
+_ENV.PIX_SUPORTE_PROXY_HOST
+proxydes.caixa
+_ENV.PIX_SUPORTE_PROXY_PORTA
+80
+_ENV.PIX_SUPORTE_PROXY_USUARIO
+s739019
+_ENV.PIX_SUPORTE_REQUEST_TIMEOUT
+5000
+_ENV.PIX_SUPORTE_SERVICE.RELOAD
+"0/59 * * * * ?"
+_ENV.PIX_TENTANT_IDENTIFIER
+.caixa.gov.br
+_ENV.QUARKUS_DATASOURCE_DATAGUARD_JDBC_URL
+"jdbc:oracle:thin:@(DESCRIPTION=(LOAD_BALANCE=off)(ADDRESS=(PROTOCOL=TCP)(HOST=10.116.101.16)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=CDBD08NGPDB017)(SERVER=DEDICATED)))"
+_ENV.QUARKUS_DATASOURCE_DATAGUARD_USERNAME
+SSPIBD03
+_ENV.QUARKUS_DATASOURCE_JDBC_URL
+"jdbc:oracle:thin:@(DESCRIPTION=(LOAD_BALANCE=off)(ADDRESS=(PROTOCOL=TCP)(HOST=10.116.101.16)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=CDBD08NGPDB017)(SERVER=DEDICATED)))"
+_ENV.QUARKUS_DATASOURCE_USERNAME
+SSPIBD03
+_ENV.QUARKUS_LOG_CONSOLE_FORMAT
+"%d{yyyy-MM-dd HH:mm:ss,SSS} %-5p %X{correlation-id} [%c{3.}] (%t) %s%e%n"
+_SECRET.PIX_API_KEY
+#{PIX_API_KEY}#
+_SECRET.PIX_SUPORTE_PROXY_SENHA
+#{PASSWORD_PROXY}#
+_SECRET.QUARKUS_DATASOURCE_DATAGUARD_PASSWORD
+#{PASSWORD_DB_DG}#
+_SECRET.QUARKUS_DATASOURCE_PASSWORD
+#{PASSWORD_DB}#
+teste
+teste
+SISPI-DICT-REIVINDICACOES-DES (32)
+Scopes: OCP4 EC DES
+JVM_HEAP_MAX
+2048m
+JVM_HEAP_MIN
+1024m
+JVM_METASPACE_MAX
+256m
+JVM_METASPACE_MIN
+96M
+SISPI-DICT_CONN_FILAS_ANTI_FRAUDE_CHANNEL
+SIMPI.SVRCONN
+SISPI-DICT_CONN_FILAS_ANTI_FRAUDE_MANAGER
+XMQD1
+SISPI-DICT_CONN_FILAS_ANTI_FRAUDE_PORTA
+1414
+SISPI-DICT_CONN_FILAS_ANTI_FRAUDE_SENHA
+********
+SISPI-DICT_CONN_FILAS_ANTI_FRAUDE_URL
+10.116.95.99
+SISPI-DICT_CONN_FILAS_ANTI_FRAUDE_USUARIO
+SSPIBD01
+_ENV.APPLICATION_NAME
+"(SISPI) DICT REINVINDICACOES - DES"
+_ENV.PUSH_CAIXA_PROXY_HOST
+proxydes.caixa
+_ENV.PUSH_CAIXA_PROXY_PORTA
+80
+_ENV.PUSH_CAIXA_PROXY_PROTOCOLO
+http
+_ENV.PUSH_CAIXA_URL
+https://apppushcaixadev.azurewebsites.net/
+_ENV.SISPI-DICT_HTTP_CONN_TIMEOUT_PUSH
+5000
+_ENV.SISPI-DICT_HTTP_SOCKET_TIMEOUT_PUSH
+5000
+_ENV.SISPI-DICT_POLLING_QTD_MINUTOS_FRENTE
+1
+_ENV.SISPI-DICT_POLLING_QTD_MINUTOS_TRAS
+1
+_ENV.SISPI-DICT_QTD_PROCESSAMENTOS_REIVINDICACOES_SIMULTANEOS
+8
+_ENV.SISPI-DICT_QTD_REGISTROS_RESOLUCAO_REIVINDICACAO_BATCH
+400
+_ENV.SISPI.API.KEY
+l7b6c6112c1ff84516b6dd91cca165e3bc
+_ENV.SISPI.API.MANAGER
+https://api.des.caixa:8443
+_ENV.SISPI.CLIENT.ID.SPI
+cli-ser-spi
+_ENV.SISPI.LOGIN.CAIXA.INTRANET.SECRET
+1938b188-42c7-4889-bf3a-7d95e4432fe9
+_ENV.SISPI.LOGIN.CAIXA.INTRANET.URL
+https://login.des.caixa/auth/realms/intranet
+_ENV.SISPI_AMBIENTE
+dev
+_ENV.SISPI_ISPB_CAIXA
+00360305
+_ENV.SISPI_MPI_DICT_URL
+http://simpi-container-dict-des-esteiras.simpi-des.svc:8080
+_ENV.SISPI_REMOTE_UPDATE_KEY
+28c42e35cb0fac64df009f380efe3b3f
+_ENV.SISPI_SUPORTE_LOG_LEVEL
+br.gov.caixa.sispi:INFO
+_SECRET.DUMMY_PROPERTY
+#{PLEASE_DO_NOT_REMOVE}#
+OCP-NPRD (8)
+Credenciais para o Cluster OCP de NPRD (DES/TQS/HMP)
+Scopes: OCP4 EC DES,OCP4 EC TQS,OCP4 EC HMP
+ISTIO_INJECTION
+enabled
+KIND_DEPLOY
+deploymentconfig
+OCP_API
+api.pixnprd4.caixa:6443
+OCP_REGISTRY
+default-route-openshift-image-registry.apps.pixnprd4.caixa
+OCP_TOKEN
+********
+OCP_URL_SUFFIX
+apps.pixnprd4.caixa
+OCP_USER_SERVICE
+ads
+TIMEOUT_DEPLOY
+300
+SISPI-BT-VAULT-SECRET-DES (2)
+Scopes: OCP4 EC DES
+BT_CLIENT_ID
+275c2d45-5b73-446b-a336-6fcf0103ecd4
+BT_CLIENT_SECRET
+********
+ADAPTER_VARIABLES (9)
+Variáveis disponíveis para todas os projetos do tipo ADAPTER.
+Scopes: OCP4 EC TQS
+AdapterGroupId
+GitName
+GitToken
+GitUrl
+GitUser
+LockBranch
+true
+SonarProjectKey
+SonarProjectName
+system.debug
+true
+PIX-API-SUPORTE-TQS (31)
+Scopes: OCP4 EC TQS
+PASSWORD_DB
+********
+PASSWORD_DB_DG
+********
+PASSWORD_PROXY
+********
+PIX_API_KEY
+********
+_ENV.DATASOURCE.ABUSEWARNING
+false
+_ENV.JAVA_OPTIONS_APPEND
+"-Djavax.net.ssl.trustStore=/deployments/caixa-truststore-cedesbr_azurepush_atualizado.jks"
+_ENV.JAVA_TOOL_OPTIONS
+"-Dfile.encoding=UTF8"
+_ENV.PIX_API_MANAGER
+https://api.des.caixa:8443
+_ENV.PIX_ENVIRONMENT
+TQS
+_ENV.PIX_ISPB_CAIXA
+00360305
+_ENV.PIX_LOGIN_CAIXA_INTERNET_URL
+https://logintqs.caixa.gov.br/auth/realms/internet
+_ENV.PIX_LOGIN_CAIXA_INTRANET_URL
+https://login.tqs.caixa/auth/realms/intranet
+_ENV.PIX_LOGIN_CAIXA_LOGIN2_URL
+https://logintqs.caixa.gov.br/auth/realms/internet
+_ENV.PIX_SUPORTE_DATABASE_CHECKCONNECTION_SCHEDUDLE
+"0 * * ? * * *"
+_ENV.PIX_SUPORTE_DEPENDENCY_MONITOR_SSO_NAME
+"SSO Caixa"
+_ENV.PIX_SUPORTE_DEPENDENCY_SCHEDULE
+"0 * * ? * * *"
+_ENV.PIX_SUPORTE_LOG_LEVEL
+br.gov.caixa:INFO
+_ENV.PIX_SUPORTE_PROXY_HOST
+proxydes.caixa
+_ENV.PIX_SUPORTE_PROXY_PORTA
+80
+_ENV.PIX_SUPORTE_PROXY_USUARIO
+s739019
+_ENV.PIX_SUPORTE_REQUEST_TIMEOUT
+5000
+_ENV.PIX_SUPORTE_SERVICE.RELOAD
+"0/59 * * * * ?"
+_ENV.PIX_TENTANT_IDENTIFIER
+.caixa.gov.br
+_ENV.QUARKUS_DATASOURCE_DATAGUARD_JDBC_URL
+"jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=10.116.33.16)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=ORAT09NG)))"
+_ENV.QUARKUS_DATASOURCE_DATAGUARD_USERNAME
+SSPIBT01
+_ENV.QUARKUS_DATASOURCE_JDBC_URL
+"jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=10.116.33.16)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=ORAT09NG)))"
+_ENV.QUARKUS_DATASOURCE_USERNAME
+SSPIBT01
+_SECRET.PIX_API_KEY
+#{PIX_API_KEY}#
+_SECRET.PIX_SUPORTE_PROXY_SENHA
+#{PASSWORD_PROXY}#
+_SECRET.QUARKUS_DATASOURCE_DATAGUARD_PASSWORD
+#{PASSWORD_DB_DG}#
+_SECRET.QUARKUS_DATASOURCE_PASSWORD
+#{PASSWORD_DB}#
+SISPI-DICT-REIVINDICACOES-TQS (13)
+Scopes: OCP4 EC TQS
+JVM_HEAP_MAX
+2048m
+JVM_HEAP_MIN
+1024m
+JVM_METASPACE_MAX
+256m
+JVM_METASPACE_MIN
+96M
+_ENV.APPLICATION_NAME
+"(SISPI) DICT REINVINDICACOES - TQS"
+_ENV.SISPI.API.KEY
+l7b6c6112c1ff84516b6dd91cca165e3bc
+_ENV.SISPI.API.MANAGER
+https://api.des.caixa:8443
+_ENV.SISPI.CLIENT.ID.SPI
+cli-ser-spi
+_ENV.SISPI.LOGIN.CAIXA.INTRANET.SECRET
+1938b188-42c7-4889-bf3a-7d95e4432fe9
+_ENV.SISPI.LOGIN.CAIXA.INTRANET.URL
+https://login.des.caixa/auth/realms/intranet
+_ENV.SISPI_REMOTE_UPDATE_KEY
+28c42e35cb0fac64df009f380efe3b3f
+_ENV.SISPI_SUPORTE_LOG_LEVEL
+br.gov.caixa.sispi:INFO
+_SECRET.DUMMY_PROPERTY
+#{PLEASE_DO_NOT_REMOVE}#
+PIX-API-SUPORTE-HMP (28)
+Scopes: OCP4 EC HMP
+PASSWORD_DB
+********
+PASSWORD_DB_DG
+********
+PASSWORD_PROXY
+********
+PIX_API_KEY
+********
+_ENV.JAVA_OPTIONS_APPEND
+"-Djavax.net.ssl.trustStore=/deployments/caixa-truststore-cedesbr_azurepush_atualizado.jks"
+_ENV.JAVA_TOOL_OPTIONS
+"-Dfile.encoding=UTF8"
+_ENV.PIX_API_MANAGER
+https://api.des.caixa:8443
+_ENV.PIX_ENVIRONMENT
+TQS
+_ENV.PIX_ISPB_CAIXA
+00360305
+_ENV.PIX_LOGIN_CAIXA_INTERNET_URL
+https://logindes.caixa.gov.br/auth/realms/internet
+_ENV.PIX_LOGIN_CAIXA_INTRANET_URL
+https://login.des.caixa/auth/realms/intranet
+_ENV.PIX_SUPORTE_DATABASE_CHECKCONNECTION_SCHEDUDLE
+"0 * * ? * * *"
+_ENV.PIX_SUPORTE_DEPENDENCY_MONITOR_SSO_NAME
+"SSO Caixa"
+_ENV.PIX_SUPORTE_DEPENDENCY_SCHEDULE
+"0 * * ? * * *"
+_ENV.PIX_SUPORTE_LOG_LEVEL
+br.gov.caixa:INFO
+_ENV.PIX_SUPORTE_PROXY_HOST
+proxydes.caixa
+_ENV.PIX_SUPORTE_PROXY_PORTA
+80
+_ENV.PIX_SUPORTE_PROXY_USUARIO
+s739019
+_ENV.PIX_SUPORTE_SERVICE.RELOAD
+"0/59 * * * * ?"
+_ENV.PIX_TENTANT_IDENTIFIER
+.caixa.gov.br
+_ENV.QUARKUS_DATASOURCE_DATAGUARD_JDBC_URL
+"jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=10.223.4.116)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=ORATQS98)))"
+_ENV.QUARKUS_DATASOURCE_DATAGUARD_USERNAME
+SSPIBT01
+_ENV.QUARKUS_DATASOURCE_JDBC_URL
+"jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=10.223.4.116)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=ORATQS98)))"
+_ENV.QUARKUS_DATASOURCE_USERNAME
+SSPIBT01
+_SECRET.PIX_API_KEY
+#{PIX_API_KEY}#
+_SECRET.PIX_SUPORTE_PROXY_SENHA
+#{PASSWORD_PROXY}#
+_SECRET.QUARKUS_DATASOURCE_DATAGUARD_PASSWORD
+#{PASSWORD_DB_DG}#
+_SECRET.QUARKUS_DATASOURCE_PASSWORD
+#{PASSWORD_DB}#
+SISPI-DICT-REIVINDICACOES-HMP (13)
+Scopes: OCP4 EC HMP
+JVM_HEAP_MAX
+2048m
+JVM_HEAP_MIN
+1024m
+JVM_METASPACE_MAX
+256m
+JVM_METASPACE_MIN
+96M
+_ENV.APPLICATION_NAME
+"(SISPI) DICT REINVINDICACOES - HMP"
+_ENV.SISPI.API.KEY
+l7b6c6112c1ff84516b6dd91cca165e3bc
+_ENV.SISPI.API.MANAGER
+https://api.des.caixa:8443
+_ENV.SISPI.CLIENT.ID.SPI
+cli-ser-spi
+_ENV.SISPI.LOGIN.CAIXA.INTRANET.SECRET
+1938b188-42c7-4889-bf3a-7d95e4432fe9
+_ENV.SISPI.LOGIN.CAIXA.INTRANET.URL
+https://login.des.caixa/auth/realms/intranet
+_ENV.SISPI_REMOTE_UPDATE_KEY
+28c42e35cb0fac64df009f380efe3b3f
+_ENV.SISPI_SUPORTE_LOG_LEVEL
+br.gov.caixa.sispi:INFO
+_SECRET.DUMMY_PROPERTY
+#{PLEASE_DO_NOT_REMOVE}#
+PIX-API-SUPORTE-PRD (35)
+27/12 - Preenchida APIKEY - Daniela Perng 08/02/2024 - atualização jks de caixa-truststore-cedesbr_azurepush_atualizado.jks para caixa-truststore-azurepush_012024.jks
+Scopes: OCP4 EC PRD CANAIS
+SISPI-DICT-REIVINDICACOES-PRD (16)
+Scopes: OCP4 EC PRD CANAIS
+JVM_HEAP_MAX
+2048m
+JVM_HEAP_MIN
+1024m
+JVM_METASPACE_MAX
+256m
+JVM_METASPACE_MIN
+96M
+SISPI.API.KEY_PASS
+********
+SISPI.LOGIN.CAIXA.INTRANET.SECRET
+********
+SISPI_REMOTE_UPDATE_KEY
+********
+_ENV.APPLICATION_NAME
+"(SISPI) DICT REINVINDICACOES - PRD"
+_ENV.SISPI.API.MANAGER
+https://api.des.caixa:8443
+_ENV.SISPI.CLIENT.ID.SPI
+cli-ser-spi
+_ENV.SISPI.LOGIN.CAIXA.INTRANET.URL
+https://login.des.caixa/auth/realms/intranet
+_ENV.SISPI_SUPORTE_LOG_LEVEL
+br.gov.caixa.sispi:INFO
+_SECRET.DUMMY_PROPERTY
+#{PLEASE_DO_NOT_REMOVE}#
+_SECRET.SISPI.API.KEY
+#{SISPI.API.KEY_PASS}
+_SECRET.SISPI.LOGIN.CAIXA.INTRANET.SECRET
+#{SISPI.LOGIN.CAIXA.INTRANET.SECRET}
+_SECRET.SISPI_REMOTE_UPDATE_KEY
+#{SISPI_REMOTE_UPDATE_KEY}
+OCP-PRD (16)
+Credenciais para o Cluster OCP de PRD
+Scopes: OCP4 EC PRD CANAIS
+ISTIO_INJECTION
+enabled
+KIND_DEPLOY
+deploymentconfig
+OCP_API_PRD
+api.pix4.caixa:6443
+OCP_LOTERIAS_API_PRD
+api.ocp-loterias.caixa:6443
+OCP_LOTERIAS_TOKEN_PRD
+********
+OCP_LOTERIAS_URL_SUFFIX_PRD
+apps.ocp-loterias.caixa
+OCP_REGISTRY_PRD
+default-route-openshift-image-registry.apps.produtos4.caixa
+OCP_TOKEN_PRD
+********
+OCP_URL_SUFFIX_PRD
+apps.pix4.caixa
+OCP_USER_SERVICE_PRD
+ads
+SISPI_BACKEND_TEMPO_MAXIMO_TRANSACAO_INTERNA_SEGUNDOS
+40
+TIMEOUT_DEPLOY
+600
+_ENV.QUARKUS_DATASOURCE_JDBC-PROPERTIES_CLIENTHOSTNAME
+SISPL_CONSULTA_APOSTAS_X
+_ENV.QUARKUS_DATASOURCE_JDBC-PROPERTIES_CLIENTPROGRAMNAME
+SISPL_CONSULTA_APOSTAS_OCP
+_ENV.QUARKUS_DATASOURCE_JDBC_IDLE-REMOVAL-INTERVAL
+90
+_ENV.QUARKUS_DATASOURCE_JDBC_MAX-LIFETIME
+300
+|Manage variable groups
+Showing filters 1 through 2
+
+Showing 8 deployments
+
+Row 2
+
+OCP4 EC DESDeploy release
+
+Showing 9 deployments
+
+Row 2
+
+Showing filters 1 through 2
+
+Showing filters 1 through 2
+
+
+
