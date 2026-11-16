@@ -22,3 +22,17 @@ Pode ser 14:30h 15h tenho curso da ADA.
  acho que oregido ra que tava cobrindo esse maledito
 
  
+Jesse Mouta Pereira Batista
+Edson Prokot, estou comparando o sifec5 (6.4) com o JBoss 7.4.   A configuração de autenticação do ccr-api e a versão do adaptador Keycloak são idênticas nos dois.  Para achar a diferença, você me a…
+URL: https://sifec5.des.caixa/ccr-api/credito-consignado/v8/contratos/simular
+ 
+"iss": "https://login.des.caixa/auth/realms/intranet",
+ "azp": "cli-web-pnc",
+ 
+Bom dia, Jesse Mouta Pereira Batista, teve algum retorno sobre esse assunto?
+Edson Prokot
+URL: https://sifec5.des.caixa/ccr-api/credito-consignado/v8/contratos/simular   "iss": "https://login.des.caixa/auth/realms/intranet",   "azp": "cli-web-pnc",
+ 
+
+
+ me peunrram isso tmabem so via msg agora.
