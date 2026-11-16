@@ -1,24 +1,42 @@
-Agora reproduza
-Abra uma aba anônima e aperte F12.
-Na aba Network, marque Preserve log. Deixe também o Console visível.
-Acesse https://siepr-curso-bec3-frontend-des.apps.nprd.caixa.
+Christian Vladimir Uhdre Mulato, bom dia tudo bem?
+ 
+tem algum cpf para testar no SIBEC3
+ 
+Bom dia, Jesse.
+ 
+Tduo bem.
+ 
+a pagina de login
+ 
+Tudo *
+ 
+Esta é a nossa massa de dados:
+ 
+CPF: 75768255028  | MATTEO MOTO | EPR_PARTICIPANTE
 
-O que observar:
+CPF: 03848489074  | XAVIER GOES | EPR_PARTICIPANTE
 
-a) Redirecionamento para o Login CAIXA. Na Network, clique na chamada auth?client_id=cli-web-epr... e copie o redirect_uri. Ele precisa apontar para https://siepr-curso-bec3-frontend-des.apps.nprd.caixa/....
+CPF: 29022506061  | BRUNA REMEA | EPR_PARTICIPANTE
 
-b) Página de CPF. Confirme se o waitOFDB is not defined aparece no Console, como no print do solicitante.
+CPF: 17977542030  | ANA HAOSA   | EPR_PARTICIPANTE
 
-c) Login completo. Informe CPF e senha:
+SENHA 112233
 
-Avançou e voltou ao SIBEC3 (302 para a rota com ?code=): o fluxo funciona, e o waitOFDB é só um erro do Login CAIXA, sem impacto.
-Travou no CPF: o erro é bloqueante.
-Erro depois da senha (redirect_uri, client not found ou volta com erro): o problema é no cadastro do client cli-web-epr.
+CPF 03848489074  
 
-d) Teste de comparação. Em outra aba anônima, abra a página de conta do mesmo realm:
+Senha 112233
+ 
+É um ambiente de DES (desenvolvimento)
+ 
+Estamos martelando a massa de dados, pois ainda falta o cadastro na massa em outro sistema
+ 
+belza
+ 
+obrigado
 
-https://logindes.caixa.gov.br/auth/realms/internet/account
 
-Se o waitOFDB também aparecer no Console, o problema é geral do Login CAIXA.
+<img width="1888" height="921" alt="image" src="https://github.com/user-attachments/assets/22b2526f-ddce-40f8-8d85-5dfec1371714" />
 
-Me mande o redirect_uri, até onde o login avançou e o resultado do teste de comparação.
+
+nam vejo erro aqi
+ 
