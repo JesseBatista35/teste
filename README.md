@@ -1,29 +1,22 @@
-Abertura
+Bom dia! Conseguimos validar a comunicação, mas recebemos um outro erro. 
 
-“Gustavo, bem-vindo de volta! Vou te dar um panorama rápido de como estamos e do que vem pela frente.”
+<img width="1187" height="800" alt="image" src="https://github.com/user-attachments/assets/9d775428-0935-4c01-80eb-43f78b636931" />
 
-Como estamos
 
-“Hoje o ambiente intranet do SIFEC no 7.4 já está com a maior parte das aplicações no ar: SIFEC, PJ, SICDT, Parâmetros, o front do HUB, MCM, BDCAIXA, CCR, FBN e Minutas. Algumas já foram validadas pelos devs, e o resto está em validação com os times.”
+<img width="986" height="811" alt="image" src="https://github.com/user-attachments/assets/343000fb-0f14-47cf-88db-5793de3542a7" />
 
-“O SIEMP também está publicado pela esteira nova e já abre pelo siemp.des.caixa. Tinha uma intermitência porque o DNS ficou com o IP antigo junto com o novo. Já abrimos a REQ para tirar o antigo.”
 
-O que a gente resolveu do nosso lado
+<img width="986" height="811" alt="image" src="https://github.com/user-attachments/assets/176bad00-5db0-43a7-b199-13a2f2dadbe8" />
 
-“Na parte de ambiente, ajustamos tudo o que apareceu: truststore, SSO, cofre de senhas, propriedades das aplicações e alguns bancos que estavam com credencial ou endereço diferente do 6.4. Pelo lado da DevOps, não temos pendência travando nenhum deploy hoje.”
 
-O que depende da fábrica
-
-“O que está parado hoje é código. O LCR e o SIRUR já tiveram builds novos, mas ainda caem por ajustes de CDI e de JPA. Já passamos o diagnóstico detalhado para os devs. O hub-api precisa ajustar umas queries, e RURAL, EMP e EMPRESAS estão com o time do SIEMP.”
-
-O que estamos investigando
-
-“Tem um ponto em aberto no CCR: uma chamada do consignado dá 401 no 7.4 e no 6.4 funciona. A configuração está igual nos dois, então estou olhando a infraestrutura em volta. Devo ter retorno hoje.”
-
-Próximos passos
-
-“A ordem que combinamos com o Paulo e o Rodrigo é: primeiro o LCR, depois o SIRUR, depois fechar o CCR. Assim que os builds chegarem, a gente sobe na hora. Depois disso, seguimos com o restante da planilha do sifec-intra e, em seguida, com os outros ambientes: internet, inter-SSO e API.”
-
-Fechamento
-
-“Basicamente é isso. Do nosso lado o ambiente está pronto, e o ritmo agora depende dos builds da fábrica. Quer que eu detalhe algum ponto?”
+Bom dia! Conseguimos validar a comunicação, mas recebemos um outro erro. 
+Seria possível entrarmos em uma call com o arquiteto da minha equipe (que está conduzindo os testes?) ou me passar um direcionamento?
+ 
+Iury Damasceno Mota, bom dia, posso verificar. nao consigo entrar em cal pois estou em sala de ADDR;
+ 
+mais assim que verificar te passo um feedback
+ 
+Beleza, muito obrigado
+ 
+Bom dia! Conseguiu verificar?
+ 
