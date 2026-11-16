@@ -1,15 +1,14 @@
+Oi, Lucas, boa tarde!
 
-Qual o tipo de serviço?*:	Alterar configurações em balanceador
-Detalhe do serviço*:	VIP
-Selecione a atividade a ser executada*:	Solicitar inclusão de VIP
-Data e Hora de execução*:	16/11/2026 16:56:00
-Prazo final do atendimento*:	17/11/2026 16:56:00
-Descrição da solicitação*:	CETEL,
+Vi a solicitação do VIP para a CETEL, está correta. Agora é aguardar o atendimento deles.
 
-1. Solicitamos a criação de um VIP exclusivo para a URL sigpf-vendas.esteiras.tqs.caixa, balanceando para a VM 10.116.202.20 (caddeapllx2818.agil.nprd.caixa.gov.br) na porta 80, e favor vincular a esse VIP o certificado já importado no balanceador CADDEAPRLB003-1 (CT2026_SIGPF-VENDAS.ESTEIRAS.TQS.CAIXA, gerado na REQ000146499953) para responder na porta segura 443.
+Próximos passos depois que a CETEL atender:
 
-2. Atenção: hoje a URL resolve para o VIP compartilhado 10.116.180.23 (VS_Esteiras-TQS_BR_https_443), que não balanceia para a nossa VM e retorna 403. O pedido é de um VIP novo e exclusivo, e não do compartilhado.
+1. Na resposta, a CETEL vai informar o IP do novo VIP exclusivo. Me passa esse IP assim que chegar.
+2. Com o IP em mãos, abrir a REQ de DNS pedindo a alteração do registro sigpf-vendas.esteiras.tqs.caixa de 10.116.180.23 (VIP compartilhado) para o IP do novo VIP, citando a REQ do VIP.
+3. Depois da propagação do DNS, testamos a URL https://sigpf-vendas.esteiras.tqs.caixa/sigpf_internet. Se der timeout na 443 a partir da rede de vocês, vai ser preciso pedir a liberação de regra para o VIP na porta 443.
+4. Com a URL respondendo, rodamos a release de TQS de novo para a URL ficar registrada na InfraDevops (no último deploy esse passo deu timeout).
 
-3. Após a criação, favor informar na resposta o IP do novo VIP, para abrirmos a REQ de DNS.
+Qualquer retorno da CETEL, me avisa por aqui.
 
-Contato: C159524 (Lucas Nadier) – VITEC/CESOB
+Obrigado!
