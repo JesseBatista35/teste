@@ -1,12 +1,2 @@
-
-Using project "default".
--sh-4.2$
--sh-4.2$
--sh-4.2$ oc get istag -n build-images-ads | grep 20261116.1231
--sh-4.2$
--sh-4.2$
--sh-4.2$ oc get istag -n build-images-ads | grep 20261116.1231
--sh-4.2$
--sh-4.2$ oc whoami --show-server
-https://api.produtos4.caixa:6443
--sh-4.2$
+oc get is -n build-images-ads | grep -i reivind
+oc get istag -n build-images-ads | grep -i reivind
