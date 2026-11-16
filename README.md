@@ -1,82 +1,52 @@
-Olá Jesse Mouta Pereira Batista, Evandro Alves de Souza, Flavio de Almeida Gagliardi, as REQS de referentes a inclusão dos DNSs foram atendidas:
- 
-REQ000147048895 - sigsj-boleto.des.caixa:
- 
-1. Realizada a inclusão do(s) registro(s) no DNS, conforme solicitado.
- 
-2. À disposição para esclarecimentos.
- 
-Atenciosamente.
- 
-CETELO8/CETEL960-CTIS
- 
-Para análise técnica:
- 
-Name: sigsj-boleto.des.caixa
+Oi Vitor, ótimo, DNS de DES concluído! 🙌
 
-Address: 10.116.181.215
- 
-Name: sigsj-boleto.des.caixa
+Sobre TQS: os VIPs ainda não foram criados. Para não repetirmos o que aconteceu em DES, a ordem é:
 
-Address: 10.116.181.215
- 
- 
-REQ000147049349 - sigsj-internet.des.caixa:
- 
-1. Realizada a inclusão do(s) registro(s) no DNS, conforme solicitado.
- 
-2. À disposição para esclarecimentos.
- 
-Atenciosamente.
- 
-CETELO8/CETEL960-CTIS
- 
-Para análise técnica:
- 
-Name: sigsj-internet.des.caixa
+Emissão dos certificados e criação dos VIPs: podem ser abertas agora, em paralelo.
+Instalação dos certificados e DNS: só depois que a Rede informar o IP de cada VIP.
 
-Address: 10.116.181.214
- 
-Name: sigsj-internet.des.caixa
+Você consegue abrir as 6 REQs abaixo?
 
-Address: 10.116.181.214
- 
- 
-REQ000147049343 - sigsj-intranet.des.caixa
- 
- 
-1. Realizada a inclusão do(s) registro(s) no DNS, conforme solicitado.
- 
-2. À disposição para esclarecimentos.
- 
-Atenciosamente.
- 
-CETELO8/CETEL960-CTIS
- 
-Para análise técnica:
- 
-Name: sigsj-intranet.des.caixa
+1) Emissão do certificado (3 REQs)
+Serviço: Solicitar Certificado Digital – CSR – TE079
+Campos iguais nas três:
 
-Address: 10.116.180.8
- 
-Name: sigsj-intranet.des.caixa
+Autoridade Certificadora: AC Interna
+Ambiente: TQS
+Sistema: SIGSJ
+CSR emitido pela Caixa: Sim
+Local de instalação: Balanceador
+Outro local: Não
+Instalado na Caixa: Sim (CAIXA / CESOA / Comunidades CESOA)
+Indisponibilidade: Não
 
-Address: 10.116.180.8
- 
-Jesse Mouta Pereira Batista e Evandro Alves de Souza
- 
-Eu vou abrir as REQS de criação de certificado e de criação da DNS para as urls abaixo do SIGSJ em TQS:
- 
-sigsj-internet.tqs.caixa
+Muda em cada uma:
 
-sigsj-intranet.tqs.caixa
+CN: sigsj-intranet.tqs.caixa – Dados complementares: “Emissão de certificado para a URL sigsj-intranet.tqs.caixa (TQS), servidor caddeapllx2863 (10.116.202.53). A instalação no VIP será solicitada via ‘Instalar Certificado Digital Existente – TE079’ após a criação do VIP.”
+CN: sigsj-internet.tqs.caixa – mesmo texto, servidor caddeapllx2865 (10.116.202.55)
+CN: sigsj-boleto.tqs.caixa – mesmo texto, servidor caddeapllx2862 (10.116.202.52)
 
-sigsj-boleto.tqs.caixa
- 
-Por favor, vc já possuem as informações dos VIPs criados em TQS para eu informar nestas aberturas das REQs?
- 
-Obrigado !!
+2) Criação do VIP (3 REQs)
+Serviço: Alterar configurações em balanceador → VIP → Solicitar inclusão de VIP (mesmo usado em DES)
+Texto (exemplo do intranet):
+“Criação de VIP para a URL sigsj-intranet.tqs.caixa (TQS)
+Apontamento/Balanceamento para o servidor:
+IP: 10.116.202.53
+HOST: caddeapllx2863.agil.nprd.caixa.gov.br
+Porta 80
+http://sigsj-intranet.tqs.caixa → https://sigsj-intranet.tqs.caixa
+Certificado em emissão na REQ <nº da emissão>; a instalação no VIP será solicitada via TE079 após a criação.”
 
+Para os outros dois, troque a URL, o IP e o HOST:
 
+sigsj-internet.tqs.caixa → 10.116.202.55 / caddeapllx2865.agil.nprd.caixa.gov.br
+sigsj-boleto.tqs.caixa → 10.116.202.52 / caddeapllx2862.agil.nprd.caixa.gov.br
 
- me ajdua a passar para ele aqui no temasn o que ele precisa fazer, nao tem vip criaod so cria depois ne esse é o processo ou o vip e craido agora?
+3) Depois que a Rede informar os IPs dos VIPs
+
+Instalar Certificado Digital Existente – TE079 (uma por URL, informando o IP do VIP, o balanceador e o vserver)
+DNS Host (A) (uma por URL, apontando para o IP do VIP)
+
+Quando abrir, me passa os números que eu acompanho junto. Valeu!
+
+Em DES, com o DNS pronto, falta só a instalação dos certificados nas REQs TE079 que o Vitor abriu na sexta. Depois disso, ajustamos as releases e testamos as URLs.
