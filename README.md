@@ -1,40 +1,24 @@
-Oi Vitor, ótimo, DNS de DES concluído! 🙌
+Flavio de Almeida Gagliardi boa tarde! Estou de volta das férias, queria alinhar contigo como estamos por aqui pelo lado de vcs, se o Murilo Silva Andrade Souza volta hoje ou se o Jesse Mouta Pereira Batista vai continuar nos apoiando aqui, enfim alinhar os detalhes, quando puder falar me avisa. 
+ 
+Importante!
+Gustavo Duarte Lepesteur da Costa
+Flavio de Almeida Gagliardi boa tarde! Estou de volta das férias, queria alinhar contigo como estamos por aqui pelo lado de vcs, se o Murilo Silva Andrade Souza volta hoje ou se o Jesse Mouta Pereira…
+Gustavo Duarte boa tarde, o Jesse Mouta Pereira Batista continuará nos apoiando aqui. Podemos nos reunir para esse alinhamento as 15:00 hoje?
+ 
+Ana Paula Pazitto da Costa adicionou Joao Bosco Carneiro Barbosa Filho ao chat e compartilhou todo o histórico de chats.
 
-Para TQS, vamos uma etapa por vez, para não repetir o que aconteceu em DES. Os VIPs ainda não existem, então o primeiro passo é só criar os VIPs, porque é isso que gera o IP. Certificado e DNS ficam para depois que a Rede concluir.
+ 
+Joao Bosco Carneiro Barbosa Filho
+ 
+Patricia Vourakis Barbosa Braga
+Gustavo Duarte boa tarde, o Jesse Mouta Pereira Batista continuará nos apoiando aqui. Podemos nos reunir para esse alinhamento as 15:00 hoje?
+Pode ser 14:30h 15h tenho curso da ADA.
+ 
+?
 
-Como abrir (uma REQ para cada URL):
 
-No SIGSC, busque “data center” e abra Suporte à Rede Data Center.
-Preencha:
-• Qual o tipo de serviço? → Alterar configurações em balanceador
-• Detalhe do serviço → VIP
-• Atividade a ser executada → Solicitar inclusão de VIP
-• Data e hora de execução → hoje
-• Prazo final do atendimento → daqui a uma semana
-Na Descrição, cole o texto correspondente:
+ O cara voltou de feiras e ta com preguiça de ler o temais de tudo que fizemos, me ajuda a cira um resmu pratico, para esse reuniao de 14:30h para passar pra ele oque fizemos so uma pnicelada e tmabem os proximos deploy conforme alionhado com apulo henirque e rodrigo.
 
-REQ 1 – Intranet
-Criação de VIP para a URL sigsj-intranet.tqs.caixa (TQS)
-Apontamento/Balanceamento para o servidor:
-IP: 10.116.202.53
-HOST: caddeapllx2863.agil.nprd.caixa.gov.br
-Porta 80
-http://sigsj-intranet.tqs.caixa → https://sigsj-intranet.tqs.caixa
+ acho que oregido ra que tava cobrindo esse maledito
 
-REQ 2 – Internet
-Criação de VIP para a URL sigsj-internet.tqs.caixa (TQS)
-Apontamento/Balanceamento para o servidor:
-IP: 10.116.202.55
-HOST: caddeapllx2865.agil.nprd.caixa.gov.br
-Porta 80
-http://sigsj-internet.tqs.caixa → https://sigsj-internet.tqs.caixa
-
-REQ 3 – Boleto
-Criação de VIP para a URL sigsj-boleto.tqs.caixa (TQS)
-Apontamento/Balanceamento para o servidor:
-IP: 10.116.202.52
-HOST: caddeapllx2862.agil.nprd.caixa.gov.br
-Porta 80
-http://sigsj-boleto.tqs.caixa → https://sigsj-boleto.tqs.caixa
-
-Assim que a Rede concluir e informar o IP de cada VIP, seguimos com o certificado (já com o IP do VIP) e depois com o DNS. Me passa os números quando abrir. Valeu!
+ 
