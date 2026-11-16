@@ -1,110 +1,82 @@
-java/br/gov/caixa/sigec/util/ExportaArquivoUtilTest.java.
+Olá Jesse Mouta Pereira Batista, Evandro Alves de Souza, Flavio de Almeida Gagliardi, as REQS de referentes a inclusão dos DNSs foram atendidas:
+ 
+REQ000147048895 - sigsj-boleto.des.caixa:
+ 
+1. Realizada a inclusão do(s) registro(s) no DNS, conforme solicitado.
+ 
+2. À disposição para esclarecimentos.
+ 
+Atenciosamente.
+ 
+CETELO8/CETEL960-CTIS
+ 
+Para análise técnica:
+ 
+Name: sigsj-boleto.des.caixa
 
-package br.gov.caixa.sigec.util;
+Address: 10.116.181.215
+ 
+Name: sigsj-boleto.des.caixa
 
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.RETURNS_SELF;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.mockStatic;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+Address: 10.116.181.215
+ 
+ 
+REQ000147049349 - sigsj-internet.des.caixa:
+ 
+1. Realizada a inclusão do(s) registro(s) no DNS, conforme solicitado.
+ 
+2. À disposição para esclarecimentos.
+ 
+Atenciosamente.
+ 
+CETELO8/CETEL960-CTIS
+ 
+Para análise técnica:
+ 
+Name: sigsj-internet.des.caixa
 
-import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.util.Collections;
-import java.util.HashMap;
+Address: 10.116.181.214
+ 
+Name: sigsj-internet.des.caixa
 
-import javax.ws.rs.core.Response;
-import javax.ws.rs.core.Response.ResponseBuilder;
+Address: 10.116.181.214
+ 
+ 
+REQ000147049343 - sigsj-intranet.des.caixa
+ 
+ 
+1. Realizada a inclusão do(s) registro(s) no DNS, conforme solicitado.
+ 
+2. À disposição para esclarecimentos.
+ 
+Atenciosamente.
+ 
+CETELO8/CETEL960-CTIS
+ 
+Para análise técnica:
+ 
+Name: sigsj-intranet.des.caixa
 
-import org.junit.Test;
-import org.mockito.ArgumentCaptor;
-import org.mockito.MockedStatic;
-import org.mockito.stubbing.Answer;
+Address: 10.116.180.8
+ 
+Name: sigsj-intranet.des.caixa
 
-import br.gov.caixa.sigec.util.ExportaArquivoUtil.ContentTypeFileEnum;
-import net.sf.jasperreports.engine.JRDataSource;
-import net.sf.jasperreports.engine.JasperFillManager;
-import net.sf.jasperreports.engine.JasperPrint;
-import net.sf.jasperreports.engine.JasperReport;
-import net.sf.jasperreports.engine.base.JRBasePrintPage;
-import net.sf.jasperreports.engine.util.JRLoader;
+Address: 10.116.180.8
+ 
+Jesse Mouta Pereira Batista e Evandro Alves de Souza
+ 
+Eu vou abrir as REQS de criação de certificado e de criação da DNS para as urls abaixo do SIGSJ em TQS:
+ 
+sigsj-internet.tqs.caixa
 
-/**
- * Testes de {@link ExportaArquivoUtil#exportarViaJasperReport}: carregamento e preenchimento do
- * relatorio sao substituidos (sem arquivo .jasper); os exportadores do JasperReports rodam de verdade.
- */
-public class ExportaArquivoUtilTest {
+sigsj-intranet.tqs.caixa
 
-	private final ExportaArquivoUtil util = new ExportaArquivoUtil();
+sigsj-boleto.tqs.caixa
+ 
+Por favor, vc já possuem as informações dos VIPs criados em TQS para eu informar nestas aberturas das REQs?
+ 
+Obrigado !!
 
-	private static JasperPrint relatorioVazio() {
-		final JasperPrint print = new JasperPrint();
-		print.setName("teste");
-		print.setPageWidth(595);
-		print.setPageHeight(842);
-		print.addPage(new JRBasePrintPage());
-		return print;
-	}
 
-	private static Answer<Object> loaderFalso(final JasperReport relatorio) {
-		return inv -> {
-			if ("loadObject".equals(inv.getMethod().getName()) && inv.getArguments().length == 1
-					&& inv.getArguments()[0] instanceof File) {
-				return relatorio;
-			}
-			return inv.callRealMethod();
-		};
-	}
 
-	private static Answer<Object> fillFalso(final JasperPrint print) {
-		return inv -> {
-			if ("fillReport".equals(inv.getMethod().getName()) && inv.getArguments().length == 3
-					&& inv.getArguments()[0] instanceof JasperReport && inv.getArguments()[2] instanceof JRDataSource) {
-				return print;
-			}
-			return inv.callRealMethod();
-		};
-	}
-
-	private ByteArrayInputStream exportar(final ContentTypeFileEnum tipo, final String nomeArquivo) throws Exception {
-		final JasperReport relatorio = mock(JasperReport.class);
-		final ResponseBuilder builder = mock(ResponseBuilder.class, RETURNS_SELF);
-		final Response resposta = mock(Response.class);
-		when(builder.build()).thenReturn(resposta);
-		final ArgumentCaptor<Object> corpo = ArgumentCaptor.forClass(Object.class);
-
-		try (MockedStatic<JRLoader> loader = mockStatic(JRLoader.class, loaderFalso(relatorio));
-				MockedStatic<JasperFillManager> fill = mockStatic(JasperFillManager.class,
-						fillFalso(relatorioVazio()));
-				MockedStatic<Response> resp = mockStatic(Response.class)) {
-			resp.when(() -> Response.ok(any())).thenReturn(builder);
-
-			final Response retorno = util.exportarViaJasperReport("inexistente.jasper", new HashMap<String, Object>(),
-					Collections.emptyList(), tipo, nomeArquivo);
-
-			assertSame(resposta, retorno);
-			resp.verify(() -> Response.ok(corpo.capture()));
-		}
-
-		verify(builder).header("content-disposition", "attachment; filename=\"" + nomeArquivo + "\"");
-		return (ByteArrayInputStream) corpo.getValue();
-	}
-
-	@Test
-	public void deveExportarXlsx() throws Exception {
-		final ByteArrayInputStream corpo = exportar(ContentTypeFileEnum.XLSX, "relatorio.xlsx");
-
-		assertTrue(corpo.available() > 0);
-	}
-
-	@Test
-	public void deveExportarCsv() throws Exception {
-		final ByteArrayInputStream corpo = exportar(ContentTypeFileEnum.CSV, "relatorio.csv");
-
-		assertNotNull(corpo);
-	}
-}
+ me ajdua a passar para ele aqui no temasn o que ele precisa fazer, nao tem vip criaod so cria depois ne esse é o processo ou o vip e craido agora?
