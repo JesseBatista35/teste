@@ -1,4 +1,4 @@
-Skip to main contentSkip to issue filters
+Skip to main content
 Logo, link to homepage
 Projects
 Issues
@@ -23,1817 +23,76 @@ Measures
 Code
 Activity
 Project Information
-Issues
-My Issues
-All
-Clear All Filters
-Filters
+To benefit from more of SonarQube's features, ask a project administrator to set up DevOps platform integration.
 
-Issues in new code
-Type
+Quality Gate Status
+Failed
+1 conditions failed
+The quality gate used by this project does not comply with Clean as You Code.
+Fixing this quality gate will help you achieve a Clean Code state.
 
-Bug
-27
+Learn why
+1 condition(s) failed on new code
+0.0%
+Coverage on New Codeis less than 80.0%
+Measures
 
-Vulnerability
+New Code
+From last 428 days
+
+Overall Code
 0
-
-Code Smell
-131
-Severity
-Blocker
-Clear
-
-Blocker
-158
-
-Minor
-1.1k
-
-Critical
-1.2k
-
-Info
-228
-
-Major
-2.6k
-Press Ctrl to add to selection
-Scope
-Resolution
-Status
-Security Category
-Creation Date
-Language
-Rule
-Tag
-Directory
-File
-Assignee
-Author
-Bulk Change
-↑
-←↓→
-1 / 158issues
-1d 5h effort
-List of issues
-gec-batch/.../br/gov/caixa/sigec/negocio/ProcessadorACTC103Bean.java
-"daoPortabilidade" is the name of a field in "ProcessadorSuporteBean".
-
-8 years ago
-L66
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-"daoArquivoPortabilidade" is the name of a field in "ProcessadorSuporteBean".
-
-8 years ago
-L69
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-gec-batch/.../br/gov/caixa/sigec/negocio/ProcessadorACTC703Bean.java
-"daoPortabilidade" is the name of a field in "ProcessadorSuporteBean".
-
-6 years ago
-L66
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-"daoArquivoPortabilidade" is the name of a field in "ProcessadorSuporteBean".
-
-6 years ago
-L69
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-gec-batch/.../br/gov/caixa/sigec/negocio/ProcessadorACTC801Bean.java
-"daoPortabilidade" is the name of a field in "ProcessadorSuporteBean".
-
-6 years ago
-L69
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-"daoArquivoPortabilidade" is the name of a field in "ProcessadorSuporteBean".
-
-6 years ago
-L72
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-gec-batch/.../br/gov/caixa/sigec/negocio/ProcessadorACTC802Bean.java
-"daoPortabilidade" is the name of a field in "ProcessadorSuporteBean".
-
-6 years ago
-L93
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-"daoArquivoPortabilidade" is the name of a field in "ProcessadorSuporteBean".
-
-6 years ago
-L96
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-"daoArquivoInterfaceCaixaFebraban" is the name of a field in "ProcessadorSuporteBean".
-
-6 years ago
-L102
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-"daoTipoContratoSCR" is the name of a field in "ProcessadorSuporteBean".
-
-6 years ago
-L105
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-"daoTipoIndiceRemuneracao" is the name of a field in "ProcessadorSuporteBean".
-
-6 years ago
-L111
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-"daoTipoRegimeAmortizacao" is the name of a field in "ProcessadorSuporteBean".
-
-6 years ago
-L114
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-gec-batch/.../br/gov/caixa/sigec/negocio/ProcessadorACTC803Bean.java
-"daoPortabilidade" is the name of a field in "ProcessadorSuporteBean".
-
-6 years ago
-L73
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-"daoArquivoPortabilidade" is the name of a field in "ProcessadorSuporteBean".
-
-6 years ago
-L76
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-gec-batch/.../br/gov/caixa/sigec/negocio/ProcessadorACTC804Bean.java
-"daoPortabilidade" is the name of a field in "ProcessadorSuporteBean".
-
-6 years ago
-L83
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-"daoArquivoPortabilidade" is the name of a field in "ProcessadorSuporteBean".
-
-6 years ago
-L86
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-gec-batch/.../br/gov/caixa/sigec/negocio/ProcessadorACTC900Bean.java
-"daoPortabilidade" is the name of a field in "ProcessadorSuporteBean".
-
-8 years ago
-L65
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-"daoArquivoPortabilidade" is the name of a field in "ProcessadorSuporteBean".
-
-8 years ago
-L68
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-gec-batch/.../br/gov/caixa/sigec/negocio/ProcessadorACTC902Bean.java
-"daoPortabilidade" is the name of a field in "ProcessadorSuporteBean".
-
-8 years ago
-L67
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-"daoArquivoPortabilidade" is the name of a field in "ProcessadorSuporteBean".
-
-8 years ago
-L70
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-"daoHistoricoSituacaoPortabilidade" is the name of a field in "ProcessadorSuporteBean".
-
-8 years ago
-L79
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-gec-batch/.../br/gov/caixa/sigec/negocio/ProcessadorAPCS102Bean.java
-"daoPortabilidade" is the name of a field in "ProcessadorSuporteBean".
-
-8 years ago
-L72
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-"daoArquivoPortabilidade" is the name of a field in "ProcessadorSuporteBean".
-
-8 years ago
-L75
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-"daoArquivoInterfaceCaixaFebraban" is the name of a field in "ProcessadorSuporteBean".
-
-8 years ago
-L81
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-gec-batch/.../br/gov/caixa/sigec/negocio/ProcessadorAPCS103Bean.java
-"daoPortabilidade" is the name of a field in "ProcessadorSuporteBean".
-
-8 years ago
-L69
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-"daoArquivoPortabilidade" is the name of a field in "ProcessadorSuporteBean".
-
-8 years ago
-L72
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-"daoRespostaPortabilidade" is the name of a field in "ProcessadorSuporteBean".
-
-7 years ago
-L84
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-gec-batch/.../br/gov/caixa/sigec/negocio/ProcessadorAPCS105Bean.java
-"daoPortabilidade" is the name of a field in "ProcessadorSuporteBean".
-
-8 years ago
-L66
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-"daoArquivoPortabilidade" is the name of a field in "ProcessadorSuporteBean".
-
-8 years ago
-L69
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-gec-batch/.../br/gov/caixa/sigec/negocio/ProcessadorAPCS106Bean.java
-"daoPortabilidade" is the name of a field in "ProcessadorSuporteBean".
-
-8 years ago
-L57
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-"daoArquivoPortabilidade" is the name of a field in "ProcessadorSuporteBean".
-
-8 years ago
-L60
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-gec-batch/.../br/gov/caixa/sigec/negocio/ProcessadorAPCS107Bean.java
-"daoPortabilidade" is the name of a field in "ProcessadorSuporteBean".
-
-8 years ago
-L57
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-"daoArquivoPortabilidade" is the name of a field in "ProcessadorSuporteBean".
-
-8 years ago
-L60
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-gec-batch/.../br/gov/caixa/sigec/negocio/ProcessadorAPCS108Bean.java
-"daoPortabilidade" is the name of a field in "ProcessadorSuporteBean".
-
-8 years ago
-L58
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-"daoArquivoPortabilidade" is the name of a field in "ProcessadorSuporteBean".
-
-8 years ago
-L61
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-gec-batch/.../br/gov/caixa/sigec/negocio/ProcessadorAPCS109Bean.java
-"daoArquivoInterfaceCaixaFebraban" is the name of a field in "ProcessadorSuporteBean".
-
-8 years ago
-L42
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-gec-batch/.../br/gov/caixa/sigec/negocio/ProcessadorARCC002Bean.java
-"xmlGregorianCalendarDateConversor" is the name of a field in "AbstractGerenciadorTimers".
-
-5 years ago
-L88
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-gec-batch/.../br/gov/caixa/sigec/negocio/ProcessadorEnvioSolicitacoesRelatorioCTCBean.java
-"daoHistoricoRetornoRecebido" is the name of a field in "ProcessadorSuporteBean".
-
-8 years ago
-L49
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-gec-batch/.../br/gov/caixa/sigec/negocio/ProcessadorEventualCorrecaoBaseBean.java
-"daoArquivoPortabilidade" is the name of a field in "ProcessadorSuporteBean".
-
-8 years ago
-L42
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-gec-batch/.../processador/contestacao/ProcessadorAPCS201Bean.java
-"daoPortabilidade" is the name of a field in "ProcessadorSuporteBean".
-
-7 years ago
-L76
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-"daoArquivoPortabilidade" is the name of a field in "ProcessadorSuporteBean".
-
-7 years ago
-L79
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-gec-batch/.../processador/contestacao/ProcessadorAPCS202Bean.java
-"daoPortabilidade" is the name of a field in "ProcessadorSuporteBean".
-
-7 years ago
-L57
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-"daoArquivoPortabilidade" is the name of a field in "ProcessadorSuporteBean".
-
-7 years ago
-L60
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-gec-batch/.../processador/contestacao/ProcessadorAPCS203Bean.java
-"daoPortabilidade" is the name of a field in "ProcessadorSuporteBean".
-
-7 years ago
-L75
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-"daoArquivoPortabilidade" is the name of a field in "ProcessadorSuporteBean".
-
-7 years ago
-L78
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-gec-batch/.../processador/contestacao/ProcessadorAPCS204Bean.java
-"daoPortabilidade" is the name of a field in "ProcessadorSuporteBean".
-
-7 years ago
-L60
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-"daoArquivoPortabilidade" is the name of a field in "ProcessadorSuporteBean".
-
-7 years ago
-L63
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-gec-batch/.../processador/contestacao/ProcessadorAPCS205Bean.java
-"daoPortabilidade" is the name of a field in "ProcessadorSuporteBean".
-
-7 years ago
-L55
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-"daoArquivoPortabilidade" is the name of a field in "ProcessadorSuporteBean".
-
-7 years ago
-L58
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-gec-batch/.../processador/contestacao/ProcessadorAPCS301Bean.java
-"daoPortabilidade" is the name of a field in "ProcessadorSuporteBean".
-
-7 years ago
-L76
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-"daoArquivoPortabilidade" is the name of a field in "ProcessadorSuporteBean".
-
-7 years ago
-L79
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-gec-batch/.../processador/contestacao/ProcessadorAPCS302Bean.java
-"daoPortabilidade" is the name of a field in "ProcessadorSuporteBean".
-
-7 years ago
-L59
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-"daoArquivoPortabilidade" is the name of a field in "ProcessadorSuporteBean".
-
-7 years ago
-L62
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-gec-ejb/.../br/gov/caixa/sigec/negocio/ProcessadorACTC103Bean.java
-"daoPortabilidade" is the name of a field in "ProcessadorSuporteBean".
-
-10 days ago
-L66
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-"daoArquivoPortabilidade" is the name of a field in "ProcessadorSuporteBean".
-
-10 days ago
-L69
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-gec-ejb/.../br/gov/caixa/sigec/negocio/ProcessadorACTC703Bean.java
-"daoPortabilidade" is the name of a field in "ProcessadorSuporteBean".
-
-10 days ago
-L66
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-"daoArquivoPortabilidade" is the name of a field in "ProcessadorSuporteBean".
-
-10 days ago
-L69
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-gec-ejb/.../br/gov/caixa/sigec/negocio/ProcessadorACTC801Bean.java
-"daoPortabilidade" is the name of a field in "ProcessadorSuporteBean".
-
-10 days ago
-L69
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-"daoArquivoPortabilidade" is the name of a field in "ProcessadorSuporteBean".
-
-10 days ago
-L72
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-gec-ejb/.../br/gov/caixa/sigec/negocio/ProcessadorACTC802Bean.java
-"daoPortabilidade" is the name of a field in "ProcessadorSuporteBean".
-
-10 days ago
-L93
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-"daoArquivoPortabilidade" is the name of a field in "ProcessadorSuporteBean".
-
-10 days ago
-L96
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-"daoArquivoInterfaceCaixaFebraban" is the name of a field in "ProcessadorSuporteBean".
-
-10 days ago
-L102
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-"daoTipoContratoSCR" is the name of a field in "ProcessadorSuporteBean".
-
-10 days ago
-L105
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-"daoTipoIndiceRemuneracao" is the name of a field in "ProcessadorSuporteBean".
-
-10 days ago
-L111
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-"daoTipoRegimeAmortizacao" is the name of a field in "ProcessadorSuporteBean".
-
-10 days ago
-L114
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-gec-ejb/.../br/gov/caixa/sigec/negocio/ProcessadorACTC803Bean.java
-"daoPortabilidade" is the name of a field in "ProcessadorSuporteBean".
-
-10 days ago
-L73
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-"daoArquivoPortabilidade" is the name of a field in "ProcessadorSuporteBean".
-
-10 days ago
-L76
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-gec-ejb/.../br/gov/caixa/sigec/negocio/ProcessadorACTC804Bean.java
-"daoPortabilidade" is the name of a field in "ProcessadorSuporteBean".
-
-10 days ago
-L83
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-"daoArquivoPortabilidade" is the name of a field in "ProcessadorSuporteBean".
-
-10 days ago
-L86
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-gec-ejb/.../br/gov/caixa/sigec/negocio/ProcessadorACTC900Bean.java
-"daoPortabilidade" is the name of a field in "ProcessadorSuporteBean".
-
-10 days ago
-L65
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-"daoArquivoPortabilidade" is the name of a field in "ProcessadorSuporteBean".
-
-10 days ago
-L68
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-gec-ejb/.../br/gov/caixa/sigec/negocio/ProcessadorACTC902Bean.java
-"daoPortabilidade" is the name of a field in "ProcessadorSuporteBean".
-
-10 days ago
-L67
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-"daoArquivoPortabilidade" is the name of a field in "ProcessadorSuporteBean".
-
-10 days ago
-L70
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-"daoHistoricoSituacaoPortabilidade" is the name of a field in "ProcessadorSuporteBean".
-
-10 days ago
-L79
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-gec-ejb/.../br/gov/caixa/sigec/negocio/ProcessadorAPCS102Bean.java
-"daoPortabilidade" is the name of a field in "ProcessadorSuporteBean".
-
-10 days ago
-L72
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-"daoArquivoPortabilidade" is the name of a field in "ProcessadorSuporteBean".
-
-10 days ago
-L75
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-"daoArquivoInterfaceCaixaFebraban" is the name of a field in "ProcessadorSuporteBean".
-
-10 days ago
-L81
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-gec-ejb/.../br/gov/caixa/sigec/negocio/ProcessadorAPCS103Bean.java
-"daoPortabilidade" is the name of a field in "ProcessadorSuporteBean".
-
-10 days ago
-L69
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-"daoArquivoPortabilidade" is the name of a field in "ProcessadorSuporteBean".
-
-10 days ago
-L72
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-"daoRespostaPortabilidade" is the name of a field in "ProcessadorSuporteBean".
-
-10 days ago
-L84
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-gec-ejb/.../br/gov/caixa/sigec/negocio/ProcessadorAPCS105Bean.java
-"daoPortabilidade" is the name of a field in "ProcessadorSuporteBean".
-
-10 days ago
-L66
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-"daoArquivoPortabilidade" is the name of a field in "ProcessadorSuporteBean".
-
-10 days ago
-L69
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-gec-ejb/.../br/gov/caixa/sigec/negocio/ProcessadorAPCS106Bean.java
-"daoPortabilidade" is the name of a field in "ProcessadorSuporteBean".
-
-10 days ago
-L57
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-"daoArquivoPortabilidade" is the name of a field in "ProcessadorSuporteBean".
-
-10 days ago
-L60
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-gec-ejb/.../br/gov/caixa/sigec/negocio/ProcessadorAPCS107Bean.java
-"daoPortabilidade" is the name of a field in "ProcessadorSuporteBean".
-
-10 days ago
-L57
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-"daoArquivoPortabilidade" is the name of a field in "ProcessadorSuporteBean".
-
-10 days ago
-L60
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-gec-ejb/.../br/gov/caixa/sigec/negocio/ProcessadorAPCS108Bean.java
-"daoPortabilidade" is the name of a field in "ProcessadorSuporteBean".
-
-10 days ago
-L58
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-"daoArquivoPortabilidade" is the name of a field in "ProcessadorSuporteBean".
-
-10 days ago
-L61
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-gec-ejb/.../br/gov/caixa/sigec/negocio/ProcessadorAPCS109Bean.java
-"daoArquivoInterfaceCaixaFebraban" is the name of a field in "ProcessadorSuporteBean".
-
-10 days ago
-L42
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-gec-ejb/.../br/gov/caixa/sigec/negocio/ProcessadorARCC002Bean.java
-"xmlGregorianCalendarDateConversor" is the name of a field in "AbstractGerenciadorTimers".
-
-10 days ago
-L88
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-gec-ejb/.../br/gov/caixa/sigec/negocio/ProcessadorEnvioSolicitacoesRelatorioCTCBean.java
-"daoHistoricoRetornoRecebido" is the name of a field in "ProcessadorSuporteBean".
-
-10 days ago
-L49
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-gec-ejb/.../br/gov/caixa/sigec/negocio/ProcessadorEventualCorrecaoBaseBean.java
-"daoArquivoPortabilidade" is the name of a field in "ProcessadorSuporteBean".
-
-10 days ago
-L42
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-gec-ejb/.../br/gov/caixa/sigec/negocio/VerificadorContratosCaixaBean.java
-"daoHistoricoSituacaoPortabilidade" is the name of a field in "ProcessadorSuporteBean".
-
-8 years ago
-L49
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-gec-ejb/.../processador/contestacao/ProcessadorAPCS201Bean.java
-"daoPortabilidade" is the name of a field in "ProcessadorSuporteBean".
-
-10 days ago
-L76
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-"daoArquivoPortabilidade" is the name of a field in "ProcessadorSuporteBean".
-
-10 days ago
-L79
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-gec-ejb/.../processador/contestacao/ProcessadorAPCS202Bean.java
-"daoPortabilidade" is the name of a field in "ProcessadorSuporteBean".
-
-10 days ago
-L57
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-"daoArquivoPortabilidade" is the name of a field in "ProcessadorSuporteBean".
-
-10 days ago
-L60
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-gec-ejb/.../processador/contestacao/ProcessadorAPCS203Bean.java
-"daoPortabilidade" is the name of a field in "ProcessadorSuporteBean".
-
-10 days ago
-L75
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-"daoArquivoPortabilidade" is the name of a field in "ProcessadorSuporteBean".
-
-10 days ago
-L78
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-gec-ejb/.../processador/contestacao/ProcessadorAPCS204Bean.java
-"daoPortabilidade" is the name of a field in "ProcessadorSuporteBean".
-
-10 days ago
-L60
-
-Code Smell
-
-Blocker
-
-Open
-
-Not assigned
-5min effort
-
-Comment
-
-confusing
-100 of 158 shownShow More
+New Bugs
+Reliability
+A
+0
+New Vulnerabilities
+Security
+A
+0
+New Security Hotspots
+Reviewed
+Security Review
+A
+5h 40min
+Added Debt
+25
+New Code Smells
+Maintainability
+B
+0.0%
+Coverage on 12 New Lines to cover
+0.0%
+Duplications on 275 New Lines
+Activity
+Choose graph type
+Issues
+Bugs
+Code Smells
+Vulnerabilities
+new code
+0
+1k
+2k
+3k
+4k
+5k
+Wed 11
+Thu 12
+Fri 13
+Sat 14
+Nov 15
+Activity
+November 16, 2026 at 11:17 AM
+5.0.0-online-SNAPSHOT
+November 16, 2026 at 9:22 AM
+5.0.0-batch-SNAPSHOT
+Quality Gate: Failed
 SonarQube™ technology is powered by SonarSource SA
 Community Editionv9.9.5 (build 90363)NO LONGER ACTIVELGPL v3CommunityDocumentationPluginsWeb API
 
 
-
-
-
-Skip to main contentSkip to issue filters
+Skip to main contentSkip to measure filters
 Logo, link to homepage
 Projects
 Issues
@@ -1858,550 +117,1060 @@ Measures
 Code
 Activity
 Project Information
+
+Project Overview
+Reliability
+Security
+Security Review
+Maintainability
+Coverage
+Lines to Cover on New Code
+
+Overview
+On new code
+
+Coverage
+0.0%
+
+Lines to Cover
+12
+
+Uncovered Lines
+12
+
+Line Coverage
+0.0%
+
+Conditions to Cover
+0
+
+Uncovered Conditions
+0
+Overall
+
+Coverage
+0.0%
+
+Lines to Cover
+112,063
+
+Uncovered Lines
+112,063
+
+Line Coverage
+0.0%
+Duplications
+Size
+Complexity
 Issues
-My Issues
-All
-Clear All Filters
-Filters
-
-Issues in new code
-Type
-Bug
-Clear
-
-Bug
-27
-
-Vulnerability
+SIGEC-portabilidade
+View as
+List
+↑↓to select files←→to navigate
+6,282 files
+Lines to Cover on New Code
+12
+New Code: From last 428 days
+gec-web/src/main/java/br/gov/caixa/sigec/util/ExportaArquivoUtil.java
+6
+gec-web/src/main/java/br/gov/caixa/sigec/rest/dev/ProcessadorDevRest.java
+5
+gec-web/src/main/java/br/gov/caixa/sigec/rest/UserProfileRest.java
+1
+gec-api/src/main/webapp/error/401.jsp
 0
-
-Code Smell
-131
-Press Ctrl to add to selection
-Severity
-Blocker
-Clear
-
-Blocker
-27
-
-Minor
-31
-
-Critical
-178
-
-Info
+gec-api/src/main/webapp/error/403.jsp
 0
-
-Major
-54
-Press Ctrl to add to selection
-Scope
-Resolution
-Status
-Security Category
-Creation Date
-Language
-Rule
-Tag
-Directory
-File
-Assignee
-Author
-Bulk Change
-↑
-←↓→
-1 / 27issues
-54min effort
-List of issues
-gec-web/.../webapp/layout/ckeditor/samples/index.html
-Add "lang" and/or "xml:lang" attributes to this "<html>" element
-
-2 years ago
-L6
-
-Bug
-
-Blocker
-
-Open
-
-Not assigned
-2min effort
-
-Comment
-
-accessibility, wcag2-a
-gec-web/.../layout/ckeditor/samples/old/ajax.html
-Add "lang" and/or "xml:lang" attributes to this "<html>" element
-
-2 years ago
-L6
-
-Bug
-
-Blocker
-
-Open
-
-Not assigned
-2min effort
-
-Comment
-
-accessibility, wcag2-a
-gec-web/.../layout/ckeditor/samples/old/api.html
-Add "lang" and/or "xml:lang" attributes to this "<html>" element
-
-2 years ago
-L6
-
-Bug
-
-Blocker
-
-Open
-
-Not assigned
-2min effort
-
-Comment
-
-accessibility, wcag2-a
-gec-web/.../layout/ckeditor/samples/old/appendto.html
-Add "lang" and/or "xml:lang" attributes to this "<html>" element
-
-2 years ago
-L6
-
-Bug
-
-Blocker
-
-Open
-
-Not assigned
-2min effort
-
-Comment
-
-accessibility, wcag2-a
-gec-web/.../ckeditor/samples/old/assets/posteddata.php
-Add "lang" and/or "xml:lang" attributes to this "<html>" element
-
-2 years ago
-L8
-
-Bug
-
-Blocker
-
-Open
-
-Not assigned
-2min effort
-
-Comment
-
-accessibility, wcag2-a
-gec-web/.../layout/ckeditor/samples/old/datafiltering.html
-Add "lang" and/or "xml:lang" attributes to this "<html>" element
-
-2 years ago
-L6
-
-Bug
-
-Blocker
-
-Open
-
-Not assigned
-2min effort
-
-Comment
-
-accessibility, wcag2-a
-gec-web/.../ckeditor/samples/old/dialog/dialog.html
-Add "lang" and/or "xml:lang" attributes to this "<html>" element
-
-2 years ago
-L6
-
-Bug
-
-Blocker
-
-Open
-
-Not assigned
-2min effort
-
-Comment
-
-accessibility, wcag2-a
-gec-web/.../layout/ckeditor/samples/old/divreplace.html
-Add "lang" and/or "xml:lang" attributes to this "<html>" element
-
-2 years ago
-L6
-
-Bug
-
-Blocker
-
-Open
-
-Not assigned
-2min effort
-
-Comment
-
-accessibility, wcag2-a
-gec-web/.../ckeditor/samples/old/enterkey/enterkey.html
-Add "lang" and/or "xml:lang" attributes to this "<html>" element
-
-2 years ago
-L6
-
-Bug
-
-Blocker
-
-Open
-
-Not assigned
-2min effort
-
-Comment
-
-accessibility, wcag2-a
-gec-web/.../samples/old/htmlwriter/outputforflash.html
-Add "lang" and/or "xml:lang" attributes to this "<html>" element
-
-2 years ago
-L6
-
-Bug
-
-Blocker
-
-Open
-
-Not assigned
-2min effort
-
-Comment
-
-accessibility, wcag2-a
-gec-web/.../samples/old/htmlwriter/outputhtml.html
-Add "lang" and/or "xml:lang" attributes to this "<html>" element
-
-2 years ago
-L6
-
-Bug
-
-Blocker
-
-Open
-
-Not assigned
-2min effort
-
-Comment
-
-accessibility, wcag2-a
-gec-web/.../layout/ckeditor/samples/old/index.html
-Add "lang" and/or "xml:lang" attributes to this "<html>" element
-
-2 years ago
-L6
-
-Bug
-
-Blocker
-
-Open
-
-Not assigned
-2min effort
-
-Comment
-
-accessibility, wcag2-a
-gec-web/.../layout/ckeditor/samples/old/inlineall.html
-Add "lang" and/or "xml:lang" attributes to this "<html>" element
-
-2 years ago
-L6
-
-Bug
-
-Blocker
-
-Open
-
-Not assigned
-2min effort
-
-Comment
-
-accessibility, wcag2-a
-gec-web/.../layout/ckeditor/samples/old/inlinebycode.html
-Add "lang" and/or "xml:lang" attributes to this "<html>" element
-
-2 years ago
-L6
-
-Bug
-
-Blocker
-
-Open
-
-Not assigned
-2min effort
-
-Comment
-
-accessibility, wcag2-a
-gec-web/.../layout/ckeditor/samples/old/inlinetextarea.html
-Add "lang" and/or "xml:lang" attributes to this "<html>" element
-
-2 years ago
-L6
-
-Bug
-
-Blocker
-
-Open
-
-Not assigned
-2min effort
-
-Comment
-
-accessibility, wcag2-a
-gec-web/.../layout/ckeditor/samples/old/jquery.html
-Add "lang" and/or "xml:lang" attributes to this "<html>" element
-
-2 years ago
-L6
-
-Bug
-
-Blocker
-
-Open
-
-Not assigned
-2min effort
-
-Comment
-
-accessibility, wcag2-a
-gec-web/.../ckeditor/samples/old/magicline/magicline.html
-Add "lang" and/or "xml:lang" attributes to this "<html>" element
-
-2 years ago
-L6
-
-Bug
-
-Blocker
-
-Open
-
-Not assigned
-2min effort
-
-Comment
-
-accessibility, wcag2-a
-gec-web/.../layout/ckeditor/samples/old/readonly.html
-Add "lang" and/or "xml:lang" attributes to this "<html>" element
-
-2 years ago
-L6
-
-Bug
-
-Blocker
-
-Open
-
-Not assigned
-2min effort
-
-Comment
-
-accessibility, wcag2-a
-gec-web/.../layout/ckeditor/samples/old/replacebyclass.html
-Add "lang" and/or "xml:lang" attributes to this "<html>" element
-
-2 years ago
-L6
-
-Bug
-
-Blocker
-
-Open
-
-Not assigned
-2min effort
-
-Comment
-
-accessibility, wcag2-a
-gec-web/.../layout/ckeditor/samples/old/replacebycode.html
-Add "lang" and/or "xml:lang" attributes to this "<html>" element
-
-2 years ago
-L6
-
-Bug
-
-Blocker
-
-Open
-
-Not assigned
-2min effort
-
-Comment
-
-accessibility, wcag2-a
-gec-web/.../layout/ckeditor/samples/old/tabindex.html
-Add "lang" and/or "xml:lang" attributes to this "<html>" element
-
-2 years ago
-L6
-
-Bug
-
-Blocker
-
-Open
-
-Not assigned
-2min effort
-
-Comment
-
-accessibility, wcag2-a
-gec-web/.../ckeditor/samples/old/toolbar/toolbar.html
-Add "lang" and/or "xml:lang" attributes to this "<html>" element
-
-2 years ago
-L6
-
-Bug
-
-Blocker
-
-Open
-
-Not assigned
-2min effort
-
-Comment
-
-accessibility, wcag2-a
-gec-web/.../layout/ckeditor/samples/old/uicolor.html
-Add "lang" and/or "xml:lang" attributes to this "<html>" element
-
-2 years ago
-L6
-
-Bug
-
-Blocker
-
-Open
-
-Not assigned
-2min effort
-
-Comment
-
-accessibility, wcag2-a
-gec-web/.../layout/ckeditor/samples/old/uilanguages.html
-Add "lang" and/or "xml:lang" attributes to this "<html>" element
-
-2 years ago
-L6
-
-Bug
-
-Blocker
-
-Open
-
-Not assigned
-2min effort
-
-Comment
-
-accessibility, wcag2-a
-gec-web/.../samples/old/wysiwygarea/fullpage.html
-Add "lang" and/or "xml:lang" attributes to this "<html>" element
-
-2 years ago
-L6
-
-Bug
-
-Blocker
-
-Open
-
-Not assigned
-2min effort
-
-Comment
-
-accessibility, wcag2-a
-gec-web/.../layout/ckeditor/samples/old/xhtmlstyle.html
-Add "lang" and/or "xml:lang" attributes to this "<html>" element
-
-2 years ago
-L6
-
-Bug
-
-Blocker
-
-Open
-
-Not assigned
-2min effort
-
-Comment
-
-accessibility, wcag2-a
-gec-web/.../samples/toolbarconfigurator/index.html
-Add "lang" and/or "xml:lang" attributes to this "<html>" element
-
-2 years ago
-L8
-
-Bug
-
-Blocker
-
-Open
-
-Not assigned
-2min effort
-
-Comment
-
-accessibility, wcag2-a
-27 of 27 shown
+gec-api/src/main/webapp/error/404.jsp
+0
+gec-api/src/main/webapp/error/405.jsp
+0
+gec-api/src/main/webapp/error/500.jsp
+0
+gec-ejb/src/main/java/br/gov/caixa/sigec/api/AbstractAPI.java
+0
+gec-ejb/src/main/java/br/gov/caixa/sigec/negocio/documento/AbstractCenarioProcessamento.java
+0
+gec-ejb/src/main/java/br/gov/caixa/portabilidade/dto/AbstractDto.java
+0
+gec-ejb/src/main/java/br/gov/caixa/portabilidade/entity/AbstractEntity.java
+0
+gec-ejb/src/main/java/br/gov/caixa/sigec/api/sso/AbstractGerarTokenSSOAPI.java
+0
+gec-ejb/src/main/java/br/gov/caixa/sigec/negocio/AbstractGerenciadorTimers.java
+0
+gec-batch/src/main/java/br/gov/caixa/sigec/negocio/AbstractGerenciadorTimers.java
+0
+gec-ejb/src/main/java/br/gov/caixa/sigec/negocio/AbstractGerenciadorTimersSemBMT.java
+0
+gec-batch/src/main/java/br/gov/caixa/sigec/negocio/AbstractGerenciadorTimersSemBMT.java
+0
+gec-api/src/main/java/br/gov/caixa/api/portabilidade/sso/multitenancy/realm/AbstractKeycloakRealm.java
+0
+gec-ejb/src/main/java/br/gov/caixa/sigec/api/nuclea/AbstractNucleaAPI.java
+0
+gec-ejb/src/main/java/br/gov/caixa/sigec/api/sicli/AbstractSicliAPI.java
+0
+gec-ejb/src/main/java/br/gov/caixa/sigec/api/siico/AbstractSiicoAPI.java
+0
+gec-ejb/src/main/java/br/gov/caixa/sigec/api/silcr/AbstractSilcrApi.java
+0
+gec-ejb/src/main/java/br/gov/caixa/sigec/api/simtr/AbstractSimtrAPI.java
+0
+gec-web/src/main/java/br/gov/caixa/sigec/to/AbstractTO.java
+0
+gec-ejb/src/main/java/br/gov/caixa/sigec/negocio/AcatamentoAutomatico.java
+0
+gec-ejb/src/main/java/br/gov/caixa/sigec/negocio/AcatamentoAutomaticoBean.java
+0
+gec-ejb/src/main/java/br/gov/caixa/sigec/negocio/AcatamentoAutomaticoIndependenteContaSalarioBean.java
+0
+gec-web/src/main/webapp/servicos/gerenciarTED/visao/acatarDevolverTedModal.html
+0
+gec-web/src/main/webapp/servicos/gerenciarTED/controle/AcatarDevolverTedModalControle.js
+0
+gec-ejb/src/main/java/br/gov/caixa/sigec/qualifier/ACTC101.java
+0
+gec-xml/src/main/resources/xsd/1.8.2/ACTC101.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.3/ACTC101.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.6/ACTC101.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.4/ACTC101.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.1.1/ACTC101.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.0/ACTC101.xsd
+0
+gec-ejb/src/main/java/br/gov/caixa/sigec/util/adaptador/ACTC101Adaptador.java
+0
+gec-xml/src/main/java/br/gov/caixa/sigec/xml/actc101/ACTC101ComplexType.java
+0
+gec-xml/src/main/resources/xsd/1.8.2/ACTC101ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.3/ACTC101ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.6/ACTC101ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.4/ACTC101ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.1.1/ACTC101ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.0/ACTC101ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.2/ACTC101PRO.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.3/ACTC101PRO.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.6/ACTC101PRO.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.4/ACTC101PRO.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.1.1/ACTC101PRO.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.0/ACTC101PRO.xsd
+0
+gec-xml/src/main/java/br/gov/caixa/sigec/xml/actc101/ACTC101RETComplexType.java
+0
+gec-xml/src/main/resources/xsd/1.8.2/ACTC102.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.3/ACTC102.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.6/ACTC102.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.4/ACTC102.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.1.1/ACTC102.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.0/ACTC102.xsd
+0
+gec-xml/src/main/java/br/gov/caixa/sigec/xml/actc102/ACTC102ComplexType.java
+0
+gec-xml/src/main/resources/xsd/1.8.2/ACTC103.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.3/ACTC103.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.6/ACTC103.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.4/ACTC103.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.1.1/ACTC103.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.0/ACTC103.xsd
+0
+gec-ejb/src/main/java/br/gov/caixa/sigec/util/adaptador/ACTC103Adaptador.java
+0
+gec-xml/src/main/java/br/gov/caixa/sigec/xml/actc103/ACTC103ComplexType.java
+0
+gec-xml/src/main/resources/xsd/1.8.2/ACTC103ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.3/ACTC103ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.6/ACTC103ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.4/ACTC103ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.1.1/ACTC103ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.0/ACTC103ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.2/ACTC103PRO.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.3/ACTC103PRO.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.6/ACTC103PRO.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.4/ACTC103PRO.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.1.1/ACTC103PRO.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.0/ACTC103PRO.xsd
+0
+gec-xml/src/main/java/br/gov/caixa/sigec/xml/actc103/ACTC103RETComplexType.java
+0
+gec-xml/src/main/resources/xsd/1.8.2/ACTC104.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.3/ACTC104.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.6/ACTC104.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.4/ACTC104.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.1.1/ACTC104.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.0/ACTC104.xsd
+0
+gec-xml/src/main/java/br/gov/caixa/sigec/xml/actc104/ACTC104ComplexType.java
+0
+gec-xml/src/main/resources/xsd/1.8.3/ACTC201.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.2/ACTC201.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.6/ACTC201.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.4/ACTC201.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.1.1/ACTC201.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.0/ACTC201.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.2/ACTC201ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.3/ACTC201ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.6/ACTC201ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.4/ACTC201ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.1.1/ACTC201ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.0/ACTC201ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.2/ACTC201PRO.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.3/ACTC201PRO.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.6/ACTC201PRO.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.4/ACTC201PRO.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.1.1/ACTC201PRO.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.0/ACTC201PRO.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.2/ACTC202.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.3/ACTC202.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.6/ACTC202.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.4/ACTC202.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.1.1/ACTC202.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.0/ACTC202.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.2/ACTC203.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.3/ACTC203.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.6/ACTC203.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.4/ACTC203.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.1.1/ACTC203.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.0/ACTC203.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.2/ACTC203ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.3/ACTC203ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.6/ACTC203ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.4/ACTC203ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.1.1/ACTC203ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.0/ACTC203ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.2/ACTC203PRO.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.3/ACTC203PRO.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.6/ACTC203PRO.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.4/ACTC203PRO.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.1.1/ACTC203PRO.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.0/ACTC203PRO.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.2/ACTC204.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.3/ACTC204.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.6/ACTC204.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.4/ACTC204.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.1.1/ACTC204.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.0/ACTC204.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.2/ACTC301.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.3/ACTC301.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.6/ACTC301.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.4/ACTC301.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.1.1/ACTC301.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.0/ACTC301.xsd
+0
+gec-ejb/src/main/java/br/gov/caixa/sigec/util/adaptador/ACTC301Adaptador.java
+0
+gec-xml/src/main/java/br/gov/caixa/sigec/xml/actc301/ACTC301ComplexType.java
+0
+gec-xml/src/main/resources/xsd/1.8.2/ACTC301ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.3/ACTC301ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.6/ACTC301ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.4/ACTC301ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.1.1/ACTC301ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.0/ACTC301ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.2/ACTC301PRO.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.3/ACTC301PRO.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.6/ACTC301PRO.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.4/ACTC301PRO.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.1.1/ACTC301PRO.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.0/ACTC301PRO.xsd
+0
+gec-xml/src/main/java/br/gov/caixa/sigec/xml/actc301/ACTC301RETComplexType.java
+0
+gec-xml/src/main/resources/xsd/1.8.2/ACTC302.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.3/ACTC302.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.6/ACTC302.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.4/ACTC302.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.1.1/ACTC302.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.0/ACTC302.xsd
+0
+gec-xml/src/main/java/br/gov/caixa/sigec/xml/actc302/ACTC302ComplexType.java
+0
+gec-xml/src/main/resources/xsd/1.8.2/ACTC303.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.3/ACTC303.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.6/ACTC303.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.4/ACTC303.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.1.1/ACTC303.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.0/ACTC303.xsd
+0
+gec-ejb/src/main/java/br/gov/caixa/sigec/util/adaptador/ACTC303Adaptador.java
+0
+gec-xml/src/main/java/br/gov/caixa/sigec/xml/actc303/ACTC303ComplexType.java
+0
+gec-xml/src/main/resources/xsd/1.8.2/ACTC303ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.3/ACTC303ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.6/ACTC303ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.4/ACTC303ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.1.1/ACTC303ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.0/ACTC303ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.2/ACTC303PRO.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.3/ACTC303PRO.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.6/ACTC303PRO.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.4/ACTC303PRO.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.1.1/ACTC303PRO.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.0/ACTC303PRO.xsd
+0
+gec-xml/src/main/java/br/gov/caixa/sigec/xml/actc303/ACTC303RETComplexType.java
+0
+gec-xml/src/main/resources/xsd/1.8.2/ACTC304.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.3/ACTC304.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.6/ACTC304.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.4/ACTC304.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.1.1/ACTC304.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.0/ACTC304.xsd
+0
+gec-xml/src/main/java/br/gov/caixa/sigec/xml/actc304/ACTC304ComplexType.java
+0
+gec-xml/src/main/resources/xsd/1.8.2/ACTC401.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.3/ACTC401.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.6/ACTC401.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.4/ACTC401.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.1.1/ACTC401.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.0/ACTC401.xsd
+0
+gec-ejb/src/main/java/br/gov/caixa/sigec/util/adaptador/ACTC401Adaptador.java
+0
+gec-xml/src/main/java/br/gov/caixa/sigec/xml/actc401/ACTC401ComplexType.java
+0
+gec-xml/src/main/resources/xsd/1.8.2/ACTC401ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.3/ACTC401ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.6/ACTC401ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.4/ACTC401ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.1.1/ACTC401ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.0/ACTC401ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.2/ACTC401PRO.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.3/ACTC401PRO.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.6/ACTC401PRO.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.4/ACTC401PRO.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.1.1/ACTC401PRO.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.0/ACTC401PRO.xsd
+0
+gec-xml/src/main/java/br/gov/caixa/sigec/xml/actc401/ACTC401RETComplexType.java
+0
+gec-xml/src/main/resources/xsd/1.8.2/ACTC402.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.3/ACTC402.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.6/ACTC402.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.4/ACTC402.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.1.1/ACTC402.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.0/ACTC402.xsd
+0
+gec-xml/src/main/java/br/gov/caixa/sigec/xml/actc402/ACTC402ComplexType.java
+0
+gec-xml/src/main/resources/xsd/1.8.2/ACTC403.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.3/ACTC403.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.6/ACTC403.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.4/ACTC403.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.1.1/ACTC403.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.0/ACTC403.xsd
+0
+gec-ejb/src/main/java/br/gov/caixa/sigec/util/adaptador/ACTC403Adaptador.java
+0
+gec-xml/src/main/java/br/gov/caixa/sigec/xml/actc403/ACTC403ComplexType.java
+0
+gec-xml/src/main/resources/xsd/1.8.2/ACTC403ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.3/ACTC403ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.6/ACTC403ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.4/ACTC403ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.1.1/ACTC403ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.0/ACTC403ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.2/ACTC403PRO.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.3/ACTC403PRO.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.6/ACTC403PRO.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.4/ACTC403PRO.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.1.1/ACTC403PRO.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.0/ACTC403PRO.xsd
+0
+gec-xml/src/main/java/br/gov/caixa/sigec/xml/actc403/ACTC403RETComplexType.java
+0
+gec-xml/src/main/resources/xsd/1.8.2/ACTC404.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.3/ACTC404.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.6/ACTC404.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.4/ACTC404.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.1.1/ACTC404.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.0/ACTC404.xsd
+0
+gec-xml/src/main/java/br/gov/caixa/sigec/xml/actc404/ACTC404ComplexType.java
+0
+gec-xml/src/main/resources/xsd/1.8.2/ACTC501.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.3/ACTC501.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.6/ACTC501.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.4/ACTC501.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.1.1/ACTC501.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.0/ACTC501.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.2/ACTC501ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.3/ACTC501ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.6/ACTC501ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.4/ACTC501ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.1.1/ACTC501ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.0/ACTC501ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.2/ACTC501PRO.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.3/ACTC501PRO.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.6/ACTC501PRO.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.4/ACTC501PRO.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.1.1/ACTC501PRO.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.0/ACTC501PRO.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.2/ACTC502.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.3/ACTC502.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.6/ACTC502.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.4/ACTC502.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.1.1/ACTC502.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.0/ACTC502.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.2/ACTC503.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.3/ACTC503.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.6/ACTC503.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.4/ACTC503.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.1.1/ACTC503.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.0/ACTC503.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.2/ACTC503ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.3/ACTC503ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.6/ACTC503ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.4/ACTC503ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.1.1/ACTC503ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.0/ACTC503ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.2/ACTC503PRO.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.3/ACTC503PRO.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.6/ACTC503PRO.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.4/ACTC503PRO.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.1.1/ACTC503PRO.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.0/ACTC503PRO.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.2/ACTC504.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.3/ACTC504.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.6/ACTC504.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.4/ACTC504.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.1.1/ACTC504.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.0/ACTC504.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.2/ACTC601.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.3/ACTC601.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.6/ACTC601.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.4/ACTC601.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.1.1/ACTC601.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.0/ACTC601.xsd
+0
+gec-ejb/src/main/java/br/gov/caixa/sigec/util/adaptador/ACTC601Adaptador.java
+0
+gec-xml/src/main/java/br/gov/caixa/sigec/xml/actc601/ACTC601ComplexType.java
+0
+gec-xml/src/main/resources/xsd/1.8.2/ACTC601ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.3/ACTC601ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.6/ACTC601ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.4/ACTC601ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.1.1/ACTC601ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.0/ACTC601ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.2/ACTC601PRO.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.3/ACTC601PRO.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.6/ACTC601PRO.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.4/ACTC601PRO.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.1.1/ACTC601PRO.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.0/ACTC601PRO.xsd
+0
+gec-xml/src/main/java/br/gov/caixa/sigec/xml/actc601/ACTC601RETComplexType.java
+0
+gec-xml/src/main/resources/xsd/1.8.2/ACTC602.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.3/ACTC602.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.6/ACTC602.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.4/ACTC602.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.1.1/ACTC602.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.0/ACTC602.xsd
+0
+gec-xml/src/main/java/br/gov/caixa/sigec/xml/actc602/ACTC602ComplexType.java
+0
+gec-xml/src/main/resources/xsd/1.8.2/ACTC603.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.3/ACTC603.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.6/ACTC603.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.4/ACTC603.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.1.1/ACTC603.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.0/ACTC603.xsd
+0
+gec-ejb/src/main/java/br/gov/caixa/sigec/util/adaptador/ACTC603Adaptador.java
+0
+gec-xml/src/main/java/br/gov/caixa/sigec/xml/actc603/ACTC603ComplexType.java
+0
+gec-xml/src/main/resources/xsd/1.8.2/ACTC603ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.3/ACTC603ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.6/ACTC603ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.4/ACTC603ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.1.1/ACTC603ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.0/ACTC603ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.2/ACTC603PRO.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.3/ACTC603PRO.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.6/ACTC603PRO.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.4/ACTC603PRO.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.1.1/ACTC603PRO.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.0/ACTC603PRO.xsd
+0
+gec-xml/src/main/java/br/gov/caixa/sigec/xml/actc603/ACTC603RETComplexType.java
+0
+gec-xml/src/main/resources/xsd/1.8.2/ACTC604.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.3/ACTC604.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.6/ACTC604.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.4/ACTC604.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.1.1/ACTC604.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.0/ACTC604.xsd
+0
+gec-xml/src/main/java/br/gov/caixa/sigec/xml/actc604/ACTC604ComplexType.java
+0
+gec-xml/src/main/resources/xsd/1.8.2/ACTC701.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.3/ACTC701.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.6/ACTC701.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.4/ACTC701.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.1.1/ACTC701.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.0/ACTC701.xsd
+0
+gec-ejb/src/main/java/br/gov/caixa/sigec/util/adaptador/ACTC701Adaptador.java
+0
+gec-xml/src/main/java/br/gov/caixa/sigec/xml/actc701/ACTC701ComplexType.java
+0
+gec-xml/src/main/resources/xsd/1.8.2/ACTC701ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.3/ACTC701ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.6/ACTC701ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.4/ACTC701ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.1.1/ACTC701ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.0/ACTC701ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.2/ACTC701PRO.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.3/ACTC701PRO.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.6/ACTC701PRO.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.4/ACTC701PRO.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.1.1/ACTC701PRO.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.0/ACTC701PRO.xsd
+0
+gec-xml/src/main/java/br/gov/caixa/sigec/xml/actc701/ACTC701RETComplexType.java
+0
+gec-xml/src/main/resources/xsd/1.8.2/ACTC702.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.3/ACTC702.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.6/ACTC702.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.4/ACTC702.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.1.1/ACTC702.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.0/ACTC702.xsd
+0
+gec-xml/src/main/java/br/gov/caixa/sigec/xml/actc702/ACTC702ComplexType.java
+0
+gec-xml/src/main/resources/xsd/1.8.2/ACTC703.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.3/ACTC703.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.6/ACTC703.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.4/ACTC703.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.1.1/ACTC703.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.0/ACTC703.xsd
+0
+gec-ejb/src/main/java/br/gov/caixa/sigec/util/adaptador/ACTC703Adaptador.java
+0
+gec-xml/src/main/java/br/gov/caixa/sigec/xml/actc703/ACTC703ComplexType.java
+0
+gec-xml/src/main/resources/xsd/1.8.2/ACTC703ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.3/ACTC703ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.6/ACTC703ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.4/ACTC703ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.1.1/ACTC703ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.0/ACTC703ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.2/ACTC703PRO.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.3/ACTC703PRO.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.6/ACTC703PRO.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.4/ACTC703PRO.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.1.1/ACTC703PRO.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.0/ACTC703PRO.xsd
+0
+gec-xml/src/main/java/br/gov/caixa/sigec/xml/actc703/ACTC703RETComplexType.java
+0
+gec-xml/src/main/resources/xsd/1.8.2/ACTC704.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.3/ACTC704.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.6/ACTC704.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.4/ACTC704.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.1.1/ACTC704.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.0/ACTC704.xsd
+0
+gec-xml/src/main/java/br/gov/caixa/sigec/xml/actc704/ACTC704ComplexType.java
+0
+gec-xml/src/main/resources/xsd/1.8.2/ACTC801.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.3/ACTC801.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.1.1/ACTC801.xsd
+0
+gec-ejb/src/main/java/br/gov/caixa/sigec/util/adaptador/ACTC801Adaptador.java
+0
+gec-xml/src/main/java/br/gov/caixa/sigec/xml/actc801/ACTC801ComplexType.java
+0
+gec-xml/src/main/resources/xsd/1.8.2/ACTC801ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.3/ACTC801ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.1.1/ACTC801ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.2/ACTC801PRO.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.3/ACTC801PRO.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.1.1/ACTC801PRO.xsd
+0
+gec-xml/src/main/java/br/gov/caixa/sigec/xml/actc801/ACTC801RETComplexType.java
+0
+gec-xml/src/main/resources/xsd/1.8.2/ACTC802.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.3/ACTC802.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.1.1/ACTC802.xsd
+0
+gec-xml/src/main/java/br/gov/caixa/sigec/xml/actc802/ACTC802ComplexType.java
+0
+gec-xml/src/main/resources/xsd/1.8.2/ACTC803.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.3/ACTC803.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.1.1/ACTC803.xsd
+0
+gec-ejb/src/main/java/br/gov/caixa/sigec/util/adaptador/ACTC803Adaptador.java
+0
+gec-xml/src/main/java/br/gov/caixa/sigec/xml/actc803/ACTC803ComplexType.java
+0
+gec-xml/src/main/resources/xsd/1.8.2/ACTC803ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.3/ACTC803ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.1.1/ACTC803ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.2/ACTC803PRO.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.3/ACTC803PRO.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.1.1/ACTC803PRO.xsd
+0
+gec-xml/src/main/java/br/gov/caixa/sigec/xml/actc803/ACTC803RETComplexType.java
+0
+gec-xml/src/main/resources/xsd/1.8.2/ACTC804.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.3/ACTC804.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.1.1/ACTC804.xsd
+0
+gec-xml/src/main/java/br/gov/caixa/sigec/xml/actc804/ACTC804ComplexType.java
+0
+gec-xml/src/main/resources/xsd/1.8.2/ACTC900.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.3/ACTC900.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.6/ACTC900.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.4/ACTC900.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.1.1/ACTC900.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.0/ACTC900.xsd
+0
+gec-ejb/src/main/java/br/gov/caixa/sigec/util/adaptador/ACTC900Adaptador.java
+0
+gec-xml/src/main/java/br/gov/caixa/sigec/xml/actc900/ACTC900ComplexType.java
+0
+gec-xml/src/main/resources/xsd/1.8.2/ACTC900ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.3/ACTC900ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.6/ACTC900ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.4/ACTC900ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.1.1/ACTC900ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.0/ACTC900ERR.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.2/ACTC900PRO.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.3/ACTC900PRO.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.6/ACTC900PRO.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.4/ACTC900PRO.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.1.1/ACTC900PRO.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.0/ACTC900PRO.xsd
+0
+gec-xml/src/main/java/br/gov/caixa/sigec/xml/actc900/ACTC900RETComplexType.java
+0
+gec-xml/src/main/resources/xsd/1.8.2/ACTC901.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.3/ACTC901.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.6/ACTC901.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.4/ACTC901.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.1.1/ACTC901.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.0/ACTC901.xsd
+0
+gec-ejb/src/main/java/br/gov/caixa/sigec/util/adaptador/ACTC901Adaptador.java
+0
+gec-xml/src/main/java/br/gov/caixa/sigec/xml/actc304/ACTC901ComplexType.java
+0
+gec-xml/src/main/java/br/gov/caixa/sigec/xml/actc801/ACTC901ComplexType.java
+0
+gec-xml/src/main/java/br/gov/caixa/sigec/xml/actc922/ACTC901ComplexType.java
+0
+gec-xml/src/main/java/br/gov/caixa/sigec/xml/actc303/ACTC901ComplexType.java
+0
+gec-xml/src/main/java/br/gov/caixa/sigec/xml/actc925/ACTC901ComplexType.java
+0
+gec-xml/src/main/java/br/gov/caixa/sigec/xml/actc901/ACTC901ComplexType.java
+0
+gec-xml/src/main/java/br/gov/caixa/sigec/xml/actc703/ACTC901ComplexType.java
+0
+gec-xml/src/main/java/br/gov/caixa/sigec/xml/actc103/ACTC901ComplexType.java
+0
+gec-xml/src/main/java/br/gov/caixa/sigec/xml/actc803/ACTC901ComplexType.java
+0
+gec-xml/src/main/java/br/gov/caixa/sigec/xml/actc404/ACTC901ComplexType.java
+0
+gec-xml/src/main/java/br/gov/caixa/sigec/xml/actc802/ACTC901ComplexType.java
+0
+gec-xml/src/main/java/br/gov/caixa/sigec/xml/actc924/ACTC901ComplexType.java
+0
+gec-xml/src/main/java/br/gov/caixa/sigec/xml/actc804/ACTC901ComplexType.java
+0
+gec-xml/src/main/java/br/gov/caixa/sigec/xml/actc104/ACTC901ComplexType.java
+0
+gec-xml/src/main/java/br/gov/caixa/sigec/xml/actc601/ACTC901ComplexType.java
+0
+gec-xml/src/main/java/br/gov/caixa/sigec/xml/actc704/ACTC901ComplexType.java
+0
+gec-xml/src/main/java/br/gov/caixa/sigec/xml/actc604/ACTC901ComplexType.java
+0
+gec-xml/src/main/java/br/gov/caixa/sigec/xml/actc926/ACTC901ComplexType.java
+0
+gec-xml/src/main/java/br/gov/caixa/sigec/xml/actc603/ACTC901ComplexType.java
+0
+gec-xml/src/main/java/br/gov/caixa/sigec/xml/actc921/ACTC901ComplexType.java
+0
+gec-xml/src/main/java/br/gov/caixa/sigec/xml/actc923/ACTC901ComplexType.java
+0
+gec-xml/src/main/java/br/gov/caixa/sigec/xml/actc701/ACTC901ComplexType.java
+0
+gec-xml/src/main/java/br/gov/caixa/sigec/xml/actc403/ACTC901ComplexType.java
+0
+gec-xml/src/main/java/br/gov/caixa/sigec/xml/actc702/ACTC901ComplexType.java
+0
+gec-xml/src/main/java/br/gov/caixa/sigec/xml/actc920/ACTC901ComplexType.java
+0
+gec-xml/src/main/java/br/gov/caixa/sigec/xml/actc602/ACTC901ComplexType.java
+0
+gec-xml/src/main/resources/xsd/1.8.2/ACTC902.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.3/ACTC902.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.6/ACTC902.xsd
+0
+gec-xml/src/main/resources/xsd/1.7.4/ACTC902.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.1.1/ACTC902.xsd
+0
+gec-xml/src/main/resources/xsd/1.8.0/ACTC902.xsd
+0
+gec-ejb/src/main/java/br/gov/caixa/sigec/util/adaptador/ACTC902Adaptador.java
+0
+gec-xml/src/main/java/br/gov/caixa/sigec/xml/actc902/ACTC902ComplexType.java
+0
+500 of 6,282 shownShow More
 SonarQube™ technology is powered by SonarSource SA
 Community Editionv9.9.5 (build 90363)NO LONGER ACTIVELGPL v3CommunityDocumentationPluginsWeb API
-
