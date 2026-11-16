@@ -32,10 +32,9 @@ import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import net.sf.jasperreports.engine.export.JRCsvExporter;
-import net.sf.jasperreports.engine.export.JRCsvExporterParameter;
 import net.sf.jasperreports.engine.export.JRTextExporter;
+import net.sf.jasperreports.engine.export.JRXlsAbstractExporterParameter;
 import net.sf.jasperreports.engine.export.JRXlsExporter;
-import net.sf.jasperreports.engine.export.JRXlsExporterParameter;
 import net.sf.jasperreports.engine.export.ooxml.JRDocxExporter;
 import net.sf.jasperreports.engine.export.ooxml.JRXlsxExporter;
 import net.sf.jasperreports.engine.util.JRLoader;
@@ -191,22 +190,22 @@ public class ExportaArquivoUtil {
 				} else {
 					exporter = new JRXlsExporter();
 				}
-				exporter.setParameter(JRXlsExporterParameter.IGNORE_PAGE_MARGINS, true);
-				exporter.setParameter(JRXlsExporterParameter.IS_WHITE_PAGE_BACKGROUND, false);
+				exporter.setParameter(JRExporterParameter.IGNORE_PAGE_MARGINS, true);
+				exporter.setParameter(JRXlsAbstractExporterParameter.IS_WHITE_PAGE_BACKGROUND, false);
 			} else if (ContentTypeFileEnum.TEXT == contentType) {
 				exporter = new JRTextExporter();
 			} else if (ContentTypeFileEnum.CSV == contentType) {
 				exporter = new JRCsvExporter();
-				exporter.setParameter(JRCsvExporterParameter.CHARACTER_ENCODING, "UTF-8");
-				exporter.setParameter(JRCsvExporterParameter.IGNORE_PAGE_MARGINS, true);
+				exporter.setParameter(JRExporterParameter.CHARACTER_ENCODING, "UTF-8");
+				exporter.setParameter(JRExporterParameter.IGNORE_PAGE_MARGINS, true);
 				exporter.setParameter(JRExporterParameter.CHARACTER_ENCODING, "UTF-8");
 			} else if (ContentTypeFileEnum.DOCX == contentType) {
 				exporter = new JRDocxExporter();
 			}
 
 			if (exporter != null) {
-				exporter.setParameter(JRXlsExporterParameter.JASPER_PRINT, print);
-				exporter.setParameter(JRXlsExporterParameter.OUTPUT_STREAM, output);
+				exporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
+				exporter.setParameter(JRExporterParameter.OUTPUT_STREAM, output);
 				exporter.exportReport();
 			}
 
