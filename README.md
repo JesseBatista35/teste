@@ -1,387 +1,658 @@
-Reunião em Migração JBoss 7.4 - SIFEC, SICCR, SIEMP, SIPEN-20261116_143307-Transcrição da Reunião
-16 de novembro de 2026, 05:33PM
-15m 54s
+Task         : Bash
+Description  : Run a Bash script on macOS, Linux, or Windows
+Version      : 3.227.0
+Author       : Microsoft Corporation
+Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/bash
+==============================================================================
+Generating script.
+========================== Starting Command Output ===========================
+/usr/bin/bash /opt/ads-agent/_work/_temp/4b2b19fe-41ab-4094-8b8a-aa6802d2f801.sh
+QG Script --> Using SonarQube instance http://sonar-esteira.apps.produtos4.caixa
+QG Script --> Using SonarQube access login ads-sa
+QG Script --> Using task id of AaHk_TPMPmqzl3Vc6_uU
+QG Script --> Status of SonarQube task is IN_PROGRESS
+QG Script --> Status of SonarQube task is IN_PROGRESS
+QG Script --> Status of SonarQube task is IN_PROGRESS
+QG Script --> Status of SonarQube task is IN_PROGRESS
+QG Script --> Status of SonarQube task is IN_PROGRESS
+QG Script --> Status of SonarQube task is IN_PROGRESS
+QG Script --> Status of SonarQube task is IN_PROGRESS
+QG Script --> Status of SonarQube task is IN_PROGRESS
+QG Script --> Status of SonarQube task is IN_PROGRESS
+QG Script --> Status of SonarQube task is IN_PROGRESS
+QG Script --> Status of SonarQube task is IN_PROGRESS
+QG Script --> Status of SonarQube task is IN_PROGRESS
+QG Script --> Status of SonarQube task is IN_PROGRESS
+QG Script --> Status of SonarQube task is IN_PROGRESS
+QG Script --> Status of SonarQube task is IN_PROGRESS
+QG Script --> Status of SonarQube task is IN_PROGRESS
+QG Script --> Status of SonarQube task is IN_PROGRESS
+QG Script --> Status of SonarQube task is IN_PROGRESS
+QG Script --> Status of SonarQube task is IN_PROGRESS
+QG Script --> Status of SonarQube task is SUCCESS
+QG Script --> Using analysis id of AaHk_UN2Fkwt0Lh6-n5T
+QG Script --> Quality Gate status is ERROR
+##[error]QG Script --> Ocorrência prevista na TE102 - Não atendimento aos critérios de qualidade
+##[error]Bash exited with code '1'.
+Finishing: Publish Quality Gate Result
+
+Skip to main content
+Logo, link to homepage
+Projects
+Issues
+Rules
+Quality Profiles
+Quality Gates
+
+Search for projects...
+JM
+SIGEC-portabilidade
+
+
+Cesti-test-001
+Last analysis of this Branch had 3 warnings
+November 16, 2026 at 12:30 PM
+Version 5.0.0-online-SNAPSHOT
+
+Overview
+Issues
+Security Hotspots
+Measures
+Code
+Activity
+Project Information
+To benefit from more of SonarQube's features, ask a project administrator to set up DevOps platform integration.
+
+Quality Gate Status
+Failed
+1 conditions failed
+The quality gate used by this project does not comply with Clean as You Code.
+Fixing this quality gate will help you achieve a Clean Code state.
+
+Learn why
+1 condition(s) failed on new code
+36.4%
+Coverage on New Codeis less than 80.0%
+Measures
+
+New Code
+From last 428 days
+
+Overall Code
+0
+New Bugs
+Reliability
+A
+0
+New Vulnerabilities
+Security
+A
+0
+New Security Hotspots
+Reviewed
+Security Review
+A
+1d 1h
+Added Debt
+42
+New Code Smells
+Maintainability
+B
+36.4%
+Coverage on 11 New Lines to cover
+0.0%
+Duplications on 275 New Lines
+Activity
+Choose graph type
+Issues
+Bugs
+Code Smells
+Vulnerabilities
+new code
+0
+1k
+2k
+3k
+4k
+5k
+Wed 11
+Thu 12
+Fri 13
+Sat 14
+Nov 15
+Activity
+November 16, 2026 at 12:30 PM
+5.0.0-online-SNAPSHOT
+November 16, 2026 at 9:22 AM
+5.0.0-batch-SNAPSHOT
+Quality Gate: Failed
+SonarQube™ technology is powered by SonarSource SA
+Community Editionv9.9.5 (build 90363)NO LONGER ACTIVELGPL v3CommunityDocumentationPluginsWeb API
+
+Skip to main contentSkip to measure filters
+Logo, link to homepage
+Projects
+Issues
+Rules
+Quality Profiles
+Quality Gates
+
+Search for projects...
+JM
+SIGEC-portabilidade
+
+
+Cesti-test-001
+Last analysis of this Branch had 3 warnings
+November 16, 2026 at 12:30 PM
+Version 5.0.0-online-SNAPSHOT
+
+Overview
+Issues
+Security Hotspots
+Measures
+Code
+Activity
+Project Information
+
+Project Overview
+Reliability
+Security
+Security Review
+Maintainability
+Coverage
+Coverage on New Code
+
+Overview
+On new code
+
+Coverage
+0.0%
+
+Lines to Cover
+6
+
+Uncovered Lines
+6
+
+Line Coverage
+0.0%
+
+Conditions to Cover
+0
+
+Uncovered Conditions
+0
+Overall
+
+Coverage
+0.0%
+
+Lines to Cover
+106
+
+Uncovered Lines
+106
+
+Line Coverage
+0.0%
+
+Conditions to Cover
+32
+
+Uncovered Conditions
+32
+
+Condition Coverage
+0.0%
+Tests
+
+Errors
+0
+
+Failures
+0
+
+Skipped
+0
+
+Success
+100%
+Duplications
+Size
+Complexity
+Issues
+SIGEC-portabilidadegec-websrcmainjava/br/gov/caixasigecutilExportaArquivoUtil.java
+Coverage on New Code
+0.0%
+ SIGEC-portabilidade gec-web/.../main/java/br/gov/caixa/sigec/util/ExportaArquivoUtil.java
+
+package br.gov.caixa.sigec.util;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
+import java.util.List;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.inject.Singleton;
+import javax.ws.rs.core.CacheControl;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.ResponseBuilder;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import br.gov.caixa.sigec.dominio.dto.MovimentoSinafDTO;
+import br.gov.caixa.sigec.dominio.dto.TransferenciaMovimentoSinafDTO;
+import net.sf.jasperreports.engine.JRAbstractExporter;
+import net.sf.jasperreports.engine.JRExporterParameter;
+import net.sf.jasperreports.engine.JasperExportManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
+import net.sf.jasperreports.engine.export.JRCsvExporter;
+import net.sf.jasperreports.engine.export.JRTextExporter;
+import net.sf.jasperreports.engine.export.JRXlsAbstractExporterParameter;
+import net.sf.jasperreports.engine.export.JRXlsExporter;
+import net.sf.jasperreports.engine.export.ooxml.JRDocxExporter;
+import net.sf.jasperreports.engine.export.ooxml.JRXlsxExporter;
+import net.sf.jasperreports.engine.util.JRLoader;
+/**
+ * Classe utilitária para exportar arquivos.
+ * 
+ * @author Rodrigo Mazoni
+ */
+@Singleton
+public class ExportaArquivoUtil {
+	private static final Logger LOG = Logger.getLogger(ExportaArquivoUtil.class.getSimpleName());
+	private SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+	private static final DecimalFormat df = new DecimalFormat("#,##0.00");
+	private XSSFSheet createSecureSheet(XSSFWorkbook wb, boolean secure) {
+		XSSFSheet sheet = wb.createSheet("Sheet1");
+		return sheet;
+	}
+	private File gerarArquivoTemporario(XSSFWorkbook wb, String fileName) {
+		FileOutputStream fileOut;
+		try {
+			fileOut = new FileOutputStream(this.arquivo(fileName));
+			wb.write(fileOut);
+			fileOut.flush();
+			fileOut.close();
+		} catch (FileNotFoundException e) {
+			LOG.log(Level.SEVERE, e.getMessage(), e);
+		} catch (IOException e) {
+			LOG.log(Level.SEVERE, e.getMessage(), e);
+		}
+		return this.arquivo(fileName);
+	}
+	public File criarArquivoTedsMovimentoSinaf(List<TransferenciaMovimentoSinafDTO> teds) {
+		XSSFWorkbook wb = new XSSFWorkbook();
+		XSSFSheet sheet = createSecureSheet(wb, true);
+		// header
+		XSSFRow header = sheet.createRow(0);
+		header.createCell(0).setCellValue("Número da TED");
+		header.createCell(1).setCellValue("Tipo TED");
+		header.createCell(2).setCellValue("Objeto");
+		header.createCell(3).setCellValue("Número FEBRABAN");
+		header.createCell(4).setCellValue("Data de Emissão");
+		header.createCell(5).setCellValue("Valor da TED");
+		for (int i = 0; i < teds.size(); i++) {
+			TransferenciaMovimentoSinafDTO t = teds.get(i);
+			XSSFRow row = sheet.createRow(i + 1);
+			row.createCell(0).setCellValue(t.getNumeroTed());
+			row.createCell(1).setCellValue(t.getTipoTed());
+			row.createCell(2).setCellValue(t.getObjetoTed());
+			row.createCell(3).setCellValue(t.getNumeroFebraban());
+			row.createCell(4).setCellValue(sdf.format(t.getDataEmissao()));
+			row.createCell(5).setCellValue(df.format(t.getValorTed()));
+		}
+		return this.gerarArquivoTemporario(wb, "tmpArquivoTedsMovimentoSinaf.xlsx");
+	}
+	public File criarArquivoMovimentoSinaf(List<MovimentoSinafDTO> movimentos) {
+		XSSFWorkbook wb = new XSSFWorkbook();
+		XSSFSheet sheet = createSecureSheet(wb, true);
+		// header
+		XSSFRow header = sheet.createRow(0);
+		header.createCell(0).setCellValue("Linha de Crédito");
+		header.createCell(1).setCellValue("Tipo Contrato SCR");
+		header.createCell(2).setCellValue("Referência");
+		header.createCell(3).setCellValue("Data Efetiva");
+		header.createCell(4).setCellValue("Evento contábil");
+		header.createCell(5).setCellValue("Agência detentora");
+		header.createCell(6).setCellValue("Valor do lançamento");
+		for (int i = 0; i < movimentos.size(); i++) {
+			MovimentoSinafDTO mov = movimentos.get(i);
+			XSSFRow row = sheet.createRow(i + 1);
+			row.createCell(0).setCellValue(mov.getLinhaCredito());
+			row.createCell(1).setCellValue(mov.getTipoContratoSCR());
+			row.createCell(2).setCellValue(sdf.format(mov.getDataMovimento()));
+			row.createCell(3).setCellValue(sdf.format(mov.getDataEfetiva()));
+			row.createCell(4).setCellValue(mov.getNumeroEventoContabil());
+			row.createCell(5).setCellValue(mov.getNumeroAgencia());
+			row.createCell(6).setCellValue(df.format(mov.getValorLancamento()));
+		}
+		return this.gerarArquivoTemporario(wb, "tmpArquivoMovimentoSinaf.xlsx");
+	}
+	private File arquivo(final String fileName) {
+		return new File(tmpdir() + File.separator + fileName);
+	}
+	private String tmpdir() {
+		return System.getProperty("java.io.tmpdir");
+	}
+	/**
+	 * Seta o arquivo na resposta da requisição.
+	 * 
+	 * @param bytes                  - conteúdo em bytes do arquivo que será
+	 *                               exportado.
+	 * @param contentType            - content-type do arquivo na resposta da
+	 *                               requisição. Veja: {@link ContentTypeFileEnum}.
+	 * @param nomeArquivoComExtensao - nome do arquivo com a extensão.
+	 * @return resposta da requisição contendo o arquivo
+	 */
+	public Response setArquivoNoResponse(final byte[] bytes, final ContentTypeFileEnum contentType,
+			final String nomeArquivoComExtensao) {
+		final ResponseBuilder response = Response.ok(new ByteArrayInputStream(bytes));
+		response.type(contentType.getType());
+		response.header("cache-control", "max-age=0");
+		response.header("content-disposition", "attachment; filename=\"" + nomeArquivoComExtensao + "\"");
+		final CacheControl cacheControl = new CacheControl();
+		cacheControl.setNoCache(true);
+		cacheControl.setNoStore(true);
+		cacheControl.setPrivate(true);
+		response.cacheControl(cacheControl);
+		return response.build();
+	}
+	/**
+	 * Gera o relatório utilizando o JasperReport.
+	 * 
+	 * @param caminhoArquivoJasper
+	 * @param parametros
+	 * @param colecao
+	 * @param contentType
+	 * @param nomeArquivoExportadoComExtensao
+	 * @return
+	 * @throws Exception
+	 */
+	public Response exportarViaJasperReport(final String caminhoArquivoJasper, final Map<String, Object> parametros,
+			final List<?> colecao, final ContentTypeFileEnum contentType, final String nomeArquivoExportadoComExtensao)
+			throws Exception {
+		if (ContentTypeFileEnum.XLS == contentType || ContentTypeFileEnum.XLSX == contentType) {
+			parametros.put("IS_IGNORE_PAGINATION", true);
+		}
+		final JasperReport report = (JasperReport) JRLoader.loadObject(new File(caminhoArquivoJasper));
+		final JasperPrint print = JasperFillManager.fillReport(report, parametros,
+				new JRBeanCollectionDataSource(colecao));
+		if (ContentTypeFileEnum.XLS == contentType || ContentTypeFileEnum.XLSX == contentType
+				|| ContentTypeFileEnum.TEXT == contentType || ContentTypeFileEnum.CSV == contentType
+				|| ContentTypeFileEnum.DOCX == contentType) {
+			JRAbstractExporter exporter = null;
+			final ByteArrayOutputStream output = new ByteArrayOutputStream();
+			if (ContentTypeFileEnum.XLSX == contentType || ContentTypeFileEnum.XLS == contentType) {
+				if (ContentTypeFileEnum.XLSX == contentType) {
+					exporter = new JRXlsxExporter();
+				} else {
+					exporter = new JRXlsExporter();
+				}
+				exporter.setParameter(JRExporterParameter.IGNORE_PAGE_MARGINS, true);
+				exporter.setParameter(JRXlsAbstractExporterParameter.IS_WHITE_PAGE_BACKGROUND, false);
+			} else if (ContentTypeFileEnum.TEXT == contentType) {
+				exporter = new JRTextExporter();
+			} else if (ContentTypeFileEnum.CSV == contentType) {
+				exporter = new JRCsvExporter();
+				exporter.setParameter(JRExporterParameter.CHARACTER_ENCODING, "UTF-8");
+				exporter.setParameter(JRExporterParameter.IGNORE_PAGE_MARGINS, true);
+				exporter.setParameter(JRExporterParameter.CHARACTER_ENCODING, "UTF-8");
+			} else if (ContentTypeFileEnum.DOCX == contentType) {
+				exporter = new JRDocxExporter();
+			}
+			if (exporter != null) {
+				exporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
+				exporter.setParameter(JRExporterParameter.OUTPUT_STREAM, output);
+				exporter.exportReport();
+			}
+			return this.setArquivoNoResponse(output.toByteArray(), contentType, nomeArquivoExportadoComExtensao);
+		}
+		return this.setArquivoNoResponse(JasperExportManager.exportReportToPdf(print), contentType,
+				nomeArquivoExportadoComExtensao);
+	}
+	/**
+	 * Enumeração que contém o Content Type do arquivo que será exportado.
+	 */
+	public enum ContentTypeFileEnum {
+		TEXT("text/plain"), XLS("application/vnd.ms-excel"),
+		XLSX("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"), PDF("application/pdf"),
+		CSV("text/plain"),
+		// DOC( "application/msword" ),
+		DOCX("application/vnd.openxmlformats-officedocument.wordprocessingml.document");
+		private String contentType = null;
+		private ContentTypeFileEnum(final String contentType) {
+			this.contentType = contentType;
+		}
+		public String getType() {
+			return this.contentType;
+		}
+	}
+}
+SonarQube™ technology is powered by SonarSource SA
+
+
+
+Skip to main contentSkip to measure filters
+Logo, link to homepage
+Projects
+Issues
+Rules
+Quality Profiles
+Quality Gates
+
+Search for projects...
+JM
+SIGEC-portabilidade
+
+
+Cesti-test-001
+Last analysis of this Branch had 3 warnings
+November 16, 2026 at 12:30 PM
+Version 5.0.0-online-SNAPSHOT
+
+Overview
+Issues
+Security Hotspots
+Measures
+Code
+Activity
+Project Information
+
+Project Overview
+Reliability
+Security
+Security Review
+Maintainability
+Coverage
+Coverage on New Code
+
+Overview
+On new code
+
+Coverage
+0.0%
+
+Lines to Cover
+1
+
+Uncovered Lines
+1
+
+Line Coverage
+0.0%
+
+Conditions to Cover
+0
+
+Uncovered Conditions
+0
+Overall
+
+Coverage
+0.0%
+
+Lines to Cover
+39
+
+Uncovered Lines
+39
+
+Line Coverage
+0.0%
+
+Conditions to Cover
+16
+
+Uncovered Conditions
+16
+
+Condition Coverage
+0.0%
+Tests
+
+Errors
+0
+
+Failures
+0
+
+Skipped
+0
+
+Success
+100%
+Duplications
+Size
+Complexity
+Issues
+SIGEC-portabilidadegec-websrcmainjava/br/gov/caixasigecrestUserProfileRest.java
+Coverage on New Code
+0.0%
+ SIGEC-portabilidade gec-web/.../main/java/br/gov/caixa/sigec/rest/UserProfileRest.java
+
+package br.gov.caixa.sigec.rest;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Properties;
+import java.util.Set;
+import java.util.TreeSet;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.annotation.security.PermitAll;
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.servlet.http.HttpServletRequest;
+import javax.ws.rs.core.Context;
+import javax.ws.rs.core.MediaType;
+import br.gov.caixa.arqrefcore.excecao.BusinessException;
+import br.gov.caixa.arqrefcore.excecao.SystemException;
+import br.gov.caixa.arqrefservices.dominio.Empregado;
+import br.gov.caixa.arqrefservices.negocio.EmpregadoService;
+import br.gov.caixa.arqrefservices.negocio.UserProfile;
+import br.gov.caixa.sifec.componentes.seguranca.sso.rest.AbstractSecurityRest;
+@PermitAll
+@RequestScoped
+@Path("/userprofile")
+public class UserProfileRest extends AbstractSecurityRest {
+	private static final Logger LOG = Logger.getLogger(UserProfileRest.class.getSimpleName());
+	private static final Properties GRUPOS_LDAP = new Properties();
+	static {
+		try {
+			UserProfileRest.GRUPOS_LDAP
+					.load(UserProfileRest.class.getClassLoader().getResourceAsStream("ldap_groups.properties"));
+		} catch (IOException ioe) {
+			LOG.log(Level.SEVERE, ioe.getMessage(), ioe);
+		}
+	}
+	@Inject
+	private EmpregadoService empregadoService;
+	@POST
+	@Path("/load")
+	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+	public UserProfile loadUserProfile(@Context final HttpServletRequest request) {
+		final UserProfile user = new UserProfile();
+		final Empregado empregado = this.empregadoService.getEmpregadoPorMatricula(super.getUsuarioLogado());
+		if (empregado == null) {
+			throw new SystemException("Funcionário não encontrado no SICLI");
+		}
+		user.setEmpregado(empregado);
+		user.getEmpregado().setNumeroIP(user.getNumeroIP(request));
+		// user.setGrupoUsuarioList( this.loadgroups() );
+		return user;
+	}
+	@POST
+	@Path("/loadgroups")
+	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+	public List<String> loadgroups() {
+		final Set<String> roles = new TreeSet<>();
+		for (Object key : UserProfileRest.GRUPOS_LDAP.keySet()) {
+			if (super.possuiFuncao((String) key)) {
+				roles.add(UserProfileRest.GRUPOS_LDAP.getProperty((String) key));
+			}
+		}
+		return new ArrayList<>(roles);
+	}
+	@POST
+	@Path("/carregarGrupos")
+	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+	public List<String> carregarGrupos() {
+		final Set<String> roles = new TreeSet<>();
+		for (Object value : UserProfileRest.GRUPOS_LDAP.values()) {
+			roles.add((String) value);
+		}
+		return new ArrayList<>(roles);
+	}
+	/**
+	 * @param role
+	 * @return
+	 */
+	@POST
+	@Path("/hasRole/{role}")
+	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+	public boolean hasRole(final @PathParam("role") String role) {
+		return this.loadgroups().contains(role);
+	}
+	/**
+	 * @param role
+	 * @throws BusinessException
+	 */
+	void validarRole(final String role) throws BusinessException {
+		if (!this.hasRole(role)) {
+			throw new BusinessException(
+					"Usu\u00E1rio logado n\u00E3o possui permiss\u00E3o para efetuar opera\u00E7\u00E3o desejada.");
+		}
+	}
+	@GET
+	@Path("/grupos")
+	public String grupos() {
+		final StringBuilder buffer = new StringBuilder();
+		final List<String> grupos = this.loadgroups();
+		if (grupos != null && !grupos.isEmpty()) {
+			for (String grupo : grupos) {
+				buffer.append(grupo);
+				buffer.append("<br/>");
+			}
+		}
+		return buffer.toString();
+	}
+}
+SonarQube™ technology is powered by SonarSource SA
+Community Editionv9.9.5 (build 90363)NO LONGER ACTIVELGPL v3CommunityDocumentationPluginsWeb API
 
-Jesse Mouta Pereira Batista começou a transcrição
-
-Gustavo Duarte Lepesteur da Costa   0:03
-Que assim, já tinha pedido as máquinas, etc. Mas aí faltava configurar, configurar profile, levar tudo do gboss. Era esse o cenário quando eu saí de férias. Aí eu queria entender o que
-
-Jesse Mouta Pereira Batista   0:16
-É, deixa eu te passar aqui um Panorama rápido aqui de que de como de como estamos e de o que o que vai vim pela frente. É hoje o ambiente do do intranet do cifec no 74, ele já tá com a maior parte das aplicações no ar. A gente tem ali o cifec, o PJ, o.
-
-Gustavo Duarte Lepesteur da Costa   0:25
-Mm-hmm.
-
-Jesse Mouta Pereira Batista   0:36
-O CTD, o parâmetros, é, a gente já tem também o front do hub, o MCM, aí tem o BD Caixa, tem o CCR, o FBN e o Minutas, né? Algumas dessas já foram validadas pelos devs, né? E o restante está em validação, né? E aí, o que que está em validação hoje aí?
-
-Gustavo Duarte Lepesteur da Costa   0:46
-Mhm.
-
-Jesse Mouta Pereira Batista   0:55
-É os erros que a gente encontra aqui, algum é a maioria deles, é configuração de ambiente, a gente corrige, e aí o que vem a ser código, a gente passa na sala aqui, o isso, o Paulo Henrique aponta a fábrica e eles vão lá e fazem.
-
-Gustavo Duarte Lepesteur da Costa   1:06
-Para a fábrica, tá?
-
-Jesse Mouta Pereira Batista   1:11
-Os ajustes, inclusive, acho que agora o Micael acabou de mandar uma nova versão aqui do isso do CIP pra gente poder é implementar é logo após aqui a reunião, a gente já vai subir ela, tá? É o CIP. Ele também está publicado pela esteira nova.
-
-Gustavo Duarte Lepesteur da Costa   1:15
-Dociro a LV.
-Hardware.
-
-Jesse Mouta Pereira Batista   1:26
-E ele já abre lá pelo CIP 10. A gente teve uma intermitência lá porque o DNS ele ficou com o IP antigo junto com o IP novo na hora da solicitação lá. Porém o Paulo Henrique, ele já até abriu uma solicitação lá e pediu o pessoal pra da Cetel lá 08 pra retirar o.
-
-Gustavo Duarte Lepesteur da Costa   1:36
-Mm.
-
-Jesse Mouta Pereira Batista   1:43
-O IP antigo e ele já foi tirado, a gente vê que já consegue entrar na aplicação, não tem mais essa intermitência, é.
-
-Gustavo Duarte Lepesteur da Costa   1:49
-Mas então a gente aqui, vocês mesmo, eu digo vocês, a gente está tocando a parte de Infra do MPE na esteira. É porque até então a informação que eu tinha que era um trabalho apartado que o pessoal estava fazendo por fora. Então a Infra foi.
-
-Jesse Mouta Pereira Batista   1:57
-Is na esteira.
-É a gente a gente acabou pegando aqui isso pode pode falar desculpa Ah tá é
-
-Gustavo Duarte Lepesteur da Costa   2:06
-Da, da, abilit.
-Não era só para saber isso, se é porque eu queria entender, até porque é hoje o galera de produção me chamou para ir para, porque eles estavam dando uma olhada na library de 10 para já começar a dar uma replicada lá em produção e eles ficaram com dúvidas de algumas coisas que tinham lá, por exemplo, tinha apontamento do sidebase, tinha apontamento.
-
-Jesse Mouta Pereira Batista   2:18
-Mm-hmm.
-
-Gustavo Duarte Lepesteur da Costa   2:26
-De fila MQ em que tese o MPE não usa, né? O MPE vai no vai, vai nesses caras de Fabri. E aí a gente acabou inferindo que provavelmente isso foi copiado é do as configurações. Essas configurações deve ter sido meio que inspiradas ali copiadas do J Boss.
-
-Jesse Mouta Pereira Batista   2:28
-Uh-huh.
-Sim.
-
-Gustavo Duarte Lepesteur da Costa   2:45
-Só que aí o esse Jose, especificamente, é um domínio compartilhado, né? Então, é provável que eles tenham trazido essas configurações do Feq e jogado lá na library do AMP lá. Então, precisava depois fazer uma limpa lá exato do que não usa.
-
-Jesse Mouta Pereira Batista   2:45
-Bing.
-Duarte.
-Um ajuste, né? Sim.
-
-Gustavo Duarte Lepesteur da Costa   3:00
-Porque não tem, por exemplo, sidebase, não tem fila MQ, etc.
-
-Jesse Mouta Pereira Batista   3:02
-Uh-huh.
-Tá, não, beleza, tá aí na parte do ambiente, juntamente aqui com o Jefferson, a gente já, tipo assim, a gente vai ajustando tudo que vai aparecendo, né? Tipo, a gente já fez ajustes no True Software, SSO, cofre de senhas, né? É, tinha alguma algumas voltas cadastradas lá na 472.
-a gente trouxe pra pra 471 pra poder fazer as aplicações, as propriedades das aplicações e alguns bancos eles estavam com credencial e endereços diferentes lá no 64. Então pelo lado aqui da DevOps, não temos mais pendência hoje.
-
-Gustavo Duarte Lepesteur da Costa   3:35
-Hum.
-
-Jesse Mouta Pereira Batista   3:39
-Travando nenhum deploy tudo isso, Gustavo, eram coisas que estavam travando o deploy, então aí a gente tentava subir um deploy e travava, a gente corrigia e aí via logo o seguinte, tinha aplicação que subia, mas outras aplicações não dava o erro. Foi o que eu te expliquei. A gente reporta na sala, passa aqui pra fábrica poder fazer a correção.
-
-Gustavo Duarte Lepesteur da Costa   3:56
-Mm-hmm.
-
-Jesse Mouta Pereira Batista   3:59
-Aí, o que a gente está dependendo da fábrica hoje? Hoje está parado o LCR, o Ciro, o Micael acabou de corrigir, então ele pode até tirar ele da lista aqui, logo a gente sobe o próximo deploy, vê se não vai dar nenhum erro. Se ele subir, a gente.
-Já passa o feedback lá na sala também é no chat, mas é e o LCR ainda tá caindo algum por alguns ajustes ainda do CDI, do JPA. É, a gente já passou esse diagnóstico detalhado lá pro pessoal da fábrica.
-Então eles estão vendo essa questão aí, é o Hub API, ele precisa ajustar algumas queries lá, né? Tipo o rural, o EMP e o empresas. É, eles estão com o time do CIP, então eles estão ajustando isso aí pra gente poder subir, né? E aí agora?
-
-Gustavo Duarte Lepesteur da Costa   4:46
-Eu vi que uma delas não é compatível com o Ubernate da versão do 74, não é isso?
-
-Jesse Mouta Pereira Batista   4:50
-Isso a maioria, a gente pegou uns 3, não foi Jefferson? Assim que não tinha compatibilidade com o Hyvernate lá da versão do 74. Aí a gente foi lá, apontou os ajustes e logo o pessoal da fábrica conseguiu desenrolar lá e saiu do outro lado. E aí é, tem um ponto em aberto, que é que é o do CCR.
-
-Thiago Jeferson de Sousa Silva   4:56
-Exact.
-
-Gustavo Duarte Lepesteur da Costa   4:58
-Mhm.
-
-Jesse Mouta Pereira Batista   5:09
-Que é o que eu tô investigando agora, porque ele tá é uma chamada lá pra eu conseguir nada, ela tá dando 401 no 74 e no 64 ela funciona, né? O que eu já verifiquei aqui, inclusive, foi até a última mensagem que eu acabei de enviar aí e até marquei o procote lá, é que o que eu verifiquei até agora, porque a configuração ele tá.
-
-Gustavo Duarte Lepesteur da Costa   5:17
-Mhm.
-
-Jesse Mouta Pereira Batista   5:28
-Igualzinha, ela tá igual, né? E aí o que eu tô vendo agora? Eu tô olhando a infraestrutura em volta, né? Então logo mais a gente deve ter um retorno sobre isso aí e a gente deve passar aí um feedback melhor aí pra pra saber o que que tá acontecendo.
-
-Gustavo Duarte Lepesteur da Costa   5:40
-Hum, mas 401 isso aí não é a gente indo lá no CSO com.
-Porque, it's a token, a patentium, a da.
-
-Jesse Mouta Pereira Batista   5:49
-Token i isso eu pedi desculpa só eu pedi pro pro procote ele me passar qual o token que ele tava usando é o mesmo token
-
-Gustavo Duarte Lepesteur da Costa   5:59
-So.
-
-Jesse Mouta Pereira Batista   5:59
-Que ele usa lá do do do do CIP, mas é assim algo pra gente se investigar.
-
-Gustavo Duarte Lepesteur da Costa   6:02
-Será que não é a talvez chamar a galera de social porque às vezes é pela origem que está vindo e está tomando o que pode ser?
-
-Jesse Mouta Pereira Batista   6:06
-Pode ser exato, sim, pode ser isso. Então a assim, a ordem que a gente já havia Combinado com o Paulo, com o Rodrigo, é que primeiro a gente IA resolver o LCR, depois o CIP, e aí depois que a gente conseguir fechar o CCR também.
-
-Gustavo Duarte Lepesteur da Costa   6:09
-A.
-
-Jesse Mouta Pereira Batista   6:23
-E assim que as builds e os novos pacotes chegarem, a gente pode subir. E aí depois disso a gente segue com o restante da planilha, o Paulo e o Rodrigo tinham passado pra gente, pra gente finalizar a parte do intra. E em seguida, depois que a gente finalizar a parte do intra, a gente subir com os outros ambientes, que é o internet, o
-
-Gustavo Duarte Lepesteur da Costa   6:37
-Yeah.
-
-Jesse Mouta Pereira Batista   6:43
-TSSO e o API, né? Então, basicamente é isso, né? Do nosso lado, o ambiente tá tá em andamento aqui.
-
-Gustavo Duarte Lepesteur da Costa   6:46
-No.
-É, mas a gente vem sendo um ambiente, eu acho que os outros vai ser só mais uma questão de replicação, trocar apontamento vai ser mais fácil de superar. Vocês adotaram basicamente realmente a estratégia que eu estava usando com o Murilo, a gente estava exatamente nessa mesma linha de atuação, de subir, pegar os erros, a gente tratar a Infra e o que não era Infra passar
-
-Jesse Mouta Pereira Batista   6:52
-Isso.
-Exato.
-Mhm.
-
-Gustavo Duarte Lepesteur da Costa   7:08
-Fábricas atuarem e o que era possível que atuava junto aqui em sala. Aí é só para dar ritmo. O Jessé, eu tava fazendo o quê? Eu tava entrando em sala com o Murilo passando o dia aqui com ele, cara. É especificamente nas segundas, quartas e sextas.
-
-Jesse Mouta Pereira Batista   7:17
-Sim.
-
-Gustavo Duarte Lepesteur da Costa   7:25
-Eu tô fazendo um curso que eu entro 15 horas, saio só 18 Então nos outros dias eu tô entrando umas 10:30 mais ou menos e aí tô tocando o dia inteiro e nesses dias do curso de 10:30 às 15 E aí cara, a gente vai fazendo junto porque aí se precisar de dúvida mais rápido eu chamo as pessoas, eu chamo a galera da fábrica, eu vou acionando, enfim.
-
-Jesse Mouta Pereira Batista   7:29
-Uh-huh.
-Beleza.
-
-Gustavo Duarte Lepesteur da Costa   7:43
-É, a gente consegue talvez dar uma celeridade da gente fazer isso junto. Hoje não vai dar, porque daqui a pouco eu estou entrando no curso, é e amanhã a gente pode fazer isso. Se você estiver disponível aí para fazer isso, tá? É, tem um outro ponto que é esse. Eu vou ter que ainda discutir aqui.
-
-Jesse Mouta Pereira Batista   7:47
-So.
-Uh-huh.
-Tá.
-Sim, podemos fazer sim.
-
-Gustavo Duarte Lepesteur da Costa   8:00
-Que é o seguinte, não, a segurança não está mais fazendo o vault, né? Eles, o vault, se vocês fizeram, vocês tiveram que botar provavelmente no modo de compatibilidade, né? Porque nesse de Boss 74, é pra ser o Elitron, né? Então assim, pra produção vai ter que migrar pro Elitron.
-
-Jesse Mouta Pereira Batista   8:11
-Isso.
-Mm-hmm.
-
-Gustavo Duarte Lepesteur da Costa   8:17
-É, e aí eu vou ter que ver isso com a galera lá. Como é que vai ser isso? Porque a gente vai ter que fazer isso aqui e testar no nosso ambiente aqui. É porque hoje parece que a segurança não vai botar mais essas coisas em volte. Assim, óbvio que talvez, dependendo da criticidade aqui e dos prazos, a galera tente negociar.
-
-Jesse Mouta Pereira Batista   8:24
-Beleza.
-Mhm.
-
-Gustavo Duarte Lepesteur da Costa   8:35
-Mas é provável que se negociar de qualquer forma, vai ter que assinar algum termo e para migrar, então vai ter que ser feito essa migração de toda forma. Só para vocês saberem que a gente vai ter que mudar, só para confirmar se vocês realmente fizeram isso, né? Tiveram que botar aquele mal de compatibilidade do Valdete antigo e tal.
-
-Jesse Mouta Pereira Batista   8:46
-Tranquilo.
-Isso do volte antigo foi que ele estava lá na 472, né? Aí eu fui, peguei ele, coloquei no modo compatibilidade para poder funcionar aqui. Foi exatamente isso que a gente fez.
-
-Gustavo Duarte Lepesteur da Costa   9:03
-Beleza, então vou tratar essa discussão também amanhã, quando eu chegar, para a gente ver como a gente toca isso.
-
-Jesse Mouta Pereira Batista   9:04
-Anderson.
-Tá tranquilo, beleza.
-
-Gustavo Duarte Lepesteur da Costa   9:11
-Show galera, então beleza. Tem alguma coisa que vocês precisam de alguma de algum suporte meu assim, tipo, pô, ver agiliza isso com alguma fábrica ou com a galera do a galera de segurança, alguma coisa do tipo, se precisar.
-
-Jesse Mouta Pereira Batista   9:13
-Tá, eu vou, vou.
-Não, por enquanto tá tranquilo. Era só a questão mesmo lá do IP lá duplicado. Ele tava pegando o VIP antigo lá e é, mas aí o Paul Henrique já abriu o hack, já chamou o pessoal lá e eles já atenderam lá, já resolveu.
-
-Gustavo Duarte Lepesteur da Costa   9:36
-Ele ficou com a FQDN diferente do que tava o do CIP e do Jardim Boss 74. A gente tava usando migração CIP e aí ficou qual lá? O da esteira?
-
-Jesse Mouta Pereira Batista   9:37
-No.
-Sim, sim.
-Eu acho que ele ficou só ciente, né? Você lembra, Jefferson? Deixa eu dar uma olhada aqui.
-
-Gustavo Duarte Lepesteur da Costa   9:50
-Mas só sempre não era o original não do é porque assim a gente criou um ambiente paralelo para não desativar o que está funcional lá no 64, não é?
-
-Thiago Jeferson de Sousa Silva   9:50
-deixa pegar aqui
-
-Gustavo Duarte Lepesteur da Costa   10:01
-Eu imaginei que esse aí seria talvez o.
-
-Jesse Mouta Pereira Batista   10:02
-Okay.
-Deixa eu dar uma olhada aqui na planilha aqui, se tem algum na.
-anotação aqui
-Hardware.
-Sim.
-Uh-huh.
-
-Gustavo Duarte Lepesteur da Costa   10:30
-mantém tudo jeito que estava lá.
-
-Jesse Mouta Pereira Batista   10:33
-Sim, entendi, sem muitas alterações, a gente só bastava.
-
-Gustavo Duarte Lepesteur da Costa   10:37
-E aí a gente só para os apontamentos do que estava no 6474 e pronto, está com o ambiente todo mundo apontando para o 74.
-
-Jesse Mouta Pereira Batista   10:45
-deixa eu dar uma olhada aqui rapidinho nessa questão que tudo não sei como que ele ficou
-
-Thiago Jeferson de Sousa Silva   10:54
-Aquele link que o Santos mandaram, que a gente olhou, que a gente pediu para excluir.
-
-Jesse Mouta Pereira Batista   11:01
-Sim.
-
-Thiago Jeferson de Sousa Silva   11:03
-Siempe.10 ponto cacho barra siempe.
-
-Jesse Mouta Pereira Batista   11:06
-Ele é, ele ficou então com esse contexto, né? Siemp.10 ponto caixa barra siemp.
-
-Thiago Jeferson de Sousa Silva   11:11
-I see.
-
-Jesse Mouta Pereira Batista   11:35
-É simp.10 ponto caixa, aí o outro é migração sifec.10 ponto caixa, e aí o login da Costa. Cada FQDN aqui, Gustavo, ele aponta para o IP, que é normalmente o VIP, que encaminha esses servidores.
-Então foi o que a gente viu do lado do siemp, o FQDN siemp ponto 10 ponto caixa. Ele estava apontando para 2 IPs, e aí por isso que ele ficou intermitente. Então ele está com esse cara, simp ponto 10 ponto caixa.
-Então é o FQDN de Produção, né? Sifec ponto do sifec intranet sifec.caixa sifec.prd.caixa do internet sifec.caixa.gov é e é isso do lado do CIP é.
-
-Gustavo Duarte Lepesteur da Costa   12:22
-Não, tranquilo, isso aí eu conheço tudo. Eu era da Produção, eu era da Produção do Crédito, tocava os Feq lá. Aí eu tô fazendo esse trabalho justamente por isso, porque eu conhecia todo esse ambiente de Infra, de Boss, etc. E aí acaba que eu vim pro time de 10 aqui e a galera me pediu pra apoiar com esse trabalho aqui. Então todo esse ambiente aqui.
-
-Jesse Mouta Pereira Batista   12:27
-Ah, então você já tá por dentro.
-Mhm.
-
-Gustavo Duarte Lepesteur da Costa   12:41
-Que fui eu que criei junto com o Murilo e tal, eu que pedi esses vips todos, aí é só essa parte do AMP mesmo que eu tinha pedido, só que para o que estava no G Boss e a parte que fizeram na esteira eu acabei não participando, por isso que eu queria entender o que estava apontando para ela, porque se está apontando o CIP já, então.
-
-Jesse Mouta Pereira Batista   12:46
-Entendi.
-Awesome.
-
-Gustavo Duarte Lepesteur da Costa   12:59
-O antigo não está mais usando, então já.
-
-Jesse Mouta Pereira Batista   12:59
-I do.
-A gente pediu a URL customizada lá, criou o VIP, criou o certificado e andou. Ele já tá, já tá usando esse cara. Agora, você me fiquei com a dúvida aqui agora. Então, na hora da gente levar essa migração, na hora que for levar essa migração lá pra produção, cada um desses endereços ele vai.
-
-Gustavo Duarte Lepesteur da Costa   13:18
-Mm.
-
-Jesse Mouta Pereira Batista   13:20
-Ter que passar, apontar pra um ambiente novo no Jard
-
-Gustavo Duarte Lepesteur da Costa   13:24
-Não, então, qual que é a estratégia? Eles vão criar um ambiente paralelo do do Gisele Boss 74 lá, com a mesmo padrão de nome. Migração Cifec. Só que aí vai ser em vez de.10 você perder. Então, depois que tiver tudo pronto, migrado, testado, aí vai pegar os DNS atuais, tipo Cifec.caixa.
-
-Jesse Mouta Pereira Batista   13:29
-Uh-huh.
-Entendi. Okay.
-
-Gustavo Duarte Lepesteur da Costa   13:42
-E apontar para o ambiente novo, em vez de apontar para o velho. É só fazer um redirecionamento de apontamento aí na rede. É a mesma ideia que a gente quer fazer aqui. Então quando a gente terminar tudo aqui e tiver tudo pronto, a esteira de 10 vai precisar usar esse ambiente. Hoje eles chamam-se FEC.
-
-Jesse Mouta Pereira Batista   13:45
-Bruno.
-Beleza.
-
-Gustavo Duarte Lepesteur da Costa   14:01
-Um ponto ponto 10 ponto caixa, esse FAC 2.10 ponto caixa. Aí eles vão chamar esses mesmos endereço, mas eles vão começar a cair no 74 e parar de cair no 64. Essa é a ideia.
-
-Jesse Mouta Pereira Batista   14:09
-Uh-huh, entendi.
-Não, entendi. Beleza, tranquilo, tá? Então, o Gagliardi, boa tarde, galera, tudo bem?
-
-Flavio de Almeida Gagliardi   14:20
-Opa, beleza, eu tô só aqui quietinho escutando aí a galera deliberar. Fala aí, Jose.
-
-Jesse Mouta Pereira Batista   14:22
-Beleza, pois é, é, beleza, não, acho que é, acho que é isso, né? Então, tá tranquilo, tem algum?
-
-Gustavo Duarte Lepesteur da Costa   14:24
-Mhm.
-
-Flavio de Almeida Gagliardi   14:32
-Não, cara, eu assim, eu estou com ciático atacado aqui, eu acho que eu vou dar um pulo no médico agora, tá? E demais aí, depois eu vou avisar a Patricia aqui todo mundo, porque vai ter uma apresentação lá dos plugins que o Leandro desenvolveu lá.
-
-Jesse Mouta Pereira Batista   14:45
-Ah, beleza.
-
-Flavio de Almeida Gagliardi   14:49
-Para a estrela do GitHub, que vai ser agora às 15:00, tá?
-
-Jesse Mouta Pereira Batista   14:54
-Ah, beleza.
-
-Flavio de Almeida Gagliardi   14:54
-Aí assim, o ideal aí é o maior número de participantes possível. Eu vou avisar lá a galera e qualquer coisa vocês podem me mandar mensagem ou tá no celular se for alguma coisa muito crítica.
-
-Jesse Mouta Pereira Batista   14:58
-You pass points.
-Tranquilo, beleza.
-
-Flavio de Almeida Gagliardi   15:07
-This is pessoal. Valeu. Danielle. Tchau.
-
-Gustavo Duarte Lepesteur da Costa   15:07
-Beleza, melhoras.
-
-Jesse Mouta Pereira Batista   15:08
-Okay.
-Melhoras aí, valeu, até mais beleza. Então Gustavo, a gente tá à disposição aí precisar chamar a gente, pode, pode acionar, tá? É, você falou que fazia com o Murilo em tela ali, né? Então a gente pode, pode tentar fazer, fazer também, mas é tranquilo, tá? A gente pode.
-
-Gustavo Duarte Lepesteur da Costa   15:11
-Valeu.
-Tá bom, já tá.
-Tá bom, amanhã a gente, amanhã entrando a gente começa a tocar aí o que você puder ir tocando aí desses deploits que você já tava fazendo, pode continuar e amanhã a gente continua de onde você terminou hoje.
-
-Jesse Mouta Pereira Batista   15:27
-tocar aí da mesma forma. Isso.
-Stop.
-Beleza, então.
-
-Thiago Jeferson de Sousa Silva   15:37
-Acabei de tentar o do Ciro aqui Gustavo deu erro, a gente vai analisar aqui e a gente escreve no chat o que aconteceu.
-
-Gustavo Duarte Lepesteur da Costa   15:43
-Fechou galera, obrigado viu.
-
-Jesse Mouta Pereira Batista   15:45
-Beleza, valeu Gustavo, valeu Rodrigo, valeu Jefferson, valeu!
-
-Gustavo Duarte Lepesteur da Costa   15:46
-Valeu pessoal, falou.
-
-Rodrigo Abreu Costa   15:49
-Wellington Hardware Saudis Pereira.
-
-Gustavo Duarte Lepesteur da Costa   15:51
-Other pessoal.
-
-Jesse Mouta Pereira Batista   15:52
-No.
-
-Jesse Mouta Pereira Batista parou a transcrição
