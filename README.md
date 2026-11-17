@@ -1,20 +1,26 @@
+Rode estes comandos, trocando o nome do serviço (o <nome-do-serviço> do meu exemplo anterior era placeholder):
 
-[p585600@caddeapllx2871 ~]$ ps -ef | grep java
-p585600   134341  134137  0 11:04 pts/1    00:00:00 grep --color=auto java
-[p585600@caddeapllx2871 ~]$ systemctl status jboss* --no-pager
-× jboss-eap-standalone.service - JBoss EAP Systemctl - STANDALONE
-     Loaded: loaded (/etc/systemd/system/jboss-eap-standalone.service; enabled; preset: disabled)
-     Active: failed (Result: exit-code) since Tue 2026-11-17 11:10:04 -03; 5min ago
-   Duration: 5.795s
-    Process: 143912 ExecStart=/opt/jboss-eap/bin/init.d/jboss-eap-standalone.sh start (code=exited, status=0/SUCCESS)
-   Main PID: 143922 (code=exited, status=1/FAILURE)
-        CPU: 20.615s
-[p585600@caddeapllx2871 ~]$
-[p585600@caddeapllx2871 ~]$
-[p585600@caddeapllx2871 ~]$
-[p585600@caddeapllx2871 ~]$ journalctl -u <nome-do-serviço> --no-pager | tail -100
--sh: nome-do-serviço: Arquivo ou diretório inexistente
-[p585600@caddeapllx2871 ~]$
+journalctl -u jboss-eap-standalone --no-pager | tail -100
+ls -lt /opt/jboss-eap/standalone/log/
+tail -300 /opt/jboss-eap/standalone/log/server.log
 
+Se o server.log não existir ou estiver vazio, o JBoss morreu antes de abrir o log. Aí o motivo costuma estar no stdout do script, que pode estar em outro arquivo:
 
+cat /opt/jboss-eap/bin/init.d/jboss-eap-standalone.sh | head -60
+ls -lt /opt/jboss-eap/standalone/log/ /var/log/jboss* 2>/dev/null
 
+Se você não tiver permissão para ler algum desses, rode com sudo ou me diga qual deu “Permissão negada”.
+
+Também mande a saída de:
+
+/opt/jboss-eap/bin/standalone.sh --version
+java -version
+
+Isso mostra a versão exata do JBoss e o Java que o serviço usa, para confirmar se é EAP 7.4 e se o JAVA_HOME está certo.
+
+Do que vier, o que mais importa é:
+
+WFLYCTL e jboss.security.: segurança legada, como o Jeferson descreveu;
+UnsupportedClassVersionError, Unrecognized VM option ou --add-opens: Java incompatível com o JBoss;
+Address already in use ou Permission denied: porta ou arquivo, problema de ambiente e não de aplicação.
+Como o Claude está se saindo nes
