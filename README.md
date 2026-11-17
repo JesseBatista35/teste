@@ -1,248 +1,40 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>br.gov.caixa.siemp</groupId>
-	<artifactId>siemp</artifactId>
-	<version>14.37.0.6</version>
-	<packaging>pom</packaging>
-	<name>siemp application</name>
+Resumo do dia 17/11: Migração JBoss 7.4 (SIFEC/SICCR), DES
 
-	<modules>
-		<module>siemp-web</module>
-		<module>siemp-ear</module>
-	</modules>
+✅ Avanços de hoje
 
-	<properties>
+CCR (ccr-api, 401): causa identificada e ajuste aplicado, conforme alinhado com Alessandro, Paulo e Gustavo. Removemos a validação de token pelo container no ccr-api, igualando ao 6.4, com backup do domain e rollback documentado. O redeploy foi concluído às 15:22 sem erros.
+Novos pacotes implantados no 7.4:
+APX 1.7.9.4: https://migracaosifec.des.caixa/apx-web/ (após criar a sessão de e-mail APXMail)
+GARANTIAS 1.8.0.3: https://migracaosifec.des.caixa/garantias-web/
+ORIGINAÇÃO 3.11.1: https://migracaosifec.des.caixa/ori-web/
+MINUTA GARANTIAS 1.0.0-b36: https://migracaosifec.des.caixa/minutaGarantias-web/
+BAN 1.7.0-b117: https://migracaosifec.des.caixa/siban-api/
+Kit para as fábricas: o domain.xml atualizado do 7.4 e o instalador do EAP 7.4.23 (pasta do Murilo) foram disponibilizados ao Gustavo, para as fábricas montarem o ambiente local.
+SIEMP (Sonar): ajustes na esteira (testes habilitados, JaCoCo e fontes do Jasper). A cobertura do código novo chegou a 95%. Aguardando o ajuste do Denilson no teste que ainda falha.
 
-		<siemp.version>14.37.0.6</siemp.version>
+⏳ Pendências: aguardando teste dos devs
 
-		<maven.build.timestamp.format>dd/MM/yyyy</maven.build.timestamp.format>
-		<dev.build.timestamp>${maven.build.timestamp}</dev.build.timestamp>
+CCR: teste do /v8/contratos/simular com token intranet e com token internet (Matheus).
+Implantados hoje: APX, GARANTIAS, ORIGINAÇÃO, MINUTA GARANTIAS e BAN.
+Implantados anteriormente, ainda sem validação: MCM, BDCAIXA, FBN, Minutas Front, HUB-WEB e PARÂMETROS (spr3).
 
-		<!-- Java 17 is the common compilation baseline for all Java modules. -->
-		<maven.compiler.release>17</maven.compiler.release>
+⏳ Pendências: aguardando nova build da fábrica (correção de código)
 
-		<!-- Libs IBM -->
-		<jmqi.version>1.0</jmqi.version>
-		<msg-cliente-jms-detail.version>1.0</msg-cliente-jms-detail.version>
+LCR 1.117.1: CDI em 9 DAOs e SecurityInterceptor incompatível com o RESTEasy do 7.4.
+SIRUR 3.55.51.03: SiricXMLIntegracaoNegocioImpl precisa expor a interface (@Local/implements).
+CONSTRUCARD 1.23.1.2: 5 EJBs precisam expor a interface (@Local/implements). Detalhes na mensagem anterior.
+CCR: ORA-25156 na consulta de contrato. Ajustar o dialeto Oracle no persistence.xml (Oracle10g/12c) ou a query. Independente do 401.
+HUB-API 2.2.0: named queries com parâmetro legado ?.
+EMP, EMPRESAS e RURAL: CDI e dependências (Jackson/RESTEasy).
 
-		<!-- Java 17 is the common compilation baseline for all Java modules. -->
-		<!--<maven.compiler.release>17</maven.compiler.release>-->
-		<!-- [WARNING] Using platform encoding (UTF-8 actually) to copy filtered
-			resources, i.e. build is platform dependent! -->
-		<!-- Preserve the legacy source/resource encoding during the JDK migration. -->
-		<project.build.sourceEncoding>Cp1252</project.build.sourceEncoding>
+⏳ Pendências: definição de pacote
 
-		<!-- JBoss dependency versions -->
-		<jboss.as.plugin.version>7.3.Final</jboss.as.plugin.version>
+MANTER DOCUMENTO 2.2.7: qual build subir (b88, b91 ou b94)?
+BNDES 1.0.4.2: link do pacote (no domain só tem a 1.1.0).
+ARC: existe build para o 7.4? No domain só tem siarc_EAP6.ear.
 
-		<!-- Define the version of JBoss' Java EE 6 APIs and Tools we want to import. -->
-		<jboss.bom.version>1.0.4.Final</jboss.bom.version>
-		<!-- Alternatively, comment out the above line, and un-comment the line
-			below to use version 1.0.2.Final-redhat-1 which is a release certified to
-			work with JBoss EAP 6. It requires you have access to the JBoss EAP 6 maven
-			repository. -->
-		<!-- <jboss.bom.version>1.0.2.Final-redhat-1</jboss.bom.version>> -->
-		<!-- other plugin versions -->
-		<!--<compiler.plugin.version>2.3.2</compiler.plugin.version>
-		<war.plugin.version>2.1.1</war.plugin.version>
-		<ear.plugin.version>2.6</ear.plugin.version>-->
-		<compiler.plugin.version>3.11.0</compiler.plugin.version>
-		<resources.plugin.version>3.3.1</resources.plugin.version>
-		<war.plugin.version>3.4.0</war.plugin.version>
-		<ear.plugin.version>3.3.0</ear.plugin.version>
-		<!-- maven-compiler-plugin -->
+⏳ Pendências: arquitetura e próximos ambientes
 
-		<maven.compiler.target>17</maven.compiler.target>
-		<maven.compiler.source>17</maven.compiler.source>
-	</properties>
+Prever a segregação de token intranet/internet nos ambientes seguintes e em produção. Vale para o CCR e para os demais pacotes SIFEC que atendem internet.
 
-	<dependencyManagement>
-		<dependencies>
-
-			<!-- Define the version of the WAR so that we don't need to repeat ourselves
-				in every module -->
-			<dependency>
-				<groupId>br.gov.caixa.siemp</groupId>
-				<artifactId>siemp-web</artifactId>
-				<version>${siemp.version}</version>
-				<type>war</type>
-				<scope>compile</scope>
-			</dependency>
-
-			<!-- JBoss distributes a complete set of Java EE 6 APIs including a Bill
-				of Materials (BOM). A BOM specifies the versions of a "stack" (or a collection)
-				of artifacts. We use this here so that we always get the correct versions
-				of artifacts. Here we use the jboss-javaee-6.0-with-tools stack (you can
-				read this as the JBoss stack of the Java EE 6 APIs, with some extras tools
-				for your project, such as Arquillian for testing) and the jboss-javaee-6.0-with-hibernate
-				stack you can read this as the JBoss stack of the Java EE 6 APIs, with extras
-				from the Hibernate family of projects) -->
-			<dependency>
-				<groupId>org.jboss.bom</groupId>
-				<artifactId>jboss-javaee-6.0-with-tools</artifactId>
-				<version>${jboss.bom.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-			<dependency>
-				<groupId>org.jboss.bom</groupId>
-				<artifactId>jboss-javaee-6.0-with-hibernate</artifactId>
-				<version>${jboss.bom.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-
-		</dependencies>
-	</dependencyManagement>
-
-	<build>
-		<pluginManagement>
-			<plugins>
-				<plugin>
-					<artifactId>maven-compiler-plugin</artifactId>
-					<version>${compiler.plugin.version}</version>
-					<configuration>
-						<release>${maven.compiler.release}</release>
-						<encoding>${project.build.sourceEncoding}</encoding>
-					</configuration>
-				</plugin>
-				<!-- The JBoss AS plugin deploys your ear to a local JBoss AS container -->
-				<!-- Due to Maven's lack of intelligence with EARs we need to configure
-					the jboss-as maven plugin to skip deployment for all modules. We then enable
-					it specifically in the ear module. -->
-				<plugin>
-					<groupId>org.jboss.as.plugins</groupId>
-					<artifactId>jboss-as-maven-plugin</artifactId>
-					<version>${jboss.as.plugin.version}</version>
-					<inherited>true</inherited>
-					<configuration>
-						<skip>true</skip>
-					</configuration>
-				</plugin>
-				<!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-release-plugin</artifactId>
-					<version>2.2.2</version> <configuration> <tagBase>http://bsbsrvsvncaixa/caixa/emprestimo/sifec/tags/fontes</tagBase>
-					</configuration> </plugin> -->
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-resources-plugin</artifactId>
-					<version>${resources.plugin.version}</version>
-					<configuration>
-							<encoding>${project.build.sourceEncoding}</encoding>
-        			</configuration>
-				</plugin>
-			</plugins>
-		</pluginManagement>
-	</build>
-
-	<profiles>
-		<!-- O módulo de modernização é opcional e permanece fora do reactor
-		     legado. Ative-o somente quando a pasta estiver disponível. -->
-		<profile>
-			<id>quarkus</id>
-			<modules>
-				<module>siemp-quarkus</module>
-			</modules>
-		</profile>
-		<profile>
-			<id>fabrica</id>
-			<distributionManagement>
-				<repository>
-					<id>releases</id>
-					<url>http://10.61.1.208:8081/nexus/content/repositories/releases</url>
-				</repository>
-				<snapshotRepository>
-					<id>snapshots</id>
-					<url>http://10.61.1.208:8081/nexus/content/repositories/snapshots</url>
-				</snapshotRepository>
-			</distributionManagement>
-		</profile>
-	</profiles>
-
-</project>
-
-
-
-
-Skip to main content
-Azure DevOps
-projetos
-/
-Caixa
-/
-Repos
-/
-Files
-/
-
-SIEMP-java-web
-Search
-
-
-Caixa
-
-Overview
-
-Boards
-
-Repos
-Files
-Commits
-Pushes
-Branches
-Tags
-Pull requests
-
-Pipelines
-
-Test Plans
-
-Artifacts
-Project settings
-SIEMP-java-web
-
-siemp-ear
-src
-pom.xml
-siemp-quarkus
-pom.xml
-siemp-web
-src
-pom.xml
-relatorioPosicaoDivida.java
-.gitignore
-pom.xml
-
-develop
-
-/
-pom.xml
-pom.xml
-
-Edit
-
-Contents
-History
-Compare
-Blame
-
-5152535455565758596061626364656667686970717273747576777879808182838485868788899091929394
-		<!--<maven.compiler.release>17</maven.compiler.release>-->
-		<!-- [WARNING] Using platform encoding (UTF-8 actually) to copy filtered
-			resources, i.e. build is platform dependent! -->
-		<!-- Preserve the legacy source/resource encoding during the JDK migration. -->
-		<project.build.sourceEncoding>Cp1252</project.build.sourceEncoding>
-
-		<!-- JBoss dependency versions -->
-		<jboss.as.plugin.version>7.3.Final</jboss.as.plugin.version>
-
-		<!-- Define the version of JBoss' Java EE 6 APIs and Tools we want to import. -->
-
-Find
-
-No results
-No results found
-Expanded
-
-Collapsed
+Próximos passos: assim que chegarem as builds corrigidas (prioridade LCR → SIRUR), implantamos na sequência. Depois de fechar a sifec-intra, seguimos para os grupos inter, inter-sso e ccr_api.
