@@ -1,374 +1,1138 @@
-[root@caddeapllx2871 p585600]#
-[root@caddeapllx2871 p585600]# journalctl -u jboss-eap-standalone --no-pager | tail -100
-nov 16 12:30:09 caddeapllx2871.agil.nprd.caixa.gov.br runuser[26712]: pam_unix(runuser:session): session opened for user jboss(uid=30000115) by (uid=0)
-nov 16 12:30:09 caddeapllx2871.agil.nprd.caixa.gov.br runuser[26712]: pam_unix(runuser:session): session closed for user jboss
-nov 16 12:30:09 caddeapllx2871.agil.nprd.caixa.gov.br runuser[26716]: pam_unix(runuser:session): session opened for user jboss(uid=30000115) by (uid=0)
-nov 16 12:30:09 caddeapllx2871.agil.nprd.caixa.gov.br jboss-eap-standalone.sh[26706]: Starting JBoss EAP:
-nov 16 12:30:09 caddeapllx2871.agil.nprd.caixa.gov.br jboss-eap-standalone.sh[26977]: nov. 16, 2026 12:30:09 PM java.lang.System$LoggerFinder lambda$accessProvider$0
-nov 16 12:30:09 caddeapllx2871.agil.nprd.caixa.gov.br jboss-eap-standalone.sh[26977]: WARNING: Failed to instantiate LoggerFinder provider; Using default.
-nov 16 12:30:09 caddeapllx2871.agil.nprd.caixa.gov.br jboss-eap-standalone.sh[26977]: OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
-nov 16 12:30:15 caddeapllx2871.agil.nprd.caixa.gov.br jboss-eap-standalone.sh[27149]: /opt/jboss-eap/bin/common_start.sh: linha 58: success: comando não encontrado
-nov 16 12:30:15 caddeapllx2871.agil.nprd.caixa.gov.br systemd[1]: Started JBoss EAP Systemctl - STANDALONE.
-nov 16 12:30:19 caddeapllx2871.agil.nprd.caixa.gov.br runuser[26716]: pam_unix(runuser:session): session closed for user jboss
-nov 16 12:30:19 caddeapllx2871.agil.nprd.caixa.gov.br systemd[1]: jboss-eap-standalone.service: Main process exited, code=exited, status=1/FAILURE
-nov 16 12:30:19 caddeapllx2871.agil.nprd.caixa.gov.br systemd[1]: jboss-eap-standalone.service: Failed with result 'exit-code'.
-nov 16 12:30:19 caddeapllx2871.agil.nprd.caixa.gov.br systemd[1]: jboss-eap-standalone.service: Consumed 17.266s CPU time.
-nov 16 15:15:38 caddeapllx2871.agil.nprd.caixa.gov.br systemd[1]: Starting JBoss EAP Systemctl - STANDALONE...
-nov 16 15:15:38 caddeapllx2871.agil.nprd.caixa.gov.br jboss-eap-standalone.sh[56442]: /opt/jboss-eap/bin/init.d/jboss-eap-standalone.sh: linha 4: /etc/init.d/functions: Arquivo ou diretório inexistente
-nov 16 15:15:38 caddeapllx2871.agil.nprd.caixa.gov.br runuser[56444]: pam_unix(runuser:session): session opened for user jboss(uid=30000115) by (uid=0)
-nov 16 15:15:38 caddeapllx2871.agil.nprd.caixa.gov.br runuser[56444]: pam_unix(runuser:session): session closed for user jboss
-nov 16 15:15:38 caddeapllx2871.agil.nprd.caixa.gov.br runuser[56448]: pam_unix(runuser:session): session opened for user jboss(uid=30000115) by (uid=0)
-nov 16 15:15:38 caddeapllx2871.agil.nprd.caixa.gov.br runuser[56448]: pam_unix(runuser:session): session closed for user jboss
-nov 16 15:15:38 caddeapllx2871.agil.nprd.caixa.gov.br runuser[56452]: pam_unix(runuser:session): session opened for user jboss(uid=30000115) by (uid=0)
-nov 16 15:15:38 caddeapllx2871.agil.nprd.caixa.gov.br jboss-eap-standalone.sh[56442]: Starting JBoss EAP:
-nov 16 15:15:38 caddeapllx2871.agil.nprd.caixa.gov.br jboss-eap-standalone.sh[56713]: nov. 16, 2026 3:15:38 PM java.lang.System$LoggerFinder lambda$accessProvider$0
-nov 16 15:15:38 caddeapllx2871.agil.nprd.caixa.gov.br jboss-eap-standalone.sh[56713]: WARNING: Failed to instantiate LoggerFinder provider; Using default.
-nov 16 15:15:39 caddeapllx2871.agil.nprd.caixa.gov.br jboss-eap-standalone.sh[56713]: OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
-nov 16 15:15:44 caddeapllx2871.agil.nprd.caixa.gov.br jboss-eap-standalone.sh[57059]: /opt/jboss-eap/bin/common_start.sh: linha 58: success: comando não encontrado
-nov 16 15:15:44 caddeapllx2871.agil.nprd.caixa.gov.br systemd[1]: Started JBoss EAP Systemctl - STANDALONE.
-nov 16 15:15:53 caddeapllx2871.agil.nprd.caixa.gov.br runuser[56452]: pam_unix(runuser:session): session closed for user jboss
-nov 16 15:15:53 caddeapllx2871.agil.nprd.caixa.gov.br systemd[1]: jboss-eap-standalone.service: Main process exited, code=exited, status=1/FAILURE
-nov 16 15:15:53 caddeapllx2871.agil.nprd.caixa.gov.br systemd[1]: jboss-eap-standalone.service: Failed with result 'exit-code'.
-nov 16 15:15:53 caddeapllx2871.agil.nprd.caixa.gov.br systemd[1]: jboss-eap-standalone.service: Consumed 20.659s CPU time.
-nov 16 15:19:09 caddeapllx2871.agil.nprd.caixa.gov.br systemd[1]: Starting JBoss EAP Systemctl - STANDALONE...
-nov 16 15:19:09 caddeapllx2871.agil.nprd.caixa.gov.br jboss-eap-standalone.sh[57932]: /opt/jboss-eap/bin/init.d/jboss-eap-standalone.sh: linha 4: /etc/init.d/functions: Arquivo ou diretório inexistente
-nov 16 15:19:09 caddeapllx2871.agil.nprd.caixa.gov.br runuser[57934]: pam_unix(runuser:session): session opened for user jboss(uid=30000115) by (uid=0)
-nov 16 15:19:09 caddeapllx2871.agil.nprd.caixa.gov.br runuser[57934]: pam_unix(runuser:session): session closed for user jboss
-nov 16 15:19:10 caddeapllx2871.agil.nprd.caixa.gov.br runuser[57938]: pam_unix(runuser:session): session opened for user jboss(uid=30000115) by (uid=0)
-nov 16 15:19:10 caddeapllx2871.agil.nprd.caixa.gov.br runuser[57938]: pam_unix(runuser:session): session closed for user jboss
-nov 16 15:19:10 caddeapllx2871.agil.nprd.caixa.gov.br runuser[57942]: pam_unix(runuser:session): session opened for user jboss(uid=30000115) by (uid=0)
-nov 16 15:19:10 caddeapllx2871.agil.nprd.caixa.gov.br jboss-eap-standalone.sh[57932]: Starting JBoss EAP:
-nov 16 15:19:10 caddeapllx2871.agil.nprd.caixa.gov.br jboss-eap-standalone.sh[58203]: nov. 16, 2026 3:19:10 PM java.lang.System$LoggerFinder lambda$accessProvider$0
-nov 16 15:19:10 caddeapllx2871.agil.nprd.caixa.gov.br jboss-eap-standalone.sh[58203]: WARNING: Failed to instantiate LoggerFinder provider; Using default.
-nov 16 15:19:10 caddeapllx2871.agil.nprd.caixa.gov.br jboss-eap-standalone.sh[58203]: OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
-nov 16 15:19:16 caddeapllx2871.agil.nprd.caixa.gov.br jboss-eap-standalone.sh[58371]: /opt/jboss-eap/bin/common_start.sh: linha 58: success: comando não encontrado
-nov 16 15:19:16 caddeapllx2871.agil.nprd.caixa.gov.br systemd[1]: Started JBoss EAP Systemctl - STANDALONE.
-nov 16 15:19:24 caddeapllx2871.agil.nprd.caixa.gov.br runuser[57942]: pam_unix(runuser:session): session closed for user jboss
-nov 16 15:19:24 caddeapllx2871.agil.nprd.caixa.gov.br systemd[1]: jboss-eap-standalone.service: Main process exited, code=exited, status=1/FAILURE
-nov 16 15:19:24 caddeapllx2871.agil.nprd.caixa.gov.br systemd[1]: jboss-eap-standalone.service: Failed with result 'exit-code'.
-nov 16 15:19:24 caddeapllx2871.agil.nprd.caixa.gov.br systemd[1]: jboss-eap-standalone.service: Consumed 20.667s CPU time.
-nov 16 15:27:00 caddeapllx2871.agil.nprd.caixa.gov.br systemd[1]: Starting JBoss EAP Systemctl - STANDALONE...
-nov 16 15:27:00 caddeapllx2871.agil.nprd.caixa.gov.br jboss-eap-standalone.sh[58577]: /opt/jboss-eap/bin/init.d/jboss-eap-standalone.sh: linha 4: /etc/init.d/functions: Arquivo ou diretório inexistente
-nov 16 15:27:00 caddeapllx2871.agil.nprd.caixa.gov.br runuser[58579]: pam_unix(runuser:session): session opened for user jboss(uid=30000115) by (uid=0)
-nov 16 15:27:00 caddeapllx2871.agil.nprd.caixa.gov.br runuser[58579]: pam_unix(runuser:session): session closed for user jboss
-nov 16 15:27:00 caddeapllx2871.agil.nprd.caixa.gov.br runuser[58583]: pam_unix(runuser:session): session opened for user jboss(uid=30000115) by (uid=0)
-nov 16 15:27:00 caddeapllx2871.agil.nprd.caixa.gov.br runuser[58583]: pam_unix(runuser:session): session closed for user jboss
-nov 16 15:27:00 caddeapllx2871.agil.nprd.caixa.gov.br runuser[58587]: pam_unix(runuser:session): session opened for user jboss(uid=30000115) by (uid=0)
-nov 16 15:27:00 caddeapllx2871.agil.nprd.caixa.gov.br jboss-eap-standalone.sh[58577]: Starting JBoss EAP:
-nov 16 15:27:00 caddeapllx2871.agil.nprd.caixa.gov.br jboss-eap-standalone.sh[58848]: nov. 16, 2026 3:27:00 PM java.lang.System$LoggerFinder lambda$accessProvider$0
-nov 16 15:27:00 caddeapllx2871.agil.nprd.caixa.gov.br jboss-eap-standalone.sh[58848]: WARNING: Failed to instantiate LoggerFinder provider; Using default.
-nov 16 15:27:00 caddeapllx2871.agil.nprd.caixa.gov.br jboss-eap-standalone.sh[58848]: OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
-nov 16 15:27:04 caddeapllx2871.agil.nprd.caixa.gov.br runuser[58587]: pam_unix(runuser:session): session closed for user jboss
-nov 16 15:27:06 caddeapllx2871.agil.nprd.caixa.gov.br jboss-eap-standalone.sh[58924]: /opt/jboss-eap/bin/common_start.sh: linha 58: success: comando não encontrado
-nov 16 15:27:06 caddeapllx2871.agil.nprd.caixa.gov.br jboss-eap-standalone.sh[58925]: /opt/jboss-eap/bin/init.d/jboss-eap-standalone.sh: linha 4: /etc/init.d/functions: Arquivo ou diretório inexistente
-nov 16 15:27:06 caddeapllx2871.agil.nprd.caixa.gov.br jboss-eap-standalone.sh[58925]: Stopping JBoss EAP:
-nov 16 15:27:06 caddeapllx2871.agil.nprd.caixa.gov.br jboss-eap-standalone.sh[58927]: /opt/jboss-eap/bin/common_start.sh: linha 85: success: comando não encontrado
-nov 16 15:27:06 caddeapllx2871.agil.nprd.caixa.gov.br systemd[1]: jboss-eap-standalone.service: Deactivated successfully.
-nov 16 15:27:06 caddeapllx2871.agil.nprd.caixa.gov.br systemd[1]: Started JBoss EAP Systemctl - STANDALONE.
-nov 16 15:27:06 caddeapllx2871.agil.nprd.caixa.gov.br systemd[1]: jboss-eap-standalone.service: Consumed 5.488s CPU time.
-nov 16 15:28:01 caddeapllx2871.agil.nprd.caixa.gov.br systemd[1]: Starting JBoss EAP Systemctl - STANDALONE...
-nov 16 15:28:01 caddeapllx2871.agil.nprd.caixa.gov.br jboss-eap-standalone.sh[58936]: /opt/jboss-eap/bin/init.d/jboss-eap-standalone.sh: linha 4: /etc/init.d/functions: Arquivo ou diretório inexistente
-nov 16 15:28:01 caddeapllx2871.agil.nprd.caixa.gov.br runuser[58938]: pam_unix(runuser:session): session opened for user jboss(uid=30000115) by (uid=0)
-nov 16 15:28:01 caddeapllx2871.agil.nprd.caixa.gov.br runuser[58938]: pam_unix(runuser:session): session closed for user jboss
-nov 16 15:28:01 caddeapllx2871.agil.nprd.caixa.gov.br runuser[58942]: pam_unix(runuser:session): session opened for user jboss(uid=30000115) by (uid=0)
-nov 16 15:28:01 caddeapllx2871.agil.nprd.caixa.gov.br runuser[58942]: pam_unix(runuser:session): session closed for user jboss
-nov 16 15:28:01 caddeapllx2871.agil.nprd.caixa.gov.br runuser[58946]: pam_unix(runuser:session): session opened for user jboss(uid=30000115) by (uid=0)
-nov 16 15:28:02 caddeapllx2871.agil.nprd.caixa.gov.br jboss-eap-standalone.sh[58936]: Starting JBoss EAP:
-nov 16 15:28:02 caddeapllx2871.agil.nprd.caixa.gov.br jboss-eap-standalone.sh[59207]: nov. 16, 2026 3:28:02 PM java.lang.System$LoggerFinder lambda$accessProvider$0
-nov 16 15:28:02 caddeapllx2871.agil.nprd.caixa.gov.br jboss-eap-standalone.sh[59207]: WARNING: Failed to instantiate LoggerFinder provider; Using default.
-nov 16 15:28:02 caddeapllx2871.agil.nprd.caixa.gov.br jboss-eap-standalone.sh[59207]: OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
-nov 16 15:28:07 caddeapllx2871.agil.nprd.caixa.gov.br jboss-eap-standalone.sh[59381]: /opt/jboss-eap/bin/common_start.sh: linha 58: success: comando não encontrado
-nov 16 15:28:07 caddeapllx2871.agil.nprd.caixa.gov.br systemd[1]: Started JBoss EAP Systemctl - STANDALONE.
-nov 16 15:28:11 caddeapllx2871.agil.nprd.caixa.gov.br runuser[58946]: pam_unix(runuser:session): session closed for user jboss
-nov 16 15:28:11 caddeapllx2871.agil.nprd.caixa.gov.br systemd[1]: jboss-eap-standalone.service: Main process exited, code=exited, status=1/FAILURE
-nov 16 15:28:11 caddeapllx2871.agil.nprd.caixa.gov.br systemd[1]: jboss-eap-standalone.service: Failed with result 'exit-code'.
-nov 16 15:28:11 caddeapllx2871.agil.nprd.caixa.gov.br systemd[1]: jboss-eap-standalone.service: Consumed 18.323s CPU time.
-nov 17 11:09:52 caddeapllx2871.agil.nprd.caixa.gov.br systemd[1]: Starting JBoss EAP Systemctl - STANDALONE...
-nov 17 11:09:52 caddeapllx2871.agil.nprd.caixa.gov.br jboss-eap-standalone.sh[143912]: /opt/jboss-eap/bin/init.d/jboss-eap-standalone.sh: linha 4: /etc/init.d/functions: Arquivo ou diretório inexistente
-nov 17 11:09:52 caddeapllx2871.agil.nprd.caixa.gov.br runuser[143914]: pam_unix(runuser:session): session opened for user jboss(uid=30000115) by (uid=0)
-nov 17 11:09:52 caddeapllx2871.agil.nprd.caixa.gov.br runuser[143914]: pam_unix(runuser:session): session closed for user jboss
-nov 17 11:09:52 caddeapllx2871.agil.nprd.caixa.gov.br runuser[143918]: pam_unix(runuser:session): session opened for user jboss(uid=30000115) by (uid=0)
-nov 17 11:09:52 caddeapllx2871.agil.nprd.caixa.gov.br runuser[143918]: pam_unix(runuser:session): session closed for user jboss
-nov 17 11:09:52 caddeapllx2871.agil.nprd.caixa.gov.br runuser[143922]: pam_unix(runuser:session): session opened for user jboss(uid=30000115) by (uid=0)
-nov 17 11:09:52 caddeapllx2871.agil.nprd.caixa.gov.br jboss-eap-standalone.sh[143912]: Starting JBoss EAP:
-nov 17 11:09:52 caddeapllx2871.agil.nprd.caixa.gov.br jboss-eap-standalone.sh[144183]: nov. 17, 2026 11:09:52 AM java.lang.System$LoggerFinder lambda$accessProvider$0
-nov 17 11:09:52 caddeapllx2871.agil.nprd.caixa.gov.br jboss-eap-standalone.sh[144183]: WARNING: Failed to instantiate LoggerFinder provider; Using default.
-nov 17 11:09:52 caddeapllx2871.agil.nprd.caixa.gov.br jboss-eap-standalone.sh[144183]: OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
-nov 17 11:09:58 caddeapllx2871.agil.nprd.caixa.gov.br jboss-eap-standalone.sh[144359]: /opt/jboss-eap/bin/common_start.sh: linha 58: success: comando não encontrado
-nov 17 11:09:58 caddeapllx2871.agil.nprd.caixa.gov.br systemd[1]: Started JBoss EAP Systemctl - STANDALONE.
-nov 17 11:10:04 caddeapllx2871.agil.nprd.caixa.gov.br runuser[143922]: pam_unix(runuser:session): session closed for user jboss
-nov 17 11:10:04 caddeapllx2871.agil.nprd.caixa.gov.br systemd[1]: jboss-eap-standalone.service: Main process exited, code=exited, status=1/FAILURE
-nov 17 11:10:04 caddeapllx2871.agil.nprd.caixa.gov.br systemd[1]: jboss-eap-standalone.service: Failed with result 'exit-code'.
-nov 17 11:10:04 caddeapllx2871.agil.nprd.caixa.gov.br systemd[1]: jboss-eap-standalone.service: Consumed 20.615s CPU time.
-[root@caddeapllx2871 p585600]#
-[root@caddeapllx2871 p585600]#
-[root@caddeapllx2871 p585600]#
-[root@caddeapllx2871 p585600]# ls -lt /opt/jboss-eap/standalone/log/
-total 176
--rw-r--r-- 1 jboss jboss  22832 nov 17 11:10 server.log
--rw-r--r-- 1 jboss jboss 152651 nov 16 15:28 server.log.2026-11-16
--rwxrwxr-x 1 jboss jboss      0 set 30  2024 server.log.2024-09-30
--rwxrwxr-x 1 jboss jboss      0 set 30  2024 gc.log.0.current
--rwxrwxr-x 1 jboss jboss      0 set 30  2024 backupgc.log.current
--rwxrwxr-x 1 jboss jboss      0 set 30  2024 audit.log
-[root@caddeapllx2871 p585600]#
-[root@caddeapllx2871 p585600]#
-[root@caddeapllx2871 p585600]# tail -300 /opt/jboss-eap/standalone/log/server.log
-2026-11-17 11:09:53,551 INFO  [org.jboss.modules] (main) JBoss Modules version 1.12.3.Final-redhat-00001
-2026-11-17 11:09:53,770 INFO  [org.jboss.msc] (main) JBoss MSC version 1.4.13.Final-redhat-00001
-2026-11-17 11:09:53,778 INFO  [org.jboss.threads] (main) JBoss Threads version 2.4.0.Final-redhat-00001
-2026-11-17 11:09:53,862 INFO  [org.jboss.as] (MSC service thread 1-2) WFLYSRV0049: Inicializando JBoss EAP 7.4.18.GA (WildFly Core 15.0.37.Final-redhat-00001)
-2026-11-17 11:09:53,863 DEBUG [org.jboss.as.config] (MSC service thread 1-2) Propriedades de sistema configurado:
-        ElasticApm.attached = true
-        [Standalone] =
-        atlassian.org.osgi.framework.bootdelegation = META-INF.services,com.yourkit,com.singularity.*,com.jprofiler,com.jprofiler.*,org.apache.xerces,org.apache.xerces.*,org.apache.xalan,org.apache.xalan.*,sun.*,com.sun.jndi.*,com.icl.saxon,com.icl.saxon.*,javax.servlet,javax.servlet.*,com.sun.xml.bind.*,co.elastic.apm.agent.*
-        co.elastic.apm.agent.shaded.slf4j.simpleLogger.dateTimeFormat = yyyy-MM-dd HH:mm:ss.SSS
-        co.elastic.apm.agent.shaded.slf4j.simpleLogger.log.co.elastic.apm = ERROR
-        co.elastic.apm.agent.shaded.slf4j.simpleLogger.log.co.elastic.apm.agent.shaded = WARN
-        co.elastic.apm.agent.shaded.slf4j.simpleLogger.logFile = System.out
-        co.elastic.apm.agent.shaded.slf4j.simpleLogger.showDateTime = true
-        elastic.apm.application_packages = br.gov.caixa
-        elastic.apm.config_file = /opt/apm_agent/elasticapm-1.15.0.properties
-        elastic.apm.environment = DES
-        elastic.apm.global_labels = deployment=sigec-portabilidade-des-esteiras
-        elastic.apm.server_urls = http://apm-server-devops.produtos.caixa
-        elastic.apm.service_name = sigec-portabilidade
-        file.encoding = UTF-8
-        file.separator = /
-        java.awt.headless = true
-        java.class.path = /opt/jboss-eap/jboss-modules.jar
-        java.class.version = 61.0
-        java.home = /usr/lib/jvm/java-17-openjdk-17.0.13.0.11-4.el9.x86_64
-        java.io.tmpdir = /tmp
-        java.library.path = /usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib
-        java.net.preferIPv4Stack = true
-        java.runtime.name = OpenJDK Runtime Environment
-        java.runtime.version = 17.0.13+11-LTS
-        java.specification.maintenance.version = 1
-        java.specification.name = Java Platform API Specification
-        java.specification.vendor = Oracle Corporation
-        java.specification.version = 17
-        java.util.logging.manager = org.jboss.logmanager.LogManager
-        java.vendor = Red Hat, Inc.
-        java.vendor.url = https://www.redhat.com/
-        java.vendor.url.bug = https://access.redhat.com/support/cases/
-        java.vendor.version = (Red_Hat-17.0.13.0.11-1)
-        java.version = 17.0.13
-        java.version.date = 2024-10-15
-        java.vm.compressedOopsMode = 32-bit
-        java.vm.info = mixed mode, sharing
-        java.vm.name = OpenJDK 64-Bit Server VM
-        java.vm.specification.name = Java Virtual Machine Specification
-        java.vm.specification.vendor = Oracle Corporation
-        java.vm.specification.version = 17
-        java.vm.vendor = Red Hat, Inc.
-        java.vm.version = 17.0.13+11-LTS
-        javax.management.builder.initial = org.jboss.as.jmx.PluggableMBeanServerBuilder
-        javax.net.ssl.trustStore = /opt/jboss-eap/standalone/configuration/caixa-truststore-acteste-nprd.jks
-        javax.net.ssl.trustStorePassword = <redacted>
-        jboss.bind.address = 0.0.0.0
-        jboss.bind.address.management = 0.0.0.0
-        jboss.home.dir = /opt/jboss-eap
-        jboss.host.name = caddeapllx2871
-        jboss.modules.dir = /opt/jboss-eap/modules
-        jboss.modules.policy-permissions = true
-        jboss.modules.system.pkgs = org.jboss.byteman,org.jboss.logmanager,co.elastic.apm.agent
-        jboss.node.name = caddeapllx2871
-        jboss.qualified.host.name = caddeapllx2871.agil.nprd.caixa.gov.br
-        jboss.server.base.dir = /opt/jboss-eap/standalone
-        jboss.server.config.dir = /opt/jboss-eap/standalone/configuration
-        jboss.server.data.dir = /opt/jboss-eap/standalone/data
-        jboss.server.deploy.dir = /opt/jboss-eap/standalone/data/content
-        jboss.server.log.dir = /logs/jboss/jboss-eap/standalone/sigec-portabilidade
-        jboss.server.name = caddeapllx2871
-        jboss.server.persist.config = true
-        jboss.server.temp.dir = /opt/jboss-eap/standalone/tmp
-        jdk.debug = release
-        jdk.serialFilter = maxbytes=10485760;maxdepth=128;maxarray=100000;maxrefs=300000
-        line.separator =
+<?xml version='1.0' encoding='UTF-8'?>
 
-        logging.configuration = file:/opt/jboss-eap/standalone/configuration/logging.properties
-        module.path = /opt/jboss-eap/modules
-        native.encoding = UTF-8
-        org.jboss.boot.log.file = /logs/jboss/jboss-eap/standalone/sigec-portabilidade/server.log
-        org.jboss.resolver.warning = true
-        org.osgi.framework.bootdelegation = co.elastic.apm.agent.*
-        os.arch = amd64
-        os.name = Linux
-        os.version = 5.14.0-362.8.1.el9_3.x86_64
-        path.separator = :
-        sun.arch.data.model = 64
-        sun.boot.library.path = /usr/lib/jvm/java-17-openjdk-17.0.13.0.11-4.el9.x86_64/lib
-        sun.cpu.endian = little
-        sun.io.unicode.encoding = UnicodeLittle
-        sun.java.command = /opt/jboss-eap/jboss-modules.jar -mp /opt/jboss-eap/modules org.jboss.as.standalone -Djboss.home.dir=/opt/jboss-eap -Djboss.server.base.dir=/opt/jboss-eap/standalone -b 0.0.0.0 -bmanagement 0.0.0.0 -Djboss.server.base.dir=/opt/jboss-eap/standalone -Djboss.server.log.dir=/logs/jboss/jboss-eap/standalone/sigec-portabilidade -c standalone-full-ha.xml
-        sun.java.launcher = SUN_STANDARD
-        sun.jnu.encoding = UTF-8
-        sun.management.compiler = HotSpot 64-Bit Tiered Compilers
-        sun.util.logging.disableCallerCheck = true
-        user.country = BR
-        user.dir = /
-        user.home = /home/jboss
-        user.language = pt
-        user.name = jboss
-        user.timezone = America/Sao_Paulo
-2026-11-17 11:09:53,863 DEBUG [org.jboss.as.config] (MSC service thread 1-2) Argumentos da VM: -D[Standalone] -Xlog:gc*:file=/logs/jboss/jboss-eap/standalone/sigec-portabilidade/gc.log:time,uptimemillis:filecount=5,filesize=3M -Djdk.serialFilter=maxbytes=10485760;maxdepth=128;maxarray=100000;maxrefs=300000 -Xms1024m -Xmx2048m -XX:MetaspaceSize=96m -XX:MaxMetaspaceSize=512m -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs=org.jboss.byteman,org.jboss.logmanager -Djava.awt.headless=true -Djavax.net.ssl.trustStore=/opt/jboss-eap/standalone/configuration/caixa-truststore-acteste-nprd.jks -Djavax.net.ssl.trustStorePassword=changeit -Djboss.modules.policy-permissions=true -XX:+ExplicitGCInvokesConcurrent -XX:+UseG1GC -XX:MaxGCPauseMillis=500 -Xbootclasspath/a:/opt/jboss-eap/modules/system/layers/base/org/wildfly/common/main/wildfly-common-1.5.4.Final-redhat-00001.jar -Xbootclasspath/a:/opt/jboss-eap/modules/system/layers/base/org/jboss/logmanager/main/jboss-logmanager-2.1.18.Final-redhat-00001.jar -Dsun.util.logging.disableCallerCheck=true -Djava.util.logging.manager=org.jboss.logmanager.LogManager -javaagent:/opt/jmx_exporter/jmx_prometheus.jar=8778:/opt/jmx_exporter/jmx_prometheus.yaml -javaagent:/opt/apm_agent/elastic-apm-agent-1.15.0.jar -Delastic.apm.config_file=/opt/apm_agent/elasticapm-1.15.0.properties -Delastic.apm.service_name=sigec-portabilidade -Delastic.apm.environment=DES -Delastic.apm.application_packages=br.gov.caixa -Delastic.apm.server_urls=http://apm-server-devops.produtos.caixa -Delastic.apm.global_labels=deployment=sigec-portabilidade-des-esteiras --add-exports=java.base/sun.nio.ch=ALL-UNNAMED --add-exports=jdk.unsupported/sun.misc=ALL-UNNAMED --add-exports=jdk.unsupported/sun.reflect=ALL-UNNAMED --add-exports=java.desktop/sun.awt=ALL-UNNAMED --add-exports=java.naming/com.sun.jndi.ldap=ALL-UNNAMED --add-exports=java.naming/com.sun.jndi.url.ldap=ALL-UNNAMED --add-exports=java.naming/com.sun.jndi.url.ldaps=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.lang.invoke=ALL-UNNAMED --add-opens=java.base/java.lang.reflect=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/java.security=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.management/javax.management=ALL-UNNAMED --add-opens=java.naming/javax.naming=ALL-UNNAMED -Dorg.jboss.boot.log.file=/logs/jboss/jboss-eap/standalone/sigec-portabilidade/server.log -Dlogging.configuration=file:/opt/jboss-eap/standalone/configuration/logging.properties
-2026-11-17 11:09:54,552 INFO  [org.wildfly.security] (ServerService Thread Pool -- 23) ELY00001: WildFly Elytron version 1.15.23.Final-redhat-00001
-2026-11-17 11:09:54,859 INFO  [org.jboss.as.controller.management-deprecated] (ServerService Thread Pool -- 18) WFLYCTL0033: A extensão 'security' é obsoleta e talvez não seja suportada em versões futuras
-2026-11-17 11:09:55,219 INFO  [org.jboss.as.controller.management-deprecated] (Controller Boot Thread) WFLYCTL0028: O atributo 'security-realm' no recurso, no endereço '/core-service=management/management-interface=http-interface', é obsoleto e pode ser removido em uma versão futura. Veja a descrição do atributo no resultado da operação read-resource-description para saber mais sobre a substituição.
-2026-11-17 11:09:55,292 INFO  [org.jboss.as.controller.management-deprecated] (ServerService Thread Pool -- 41) WFLYCTL0028: O atributo 'security-realm' no recurso, no endereço '/subsystem=undertow/server=default-server/https-listener=https', é obsoleto e pode ser removido em uma versão futura. Veja a descrição do atributo no resultado da operação read-resource-description para saber mais sobre a substituição.
-2026-11-17 11:09:55,305 INFO  [org.jboss.as.server.deployment.scanner] (DeploymentScanner-threads - 1) WFLYDS0015: A nova tentativa implantação de framework.jar falhou
-2026-11-17 11:09:55,306 INFO  [org.jboss.as.server.deployment.scanner] (DeploymentScanner-threads - 1) WFLYDS0015: A nova tentativa implantação de framework_sisgd.jar falhou
-2026-11-17 11:09:55,306 INFO  [org.jboss.as.server.deployment.scanner] (DeploymentScanner-threads - 1) WFLYDS0015: A nova tentativa implantação de wmq.jmsra.rar falhou
-2026-11-17 11:09:55,306 INFO  [org.jboss.as.server.deployment.scanner] (DeploymentScanner-threads - 1) WFLYDS0015: A nova tentativa implantação de gec-ear.ear falhou
-2026-11-17 11:09:55,670 ERROR [org.jboss.as.controller.management-operation] (Controller Boot Thread) WFLYCTL0013: Falha na operação ("add") - endereço ([
-    ("core-service" => "management"),
-    ("security-realm" => "ManagementRealm")
-]) - falha na descrição: "WFLYDM0145: O recurso 'security-realm' não tem suporte desde o Java 14"
-2026-11-17 11:09:55,671 ERROR [org.jboss.as.controller.management-operation] (Controller Boot Thread) WFLYCTL0013: Falha na operação ("add") - endereço ([
-    ("core-service" => "management"),
-    ("security-realm" => "ApplicationRealm")
-]) - falha na descrição: "WFLYDM0145: O recurso 'security-realm' não tem suporte desde o Java 14"
-2026-11-17 11:09:55,678 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0039: Criando serviço de gerenciamento http usando o socket-binding (management-http)
-2026-11-17 11:09:55,688 INFO  [org.xnio] (MSC service thread 1-1) XNIO version 3.8.16.Final-redhat-00001
-2026-11-17 11:09:55,703 INFO  [org.xnio.nio] (MSC service thread 1-1) XNIO NIO Implementation Version 3.8.16.Final-redhat-00001
-2026-11-17 11:09:55,751 INFO  [org.jboss.remoting] (MSC service thread 1-2) JBoss Remoting version 5.0.29.Final-redhat-00001
-2026-11-17 11:09:55,807 INFO  [org.jboss.as.connector.subsystems.datasources] (ServerService Thread Pool -- 48) WFLYJCA0004: Implantação do driver compatível-JDBC class org.h2.Driver (versão 1.4)
-2026-11-17 11:09:55,812 INFO  [org.wildfly.extension.health] (ServerService Thread Pool -- 56) WFLYHEALTH0001: Ativando o Subsistema Básico de integridade
-2026-11-17 11:09:55,821 ERROR [org.jboss.as.controller.management-operation] (ServerService Thread Pool -- 48) WFLYCTL0013: Falha na operação ("add") - endereço ([
-    ("subsystem" => "datasources"),
-    ("jdbc-driver" => "oracle")
-]) - falha na descrição: "WFLYJCA0041: Falha ao carregar o módulo para o driver [oracle]"
-2026-11-17 11:09:55,842 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 58) WFLYCLINF0001: Ativação do subsistema Infinispan.
-2026-11-17 11:09:55,854 INFO  [org.wildfly.iiop.openjdk] (ServerService Thread Pool -- 57) WFLYIIOP0001: Ativação de subsistema IIOP
-2026-11-17 11:09:55,857 INFO  [org.wildfly.extension.io] (ServerService Thread Pool -- 59) WFLYIO001: O operador 'default' configurou automaticamente para as threads de E/S 4 com o máximo de 32 threads de tarefas com base em seus 2 processadores disponíveis.
-2026-11-17 11:09:55,874 WARN  [org.wildfly.extension.elytron] (MSC service thread 1-2) WFLYELY00023: O arquivo '/opt/jboss-eap/standalone/configuration/application.keystore' da KeyStore não existe. Usado em branco.
-2026-11-17 11:09:55,878 WARN  [org.wildfly.extension.elytron] (MSC service thread 1-4) WFLYELY01084: KeyStore /opt/jboss-eap/standalone/configuration/application.keystore não encontrado; ele será gerado automaticamente na primeira utilização com um certificado autoassinado para o host localhost
-2026-11-17 11:09:55,879 INFO  [org.jboss.as.connector.subsystems.datasources] (ServerService Thread Pool -- 48) WFLYJCA0004: Implantação do driver compatível-JDBC class com.ibm.db2.jcc.DB2Driver (versão 4.16)
-2026-11-17 11:09:55,880 ERROR [org.jboss.as.controller.management-operation] (ServerService Thread Pool -- 48) WFLYCTL0013: Falha na operação ("add") - endereço ([
-    ("subsystem" => "datasources"),
-    ("jdbc-driver" => "sybase1")
-]) - falha na descrição: "WFLYJCA0115: O módulo para o driver [sybase] ou uma das suas dependências está faltando: [sybase]"
-2026-11-17 11:09:55,880 ERROR [org.jboss.as.controller.management-operation] (ServerService Thread Pool -- 48) WFLYCTL0013: Falha na operação ("add") - endereço ([
-    ("subsystem" => "datasources"),
-    ("jdbc-driver" => "p6spy")
-]) - falha na descrição: "WFLYJCA0115: O módulo para o driver [com.p6spy] ou uma das suas dependências está faltando: [com.p6spy]"
-2026-11-17 11:09:55,898 INFO  [org.jboss.as.clustering.jgroups] (ServerService Thread Pool -- 63) WFLYCLJG0001: Ativação do subsistema JGroups. Versão do JGroups 4.2.23
-2026-11-17 11:09:55,901 INFO  [org.jboss.as.connector] (MSC service thread 1-3) WFLYJCA0009: Inicialização do Subsistema Jakarta Connectors (WildFly/IronJacamar 1.5.17.Final-redhat-00001)
-2026-11-17 11:09:55,905 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-3) WFLYJCA0018: Serviço de driver iniciado com nome-do-driver = db2
-2026-11-17 11:09:55,905 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-3) WFLYJCA0018: Serviço de driver iniciado com nome-do-driver = h2
-2026-11-17 11:09:55,915 INFO  [org.jboss.as.jaxrs] (ServerService Thread Pool -- 60) WFLYRS0016: RESTEasy versão 3.15.9.Final-redhat-00001
-2026-11-17 11:09:55,937 INFO  [org.jboss.as.jsf] (ServerService Thread Pool -- 66) WFLYJSF0007: Ativadas as seguintes implantações do Jakarta Server Faces: [main]
-2026-11-17 11:09:55,990 INFO  [org.jboss.as.naming] (ServerService Thread Pool -- 73) WFLYNAM0001: Ativação do Subsistema de Nomeação
-2026-11-17 11:09:55,995 INFO  [org.wildfly.extension.metrics] (ServerService Thread Pool -- 71) WFLYMETRICS0001: Ativando o subsistema de métricas de base
-2026-11-17 11:09:56,020 ERROR [org.jboss.as.controller.management-operation] (ServerService Thread Pool -- 79) WFLYCTL0013: Falha na operação ("add") - endereço ([("subsystem" => "security")]) - falha na descrição: "WFLYSEC0106: O recurso 'security' não tem suporte desde o Java 14"
-2026-11-17 11:09:56,052 INFO  [org.jboss.as.webservices] (ServerService Thread Pool -- 84) WFLYWS0002: Ativação da Extensão WebServices
-2026-11-17 11:09:56,058 WARN  [org.jboss.as.txn] (ServerService Thread Pool -- 82) WFLYTX0013: O atributo node-identifier em /subsystem=transactions está definido com o valor padrão. Isso é perigoso para ambientes executando vários servidores. Certifique-se de que o valor do atributo é exclusivo.
-2026-11-17 11:09:56,101 INFO  [org.jboss.as.ejb3] (MSC service thread 1-1) WFLYEJB0481: O pool estrito slsb-strict-max-pool está utilizando um tamanho de instância máximo de 32 (por classe) que é derivado do tamanho de pool do thead de trabalho.
-2026-11-17 11:09:56,106 INFO  [org.jboss.as.ejb3] (MSC service thread 1-4) WFLYEJB0482: O pool estrito mdb-strict-max-pool está utilizando um tamanho de instância máximo de 8 (por classe) que é derivado do número de CPUs neste host.
-2026-11-17 11:09:56,163 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-4) WFLYUT0003: Iniciando Undertow 2.2.33.SP1-redhat-00001
-2026-11-17 11:09:56,191 INFO  [org.jboss.as.naming] (MSC service thread 1-4) WFLYNAM0003: Iniciando o Serviço de Nomeação
-2026-11-17 11:09:56,265 INFO  [org.jboss.as.mail.extension] (MSC service thread 1-4) WFLYMAIL0001: Sessão de e-mail associada [java:jboss/mail/Default]
-2026-11-17 11:09:56,301 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 83) WFLYUT0014: Criando identificador de arquivo para caminho de acesso '/opt/jboss-eap/welcome-content' com as opções [directory-listing: 'false', follow-symlink: 'false', case-sensitive: 'true', safe-symlink-paths: '[]']
-2026-11-17 11:10:03,777 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-1) WFLYSRV0208: Interrompendo a subimplantação (runtime-name: gec-ejb.jar) em 4ms
-2026-11-17 11:10:03,778 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-1) WFLYSRV0028: Implantação interrompida framework_sisgd.jar (runtime-name: framework_sisgd.jar) em 4ms
-2026-11-17 11:10:03,778 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-1) WFLYSRV0028: Implantação interrompida wmq.jmsra.rar (runtime-name: wmq.jmsra.rar) em 5ms
-2026-11-17 11:10:03,777 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-2) WFLYSRV0028: Implantação interrompida framework.jar (runtime-name: framework.jar) em 4ms
-2026-11-17 11:10:03,787 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-3) WFLYSRV0208: Interrompendo a subimplantação (runtime-name: gec-api.war) em 14ms
-2026-11-17 11:10:03,834 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-3) WFLYSRV0208: Interrompendo a subimplantação (runtime-name: gec-web.war) em 60ms
-2026-11-17 11:10:03,845 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-3) WFLYSRV0028: Implantação interrompida gec-ear.ear (runtime-name: gec-ear.ear) em 72ms
-2026-11-17 11:10:03,848 INFO  [org.infinispan.manager.DefaultCacheManager] (ServerService Thread Pool -- 86) Stopping cache manager null on caddeapllx2871
-2026-11-17 11:10:03,848 INFO  [org.infinispan.manager.DefaultCacheManager] (ServerService Thread Pool -- 88) Stopping cache manager null on caddeapllx2871
-2026-11-17 11:10:03,856 INFO  [org.infinispan.manager.DefaultCacheManager] (ServerService Thread Pool -- 87) Stopping cache manager null on caddeapllx2871
-2026-11-17 11:10:03,857 INFO  [org.infinispan.manager.DefaultCacheManager] (ServerService Thread Pool -- 89) Stopping cache manager null on caddeapllx2871
-2026-11-17 11:10:03,862 INFO  [org.infinispan.CLUSTER] (ServerService Thread Pool -- 86) ISPN000080: Disconnecting JGroups channel ejb
-2026-11-17 11:10:03,864 INFO  [org.infinispan.CLUSTER] (ServerService Thread Pool -- 87) ISPN000080: Disconnecting JGroups channel ejb
-2026-11-17 11:10:03,865 INFO  [org.infinispan.CLUSTER] (ServerService Thread Pool -- 89) ISPN000080: Disconnecting JGroups channel ejb
-2026-11-17 11:10:03,865 INFO  [org.infinispan.CLUSTER] (ServerService Thread Pool -- 88) ISPN000080: Disconnecting JGroups channel ejb
-2026-11-17 11:10:03,898 ERROR [org.jboss.as.server] (ServerService Thread Pool -- 49) WFLYSRV0021: O procedimento da implantação "gec-ear.ear" foi revertido com mensagem de falha: undefined
-2026-11-17 11:10:03,899 ERROR [org.jboss.as.server] (ServerService Thread Pool -- 49) WFLYSRV0021: O procedimento da implantação "wmq.jmsra.rar" foi revertido com mensagem de falha: undefined
-2026-11-17 11:10:03,899 ERROR [org.jboss.as.server] (ServerService Thread Pool -- 49) WFLYSRV0021: O procedimento da implantação "framework_sisgd.jar" foi revertido com mensagem de falha: undefined
-2026-11-17 11:10:03,899 ERROR [org.jboss.as.server] (ServerService Thread Pool -- 49) WFLYSRV0021: O procedimento da implantação "framework.jar" foi revertido com mensagem de falha: undefined
-2026-11-17 11:10:03,904 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-3) WFLYUT0008: Undertow HTTP ouvinte default está suspendendo
-2026-11-17 11:10:03,911 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-2) WFLYUT0019: Interrompendo host default-host
-2026-11-17 11:10:03,919 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-2) WFLYUT0008: Undertow AJP ouvinte ajp está suspendendo
-2026-11-17 11:10:03,920 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-3) WFLYUT0007: Undertow HTTP ouvinte default interrompido, estava vinculado a 0.0.0.0:8080
-2026-11-17 11:10:03,923 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-2) WFLYUT0007: Undertow AJP ouvinte ajp interrompido, estava vinculado a 0.0.0.0:8009
-2026-11-17 11:10:03,925 INFO  [org.jboss.as.mail.extension] (MSC service thread 1-1) WFLYMAIL0002: Sessão de e-mail não associada [java:jboss/mail/Default]
-2026-11-17 11:10:03,925 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-1) WFLYJCA0010: Fonte de dados sem limite [java:/jdbc/DB2SifecDS]
-2026-11-17 11:10:03,925 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-2) WFLYJCA0099: Fonte de dados não transacional desvinculada: java:/jdbc/DB2SiempDS
-2026-11-17 11:10:03,925 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-2) WFLYJCA0010: Fonte de dados sem limite [java:jboss/datasources/ExampleDS]
-2026-11-17 11:10:03,926 INFO  [org.jboss.modcluster] (ServerService Thread Pool -- 58) MODCLUSTER000002: Initiating mod_cluster shutdown
-2026-11-17 11:10:03,925 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-1) WFLYJCA0010: Fonte de dados sem limite [java:/jdbc/DB2SigecDS]
-2026-11-17 11:10:03,938 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-3) WFLYUT0004: Interrompendo Undertow 2.2.33.SP1-redhat-00001
-2026-11-17 11:10:03,942 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-1) WFLYJCA0019: Serviço de driver interrompido com nome-do-driver = h2
-2026-11-17 11:10:03,946 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-2) WFLYJCA0019: Serviço de driver interrompido com nome-do-driver = db2
-2026-11-17 11:10:03,959 FATAL [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0056: A inicialização do servidor falhou numa maneira irrecuperável: encerrando. Consulte mensagens anteriores para maiores detalhes.
-2026-11-17 11:10:03,986 INFO  [org.jboss.as] (MSC service thread 1-1) WFLYSRV0050: JBoss EAP 7.4.18.GA (WildFly Core 15.0.37.Final-redhat-00001) interrompido em 13ms
-[root@caddeapllx2871 p585600]#
-[root@caddeapllx2871 p585600]#
-[root@caddeapllx2871 p585600]# cat /opt/jboss-eap/bin/init.d/jboss-eap-standalone.sh | head -60
-#!/bin/bash
-
-# Source function library.
-. /etc/init.d/functions
-
-STARTUP_WAIT=5
-SHUTDOWN_WAIT=5
-JBOSS_HOME=/opt/jboss-eap
-JBOSS_INSTANCE=standalone
-JBOSS_INSTANCE_PATH=$JBOSS_HOME/$JBOSS_INSTANCE
-IP_ADDR=0.0.0.0
-JBOSS_USER=jboss
-JBOSS_GROUP=jboss
-JBOSS_CONFIG=standalone-full-ha.xml
-JBOSS_PIDFILE=$JBOSS_INSTANCE_PATH/tmp/jboss-eap-$JBOSS_INSTANCE.pid
-JBOSS_LOG_DIR=/logs/jboss/jboss-eap/$JBOSS_INSTANCE/sigec-portabilidade
-JBOSS_CONSOLE_LOG=$JBOSS_LOG_DIR/console-stdout.log
-
-
-JBOSS_SCRIPT="$JBOSS_HOME/bin/standalone.sh\
-                -b $IP_ADDR\
-                -bmanagement $IP_ADDR\
-                -Djboss.server.base.dir=$JBOSS_INSTANCE_PATH\
-                -Djboss.server.log.dir=$JBOSS_LOG_DIR"
-
-prog="JBoss EAP"
-
-. /opt/jboss-eap/bin/common_start.sh
-[root@caddeapllx2871 p585600]#
-[root@caddeapllx2871 p585600]#
-[root@caddeapllx2871 p585600]# ls -lt /opt/jboss-eap/standalone/log/ /var/log/jboss* 2>/dev/null
-/opt/jboss-eap/standalone/log/:
-total 176
--rw-r--r-- 1 jboss jboss  22832 nov 17 11:10 server.log
--rw-r--r-- 1 jboss jboss 152651 nov 16 15:28 server.log.2026-11-16
--rwxrwxr-x 1 jboss jboss      0 set 30  2024 server.log.2024-09-30
--rwxrwxr-x 1 jboss jboss      0 set 30  2024 gc.log.0.current
--rwxrwxr-x 1 jboss jboss      0 set 30  2024 backupgc.log.current
--rwxrwxr-x 1 jboss jboss      0 set 30  2024 audit.log
-[root@caddeapllx2871 p585600]#
-[root@caddeapllx2871 p585600]#
-[root@caddeapllx2871 p585600]# /opt/jboss-eap/bin/standalone.sh --version
-=========================================================================
-
-  JBoss Bootstrap Environment
-
-  JBOSS_HOME: /opt/jboss-eap
-
-  JAVA: java
-
-  JAVA_OPTS:  -Xlog:gc*:file="/opt/jboss-eap/standalone/log/gc.log":time,uptimemillis:filecount=5,filesize=3M -Djdk.serialFilter="maxbytes=10485760;maxdepth=128;maxarray=100000;maxrefs=300000" -Xms1024m -Xmx2048m -XX:MetaspaceSize=96m -XX:MaxMetaspaceSize=512m -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs=org.jboss.byteman,org.jboss.logmanager -Djava.awt.headless=true -Djavax.net.ssl.trustStore=/opt/jboss-eap/standalone/configuration/caixa-truststore-acteste-nprd.jks -Djavax.net.ssl.trustStorePassword=changeit -Djboss.modules.policy-permissions=true -server -XX:+ExplicitGCInvokesConcurrent -XX:+UseG1GC -XX:MaxGCPauseMillis=500 -Xbootclasspath/a:/opt/jboss-eap/modules/system/layers/base/org/wildfly/common/main/wildfly-common-1.5.4.Final-redhat-00001.jar -Xbootclasspath/a:/opt/jboss-eap/modules/system/layers/base/org/jboss/logmanager/main/jboss-logmanager-2.1.18.Final-redhat-00001.jar -Dsun.util.logging.disableCallerCheck=true -Djava.util.logging.manager=org.jboss.logmanager.LogManager -javaagent:/opt/jmx_exporter/jmx_prometheus.jar=8778:/opt/jmx_exporter/jmx_prometheus.yaml -javaagent:/opt/apm_agent/elastic-apm-agent-1.15.0.jar -Delastic.apm.config_file=/opt/apm_agent/elasticapm-1.15.0.properties -Delastic.apm.service_name=sigec-portabilidade -Delastic.apm.environment=DES -Delastic.apm.application_packages=br.gov.caixa -Delastic.apm.server_urls=http://apm-server-devops.produtos.caixa -Delastic.apm.global_labels=deployment=sigec-portabilidade-des-esteiras  --add-exports=java.base/sun.nio.ch=ALL-UNNAMED --add-exports=jdk.unsupported/sun.misc=ALL-UNNAMED --add-exports=jdk.unsupported/sun.reflect=ALL-UNNAMED --add-exports=java.desktop/sun.awt=ALL-UNNAMED --add-exports=java.naming/com.sun.jndi.ldap=ALL-UNNAMED --add-exports=java.naming/com.sun.jndi.url.ldap=ALL-UNNAMED --add-exports=java.naming/com.sun.jndi.url.ldaps=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.lang.invoke=ALL-UNNAMED --add-opens=java.base/java.lang.reflect=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/java.security=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.management/javax.management=ALL-UNNAMED --add-opens=java.naming/javax.naming=ALL-UNNAMED
-
-=========================================================================
-
-nov. 17, 2026 11:17:09 AM java.lang.System$LoggerFinder lambda$accessProvider$0
-WARNING: Failed to instantiate LoggerFinder provider; Using default.
-OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
-11:17:10,294 INFO  [org.jboss.modules] (main) JBoss Modules version 1.12.3.Final-redhat-00001
-JBoss EAP 7.4.18.GA (WildFly Core 15.0.37.Final-redhat-00001)
-[root@caddeapllx2871 p585600]# java -version
-openjdk version "17.0.13" 2024-10-15 LTS
-OpenJDK Runtime Environment (Red_Hat-17.0.13.0.11-1) (build 17.0.13+11-LTS)
-OpenJDK 64-Bit Server VM (Red_Hat-17.0.13.0.11-1) (build 17.0.13+11-LTS, mixed mode, sharing)
-[root@caddeapllx2871 p585600]#
+<server xmlns="urn:jboss:domain:16.0">
+    <extensions>
+        <extension module="org.jboss.as.modcluster"/>
+        <extension module="org.jboss.as.clustering.infinispan"/>
+        <extension module="org.jboss.as.clustering.jgroups"/>
+        <extension module="org.jboss.as.connector"/>
+        <extension module="org.jboss.as.deployment-scanner"/>
+        <extension module="org.jboss.as.ee"/>
+        <extension module="org.jboss.as.ejb3"/>
+        <extension module="org.jboss.as.jaxrs"/>
+        <extension module="org.jboss.as.jdr"/>
+        <extension module="org.jboss.as.jmx"/>
+        <extension module="org.jboss.as.jpa"/>
+        <extension module="org.jboss.as.jsf"/>
+        <extension module="org.jboss.as.jsr77"/>
+        <extension module="org.jboss.as.logging"/>
+        <extension module="org.jboss.as.mail"/>
+        <extension module="org.jboss.as.naming"/>
+        <extension module="org.jboss.as.pojo"/>
+        <extension module="org.jboss.as.remoting"/>
+        <extension module="org.jboss.as.sar"/>
+        <extension module="org.jboss.as.security"/>
+        <extension module="org.jboss.as.transactions"/>
+        <extension module="org.jboss.as.webservices"/>
+        <extension module="org.jboss.as.weld"/>
+        <extension module="org.keycloak.keycloak-adapter-subsystem"/>
+        <extension module="org.wildfly.extension.batch.jberet"/>
+        <extension module="org.wildfly.extension.bean-validation"/>
+        <extension module="org.wildfly.extension.clustering.singleton"/>
+        <extension module="org.wildfly.extension.clustering.web"/>
+        <extension module="org.wildfly.extension.core-management"/>
+        <extension module="org.wildfly.extension.discovery"/>
+        <extension module="org.wildfly.extension.ee-security"/>
+        <extension module="org.wildfly.extension.elytron"/>
+        <extension module="org.wildfly.extension.health"/>
+        <extension module="org.wildfly.extension.io"/>
+        <extension module="org.wildfly.extension.messaging-activemq"/>
+        <extension module="org.wildfly.extension.metrics"/>
+        <extension module="org.wildfly.extension.request-controller"/>
+        <extension module="org.wildfly.extension.security.manager"/>
+        <extension module="org.wildfly.extension.undertow"/>
+        <extension module="org.wildfly.iiop-openjdk"/>
+    </extensions>
+    <system-properties>
+        <property name="CLIENT_APP_ID" value="cli-ser-gec"/>
+        <property name="CLIENT_APP_SECRET" value="385c6032-c152-465c-97cf-7ac351649caa"/>
+        <property name="client.secret" value="385c6032-c152-465c-97cf-7ac351649caa"/>
+        <property name="USUARIO_SILCR" value="SGECLCRQ"/>
+        <property name="QTD_REGISTROS_ARCC001" value="5000"/>
+        <property name="QTD_REGISTROS_ARCC002" value="5000"/>
+        <property name="PASTA_PUBLICA_APX" value="\\NBTITMA141426/Desenvolvimento/SIGEC/demandas/XML_Fluxos"/>
+        <property name="outdir" value="C:/Desenvolvimento/SIGEC/demandas/XML_Fluxos/ARCC"/>
+        <property name="API_MANAGER_API_KEY" value="l714f9532275eb495c85015a769ab99181"/>
+        <property name="API_MANAGER_URL_BASE" value="https://api.des.caixa:8443"/>
+        <property name="BARRAMENTO_URL_BASE" value="http://tqs.barramento.caixa"/>
+        <property name="AMBIENTE" value="des"/>
+        <property name="PROCESSAR_BATCH" value="SIM"/>
+        <property name="http.nonProxyHosts" value="*.caixa"/>
+        <property name="javax.net.debug" value="true"/>
+        <property name="SIGEC_USUARIO" value="SGECDB01"/>
+        <property name="SIGEC_PASSWORD" value="SGECDB01"/>
+        <property name="SIFEC_USUARIO" value="SCNLFECD"/>
+        <property name="_urlConsultaBoleto" value="http://localhost:8080/fec-web/emprest/consultaBoleto/consulaBoletoRegistrado"/>
+        <property name="urlConsultaBoleto" value="http://sifec.desenvolvimento.extracaixa/fec-web/emprest/consultaBoleto/consulaBoletoRegistrado"/>
+        <property name="URL_CONSULTAR_BOLETO" value="http://10.1.14.39/sibar/ConsultaCobrancaBancaria/Boleto"/>
+        <property name="URL_MANUTENCAO_BOLETO" value="http://10.1.14.39/sibar/ManutencaoCobrancaBancaria/Boleto"/>
+        <property name="URL_SIFEC" value="http://localhost:8080/"/>
+        <property name="SIPES_USUARIO_CICS" value="F975512"/>
+        <property name="SIPES_SENHA_CICS" value="Tivit11"/>
+        <property name="_SIPES_USUARIO_CICS" value="SPESDB01"/>
+        <property name="_SIPES_SENHA_CICS" value="s739041"/>
+        <property name="SICCR_URL_LDAP_INTERNO" value="ldap://10.1.14.45:389"/>
+        <property name="SICCR_BASE_INTERNO" value="ou=People,o=caixa"/>
+        <property name="SICCR_URL_LDAP_EXTERNO" value="ldap://localhost:389"/>
+        <property name="NUCLEA_URL_HOST" value="https://apim-parceiros-sandbox.azure-api.net"/>
+        <property name="NUCLEA_URL_BASE" value="/portabilidade"/>
+        <property name="SSL_DEBUG" value="true"/>
+        <property name="QUEUE_ENVIO_OPF" value="sigec-opf-queue-envia-sigec-por"/>
+        <property name="CONNECTION_QUEUE_ENVIO_OPF" value="Endpoint=sb://servicebus-crc-nprd.servicebus.windows.net/;sharedaccesskeyname=SAScrc;SharedAccessKey=bot1WVFQWxfH23Ip+7lrT5ZBhbv1LnkzC+ASbGD2Y60=;EntityPath=sigec-opf-queue-envia-sigec-por"/>
+        <property name="SSL_TRUST_ALL_CERTIFICATES" value="true"/>
+        <property name="SSL_VERIFY_HOSTNAME" value="false"/>
+        <property name="SIMTR_BASE_URL" value="/simtr"/>
+        <property name="SICCR_BASE_EXTERNO" value="ou=People,o=caixa_des"/>
+        <property name="TESTE_MOCK_RURAL_SISGD" value="true"/>
+        <property name="TESTE_MOCK_CONSULTA_AVALIACAO_RISCO" value="true"/>
+        <property name="TESTE_MOCK_RENOVAR_CONTRATO_MPOG" value="true"/>
+        <property name="TESTE_MOCK_CONSULTA_MARGEM_MPOG" value="true"/>
+        <property name="TESTE_MOCK_INCLUIR_CONTRATO_MPOG" value="true"/>
+        <property name="TESTE_MOCK_CANCELAR_CONTRATO_MPOG" value="true"/>
+        <property name="TESTE_MOCK_LDAP_DESENVOLVIMENTO" value="true"/>
+        <property name="TESTE_MOCK_XML_CONSULTA_MARGEM_MPOG" value="*response%*dados_matricula%*cd_orgao%13000*/cd_orgao%*nr_cnpj_orgao%00396895000125*/nr_cnpj_orgao%*cd_matricula%0000013*/cd_matricula%*id_unica%0000013*/id_unica%*org_mat_inst%*/org_mat_inst%*vl_margem_consig%000100000000000*/vl_margem_consig%*vl_margem_utiliz%000001000000000*/vl_margem_utiliz%*vl_margem_disp%00010000000*/vl_margem_disp%*vl_margem_fixa%000100000000000*/vl_margem_fixa%*vl_margem_var%000000100000000*/vl_margem_var%*vl_margem_disp_fixa%000001000000000*/vl_margem_disp_fixa%*dt_prim_desc%201705*/dt_prim_desc%*cd_upag_serv%13000000001203*/cd_upag_serv%*cd_uf_upag_serv%DF*/cd_uf_upag_serv%*bloqueio_judicial%N*/bloqueio_judicial%*cd_ret_code_matricula%0000*/cd_ret_code_matricula%*ds_ret_code_matricula%*/ds_ret_code_matricula%*/dados_matricula%*cd_ret_code%0000*/cd_ret_code%*ds_ret_code%Servico realizado com sucesso.*/ds_ret_code%*/response%"/>
+        <property name="TESTE_MOCK_SSO_TOKEN" value="false"/>
+        <property name="TESTE_MOCK_SIMTR_GET_DOCUMENTO" value="false"/>
+        <property name="TESTE_MOCK_NUCLEA_CONSULTA" value="false"/>
+        <property name="TESTE_MOCK_NUCLEA_SOLICITACAO_PDF" value="false"/>
+        <property name="TESTE_MOCK_NUCLEA_RETENCAO_PDF" value="false"/>
+        <property name="TESTE_MOCK_NUCLEA_RETENCAO_AUDIO" value="false"/>
+        <property name="TESTE_MOCK_SICLI_GET_GERAIS" value="false"/>
+        <property name="TESTE_MOCK_SICLI_GET_BASICOS" value="false"/>
+        <property name="URL_SAP_RURAL_DES" value="http://mo7366ux0007.intra.caixa.gov.br:50000/RESTAdapter/"/>
+        <property name="auth.sso.baseurl" value="https://login.des.caixa"/>
+        <property name="auth.sso.userinfo" value="${auth.sso.baseurl}/auth/realms/intranet/protocol/openid-connect/userinfo"/>
+        <property name="SSO_SERVICO_URL_BASE_INTRANET" value="https://login.des.caixa"/>
+        <property name="SSO_INTRANET_REALM_NAME" value="intranet"/>
+        <property name="SSO_INTRANET_AUTH_URL" value="https://login.des.caixa/auth"/>
+        <property name="SSO_INTRANET_RESOURCE_NAME" value="cli-web-gec"/>
+        <property name="SSO_INTRANET_SECRET" value="897f0b68-56da-4a9e-9f94-17feb26d4e56"/>
+        <property name="SSO_INTRANET_TYPE_OF_SSL_REQUIRED" value="external"/>
+        <property name="SSO_INTRANET_BEARER_ONLY" value="false"/>
+        <property name="SSO_INTRANET_PUBLIC_CLIENT" value="false"/>
+        <property name="SSO_INTERNET_REALM_NAME" value="internet"/>
+        <property name="SSO_INTERNET_AUTH_URL" value="https://logindes.caixa.gov.br/auth"/>
+        <property name="SSO_INTERNET_RESOURCE_NAME" value="cli-web-gec"/>
+        <property name="SSO_INTERNET_SECRET" value="72dab88a-55a9-4d56-ad2e-79319cdba900"/>
+        <property name="SSO_INTERNET_TYPE_OF_SSL_REQUIRED" value="external"/>
+        <property name="SSO_INTERNET_BEARER_ONLY" value="false"/>
+        <property name="SSO_INTERNET_PUBLIC_CLIENT" value="false"/>
+        <property name="SSO_INTERNET2_REALM_NAME" value="r_inter_siper"/>
+        <property name="SSO_INTERNET2_AUTH_URL" value="https://loginxdes.caixa.gov.br/auth"/>
+        <property name="SSO_INTERNET2_RESOURCE_NAME" value="cli-web-gec"/>
+        <property name="SSO_INTERNET2_SECRET" value="72dab88a-55a9-4d56-ad2e-79319cdba900"/>
+        <property name="SSO_INTERNET2_TYPE_OF_SSL_REQUIRED" value="external"/>
+        <property name="SSO_INTERNET2_BEARER_ONLY" value="false"/>
+        <property name="SSO_INTERNET2_PUBLIC_CLIENT" value="false"/>
+        <property name="API_SICLI_URL_BASE" value="http://api.des.caixa:8080"/>
+        <property name="SICLI_API_URL" value="http://api.des.caixa:8080"/>
+        <property name="SICLI_API_KEY" value="l714f9532275eb495c85015a769ab99181"/>
+        <property name="CONNECTOR_SOCKET_SERVER_NAME" value="10.116.94.212"/>
+        <property name="CONNECTOR_SOCKET_SERVER_PORT" value="3333"/>
+        <property name="QUEUE_RSP_PAGAMENTO_TED_NCR" value="queue-rsp-pagamento-ted-des"/>
+        <property name="QUEUE_ENVIO_TED_NCR" value="queue-envio-ted-des"/>
+        <property name="QUEUE_RECEBIMENTO_TED_NCR" value="queue-recebimento-ted-des"/>
+        <property name="QUEUE_VERIFICACAO_TED_NCR" value="queue-verificacao-ted-des"/>
+        <property name="TOPIC_RECEBIMENTO_TED_TRC_NCR" value="topic-recebimento-ted-trc"/>
+        <property name="SUBSCRIPTION_NAME_TED_NCR" value="SIGEC"/>
+        <property name="SUBSCRIPTION_RESPOSTA_NAME_TED_NCR" value="SIGECR1"/>
+        <property name="QUALIFIED_NAMESPACE_TED_NCR" value="sb-credito-des.servicebus.windows.net"/>
+        <property name="CONNECTION_QUEUE_REQ_PAGAMENTO_TED_NCR" value="Endpoint=sb://sb-credito-des.servicebus.windows.net/;SharedAccessKeyName=Sender;SharedAccessKey=qH+NSwQ3yTLPFeGaELSKSDnvLyWYQnuz5+ASbG6XcwQ=;EntityPath=queue-req-pagamneto-ted-des"/>
+        <property name="CONNECTION_QUEUE_RSP_PAGAMENTO_TED_NCR" value="Endpoint=sb://sb-credito-des.servicebus.windows.net/;SharedAccessKeyName=Listener;SharedAccessKey=kV2eqtd4Ye3vDsItwoQb4jhGwANBa1V5O+ASbPkRCBA=;EntityPath=queue-rsp-pagamento-ted-des"/>
+        <property name="CONNECTION_QUEUE_RECEBIMENTO_PAGAMENTO_TED_NCR" value="Endpoint=sb://sb-credito-des.servicebus.windows.net/;SharedAccessKeyName=SIGEC;SharedAccessKey=8bTBB1PnMqDIYCx6g7Q4y3autRZewNkWi+ASbCO48rI=;EntityPath=topic-recebimento-ted-trc"/>
+        <property name="CONNECTION_QUEUE_REQ_ENVIO_TED_NCR" value="Endpoint=sb://sb-credito-des.servicebus.windows.net/;SharedAccessKeyName=Listner;SharedAccessKey=ZwKtWXstbi4vdaAwEMF/bqFt32Uo1b3pc+ASbKjIkbA=;EntityPath=queue-envio-ted-des"/>
+        <property name="CONNECTION_QUEUE_RECEBIMENTO_TED_NCR" value="Endpoint=sb://sb-credito-des.servicebus.windows.net/;SharedAccessKeyName=Sender;SharedAccessKey=/w6Lkh4FKsk6iYYnnz2y4Pv4RPrchigZs+ASbL3grQM=;EntityPath=queue-recebimento-ted-des"/>
+        <property name="CONNECTION_QUEUE_VERIFICACAO_TED_NCR" value="Endpoint=sb://sb-credito-des.servicebus.windows.net/;SharedAccessKeyName=Sender;SharedAccessKey=AkFDPClutoUD69rzUkcbNwRFILo93ICDo+ASbD/CXb4=;EntityPath=queue-verificacao-ted-des"/>
+    </system-properties>
+    <management>
+        <security-realms>
+            <security-realm name="ManagementRealm">
+                <authentication>
+                    <local default-user="$local" skip-group-loading="true"/>
+                    <properties path="mgmt-users.properties" relative-to="jboss.server.config.dir"/>
+                </authentication>
+                <authorization map-groups-to-roles="false">
+                    <properties path="mgmt-groups.properties" relative-to="jboss.server.config.dir"/>
+                </authorization>
+            </security-realm>
+            <security-realm name="ApplicationRealm">
+                <server-identities>
+                    <ssl>
+                        <keystore path="application.keystore" relative-to="jboss.server.config.dir" keystore-password="password" alias="server" key-password="password" generate-self-signed-certificate-host="localhost"/>
+                    </ssl>
+                </server-identities>
+                <authentication>
+                    <local default-user="$local" allowed-users="*" skip-group-loading="true"/>
+                    <properties path="application-users.properties" relative-to="jboss.server.config.dir"/>
+                </authentication>
+                <authorization>
+                    <properties path="application-roles.properties" relative-to="jboss.server.config.dir"/>
+                </authorization>
+            </security-realm>
+        </security-realms>
+        <audit-log>
+            <formatters>
+                <json-formatter name="json-formatter"/>
+            </formatters>
+            <handlers>
+                <file-handler name="file" formatter="json-formatter" path="audit-log.log" relative-to="jboss.server.data.dir"/>
+            </handlers>
+            <logger log-boot="true" log-read-only="false" enabled="false">
+                <handlers>
+                    <handler name="file"/>
+                </handlers>
+            </logger>
+        </audit-log>
+        <management-interfaces>
+            <http-interface security-realm="ManagementRealm">
+                <http-upgrade enabled="true"/>
+                <socket-binding http="management-http"/>
+            </http-interface>
+        </management-interfaces>
+        <access-control provider="simple">
+            <role-mapping>
+                <role name="SuperUser">
+                    <include>
+                        <user name="$local"/>
+                    </include>
+                </role>
+            </role-mapping>
+        </access-control>
+    </management>
+    <profile>
+        <subsystem xmlns="urn:jboss:domain:logging:8.0">
+            <console-handler name="CONSOLE">
+                <level name="INFO"/>
+                <formatter>
+                    <named-formatter name="COLOR-PATTERN"/>
+                </formatter>
+            </console-handler>
+            <periodic-rotating-file-handler name="FILE" autoflush="true">
+                <formatter>
+                    <named-formatter name="PATTERN"/>
+                </formatter>
+                <file relative-to="jboss.server.log.dir" path="server.log"/>
+                <suffix value=".yyyy-MM-dd"/>
+                <append value="true"/>
+            </periodic-rotating-file-handler>
+            <periodic-rotating-file-handler name="SIGEC" autoflush="true">
+                <level name="FINE"/>
+                <file relative-to="jboss.server.log.dir" path="sigec.log"/>
+                <suffix value=".yyyy-MM-dd"/>
+                <append value="true"/>
+            </periodic-rotating-file-handler>
+            <logger category="com.arjuna">
+                <level name="WARN"/>
+            </logger>
+            <logger category="io.jaegertracing.Configuration">
+                <level name="WARN"/>
+            </logger>
+            <logger category="org.jboss.as.config">
+                <level name="DEBUG"/>
+            </logger>
+            <logger category="sun.rmi">
+                <level name="WARN"/>
+            </logger>
+            <logger category="org.keycloak">
+                <level name="DEBUG"/>
+            </logger>
+            <logger category="br.gov.caixa" use-parent-handlers="false">
+                <level name="FINE"/>
+                <handlers>
+                    <handler name="SIGEC"/>
+                </handlers>
+            </logger>
+            <root-logger>
+                <level name="INFO"/>
+                <handlers>
+                    <handler name="CONSOLE"/>
+                    <handler name="FILE"/>
+                </handlers>
+            </root-logger>
+            <formatter name="PATTERN">
+                <pattern-formatter pattern="%d{yyyy-MM-dd HH:mm:ss,SSS} %-5p [%c] (%t) %s%e%n"/>
+            </formatter>
+            <formatter name="COLOR-PATTERN">
+                <pattern-formatter pattern="%K{level}%d{HH:mm:ss,SSS} %-5p [%c] (%t) %s%e%n"/>
+            </formatter>
+        </subsystem>
+        <subsystem xmlns="urn:jboss:domain:batch-jberet:2.0">
+            <default-job-repository name="in-memory"/>
+            <default-thread-pool name="batch"/>
+            <job-repository name="in-memory">
+                <in-memory/>
+            </job-repository>
+            <thread-pool name="batch">
+                <max-threads count="10"/>
+                <keepalive-time time="30" unit="seconds"/>
+            </thread-pool>
+        </subsystem>
+        <subsystem xmlns="urn:jboss:domain:bean-validation:1.0"/>
+        <subsystem xmlns="urn:jboss:domain:core-management:1.0"/>
+        <subsystem xmlns="urn:jboss:domain:datasources:6.0">
+            <datasources>
+                <datasource jndi-name="java:jboss/datasources/ExampleDS" pool-name="ExampleDS" enabled="true" use-java-context="true" statistics-enabled="${wildfly.datasources.statistics-enabled:${wildfly.statistics-enabled:false}}">
+                    <connection-url>jdbc:h2:mem:test;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE</connection-url>
+                    <driver>h2</driver>
+                    <security>
+                        <user-name>sa</user-name>
+                        <password>sa</password>
+                    </security>
+                </datasource>
+                <datasource jta="false" jndi-name="java:/jdbc/DB2SiempDS" pool-name="jdbc/DB2SiempDS" enabled="true" use-ccm="false">
+                    <connection-url>jdbc:db2://10.192.224.76:5021/CSD1</connection-url>
+                    <driver-class>com.ibm.db2.jcc.DB2Driver</driver-class>
+                    <driver>db2</driver>
+                    <security>
+                        <user-name>SEMPDB01</user-name>
+                        <password>S208706</password>
+                    </security>
+                </datasource>
+                <xa-datasource jndi-name="java:/jdbc/DB2SigecDS" pool-name="jdbc/DB2SigecDS" enabled="true" use-ccm="false">
+                    <xa-datasource-property name="ServerName">
+                        10.192.224.76
+                    </xa-datasource-property>
+                    <xa-datasource-property name="PortNumber">
+                        5021
+                    </xa-datasource-property>
+                    <xa-datasource-property name="DatabaseName">
+                        CSD1
+                    </xa-datasource-property>
+                    <xa-datasource-property name="DriverType">
+                        4
+                    </xa-datasource-property>
+                    <xa-datasource-class>com.ibm.db2.jcc.DB2XADataSource</xa-datasource-class>
+                    <driver>db2</driver>
+                    <security>
+                        <user-name>SGECDB01</user-name>
+                        <password>SGECDB01</password>
+                    </security>
+                    <validation>
+                        <valid-connection-checker class-name="org.jboss.jca.adapters.jdbc.extensions.db2.DB2ValidConnectionChecker"/>
+                        <validate-on-match>true</validate-on-match>
+                        <background-validation>false</background-validation>
+                        <exception-sorter class-name="org.jboss.jca.adapters.jdbc.extensions.db2.DB2ExceptionSorter"/>
+                    </validation>
+                    <timeout>
+                        <set-tx-query-timeout>true</set-tx-query-timeout>
+                        <blocking-timeout-millis>10000</blocking-timeout-millis>
+                        <query-timeout>10000</query-timeout>
+                        <use-try-lock>1</use-try-lock>
+                        <allocation-retry>1</allocation-retry>
+                        <allocation-retry-wait-millis>10000</allocation-retry-wait-millis>
+                        <xa-resource-timeout>10000</xa-resource-timeout>
+                    </timeout>
+                </xa-datasource>
+                <xa-datasource jndi-name="java:/jdbc/DB2SifecDS" pool-name="jdbc/DB2SifecDS" enabled="true" use-ccm="false">
+                    <xa-datasource-property name="ServerName">
+                        10.192.224.76
+                    </xa-datasource-property>
+                    <xa-datasource-property name="PortNumber">
+                        5021
+                    </xa-datasource-property>
+                    <xa-datasource-property name="DatabaseName">
+                        CSD1
+                    </xa-datasource-property>
+                    <xa-datasource-property name="DriverType">
+                        4
+                    </xa-datasource-property>
+                    <xa-datasource-class>com.ibm.db2.jcc.DB2XADataSource</xa-datasource-class>
+                    <driver>db2</driver>
+                    <security>
+                        <user-name>SFECDB01</user-name>
+                        <password>SFECDB01</password>
+                    </security>
+                    <timeout>
+                        <set-tx-query-timeout>true</set-tx-query-timeout>
+                        <blocking-timeout-millis>10000</blocking-timeout-millis>
+                        <query-timeout>10000</query-timeout>
+                        <use-try-lock>1</use-try-lock>
+                        <allocation-retry>1</allocation-retry>
+                        <allocation-retry-wait-millis>10000</allocation-retry-wait-millis>
+                        <xa-resource-timeout>10000</xa-resource-timeout>
+                    </timeout>
+                </xa-datasource>
+                <drivers>
+                    <driver name="h2" module="com.h2database.h2">
+                        <xa-datasource-class>org.h2.jdbcx.JdbcDataSource</xa-datasource-class>
+                    </driver>
+                    <driver name="oracle" module="oracle">
+                        <driver-class>oracle.jdbc.OracleDriver</driver-class>
+                    </driver>
+                    <driver name="db2" module="com.ibm.db2">
+                        <driver-class>com.ibm.db2.jcc.DB2Driver</driver-class>
+                    </driver>
+                    <driver name="sybase1" module="sybase"/>
+                    <driver name="p6spy" module="com.p6spy">
+                        <driver-class>com.p6spy.engine.spy.P6SpyDriver</driver-class>                    </driver>
+                </drivers>
+            </datasources>
+        </subsystem>
+        <subsystem xmlns="urn:jboss:domain:deployment-scanner:2.0">
+            <deployment-scanner path="deployments" relative-to="jboss.server.base.dir" scan-interval="5000" runtime-failure-causes-rollback="${jboss.deployment.scanner.rollback.on.failure:false}"/>
+        </subsystem>
+        <subsystem xmlns="urn:jboss:domain:discovery:1.0"/>
+        <subsystem xmlns="urn:jboss:domain:distributable-web:2.0" default-session-management="default" default-single-sign-on-management="default">
+            <infinispan-session-management name="default" cache-container="web" granularity="SESSION">
+                <primary-owner-affinity/>
+            </infinispan-session-management>
+            <infinispan-single-sign-on-management name="default" cache-container="web" cache="sso"/>
+            <infinispan-routing cache-container="web" cache="routing"/>
+        </subsystem>
+        <subsystem xmlns="urn:jboss:domain:ee:6.0">
+            <spec-descriptor-property-replacement>true</spec-descriptor-property-replacement>
+            <concurrent>
+                <context-services>
+                    <context-service name="default" jndi-name="java:jboss/ee/concurrency/context/default" use-transaction-setup-provider="true"/>
+                </context-services>
+                <managed-thread-factories>
+                    <managed-thread-factory name="default" jndi-name="java:jboss/ee/concurrency/factory/default" context-service="default"/>
+                </managed-thread-factories>
+                <managed-executor-services>
+                    <managed-executor-service name="default" jndi-name="java:jboss/ee/concurrency/executor/default" context-service="default" hung-task-termination-period="0" hung-task-threshold="60000" keepalive-time="5000"/>
+                </managed-executor-services>
+                <managed-scheduled-executor-services>
+                    <managed-scheduled-executor-service name="default" jndi-name="java:jboss/ee/concurrency/scheduler/default" context-service="default" hung-task-termination-period="0" hung-task-threshold="60000" keepalive-time="3000"/>
+                </managed-scheduled-executor-services>
+            </concurrent>
+            <default-bindings context-service="java:jboss/ee/concurrency/context/default" datasource="java:/jdbc/DB2SigecDS" jms-connection-factory="java:jboss/DefaultJMSConnectionFactory" managed-executor-service="java:jboss/ee/concurrency/executor/default" managed-scheduled-executor-service="java:jboss/ee/concurrency/scheduler/default" managed-thread-factory="java:jboss/ee/concurrency/factory/default"/>
+        </subsystem>
+        <subsystem xmlns="urn:jboss:domain:ee-security:1.0"/>
+        <subsystem xmlns="urn:jboss:domain:ejb3:9.0">
+            <session-bean>
+                <stateless>
+                    <bean-instance-pool-ref pool-name="slsb-strict-max-pool"/>
+                </stateless>
+                <stateful default-access-timeout="5000" cache-ref="distributable" passivation-disabled-cache-ref="simple"/>
+                <singleton default-access-timeout="5000"/>
+            </session-bean>
+            <mdb>
+                <resource-adapter-ref resource-adapter-name="${ejb.resource-adapter-name:activemq-ra.rar}"/>
+                <bean-instance-pool-ref pool-name="mdb-strict-max-pool"/>
+            </mdb>
+            <pools>
+                <bean-instance-pools>
+                    <strict-max-pool name="mdb-strict-max-pool" derive-size="from-cpu-count" instance-acquisition-timeout="5" instance-acquisition-timeout-unit="MINUTES"/>
+                    <strict-max-pool name="slsb-strict-max-pool" derive-size="from-worker-pools" instance-acquisition-timeout="5" instance-acquisition-timeout-unit="MINUTES"/>
+                </bean-instance-pools>
+            </pools>
+            <caches>
+                <cache name="simple"/>
+                <cache name="distributable" passivation-store-ref="infinispan" aliases="passivating clustered"/>
+            </caches>
+            <passivation-stores>
+                <passivation-store name="infinispan" cache-container="ejb" max-size="10000"/>
+            </passivation-stores>
+            <async thread-pool-name="default"/>
+            <timer-service thread-pool-name="default" default-data-store="default-file-store">
+                <data-stores>
+                    <file-data-store name="default-file-store" path="timer-service-data" relative-to="jboss.server.data.dir"/>
+                </data-stores>
+            </timer-service>
+            <remote cluster="ejb" connectors="http-remoting-connector" thread-pool-name="default">
+                <channel-creation-options>
+                    <option name="READ_TIMEOUT" value="${prop.remoting-connector.read.timeout:20}" type="xnio"/>
+                    <option name="MAX_OUTBOUND_MESSAGES" value="1234" type="remoting"/>
+                </channel-creation-options>
+            </remote>
+            <thread-pools>
+                <thread-pool name="default">
+                    <max-threads count="10"/>
+                    <keepalive-time time="60" unit="seconds"/>
+                </thread-pool>
+            </thread-pools>
+            <iiop enable-by-default="false" use-qualified-name="false"/>
+            <default-security-domain value="other"/>
+            <default-missing-method-permissions-deny-access value="false"/>
+            <statistics enabled="${wildfly.ejb3.statistics-enabled:${wildfly.statistics-enabled:false}}"/>
+            <log-system-exceptions value="true"/>
+        </subsystem>
+        <subsystem xmlns="urn:wildfly:elytron:13.0" final-providers="combined-providers" disallowed-providers="OracleUcrypto">
+            <providers>
+                <aggregate-providers name="combined-providers">
+                    <providers name="elytron"/>
+                    <providers name="openssl"/>
+                </aggregate-providers>
+                <provider-loader name="elytron" module="org.wildfly.security.elytron"/>
+                <provider-loader name="openssl" module="org.wildfly.openssl"/>
+            </providers>
+            <audit-logging>
+                <file-audit-log name="local-audit" path="audit.log" relative-to="jboss.server.log.dir" format="JSON"/>
+            </audit-logging>
+            <security-domains>
+                <security-domain name="ApplicationDomain" default-realm="ApplicationRealm" permission-mapper="default-permission-mapper">
+                    <realm name="ApplicationRealm" role-decoder="groups-to-roles"/>
+                    <realm name="local"/>
+                </security-domain>
+                <security-domain name="ManagementDomain" default-realm="ManagementRealm" permission-mapper="default-permission-mapper">
+                    <realm name="ManagementRealm" role-decoder="groups-to-roles"/>
+                    <realm name="local" role-mapper="super-user-mapper"/>
+                </security-domain>
+            </security-domains>
+            <security-realms>
+                <identity-realm name="local" identity="$local"/>
+                <properties-realm name="ApplicationRealm">
+                    <users-properties path="application-users.properties" relative-to="jboss.server.config.dir" digest-realm-name="ApplicationRealm"/>
+                    <groups-properties path="application-roles.properties" relative-to="jboss.server.config.dir"/>
+                </properties-realm>
+                <properties-realm name="ManagementRealm">
+                    <users-properties path="mgmt-users.properties" relative-to="jboss.server.config.dir" digest-realm-name="ManagementRealm"/>
+                    <groups-properties path="mgmt-groups.properties" relative-to="jboss.server.config.dir"/>
+                </properties-realm>
+            </security-realms>
+            <mappers>
+                <simple-permission-mapper name="default-permission-mapper" mapping-mode="first">
+                    <permission-mapping>
+                        <principal name="anonymous"/>
+                        <permission-set name="default-permissions"/>
+                    </permission-mapping>
+                    <permission-mapping match-all="true">
+                        <permission-set name="login-permission"/>
+                        <permission-set name="default-permissions"/>
+                    </permission-mapping>
+                </simple-permission-mapper>
+                <constant-realm-mapper name="local" realm-name="local"/>
+                <simple-role-decoder name="groups-to-roles" attribute="groups"/>
+                <constant-role-mapper name="super-user-mapper">
+                    <role name="SuperUser"/>
+                </constant-role-mapper>
+            </mappers>
+            <permission-sets>
+                <permission-set name="login-permission">
+                    <permission class-name="org.wildfly.security.auth.permission.LoginPermission"/>
+                </permission-set>
+                <permission-set name="default-permissions">
+                    <permission class-name="org.wildfly.extension.batch.jberet.deployment.BatchPermission" module="org.wildfly.extension.batch.jberet" target-name="*"/>
+                    <permission class-name="org.wildfly.transaction.client.RemoteTransactionPermission" module="org.wildfly.transaction.client"/>
+                    <permission class-name="org.jboss.ejb.client.RemoteEJBPermission" module="org.jboss.ejb-client"/>
+                </permission-set>
+            </permission-sets>
+            <http>
+                <http-authentication-factory name="management-http-authentication" security-domain="ManagementDomain" http-server-mechanism-factory="global">
+                    <mechanism-configuration>
+                        <mechanism mechanism-name="DIGEST">
+                            <mechanism-realm realm-name="ManagementRealm"/>
+                        </mechanism>
+                    </mechanism-configuration>
+                </http-authentication-factory>
+                <provider-http-server-mechanism-factory name="global"/>
+            </http>
+            <sasl>
+                <sasl-authentication-factory name="application-sasl-authentication" sasl-server-factory="configured" security-domain="ApplicationDomain">
+                    <mechanism-configuration>
+                        <mechanism mechanism-name="JBOSS-LOCAL-USER" realm-mapper="local"/>
+                        <mechanism mechanism-name="DIGEST-MD5">
+                            <mechanism-realm realm-name="ApplicationRealm"/>
+                        </mechanism>
+                    </mechanism-configuration>
+                </sasl-authentication-factory>
+                <sasl-authentication-factory name="management-sasl-authentication" sasl-server-factory="configured" security-domain="ManagementDomain">
+                    <mechanism-configuration>
+                        <mechanism mechanism-name="JBOSS-LOCAL-USER" realm-mapper="local"/>
+                        <mechanism mechanism-name="DIGEST-MD5">
+                            <mechanism-realm realm-name="ManagementRealm"/>
+                        </mechanism>
+                    </mechanism-configuration>
+                </sasl-authentication-factory>
+                <configurable-sasl-server-factory name="configured" sasl-server-factory="elytron">
+                    <properties>
+                        <property name="wildfly.sasl.local-user.default-user" value="$local"/>
+                    </properties>
+                </configurable-sasl-server-factory>
+                <mechanism-provider-filtering-sasl-server-factory name="elytron" sasl-server-factory="global">
+                    <filters>
+                        <filter provider-name="WildFlyElytron"/>
+                    </filters>
+                </mechanism-provider-filtering-sasl-server-factory>
+                <provider-sasl-server-factory name="global"/>
+            </sasl>
+            <tls>
+                <key-stores>
+                    <key-store name="applicationKS">
+                        <credential-reference clear-text="password"/>
+                        <implementation type="JKS"/>
+                        <file path="application.keystore" relative-to="jboss.server.config.dir"/>
+                    </key-store>
+                </key-stores>
+                <key-managers>
+                    <key-manager name="applicationKM" key-store="applicationKS" generate-self-signed-certificate-host="localhost">
+                        <credential-reference clear-text="password"/>
+                    </key-manager>
+                </key-managers>
+                <server-ssl-contexts>
+                    <server-ssl-context name="applicationSSC" key-manager="applicationKM"/>
+                </server-ssl-contexts>
+            </tls>
+        </subsystem>
+        <subsystem xmlns="urn:wildfly:health:1.0" security-enabled="false"/>
+        <subsystem xmlns="urn:jboss:domain:iiop-openjdk:2.1">
+            <orb socket-binding="iiop"/>
+            <initializers security="identity" transactions="spec"/>
+            <security server-requires-ssl="false" client-requires-ssl="false"/>
+        </subsystem>
+        <subsystem xmlns="urn:jboss:domain:infinispan:12.0">
+            <cache-container name="ejb" default-cache="dist" aliases="sfsb" modules="org.wildfly.clustering.ejb.infinispan">
+                <transport lock-timeout="60000"/>
+                <distributed-cache name="dist">
+                    <locking isolation="REPEATABLE_READ"/>
+                    <transaction mode="BATCH"/>
+                    <file-store/>
+                </distributed-cache>
+            </cache-container>
+            <cache-container name="server" default-cache="default" aliases="singleton cluster" modules="org.wildfly.clustering.server">
+                <transport lock-timeout="60000"/>
+                <replicated-cache name="default">
+                    <transaction mode="BATCH"/>
+                </replicated-cache>
+            </cache-container>
+            <cache-container name="web" default-cache="dist" modules="org.wildfly.clustering.web.infinispan">
+                <transport lock-timeout="60000"/>
+                <replicated-cache name="sso">
+                    <locking isolation="REPEATABLE_READ"/>
+                    <transaction mode="BATCH"/>
+                </replicated-cache>
+                <replicated-cache name="routing"/>
+                <distributed-cache name="dist">
+                    <locking isolation="REPEATABLE_READ"/>
+                    <transaction mode="BATCH"/>
+                    <file-store/>
+                </distributed-cache>
+            </cache-container>
+            <cache-container name="hibernate" modules="org.infinispan.hibernate-cache">
+                <transport lock-timeout="60000"/>
+                <local-cache name="local-query">
+                    <heap-memory size="10000"/>
+                    <expiration max-idle="100000"/>
+                </local-cache>
+                <local-cache name="pending-puts">
+                    <expiration max-idle="60000"/>
+                </local-cache>
+                <invalidation-cache name="entity">
+                    <heap-memory size="10000"/>
+                    <expiration max-idle="100000"/>
+                </invalidation-cache>
+                <replicated-cache name="timestamps"/>
+            </cache-container>
+        </subsystem>
+        <subsystem xmlns="urn:jboss:domain:io:3.0">
+            <worker name="default"/>
+            <buffer-pool name="default"/>
+        </subsystem>
+        <subsystem xmlns="urn:jboss:domain:jaxrs:2.0"/>
+        <subsystem xmlns="urn:jboss:domain:jca:5.0">
+            <archive-validation enabled="true" fail-on-error="true" fail-on-warn="false"/>
+            <bean-validation enabled="true"/>
+            <default-workmanager>
+                <short-running-threads>
+                    <core-threads count="50"/>
+                    <queue-length count="50"/>
+                    <max-threads count="50"/>
+                    <keepalive-time time="10" unit="seconds"/>
+                </short-running-threads>
+                <long-running-threads>
+                    <core-threads count="50"/>
+                    <queue-length count="50"/>
+                    <max-threads count="50"/>
+                    <keepalive-time time="10" unit="seconds"/>
+                </long-running-threads>
+            </default-workmanager>
+            <cached-connection-manager/>
+        </subsystem>
+        <subsystem xmlns="urn:jboss:domain:jdr:1.0"/>
+        <subsystem xmlns="urn:jboss:domain:jgroups:8.0">
+            <channels default="ee">
+                <channel name="ee" stack="udp" cluster="ejb"/>
+            </channels>
+            <stacks>
+                <stack name="udp">
+                    <transport type="UDP" socket-binding="jgroups-udp"/>
+                    <protocol type="PING"/>
+                    <protocol type="MERGE3"/>
+                    <socket-protocol type="FD_SOCK" socket-binding="jgroups-udp-fd"/>
+                    <protocol type="FD_ALL"/>
+                    <protocol type="VERIFY_SUSPECT"/>
+                    <protocol type="pbcast.NAKACK2"/>
+                    <protocol type="UNICAST3"/>
+                    <protocol type="pbcast.STABLE"/>
+                    <protocol type="pbcast.GMS"/>
+                    <protocol type="UFC"/>
+                    <protocol type="MFC"/>
+                    <protocol type="FRAG3"/>
+                </stack>
+                <stack name="tcp">
+                    <transport type="TCP" socket-binding="jgroups-tcp"/>
+                    <socket-protocol type="MPING" socket-binding="jgroups-mping"/>
+                    <protocol type="MERGE3"/>
+                    <socket-protocol type="FD_SOCK" socket-binding="jgroups-tcp-fd"/>
+                    <protocol type="FD_ALL"/>
+                    <protocol type="VERIFY_SUSPECT"/>
+                    <protocol type="pbcast.NAKACK2"/>
+                    <protocol type="UNICAST3"/>
+                    <protocol type="pbcast.STABLE"/>
+                    <protocol type="pbcast.GMS"/>
+                    <protocol type="MFC"/>
+                    <protocol type="FRAG3"/>
+                </stack>
+            </stacks>
+        </subsystem>
+        <subsystem xmlns="urn:jboss:domain:jmx:1.3">
+            <expose-resolved-model/>
+            <expose-expression-model/>
+            <remoting-connector/>
+        </subsystem>
+        <subsystem xmlns="urn:jboss:domain:jpa:1.1">
+            <jpa default-extended-persistence-inheritance="DEEP"/>
+        </subsystem>
+        <subsystem xmlns="urn:jboss:domain:jsf:1.1"/>
+        <subsystem xmlns="urn:jboss:domain:jsr77:1.0"/>
+        <subsystem xmlns="urn:jboss:domain:keycloak:1.1">
+            <secure-deployment name="gec-web.war">
+                <realm>intranet</realm>
+                <resource>cli-web-gec</resource>
+                <auth-server-url>${SSO_INTRANET_AUTH_URL}</auth-server-url>
+                <ssl-required>EXTERNAL</ssl-required>
+                <credential name="secret">${SSO_INTRANET_SECRET}</credential>
+            </secure-deployment>
+            <secure-deployment name="gec-api.war">
+                <realm>intranet</realm>
+                <resource>cli-api-gec</resource>
+                <auth-server-url>https://login.des.caixa/auth</auth-server-url>
+                <ssl-required>EXTERNAL</ssl-required>
+                <credential name="secret">897f0b68-56da-4a9e-9f94-17feb26d4e56</credential>
+            </secure-deployment>
+        </subsystem>
+        <subsystem xmlns="urn:jboss:domain:mail:4.0">
+            <mail-session name="default" jndi-name="java:jboss/mail/Default">
+                <smtp-server outbound-socket-binding-ref="mail-smtp"/>
+            </mail-session>
+        </subsystem>
+        <subsystem xmlns="urn:jboss:domain:messaging-activemq:13.0">
+            <server name="default">
+                <cluster password="${jboss.messaging.cluster.password:CHANGE ME!!}"/>
+                <statistics enabled="${wildfly.messaging-activemq.statistics-enabled:${wildfly.statistics-enabled:false}}"/>
+                <security-setting name="#">
+                    <role name="guest" send="true" consume="true" create-non-durable-queue="true" delete-non-durable-queue="true"/>
+                </security-setting>
+                <address-setting name="jms.queue.queueRspPagamentoTed" dead-letter-address="jms.queue.queueRspPagamentoTedDQ" expiry-address="jms.queue.queueRspPagamentoTedDQ" max-delivery-attempts="3"/>
+                <address-setting name="jms.queue.queueEnvioTed" dead-letter-address="jms.queue.queueEnvioTedDQ" expiry-address="jms.queue.queueEnvioTedDQ" max-delivery-attempts="3"/>
+                <address-setting name="#" dead-letter-address="jms.queue.DLQ" expiry-address="jms.queue.ExpiryQueue" max-size-bytes="10485760" page-size-bytes="2097152" message-counter-history-day-limit="10" redistribution-delay="1000"/>
+                <http-connector name="http-connector" socket-binding="http" endpoint="http-acceptor"/>
+                <http-connector name="http-connector-throughput" socket-binding="http" endpoint="http-acceptor-throughput">
+                    <param name="batch-delay" value="50"/>
+                </http-connector>
+                <in-vm-connector name="in-vm" server-id="0">
+                    <param name="buffer-pooling" value="false"/>
+                </in-vm-connector>
+                <http-acceptor name="http-acceptor" http-listener="default"/>
+                <http-acceptor name="http-acceptor-throughput" http-listener="default">
+                    <param name="batch-delay" value="50"/>
+                    <param name="direct-deliver" value="false"/>
+                </http-acceptor>
+                <in-vm-acceptor name="in-vm" server-id="0">
+                    <param name="buffer-pooling" value="false"/>
+                </in-vm-acceptor>
+                <jgroups-broadcast-group name="bg-group1" jgroups-cluster="activemq-cluster" connectors="http-connector"/>
+                <jgroups-discovery-group name="dg-group1" jgroups-cluster="activemq-cluster"/>
+                <cluster-connection name="my-cluster" address="jms" connector-name="http-connector" discovery-group="dg-group1"/>
+                <jms-queue name="ExpiryQueue" entries="java:/jms/queue/ExpiryQueue"/>
+                <jms-queue name="DLQ" entries="java:/jms/queue/DLQ"/>
+                <jms-queue name="RecebimentoTedQueue" entries="java:global/remoteJMS/RecebimentoTedQueue java:/jms/queue/RecebimentoTedQueue"/>
+                <jms-queue name="queueRecebimentoTed" entries="java:global/remoteJMS/queueRecebimentoTed java:/jms/queue/queueRecebimentoTed"/>
+                <jms-queue name="queueEnvioTed" entries="java:global/remoteJMS/queueEnvioTed java:/jms/queue/queueEnvioTed"/>
+                <jms-queue name="queueRspPagamentoTedDQ" entries="java:global/remoteJMS/queueRspPagamentoTedDQ java:/jms/queue/queueRspPagamentoTedDQ"/>
+                <jms-queue name="queueEnvioTedDQ" entries="java:global/remoteJMS/queueEnvioTedDQ java:/jms/queue/queueEnvioTedDQ"/>
+                <jms-queue name="queueRspPagamentoTed" entries="java:global/remoteJMS/queueRspPagamentoTed java:/jms/queue/queueRspPagamentoTed"/>
+                <jms-queue name="queueVerificacaoTed" entries="java:global/remoteJMS/queueVerificacaoTed java:/jms/queue/queueVerificacaoTed"/>
+                <jms-topic name="topicRecebimentoTedTrc" entries="java:global/remoteJMS/topicRecebimentoTedTrc java:/jms/topic/topicRecebimentoTedTrc"/>
+                <connection-factory name="InVmConnectionFactory" entries="java:/ConnectionFactory" connectors="in-vm"/>
+                <connection-factory name="RemoteConnectionFactory" entries="java:jboss/exported/jms/RemoteConnectionFactory" connectors="http-connector" ha="true" block-on-acknowledge="true" reconnect-attempts="-1"/>
+                <connection-factory name="RecebimentoTedConnectionFactory" entries="java:global/remoteJMS/RecebimentoTedConnectionFactory java:/jms/RecebimentoTedConnectionFactory" connectors="in-vm"/>
+                <connection-factory name="EnvioTedConnectionFactory" entries="java:global/remoteJMS/EnvioTedConnectionFactory java:/jms/EnvioTedConnectionFactory" connectors="in-vm"/>
+                <connection-factory name="RspPagamentoConnectionFactory" entries="java:global/remoteJMS/RspPagamentoConnectionFactory java:/jms/RspPagamentoConnectionFactory" connectors="in-vm"/>
+                <connection-factory name="RecebimentoTedTrcConnectionFactoryTopic" entries="java:global/remoteJMS/RecebimentoTedTrcConnectionFactoryTopic java:/jms/RecebimentoTedTrcConnectionFactoryTopic" connectors="in-vm"/>
+                <connection-factory name="RspPagamentoSenderConnectionFactory" entries="java:global/remoteJMS/RspPagamentoSenderConnectionFactory java:/jms/RspPagamentoSenderConnectionFactory" connectors="in-vm"/>
+                <connection-factory name="EnvioTedConnectionSenderFactory" entries="java:global/remoteJMS/EnvioTedConnectionSenderFactory java:/jms/EnvioTedConnectionSenderFactory" connectors="in-vm"/>
+                <connection-factory name="verificacaoTedConnectionFactory" entries="java:global/remoteJMS/verificacaoTedConnectionFactory java:/jms/verificacaoTedConnectionFactory" connectors="in-vm"/>
+                <pooled-connection-factory name="activemq-ra" entries="java:/JmsXA java:jboss/DefaultJMSConnectionFactory" connectors="in-vm" transaction="xa"/>
+            </server>
+        </subsystem>
+        <subsystem xmlns="urn:wildfly:metrics:1.0" security-enabled="false" exposed-subsystems="*" prefix="${wildfly.metrics.prefix:jboss}"/>
+        <subsystem xmlns="urn:jboss:domain:modcluster:5.0">
+            <proxy name="default" advertise-socket="modcluster" listener="ajp">
+                <dynamic-load-provider>
+                    <load-metric type="cpu"/>
+                </dynamic-load-provider>
+            </proxy>
+        </subsystem>
+        <subsystem xmlns="urn:jboss:domain:naming:2.0">
+            <remote-naming/>
+        </subsystem>
+        <subsystem xmlns="urn:jboss:domain:pojo:1.0"/>
+        <subsystem xmlns="urn:jboss:domain:remoting:4.0">
+            <http-connector name="http-remoting-connector" connector-ref="default" security-realm="ApplicationRealm"/>
+        </subsystem>
+        <subsystem xmlns="urn:jboss:domain:request-controller:1.0"/>
+        <subsystem xmlns="urn:jboss:domain:resource-adapters:6.0">
+            <resource-adapters>
+                <resource-adapter id="wmq.jmsra.rar">
+                    <archive>
+                        wmq.jmsra.rar
+                    </archive>
+                    <transaction-support>NoTransaction</transaction-support>
+                    <connection-definitions>
+                        <connection-definition class-name="com.ibm.mq.connector.outbound.ManagedConnectionFactoryImpl" jndi-name="java:/jms/SicliConnectionFactory" pool-name="SicliConnectionFactory">
+                            <config-property name="channel">SIFEC.SVRCONN</config-property>
+                            <config-property name="hostName">10.1.14.41</config-property>
+                            <config-property name="password">SCNLFECD</config-property>
+                            <config-property name="queueManager">BRD3</config-property>
+                            <config-property name="port">1415</config-property>
+                            <config-property name="username">SCNLFECD</config-property>
+                        </connection-definition>
+                        <connection-definition class-name="com.ibm.mq.connector.outbound.ManagedConnectionFactoryImpl" jndi-name="java:/jms/SiricConnectionFactory" pool-name="SiricConnectionFactory">
+                            <config-property name="channel">SIFEC.SVRCONN</config-property>
+                            <config-property name="hostName">10.1.14.41</config-property>
+                            <config-property name="password">SCNLFECD</config-property>
+                            <config-property name="queueManager">BRD3</config-property>
+                            <config-property name="port">1415</config-property>
+                            <config-property name="username">SCNLFECD</config-property>
+                        </connection-definition>
+                        <connection-definition class-name="com.ibm.mq.connector.outbound.ManagedConnectionFactoryImpl" jndi-name="java:/jms/SiapxConnectionFactory" enabled="true" pool-name="java:/jms/SiapxConnectionFactory">
+                            <config-property name="channel">SIFEC.SVRCONN</config-property>
+                            <config-property name="hostName">10.1.14.41</config-property>
+                            <config-property name="password">undefined</config-property>
+                            <config-property name="queueManager">BRD3</config-property>
+                            <config-property name="port">1415</config-property>
+                            <config-property name="username">SCNLAPXD</config-property>
+                            <validation>
+                                <background-validation>false</background-validation>
+                            </validation>
+                        </connection-definition>
+                        <connection-definition class-name="com.ibm.mq.connector.outbound.ManagedConnectionFactoryImpl" jndi-name="java:/jms/SiempConnectionFactory" pool-name="SiempConnectionFactory">
+                            <config-property name="channel">SIEMP.SVRCONN</config-property>
+                            <config-property name="hostName">10.1.14.41</config-property>
+                            <config-property name="password">SFECEMPD</config-property>
+                            <config-property name="queueManager">BRD3</config-property>
+                            <config-property name="port">1415</config-property>
+                            <config-property name="username">SFECEMPD</config-property>
+                        </connection-definition>
+                    </connection-definitions>
+                    <admin-objects>
+                        <admin-object class-name="com.ibm.mq.connector.outbound.MQQueueProxy" jndi-name="java:/jms/SIFEC.RSP.PORTAL" pool-name="java:/jms/SIFEC.RSP.PORTAL">
+                            <config-property name="baseQueueName">SIFEC.RSP.PORTAL</config-property>
+                            <config-property name="CCSID">1208</config-property>
+                        </admin-object>
+                        <admin-object class-name="com.ibm.mq.connector.outbound.MQQueueProxy" jndi-name="java:/jms/SIFEC.REQ.PORTAL" pool-name="java:/jms/SIFEC.REQ.PORTAL">
+                            <config-property name="baseQueueName">SIFEC.REQ.PORTAL</config-property>
+                            <config-property name="CCSID">1208</config-property>
+                        </admin-object>
+                        <admin-object class-name="com.ibm.mq.connector.outbound.MQQueueProxy" jndi-name="java:/jms/SIEMP.RSP.AVALIACAO_RISCO_CREDITO" pool-name="SIEMP.RSP.AVALIACAO_RISCO_CREDITO">
+                            <config-property name="baseQueueName">SIEMP.RSP.AVALIACAO_RISCO_CREDITO</config-property>
+                            <config-property name="targetClient">MQ</config-property>
+                            <config-property name="CCSID">500</config-property>
+                        </admin-object>
+                    </admin-objects>
+                </resource-adapter>
+            </resource-adapters>
+        </subsystem>
+        <subsystem xmlns="urn:jboss:domain:sar:1.0"/>
+        <subsystem xmlns="urn:jboss:domain:security:2.0">
+            <security-domains>
+                <security-domain name="other" cache-type="default">
+                    <authentication>
+                        <login-module code="Remoting" flag="optional">
+                            <module-option name="password-stacking" value="useFirstPass"/>
+                        </login-module>
+                        <login-module code="RealmDirect" flag="required">
+                            <module-option name="password-stacking" value="useFirstPass"/>
+                        </login-module>
+                    </authentication>
+                </security-domain>
+                <security-domain name="jaas-sifec-local" cache-type="default">
+                    <authentication>
+                        <login-module code="Remoting" flag="required">
+                            <module-option name="password-stacking" value="useFirstPass"/>
+                        </login-module>
+                        <login-module code="RealmUsersRoles" flag="required">
+                            <module-option name="usersProperties" value="${jboss.server.config.dir}/application-users.properties"/>
+                            <module-option name="rolesProperties" value="${jboss.server.config.dir}/application-roles.properties"/>
+                            <module-option name="realm" value="ApplicationRealm"/>
+                            <module-option name="password-stacking" value="useFirstPass"/>
+                        </login-module>
+                    </authentication>
+                </security-domain>
+                <security-domain name="jaas-sigtc-local" cache-type="default">
+                    <authentication>
+                        <login-module code="Remoting" flag="required">
+                            <module-option name="password-stacking" value="useFirstPass"/>
+                        </login-module>
+                        <login-module code="RealmUsersRoles" flag="required">
+                            <module-option name="usersProperties" value="${jboss.server.config.dir}/application-users.properties"/>
+                            <module-option name="rolesProperties" value="${jboss.server.config.dir}/application-roles.properties"/>
+                            <module-option name="realm" value="ApplicationRealm"/>
+                            <module-option name="password-stacking" value="useFirstPass"/>
+                        </login-module>
+                    </authentication>
+                </security-domain>
+                <security-domain name="jaas-sifec" cache-type="default">
+                    <authentication>
+                        <login-module code="org.jboss.security.auth.spi.LdapExtLoginModule" flag="sufficient">
+                            <module-option name="allowEmptyPasswords" value="true"/>
+                            <module-option name="baseCtxDN" value="ou=people,o=caixa"/>
+                            <module-option name="baseFilter" value="(uid={0})"/>
+                            <module-option name="java.naming.provider.url" value="ldap://10.1.14.45:389"/>
+                            <module-option name="java.naming.security.authentication" value="simple"/>
+                            <module-option name="roleAttributeID" value="dn"/>
+                            <module-option name="roleAttributeIsDN" value="true"/>
+                            <module-option name="roleFilter" value="(uniqueMember=uid={0},ou=people,o=caixa)"/>
+                            <module-option name="roleNameAttributeID" value="cn"/>
+                            <module-option name="rolesCtxDN" value="cn=SIFEC,ou=Groups,o=caixa"/>
+                            <module-option name="searchScope" value="SUBTREE_SCOPE"/>
+                            <module-option name="searchTimeLimit" value="5000"/>
+                            <module-option name="throwValidateError" value="true"/>
+                        </login-module>
+                        <login-module code="org.jboss.security.auth.spi.LdapLoginModule" flag="sufficient">
+                            <module-option name="java.naming.factory.initial" value="com.sun.jndi.ldap.LdapCtxFactory"/>
+                            <module-option name="java.naming.provider.url" value="ldap://df7390sr004:389"/>
+                            <module-option name="java.naming.security.authentication" value="simple"/>
+                            <module-option name="principalDNPrefix" value="uid="/>
+                            <module-option name="principalDNSuffix" value=",ou=People,o=caixa"/>
+                            <module-option name="rolesCtxDN" value="ou=Groups,o=caixa"/>
+                            <module-option name="uidAttributeID" value="uniqueMember"/>
+                            <module-option name="matchOnUserDN" value="true"/>
+                            <module-option name="roleAttributeID" value="cn"/>
+                            <module-option name="roleAttributeIsDN" value="false"/>
+                            <module-option name="searchTimeLimit" value="5000"/>
+                            <module-option name="searchScope" value="SUBTREE_SCOPE"/>
+                        </login-module>
+                        <login-module name="org.jboss.security.auth.spi.LdapLoginModule-2" code="org.jboss.security.auth.spi.LdapLoginModule" flag="sufficient">
+                            <module-option name="java.naming.factory.initial" value="com.sun.jndi.ldap.LdapCtxFactory"/>
+                            <module-option name="java.naming.provider.url" value="ldap://localhost:389"/>
+                            <module-option name="java.naming.security.authentication" value="simple"/>
+                            <module-option name="principalDNPrefix" value="uid="/>
+                            <module-option name="principalDNSuffix" value=",ou=People,o=caixa_des"/>
+                            <module-option name="rolesCtxDN" value="ou=Groups,o=caixa_des"/>
+                            <module-option name="uidAttributeID" value="uniqueMember"/>
+                            <module-option name="matchOnUserDN" value="true"/>
+                            <module-option name="roleAttributeID" value="cn"/>
+                            <module-option name="roleAttributeIsDN" value="false"/>
+                            <module-option name="searchTimeLimit" value="5000"/>
+                            <module-option name="searchScope" value="SUBTREE_SCOPE"/>
+                        </login-module>
+                    </authentication>
+                </security-domain>
+                <security-domain name="jaas-sinad" cache-type="default">
+                    <authentication>
+                        <login-module code="org.jboss.security.auth.spi.LdapExtLoginModule" flag="required">
+                            <module-option name="allowEmptyPasswords" value="true"/>
+                            <module-option name="baseCtxDN" value="ou=people,o=caixa"/>
+                            <module-option name="baseFilter" value="(uid={0})"/>
+                            <module-option name="java.naming.provider.url" value="ldap://10.1.14.45:389"/>
+                            <module-option name="java.naming.security.authentication" value="simple"/>
+                            <module-option name="roleAttributeID" value="dn"/>
+                            <module-option name="roleAttributeIsDN" value="true"/>
+                            <module-option name="roleFilter" value="(uniqueMember=uid={0},ou=people,o=caixa)"/>
+                            <module-option name="roleNameAttributeID" value="cn"/>
+                            <module-option name="rolesCtxDN" value="cn=SIFEC,ou=Groups,o=caixa"/>
+                            <module-option name="searchScope" value="SUBTREE_SCOPE"/>
+                            <module-option name="searchTimeLimit" value="5000"/>
+                            <module-option name="throwValidateError" value="true"/>
+                        </login-module>
+                    </authentication>
+                </security-domain>
+                <security-domain name="jaas-siric" cache-type="default">
+                    <authentication>
+                        <login-module code="org.jboss.security.auth.spi.LdapExtLoginModule" flag="sufficient">
+                            <module-option name="allowEmptyPasswords" value="true"/>
+                            <module-option name="baseCtxDN" value="ou=people,o=caixa"/>
+                            <module-option name="baseFilter" value="(uid={0})"/>
+                            <module-option name="java.naming.provider.url" value="ldap://10.1.14.45:389"/>
+                            <module-option name="java.naming.security.authentication" value="simple"/>
+                            <module-option name="roleAttributeID" value="dn"/>
+                            <module-option name="roleAttributeIsDN" value="true"/>
+                            <module-option name="roleFilter" value="(uniqueMember=uid={0},ou=people,o=caixa)"/>
+                            <module-option name="roleNameAttributeID" value="cn"/>
+                            <module-option name="rolesCtxDN" value="cn=SIRIC,ou=Groups,o=caixa"/>
+                            <module-option name="searchScope" value="SUBTREE_SCOPE"/>
+                            <module-option name="searchTimeLimit" value="5000"/>
+                            <module-option name="throwValidateError" value="true"/>
+                        </login-module>
+                        <login-module name="org.jboss.security.auth.spi.LdapLoginModule-2" code="org.jboss.security.auth.spi.LdapLoginModule" flag="sufficient">
+                            <module-option name="java.naming.factory.initial" value="com.sun.jndi.ldap.LdapCtxFactory"/>
+                            <module-option name="java.naming.provider.url" value="ldap://localhost:389"/>
+                            <module-option name="java.naming.security.authentication" value="simple"/>
+                            <module-option name="principalDNPrefix" value="uid="/>
+                            <module-option name="principalDNSuffix" value=",ou=People,o=caixa_des"/>
+                            <module-option name="rolesCtxDN" value="ou=Groups,o=caixa_des"/>
+                            <module-option name="uidAttributeID" value="uniqueMember"/>
+                            <module-option name="matchOnUserDN" value="true"/>
+                            <module-option name="roleAttributeID" value="cn"/>
+                            <module-option name="roleAttributeIsDN" value="false"/>
+                            <module-option name="searchTimeLimit" value="5000"/>
+                            <module-option name="searchScope" value="SUBTREE_SCOPE"/>
+                        </login-module>
+                    </authentication>
+                </security-domain>
+                <security-domain name="jaas-sigec" cache-type="default">
+                    <authentication>
+                        <login-module code="org.jboss.security.auth.spi.LdapExtLoginModule" flag="sufficient">
+                            <module-option name="allowEmptyPasswords" value="true"/>
+                            <module-option name="baseCtxDN" value="ou=people,o=caixa"/>
+                            <module-option name="baseFilter" value="(uid={0})"/>
+                            <module-option name="java.naming.provider.url" value="ldap://10.1.14.45:389"/>
+                            <module-option name="java.naming.security.authentication" value="simple"/>
+                            <module-option name="roleAttributeID" value="dn"/>
+                            <module-option name="roleAttributeIsDN" value="true"/>
+                            <module-option name="roleFilter" value="(uniqueMember=uid={0},ou=people,o=caixa)"/>
+                            <module-option name="roleNameAttributeID" value="cn"/>
+                            <module-option name="rolesCtxDN" value="cn=SIGEC,ou=Groups,o=caixa"/>
+                            <module-option name="searchScope" value="SUBTREE_SCOPE"/>
+                            <module-option name="searchTimeLimit" value="5000"/>
+                            <module-option name="throwValidateError" value="true"/>
+                        </login-module>
+                    </authentication>
+                </security-domain>
+                <security-domain name="jaas-sifec-tqs" cache-type="default">
+                    <authentication>
+                        <login-module code="org.jboss.security.auth.spi.LdapExtLoginModule" flag="required">
+                            <module-option name="allowEmptyPasswords" value="true"/>
+                            <module-option name="baseCtxDN" value="ou=people,o=caixa"/>
+                            <module-option name="baseFilter" value="(uid={0})"/>
+                            <module-option name="java.naming.provider.url" value="ldap://localhost:1389"/>
+                            <module-option name="java.naming.security.authentication" value="simple"/>
+                            <module-option name="roleAttributeID" value="dn"/>
+                            <module-option name="roleAttributeIsDN" value="true"/>
+                            <module-option name="roleFilter" value="(uniqueMember=uid={0},ou=people,o=caixa)"/>
+                            <module-option name="roleNameAttributeID" value="cn"/>
+                            <module-option name="rolesCtxDN" value="cn=SIFEC,ou=Groups,o=caixa"/>
+                            <module-option name="searchScope" value="SUBTREE_SCOPE"/>
+                            <module-option name="searchTimeLimit" value="5000"/>
+                            <module-option name="throwValidateError" value="true"/>
+                        </login-module>
+                    </authentication>
+                </security-domain>
+                <security-domain name="other2" cache-type="default">
+                    <authentication>
+                        <login-module code="Remoting" flag="optional">
+                            <module-option name="password-stacking" value="useFirstPass"/>
+                        </login-module>
+                        <login-module code="RealmDirect" flag="required">
+                            <module-option name="password-stacking" value="useFirstPass"/>
+                        </login-module>
+                    </authentication>
+                </security-domain>
+                <security-domain name="keycloak">
+                    <authentication>
+                        <login-module code="org.keycloak.adapters.jboss.KeycloakLoginModule" flag="required"/>
+                    </authentication>
+                </security-domain>
+                <security-domain name="jboss-web-policy" cache-type="default">
+                    <authorization>
+                        <policy-module code="Delegating" flag="required"/>
+                    </authorization>
+                </security-domain>
+                <security-domain name="jaspitest" cache-type="default">
+                    <authentication-jaspi>
+                        <login-module-stack name="dummy">
+                            <login-module code="Dummy" flag="optional"/>
+                        </login-module-stack>
+                        <auth-module code="Dummy"/>
+                    </authentication-jaspi>
+                </security-domain>
+                <security-domain name="jboss-ejb-policy" cache-type="default">
+                    <authorization>
+                        <policy-module code="Delegating" flag="required"/>
+                    </authorization>
+                </security-domain>
+            </security-domains>
+        </subsystem>
+        <subsystem xmlns="urn:jboss:domain:security-manager:1.0">
+            <deployment-permissions>
+                <maximum-set>
+                    <permission class="java.security.AllPermission"/>
+                </maximum-set>
+            </deployment-permissions>
+        </subsystem>
+        <subsystem xmlns="urn:jboss:domain:singleton:1.0">
+            <singleton-policies default="default">
+                <singleton-policy name="default" cache-container="server">
+                    <simple-election-policy/>
+                </singleton-policy>
+            </singleton-policies>
+        </subsystem>
+        <subsystem xmlns="urn:jboss:domain:transactions:6.0">
+            <core-environment node-identifier="${jboss.tx.node.id:1}">
+                <process-id>
+                    <uuid/>
+                </process-id>
+            </core-environment>
+            <recovery-environment socket-binding="txn-recovery-environment" status-socket-binding="txn-status-manager"/>
+            <coordinator-environment statistics-enabled="${wildfly.transactions.statistics-enabled:${wildfly.statistics-enabled:false}}"/>
+            <object-store path="tx-object-store" relative-to="jboss.server.data.dir"/>
+        </subsystem>
+        <subsystem xmlns="urn:jboss:domain:undertow:12.0" default-server="default-server" default-virtual-host="default-host" default-servlet-container="default" default-security-domain="other" statistics-enabled="${wildfly.undertow.statistics-enabled:${wildfly.statistics-enabled:false}}">
+            <buffer-cache name="default"/>
+            <server name="default-server">
+                <ajp-listener name="ajp" socket-binding="ajp"/>
+                <http-listener name="default" socket-binding="http" redirect-socket="https" enable-http2="true"/>
+                <https-listener name="https" socket-binding="https" security-realm="ApplicationRealm" enable-http2="true"/>
+                <host name="default-host" alias="localhost">
+                    <location name="/" handler="welcome-content"/>
+                    <http-invoker security-realm="ApplicationRealm"/>
+                </host>
+            </server>
+            <servlet-container name="default">
+                <jsp-config/>
+                <websockets/>
+            </servlet-container>
+            <handlers>
+                <file name="welcome-content" path="${jboss.home.dir}/welcome-content"/>
+            </handlers>
+        </subsystem>
+        <subsystem xmlns="urn:jboss:domain:webservices:2.0" statistics-enabled="${wildfly.webservices.statistics-enabled:${wildfly.statistics-enabled:false}}">
+            <wsdl-host>${jboss.bind.address:127.0.0.1}</wsdl-host>
+            <endpoint-config name="Standard-Endpoint-Config"/>
+            <endpoint-config name="Recording-Endpoint-Config">
+                <pre-handler-chain name="recording-handlers" protocol-bindings="##SOAP11_HTTP ##SOAP11_HTTP_MTOM ##SOAP12_HTTP ##SOAP12_HTTP_MTOM">
+                    <handler name="RecordingHandler" class="org.jboss.ws.common.invocation.RecordingServerHandler"/>
+                </pre-handler-chain>
+            </endpoint-config>
+            <client-config name="Standard-Client-Config"/>
+        </subsystem>
+        <subsystem xmlns="urn:jboss:domain:weld:4.0"/>
+    </profile>
+    <interfaces>
+        <interface name="management">
+            <inet-address value="${jboss.bind.address.management:127.0.0.1}"/>
+        </interface>
+        <interface name="private">
+            <inet-address value="${jboss.bind.address.private:127.0.0.1}"/>
+        </interface>
+        <interface name="public">
+            <inet-address value="${jboss.bind.address:127.0.0.1}"/>
+        </interface>
+        <interface name="unsecure">
+            <inet-address value="${jboss.bind.address.unsecure:127.0.0.1}"/>
+        </interface>
+    </interfaces>
+    <socket-binding-group name="standard-sockets" default-interface="public" port-offset="${jboss.socket.binding.port-offset:0}">
+        <socket-binding name="ajp" port="${jboss.ajp.port:8009}"/>
+        <socket-binding name="http" port="${jboss.http.port:8080}"/>
+        <socket-binding name="https" port="${jboss.https.port:8443}"/>
+        <socket-binding name="modcluster" multicast-address="${jboss.modcluster.multicast.address:224.0.1.105}" multicast-port="23364"/>
+        <socket-binding name="iiop" interface="unsecure" port="3528"/>
+        <socket-binding name="iiop-ssl" interface="unsecure" port="3529"/>
+        <socket-binding name="jgroups-mping" interface="private" multicast-address="${jboss.default.multicast.address:230.0.0.4}" multicast-port="45700"/>
+        <socket-binding name="jgroups-tcp" interface="private" port="7600"/>
+        <socket-binding name="jgroups-tcp-fd" interface="private" port="57600"/>
+        <socket-binding name="jgroups-udp" interface="private" port="55200" multicast-address="${jboss.default.multicast.address:230.0.0.4}" multicast-port="45688"/>
+        <socket-binding name="jgroups-udp-fd" interface="private" port="54200"/>
+        <socket-binding name="management-http" interface="management" port="${jboss.management.http.port:9990}"/>
+        <socket-binding name="management-https" interface="management" port="${jboss.management.https.port:9993}"/>
+        <socket-binding name="txn-recovery-environment" port="4712"/>
+        <socket-binding name="txn-status-manager" port="4713"/>
+        <outbound-socket-binding name="mail-smtp">
+            <remote-destination host="${jboss.mail.server.host:localhost}" port="${jboss.mail.server.port:25}"/>
+        </outbound-socket-binding>
+    </socket-binding-group>
+    
+</server>
