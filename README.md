@@ -1,14 +1,20 @@
-systemctl status jboss* --no-pager
-journalctl -u <nome-do-serviço> --no-pager | tail -100
 
-Se não souber o nome do serviço, systemctl list-units | grep -i jboss mostra. Depois pegue o log de boot, que costuma ficar em $JBOSS_HOME/standalone/log/server.log. Se o caminho for outro, find / -name server.log -path '*jboss*' 2>/dev/null acha. Me mande as últimas 200 a 300 linhas ou o arquivo inteiro.
+[p585600@caddeapllx2871 ~]$ ps -ef | grep java
+p585600   134341  134137  0 11:04 pts/1    00:00:00 grep --color=auto java
+[p585600@caddeapllx2871 ~]$ systemctl status jboss* --no-pager
+× jboss-eap-standalone.service - JBoss EAP Systemctl - STANDALONE
+     Loaded: loaded (/etc/systemd/system/jboss-eap-standalone.service; enabled; preset: disabled)
+     Active: failed (Result: exit-code) since Tue 2026-11-17 11:10:04 -03; 5min ago
+   Duration: 5.795s
+    Process: 143912 ExecStart=/opt/jboss-eap/bin/init.d/jboss-eap-standalone.sh start (code=exited, status=0/SUCCESS)
+   Main PID: 143922 (code=exited, status=1/FAILURE)
+        CPU: 20.615s
+[p585600@caddeapllx2871 ~]$
+[p585600@caddeapllx2871 ~]$
+[p585600@caddeapllx2871 ~]$
+[p585600@caddeapllx2871 ~]$ journalctl -u <nome-do-serviço> --no-pager | tail -100
+-sh: nome-do-serviço: Arquivo ou diretório inexistente
+[p585600@caddeapllx2871 ~]$
 
-Nesse log procuro:
 
-JBoss EAP 7.4 ou WildFly, para confirmar a versão (tira a dúvida entre EAP 7.4 e 8);
-jboss.security., Services with missing/unavailable dependencies e WFLYCTL, para confirmar a segurança legada;
-UnsupportedClassVersionError ou Unrecognized VM option, que apontariam para outra causa: o Java usado pelo serviço diferente do esperado.
 
-Se o log estiver vazio ou nem existir, o problema é anterior ao JBoss, como o systemd falhando ao executar o script ou o JAVA_HOME apontando para um caminho inexistente. Nesse caso o systemctl status já mostra o motivo.
-
-Me mande também qual imagem ou versão a esteira instalou nesse host.
