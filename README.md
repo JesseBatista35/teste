@@ -1,7 +1,4 @@
-
-[p585600@srjtqapllx0056 ~]$
-[p585600@srjtqapllx0056 ~]$ curl -skI --resolve siemp.des.caixa:443:10.116.180.9 https://siemp.des.caixa/ | grep -i location
-Location: https://siemp.des.caixa/siemp
-[p585600@srjtqapllx0056 ~]$
-[p585600@srjtqapllx0056 ~]$
-[p585600@srjtqapllx0056 ~]$
+/host=<host>/server-config=<server>/jvm=*:read-resource
+/profile=<profile>/subsystem=datasources/data-source=<ds>:read-resource
+/host=<host>/server=<server>/subsystem=datasources/data-source=<ds>/statistics=pool:read-resource(include-runtime=true)
+/profile=<profile>/subsystem=transactions:read-attribute(name=default-timeout)
