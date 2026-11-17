@@ -1,41 +1,37 @@
-/host=<host>/server-config=<server>/jvm=*:read-resource
+1. Descobrir quem é o Domain Controller
+bash
+grep -A4 "<domain-controller" /opt/open/jboss/7.0.0/domain/configuration/host*.xml
+ps -ef | grep "Host Controller" | grep -v grep
+Se aparecer <local/>, o DC é este próprio host (srjtqapllx0056).
+Se aparecer <remote host="..."/>, o DC é esse outro host. Nesse caso, rode o CLI de lá ou conecte apontando para ele.
+2. Abrir o CLI com o usuário dono do JBoss (assim a autenticação local funciona sem senha)
+bash
+sudo -u spjbotr2 /opt/open/jboss/7.0.0/bin/jboss-cli.sh --connect --controller=srjtqapllx0056:9990
+
+Se o DC for remoto, troque pelo host dele. Fora da máquina do DC, o CLI vai pedir um usuário de management.
+
+3. Dentro do CLI, descobrir os nomes e depois ler
+ls /host
+/host=<host>/server-config=srjtqapllx0056_sigaf_intra_8083:read-attribute(name=group)
+/server-group=<grupo>:read-attribute(name=profile)
+/server-group=<grupo>/jvm=*:read-resource
+ls /profile=<profile>/subsystem=datasources/data-source
 /profile=<profile>/subsystem=datasources/data-source=<ds>:read-resource
-/host=<host>/server=<server>/subsystem=datasources/data-source=<ds>/statistics=pool:read-resource(include-runtime=true)
+/host=<host>/server=srjtqapllx0056_sigaf_intra_8083/subsystem=datasources/data-source=<ds>/statistics=pool:read-resource(include-runtime=true)
 /profile=<profile>/subsystem=transactions:read-attribute(name=default-timeout)
+/profile=<profile>/subsystem=io/worker=default:read-resource
+O que o ps já mostra
+Instância: srjtqapllx0056_sigaf_intra_8083, JBoss EAP 7.0.0, JDK 1.8.0_121, PID 69590, de pé desde 15/jan.
+Heap já está em 1 GB fixo (-Xms1024m -Xmx1024m). O “512 ou 1 GB” que o Cauan pediu é o que já existe hoje, então esse pedido não muda nada. Para justificar aumento, só com evidência de GC/OOM.
+-Dbr.gov.caixa.psc.connector.util.Config=/infra_app/config/sigaf/sigaf_jconnector.properties: isso pode ser o conector com o mainframe. Se a chamada ao APFAP327 passa por ele e não por um datasource, os limites de conexão e timeout estão nesse arquivo, e não no subsystem de datasources. Vale olhar primeiro:
+bash
+cat /infra_app/config/sigaf/sigaf_jconnector.properties
+Coletar junto, de preferência durante uma execução da atualização
+bash
+LOG=/opt/open/jboss/7.0.0/domain/servers/srjtqapllx0056_sigaf_intra_8083/log/server.log
+grep -iE "IJ000453|ARJUNA|OutOfMemory|APFAP327|timeout" $LOG | tail -50
 
+# 3 thread dumps com ~10 s de intervalo
+for i in 1 2 3; do sudo -u spjbotr2 /opt/open/java/jdk1.8.0_121/bin/jstack 69590 > /tmp/sigaf_td_$i.txt; sleep 10; done
 
-
-
-
-[p585600@srjtqapllx0056 ~]$
-[p585600@srjtqapllx0056 ~]$
-[p585600@srjtqapllx0056 ~]$
-[p585600@srjtqapllx0056 ~]$ curl -skI --resolve siemp.des.caixa:443:10.116.180.9 https://siemp.des.caixa/ | grep -i location
-Location: https://siemp.des.caixa/siemp
-[p585600@srjtqapllx0056 ~]$
-[p585600@srjtqapllx0056 ~]$
-[p585600@srjtqapllx0056 ~]$
-[p585600@srjtqapllx0056 ~]$
-[p585600@srjtqapllx0056 ~]$
-[p585600@srjtqapllx0056 ~]$ /host=<host>/server-config=<server>/jvm=*:read-resource
--bash: host: No such file or directory
-[p585600@srjtqapllx0056 ~]$ /profile=<profile>/subsystem=datasources/data-source=<ds>:read-resource
--bash: profile: No such file or directory
-[p585600@srjtqapllx0056 ~]$ /host=<host>/server=<server>/subsystem=datasources/data-source=<ds>/statistics=pool:read-resource(include-runtime=true)
--bash: syntax error near unexpected token `('
-[p585600@srjtqapllx0056 ~]$ /profile=<profile>/subsystem=transactions:read-attribute(name=default-timeout)
--bash: syntax error near unexpected token `('
-[p585600@srjtqapllx0056 ~]$
-[p585600@srjtqapllx0056 ~]$
-[p585600@srjtqapllx0056 ~]$
-(reverse-i-search)`con': /host=<host>/server-^Cnfig=<server>/jvm=*:read-resource
-(reverse-i-search)`': ^C
-[p585600@srjtqapllx0056 ~]$ sudo su
-[root@srjtqapllx0056 p585600]#
-[root@srjtqapllx0056 p585600]#
-[root@srjtqapllx0056 p585600]# spjbotr2  69590  69150  0 Jan15 ?        00:17:02 /opt/open/java/jdk1.8.0_121/bin/java -D[Server:srjtqapllx0056_sigaf_intra_8083] -Xms1024m -Xmx1024m -Dbr.gov.caixa.psc.connector.util.Config=/infra_app/config/sigaf/sigaf_jconnector.properties -Dcaminho.arquivo.temp=/var/tmp -Djava.awt.headless=true -Djava.net.preferIPv4Stack=true -Djavax.net.ssl.trustStore=/infra_app/config/sigaf/cacerts -Djavax.net.ssl.trustStorePassword=changeit -Djavax.net.ssl.trustStoreType=jks -Djboss.bind.address=srjtqapllx0056 -Djboss.bind.address.management=srjtqapllx0056 -Djboss.home.dir=/opt/open/jboss/7.0.0 -Djboss.management.http.port=9990 -Djboss.management.native.port=9999 -Djboss.modules.system.pkgs=org.jboss.byteman -Dsisgr.webservice=https://webservice.acessoseguro.tqs.corerj.caixa/ -Djboss.server.log.dir=/opt/open/jboss/7.0.0/domain/servers/srjtqapllx0056_sigaf_intra_8083/log -Djboss.server.temp.dir=/opt/open/jboss/7.0.0/domain/servers/srjtqapllx0056_sigaf_intra_8083/tmp -Djboss.server.data.dir=/opt/open/jboss/7.0.0/domain/servers/srjtqapllx0056_sigaf_intra_8083/data -Dlogging.configuration=file:/opt/open/jboss/7.0.0/domain/servers/srjtqapllx0056_sigaf_intra_8083/data/logging.properties -jar /opt/open/jboss/7.0.0/jboss-modules.jar -mp /opt/open/jboss/7.0.0/modules org.jboss.as.server
-bash: spjbotr2: command not found
-[root@srjtqapllx0056 p585600]#
-[root@srjtqapllx0056 p585600]#
-[root@srjtqapllx0056 p585600]#
-[root@srjtqapllx0056 p585600]#
+Me manda a saída do host.xml (passo 1) e do sigaf_jconnector.properties que eu sigo com você a partir daí.
