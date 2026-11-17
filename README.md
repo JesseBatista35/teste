@@ -21,9 +21,14 @@
 
 	</deployment>
 	<sub-deployment name="gec-web.war">
-		<!-- This corresponds to the module for a web deployment -->
-		<!-- it can use all the same tags as the <deployment> entry above <dependencies> 
-			<module name="deployment.emp-ear.ear.emp-ejb-0.0.1-SNAPSHOT.jar" /> </dependencies> -->
+		<!-- gec-web.war carrega o proprio WEB-INF/lib/arqref-core, que usa
+			br.gov.caixa.bsb.sisgd.framework.cm.ConectorException (framework_sisgd.jar).
+			As dependencias do <deployment> nao sao herdadas pelo subdeployment,
+			entao precisam ser declaradas aqui, como no gec-api.war. -->
+		<dependencies>
+			<module name="deployment.framework.jar" />
+			<module name="deployment.framework_sisgd.jar" />
+		</dependencies>
 	</sub-deployment>
 	<sub-deployment name="gec-api.war">
 		<exclusions>
