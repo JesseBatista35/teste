@@ -21,7 +21,6 @@
         <extension module="org.jboss.as.pojo"/>
         <extension module="org.jboss.as.remoting"/>
         <extension module="org.jboss.as.sar"/>
-        <extension module="org.jboss.as.security"/>
         <extension module="org.jboss.as.transactions"/>
         <extension module="org.jboss.as.webservices"/>
         <extension module="org.jboss.as.weld"/>
@@ -145,31 +144,6 @@
         <property name="CONNECTION_QUEUE_VERIFICACAO_TED_NCR" value="Endpoint=sb://sb-credito-des.servicebus.windows.net/;SharedAccessKeyName=Sender;SharedAccessKey=AkFDPClutoUD69rzUkcbNwRFILo93ICDo+ASbD/CXb4=;EntityPath=queue-verificacao-ted-des"/>
     </system-properties>
     <management>
-        <security-realms>
-            <security-realm name="ManagementRealm">
-                <authentication>
-                    <local default-user="$local" skip-group-loading="true"/>
-                    <properties path="mgmt-users.properties" relative-to="jboss.server.config.dir"/>
-                </authentication>
-                <authorization map-groups-to-roles="false">
-                    <properties path="mgmt-groups.properties" relative-to="jboss.server.config.dir"/>
-                </authorization>
-            </security-realm>
-            <security-realm name="ApplicationRealm">
-                <server-identities>
-                    <ssl>
-                        <keystore path="application.keystore" relative-to="jboss.server.config.dir" keystore-password="password" alias="server" key-password="password" generate-self-signed-certificate-host="localhost"/>
-                    </ssl>
-                </server-identities>
-                <authentication>
-                    <local default-user="$local" allowed-users="*" skip-group-loading="true"/>
-                    <properties path="application-users.properties" relative-to="jboss.server.config.dir"/>
-                </authentication>
-                <authorization>
-                    <properties path="application-roles.properties" relative-to="jboss.server.config.dir"/>
-                </authorization>
-            </security-realm>
-        </security-realms>
         <audit-log>
             <formatters>
                 <json-formatter name="json-formatter"/>
@@ -184,8 +158,8 @@
             </logger>
         </audit-log>
         <management-interfaces>
-            <http-interface security-realm="ManagementRealm">
-                <http-upgrade enabled="true"/>
+            <http-interface http-authentication-factory="management-http-authentication">
+                <http-upgrade enabled="true" sasl-authentication-factory="management-sasl-authentication"/>
                 <socket-binding http="management-http"/>
             </http-interface>
         </management-interfaces>
@@ -356,15 +330,9 @@
                     <driver name="h2" module="com.h2database.h2">
                         <xa-datasource-class>org.h2.jdbcx.JdbcDataSource</xa-datasource-class>
                     </driver>
-                    <driver name="oracle" module="oracle">
-                        <driver-class>oracle.jdbc.OracleDriver</driver-class>
-                    </driver>
                     <driver name="db2" module="com.ibm.db2">
                         <driver-class>com.ibm.db2.jcc.DB2Driver</driver-class>
                     </driver>
-                    <driver name="sybase1" module="sybase"/>
-                    <driver name="p6spy" module="com.p6spy">
-                        <driver-class>com.p6spy.engine.spy.P6SpyDriver</driver-class>                    </driver>
                 </drivers>
             </datasources>
         </subsystem>
@@ -443,6 +411,16 @@
             </thread-pools>
             <iiop enable-by-default="false" use-qualified-name="false"/>
             <default-security-domain value="other"/>
+            <application-security-domains>
+                <application-security-domain name="other" security-domain="ApplicationDomain"/>
+                <application-security-domain name="jaas-sifec-local" security-domain="ApplicationDomain"/>
+                <application-security-domain name="jaas-sigtc-local" security-domain="ApplicationDomain"/>
+                <application-security-domain name="other2" security-domain="ApplicationDomain"/>
+                <application-security-domain name="jaas-sigec" security-domain="jaas-sigec"/>
+                <application-security-domain name="jaas-sifec" security-domain="jaas-sifec"/>
+                <application-security-domain name="jaas-sinad" security-domain="jaas-sinad"/>
+                <application-security-domain name="jaas-siric" security-domain="jaas-siric"/>
+            </application-security-domains>
             <default-missing-method-permissions-deny-access value="false"/>
             <statistics enabled="${wildfly.ejb3.statistics-enabled:${wildfly.statistics-enabled:false}}"/>
             <log-system-exceptions value="true"/>
@@ -468,13 +446,59 @@
                     <realm name="ManagementRealm" role-decoder="groups-to-roles"/>
                     <realm name="local" role-mapper="super-user-mapper"/>
                 </security-domain>
+                <security-domain name="KeycloakDomain" default-realm="local" permission-mapper="default-permission-mapper">
+                    <realm name="local"/>
+                </security-domain>
+                <security-domain name="jaas-sigec" default-realm="ldap-jaas-sigec" permission-mapper="default-permission-mapper">
+                    <realm name="ldap-jaas-sigec"/>
+                </security-domain>
+                <security-domain name="jaas-sifec" default-realm="ldap-jaas-sifec" permission-mapper="default-permission-mapper">
+                    <realm name="ldap-jaas-sifec"/>
+                </security-domain>
+                <security-domain name="jaas-sinad" default-realm="ldap-jaas-sinad" permission-mapper="default-permission-mapper">
+                    <realm name="ldap-jaas-sinad"/>
+                </security-domain>
+                <security-domain name="jaas-siric" default-realm="ldap-jaas-siric" permission-mapper="default-permission-mapper">
+                    <realm name="ldap-jaas-siric"/>
+                </security-domain>
             </security-domains>
+            <dir-contexts>
+                <dir-context name="ldap-caixa" url="ldap://10.1.14.45:389" read-timeout="5000" connection-timeout="5000"/>
+            </dir-contexts>
             <security-realms>
                 <identity-realm name="local" identity="$local"/>
                 <properties-realm name="ApplicationRealm">
                     <users-properties path="application-users.properties" relative-to="jboss.server.config.dir" digest-realm-name="ApplicationRealm"/>
                     <groups-properties path="application-roles.properties" relative-to="jboss.server.config.dir"/>
                 </properties-realm>
+                <ldap-realm name="ldap-jaas-sigec" dir-context="ldap-caixa" direct-verification="true">
+                    <identity-mapping rdn-identifier="uid" search-base-dn="ou=people,o=caixa" use-recursive-search="true">
+                        <attribute-mapping>
+                            <attribute from="cn" to="Roles" filter="(uniqueMember={1})" filter-base-dn="cn=SIGEC,ou=Groups,o=caixa"/>
+                        </attribute-mapping>
+                    </identity-mapping>
+                </ldap-realm>
+                <ldap-realm name="ldap-jaas-sifec" dir-context="ldap-caixa" direct-verification="true">
+                    <identity-mapping rdn-identifier="uid" search-base-dn="ou=people,o=caixa" use-recursive-search="true">
+                        <attribute-mapping>
+                            <attribute from="cn" to="Roles" filter="(uniqueMember={1})" filter-base-dn="cn=SIFEC,ou=Groups,o=caixa"/>
+                        </attribute-mapping>
+                    </identity-mapping>
+                </ldap-realm>
+                <ldap-realm name="ldap-jaas-sinad" dir-context="ldap-caixa" direct-verification="true">
+                    <identity-mapping rdn-identifier="uid" search-base-dn="ou=people,o=caixa" use-recursive-search="true">
+                        <attribute-mapping>
+                            <attribute from="cn" to="Roles" filter="(uniqueMember={1})" filter-base-dn="cn=SIFEC,ou=Groups,o=caixa"/>
+                        </attribute-mapping>
+                    </identity-mapping>
+                </ldap-realm>
+                <ldap-realm name="ldap-jaas-siric" dir-context="ldap-caixa" direct-verification="true">
+                    <identity-mapping rdn-identifier="uid" search-base-dn="ou=people,o=caixa" use-recursive-search="true">
+                        <attribute-mapping>
+                            <attribute from="cn" to="Roles" filter="(uniqueMember={1})" filter-base-dn="cn=SIRIC,ou=Groups,o=caixa"/>
+                        </attribute-mapping>
+                    </identity-mapping>
+                </ldap-realm>
                 <properties-realm name="ManagementRealm">
                     <users-properties path="mgmt-users.properties" relative-to="jboss.server.config.dir" digest-realm-name="ManagementRealm"/>
                     <groups-properties path="mgmt-groups.properties" relative-to="jboss.server.config.dir"/>
@@ -515,7 +539,21 @@
                         </mechanism>
                     </mechanism-configuration>
                 </http-authentication-factory>
+                <http-authentication-factory name="application-http-authentication" security-domain="ApplicationDomain" http-server-mechanism-factory="global">
+                    <mechanism-configuration>
+                        <mechanism mechanism-name="BASIC">
+                            <mechanism-realm realm-name="Application Realm"/>
+                        </mechanism>
+                        <mechanism mechanism-name="FORM"/>
+                    </mechanism-configuration>
+                </http-authentication-factory>
+                <http-authentication-factory name="keycloak-http-authentication" security-domain="KeycloakDomain" http-server-mechanism-factory="keycloak-http-server-mechanism-factory">
+                    <mechanism-configuration>
+                        <mechanism mechanism-name="KEYCLOAK"/>
+                    </mechanism-configuration>
+                </http-authentication-factory>
                 <provider-http-server-mechanism-factory name="global"/>
+                <service-loader-http-server-mechanism-factory name="keycloak-http-server-mechanism-factory" module="org.keycloak.keycloak-wildfly-elytron-oidc-adapter"/>
             </http>
             <sasl>
                 <sasl-authentication-factory name="application-sasl-authentication" sasl-server-factory="configured" security-domain="ApplicationDomain">
@@ -708,6 +746,7 @@
         </subsystem>
         <subsystem xmlns="urn:jboss:domain:messaging-activemq:13.0">
             <server name="default">
+                <security elytron-domain="ApplicationDomain"/>
                 <cluster password="${jboss.messaging.cluster.password:CHANGE ME!!}"/>
                 <statistics enabled="${wildfly.messaging-activemq.statistics-enabled:${wildfly.statistics-enabled:false}}"/>
                 <security-setting name="#">
@@ -769,7 +808,7 @@
         </subsystem>
         <subsystem xmlns="urn:jboss:domain:pojo:1.0"/>
         <subsystem xmlns="urn:jboss:domain:remoting:4.0">
-            <http-connector name="http-remoting-connector" connector-ref="default" security-realm="ApplicationRealm"/>
+            <http-connector name="http-remoting-connector" connector-ref="default" sasl-authentication-factory="application-sasl-authentication"/>
         </subsystem>
         <subsystem xmlns="urn:jboss:domain:request-controller:1.0"/>
         <subsystem xmlns="urn:jboss:domain:resource-adapters:6.0">
@@ -835,216 +874,6 @@
             </resource-adapters>
         </subsystem>
         <subsystem xmlns="urn:jboss:domain:sar:1.0"/>
-        <subsystem xmlns="urn:jboss:domain:security:2.0">
-            <security-domains>
-                <security-domain name="other" cache-type="default">
-                    <authentication>
-                        <login-module code="Remoting" flag="optional">
-                            <module-option name="password-stacking" value="useFirstPass"/>
-                        </login-module>
-                        <login-module code="RealmDirect" flag="required">
-                            <module-option name="password-stacking" value="useFirstPass"/>
-                        </login-module>
-                    </authentication>
-                </security-domain>
-                <security-domain name="jaas-sifec-local" cache-type="default">
-                    <authentication>
-                        <login-module code="Remoting" flag="required">
-                            <module-option name="password-stacking" value="useFirstPass"/>
-                        </login-module>
-                        <login-module code="RealmUsersRoles" flag="required">
-                            <module-option name="usersProperties" value="${jboss.server.config.dir}/application-users.properties"/>
-                            <module-option name="rolesProperties" value="${jboss.server.config.dir}/application-roles.properties"/>
-                            <module-option name="realm" value="ApplicationRealm"/>
-                            <module-option name="password-stacking" value="useFirstPass"/>
-                        </login-module>
-                    </authentication>
-                </security-domain>
-                <security-domain name="jaas-sigtc-local" cache-type="default">
-                    <authentication>
-                        <login-module code="Remoting" flag="required">
-                            <module-option name="password-stacking" value="useFirstPass"/>
-                        </login-module>
-                        <login-module code="RealmUsersRoles" flag="required">
-                            <module-option name="usersProperties" value="${jboss.server.config.dir}/application-users.properties"/>
-                            <module-option name="rolesProperties" value="${jboss.server.config.dir}/application-roles.properties"/>
-                            <module-option name="realm" value="ApplicationRealm"/>
-                            <module-option name="password-stacking" value="useFirstPass"/>
-                        </login-module>
-                    </authentication>
-                </security-domain>
-                <security-domain name="jaas-sifec" cache-type="default">
-                    <authentication>
-                        <login-module code="org.jboss.security.auth.spi.LdapExtLoginModule" flag="sufficient">
-                            <module-option name="allowEmptyPasswords" value="true"/>
-                            <module-option name="baseCtxDN" value="ou=people,o=caixa"/>
-                            <module-option name="baseFilter" value="(uid={0})"/>
-                            <module-option name="java.naming.provider.url" value="ldap://10.1.14.45:389"/>
-                            <module-option name="java.naming.security.authentication" value="simple"/>
-                            <module-option name="roleAttributeID" value="dn"/>
-                            <module-option name="roleAttributeIsDN" value="true"/>
-                            <module-option name="roleFilter" value="(uniqueMember=uid={0},ou=people,o=caixa)"/>
-                            <module-option name="roleNameAttributeID" value="cn"/>
-                            <module-option name="rolesCtxDN" value="cn=SIFEC,ou=Groups,o=caixa"/>
-                            <module-option name="searchScope" value="SUBTREE_SCOPE"/>
-                            <module-option name="searchTimeLimit" value="5000"/>
-                            <module-option name="throwValidateError" value="true"/>
-                        </login-module>
-                        <login-module code="org.jboss.security.auth.spi.LdapLoginModule" flag="sufficient">
-                            <module-option name="java.naming.factory.initial" value="com.sun.jndi.ldap.LdapCtxFactory"/>
-                            <module-option name="java.naming.provider.url" value="ldap://df7390sr004:389"/>
-                            <module-option name="java.naming.security.authentication" value="simple"/>
-                            <module-option name="principalDNPrefix" value="uid="/>
-                            <module-option name="principalDNSuffix" value=",ou=People,o=caixa"/>
-                            <module-option name="rolesCtxDN" value="ou=Groups,o=caixa"/>
-                            <module-option name="uidAttributeID" value="uniqueMember"/>
-                            <module-option name="matchOnUserDN" value="true"/>
-                            <module-option name="roleAttributeID" value="cn"/>
-                            <module-option name="roleAttributeIsDN" value="false"/>
-                            <module-option name="searchTimeLimit" value="5000"/>
-                            <module-option name="searchScope" value="SUBTREE_SCOPE"/>
-                        </login-module>
-                        <login-module name="org.jboss.security.auth.spi.LdapLoginModule-2" code="org.jboss.security.auth.spi.LdapLoginModule" flag="sufficient">
-                            <module-option name="java.naming.factory.initial" value="com.sun.jndi.ldap.LdapCtxFactory"/>
-                            <module-option name="java.naming.provider.url" value="ldap://localhost:389"/>
-                            <module-option name="java.naming.security.authentication" value="simple"/>
-                            <module-option name="principalDNPrefix" value="uid="/>
-                            <module-option name="principalDNSuffix" value=",ou=People,o=caixa_des"/>
-                            <module-option name="rolesCtxDN" value="ou=Groups,o=caixa_des"/>
-                            <module-option name="uidAttributeID" value="uniqueMember"/>
-                            <module-option name="matchOnUserDN" value="true"/>
-                            <module-option name="roleAttributeID" value="cn"/>
-                            <module-option name="roleAttributeIsDN" value="false"/>
-                            <module-option name="searchTimeLimit" value="5000"/>
-                            <module-option name="searchScope" value="SUBTREE_SCOPE"/>
-                        </login-module>
-                    </authentication>
-                </security-domain>
-                <security-domain name="jaas-sinad" cache-type="default">
-                    <authentication>
-                        <login-module code="org.jboss.security.auth.spi.LdapExtLoginModule" flag="required">
-                            <module-option name="allowEmptyPasswords" value="true"/>
-                            <module-option name="baseCtxDN" value="ou=people,o=caixa"/>
-                            <module-option name="baseFilter" value="(uid={0})"/>
-                            <module-option name="java.naming.provider.url" value="ldap://10.1.14.45:389"/>
-                            <module-option name="java.naming.security.authentication" value="simple"/>
-                            <module-option name="roleAttributeID" value="dn"/>
-                            <module-option name="roleAttributeIsDN" value="true"/>
-                            <module-option name="roleFilter" value="(uniqueMember=uid={0},ou=people,o=caixa)"/>
-                            <module-option name="roleNameAttributeID" value="cn"/>
-                            <module-option name="rolesCtxDN" value="cn=SIFEC,ou=Groups,o=caixa"/>
-                            <module-option name="searchScope" value="SUBTREE_SCOPE"/>
-                            <module-option name="searchTimeLimit" value="5000"/>
-                            <module-option name="throwValidateError" value="true"/>
-                        </login-module>
-                    </authentication>
-                </security-domain>
-                <security-domain name="jaas-siric" cache-type="default">
-                    <authentication>
-                        <login-module code="org.jboss.security.auth.spi.LdapExtLoginModule" flag="sufficient">
-                            <module-option name="allowEmptyPasswords" value="true"/>
-                            <module-option name="baseCtxDN" value="ou=people,o=caixa"/>
-                            <module-option name="baseFilter" value="(uid={0})"/>
-                            <module-option name="java.naming.provider.url" value="ldap://10.1.14.45:389"/>
-                            <module-option name="java.naming.security.authentication" value="simple"/>
-                            <module-option name="roleAttributeID" value="dn"/>
-                            <module-option name="roleAttributeIsDN" value="true"/>
-                            <module-option name="roleFilter" value="(uniqueMember=uid={0},ou=people,o=caixa)"/>
-                            <module-option name="roleNameAttributeID" value="cn"/>
-                            <module-option name="rolesCtxDN" value="cn=SIRIC,ou=Groups,o=caixa"/>
-                            <module-option name="searchScope" value="SUBTREE_SCOPE"/>
-                            <module-option name="searchTimeLimit" value="5000"/>
-                            <module-option name="throwValidateError" value="true"/>
-                        </login-module>
-                        <login-module name="org.jboss.security.auth.spi.LdapLoginModule-2" code="org.jboss.security.auth.spi.LdapLoginModule" flag="sufficient">
-                            <module-option name="java.naming.factory.initial" value="com.sun.jndi.ldap.LdapCtxFactory"/>
-                            <module-option name="java.naming.provider.url" value="ldap://localhost:389"/>
-                            <module-option name="java.naming.security.authentication" value="simple"/>
-                            <module-option name="principalDNPrefix" value="uid="/>
-                            <module-option name="principalDNSuffix" value=",ou=People,o=caixa_des"/>
-                            <module-option name="rolesCtxDN" value="ou=Groups,o=caixa_des"/>
-                            <module-option name="uidAttributeID" value="uniqueMember"/>
-                            <module-option name="matchOnUserDN" value="true"/>
-                            <module-option name="roleAttributeID" value="cn"/>
-                            <module-option name="roleAttributeIsDN" value="false"/>
-                            <module-option name="searchTimeLimit" value="5000"/>
-                            <module-option name="searchScope" value="SUBTREE_SCOPE"/>
-                        </login-module>
-                    </authentication>
-                </security-domain>
-                <security-domain name="jaas-sigec" cache-type="default">
-                    <authentication>
-                        <login-module code="org.jboss.security.auth.spi.LdapExtLoginModule" flag="sufficient">
-                            <module-option name="allowEmptyPasswords" value="true"/>
-                            <module-option name="baseCtxDN" value="ou=people,o=caixa"/>
-                            <module-option name="baseFilter" value="(uid={0})"/>
-                            <module-option name="java.naming.provider.url" value="ldap://10.1.14.45:389"/>
-                            <module-option name="java.naming.security.authentication" value="simple"/>
-                            <module-option name="roleAttributeID" value="dn"/>
-                            <module-option name="roleAttributeIsDN" value="true"/>
-                            <module-option name="roleFilter" value="(uniqueMember=uid={0},ou=people,o=caixa)"/>
-                            <module-option name="roleNameAttributeID" value="cn"/>
-                            <module-option name="rolesCtxDN" value="cn=SIGEC,ou=Groups,o=caixa"/>
-                            <module-option name="searchScope" value="SUBTREE_SCOPE"/>
-                            <module-option name="searchTimeLimit" value="5000"/>
-                            <module-option name="throwValidateError" value="true"/>
-                        </login-module>
-                    </authentication>
-                </security-domain>
-                <security-domain name="jaas-sifec-tqs" cache-type="default">
-                    <authentication>
-                        <login-module code="org.jboss.security.auth.spi.LdapExtLoginModule" flag="required">
-                            <module-option name="allowEmptyPasswords" value="true"/>
-                            <module-option name="baseCtxDN" value="ou=people,o=caixa"/>
-                            <module-option name="baseFilter" value="(uid={0})"/>
-                            <module-option name="java.naming.provider.url" value="ldap://localhost:1389"/>
-                            <module-option name="java.naming.security.authentication" value="simple"/>
-                            <module-option name="roleAttributeID" value="dn"/>
-                            <module-option name="roleAttributeIsDN" value="true"/>
-                            <module-option name="roleFilter" value="(uniqueMember=uid={0},ou=people,o=caixa)"/>
-                            <module-option name="roleNameAttributeID" value="cn"/>
-                            <module-option name="rolesCtxDN" value="cn=SIFEC,ou=Groups,o=caixa"/>
-                            <module-option name="searchScope" value="SUBTREE_SCOPE"/>
-                            <module-option name="searchTimeLimit" value="5000"/>
-                            <module-option name="throwValidateError" value="true"/>
-                        </login-module>
-                    </authentication>
-                </security-domain>
-                <security-domain name="other2" cache-type="default">
-                    <authentication>
-                        <login-module code="Remoting" flag="optional">
-                            <module-option name="password-stacking" value="useFirstPass"/>
-                        </login-module>
-                        <login-module code="RealmDirect" flag="required">
-                            <module-option name="password-stacking" value="useFirstPass"/>
-                        </login-module>
-                    </authentication>
-                </security-domain>
-                <security-domain name="keycloak">
-                    <authentication>
-                        <login-module code="org.keycloak.adapters.jboss.KeycloakLoginModule" flag="required"/>
-                    </authentication>
-                </security-domain>
-                <security-domain name="jboss-web-policy" cache-type="default">
-                    <authorization>
-                        <policy-module code="Delegating" flag="required"/>
-                    </authorization>
-                </security-domain>
-                <security-domain name="jaspitest" cache-type="default">
-                    <authentication-jaspi>
-                        <login-module-stack name="dummy">
-                            <login-module code="Dummy" flag="optional"/>
-                        </login-module-stack>
-                        <auth-module code="Dummy"/>
-                    </authentication-jaspi>
-                </security-domain>
-                <security-domain name="jboss-ejb-policy" cache-type="default">
-                    <authorization>
-                        <policy-module code="Delegating" flag="required"/>
-                    </authorization>
-                </security-domain>
-            </security-domains>
-        </subsystem>
         <subsystem xmlns="urn:jboss:domain:security-manager:1.0">
             <deployment-permissions>
                 <maximum-set>
@@ -1074,10 +903,10 @@
             <server name="default-server">
                 <ajp-listener name="ajp" socket-binding="ajp"/>
                 <http-listener name="default" socket-binding="http" redirect-socket="https" enable-http2="true"/>
-                <https-listener name="https" socket-binding="https" security-realm="ApplicationRealm" enable-http2="true"/>
+                <https-listener name="https" socket-binding="https" ssl-context="applicationSSC" enable-http2="true"/>
                 <host name="default-host" alias="localhost">
                     <location name="/" handler="welcome-content"/>
-                    <http-invoker security-realm="ApplicationRealm"/>
+                    <http-invoker http-authentication-factory="application-http-authentication"/>
                 </host>
             </server>
             <servlet-container name="default">
@@ -1087,6 +916,17 @@
             <handlers>
                 <file name="welcome-content" path="${jboss.home.dir}/welcome-content"/>
             </handlers>
+            <application-security-domains>
+                <application-security-domain name="other" http-authentication-factory="keycloak-http-authentication"/>
+                <application-security-domain name="keycloak" http-authentication-factory="keycloak-http-authentication"/>
+                <application-security-domain name="jaas-sifec-local" security-domain="ApplicationDomain"/>
+                <application-security-domain name="jaas-sigtc-local" security-domain="ApplicationDomain"/>
+                <application-security-domain name="other2" security-domain="ApplicationDomain"/>
+                <application-security-domain name="jaas-sigec" security-domain="jaas-sigec"/>
+                <application-security-domain name="jaas-sifec" security-domain="jaas-sifec"/>
+                <application-security-domain name="jaas-sinad" security-domain="jaas-sinad"/>
+                <application-security-domain name="jaas-siric" security-domain="jaas-siric"/>
+            </application-security-domains>
         </subsystem>
         <subsystem xmlns="urn:jboss:domain:webservices:2.0" statistics-enabled="${wildfly.webservices.statistics-enabled:${wildfly.statistics-enabled:false}}">
             <wsdl-host>${jboss.bind.address:127.0.0.1}</wsdl-host>
