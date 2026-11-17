@@ -1,48 +1,24 @@
+1. Chaves vistas por este servidor
+for u in https://logindes.caixa.gov.br/auth/realms/internet https://login.des.caixa/auth/realms/intranet; do echo "== $u"; curl --noproxy '*' -k -s -m 10 $u/protocol/openid-connect/certs | grep -o '"kid":"[^"]*"'; done
+2. Este host roda o sifec-intranet5? Onde está o log?
+sudo find /opt/jboss -path '*servers*' -name server.log 2>/dev/null | grep -i intranet5
 
-Last login: Tue Nov 17 10:03:31 2026 from 10.211.12.57
-[p585600@cadsvitrlx100 ~]$ ssh 10.116.94.187
-The authenticity of host '10.116.94.187 (10.116.94.187)' can't be established.
-RSA key fingerprint is SHA256:kW3+up6ZqR6TzRpM6HJqeaxubKmfk9tEF23IalktbPs.
-This host key is known by the following other names/addresses:
-    ~/.ssh/known_hosts:7: 10.116.94.203
-    ~/.ssh/known_hosts:15: 10.116.88.25
-    ~/.ssh/known_hosts:81: 10.116.88.30
-    ~/.ssh/known_hosts:112: 10.116.88.24
-    ~/.ssh/known_hosts:114: 10.116.88.20
-    ~/.ssh/known_hosts:153: 10.116.89.252
-    ~/.ssh/known_hosts:156: 10.116.84.136
-    ~/.ssh/known_hosts:157: 10.116.84.137
-    (2 additional names omitted)
-Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
-Warning: Permanently added '10.116.94.187' (RSA) to the list of known hosts.
-***********************************************************************
-(1) - Este e um computador privado de propriedade da Caixa Economica
-Federal. Usuarios autorizados e nao autorizados nao possuem direitos de
-divulgar as informacoes contidas aqui.
-(2) - Ao fazer uso do sistema, o usuario esta ciente que pode estar
-sendo monitorado, interceptado e auditado pelo departamento competente
-da Caixa Economica Federal.
-(3) - O uso nao autorizado ou improprio deste sistema pode resultar em
-um processo disciplinar administrativo e/ou punicao atraves de acoes
-civis ou criminais. Ao continuar o uso deste sistema, indica que voce
-esta ciente e concordando com os termos e condicoes acima descritos.
+Se não aparecer nada, liste todos os servidores do host:
 
-Pressione <Control+D> IMEDIATAMENTE se voce nao concorda com as
-condicoes deste aviso
-***********************************************************************
-p585600@10.116.94.187's password:
-Creating home directory for p585600.
--sh-4.1$
--sh-4.1$
--sh-4.1$
--sh-4.1$ curl -k -s -m 10 -o /dev/null -w "%{http_code}\n" https://logindes.caixa.gov.br/auth/realms/internet/protocol/openid-connect/certs; curl -k -s -m 10 -v https://logindes.caixa.gov.br/auth/realms/internet/protocol/openid-connect/certs 2>&1 | grep -iE 'SSL|error|connect' | head -5
-200
-* About to connect() to logindes.caixa.gov.br port 443 (#0)
-*   Trying 10.116.81.75... connected
-* Connected to logindes.caixa.gov.br (10.116.81.75) port 443 (#0)
-* warning: ignoring value of ssl.verifyhost
-* skipping SSL peer certificate verification
--sh-4.1$
--sh-4.1$
--sh-4.1$
--sh-4.1$
+sudo find /opt/jboss -path '*servers*' -name server.log 2>/dev/null
+3. Como o 6.4 tratou o token do Edson
+
+Troque CAMINHO_DO_LOG pelo caminho que apareceu no passo 2:
+
+sudo grep -nE "AdapterTokenVerifier|publicKey|kid|ccr-api|Unauthorized" CAMINHO_DO_LOG | tail -20
+
+Se não aparecer nada, procure nos logs rotacionados de sexta (13/11):
+
+sudo ls -lt $(dirname CAMINHO_DO_LOG) | head
+
+O que cada resultado indica:
+
+Aparece Didn't find publicKey for kid também no 6.4: o 6.4 também recusa esse token, e o “funciona” do Edson foi por outro caminho ou com outro token. Aí pedimos um novo teste com acompanhamento ao vivo.
+Não aparece nenhum erro: o 6.4 aceitou. Vamos fazer um teste ao vivo: o Edson repete a chamada no sifec5 e no 7.4 ao mesmo tempo, enquanto acompanhamos os dois logs.
+
+Me mande as saídas dos passos 1 e 2.
