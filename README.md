@@ -1,37 +1,91 @@
-1. Descobrir quem é o Domain Controller
-bash
-grep -A4 "<domain-controller" /opt/open/jboss/7.0.0/domain/configuration/host*.xml
-ps -ef | grep "Host Controller" | grep -v grep
-Se aparecer <local/>, o DC é este próprio host (srjtqapllx0056).
-Se aparecer <remote host="..."/>, o DC é esse outro host. Nesse caso, rode o CLI de lá ou conecte apontando para ele.
-2. Abrir o CLI com o usuário dono do JBoss (assim a autenticação local funciona sem senha)
-bash
-sudo -u spjbotr2 /opt/open/jboss/7.0.0/bin/jboss-cli.sh --connect --controller=srjtqapllx0056:9990
 
-Se o DC for remoto, troque pelo host dele. Fora da máquina do DC, o CLI vai pedir um usuário de management.
+[root@srjtqapllx0056 p585600]#
 
-3. Dentro do CLI, descobrir os nomes e depois ler
-ls /host
-/host=<host>/server-config=srjtqapllx0056_sigaf_intra_8083:read-attribute(name=group)
-/server-group=<grupo>:read-attribute(name=profile)
-/server-group=<grupo>/jvm=*:read-resource
-ls /profile=<profile>/subsystem=datasources/data-source
-/profile=<profile>/subsystem=datasources/data-source=<ds>:read-resource
-/host=<host>/server=srjtqapllx0056_sigaf_intra_8083/subsystem=datasources/data-source=<ds>/statistics=pool:read-resource(include-runtime=true)
-/profile=<profile>/subsystem=transactions:read-attribute(name=default-timeout)
-/profile=<profile>/subsystem=io/worker=default:read-resource
-O que o ps já mostra
-Instância: srjtqapllx0056_sigaf_intra_8083, JBoss EAP 7.0.0, JDK 1.8.0_121, PID 69590, de pé desde 15/jan.
-Heap já está em 1 GB fixo (-Xms1024m -Xmx1024m). O “512 ou 1 GB” que o Cauan pediu é o que já existe hoje, então esse pedido não muda nada. Para justificar aumento, só com evidência de GC/OOM.
--Dbr.gov.caixa.psc.connector.util.Config=/infra_app/config/sigaf/sigaf_jconnector.properties: isso pode ser o conector com o mainframe. Se a chamada ao APFAP327 passa por ele e não por um datasource, os limites de conexão e timeout estão nesse arquivo, e não no subsystem de datasources. Vale olhar primeiro:
-bash
-cat /infra_app/config/sigaf/sigaf_jconnector.properties
-Coletar junto, de preferência durante uma execução da atualização
-bash
-LOG=/opt/open/jboss/7.0.0/domain/servers/srjtqapllx0056_sigaf_intra_8083/log/server.log
-grep -iE "IJ000453|ARJUNA|OutOfMemory|APFAP327|timeout" $LOG | tail -50
+[root@srjtqapllx0056 p585600]#
+[root@srjtqapllx0056 p585600]#
+[root@srjtqapllx0056 p585600]# grep -A4 "<domain-controller" /opt/open/jboss/7.0.0/domain/configuration/host*.xml
+/opt/open/jboss/7.0.0/domain/configuration/host-master.xml:    <domain-controller>
+/opt/open/jboss/7.0.0/domain/configuration/host-master.xml-        <local/>
+/opt/open/jboss/7.0.0/domain/configuration/host-master.xml-    </domain-controller>
+/opt/open/jboss/7.0.0/domain/configuration/host-master.xml-    <interfaces>
+/opt/open/jboss/7.0.0/domain/configuration/host-master.xml-        <interface name="management">
+--
+/opt/open/jboss/7.0.0/domain/configuration/host-slave.xml:    <domain-controller>
+/opt/open/jboss/7.0.0/domain/configuration/host-slave.xml-        <remote security-realm="ManagementRealm">
+/opt/open/jboss/7.0.0/domain/configuration/host-slave.xml-            <discovery-options>
+/opt/open/jboss/7.0.0/domain/configuration/host-slave.xml-                <static-discovery name="primary" protocol="${jboss.domain.master.protocol:remote}" host="${jboss.domain.master.address}" port="${jboss.domain.master.port:9999}"/>
+/opt/open/jboss/7.0.0/domain/configuration/host-slave.xml-            </discovery-options>
+--
+/opt/open/jboss/7.0.0/domain/configuration/host.xml:    <domain-controller>
+/opt/open/jboss/7.0.0/domain/configuration/host.xml-        <local/>
+/opt/open/jboss/7.0.0/domain/configuration/host.xml-    </domain-controller>
+/opt/open/jboss/7.0.0/domain/configuration/host.xml-
+/opt/open/jboss/7.0.0/domain/configuration/host.xml-    <interfaces>
+[root@srjtqapllx0056 p585600]#
+[root@srjtqapllx0056 p585600]#
+[root@srjtqapllx0056 p585600]#
+[root@srjtqapllx0056 p585600]# ps -ef | grep "Host Controller" | grep -v grep
+spjbotr2  16159  15957  0 03:05 ?        00:01:07 /opt/open/java/jdk1.8.0_121//bin/java -D[Host Controller] -Dorg.jboss.boot.log.file=/opt/open/jboss/7.0.0/domain/log/host-controller.log -Dlogging.configuration=file:/opt/open/jboss/7.0.0/domain/configuration/logging.properties -server -Xms64m -Xmx512m -XX:MaxMetaspaceSize=256m -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs=org.jboss.byteman -Djava.awt.headless=true -jar /opt/open/jboss/7.0.0/jboss-modules.jar -mp /opt/open/jboss/7.0.0/modules org.jboss.as.host-controller -mp /opt/open/jboss/7.0.0/modules --pc-address 127.0.0.1 --pc-port 41397 -default-jvm /opt/open/java/jdk1.8.0_121//bin/java -Djboss.bind.address=srjtqapllx0056 -Djboss.bind.address.management=srjtqapllx0056 -Djboss.management.http.port=9990 -Djboss.management.native.port=9999 -b=srjtqapllx0056 -host-config=host.xml --domain-config=domain.xml -Djboss.home.dir=/opt/open/jboss/7.0.0
+[root@srjtqapllx0056 p585600]# sudo -u spjbotr2 /opt/open/jboss/7.0.0/bin/jboss-cli.sh --connect --controller=srjtqapllx0056:9990
+[domain@srjtqapllx0056:9990 /]
+[domain@srjtqapllx0056:9990 /]
+[domain@srjtqapllx0056:9990 /]
+[domain@srjtqapllx0056:9990 /] ls /host
+srjtqapllx0056
 
-# 3 thread dumps com ~10 s de intervalo
-for i in 1 2 3; do sudo -u spjbotr2 /opt/open/java/jdk1.8.0_121/bin/jstack 69590 > /tmp/sigaf_td_$i.txt; sleep 10; done
-
-Me manda a saída do host.xml (passo 1) e do sigaf_jconnector.properties que eu sigo com você a partir daí.
+[domain@srjtqapllx0056:9990 /]
+[domain@srjtqapllx0056:9990 /] /host=<host>/server-config=srjtqapllx0056_sigaf_intra_8083:read-attribute(name=group)
+Failed to get the list of the operation properties: "WFLYCTL0030: No resource definition is registered for address [
+    ("host" => "<host>"),
+    ("server-config" => "srjtqapllx0056_sigaf_intra_8083")
+]"
+[domain@srjtqapllx0056:9990 /]
+[domain@srjtqapllx0056:9990 /]
+[domain@srjtqapllx0056:9990 /] /server-group=<grupo>:read-attribute(name=profile)
+{
+    "outcome" => "failed",
+    "failure-description" => "WFLYCTL0216: Management resource '[(\"server-group\" => \"<grupo>\")]' not found",
+    "rolled-back" => true
+}
+[domain@srjtqapllx0056:9990 /]
+[domain@srjtqapllx0056:9990 /]
+[domain@srjtqapllx0056:9990 /] /server-group=<grupo>/jvm=*:read-resource
+{
+    "outcome" => "success",
+    "result" => []
+}
+[domain@srjtqapllx0056:9990 /]
+[domain@srjtqapllx0056:9990 /]
+[domain@srjtqapllx0056:9990 /] ls /profile=<profile>/subsystem=datasources/data-source
+WFLYCTL0216: Management resource '[("profile" => "<profile>")]' not found
+[domain@srjtqapllx0056:9990 /]
+[domain@srjtqapllx0056:9990 /]
+[domain@srjtqapllx0056:9990 /] /profile=<profile>/subsystem=datasources/data-source=<ds>:read-resource
+{
+    "outcome" => "failed",
+    "failure-description" => "WFLYCTL0216: Management resource '[(\"profile\" => \"<profile>\")]' not found",
+    "rolled-back" => true
+}
+[domain@srjtqapllx0056:9990 /] /host=<host>/server=srjtqapllx0056_sigaf_intra_8083/subsystem=datasources/data-source=<ds>/statistics=pool:read-resource(include-runtime=true)
+Failed to get the list of the operation properties: "WFLYCTL0030: No resource definition is registered for address [
+    ("host" => "<host>"),
+    ("server" => "srjtqapllx0056_sigaf_intra_8083"),
+    ("subsystem" => "datasources"),
+    ("data-source" => "<ds>"),
+    ("statistics" => "pool")
+]"
+[domain@srjtqapllx0056:9990 /]
+[domain@srjtqapllx0056:9990 /]
+[domain@srjtqapllx0056:9990 /] /profile=<profile>/subsystem=transactions:read-attribute(name=default-timeout)
+{
+    "outcome" => "failed",
+    "failure-description" => "WFLYCTL0216: Management resource '[(\"profile\" => \"<profile>\")]' not found",
+    "rolled-back" => true
+}
+[domain@srjtqapllx0056:9990 /] /profile=<profile>/subsystem=io/worker=default:read-resource
+{
+    "outcome" => "failed",
+    "failure-description" => "WFLYCTL0216: Management resource '[(\"profile\" => \"<profile>\")]' not found",
+    "rolled-back" => true
+}
+[domain@srjtqapllx0056:9990 /]
