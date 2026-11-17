@@ -1,184 +1,34 @@
-Beleza!
- 
-Precisava atualizar essa lista, para saber como estamos:
- 
- 
-Módulo / pacote do inventário
-	
-Semáforo
-	
-Situação
+Gustavo, segue a atualização da lista:
 
+Módulo / pacote	Semáforo	Situação
+SIFEC 2.161.2.0	🟢	Implantado e no ar (WFLYSRV0010). Núcleo SIFEC operacional no 7.4.
+SICCR-PARÂMETROS	🟡 (atualizado)	A 3.3.1.1 tinha sido validada. Depois, a pedido do Rodrigo, subimos a versão spr3 pela console. Falta o Rodrigo confirmar o teste nessa versão.
+SICDT-FEC 3.24.3.004	🟢	Implantado e testado, com download de PDF/CSV OK. Build indicada como estável.
+SICCR-PJ 8.40.1	🟢	No ar e funcionando: perfil e lista de clientes.
+HUB-WEB 1.10.0.1-b418	🟡	/hub-web/ responde e redireciona para o login. As funcionalidades dependem do HUB-API, que ainda não sobe.
+SIBAN-MCM 1.0.1.23-b47	🟡	Implantado e datasource Sybase corrigido (teste de conexão OK). Aguardando teste funcional.
+SICCR-BDCAIXA 2.0.1-b39	🟡	Implantado. Aguardando teste funcional.
+SIFEC-FBN 1.0.1.0-b84	🟡 (atualizado)	Está implantado no ambiente; na lista anterior constava como ⚪. Aguardando teste funcional.
+MINUTA GARANTIAS (SIFEC-MINUTAS-FRONT 1.0.0-b14)	🟡	Implantado. Aguardando teste funcional.
+SIFEC-CCR 6.3.0-b4587	🟡 (atualizado)	Implantado. Causa do 401 do ccr-api identificada: no 7.4 o container passou a validar o token só no realm internet, e no 6.4 isso não acontece. A correção é de ambiente, sem novo pacote, e aguarda o de acordo do Alessandro e o seu para aplicar no DES. Também achamos um erro de banco separado (ORA-25156, dialeto Oracle do Hibernate), que é correção do dev. Obs.: o inventário cita 6.4.0, mas a versão no ambiente é 6.3.0-b4587.
+SIRUR	🔴 (atualizado)	Avançou: senha do datasource corrigida (ORA-01017 resolvido) e o erro do @PersistenceContext foi superado. A 3.55.51.03 parou num novo erro de CDI: SiricXMLIntegracaoNegocioImpl precisa expor a interface (@Local/implements). Aguardando nova build do Michael.
+LCR 1.117.1	🔴	Deploy revertido: erros de CDI em 9 DAOs e SecurityInterceptor incompatível com o RESTEasy do 7.4. Aguardando nova build. Correção da fábrica.
+HUB-API 2.2.0	🔴	Named query com parâmetro legado ?, incompatível com o Hibernate do 7.4. Aguardando nova build.
+SIFEC-EMP 3.96.2.0	🔴	CDI (WELD-001408). Aguardando nova build.
+SIFEC-EMPRESAS	🔴	CDI (WELD-001408). Aguardando nova build.
+SIFEC-RURAL 2.115.1.0	🔴	Precisa de build compatível com o 7.4 (Jackson/RESTEasy como provided). Aguardando nova build.
+APX, ARC, BAN, BNDES, CONSTRUCARD, GARANTIAS, MANTER DOCUMENTO, ORIGINAÇÃO	⚪	Ainda não começamos. Ficam na fila depois de LCR → SIRUR → CCR, como Paulo e Rodrigo definiram.
 
-SIFEC sifec-2.160.1.0.ear
-	
-🟢
-	
-O inventário já registrava teste do desenvolvedor. Hoje houve nova implantação doSIFEC 2.161.2.0, concluída com WFLYSRV0010, portanto o núcleo SIFEC está operacional no 7.4.
+Resumo:
 
+🟢 3: SIFEC, SICDT e PJ.
+🟡 7: implantados aguardando teste dos devs, mais o CCR esperando o de acordo.
+🔴 6: todos aguardando build corrigida da fábrica; do lado do ambiente não há pendência nossa neles.
+⚪ 8: ainda na fila.
 
-SICCR-PARÂMETROS sifec-ccr-parametros-3.3.1.1.ear
-	
-🟢
-	
-Implantado com sucesso. API respondendo e versão 3.3.1.1 confirmada. O front é acessado pelo menu Serviços > Tributos do SIFEC.
+Fora da lista, no SIEMP, o DNS duplicado já foi corrigido e o erro de JSTL está com o dev.
 
+Duas observações antes de mandar:
 
-SICDT-FEC sifec-cdt-3.24.1.ear
-	
-🟢
-	
-Evoluiu para build 3.24.3.004. Redeploy concluído; web/API publicados. Houve teste de download PDF/CSV com sucesso e a build foi indicada como estável.
-
-
-SICCR-PJ workflow-credito-pj-ear-8.40.1.ear
-	
-🟢
-	
-Já estava marcado como testado no inventário. No chat também aparece como "no ar e funcionando", inclusive perfil e lista de clientes.
-
-
-HUB-WEB / SICCR-HUB-FRONTEND hub-web-ear-1.10.0.1.ear
-	
-🟡
-	
-Deploy concluído e /hub-web/ responde/redireciona para login. Porém funcionalidades dependentes do HUB-API continuam comprometidas.
-
-
-SIBAN-MCM mcm-ear-1.0.1.23.ear
-	
-🟡
-	
-Versão da planilha implantada e datasource corrigido; ficoupronto para validação, mas não encontrei confirmação posterior de teste funcional
-
-
-SIFEC-EMP sifec-emp-3.96.2.0.ear
-	
-🔴
-	
-Continua com necessidade de novo build devido ao CDI/WELD-001408
-
-
-SIFEC-EMPRESAS sifec-empresas_TAS000022539216..ear
-	
-🔴
-	
-Inventário registra necessidade de correção CDI/WELD-001408. Ainda não encontrei confirmação de que o build corrigido tenha sido implantado e validado.
-
-
-SIFEC-RURAL sifec-rural-2.115.1.0.ear
-	
-🔴
-	
-Continua dependendo de build compatível com JBoss 7.4, especialmente Jackson/RESTEasy provided.
-
-
-SIRUR sifec-sirur-3.54.51.28.ear
-	
-🔴
-	
-Houve várias correções e build 3.55.51.02, mas o deploy de hoje ainda foi interrompido por @PersistenceContext referenciando entityManagerFactory. Portanto aindanão sobe.
-
-
-LCR sifec_lcr_1.117.1.ear
-	
-🔴
-	
-O pacote correto finalmente foi implantado hoje às 14:59, mas o deploy foi revertido. Há erros CDI/WELD e incompatibilidade do SecurityInterceptor com RESTEasy do JBoss 7.4.
-
-
-HUB-API hub-api-ear-2.2.0.ear
-	
-🔴
-	
-Deploy revertido. HUB-PU falha por named query usando parâmetro legado ?, incompatível com Hibernate do 7.4.
-
-
-SIFEC-APX sifec-apx-1.7.9.4.ear
-	
-⚪
-	
-Consta no inventário e chegou a aparecer como próximo da fila, mas não há confirmação suficiente de funcionamento.
-
-
-SIFEC-ARC sifec-arc.ear
-	
-⚪
-	
-Consta no inventário e estava entre os próximos da lista, sem validação conclusiva encontrada
-
-
-SIFEC-BAN sifec-ban-1.7.0.ear
-	
-⚪
-	
-Sem evidência conclusiva localizada de deploy + teste funcional.
-
-
-SICCR-BDCAIXA
-	
-🟡
-	
-O chat confirma que estava implantado no ambiente, mas não localizei validação funcional conclusiva.
-
-
-SIFEC-BNDES sifec-bndes-1.0.4.2.ear
-	
-⚪
-	
-Sem evidência conclusiva de funcionamento.
-
-
-SIFEC-CCR sifec-ccr-6.4.0.ear
-	
-🟡
-	
-Consta como implantado no ambiente, mas não encontrei validação funcional suficiente para colocar verde.
-
-
-CONSTRUCARD sifec-construcard-1.23.1.2.ear
-	
-⚪
-	
-Sem evidência conclusiva de funcionamento.
-
-
-SIFEC-FBN sifec-fbn-1.4.0.ear
-	
-⚪
-	
-Sem evidência conclusiva.
-
-
-SIFEC-GARANTIAS sifec-garantias-1.8.0.3.ear
-	
-⚪
-	
-Sem confirmação suficiente de teste no 7.4.
-
-
-MANTER DOCUMENTO sifec-manterdocumento-2.2.7.ear
-	
-⚪
-	
-Sem evidência conclusiva.
-
-
-MINUTA GARANTIAS
-	
-🟡
-	
-O consolidado registra SIFEC-MINUTAS-FRONT implantado, porém não encontrei validação funcional posterior suficiente para verde.
-
-
-SIFEC-ORIGINAÇÃO sifec-originacao-3.11.1.ear
-	
-⚪
-	
-Sem confirmação conclusiva de deploy/teste. 
- 
-
-
-
- O que já avançamos dessa lista?
- 
+PARÂMETROS: coloquei 🟡 porque não lembro de confirmação de teste da spr3. Se o Rodrigo já validou, pode voltar para 🟢.
+Testes dos amarelos: se algum dev confirmou teste de MCM, BDCAIXA, FBN ou Minutas e eu não vi, é só passar para 🟢.
