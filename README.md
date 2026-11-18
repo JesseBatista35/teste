@@ -1,21 +1,20 @@
-Boa, Vitor! Isso mesmo. Os VIPs do internet e do boleto foram criados, então já pode abrir a Solicitar Certificado Digital – CSR – TE079 para esses dois. O do intranet fica para quando a REQ000147073839 for concluída.
-
-Para evitar o vai-e-volta que tivemos em DES, coloca na descrição os dados do VIP e pede que, depois de emitido, o certificado seja instalado no VIP:
-
-Internet
-Emissão de certificado digital para sigsj-internet.tqs.caixa (TQS), com instalação no VIP após a emissão.
-VIP: 10.116.181.220
-Balanceador: CADDEAPRLB003
-Vserver: LB_VS_10.116.181.220_SSL_443
-VIP criado na REQ000147074676 / WO0000082325423 (hoje em DOWN aguardando o certificado).
-
-Boleto
-Emissão de certificado digital para sigsj-boleto.tqs.caixa (TQS), com instalação no VIP após a emissão.
-VIP: 10.116.181.221
-Balanceador: CADDEAPRLB003
-Vserver: LB_VS_10.116.181.221_SSL_443
-VIP criado na REQ000147074916 / WO0000082324980 (hoje em DOWN aguardando o certificado).
-
-Um ponto de atenção no boleto: o VIP 10.116.181.221 foi criado com o comentário “SIBDO-WEB.ESTEIRAS.DES.CAIXA”. O apontamento está correto (backend 10.116.202.52:80, a VM do boleto), então parece só o comentário copiado de outra REQ. Vale pedir na WO0000082324980 a correção do comentário para “SIGSJ-BOLETO.TQS.CAIXA”, para não confundir na hora da instalação do certificado.
-
-O DNS a gente só abre depois que o certificado estiver no VIP. Me passa os números quando abrir. Valeu!
+Jesse,
+ 
+Conforme evidenciado nos testes realizados, o fluxo informado já possui regra de firewall e está sendo permitido pelo equipamento.
+ 
+Foi executado o comando abaixo diretamente no firewall:
+- packet-tracer input AUTO_DES_APRES TCP 10.116.180.64 65001 10.116.26.110 443
+ 
+Resultado:
+- Action: allow
+ 
+O resultado "Action: allow" demonstra que o firewall processa o tráfego entre a origem 10.116.180.64 e o destino 10.116.26.110 na porta TCP/443 sem qualquer bloqueio.
+ 
+Adicionalmente, foi realizado teste de conectividade TCP a partir do próprio firewall utilizando a mesma origem, destino e porta informados:
+- CNPRDFW001-1# ping tcp 10.116.26.110 443 source 10.116.180.64 65001 Sending 5 TCP SYN requests to 10.116.26.110 port 443 from 10.116.180.64 starting port 65001: !!!!! Success rate is 100 percent (5/5)
+ 
+O retorno 100% de sucesso indica que o host 10.116.26.110 respondeu às tentativas de conexão TCP na porta 443, demonstrando que existe comunicação entre origem e destino pelos parâmetros informados.
+ 
+Dessa forma, não foi identificado qualquer bloqueio ou impedimento sob responsabilidade da equipe de Redes Datacenter, tampouco existe ação pendente de firewall para este fluxo.
+ 
+Caso a indisponibilidade persista, recomendamos que sejam validados os componentes da aplicação e do servidor envolvidos na comunicação, uma vez que as evidências apresentadas demonstram que o firewall permite o tráfego e que o destino responde na porta solicitada.
