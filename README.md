@@ -1,4 +1,108 @@
-[root@cbrdeapllx473 p585600]#
+
+[domain@localhost:9999 /]
+[domain@localhost:9999 /]
+[domain@localhost:9999 /]
+[domain@localhost:9999 /]
+[domain@localhost:9999 /] /server-group=sifec-intranet/deployment=SIFEC-BNDES-ONLINE:add(enabled=true)
+{
+    "outcome" => "failed",
+    "result" => undefined,
+    "failure-description" => {"WFLYDC0074: Operation failed or was rolled back on all servers. Server failures:" => {"server-group" => {"sifec-intranet" => {"host" => {"hc_cbrdeapllx473" => {"sifec-i
+ntranet_node1_lx473" => {"WFLYCTL0080: Falha de serviços" => {"jboss.deployment.unit.\"sifec-bndes-1.1.0-b8.ear\".WeldStartService" => "Failed to start service
+    Caused by: org.jboss.weld.exceptions.DeploymentException: Exception List with 2 exceptions:
+Exception 0 :
+org.jboss.weld.exceptions.DeploymentException: WELD-001408: Unsatisfied dependencies for type IFbnServicosBean with qualifiers @Default
+  at injection point [BackedAnnotatedField] @Inject private br.gov.caixa.bndes.rest.BndesServicesRest.fbnServicosBean
+  at br.gov.caixa.bndes.rest.BndesServicesRest.fbnServicosBean(BndesServicesRest.java:0)
+
+        at org.jboss.weld.bootstrap.Validator.validateInjectionPointForDeploymentProblems(Validator.java:378)
+        at org.jboss.weld.bootstrap.Validator.validateInjectionPoint(Validator.java:290)
+        at org.jboss.weld.bootstrap.Validator.validateGeneralBean(Validator.java:143)
+        at org.jboss.weld.bootstrap.Validator.validateRIBean(Validator.java:164)
+        at org.jboss.weld.bootstrap.Validator.validateBean(Validator.java:526)
+        at org.jboss.weld.bootstrap.ConcurrentValidator$1.doWork(ConcurrentValidator.java:64)
+        at org.jboss.weld.bootstrap.ConcurrentValidator$1.doWork(ConcurrentValidator.java:62)
+        at org.jboss.weld.executor.IterativeWorkerTaskFactory$1.call(IterativeWorkerTaskFactory.java:62)
+        at org.jboss.weld.executor.IterativeWorkerTaskFactory$1.call(IterativeWorkerTaskFactory.java:55)
+        at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+        at java.lang.Thread.run(Thread.java:750)
+        at org.jboss.threads.JBossThread.run(JBossThread.java:513)
+Exception 1 :
+org.jboss.weld.exceptions.DeploymentException: WELD-001408: Unsatisfied dependencies for type IBndesServicosBean with qualifiers @Default
+  at injection point [BackedAnnotatedField] @Inject private br.gov.caixa.bndes.financiamento.autorizacaoContratacao.rest.AutorizacaoContratacaoRest.bndesServicosBean
+  at br.gov.caixa.bndes.financiamento.autorizacaoContratacao.rest.AutorizacaoContratacaoRest.bndesServicosBean(AutorizacaoContratacaoRest.java:0)
+
+        at org.jboss.weld.bootstrap.Validator.validateInjectionPointForDeploymentProblems(Validator.java:378)
+        at org.jboss.weld.bootstrap.Validator.validateInjectionPoint(Validator.java:290)
+        at org.jboss.weld.bootstrap.Validator.validateGeneralBean(Validator.java:143)
+        at org.jboss.weld.bootstrap.Validator.validateRIBean(Validator.java:164)
+        at org.jboss.weld.bootstrap.Validator.validateBean(Validator.java:526)
+        at org.jboss.weld.bootstrap.ConcurrentValidator$1.doWork(ConcurrentValidator.java:64)
+        at org.jboss.weld.bootstrap.ConcurrentValidator$1.doWork(ConcurrentValidator.java:62)
+        at org.jboss.weld.executor.IterativeWorkerTaskFactory$1.call(IterativeWorkerTaskFactory.java:62)
+        at org.jboss.weld.executor.IterativeWorkerTaskFactory$1.call(IterativeWorkerTaskFactory.java:55)
+        at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+        at java.lang.Thread.run(Thread.java:750)
+        at org.jboss.threads.JBossThread.run(JBossThread.java:513)
+"}}}}}}}},
+    "rolled-back" => true,
+    "server-groups" => {"sifec-intranet" => {"host" => {"hc_cbrdeapllx473" => {"sifec-intranet_node1_lx473" => {"response" => {
+        "outcome" => "failed",
+        "result" => undefined,
+        "failure-description" => {"WFLYCTL0080: Falha de serviços" => {"jboss.deployment.unit.\"sifec-bndes-1.1.0-b8.ear\".WeldStartService" => "Failed to start service
+    Caused by: org.jboss.weld.exceptions.DeploymentException: Exception List with 2 exceptions:
+Exception 0 :
+org.jboss.weld.exceptions.DeploymentException: WELD-001408: Unsatisfied dependencies for type IFbnServicosBean with qualifiers @Default
+  at injection point [BackedAnnotatedField] @Inject private br.gov.caixa.bndes.rest.BndesServicesRest.fbnServicosBean
+  at br.gov.caixa.bndes.rest.BndesServicesRest.fbnServicosBean(BndesServicesRest.java:0)
+
+        at org.jboss.weld.bootstrap.Validator.validateInjectionPointForDeploymentProblems(Validator.java:378)
+        at org.jboss.weld.bootstrap.Validator.validateInjectionPoint(Validator.java:290)
+        at org.jboss.weld.bootstrap.Validator.validateGeneralBean(Validator.java:143)
+        at org.jboss.weld.bootstrap.Validator.validateRIBean(Validator.java:164)
+        at org.jboss.weld.bootstrap.Validator.validateBean(Validator.java:526)
+        at org.jboss.weld.bootstrap.ConcurrentValidator$1.doWork(ConcurrentValidator.java:64)
+        at org.jboss.weld.bootstrap.ConcurrentValidator$1.doWork(ConcurrentValidator.java:62)
+        at org.jboss.weld.executor.IterativeWorkerTaskFactory$1.call(IterativeWorkerTaskFactory.java:62)
+        at org.jboss.weld.executor.IterativeWorkerTaskFactory$1.call(IterativeWorkerTaskFactory.java:55)
+        at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+        at java.lang.Thread.run(Thread.java:750)
+        at org.jboss.threads.JBossThread.run(JBossThread.java:513)
+Exception 1 :
+org.jboss.weld.exceptions.DeploymentException: WELD-001408: Unsatisfied dependencies for type IBndesServicosBean with qualifiers @Default
+  at injection point [BackedAnnotatedField] @Inject private br.gov.caixa.bndes.financiamento.autorizacaoContratacao.rest.AutorizacaoContratacaoRest.bndesServicosBean
+  at br.gov.caixa.bndes.financiamento.autorizacaoContratacao.rest.AutorizacaoContratacaoRest.bndesServicosBean(AutorizacaoContratacaoRest.java:0)
+
+        at org.jboss.weld.bootstrap.Validator.validateInjectionPointForDeploymentProblems(Validator.java:378)
+        at org.jboss.weld.bootstrap.Validator.validateInjectionPoint(Validator.java:290)
+        at org.jboss.weld.bootstrap.Validator.validateGeneralBean(Validator.java:143)
+        at org.jboss.weld.bootstrap.Validator.validateRIBean(Validator.java:164)
+        at org.jboss.weld.bootstrap.Validator.validateBean(Validator.java:526)
+        at org.jboss.weld.bootstrap.ConcurrentValidator$1.doWork(ConcurrentValidator.java:64)
+        at org.jboss.weld.bootstrap.ConcurrentValidator$1.doWork(ConcurrentValidator.java:62)
+        at org.jboss.weld.executor.IterativeWorkerTaskFactory$1.call(IterativeWorkerTaskFactory.java:62)
+        at org.jboss.weld.executor.IterativeWorkerTaskFactory$1.call(IterativeWorkerTaskFactory.java:55)
+        at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+        at java.lang.Thread.run(Thread.java:750)
+        at org.jboss.threads.JBossThread.run(JBossThread.java:513)
+"}},
+        "rolled-back" => true
+    }}}}}}
+}
+
+[domain@localhost:9999 /]
+
+
+
+
 [root@cbrdeapllx473 p585600]#
 [root@cbrdeapllx473 p585600]# LOG=/opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/server.log
 [root@cbrdeapllx473 p585600]#
@@ -156,16 +260,87 @@
 16:13:17,196 WARN  [org.hibernate.mapping.RootClass] (ServerService Thread Pool -- 141) HHH000038: Composite-id class does not override equals(): br.gov.caixa.bndes.dominio.transicao.RetornoMensagemLiberacaoBndesTO
 16:13:17,196 WARN  [org.hibernate.mapping.RootClass] (ServerService Thread Pool -- 141) HHH000039: Composite-id class does not override hashCode(): br.gov.caixa.bndes.dominio.transicao.RetornoMensagemLiberacaoBndesTO
 ^C
-[root@cbrdeapllx473 p585600]#
-
-
-
-
-
-[domain@localhost:9999 /]
-[domain@localhost:9999 /]
-[domain@localhost:9999 /]
-[domain@localhost:9999 /]
-[domain@localhost:9999 /]
-[domain@localhost:9999 /] /server-group=sifec-intranet/deployment=SIFEC-BNDES-ONLINE:add(enabled=true)
+[root@cbrdeapllx473 p585600]# ^C
+[root@cbrdeapllx473 p585600]# tail -f $LOG | grep -aiE "bndes|WFLYSRV00(10|21)|WFLYCTL0013|WFLYCTL0412|WELD-0014|ERROR|Contexto web registrado"
+16:13:17,195 WARN  [org.hibernate.mapping.RootClass] (ServerService Thread Pool -- 141) HHH000038: Composite-id class does not override equals(): br.gov.caixa.bndes.dominio.transicao.ControleMensagemBndesPK
+16:13:17,195 WARN  [org.hibernate.mapping.RootClass] (ServerService Thread Pool -- 141) HHH000039: Composite-id class does not override hashCode(): br.gov.caixa.bndes.dominio.transicao.ControleMensagemBndesPK
+16:13:17,195 WARN  [org.hibernate.mapping.RootClass] (ServerService Thread Pool -- 141) HHH000038: Composite-id class does not override equals(): br.gov.caixa.bndes.dominio.transicao.RetornoInformacoesAdicionaisBndesTO
+16:13:17,195 WARN  [org.hibernate.mapping.RootClass] (ServerService Thread Pool -- 141) HHH000039: Composite-id class does not override hashCode(): br.gov.caixa.bndes.dominio.transicao.RetornoInformacoesAdicionaisBndesTO
+16:13:17,195 WARN  [org.hibernate.mapping.RootClass] (ServerService Thread Pool -- 141) HHH000038: Composite-id class does not override equals(): br.gov.caixa.bndes.dominio.transicao.RetornoMensagemCancelamentoBndesTO
+16:13:17,195 WARN  [org.hibernate.mapping.RootClass] (ServerService Thread Pool -- 141) HHH000039: Composite-id class does not override hashCode(): br.gov.caixa.bndes.dominio.transicao.RetornoMensagemCancelamentoBndesTO
+16:13:17,196 WARN  [org.hibernate.mapping.RootClass] (ServerService Thread Pool -- 141) HHH000038: Composite-id class does not override equals(): br.gov.caixa.bndes.dominio.transicao.RetornoMensagemLiberacaoBndesTO
+16:13:17,196 WARN  [org.hibernate.mapping.RootClass] (ServerService Thread Pool -- 141) HHH000039: Composite-id class does not override hashCode(): br.gov.caixa.bndes.dominio.transicao.RetornoMensagemLiberacaoBndesTO
+16:16:42,457 WARN  [org.hibernate.engine.jdbc.spi.SqlExceptionHelper] (default task-40) SQL Error: -6, SQLState: 08003
+16:16:42,457 ERROR [org.hibernate.engine.jdbc.spi.SqlExceptionHelper] (default task-40) Invalid connection state
+16:16:42,459 WARN  [org.jboss.jca.adapters.jdbc.local.LocalManagedConnectionFactory] (default task-40) IJ030061: Error resetting auto-commit for: java:/jdbc/IdmsSiapxDS: java.sql.SQLException: Invalid connection state
+        at io.undertow.servlet.handlers.SendErrorPageHandler.handleRequest(SendErrorPageHandler.java:52)
+16:16:42,796 ERROR [org.jboss.as.ejb3.invocation] (default task-40) WFLYEJB0034: A invocação de Jakarta Enterprise Beans falhou no componente SimulacaoCreditoConsignadoBean para o método public br.gov.caixa.ccr.dominio.api.simulacao.response.SimulacaoResponseV7 br.gov.caixa.ccr.negocio.api.simulacao.SimulacaoCreditoConsignadoBean.simularCreditoConsignadoTombamento(br.gov.caixa.ccr.dominio.api.simulacao.request.dto.SimulacaoRequestDTO,br.gov.caixa.siccr.dominio.pf.CanalAtendimentoEntidade,java.lang.StringBuilder,br.gov.caixa.sifec.componentes.receita.federal.dto.PessoaReceitaFederalDTO,br.gov.caixa.siccr.dominio.pf.ConvenioEntidade,java.lang.String) throws java.lang.Exception: javax.ejb.EJBException: java.lang.NullPointerException
+        at io.undertow.servlet.handlers.SendErrorPageHandler.handleRequest(SendErrorPageHandler.java:52)
+16:16:46,515 WARN  [org.hibernate.engine.jdbc.spi.SqlExceptionHelper] (default task-40) SQL Error: -6, SQLState: 08003
+16:16:46,515 ERROR [org.hibernate.engine.jdbc.spi.SqlExceptionHelper] (default task-40) Invalid connection state
+16:16:46,516 WARN  [org.jboss.jca.adapters.jdbc.local.LocalManagedConnectionFactory] (default task-40) IJ030061: Error resetting auto-commit for: java:/jdbc/IdmsSiapxDS: java.sql.SQLException: Invalid connection state
+        at io.undertow.servlet.handlers.SendErrorPageHandler.handleRequest(SendErrorPageHandler.java:52)
+16:16:46,713 ERROR [org.jboss.as.ejb3.invocation] (default task-40) WFLYEJB0034: A invocação de Jakarta Enterprise Beans falhou no componente SimulacaoCreditoConsignadoBean para o método public br.gov.caixa.ccr.dominio.api.simulacao.response.SimulacaoResponseV7 br.gov.caixa.ccr.negocio.api.simulacao.SimulacaoCreditoConsignadoBean.simularCreditoConsignadoTombamento(br.gov.caixa.ccr.dominio.api.simulacao.request.dto.SimulacaoRequestDTO,br.gov.caixa.siccr.dominio.pf.CanalAtendimentoEntidade,java.lang.StringBuilder,br.gov.caixa.sifec.componentes.receita.federal.dto.PessoaReceitaFederalDTO,br.gov.caixa.siccr.dominio.pf.ConvenioEntidade,java.lang.String) throws java.lang.Exception: javax.ejb.EJBException: java.lang.NullPointerException
+        at io.undertow.servlet.handlers.SendErrorPageHandler.handleRequest(SendErrorPageHandler.java:52)
+        at com.sybase.jdbc4.jdbc.ErrorMessage.raiseError(ErrorMessage.java:819) [jconn4.jar:JDK 1.6/jdbcdev/Saturday, October 29, 2022 11:26:00 PM PDT]
+        at com.sybase.jdbc4.jdbc.ErrorMessage.raiseErrorCheckDead(ErrorMessage.java:1250) [jconn4.jar:JDK 1.6/jdbcdev/Saturday, October 29, 2022 11:26:00 PM PDT]
+16:17:40,095 WARN  [org.hibernate.mapping.RootClass] (ServerService Thread Pool -- 140) HHH000038: Composite-id class does not override equals(): br.gov.caixa.bndes.dominio.transicao.RetornoMensagemFinanciamentoBndesTO
+16:17:40,095 WARN  [org.hibernate.mapping.RootClass] (ServerService Thread Pool -- 140) HHH000039: Composite-id class does not override hashCode(): br.gov.caixa.bndes.dominio.transicao.RetornoMensagemFinanciamentoBndesTO
+16:17:40,095 WARN  [org.hibernate.mapping.RootClass] (ServerService Thread Pool -- 140) HHH000038: Composite-id class does not override equals(): br.gov.caixa.bndes.dominio.transicao.RetornoMensagemContratacaoBndesTO
+16:17:40,095 WARN  [org.hibernate.mapping.RootClass] (ServerService Thread Pool -- 140) HHH000039: Composite-id class does not override hashCode(): br.gov.caixa.bndes.dominio.transicao.RetornoMensagemContratacaoBndesTO
+16:17:40,095 WARN  [org.hibernate.mapping.RootClass] (ServerService Thread Pool -- 140) HHH000038: Composite-id class does not override equals(): br.gov.caixa.bndes.dominio.transicao.ControleMensagemBndesPK
+16:17:40,095 WARN  [org.hibernate.mapping.RootClass] (ServerService Thread Pool -- 140) HHH000039: Composite-id class does not override hashCode(): br.gov.caixa.bndes.dominio.transicao.ControleMensagemBndesPK
+16:17:40,095 WARN  [org.hibernate.mapping.RootClass] (ServerService Thread Pool -- 140) HHH000038: Composite-id class does not override equals(): br.gov.caixa.bndes.dominio.transicao.RetornoInformacoesAdicionaisBndesTO
+16:17:40,095 WARN  [org.hibernate.mapping.RootClass] (ServerService Thread Pool -- 140) HHH000039: Composite-id class does not override hashCode(): br.gov.caixa.bndes.dominio.transicao.RetornoInformacoesAdicionaisBndesTO
+16:17:40,095 WARN  [org.hibernate.mapping.RootClass] (ServerService Thread Pool -- 140) HHH000038: Composite-id class does not override equals(): br.gov.caixa.bndes.dominio.transicao.RetornoMensagemCancelamentoBndesTO
+16:17:40,095 WARN  [org.hibernate.mapping.RootClass] (ServerService Thread Pool -- 140) HHH000039: Composite-id class does not override hashCode(): br.gov.caixa.bndes.dominio.transicao.RetornoMensagemCancelamentoBndesTO
+16:17:40,096 WARN  [org.hibernate.mapping.RootClass] (ServerService Thread Pool -- 140) HHH000038: Composite-id class does not override equals(): br.gov.caixa.bndes.dominio.transicao.RetornoMensagemLiberacaoBndesTO
+16:17:40,096 WARN  [org.hibernate.mapping.RootClass] (ServerService Thread Pool -- 140) HHH000039: Composite-id class does not override hashCode(): br.gov.caixa.bndes.dominio.transicao.RetornoMensagemLiberacaoBndesTO
+16:17:40,308 INFO  [org.jboss.weld.Bootstrap] (Weld Thread Pool -- 2) WELD-000119: Not generating any bean definitions from br.gov.caixa.arqrefcore.siemp.sisgd.api.impl.UpLoadDownloadImpl because of underlying class loading error: Type br.gov.caixa.bsb.sisgd.framework.cm.ConectorException from [Module "deployment.sifec-bndes-1.1.0-b8.ear" from Service Module Loader] not found.  If this is unexpected, enable DEBUG logging to see the full error.
+16:17:40,605 ERROR [org.jboss.msc.service.fail] (MSC service thread 1-5) MSC000001: Failed to start service jboss.deployment.unit."sifec-bndes-1.1.0-b8.ear".WeldStartService: org.jboss.msc.service.StartException in service jboss.deployment.unit."sifec-bndes-1.1.0-b8.ear".WeldStartService: Failed to start service
+org.jboss.weld.exceptions.DeploymentException: WELD-001408: Unsatisfied dependencies for type IFbnServicosBean with qualifiers @Default
+  at injection point [BackedAnnotatedField] @Inject private br.gov.caixa.bndes.rest.BndesServicesRest.fbnServicosBean
+  at br.gov.caixa.bndes.rest.BndesServicesRest.fbnServicosBean(BndesServicesRest.java:0)
+org.jboss.weld.exceptions.DeploymentException: WELD-001408: Unsatisfied dependencies for type IBndesServicosBean with qualifiers @Default
+  at injection point [BackedAnnotatedField] @Inject private br.gov.caixa.bndes.financiamento.autorizacaoContratacao.rest.AutorizacaoContratacaoRest.bndesServicosBean
+  at br.gov.caixa.bndes.financiamento.autorizacaoContratacao.rest.AutorizacaoContratacaoRest.bndesServicosBean(AutorizacaoContratacaoRest.java:0)
+        Suppressed: org.jboss.weld.exceptions.DeploymentException: WELD-001408: Unsatisfied dependencies for type IFbnServicosBean with qualifiers @Default
+  at injection point [BackedAnnotatedField] @Inject private br.gov.caixa.bndes.rest.BndesServicesRest.fbnServicosBean
+  at br.gov.caixa.bndes.rest.BndesServicesRest.fbnServicosBean(BndesServicesRest.java:0)
+        Suppressed: org.jboss.weld.exceptions.DeploymentException: WELD-001408: Unsatisfied dependencies for type IBndesServicosBean with qualifiers @Default
+  at injection point [BackedAnnotatedField] @Inject private br.gov.caixa.bndes.financiamento.autorizacaoContratacao.rest.AutorizacaoContratacaoRest.bndesServicosBean
+  at br.gov.caixa.bndes.financiamento.autorizacaoContratacao.rest.AutorizacaoContratacaoRest.bndesServicosBean(AutorizacaoContratacaoRest.java:0)
+16:17:40,609 ERROR [org.jboss.as.controller.management-operation] (ServerService Thread Pool -- 137) WFLYCTL0013: Falha na operação ("add") - endereço ([("deployment" => "SIFEC-BNDES-ONLINE")]) - falha na descrição: {"WFLYCTL0080: Falha de serviços" => {"jboss.deployment.unit.\"sifec-bndes-1.1.0-b8.ear\".WeldStartService" => "Failed to start service
+org.jboss.weld.exceptions.DeploymentException: WELD-001408: Unsatisfied dependencies for type IFbnServicosBean with qualifiers @Default
+  at injection point [BackedAnnotatedField] @Inject private br.gov.caixa.bndes.rest.BndesServicesRest.fbnServicosBean
+  at br.gov.caixa.bndes.rest.BndesServicesRest.fbnServicosBean(BndesServicesRest.java:0)
+org.jboss.weld.exceptions.DeploymentException: WELD-001408: Unsatisfied dependencies for type IBndesServicosBean with qualifiers @Default
+  at injection point [BackedAnnotatedField] @Inject private br.gov.caixa.bndes.financiamento.autorizacaoContratacao.rest.AutorizacaoContratacaoRest.bndesServicosBean
+  at br.gov.caixa.bndes.financiamento.autorizacaoContratacao.rest.AutorizacaoContratacaoRest.bndesServicosBean(AutorizacaoContratacaoRest.java:0)
+16:17:40,610 ERROR [org.jboss.as.controller.management-operation] (ServerService Thread Pool -- 137) WFLYCTL0013: Falha na operação ("add") - endereço ([("deployment" => "SIFEC-BNDES-ONLINE")]) - falha na descrição: {"WFLYCTL0080: Falha de serviços" => {"jboss.deployment.unit.\"sifec-bndes-1.1.0-b8.ear\".WeldStartService" => "Failed to start service
+org.jboss.weld.exceptions.DeploymentException: WELD-001408: Unsatisfied dependencies for type IFbnServicosBean with qualifiers @Default
+  at injection point [BackedAnnotatedField] @Inject private br.gov.caixa.bndes.rest.BndesServicesRest.fbnServicosBean
+  at br.gov.caixa.bndes.rest.BndesServicesRest.fbnServicosBean(BndesServicesRest.java:0)
+org.jboss.weld.exceptions.DeploymentException: WELD-001408: Unsatisfied dependencies for type IBndesServicosBean with qualifiers @Default
+  at injection point [BackedAnnotatedField] @Inject private br.gov.caixa.bndes.financiamento.autorizacaoContratacao.rest.AutorizacaoContratacaoRest.bndesServicosBean
+  at br.gov.caixa.bndes.financiamento.autorizacaoContratacao.rest.AutorizacaoContratacaoRest.bndesServicosBean(AutorizacaoContratacaoRest.java:0)
+16:17:40,610 ERROR [org.jboss.as.server] (ServerService Thread Pool -- 137) WFLYSRV0021: O procedimento da implantação "sifec-bndes-1.1.0-b8.ear" foi revertido com mensagem de falha:
+{"WFLYCTL0080: Falha de serviços" => {"jboss.deployment.unit.\"sifec-bndes-1.1.0-b8.ear\".WeldStartService" => "Failed to start service
+org.jboss.weld.exceptions.DeploymentException: WELD-001408: Unsatisfied dependencies for type IFbnServicosBean with qualifiers @Default
+  at injection point [BackedAnnotatedField] @Inject private br.gov.caixa.bndes.rest.BndesServicesRest.fbnServicosBean
+  at br.gov.caixa.bndes.rest.BndesServicesRest.fbnServicosBean(BndesServicesRest.java:0)
+org.jboss.weld.exceptions.DeploymentException: WELD-001408: Unsatisfied dependencies for type IBndesServicosBean with qualifiers @Default
+  at injection point [BackedAnnotatedField] @Inject private br.gov.caixa.bndes.financiamento.autorizacaoContratacao.rest.AutorizacaoContratacaoRest.bndesServicosBean
+  at br.gov.caixa.bndes.financiamento.autorizacaoContratacao.rest.AutorizacaoContratacaoRest.bndesServicosBean(AutorizacaoContratacaoRest.java:0)
+16:17:40,611 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 140) WFLYJPA0011: Interrompendo unidade de persistência (fase 2 de 2) Serviço 'sifec-bndes-1.1.0-b8.ear#fecDS'
+16:17:40,611 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 146) WFLYJPA0011: Interrompendo unidade de persistência (fase 2 de 2) Serviço 'sifec-bndes-1.1.0-b8.ear#SIEMP-PU'
+16:17:40,616 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 151) WFLYJPA0011: Interrompendo unidade de persistência (fase 2 de 2) Serviço 'sifec-bndes-1.1.0-b8.ear/bndes-ejb.jar#SIFEC-BNDES-PU'
+16:17:40,617 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 152) WFLYJPA0011: Interrompendo unidade de persistência (fase 2 de 2) Serviço 'sifec-bndes-1.1.0-b8.ear/bndes-ejb.jar#SIFEC-BNDES-PU-FBN'
+16:17:40,619 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 146) WFLYJPA0011: Interrompendo unidade de persistência (fase 1 de 2) Serviço 'sifec-bndes-1.1.0-b8.ear#fecDS'
+16:17:40,619 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 140) WFLYJPA0011: Interrompendo unidade de persistência (fase 1 de 2) Serviço 'sifec-bndes-1.1.0-b8.ear#SIEMP-PU'
+16:17:40,620 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 151) WFLYJPA0011: Interrompendo unidade de persistência (fase 1 de 2) Serviço 'sifec-bndes-1.1.0-b8.ear/bndes-ejb.jar#SIFEC-BNDES-PU'
+16:17:40,621 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 152) WFLYJPA0011: Interrompendo unidade de persistência (fase 1 de 2) Serviço 'sifec-bndes-1.1.0-b8.ear/bndes-ejb.jar#SIFEC-BNDES-PU-FBN'
+16:17:40,638 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-1) WFLYSRV0208: Interrompendo a subimplantação (runtime-name: bndes-ejb.jar) em 27ms
+16:17:40,656 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-2) WFLYSRV0208: Interrompendo a subimplantação (runtime-name: bndes-web.war) em 45ms
+16:17:40,661 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-2) WFLYSRV0028: Implantação interrompida SIFEC-BNDES-ONLINE (runtime-name: sifec-bndes-1.1.0-b8.ear) em 50ms
 
