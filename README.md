@@ -1,44 +1,27 @@
-Isso pode ser ambiente, do nosso lado. Vamos testar o datasource no CLI do 471:
+Confirmar comparando com o 6.4
 
-/host=hc_cbrdeapllx473/server=sifec-intranet_node1_lx473/subsystem=datasources/data-source="jdbc/IdmsSiapxDS":test-connection-in-pool
+No CLI do 471, a configuração atual no 7.4:
 
-E, no 473, a causa detalhada:
+/profile=full-ha-sifec-intranet/subsystem=datasources/data-source="jdbc/IdmsSiapxDS":read-resource
+
+No 6.4 (10.116.88.20), a configuração do mesmo datasource:
 
 bash
-grep -a -B2 -A25 "16:16:42,457" $LOG | grep -aE "Caused by|IdmsSiapx|08003|Exception" | head -20
+ls /opt/jboss*/*/domain/configuration/domain.xml /opt/jboss*/domain/configuration/domain.xml 2>/dev/null
 
-Me mande as duas saídas. Se o teste der [true], a conexão pode ter caído e se recuperado, e basta o Matheus testar de novo. Se der erro, ajustamos o datasource IDMS, comparando com o 6.4.
+Com o caminho que aparecer:
 
-Antes de mandar algo na sala, me passe essas saídas. Assim a mensagem sobre o CCR já vai com o diagnóstico completo.
+bash
+grep -n -A25 'jdbc/IdmsSiapxDS' <caminho que apareceu> | head -40
 
+O que vou procurar nas duas saídas:
 
+check-valid-connection-sql ou valid-connection-checker;
+validate-on-match ou background-validation;
+idle-timeout-minutes.
 
-domain@localhost:9999 /]
-[domain@localhost:9999 /]
-[domain@localhost:9999 /]
-[domain@localhost:9999 /] /host=hc_cbrdeapllx473/server=sifec-intranet_node1_lx473/subsystem=datasources/data-source="jdbc/IdmsSiapxDS":test-connection-in-pool
-{
-    "outcome" => "success",
-    "result" => [true]
-}
+Se o 6.4 tiver validação e o 7.4 não, a correção é só incluir no 7.4. Te passo o comando pronto.
 
-[domain@localhost:9999 /]
-[domain@localhost:9999 /]
-[domain@localhost:9999 /]
+Na sala, por enquanto, pode mandar a mensagem anterior, para o Alessandro indicar quem testa. Já dá para incluir que o erro no IDMS é de conexão do pool e está em ajuste do nosso lado.
 
-
-
-[root@cbrdeapllx473 p585600]#
-[root@cbrdeapllx473 p585600]#
-[root@cbrdeapllx473 p585600]#
-[root@cbrdeapllx473 p585600]#
-[root@cbrdeapllx473 p585600]#
-[root@cbrdeapllx473 p585600]#
-[root@cbrdeapllx473 p585600]#
-[root@cbrdeapllx473 p585600]# grep -a -B2 -A25 "16:16:42,457" $LOG | grep -aE "Caused by|IdmsSiapx|08003|Exception" | head -20
-16:16:42,457 WARN  [org.hibernate.engine.jdbc.spi.SqlExceptionHelper] (default task-40) SQL Error: -6, SQLState: 08003
-16:16:42,457 ERROR [org.hibernate.engine.jdbc.spi.SqlExceptionHelper] (default task-40) Invalid connection state
-16:16:42,459 WARN  [org.jboss.jca.adapters.jdbc.local.LocalManagedConnectionFactory] (default task-40) IJ030061: Error resetting auto-commit for: java:/jdbc/IdmsSiapxDS: java.sql.SQLException: Invalid connection state
-[root@cbrdeapllx473 p585600]#
-[root@cbrdeapllx473 p585600]#
-[root@cbrdeapllx473 p585600]#
+Como o Claude está se saindo nesta sessão?
