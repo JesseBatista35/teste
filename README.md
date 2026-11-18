@@ -1,20 +1,27 @@
-Boa tarde, pessoal! Analisei o ambiente e encontrei os pontos abaixo.
+Servidores do SIFEC no JBoss 7.4 (DES):
 
-1. Script configurado no job
-O job CRIACAO_OS_SIGDU está apontando para /producao/simil-precificacao-rotinas-batch.sh, mas esse arquivo não existe no servidor. O script publicado pela release é o /producao/script_simil_rotinas.sh. É ele que executa o simil-precificacao-rotinas-batch.jar em /opt/batch/deploy.
-Ajustes necessários na definição do job no Control-M:
+Servidor	IP	Função
+cbrdeapllx471	10.116.97.59	Domain Controller (CLI e deploy)
+cbrdeapllx473	10.116.97.79	Host Controller, onde rodam as aplicações (log)
+sbrdeapllx0001	10.116.88.20	DC do JBoss 6.4 (só para comparar)
 
-File Name: script_simil_rotinas.sh
-Variável JOB_NAME: informar o nome do job Spring Batch a ser executado. O script recebe esse valor do Control-M.
+CLI no 471:
 
-2. Comunicação Control-M → agente
-A comunicação do agente com o servidor está ok, mas até o momento nenhuma execução chegou ao caddeapllx2501. Vou solicitar a liberação da regra de firewall:
+bash
+ssh p585600@10.116.97.59
+sudo su
+/opt/jboss/jboss-eap/bin/jboss-cli.sh --connect --controller=localhost:9999
 
-Origem: cxextrlx038 (10.192.224.54)
-Destino: caddeapllx2501 (10.116.200.250)
-Porta: TCP 7016
+Log no 473:
 
-Observações para o time de desenvolvimento:
+bash
+ssh p585600@10.116.97.79
+sudo su
+LOG=/opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/server.log
 
-No script_simil_rotinas.sh, os parâmetros -Xms/-Xmx estão depois do -jar e por isso não são aplicados à JVM. O correto é java -Xms512m -Xmx1024m -jar "$JAR_FILE" ...
-No grupo de variáveis SIMIL-PRECIFICACAO-ROTINAS-BATCH-DES da Library, há senhas e chaves em texto aberto (SPRING_DATASOURCE_PASSWORD, _ENV.SIICO_API_KEY, _ENV.SIICO_CLIENT_SECRET). Recomendo marcá-las como secretas.
+Caminhos úteis:
+
+domain.xml em uso (471): /opt/jboss/jboss-eap/dc/configuration/domain.xml
+Backup que fizemos (471): /tmp/domain.xml.bkp_ccr_dc_20261117_1517
+
+Se o “e o .” era outra coisa, me fala o que faltou.
