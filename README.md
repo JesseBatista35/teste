@@ -1,18 +1,35 @@
-Liste o pod atual (o nome pode ter mudado desde 05/11) e troque na linha seguinte:
 
-bash
-oc get pods -n sipgc-des | grep informacoes
-oc exec -it <pod-informacoes-des> -n sipgc-des -- bash -c "timeout 5 bash -c '</dev/tcp/des.sigoc.caixa/443' && echo ABERTA || echo SEM CONEXAO"
+p585600@10.122.155.62's password:
+Last login: Tue Nov 17 09:22:54 2026 from 10.122.150.31
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$ oc get pods -n sipgc-des | grep informacoes
+error: the server doesn't have a resource type "pods"
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$ oc login --token=sha256~Skr9f37iMOauKjhjrs35sm3aVkROx2CJkrYOOTlxvo0 --server=https://api.nprd.caixa:6443
+Logged into "https://api.nprd.caixa:6443" as "p585600@corp.caixa.gov.br" using the token provided.
 
-Se abrir, a regra funcionou e o problema é outro. Se continuar SEM CONEXAO, siga para o passo 2.
+You have access to 1004 projects, the list has been suppressed. You can list all projects with 'oc projects'
 
-2. Descobrir o IP real de saída
-
-Pelo cofre: pergunte ao Lucas qual IP está liberado no BeyondTrust para o client de DES. Em TQS foi 10.116.222.238, o IP que o cofre viu na chamada do pod, então em DES deve valer o mesmo critério.
-Pelo nó: veja onde o pod roda.
-bash
-oc get pod <pod-informacoes-des> -n sipgc-des -o jsonpath='{.spec.nodeName} {.status.hostIP}{"\n"}'
-
-Se o namespace não tiver egress IP próprio, o pod sai com o IP do nó. Se tiver, sai com o egress IP. Por isso a confirmação do Lucas é a mais confiável.
-
-3. Corrigir a regra
+Using project "default".
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$ oc exec -it <pod-informacoes-des> -n sipgc-des -- bash -c "timeout 5 bash -c '</dev/tcp/des.sigoc.caixa/443' && echo ABERTA || echo SEM CONEXAO"
+-sh: pod-informacoes-des: Arquivo ou diretório não encontrado
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$ oc project sipgc-des
+Now using project "sipgc-des" on server "https://api.nprd.caixa:6443".
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$ oc exec -it <pod-informacoes-des> -n sipgc-des -- bash -c "timeout 5 bash -c '</dev/tcp/des.sigoc.caixa/443' && echo ABERTA || echo SEM CONEXAO"
+-sh: pod-informacoes-des: Arquivo ou diretório não encontrado
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
