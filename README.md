@@ -1,27 +1,71 @@
-Servidores do SIFEC no JBoss 7.4 (DES):
+***********************************************************************
+p585600@10.116.97.79's password:
+Last login: Tue Nov 17 15:26:38 2026 from 10.122.150.31
+[p585600@cbrdeapllx473 ~]$
+[p585600@cbrdeapllx473 ~]$
+[p585600@cbrdeapllx473 ~]$
+[p585600@cbrdeapllx473 ~]$ sudo su
 
-Servidor	IP	Função
-cbrdeapllx471	10.116.97.59	Domain Controller (CLI e deploy)
-cbrdeapllx473	10.116.97.79	Host Controller, onde rodam as aplicações (log)
-sbrdeapllx0001	10.116.88.20	DC do JBoss 6.4 (só para comparar)
+We trust you have received the usual lecture from the local System
+Administrator. It usually boils down to these three things:
 
-CLI no 471:
+    #1) Respect the privacy of others.
+    #2) Think before you type.
+    #3) With great power comes great responsibility.
 
-bash
-ssh p585600@10.116.97.59
-sudo su
-/opt/jboss/jboss-eap/bin/jboss-cli.sh --connect --controller=localhost:9999
+[sudo] password for p585600:
+[root@cbrdeapllx473 p585600]#
+[root@cbrdeapllx473 p585600]#
+[root@cbrdeapllx473 p585600]#
+[root@cbrdeapllx473 p585600]# LOG=/opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/server.log
+[root@cbrdeapllx473 p585600]#
+[root@cbrdeapllx473 p585600]#
+[root@cbrdeapllx473 p585600]#
 
-Log no 473:
 
-bash
-ssh p585600@10.116.97.79
-sudo su
-LOG=/opt/jboss/jboss-eap/hc/servers/sifec-intranet_node1_lx473/log/server.log
 
-Caminhos úteis:
 
-domain.xml em uso (471): /opt/jboss/jboss-eap/dc/configuration/domain.xml
-Backup que fizemos (471): /tmp/domain.xml.bkp_ccr_dc_20261117_1517
+5600@10.116.97.59's password:
+Permission denied, please try again.
+p585600@10.116.97.59's password:
+Last failed login: Wed Nov 18 16:09:48 -03 2026 from 10.122.150.31 on ssh:notty
+There was 1 failed login attempt since the last successful login.
+Last login: Tue Nov 17 15:15:38 2026 from 10.122.150.31
+[p585600@cbrdeapllx471 ~]$
+[p585600@cbrdeapllx471 ~]$
+[p585600@cbrdeapllx471 ~]$
+[p585600@cbrdeapllx471 ~]$ sudo su
 
-Se o “e o .” era outra coisa, me fala o que faltou.
+We trust you have received the usual lecture from the local System
+Administrator. It usually boils down to these three things:
+
+    #1) Respect the privacy of others.
+    #2) Think before you type.
+    #3) With great power comes great responsibility.
+
+[sudo] password for p585600:
+sudo: a password is required
+[p585600@cbrdeapllx471 ~]$ sudo su
+
+We trust you have received the usual lecture from the local System
+Administrator. It usually boils down to these three things:
+
+    #1) Respect the privacy of others.
+    #2) Think before you type.
+    #3) With great power comes great responsibility.
+
+[sudo] password for p585600:
+[root@cbrdeapllx471 p585600]#
+[root@cbrdeapllx471 p585600]#
+[root@cbrdeapllx471 p585600]#
+[root@cbrdeapllx471 p585600]#
+[root@cbrdeapllx471 p585600]# /opt/jboss/jboss-eap/bin/jboss-cli.sh --connect --controller=localhost:9999
+[domain@localhost:9999 /]
+[domain@localhost:9999 /]
+[domain@localhost:9999 /]
+[domain@localhost:9999 /]
+[domain@localhost:9999 /]
+[domain@localhost:9999 /]
+[domain@localhost:9999 /]
+[domain@localhost:9999 /]
+[domain@localhost:9999 /]
