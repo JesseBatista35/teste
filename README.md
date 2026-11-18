@@ -1,20 +1,99 @@
-Aplicar no 7.4 (CLI do 471), um por vez
-/profile=full-ha-sifec-intranet/subsystem=datasources/data-source="jdbc/IdmsSiapxDS":write-attribute(name=check-valid-connection-sql,value="SELECT CURRENT DATE FROM SYSCA.SINGLETON_NULL")
-/profile=full-ha-sifec-intranet/subsystem=datasources/data-source="jdbc/IdmsSiapxDS":write-attribute(name=validate-on-match,value=true)
-/profile=full-ha-sifec-intranet/subsystem=datasources/data-source="jdbc/IdmsSiapxDS":write-attribute(name=idle-timeout-minutes,value=1)
-/profile=full-ha-sifec-intranet/subsystem=datasources/data-source="jdbc/IdmsSiapxDS":write-attribute(name=allocation-retry,value=3)
-/profile=full-ha-sifec-intranet/subsystem=datasources/data-source="jdbc/IdmsSiapxDS":write-attribute(name=allocation-retry-wait-millis,value=500)
 
-Cada um deve voltar "outcome" => "success". Repare se a resposta traz "process-state" => "reload-required". Isso é provável, porque mudanças de pool normalmente só valem depois de um reload do servidor.
+[domain@localhost:9999 /]
+[domain@localhost:9999 /]
+[domain@localhost:9999 /]
+[domain@localhost:9999 /] /profile=full-ha-sifec-intranet/subsystem=datasources/data-source="jdbc/IdmsSiapxDS":write-attribute(name=check-valid-connection-sql,value="SELECT CURRENT DATE FROM SYSCA.SINGLETON_NULL")
+{
+    "outcome" => "success",
+    "result" => undefined,
+    "server-groups" => {"sifec-intranet" => {"host" => {"hc_cbrdeapllx473" => {"sifec-intranet_node1_lx473" => {"response" => {
+        "outcome" => "success",
+        "result" => undefined,
+        "response-headers" => {
+            "operation-requires-reload" => true,
+            "process-state" => "reload-required"
+        }
+    }}}}}}
+}
 
-Depois dos 5 comandos
+[domain@localhost:9999 /]
+[domain@localhost:9999 /]
+[domain@localhost:9999 /]
+[domain@localhost:9999 /] /profile=full-ha-sifec-intranet/subsystem=datasources/data-source="jdbc/IdmsSiapxDS":write-attribute(name=validate-on-match,value=true)
+{
+    "outcome" => "success",
+    "result" => undefined,
+    "server-groups" => {"sifec-intranet" => {"host" => {"hc_cbrdeapllx473" => {"sifec-intranet_node1_lx473" => {"response" => {
+        "outcome" => "success",
+        "result" => undefined,
+        "response-headers" => {
+            "operation-requires-reload" => true,
+            "process-state" => "reload-required"
+        }
+    }}}}}}
+}
 
-1. Limpar agora as conexões mortas do pool. Não derruba nada e já evita o erro até o reload:
+[domain@localhost:9999 /]
+[domain@localhost:9999 /]
+[domain@localhost:9999 /] /profile=full-ha-sifec-intranet/subsystem=datasources/data-source="jdbc/IdmsSiapxDS":write-attribute(name=idle-timeout-minutes,value=1)
+{
+    "outcome" => "success",
+    "result" => undefined,
+    "server-groups" => {"sifec-intranet" => {"host" => {"hc_cbrdeapllx473" => {"sifec-intranet_node1_lx473" => {"response" => {
+        "outcome" => "success",
+        "result" => undefined,
+        "response-headers" => {
+            "operation-requires-reload" => true,
+            "process-state" => "reload-required"
+        }
+    }}}}}}
+}
 
-/host=hc_cbrdeapllx473/server=sifec-intranet_node1_lx473/subsystem=datasources/data-source="jdbc/IdmsSiapxDS":flush-all-connection-in-pool
+[domain@localhost:9999 /]
+[domain@localhost:9999 /]
+[domain@localhost:9999 /]
+[domain@localhost:9999 /] /profile=full-ha-sifec-intranet/subsystem=datasources/data-source="jdbc/IdmsSiapxDS":write-attribute(name=allocation-retry,value=3)
+{
+    "outcome" => "success",
+    "result" => undefined,
+    "server-groups" => {"sifec-intranet" => {"host" => {"hc_cbrdeapllx473" => {"sifec-intranet_node1_lx473" => {"response" => {
+        "outcome" => "success",
+        "result" => undefined,
+        "response-headers" => {
+            "operation-requires-reload" => true,
+            "process-state" => "reload-required"
+        }
+    }}}}}}
+}
 
-2. Se apareceu reload-required, a configuração nova só entra com reload do servidor, que reinicia todo o SIFEC por alguns minutos. Não faça agora sem combinar. Avise na sala e escolha um horário, por exemplo o fim do dia:
+[domain@localhost:9999 /]
+[domain@localhost:9999 /]
+[domain@localhost:9999 /]
+[domain@localhost:9999 /] /profile=full-ha-sifec-intranet/subsystem=datasources/data-source="jdbc/IdmsSiapxDS":write-attribute(name=allocation-retry-wait-millis,value=500)
+{
+    "outcome" => "success",
+    "result" => undefined,
+    "server-groups" => {"sifec-intranet" => {"host" => {"hc_cbrdeapllx473" => {"sifec-intranet_node1_lx473" => {"response" => {
+        "outcome" => "success",
+        "result" => undefined,
+        "response-headers" => {
+            "operation-requires-reload" => true,
+            "process-state" => "reload-required"
+        }
+    }}}}}}
+}
 
-/server-group=sifec-intranet:reload-servers(blocking=true)
+[domain@localhost:9999 /]
+[domain@localhost:9999 /]
+[domain@localhost:9999 /]
+[domain@localhost:9999 /] /host=hc_cbrdeapllx473/server=sifec-intranet_node1_lx473/subsystem=datasources/data-source="jdbc/IdmsSiapxDS":flush-all-connection-in-pool
+{
+    "outcome" => "success",
+    "result" => undefined,
+    "response-headers" => {"process-state" => "reload-required"}
+}
 
-Me mande as saídas dos 5 comandos e do flush.
+[domain@localhost:9999 /]
+[domain@localhost:9999 /]
+[domain@localhost:9999 /] /server-group=sifec-intranet:reload-servers(blocking=true)
+
