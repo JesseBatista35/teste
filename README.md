@@ -1,99 +1,20 @@
+Quando o CLI responder
 
-[domain@localhost:9999 /]
-[domain@localhost:9999 /]
-[domain@localhost:9999 /]
-[domain@localhost:9999 /] /profile=full-ha-sifec-intranet/subsystem=datasources/data-source="jdbc/IdmsSiapxDS":write-attribute(name=check-valid-connection-sql,value="SELECT CURRENT DATE FROM SYSCA.SINGLETON_NULL")
-{
-    "outcome" => "success",
-    "result" => undefined,
-    "server-groups" => {"sifec-intranet" => {"host" => {"hc_cbrdeapllx473" => {"sifec-intranet_node1_lx473" => {"response" => {
-        "outcome" => "success",
-        "result" => undefined,
-        "response-headers" => {
-            "operation-requires-reload" => true,
-            "process-state" => "reload-required"
-        }
-    }}}}}}
-}
+1. O servidor voltou?
 
-[domain@localhost:9999 /]
-[domain@localhost:9999 /]
-[domain@localhost:9999 /]
-[domain@localhost:9999 /] /profile=full-ha-sifec-intranet/subsystem=datasources/data-source="jdbc/IdmsSiapxDS":write-attribute(name=validate-on-match,value=true)
-{
-    "outcome" => "success",
-    "result" => undefined,
-    "server-groups" => {"sifec-intranet" => {"host" => {"hc_cbrdeapllx473" => {"sifec-intranet_node1_lx473" => {"response" => {
-        "outcome" => "success",
-        "result" => undefined,
-        "response-headers" => {
-            "operation-requires-reload" => true,
-            "process-state" => "reload-required"
-        }
-    }}}}}}
-}
+/host=hc_cbrdeapllx473/server=sifec-intranet_node1_lx473:read-attribute(name=server-state)
 
-[domain@localhost:9999 /]
-[domain@localhost:9999 /]
-[domain@localhost:9999 /] /profile=full-ha-sifec-intranet/subsystem=datasources/data-source="jdbc/IdmsSiapxDS":write-attribute(name=idle-timeout-minutes,value=1)
-{
-    "outcome" => "success",
-    "result" => undefined,
-    "server-groups" => {"sifec-intranet" => {"host" => {"hc_cbrdeapllx473" => {"sifec-intranet_node1_lx473" => {"response" => {
-        "outcome" => "success",
-        "result" => undefined,
-        "response-headers" => {
-            "operation-requires-reload" => true,
-            "process-state" => "reload-required"
-        }
-    }}}}}}
-}
+Tem que vir running, e não mais reload-required.
 
-[domain@localhost:9999 /]
-[domain@localhost:9999 /]
-[domain@localhost:9999 /]
-[domain@localhost:9999 /] /profile=full-ha-sifec-intranet/subsystem=datasources/data-source="jdbc/IdmsSiapxDS":write-attribute(name=allocation-retry,value=3)
-{
-    "outcome" => "success",
-    "result" => undefined,
-    "server-groups" => {"sifec-intranet" => {"host" => {"hc_cbrdeapllx473" => {"sifec-intranet_node1_lx473" => {"response" => {
-        "outcome" => "success",
-        "result" => undefined,
-        "response-headers" => {
-            "operation-requires-reload" => true,
-            "process-state" => "reload-required"
-        }
-    }}}}}}
-}
+2. As aplicações subiram? No 473:
 
-[domain@localhost:9999 /]
-[domain@localhost:9999 /]
-[domain@localhost:9999 /]
-[domain@localhost:9999 /] /profile=full-ha-sifec-intranet/subsystem=datasources/data-source="jdbc/IdmsSiapxDS":write-attribute(name=allocation-retry-wait-millis,value=500)
-{
-    "outcome" => "success",
-    "result" => undefined,
-    "server-groups" => {"sifec-intranet" => {"host" => {"hc_cbrdeapllx473" => {"sifec-intranet_node1_lx473" => {"response" => {
-        "outcome" => "success",
-        "result" => undefined,
-        "response-headers" => {
-            "operation-requires-reload" => true,
-            "process-state" => "reload-required"
-        }
-    }}}}}}
-}
+bash
+grep -aE "WFLYSRV0010|WFLYSRV0021|WFLYSRV0025|WFLYSRV0026" $LOG | tail -25
+Cada aplicação ativa deve aparecer com WFLYSRV0010 ... foi implantado: SIFEC, CCR, APX, GARANTIAS, ORIGINAÇÃO, MINUTAS, BAN, SICDT, PJ, MCM, BDCAIXA, FBN4, HUB-FRONTEND2, MINUTAS-FRONT e PARÂMETROS.
+No final deve vir WFLYSRV0025 (iniciado) ou WFLYSRV0026 (iniciado com erros).
 
-[domain@localhost:9999 /]
-[domain@localhost:9999 /]
-[domain@localhost:9999 /]
-[domain@localhost:9999 /] /host=hc_cbrdeapllx473/server=sifec-intranet_node1_lx473/subsystem=datasources/data-source="jdbc/IdmsSiapxDS":flush-all-connection-in-pool
-{
-    "outcome" => "success",
-    "result" => undefined,
-    "response-headers" => {"process-state" => "reload-required"}
-}
+3. O IDMS está ok?
 
-[domain@localhost:9999 /]
-[domain@localhost:9999 /]
-[domain@localhost:9999 /] /server-group=sifec-intranet:reload-servers(blocking=true)
+/host=hc_cbrdeapllx473/server=sifec-intranet_node1_lx473/subsystem=datasources/data-source="jdbc/IdmsSiapxDS":test-connection-in-pool
 
+Me mande as três saídas. Se der WFLYSRV0026, vemos qual aplicação não voltou.
