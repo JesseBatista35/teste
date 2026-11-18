@@ -1,14 +1,9 @@
-<img width="800" height="470" alt="image" src="https://github.com/user-attachments/assets/f251115f-fdc9-4547-8030-f0dc5731eec2" />
+# execuções/sysout de hoje
+ls -ltr /opt/ctmage/ctm/sysout | tail -10
 
+# log do agente de hoje (se existir, houve comunicação do servidor)
+ls -ltr /opt/ctmage/ctm/dailylog | tail -5
+tail -50 /opt/ctmage/ctm/dailylog/daily_ctmag_20261118.log
 
-Jesse Mouta Pereira Batista
-Karlismar George Velozo Pereira   📷   Pode executar, por gentileza.
-executei 
- 
- 
-Boa tarde, pessoal!
- 
-Jesse temos alguma pista do que pode estar acontecendo?
-
-
- 
+# o script existe e é executável pelo ctmagelx?
+ls -l /producao/simil-precificacao-rotinas-batch.sh
