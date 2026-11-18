@@ -1,1 +1,21 @@
-grep "indisponibilidade" $F | cut -c1-5 | uniq -c | tail -30
+
+[p585600@srjtqapllx0056 ~]$
+[p585600@srjtqapllx0056 ~]$ grep "indisponibilidade" $F | cut -c1-5 | uniq -c | tail -30
+      2 14:39
+      2 14:41
+      1 14:42
+      3 14:43
+      2 14:44
+    441 14:47
+    738 14:48
+   1050 14:49
+      1 14:50
+   2406 14:51
+   1450 14:57
+   1934 14:58
+   1256 14:59
+    870 15:00
+    580 15:01
+    870 15:03
+    580 15:04
+[p585600@srjtqapllx0056 ~]$
