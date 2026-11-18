@@ -1,14 +1,12 @@
-<img width="1381" height="588" alt="image" src="https://github.com/user-attachments/assets/53d14840-b3e0-4990-b90c-1616faab304c" />
+O IP a observar no monitoramento é o do servidor Control-M:
 
+cxextrlx038 (BR DES - Negocial): 10.192.224.54. É essa a origem que precisa aparecer chegando na porta 7016.
 
-<img width="1381" height="588" alt="image" src="https://github.com/user-attachments/assets/06bdd435-02fb-4579-b53a-6aa98616bd4f" />
+Para referência, o IP do agente é:
 
+caddeapllx2501: 10.116.200.250, o destino, porta 7016.
 
-Bom dia, Karlismar, quando puder testar novamente, lembra de avisar aqui no chat antes para que o Jesse prepare o monitoramento
- 
-ok 
- 
-já posso executar novamente 
- 
-da certo Jesse Mouta Pereira Batista ?
- 
+Para filtrar só o que importa:
+
+bash
+watch -n1 "ss -tn '( sport = :7016 )' | grep -E '10.192.224.54|State'"
