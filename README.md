@@ -1,35 +1,22 @@
+O JBoss subiu com java.library.path=/apl/sigsj/lib, e o EAR e o driver estão .deployed, sem nenhum .failed.
 
-[root@caddeapllx2854 ~]# cp -p /opt/jboss-eap/bin/standalone.conf /opt/jboss-eap/bin/standalone.conf.bkp_20261119
-[root@caddeapllx2854 ~]# echo '' >> /opt/jboss-eap/bin/standalone.conf
-echo '# SIGSJ - lib nativa SenhasSIIBC (criptografia SIPER/SIROT)' >> /opt/jboss-eap/bin/standalone.conf
-echo 'JAVA_OPTS="$JAVA_OPTS -Djava.library.path=/apl/sigsj/lib"' >> /opt/jboss-eap/bin/standalone.conf
-[root@caddeapllx2854 ~]#
-[root@caddeapllx2854 ~]#
-[root@caddeapllx2854 ~]#
-[root@caddeapllx2854 ~]# tail -3 /opt/jboss-eap/bin/standalone.conf
-fi
-# SIGSJ - lib nativa SenhasSIIBC (criptografia SIPER/SIROT)
-JAVA_OPTS="$JAVA_OPTS -Djava.library.path=/apl/sigsj/lib"
-[root@caddeapllx2854 ~]#
-[root@caddeapllx2854 ~]#
-[root@caddeapllx2854 ~]# systemctl restart jboss-eap-standalone
-[root@caddeapllx2854 ~]# systemctl status jboss-eap-standalone --no-pager | head -5
-● jboss-eap-standalone.service - JBoss EAP Systemctl - STANDALONE
-     Loaded: loaded (/etc/systemd/system/jboss-eap-standalone.service; enabled; preset: disabled)
-     Active: active (running) since Thu 2026-11-19 11:13:28 -03; 1min 41s ago
-    Process: 1772973 ExecStart=/opt/jboss-eap/bin/init.d/jboss-eap-standalone.sh start (code=exited, status=0/SUCCESS)
-   Main PID: 1772983 (runuser)
-[root@caddeapllx2854 ~]#
-[root@caddeapllx2854 ~]#
-[root@caddeapllx2854 ~]#
-[root@caddeapllx2854 ~]# ps -ef | grep -v grep | grep -o "java.library.path=[^ ]*"
-java.library.path=/apl/sigsj/lib
-[root@caddeapllx2854 ~]#
-[root@caddeapllx2854 ~]#
-[root@caddeapllx2854 ~]# ls -la /opt/jboss-eap/standalone/deployments/ | grep -E "deployed|failed"
--rw-r--r-- 1 jboss jboss       10 out 27 13:45 ojdbc8.jar.deployed
--rw-r--r-- 1 jboss jboss       22 nov 10 16:03 sigsj_internet-ear.ear.deployed
-[root@caddeapllx2854 ~]#
-[root@caddeapllx2854 ~]#
-[root@caddeapllx2854 ~]#
-[root@caddeapllx2854 ~]#
+Agora falta o teste de login:
+
+Acessa https://sigsj-internet.des.caixa/sigsj_internet/login.xhtml e tenta logar.
+Logo depois, na 2854:
+bash
+grep -n "SenhasSIIBC\|UnsatisfiedLink\|Autenticacao" /opt/jboss-eap/standalone/log/server.log | tail -20
+grep -n "ERROR" /opt/jboss-eap/standalone/log/server.log | grep "$(date +%Y-%m-%d) 11:" | tail -20
+
+Como ler o resultado:
+
+Sem UnsatisfiedLinkError: a lib resolveu.
+Login funcionou: o internet está ok.
+Veio outro erro (SIROT, SIPER, CONNECTOR-FARM ou senha inválida): é o próximo passo da cadeia e não tem a ver com a lib. Me manda o trecho.
+
+Enquanto isso, já pode puxar a lib na 955 (intranet):
+
+bash
+scp p585600@10.116.88.96:/tmp/libSenhasSIIBC.so /tmp/
+md5sum /tmp/libSenhasSIIBC.so
+Como o Claude está se saindo nesta sessão?
