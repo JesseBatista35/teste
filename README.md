@@ -1,54 +1,54 @@
-Na 2854 (10.116.202.45), confirma que a lib não está lá:
 
-bash
-find / -name "*SenhasSIIBC*" 2>/dev/null
-ps -ef | grep -v grep | grep -o "java.library.path=[^ ]*"
+***********************************************************************
+p585600@10.116.82.156's password:
+Last login: Thu Oct 22 10:40:24 2026 from 10.122.150.31
+[p585600@sspdeaprlx0045 ~]$
+[p585600@sspdeaprlx0045 ~]$
+[p585600@sspdeaprlx0045 ~]$
+[p585600@sspdeaprlx0045 ~]$ hostname -i
+10.116.82.156
+[p585600@sspdeaprlx0045 ~]$ hostname -f
+sspdeaprlx0045
+[p585600@sspdeaprlx0045 ~]$
+[p585600@sspdeaprlx0045 ~]$
+[p585600@sspdeaprlx0045 ~]$
+[p585600@sspdeaprlx0045 ~]$ find / -name "*SenhasSIIBC*" 2>/dev/null
+[p585600@sspdeaprlx0045 ~]$
+[p585600@sspdeaprlx0045 ~]$
+[p585600@sspdeaprlx0045 ~]$ ps -ef | grep jboss
+p585600   64167  63804  0 10:52 pts/1    00:00:00 grep jboss
+jboss4   126561      1  0 Nov18 ?        00:00:00 /bin/sh /opt/jboss/jboss-4.2.3.GA/jboss.sh simoc-intra start
+jboss4   126562 126561  0 Nov18 ?        00:00:00 /bin/sh /opt/jboss/jboss-4.2.3.GA/bin/run.sh -c simoc-intra -b 10.116.82.157
+jboss4   126589 126562  0 Nov18 ?        00:05:31 /opt/jboss/jdk/bin/java -Dprogram.name=run.sh -server -XX:MaxPermSize=256m -Xms1024m -Xmx1024m -Dsun.rmi.dgc.client.gcInterval=3600000 -Dsun.rmi.dgc.server.gcInterval=3600000 -Dfile.encoding=ISO8859_1 -Djboss.cef.mwbr=8083 -Djboss.cef.jnp=1099 -Djboss.cef.rmi=1098 -Djboss.cef.jrmp=4444 -Djboss.cef.pool=4445 -Duser.language=PT -Duser.country=BR -Djdk.tls.client.protocols=TLSv1,TLSv1.1,TLSv1.2 -Djava.net.preferIPv4Stack=true -Djava.endorsed.dirs=/opt/jboss/jboss-4.2.3.GA/lib/endorsed -classpath /opt/jboss/jboss-4.2.3.GA/bin/run.jar:/opt/jboss/jdk/lib/tools.jar org.jboss.Main -c simoc-intra -b 10.116.82.157
+[p585600@sspdeaprlx0045 ~]$
+[p585600@sspdeaprlx0045 ~]$
+[p585600@sspdeaprlx0045 ~]$ ps -ef | grep -v grep | grep -o "java.library.path=[^ ]*"
+java.library.path=/opt/CA/SystemEDGE/plugins/svcrsp
+[p585600@sspdeaprlx0045 ~]$
+[p585600@sspdeaprlx0045 ~]$
+[p585600@sspdeaprlx0045 ~]$
+[p585600@sspdeaprlx0045 ~]$
 
-No servidor legado, os devs precisam localizar a lib:
 
-bash
-find / -name "*SenhasSIIBC*" 2>/dev/null
-ps -ef | grep -v grep | grep -o "java.library.path=[^ ]*"
-file /caminho/libSenhasSIIBC.so
 
-O file é importante. Se a .so for 32-bit, ela não carrega no Java 64-bit da VM, e aí o problema é do dev, não de configuração.
 
-A correção, depois de ter a .so (64-bit):
+[p585600@cadsvitrlx100 ~]$
+[p585600@cadsvitrlx100 ~]$
+[p585600@cadsvitrlx100 ~]$
+[p585600@cadsvitrlx100 ~]$ ssh 10.116.202.45
+p585600@10.116.202.45's password:
+Last login: Thu Nov 12 16:37:54 2026 from 10.122.150.31
+[p585600@caddeapllx2854 ~]$
+[p585600@caddeapllx2854 ~]$
+[p585600@caddeapllx2854 ~]$
+[p585600@caddeapllx2854 ~]$ find / -name "*SenhasSIIBC*" 2>/dev/null
+/tmp/crypto/br/gov/caixa/util/SenhasSIIBC.class
+/tmp/crypto/br/gov/caixa/util/SenhasSIIBC.java
+/tmp/SenhasSIIBC.class
+[p585600@caddeapllx2854 ~]$
+[p585600@caddeapllx2854 ~]$
+[p585600@caddeapllx2854 ~]$ ps -ef | grep -v grep | grep -o "java.library.path=[^ ]*"
+[p585600@caddeapllx2854 ~]$
+[p585600@caddeapllx2854 ~]$
+[p585600@caddeapllx2854 ~]$
 
-Copiar a lib para a VM:
-bash
-mkdir -p /apl/sigsj/lib
-cp libSenhasSIIBC.so /apl/sigsj/lib/
-chown -R jboss:jboss /apl/sigsj/lib
-chmod 755 /apl/sigsj/lib/libSenhasSIIBC.so
-No standalone.conf do SIGSJ-internet-config, adicionar:
-JAVA_OPTS="$JAVA_OPTS -Djava.library.path=/apl/sigsj/lib"
-Reiniciar o JBoss.
-
-A .so tem a mesma limitação do custom.sh: a esteira não copia esse arquivo, então por enquanto ele entra manualmente na VM. Isso deve afetar o intranet também, porque ele usa o mesmo SIROT embarcado. Vale já colocar a lib na 955.
-
-A tela desconfigurada (sem CSS, imagens quebradas e “Depï¿½sitos”) é outro ponto, de recursos estáticos e encoding. No F12 do navegador, aba Rede, dá para ver para qual URL o CSS e as imagens estão apontando. Provavelmente é o URL_STATICS que já estava pendente com os devs.
-
-Intranet: 503 “caddeapllx135 - eap_71_esteiraagil” (suspeita no VIP)
-
-Esse erro não veio da nossa VM. “caddeapllx135 / eap_71_esteiraagil” é a página de erro da esteira ágil antiga (JBoss 7.1). A URL continuou sigsj-intranet.des.caixa, então algo no caminho mandou a requisição para o 135. Lembra que o VIP 10.116.180.8 veio com o comentário de “siccp-intra”? A suspeita é que ele foi reaproveitado do SICCP e ainda tem alguma configuração antiga apontando para a esteira ágil.
-
-Teste para confirmar (de qualquer VM de DES):
-
-bash
-# direto na VM 955, sem passar pelo VIP
-curl -s -o /dev/null -w "VM:  %{http_code}\n" http://10.116.194.179/sigsj_intranet/default.jsp
-# pelo VIP, 5 vezes
-for i in 1 2 3 4 5; do curl -sk https://sigsj-intranet.des.caixa/sigsj_intranet/default.jsp | grep -o "caddeapllx[0-9]*[^<]*" || echo "ok (sem 135)"; done
-# e no servidor 955: se o 135 está em alguma config
-grep -rn "caddeapllx135" /opt/jboss-eap/standalone/configuration/ /apl/sigsj 2>/dev/null
-
-Como interpretar:
-
-Se pelo VIP aparecer o 135 e direto na VM não, o problema é do VIP. Aí pedimos à Rede, na WO do VIP intranet, o show ns runningConfig | grep 10.116.180.8 e a remoção de qualquer bind que não seja o 10.116.194.179:80, junto com a correção do comentário.
-Se o grep na 955 achar o 135, é configuração da aplicação, e passamos para os devs.
-Boleto
-
-O boleto só expõe serviço, não tem tela. O teste integrado que o Vitor propôs (SIADT/SIADC) é o caminho certo.
-
-(Os erros de MODCLUSTER ... 127.0.0.1:6666 no log são ruído do mod_cluster do perfil HA e não têm relação com os erros acima.)
