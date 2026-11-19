@@ -1,10 +1,11 @@
-<img width="1824" height="839" alt="image" src="https://github.com/user-attachments/assets/021c5611-a628-406b-98c0-a90685958f21" />
+Dados inseridos com sucesso! ID:99038
 
 
-<img width="1489" height="822" alt="image" src="https://github.com/user-attachments/assets/f5ca501b-a84e-4be2-8833-d02a76074b75" />
+vamos fazer assim eu pedi so DES, so da 1, me ajuda com a menssagem para mandar para 
+
+APROVADERES GAGLAIDIR E RAFAEL GUIMARAES.
 
 
-<img width="1801" height="429" alt="image" src="https://github.com/user-attachments/assets/86ca82f1-87bb-4842-99a0-9a8454cbca8f" />
+PREPARA A MENSSSEGEM PARA EVNIAR NA SALA PARA O PLABO E LIVIA E INFORMA POQUE QUE EU SOLICITEI UMA NOVA REGRA EXPLICA TUDO A CONVERSA COM O JAO E ETC. E FAZ O QUESTIANMENTO PARA O PABLO SOBRE O TQS.
 
-
-ta pedindo justificativa na linha 2
+ME AJDJA TBM COM A MENSSEMGE PARA O GALRIDE APROVAR ESSA REGRA
