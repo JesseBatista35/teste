@@ -1,30 +1,54 @@
-Módulo / pacote do inventário	Semáforo	Situação
-SIFEC 2.161.2.0	🟢	Implantado e no ar. Núcleo SIFEC operacional no JBoss EAP 7.4.
-SICDT-FEC 3.24.3.004	🟢	Implantado e testado com sucesso. Download de PDF e CSV validado. Build considerada estável.
-SICCR-PJ 8.40.1	🟢	Implantado e funcionando. Perfil e lista de clientes validados.
-SIFEC-CCR 6.3.0-b4587	🟡	401 do ccr-api corrigido em 17/11: removida a validação de token pelo container, igualando ao 6.4, conforme alinhado com Alessandro, Paulo e Gustavo. Em 18/11, uma chamada à simulação do consignado passou pela autenticação sem 401. Também corrigido o datasource IDMS (IdmsSiapxDS), que estava sem validação de conexão, com reload às 16:31. Aguardando reteste do /v8/contratos/simular por alguém do CCR, a ser indicado pelo Alessandro. O erro ORA-25156 (dialeto Oracle/Hibernate) segue com a fábrica.
-SICCR-PARÂMETROS (spr3)	🟡	A 3.3.1.1 foi validada e depois atualizada para a build spr3, a pedido do Rodrigo. Aguardando confirmação dos testes nessa versão.
-HUB-WEB 1.10.0.1-b418	🟡	Responde em /hub-web/ e redireciona para o login. As funcionalidades que dependem do HUB-API continuam indisponíveis enquanto a API não sobe.
-SIBAN-MCM 1.0.1.23-b47	🟡	Implantado, com datasource Sybase corrigido e conexão OK. Aguardando validação funcional.
-SICCR-BDCAIXA 2.0.1-b39	🟡	Implantado. Aguardando teste funcional.
-SIFEC-FBN 1.0.1.0-b84	🟡	Implantado. Aguardando teste funcional.
-SIFEC-MINUTAS-FRONT 1.0.0-b14	🟡	Implantado. Aguardando teste funcional.
-SIFEC-APX 1.7.9.4-b40	🟡	Implantado em 17/11 (/apx-web), depois da criação da sessão de e-mail APXMail. Aguardando teste funcional.
-SIFEC-GARANTIAS 1.8.0.3-b183	🟡	Implantado em 17/11 (/garantias-web). Aguardando teste funcional. Atenção às integrações SIACG, SISGD e SIFBN/SIBAN: o JBoss avisou que faltam bibliotecas no pacote.
-SIFEC-ORIGINAÇÃO 3.11.1-b344	🟡	Implantado em 17/11 (/ori-web). Aguardando teste funcional. Atenção às consultas SIFBN/SIBAN.
-MINUTA GARANTIAS 1.0.0-b36	🟡	Implantado em 17/11 (/minutaGarantias-web). Aguardando teste funcional.
-SIFEC-BAN 1.7.0-b117	🟡	Implantado em 17/11 (/siban-api). Aguardando teste funcional.
-SIRUR 3.55.51.05	🔴	A build nova (18/11) falhou: o MANIFEST.MF está com formatação inválida (invalid header field). Correção da geração do manifesto em andamento com o Emerson.
-LCR 1.117.1	🔴	Erros de CDI em múltiplos DAOs e SecurityInterceptor incompatível com o RESTEasy do 7.4. Aguardando nova build.
-SIFEC-CONSTRUCARD 1.23.1.2-b64	🔴	Tentado em 17/11. CDI (WELD-001408): 5 EJBs não expõem a interface injetada. Ajuste: implements ou @Local. Aguardando nova build.
-SIFEC-BNDES 1.1.0-b8	🔴	Tentado em 18/11 (versão disponível, conforme o Gustavo). CDI (WELD-001408): FbnServicosBean e BndesServicosBean não expõem IFbnServicosBean e IBndesServicosBean. Aguardando nova build.
-MANTER DOCUMENTO 2.2.7-b94	🔴	Tentado em 18/11. Incompatibilidade com o Hibernate do 7.4. Revisar as consultas JPA. Aguardando nova build.
-SIARC (siarc_EAP6)	🔴	Tentado em 18/11. Incompatibilidade nas dependências JSF. Precisa de build compatível com o 7.4.
-HUB-API 2.2.0	🔴	Named query com parâmetro legado ?, incompatível com o Hibernate do 7.4. Aguardando nova build.
-SIFEC-EMP 3.96.2.0	🔴	CDI (WELD-001408). Aguardando nova build.
-SIFEC-EMPRESAS	🔴	CDI (WELD-001408). Aguardando nova build.
-SIFEC-RURAL 2.115.1.0	🔴	Precisa de build compatível com o 7.4 (Jackson e RESTEasy como provided). Aguardando nova build.
-🟢 3: SIFEC, SICDT e PJ.
-🟡 12: implantados e aguardando teste dos devs, entre eles os 5 que subiram em 17/11. Inclui o CCR, com o 401 já corrigido e aguardando reteste.
-🔴 10: todos aguardando build corrigida da fábrica. Do lado do ambiente não há pendência nossa.
-⚪ 0: todos os pacotes da aba sifec-intra já foram tentados no 7.4.
+Na 2854 (10.116.202.45), confirma que a lib não está lá:
+
+bash
+find / -name "*SenhasSIIBC*" 2>/dev/null
+ps -ef | grep -v grep | grep -o "java.library.path=[^ ]*"
+
+No servidor legado, os devs precisam localizar a lib:
+
+bash
+find / -name "*SenhasSIIBC*" 2>/dev/null
+ps -ef | grep -v grep | grep -o "java.library.path=[^ ]*"
+file /caminho/libSenhasSIIBC.so
+
+O file é importante. Se a .so for 32-bit, ela não carrega no Java 64-bit da VM, e aí o problema é do dev, não de configuração.
+
+A correção, depois de ter a .so (64-bit):
+
+Copiar a lib para a VM:
+bash
+mkdir -p /apl/sigsj/lib
+cp libSenhasSIIBC.so /apl/sigsj/lib/
+chown -R jboss:jboss /apl/sigsj/lib
+chmod 755 /apl/sigsj/lib/libSenhasSIIBC.so
+No standalone.conf do SIGSJ-internet-config, adicionar:
+JAVA_OPTS="$JAVA_OPTS -Djava.library.path=/apl/sigsj/lib"
+Reiniciar o JBoss.
+
+A .so tem a mesma limitação do custom.sh: a esteira não copia esse arquivo, então por enquanto ele entra manualmente na VM. Isso deve afetar o intranet também, porque ele usa o mesmo SIROT embarcado. Vale já colocar a lib na 955.
+
+A tela desconfigurada (sem CSS, imagens quebradas e “Depï¿½sitos”) é outro ponto, de recursos estáticos e encoding. No F12 do navegador, aba Rede, dá para ver para qual URL o CSS e as imagens estão apontando. Provavelmente é o URL_STATICS que já estava pendente com os devs.
+
+Intranet: 503 “caddeapllx135 - eap_71_esteiraagil” (suspeita no VIP)
+
+Esse erro não veio da nossa VM. “caddeapllx135 / eap_71_esteiraagil” é a página de erro da esteira ágil antiga (JBoss 7.1). A URL continuou sigsj-intranet.des.caixa, então algo no caminho mandou a requisição para o 135. Lembra que o VIP 10.116.180.8 veio com o comentário de “siccp-intra”? A suspeita é que ele foi reaproveitado do SICCP e ainda tem alguma configuração antiga apontando para a esteira ágil.
+
+Teste para confirmar (de qualquer VM de DES):
+
+bash
+# direto na VM 955, sem passar pelo VIP
+curl -s -o /dev/null -w "VM:  %{http_code}\n" http://10.116.194.179/sigsj_intranet/default.jsp
+# pelo VIP, 5 vezes
+for i in 1 2 3 4 5; do curl -sk https://sigsj-intranet.des.caixa/sigsj_intranet/default.jsp | grep -o "caddeapllx[0-9]*[^<]*" || echo "ok (sem 135)"; done
+# e no servidor 955: se o 135 está em alguma config
+grep -rn "caddeapllx135" /opt/jboss-eap/standalone/configuration/ /apl/sigsj 2>/dev/null
+
+Como interpretar:
+
+Se pelo VIP aparecer o 135 e direto na VM não, o problema é do VIP. Aí pedimos à Rede, na WO do VIP intranet, o show ns runningConfig | grep 10.116.180.8 e a remoção de qualquer bind que não seja o 10.116.194.179:80, junto com a correção do comentário.
+Se o grep na 955 achar o 135, é configuração da aplicação, e passamos para os devs.
+Boleto
+
+O boleto só expõe serviço, não tem tela. O teste integrado que o Vitor propôs (SIADT/SIADC) é o caminho certo.
+
+(Os erros de MODCLUSTER ... 127.0.0.1:6666 no log são ruído do mod_cluster do perfil HA e não têm relação com os erros acima.)
