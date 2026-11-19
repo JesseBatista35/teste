@@ -1,1 +1,16 @@
-Pablo, só pra fechar: então o TQS fica apontando pro SIGOC de DES (des.sigoc.caixa) e eu abro a regra de TQS pra esse destino (origem 10.116.222.238 → 10.116.26.110, TCP/443)? Se vocês depois precisarem do SIGOC de homologação, a gente trata em outro pedido.
+
+[root@sspdeapllx0039 p585600]#
+[root@sspdeapllx0039 p585600]#
+[root@sspdeapllx0039 p585600]#
+[root@sspdeapllx0039 p585600]#
+[root@sspdeapllx0039 p585600]# find / -name "*SenhasSIIBC*" 2>/dev/null
+/prod/load/ran/tpc/lib/libSenhasSIIBC.so
+/prod/load/ran/tpc/lib/libSenhasSIIBC_Linux64.so
+
+
+
+^C
+[root@sspdeapllx0039 p585600]# ps -ef | grep -v grep | grep -o "java.library.path=[^ ]*"
+java.library.path=/prod/load/ran/tpc/lib
+java.library.path=/prod/load/ran/tpc/lib
+[root@sspdeapllx0039 p585600]#
