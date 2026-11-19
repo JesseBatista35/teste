@@ -1,38 +1,30 @@
-Consegue atualizar essa tabela com o que botou no resumo?
-
-
- 
 Módulo / pacote do inventário	Semáforo	Situação
-SIFEC 2.161.2.0	🟢	Implantado e no ar (WFLYSRV0010). Núcleo SIFEC operacional no JBoss EAP 7.4.
-SICCR-PARÂMETROS 3.3.1.1 (spr3)	🟡	Versão validada anteriormente e posteriormente atualizada para a build spr3 a pedido do Rodrigo. Aguardando confirmação dos testes nessa versão.
+SIFEC 2.161.2.0	🟢	Implantado e no ar. Núcleo SIFEC operacional no JBoss EAP 7.4.
 SICDT-FEC 3.24.3.004	🟢	Implantado e testado com sucesso. Download de PDF e CSV validado. Build considerada estável.
 SICCR-PJ 8.40.1	🟢	Implantado e funcionando. Perfil e lista de clientes validados.
-HUB-WEB 1.10.0.1-b418	🟡	Aplicação responde em /hub-web/ e redireciona para login. Funcionalidades dependentes do HUB-API permanecem indisponíveis enquanto a API não sobe.
-SIBAN-MCM 1.0.1.23-b47	🟡	Implantado. Datasource Sybase corrigido e teste de conexão realizado com sucesso. Aguardando validação funcional.
+SIFEC-CCR 6.3.0-b4587	🟡	401 do ccr-api corrigido em 17/11: removida a validação de token pelo container, igualando ao 6.4, conforme alinhado com Alessandro, Paulo e Gustavo. Em 18/11, uma chamada à simulação do consignado passou pela autenticação sem 401. Também corrigido o datasource IDMS (IdmsSiapxDS), que estava sem validação de conexão, com reload às 16:31. Aguardando reteste do /v8/contratos/simular por alguém do CCR, a ser indicado pelo Alessandro. O erro ORA-25156 (dialeto Oracle/Hibernate) segue com a fábrica.
+SICCR-PARÂMETROS (spr3)	🟡	A 3.3.1.1 foi validada e depois atualizada para a build spr3, a pedido do Rodrigo. Aguardando confirmação dos testes nessa versão.
+HUB-WEB 1.10.0.1-b418	🟡	Responde em /hub-web/ e redireciona para o login. As funcionalidades que dependem do HUB-API continuam indisponíveis enquanto a API não sobe.
+SIBAN-MCM 1.0.1.23-b47	🟡	Implantado, com datasource Sybase corrigido e conexão OK. Aguardando validação funcional.
 SICCR-BDCAIXA 2.0.1-b39	🟡	Implantado. Aguardando teste funcional.
-SIFEC-FBN 1.0.1.0-b84	🟡	Implantado no ambiente. Situação atualizada em relação ao levantamento anterior. Aguardando teste funcional.
-MINUTA GARANTIAS (SIFEC-MINUTAS-FRONT 1.0.0-b14)	🟡	Implantado. Aguardando teste funcional.
-SIFEC-CCR 6.3.0-b4587	🟡	Implantado. Identificada a causa do erro 401 do ccr-api: no EAP 7.4 o token é validado apenas no realm internet. Correção é de ambiente, sem necessidade de novo pacote, aguardando aprovação para aplicação no DES. Identificado também erro independente de
- banco (ORA-25156/Hibernate) que depende de ajuste da fábrica.
-SIRUR 3.55.51.03	🔴	Evoluiu após correções de datasource e persistência, porém a implantação parou em novo erro CDI. A classe
-SiricXMLIntegracaoNegocioImpl precisa expor a interface (@Local /
-implements). Aguardando nova build da fábrica.
-LCR 1.117.1	🔴	Deploy revertido. Encontrados erros CDI em múltiplos DAOs e incompatibilidade do
-SecurityInterceptor com o RESTEasy do EAP 7.4. Aguardando nova build.
-HUB-API 2.2.0	🔴	Não sobe devido a named query utilizando parâmetro legado ?, incompatível com Hibernate do EAP 7.4. Aguardando nova build.
-SIFEC-EMP 3.96.2.0	🔴	Falha de CDI (WELD-001408). Aguardando nova build.
-SIFEC-EMPRESAS	🔴	Falha de CDI (WELD-001408). Aguardando nova build.
-SIFEC-RURAL 2.115.1.0	🔴	Necessita build compatível com EAP 7.4, principalmente com Jackson e RESTEasy configurados como
-provided. Aguardando nova build.
-APX, ARC, BAN, BNDES, CONSTRUCARD, GARANTIAS, MANTER DOCUMENTO e ORIGINAÇÃO	⚪	Ainda não iniciados. Permanecem na fila de tratamento após LCR → SIRUR → CCR, conforme alinhamento com Paulo e Rodrigo.
- 
- 
- 
+SIFEC-FBN 1.0.1.0-b84	🟡	Implantado. Aguardando teste funcional.
+SIFEC-MINUTAS-FRONT 1.0.0-b14	🟡	Implantado. Aguardando teste funcional.
+SIFEC-APX 1.7.9.4-b40	🟡	Implantado em 17/11 (/apx-web), depois da criação da sessão de e-mail APXMail. Aguardando teste funcional.
+SIFEC-GARANTIAS 1.8.0.3-b183	🟡	Implantado em 17/11 (/garantias-web). Aguardando teste funcional. Atenção às integrações SIACG, SISGD e SIFBN/SIBAN: o JBoss avisou que faltam bibliotecas no pacote.
+SIFEC-ORIGINAÇÃO 3.11.1-b344	🟡	Implantado em 17/11 (/ori-web). Aguardando teste funcional. Atenção às consultas SIFBN/SIBAN.
+MINUTA GARANTIAS 1.0.0-b36	🟡	Implantado em 17/11 (/minutaGarantias-web). Aguardando teste funcional.
+SIFEC-BAN 1.7.0-b117	🟡	Implantado em 17/11 (/siban-api). Aguardando teste funcional.
+SIRUR 3.55.51.05	🔴	A build nova (18/11) falhou: o MANIFEST.MF está com formatação inválida (invalid header field). Correção da geração do manifesto em andamento com o Emerson.
+LCR 1.117.1	🔴	Erros de CDI em múltiplos DAOs e SecurityInterceptor incompatível com o RESTEasy do 7.4. Aguardando nova build.
+SIFEC-CONSTRUCARD 1.23.1.2-b64	🔴	Tentado em 17/11. CDI (WELD-001408): 5 EJBs não expõem a interface injetada. Ajuste: implements ou @Local. Aguardando nova build.
+SIFEC-BNDES 1.1.0-b8	🔴	Tentado em 18/11 (versão disponível, conforme o Gustavo). CDI (WELD-001408): FbnServicosBean e BndesServicosBean não expõem IFbnServicosBean e IBndesServicosBean. Aguardando nova build.
+MANTER DOCUMENTO 2.2.7-b94	🔴	Tentado em 18/11. Incompatibilidade com o Hibernate do 7.4. Revisar as consultas JPA. Aguardando nova build.
+SIARC (siarc_EAP6)	🔴	Tentado em 18/11. Incompatibilidade nas dependências JSF. Precisa de build compatível com o 7.4.
+HUB-API 2.2.0	🔴	Named query com parâmetro legado ?, incompatível com o Hibernate do 7.4. Aguardando nova build.
+SIFEC-EMP 3.96.2.0	🔴	CDI (WELD-001408). Aguardando nova build.
+SIFEC-EMPRESAS	🔴	CDI (WELD-001408). Aguardando nova build.
+SIFEC-RURAL 2.115.1.0	🔴	Precisa de build compatível com o 7.4 (Jackson e RESTEasy como provided). Aguardando nova build.
 🟢 3: SIFEC, SICDT e PJ.
-
-🟡 7: implantados aguardando teste dos devs, mais o CCR esperando o de acordo.
-
-🔴 6: todos aguardando build corrigida da fábrica; do lado do ambiente não há pendência nossa neles.
-
-⚪ 8: ainda na fila.
- 
+🟡 12: implantados e aguardando teste dos devs, entre eles os 5 que subiram em 17/11. Inclui o CCR, com o 401 já corrigido e aguardando reteste.
+🔴 10: todos aguardando build corrigida da fábrica. Do lado do ambiente não há pendência nossa.
+⚪ 0: todos os pacotes da aba sifec-intra já foram tentados no 7.4.
