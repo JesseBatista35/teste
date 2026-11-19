@@ -1,40 +1,709 @@
-1. Para os aprovadores (Flávio e Rafael)
 
-Bom dia, Flávio e Rafael! Poderiam aprovar a solicitação de regra de firewall ID 99038?
+<img width="800" height="247" alt="image" src="https://github.com/user-attachments/assets/83b9a4c1-b24b-43c0-82fd-48c00c310239" />
 
-Origem: 10.116.222.85 (egress IP do namespace sipgc-des, no OKD NPRD)
-Destino: des.sigoc.caixa (10.116.26.110)
-Protocolo/porta: TCP/443
-Objetivo: o SIPGC (Api de Informações), em DES, consumir a API REST do SIGOC.
 
-Já existia uma regra para esse fluxo (pedido 98711, regra 1033850), mas ela foi criada com origem 10.116.180.64, que é o IP da rota (ingress) do cluster, e não o IP de saída dos pods. Por isso a CETEL validou o tráfego com essa origem, mas do pod a conexão na 443 continua sem estabelecer. Confirmei o IP de saída correto no netnamespace do cluster.
+<img width="1886" height="508" alt="image" src="https://github.com/user-attachments/assets/bd369bf5-a9ff-4f49-9ee4-05697dd01f15" />
 
-Esta solicitação corrige a origem. A regra antiga pode permanecer.
 
-2. Para o Flávio, se você quiser um pedido direto e curto
+<img width="1909" height="611" alt="image" src="https://github.com/user-attachments/assets/f0198d00-5f58-47f9-bc15-86f403d4fc25" />
 
-Flávio, bom dia! Preciso da sua aprovação na solicitação de firewall ID 99038 (SIPGC DES → SIGOC DES, TCP/443). A regra anterior saiu com o IP da rota e não com o IP de saída dos pods, então não resolveu. A nova usa o egress IP correto do namespace (10.116.222.85). Sem ela o time do SIPGC segue travado nos testes com o SIGOC.
 
-3. Para a sala (Pablo e Livia)
+<img width="1919" height="1029" alt="image" src="https://github.com/user-attachments/assets/bd4ecf39-ff06-40fe-86ca-58f037514b8f" />
 
-Pessoal, atualização sobre o acesso ao SIGOC:
 
-O que aconteceu
-A regra de DES (pedido 98711) foi aplicada pela CETEL, mas com origem 10.116.180.64, que é o IP da rota (ingress) do cluster. Os pods não saem por esse IP. Eu confirmei isso no cluster: o namespace sipgc-des sai pelo egress IP 10.116.222.85, e o sipgc-tqs por 10.116.222.238.
 
-Por isso o João (CETEL) testou no firewall com a origem 10.116.180.64 e deu “allow”, mas do pod a conexão na 443 continua sem estabelecer. Testei de dentro do pod hoje, 19/11, às 09:26, e deu sem conexão.
+<img width="1911" height="937" alt="image" src="https://github.com/user-attachments/assets/47f88ece-ea53-4bf1-9226-5302a6c38d3b" />
 
-O que eu fiz
-Abri uma solicitação nova de firewall, ID 99038, só para DES, com a origem correta:
-10.116.222.85 → des.sigoc.caixa (10.116.26.110), TCP/443
-Ela está em aprovação do Flávio e do Rafael. Pedimos que não abram novos pedidos para esse fluxo, para não duplicar. Quando for aplicada, eu aviso aqui e testo do pod.
 
-Sobre o TQS (Pablo, preciso de uma resposta)
 
-O pod de TQS hoje aponta para des.sigoc.caixa no appsettings (Sigoc:BaseUrl). Qual deve ser o SIGOC de TQS: o hom.sigoc.caixa (10.123.20.225)?
-Ao simular o pedido, o formulário bloqueou esse destino: ele está numa faixa classificada como Produção / Corporativo / Intranet (regra de negócio 3549), e a origem é Não Produção. Fluxo de não produção para produção exige PTR, justificativa e aprovação do Gerente ou Superintendente Nacional. Existe outro endereço do SIGOC em rede de não produção para o TQS?
-Se hom.sigoc.caixa for a única opção, eu abro a solicitação de TQS à parte, para não segurar a de DES.
 
-Quando a regra de DES sair, eu aviso aqui.
+<img width="1918" height="857" alt="image" src="https://github.com/user-attachments/assets/9704ff54-f4e1-4817-b0f3-48c293212aae" />
 
-Ao testar depois da aprovação, use o comando do pod que já usamos, com des.sigoc.caixa. Me mande a resposta do Pablo sobre o TQS que eu preparo a justificativa para esse pedido.
+
+<img width="1917" height="740" alt="image" src="https://github.com/user-attachments/assets/b5a2dc56-cc55-46d5-84bd-8b6caffa31c2" />
+
+
+Jesse Mouta Pereira Batista, Evandro Alves de Souza, Patricia Vourakis Barbosa Braga e Flavio de Almeida Gagliardi
+ 
+Bom dia !!
+ 
+Segue a relação das REQs abertas para a criação dos certificados (Solicitar Certificado Digital – CSR – TE079) e instalação nos VIPs em TQS:
+ 
+sigsj-internet.tqs.caixa - REQ000147098578/WO0000082356559
+
+sigsj-boleto.tqs.caixa   - REQ000147104490/WO0000082356842
+ 
+Também reabrir a REQ000147074916/WO0000082324980 do sigsj-boleto.tqs.caixa solicitando realizar a 
+
+troca do Comment para Comment: SIGSJ-BOLETO.TQS.CAIXA.
+ 
+Obrigado !!
+ 
+Vitor Mendes Guedes
+Olá Flavio de Almeida Gagliardi, bom dia, tudo bem !!   Pelo que eu entendi, as REQs abaixo (instalar certificados digital existente) primeiro são atendidas pela CEPRO e depois pela CETEL. As notas i…
+Em DES atenderam as REQs de instalação dos certificados nos VIPS conforme REQs acima:
+ 
+Eu acessei as urls em DES sem a extensão e está aparecendo as telas abaixo indicando que a aplicação está em execução:
+ 
+url: https://sigsj-intranet.des.caixa/
+ 
+ 
+url: https://sigsj-internet.des.caixa/
+ 
+ 
+url: https://sigsj-boleto.des.caixa/
+ 
+ 
+Quando é colocada a extensão para acessar estamos com as seguintes situações:
+ 
+SIGSJ INTRANET- url: https://sigsj-intranet.des.caixa/sigsj_intranet/
+ 
+Aparece a pagina inicial do SIGSJ INTRANET abaixo, conforme esperado:
+ 
+ 
+Quando se colocar o usuário e senha, aparece uma mensagem de erro http 503 - Solicitação inválida:
+ 
+ 
+SIGSJ INTERNET: https://sigsj-internet.des.caixa/sigsj_internet/login.xhtml
+ 
+Aparece a pagina inicial da aplicação desconfigurada:
+ 
+ 
+Depois que colocar usuário e senha e clica em confirmar retornar um HTTP 500:
+ 
+ 
+Com relação ao sigsj-boleto não há pagina para acessar a aplicação. Vamos fazer um teste integrado com outras funcionalidades do SIGSJ  e de outros sistemas judiciais (SIADT/SIADC) para evidenciar como estar a aplicação.
+ 
+Flavio de Almeida Gagliardi, Jesse Mouta Pereira Batista e Evandro Alves de Souza, por favor, podemos realizar uma agenda para melhor entendimento do que pode ser a causa dos erros acima do SIGSJ INTERNET e SIGSJ INTRANET em DES agora que a parte de infra evoluiu permitindo acessar as aplicações em DES?
+ 
+Muito obrigado !!
+ 
+
+
+g.NumberFormatException: For input string: "/"
+        at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+        at java.lang.Integer.parseInt(Integer.java:569)
+        at java.lang.Integer.parseInt(Integer.java:615)
+        at org.jboss.modcluster.mcmp.impl.DefaultMCMPHandler.sendRequest(DefaultMCMPHandler.java:585)
+        at org.jboss.modcluster.mcmp.impl.DefaultMCMPHandler.status(DefaultMCMPHandler.java:336)
+        at org.jboss.modcluster.mcmp.impl.DefaultMCMPHandler.status(DefaultMCMPHandler.java:315)
+        at org.jboss.modcluster.ModClusterService.status(ModClusterService.java:414)
+        at org.wildfly.mod_cluster.undertow.UndertowEventHandlerAdapterService.run(UndertowEventHandlerAdapterService.java:182)
+        at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+        at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:308)
+        at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180)
+        at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294)
+        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+        at org.jboss.as.clustering.context.ContextReferenceExecutor.execute(ContextReferenceExecutor.java:49)
+        at org.jboss.as.clustering.context.ContextualExecutor$1.run(ContextualExecutor.java:70)
+        at java.lang.Thread.run(Thread.java:750)
+        at org.jboss.threads.JBossThread.run(JBossThread.java:513)
+
+2026-11-19 03:09:41,364 ERROR [org.jboss.modcluster] (UndertowEventHandlerAdapterService - 1) MODCLUSTER000042: Error null sending INFO command to localhost/127.0.0.1:6666, configuration will be reset: null
+2026-11-19 08:43:54,083 INFO  [org.ajax4jsf.cache.CacheManager] (default task-1) Selected [org.ajax4jsf.cache.LRUMapCacheFactory] cache factory
+2026-11-19 08:43:54,087 INFO  [org.ajax4jsf.cache.LRUMapCacheFactory] (default task-1) Creating LRUMap cache instance using parameters: {facelets.RECREATE_VALUE_EXPRESSION_ON_BUILD_BEFORE_RESTORE=false, javax.faces.DEFAULT_SUFFIX=.xhtml, com.sun.faces.numberOfLogicalViews=10, org.ajax4jsf.VIEW_HANDLERS=com.sun.facelets.FaceletViewHandler, url-verificar=/acesso-restrito/, facelets.DEVELOPMENT=false, org.ajax4jsf.PREVENT_INIT_PHASE_LISTENER=true, org.richfaces.LoadScriptStrategy=ALL, org.ajax4jsf.COMPRESS_SCRIPT=true, org.jboss.jbossfaces.WAR_BUNDLES_JSF_IMPL=true, facelets.REFRESH_PERIOD=-1, com.sun.faces.verifyObjects=false, facelets.LIBRARIES=/WEB-INF/facelet/mensagem/mensagem.taglib.xml;/WEB-INF/facelet/guias/guias.taglib.xml;/WEB-INF/facelet/saibamais/modalsaibamais.taglib.xml;/WEB-INF/facelet/confirmacao/confirm.taglib.xml, org.ajax4jsf.xmlparser.NEKO=.*\..*, javax.faces.CONFIG_FILES=/WEB-INF/managed-beans.xml,/WEB-INF/navigation-rules.xml, org.ajax4jsf.xmlparser.ORDER=NEKO, com.sun.faces.numberOfViewsInSession=3, com.sun.faces.validateXml=false, javax.faces.STATE_SAVING_METHOD=server, com.sun.faces.enableRestoreView11Compatibility=true, releaseBundle=/apl/sigsj/properties/release.properties, org.richfaces.SKIN=classic}
+2026-11-19 08:43:54,087 INFO  [org.ajax4jsf.cache.LRUMapCacheFactory] (default task-1) Creating LRUMap cache instance of default capacity
+2026-11-19 08:43:54,206 INFO  [org.ajax4jsf.cache.CacheManager] (default task-1) Selected [org.ajax4jsf.cache.LRUMapCacheFactory] cache factory
+2026-11-19 08:43:54,207 INFO  [org.ajax4jsf.cache.LRUMapCacheFactory] (default task-1) Creating LRUMap cache instance using parameters: {facelets.RECREATE_VALUE_EXPRESSION_ON_BUILD_BEFORE_RESTORE=false, javax.faces.DEFAULT_SUFFIX=.xhtml, com.sun.faces.numberOfLogicalViews=10, org.ajax4jsf.VIEW_HANDLERS=com.sun.facelets.FaceletViewHandler, url-verificar=/acesso-restrito/, facelets.DEVELOPMENT=false, org.ajax4jsf.PREVENT_INIT_PHASE_LISTENER=true, org.richfaces.LoadScriptStrategy=ALL, org.ajax4jsf.COMPRESS_SCRIPT=true, org.jboss.jbossfaces.WAR_BUNDLES_JSF_IMPL=true, facelets.REFRESH_PERIOD=-1, com.sun.faces.verifyObjects=false, facelets.LIBRARIES=/WEB-INF/facelet/mensagem/mensagem.taglib.xml;/WEB-INF/facelet/guias/guias.taglib.xml;/WEB-INF/facelet/saibamais/modalsaibamais.taglib.xml;/WEB-INF/facelet/confirmacao/confirm.taglib.xml, org.ajax4jsf.xmlparser.NEKO=.*\..*, javax.faces.CONFIG_FILES=/WEB-INF/managed-beans.xml,/WEB-INF/navigation-rules.xml, org.ajax4jsf.xmlparser.ORDER=NEKO, com.sun.faces.numberOfViewsInSession=3, com.sun.faces.validateXml=false, javax.faces.STATE_SAVING_METHOD=server, com.sun.faces.enableRestoreView11Compatibility=true, releaseBundle=/apl/sigsj/properties/release.properties, org.richfaces.SKIN=classic}
+2026-11-19 08:43:54,207 INFO  [org.ajax4jsf.cache.LRUMapCacheFactory] (default task-1) Creating LRUMap cache instance of default capacity
+2026-11-19 09:40:32,722 ERROR [io.undertow.request] (default task-6) UT005023: Exception handling request to /sigsj_internet/Autenticacao: java.lang.UnsatisfiedLinkError: no SenhasSIIBC in java.library.path
+        at java.lang.ClassLoader.loadLibrary(ClassLoader.java:1860)
+        at java.lang.Runtime.loadLibrary0(Runtime.java:843)
+        at java.lang.System.loadLibrary(System.java:1136)
+        at br.gov.caixa.util.SenhasSIIBC.<clinit>(Unknown Source)
+        at br.gov.caixa.sigsj.common.sirot.siper.AbstractSiperDTO.encriptar(AbstractSiperDTO.java:113)
+        at br.gov.caixa.sigsj.common.sirot.siper.LoginDTO.compoeMensagem(LoginDTO.java:59)
+        at br.gov.caixa.sigsj.common.sirot.siper.AbstractSiperDTO.getISOMsg(AbstractSiperDTO.java:40)
+        at br.gov.caixa.sigsj.common.dao.CommonDAO.sendRajada(CommonDAO.java:56)
+        at br.gov.caixa.sigsj.common.dao.CommonDAO.sendRajadaResponseDataRajada(CommonDAO.java:26)
+        at br.gov.caixa.sigsj.internet.dao.sirot.siper.LoginDAOSiperImpl.consultar(LoginDAOSiperImpl.java:90)
+        at br.gov.caixa.sigsj.internet.service.impl.LoginServiceImpl.consultarUsuario(LoginServiceImpl.java:39)
+        at br.gov.caixa.sigsj.internet.servlet.AutenticadorServlet.logarUsuario(AutenticadorServlet.java:229)
+        at br.gov.caixa.sigsj.internet.servlet.AutenticadorServlet.autenticarPorLogin(AutenticadorServlet.java:136)
+        at br.gov.caixa.sigsj.internet.servlet.AutenticadorServlet.processarAutenticacao(AutenticadorServlet.java:94)
+        at br.gov.caixa.sigsj.internet.servlet.AutenticadorServlet.doPost(AutenticadorServlet.java:62)
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:523)
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:590)
+        at io.undertow.servlet.handlers.ServletHandler.handleRequest(ServletHandler.java:74)
+        at io.undertow.servlet.handlers.FilterHandler$FilterChainImpl.doFilter(FilterHandler.java:129)
+        at br.gov.caixa.sigsj.internet.filter.ExceptionFilter.doFilter(ExceptionFilter.java:33)
+        at io.undertow.servlet.core.ManagedFilter.doFilter(ManagedFilter.java:67)
+        at io.undertow.servlet.handlers.FilterHandler$FilterChainImpl.doFilter(FilterHandler.java:131)
+        at io.undertow.servlet.handlers.FilterHandler.handleRequest(FilterHandler.java:84)
+        at io.undertow.servlet.handlers.ServletChain$1.handleRequest(ServletChain.java:68)
+        at io.undertow.servlet.handlers.ServletDispatchingHandler.handleRequest(ServletDispatchingHandler.java:36)
+        at io.undertow.servlet.handlers.RedirectDirHandler.handleRequest(RedirectDirHandler.java:68)
+        at org.wildfly.extension.undertow.deployment.GlobalRequestControllerHandler.handleRequest(GlobalRequestControllerHandler.java:68)
+        at io.undertow.servlet.handlers.SendErrorPageHandler.handleRequest(SendErrorPageHandler.java:52)
+        at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
+        at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:275)
+        at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:79)
+        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:134)
+        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:131)
+        at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
+        at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
+        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
+        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
+        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
+        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
+        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
+        at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:255)
+        at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:79)
+        at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:100)
+        at io.undertow.server.Connectors.executeRootHandler(Connectors.java:393)
+        at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:852)
+        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1377)
+        at org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
+        at java.lang.Thread.run(Thread.java:750)
+
+2026-11-19 09:40:32,809 ERROR [io.undertow.request] (default task-6) UT005022: Exception generating error page /mensagem/erro.jsp: org.apache.jasper.JasperException: java.lang.NullPointerException
+        at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:473)
+        at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:403)
+        at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:347)
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:590)
+        at io.undertow.servlet.handlers.ServletHandler.handleRequest(ServletHandler.java:74)
+        at io.undertow.servlet.handlers.FilterHandler.handleRequest(FilterHandler.java:81)
+        at io.undertow.jsp.JspFileHandler.handleRequest(JspFileHandler.java:32)
+        at io.undertow.servlet.handlers.ServletChain$1.handleRequest(ServletChain.java:68)
+        at io.undertow.servlet.handlers.ServletDispatchingHandler.handleRequest(ServletDispatchingHandler.java:36)
+        at io.undertow.servlet.handlers.RedirectDirHandler.handleRequest(RedirectDirHandler.java:68)
+        at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
+        at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:257)
+        at io.undertow.servlet.handlers.ServletInitialHandler.dispatchToPath(ServletInitialHandler.java:182)
+        at io.undertow.servlet.spec.RequestDispatcherImpl.error(RequestDispatcherImpl.java:414)
+        at io.undertow.servlet.spec.RequestDispatcherImpl.error(RequestDispatcherImpl.java:372)
+        at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:314)
+        at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:79)
+        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:134)
+        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:131)
+        at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
+        at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
+        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
+        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
+        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
+        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
+        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
+        at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:255)
+        at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:79)
+        at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:100)
+        at io.undertow.server.Connectors.executeRootHandler(Connectors.java:393)
+        at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:852)
+        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1377)
+        at org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
+        at java.lang.Thread.run(Thread.java:750)
+Caused by: java.lang.NullPointerException
+        at org.apache.jsp.mensagem.erro_jsp._jspService(erro_jsp.java:113)
+        at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:590)
+        at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:433)
+        ... 36 more
+
+2026-11-19 09:40:37,765 ERROR [io.undertow.request] (default task-6) UT005023: Exception handling request to /sigsj_internet/Autenticacao: java.lang.NoClassDefFoundError: Could not initialize class br.gov.caixa.util.SenhasSIIBC
+        at br.gov.caixa.sigsj.common.sirot.siper.AbstractSiperDTO.encriptar(AbstractSiperDTO.java:113)
+        at br.gov.caixa.sigsj.common.sirot.siper.LoginDTO.compoeMensagem(LoginDTO.java:59)
+        at br.gov.caixa.sigsj.common.sirot.siper.AbstractSiperDTO.getISOMsg(AbstractSiperDTO.java:40)
+        at br.gov.caixa.sigsj.common.dao.CommonDAO.sendRajada(CommonDAO.java:56)
+        at br.gov.caixa.sigsj.common.dao.CommonDAO.sendRajadaResponseDataRajada(CommonDAO.java:26)
+        at br.gov.caixa.sigsj.internet.dao.sirot.siper.LoginDAOSiperImpl.consultar(LoginDAOSiperImpl.java:90)
+        at br.gov.caixa.sigsj.internet.service.impl.LoginServiceImpl.consultarUsuario(LoginServiceImpl.java:39)
+        at br.gov.caixa.sigsj.internet.servlet.AutenticadorServlet.logarUsuario(AutenticadorServlet.java:229)
+        at br.gov.caixa.sigsj.internet.servlet.AutenticadorServlet.autenticarPorLogin(AutenticadorServlet.java:136)
+        at br.gov.caixa.sigsj.internet.servlet.AutenticadorServlet.processarAutenticacao(AutenticadorServlet.java:94)
+        at br.gov.caixa.sigsj.internet.servlet.AutenticadorServlet.doPost(AutenticadorServlet.java:62)
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:523)
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:590)
+        at io.undertow.servlet.handlers.ServletHandler.handleRequest(ServletHandler.java:74)
+        at io.undertow.servlet.handlers.FilterHandler$FilterChainImpl.doFilter(FilterHandler.java:129)
+        at br.gov.caixa.sigsj.internet.filter.ExceptionFilter.doFilter(ExceptionFilter.java:33)
+        at io.undertow.servlet.core.ManagedFilter.doFilter(ManagedFilter.java:67)
+        at io.undertow.servlet.handlers.FilterHandler$FilterChainImpl.doFilter(FilterHandler.java:131)
+        at io.undertow.servlet.handlers.FilterHandler.handleRequest(FilterHandler.java:84)
+        at io.undertow.servlet.handlers.ServletChain$1.handleRequest(ServletChain.java:68)
+        at io.undertow.servlet.handlers.ServletDispatchingHandler.handleRequest(ServletDispatchingHandler.java:36)
+        at io.undertow.servlet.handlers.RedirectDirHandler.handleRequest(RedirectDirHandler.java:68)
+        at org.wildfly.extension.undertow.deployment.GlobalRequestControllerHandler.handleRequest(GlobalRequestControllerHandler.java:68)
+        at io.undertow.servlet.handlers.SendErrorPageHandler.handleRequest(SendErrorPageHandler.java:52)
+        at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
+        at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:275)
+        at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:79)
+        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:134)
+        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:131)
+        at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
+        at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
+        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
+        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
+        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
+        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
+        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
+        at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:255)
+        at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:79)
+        at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:100)
+        at io.undertow.server.Connectors.executeRootHandler(Connectors.java:393)
+        at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:852)
+        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1377)
+        at org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
+        at java.lang.Thread.run(Thread.java:750)
+
+2026-11-19 09:40:37,766 ERROR [io.undertow.request] (default task-6) UT005022: Exception generating error page /mensagem/erro.jsp: org.apache.jasper.JasperException: java.lang.NullPointerException
+        at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:473)
+        at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:403)
+        at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:347)
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:590)
+        at io.undertow.servlet.handlers.ServletHandler.handleRequest(ServletHandler.java:74)
+        at io.undertow.servlet.handlers.FilterHandler.handleRequest(FilterHandler.java:81)
+        at io.undertow.jsp.JspFileHandler.handleRequest(JspFileHandler.java:32)
+        at io.undertow.servlet.handlers.ServletChain$1.handleRequest(ServletChain.java:68)
+        at io.undertow.servlet.handlers.ServletDispatchingHandler.handleRequest(ServletDispatchingHandler.java:36)
+        at io.undertow.servlet.handlers.RedirectDirHandler.handleRequest(RedirectDirHandler.java:68)
+        at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
+        at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:257)
+        at io.undertow.servlet.handlers.ServletInitialHandler.dispatchToPath(ServletInitialHandler.java:182)
+        at io.undertow.servlet.spec.RequestDispatcherImpl.error(RequestDispatcherImpl.java:414)
+        at io.undertow.servlet.spec.RequestDispatcherImpl.error(RequestDispatcherImpl.java:372)
+        at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:314)
+        at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:79)
+        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:134)
+        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:131)
+        at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
+        at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
+        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
+        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
+        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
+        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
+        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
+        at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:255)
+        at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:79)
+        at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:100)
+        at io.undertow.server.Connectors.executeRootHandler(Connectors.java:393)
+        at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:852)
+        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1377)
+        at org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
+        at java.lang.Thread.run(Thread.java:750)
+Caused by: java.lang.NullPointerException
+        at org.apache.jsp.mensagem.erro_jsp._jspService(erro_jsp.java:113)
+        at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:590)
+        at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:433)
+        ... 36 more
+
+2026-11-19 09:40:47,083 ERROR [io.undertow.request] (default task-6) UT005023: Exception handling request to /sigsj_internet/Autenticacao: java.lang.NoClassDefFoundError: Could not initialize class br.gov.caixa.util.SenhasSIIBC
+        at br.gov.caixa.sigsj.common.sirot.siper.AbstractSiperDTO.encriptar(AbstractSiperDTO.java:113)
+        at br.gov.caixa.sigsj.common.sirot.siper.LoginDTO.compoeMensagem(LoginDTO.java:59)
+        at br.gov.caixa.sigsj.common.sirot.siper.AbstractSiperDTO.getISOMsg(AbstractSiperDTO.java:40)
+        at br.gov.caixa.sigsj.common.dao.CommonDAO.sendRajada(CommonDAO.java:56)
+        at br.gov.caixa.sigsj.common.dao.CommonDAO.sendRajadaResponseDataRajada(CommonDAO.java:26)
+        at br.gov.caixa.sigsj.internet.dao.sirot.siper.LoginDAOSiperImpl.consultar(LoginDAOSiperImpl.java:90)
+        at br.gov.caixa.sigsj.internet.service.impl.LoginServiceImpl.consultarUsuario(LoginServiceImpl.java:39)
+        at br.gov.caixa.sigsj.internet.servlet.AutenticadorServlet.logarUsuario(AutenticadorServlet.java:229)
+        at br.gov.caixa.sigsj.internet.servlet.AutenticadorServlet.autenticarPorLogin(AutenticadorServlet.java:136)
+        at br.gov.caixa.sigsj.internet.servlet.AutenticadorServlet.processarAutenticacao(AutenticadorServlet.java:94)
+        at br.gov.caixa.sigsj.internet.servlet.AutenticadorServlet.doPost(AutenticadorServlet.java:62)
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:523)
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:590)
+        at io.undertow.servlet.handlers.ServletHandler.handleRequest(ServletHandler.java:74)
+        at io.undertow.servlet.handlers.FilterHandler$FilterChainImpl.doFilter(FilterHandler.java:129)
+        at br.gov.caixa.sigsj.internet.filter.ExceptionFilter.doFilter(ExceptionFilter.java:33)
+        at io.undertow.servlet.core.ManagedFilter.doFilter(ManagedFilter.java:67)
+        at io.undertow.servlet.handlers.FilterHandler$FilterChainImpl.doFilter(FilterHandler.java:131)
+        at io.undertow.servlet.handlers.FilterHandler.handleRequest(FilterHandler.java:84)
+        at io.undertow.servlet.handlers.ServletChain$1.handleRequest(ServletChain.java:68)
+        at io.undertow.servlet.handlers.ServletDispatchingHandler.handleRequest(ServletDispatchingHandler.java:36)
+        at io.undertow.servlet.handlers.RedirectDirHandler.handleRequest(RedirectDirHandler.java:68)
+        at org.wildfly.extension.undertow.deployment.GlobalRequestControllerHandler.handleRequest(GlobalRequestControllerHandler.java:68)
+        at io.undertow.servlet.handlers.SendErrorPageHandler.handleRequest(SendErrorPageHandler.java:52)
+        at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
+        at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:275)
+        at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:79)
+        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:134)
+        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:131)
+        at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
+        at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
+        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
+        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
+        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
+        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
+        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
+        at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:255)
+        at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:79)
+        at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:100)
+        at io.undertow.server.Connectors.executeRootHandler(Connectors.java:393)
+        at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:852)
+        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1377)
+        at org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
+        at java.lang.Thread.run(Thread.java:750)
+
+2026-11-19 09:40:47,084 ERROR [io.undertow.request] (default task-6) UT005022: Exception generating error page /mensagem/erro.jsp: org.apache.jasper.JasperException: java.lang.NullPointerException
+        at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:473)
+        at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:403)
+        at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:347)
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:590)
+        at io.undertow.servlet.handlers.ServletHandler.handleRequest(ServletHandler.java:74)
+        at io.undertow.servlet.handlers.FilterHandler.handleRequest(FilterHandler.java:81)
+        at io.undertow.jsp.JspFileHandler.handleRequest(JspFileHandler.java:32)
+        at io.undertow.servlet.handlers.ServletChain$1.handleRequest(ServletChain.java:68)
+        at io.undertow.servlet.handlers.ServletDispatchingHandler.handleRequest(ServletDispatchingHandler.java:36)
+        at io.undertow.servlet.handlers.RedirectDirHandler.handleRequest(RedirectDirHandler.java:68)
+        at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
+        at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:257)
+        at io.undertow.servlet.handlers.ServletInitialHandler.dispatchToPath(ServletInitialHandler.java:182)
+        at io.undertow.servlet.spec.RequestDispatcherImpl.error(RequestDispatcherImpl.java:414)
+        at io.undertow.servlet.spec.RequestDispatcherImpl.error(RequestDispatcherImpl.java:372)
+        at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:314)
+        at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:79)
+        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:134)
+        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:131)
+        at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
+        at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
+        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
+        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
+        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
+        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
+        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
+        at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:255)
+        at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:79)
+        at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:100)
+        at io.undertow.server.Connectors.executeRootHandler(Connectors.java:393)
+        at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:852)
+        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1377)
+        at org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
+        at java.lang.Thread.run(Thread.java:750)
+Caused by: java.lang.NullPointerException
+        at org.apache.jsp.mensagem.erro_jsp._jspService(erro_jsp.java:113)
+        at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:590)
+        at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:433)
+        ... 36 more
+
+
+
+g.NumberFormatException: For input string: "/"
+        at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+        at java.lang.Integer.parseInt(Integer.java:569)
+        at java.lang.Integer.parseInt(Integer.java:615)
+        at org.jboss.modcluster.mcmp.impl.DefaultMCMPHandler.sendRequest(DefaultMCMPHandler.java:585)
+        at org.jboss.modcluster.mcmp.impl.DefaultMCMPHandler.status(DefaultMCMPHandler.java:336)
+        at org.jboss.modcluster.mcmp.impl.DefaultMCMPHandler.status(DefaultMCMPHandler.java:315)
+        at org.jboss.modcluster.ModClusterService.status(ModClusterService.java:414)
+        at org.wildfly.mod_cluster.undertow.UndertowEventHandlerAdapterService.run(UndertowEventHandlerAdapterService.java:182)
+        at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+        at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:308)
+        at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180)
+        at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294)
+        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+        at org.jboss.as.clustering.context.ContextReferenceExecutor.execute(ContextReferenceExecutor.java:49)
+        at org.jboss.as.clustering.context.ContextualExecutor$1.run(ContextualExecutor.java:70)
+        at java.lang.Thread.run(Thread.java:750)
+        at org.jboss.threads.JBossThread.run(JBossThread.java:513)
+
+2026-11-19 03:09:41,364 ERROR [org.jboss.modcluster] (UndertowEventHandlerAdapterService - 1) MODCLUSTER000042: Error null sending INFO command to localhost/127.0.0.1:6666, configuration will be reset: null
+2026-11-19 08:43:54,083 INFO  [org.ajax4jsf.cache.CacheManager] (default task-1) Selected [org.ajax4jsf.cache.LRUMapCacheFactory] cache factory
+2026-11-19 08:43:54,087 INFO  [org.ajax4jsf.cache.LRUMapCacheFactory] (default task-1) Creating LRUMap cache instance using parameters: {facelets.RECREATE_VALUE_EXPRESSION_ON_BUILD_BEFORE_RESTORE=false, javax.faces.DEFAULT_SUFFIX=.xhtml, com.sun.faces.numberOfLogicalViews=10, org.ajax4jsf.VIEW_HANDLERS=com.sun.facelets.FaceletViewHandler, url-verificar=/acesso-restrito/, facelets.DEVELOPMENT=false, org.ajax4jsf.PREVENT_INIT_PHASE_LISTENER=true, org.richfaces.LoadScriptStrategy=ALL, org.ajax4jsf.COMPRESS_SCRIPT=true, org.jboss.jbossfaces.WAR_BUNDLES_JSF_IMPL=true, facelets.REFRESH_PERIOD=-1, com.sun.faces.verifyObjects=false, facelets.LIBRARIES=/WEB-INF/facelet/mensagem/mensagem.taglib.xml;/WEB-INF/facelet/guias/guias.taglib.xml;/WEB-INF/facelet/saibamais/modalsaibamais.taglib.xml;/WEB-INF/facelet/confirmacao/confirm.taglib.xml, org.ajax4jsf.xmlparser.NEKO=.*\..*, javax.faces.CONFIG_FILES=/WEB-INF/managed-beans.xml,/WEB-INF/navigation-rules.xml, org.ajax4jsf.xmlparser.ORDER=NEKO, com.sun.faces.numberOfViewsInSession=3, com.sun.faces.validateXml=false, javax.faces.STATE_SAVING_METHOD=server, com.sun.faces.enableRestoreView11Compatibility=true, releaseBundle=/apl/sigsj/properties/release.properties, org.richfaces.SKIN=classic}
+2026-11-19 08:43:54,087 INFO  [org.ajax4jsf.cache.LRUMapCacheFactory] (default task-1) Creating LRUMap cache instance of default capacity
+2026-11-19 08:43:54,206 INFO  [org.ajax4jsf.cache.CacheManager] (default task-1) Selected [org.ajax4jsf.cache.LRUMapCacheFactory] cache factory
+2026-11-19 08:43:54,207 INFO  [org.ajax4jsf.cache.LRUMapCacheFactory] (default task-1) Creating LRUMap cache instance using parameters: {facelets.RECREATE_VALUE_EXPRESSION_ON_BUILD_BEFORE_RESTORE=false, javax.faces.DEFAULT_SUFFIX=.xhtml, com.sun.faces.numberOfLogicalViews=10, org.ajax4jsf.VIEW_HANDLERS=com.sun.facelets.FaceletViewHandler, url-verificar=/acesso-restrito/, facelets.DEVELOPMENT=false, org.ajax4jsf.PREVENT_INIT_PHASE_LISTENER=true, org.richfaces.LoadScriptStrategy=ALL, org.ajax4jsf.COMPRESS_SCRIPT=true, org.jboss.jbossfaces.WAR_BUNDLES_JSF_IMPL=true, facelets.REFRESH_PERIOD=-1, com.sun.faces.verifyObjects=false, facelets.LIBRARIES=/WEB-INF/facelet/mensagem/mensagem.taglib.xml;/WEB-INF/facelet/guias/guias.taglib.xml;/WEB-INF/facelet/saibamais/modalsaibamais.taglib.xml;/WEB-INF/facelet/confirmacao/confirm.taglib.xml, org.ajax4jsf.xmlparser.NEKO=.*\..*, javax.faces.CONFIG_FILES=/WEB-INF/managed-beans.xml,/WEB-INF/navigation-rules.xml, org.ajax4jsf.xmlparser.ORDER=NEKO, com.sun.faces.numberOfViewsInSession=3, com.sun.faces.validateXml=false, javax.faces.STATE_SAVING_METHOD=server, com.sun.faces.enableRestoreView11Compatibility=true, releaseBundle=/apl/sigsj/properties/release.properties, org.richfaces.SKIN=classic}
+2026-11-19 08:43:54,207 INFO  [org.ajax4jsf.cache.LRUMapCacheFactory] (default task-1) Creating LRUMap cache instance of default capacity
+2026-11-19 09:40:32,722 ERROR [io.undertow.request] (default task-6) UT005023: Exception handling request to /sigsj_internet/Autenticacao: java.lang.UnsatisfiedLinkError: no SenhasSIIBC in java.library.path
+        at java.lang.ClassLoader.loadLibrary(ClassLoader.java:1860)
+        at java.lang.Runtime.loadLibrary0(Runtime.java:843)
+        at java.lang.System.loadLibrary(System.java:1136)
+        at br.gov.caixa.util.SenhasSIIBC.<clinit>(Unknown Source)
+        at br.gov.caixa.sigsj.common.sirot.siper.AbstractSiperDTO.encriptar(AbstractSiperDTO.java:113)
+        at br.gov.caixa.sigsj.common.sirot.siper.LoginDTO.compoeMensagem(LoginDTO.java:59)
+        at br.gov.caixa.sigsj.common.sirot.siper.AbstractSiperDTO.getISOMsg(AbstractSiperDTO.java:40)
+        at br.gov.caixa.sigsj.common.dao.CommonDAO.sendRajada(CommonDAO.java:56)
+        at br.gov.caixa.sigsj.common.dao.CommonDAO.sendRajadaResponseDataRajada(CommonDAO.java:26)
+        at br.gov.caixa.sigsj.internet.dao.sirot.siper.LoginDAOSiperImpl.consultar(LoginDAOSiperImpl.java:90)
+        at br.gov.caixa.sigsj.internet.service.impl.LoginServiceImpl.consultarUsuario(LoginServiceImpl.java:39)
+        at br.gov.caixa.sigsj.internet.servlet.AutenticadorServlet.logarUsuario(AutenticadorServlet.java:229)
+        at br.gov.caixa.sigsj.internet.servlet.AutenticadorServlet.autenticarPorLogin(AutenticadorServlet.java:136)
+        at br.gov.caixa.sigsj.internet.servlet.AutenticadorServlet.processarAutenticacao(AutenticadorServlet.java:94)
+        at br.gov.caixa.sigsj.internet.servlet.AutenticadorServlet.doPost(AutenticadorServlet.java:62)
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:523)
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:590)
+        at io.undertow.servlet.handlers.ServletHandler.handleRequest(ServletHandler.java:74)
+        at io.undertow.servlet.handlers.FilterHandler$FilterChainImpl.doFilter(FilterHandler.java:129)
+        at br.gov.caixa.sigsj.internet.filter.ExceptionFilter.doFilter(ExceptionFilter.java:33)
+        at io.undertow.servlet.core.ManagedFilter.doFilter(ManagedFilter.java:67)
+        at io.undertow.servlet.handlers.FilterHandler$FilterChainImpl.doFilter(FilterHandler.java:131)
+        at io.undertow.servlet.handlers.FilterHandler.handleRequest(FilterHandler.java:84)
+        at io.undertow.servlet.handlers.ServletChain$1.handleRequest(ServletChain.java:68)
+        at io.undertow.servlet.handlers.ServletDispatchingHandler.handleRequest(ServletDispatchingHandler.java:36)
+        at io.undertow.servlet.handlers.RedirectDirHandler.handleRequest(RedirectDirHandler.java:68)
+        at org.wildfly.extension.undertow.deployment.GlobalRequestControllerHandler.handleRequest(GlobalRequestControllerHandler.java:68)
+        at io.undertow.servlet.handlers.SendErrorPageHandler.handleRequest(SendErrorPageHandler.java:52)
+        at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
+        at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:275)
+        at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:79)
+        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:134)
+        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:131)
+        at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
+        at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
+        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
+        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
+        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
+        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
+        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
+        at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:255)
+        at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:79)
+        at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:100)
+        at io.undertow.server.Connectors.executeRootHandler(Connectors.java:393)
+        at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:852)
+        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1377)
+        at org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
+        at java.lang.Thread.run(Thread.java:750)
+
+2026-11-19 09:40:32,809 ERROR [io.undertow.request] (default task-6) UT005022: Exception generating error page /mensagem/erro.jsp: org.apache.jasper.JasperException: java.lang.NullPointerException
+        at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:473)
+        at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:403)
+        at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:347)
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:590)
+        at io.undertow.servlet.handlers.ServletHandler.handleRequest(ServletHandler.java:74)
+        at io.undertow.servlet.handlers.FilterHandler.handleRequest(FilterHandler.java:81)
+        at io.undertow.jsp.JspFileHandler.handleRequest(JspFileHandler.java:32)
+        at io.undertow.servlet.handlers.ServletChain$1.handleRequest(ServletChain.java:68)
+        at io.undertow.servlet.handlers.ServletDispatchingHandler.handleRequest(ServletDispatchingHandler.java:36)
+        at io.undertow.servlet.handlers.RedirectDirHandler.handleRequest(RedirectDirHandler.java:68)
+        at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
+        at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:257)
+        at io.undertow.servlet.handlers.ServletInitialHandler.dispatchToPath(ServletInitialHandler.java:182)
+        at io.undertow.servlet.spec.RequestDispatcherImpl.error(RequestDispatcherImpl.java:414)
+        at io.undertow.servlet.spec.RequestDispatcherImpl.error(RequestDispatcherImpl.java:372)
+        at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:314)
+        at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:79)
+        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:134)
+        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:131)
+        at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
+        at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
+        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
+        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
+        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
+        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
+        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
+        at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:255)
+        at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:79)
+        at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:100)
+        at io.undertow.server.Connectors.executeRootHandler(Connectors.java:393)
+        at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:852)
+        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1377)
+        at org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
+        at java.lang.Thread.run(Thread.java:750)
+Caused by: java.lang.NullPointerException
+        at org.apache.jsp.mensagem.erro_jsp._jspService(erro_jsp.java:113)
+        at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:590)
+        at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:433)
+        ... 36 more
+
+2026-11-19 09:40:37,765 ERROR [io.undertow.request] (default task-6) UT005023: Exception handling request to /sigsj_internet/Autenticacao: java.lang.NoClassDefFoundError: Could not initialize class br.gov.caixa.util.SenhasSIIBC
+        at br.gov.caixa.sigsj.common.sirot.siper.AbstractSiperDTO.encriptar(AbstractSiperDTO.java:113)
+        at br.gov.caixa.sigsj.common.sirot.siper.LoginDTO.compoeMensagem(LoginDTO.java:59)
+        at br.gov.caixa.sigsj.common.sirot.siper.AbstractSiperDTO.getISOMsg(AbstractSiperDTO.java:40)
+        at br.gov.caixa.sigsj.common.dao.CommonDAO.sendRajada(CommonDAO.java:56)
+        at br.gov.caixa.sigsj.common.dao.CommonDAO.sendRajadaResponseDataRajada(CommonDAO.java:26)
+        at br.gov.caixa.sigsj.internet.dao.sirot.siper.LoginDAOSiperImpl.consultar(LoginDAOSiperImpl.java:90)
+        at br.gov.caixa.sigsj.internet.service.impl.LoginServiceImpl.consultarUsuario(LoginServiceImpl.java:39)
+        at br.gov.caixa.sigsj.internet.servlet.AutenticadorServlet.logarUsuario(AutenticadorServlet.java:229)
+        at br.gov.caixa.sigsj.internet.servlet.AutenticadorServlet.autenticarPorLogin(AutenticadorServlet.java:136)
+        at br.gov.caixa.sigsj.internet.servlet.AutenticadorServlet.processarAutenticacao(AutenticadorServlet.java:94)
+        at br.gov.caixa.sigsj.internet.servlet.AutenticadorServlet.doPost(AutenticadorServlet.java:62)
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:523)
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:590)
+        at io.undertow.servlet.handlers.ServletHandler.handleRequest(ServletHandler.java:74)
+        at io.undertow.servlet.handlers.FilterHandler$FilterChainImpl.doFilter(FilterHandler.java:129)
+        at br.gov.caixa.sigsj.internet.filter.ExceptionFilter.doFilter(ExceptionFilter.java:33)
+        at io.undertow.servlet.core.ManagedFilter.doFilter(ManagedFilter.java:67)
+        at io.undertow.servlet.handlers.FilterHandler$FilterChainImpl.doFilter(FilterHandler.java:131)
+        at io.undertow.servlet.handlers.FilterHandler.handleRequest(FilterHandler.java:84)
+        at io.undertow.servlet.handlers.ServletChain$1.handleRequest(ServletChain.java:68)
+        at io.undertow.servlet.handlers.ServletDispatchingHandler.handleRequest(ServletDispatchingHandler.java:36)
+        at io.undertow.servlet.handlers.RedirectDirHandler.handleRequest(RedirectDirHandler.java:68)
+        at org.wildfly.extension.undertow.deployment.GlobalRequestControllerHandler.handleRequest(GlobalRequestControllerHandler.java:68)
+        at io.undertow.servlet.handlers.SendErrorPageHandler.handleRequest(SendErrorPageHandler.java:52)
+        at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
+        at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:275)
+        at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:79)
+        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:134)
+        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:131)
+        at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
+        at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
+        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
+        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
+        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
+        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
+        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
+        at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:255)
+        at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:79)
+        at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:100)
+        at io.undertow.server.Connectors.executeRootHandler(Connectors.java:393)
+        at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:852)
+        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1377)
+        at org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
+        at java.lang.Thread.run(Thread.java:750)
+
+2026-11-19 09:40:37,766 ERROR [io.undertow.request] (default task-6) UT005022: Exception generating error page /mensagem/erro.jsp: org.apache.jasper.JasperException: java.lang.NullPointerException
+        at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:473)
+        at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:403)
+        at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:347)
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:590)
+        at io.undertow.servlet.handlers.ServletHandler.handleRequest(ServletHandler.java:74)
+        at io.undertow.servlet.handlers.FilterHandler.handleRequest(FilterHandler.java:81)
+        at io.undertow.jsp.JspFileHandler.handleRequest(JspFileHandler.java:32)
+        at io.undertow.servlet.handlers.ServletChain$1.handleRequest(ServletChain.java:68)
+        at io.undertow.servlet.handlers.ServletDispatchingHandler.handleRequest(ServletDispatchingHandler.java:36)
+        at io.undertow.servlet.handlers.RedirectDirHandler.handleRequest(RedirectDirHandler.java:68)
+        at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
+        at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:257)
+        at io.undertow.servlet.handlers.ServletInitialHandler.dispatchToPath(ServletInitialHandler.java:182)
+        at io.undertow.servlet.spec.RequestDispatcherImpl.error(RequestDispatcherImpl.java:414)
+        at io.undertow.servlet.spec.RequestDispatcherImpl.error(RequestDispatcherImpl.java:372)
+        at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:314)
+        at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:79)
+        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:134)
+        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:131)
+        at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
+        at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
+        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
+        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
+        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
+        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
+        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
+        at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:255)
+        at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:79)
+        at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:100)
+        at io.undertow.server.Connectors.executeRootHandler(Connectors.java:393)
+        at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:852)
+        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1377)
+        at org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
+        at java.lang.Thread.run(Thread.java:750)
+Caused by: java.lang.NullPointerException
+        at org.apache.jsp.mensagem.erro_jsp._jspService(erro_jsp.java:113)
+        at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:590)
+        at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:433)
+        ... 36 more
+
+2026-11-19 09:40:47,083 ERROR [io.undertow.request] (default task-6) UT005023: Exception handling request to /sigsj_internet/Autenticacao: java.lang.NoClassDefFoundError: Could not initialize class br.gov.caixa.util.SenhasSIIBC
+        at br.gov.caixa.sigsj.common.sirot.siper.AbstractSiperDTO.encriptar(AbstractSiperDTO.java:113)
+        at br.gov.caixa.sigsj.common.sirot.siper.LoginDTO.compoeMensagem(LoginDTO.java:59)
+        at br.gov.caixa.sigsj.common.sirot.siper.AbstractSiperDTO.getISOMsg(AbstractSiperDTO.java:40)
+        at br.gov.caixa.sigsj.common.dao.CommonDAO.sendRajada(CommonDAO.java:56)
+        at br.gov.caixa.sigsj.common.dao.CommonDAO.sendRajadaResponseDataRajada(CommonDAO.java:26)
+        at br.gov.caixa.sigsj.internet.dao.sirot.siper.LoginDAOSiperImpl.consultar(LoginDAOSiperImpl.java:90)
+        at br.gov.caixa.sigsj.internet.service.impl.LoginServiceImpl.consultarUsuario(LoginServiceImpl.java:39)
+        at br.gov.caixa.sigsj.internet.servlet.AutenticadorServlet.logarUsuario(AutenticadorServlet.java:229)
+        at br.gov.caixa.sigsj.internet.servlet.AutenticadorServlet.autenticarPorLogin(AutenticadorServlet.java:136)
+        at br.gov.caixa.sigsj.internet.servlet.AutenticadorServlet.processarAutenticacao(AutenticadorServlet.java:94)
+        at br.gov.caixa.sigsj.internet.servlet.AutenticadorServlet.doPost(AutenticadorServlet.java:62)
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:523)
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:590)
+        at io.undertow.servlet.handlers.ServletHandler.handleRequest(ServletHandler.java:74)
+        at io.undertow.servlet.handlers.FilterHandler$FilterChainImpl.doFilter(FilterHandler.java:129)
+        at br.gov.caixa.sigsj.internet.filter.ExceptionFilter.doFilter(ExceptionFilter.java:33)
+        at io.undertow.servlet.core.ManagedFilter.doFilter(ManagedFilter.java:67)
+        at io.undertow.servlet.handlers.FilterHandler$FilterChainImpl.doFilter(FilterHandler.java:131)
+        at io.undertow.servlet.handlers.FilterHandler.handleRequest(FilterHandler.java:84)
+        at io.undertow.servlet.handlers.ServletChain$1.handleRequest(ServletChain.java:68)
+        at io.undertow.servlet.handlers.ServletDispatchingHandler.handleRequest(ServletDispatchingHandler.java:36)
+        at io.undertow.servlet.handlers.RedirectDirHandler.handleRequest(RedirectDirHandler.java:68)
+        at org.wildfly.extension.undertow.deployment.GlobalRequestControllerHandler.handleRequest(GlobalRequestControllerHandler.java:68)
+        at io.undertow.servlet.handlers.SendErrorPageHandler.handleRequest(SendErrorPageHandler.java:52)
+        at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
+        at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:275)
+        at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:79)
+        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:134)
+        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:131)
+        at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
+        at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
+        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
+        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
+        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
+        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
+        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
+        at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:255)
+        at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:79)
+        at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:100)
+        at io.undertow.server.Connectors.executeRootHandler(Connectors.java:393)
+        at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:852)
+        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1377)
+        at org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
+        at java.lang.Thread.run(Thread.java:750)
+
+2026-11-19 09:40:47,084 ERROR [io.undertow.request] (default task-6) UT005022: Exception generating error page /mensagem/erro.jsp: org.apache.jasper.JasperException: java.lang.NullPointerException
+        at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:473)
+        at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:403)
+        at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:347)
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:590)
+        at io.undertow.servlet.handlers.ServletHandler.handleRequest(ServletHandler.java:74)
+        at io.undertow.servlet.handlers.FilterHandler.handleRequest(FilterHandler.java:81)
+        at io.undertow.jsp.JspFileHandler.handleRequest(JspFileHandler.java:32)
+        at io.undertow.servlet.handlers.ServletChain$1.handleRequest(ServletChain.java:68)
+        at io.undertow.servlet.handlers.ServletDispatchingHandler.handleRequest(ServletDispatchingHandler.java:36)
+        at io.undertow.servlet.handlers.RedirectDirHandler.handleRequest(RedirectDirHandler.java:68)
+        at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
+        at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:257)
+        at io.undertow.servlet.handlers.ServletInitialHandler.dispatchToPath(ServletInitialHandler.java:182)
+        at io.undertow.servlet.spec.RequestDispatcherImpl.error(RequestDispatcherImpl.java:414)
+        at io.undertow.servlet.spec.RequestDispatcherImpl.error(RequestDispatcherImpl.java:372)
+        at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:314)
+        at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:79)
+        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:134)
+        at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:131)
+        at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
+        at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
+        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
+        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
+        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
+        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
+        at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1555)
+        at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:255)
+        at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:79)
+        at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:100)
+        at io.undertow.server.Connectors.executeRootHandler(Connectors.java:393)
+        at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:852)
+        at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+        at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
+        at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1377)
+        at org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
+        at java.lang.Thread.run(Thread.java:750)
+Caused by: java.lang.NullPointerException
+        at org.apache.jsp.mensagem.erro_jsp._jspService(erro_jsp.java:113)
+        at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:590)
+        at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:433)
+        ... 36 more
