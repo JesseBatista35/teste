@@ -1,11 +1,16 @@
-# 1. Assumir root
-sudo su -
 
-# 2. Descobrir o nome exato do serviço do JBoss
-systemctl list-units --type=service --all | grep -iE 'jboss|eap|wildfly'
+[p585600@caddeapllx2884 ~]$ sudo su
+[sudo] senha para p585600:
+[root@caddeapllx2884 p585600]#
+[root@caddeapllx2884 p585600]#
+[root@caddeapllx2884 p585600]#
+[root@caddeapllx2884 p585600]# systemctl list-units --type=service --all | grep -iE 'jboss|eap|wildfly'
+● httpd-eap.service                      loaded    failed   failed  The Apache HTTP Server
+  jboss-eap-standalone.service           loaded    active   running JBoss EAP Systemctl - STANDALONE
+[root@caddeapllx2884 p585600]#
+[root@caddeapllx2884 p585600]#
+[root@caddeapllx2884 p585600]#
+[root@caddeapllx2884 p585600]#
 
-# 3. Restart (troque pelo nome que aparecer acima, ex.: jboss-eap7)
-systemctl restart <nome-do-servico>
 
-# 4. Conferir se subiu
-systemctl status <nome-do-servico> --no-pager -l
+
