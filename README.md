@@ -1,4 +1,4 @@
-<img width="1212" height="882" alt="image" src="https://github.com/user-attachments/assets/eaa36ea4-b257-4c92-8fad-c0c390fd1fcd" />
 
-
-a unica diferneça e sse desabilitado
+[p585600@caddeapllx2871 ~]$ wc -l /opt/jboss-eap/standalone/configuration/standalone-full-ha.xml
+977 /opt/jboss-eap/standalone/configuration/standalone-full-ha.xml
+[p585600@caddeapllx2871 ~]$
