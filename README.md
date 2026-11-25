@@ -1,36 +1,25 @@
+No 0039 também não tem nesse caminho. Vamos caçar o arquivo na máquina toda — ele pode estar em outro diretório ou com a estrutura diferente:
 
-Pressione <Control+D> IMEDIATAMENTE se voce nao concorda com as
-condicoes deste aviso
-***********************************************************************
-p585600@10.116.88.96's password:
-Last login: Thu Nov 19 15:04:36 2026 from 10.122.150.31
-[p585600@sspdeapllx0039 ~]$
-[p585600@sspdeapllx0039 ~]$
-[p585600@sspdeapllx0039 ~]$ hostname -i
-10.116.88.96
-[p585600@sspdeapllx0039 ~]$
-[p585600@sspdeapllx0039 ~]$
-[p585600@sspdeapllx0039 ~]$
-[p585600@sspdeapllx0039 ~]$
-[p585600@sspdeapllx0039 ~]$ sudo su
+bash
+# procura o arquivo em qualquer lugar
+find / -name "ceflib.xml" 2>/dev/null
+find / -iname "ceflib*" 2>/dev/null
 
-We trust you have received the usual lecture from the local System
-Administrator. It usually boils down to these three things:
+# vê como é a estrutura do /log_ias
+ls -la /log_ias/ 2>/dev/null
+ls -la /log_ias/config-log4j/ 2>/dev/null
+find /log_ias -type f 2>/dev/null
 
-    #1) Respect the privacy of others.
-    #2) Think before you type.
-    #3) With great power comes great responsibility.
+Também vale olhar de onde a ceflib lê esse caminho — pode estar apontado por uma property ou dentro do .ear:
 
-Senha SUDO:
-[root@sspdeapllx0039 p585600]#
-[root@sspdeapllx0039 p585600]#
-[root@sspdeapllx0039 p585600]#
-[root@sspdeapllx0039 p585600]# ls -la /log_ias/config-log4j/ceflib/
-ls: cannot access /log_ias/config-log4j/ceflib/: No such file or directory
-[root@sspdeapllx0039 p585600]#
-[root@sspdeapllx0039 p585600]#
-[root@sspdeapllx0039 p585600]# cat /log_ias/config-log4j/ceflib/ceflib.xml
-cat: /log_ias/config-log4j/ceflib/ceflib.xml: No such file or directory
-[root@sspdeapllx0039 p585600]#
-[root@sspdeapllx0039 p585600]#
-[root@sspdeapllx0039 p585600]#
+bash
+# procura referência ao caminho /log_ias/config-log4j/ceflib em configs e jars
+grep -rl "config-log4j/ceflib" /apl /opt /prod 2>/dev/null
+find / -name "ceflib*.jar" 2>/dev/null
+
+Me cola o resultado. Duas hipóteses:
+
+O arquivo existe em outro path no legado → a gente copia pra VM e replica na esteira.
+O arquivo nunca existiu e a ceflib sempre logou esse ERROR no legado também (só que ninguém via) → aí pode ser erro inofensivo, e o que importa é se o login do intranet está funcionando. Nesse caso a gente só cria um ceflib.xml mínimo pra calar o erro.
+
+Por isso, me confirma o principal: o login do intranet está entrando ou travou com esse erro? Isso decide se é urgência ou só limpeza de log.
