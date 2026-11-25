@@ -1,3 +1,474 @@
+2026-11-25T14:25:21.0322899Z ##[section]Starting: Alocando o IP (AlocaIP e Infradevops)
+2026-11-25T14:25:21.0325821Z ==============================================================================
+2026-11-25T14:25:21.0325897Z Task         : Bash
+2026-11-25T14:25:21.0325947Z Description  : Run a Bash script on macOS, Linux, or Windows
+2026-11-25T14:25:21.0326007Z Version      : 3.227.0
+2026-11-25T14:25:21.0326049Z Author       : Microsoft Corporation
+2026-11-25T14:25:21.0326180Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/bash
+2026-11-25T14:25:21.0326254Z ==============================================================================
+2026-11-25T14:25:21.8503565Z Generating script.
+2026-11-25T14:25:21.8517880Z ========================== Starting Command Output ===========================
+2026-11-25T14:25:21.8521558Z [command]/bin/bash /opt/ads-agent/_work/_temp/9e604f07-7aaf-43cb-bdeb-79b3f6464e1c.sh
+2026-11-25T14:25:21.8597982Z /opt/ads-agent/_work/_temp/9e604f07-7aaf-43cb-bdeb-79b3f6464e1c.sh: line 4: tf_var_quant: comando não encontrado
+2026-11-25T14:25:24.1287893Z 
+2026-11-25T14:25:24.1288369Z PLAY [local] *******************************************************************
+2026-11-25T14:25:24.1552794Z Wednesday 25 November 2026  11:25:24 -0300 (0:00:00.091)       0:00:00.091 **** 
+2026-11-25T14:25:24.1984070Z Wednesday 25 November 2026  11:25:24 -0300 (0:00:00.043)       0:00:00.134 **** 
+2026-11-25T14:25:24.2537161Z [WARNING]: While constructing a mapping from /opt/ads-agent/_work/r18280/a
+2026-11-25T14:25:24.2537524Z /esteira-jboss-vm-v2/roles/vm/tasks/create_vm.yml, line 71, column 3, found a
+2026-11-25T14:25:24.2537765Z duplicate dict key (include_tasks). Using last defined value only.
+2026-11-25T14:25:24.2644152Z included: /opt/ads-agent/_work/r18280/a/esteira-jboss-vm-v2/roles/vm/tasks/create_vm.yml for 127.0.0.1
+2026-11-25T14:25:24.2694683Z Wednesday 25 November 2026  11:25:24 -0300 (0:00:00.071)       0:00:00.206 **** 
+2026-11-25T14:25:24.3839875Z 
+2026-11-25T14:25:24.3840599Z TASK [vm : Cria variável build_repository_name] ********************************
+2026-11-25T14:25:24.3840766Z ok: [127.0.0.1]
+2026-11-25T14:25:24.3857992Z Wednesday 25 November 2026  11:25:24 -0300 (0:00:00.116)       0:00:00.322 **** 
+2026-11-25T14:25:25.1868791Z 
+2026-11-25T14:25:25.1869449Z TASK [vm : Instalar dependências Python para vCenter] **************************
+2026-11-25T14:25:25.1869631Z ok: [127.0.0.1]
+2026-11-25T14:25:25.1897698Z Wednesday 25 November 2026  11:25:25 -0300 (0:00:00.803)       0:00:01.126 **** 
+2026-11-25T14:25:31.3129026Z 
+2026-11-25T14:25:31.3129705Z TASK [vm : Executar script para marcar VM como template] ***********************
+2026-11-25T14:25:31.3129847Z changed: [127.0.0.1]
+2026-11-25T14:25:31.3162331Z Wednesday 25 November 2026  11:25:31 -0300 (0:00:06.126)       0:00:07.253 **** 
+2026-11-25T14:25:31.3892823Z 
+2026-11-25T14:25:31.3893665Z TASK [vm : Exibir resultado do script vCenter] *********************************
+2026-11-25T14:25:31.3893872Z ok: [127.0.0.1] => {
+2026-11-25T14:25:31.3893974Z     "msg": [
+2026-11-25T14:25:31.3894087Z         "Iniciando registro do template VMTX...", 
+2026-11-25T14:25:31.3894204Z         "vCenter: 10.122.144.195", 
+2026-11-25T14:25:31.3894605Z         "Template: eap74-openjdk17-apache24-rhel93-v012", 
+2026-11-25T14:25:31.3894870Z         "Caminho VMTX: [TEMPLATE_TERRAFORM_NFS] eap74-openjdk17-apache24-rhel93-v012/eap74-openjdk17-apache24-rhel93-v012.vmtx", 
+2026-11-25T14:25:31.3895159Z         "Datastore: TEMPLATE_TERRAFORM_NFS", 
+2026-11-25T14:25:31.3895408Z         "Template 'eap74-openjdk17-apache24-rhel93-v012' ja existe e esta registrado. Nenhuma acao necessaria.", 
+2026-11-25T14:25:31.3895559Z         "Operacao concluida com sucesso."
+2026-11-25T14:25:31.3895646Z     ]
+2026-11-25T14:25:31.3895733Z }
+2026-11-25T14:25:31.3923551Z Wednesday 25 November 2026  11:25:31 -0300 (0:00:00.076)       0:00:07.329 **** 
+2026-11-25T14:25:31.4713418Z 
+2026-11-25T14:25:31.4714406Z TASK [vm : Cria variável ansible] **********************************************
+2026-11-25T14:25:31.4714967Z ok: [127.0.0.1]
+2026-11-25T14:25:31.4741177Z Wednesday 25 November 2026  11:25:31 -0300 (0:00:00.081)       0:00:07.411 **** 
+2026-11-25T14:25:31.9954261Z 
+2026-11-25T14:25:31.9955528Z TASK [vm : Encontrar arquivos no diretório de origem ansible] ******************
+2026-11-25T14:25:31.9955996Z ok: [127.0.0.1]
+2026-11-25T14:25:31.9987520Z Wednesday 25 November 2026  11:25:31 -0300 (0:00:00.524)       0:00:07.935 **** 
+2026-11-25T14:25:32.3159309Z 
+2026-11-25T14:25:32.3160264Z TASK [vm : Encontrar arquivos no diretório de origem ansible] ******************
+2026-11-25T14:25:32.3160404Z ok: [127.0.0.1]
+2026-11-25T14:25:32.3193478Z Wednesday 25 November 2026  11:25:32 -0300 (0:00:00.320)       0:00:08.256 **** 
+2026-11-25T14:25:32.3650044Z Wednesday 25 November 2026  11:25:32 -0300 (0:00:00.045)       0:00:08.301 **** 
+2026-11-25T14:25:32.4323650Z Wednesday 25 November 2026  11:25:32 -0300 (0:00:00.067)       0:00:08.368 **** 
+2026-11-25T14:25:32.4803359Z 
+2026-11-25T14:25:32.4803924Z TASK [vm : Sobrescrevendo groups vars ctc_nprd] ********************************
+2026-11-25T14:25:32.4804119Z ok: [127.0.0.1]
+2026-11-25T14:25:32.4850226Z Wednesday 25 November 2026  11:25:32 -0300 (0:00:00.051)       0:00:08.420 **** 
+2026-11-25T14:25:32.5493719Z included: /opt/ads-agent/_work/r18280/a/esteira-jboss-vm-v2/roles/vm/tasks/size/size_vm.yml for 127.0.0.1
+2026-11-25T14:25:32.5583905Z Wednesday 25 November 2026  11:25:32 -0300 (0:00:00.074)       0:00:08.495 **** 
+2026-11-25T14:25:32.6006801Z included: /opt/ads-agent/_work/r18280/a/esteira-jboss-vm-v2/roles/vm/tasks/size/approved.yml for 127.0.0.1
+2026-11-25T14:25:32.6109304Z Wednesday 25 November 2026  11:25:32 -0300 (0:00:00.052)       0:00:08.547 **** 
+2026-11-25T14:25:33.2396679Z 
+2026-11-25T14:25:33.2397363Z TASK [vm : Consultar API] ******************************************************
+2026-11-25T14:25:33.2397518Z ok: [127.0.0.1]
+2026-11-25T14:25:33.2424645Z Wednesday 25 November 2026  11:25:33 -0300 (0:00:00.631)       0:00:09.179 **** 
+2026-11-25T14:25:33.2855842Z 
+2026-11-25T14:25:33.2856452Z TASK [vm : Parse JSON] *********************************************************
+2026-11-25T14:25:33.2856856Z ok: [127.0.0.1]
+2026-11-25T14:25:33.2878733Z Wednesday 25 November 2026  11:25:33 -0300 (0:00:00.045)       0:00:09.224 **** 
+2026-11-25T14:25:33.3328587Z included: /opt/ads-agent/_work/r18280/a/esteira-jboss-vm-v2/roles/vm/tasks/size/requested.yml for 127.0.0.1
+2026-11-25T14:25:33.3442874Z Wednesday 25 November 2026  11:25:33 -0300 (0:00:00.056)       0:00:09.281 **** 
+2026-11-25T14:25:33.7769190Z 
+2026-11-25T14:25:33.7769923Z TASK [vm : Consultar API] ******************************************************
+2026-11-25T14:25:33.7771387Z ok: [127.0.0.1]
+2026-11-25T14:25:33.7801653Z Wednesday 25 November 2026  11:25:33 -0300 (0:00:00.435)       0:00:09.717 **** 
+2026-11-25T14:25:33.8311239Z 
+2026-11-25T14:25:33.8311945Z TASK [vm : Parse JSON] *********************************************************
+2026-11-25T14:25:33.8312090Z ok: [127.0.0.1]
+2026-11-25T14:25:33.8339285Z Wednesday 25 November 2026  11:25:33 -0300 (0:00:00.053)       0:00:09.770 **** 
+2026-11-25T14:25:33.8772314Z Wednesday 25 November 2026  11:25:33 -0300 (0:00:00.042)       0:00:09.813 **** 
+2026-11-25T14:25:33.9229111Z 
+2026-11-25T14:25:33.9229713Z TASK [vm : Exibir size servidores.] ********************************************
+2026-11-25T14:25:33.9232113Z ok: [127.0.0.1] => {
+2026-11-25T14:25:33.9232217Z     "api_data.dados.0": {
+2026-11-25T14:25:33.9232340Z         "ambiente": "des", 
+2026-11-25T14:25:33.9232446Z         "cluster": null, 
+2026-11-25T14:25:33.9232553Z         "cluster_principal": null, 
+2026-11-25T14:25:33.9232653Z         "cluster_terraform": null, 
+2026-11-25T14:25:33.9232754Z         "cpu": 2, 
+2026-11-25T14:25:33.9232876Z         "datacenter": null, 
+2026-11-25T14:25:33.9232991Z         "datastore": null, 
+2026-11-25T14:25:33.9233110Z         "detalhe_imagem": null, 
+2026-11-25T14:25:33.9233214Z         "disco_log": 2, 
+2026-11-25T14:25:33.9233310Z         "disco_opt": 10, 
+2026-11-25T14:25:33.9233824Z         "domain": null, 
+2026-11-25T14:25:33.9233911Z         "esx_network": null, 
+2026-11-25T14:25:33.9234013Z         "esx_network_bck": null, 
+2026-11-25T14:25:33.9234120Z         "esx_network_bck_01": null, 
+2026-11-25T14:25:33.9234232Z         "esx_vcenter_server": null, 
+2026-11-25T14:25:33.9234359Z         "farm": null, 
+2026-11-25T14:25:33.9234442Z         "id": 62029, 
+2026-11-25T14:25:33.9234780Z         "inclusao": "2026-11-11 16:05:55", 
+2026-11-25T14:25:33.9234902Z         "info_framework": null, 
+2026-11-25T14:25:33.9235101Z         "info_linguagem": null, 
+2026-11-25T14:25:33.9235206Z         "info_tecnologia": null, 
+2026-11-25T14:25:33.9235313Z         "info_versao": null, 
+2026-11-25T14:25:33.9235411Z         "ipbackup": "", 
+2026-11-25T14:25:33.9235519Z         "jboss_apache_status": "ativado", 
+2026-11-25T14:25:33.9235702Z         "memoria": 4, 
+2026-11-25T14:25:33.9235807Z         "net_adapter_type": null, 
+2026-11-25T14:25:33.9235915Z         "nome_imagem": null, 
+2026-11-25T14:25:33.9236089Z         "objeto_origem": "SIGEC-PORTABILIDADE_DES_SERVIDOR", 
+2026-11-25T14:25:33.9236196Z         "plataforma": "vm", 
+2026-11-25T14:25:33.9236299Z         "produto": "jboss", 
+2026-11-25T14:25:33.9236400Z         "recursos_max_id": null, 
+2026-11-25T14:25:33.9236499Z         "servidores_json": [
+2026-11-25T14:25:33.9236580Z             {
+2026-11-25T14:25:33.9236675Z                 "ip": "10.116.202.61", 
+2026-11-25T14:25:33.9236791Z                 "nome": "caddeapllx2871.agil.nprd.caixa.gov.br"
+2026-11-25T14:25:33.9236899Z             }
+2026-11-25T14:25:33.9236969Z         ], 
+2026-11-25T14:25:33.9237122Z         "sistema": "sigec-portabilidade-online", 
+2026-11-25T14:25:33.9237233Z         "site": "ctc_nprd", 
+2026-11-25T14:25:33.9237333Z         "solicitacoes_id": null, 
+2026-11-25T14:25:33.9237425Z         "status": "ativado", 
+2026-11-25T14:25:33.9237526Z         "terraform": true, 
+2026-11-25T14:25:33.9237627Z         "versao_imagem": null, 
+2026-11-25T14:25:33.9237732Z         "versao_plataforma": "7.1", 
+2026-11-25T14:25:33.9237822Z         "vm_dns": null, 
+2026-11-25T14:25:33.9237921Z         "vm_ipnetmask": null, 
+2026-11-25T14:25:33.9238025Z         "vm_ipnetmask_bck": null, 
+2026-11-25T14:25:33.9238131Z         "vm_ipnetmask_bck_01": null, 
+2026-11-25T14:25:33.9238225Z         "vsphere_folder": null, 
+2026-11-25T14:25:33.9238324Z         "vsphere_pool": null
+2026-11-25T14:25:33.9238410Z     }
+2026-11-25T14:25:33.9238491Z }
+2026-11-25T14:25:33.9260910Z Wednesday 25 November 2026  11:25:33 -0300 (0:00:00.049)       0:00:09.862 **** 
+2026-11-25T14:25:33.9694107Z Wednesday 25 November 2026  11:25:33 -0300 (0:00:00.043)       0:00:09.906 **** 
+2026-11-25T14:25:34.0163470Z 
+2026-11-25T14:25:34.0164200Z TASK [vm : Set size] ***********************************************************
+2026-11-25T14:25:34.0164422Z ok: [127.0.0.1]
+2026-11-25T14:25:34.0188114Z Wednesday 25 November 2026  11:25:34 -0300 (0:00:00.049)       0:00:09.955 **** 
+2026-11-25T14:25:34.0635135Z 
+2026-11-25T14:25:34.0636040Z TASK [vm : Recuperar variável de ambiente] *************************************
+2026-11-25T14:25:34.0636196Z ok: [127.0.0.1]
+2026-11-25T14:25:34.0666666Z Wednesday 25 November 2026  11:25:34 -0300 (0:00:00.047)       0:00:10.003 **** 
+2026-11-25T14:25:34.1079126Z 
+2026-11-25T14:25:34.1079739Z TASK [vm : debug] **************************************************************
+2026-11-25T14:25:34.1079892Z ok: [127.0.0.1] => {
+2026-11-25T14:25:34.1080236Z     "template_name": "eap74-openjdk17-apache24-rhel93-v012"
+2026-11-25T14:25:34.1080362Z }
+2026-11-25T14:25:34.1104424Z Wednesday 25 November 2026  11:25:34 -0300 (0:00:00.043)       0:00:10.047 **** 
+2026-11-25T14:25:34.1528468Z 
+2026-11-25T14:25:34.1529368Z TASK [vm : Definir fato se o nome do template começa com "controlm"] ***********
+2026-11-25T14:25:34.1529816Z ok: [127.0.0.1]
+2026-11-25T14:25:34.1552887Z Wednesday 25 November 2026  11:25:34 -0300 (0:00:00.044)       0:00:10.092 **** 
+2026-11-25T14:25:34.1999287Z Wednesday 25 November 2026  11:25:34 -0300 (0:00:00.044)       0:00:10.136 **** 
+2026-11-25T14:25:34.6788369Z 
+2026-11-25T14:25:34.6788956Z TASK [vm : Run Invetory All] ***************************************************
+2026-11-25T14:25:34.6789159Z changed: [127.0.0.1]
+2026-11-25T14:25:34.6818211Z Wednesday 25 November 2026  11:25:34 -0300 (0:00:00.482)       0:00:10.618 **** 
+2026-11-25T14:25:34.7446859Z 
+2026-11-25T14:25:34.7447799Z TASK [vm : Parse JSON output] **************************************************
+2026-11-25T14:25:34.7447977Z ok: [127.0.0.1]
+2026-11-25T14:25:34.7476319Z Wednesday 25 November 2026  11:25:34 -0300 (0:00:00.065)       0:00:10.684 **** 
+2026-11-25T14:25:34.7906890Z 
+2026-11-25T14:25:34.7907383Z TASK [vm : Count the number of hosts] ******************************************
+2026-11-25T14:25:34.7907515Z ok: [127.0.0.1]
+2026-11-25T14:25:34.7935822Z Wednesday 25 November 2026  11:25:34 -0300 (0:00:00.045)       0:00:10.730 **** 
+2026-11-25T14:25:34.8457088Z Wednesday 25 November 2026  11:25:34 -0300 (0:00:00.051)       0:00:10.782 **** 
+2026-11-25T14:25:34.8891094Z Wednesday 25 November 2026  11:25:34 -0300 (0:00:00.043)       0:00:10.825 **** 
+2026-11-25T14:25:34.9305350Z 
+2026-11-25T14:25:34.9305765Z TASK [vm : Apresenta quantidade do(s) host(s)] *********************************
+2026-11-25T14:25:34.9305919Z ok: [127.0.0.1] => {
+2026-11-25T14:25:34.9306013Z     "msg": [
+2026-11-25T14:25:34.9306112Z         "num_hosts: 1"
+2026-11-25T14:25:34.9306208Z     ]
+2026-11-25T14:25:34.9306302Z }
+2026-11-25T14:25:34.9330949Z Wednesday 25 November 2026  11:25:34 -0300 (0:00:00.044)       0:00:10.870 **** 
+2026-11-25T14:25:34.9759986Z Wednesday 25 November 2026  11:25:34 -0300 (0:00:00.042)       0:00:10.912 **** 
+2026-11-25T14:25:35.0223514Z Wednesday 25 November 2026  11:25:35 -0300 (0:00:00.046)       0:00:10.959 **** 
+2026-11-25T14:25:35.0653119Z included: /opt/ads-agent/_work/r18280/a/esteira-jboss-vm-v2/roles/vm/tasks/../../nfs/tasks/create_ip_bck.yml for 127.0.0.1
+2026-11-25T14:25:35.0804728Z Wednesday 25 November 2026  11:25:35 -0300 (0:00:00.058)       0:00:11.017 **** 
+2026-11-25T14:25:35.1248529Z included: /opt/ads-agent/_work/r18280/a/esteira-jboss-vm-v2/roles/nfs/tasks/get_nfs.yml for 127.0.0.1
+2026-11-25T14:25:35.1296164Z Wednesday 25 November 2026  11:25:35 -0300 (0:00:00.049)       0:00:11.066 **** 
+2026-11-25T14:25:35.1742794Z 
+2026-11-25T14:25:35.1744154Z TASK [vm : Criar variáveis] ****************************************************
+2026-11-25T14:25:35.1744540Z ok: [127.0.0.1]
+2026-11-25T14:25:35.1786610Z Wednesday 25 November 2026  11:25:35 -0300 (0:00:00.049)       0:00:11.115 **** 
+2026-11-25T14:25:35.4682519Z 
+2026-11-25T14:25:35.4683564Z TASK [vm : Coletar variáveis de ambiente] **************************************
+2026-11-25T14:25:35.4683775Z ok: [127.0.0.1]
+2026-11-25T14:25:35.4711079Z Wednesday 25 November 2026  11:25:35 -0300 (0:00:00.292)       0:00:11.408 **** 
+2026-11-25T14:25:35.5137140Z Wednesday 25 November 2026  11:25:35 -0300 (0:00:00.042)       0:00:11.450 **** 
+2026-11-25T14:25:35.5588426Z 
+2026-11-25T14:25:35.5589267Z TASK [vm : Criar variáveis] ****************************************************
+2026-11-25T14:25:35.5589702Z ok: [127.0.0.1]
+2026-11-25T14:25:35.5617287Z Wednesday 25 November 2026  11:25:35 -0300 (0:00:00.047)       0:00:11.498 **** 
+2026-11-25T14:25:35.6033382Z Wednesday 25 November 2026  11:25:35 -0300 (0:00:00.041)       0:00:11.540 **** 
+2026-11-25T14:25:35.6459738Z Wednesday 25 November 2026  11:25:35 -0300 (0:00:00.042)       0:00:11.582 **** 
+2026-11-25T14:25:36.1102804Z 
+2026-11-25T14:25:36.1103421Z TASK [vm : Run Invetory All] ***************************************************
+2026-11-25T14:25:36.1103631Z changed: [127.0.0.1]
+2026-11-25T14:25:36.1136937Z Wednesday 25 November 2026  11:25:36 -0300 (0:00:00.467)       0:00:12.050 **** 
+2026-11-25T14:25:36.1592237Z 
+2026-11-25T14:25:36.1592909Z TASK [vm : Parse JSON output] **************************************************
+2026-11-25T14:25:36.1593048Z ok: [127.0.0.1]
+2026-11-25T14:25:36.1620812Z Wednesday 25 November 2026  11:25:36 -0300 (0:00:00.048)       0:00:12.098 **** 
+2026-11-25T14:25:36.2063020Z 
+2026-11-25T14:25:36.2063612Z TASK [vm : Debug parsed_output] ************************************************
+2026-11-25T14:25:36.2067672Z ok: [127.0.0.1] => {
+2026-11-25T14:25:36.2067763Z     "msg": [
+2026-11-25T14:25:36.2068264Z         {
+2026-11-25T14:25:36.2068633Z             "_meta": {
+2026-11-25T14:25:36.2069073Z                 "hostvars": {
+2026-11-25T14:25:36.2069334Z                     "caddeapllx2871.agil.nprd.caixa.gov.br": {
+2026-11-25T14:25:36.2069547Z                         "ambiente": "des", 
+2026-11-25T14:25:36.2069771Z                         "ansible_host": "10.116.202.61", 
+2026-11-25T14:25:36.2069948Z                         "cluster": null, 
+2026-11-25T14:25:36.2070140Z                         "cluster_principal": null, 
+2026-11-25T14:25:36.2070740Z                         "cluster_terraform": null, 
+2026-11-25T14:25:36.2070914Z                         "cpu": 2, 
+2026-11-25T14:25:36.2071088Z                         "datacenter": null, 
+2026-11-25T14:25:36.2071264Z                         "datastore": null, 
+2026-11-25T14:25:36.2071444Z                         "detalhe_imagem": null, 
+2026-11-25T14:25:36.2071625Z                         "disco_log": 2, 
+2026-11-25T14:25:36.2071797Z                         "disco_opt": 10, 
+2026-11-25T14:25:36.2071951Z                         "domain": null, 
+2026-11-25T14:25:36.2072128Z                         "esx_network": null, 
+2026-11-25T14:25:36.2072313Z                         "esx_network_bck": null, 
+2026-11-25T14:25:36.2072498Z                         "esx_network_bck_01": null, 
+2026-11-25T14:25:36.2072673Z                         "esx_vcenter_server": null, 
+2026-11-25T14:25:36.2072851Z                         "farm": null, 
+2026-11-25T14:25:36.2073016Z                         "id": 62029, 
+2026-11-25T14:25:36.2073530Z                         "inclusao": "2026-11-11 16:05:55", 
+2026-11-25T14:25:36.2073719Z                         "info_framework": null, 
+2026-11-25T14:25:36.2073927Z                         "info_linguagem": null, 
+2026-11-25T14:25:36.2074099Z                         "info_tecnologia": null, 
+2026-11-25T14:25:36.2074276Z                         "info_versao": null, 
+2026-11-25T14:25:36.2074455Z                         "ipbackup": "", 
+2026-11-25T14:25:36.2074627Z                         "jboss_apache_status": "ativado", 
+2026-11-25T14:25:36.2074805Z                         "memoria": 4, 
+2026-11-25T14:25:36.2074981Z                         "net_adapter_type": null, 
+2026-11-25T14:25:36.2075328Z                         "nome_imagem": null, 
+2026-11-25T14:25:36.2075607Z                         "objeto_origem": "SIGEC-PORTABILIDADE_DES_SERVIDOR", 
+2026-11-25T14:25:36.2075805Z                         "plataforma": "vm", 
+2026-11-25T14:25:36.2075980Z                         "produto": "jboss", 
+2026-11-25T14:25:36.2076162Z                         "recursos_max_id": null, 
+2026-11-25T14:25:36.2076422Z                         "sistema": "sigec-portabilidade-online", 
+2026-11-25T14:25:36.2076621Z                         "site": "ctc_nprd", 
+2026-11-25T14:25:36.2076799Z                         "solicitacoes_id": null, 
+2026-11-25T14:25:36.2076977Z                         "status": "ativado", 
+2026-11-25T14:25:36.2077149Z                         "terraform": true, 
+2026-11-25T14:25:36.2077310Z                         "versao_imagem": null, 
+2026-11-25T14:25:36.2077500Z                         "versao_plataforma": "7.1", 
+2026-11-25T14:25:36.2077677Z                         "vm_dns": null, 
+2026-11-25T14:25:36.2077853Z                         "vm_ipnetmask": null, 
+2026-11-25T14:25:36.2078021Z                         "vm_ipnetmask_bck": null, 
+2026-11-25T14:25:36.2078205Z                         "vm_ipnetmask_bck_01": null, 
+2026-11-25T14:25:36.2078399Z                         "vsphere_folder": null, 
+2026-11-25T14:25:36.2078575Z                         "vsphere_pool": null
+2026-11-25T14:25:36.2078721Z                     }
+2026-11-25T14:25:36.2078985Z                 }
+2026-11-25T14:25:36.2079127Z             }, 
+2026-11-25T14:25:36.2079279Z             "ctc_nprd": {
+2026-11-25T14:25:36.2079427Z                 "children": [
+2026-11-25T14:25:36.2079585Z                     "jboss"
+2026-11-25T14:25:36.2079732Z                 ], 
+2026-11-25T14:25:36.2079886Z                 "vars": {}
+2026-11-25T14:25:36.2080021Z             }, 
+2026-11-25T14:25:36.2080167Z             "des": {
+2026-11-25T14:25:36.2080324Z                 "children": [
+2026-11-25T14:25:36.2080480Z                     "local", 
+2026-11-25T14:25:36.2080620Z                     "ctc_nprd"
+2026-11-25T14:25:36.2080772Z                 ], 
+2026-11-25T14:25:36.2080920Z                 "vars": {}
+2026-11-25T14:25:36.2081065Z             }, 
+2026-11-25T14:25:36.2081202Z             "jboss": {
+2026-11-25T14:25:36.2081354Z                 "hosts": [
+2026-11-25T14:25:36.2081633Z                     "caddeapllx2871.agil.nprd.caixa.gov.br"
+2026-11-25T14:25:36.2081810Z                 ], 
+2026-11-25T14:25:36.2081949Z                 "vars": {}
+2026-11-25T14:25:36.2082095Z             }, 
+2026-11-25T14:25:36.2082243Z             "local": {
+2026-11-25T14:25:36.2082394Z                 "hosts": [
+2026-11-25T14:25:36.2082535Z                     "127.0.0.1"
+2026-11-25T14:25:36.2082685Z                 ], 
+2026-11-25T14:25:36.2082832Z                 "vars": {
+2026-11-25T14:25:36.2082987Z                     "ansible_connection": "local"
+2026-11-25T14:25:36.2083150Z                 }
+2026-11-25T14:25:36.2083289Z             }
+2026-11-25T14:25:36.2083423Z         }
+2026-11-25T14:25:36.2083544Z     ]
+2026-11-25T14:25:36.2083681Z }
+2026-11-25T14:25:36.2111009Z Wednesday 25 November 2026  11:25:36 -0300 (0:00:00.047)       0:00:12.146 **** 
+2026-11-25T14:25:36.2559770Z 
+2026-11-25T14:25:36.2560362Z TASK [vm : Verificando os ambientes] *******************************************
+2026-11-25T14:25:36.2560586Z ok: [127.0.0.1] => {
+2026-11-25T14:25:36.2560691Z     "msg": [
+2026-11-25T14:25:36.2560817Z         "Ambiente existentes! Servidores: caddeapllx2871.agil.nprd.caixa.gov.br"
+2026-11-25T14:25:36.2560944Z     ]
+2026-11-25T14:25:36.2561222Z }
+2026-11-25T14:25:36.2584426Z Wednesday 25 November 2026  11:25:36 -0300 (0:00:00.048)       0:00:12.195 **** 
+2026-11-25T14:25:36.3295911Z 
+2026-11-25T14:25:36.3296754Z TASK [vm : Recuperar ip] *******************************************************
+2026-11-25T14:25:36.3296944Z ok: [127.0.0.1] => (item=caddeapllx2871.agil.nprd.caixa.gov.br)
+2026-11-25T14:25:36.3325377Z Wednesday 25 November 2026  11:25:36 -0300 (0:00:00.074)       0:00:12.269 **** 
+2026-11-25T14:25:36.3903607Z Wednesday 25 November 2026  11:25:36 -0300 (0:00:00.057)       0:00:12.326 **** 
+2026-11-25T14:25:36.4377180Z 
+2026-11-25T14:25:36.4377781Z TASK [vm : Apresenta informacoes do(s) host(s)] ********************************
+2026-11-25T14:25:36.4377952Z ok: [127.0.0.1] => {
+2026-11-25T14:25:36.4378053Z     "msg": [
+2026-11-25T14:25:36.4378180Z         "Servidores: \\\"caddeapllx2871.agil.nprd.caixa.gov.br\\\"", 
+2026-11-25T14:25:36.4378321Z         "IPs: \\\"10.116.202.61\\\"", 
+2026-11-25T14:25:36.4378439Z         "Gateways: \\\"10.116.192.1\\\"", 
+2026-11-25T14:25:36.4378537Z         "IPs Backup: \\\"\\\"", 
+2026-11-25T14:25:36.4378698Z         "Servidores (OBJ): \\\"caddeapllx2871.agil.nprd.caixa.gov.br\\\":{\\\"ip_address\\\":\\\"10.116.202.61\\\",\\\"ip_gateway\\\":\\\"10.116.192.1\\\",\\\"ip_backup\\\":\\\"\\\"}"
+2026-11-25T14:25:36.4378840Z     ]
+2026-11-25T14:25:36.4378930Z }
+2026-11-25T14:25:36.4402261Z Wednesday 25 November 2026  11:25:36 -0300 (0:00:00.050)       0:00:12.377 **** 
+2026-11-25T14:25:37.3370884Z 
+2026-11-25T14:25:37.3371730Z TASK [vm : Criando arquivo para exportar as variáveis] *************************
+2026-11-25T14:25:37.3371951Z changed: [127.0.0.1]
+2026-11-25T14:25:37.3431281Z 
+2026-11-25T14:25:37.3431850Z PLAY [Configurando o DNS] ******************************************************
+2026-11-25T14:25:37.5586238Z Wednesday 25 November 2026  11:25:37 -0300 (0:00:01.117)       0:00:13.495 **** 
+2026-11-25T14:25:37.7136722Z 
+2026-11-25T14:25:37.7137425Z TASK [Consultar DNS] ***********************************************************
+2026-11-25T14:25:37.7137602Z changed: [10.116.193.77] => (item=caddeapllx2871.agil.nprd.caixa.gov.br)
+2026-11-25T14:25:37.7169937Z Wednesday 25 November 2026  11:25:37 -0300 (0:00:00.158)       0:00:13.653 **** 
+2026-11-25T14:25:37.7791000Z 
+2026-11-25T14:25:37.7791933Z TASK [Verificar se o domínio resolve para um IP] *******************************
+2026-11-25T14:25:37.7797127Z ok: [10.116.193.77] => (item={u'stderr_lines': [], u'ansible_loop_var': u'item', u'end': u'2026-11-25 11:25:37.698115', u'stdout': u'10.116.202.61', u'item': u'caddeapllx2871.agil.nprd.caixa.gov.br', u'changed': True, u'rc': 0, u'failed': False, u'cmd': [u'dig', u'+short', u'caddeapllx2871.agil.nprd.caixa.gov.br', u'+timeout=5'], u'stderr': u'', u'delta': u'0:00:00.011764', u'invocation': {u'module_args': {u'creates': None, u'executable': None, u'_uses_shell': False, u'strip_empty_ends': True, u'_raw_params': u'dig +short "caddeapllx2871.agil.nprd.caixa.gov.br" +timeout=5', u'removes': None, u'argv': None, u'warn': True, u'chdir': None, u'stdin_add_newline': True, u'stdin': None}}, u'stdout_lines': [u'10.116.202.61'], u'start': u'2026-11-25 11:25:37.686351'}) => {
+2026-11-25T14:25:37.7798160Z     "msg": "O domínio caddeapllx2871.agil.nprd.caixa.gov.br resolve para os seguintes endereços IP: [u'10.116.202.61']"
+2026-11-25T14:25:37.7798306Z }
+2026-11-25T14:25:37.7836351Z Wednesday 25 November 2026  11:25:37 -0300 (0:00:00.066)       0:00:13.720 **** 
+2026-11-25T14:25:37.8485302Z Wednesday 25 November 2026  11:25:37 -0300 (0:00:00.064)       0:00:13.785 **** 
+2026-11-25T14:25:37.8981344Z Wednesday 25 November 2026  11:25:37 -0300 (0:00:00.049)       0:00:13.834 **** 
+2026-11-25T14:25:37.9615525Z 
+2026-11-25T14:25:37.9616372Z TASK [Set created DNS] *********************************************************
+2026-11-25T14:25:37.9618002Z ok: [10.116.193.77] => (item={u'stderr_lines': [], u'ansible_loop_var': u'item', u'end': u'2026-11-25 11:25:37.698115', u'stdout': u'10.116.202.61', u'item': u'caddeapllx2871.agil.nprd.caixa.gov.br', u'changed': True, u'rc': 0, u'failed': False, u'cmd': [u'dig', u'+short', u'caddeapllx2871.agil.nprd.caixa.gov.br', u'+timeout=5'], u'stderr': u'', u'delta': u'0:00:00.011764', u'invocation': {u'module_args': {u'creates': None, u'executable': None, u'_uses_shell': False, u'strip_empty_ends': True, u'_raw_params': u'dig +short "caddeapllx2871.agil.nprd.caixa.gov.br" +timeout=5', u'removes': None, u'argv': None, u'warn': True, u'chdir': None, u'stdin_add_newline': True, u'stdin': None}}, u'stdout_lines': [u'10.116.202.61'], u'start': u'2026-11-25 11:25:37.686351'})
+2026-11-25T14:25:37.9653622Z Wednesday 25 November 2026  11:25:37 -0300 (0:00:00.067)       0:00:13.902 **** 
+2026-11-25T14:25:38.0246433Z 
+2026-11-25T14:25:38.0246898Z PLAY [local] *******************************************************************
+2026-11-25T14:25:38.0286611Z 
+2026-11-25T14:25:38.0287184Z PLAY [Verificando serviços] ****************************************************
+2026-11-25T14:25:38.0371878Z 
+2026-11-25T14:25:38.0372245Z PLAY [Configuração LDAP] *******************************************************
+2026-11-25T14:25:38.0401781Z [WARNING]: Found variable using reserved name: when
+2026-11-25T14:25:38.0407110Z 
+2026-11-25T14:25:38.0407278Z PLAY [jboss] *******************************************************************
+2026-11-25T14:25:38.0486257Z 
+2026-11-25T14:25:38.0486635Z PLAY [Stack Jboss] *************************************************************
+2026-11-25T14:25:38.0514281Z 
+2026-11-25T14:25:38.0514414Z PLAY [jboss] *******************************************************************
+2026-11-25T14:25:38.0560658Z 
+2026-11-25T14:25:38.0560814Z PLAY [jboss] *******************************************************************
+2026-11-25T14:25:38.0604915Z 
+2026-11-25T14:25:38.0605651Z PLAY [jboss] *******************************************************************
+2026-11-25T14:25:38.0629819Z 
+2026-11-25T14:25:38.0630457Z PLAY [Copiando deployments adicionais] *****************************************
+2026-11-25T14:25:38.0657016Z 
+2026-11-25T14:25:38.0657192Z PLAY [Copiando modules adicionais] *********************************************
+2026-11-25T14:25:38.0684384Z 
+2026-11-25T14:25:38.0684710Z PLAY [jboss] *******************************************************************
+2026-11-25T14:25:38.0718112Z 
+2026-11-25T14:25:38.0718322Z PLAY [jboss] *******************************************************************
+2026-11-25T14:25:38.0756949Z 
+2026-11-25T14:25:38.0757231Z PLAY [jboss] *******************************************************************
+2026-11-25T14:25:38.0787753Z 
+2026-11-25T14:25:38.0788056Z PLAY [jboss] *******************************************************************
+2026-11-25T14:25:38.0812804Z 
+2026-11-25T14:25:38.0813200Z PLAY [jboss] *******************************************************************
+2026-11-25T14:25:38.0840035Z 
+2026-11-25T14:25:38.0840317Z PLAY [local] *******************************************************************
+2026-11-25T14:25:38.0862434Z [WARNING]: Could not match supplied host pattern, ignoring: instance_restart
+2026-11-25T14:25:38.0866187Z 
+2026-11-25T14:25:38.0866431Z PLAY [instance_restart] ********************************************************
+2026-11-25T14:25:38.0866624Z skipping: no hosts matched
+2026-11-25T14:25:38.0869345Z [WARNING]: Could not match supplied host pattern, ignoring: machine_reboot
+2026-11-25T14:25:38.0872363Z 
+2026-11-25T14:25:38.0872504Z PLAY [machine_reboot] **********************************************************
+2026-11-25T14:25:38.0872912Z skipping: no hosts matched
+2026-11-25T14:25:38.0878610Z 
+2026-11-25T14:25:38.0878767Z PLAY [local] *******************************************************************
+2026-11-25T14:25:38.0903197Z [WARNING]: Could not match supplied host pattern, ignoring: instance_stop
+2026-11-25T14:25:38.0906223Z 
+2026-11-25T14:25:38.0906441Z PLAY [instance_stop] ***********************************************************
+2026-11-25T14:25:38.0906598Z skipping: no hosts matched
+2026-11-25T14:25:38.0909732Z 
+2026-11-25T14:25:38.0909852Z PLAY [machine_reboot] **********************************************************
+2026-11-25T14:25:38.0909984Z skipping: no hosts matched
+2026-11-25T14:25:38.0915935Z 
+2026-11-25T14:25:38.0916152Z PLAY [local] *******************************************************************
+2026-11-25T14:25:38.0940589Z [WARNING]: Could not match supplied host pattern, ignoring: escopo_execucao
+2026-11-25T14:25:38.0943680Z 
+2026-11-25T14:25:38.0943801Z PLAY [Executar o Start do Sirot Connector no escopo definido] ******************
+2026-11-25T14:25:38.0944177Z skipping: no hosts matched
+2026-11-25T14:25:38.0950014Z 
+2026-11-25T14:25:38.0950209Z PLAY [local] *******************************************************************
+2026-11-25T14:25:38.0971851Z 
+2026-11-25T14:25:38.0972067Z PLAY [Executar o Stop do Sirot Connector] **************************************
+2026-11-25T14:25:38.0972200Z skipping: no hosts matched
+2026-11-25T14:25:38.0981506Z 
+2026-11-25T14:25:38.0981722Z PLAY [Configura TSM] ***********************************************************
+2026-11-25T14:25:38.1007202Z 
+2026-11-25T14:25:38.1007412Z PLAY [jboss] *******************************************************************
+2026-11-25T14:25:38.1036003Z 
+2026-11-25T14:25:38.1036473Z PLAY [Configura Control-M] *****************************************************
+2026-11-25T14:25:38.1069960Z 
+2026-11-25T14:25:38.1070103Z PLAY [jboss] *******************************************************************
+2026-11-25T14:25:38.1110805Z 
+2026-11-25T14:25:38.1111097Z PLAY [jboss] *******************************************************************
+2026-11-25T14:25:38.1156778Z 
+2026-11-25T14:25:38.1157007Z PLAY [jboss] *******************************************************************
+2026-11-25T14:25:38.1197037Z 
+2026-11-25T14:25:38.1197384Z PLAY [jboss] *******************************************************************
+2026-11-25T14:25:38.1219452Z 
+2026-11-25T14:25:38.1219753Z PLAY [jboss] *******************************************************************
+2026-11-25T14:25:38.1249478Z 
+2026-11-25T14:25:38.1249698Z PLAY [localhost] ***************************************************************
+2026-11-25T14:25:38.1276860Z 
+2026-11-25T14:25:38.1277160Z PLAY [jboss] *******************************************************************
+2026-11-25T14:25:38.1340107Z 
+2026-11-25T14:25:38.1340330Z PLAY [jboss] *******************************************************************
+2026-11-25T14:25:38.1379974Z 
+2026-11-25T14:25:38.1380262Z PLAY [jboss] *******************************************************************
+2026-11-25T14:25:38.1416322Z 
+2026-11-25T14:25:38.1416667Z PLAY RECAP *********************************************************************
+2026-11-25T14:25:38.1416870Z 10.116.193.77              : ok=3    changed=1    unreachable=0    failed=0    skipped=3    rescued=0    ignored=0   
+2026-11-25T14:25:38.1417198Z 10.116.193.78              : ok=0    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2026-11-25T14:25:38.1417374Z 127.0.0.1                  : ok=37   changed=4    unreachable=0    failed=0    skipped=13   rescued=0    ignored=0   
+2026-11-25T14:25:38.1417444Z 
+2026-11-25T14:25:38.1417828Z Wednesday 25 November 2026  11:25:38 -0300 (0:00:00.176)       0:00:14.078 **** 
+2026-11-25T14:25:38.1418001Z =============================================================================== 
+2026-11-25T14:25:38.1420958Z vm : Executar script para marcar VM como template ----------------------- 6.13s
+2026-11-25T14:25:38.1421512Z vm : Criando arquivo para exportar as variáveis ------------------------- 1.12s
+2026-11-25T14:25:38.1421748Z vm : Instalar dependências Python para vCenter -------------------------- 0.80s
+2026-11-25T14:25:38.1421982Z vm : Consultar API ------------------------------------------------------ 0.63s
+2026-11-25T14:25:38.1422208Z vm : Encontrar arquivos no diretório de origem ansible ------------------ 0.52s
+2026-11-25T14:25:38.1422420Z vm : Run Invetory All --------------------------------------------------- 0.48s
+2026-11-25T14:25:38.1422635Z vm : Run Invetory All --------------------------------------------------- 0.47s
+2026-11-25T14:25:38.1422853Z vm : Consultar API ------------------------------------------------------ 0.44s
+2026-11-25T14:25:38.1423061Z vm : Encontrar arquivos no diretório de origem ansible ------------------ 0.32s
+2026-11-25T14:25:38.1423272Z vm : Coletar variáveis de ambiente -------------------------------------- 0.29s
+2026-11-25T14:25:38.1423480Z include_role : dns ------------------------------------------------------ 0.18s
+2026-11-25T14:25:38.1423692Z Consultar DNS ----------------------------------------------------------- 0.16s
+2026-11-25T14:25:38.1423906Z vm : Cria variável build_repository_name -------------------------------- 0.12s
+2026-11-25T14:25:38.1424132Z vm : Cria variável ansible ---------------------------------------------- 0.08s
+2026-11-25T14:25:38.1424337Z vm : Exibir resultado do script vCenter --------------------------------- 0.08s
+2026-11-25T14:25:38.1424557Z vm : include_tasks ------------------------------------------------------ 0.07s
+2026-11-25T14:25:38.1424769Z vm : Recuperar ip ------------------------------------------------------- 0.07s
+2026-11-25T14:25:38.1424980Z vm : include_tasks ------------------------------------------------------ 0.07s
+2026-11-25T14:25:38.1425327Z Set created DNS --------------------------------------------------------- 0.07s
+2026-11-25T14:25:38.1425532Z vm : Copiar arquivos para o diretório de destino ansible group_vars ----- 0.07s
+2026-11-25T14:25:38.1425676Z Playbook run took 0 days, 0 hours, 0 minutes, 14 seconds
+2026-11-25T14:25:38.2463188Z ##[section]Finishing: Alocando o IP (AlocaIP e Infradevops)
+
+
+
+
+
+
 Skip to main content
 Azure DevOps
 projetos
@@ -6,9 +477,9 @@ Caixa
 /
 Pipelines
 /
-Releases
+SIGEC
 /
-SIGEC-portabilidade
+SIGEC-portabilidade-online
 Search
 
 
@@ -33,98 +504,77 @@ Test Plans
 
 Artifacts
 Project settings
-All pipelines
-
-SIGEC
-
-SIGEC-portabilidade
-Predefined variables
-Filter by keywords
-Scope
-
 
-CGC_UNIDADE_DES
-7390
-CGC_UNIDADE_OPS
-7259
-http_context_additional
-http_context_default
-sigec_portabilidade
-http_sso
-no
-produto_nome_vm
-Jboss
-produto_versao_vm
-7.4
+SIGEC-portabilidade-online
+Edit
 
-sistema_ambiente
-des
-sistema_ambiente
-tqs
-sistema_ambiente
-hmp
-sistema_ambiente
-prd
-sistema_ambiente
-prd
-sistema_nome
-sigec-portabilidade-online
+Run pipeline
 
-SITE
-ctc_nprd
-SITE
-ctc_npcn
-SITE
-dtc_pcn
-tf_var_template_name
-eap74-openjdk17-apache24-rhel93-v012
-UNIDADE
-vm_destroy_before_create
+Runs
+Branches
+Analytics
 
-vm_servers_recreate
-
-Row 3
-
-Row 3
-
-Expanded
-
-Row 3
-
-Collapsed
-
-Row 2
-
-Row 2
-
-Row 2
-
-Row 8. Clickable
+Showing 15 filtered items.
 
 Get started and run this pipeline for the first time!
 
-29 pipelines found
-
-Select a release pipeline to view its releases
-
-18 pipelines found
-
-Select a release pipeline to view its releases
-
-6 pipelines found
-
-Select a release pipeline to view its releases
-
-2 pipelines found
-
-Row 2
-
-Showing filters 1 through 2
-
-Showing filters 1 through 2
 
 
 
+JESSE BATISTA
+p585600
+Sem sistema |
+  Trocar:  
+Digite o sistema
+:  
+Wiki Fácil
+Chamados
+Aprovações
+Gestão
+Buscar
+Home
+Consultas
+Ambientes
+Esteiras DevOps
+Cadastros
+Sistemas Tradicionais
+Soluções Departamentais
+Serviços
+Nuvem Pública
+Rede
+Armazenamento
+Data Center
+Transferências
+Banco de Dados
+Esteiras Ágeis
+Suporte Multiplataforma
+Ajuda
+Analytics
+Restrito / Servidores Restritos
+Apresentando 2 de 36409 registros.
+Módulos	Tipo	Ambiente	Hostname	IP	Site	
+Ações
+sigec-porta
+
+Selecione
+Ambiente
+Hostname
+IP
+Site
+sigec-portabilidade-batch
+vm
+des
+caddeapllx2884.agil.nprd.caixa.gov.br
+10.116.202.70
+ctc_nprd
+sigec-portabilidade-online
+vm
+des
+caddeapllx2871.agil.nprd.caixa.gov.br
+10.116.202.61
+ctc_nprd
 
 
-como fica o contect_defult?
+
+
+tidp renomeado e a relessae pegou a mesma maquina. 
