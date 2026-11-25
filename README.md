@@ -1,9 +1,7 @@
-Fabio, reiniciei o JBoss do batch (caddeapllx2884) às 17:12 e segue o log do boot e o gec-ear.ear.failed, que tem o motivo da falha do deploy.
+scp p585600@10.116.202.70:/logs/jboss/jboss-eap/standalone/sigec-portabilidade-batch/server.log .
 
-O que aparece: o JBoss sobe "com erros" (17 serviços falharam ou com dependências ausentes) e o gec-ear.ear fica com o .failed. Erro do deploy: <colar a causa do .failed>.
 
-Depois de subir, o log se enche de ConcurrentAccessTimeoutException no GerenciadorTimersBean (5s) e no PreProcessadorRecebimentoBean (90s). Parece o travamento dos timers do batch.
 
-O EAR que está no batch é de 18/11 17:33, não foi atualizado hoje.
+ o hjerfero me disse que so rodar isso no bastin ou seja no ip 100 ele ja pegoa o logo direto e compleot
 
-Sobre reiniciar: a esteira reinicia o JBoss sozinha no deploy. À mão, é systemctl restart jboss-eap-standalone no 2884, com sudo. Se precisar de novo, é só pedir.
+ grava ai.. 
