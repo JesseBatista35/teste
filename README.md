@@ -1,5 +1,7 @@
-<img width="1858" height="925" alt="image" src="https://github.com/user-attachments/assets/80eeb773-055f-4741-b7fe-f01fc4ca32b4" />
+# vira root
+sudo su -
 
-
-
-VOCE NAO ENTENDEU AGENTE VAI COLCOAR ELA AQUI E MARACE SETABLE AT RELESE QUE AI ABRIGA A VCOLCOAR O VALOR DA VERSAO TODA VEZ QUE RODAR UMA RELEASE
+# 1. Confere as properties entregues (token tem que ter virado valor real)
+cat /apl/sigsj/properties/config.properties
+cat /apl/sigsj/properties/b2b.properties
+cat /apl/sigsj/properties/release.properties
