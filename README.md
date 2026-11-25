@@ -1,53 +1,313 @@
-Jesse Mouta Pereira Batista
-Todos, bom dia! Atualização do SIGSJ (configuração dos properties pela esteira):   Conforme orientação do Rafael Augusto: seguimos  o padrão Replace Tokens + Library ou seja apartir de agora os arqui…
-Oi Jesse Mouta Pereira Batista , bom dia. É a mesma versão.
- 
-Jesse Mouta Pereira Batista
-Todos, bom dia! Atualização do SIGSJ (configuração dos properties pela esteira):   Conforme orientação do Rafael Augusto: seguimos  o padrão Replace Tokens + Library ou seja apartir de agora os arqui…
-Jesse Mouta Pereira Batista, bom dia, tudo bem estou verificando as informações do ambiente TQS para a atualização das libraries.
- 
-Com relação ao ambiente HMP e PRD, foram abertas as REQs abaixo para obter as informações:
- 
-HMP - REQ000147178082
-PRD - REQ000147178124
- 
-Estou acompanhando o atendimento destas REQs a assim que forem finalizadas eu informo aqui os dados.
- 
-Obrigado !!
- 
-Gisele Cristina Dias
-Oi Jesse Mouta Pereira Batista , bom dia. É a mesma versão.
-falo aqui do arquivo sigsj.release que é a mesma versão em cada ambiente.
- 
-Vitor Mendes Guedes
-Jesse Mouta Pereira Batista, bom dia, tudo bem estou verificando as informações do ambiente TQS para a atualização das libraries.   Com relação ao ambiente HMP e PRD, foram abertas as REQs abaixo pa…
-Marcela Gomes da Silva pc.
- 
-Jesse Mouta Pereira Batista, olá, boa tarde !! Segue abaixo os arquivos dos Properties do SIGSJ em HMP (atendimento da REQ000147178082). Em HMP não existe o arquivo b2b.properties porque o SIB2B não executa em HMP.
-release.properties
-config.properties
- 
-*retificando...segue novamente o arquivo de config.properties de hmp ( tive que renomea-lo para config_hmp.properties porque o teams associou com o arquivo de config.properties de des, mais em HMP o nome é config.properties, mesmo nome em todos o ambientes)
-config_hmp.properties
+Skip to main content
+Azure DevOps
+projetos
+/
+Caixa
+/
+Pipelines
+/
+Releases
+/
+SIGSJ-intranet
+/
+SIGSJ-intranet-55
+Search
 
 
-release.properties
+Caixa
 
- sigsj.release = 1.13.0
+Overview
+
+Boards
+
+Repos
+
+Pipelines
+Pipelines
+Environments
+Releases
+Library
+Task groups
+Deployment groups
+Portal Infra
+
+Test Plans
+
+Artifacts
+Project settings
+SIGSJ-intranet
+
+SIGSJ-intranet-55
+
+
+EC DES
+
+Succeeded
+
+
+Pipeline
+
+Tasks
+
+Variables
+
+Logs
+
+Tests
+Agent job
+Started: 25/11/2026, 11:17:41
+Pool:
+Release-Linux
+·
+Agent: cadsvaprlx079.intra.caixa.gov.br
+
+6m 21s
+
+Initialize job
+·
+succeeded
+<1s
+
+Pre-job: Download secure file
+·
+succeeded
+1s
+
+Download Artifacts
+·
+succeeded
+1 warning
+1s
+
+Exportando as variáveis do arquivo Trust Store
+·
+succeeded
+<1s
+
+Recupera VEC
+·
+succeeded
+1s
+
+VEC - Aferição
+·
+succeeded
+<1s
+
+Exportar variáveis NFS
+·
+succeeded
+<1s
+
+Exportar variáveis Infrafácil
+·
+succeeded
+<1s
+
+Alocando o IP (AlocaIP e Infradevops)
+·
+succeeded
+18s
+
+Exporta as variáveis para o Terraform
+·
+succeeded
+<1s
+
+Replace tokens in **/*.tfvars.json **/*.tf
+·
+succeeded
+<1s
+
+Remove caracteres
+·
+succeeded
+<1s
+
+Install Terraform 1.3.5
+·
+succeeded
+<1s
+
+Terraform init
+·
+succeeded
+10s
+
+Terraform validate
+·
+succeeded
+1s
+
+Terraform workspace
+·
+succeeded
+1s
+
+Terraform destroy
+·
+succeeded
+1s
+
+Terraform apply
+·
+succeeded
+1m 49s
+
+Definir size como executado
+·
+succeeded
+27s
+
+Cadastrar Servidor no Satellite
+·
+succeeded
+10s
+
+Valida Variáveis Obrigatórias
+·
+succeeded
+1s
+
+Recuperando URL Pacote Nexus
+·
+succeeded
+1s
+
+Recupera Pacote
+·
+succeeded
+1s
+
+Recuperando nome do repositório
+·
+succeeded
+2s
+
+Convertendo Minúsculo e Definindo nome do Projeto/Repositório
+·
+succeeded
+<1s
+
+Corrigindo Codificação Arquivos dos2unix
+·
+succeeded
+1s
+
+Alterando Valores placeholders nos arquivos de config
+·
+succeeded
+<1s
+
+Valida XML JBOSS
+·
+succeeded
+<1s
+
+Git clone https://devops.caixa/projetos/Infraestrutura/_git/esteira-logs
+·
+succeeded
+1s
+
+Cria Streams Graylog
+·
+succeeded
+6s
+
+Permissionamento LDAP
+·
+succeeded
+21s
+
+Configurando JBoss
+·
+succeeded
+5s
+
+Configurando Stack de Monitoração
+·
+succeeded
+46s
+
+Configurando Logrotate
+·
+succeeded
+10s
+
+Configurando o Apache
+·
+succeeded
+21s
+
+Deploy Secure Files [JBOSS]
+·
+succeeded
+6s
+
+Deploy Config no JBOSS
+·
+succeeded
+37s
+
+Deploy Pacote no JBOSS
+·
+succeeded
+8s
+
+Check Deployments [JBOSS]
+·
+succeeded
+7s
+
+Atualizando versão no PortalIF
+·
+succeeded
+1s
+
+Resumo da release
+·
+succeeded
+<1s
+
+Finalize Job
+·
+succeeded
+<1s
+Showing 1 items.
+
+Finished loading items
+
+Expanded
+
+Loading items
+
+Showing 1 items.
+
+No items matched the supplied filter
+
+Finished loading items
+
+Showing 1 items.
+
+Collapsed
+
+Expanded
+
+Collapsed
+
+Expanded
+
+Collapsed
+
+Row 3
 
 
 
-sigsj.release = 1.13.0
-#sigsj.convivencia.url = http://sigsj-convivencia-des-esteiras.nprd2.caixa/convivencia/v1
-sigsj.convivencia.url = https://sigsj-convivencia-des.apps.nprd.caixa/convivencia/v1
-sigsj.ambiente = DES
-simtr.url = http://simtr-api-intranet-des.apps.nprd.caixa/
+URL_APM_SERVER
+http://apm-server-devops.apps.produtos4.caixa
 
-config_hmp.properties
+ALGEUM MEXEU E DEIXOU ESPEAÇO BOLETO E INTERNETE INTRANET ESTAO NO AR
 
 
-sigsj.release = 1.13.0
-
-sigsj.convivencia.url = https://sigsj-convivencia-hmp.apps.nprd.caixa/convivencia/v1
-simtr.url = https://simtr-api-intranet-hmp.apps.nprd.caixa/
+TA FORA DO AR NAO ESQUECI DE TE VAIS TINH UM ESPAÇO NA VAIRAVEL
 
