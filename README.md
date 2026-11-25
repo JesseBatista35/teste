@@ -1,35 +1,36 @@
-Pega o arquivo do legado. No servidor legado do SIGSJ (o sspdeapllx0039, de onde tiramos a libSenhasSIIBC.so):
 
-bash
-ls -la /log_ias/config-log4j/ceflib/
-cat /log_ias/config-log4j/ceflib/ceflib.xml
+Pressione <Control+D> IMEDIATAMENTE se voce nao concorda com as
+condicoes deste aviso
+***********************************************************************
+p585600@10.116.88.96's password:
+Last login: Thu Nov 19 15:04:36 2026 from 10.122.150.31
+[p585600@sspdeapllx0039 ~]$
+[p585600@sspdeapllx0039 ~]$
+[p585600@sspdeapllx0039 ~]$ hostname -i
+10.116.88.96
+[p585600@sspdeapllx0039 ~]$
+[p585600@sspdeapllx0039 ~]$
+[p585600@sspdeapllx0039 ~]$
+[p585600@sspdeapllx0039 ~]$
+[p585600@sspdeapllx0039 ~]$ sudo su
 
-Me cola o conteúdo do ceflib.xml que eu te ajudo a validar/ajustar o path de log de dentro dele (ele aponta pra onde vai escrever o log).
+We trust you have received the usual lecture from the local System
+Administrator. It usually boils down to these three things:
 
-Correção rápida pra testar agora (depois a gente torna persistente na esteira):
+    #1) Respect the privacy of others.
+    #2) Think before you type.
+    #3) With great power comes great responsibility.
 
-bash
-# na VM 955
-mkdir -p /log_ias/config-log4j/ceflib
-# copia o ceflib.xml do legado pra cá (scp do 0039) e coloca em:
-#   /log_ias/config-log4j/ceflib/ceflib.xml
-chown -R jboss:jboss /log_ias
-
-Persistente na esteira (igual fizemos com os outros): a gente adiciona o ceflib.xml no repo SIGSJ-intranet-config em configuration/properties/ e inclui no custom.sh:
-
-bash
-mkdir -p /log_ias/config-log4j/ceflib
-mv $SRC/ceflib.xml /log_ias/config-log4j/ceflib/.
-chown -R jboss:jboss /log_ias
-
-Uma coisa importante pra você saber: esse erro é de log4j não achar o config de log da ceflib — ele quebra o logging da lib, mas pode não derrubar o login em si (o SIROT GJ01/GJ02 do intranet já estava funcionando). Vale confirmar: o login do intranet ainda está entrando normal, ou parou junto com esse erro? Isso define se é só ajuste de log ou se está bloqueando de fato.
-
-Me manda o cat do ceflib.xml do legado e o ls da pasta na VM que eu fecho o custom.sh certinho pra entregar isso automático.
-
-QUAL IP DO LEGADO
-
-O legado do SIGSJ é o sspdeapllx0039 (foi de onde tiramos a libSenhasSIIBC.so e que tinha conexão com o SIROT 101:8111).
-
-Não tenho o IP dele anotado aqui — só o hostname. Pra pegar o IP, de qualquer máquina:
-
-bash
+Senha SUDO:
+[root@sspdeapllx0039 p585600]#
+[root@sspdeapllx0039 p585600]#
+[root@sspdeapllx0039 p585600]#
+[root@sspdeapllx0039 p585600]# ls -la /log_ias/config-log4j/ceflib/
+ls: cannot access /log_ias/config-log4j/ceflib/: No such file or directory
+[root@sspdeapllx0039 p585600]#
+[root@sspdeapllx0039 p585600]#
+[root@sspdeapllx0039 p585600]# cat /log_ias/config-log4j/ceflib/ceflib.xml
+cat: /log_ias/config-log4j/ceflib/ceflib.xml: No such file or directory
+[root@sspdeapllx0039 p585600]#
+[root@sspdeapllx0039 p585600]#
+[root@sspdeapllx0039 p585600]#
