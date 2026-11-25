@@ -1,44 +1,25 @@
+1. Olha dentro do jar onde está esse caminho e se ele lê de alguma property:
 
-[root@sspdeapllx0039 p585600]#
-[root@sspdeapllx0039 p585600]#
-[root@sspdeapllx0039 p585600]#
-[root@sspdeapllx0039 p585600]#
-[root@sspdeapllx0039 p585600]#
-[root@sspdeapllx0039 p585600]# find / -name "ceflib.xml" 2>/dev/null
-[root@sspdeapllx0039 p585600]#
-[root@sspdeapllx0039 p585600]#
-[root@sspdeapllx0039 p585600]# find / -iname "ceflib*" 2>/dev/null
-/opt/jboss/jboss-5.1.0.GA/server/sigsj_boleto/libapp/ceflib2.0.5.jar
-/opt/jboss/jboss-5.1.0.GA/server/backup/sigsj_boleto/libapp/ceflib2.0.5.jar
-/opt/jboss/jboss-5.1.0.GA/server/backup/sigsj_intranet/libapp/ceflib2.0.5.jar
-/opt/jboss/jboss-5.1.0.GA/server/backup/sigsj_internet/libapp/ceflib2.0.5.jar
-/opt/jboss/jboss-5.1.0.GA/server/backup/sigsj_inter01_bkp.20180430/libapp/ceflib2.0.5.jar
-/opt/jboss/jboss-5.1.0.GA/server/backup/sigsj_inter02_bkp.20180428/libapp/ceflib2.0.5.jar
-/opt/jboss/jboss-5.1.0.GA/server/sigsj_intranet/libapp/ceflib2.0.5.jar
-/opt/jboss/jboss-5.1.0.GA/server/sigsj_intranet.20230901/libapp/ceflib2.0.5.jar
-/opt/jboss/jboss-5.1.0.GA/server/sigsj_internet/libapp/ceflib2.0.5.jar
-/tmp/sirotjar/ceflib2.0.5.jar
-/connector/lib/ceflib2.0.5.jar
-[root@sspdeapllx0039 p585600]# ls -la /log_ias/ 2>/dev/null
-[root@sspdeapllx0039 p585600]#
-[root@sspdeapllx0039 p585600]#
-[root@sspdeapllx0039 p585600]# ls -la /log_ias/config-log4j/ 2>/dev/null
-[root@sspdeapllx0039 p585600]# find /log_ias -type f 2>/dev/null
-[root@sspdeapllx0039 p585600]#
-[root@sspdeapllx0039 p585600]#
-[root@sspdeapllx0039 p585600]# grep -rl "config-log4j/ceflib" /apl /opt /prod 2>/dev/null
-^C
-[root@sspdeapllx0039 p585600]#
-[root@sspdeapllx0039 p585600]#
-[root@sspdeapllx0039 p585600]# find / -name "ceflib*.jar" 2>/dev/null
-/opt/jboss/jboss-5.1.0.GA/server/sigsj_boleto/libapp/ceflib2.0.5.jar
-/opt/jboss/jboss-5.1.0.GA/server/backup/sigsj_boleto/libapp/ceflib2.0.5.jar
-/opt/jboss/jboss-5.1.0.GA/server/backup/sigsj_intranet/libapp/ceflib2.0.5.jar
-/opt/jboss/jboss-5.1.0.GA/server/backup/sigsj_internet/libapp/ceflib2.0.5.jar
-/opt/jboss/jboss-5.1.0.GA/server/backup/sigsj_inter01_bkp.20180430/libapp/ceflib2.0.5.jar
-/opt/jboss/jboss-5.1.0.GA/server/backup/sigsj_inter02_bkp.20180428/libapp/ceflib2.0.5.jar
-/opt/jboss/jboss-5.1.0.GA/server/sigsj_intranet/libapp/ceflib2.0.5.jar
-/opt/jboss/jboss-5.1.0.GA/server/sigsj_intranet.20230901/libapp/ceflib2.0.5.jar
-/opt/jboss/jboss-5.1.0.GA/server/sigsj_internet/libapp/ceflib2.0.5.jar
-/tmp/sirotjar/ceflib2.0.5.jar
+bash
+cd /tmp && rm -rf cefl && mkdir cefl && cd cefl
+unzip -o /tmp/sirotjar/ceflib2.0.5.jar >/dev/null 2>&1
+grep -rin "log_ias\|config-log4j\|ceflib.xml\|log4j" . 2>/dev/null | head -40
 
+2. Vê se o legado seta alguma property pra ceflib/log4j no startup:
+
+bash
+grep -rin "log_ias\|config-log4j\|ceflib" /opt/jboss/jboss-5.1.0.GA/bin 2>/dev/null
+grep -rin "log_ias\|config-log4j\|ceflib" /opt/jboss/jboss-5.1.0.GA/server/sigsj_intranet/conf 2>/dev/null
+
+3. Procura um ceflib.xml/log4j de verdade no deploy legado do intranet:
+
+bash
+find /opt/jboss/jboss-5.1.0.GA/server/sigsj_intranet -iname "*log4j*" -o -iname "ceflib*.xml" 2>/dev/null
+ls -la /opt/jboss/jboss-5.1.0.GA/server/sigsj_intranet/conf 2>/dev/null
+
+Me cola os resultados. Com isso a gente sabe se:
+
+É inofensivo (o legado também não tinha o arquivo) → cria um ceflib.xml mínimo só pra calar o erro, e entrega via esteira.
+Tem property (ex: -Dceflib.log4j=...) → a gente seta a mesma property no standalone.conf da VM.
+
+E me confirma o principal: o login do intranet está entrando normal ou travou? Se está entrando, esse erro é só log — não é urgência.
