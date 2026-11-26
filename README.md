@@ -1,10 +1,23 @@
-nálise:
-A falha na task "Executando Build S2I Binary" (unexpected EOF no instantiatebinary) aconteceu porque o build siisf-api-1, no namespace build-images-ads do cluster produtos4, ficou travado em Running. O pod de build ficou esperando o binário de um upload que já tinha sido interrompido. Como o BuildConfig executa os builds em série, a segunda tentativa (siisf-api-2) ficou na fila com status New, e as execuções seguintes da pipeline caíam no mesmo erro.
+Use Node 24.x
 
-Ação realizada:
-Cancelamos os builds travados (siisf-api-1 e siisf-api-2) e limpamos o namespace build-images-ads. Depois disso, executamos a pipeline SIISF-api de novo.
-
-Resultado:
-A pipeline rodou com sucesso no run 20261126.1504-0.0.1-SNAPSHOT (build S2I concluída). O ambiente está normalizado e não houve alteração na pipeline nem no código da aplicação.
-
-Em caso de nova ocorrência, favor reabrir a solicitação.
+View raw log
+Starting: Use Node 24.x
+==============================================================================
+Task         : Node.js tool installer
+Description  : Finds or downloads and caches the specified version spec of Node.js and adds it to the PATH
+Version      : 0.225.0
+Author       : Microsoft Corporation
+Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/tool/node-js
+==============================================================================
+##[error]connect ETIMEDOUT 104.16.213.131:443
+##[warning]RetryHelper encountered task failure, will retry (attempt #: 1 out of 5) after 1000 ms
+##[error]connect ETIMEDOUT 104.16.212.131:443
+##[warning]RetryHelper encountered task failure, will retry (attempt #: 2 out of 5) after 4000 ms
+##[error]connect ETIMEDOUT 104.16.212.131:443
+##[warning]RetryHelper encountered task failure, will retry (attempt #: 3 out of 5) after 9000 ms
+##[error]connect ETIMEDOUT 104.16.213.131:443
+##[warning]RetryHelper encountered task failure, will retry (attempt #: 4 out of 5) after 16000 ms
+##[error]connect ETIMEDOUT 104.16.212.131:443
+##[warning]RetryHelper encountered task failure, will retry (attempt #: 5 out of 5) after 25000 ms
+##[error]connect ETIMEDOUT 104.16.212.131:443
+Finishing: Use Node 24.x
