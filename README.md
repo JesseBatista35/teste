@@ -328,3 +328,315 @@ File "/usr/local/lib/python3.13/site-packages/requests/adapters.py", line 688, i
 raise ConnectTimeout(e, request=request)
 requests.exceptions.ConnectTimeout: HTTPSConnectionPool(host='sicsn.caixa', port=443): Max retries exceeded with url: /BeyondTrust/api/public/v3/Auth/connect/token (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7f79fc20ccd0>, 'Connection to sicsn.caixa timed out. (connect timeout=30)'))
 2026-11-26 12:37:39,328 ERROR (e233e78a-e995-11f1-bff0-0a5819820eae) There was an error in the execution: HTTPSConnectionPool(host='sicsn.caixa', port=443): Max retries exceeded with url: /BeyondTrust/api/public/v3/Auth/connect/token (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7f79fc20ccd0>, 'Connection to sicsn.caixa timed out. (connect timeout=30)'))
+
+
+
+
+Skip to main content
+Azure DevOps
+projetos
+/
+Caixa
+/
+Pipelines
+/
+Releases
+/
+SISPX-pix-gestao
+/
+SISPX-pix-gestao-20261125.1430-1.0.0-SNAPSHOT(7)
+Search
+
+
+Caixa
+
+Overview
+
+Boards
+
+Repos
+
+Pipelines
+Pipelines
+Environments
+Releases
+Library
+Task groups
+Deployment groups
+Portal Infra
+
+Test Plans
+
+Artifacts
+Project settings
+SISPX-pix-gestao
+
+SISPX-pix-gestao-20261125.1430-1.0.0-SNAPSHOT(7)
+
+
+OCP4 EC DES
+
+Failed
+
+
+Pipeline
+
+Tasks
+
+Variables
+
+Logs
+
+Tests
+Predefined variables
+SonarQube Variables (1)
+Variáveis com dados do SonarQube
+Scopes: Release
+Usuario-Azure-DevOps (12)
+Scopes: Release
+MONITORACAO_LOGS (4)
+REQ000143540550 - Conforme autorizado na req por FLAVIO ALMEIDA GAGLIARDI, removido as variáveis JAVA_OPTS_MONITORING e URL_APM_SERVER, por entrar em conflitos com releases que utilizam o Application Insights
+Scopes: Release
+EGRESS_IP_OKD (88)
+WO0000072264656 - Config Portal Infrafácil NO_PROXY
+Scopes: Release
+OKD-REGISTRY-CENTRALIZADO (7)
+Credenciais para o Registry Centralizado - Produtos 4 (OKD)
+Scopes: Release
+SISPX-PIX-GESTAO-DES (44)
+Grupo de variáveis de SISPX-PIX-GESTAO-DES
+Scopes: OCP4 EC DES
+BACKUP.QUARKUS_DATASOURCE_PASSWORD
+#{SISPX_DB_PASSWORD}#
+BACKUP.SECRET_ID_SPX
+#{SECRET_SPX}#
+BACKUP.SIBAR_APIKEY
+l76138e827bd9d4f87aea4ff7f54a5607c
+SECRET_SPX
+********
+SISPX_DB_PASSWORD
+********
+VAULT_LOCATION
+********
+_ENV.API_KEY
+'${sispi_api_key}'
+_ENV.CLIENT_ID_SPX
+cli-ser-spx
+_ENV.DATASOURCE_SISPI_PASSWORD
+'${sspibd03_oracle}'
+_ENV.DATASOURCE_SISPI_URL
+"jdbc:oracle:thin:@(DESCRIPTION=(LOAD_BALANCE=off)(ADDRESS=(PROTOCOL=TCP)(HOST=10.116.101.16)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=CDBD08NGPDB017)(SERVER=DEDICATED)))"
+_ENV.DATASOURCE_SISPI_USERNAME
+SSPIBD03
+_ENV.ISPB_CAIXA
+00360305
+_ENV.JAVA_OPTIONS_APPEND
+"-Djavax.net.ssl.trustStore=/deployments/caixa-truststore-acteste-nprd.jks"
+_ENV.MQ_ANTIFRAUDE_CHANNEL
+SISPX.SVRCONN
+_ENV.MQ_ANTIFRAUDE_FILA_RECORRENCIA
+SIAAF.REQ.SISPX.PIX_RECORRENTE
+_ENV.MQ_ANTIFRAUDE_HOSTNAME
+ibmspdes.caixa
+_ENV.MQ_ANTIFRAUDE_MAXIMO_CONEXOES
+1
+_ENV.MQ_ANTIFRAUDE_MAXIMO_SESSOES
+300
+_ENV.MQ_ANTIFRAUDE_PORT
+1420
+_ENV.MQ_ANTIFRAUDE_QUEUE_MANAGER
+QSDA
+_ENV.MQ_ANTIFRAUDE_TIMEOUT
+1000
+_ENV.MQ_ANTIFRAUDE_USERID
+MQSSTCSP
+_ENV.PIX.FRAMEWORK.VALIDACAO_TOKEN.VALIDACAO_GLOBAL
+true
+_ENV.PIX_FRAMEWORK_TOKEN_URL
+"https://login.des.caixa/auth/realms/intranet/protocol/openid-connect/token"
+_ENV.PIX_FRAMEWORK_VALIDACAO_TOKEN_SSO_EMISSOR_0
+"https://login.des.caixa/auth/realms/intranet"
+_ENV.PIX_FRAMEWORK_VALIDACAO_TOKEN_SSO_URL_0
+"http://sispi-api-proxy-sso-des.sispi-des.svc:8080/auth/realms/intranet;https://login.des.caixa/auth/realms/intranet"
+_ENV.QUARKUS_DATASOURCE_JDBC_URL
+jdbc:oracle:thin:@cnpexdadvm01-scan4.extra.caixa.gov.br:1521/CDBD08NGPDB017
+_ENV.QUARKUS_DATASOURCE_PASSWORD
+'${sspxbd01_oracle}'
+_ENV.QUARKUS_DATASOURCE_USERNAME
+sspxbd01
+_ENV.SECRET_ID_SPX
+'${sispx_secret_intranet}'
+_ENV.SIBAR_APIKEY
+'${sispi_api_key}'
+_ENV.SISPI_DATA_NOVA_CONSULTA
+"02/05/2023"
+_ENV.SISPX_ENVIRONMENT
+DES
+_ENV.SPI_URL_FABRICA_IDS
+http://sispi-api-fabrica-ids-des.sispi-des.svc:8080
+_ENV.SPX_URL_API_CONTAS_MIGRADAS
+https://sispi-container-dict-des.apps.pixnprd4.caixa/sispi-dict-war/api
+_ENV.SPX_URL_API_LIMITES
+https://sispx-gestao-limites-des.apps.pixnprd4.caixa/pix/limites/v1/
+_ENV.SPX_URL_API_SIBAR
+https://api.des.caixa:8443
+_ENV.SPX_URL_FABRICA_ID
+http://sispx-fabrica-id-recorrencia-des.apps.pixnprd4.caixa
+_ENV.SPX_URL_FERIADOS
+https://api.des.caixa:8443
+_ENV.SPX_URL_IBGE
+https://api.des.caixa:8443
+_ENV.SPX_URL_MUNICIPIOS
+https://sispi-parametrizacoes-pix-des.apps.pixnprd4.caixa
+_ENV.VALIDACAO_CNPJ_CAIXA
+false
+_ENV.VERSAO
+$(Build.BuildNumber)
+_SECRET.SMALLRYE.CONFIG.SOURCE.FILE.LOCATIONS
+#{VAULT_LOCATION}#
+OCP-NPRD (8)
+Credenciais para o Cluster OCP de NPRD (DES/TQS/HMP)
+Scopes: OCP4 EC DES,OCP4 EC TQS,OCP4 EC HMP
+ISTIO_INJECTION
+enabled
+KIND_DEPLOY
+deploymentconfig
+OCP_API
+api.pixnprd4.caixa:6443
+OCP_REGISTRY
+default-route-openshift-image-registry.apps.pixnprd4.caixa
+OCP_TOKEN
+********
+OCP_URL_SUFFIX
+apps.pixnprd4.caixa
+OCP_USER_SERVICE
+ads
+TIMEOUT_DEPLOY
+300
+SISPX-PIX-GESTAO-BT-VAULT-DES (1)
+SISPX-PIX-GESTAO-BT-VAULT-DES
+Scopes: OCP4 EC DES
+BT_SECRETS_LIST
+sispx_des/sspxbd01_oracle,sispx_des/sispi/sispi_api_key,sispx_des/sispx_secret_intranet,sispx_des/sispi/sspibd03_oracle
+SISPX-BT-VAULT-SECRET-DES (2)
+Scopes: OCP4 EC DES
+BT_CLIENT_ID
+700800ce-0869-4e6d-9108-16f3593f0bad
+BT_CLIENT_SECRET
+********
+SISPX-PIX-GESTAO-TQS (1)
+Grupo de variáveis de SISPX-PIX-GESTAO-TQS
+Scopes: OCP4 EC TQS
+INIT
+Criado via api
+SISPX-PIX-GESTAO-HMP (1)
+Grupo de variáveis de SISPX-PIX-GESTAO-HMP
+Scopes: OCP4 EC HMP
+INIT
+Criado via api
+SISPX-PIX-GESTAO-PRD (47)
+Grupo de variáveis de SISPX-PIX-GESTAO-PRD
+Scopes: OCP4 EC PRD CANAIS
+BACKUP.QUARKUS_DATASOURCE_PASSWORD
+#{SISPX_DB_PASSWORD}#
+BACKUP.SECRET_ID_SPX
+#{SECRET_SPX}#
+BACKUP.SIBAR_APIKEY
+#{SIBAR_APIKEY_PASS}
+MQ_ANTIFRAUDE_PASSWORD
+********
+SECRET_SPX
+********
+SIBAR_APIKEY_PASS
+********
+SISPX_DB_PASSWORD
+********
+VAULT_LOCATION
+********
+_ENV.API_KEY
+'${sispi_api_key}'
+_ENV.CLIENT_ID_SPX
+cli-ser-spx
+_ENV.DATASOURCE_SISPI_PASSWORD
+'${sspisp01_oracle}'
+_ENV.DATASOURCE_SISPI_URL
+"jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=OFF)(ADDRESS=(PROTOCOL=TCP)(HOST=cadecrk01cl01scan.intra.caixa.gov.br)(PORT=1521))(ADDRESS=(PROTOCOL=TCP)(HOST=dadecrk01cl01scan.intra.caixa.gov.br)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=prim_SPISRV)(FAILOVER_MODE=(TYPE=SELECT)(METHOD=BASIC)(RETRIES=3)(DELAY=2))))"
+_ENV.DATASOURCE_SISPI_USERNAME
+SSPISP01
+_ENV.ISPB_CAIXA
+00360305
+_ENV.JAVA_OPTIONS_APPEND
+"-Xms1280m -Xmx1280m -Djavax.net.ssl.trustStore=/deployments/sispi_interno_prd_2026.jks"
+_ENV.MQ_ANTIFRAUDE_CHANNEL
+SISPI.SVRCONN
+_ENV.MQ_ANTIFRAUDE_FILA_RECORRENCIA
+SIAAF.REQ.SISPX.PIX_RECORRENTE
+_ENV.MQ_ANTIFRAUDE_HOSTNAME
+mqsg.qspi-plexp.intra.caixa
+_ENV.MQ_ANTIFRAUDE_MAXIMO_CONEXOES
+1
+_ENV.MQ_ANTIFRAUDE_MAXIMO_SESSOES
+300
+_ENV.MQ_ANTIFRAUDE_PORT
+1426
+_ENV.MQ_ANTIFRAUDE_QUEUE_MANAGER
+QSPI
+_ENV.MQ_ANTIFRAUDE_TIMEOUT
+5000
+_ENV.MQ_ANTIFRAUDE_USERID
+SSPISP01
+_ENV.PIX.FRAMEWORK.VALIDACAO_TOKEN.VALIDACAO_GLOBAL
+true
+_ENV.PIX_FRAMEWORK_TOKEN_URL
+"https://login.prd.caixa/auth/realms/intranet/protocol/openid-connect/token"
+_ENV.PIX_FRAMEWORK_VALIDACAO_TOKEN_SSO_EMISSOR_0
+"https://login.prd.caixa/auth/realms/intranet"
+_ENV.PIX_FRAMEWORK_VALIDACAO_TOKEN_SSO_URL_0
+"http://sispi-api-proxy-sso-prd.sispi-prd.svc:8080/auth/realms/intranet;https://login.prd.caixa/auth/realms/intranet"
+_ENV.QUARKUS_DATASOURCE_JDBC_URL
+"jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS_LIST=(FAILOVER=ON)(LOAD_BALANCE=OFF)(ADDRESS=(PROTOCOL=TCP)(HOST=cadecrk01cl01scan.intra.caixa.gov.br)(PORT=1521))(ADDRESS=(PROTOCOL=TCP)(HOST=dadecrk01cl01scan.intra.caixa.gov.br)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=prim_SPXSRV)(FAILOVER_MODE=(TYPE=SELECT)(METHOD=BASIC)(RETRIES=3)(DELAY=2))))"
+_ENV.QUARKUS_DATASOURCE_PASSWORD
+'${sspxsp01_oracle}'
+_ENV.QUARKUS_DATASOURCE_USERNAME
+SSPXSP01
+_ENV.SECRET_ID_SPX
+'${cliserspx_sso_intra}'
+_ENV.SIBAR_APIKEY
+'${sispi_api_key}'
+_ENV.SISPI_DATA_NOVA_CONSULTA
+"02/05/2023"
+_ENV.SISPX_ENVIRONMENT
+PRD
+_ENV.SPI_URL_FABRICA_IDS
+http://sispi-api-fabrica-ids-prd.sispi-prd.svc:8080/
+_ENV.SPX_URL_API_CONTAS_MIGRADAS
+http://sispi-container-dict-prd.sispi-prd.svc:8080/sispi-dict-war/api
+_ENV.SPX_URL_API_LIMITES
+https://sispx-gestao-limites-prd.apps.pix4.caixa/pix/limites/v1/
+_ENV.SPX_URL_API_SIBAR
+https://api.caixa:8443
+_ENV.SPX_URL_FABRICA_ID
+http://sispx-fabrica-id-recorrencia-prd:8080/
+_ENV.SPX_URL_FERIADOS
+https://api.caixa:8443
+_ENV.SPX_URL_IBGE
+https://api.caixa:8443
+_ENV.SPX_URL_MUNICIPIOS
+http://sispi-parametrizacoes-pix-prd-esteiras.sispi-prd.svc:8080
+_ENV.VALIDACAO_CNPJ_CAIXA
+false
+_ENV.VERSAO
+$(Build.BuildNumber)
+_SECRET.MQ_ANTIFRAUDE_PASSWORD
+#{MQ_ANTIFRAUDE_PASSWORD}#
+_SECRET.SMALLRYE.CONFIG.SOURCE.FILE.LOCATIONS
+#{VAULT_LOCATION}#
+OCP-PRD (16)
+Credenciais para o Cluster OCP de PRD
+Scopes: OCP4 EC PRD CANAIS
+SISPX-PIX-GESTAO-BT-VAULT-PRD (1)
+SISPX-PIX-GESTAO-BT-VAULT-PRD
+Scopes: OCP4 EC PRD CANAIS
+sispx-BT-VAULT-SECRET-PRD (2)
+Scopes: OCP4 EC PRD CANAIS
+Showing filters 1 through 2
