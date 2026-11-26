@@ -1,59 +1,50 @@
+Passo 1 — Confirmar o cluster e ver o que mudou
+bash
+oc whoami --show-server
+oc get nodes | grep worker
+oc get hostsubnet | grep -E 'NAME|10.116.223.11'
+oc get pods -n sispx-des | grep pix-gestao | grep -v deploy
 
--sh-4.2$
--sh-4.2$ bash
-[p585600@cadsvaprlx067 ~]$ /usr/local/bin/oc-v4.13 debug node/pixnprd4-x44wk-worker-0-ns57r -- chroot /host sh -c '
-> iptables -t nat -S | grep -E "10.116.223.(11|22)";
-> ovs-ofctl -O OpenFlow13 dump-flows br0 table=100 | grep -E "0x5e5f49|0x7eed1b"'
-Temporary namespace openshift-debug-mlv9h is created for debugging node...
-Starting pod/pixnprd4-x44wk-worker-0-ns57r-debug ...
-To use host binaries, run `chroot /host`
-# Warning: iptables-legacy tables present, use iptables-legacy to see them
--A OPENSHIFT-MASQUERADE -s 25.128.0.0/14 -m mark --mark 0x15e5f48 -j SNAT --to-source 10.116.223.11
--A OPENSHIFT-MASQUERADE -s 25.128.0.0/14 -m mark --mark 0x117e6d1a -j SNAT --to-source 10.116.223.22
+O que olhar:
 
-Removing debug pod ...
-Temporary namespace openshift-debug-mlv9h was removed.
-[p585600@cadsvaprlx067 ~]$
-[p585600@cadsvaprlx067 ~]$
-[p585600@cadsvaprlx067 ~]$
-[p585600@cadsvaprlx067 ~]$ ^C
-[p585600@cadsvaprlx067 ~]$ /usr/local/bin/oc-v4.13 debug node/pixnprd4-x44wk-worker-0-ns57r -- \
->   timeout 90 tcpdump -nni ens192 'host 10.221.142.2 and port 443'
-Error from server (NotFound): nodes "pixnprd4-x44wk-worker-0-ns57r" not found
-[p585600@cadsvaprlx067 ~]$
-[p585600@cadsvaprlx067 ~]$
-[p585600@cadsvaprlx067 ~]$
-[p585600@cadsvaprlx067 ~]$ IMG=$(oc get pod sispx-pix-gestao-des-391-ld6h8 -n sispx-des -o jsonpath='{.spec.initContainers[?(@.name=="secrets-agent-sidecar")].image}')
-Error from server (NotFound): pods "sispx-pix-gestao-des-391-ld6h8" not found
-[p585600@cadsvaprlx067 ~]$
-[p585600@cadsvaprlx067 ~]$
-[p585600@cadsvaprlx067 ~]$
-[p585600@cadsvaprlx067 ~]$ exit
-exit
--sh-4.2$ /usr/local/bin/oc-v4.13 debug node/pixnprd4-x44wk-worker-0-ns57r -- \
->   timeout 90 tcpdump -nni ens192 'host 10.221.142.2 and port 443'
-Error from server (NotFound): nodes "pixnprd4-x44wk-worker-0-ns57r" not found
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$ IMG=$(oc get pod sispx-pix-gestao-des-391-ld6h8 -n sispx-des -o jsonpath='{.spec.initContainers[?(@.name=="secrets-agent-sidecar")].image}')
-Error from server (NotFound): pods "sispx-pix-gestao-des-391-ld6h8" not found
--sh-4.2$
--sh-4.2$
--sh-4.2$ for NS in sispx-des sigel-tqs; do
->   oc run teste-$NS -n $NS --rm -it --restart=Never --image=$IMG \
->     --overrides='{"metadata":{"annotations":{"sidecar.istio.io/inject":"false"}}}' \
->     --command -- python3 -c 'import socket;socket.create_connection(("sicsn.caixa",443),10);print("OK")'
-> done
-error: --image is required
-error: --image is required
--sh-4.2$
--sh-4.2$
--sh-4.2$ /usr/local/bin/oc-v4.13 debug node/pixnprd4-x44wk-worker-0-ns57r -- chroot /host \
->   ovs-ofctl -O OpenFlow13 dump-flows br0 table=100 | grep -E '0x15e5f48|0x117e6d1a'
-Error from server (NotFound): nodes "pixnprd4-x44wk-worker-0-ns57r" not found
--sh-4.2$
+O server tem que ser api.pixnprd4.caixa:6443.
+O hostsubnet mostra em qual nó o .11 está agora.
+Na lista de pods, veja se o pod da app já está 2/2 Running.
+Passo 2 — Testar se o sispx-des já sai para a rede
 
+Esse bloco pega a imagem sozinho, de qualquer pod do sispx-des:
 
+bash
+IMG=$(oc get pods -n sispx-des -o jsonpath='{range .items[*]}{.spec.initContainers[?(@.name=="secrets-agent-sidecar")].image}{"\n"}{end}' | grep -v '^$' | head -1)
+echo "IMAGEM: $IMG"
 
-cara melhora isso dai me diz onde eu devo fazer cada coisa
+oc run teste-cofre -n sispx-des --rm -it --restart=Never --image=$IMG \
+  --overrides='{"metadata":{"annotations":{"sidecar.istio.io/inject":"false"}}}' \
+  --command -- python3 -c 'import socket;socket.create_connection(("sicsn.caixa",443),10);print("OK")'
+
+Se IMAGEM: vier vazio, me avise e eu passo outro jeito.
+
+Passo 3 — Depende do resultado do passo 2
+
+Se deu OK: o problema foi corrigido pela troca do nó. Faça um redeploy pela release (ou oc rollout latest dc/sispx-pix-gestao-des -n sispx-des) e acompanhe com:
+
+bash
+oc get pods -n sispx-des -w | grep pix-gestao
+
+Se deu timeout: troque NOVO_NO pelo nome do nó que o passo 1 mostrou para o .11 e rode o tcpdump nesse nó.
+
+Terminal 1:
+
+bash
+/usr/local/bin/oc-v4.13 debug node/NOVO_NO -- timeout 90 tcpdump -nni ens192 'host 10.221.142.2 and port 443'
+
+Terminal 2 (abra outra sessão na mesma máquina), assim que aparecer "listening":
+
+bash
+oc run teste-cofre -n sispx-des --rm -it --restart=Never --image=$IMG \
+  --overrides='{"metadata":{"annotations":{"sidecar.istio.io/inject":"false"}}}' \
+  --command -- python3 -c 'import socket;socket.create_connection(("sicsn.caixa",443),10);print("OK")'
+
+O $IMG precisa ser definido também nesse segundo terminal: repita a linha IMG=... do passo 2.
+
+Me manda a saída do passo 1 e do passo 2 que eu digo qual caminho seguir.
