@@ -1,218 +1,188 @@
-{
-  "name": "sidsc",
-  "version": "3.4.1",
-  "scripts": {
-    "ng": "ng",
-    "storybook": "ng run sidsc-storybook:storybook --debug-webpack --no-open",
-    "build:storybook": "ng run sidsc-storybook:build-storybook --output-dir=dist/sidsc-storybook",
-    "build:storybook-dataset": "tsx ./projects/sidsc-storybook/scripts/generate-stories-dataset.ts",
-    "package": "cd dist/sidsc-components && npm pack",
-    "build": "npm-run-all --sequential build:lib build:schematics --parallel lib:copy-files:collection lib:copy-files:ng-add-schema",
-    "build:lib": "ng build sidsc-components",
-    "build:schematics": "tsc -p projects/sidsc-components/tsconfig.schematics.json",
-    "build:stats": "ng run sidsc-storybook:build-storybook --stats-json --output-dir=dist/sidsc-storybook",
-    "build:lib:development": "npm-run-all clean --sequential build:lib build:schematics --parallel lib:copy-files:collection lib:copy-files:ng-add-schema",
-    "lib:copy-files:collection": "copyfiles -f -s projects/sidsc-components/schematics/collection.json dist/sidsc-components/schematics",
-    "lib:copy-files:ng-add-schema": "copyfiles -f -s projects/sidsc-components/schematics/ng-add/schema.json dist/sidsc-components/schematics/ng-add",
-    "lib:generate-reporter": "npm-run-all clean --sequential build:stats analyze",
-    "analyze": "webpack-bundle-analyzer dist/sidsc-storybook/preview-stats.json",
-    "watch": "ng build --watch --configuration development",
-    "test": "jest --coverage",
-    "test:verbose": "jest --verbose",
-    "test:watch": "jest --watchAll",
-    "clean": "rimraf dist",
-    "format": "prettier --write \"projects/sidsc-components/**/*.{ts,js,html,scss,css,json}\"",
-    "format:check": "prettier --check \"projects/sidsc-components/**/*.{ts,js,html,scss,css,json}\"",
-    "type-check": "tsc --noEmit --skipLibCheck"
-  },
-  "private": true,
-  "dependencies": {
-    "@angular/animations": "^19.2.18",
-    "@angular/cdk": "^19.2.18",
-    "@angular/common": "^19.2.18",
-    "@angular/compiler": "^19.2.18",
-    "@angular/core": "^19.2.18",
-    "@angular/forms": "^19.2.18",
-    "@angular/localize": "^19.2.18",
-    "@angular/material": "^19.2.18",
-    "@angular/material-date-fns-adapter": "^19.2.18",
-    "@angular/platform-browser": "^19.2.18",
-    "@angular/platform-browser-dynamic": "^19.2.18",
-    "@angular/router": "^19.2.18",
-    "date-fns": "^3.6.0",
-    "highlight.js": "^11.9.0",
-    "inputmask": "^5.0.9-beta.62",
-    "lodash-es": "^4.18.1",
-    "ng2-currency-mask": "^13.0.3",
-    "ngx-mask": "^19.0.6",
-    "rxjs": "~7.8.1",
-    "sidsc-components": "^19.4.0",
-    "tslib": "^2.6.2",
-    "zone.js": "^0.15.1"
-  },
-  "devDependencies": {
-    "@angular-devkit/build-angular": "^19.2.9",
-    "@angular/cli": "~19.2.9",
-    "@angular/compiler-cli": "^19.2.18",
-    "@compodoc/compodoc": "^1.1.26",
-    "@storybook/addon-a11y": "^8.6.17",
-    "@storybook/addon-docs": "^8.6.17",
-    "@storybook/addon-essentials": "^8.6.17",
-    "@storybook/addon-interactions": "^8.6.17",
-    "@storybook/addon-links": "^8.6.17",
-    "@storybook/addon-styling-webpack": "^1.0.1",
-    "@storybook/addon-webpack5-compiler-swc": "^3.0.0",
-    "@storybook/angular": "^8.6.17",
-    "@storybook/blocks": "^8.6.17",
-    "@storybook/manager-api": "^8.6.17",
-    "@storybook/test": "^8.6.17",
-    "@storybook/theming": "^8.6.17",
-    "@types/jest": "^29.5.14",
-    "@types/lodash": "4.14.201",
-    "@types/lodash-es": "4.17.11",
-    "copyfiles": "^2.4.1",
-    "css-loader": "^7.1.2",
-    "jest": "^29.7.0",
-    "jest-preset-angular": "^14.5.5",
-    "jest-sonar": "^0.2.16",
-    "jest-sonar-reporter": "^2.0.0",
-    "ng-packagr": "^19.2.0",
-    "npm-run-all": "^4.1.5",
-    "prettier": "^3.7.1",
-    "resolve-url-loader": "^5.0.0",
-    "rimraf": "^5.0.5",
-    "sass": "^1.87.0",
-    "sass-loader": "^16.0.5",
-    "storybook": "^8.6.17",
-    "style-loader": "^4.0.0",
-    "ts-node": "^10.9.2",
-    "tsx": "^4.20.6",
-    "typescript": "~5.6.2",
-    "wait-on": "^7.2.0",
-    "webpack-bundle-analyzer": "^4.10.1"
-  },
-  "overrides": {
-    "webpack": "~5.98.0",
-    "@compodoc/compodoc": {
-      "chokidar": "~3.6.0"
-    }
-  }
-}
+ORIGEM:
+10.116.223.11
+ 
+DESTINO:
+cnpexdadvm01-scan4.extra.caixa.gov.br port=1521
+sicns.caixa porta 443
+ 
+ 
+ 
+ 
+ 
+ 
+REQ000147185286
+	Por favor, verificar e ajustar
+ 
+Repositório: SISPI-api-tarifacao
+ 
+Erro  para gerar pipeline (Build)
+ 
+Erro no passo: Login Cluster
+ 
+Link da pipeline (Build)
+https://devops.caixa/projetos/Caixa/_build/results?buildId=889716&view=logs&j=275f1d19-1bd8-5591-b06b-07d489ea915a&t=c02c59fe-b179-526b-4b13-fb4141c1ec4e
+ 
+Impacto: migração para o GIT HUB
+ 
+Emilio Luiz Ribeiro
+ 
+estamos nessa sala
+ 
+Joao, consegue dar uma força aqui, o SPX está fora em DES
+ 
+ 
+ 
+sh-4.4$ curl -v telnet://sicsn.caixa
 
+* Rebuilt URL to: telnet://sicsn.caixa/
 
-Skip to main content
-Azure DevOps
-projetos
-/
-Caixa
-/
-Repos
-/
-Files
-/
+*   Trying 10.221.142.2...
 
-SIDSC
-Search
+* TCP_NODELAY set
 
+* Connected to sicsn.caixa (10.221.142.2) port 23 (#0)
+ 
+sh-4.4$ curl -kv https://sicsn.caixa
 
-Caixa
+* Rebuilt URL to: https://sicsn.caixa/
 
-Overview
+*   Trying 10.221.142.2...
 
-Boards
+* TCP_NODELAY set
 
-Repos
-Files
-Commits
-Pushes
-Branches
-Tags
-Pull requests
+* Connected to sicsn.caixa (10.221.142.2) port 443 (#0)
 
-Pipelines
+* ALPN, offering h2
 
-Test Plans
+* ALPN, offering http/1.1
 
-Artifacts
-Project settings
-SIDSC
+* successfully set certificate verify locations:
 
-.github
-.s2i
-.vscode
-projects
-.editorconfig
-.gitignore
-.hintrc
-.npmrc
-.prettierignore
-.prettierrc
-angular.json
-jest-global-mocks.ts
-jest.config.ts
-package-lock.json
-package.json
-plan.md
-README.md
-setup-jest.ts
-tsconfig.json
-tsconfig.spec.json
+*   CAfile: /etc/pki/tls/certs/ca-bundle.crt
 
-3.4.1.202611131636
+  CApath: none
 
-/
-karma.conf
-karma.conf
+* TLSv1.3 (OUT), TLS handshake, Client hello (1):
 
-Contents
-No item exists at path '/karma.conf' at version 'Tag 3.4.1.202611131636'
-File not found or you do not have permission
-No item exists at path '/karma.conf' at version 'Tag 3.4.1.202611131636'
-Go to default branch
-Showing 1 items.
+* OpenSSL SSL_connect: SSL_ERROR_SYSCALL in connection to sicsn.caixa:443 
 
-No items found
+* Closing connection 0
 
-No items found
+curl: (35) OpenSSL SSL_connect: SSL_ERROR_SYSCALL in connection to sicsn.caixa:443 
 
-No items found
+sh-4.4$
+ 
+2026-11-25T20:02:23.8565709Z O IP de Saída do projeto: sispx-des já estava configurado com o IP: 10.116.223.11
+ 
+sh-4.4$ curl -v telnet://sicsn.caixa
 
-Showing 3 items.
+* Rebuilt URL to: telnet://sicsn.caixa/
 
-Showing 2 items.
+*   Trying 10.221.142.2...
 
-Showing 1 items.
+* TCP_NODELAY set
 
-Showing 1 items.
+* Connected to sicsn.caixa (10.221.142.2) port 23 (#0)
 
-Showing 2 items.
+^C
 
-Showing 2 items.
+sh-4.4$
+ 
+ 
+ 
+10.116.208.0 255.255.240.0 /20
+ 
+host range	10.116.208.1-10.116.223.254
+ 
+ 
+client profile={oracle.net.encryption_types_client=(), oracle.net.crypto_seed=, oracle.net.authentication_services=(), oracle.net.setFIPSMode=false, oracle.net.kerberos5_mutual_authentication=false, oracle.net.encryption_client=ACCEPTED, oracle.net.crypto_checksum_client=ACCEPTED, oracle.net.crypto_checksum_types_client=()}
+connection options=[host=cnpexdadvm01-scan4.extra.caixa.gov.br port=1521 protocol=TCP service_name=CDBD08NGPDB017 addr=(ADDRESS=(PROTOCOL=TCP)(HOST=cnpexdadvm01-scan4.extra.caixa.gov.br)(PORT=1521)) conn_data=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(PORT=1521)(HOST=240.240.180.182)(HOSTNAME=cnpexdadvm01-scan4.extra.caixa.gov.br))(CONNECT_DATA=(CID=(PROGRAM=QuarkusEntryPoint)(HOST=sispx-pix-gestao-des-391-ld6h8)(USER=1001))(SERVICE_NAME=CDBD08NGPDB017))) done=true]
+onBreakReset=false, dataEOF=false, negotiatedOptions=0x0, connected=false
+2026-11-25 18:09:37,367 INFO [ora.jdbc] (agroal-21) traceId=7A5C3AB2, anoEnabled=true.
+2026-11-25 18:09:37,368 FINEST [ora.jdbc] (agroal-21) 74 bytes written to the Socket.
+2026-11-25 18:09:37,369 FINEST [ora.jdbc] (agroal-21) 294 bytes written to the Socket.
+2026-11-25 18:09:42,350 INFO [ora.jdbc] (agroal-21) Connection establishment interrupted externally, exiting.
+2026-11-25 18:09:42,351 INFO [ora.jdbc] (agroal-21) throwing: java.sql.SQLRecoverableException: ORA-17002: I/O error: Socket read interrupted, Authentication lapse 0 ms.
+ 
+só reforçando, rodei um rotina aqui agora do spx e se conectou com o banco normalmente, então não é o banco  
+ 
+Ontem 19:05 Reunião encerrada: 4h 17min 12s 
 
-No items found
+ 
+Alguma resposta?
+ 
+Tentei aqui e continua com erro
+ 
+Continua com o mesmo problema
+ 
+bom dia pessoal. precisamos do ambiente funcionando hoje.
+ 
+se puderem nos ajudar
+ 
+09:01 Reunião encerrada: 4s 
 
-No items found
+ 
+Daniel Correa Paula.
 
-Showing 1 items.
-
-No items found
-
-Showing 1 items.
-
-No items found
-
-No items found
-
-No items found
-
-Showing 1 items.
-
-Collapsed
-
-
-
-nao tem karma.conf
+2026-11-26T11:49:49.4283603Z ##[section]Starting: Verificando Status do Deployment
+2026-11-26T11:49:49.4286756Z ==============================================================================
+2026-11-26T11:49:49.4286834Z Task         : Bash
+2026-11-26T11:49:49.4286876Z Description  : Run a Bash script on macOS, Linux, or Windows
+2026-11-26T11:49:49.4286949Z Version      : 3.227.0
+2026-11-26T11:49:49.4286992Z Author       : Microsoft Corporation
+2026-11-26T11:49:49.4287041Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/bash
+2026-11-26T11:49:49.4287121Z ==============================================================================
+2026-11-26T11:49:50.5517340Z Generating script.
+2026-11-26T11:49:50.5554595Z ========================== Starting Command Output ===========================
+2026-11-26T11:49:50.5558247Z [command]/bin/bash /opt/ads-agent/_work/_temp/20fcd7f0-a70e-44e5-bf06-3ef12e23a000.sh
+2026-11-26T11:49:50.7862426Z Waiting for rollout to finish: 1 old replicas are pending termination...
+2026-11-26T11:54:50.7869450Z E1126 08:54:50.786096   61987 streamwatcher.go:109] Unable to decode an event from the watch stream: net/http: request canceled (Client.Timeout exceeded while reading body)
+2026-11-26T11:54:50.7870042Z error: watch closed before Until timeout
+2026-11-26T11:54:50.7916111Z A aplicação não foi iniciada com sucesso!
+2026-11-26T11:54:50.7917808Z Os logs da aplicação estão disponíveis na próxima task: Logs da Aplicação
+2026-11-26T11:54:50.7940796Z ##[error]Bash exited with code '1'.
+2026-11-26T11:54:50.7969192Z ##[section]Finishing: Verificando Status do Deployment
 
 
 
 
+2026-11-26T11:54:50.7992017Z ##[section]Starting: Logs da Aplicação
+2026-11-26T11:54:50.7995187Z ==============================================================================
+2026-11-26T11:54:50.7995324Z Task         : Bash
+2026-11-26T11:54:50.7995366Z Description  : Run a Bash script on macOS, Linux, or Windows
+2026-11-26T11:54:50.7995439Z Version      : 3.227.0
+2026-11-26T11:54:50.7995481Z Author       : Microsoft Corporation
+2026-11-26T11:54:50.7995530Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/bash
+2026-11-26T11:54:50.7995610Z ==============================================================================
+2026-11-26T11:54:51.6663004Z Generating script.
+2026-11-26T11:54:51.6673833Z ========================== Starting Command Output ===========================
+2026-11-26T11:54:51.6680329Z [command]/bin/bash /opt/ads-agent/_work/_temp/de6f944b-ddf4-49aa-b3f5-5e2c925e0801.sh
+2026-11-26T11:54:51.6728336Z + shopt -s expand_aliases
+2026-11-26T11:54:51.6728494Z + [[ -n ocp_nprd ]]
+2026-11-26T11:54:51.6728660Z + [[ ocp_nprd =~ ocp ]]
+2026-11-26T11:54:51.6729816Z + app=sispx-pix-gestao-des
+2026-11-26T11:54:51.6729981Z + arquivo=/usr/local/bin/oc-v4.13
+2026-11-26T11:54:51.6731174Z + '[' -e /usr/local/bin/oc-v4.13 ']'
+2026-11-26T11:54:51.6731942Z + alias oc=/usr/local/bin/oc-v4.13
+2026-11-26T11:54:51.6732160Z + /usr/local/bin/oc-v4.13 version
+2026-11-26T11:54:51.7784294Z Client Version: 4.13.0-202307282024.p0.ge251b5e.assembly.stream-e251b5e
+2026-11-26T11:54:51.7784508Z Kustomize Version: v4.5.7
+2026-11-26T11:54:51.7784625Z Server Version: 4.15.59
+2026-11-26T11:54:51.7785576Z Kubernetes Version: v1.28.15+d227d65
+2026-11-26T11:54:51.7819786Z ++ /usr/local/bin/oc-v4.13 get pod -l name=sispx-pix-gestao-des -n sispx-des -o 'jsonpath={range .items[*]}{.metadata.name}{"\n"}' --sort-by=.metadata.creationTimestamp
+2026-11-26T11:54:51.7820698Z ++ tac
+2026-11-26T11:54:51.7821215Z ++ grep -v '^$'
+2026-11-26T11:54:51.7821356Z ++ head -n1
+2026-11-26T11:54:51.9069221Z + last_pod=sispx-pix-gestao-des-410-dtnfj
+2026-11-26T11:54:51.9069502Z + echo 'Logs do POD: sispx-pix-gestao-des-410-dtnfj'
+2026-11-26T11:54:51.9070050Z + /usr/local/bin/oc-v4.13 logs sispx-pix-gestao-des-410-dtnfj -c sispx-pix-gestao-des -n sispx-des
+2026-11-26T11:54:51.9070263Z Logs do POD: sispx-pix-gestao-des-410-dtnfj
+2026-11-26T11:54:52.0579039Z Error from server (BadRequest): container "sispx-pix-gestao-des" in pod "sispx-pix-gestao-des-410-dtnfj" is waiting to start: PodInitializing
+2026-11-26T11:54:52.0638674Z ##[error]Bash exited with code '1'.
+2026-11-26T11:54:52.0674880Z ##[section]Finishing: Logs da Aplicação
+
+
+
+
+
+ 
