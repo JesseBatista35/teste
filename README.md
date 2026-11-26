@@ -1,23 +1,4 @@
-Use Node 24.x
+<img width="1895" height="882" alt="image" src="https://github.com/user-attachments/assets/7bd9df90-4355-4517-9966-f165c755c5b3" />
 
-View raw log
-Starting: Use Node 24.x
-==============================================================================
-Task         : Node.js tool installer
-Description  : Finds or downloads and caches the specified version spec of Node.js and adds it to the PATH
-Version      : 0.225.0
-Author       : Microsoft Corporation
-Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/tool/node-js
-==============================================================================
-##[error]connect ETIMEDOUT 104.16.213.131:443
-##[warning]RetryHelper encountered task failure, will retry (attempt #: 1 out of 5) after 1000 ms
-##[error]connect ETIMEDOUT 104.16.212.131:443
-##[warning]RetryHelper encountered task failure, will retry (attempt #: 2 out of 5) after 4000 ms
-##[error]connect ETIMEDOUT 104.16.212.131:443
-##[warning]RetryHelper encountered task failure, will retry (attempt #: 3 out of 5) after 9000 ms
-##[error]connect ETIMEDOUT 104.16.213.131:443
-##[warning]RetryHelper encountered task failure, will retry (attempt #: 4 out of 5) after 16000 ms
-##[error]connect ETIMEDOUT 104.16.212.131:443
-##[warning]RetryHelper encountered task failure, will retry (attempt #: 5 out of 5) after 25000 ms
-##[error]connect ETIMEDOUT 104.16.212.131:443
-Finishing: Use Node 24.x
+
+no 19 tem isso aqui mais ta usando a 20.x
