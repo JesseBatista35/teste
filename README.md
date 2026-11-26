@@ -1,58 +1,10 @@
-Skip to main content
-Azure DevOps
-projetos
-/
-Caixa
-/
-Pipelines
-/
-SIISF-api
-/
-20261126.1504-0.0.1-SNAPSHOT
-Search
+nálise:
+A falha na task "Executando Build S2I Binary" (unexpected EOF no instantiatebinary) aconteceu porque o build siisf-api-1, no namespace build-images-ads do cluster produtos4, ficou travado em Running. O pod de build ficou esperando o binário de um upload que já tinha sido interrompido. Como o BuildConfig executa os builds em série, a segunda tentativa (siisf-api-2) ficou na fila com status New, e as execuções seguintes da pipeline caíam no mesmo erro.
 
+Ação realizada:
+Cancelamos os builds travados (siisf-api-1 e siisf-api-2) e limpamos o namespace build-images-ads. Depois disso, executamos a pipeline SIISF-api de novo.
 
-Caixa
+Resultado:
+A pipeline rodou com sucesso no run 20261126.1504-0.0.1-SNAPSHOT (build S2I concluída). O ambiente está normalizado e não houve alteração na pipeline nem no código da aplicação.
 
-Overview
-
-Boards
-
-Repos
-
-Pipelines
-Pipelines
-Environments
-Releases
-Library
-Task groups
-Deployment groups
-Portal Infra
-
-Test Plans
-
-Artifacts
-Project settings
-
-Jobs in run #20261126.1504-0.0.1-SNAPSHOT
-SIISF-api
-Agent job 1
-
-View raw log
-
-Pool: Build-Linux-OKD4
-Agent: azp-ads-agent-build-747bf9f777-mkpvm
-Started: Today at 15:04
-Duration: 2m 4s
-
-Job preparation parameters
-2 queue time variables used
-100% tests passed
-Showing 1 filtered items.
-
-Get started and run this pipeline for the first time!
-
-Row 2. Clickable
-
-Row 2. Clickable
-
+Em caso de nova ocorrência, favor reabrir a solicitação.
