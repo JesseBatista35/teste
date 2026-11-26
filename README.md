@@ -1,37 +1,27 @@
+Últimas verificações
 
--sh-4.2$
--sh-4.2$ oc get netnamespace | grep -E '10\.116\.223\.(9|13|18|20|22)\]'
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$ oc run teste-ns57r -n <ns> --rm -it --restart=Never --image=$IMG \
->   --overrides='{"metadata":{"annotations":{"sidecar.istio.io/inject":"false"}}}' \
->   --command -- python3 -c 'import socket;socket.create_connection(("sicsn.caixa",443),8);print("OK")'
--sh: ns: Arquivo ou diretório não encontrado
--sh-4.2$
--sh-4.2$
--sh-4.2$ ^C
--sh-4.2$ oc get netnamespace | grep -E '10\.116\.223\.(9|13|18|20|22)([^0-9]|$)'
-sigel-tqs                                          8318235    ["10.116.223.22"]
-silce-des                                          16222712   ["10.116.223.18"]
-silce-hmp                                          12369971   ["10.116.223.20"]
-simpi-des                                          12152335   ["10.116.223.9"]
-sispi-hmp                                          9220784    ["10.116.223.13"]
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$ NS=$(oc get netnamespace | grep -E '10\.116\.223\.(9|13|18|20|22)([^0-9]|$)' | awk 'NR==1{print $1}')
--sh-4.2$
--sh-4.2$
--sh-4.2$ echo "Testando a partir de: $NS"
-Testando a partir de: sigel-tqs
--sh-4.2$
--sh-4.2$ oc run teste-ns57r -n $NS --rm -it --restart=Never --image=$IMG \
->   --overrides='{"metadata":{"annotations":{"sidecar.istio.io/inject":"false"}}}' \
->   --command -- python3 -c 'import socket;socket.create_connection(("sicsn.caixa",443),8);print("OK")'
-OK
-pod "teste-ns57r" deleted
--sh-4.2$ oc get pods -n openshift-sdn -o wide | grep ns57r
-sdn-xfcxc              2/2       Running   2               159d      10.116.222.69    pixnprd4-x44wk-worker-0-ns57r     <none>           <none>
--sh-4.2$
+1. O .11 está em outro lugar dentro do cluster?
+
+bash
+oc get netnamespace | grep -E '10\.116\.223\.11([^0-9]|$)'
+oc get hostsubnet -o yaml | grep -n '10.116.223.11'
+oc logs -n openshift-sdn sdn-xfcxc -c sdn --since=72h | grep -i -E '10\.116\.223\.11|egress' | tail -30
+
+O esperado é aparecer só o sispx-des e só o ns57r.
+
+2. Duplicidade na rede. Rode a partir de uma VM na rede 10.116.208.0/20, ou peça para Redes:
+
+bash
+arping -D -I <iface> -c 3 10.116.223.11
+arping -I <iface> -c 3 10.116.223.11
+
+O MAC que responder tem que ser o do nó ns57r. Para obter esse MAC:
+
+bash
+oc debug node/pixnprd4-x44wk-worker-0-ns57r -- chroot /host ip -br link   # se tiver permissão
+Encaminhamento para Redes/INFRA
+O EgressIP 10.116.223.11 (namespace sispx-des, hospedado no nó pixnprd4-x44wk-worker-0-ns57r / 10.116.222.69) está sem saída para qualquer destino desde ~24/11.
+Outro EgressIP do mesmo nó (.22, sigel-tqs) sai normalmente, então o nó e o SDN estão ok.
+Pedido: verificar duplicidade de IP ou ARP/MAC do 10.116.223.11 na rede 10.116.208.0/20 (tabela ARP do gateway/switch) e se há alguma ACL específica para esse IP.
+
+Se Redes demorar, o time do cluster pode trocar o EgressIP do sispx-des como contorno. Isso tem um custo: todas as regras de firewall do SPX (banco, MQ, cofre, APIs) estão liberadas para o .11 e teriam que ser refeitas para o IP novo. Por isso o melhor caminho é achar quem está usando o .11.
