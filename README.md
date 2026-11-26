@@ -1,42 +1,62 @@
-Passo a passo (no oc)
 
-1. Cancelar o rollout travado. Isso libera os 256Mi do deployer.
+-sh-4.2$
+-sh-4.2$ oc get pods -n sidsc-des -o custom-columns=NOME:.metadata.name,STATUS:.status.phase,LIMIT_MEM:.spec.containers[*].resources.limits.memory
+NOME                                STATUS      LIMIT_MEM
+sidsc-portal-des-8-fnbpr            Running     512Mi,256Mi
+sidsc-portal-v16-des-50-deploy      Succeeded   256Mi
+sidsc-portal-v16-des-51-deploy      Succeeded   256Mi
+sidsc-portal-v16-des-51-zzgn6       Running     512Mi,256Mi
+sidsc-react-des-69-deploy           Succeeded   256Mi
+sidsc-react-des-70-deploy           Succeeded   256Mi
+sidsc-react-des-70-w62t5            Running     512Mi,256Mi
+sidsc-storybook-v19-des-78-deploy   Succeeded   256Mi
+sidsc-storybook-v19-des-79-deploy   Succeeded   256Mi
+sidsc-storybook-v19-des-79-hwqvt    Running     512Mi,256Mi
+sidsc-storybook-v20-des-1-deploy    Running     256Mi
+sidsc-storybook-v22-des-1-deploy    Succeeded   256Mi
+sidsc-storybook-v22-des-1-qpbbw     Running     512Mi,256Mi
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$ oc get dc,deploy -n sidsc-des
+NAME                                                         REVISION   DESIRED   CURRENT   TRIGGERED BY
+deploymentconfig.apps.openshift.io/sidsc-portal-des          8          1         1
+deploymentconfig.apps.openshift.io/sidsc-portal-v16-des      51         1         1
+deploymentconfig.apps.openshift.io/sidsc-react-des           70         1         1
+deploymentconfig.apps.openshift.io/sidsc-storybook-v19-des   79         1         1
+deploymentconfig.apps.openshift.io/sidsc-storybook-v20-des   1          2         0
+deploymentconfig.apps.openshift.io/sidsc-storybook-v22-des   1          1         1
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$ oc rollout cancel dc/sidsc-storybook-v20-des -n sidsc-des
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$ oc get dc sidsc-storybook-v20-des -n sidsc-des -o jsonpath='{range .spec.template.spec.containers[*]}{.name}{" -> "}{.resources}{"\n"}{end}'
+sidsc-storybook-v20-des -> map[limits:map[memory:512Mi cpu:500m] requests:map[cpu:500m memory:512Mi]]
+sidsc-storybook-v20-des-exporter -> map[]
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$ oc scale dc/sidsc-storybook-v20-des --replicas=1 -n sidsc-des
+deploymentconfig.apps.openshift.io/sidsc-storybook-v20-des scaled
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$ oc set resources dc/sidsc-storybook-v20-des -c <container-nginx> --limits=memory=256Mi --requests=memory=128Mi -n sidsc-des
+-sh: container-nginx: Arquivo ou diretório não encontrado
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$ oc scale dc/sidsc-storybook-v19-des --replicas=0 -n sidsc-des
+deploymentconfig.apps.openshift.io/sidsc-storybook-v19-des scaled
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$ oc rollout latest dc/sidsc-storybook-v20-des -n sidsc-des
+deploymentconfig.apps.openshift.io/sidsc-storybook-v20-des rolled out
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$ oc rollout status dc/sidsc-storybook-v20-des -n sidsc-des
+Waiting for rollout to finish: 0 of 1 updated replicas are available...
 
-bash
-oc rollout cancel dc/sidsc-storybook-v20-des -n sidsc-des
-
-2. Ver o nome e os limites dos containers do v20.
-
-bash
-oc get dc sidsc-storybook-v20-des -n sidsc-des -o jsonpath='{range .spec.template.spec.containers[*]}{.name}{" -> "}{.resources}{"\n"}{end}'
-
-3. Deixar o v20 com 1 réplica e baixar a memória do container do nginx (o de 512Mi; o de 256Mi deve ser um sidecar, não mexa nele).
-
-bash
-oc scale dc/sidsc-storybook-v20-des --replicas=1 -n sidsc-des
-oc set resources dc/sidsc-storybook-v20-des -c <container-nginx> --limits=memory=256Mi --requests=memory=128Mi -n sidsc-des
-
-4. Abrir espaço temporariamente: tirar o v19 do ar. É o mesmo time e é um Storybook antigo, mas combine antes com o pessoal do SIDSC.
-
-bash
-oc scale dc/sidsc-storybook-v19-des --replicas=0 -n sidsc-des
-
-5. Subir o v20.
-
-bash
-oc rollout latest dc/sidsc-storybook-v20-des -n sidsc-des
-oc rollout status dc/sidsc-storybook-v20-des -n sidsc-des
-Por que esses números
-Situação	Uso de memória
-Agora, sem o deployer do v20	5 × 768Mi = 3840Mi
-Com o v19 em 0	4 × 768Mi = 3072Mi
-Durante o deploy do v20 (+512Mi do pod, +256Mi do deployer)	3840Mi → cabe nos 4096Mi
-Depois do deploy, com o deployer finalizado	3584Mi
-
-O v19 não consegue voltar com a cota atual: ele precisaria de 768Mi, e sobram só 512Mi.
-
-Para não perder o ajuste
-Release do v20: o oc set resources e o oc scale são manuais, e a próxima release sobrescreve. Ajuste também na release (variáveis de réplicas e memória, ou o template que ela aplica): 1 réplica e 256Mi no container do nginx.
-Cota do sidsc-des: abra a solicitação para 8Gi de limits.memory. São 4 versões de Storybook (v19 a v22) mais portal, portal-v16 e react, além da folga para os rollouts. Com 4Gi não cabe.
-
-Se o passo 2 mostrar algo diferente (por exemplo, o container do nginx sendo o de 256Mi), me manda a saída que eu ajusto os comandos.
