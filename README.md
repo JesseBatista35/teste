@@ -185,4 +185,146 @@ Daniel Correa Paula.
 
 
 
+
+ERRO: Nao foram encontrados arquivos com segredos no diretorio '/usr/src/app/secrets_files'.
+
+Red Hat OpenShift
+
+
+
+p585600@corp.caixa.gov.br
+
+Administrator
+Home
+Operators
+Workloads
+Networking
+Storage
+Builds
+Observe
+Compute
+User Management
+Administration
+Service Mesh
+
+Project: sispx-des
+Pods
+Pod details
+Pod
+P
+sispx-pix-gestao-des-412-tbckt
+Init:Error
+
+Actions
+Details
+Metrics
+YAML
+Environment
+Logs
+Events
+Terminal
+Aggregated Logs
+Service Mesh
+Log stream ended.
+
+Container
+C
+secrets-check
+
+Current log
+Search
+Debug container
+
+Show full log
+
+Wrap lines
+Raw
+Download
+2 lines
+ERRO: Nao foram encontrados arquivos com segredos no diretorio '/usr/src/app/secrets_files'.
  
+Red Hat OpenShift
+
+
+
+p585600@corp.caixa.gov.br
+
+Administrator
+Home
+Operators
+Workloads
+Networking
+Storage
+Builds
+Observe
+Compute
+User Management
+Administration
+Service Mesh
+
+Project: sispx-des
+Pods
+Pod details
+Pod
+P
+sispx-pix-gestao-des-412-tbckt
+Init:CrashLoopBackOff
+
+Actions
+Details
+Metrics
+YAML
+Environment
+Logs
+Events
+Terminal
+Aggregated Logs
+Service Mesh
+Log stream ended.
+
+Container
+C
+secrets-agent-sidecar
+
+Current log
+Search
+Debug container
+
+Show full log
+
+Wrap lines
+Raw
+Download
+120 lines
+^
+File "/usr/local/lib/python3.13/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+retries = retries.increment(
+method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
+)
+File "/usr/local/lib/python3.13/site-packages/urllib3/util/retry.py", line 519, in increment
+raise MaxRetryError(_pool, url, reason) from reason # type: ignore[arg-type]
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='sicsn.caixa', port=443): Max retries exceeded with url: /BeyondTrust/api/public/v3/Auth/connect/token (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7f79fc20ccd0>, 'Connection to sicsn.caixa timed out. (connect timeout=30)'))
+During handling of the above exception, another exception occurred:
+Traceback (most recent call last):
+File "/usr/src/app/get_secrets_from_secret_safe.py", line 82, in main
+get_api_access_response = authentication_obj.get_api_access()
+File "/usr/local/lib/python3.13/site-packages/secrets_safe_library/authentication.py", line 159, in get_api_access
+oauth_response = self.oauth()
+File "/usr/local/lib/python3.13/site-packages/secrets_safe_library/authentication.py", line 125, in oauth
+response = self._req.post(
+endpoint_url,
+...<3 lines>...
+timeout=(self._timeout_connection_seconds, self._timeout_request_seconds),
+)
+File "/usr/local/lib/python3.13/site-packages/requests/sessions.py", line 637, in post
+return self.request("POST", url, data=data, json=json, **kwargs)
+~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+File "/usr/local/lib/python3.13/site-packages/requests/sessions.py", line 589, in request
+resp = self.send(prep, **send_kwargs)
+File "/usr/local/lib/python3.13/site-packages/requests/sessions.py", line 703, in send
+r = adapter.send(request, **kwargs)
+File "/usr/local/lib/python3.13/site-packages/requests/adapters.py", line 688, in send
+raise ConnectTimeout(e, request=request)
+requests.exceptions.ConnectTimeout: HTTPSConnectionPool(host='sicsn.caixa', port=443): Max retries exceeded with url: /BeyondTrust/api/public/v3/Auth/connect/token (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7f79fc20ccd0>, 'Connection to sicsn.caixa timed out. (connect timeout=30)'))
+2026-11-26 12:37:39,328 ERROR (e233e78a-e995-11f1-bff0-0a5819820eae) There was an error in the execution: HTTPSConnectionPool(host='sicsn.caixa', port=443): Max retries exceeded with url: /BeyondTrust/api/public/v3/Auth/connect/token (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7f79fc20ccd0>, 'Connection to sicsn.caixa timed out. (connect timeout=30)'))
