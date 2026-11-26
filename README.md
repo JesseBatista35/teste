@@ -1,32 +1,32 @@
+Teste para separar as duas causas
+bash
+# namespaces que saem pelos outros IPs do mesmo nó (ns57r)
+oc get netnamespace | grep -E '10\.116\.223\.(9|13|18|20|22)\]'
 
--sh-4.2$
--sh-4.2$
--sh-4.2$ oc get netnamespace sispi-des -o jsonpath='{.egressIPs}{"\n"}'
-[10.116.223.5]
--sh-4.2$ oc get netnamespace sispx-des -o yaml | grep -E 'time:|operation:|manager:'
-    manager: openshift-sdn-controller
-    operation: Update
-    time: 2024-04-01T18:32:01Z
-    manager: oc
-    operation: Update
-    time: 2024-04-01T18:32:34Z
--sh-4.2$ oc get hostsubnet | grep -E 'NAME|10.116.223'
-NAME                              HOST                              HOST IP          SUBNET           EGRESS CIDRS          EGRESS IPS
-pixnprd4-x44wk-worker-0-gp64t     pixnprd4-x44wk-worker-0-gp64t     10.116.222.99    25.131.0.0/23    ["10.116.192.0/19"]   ["10.116.223.4","10.116.223.14","10.116.223.24","10.116.223.5","10.116.223.12","10.116.223.17"]
-pixnprd4-x44wk-worker-0-lbxr9     pixnprd4-x44wk-worker-0-lbxr9     10.116.222.41    25.129.6.0/23    ["10.116.192.0/19"]   ["10.116.223.15","10.116.223.10","10.116.223.19","10.116.223.21","10.116.223.16"]
-pixnprd4-x44wk-worker-0-ns57r     pixnprd4-x44wk-worker-0-ns57r     10.116.222.69    25.130.4.0/23    ["10.116.192.0/19"]   ["10.116.223.22","10.116.223.9","10.116.223.11","10.116.223.20","10.116.223.18","10.116.223.13"]
-pixnprd4-x44wk-worker-0-rjg8j     pixnprd4-x44wk-worker-0-rjg8j     10.116.222.147   25.129.4.0/23    ["10.116.192.0/19"]   ["10.116.223.6","10.116.223.25","10.116.223.23","10.116.223.26"]
--sh-4.2$ oc run teste-egress -n sispx-des --rm -it --restart=Never --image=$IMG \
->   --overrides='{"metadata":{"annotations":{"sidecar.istio.io/inject":"false"}}}' \
->   --command -- python3 -c '
-> import socket
-> for h,p in [("api.des.caixa",8443),("cnpexdadvm01-scan4.extra.caixa.gov.br",1521),("sicsn.caixa",443)]:
->     try: socket.create_connection((h,p),8); print(h,p,"OK")
->     except Exception as e: print(h,p,"FALHA",e)'
-If you don't see a command prompt, try pressing enter.
+# testar saída a partir de um deles (troque <ns>)
+oc run teste-ns57r -n <ns> --rm -it --restart=Never --image=$IMG \
+  --overrides='{"metadata":{"annotations":{"sidecar.istio.io/inject":"false"}}}' \
+  --command -- python3 -c 'import socket;socket.create_connection(("sicsn.caixa",443),8);print("OK")'
 
-api.des.caixa 8443 FALHA timed out
-cnpexdadvm01-scan4.extra.caixa.gov.br 1521 FALHA timed out
-sicsn.caixa 443 FALHA timed out
-pod "teste-egress" deleted
--sh-4.2$
+# pod do SDN no nó e erros de egress
+oc get pods -n openshift-sdn -o wide | grep ns57r
+oc logs -n openshift-sdn <sdn-pod-do-ns57r> -c sdn --tail=200 | grep -i -E 'egress|10.116.223.11|arp'
+
+Para descartar duplicidade de IP, rode a partir de uma VM Linux na mesma rede 10.116.208.0/20:
+
+bash
+arping -D -I <iface> -c 3 10.116.223.11    # resposta = alguém mais tem o IP
+arping -I <iface> -c 3 10.116.223.11        # ver o MAC que responde
+
+Se o MAC que responder não for o do worker-0-ns57r (10.116.222.69), é duplicidade.
+
+Encaminhamento
+Resultado	Para quem
+Outros namespaces no ns57r também falham	Time do cluster pixnprd4: problema de egress no nó pixnprd4-x44wk-worker-0-ns57r. A saída rápida é reiniciar o pod sdn do nó ou mover os EgressIPs para outro nó
+Só o .11 falha / arping mostra outro MAC	Redes/INFRA: IP 10.116.223.11 duplicado. Identificar e remover quem está usando
+
+Se você não tiver acesso ao namespace openshift-sdn, já dá para escalar ao time do cluster com estas evidências:
+
+o sispi-des (EgressIP .5, nó gp64t) sai normalmente;
+o sispx-des (EgressIP .11, nó ns57r) não alcança nenhum destino.
+Como o Claude está se saindo nesta sess
