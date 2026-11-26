@@ -1,64 +1,153 @@
-<img width="1315" height="760" alt="image" src="https://github.com/user-attachments/assets/e47df0f8-f711-467d-95bd-48884045fba2" />
-
-
-<img width="1271" height="733" alt="image" src="https://github.com/user-attachments/assets/935b59bb-87af-4d03-ae02-4ea6e0f37bd2" />
-
-
-Tell them the units.
-Jesse Mouta Pereira Batista
-11:46
-Sim.
-Ilson Fogaca de Souza
-11:46
-Right.
-Roberto Leite Pereira
-11:46
-Jessé, se precisar de uma REC nova, eu abro, não tem problema, tá? Você me orienta aí, tá?
-Jesse Mouta Pereira Batista
-11:46
-Beleza.
-tranquilo vamos avaliar o erro aí a gente
-Roberto Leite Pereira
-11:46
-Yes.
-Valeu.
-Ilson Fogaca de Souza
-11:47
-É o seguinte, aqui, se eu carregar um arquivo com mais de 10 MB, ele vai dar ele, tá? Eu vou pegar um aqui para a gente testar.
-Tenho aqui com.
-Central Central Central Central Central Central Central Central.
-Jesse Mouta Pereira Batista
-11:48
-So.
-Ilson Fogaca de Souza
-11:48
-2016, tá?
-Jesse Mouta Pereira Batista
-11:48
-Yeah.
-Ilson Fogaca de Souza
-11:48
-Okay.
-Jesse Mouta Pereira Batista
-11:48
-Qual é um erro a consultar?
-Business.
-Ilson Fogaca de Souza
-11:48
-E desse o 500 aqui, tá?
-Aí, que que foi alterado?
-Lá no setembro, que foi que eu falei que dia 21?
-Nós alteramos, colocamos esse parâmetro aqui, ó.
-Some Marcos books size.
-E na época funcionou, tá, no Stand Alone.
-É, ele continua lá, está então.
-Jesse Mouta Pereira Batista
-11:49
-So.
-Ilson Fogaca de Souza
-11:49
-Okay.
-daqui para Anderson
-é eu fiz alguns testes ontem que daí parou de funcionar é e mas o fato é que e daí se eu se eu colocar por exemplo vou estar lá na tela
-Vamos pegar um arquivo menor de 10 MB aqui.
-Aqui eu tenho um chip um de Sousa pegar esse de Sousa aqui.
+2026-11-26T14:31:15.9156041Z ##[section]Starting: Deploy Pacote no JBOSS
+2026-11-26T14:31:15.9160850Z ==============================================================================
+2026-11-26T14:31:15.9160993Z Task         : Bash
+2026-11-26T14:31:15.9161061Z Description  : Run a Bash script on macOS, Linux, or Windows
+2026-11-26T14:31:15.9161172Z Version      : 3.227.0
+2026-11-26T14:31:15.9161256Z Author       : Microsoft Corporation
+2026-11-26T14:31:15.9161333Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/bash
+2026-11-26T14:31:15.9161439Z ==============================================================================
+2026-11-26T14:31:16.8878010Z Generating script.
+2026-11-26T14:31:16.8887348Z Script contents:
+2026-11-26T14:31:16.8888446Z ansible-playbook /opt/ads-agent/esteira-jboss-vm/site.yml --tags deploy -e sistema_ambiente=des -e quantidade_vm=1 -e url_deploy="`echo "http://binario.caixa:8081/repository/releases/br/gov/caixa/sigec/csc-ear/0.0.112.2/csc-ear-0.0.112.2.ear" | tr -d "\'"`" -e package_path=/opt/ads-agent/_work/r13622/a/binario/`basename http://binario.caixa:8081/repository/releases/br/gov/caixa/sigec/csc-ear/0.0.112.2/csc-ear-0.0.112.2.ear` -e package_hash=$(HASH_BUILD) -e http_context_default=csc-api -e site=$(site)
+2026-11-26T14:31:16.8891671Z ========================== Starting Command Output ===========================
+2026-11-26T14:31:16.8899962Z [command]/bin/bash /opt/ads-agent/_work/_temp/901aba14-caa7-4f0c-96bf-62d752c0283d.sh
+2026-11-26T14:31:16.8995219Z /opt/ads-agent/_work/_temp/901aba14-caa7-4f0c-96bf-62d752c0283d.sh: line 1: HASH_BUILD: comando não encontrado
+2026-11-26T14:31:16.8997373Z /opt/ads-agent/_work/_temp/901aba14-caa7-4f0c-96bf-62d752c0283d.sh: line 1: site: comando não encontrado
+2026-11-26T14:31:19.1046851Z 
+2026-11-26T14:31:19.1047405Z PLAY [local] *******************************************************************
+2026-11-26T14:31:19.1642776Z 
+2026-11-26T14:31:19.1643311Z PLAY [Configurando o DNS] ******************************************************
+2026-11-26T14:31:19.3522808Z 
+2026-11-26T14:31:19.3523310Z PLAY [local] *******************************************************************
+2026-11-26T14:31:19.3551166Z 
+2026-11-26T14:31:19.3551456Z PLAY [local] *******************************************************************
+2026-11-26T14:31:19.3583852Z 
+2026-11-26T14:31:19.3584561Z PLAY [Verificando serviços] ****************************************************
+2026-11-26T14:31:19.3668413Z 
+2026-11-26T14:31:19.3669266Z PLAY [Configuração LDAP] *******************************************************
+2026-11-26T14:31:19.3738050Z 
+2026-11-26T14:31:19.3738973Z PLAY [apache_des] **************************************************************
+2026-11-26T14:31:19.3771905Z 
+2026-11-26T14:31:19.3772256Z PLAY [jboss] *******************************************************************
+2026-11-26T14:31:19.3814507Z 
+2026-11-26T14:31:19.3814928Z PLAY [Instalando stack Jboss] **************************************************
+2026-11-26T14:31:19.3962798Z Thursday 26 November 2026  11:31:19 -0300 (0:00:00.353)       0:00:00.353 ***** 
+2026-11-26T14:31:19.9827615Z 
+2026-11-26T14:31:19.9828966Z TASK [Verificando o java versão esta instalado: 1.8.0_221] *********************
+2026-11-26T14:31:19.9829165Z ok: [caddeapllx763.agil.nprd.caixa.gov.br]
+2026-11-26T14:31:19.9829323Z ok: [caddeapllx756.agil.nprd.caixa.gov.br]
+2026-11-26T14:31:19.9872775Z Thursday 26 November 2026  11:31:19 -0300 (0:00:00.591)       0:00:00.944 ***** 
+2026-11-26T14:31:20.4757654Z 
+2026-11-26T14:31:20.4758633Z TASK [Verificando a versão do Java] ********************************************
+2026-11-26T14:31:20.4759287Z changed: [caddeapllx756.agil.nprd.caixa.gov.br]
+2026-11-26T14:31:20.5123625Z changed: [caddeapllx763.agil.nprd.caixa.gov.br]
+2026-11-26T14:31:20.5163760Z Thursday 26 November 2026  11:31:20 -0300 (0:00:00.528)       0:00:01.473 ***** 
+2026-11-26T14:31:20.5906142Z Thursday 26 November 2026  11:31:20 -0300 (0:00:00.074)       0:00:01.547 ***** 
+2026-11-26T14:31:20.9089580Z 
+2026-11-26T14:31:20.9090349Z TASK [Verifica ser o Jboss já foi instalado] ***********************************
+2026-11-26T14:31:20.9090915Z ok: [caddeapllx763.agil.nprd.caixa.gov.br]
+2026-11-26T14:31:20.9173827Z ok: [caddeapllx756.agil.nprd.caixa.gov.br]
+2026-11-26T14:31:20.9221329Z Thursday 26 November 2026  11:31:20 -0300 (0:00:00.331)       0:00:01.879 ***** 
+2026-11-26T14:31:20.9867443Z 
+2026-11-26T14:31:20.9868210Z TASK [Setando a versão do Jboss] ***********************************************
+2026-11-26T14:31:20.9868372Z ok: [caddeapllx763.agil.nprd.caixa.gov.br]
+2026-11-26T14:31:20.9938098Z ok: [caddeapllx756.agil.nprd.caixa.gov.br]
+2026-11-26T14:31:20.9978773Z Thursday 26 November 2026  11:31:20 -0300 (0:00:00.075)       0:00:01.955 ***** 
+2026-11-26T14:31:21.0528301Z Thursday 26 November 2026  11:31:21 -0300 (0:00:00.054)       0:00:02.010 ***** 
+2026-11-26T14:31:21.1091552Z Thursday 26 November 2026  11:31:21 -0300 (0:00:00.056)       0:00:02.066 ***** 
+2026-11-26T14:31:21.1655683Z Thursday 26 November 2026  11:31:21 -0300 (0:00:00.056)       0:00:02.122 ***** 
+2026-11-26T14:31:21.2229249Z Thursday 26 November 2026  11:31:21 -0300 (0:00:00.057)       0:00:02.180 ***** 
+2026-11-26T14:31:21.2771574Z Thursday 26 November 2026  11:31:21 -0300 (0:00:00.054)       0:00:02.234 ***** 
+2026-11-26T14:31:21.3296664Z Thursday 26 November 2026  11:31:21 -0300 (0:00:00.052)       0:00:02.286 ***** 
+2026-11-26T14:31:21.3838162Z Thursday 26 November 2026  11:31:21 -0300 (0:00:00.054)       0:00:02.341 ***** 
+2026-11-26T14:31:21.4361717Z 
+2026-11-26T14:31:21.4362291Z PLAY [jboss] *******************************************************************
+2026-11-26T14:31:21.4396147Z 
+2026-11-26T14:31:21.4396382Z PLAY [jboss] *******************************************************************
+2026-11-26T14:31:21.4431290Z 
+2026-11-26T14:31:21.4431686Z PLAY [jboss] *******************************************************************
+2026-11-26T14:31:21.4480999Z Thursday 26 November 2026  11:31:21 -0300 (0:00:00.064)       0:00:02.405 ***** 
+2026-11-26T14:31:23.0560493Z 
+2026-11-26T14:31:23.0561189Z TASK [Gathering Facts] *********************************************************
+2026-11-26T14:31:23.0561344Z ok: [caddeapllx756.agil.nprd.caixa.gov.br]
+2026-11-26T14:31:23.1166096Z ok: [caddeapllx763.agil.nprd.caixa.gov.br]
+2026-11-26T14:31:23.1333091Z Thursday 26 November 2026  11:31:23 -0300 (0:00:01.685)       0:00:04.090 ***** 
+2026-11-26T14:31:23.1947437Z 
+2026-11-26T14:31:23.1948306Z TASK [Setando a versão do Jboss] ***********************************************
+2026-11-26T14:31:23.1948528Z ok: [caddeapllx763.agil.nprd.caixa.gov.br]
+2026-11-26T14:31:23.2143918Z ok: [caddeapllx756.agil.nprd.caixa.gov.br]
+2026-11-26T14:31:23.2297901Z Thursday 26 November 2026  11:31:23 -0300 (0:00:00.096)       0:00:04.187 ***** 
+2026-11-26T14:31:23.9602531Z 
+2026-11-26T14:31:23.9603069Z TASK [Garante que o Jboss esteja startado] *************************************
+2026-11-26T14:31:23.9603225Z ok: [caddeapllx756.agil.nprd.caixa.gov.br]
+2026-11-26T14:31:24.0061336Z ok: [caddeapllx763.agil.nprd.caixa.gov.br]
+2026-11-26T14:31:24.0233349Z Thursday 26 November 2026  11:31:24 -0300 (0:00:00.793)       0:00:04.980 ***** 
+2026-11-26T14:31:24.5316602Z 
+2026-11-26T14:31:24.5317081Z TASK [Verifica o se package existe] ********************************************
+2026-11-26T14:31:24.5317266Z ok: [caddeapllx763.agil.nprd.caixa.gov.br]
+2026-11-26T14:31:24.5442137Z ok: [caddeapllx756.agil.nprd.caixa.gov.br]
+2026-11-26T14:31:24.5573891Z Thursday 26 November 2026  11:31:24 -0300 (0:00:00.534)       0:00:05.514 ***** 
+2026-11-26T14:31:25.7235828Z 
+2026-11-26T14:31:25.7236364Z TASK [Deploy do pacote Local] **************************************************
+2026-11-26T14:31:25.7236519Z ok: [caddeapllx763.agil.nprd.caixa.gov.br]
+2026-11-26T14:31:25.7508170Z ok: [caddeapllx756.agil.nprd.caixa.gov.br]
+2026-11-26T14:31:25.7541864Z 
+2026-11-26T14:31:25.7542219Z PLAY [local] *******************************************************************
+2026-11-26T14:31:25.7571098Z 
+2026-11-26T14:31:25.7572044Z PLAY [jboss] *******************************************************************
+2026-11-26T14:31:25.7599411Z 
+2026-11-26T14:31:25.7600030Z PLAY [jboss] *******************************************************************
+2026-11-26T14:31:25.7629903Z 
+2026-11-26T14:31:25.7630260Z PLAY [Copiando deployments adicionais] *****************************************
+2026-11-26T14:31:25.7666366Z 
+2026-11-26T14:31:25.7666945Z PLAY [Copiando modules adicionais] *********************************************
+2026-11-26T14:31:25.7700588Z 
+2026-11-26T14:31:25.7701238Z PLAY [local] *******************************************************************
+2026-11-26T14:31:25.7729090Z [WARNING]: Could not match supplied host pattern, ignoring: instance_restart
+2026-11-26T14:31:25.7731252Z 
+2026-11-26T14:31:25.7731510Z PLAY [instance_restart] ********************************************************
+2026-11-26T14:31:25.7731967Z skipping: no hosts matched
+2026-11-26T14:31:25.7735231Z [WARNING]: Could not match supplied host pattern, ignoring: machine_reboot
+2026-11-26T14:31:25.7740494Z 
+2026-11-26T14:31:25.7740946Z PLAY [machine_reboot] **********************************************************
+2026-11-26T14:31:25.7741138Z skipping: no hosts matched
+2026-11-26T14:31:25.7747307Z 
+2026-11-26T14:31:25.7747827Z PLAY [local] *******************************************************************
+2026-11-26T14:31:25.7770745Z [WARNING]: Could not match supplied host pattern, ignoring: instance_stop
+2026-11-26T14:31:25.7773353Z 
+2026-11-26T14:31:25.7773493Z PLAY [instance_stop] ***********************************************************
+2026-11-26T14:31:25.7773997Z skipping: no hosts matched
+2026-11-26T14:31:25.7777146Z 
+2026-11-26T14:31:25.7777398Z PLAY [machine_reboot] **********************************************************
+2026-11-26T14:31:25.7777637Z skipping: no hosts matched
+2026-11-26T14:31:25.7787164Z 
+2026-11-26T14:31:25.7787736Z PLAY [Configura TSM] ***********************************************************
+2026-11-26T14:31:25.7815084Z 
+2026-11-26T14:31:25.7815504Z PLAY [Configura Control-M] *****************************************************
+2026-11-26T14:31:25.7839460Z 
+2026-11-26T14:31:25.7839721Z PLAY RECAP *********************************************************************
+2026-11-26T14:31:25.7840222Z caddeapllx756.agil.nprd.caixa.gov.br : ok=9    changed=1    unreachable=0    failed=0    skipped=9    rescued=0    ignored=0   
+2026-11-26T14:31:25.7840629Z caddeapllx763.agil.nprd.caixa.gov.br : ok=9    changed=1    unreachable=0    failed=0    skipped=9    rescued=0    ignored=0   
+2026-11-26T14:31:25.7840769Z 
+2026-11-26T14:31:25.7841491Z Thursday 26 November 2026  11:31:25 -0300 (0:00:01.227)       0:00:06.741 ***** 
+2026-11-26T14:31:25.7841729Z =============================================================================== 
+2026-11-26T14:31:25.7842614Z Gathering Facts --------------------------------------------------------- 1.69s
+2026-11-26T14:31:25.7843103Z Deploy do pacote Local -------------------------------------------------- 1.23s
+2026-11-26T14:31:25.7843341Z Garante que o Jboss esteja startado ------------------------------------- 0.79s
+2026-11-26T14:31:25.7843585Z Verificando o java versão esta instalado: 1.8.0_221 --------------------- 0.59s
+2026-11-26T14:31:25.7843800Z Verifica o se package existe -------------------------------------------- 0.53s
+2026-11-26T14:31:25.7844024Z Verificando a versão do Java -------------------------------------------- 0.53s
+2026-11-26T14:31:25.7844311Z Verifica ser o Jboss já foi instalado ----------------------------------- 0.33s
+2026-11-26T14:31:25.7844543Z Setando a versão do Jboss ----------------------------------------------- 0.10s
+2026-11-26T14:31:25.7844755Z Setando a versão do Jboss ----------------------------------------------- 0.08s
+2026-11-26T14:31:25.7844964Z java : include ---------------------------------------------------------- 0.07s
+2026-11-26T14:31:25.7845165Z jboss : Copy template script -------------------------------------------- 0.06s
+2026-11-26T14:31:25.7845375Z jboss : Set file config to use domain.xml subsystem management ---------- 0.06s
+2026-11-26T14:31:25.7845868Z Determine variable jboss_domain_instance HC ----------------------------- 0.06s
+2026-11-26T14:31:25.7846080Z Determine variable jboss_domain_instance standalone --------------------- 0.06s
+2026-11-26T14:31:25.7846293Z Determine variable jboss_domain_instance DC ----------------------------- 0.05s
+2026-11-26T14:31:25.7846493Z jboss : Update domain.xml to use LDAP ----------------------------------- 0.05s
+2026-11-26T14:31:25.7846697Z jboss : Domain | Set service name --------------------------------------- 0.05s
+2026-11-26T14:31:25.7846902Z jboss : Standalone | Set service name ----------------------------------- 0.05s
+2026-11-26T14:31:25.7847039Z Playbook run took 0 days, 0 hours, 0 minutes, 6 seconds
+2026-11-26T14:31:25.8584622Z ##[section]Finishing: Deploy Pacote no JBOSS
