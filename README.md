@@ -19,3 +19,21 @@ Sugiro verificar a aba Waiting Info do job, ajustar ou remover a janela de horá
 Já deixei o monitoramento ativo no caddeapllx2501. Podem forçar o job dentro da janela (ou após o ajuste) e me avisar aqui? Se o job sair de Wait Condition e mesmo assim não chegar à máquina, aí marcamos uma call rápida para olharmos juntos.
 
 Assim você mostra boa vontade, deixa o próximo passo com eles e só aceita a call se a comunicação realmente falhar.
+
+
+
+Every 1,0s: ss -tn '( sport = :7016 or dport = :7015 )'; echo; ls -ltr /opt/ctmage/ctm/dailylog | tail -2...  caddeapllx2501.agil.nprd.caixa.gov.br: Thu Nov 26 14:21:34 2026
+
+State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess
+
+-rwxr--r-- 1 ctmagelx ctmagelx 4041 nov 11 17:12 daily_ctmag_20261111.log
+-rwxr--r-- 1 ctmagelx ctmagelx  960 nov 19 11:41 daily_ctmag_20261119.log
+-rw-r--r-- 1 root          root           1557 set 27  2024 094NG_1
+-rw------- 1 jboss         jboss         18595 set 27  2024 CMD.LOG_0094xj_00001
+
+-rwxr-xr-x 1 ctmagelx controlm  877 out 15 12:32 /producao/export_variables.sh
+-rwxr-xr-x 1 ctmagelx controlm    0 mar 11  2026 /producao/sample.sh
+-rwxr-xr-x 1 ctmagelx controlm 1339 out 15 12:32 /producao/script_simil_rotinas.sh
+-rwxr-xr-x 1 ctmagelx controlm  657 mar 11  2026 /producao/script_simil.sh
+-rwxr-xr-x 1 ctmagelx controlm 1339 nov 19 11:41 /producao/simil-precificacao-rotinas-batch.sh
+
