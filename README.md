@@ -1,26 +1,16 @@
+oc project sisou-des
+oc get pod -l name=sisou-sac-okd-des
+oc rsh <pod-running>
 
-Pressione <Control+D> IMEDIATAMENTE se voce nao concorda com as
-condicoes deste aviso
-***********************************************************************
-p585600@10.122.155.62's password:
-Last login: Thu Nov 26 09:59:19 2026 from 10.122.150.31
--sh-4.2$ oc login --token=s --server=https://api.nprd.caixa:6443
-Logged into "https://api.nprd.caixa:6443" as "p585600@corp.caixa.gov.br" using the token provided.
+# 1) Cadeia que o pod recebe da IndeCX, passando pelo proxydes
+keytool -printcert -sslserver indecx.com:443 \
+  -J-Dhttps.proxyHost=proxydes.caixa -J-Dhttps.proxyPort=80 \
+  | grep -E "^Certificate|Owner:|Issuer:|Valid from"
 
-You have access to 1007 projects, the list has been suppressed. You can list all projects with 'oc projects'
+# 2) Senha do truststore (no log ela aparece mascarada, mas na linha de comando do processo não)
+ps -ef | grep -o 'trustStorePassword=[^ ]*' | head -1
 
-Using project "sispx-des".
--sh-4.2$ echo | openssl s_client -connect indecx.com:443 -servername indecx.com \
->   -proxy proxydes.caixa:80 -showcerts 2>/dev/null | grep -E "s:|i:"
--sh-4.2$
--sh-4.2$
--sh-4.2$ keytool -list -v -keystore /opt/jboss/standalone/configuration/caixa-truststore-acteste-nprd-sisou-20260827.jks \
->   -storepass '<senha>' | grep -E "^Alias|^Owner:"
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$
-
-
-
+# 3) Conteúdo do truststore em uso
+keytool -list -v -storepass '<senha_do_passo_2>' \
+  -keystore /opt/jboss/standalone/configuration/caixa-truststore-acteste-nprd-sisou-20260827.jks \
+  | grep -E "^Alias|^Owner:"
