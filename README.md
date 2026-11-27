@@ -6,3 +6,9 @@ começo quebrar dia 26
 com isso
 
 ningm mecheu a ultima mexida foi dia 28/08
+
+
+
+<img width="1860" height="893" alt="image" src="https://github.com/user-attachments/assets/3d3a8d9b-3d5c-4f89-8c91-1c584a831be4" />
+
+
