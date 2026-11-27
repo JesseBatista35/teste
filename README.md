@@ -1,26 +1,18 @@
-Fala! A build do SIDSC-storybook-v21 passou (branch develop-v21, commit 82ab188d). Para isso, fiz dois ajustes direto na branch:
+Encerramento – 27/11/2026
 
-1) package.json
-A esteira roda os testes com cobertura (npm test -- --no-watch --coverage) para o Sonar, e faltava o pacote de cobertura do Vitest. A build parava com:
-Cannot find dependency '@vitest/coverage-v8'
+Demanda: revisão das configurações da esteira SICMU-intranet-update para o ambiente TQS.
 
-Incluí nas devDependencies, na mesma versão do vitest:
-"@vitest/coverage-v8": "^4.0.8"
+Diagnóstico:
+- O erro ManagedBeanCreationException (consultaOperacaoHabitacionalBean) em TQS é causado pela falha de autenticação dos datasources java:/db2cmu e java:/db2cdm no DB2 de TQS (jdbc:db2://10.216.80.111:446/RJKDB2DSDH).
+- O DB2 recusa o usuário SCMUTR01: SqlInvalidAuthorizationSpecException, ERRORCODE=-4214, SQLSTATE=28000.
+- A esteira, a VM (caddeapllx2540) e a configuração do JBoss foram validadas: URL, schema TQSCMU e usuário SCMUTR01 estão corretos para TQS, e a senha está sendo aplicada sem falha de substituição. A falha é da credencial no banco (senha expirada/revogada ou usuário sem acesso no RJKDB2DSDH), o que não é escopo da esteira.
 
-2) projects/sdsc/src/lib/components/header/header.spec.ts
-O teste "should create" do DscHeader falhava porque o mock do DscDrawerService só tinha o método open, e o drawer-outlet usa outros membros do serviço (isOpen, config):
-TypeError: this.drawerService.isOpen is not a function
-TypeError: this.config is not a function
+Ação realizada pela CESTI:
+- Corrigida a variável CONNECTOR do grupo SICMU-INTRANET-UPDATE-TQS, que apontava para um caminho inexistente. Novo valor: /opt/jboss-eap/standalone/configuration/sicmu_jconnector.properties (igual ao DES). Release executada e configuração validada na VM.
 
-Troquei o mock pelo serviço real, interceptando só o open:
-- removi a classe DrawerServiceMock;
-- nos providers, ficou DscDrawerService (o serviço real);
-- no beforeEach: drawer = TestBed.inject(DscDrawerService); vi.spyOn(drawer, 'open').mockImplementation(() => undefined);
+Orientação ao solicitante:
+- Solicitar ao time de banco/segurança a verificação e o reset/desbloqueio do usuário SCMUTR01 no DB2 de TQS (RJKDB2DSDH).
+- Com a nova senha, abrir nova requisição à CESTI para atualizar DB2_CMU_PWD e CICSCMU_PASS no grupo SICMU-INTRANET-UPDATE-TQS e executar a release.
+- Confirmar o valor da variável KEYSTORE_PASSWORD de TQS (está "pasword"; em DES é "password").
 
-Os testes que verificam drawer.open continuam iguais e funcionando.
-
-Resultado: 65 arquivos de teste e 908 testes rodando, cobertura gerada e build ok.
-
-Próximo passo é a release da v21 em DES. A configuração já está pronta (.s2i/bin na branch, sidsc-nginx.conf no repo de config e cota do namespace ampliada).
-
-Se forem mexer no DscDrawerService ou no drawer-outlet, vale conferir os specs que usam mock do serviço, porque pode acontecer a mesma coisa.
+Solicitante ciente da devolutiva. Demanda encerrada no escopo da esteira.
