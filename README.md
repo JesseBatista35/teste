@@ -1,9 +1,17 @@
-Matheus, explicando o que fizemos com a Node na v22 (develop-v22):
+a gisele disse isso 
 
-O Angular 22 exige no mínimo Node 22.22.3 ou 24.15. Os agentes da esteira só têm até a Node 22.13.1 instalada, e o download de outras versões pelo nodejs.org é bloqueado pelo proxy. Então, com a Node padrão dos agentes, a build da v22 nem começa (o próprio Angular CLI barra pela versão).
+bom dia,o problema nao é esse
+ 
+Digo o encoding de todo o sistema
+ 
+nao é a GJ4D
+ 
+depois me liga pra gente entender melhor
+ 
+eu peguei o mesmo problema no local ...mas o q fiz resolveu , tem q ver como faz pra resolver no ambiente
 
-O que eu fiz: no início da build, a esteira baixa a Node 24 pelo Nexus (via npm, pacote node-linux-x64) e usa ela só durante a execução. Não precisou de nada da infra e a pipeline passou completa.
 
-Mudar o projeto para Node 22 não resolveria, porque o mínimo do Angular 22 é a 22.22.3, que também não existe nos agentes. Então, por enquanto, seguimos com esse contorno. Do seu lado não precisa mudar nada.
 
-A v20 e a v21 não têm esse problema: o Angular 20/21 aceita a Node 22.13.1 dos agentes.
+ sobre isso que mandamos pra elaGisele Cristina Dias,
+ 
+ confirmei o encoding dos dois lados: legado e VM estão iguais, -Dfile.encoding=ISO-8859-1 nos três (intranet/internet/boleto). Então o encoding da JVM não mudou na migração — não é charset da VM. Como a GJ4D quebra só no EAP 7.4 e funciona no legado com o mesmo encoding, a diferença está na leitura da resposta pela lib legada no EAP 7 (mesma raiz do diagnóstico do Jeferson), não na config do servidor. O index 1978 indica resposta mais curta chegando ao parser — bate com a truncagem que o Jeferson viu na GJXC.
