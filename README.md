@@ -1,15 +1,33 @@
-E se a release ainda estiver com 2 réplicas, fica pior.
 
-Para confirmar, me manda o log do task que falhou (ou o erro em vermelho da release) e a saída de:
-
-bash
-oc get events -n sidsc-des --sort-by=.lastTimestamp | tail -10
-Como resolver
-Definitivo: aumentar a cota do sidsc-des (8Gi de limits.memory). Sem isso, nenhuma app do namespace consegue fazer rolling deploy com folga.
-Contorno para o v20: estratégia Recreate. O pod antigo sai antes do novo subir, então cabe: 3072 + 256 + 768 = 4096Mi. O custo é ficar alguns segundos fora do ar a cada deploy, o que é aceitável em DES.
-bash
-oc patch dc/sidsc-storybook-v20-des -n sidsc-des -p '{"spec":{"strategy":{"type":"Recreate"}}}'
-
-Se a release reaplicar o template do DC a cada execução, esse patch se perde. Nesse caso, o ajuste de estratégia (e de réplicas = 1) precisa ir no template ou nas variáveis da release.
-
-Reduzir o limite para 256Mi sozinho não resolve: o pod novo ficaria com 512Mi, e o total do rollout (4608Mi) ainda passa da cota.
+-sh-4.2$ oc get events -n sidsc-des --sort-by=.lastTimestamp | tail -10
+No resources found.
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$ oc project sidsc-des
+Now using project "sidsc-des" on server "https://api.nprd.caixa:6443".
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$ oc get events -n sidsc-des --sort-by=.lastTimestamp | tail -10
+No resources found.
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$ oc get pods
+NAME                                READY     STATUS      RESTARTS   AGE
+sidsc-portal-des-8-fnbpr            2/2       Running     0          471d
+sidsc-portal-v16-des-50-deploy      0/1       Completed   0          59d
+sidsc-portal-v16-des-51-deploy      0/1       Completed   0          21d
+sidsc-portal-v16-des-51-zzgn6       2/2       Running     0          21d
+sidsc-react-des-69-deploy           0/1       Completed   0          315d
+sidsc-react-des-70-deploy           0/1       Completed   0          272d
+sidsc-react-des-70-w62t5            2/2       Running     0          272d
+sidsc-storybook-v19-des-78-deploy   0/1       Completed   0          14d
+sidsc-storybook-v19-des-79-deploy   0/1       Completed   0          13d
+sidsc-storybook-v20-des-2-deploy    0/1       Completed   0          5h12m
+sidsc-storybook-v20-des-2-kfcmq     2/2       Running     0          5h12m
+sidsc-storybook-v20-des-3-deploy    0/1       Error       0          5h8m
+sidsc-storybook-v20-des-4-deploy    0/1       Error       0          4h49m
+sidsc-storybook-v22-des-1-deploy    0/1       Completed   0          5h30m
+sidsc-storybook-v22-des-1-qpbbw     2/2       Running     0          5h30m
+-sh-4.2$
+-sh-4.2$
+-sh-4.2$
