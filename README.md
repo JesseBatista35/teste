@@ -57,6 +57,7 @@
     "@storybook/addon-docs": "^10.4.6",
     "@storybook/angular": "^10.4.6",
     "@types/node": "^26.1.0",
+    "@vitest/coverage-v8": "^4.0.8",
     "jsdom": "^28.1.0",
     "ng-packagr": "^21.2.0",
     "prettier": "^3.8.1",
