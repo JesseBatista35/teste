@@ -33,3 +33,11 @@ root     2733278 2693427  0 10:02 pts/2    00:00:00 grep --color=auto jboss
 [root@caddeapllx955 p585600]# grep -i "default-encoding" /opt/jboss-eap/standalone/configuration/standalone-full-ha.xml
             <servlet-container name="default" default-encoding="ISO-8859-1">
 [root@caddeapllx955 p585600]#
+
+
+
+<img width="1240" height="818" alt="image" src="https://github.com/user-attachments/assets/a41ea777-01b0-4008-b8a0-55fdc4a8e2cb" />
+
+
+
+deu certo mais a gisele ta relcamosdo dos nomes olha o jeito que ta
