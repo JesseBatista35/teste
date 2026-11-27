@@ -1,32 +1,11 @@
+Os resultados confirmam o que dava para esperar com o sistema ocioso, mas falta checar uma coisa antes de dar por encerrado.
 
--sh-4.2$
--sh-4.2$ oc exec <pod> -n sifap-des -- jcmd 1 Thread.print | grep -A15 'executor-thread' | grep -c 'UniBlockingAwait'
--sh: pod: Arquivo ou diretório não encontrado
-0
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$ POD=sifap-centralizadora-backend-intranet-des-123-tpf5l
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$ oc exec $POD -n sifap-des -- jcmd -l
-time="2026-11-27T17:05:30-03:00" level=error msg="exec failed: unable to start container process: exec: \"jcmd\": executable file not found in $PATH"
-command terminated with exit code 255
--sh-4.2$
--sh-4.2$
--sh-4.2$ oc exec $POD -n sifap-des -- jcmd 8 Thread.print > /tmp/sifap-threads.txt
-time="2026-11-27T17:05:37-03:00" level=error msg="exec failed: unable to start container process: exec: \"jcmd\": executable file not found in $PATH"
-command terminated with exit code 255
--sh-4.2$ grep -c 'UniBlockingAwait' /tmp/sifap-threads.txt
-0
--sh-4.2$ grep -c '"executor-thread' /tmp/sifap-threads.txt
-0
--sh-4.2$
--sh-4.2$
--sh-4.2$ oc exec $POD -n sifap-des -- kill -3 8
--sh-4.2$
--sh-4.2$
--sh-4.2$ oc logs $POD -n sifap-des --tail=2000 | grep -c 'UniBlockingAwait'
-0
--sh-4.2$
+O jcmd não está no PATH. A imagem tem o JDK completo (/usr/java/jdk-21.0.1, segundo o log de start), então dá para chamar pelo caminho completo:
+bash
+oc exec $POD -n sifap-des -- /usr/java/jdk-21.0.1/bin/jcmd 8 Thread.print > /tmp/sifap-threads.txt
+O kill -3 funcionou. Não deu erro, então o PID 8 existe. O 0 no grep não prova que o dump saiu, porque pode só não ter caído nas últimas 2000 linhas. Confirme assim:
+bash
+oc logs $POD -n sifap-des --tail=5000 | grep -n 'Full thread dump'
+oc logs $POD -n sifap-des --tail=5000 | grep -c '"executor-thread'
+
+Se aparecer Full thread dump e as executor-thread estiverem em WAITING/parked no pool, e não em UniBlockingAwait, o backend está saudável agora. Faz sentido: às 17h de sexta ninguém está homologando.
