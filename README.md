@@ -1,23 +1,11 @@
+# como o JBoss é iniciado aqui (service, init.d ou script)
+systemctl list-unit-files | grep -i -E 'jboss|eap'
+ls -l /etc/init.d/ | grep -i -E 'jboss|eap'
 
-[p585600@srjdeapllx158 ~]$
-[p585600@srjdeapllx158 ~]$ sudo su
-[root@srjdeapllx158 p585600]#
-[root@srjdeapllx158 p585600]#
-[root@srjdeapllx158 p585600]#
-[root@srjdeapllx158 p585600]# ps -ef | grep -i [j]boss
-[root@srjdeapllx158 p585600]#
-[root@srjdeapllx158 p585600]#
-[root@srjdeapllx158 p585600]# ps -ef | grep -i [j]boss
-[root@srjdeapllx158 p585600]#
-[root@srjdeapllx158 p585600]#
-[root@srjdeapllx158 p585600]#
-[root@srjdeapllx158 p585600]# ss -lntp | grep -E '9999|9990'
-[root@srjdeapllx158 p585600]#
-[root@srjdeapllx158 p585600]#
-[root@srjdeapllx158 p585600]# ps -ef | grep jboss
-root       9764   7560  0 16:35 pts/1    00:00:00 grep --color=auto jboss
-[root@srjdeapllx158 p585600]#
-[root@srjdeapllx158 p585600]#
-[root@srjdeapllx158 p585600]# ps -ef | grep java
-root      10008   7560  0 16:36 pts/1    00:00:00 grep --color=auto java
-[root@srjdeapllx158 p585600]#
+# instalação e modo (domain ou standalone)
+ls -l /opt/jboss/ /opt/jboss/jboss-eap/ 2>/dev/null
+ls /opt/jboss/jboss-eap/domain/configuration/ 2>/dev/null
+
+# NFS de módulos e outros mounts: precisam estar montados ANTES de subir
+df -hT | grep -i nfs
+grep -i nfs /etc/fstab
