@@ -1,4 +1,15 @@
-Mensagem pra Gisele:
-Gisele, peguei os bytes crus da resposta do SIROT no log: o "ç" vem como byte 0xC8 e o "í" como 0xD5, com o resto do texto em ASCII limpo. Em ISO-8859-1 esses bytes são È e Õ — é por isso que os nomes do menu embaralham. Ou seja, o mainframe manda os acentos numa tabela própria (não é ISO padrão), e a conversão que o legado aplica não está surtindo efeito no EAP 7.4 — bate com a frente das libs ceflib/sirot do Jeferson. Tem algum ponto no código (ou config da ceflib) que faz a conversão/de-para dos acentos da resposta do SIROT? É aí que precisa atuar — não é charset da JVM, que já está certo pro parser.
+<img width="1056" height="651" alt="image" src="https://github.com/user-attachments/assets/d65f820f-5ff3-4c66-9e97-2180b708d330" />
 
-Se quiser, eu pego mais alguns bytes de acento no log (á, ã, ó, ê) pra tentar identificar se é uma tabela conhecida ou 100% proprietária — mas o encaminhamento já é esse: conversão no lado da aplicação/ceflib. Quer que eu puxe mais amostras?
+
+acho q esta mesma coisa kkkk
+ 
+acho q a gora é problema de encoding no próprio banco de dados
+ 
+q tbm ´precisa ser resolvido no legado
+ 
+entendeuuu??
+ 
+sorry
+
+
+ elsa disse que no legado ta do meso jeito
