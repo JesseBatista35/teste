@@ -14,6 +14,8 @@ class BreakpointObserverMock {
 
 class DrawerServiceMock {
   open = vi.fn();
+  close = vi.fn();
+  isOpen = vi.fn(() => false);
 }
 
 type CompAny = any;
