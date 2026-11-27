@@ -1,29 +1,42 @@
-Correção no cxextrlx038, como root:
 
-bash
-# backup
-cp -p /etc/hosts /etc/hosts.bkp_20261127
+[root@cxextrlx038 p585600]#
+[root@cxextrlx038 p585600]#
+[root@cxextrlx038 p585600]#
+[root@cxextrlx038 p585600]#
+[root@cxextrlx038 p585600]# cp -p /etc/hosts /etc/hosts.bkp_20261127
+[root@cxextrlx038 p585600]#
+[root@cxextrlx038 p585600]#
+[root@cxextrlx038 p585600]# echo "10.116.200.250  caddeapllx2501  caddeapllx2501.agil.nprd.caixa.gov.br" >> /etc/hosts
+[root@cxextrlx038 p585600]#
+[root@cxextrlx038 p585600]#
+[root@cxextrlx038 p585600]#
+[root@cxextrlx038 p585600]# getent hosts caddeapllx2501.agil.nprd.caixa.gov.br
+10.116.200.250  caddeapllx2501 caddeapllx2501.agil.nprd.caixa.gov.br
+[root@cxextrlx038 p585600]#
+[root@cxextrlx038 p585600]# getent hosts caddeapllx2501
+10.116.200.250  caddeapllx2501 caddeapllx2501.agil.nprd.caixa.gov.br
+[root@cxextrlx038 p585600]#
+[root@cxextrlx038 p585600]#
+[root@cxextrlx038 p585600]# su - controlm
+Last login: Thu Nov 26 12:55:01 -03 2026
+cxextrlx038.desenvolvimento.extracaixa%
+cxextrlx038.desenvolvimento.extracaixa%
+cxextrlx038.desenvolvimento.extracaixa% ctm_agstat -LIST caddeapllx2501.agil.nprd.caixa.gov.br
 
-# inclui o agente no mesmo padrão dos demais
-echo "10.116.200.250  caddeapllx2501  caddeapllx2501.agil.nprd.caixa.gov.br" >> /etc/hosts
+Time Stamp :
+-------------
+11/27/2026 11:18:09
 
-# valida
-getent hosts caddeapllx2501.agil.nprd.caixa.gov.br
-getent hosts caddeapllx2501
+Agent caddeapllx2501.agil.nprd.caixa.gov.br is Discovering
+cxextrlx038.desenvolvimento.extracaixa% ctmping -HOSTID caddeapllx2501.agil.nprd.caixa.gov.br -DISCOVER Y
 
-Depois, com o usuário do Control-M (controlm):
+The host type for host ID caddeapllx2501.agil.nprd.caixa.gov.br is unknown. Please wait for the host discovery to complete.
+cxextrlx038.desenvolvimento.extracaixa% ctm_agstat -LIST caddeapllx2501.agil.nprd.caixa.gov.br
 
-bash
-su - controlm
-ctm_agstat -LIST caddeapllx2501.agil.nprd.caixa.gov.br
-ctmping -HOSTID caddeapllx2501.agil.nprd.caixa.gov.br -DISCOVER Y
-ctm_agstat -LIST caddeapllx2501.agil.nprd.caixa.gov.br
+Time Stamp :
+-------------
+11/27/2026 11:18:10
 
-O ctmping precisa terminar com sucesso, e o ctm_agstat precisa mostrar o agente como Available. Se o primeiro agstat mostrar Disabled, me avisa antes de rodar o ping, porque nesse caso o agente precisa ser habilitado primeiro.
-
-Quando o agente estiver Available, a equipe deles precisa:
-
-tirar o job do Hold (Free);
-forçar a execução de novo, de preferência dentro da janela, porque o Run Now continua bloqueado.
-
-Deixe o watch rodando no 2501 durante o teste. Desta vez deve aparecer a conexão de 10.192.224.54 na 7016 e um sysout novo.
+Agent caddeapllx2501.agil.nprd.caixa.gov.br is Discovering
+cxextrlx038.desenvolvimento.extracaixa%
+cxextrlx038.desenvolvimento.extracaixa%
