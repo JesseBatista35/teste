@@ -1,17 +1,7 @@
-a gisele disse isso 
+Gisele, você falou que resolveu o encoding no seu local — o que exatamente você mudou? Foi:
 
-bom dia,o problema nao é esse
- 
-Digo o encoding de todo o sistema
- 
-nao é a GJ4D
- 
-depois me liga pra gente entender melhor
- 
-eu peguei o mesmo problema no local ...mas o q fiz resolveu , tem q ver como faz pra resolver no ambiente
+config do Undertow / servlet-container (ex: default-encoding)?
+algum web.xml / setCharacterEncoding na aplicação?
+ou uma system property?
 
-
-
- sobre isso que mandamos pra elaGisele Cristina Dias,
- 
- confirmei o encoding dos dois lados: legado e VM estão iguais, -Dfile.encoding=ISO-8859-1 nos três (intranet/internet/boleto). Então o encoding da JVM não mudou na migração — não é charset da VM. Como a GJ4D quebra só no EAP 7.4 e funciona no legado com o mesmo encoding, a diferença está na leitura da resposta pela lib legada no EAP 7 (mesma raiz do diagnóstico do Jeferson), não na config do servidor. O index 1978 indica resposta mais curta chegando ao parser — bate com a truncagem que o Jeferson viu na GJXC.
+Me passa o parâmetro/valor certinho que você usou, que eu aplico o equivalente no JBoss da VM (via standalone/esteira) e a gente testa.
