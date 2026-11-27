@@ -1,42 +1,16 @@
+Aguarde um pouco e repita:
 
-[root@cxextrlx038 p585600]#
-[root@cxextrlx038 p585600]#
-[root@cxextrlx038 p585600]#
-[root@cxextrlx038 p585600]#
-[root@cxextrlx038 p585600]# cp -p /etc/hosts /etc/hosts.bkp_20261127
-[root@cxextrlx038 p585600]#
-[root@cxextrlx038 p585600]#
-[root@cxextrlx038 p585600]# echo "10.116.200.250  caddeapllx2501  caddeapllx2501.agil.nprd.caixa.gov.br" >> /etc/hosts
-[root@cxextrlx038 p585600]#
-[root@cxextrlx038 p585600]#
-[root@cxextrlx038 p585600]#
-[root@cxextrlx038 p585600]# getent hosts caddeapllx2501.agil.nprd.caixa.gov.br
-10.116.200.250  caddeapllx2501 caddeapllx2501.agil.nprd.caixa.gov.br
-[root@cxextrlx038 p585600]#
-[root@cxextrlx038 p585600]# getent hosts caddeapllx2501
-10.116.200.250  caddeapllx2501 caddeapllx2501.agil.nprd.caixa.gov.br
-[root@cxextrlx038 p585600]#
-[root@cxextrlx038 p585600]#
-[root@cxextrlx038 p585600]# su - controlm
-Last login: Thu Nov 26 12:55:01 -03 2026
-cxextrlx038.desenvolvimento.extracaixa%
-cxextrlx038.desenvolvimento.extracaixa%
-cxextrlx038.desenvolvimento.extracaixa% ctm_agstat -LIST caddeapllx2501.agil.nprd.caixa.gov.br
+bash
+ctm_agstat -LIST caddeapllx2501.agil.nprd.caixa.gov.br
+ctmping -HOSTID caddeapllx2501.agil.nprd.caixa.gov.br -DISCOVER Y
 
-Time Stamp :
--------------
-11/27/2026 11:18:09
+Enquanto isso, no 2501 (10.116.200.250), confira se a conexão do servidor chegou:
 
-Agent caddeapllx2501.agil.nprd.caixa.gov.br is Discovering
-cxextrlx038.desenvolvimento.extracaixa% ctmping -HOSTID caddeapllx2501.agil.nprd.caixa.gov.br -DISCOVER Y
+bash
+ss -tn '( sport = :7016 or dport = :7015 )'
+ls -ltr /opt/ctmage/ctm/dailylog | tail -2
 
-The host type for host ID caddeapllx2501.agil.nprd.caixa.gov.br is unknown. Please wait for the host discovery to complete.
-cxextrlx038.desenvolvimento.extracaixa% ctm_agstat -LIST caddeapllx2501.agil.nprd.caixa.gov.br
+O que esperar:
 
-Time Stamp :
--------------
-11/27/2026 11:18:10
-
-Agent caddeapllx2501.agil.nprd.caixa.gov.br is Discovering
-cxextrlx038.desenvolvimento.extracaixa%
-cxextrlx038.desenvolvimento.extracaixa%
+Available: resolvido. Falta só o time deles tirar o job do Hold (Free) e testar.
+Se continuar em Discovering ou mudar para Unavailable depois de uns 2 minutos: me manda a saída do ctmping e o resultado do ss no 2501. Se nada chegar na 7016, o problema volta a ser de rede no sentido servidor → agente.
