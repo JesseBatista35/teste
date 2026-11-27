@@ -1,19 +1,11 @@
+Carine, Ricardo, analisei o backend da Centralizadora em DES (pod, logs, threads, banco) e no momento está tudo saudável: sem reinícios, sem erros e sem travamentos.
 
--sh-4.2$
--sh-4.2$
--sh-4.2$ oc exec $POD -n sifap-des -- kill -3 8
--sh-4.2$
--sh-4.2$
--sh-4.2$ oc logs $POD -n sifap-des --tail=2000 | grep -c 'UniBlockingAwait'
-0
--sh-4.2$ oc exec $POD -n sifap-des -- /usr/java/jdk-21.0.1/bin/jcmd 8 Thread.print > /tmp/sifap-threads.txt
--sh-4.2$
--sh-4.2$
--sh-4.2$
--sh-4.2$ oc logs $POD -n sifap-des --tail=5000 | grep -n 'Full thread dump'
-4456:Full thread dump OpenJDK 64-Bit Server VM (21.0.1+12-29 mixed mode, sharing):
--sh-4.2$
--sh-4.2$
--sh-4.2$ oc logs $POD -n sifap-des --tail=5000 | grep -c '"executor-thread'
-2
--sh-4.2$
+Para seguir com a REQ000147212537 preciso de uma evidência da falha. Pode ser:
+
+Data e hora exatas em que ocorreu (e em qual ambiente: DES, TQS ou HMP)
+Qual tela/funcionalidade e o que aparece (mensagem de erro, tela travada, lentidão de X segundos)
+Print da aba Network do navegador (F12) mostrando a requisição que falhou: URL, status e tempo
+
+Se conseguirem me chamar no momento em que acontecer, consigo capturar o estado da aplicação na hora.
+
+Também deixo um ponto para o time de desenvolvimento: a busca de farmácias faz chamadas externas (Receita e Siico via API Gateway) sem timeout configurado (await().indefinitely() no SiicoPessoaService). Se o gateway ficar lento, a aplicação pode travar. Recomendo configurar timeout e cache nessas chamadas e baixar os logs de DEBUG para INFO, porque hoje o log está expondo apikey e token.
