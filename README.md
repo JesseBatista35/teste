@@ -1,35 +1,35 @@
- 
- 
- 
- 
-[SIGSJ Intranet - JBoss EAP 7.4] Diagnóstico Técnico de Codificação de Caracteres (ISO-8859-1 vs. UTF-8)
- 
-1. Contexto e Comportamento Observado
-Após a estabilização da comunicação com o Mainframe (SIROT) no ambiente de desenvolvimento (caddeapllx955), identificou-se que a aplicação apresenta falha de renderização de caracteres acentuados (ex.: ConvÔnios, DepÓsitos, PrecatÓrio, NegÓcio, ContÁbil) nos rótulos dinâmicos do menu lateral e em telas específicas, enquanto textos estáticos do cabeçalho da página (ex.: Função, Versão) são exibidos corretamente.
- 
- 
-2. Auditoria da Camada de Infraestrutura e Configuração
-Foi realizada a auditoria completa de codificação em todas as camadas do servidor (caddeapllx955) e nos descritores da aplicação, confirmando que o ambiente está integralmente padronizado em ISO-8859-1 (padrão exigido para integração com o Mainframe/COBOL):
- 
-Camada / Componente	Parâmetro / Configuração	Valor Verificado
-JVM (JBoss EAP 7.4)	-Dfile.encoding	ISO-8859-1
-Subsistema de reboque	default-encoding( servlet-container=default)	ISO-8859-1
-Descritor Web (web.xml)	facelets.encoding	ISO-8859-1
-Construir Maven ( pom.xml)	project.build.sourceEncoding	ISO-8859-1
-SIROT Retornar ( GJ4D)	Payload bruto da descida (Mainframe)	Bytes emISO-8859-1
- 
-3. Causa Raiz (Evidências Extraídas do Artefato Implantado)
-A divergência ocorre na camada de apresentação/código-fonte da aplicação por dois fatores comprovados no pacote sigsj_intranet.war:
- 
-Arquivos .xhtml salvos fisicamente em UTF-8 no repositório:
-Apesar de o pom.xml e o web.xml declararem ISO-8859-1, a inspeção via file -i nos arquivos empacotados dentro do WAR comprovou que 19 arquivos .xhtml foram salvos em charset=utf-8. Quando o Facelets realiza a leitura desses arquivos utilizando facelets.encoding=ISO-8859-1, os bytes multibyte UTF-8 são interpretados incorretamente como caracteres Latin-1.
-Dupla conversão / dessincronia no fluxo de renderização do Menu (MenuDAOSirot / transação GJ4D):
-Nos logs de execução da transação GJ4D ([SIROT-DIAG]), o Mainframe envia os bytes originais em ISO-8859-1 (ex.: byte 0xEA para ê em Convênio e 0xE1 para á em Análise). Contudo, durante o ciclo de renderização JSF/RichFaces (default.jsp / template do menu), ocorre dessincronia entre o encoding lido da String Java e o charset declarado no cabeçalho HTTP/HTML entregue ao navegador.
- 
- 
-4. Ações Recomendadas para o Time de Desenvolvimento
-Padronizar a codificação dos templates para ISO-8859-1 no Git:
-Converter os 19 arquivos .xhtml abaixo de UTF-8 para ISO-8859-1 (e configurar o editor/IDE do projeto para forçar ISO-8859-1 em arquivos .xhtml e .properties):
+IGSJ Intranet — Análise consolidada: encoding / acentuação (DES, caddeapllx955)
+
+Resumo: o ambiente (infra/esteira) está correto e padronizado em ISO-8859-1. O embaralhamento de acentos no menu tem causa no artefato da aplicação, não na infra — correção no lado do desenvolvimento.
+
+1. Infra / esteira — OK (auditado)
+Todas as camadas estão padronizadas em ISO-8859-1, como exige a integração com o Mainframe:
+
+JVM (-Dfile.encoding) = ISO-8859-1
+Undertow (default-encoding na servlet-container) = ISO-8859-1
+web.xml (facelets.encoding) = ISO-8859-1
+pom.xml (sourceEncoding) = ISO-8859-1
+Payload do SIROT (GJ4D) = bytes em ISO-8859-1
+
+O parser do SIROT (erro StringIndexOutOfBounds na GJ4D) foi resolvido com esse padrão — a aplicação sobe, loga e responde. Essa parte está concluída e commitada na esteira.
+
+2. Causa do acento embaralhado — artefato da aplicação (lado dev)
+A auditoria do Jeferson (via file -i nos arquivos dentro do sigsj_intranet.war) comprovou 2 fatores:
+
+a) 19 arquivos .xhtml salvos fisicamente em UTF-8 no repositório, apesar de pom/web.xml declararem ISO-8859-1. Quando o Facelets lê esses arquivos como ISO-8859-1, os bytes UTF-8 são interpretados errado → é o que embaralha os rótulos do menu.
+
+b) Dessincronia no fluxo de renderização do menu (MenuDAOSirot / GJ4D): possível conversão dupla entre o encoding da String Java e o charset declarado no cabeçalho HTTP/HTML.
+
+3. Ações recomendadas (desenvolvimento)
+
+Converter os 19 .xhtml de UTF-8 → ISO-8859-1 no Git e forçar ISO-8859-1 no editor/IDE para .xhtml e .properties.
+Revisar no parser da GJ4D (SirotProcessar / MenuDAOSirot) e no template principal (default.jsp / <f:view> / <meta>) se não há conversão explícita de UTF-8 sobre uma String já decodificada em ISO-8859-1.
+
+4. Observação
+O mesmo comportamento aparece no legado, então não é regressão da migração — é encoding de artefato/código, pré-existente, que a migração para o EAP 7.4 (leitura mais estrita do Facelets) deixou visível. Não é pendência da esteira.
+
+Lista dos 19 .xhtml a converter:
+
 WEB-INF/facelet/guia/guiaFederalINSS.xhtml
 WEB-INF/facelet/guia/guiaFederalSRF.xhtml
 consulta-gerencial/manutencao-forme-reinf/filtro.xhtml
@@ -49,12 +49,5 @@ precatorio-e-rpv/consulta-contas-vinculadas/lista.xhtml
 tabela-de-apoio/orgaos-lei1209909/breadcrumb.xhtml
 tabela-de-apoio/parametros/faixa-de-contas/listaFaixa.xhtml
 tabela-de-apoio/parametros/log-de-erros/relatorio.xhtml
-Revisar a conversão de encoding no parser SIROT / template principal (default.jsp):
-Verificar no parser de resposta da transação GJ4D (SirotProcessar / MenuDAOSirot) e nas tags <meta http-equiv="Content-Type"> / <f:view> do layout principal se não há conversão explícita de UTF-8 sobre uma String já decodificada em ISO-8859-1 pela JVM.
- 
- 
- 
- 
- 
- 
- 
+
+Quer que eu deixe uma versão mais curta (só o resumo + as 3 ações), pra mandar primeiro, e esse completo como detalhamento?
