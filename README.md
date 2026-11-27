@@ -1,17 +1,11 @@
+# o nome curto resolve?
+getent hosts caddeapllx2501
 
-[sudo] password for p585600:
-[root@cxextrlx038 p585600]#
-[root@cxextrlx038 p585600]#
-[root@cxextrlx038 p585600]#
-[root@cxextrlx038 p585600]#
-[root@cxextrlx038 p585600]# ctm_agstat -LIST caddeapllx2501.agil.nprd.caixa.gov.br
-bash: ctm_agstat: command not found
-[root@cxextrlx038 p585600]# nslookup caddeapllx2501.agil.nprd.caixa.gov.br
-Server:         10.192.224.137
-Address:        10.192.224.137#53
+# outros agentes da esteira estão no /etc/hosts?
+grep -iE "caddeapl|agil.nprd" /etc/hosts | head -20
 
-** server can't find caddeapllx2501.agil.nprd.caixa.gov.br: NXDOMAIN
+# DNS e search domain usados
+cat /etc/resolv.conf
 
-[root@cxextrlx038 p585600]# ctmping -HOSTID caddeapllx2501.agil.nprd.caixa.gov.br -DISCOVER Y
-bash: ctmping: command not found
-[root@cxextrlx038 p585600]#
+# usuário dono do Control-M/Server
+ps -ef | grep -E "p_ctm|ctmsrv" | grep -v grep | head -5
