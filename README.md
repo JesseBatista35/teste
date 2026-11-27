@@ -1,27 +1,11 @@
-Antes de mandar, confira se o EAR realmente não tem a lib:
+Fabio, achei a causa do gec-ear.ear.failed no batch (caddeapllx2884).
 
-unzip -l /opt/jboss-eap/standalone/deployments/gec-ear.ear | grep -i lang3
+O gec-api.war não sobe porque o JaxRsActivator dá NoClassDefFoundError: org/apache/commons/lang3/StringUtils (ClassNotFoundException no módulo deployment.gec-ear.ear).
 
-Se não aparecer nada, está confirmado. Se aparecer, me cole a saída, porque aí o problema seria de classloading e não de empacotamento.
+Conferi o EAR publicado (unzip -l gec-ear.ear | grep lang3) e não tem nenhuma lib commons-lang3 dentro. Ela não está sendo empacotada no build.
 
-Sobre o travamento dos timers (ACTC403): com o gec-ear falhando, o WFLYEJB0241 pode ser só consequência. Vale rever depois que o EAR subir.
+Precisa ajustar no gec-ear/pom.xml (dependência commons-lang3 com scope compile, para entrar no lib/ do EAR) e gerar novo build.
 
-cade o comando apra  pegasr  olog inteiro no bnastian
+O JBoss está de pé e os demais deployments estão OK (framework.jar, framework_sisgd.jar, wmq.jmsra.rar). Só o gec-ear.ear fica FAILED, e por isso a task Check Deployments fica nos 2 loops de 60 tentativas (~11 min).
 
-No bastion (o 100), rode isto:
-
-scp p585600@10.116.202.70:/logs/jboss/jboss-eap/standalone/sigec-portabilidade-batch/server.log .
-
-Hoje o server.log está pequeno (464 KB), porque o JBoss reiniciou às 12:06. Ele tem o boot com o erro do commons-lang3, então serve para o Fabio.
-
-Os logs antigos ficam na mesma pasta. Se quiser o dia da trava, pegue o de 26/11 (102 MB, sem compactar) e os compactados:
-
-
-
-
-[root@caddeapllx2884 sigec-portabilidade-batch]#
-[root@caddeapllx2884 sigec-portabilidade-batch]#
-[root@caddeapllx2884 sigec-portabilidade-batch]# unzip -l /opt/jboss-eap/standalone/deployments/gec-ear.ear | grep -i lang3
-[root@caddeapllx2884 sigec-portabilidade-batch]#
-[root@caddeapllx2884 sigec-portabilidade-batch]#
-[root@caddeapllx2884 sigec-portabilidade-batch]#
+Segue o log em anexo (server.log, do boot das 12:06 com o erro) e o gec-ear.ear.failed.
