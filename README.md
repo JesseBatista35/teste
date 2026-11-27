@@ -15,3 +15,13 @@ scp p585600@10.116.202.70:/logs/jboss/jboss-eap/standalone/sigec-portabilidade-b
 Hoje o server.log está pequeno (464 KB), porque o JBoss reiniciou às 12:06. Ele tem o boot com o erro do commons-lang3, então serve para o Fabio.
 
 Os logs antigos ficam na mesma pasta. Se quiser o dia da trava, pegue o de 26/11 (102 MB, sem compactar) e os compactados:
+
+
+
+
+[root@caddeapllx2884 sigec-portabilidade-batch]#
+[root@caddeapllx2884 sigec-portabilidade-batch]#
+[root@caddeapllx2884 sigec-portabilidade-batch]# unzip -l /opt/jboss-eap/standalone/deployments/gec-ear.ear | grep -i lang3
+[root@caddeapllx2884 sigec-portabilidade-batch]#
+[root@caddeapllx2884 sigec-portabilidade-batch]#
+[root@caddeapllx2884 sigec-portabilidade-batch]#
