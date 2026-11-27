@@ -1,18 +1,5 @@
-
-[root@caddeapllx955 p585600]#
-[root@caddeapllx955 p585600]#
-[root@caddeapllx955 p585600]#
-[root@caddeapllx955 p585600]#
-[root@caddeapllx955 p585600]#
-[root@caddeapllx955 p585600]#
-[root@caddeapllx955 p585600]#
-[root@caddeapllx955 p585600]#
-[root@caddeapllx955 p585600]#
-[root@caddeapllx955 p585600]#
-[root@caddeapllx955 p585600]# curl -sI "http://localhost:8080/sigsj_intranet/" | grep -i content-type
-Content-Type: text/html;charset=ISO-8859-1
-[root@caddeapllx955 p585600]#
-[root@caddeapllx955 p585600]#
-[root@caddeapllx955 p585600]# curl -s "http://localhost:8080/sigsj_intranet/" | grep -i "charset" | head
-                <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-[root@caddeapllx955 p585600]#
+sudo su -
+# acha a resposta da GJ4D no log do sirot e olha os bytes de um nome acentuado
+grep -i "GJ4D\|Dep.sito\|Favorita" /logs/jboss/jboss-eap/standalone/sigsj-intranet/sirot.log | tail -5
+# pega um trecho acentuado e vê o hex
+grep -i "Dep.sito" /logs/jboss/jboss-eap/standalone/sigsj-intranet/sirot.log | tail -1 | hexdump -C | head
