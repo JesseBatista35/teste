@@ -1,16 +1,32 @@
-Aguarde um pouco e repita:
 
-bash
-ctm_agstat -LIST caddeapllx2501.agil.nprd.caixa.gov.br
-ctmping -HOSTID caddeapllx2501.agil.nprd.caixa.gov.br -DISCOVER Y
+cxextrlx038.desenvolvimento.extracaixa% ctm_agstat -LIST caddeapllx2501.agil.nprd.caixa.gov.br
 
-Enquanto isso, no 2501 (10.116.200.250), confira se a conexão do servidor chegou:
+Time Stamp :
+-------------
+11/27/2026 11:20:01
 
-bash
-ss -tn '( sport = :7016 or dport = :7015 )'
+Agent caddeapllx2501.agil.nprd.caixa.gov.br is Available
+cxextrlx038.desenvolvimento.extracaixa% ctmping -HOSTID caddeapllx2501.agil.nprd.caixa.gov.br -DISCOVER Y
+
+Agent : caddeapllx2501.agil.nprd.caixa.gov.br is alive
+cxextrlx038.desenvolvimento.extracaixa%
+
+
+
+
+[p585600@caddeapllx2501 ~]$
+[p585600@caddeapllx2501 ~]$ sudo su
+[sudo] senha para p585600:
+[root@caddeapllx2501 p585600]#
+[root@caddeapllx2501 p585600]#
+[root@caddeapllx2501 p585600]#
+[root@caddeapllx2501 p585600]# ss -tn '( sport = :7016 or dport = :7015 )'
 ls -ltr /opt/ctmage/ctm/dailylog | tail -2
-
-O que esperar:
-
-Available: resolvido. Falta só o time deles tirar o job do Hold (Free) e testar.
-Se continuar em Discovering ou mudar para Unavailable depois de uns 2 minutos: me manda a saída do ctmping e o resultado do ss no 2501. Se nada chegar na 7016, o problema volta a ser de rede no sentido servidor → agente.
+State                  Recv-Q                  Send-Q                                   Local Address:Port                                    Peer Address:Port                  Process
+-rwxr--r-- 1 ctmagelx ctmagelx  960 nov 19 11:41 daily_ctmag_20261119.log
+-rwxr--r-- 1 root     root      264 nov 27 11:18 daily_ctmag_20261127.log
+[root@caddeapllx2501 p585600]#
+[root@caddeapllx2501 p585600]#
+[root@caddeapllx2501 p585600]# ss -tn '( sport = :7016 or dport = :7015 )'
+State                  Recv-Q                  Send-Q                                   Local Address:Port                                    Peer Address:Port                  Process
+[root@caddeapllx2501 p585600]#
