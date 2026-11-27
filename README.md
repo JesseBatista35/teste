@@ -1,29 +1,5 @@
+Problema: a build SICAP-webhook (definição 1019) falhava no passo Login Cluster com o erro Proxy Error (Forefront TMG denied the specified URL) ao executar o oc login em api.produtos4.caixa:6443.
 
-Login Cluster
+Causa: a definição de build tem a variável HTTPS_PROXY=http://proxynuvem.caixa:80, necessária para o acesso ao repositório no GitHub (SICAP-webhook_GITHUB). O Azure DevOps exporta essa variável para o ambiente de todas as tasks, então o oc também passou a mandar a conexão com o cluster interno pelo proxy, que a recusava. Não havia exceção (NO_PROXY) para os domínios internos. Testado no agente cadsvaprlx373: o acesso direto à API do cluster funciona normalmente.
 
-View raw log
-
-Starting: Login Cluster
-==============================================================================
-Task         : Bash
-Description  : Run a Bash script on macOS, Linux, or Windows
-Version      : 3.227.0
-Author       : Microsoft Corporation
-Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/bash
-==============================================================================
-Generating script.
-========================== Starting Command Output ===========================
-/usr/bin/bash /opt/ads-agent/work_ads/_temp/d70dad82-55b6-4550-94c3-daa1e5b5042f.sh
-+ echo okd4_nprd
-+ egrep -q '^(okd4|ocp)'
-+ oc login api.produtos4.caixa:6443 --insecure-skip-tls-verify=true --token=***
-Finishing: Login Cluster
-
-
-
-DEU CERTO AO ADICIONAR NO_PROXY
-
-
-<img width="1870" height="901" alt="image" src="https://github.com/user-attachments/assets/83efcf0e-b873-48b4-a867-2f393f318712" />
-
-
+Correção: incluída nas variáveis da build a variável NO_PROXY com .caixa,.caixa.gov.br,localhost,127.0.0.1. O tráfego externo (GitHub) continua saindo pelo proxy, e o tráfego interno (cluster OKD, Nexus, Sonar) passa a ir direto. A build foi executada novamente com sucesso.
